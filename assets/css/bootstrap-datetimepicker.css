@@ -85,7 +85,14 @@
   margin: 0;
 }
 .bootstrap-datetimepicker-widget button[data-action] {
-  display: none;
+  outline: none !important;
+  border-radius: 0px;
+  font-size: 16px;
+  color: #FFA500 !important;
+  outline: none !important;
+  background-color: transparent;
+  border: 1px solid #FFA500 !important;
+  padding: 6px;
 }
 .bootstrap-datetimepicker-widget table[data-hour-format="12"] .separator {
   width: 4px;
