@@ -105,13 +105,9 @@ include 'includes/signin.php';
 	
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-sad text-center"></p>
-
-    <div id="hide">
 	
 	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Email address">
-
-    </div>
 
     <hr class="hr-custom">
 
@@ -188,6 +184,8 @@ include 'includes/signin.php';
     success:function(response){
         $("#error").hide();
 		$("#hide").hide();
+        $("label").hide();
+        $("#email").hide();
 		$("#register-button").hide();
 		$("#FormSubmit").hide();
 		$("#success").append('Please check your email account for instructions to reset your password.');
