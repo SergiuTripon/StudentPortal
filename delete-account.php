@@ -163,7 +163,7 @@ $stmt2->fetch();
     <div class="modal-content">
     
 	<div class="modal-header">
-    <div class="custom-logo animated fadeIn delay1">
+    <div class="logo-custom animated fadeIn delay1">
     <i class="fa fa-trash"></i>
     </div>
     </div>
@@ -172,7 +172,7 @@ $stmt2->fetch();
 
     <form class="form-custom" action="../includes/deleteaccount_process.php" method="post" name="deleteaccount_form">
 
-    <p class="custom-feedback text-center">Are you sure you want to delete your account?</p>
+    <p class="feedback-custom text-center">Are you sure you want to delete your account?</p>
 
     </div>
     
