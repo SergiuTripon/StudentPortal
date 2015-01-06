@@ -334,23 +334,27 @@ include 'includes/signin.php';
 	} else {
 		$('#account_type').css('color', 'gray');
 	}
-	if (current = 'student') {
-		$('#studentno').show();
-		$('#degree').show();
-	}
-	if (current = 'admin') {
-		$('label[for="studentno"]').hide();
-		$('#studentno').hide();
-		$('label[for="degree"]').hide();
-		$('#degree').hide();
-	}
-	if (current = 'lecturer') {
-		$('label[for="studentno"]').hide();
-		$('#studentno').hide();
-		$('label[for="degree"]').hide();
-		$('#degree').hide();
-	}
     });
+
+	$('#account_type').change(function(){
+		if($(this).val() == 'student'){
+			$('#studentno').show();
+			$('#degree').show();
+		}
+		if($(this).val() == 'lecturer'){
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
+		if($(this).val() == 'admin'){
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
+	});
+
     });
 	</script>
 	
