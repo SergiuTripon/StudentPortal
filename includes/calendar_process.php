@@ -8,21 +8,7 @@ else $userid = '';
 date_default_timezone_set('Europe/London');
 $updated_on = date("Y-m-d G:i:s");
 
-if (isset($_POST["recordToCancel"])) {
-	
-	$idToCancel = filter_input(INPUT_POST, 'recordToCancel', FILTER_SANITIZE_NUMBER_INT);
-	
-	$task_status = 'cancelled';
-	$cancelled_date = date("Y-m-d G:i:s");
-	
-	$stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status=?, cancelled_date=? WHERE taskid = ? LIMIT 1");
-	$stmt1->bind_param('ssi', $task_status, $cancelled_date, $idToCancel);
-	$stmt1->execute();
-	$stmt1->close();
-	
-}
-
-elseif (isset($_POST["recordToComplete"])) {
+if (isset($_POST["recordToComplete"])) {
 
 	$idToComplete = filter_input(INPUT_POST, 'recordToComplete', FILTER_SANITIZE_NUMBER_INT);
 	

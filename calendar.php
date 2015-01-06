@@ -166,8 +166,6 @@ else $userid = '';
 			<td data-title="Status">'.$row["task_status"].'</td>
 			<td data-title="Complete"><a id="complete-'.$row["taskid"].'" class="complete-button"><i class="fa fa-check"></i></a></td>
 			<td data-title="Update"><a id="update-'.$row["taskid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
-			<td data-title="Cancel"><a id="cancel-'.$row["taskid"].'" class="cancel-button"><i class="fa fa-close"></i></a></td>
-			<td data-title="Re-activate"><a id="reactivate-'.$row["taskid"].'" class="reactivate-button"><i class="fa fa-close"></i></a></td>
 			</tr>';
 	}
 
@@ -320,31 +318,6 @@ else $userid = '';
 	
 	$("#update-task-form-" + DbNumberID).submit();
 	
-	});
-	
-    $("body").on("click", ".cancel-button", function(e) {
-    e.preventDefault();
-		 
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-    var myData = 'recordToCancel='+ DbNumberID;
-
-	jQuery.ajax({
-	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/calendar_process.php",
-	dataType:"text",
-	data:myData,
-	success:function(response){
-		$('#task-'+DbNumberID).fadeOut();
-		setTimeout(function(){
-			location.reload();
-        }, 1000);
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		alert(thrownError);
-	}
-
 	});
 
     });
