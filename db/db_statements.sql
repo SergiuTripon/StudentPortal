@@ -16,7 +16,6 @@ CREATE TABLE `student_portal`.`user_token` (
 	`userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`token` CHAR(70) UNIQUE,
 	`created_on` DATETIME NOT NULL,
-	`updated_on` DATETIME,
 FOREIGN KEY (userid)    
 REFERENCES user_signin(userid)   
 ON UPDATE CASCADE   
