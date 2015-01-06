@@ -338,7 +338,9 @@ include 'includes/signin.php';
 
 	$('#account_type').change(function(){
 		if($(this).val() == 'student'){
+			$('label[for="studentno"]').show();
 			$('#studentno').show();
+			$('label[for="degree"]').show();
 			$('#degree').show();
 		}
 		if($(this).val() == 'lecturer'){
