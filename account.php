@@ -6,8 +6,6 @@ include 'includes/signin.php';
 <html lang="en">
 
 <head>
-    <!-- Pace JS -->
-    <script src="../assets/js/pace.js"></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -280,6 +278,9 @@ include 'includes/signin.php';
 
 	<!-- Ladda JS -->
 	<script src="../assets/js/ladda.min.js"></script>
+
+    <!-- Pace JS -->
+    <script src="../assets/js/pace.js"></script>
 
 	<!-- Custom JS -->
 	<script src="../assets/js/custom.js"></script>
