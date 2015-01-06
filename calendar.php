@@ -208,7 +208,7 @@ else $userid = '';
 
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %Y') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %Y') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt2->fetch_assoc()) {
 	echo '<tr id="task-'.$row["taskid"].'">
 
 	<td data-title="Name">'.$row["task_name"].'</td>
