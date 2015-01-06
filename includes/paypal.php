@@ -1,0 +1,161 @@
+<?php
+include_once 'signin.php';
+
+if (isset($_SESSION['userid']))
+$userid = $_SESSION['userid'];
+else $userid = '';
+
+define('EMAIL_ADD', 'contact@sergiu-tripon.com');
+define('PAYPAL_EMAIL_ADD', 'triponsergiu-facilitator@hotmail.co.uk');
+require_once("paypal_class.php");
+$p = new paypal_class();
+$p->admin_mail = EMAIL_ADD;
+$payment = $_REQUEST["payment"];
+
+date_default_timezone_set('Europe/London');
+$posted_date = date("Y-m-d G:i:s");
+
+$half = '0';
+$invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
+$product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
+$product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
+$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
+$product_amount = filter_input(INPUT_POST, 'product_amount', FILTER_SANITIZE_STRING);
+$pending = 'pending';
+$payer_firstname = filter_input(INPUT_POST, 'payer_firstname', FILTER_SANITIZE_STRING);
+$payer_surname = filter_input(INPUT_POST, 'payer_surname', FILTER_SANITIZE_STRING);
+$payer_email = filter_input(INPUT_POST, 'payer_email', FILTER_SANITIZE_STRING);
+$payer_phonenumber = filter_input(INPUT_POST, 'payer_phonenumber', FILTER_SANITIZE_STRING);
+$payer_address1 = filter_input(INPUT_POST, 'payer_address1', FILTER_SANITIZE_STRING);
+$payer_address2 = filter_input(INPUT_POST, 'payer_address2', FILTER_SANITIZE_STRING);
+$payer_town = filter_input(INPUT_POST, 'payer_town', FILTER_SANITIZE_STRING);
+$payer_city = filter_input(INPUT_POST, 'payer_city', FILTER_SANITIZE_STRING);
+$payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
+
+switch($payment){
+	case "process": // case process insert the form data in DB and process to the paypal
+
+		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=? WHERE userid = ? LIMIT 1");
+		$stmt->bind_param('sssi', $payer_address1, $payer_city, $payer_postcode, $userid);
+		$stmt->execute();
+		$stmt->close();
+
+		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, half, invoice_id, product_id, product_name, product_quantity, product_amount, posted_date, payment_status, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param('iiiisiisssssssssss', $userid, $half, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $posted_date, $pending, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode);
+		$stmt->execute();
+		$stmt->close();
+		
+		$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+		
+		$p->add_field('business', PAYPAL_EMAIL_ADD); // Call the facilitator eaccount
+		$p->add_field('cmd', $_POST["cmd"]); // cmd should be _cart for cart checkout
+		$p->add_field('upload', '1');
+		$p->add_field('return', $this_script.'?payment=success'); // return URL after the transaction got over
+		$p->add_field('cancel_return', $this_script.'?payment=cancel'); // cancel URL if the trasaction was cancelled during half of the transaction
+		$p->add_field('notify_url', $this_script.'?payment=ipn'); // Notify URL which received IPN (Instant Payment Notification)
+		$p->add_field('currency_code', $_POST["currency_code"]);
+		$p->add_field('invoice', $_POST["invoice_id"]);
+		$p->add_field('item_name_1', $_POST["product_name"]);
+		$p->add_field('item_number_1', $_POST["product_id"]);
+		$p->add_field('quantity_1', $_POST["product_quantity"]);
+		$p->add_field('amount_1', $_POST["product_amount"]);
+		$p->add_field('first_name', $_POST["payer_firstname"]);
+		$p->add_field('last_name', $_POST["payer_surname"]);
+		$p->add_field('email', $_POST["payer_email"]);
+		$p->add_field('night_phone_b', $_POST["payer_phonenumber"]);
+		$p->add_field('address1', $_POST["payer_address1"]);
+		$p->add_field('city', $_POST["payer_city"]);
+		$p->add_field('country', $_POST["payer_country"]);
+		$p->add_field('zip', $_POST["payer_postcode"]);
+		$p->submit_paypal_post(); // POST it to paypal
+		$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
+	break;
+	
+	case "success": // success case to show the user payment got success
+	
+	$stmt1 = $mysqli->prepare("SELECT half, product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
+	$stmt1->bind_param('i', $userid);
+	$stmt1->execute();
+	$stmt1->store_result();	
+	$stmt1->bind_result($half, $product_amount);
+	$stmt1->fetch();
+	$stmt1->close();
+	
+	if ($product_amount == '9000.00' ) {
+	
+	$full_fees = 0.00;
+	
+	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
+	$stmt2->bind_param('ii', $full_fees, $userid);
+	$stmt2->execute();
+	$stmt2->close();
+	
+	include_once '../includes/paypal/paypal_success.php';
+	
+	} else {
+	
+	if ($product_amount == '4500.00' AND $half == '0' ) {
+	
+	$half_fees = 4500.00;
+	$half_fees1 = 1;
+	
+	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
+	$stmt3->bind_param('ii', $half_fees, $userid);
+	$stmt3->execute();
+	$stmt3->close();
+	
+	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET half = ? WHERE userid = ? LIMIT 1");
+	$stmt4->bind_param('ii', $half_fees1, $userid);
+	$stmt4->execute();
+	$stmt4->close();
+	
+	include_once '../includes/paypal/paypal_success.php';
+
+	} else {
+	
+	$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
+	$stmt5->bind_param('ii', $full_fees, $userid);
+	$stmt5->execute();
+	$stmt5->close();
+	
+	include_once '../includes/paypal/paypal_success.php';
+	}
+	}
+	break;
+	
+	case "cancel": // case cancel to show user the transaction was cancelled
+	
+	$paymentstatus1 = 'cancelled';
+	$cancelled_date = date("Y-m-d G:i:s");
+	
+	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, cancelled_date=? WHERE userid = ? ORDER BY posted_date DESC LIMIT 1");
+	$stmt5->bind_param('ssi', $paymentstatus1, $cancelled_date, $userid);
+	$stmt5->execute();
+	$stmt5->close();
+	
+	include_once '../includes/paypal/paypal_cancel.php';
+	
+	break;
+	
+	case "ipn": // IPN case to receive payment information. this case will not displayed in browser. This is server to server communication. PayPal will send the transactions each and every details to this case in secured POST menthod by server to server. 
+		$transaction_id  = $_POST["txn_id"];
+		$payment_status = strtolower($_POST["payment_status"]);
+		$invoice_id = $_POST["invoice"];
+		
+		$completed_date = date("Y-m-d G:i:s");
+		
+	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
+			
+	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_date='$completed_date' WHERE invoice_id ='$invoice_id'");
+	$stmt6->execute();
+	$stmt6->close();
+			
+	$subject = 'Instant Payment Notification - Recieved Payment';
+	$p->send_report($subject); // Send the notification about the transaction
+	} else {
+	$subject = 'Instant Payment Notification - Payment Fail';
+	$p->send_report($subject); // failed notification
+	}
+	break;
+}
+?>

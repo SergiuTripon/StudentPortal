@@ -1,0 +1,302 @@
+<?php
+include 'includes/signin.php';
+
+if (isset($_POST["recordToUpdate"])) {
+
+$idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
+
+$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
+$stmt1->bind_param('i', $idToUpdate);
+$stmt1->execute();
+$stmt1->store_result();
+$stmt1->bind_result($taskid, $task_name, $task_notes, $task_duedate, $task_category);
+$stmt1->fetch();
+$stmt1->close();
+
+} else {
+
+header('Location: ../calendar/');
+
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../assets/img/favicon/favicon.ico">
+
+    <title>Student Portal | Update task</title>
+	
+    <!-- Bootstrap CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- FontAwesome CSS -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+
+    <!-- Open Sans font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+
+    <!-- Ladda CSS -->
+    <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
+	
+	<!-- Bootstrap Date Picker CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<style>
+	#task_category {
+		color: #FFA500;
+		background-color: #333333;
+	}
+    </style>
+	
+</head>
+
+<body>
+	<div class="preloader"></div>
+
+	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
+    
+    <div class="container">
+	<?php include 'includes/menus/portal_menu.php'; ?>
+
+    <ol class="breadcrumb">
+    <li><a href="../overview/">Overview</a></li>
+	<li><a href="../calendar/">Calendar</a></li>
+    <li class="active">Create a task</li>
+    </ol>
+	
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a task</a>
+	</h4>
+    </div>
+
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    
+	<div class="panel-body">
+	
+	<!-- Create a task -->
+    <div class="content-panel mb10" style="border: none;">
+    
+	<form class="form-custom" style="max-width: 600px; padding-top: 0px;" name="updatetask_form" id="updatetask_form">
+	
+    <p id="error" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-happy text-center"></p>
+	
+	<div class="form-group">
+	
+	<div class="col-xs-12 col-sm-12 full-width">
+	
+	<input type="hidden" name="taskid" id="taskid" value="<?php echo $taskid; ?>" />
+	
+    <label>Task name</label>
+    <input class="form-control" type="text" name="task_name" id="task_name" value="<?php echo $task_name; ?>" placeholder="Enter a name">
+
+    <label>Notes (Optional)</label>
+    <textarea class="form-control" rows="5" name="task_notes" id="task_notes" value="<?php echo $task_notes; ?>" placeholder="Notes"></textarea>
+	
+	<label>Due date (YYYY-MM-DD)</label>
+    <input type='text' class="form-control" type="text" name="task_duedate" value="<?php echo $task_duedate; ?>" id="datepicker1" data-date-format="YYYY-MM-DD" placeholder="Select a due date"/>
+	</div>
+    
+	</div>
+	
+	<div class="form-group">
+                        
+	<div class="col-xs-12 col-sm-12 full-width">
+    <label>Task category</label>
+    <select class="form-control" name="task_category" id="task_category">
+    <option style="color:gray" value="null" disabled selected>Select a task category</option>
+    <option <?php if($task_category == "University") echo "selected=selected"; ?> class="others">University</option>
+    <option <?php if($task_category == "Work") echo "selected=selected"; ?> class="others">Work</option>
+    <option <?php if($task_category == "Personal") echo "selected=selected"; ?> class="others">Personal</option>
+	<option <?php if($task_category == "Other") echo "selected=selected"; ?> class="others">Other</option>
+	</select>
+	</div>
+    
+	</div>
+
+    <div class="text-right">
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
+    </div>
+	
+    </form>
+    </div><!-- /content-panel -->
+    <!-- End of Change Password -->
+	
+	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+    </div><!-- /panel-default -->
+	
+	</div><!-- /panel-group -->
+            
+	</div> <!-- /container -->
+	
+	<?php include 'includes/footers/portal_footer.php'; ?>
+
+    <!-- Sign Out (Inactive) JS -->
+    <script src="../assets/js/sign-out-inactive.js"></script>
+
+	<?php else : ?>
+
+    <style>
+    html, body {
+		height: 100% !important;
+	}
+    </style>
+
+    <header class="intro">
+    <div class="intro-body">
+	
+    <form class="form-custom orange-form">
+
+	<div class="logo-custom animated fadeIn delay1">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr class="mt10 hr-custom">
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
+    <hr class="hr-custom">
+
+    <div class="text-center">
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+	</div>
+	
+    </form>
+
+    </div><!-- /intro-body -->
+    </header>
+
+	<?php endif; ?>
+
+	<!-- JS library -->
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+	<!-- Bootstrap JS -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap Date Picker JS -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	<script src="../assets/js/bootstrap-datetimepicker.js"></script>
+
+	<script>
+    $(function () {
+	$('#datepicker1').datetimepicker({
+		pickTime: false
+	});
+	});
+	</script>
+
+	<!-- Spin JS -->
+	<script src="../assets/js/spin.min.js"></script>
+
+	<!-- Ladda JS -->
+	<script src="../assets/js/ladda.min.js"></script>
+	
+	<!-- Pace JS -->
+    <script src="../assets/js/pace.js"></script>
+
+	<!-- Custom JS -->
+	<script src="../assets/js/custom.js"></script>
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+	<script>
+	// Bind normal buttons
+	Ladda.bind('.ladda-button', {timeout: 2000});	
+	</script>
+	
+	<script>
+	$(document).ready(function() {
+    $("#FormSubmit").click(function (e) {
+    e.preventDefault();
+	
+	var hasError = false;
+	
+	taskid = $("#taskid").val();
+	
+	task_name = $("#task_name").val();
+	if(task_name === '') {
+        $("#error").empty().append("Please enter task name.");
+		$("#task_name").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error").hide();
+		$("#task_name").css("border-color", "#4DC742");
+	}
+	
+	task_notes = $("#task_notes").val();
+	
+	task_duedate = $("#datepicker1").val();
+	if(task_duedate === '') {
+		$("#error").show();
+        $("#error").empty().append("Please enter a task due date.");
+		$("#datepicker1").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error").hide();
+		$("#datepicker1").css("border-color", "#4DC742");
+	}
+	
+	task_category = $('#task_category option:selected').val();
+	if (task_category === 'null') {
+		$("#error").show();
+        $("#error").empty().append("Please select a gender.");
+		$("#task_category").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	} else {
+		$("#error").hide();
+		$("#task_category").css("border-color", "#4DC742");
+	}
+	
+	if(hasError == false){
+    jQuery.ajax({
+	type: "POST",
+	url: "http://test.student-portal.co.uk/includes/calendar_process.php",
+    data:'taskid=' + taskid + '&task_name=' + task_name + '&task_notes=' + task_notes + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
+    success:function(response){
+		$("#error").hide();
+		$("#success").empty().append('Task updated successfully.');
+		$('#updatetask_form').trigger("reset");
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
+    }
+	
+	return true;
+	
+	});
+	});
+	</script>
+
+</body>
+</html>
