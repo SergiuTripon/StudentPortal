@@ -135,7 +135,7 @@ include 'includes/signin.php';
     <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
-	<label>Student number</label>
+	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
 	 </div>
 
@@ -166,7 +166,7 @@ include 'includes/signin.php';
     <div class="form-group">
 	
     <div class="col-xs-12 col-sm-12 mb20 full-width">
-    <label>Programme of Study</label>
+    <label for="degree">Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
     </div>
 	
@@ -335,12 +335,20 @@ include 'includes/signin.php';
 		$('#account_type').css('color', 'gray');
 	}
 	if (current = 'admin') {
+		$('label[for="studentno"]').hide();
 		$('#studentno').hide();
+		$('label[for="degree"]').hide();
 		$('#degree').hide();
 	}
 	if (current = 'lecturer') {
+		$('label[for="studentno"]').hide();
 		$('#studentno').hide();
+		$('label[for="degree"]').hide();
 		$('#degree').hide();
+	}
+	if (current = 'student') {
+		$('#studentno').show();
+		$('#degree').show();
 	}
     });
     });
