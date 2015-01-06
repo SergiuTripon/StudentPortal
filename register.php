@@ -107,7 +107,6 @@ include 'includes/signin.php';
 
     <hr class="hr-custom">
 
-	<p id="loading" class="feedback-custom text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
 

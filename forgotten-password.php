@@ -105,10 +105,14 @@ include 'includes/signin.php';
 	
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-sad text-center"></p>
+
+    <div id="hide">
 	
-	<label id="hide">Email address</label>
+	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Email address">
-	
+
+    </div>
+
     <hr class="hr-custom">
 
     <div id="register-button" class="pull-left">
@@ -182,11 +186,10 @@ include 'includes/signin.php';
 	url: "http://test.student-portal.co.uk/includes/forgottenpassword_process.php",
     data:'email=' + email,
     success:function(response){
+        $("#error").hide();
 		$("#hide").hide();
 		$("#register-button").hide();
 		$("#FormSubmit").hide();
-		$("#email").hide();
-		$("#error").hide();
 		$("#success").append('Please check your email account for instructions to reset your password.');
 		$("#success-button").show();
     },
