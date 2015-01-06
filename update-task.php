@@ -118,7 +118,7 @@ header('Location: ../calendar/');
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" value="<?php echo $task_notes; ?>" placeholder="Notes"></textarea>
 
 	<label>External URL (Optional)</label>
-	<input class="form-control" type="text" name="task_name" id="task_name" value="<?php echo $task_url; ?>" placeholder="Enter an external URL">
+	<input class="form-control" type="text" name="task_url" id="task_url" value="<?php echo $task_url; ?>" placeholder="Enter an external URL">
 
 	<label>Start date (YYYY-MM-DD)</label>
 	<input type='text' class="form-control" type="text" name="task_duedate" id="datepicker1" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
