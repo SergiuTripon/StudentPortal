@@ -66,7 +66,7 @@ if (isset($_POST["email"])) {
 	$stmt->close();
 	}
 	else
-	header('HTTP/1.0 550 An account with the email address entered already exists.');
+	header('HTTP/1.0 550 The email address you entered is incorrect.');
 	exit();
 	}
 
