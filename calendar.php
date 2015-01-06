@@ -281,7 +281,10 @@ else $userid = '';
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
-		"info": false
+		"info": false,
+		"language": {
+			"emptyTable": "There are no due tasks"
+		}
 	});
     });
 	</script>
