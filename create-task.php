@@ -107,14 +107,14 @@ include 'includes/signin.php';
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Start date (YYYY-MM-DD)</label>
-	<input type="text" class="form-control form_datetime" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
+	<input type="text" class="form-control datetimepicker1" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Start date (YYYY-MM-DD)</label>
-	<input type="text" class="form-control form_datetime" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
+	<input type="text" class="form-control datetimepicker2" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
 	</div>
 	</div>
 	
@@ -193,12 +193,16 @@ include 'includes/signin.php';
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
 	<!-- Bootstrap Date Picker JS -->
-	<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../assets/js/bootstrap-datetimepicker.js"></script>
 
 	<script>
-	$(".form_datetime").datetimepicker({
-		format: 'yyyy-mm-dd hh:ii',
-		pickerPosition: "top-right"
+	$(function () {
+		$('.datetimepicker1').datetimepicker({
+			language: 'ru'
+		});
+		$('.datetimepicker2').datetimepicker({
+			language: 'ru'
+		});
 	});
 	</script>
 
