@@ -15,7 +15,7 @@ CREATE TABLE `student_portal`.`user_signin` (
 CREATE TABLE `student_portal`.`user_token` (
 	`userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`token` CHAR(70) UNIQUE,
-	`created_date` DATETIME,
+	`created_date` DATETIME NOT NULL,
 	`updated_date` DATETIME,
 FOREIGN KEY (userid)    
 REFERENCES user_signin(userid)   
@@ -38,7 +38,7 @@ CREATE TABLE `student_portal`.`user_details` (
 	`city` VARCHAR(70),
 	`country` VARCHAR(70),
 	`postcode` VARCHAR(70),
-	`created_date` DATETIME,
+	`created_date` DATETIME NOT NULL,
 	`updated_date` DATETIME,
 FOREIGN KEY (userid)    
 REFERENCES user_signin(userid)   
@@ -49,7 +49,8 @@ ON DELETE CASCADE
 
 CREATE TABLE `student_portal`.`user_fees` (
 	`userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
-	`fee_amount` NUMERIC(15,2) NOT NULL, 
+	`fee_amount` NUMERIC(15,2) NOT NULL,
+	`updated_on` DATETIME,
 FOREIGN KEY (userid)    
 REFERENCES user_signin(userid)   
 ON UPDATE CASCADE   
@@ -57,25 +58,26 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;   
 
 CREATE TABLE `student_portal`.`paypal_log` (
-	`userid` INT(11),
-	`half` TINYINT(1),
-	`invoice_id` INT(10),
-	`transaction_id` VARCHAR(17),
-	`product_id` INT(1),
-	`product_name` VARCHAR(9),
-	`product_quantity` INT(1),
-	`product_amount` NUMERIC(15,2),
-	`payer_firstname` VARCHAR(70),
-	`payer_surname` VARCHAR(70),
-	`payer_email` VARCHAR(300),
+	`userid` INT(11) NOT NULL,
+	`isHalf` TINYINT(1) NOT NULL,
+	`invoice_id` INT(10) NOT NULL,
+	`transaction_id` VARCHAR(17) NOT NULL,
+	`product_id` INT(1) NOT NULL,
+	`product_name` VARCHAR(9) NOT NULL,
+	`product_quantity` INT(1) NOT NULL,
+	`product_amount` NUMERIC(15,2) NOT NULL,
+	`payer_firstname` VARCHAR(70) NOT NULL,
+	`payer_surname` VARCHAR(70) NOT NULL,
+	`payer_email` VARCHAR(300) NOT NULL,
 	`payer_phonenumber` VARCHAR(70),
-	`payer_address1` VARCHAR(70),
+	`payer_address1` VARCHAR(70) NOT NULL,
 	`payer_address2` VARCHAR(70),
 	`payer_town` VARCHAR(70),
-	`payer_city` VARCHAR(70),
-	`payer_postcode` VARCHAR(70),
-	`payment_status` VARCHAR(9),
-	`created_date` DATETIME,
+	`payer_city` VARCHAR(70) NOT NULL,
+	`payer_country` VARCHAR(70),
+	`payer_postcode` VARCHAR(70) NOT NULL,
+	`payment_status` VARCHAR(9) NOT NULL,
+	`created_date` DATETIME NOT NULL,
 	`completed_date` DATETIME,
 	`cancelled_date` DATETIME,
 FOREIGN KEY (userid)    
@@ -87,15 +89,15 @@ ON DELETE CASCADE
 CREATE TABLE `student_portal`.`user_tasks` (
 	`userid` INT(11) NOT NULL,
 	`taskid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
-	`task_name` VARCHAR(70),
-	`task_notes` VARCHAR(1000),
+	`task_name` VARCHAR(70) NOT NULL,
+	`task_notes` VARCHAR(5000),
 	`task_url` VARCHAR(300),
-	`task_class` VARCHAR(15),
-	`task_startdate` DATETIME,
-	`task_duedate` DATETIME,
-	`task_category` VARCHAR(10),
-	`task_status` VARCHAR(10),
-	`created_date` DATETIME,
+	`task_class` VARCHAR(15) NOT NULL,
+	`task_startdate` DATETIME NOT NULL,
+	`task_duedate` DATETIME NOT NULL,
+	`task_category` VARCHAR(10) NOT NULL,
+	`task_status` VARCHAR(10) NOT NULL,
+	`created_date` DATETIME NOT NULL,
 	`updated_date` DATETIME,
 	`completed_date` DATETIME,
 FOREIGN KEY (userid)    
