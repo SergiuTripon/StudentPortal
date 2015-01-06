@@ -465,7 +465,7 @@ include 'includes/signin.php';
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 	
-	if(password1.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
