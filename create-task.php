@@ -92,14 +92,20 @@ include 'includes/signin.php';
 	<div class="form-group">
 	
 	<div class="col-xs-12 col-sm-12 full-width">
-    <label>Task name</label>
+    <label>Name</label>
     <input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
 
     <label>Notes (Optional)</label>
-    <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Notes"></textarea>
-	
+    <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Enter notes"></textarea>
+
+	<label>External URL</label>
+	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
+
+	<label>Start date (YYYY-MM-DD)</label>
+	<input type='text' class="form-control" type="text" name="task_startdate" id="datepicker1" data-date-format="YYYY-MM-DD" placeholder="Select a start date and time"/>
+
 	<label>Due date (YYYY-MM-DD)</label>
-    <input type='text' class="form-control" type="text" name="task_duedate" id="datepicker1" data-date-format="YYYY-MM-DD" placeholder="Select a due date"/>
+    <input type='text' class="form-control" type="text" name="task_duedate" id="datepicker2" data-date-format="YYYY-MM-DD" placeholder="Select a due date and time"/>
 	</div>
     
 	</div>
@@ -185,7 +191,10 @@ include 'includes/signin.php';
 	<script>
     $(function () {
 	$('#datepicker1').datetimepicker({
-		pickTime: false
+		pickTime: true
+	});
+	$('#datepicker2').datetimepicker({
+		pickTime: true
 	});
 	});
 	</script>
