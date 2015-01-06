@@ -191,8 +191,10 @@ include 'includes/signin.php';
 	<script>
     $(function () {
 	$('#datepicker1').datetimepicker({
+		pick12HourFormat: false
 	});
 	$('#datepicker2').datetimepicker({
+		pick12HourFormat: false
 	});
 	});
 	</script>
