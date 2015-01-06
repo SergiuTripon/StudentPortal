@@ -106,7 +106,7 @@ include 'includes/signin.php';
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-sad text-center"></p>
 	
-	<label>Email address</label>
+	<label id="hide">Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Email address">
 	
     <hr class="hr-custom">
