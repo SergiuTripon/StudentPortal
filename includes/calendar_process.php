@@ -6,6 +6,7 @@ $userid = $_SESSION['userid'];
 else $userid = '';
 
 date_default_timezone_set('Europe/London');
+$updated_on = date("Y-m-d G:i:s");
 
 if (isset($_POST["recordToCancel"])) {
 	
@@ -52,10 +53,8 @@ elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POS
 	
 	if ($db_taskname == $task_name) {
 	
-	$updated_date = date("Y-m-d G:i:s");
-	
-	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_duedate=?, task_category=?, updated_date=? WHERE taskid = ?");
-	$stmt2->bind_param('ssssi', $task_notes, $task_duedate, $task_category, $updated_date, $taskid);
+	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	$stmt2->bind_param('ssssi', $task_notes, $task_duedate, $task_category, $updated_on, $taskid);
 	$stmt2->execute();
 	$stmt2->close();
 
@@ -77,10 +76,8 @@ elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POS
 	}
 	else {
 	
-	$updated_date = date("Y-m-d G:i:s");
-	
-	$stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_duedate=?, task_category=?, updated_date=? WHERE taskid = ?");
-	$stmt4->bind_param('sssssi', $task_name, $task_notes, $task_duedate, $task_category, $updated_date, $taskid);
+	$stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	$stmt4->bind_param('sssssi', $task_name, $task_notes, $task_duedate, $task_category, $updated_on, $taskid);
 	$stmt4->execute();
 	$stmt4->close();
 	

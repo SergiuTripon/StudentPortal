@@ -271,7 +271,7 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/calendar_process.php",
+	url: "http://test.student-portal.co.uk/includes/createtask_process.php",
     data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
     success:function(response){
 		$("#error").hide();
