@@ -141,7 +141,6 @@ else $userid = '';
 	<th>Start date</th>
 	<th>Start date</th>
 	<th>Cateogory</th>
-	<th>Status</th>
 	<th>Complete</th>
 	<th>Update</th>
 	</tr>
@@ -161,7 +160,6 @@ else $userid = '';
 			<td data-title="Start date">'.$row["task_startdate"].'</td>
 			<td data-title="Due date">'.$row["task_duedate"].'</td>
 			<td data-title="Category">'.$row["task_category"].'</td>
-			<td data-title="Status">'.$row["task_status"].'</td>
 			<td data-title="Complete"><a id="complete-'.$row["taskid"].'" class="complete-button"><i class="fa fa-check"></i></a></td>
 			<td data-title="Update"><a id="update-'.$row["taskid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
 			</tr>';
