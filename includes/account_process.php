@@ -177,7 +177,6 @@ elseif (isset($_POST["password"], $_POST["confirmpwd"])) {
 		mail ($email, $subject, $message, $headers);
 
 	$stmt1->close();
-	$stmt4->close();
 	}
 }
 
