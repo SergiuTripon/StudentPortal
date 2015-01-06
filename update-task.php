@@ -301,7 +301,7 @@ header('Location: ../calendar/');
     jQuery.ajax({
 	type: "POST",
 	url: "http://test.student-portal.co.uk/includes/calendar_process.php",
-    data:'taskid=' + taskid + '&task_name=' + task_name + '&task_notes=' + task_notes + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
+    data:'taskid=' + taskid + '&task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
     success:function(response){
 		$("#error").hide();
 		$("#success").empty().append('Task updated successfully.');
