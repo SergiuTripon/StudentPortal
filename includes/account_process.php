@@ -252,6 +252,11 @@ elseif (isset($_POST['account_type1'], $_POST['gender1'], $_POST['firstname1'], 
 	$stmt3->execute();
 	$stmt3->close();
 
+	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, studentno, dateofbirth, phonenumber, degree, address1, address2, town, city, country, postcode, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt4->bind_param('sssissssssssss', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $country, $postcode, $created_on);
+	$stmt4->execute();
+	$stmt4->close();
+
 	$token = null;
 
 	$stmt5 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
@@ -259,10 +264,18 @@ elseif (isset($_POST['account_type1'], $_POST['gender1'], $_POST['firstname1'], 
 	$stmt5->execute();
 	$stmt5->close();
 
-	$fee_amount = '9000.00';
+	if ($account_type = 'student') {
+		$fee_amount = '9000.00';
+	}
+	if ($account_type = 'lecturer') {
+		$fee_amount = '0.00';
+	}
+	if ($account_type = 'admin') {
+		$fee_amount = '0.00';
+	}
 
-	$stmt6 = $mysqli->prepare("INSERT INTO user_fees (fee_amount) VALUES (?)");
-	$stmt6->bind_param('i', $fee_amount);
+	$stmt6 = $mysqli->prepare("INSERT INTO user_fees (fee_amount, created_on) VALUES (?, ?)");
+	$stmt6->bind_param('is', $fee_amount, $created_on);
 	$stmt6->execute();
 	$stmt6->close();
 }
