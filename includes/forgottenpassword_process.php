@@ -31,9 +31,12 @@ if (isset($_POST["email"])) {
 
 	$uniqueid = uniqid(true);
 	$token = password_hash($uniqueid, PASSWORD_BCRYPT);
+
+	date_default_timezone_set('Europe/London');
+	$updated_on = date("Y-m-d G:i:s");
 	
-	$stmt2 = $mysqli->prepare("UPDATE user_token SET token = ? WHERE userid = ? LIMIT 1");
-	$stmt2->bind_param('si', $token, $userid);
+	$stmt2 = $mysqli->prepare("UPDATE user_token SET token = ?, updated_on = ? WHERE userid = ? LIMIT 1");
+	$stmt2->bind_param('ssi', $token, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
 	
