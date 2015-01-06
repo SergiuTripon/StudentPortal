@@ -149,17 +149,12 @@ elseif (isset($_POST["password"], $_POST["confirmpwd"])) {
 		$stmt2->execute();
 		$stmt2->close();
 
-		$stmt3 = $mysqli->prepare("UPDATE user_details SET updated_on=? WHERE userid = ?");
-		$stmt3->bind_param('si', $updated_on, $userid);
+		$stmt3 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ?");
+		$stmt3->bind_param('i', $userid);
 		$stmt3->execute();
-		$stmt3->close();
-
-		$stmt4 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ?");
-		$stmt4->bind_param('i', $userid);
-		$stmt4->execute();
-		$stmt4->store_result();
-		$stmt4->bind_result($email);
-		$stmt4->fetch();
+		$stmt3->store_result();
+		$stmt3->bind_result($email);
+		$stmt3->fetch();
 
 		$subject = 'Password changed successfully';
 		$message = "
