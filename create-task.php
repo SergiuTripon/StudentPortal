@@ -193,21 +193,12 @@ include 'includes/signin.php';
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
 	<!-- Bootstrap Date Picker JS -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-	<script src="../assets/js/bootstrap-datetimepicker.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/i18n/jquery-ui-timepicker-addon-i18n.min.js"></script>
+	<script src="../assets/js/jquery-ui.min.js"></script>
 
 
 	<script>
-	$(function () {
-		$('.datetimepicker1').datetimepicker({
-			language: 'ru',
-			orientation: 'right'
-		});
-		$('.datetimepicker2').datetimepicker({
-			language: 'ru',
-			orientation: 'right'
-		});
-	});
+	$('#datetimepicker1').datetimepicker();
 	</script>
 
 	<!-- Spin JS -->
