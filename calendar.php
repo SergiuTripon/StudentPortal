@@ -281,6 +281,7 @@ else $userid = '';
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
+		"order": [ 6, 'asc' ]
 		"info": false
 	});
     });
