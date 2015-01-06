@@ -54,10 +54,10 @@ if(isset($_POST["gender"], $_POST["firstname"], $_POST["surname"], $_POST["stude
 	$stmt3->close();
 	
 	date_default_timezone_set('Europe/London');
-	$created_date = date("Y-m-d G:i:s");
+	$created_on = date("Y-m-d G:i:s");
 	
-	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, studentno, firstname, surname, created_date) VALUES (?, ?, ?, ?, ?)");
-	$stmt4->bind_param('sisss', $gender, $studentno, $firstname, $surname, $created_date);
+	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, studentno, firstname, surname, created_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt4->bind_param('sisss', $gender, $studentno, $firstname, $surname, $created_on);
 	$stmt4->execute();
 	$stmt4->close();
 	
