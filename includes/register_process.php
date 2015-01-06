@@ -47,14 +47,13 @@ if(isset($_POST["gender"], $_POST["firstname"], $_POST["surname"], $_POST["stude
 	
 	$account_type = 'student';
 	$password_hash = password_hash($password, PASSWORD_BCRYPT);
-	
-	$stmt3 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password) VALUES (?, ?, ?)");
-	$stmt3->bind_param('sss', $account_type, $email, $password_hash);
-	$stmt3->execute();
-	$stmt3->close();
-	
 	date_default_timezone_set('Europe/London');
 	$created_on = date("Y-m-d G:i:s");
+
+	$stmt3 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
+	$stmt3->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
+	$stmt3->execute();
+	$stmt3->close();
 	
 	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, studentno, firstname, surname, created_on) VALUES (?, ?, ?, ?, ?)");
 	$stmt4->bind_param('sisss', $gender, $studentno, $firstname, $surname, $created_on);
@@ -70,8 +69,8 @@ if(isset($_POST["gender"], $_POST["firstname"], $_POST["surname"], $_POST["stude
 	
 	$fee_amount = '9000.00';
 	
-	$stmt6 = $mysqli->prepare("INSERT INTO user_fees (fee_amount) VALUES (?)");
-	$stmt6->bind_param('i', $fee_amount);
+	$stmt6 = $mysqli->prepare("INSERT INTO user_fees (fee_amount, created_on) VALUES (?, ?)");
+	$stmt6->bind_param('is', $fee_amount, $created_on);
 	$stmt6->execute();
 	$stmt6->close();
 	
