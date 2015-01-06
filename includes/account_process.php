@@ -188,7 +188,6 @@ elseif (isset($_POST['deleteaccount_button'])) {
 	$stmt1->close();
 
 	session_destroy();
-	header('Location: ../account-deleted');
 }
 
 

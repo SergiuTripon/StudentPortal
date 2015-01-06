@@ -170,7 +170,9 @@ $stmt2->fetch();
 
     <div class="modal-body">
 
-    <form class="form-custom" action="../includes/deleteaccount_process.php" method="post" name="deleteaccount_form">
+    <form class="form-custom" name="deleteaccount_form">
+
+    <input type="hidden" name="deleteaccount_button" id="deleteaccount_button">
 
     <p class="feedback-custom text-center">Are you sure you want to delete your account?</p>
 
@@ -179,7 +181,7 @@ $stmt2->fetch();
 	<div class="modal-footer">
     
 	<div class="pull-left">
-    <button class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500" type="submit" name="deleteaccount_button"><span class="ladda-label">Yes</span></button>
+    <button id="FormSubmit class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500" type="submit"><span class="ladda-label">Yes</span></button>
     </div>
     <div class="text-right">
 	<button class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal"><span class="ladda-label">No</span></button>
@@ -258,6 +260,36 @@ $stmt2->fetch();
     // Bind normal buttons
     Ladda.bind('.ladda-button', {timeout: 1000});
 	</script>
+
+    <script>
+    $(document).ready(function() {
+    $("#FormSubmit").click(function (e) {
+    e.preventDefault();
+
+    var hasError = false;
+
+    deleteaccount_button = $("#deleteaccount_button").val();
+
+    if(hasError == false){
+    jQuery.ajax({
+    type: "POST",
+    url: "http://test.student-portal.co.uk/includes/account_process.php",
+    data:'deleteaccount_button=' + deleteaccount_button,
+    success:function(response){
+        window.location.href = "/account-deleted/";
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+        $("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+    });
+    }
+
+    return true;
+
+    });
+    });
+    </script>
 
 </body>
 </html>
