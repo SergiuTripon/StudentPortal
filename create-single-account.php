@@ -334,6 +334,14 @@ include 'includes/signin.php';
 	} else {
 		$('#account_type').css('color', 'gray');
 	}
+	if (current = 'admin') {
+		$('#studentno').hide();
+		$('#degree').hide();
+	}
+	if (current = 'lecturer') {
+		$('#studentno').hide();
+		$('#degree').hide();
+	}
     });
     });
 	</script>
