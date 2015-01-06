@@ -273,7 +273,7 @@ include 'includes/signin.php';
 		return false;
     } else {
 		$("#error").hide();
-		$("#datepicker1").css("border-color", "#4DC742");
+		$("#datepicker2").css("border-color", "#4DC742");
 	}
 	
 	task_category = $('#task_category option:selected').val();
