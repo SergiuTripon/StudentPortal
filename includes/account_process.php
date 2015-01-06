@@ -10,6 +10,7 @@ if (isset($_SESSION['firstname']))
 else $session_firstname = '';
 
 date_default_timezone_set('Europe/London');
+$created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
 if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['dateofbirth'], $_POST['email'], $_POST['phonenumber'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'], $_POST['degree'])) {
@@ -250,9 +251,6 @@ elseif (isset($_POST['account_type1'], $_POST['gender1'], $_POST['firstname1'], 
 	$stmt3->bind_param('sss', $account_type, $email, $password_hash, $created_on);
 	$stmt3->execute();
 	$stmt3->close();
-
-	date_default_timezone_set('Europe/London');
-	$created_date = date("Y-m-d G:i:s");
 
 	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, studentno, dateofbirth, phonenumber, degree, address1, address2, town, city, country, postcode, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	$stmt4->bind_param('sssissssssssss', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $country, $postcode, $created_on);
