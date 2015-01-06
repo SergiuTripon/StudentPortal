@@ -200,10 +200,12 @@ include 'includes/signin.php';
 	<script>
 	$(function () {
 		$('.datetimepicker1').datetimepicker({
-			language: 'ru'
+			language: 'ru',
+			orientation: 'right'
 		});
 		$('.datetimepicker2').datetimepicker({
-			language: 'ru'
+			language: 'ru',
+			orientation: 'right'
 		});
 	});
 	</script>
