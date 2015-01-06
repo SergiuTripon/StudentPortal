@@ -250,12 +250,25 @@ include 'includes/signin.php';
 	}
 	
 	task_notes = $("#task_notes").val();
-	
-	task_duedate = $("#datepicker1").val();
+	task_url = $("#task_url").val();
+
+	task_startdate = $("#datepicker1").val();
+	if(task_startdate === '') {
+		$("#error").show();
+		$("#error").empty().append("Please enter a task start date and time.");
+		$("#datepicker1").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	} else {
+		$("#error").hide();
+		$("#datepicker1").css("border-color", "#4DC742");
+	}
+
+	task_duedate = $("#datepicker2").val();
 	if(task_duedate === '') {
 		$("#error").show();
-        $("#error").empty().append("Please enter a task due date.");
-		$("#datepicker1").css("border-color", "#FF5454");
+        $("#error").empty().append("Please enter a task due date and time.");
+		$("#datepicker2").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
@@ -279,7 +292,7 @@ include 'includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "http://test.student-portal.co.uk/includes/createtask_process.php",
-    data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
+    data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
     success:function(response){
 		$("#error").hide();
 		$("#success").empty().append('Task created successfully. To create another task, simply fill in the form again.');

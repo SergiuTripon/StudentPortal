@@ -13,6 +13,8 @@ if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_duedate'], $_P
 
     $task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
     $task_notes = filter_input(INPUT_POST, 'task_notes', FILTER_SANITIZE_STRING);
+    $task_url = filter_input(INPUT_POST, 'task_url', FILTER_SANITIZE_STRING);
+    $task_startdate = filter_input(INPUT_POST, 'task_startdate', FILTER_SANITIZE_STRING);
     $task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
     $task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
 
@@ -22,8 +24,8 @@ if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_duedate'], $_P
     if ($task_category == 'Other') { $task_class = 'event-success'; }
 
     // Check if task exists
-    $stmt1 = $mysqli->prepare("SELECT taskid FROM user_tasks where userid = ? LIMIT 1");
-    $stmt1->bind_param('i', $userid);
+    $stmt1 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE task_name = ? AND userid = ? LIMIT 1");
+    $stmt1->bind_param('si', $task_name, $userid);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($db_taskid);
@@ -36,10 +38,12 @@ if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_duedate'], $_P
     } else {
         $task_status = 'active';
 
-        $stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt2->bind_param('issssssss', $userid, $task_name, $task_notes, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
+        $stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('isssssssss', $userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
         $stmt2->execute();
         $stmt2->close();
+
+        $stmt1->close();
     }
 
 }
