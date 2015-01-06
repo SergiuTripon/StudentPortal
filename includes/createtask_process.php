@@ -7,9 +7,8 @@ else $userid = '';
 
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
-$task_startdate = date("Y-m-d");
 
-if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_duedate'], $_POST['task_category'])) {
+if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
 
     $task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
     $task_notes = filter_input(INPUT_POST, 'task_notes', FILTER_SANITIZE_STRING);
