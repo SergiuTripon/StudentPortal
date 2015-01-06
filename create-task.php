@@ -102,7 +102,13 @@ include 'includes/signin.php';
 	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
 
 	<label>Start date (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="task_startdate" id="datepicker1" data-date-format="YYYY/MM/DD hh:mm"  placeholder="Select a start date and time"/>
+
+	<div id="datetimepicker1" class="input-append">
+	<input data-format="YYYY/MM/DD hh:mm" type="text"></input>
+    <span class="add-on">
+  	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+    </span>
+	</div>
 
 	<label>Due date (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="task_duedate" id="datepicker2" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
