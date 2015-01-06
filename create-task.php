@@ -30,7 +30,7 @@ include 'includes/signin.php';
     <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
 	
 	<!-- Bootstrap Date Picker CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/custom.css" rel="stylesheet">
@@ -103,12 +103,13 @@ include 'includes/signin.php';
 
 	<label>Start date (YYYY-MM-DD)</label>
 
-	<div id="datetimepicker1" class="input-append">
-	<input data-format="YYYY/MM/DD hh:mm" type="text"></input>
-    <span class="add-on">
-  	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-    </span>
-	</div>
+		<div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+			<input class="form-control" size="16" type="text" value="" readonly>
+			<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+			<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+		</div>
+
+	<input type='text' class="form-control" type="text" name="task_startdate" id="datepicker1" data-date-format="YYYY/MM/DD hh:mm"  placeholder="Select a start date and time"/>
 
 	<label>Due date (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="task_duedate" id="datepicker2" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
@@ -194,19 +195,23 @@ include 'includes/signin.php';
 	<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
 
 	<script>
-	$('#datetimepicker1').datetimepicker({
-		format: 'yyyy/MM/dd/ hh:mm',
-		pickDate: true,
-		pickTime: true,
-		pick12HourFormat: false,
-		pickSeconds: false,
+	$('datetimepicker1').datetimepicker({
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+		showMeridian: 1
 	});
-	$('#datetimepicker2').datetimepicker({
-		format: 'yyyy/MM/dd/ hh:mm',
-		pickDate: true,
-		pickTime: true,
-		pick12HourFormat: false,
-		pickSeconds: false,
+	$('datetimepicker2').datetimepicker({
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+		showMeridian: 1
 	});
 	</script>
 
