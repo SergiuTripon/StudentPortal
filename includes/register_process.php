@@ -62,10 +62,9 @@ if(isset($_POST["gender"], $_POST["firstname"], $_POST["surname"], $_POST["stude
 	$stmt4->close();
 	
 	$token = null;
-	$token_created_on = null;
 	
-	$stmt5 = $mysqli->prepare("INSERT INTO user_token (token, created_on) VALUES (?, ?)");
-	$stmt5->bind_param('ss', $token, $token_created_on);
+	$stmt5 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
+	$stmt5->bind_param('s', $token);
 	$stmt5->execute();
 	$stmt5->close();
 	
