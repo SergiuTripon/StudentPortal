@@ -169,6 +169,7 @@
   cursor: not-allowed;
 }
 .bootstrap-datetimepicker-widget td span {
+  color: #FFA500;
   display: inline-block;
   width: 54px;
   height: 54px;
