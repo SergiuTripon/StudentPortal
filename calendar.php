@@ -317,8 +317,6 @@ else $userid = '';
 	$("#update-task-form-" + DbNumberID).submit();
 	
 	});
-
-    });
 	
 	$("#calendar-toggle").hide();
 	$(".task-tile").addClass("tile-selected");
