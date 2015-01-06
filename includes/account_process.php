@@ -198,7 +198,7 @@ elseif (isset($_POST['account_type1'], $_POST['gender1'], $_POST['firstname1'], 
 	$firstname = filter_input(INPUT_POST, 'firstname1', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname1', FILTER_SANITIZE_STRING);
 	$studentno = filter_input(INPUT_POST, 'studentno1', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'email1', FILTER_SANITIZE_STRING);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
 	$confirmpwd = filter_input(INPUT_POST, 'confirmpwd1', FILTER_SANITIZE_STRING);
