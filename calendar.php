@@ -144,8 +144,6 @@ else $userid = '';
 	<th>Status</th>
 	<th>Complete</th>
 	<th>Update</th>
-	<th>Cancel</th>
-	<th>Re-activate</th>
 	</tr>
 	</thead>
 
