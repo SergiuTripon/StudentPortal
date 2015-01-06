@@ -102,6 +102,8 @@ include 'includes/signin.php';
 	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
 
 	<label>Start date (YYYY-MM-DD)</label>
+
+		<input type="text" class="form_datetime">
 	<input type='text' class="form-control" type="text" name="task_startdate" id="datepicker1" data-date-format="YYYY/MM/DD hh:mm"  placeholder="Select a start date and time"/>
 
 	<label>Due date (YYYY-MM-DD)</label>
@@ -188,24 +190,7 @@ include 'includes/signin.php';
 	<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
 
 	<script>
-	$('datetimepicker1').datetimepicker({
-		weekStart: 1,
-		todayBtn:  1,
-		autoclose: 1,
-		todayHighlight: 1,
-		startView: 2,
-		forceParse: 0,
-		showMeridian: 1
-	});
-	$('datetimepicker2').datetimepicker({
-		weekStart: 1,
-		todayBtn:  1,
-		autoclose: 1,
-		todayHighlight: 1,
-		startView: 2,
-		forceParse: 0,
-		showMeridian: 1
-	});
+	$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 	</script>
 
 	<!-- Spin JS -->
