@@ -601,9 +601,6 @@ hr {
 .btn, .btn:hover, btn:focus {
 	outline: none !important;
     border-radius: 0px;
-    -webkit-transition: background-color .3s ease-in-out !important;
-    -moz-transition: background-color .3s ease-in-out !important;
-    transition: background-color .3s ease-in-out !important;
 }
 
 /* End of Button Style */
