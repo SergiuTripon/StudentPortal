@@ -68,7 +68,7 @@ if (isset($_POST["token"], $_POST["email"], $_POST["password"], $_POST["confirmp
 	mail ($email, $subject, $message, $headers);
 	
 	$empty_token = NULL;
-	$empty_created_on = NULL;
+	$empty_created_on = '0000-00-00';
 
 	$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
 	$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
