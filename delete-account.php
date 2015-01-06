@@ -181,7 +181,7 @@ $stmt2->fetch();
 	<div class="modal-footer">
     
 	<div class="pull-left">
-    <button id="FormSubmit class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500" type="submit"><span class="ladda-label">Yes</span></button>
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500" type="submit"><span class="ladda-label">Yes</span></button>
     </div>
     <div class="text-right">
 	<button class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal"><span class="ladda-label">No</span></button>
@@ -266,11 +266,8 @@ $stmt2->fetch();
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    var hasError = false;
-
     deleteaccount_button = $("#deleteaccount_button").val();
 
-    if(hasError == false){
     jQuery.ajax({
     type: "POST",
     url: "http://test.student-portal.co.uk/includes/account_process.php",
@@ -283,7 +280,6 @@ $stmt2->fetch();
         $("#error").empty().append(thrownError);
     }
     });
-    }
 
     return true;
 
