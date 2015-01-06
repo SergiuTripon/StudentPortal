@@ -30,7 +30,7 @@ include 'includes/signin.php';
     <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
 	
 	<!-- Bootstrap Date Picker CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.min.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/custom.css" rel="stylesheet">
@@ -185,17 +185,22 @@ include 'includes/signin.php';
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
 	<!-- Bootstrap Date Picker JS -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-	<script src="../assets/js/bootstrap-datetimepicker.js"></script>
+	<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
 
 	<script>
-    $(function () {
-	$('#datepicker1').datetimepicker({
-		pick12HourFormat: false
+	$('#datetimepicker1').datetimepicker({
+		format: 'yyyy/MM/dd/ hh:mm',
+		pickDate: true,
+		pickTime: true,
+		pick12HourFormat: false,
+		pickSeconds: false,
 	});
-	$('#datepicker2').datetimepicker({
-		pick12HourFormat: false
-	});
+	$('#datetimepicker2').datetimepicker({
+		format: 'yyyy/MM/dd/ hh:mm',
+		pickDate: true,
+		pickTime: true,
+		pick12HourFormat: false,
+		pickSeconds: false,
 	});
 	</script>
 
