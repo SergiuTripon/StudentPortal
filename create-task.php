@@ -190,7 +190,10 @@ include 'includes/signin.php';
 	<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
 
 	<script>
-	$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+	$(".form_datetime").datetimepicker({
+		format: 'yyyy-mm-dd hh:ii',
+		pickerPosition: "top-right"
+	});
 	</script>
 
 	<!-- Spin JS -->
