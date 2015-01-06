@@ -6,7 +6,7 @@ if (isset($_SESSION['userid']))
 else $userid = '';
 
 date_default_timezone_set('Europe/London');
-$created_date = date("Y-m-d G:i:s");
+$created_on = date("Y-m-d G:i:s");
 $task_startdate = date("Y-m-d");
 
 if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_duedate'], $_POST['task_category'])) {
