@@ -5,11 +5,11 @@ if (isset($_POST["recordToUpdate"])) {
 
 $idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, task_startdate, task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($taskid, $task_name, $task_notes, $task_duedate, $task_category);
+$stmt1->bind_result($taskid, $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $task_category);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -111,14 +111,20 @@ header('Location: ../calendar/');
 	
 	<input type="hidden" name="taskid" id="taskid" value="<?php echo $taskid; ?>" />
 	
-    <label>Task name</label>
+    <label>Name</label>
     <input class="form-control" type="text" name="task_name" id="task_name" value="<?php echo $task_name; ?>" placeholder="Enter a name">
 
     <label>Notes (Optional)</label>
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" value="<?php echo $task_notes; ?>" placeholder="Notes"></textarea>
-	
+
+	<label>External URL (Optional)</label>
+	<input class="form-control" type="text" name="task_name" id="task_name" value="<?php echo $task_url; ?>" placeholder="Enter an external URL">
+
+	<label>Start date (YYYY-MM-DD)</label>
+	<input type='text' class="form-control" type="text" name="task_duedate" id="datepicker1" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
+
 	<label>Due date (YYYY-MM-DD)</label>
-    <input type='text' class="form-control" type="text" name="task_duedate" value="<?php echo $task_duedate; ?>" id="datepicker1" data-date-format="YYYY-MM-DD" placeholder="Select a due date"/>
+    <input type='text' class="form-control" type="text" name="task_duedate" id="datepicker2"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
 	</div>
     
 	</div>
@@ -204,7 +210,10 @@ header('Location: ../calendar/');
 	<script>
     $(function () {
 	$('#datepicker1').datetimepicker({
-		pickTime: false
+		pick12HourFormat: false
+	});
+	$('#datepicker2').datetimepicker({
+		pick12HourFormat: false
 	});
 	});
 	</script>
@@ -250,17 +259,30 @@ header('Location: ../calendar/');
 	}
 	
 	task_notes = $("#task_notes").val();
-	
-	task_duedate = $("#datepicker1").val();
+	task_url = $("#task_url").val();
+
+	task_startdate = $("#datepicker1").val();
+	if(task_startdate === '') {
+		$("#error").show();
+		$("#error").empty().append("Please enter a task start date and time.");
+		$("#datepicker1").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	} else {
+		$("#error").hide();
+		$("#datepicker1").css("border-color", "#4DC742");
+	}
+
+	task_duedate = $("#datepicker2").val();
 	if(task_duedate === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a task due date.");
-		$("#datepicker1").css("border-color", "#FF5454");
+		$("#datepicker2").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
 		$("#error").hide();
-		$("#datepicker1").css("border-color", "#4DC742");
+		$("#datepicker2").css("border-color", "#4DC742");
 	}
 	
 	task_category = $('#task_category option:selected').val();
