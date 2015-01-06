@@ -22,11 +22,13 @@ if (isset($_POST["recordToComplete"])) {
 
 }
 
-elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POST['task_duedate'], $_POST['task_category'])) {
+elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
 
-	$taskid = filter_input(INPUT_POST, 'taskid', FILTER_SANITIZE_STRING);
+	$taskid = filter_input(INPUT_POST, 'taskid', FILTER_SANITIZE_NUMBER_INT);
 	$task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
     $task_notes = filter_input(INPUT_POST, 'task_notes', FILTER_SANITIZE_STRING);
+	$task_url = filter_input(INPUT_POST, 'task_url', FILTER_SANITIZE_STRING);
+	$task_startdate = filter_input(INPUT_POST, 'task_startdate', FILTER_SANITIZE_STRING);
 	$task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
 	$task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
 	
@@ -39,8 +41,8 @@ elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POS
 	
 	if ($db_taskname == $task_name) {
 	
-	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-	$stmt2->bind_param('ssssi', $task_notes, $task_duedate, $task_category, $updated_on, $taskid);
+	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_url=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	$stmt2->bind_param('ssssssi', $task_notes, $task_url, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
 	$stmt2->execute();
 	$stmt2->close();
 
@@ -56,14 +58,14 @@ elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POS
 	$stmt3->fetch();
 	
 	if ($stmt3->num_rows == 1) {
-	header('HTTP/1.0 550 A task with the task name entered already exists.');
+	header('HTTP/1.0 550 A task with the name entered already exists.');
 	exit();
 	$stmt3->close();
 	}
 	else {
-	
-	$stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-	$stmt4->bind_param('sssssi', $task_name, $task_notes, $task_duedate, $task_category, $updated_on, $taskid);
+
+	$stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_url=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	$stmt4->bind_param('sssssssi', $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
 	$stmt4->execute();
 	$stmt4->close();
 	
