@@ -191,10 +191,8 @@ include 'includes/signin.php';
 	<script>
     $(function () {
 	$('#datepicker1').datetimepicker({
-		pickTime: true
 	});
 	$('#datepicker2').datetimepicker({
-		pickTime: true
 	});
 	});
 	</script>
