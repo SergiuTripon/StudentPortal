@@ -283,7 +283,7 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/changepassword_process.php",
+	url: "http://test.student-portal.co.uk/includes/account_process.php",
     data:'password=' + password + '&confirmpwd=' + confirmpwd,
     success:function(response){
 		$("#hide").hide();

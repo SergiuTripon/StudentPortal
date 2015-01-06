@@ -385,7 +385,7 @@ if ($dateofbirth == "0000-00-00") {
 	
     jQuery.ajax({
 	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/updateaccount_process.php",
+	url: "http://test.student-portal.co.uk/includes/account_process.php",
     data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&dateofbirth=' + dateofbirth + '&studentno=' + studentno + '&email=' + email + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode + '&degree=' + degree,
     success:function(response){
 		$("#error").hide();
