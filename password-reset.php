@@ -110,7 +110,7 @@ include 'includes/signin.php';
 
 	<div id="hide">
     <label>Email address</label>
-    <input class="form-control" type="text" name="email" id="email" placeholder="Enter your email address">
+    <input class="form-control" type="text" name="email1" id="email1" placeholder="Enter your email address">
 
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your new password">
@@ -185,7 +185,7 @@ include 'includes/signin.php';
 	
 	token = $("#token").val();
 	
-	email = $("#email").val();
+	email = $("#email1").val();
 	if(email === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
@@ -263,7 +263,7 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/passwordreset_process.php",
+	url: "http://test.student-portal.co.uk/includes/forgotpassword_process.php",
     data:'token=' + token + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd,
     success:function(response){
 		$("#hide").hide();
