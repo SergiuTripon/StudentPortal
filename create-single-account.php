@@ -367,7 +367,7 @@ include 'includes/signin.php';
 	
 	var hasError = false;
 	
-	account_type = $('#account_type option:selected').val();
+	account_type1 = $('#account_type option:selected').val();
 	if (account_type === 'null') {
         $("#error").empty().append("Please select an account type.");
 		$("#account_type").css("border-color", "#FF5454");
@@ -378,7 +378,7 @@ include 'includes/signin.php';
 		$("#account_type").css("border-color", "#4DC742");
 	}
 	
-	gender = $('#gender option:selected').val();
+	gender1 = $('#gender option:selected').val();
 	if (gender === 'null') {
 		$("#error").show();
         $("#error").empty().append("Please select a gender.");
@@ -390,7 +390,7 @@ include 'includes/signin.php';
 		$("#gender").css("border-color", "#4DC742");
 	}
 	
-	firstname = $("#firstname").val();
+	firstname1 = $("#firstname").val();
 	if(firstname === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a first name.");
@@ -402,7 +402,7 @@ include 'includes/signin.php';
 		$("#firstname").css("border-color", "#4DC742");
 	}
 	
-	surname = $("#surname").val();
+	surname1 = $("#surname").val();
 	if(surname === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a surname.");
@@ -414,7 +414,7 @@ include 'includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 	
-	studentno = $("#studentno").val();
+	studentno1 = $("#studentno").val();
 	if(studentno === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a student number.");
@@ -426,7 +426,7 @@ include 'includes/signin.php';
 		$("#studentno").css("border-color", "#4DC742");
 	}
 	
-	email = $("#email").val();
+	email1 = $("#email").val();
 	if(email === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
@@ -438,7 +438,7 @@ include 'includes/signin.php';
 		$("#email").css("border-color", "#4DC742");
 	}
 	
-	password = $("#password").val();
+	password1 = $("#password").val();
 	if(password === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
@@ -450,7 +450,7 @@ include 'includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 	}
 	
-	if (password.length < 6) {
+	if (password1.length < 6) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -465,7 +465,7 @@ include 'includes/signin.php';
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 	
-	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+	if(password1.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -476,7 +476,7 @@ include 'includes/signin.php';
 		return false;
 	}
 	
-	confirmpwd = $("#confirmpwd").val();
+	confirmpwd1 = $("#confirmpwd").val();
 	if(confirmpwd === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password confirmation.");
@@ -488,7 +488,7 @@ include 'includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	if(password != confirmpwd) {
+	if(password1 != confirmpwd) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -501,22 +501,22 @@ include 'includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	dateofbirth = $("#dateofbirth").val();
-	phonenumber = $("#phonenumber").val();
-	degree = $("#degree").val();
-	address1 = $("#address1").val();
-	address2 = $("#address2").val();
-	town = $("#town").val();
-	city = $("#city").val();
-	country = $("#country").val();
-	postcode = $("#postcode").val();
+	dateofbirth1 = $("#dateofbirth").val();
+	phonenumber1 = $("#phonenumber").val();
+	degree1 = $("#degree").val();
+	address11 = $("#address1").val();
+	address21 = $("#address2").val();
+	town1 = $("#town").val();
+	city1 = $("#city").val();
+	country1 = $("#country").val();
+	postcode1 = $("#postcode").val();
 
 	
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/createsingleaccount_process.php",
-    data:'account_type=' + account_type + '&gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&degree=' + degree + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
+	url: "http://test.student-portal.co.uk/includes/account_process.php",
+    data:'account_type1=' + account_type1 + '&gender1=' + gender1 + '&firstname1=' + firstname1 + '&surname1=' + surname1 + '&studentno1=' + studentno1 + '&email1=' + email1 + '&password1=' + password1 + '&confirmpwd1=' + confirmpwd1 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address1 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(response){
 		$("#error").hide();
 		$("#success").empty().append('Account created successfully. To create another account, simply fill in the form again.');
