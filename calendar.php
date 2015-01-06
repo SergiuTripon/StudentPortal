@@ -186,47 +186,47 @@ else $userid = '';
 	$stmt2->close();
 	?>
 
-		<!-- Completed tasks -->
-		<div class="content-panel mb10">
-			<h4><i class="fa fa-angle-right"></i> Completed tasks</h4>
-			<section id="no-more-tables">
-				<table class="table table-condensed calendar-table">
+	<!-- Completed tasks -->
+	<div class="content-panel mb10">
+	<h4><i class="fa fa-angle-right"></i> Completed tasks</h4>
+	<section id="no-more-tables">
+	<table class="table table-condensed calendar-table">
 
-					<thead>
-					<tr>
-						<th>Name</th>
-						<th>Notes</th>
-						<th>External URL</th>
-						<th>Start date</th>
-						<th>Due date</th>
-						<th>Category</th>
-					</tr>
-					</thead>
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Notes</th>
+	<th>External URL</th>
+	<th>Start date</th>
+	<th>Due date</th>
+	<th>Category</th>
+	</tr>
+	</thead>
 
-					<tbody>
-					<?php
+	<tbody>
+	<?php
 
-					$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %Y') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %Y') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %Y') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %Y') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
 
-					while($row = $stmt1->fetch_assoc()) {
-						echo '<tr id="task-'.$row["taskid"].'">
+	while($row = $stmt1->fetch_assoc()) {
+	echo '<tr id="task-'.$row["taskid"].'">
 
-			<td data-title="Name">'.$row["task_name"].'</td>
-			<td data-title="Notes">'.$row["task_notes"].'</td>
-			<td data-title="External URL">'.$row["task_url"].'</td>
-			<td data-title="Start date">'.$row["task_startdate"].'</td>
-			<td data-title="Due date">'.$row["task_duedate"].'</td>
-			<td data-title="Category">'.$row["task_category"].'</td>
-			</tr>';
-					}
+	<td data-title="Name">'.$row["task_name"].'</td>
+	<td data-title="Notes">'.$row["task_notes"].'</td>
+	<td data-title="External URL">'.$row["task_url"].'</td>
+	<td data-title="Start date">'.$row["task_startdate"].'</td>
+	<td data-title="Due date">'.$row["task_duedate"].'</td>
+	<td data-title="Category">'.$row["task_category"].'</td>
+	</tr>';
+	}
 
-					$stmt1->close();
-					?>
-					</tbody>
+	$stmt2->close();
+	?>
+	</tbody>
 
-				</table>
-			</section>
-		</div><!-- /content-panel -->
+	</table>
+	</section>
+	</div><!-- /content-panel -->
 	
     </div><!-- /container -->
 	
