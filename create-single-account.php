@@ -334,6 +334,10 @@ include 'includes/signin.php';
 	} else {
 		$('#account_type').css('color', 'gray');
 	}
+	if (current = 'student') {
+		$('#studentno').show();
+		$('#degree').show();
+	}
 	if (current = 'admin') {
 		$('label[for="studentno"]').hide();
 		$('#studentno').hide();
@@ -345,10 +349,6 @@ include 'includes/signin.php';
 		$('#studentno').hide();
 		$('label[for="degree"]').hide();
 		$('#degree').hide();
-	}
-	if (current = 'student') {
-		$('#studentno').show();
-		$('#degree').show();
 	}
     });
     });
