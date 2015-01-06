@@ -15,8 +15,8 @@ CREATE TABLE `student_portal`.`user_signin` (
 CREATE TABLE `student_portal`.`user_token` (
 	`userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`token` CHAR(70) UNIQUE,
-	`created_date` DATETIME NOT NULL,
-	`updated_date` DATETIME,
+	`created_on` DATETIME NOT NULL,
+	`updated_on` DATETIME,
 FOREIGN KEY (userid)    
 REFERENCES user_signin(userid)   
 ON UPDATE CASCADE   
@@ -38,8 +38,8 @@ CREATE TABLE `student_portal`.`user_details` (
 	`city` VARCHAR(70),
 	`country` VARCHAR(70),
 	`postcode` VARCHAR(70),
-	`created_date` DATETIME NOT NULL,
-	`updated_date` DATETIME,
+	`created_on` DATETIME NOT NULL,
+	`updated_on` DATETIME,
 FOREIGN KEY (userid)    
 REFERENCES user_signin(userid)   
 ON UPDATE CASCADE   
@@ -77,9 +77,9 @@ CREATE TABLE `student_portal`.`paypal_log` (
 	`payer_country` VARCHAR(70),
 	`payer_postcode` VARCHAR(70) NOT NULL,
 	`payment_status` VARCHAR(9) NOT NULL,
-	`created_date` DATETIME NOT NULL,
-	`completed_date` DATETIME,
-	`cancelled_date` DATETIME,
+	`created_on` DATETIME NOT NULL,
+	`completed_on` DATETIME,
+	`cancelled_on` DATETIME,
 FOREIGN KEY (userid)    
 REFERENCES user_signin(userid)   
 ON UPDATE CASCADE   
@@ -97,9 +97,9 @@ CREATE TABLE `student_portal`.`user_tasks` (
 	`task_duedate` DATETIME NOT NULL,
 	`task_category` VARCHAR(10) NOT NULL,
 	`task_status` VARCHAR(10) NOT NULL,
-	`created_date` DATETIME NOT NULL,
-	`updated_date` DATETIME,
-	`completed_date` DATETIME,
+	`created_on` DATETIME NOT NULL,
+	`updated_on` DATETIME,
+	`completed_on` DATETIME,
 FOREIGN KEY (userid)    
 REFERENCES user_signin(userid)   
 ON UPDATE CASCADE   
