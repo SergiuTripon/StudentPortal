@@ -103,8 +103,7 @@ include 'includes/signin.php';
 
 	<label>Start date (YYYY-MM-DD)</label>
 
-		<input type="text" class="form_datetime">
-	<input type='text' class="form-control" type="text" name="task_startdate" id="datepicker1" data-date-format="YYYY/MM/DD hh:mm"  placeholder="Select a start date and time"/>
+	<input type="text" class="form-control form_datetime" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
 
 	<label>Due date (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="task_duedate" id="datepicker2" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
