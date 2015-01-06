@@ -31,6 +31,11 @@ elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POS
 	$task_startdate = filter_input(INPUT_POST, 'task_startdate', FILTER_SANITIZE_STRING);
 	$task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
 	$task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
+
+	if ($task_category == 'University') { $task_class = 'event-important'; }
+	if ($task_category == 'Work') { $task_class = 'event-info'; }
+	if ($task_category == 'Personal') { $task_class = 'event-warning'; }
+	if ($task_category == 'Other') { $task_class = 'event-success'; }
 	
 	$stmt1 = $mysqli->prepare("SELECT task_name from user_tasks where taskid = ?");
 	$stmt1->bind_param('i', $taskid);
