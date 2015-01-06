@@ -38,9 +38,12 @@ if (isset($_POST["token"], $_POST["email"], $_POST["password"], $_POST["confirmp
 	if ($token == $db_token) {
 		
 	$password_hash = password_hash($password, PASSWORD_BCRYPT);
-		
-	$stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ? WHERE email = ? LIMIT 1");
-	$stmt4->bind_param('ss', $password_hash, $email);
+
+	date_default_timezone_set('Europe/London');
+	$updated_on = date("Y-m-d G:i:s");
+
+	$stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
+	$stmt4->bind_param('sss', $password_hash, $updated_on, $email);
 	$stmt4->execute();
 	$stmt4->close();
 	
@@ -65,8 +68,10 @@ if (isset($_POST["token"], $_POST["email"], $_POST["password"], $_POST["confirmp
 	mail ($email, $subject, $message, $headers);
 	
 	$empty_token = NULL;
-	$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ? WHERE userid = ? LIMIT 1");
-	$stmt4->bind_param('si', $empty_token, $userid);
+	$empty_created_on = NULL;
+
+	$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
+	$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
 	$stmt4->execute();
 	$stmt4->close();
 	
