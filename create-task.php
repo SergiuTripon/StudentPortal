@@ -104,11 +104,7 @@ include 'includes/signin.php';
     
 	</div>
 
-	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
 		<input type="text" name="basic_example_1" id="basic_example_1" value="" class="hasDatepicker">
-	</div>
-	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
@@ -188,14 +184,14 @@ include 'includes/signin.php';
 	<!-- JS library -->
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
-	<!-- Bootstrap JS -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
 	<!-- Bootstrap Date Picker JS -->
 	<script src="../assets/js/datetimepicker/jquery-ui.min.js"></script>
 	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
 	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon-i18n.min.js"></script>
 	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
+
+	<!-- Bootstrap JS -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 	<script>
 	$('#basic_example_1').datetimepicker();
