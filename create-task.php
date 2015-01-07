@@ -106,8 +106,7 @@ include 'includes/signin.php';
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
-	<label>Start date (YYYY-MM-DD)</label>
-	<input type="text" class="form-control datetimepicker1" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
+		<input type="text" name="basic_example_1" id="basic_example_1" value="" class="hasDatepicker">
 	</div>
 	</div>
 
@@ -193,12 +192,13 @@ include 'includes/signin.php';
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
 	<!-- Bootstrap Date Picker JS -->
-	<script src="../assets/js/jquery-ui.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/i18n/jquery-ui-timepicker-addon-i18n.min.js"></script>
-
+	<script src="../assets/js/datetimepicker/jquery-ui.min.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon-i18n.min.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
 
 	<script>
-	$('#datetimepicker1').datetimepicker();
+	$('#basic_example_1').datetimepicker();
 	</script>
 
 	<!-- Spin JS -->
