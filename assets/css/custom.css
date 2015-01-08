@@ -1086,4 +1086,8 @@ table.dataTable tr.even {
 table.dataTable.no-footer {
 	border: none !important;
 }
+
+table.dataTable thead .sorting {
+    padding-right: 10px !important;
+}
 /* End of DataTables style */
