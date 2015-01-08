@@ -1090,4 +1090,17 @@ table.dataTable.no-footer {
 table.dataTable thead .sorting {
     padding-right: 10px !important;
 }
+table.dataTable thead .sorting_asc {
+    padding-right: 10px !important;
+}
+table.dataTable thead .sorting_desc {
+    padding-right: 10px !important;
+}
+table.dataTable thead .sorting_asc_disabled {
+    padding-right: 10px !important;
+}
+table.dataTable thead .sorting_desc_disabled {
+    padding-right: 10px !important;
+}
+
 /* End of DataTables style */
