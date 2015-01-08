@@ -211,6 +211,9 @@ include 'includes/signin.php';
 		$('#task_startdate').datetimepicker({
 			dateFormat: "yy-mm-dd", controlType: 'select'
 		});
+		$('#task_duedate').datetimepicker({
+			dateFormat: "yy-mm-dd", controlType: 'select'
+		});
 	});
 	</script>
 
