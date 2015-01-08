@@ -942,6 +942,17 @@ hr {
 #no-more-tables td:before {
     content: attr(data-title);
 }
+
+.table-custom {
+    border: 0px solid #FFA500 !important;
+}
+.table-custom th {
+    border: 0px solid #FFA500 !important;
+}
+.table-custom td {
+    border: 0px solid #FFA500 !important;
+}
+
 }
 
 /* End of No More Responsive Table*/
@@ -1031,7 +1042,7 @@ hr {
 .table-custom th {
     color: #FFA500;
 	text-align: center;
-	border: 1px solid #FFA500;
+	border: 1px solid #FFA500 !important;
     background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
