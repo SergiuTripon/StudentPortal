@@ -1084,6 +1084,6 @@ table.dataTable tr.even {
 }
 
 table.dataTable.no-footer {
-	border: none;
+	border: none !important;
 }
 /* End of DataTables style */
