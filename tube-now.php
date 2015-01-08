@@ -189,14 +189,8 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
-    $('.line-status-table').dataTable({
+    $('.table-custom').dataTable({
         "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false
-	});
-	$('.station-status-table').dataTable({
-		"iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false
