@@ -138,8 +138,8 @@ else $userid = '';
 	<th>Name</th>
 	<th>Notes</th>
 	<th>External URL</th>
-	<th>Start date</th>
-	<th>Due date</th>
+	<th>Start</th>
+	<th>Due</th>
 	<th>Category</th>
 	<th>Complete</th>
 	<th>Update</th>
@@ -197,8 +197,8 @@ else $userid = '';
 	<th>Name</th>
 	<th>Notes</th>
 	<th>External URL</th>
-	<th>Start date</th>
-	<th>Due date</th>
+	<th>Start</th>
+	<th>Due</th>
 	<th>Category</th>
 	</tr>
 	</thead>
