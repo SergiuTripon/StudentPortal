@@ -131,7 +131,7 @@ else $userid = '';
 	<div class="content-panel mb10">
 	<h4><i class="fa fa-angle-right"></i> Due tasks</h4>
 	<section id="no-more-tables">
-	<table class="table table-condensed calendar-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -190,7 +190,7 @@ else $userid = '';
 	<div class="content-panel mb10">
 	<h4><i class="fa fa-angle-right"></i> Completed tasks</h4>
 	<section id="no-more-tables">
-	<table class="table table-condensed calendar-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
