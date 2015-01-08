@@ -283,7 +283,7 @@ else $userid = '';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no due tasks at the moment."
+			"emptyTable": "There are no task at the moment."
 		}
 	});
     });
