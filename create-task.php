@@ -298,13 +298,14 @@ include 'includes/signin.php';
 
 	<!-- Date Time Picker JS -->
 	<script src="../assets/js/datetimepicker/jquery-ui-1.10.0.custom.min.js"></script>
-	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
 	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
 
 	<script>
-	$(function(){
-	$('#task_startdate').datetimepicker({dateFormat: "yy-mm-dd", controlType: 'select'});
-	$('#task_duedate').datetimepicker({dateFormat: "yy-mm-dd", controlType: 'select'});
+	$(function () {
+		$('#task_startdate').datetimepicker({
+			dateFormat: "yy-mm-dd", controlType: 'select'
+		});
 	});
 	</script>
 
