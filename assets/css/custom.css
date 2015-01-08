@@ -946,15 +946,6 @@ hr {
 
 /* End of No More Responsive Table*/
 
-.table-bordered > thead > tr > th,
-.table-bordered > tbody > tr > th,
-.table-bordered > tfoot > tr > th,
-.table-bordered > thead > tr > td,
-.table-bordered > tbody > tr > td,
-.table-bordered > tfoot > tr > td {
-    border: 1px solid #FFFFFF;
-}
-
 /* Line Status table style */
 .line-status-table {
     font-size: 15px;
@@ -1030,7 +1021,7 @@ hr {
 
 /* End of Cycle Hire table style */
 
-/* Line Status table style */
+/* Table Custom style */
 .table-custom {
     font-size: 15px;
 	border-collapse: collapse !important;
@@ -1058,7 +1049,7 @@ hr {
 .table-custom td a, .calendar-table td a:hover {
     color: #FFA500;
 }
-/* End of Line Status table style */
+/* End of Table Custom style */
 
 /* DataTables style */
 .dataTables_wrapper .dataTables_length,
