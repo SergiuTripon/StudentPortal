@@ -128,7 +128,7 @@ else $userid = '';
 	</div><!-- /content-panel -->
 	
 	<!-- Due tasks -->
-	<div class="content-panel mb10 id="task-toggle">
+	<div class="content-panel mb10" id="task-toggle">
 	<h4><i class="fa fa-angle-right"></i> Due tasks</h4>
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
