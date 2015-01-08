@@ -301,6 +301,7 @@ else $userid = '';
 	<!-- Bootstrap Calendar JS -->
 	<script src="../assets/js/calendar.js"></script>
 	<script src="../assets/js/calendar-app.js"></script>
+	<script src="../assets/js/underscore.min.js"></script>
 	
 	<!-- tileJS -->
 	<script src="../assets/js/tileJs.min.js"></script>
