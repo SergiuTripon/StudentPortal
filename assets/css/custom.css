@@ -1067,17 +1067,16 @@ table.dataTable thead .sorting_desc_disabled {
 }
 
 #no-more-tables td:before {
-
-/* Now like a table header */
-position: absolute;
-/* Top/left values mimic padding */
-top: 6px;
-left: 6px;
-width: 45%;
-padding-right: 10px;
-white-space: nowrap;
-text-align: left;
-font-weight: 600;
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 600;
 }
 
 /* Label the data */
@@ -1085,12 +1084,38 @@ font-weight: 600;
     content: attr(data-title);
 }
 
+.table-custom {
+    font-size: 15px;
+    border-collapse: collapse !important;
+    border: 1px solid #FFA500 !important;
+}
+
+.table-custom th {
+    color: #FFA500;
+    text-align: center;
+    border: 1px solid #FFA500 !important;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 .table-custom tbody {
-    border-bottom: 1px solid !important;
+    border-bottom: 1px solid #FFA500 !important;
 }
 
 .table-custom tr {
+    color: #FFA500;
+    border: 1px solid #FFA500;
     border-bottom: none !important;
+}
+
+.table-custom td {
+    color: #FFA500;
+    text-align: center;
+    padding: 7px;
+    border: 1px solid #FFA500;
+}
+
+.table-custom td a, .calendar-table td a:hover {
+    color: #FFA500;
 }
 
 .notes-hide {
