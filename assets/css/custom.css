@@ -1087,7 +1087,7 @@ table.dataTable thead .sorting_desc_disabled {
 .table-custom {
     font-size: 15px;
     border-collapse: collapse !important;
-    border: 0px solid #FFA500 !important;
+    border: 1px solid #FFA500 !important;
 }
 
 .table-custom th {
