@@ -911,7 +911,7 @@ hr {
 }
 
 #no-more-tables tr {
-	border: 1px solid #FFA500;
+	border: 1px solid #FFA500 !important;
 }
 
 #no-more-tables td {
@@ -934,7 +934,7 @@ hr {
     padding-right: 10px;
     white-space: nowrap;
     text-align: left;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 /* Label the data */
