@@ -390,18 +390,11 @@ else $userid = '';
 		$(".calendar-tile i").addClass("tile-text-selected");
 	});
 	
-	$(".calendar-table tr:has(td:contains('completed'))").each(function () {
-    $(this).find(".complete-button").hide();
-	$(this).find(".update-button").hide();
-	$(this).find(".cancel-button").hide();
-	$(this).find(".reactivate-button").hide();
+	$(".calendar-table tr:has(td:contains(''))").each(function () {
+    $(this).hide();
 	});
-	
-	$(".calendar-table tr:has(td:contains('cancelled'))").each(function () {
-    $(this).find(".complete-button").hide();
-	$(this).find(".update-button").hide();
-	$(this).find(".cancel-button").hide();
-	});
+
+
 	
 	});
 
