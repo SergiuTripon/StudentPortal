@@ -1085,6 +1085,10 @@ font-weight: 600;
     content: attr(data-title);
 }
 
+.table-custom tbody {
+    border-bottom: 1px solid !important;
+}
+
 .table-custom tr {
     border-bottom: none !important;
 }
