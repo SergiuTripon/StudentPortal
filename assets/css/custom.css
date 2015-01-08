@@ -961,13 +961,13 @@ hr {
 .table-custom {
     font-size: 15px;
 	border-collapse: collapse !important;
-    border: 1px solid #FFA500;
+    border: 1px solid #FFA500 !important;
 }
 
 .table-custom th {
     color: #FFA500;
 	text-align: center;
-	border: 1px solid #FFA500;
+	border: 1px solid #FFA500 !important;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -980,7 +980,7 @@ hr {
     color: #FFA500;
 	text-align: center;
     padding: 7px;
-    border: 1px solid #FFA500;
+    border: 1px solid #FFA500 !important;
 }
 
 .table-custom td a, .calendar-table td a:hover {
