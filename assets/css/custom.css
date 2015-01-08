@@ -1035,7 +1035,7 @@ hr {
 /* Table Custom style */
 .table-custom {
     font-size: 15px;
-	border-collapse: collapse;
+	border-collapse: collapse !important;
     border: 1px solid #FFA500;
 }
 
