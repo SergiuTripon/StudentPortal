@@ -42,7 +42,7 @@ include 'includes/signin.php';
     <![endif]-->
 
 	<style type="text/css">
-		#tabs, #ui-datepicker-div, .ui-datepicker{ font-size: 85%; }
+		#ui-datepicker-div, .ui-datepicker{ font-size: 85%; }
 	</style>
 
 	<style>
