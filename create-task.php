@@ -55,9 +55,6 @@ include 'includes/signin.php';
 			color: #ffa500;
 			font-weight: bold;
 		}
-		.ui-widget-header .ui-icon {
-			background-image: url("/themeroller/images/ui-icons_ffa500_256x240.png");
-		}
 		.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
 			border: 1px solid #ffa500;
 			background: #333333;
