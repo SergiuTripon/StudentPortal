@@ -1104,7 +1104,7 @@ font-weight: 600;
     border-bottom: none !important;
 }
 
-.table-custom>tbody>tr:last-child {
+.table-custom tbody {
     border-bottom: none !important;
 }
 
