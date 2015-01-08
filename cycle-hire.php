@@ -162,7 +162,7 @@ $cycle_hire = new SimpleXMLElement($result);
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
-	$('.cycle-hire-table').dataTable({
+	$('.table-custom').dataTable({
 		"iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
