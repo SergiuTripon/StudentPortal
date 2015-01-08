@@ -949,8 +949,15 @@ hr {
 .table-custom th {
     border: 0px solid #FFA500 !important;
 }
-.table-custom td {
-    border: 0px solid #FFA500 !important;
+.table-custom tr {
+    border: 1px solid #FFA500 !important;
+}
+
+.notes-hide {
+    display: none !important;
+}
+.url-hide {
+    display: none !important;
 }
 
 }
