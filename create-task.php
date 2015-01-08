@@ -201,14 +201,14 @@ include 'includes/signin.php';
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
-	<label>Start date (YYYY-MM-DD)</label>
+	<label>Start date and time</label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
-	<label>Due date (YYYY-MM-DD)</label>
+	<label>Due date and time</label>
 	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
 	</div>
 	</div>
