@@ -864,8 +864,8 @@ hr {
     background-color: rgba(112, 195, 206, 0.8) !important;
 }
 
-.no-background, .no-background td, .no-background th {
-    color: #E3E3E3 !important;
+.no-background, .no-background td, .no-background th, .no-background:hover, .no-background td:hover, .no-background th:hover {
+    color: #FFA500 !important;
     background: none !important;
 }
 
