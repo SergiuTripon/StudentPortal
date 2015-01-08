@@ -1114,5 +1114,13 @@ font-weight: 600;
     color: #FFA500;
 }
 
+.note-hide {
+    display: none !important;
+}
+
+.url-hide {
+    display: none !important;
+}
+
 }
 /* End of No More Responsive Table*/
