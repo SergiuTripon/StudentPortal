@@ -128,7 +128,7 @@ else $userid = '';
 	</div><!-- /content-panel -->
 	
 	<!-- Due tasks -->
-	<div class="content-panel mb10" id="task-toggle">
+	<div class="content-panel mb10" id="duetasks-toggle">
 	<h4><i class="fa fa-angle-right"></i> Due tasks</h4>
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
@@ -187,7 +187,7 @@ else $userid = '';
 	?>
 
 	<!-- Completed tasks -->
-	<div class="content-panel mb10" id="task-toggle">
+	<div class="content-panel mb10" id="completedtasks-toggle">
 	<h4><i class="fa fa-angle-right"></i> Completed tasks</h4>
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
@@ -369,7 +369,8 @@ else $userid = '';
 	$("#task-button").click(function (e) {
     e.preventDefault();
 		$("#calendar-toggle").fadeOut();
-		$("#task-toggle").fadeIn();
+		$("#duetasks-toggle").fadeIn();
+		$("#completedtasks-toggle").fadeIn();
 		$(".calendar-tile").removeClass("tile-selected");
 		$(".calendar-tile p").removeClass("tile-text-selected");
 		$(".calendar-tile i").removeClass("tile-text-selected");
@@ -380,7 +381,8 @@ else $userid = '';
 	
 	$("#calendar-button").click(function (e) {
     e.preventDefault();
-		$("#task-toggle").fadeOut();
+		$("#duetasks-toggle").fadeOut();
+		$("#completedtasks-toggle").fadeOut();
 		$("#calendar-toggle").fadeIn();
 		$(".task-tile").removeClass("tile-selected");
 		$(".task-tile p").removeClass("tile-text-selected");
