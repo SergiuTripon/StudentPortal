@@ -208,7 +208,7 @@
 .ui-widget {   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:13px; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1em; }
-.ui-widget-content { border: 1px solid #aaaaaa; background: #333333; color: #FFA500; }
+.ui-widget-content { border: 1px solid #FFA500; background: #333333; color: #FFA500; }
 .ui-widget-content a { color: #404040; }
 .ui-widget-header {
   font-weight:bold;
@@ -1240,7 +1240,7 @@ body .ui-tooltip { border-width:2px; }
 
 .ui-datepicker th{
   font-weight: bold;
-  color: gray;
+  color: #FFA500;
 }
 
 .ui-datepicker-today a:hover{
