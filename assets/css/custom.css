@@ -910,10 +910,6 @@ hr {
     left: -9999px;
 }
 
-#no-more-tables tr {
-	border: 1px solid #FFA500 !important;
-}
-
 #no-more-tables td {
 /* Behave like a "row" */
 	border: none;
