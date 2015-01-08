@@ -1084,34 +1084,14 @@ table.dataTable thead .sorting_desc_disabled {
     content: attr(data-title);
 }
 
-.table-custom {
-    font-size: 15px;
-    border-collapse: collapse !important;
-    border: 1px solid #FFA500 !important;
-}
-
-.table-custom th {
-    color: #FFA500;
-    text-align: center;
-    border: 0px solid #FFA500 !important;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
 .table-custom tbody {
     border-bottom: 1px solid #FFA500 !important;
 }
 
 .table-custom tr {
     color: #FFA500;
-    border: 0px solid #FFA500;
+    border: 1px solid #FFA500;
     border-bottom: none !important;
-}
-
-.table-custom td {
-    color: #FFA500;
-    text-align: center;
-    padding: 7px;
-    border: 0px solid #FFA500;
 }
 
 .notes-hide {
