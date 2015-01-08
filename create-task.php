@@ -20,17 +20,17 @@ include 'includes/signin.php';
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- FontAwesome CSS -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Open Sans font -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
 
     <!-- Ladda CSS -->
     <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
-	
-	<!-- Bootstrap Date Picker CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css">
+
+	<!-- Date Time Picker CSS -->
+	<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/custom.css" rel="stylesheet">
@@ -200,6 +200,18 @@ include 'includes/signin.php';
 	
 	<!-- Pace JS -->
     <script src="../assets/js/pace.js"></script>
+
+	<!-- Date Time Picker JS -->
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
+
+	<script>
+	$(function(){
+	$('#task_startdate').datetimepicker({dateFormat: "yy-mm-dd", controlType: 'select'});
+	$('#task_duedate').datetimepicker({dateFormat: "yy-mm-dd", controlType: 'select'});
+	});
+	</script>
 
 	<!-- Custom JS -->
 	<script src="../assets/js/custom.js"></script>
