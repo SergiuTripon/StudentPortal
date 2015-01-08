@@ -73,7 +73,7 @@ else $userid = '';
 	
 	<div class="row mb10">
 
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 	<a href="/create-task/">
     <div class="tile">
     <i class="fa fa-plus"></i>
@@ -82,7 +82,7 @@ else $userid = '';
     </a>
 	</div>
 	
-	<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
 	<a id="task-button">
     <div class="tile task-tile">
 	<i class="fa fa-tasks"></i>
@@ -91,7 +91,7 @@ else $userid = '';
     </a>
 	</div>
 	
-	<div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
 	<a id="calendar-button">
 	<div class="tile calendar-tile">
     <i class="fa fa-calendar"></i>
