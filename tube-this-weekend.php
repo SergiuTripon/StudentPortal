@@ -76,7 +76,7 @@ $xml_weekend = new SimpleXMLElement($result);
 	<div class="content-panel mb10">
 	<h4><i class="fa fa-angle-right"></i> Line Status | This Weekend</h4>
 	<section id="no-more-tables">
-	<table class="table table-condensed line-status-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -107,7 +107,7 @@ $xml_weekend = new SimpleXMLElement($result);
 	<div class="content-panel mb10">
 	<h4><i class="fa fa-angle-right"></i> Station Status | This Weekend</h4>
 	<section id="no-more-tables">
-	<table class="table table-condensed station-status-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>

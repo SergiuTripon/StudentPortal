@@ -76,7 +76,7 @@ $cycle_hire = new SimpleXMLElement($result);
 	<div class="content-panel mb10">
 	<h4><i class="fa fa-angle-right"></i> Cycle Hire | Availability updates</h4>
 	<section id="no-more-tables">
-	<table class="table table-condensed cycle-hire-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
