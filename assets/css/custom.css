@@ -957,81 +957,6 @@ hr {
 
 /* End of No More Responsive Table*/
 
-/* Line Status table style */
-.line-status-table {
-    font-size: 15px;
-    border-top: 1px solid #FFFFFF;
-}
-
-.line-status-table th {
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-    background-color: rgba(0, 0, 0, 0.7) !important;
-}
-
-.line-status-table tr {
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-}
-
-.line-status-table td {
-    color: #FFFFFF;
-    padding: 7px;
-    border: 1px solid #FFFFFF;
-}
-
-/* End of Line Status table style */
-
-/* Station Status table style */
-.station-status-table {
-    font-size: 15px;
-    border-top: 1px solid #FFFFFF;
-}
-
-.station-status-table th {
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-    background-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-.station-status-table tr {
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-}
-
-.station-status-table td {
-    color: #FFFFFF;
-    padding: 7px;
-    border: 1px solid #FFFFFF;
-}
-
-/* End of Station Status table style */
-
-/* Cycle Hire table style */
-.cycle-hire-table {
-    font-size: 15px;
-    border-top: 1px solid #FFFFFF;
-}
-
-.cycle-hire-table th {
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-    background-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-.cycle-hire-table tr {
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-}
-
-.cycle-hire-table td {
-    color: #FFFFFF;
-    padding: 7px;
-    border: 1px solid #FFFFFF;
-}
-
-/* End of Cycle Hire table style */
-
 /* Table Custom style */
 .table-custom {
     font-size: 15px;
@@ -1048,6 +973,7 @@ hr {
 
 .table-custom tr {
     color: #FFA500;
+    border: 1px solid #FFA500;
 }
 
 .table-custom td {
