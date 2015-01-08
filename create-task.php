@@ -111,14 +111,14 @@ include 'includes/signin.php';
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Start date (YYYY-MM-DD)</label>
-	<input type="text" class="form-control datetimepicker1" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
+	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Due date (YYYY-MM-DD)</label>
-	<input type="text" class="form-control datetimepicker2" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
+	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
 	</div>
 	</div>
 	
@@ -263,7 +263,7 @@ include 'includes/signin.php';
 	task_notes = $("#task_notes").val();
 	task_url = $("#task_url").val();
 
-	task_startdate = $("#datepicker1").val();
+	task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
 		$("#error").show();
 		$("#error").empty().append("Please enter a task start date and time.");
@@ -275,7 +275,7 @@ include 'includes/signin.php';
 		$("#datepicker1").css("border-color", "#4DC742");
 	}
 
-	task_duedate = $("#datepicker2").val();
+	task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a task due date and time.");
