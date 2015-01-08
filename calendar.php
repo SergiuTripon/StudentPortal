@@ -187,7 +187,7 @@ else $userid = '';
 	?>
 
 	<!-- Completed tasks -->
-	<div class="content-panel mb10">
+	<div class="content-panel mb10" id="task-toggle">
 	<h4><i class="fa fa-angle-right"></i> Completed tasks</h4>
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
