@@ -175,7 +175,7 @@ else $userid = '';
 	
 	<?php 
 	
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %Y %T:%f') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %Y %T:%f') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %Y %h:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %Y %h:%i') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
 
 	while($row = $stmt2->fetch_assoc()) {			
 	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="../update-task/" method="POST">
@@ -206,7 +206,7 @@ else $userid = '';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %Y') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %Y') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %Y %h:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %Y %h:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
 
 	while($row = $stmt2->fetch_assoc()) {
 	echo '<tr id="task-'.$row["taskid"].'">
