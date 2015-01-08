@@ -186,13 +186,7 @@ $xml_weekend = new SimpleXMLElement($result);
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
-	$('.line-status-table').dataTable({
-		"iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false
-	});
-    $('.station-status-table').dataTable({
+	$('.table-custom').dataTable({
 		"iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
