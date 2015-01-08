@@ -277,7 +277,7 @@ else $userid = '';
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
-    $('.calendar-table').dataTable({
+    $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
