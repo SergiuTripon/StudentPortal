@@ -42,7 +42,52 @@ include 'includes/signin.php';
     <![endif]-->
 
 	<style type="text/css">
-		#ui-datepicker-div, .ui-datepicker{ font-size: 85%; }
+		#ui-datepicker-div, .ui-datepicker {
+			font-size: 85%;
+		}
+		.ui-widget-content {
+			color: #FFA500;
+			background-color: #FFA500;
+		}
+		.ui-widget-header {
+			border: 1px solid #ffa500;
+			background: #333333;
+			color: #ffa500;
+			font-weight: bold;
+		}
+		.ui-widget-header .ui-icon {
+			background-image: url("/themeroller/images/ui-icons_ffa500_256x240.png");
+		}
+		.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+			border: 1px solid #ffa500;
+			background: #333333;
+			font-weight: normal;
+			color: #FFA500;
+		}
+		.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+			border: 1px solid #4DC742;
+			background: #4DC742;
+			color: #333333;
+		}
+		.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover {
+			border: 1px solid #ffa500;
+			background: #333333;
+			font-weight: normal;
+			color: #FFA500;
+		}
+		.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+			border: 1px solid #ffa500;
+			background: #333333;
+			font-weight: normal;
+			color: #FFA500;
+		}
+		.ui-priority-secondary, .ui-widget-content .ui-priority-secondary, .ui-widget-header .ui-priority-secondary {
+			opacity: 1;
+			filter: Alpha(Opacity=100);
+			/* support: IE8; */
+			font-weight: normal;
+		}
+
 	</style>
 
 	<style>
