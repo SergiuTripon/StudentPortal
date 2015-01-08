@@ -1101,6 +1101,7 @@ font-weight: 600;
 .table-custom tr {
     color: #FFA500;
     border: 1px solid #FFA500;
+    border-bottom: none !important;
 }
 
 .table-custom td {
