@@ -1087,13 +1087,13 @@ table.dataTable thead .sorting_desc_disabled {
 .table-custom {
     font-size: 15px;
     border-collapse: collapse !important;
-    border: 1px solid #FFA500 !important;
+    border: 0px solid #FFA500 !important;
 }
 
 .table-custom th {
     color: #FFA500;
     text-align: center;
-    border: 1px solid #FFA500 !important;
+    border: 0px solid #FFA500 !important;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -1103,7 +1103,7 @@ table.dataTable thead .sorting_desc_disabled {
 
 .table-custom tr {
     color: #FFA500;
-    border: 1px solid #FFA500;
+    border: 0px solid #FFA500;
     border-bottom: none !important;
 }
 
@@ -1111,11 +1111,7 @@ table.dataTable thead .sorting_desc_disabled {
     color: #FFA500;
     text-align: center;
     padding: 7px;
-    border: 1px solid #FFA500;
-}
-
-.table-custom td a, .calendar-table td a:hover {
-    color: #FFA500;
+    border: 0px solid #FFA500;
 }
 
 .notes-hide {
