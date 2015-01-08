@@ -42,6 +42,9 @@ include 'includes/signin.php';
     <![endif]-->
 	
 	<style>
+	#ui-datepicker-div, .ui-datepicker {
+		font-size: 85% !important;
+	}
 	#task_category {
 		background-color: #333333;
     }
