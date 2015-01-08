@@ -155,8 +155,8 @@ else $userid = '';
 	  echo '<tr id="task-'.$row["taskid"].'">
 		
 			<td data-title="Name">'.$row["task_name"].'</td>
-			<td data-title="Notes">'.$row["task_notes"].'</td>
-			<td data-title="External URL">'.$row["task_url"].'</td>
+			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
+			<td class="url-hide" data-title="External URL">'.$row["task_url"].'</td>
 			<td data-title="Start date">'.$row["task_startdate"].'</td>
 			<td data-title="Due date">'.$row["task_duedate"].'</td>
 			<td data-title="Category">'.$row["task_category"].'</td>
