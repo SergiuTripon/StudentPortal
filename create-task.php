@@ -29,7 +29,7 @@ include 'includes/signin.php';
     <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
 
 	<!-- Date Time Picker CSS -->
-	<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" media="all" type="text/css" href="../assets/css/datetimepicker/jquery-ui.min.css" />
 	<link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css">
 
     <!-- Custom styles for this template -->
@@ -206,7 +206,7 @@ include 'includes/signin.php';
     <script src="../assets/js/pace.js"></script>
 
 	<!-- Date Time Picker JS -->
-	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui.min.js"></script>
 	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
 	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
 
