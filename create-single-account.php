@@ -274,14 +274,21 @@ include 'includes/signin.php';
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter a surname">
 	 </div>
 
-    <div class="col-xs-6 col-sm-6 mb20 full-width">
-	<label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" placeholder="Enter a email address">
+    <div class="col-xs-6 col-sm-6 full-width">
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
     </div>
+
+    </div>
+
+	<div class="form-group">
+
+	<div class="col-xs-12 col-sm-12 full-width">
+	<label>Email address</label>
+    <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
+	</div>
 
     </div>
 
@@ -373,21 +380,28 @@ include 'includes/signin.php';
 
     <div class="form-group">
 
-    <div class="col-xs-6 col-sm-6 mb20 full-width">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter a first name">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter a surname">
 	 </div>
 
-    <div class="col-xs-6 col-sm-6 mb20 full-width">
-	<label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
+    <div class="col-xs-6 col-sm-6 full-width">
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
     </div>
+
+    </div>
+
+	<div class="form-group">
+
+	<div class="col-xs-12 col-sm-12 mb20 full-width">
+	<label>Email address</label>
+    <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
+	</div>
 
     </div>
 
