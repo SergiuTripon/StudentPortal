@@ -77,6 +77,39 @@ include 'includes/signin.php';
 	<li><a href="../account/">Account</a></li>
     <li class="active">Create a single account</li>
     </ol>
+
+	<p class="feedback-custom">What type of account do you want to create?</p>
+
+	<div class="row mb10">
+
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+	<a href="/create-task/">
+	<div class="tile">
+	<i class="fa fa-plus"></i>
+	<p class="tile-text">Student</p>
+	</div>
+	</a>
+	</div>
+
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+	<a id="task-button">
+	<div class="tile task-tile">
+	<i class="fa fa-tasks"></i>
+	<p class="tile-text">Lecturer</p>
+	</div>
+	</a>
+	</div>
+
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+	<a id="calendar-button">
+	<div class="tile calendar-tile">
+	<i class="fa fa-calendar"></i>
+	<p class="tile-text">Administrator</p>
+	</div>
+	</a>
+	</div>
+
+		</div><!-- /row -->
 	
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
