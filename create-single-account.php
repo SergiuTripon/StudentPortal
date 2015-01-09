@@ -662,6 +662,59 @@ include 'includes/signin.php';
 	
 	<script>
 	$(document).ready(function() {
+
+	$("#student-toggle").hide();
+	$("#lecturer-toggle").hide();
+	$("#admin-toggle").hide();
+
+	$("#student-button").click(function (e) {
+		e.preventDefault();
+		$("#lecturer-toggle").fadeOut();
+		$("#admin-toggle").fadeOut();
+		$("#student-toggle").fadeIn();
+		$(".lecturer-tile").removeClass("tile-selected");
+		$(".lecturer-tile p").removeClass("tile-text-selected");
+		$(".lecturer-tile i").removeClass("tile-text-selected");
+		$(".admin-tile").removeClass("tile-selected");
+		$(".admin-tile p").removeClass("tile-text-selected");
+		$(".admin-tile i").removeClass("tile-text-selected");
+		$(".student-tile").addClass("tile-selected");
+		$(".student-tile p").addClass("tile-text-selected");
+		$(".student-tile i").addClass("tile-text-selected");
+	});
+
+	$("#lecture-button").click(function (e) {
+		e.preventDefault();
+		$("#student-toggle").fadeOut();
+		$("#admin-toggle").fadeOut();
+		$("#lecturer-toggle").fadeIn();
+		$(".student-tile").removeClass("tile-selected");
+		$(".student-tile p").removeClass("tile-text-selected");
+		$(".student-tile i").removeClass("tile-text-selected");
+		$(".admin-tile").removeClass("tile-selected");
+		$(".admin-tile p").removeClass("tile-text-selected");
+		$(".admin-tile i").removeClass("tile-text-selected");
+		$(".lecturer-tile").addClass("tile-selected");
+		$(".lecturer-tile p").addClass("tile-text-selected");
+		$(".lecturer-tile i").addClass("tile-text-selected");
+	});
+
+	$("#admin-button").click(function (e) {
+		e.preventDefault();
+		$("#student-toggle").fadeOut();
+		$("#lecturer-toggle").fadeOut();
+		$("#admin-toggle").fadeIn();
+		$(".student-tile").removeClass("tile-selected");
+		$(".student-tile p").removeClass("tile-text-selected");
+		$(".student-tile i").removeClass("tile-text-selected");
+		$(".lecturer-tile").removeClass("tile-selected");
+		$(".lecturer-tile p").removeClass("tile-text-selected");
+		$(".lecturer-tile i").removeClass("tile-text-selected");
+		$(".admin-tile").addClass("tile-selected");
+		$(".admin-tile p").addClass("tile-text-selected");
+		$(".admin-tile i").addClass("tile-text-selected");
+	});
+
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -836,58 +889,6 @@ include 'includes/signin.php';
 	
 	return true;
 	
-	});
-
-	$("#student-toggle").hide();
-	$("#lecturer-toggle").hide();
-	$("#admin-toggle").hide();
-
-	$("#student-button").click(function (e) {
-		e.preventDefault();
-		$("#lecturer-toggle").fadeOut();
-		$("#admin-toggle").fadeOut();
-		$("#student-toggle").fadeIn();
-		$(".lecturer-tile").removeClass("tile-selected");
-		$(".lecturer-tile p").removeClass("tile-text-selected");
-		$(".lecturer-tile i").removeClass("tile-text-selected");
-		$(".admin-tile").removeClass("tile-selected");
-		$(".admin-tile p").removeClass("tile-text-selected");
-		$(".admin-tile i").removeClass("tile-text-selected");
-		$(".student-tile").addClass("tile-selected");
-		$(".student-tile p").addClass("tile-text-selected");
-		$(".student-tile i").addClass("tile-text-selected");
-	});
-
-	$("#lecture-button").click(function (e) {
-		e.preventDefault();
-		$("#student-toggle").fadeOut();
-		$("#admin-toggle").fadeOut();
-		$("#lecturer-toggle").fadeIn();
-		$(".student-tile").removeClass("tile-selected");
-		$(".student-tile p").removeClass("tile-text-selected");
-		$(".student-tile i").removeClass("tile-text-selected");
-		$(".admin-tile").removeClass("tile-selected");
-		$(".admin-tile p").removeClass("tile-text-selected");
-		$(".admin-tile i").removeClass("tile-text-selected");
-		$(".lecturer-tile").addClass("tile-selected");
-		$(".lecturer-tile p").addClass("tile-text-selected");
-		$(".lecturer-tile i").addClass("tile-text-selected");
-	});
-
-	$("#admin-button").click(function (e) {
-		e.preventDefault();
-		$("#student-toggle").fadeOut();
-		$("#lecturer-toggle").fadeOut();
-		$("#admin-toggle").fadeIn();
-		$(".student-tile").removeClass("tile-selected");
-		$(".student-tile p").removeClass("tile-text-selected");
-		$(".student-tile i").removeClass("tile-text-selected");
-		$(".lecturer-tile").removeClass("tile-selected");
-		$(".lecturer-tile p").removeClass("tile-text-selected");
-		$(".lecturer-tile i").removeClass("tile-text-selected");
-		$(".admin-tile").addClass("tile-selected");
-		$(".admin-tile p").addClass("tile-text-selected");
-		$(".admin-tile i").addClass("tile-text-selected");
 	});
 
 	});
