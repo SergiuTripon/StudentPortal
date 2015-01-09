@@ -288,17 +288,12 @@ else $userid = '';
 	});
     });
 	</script>
-	
-	<!-- Bootstrap Calendar JS -->
-	<script src="../assets/js/underscore-min.js"></script>
 
 	<!-- Bootstrap JS -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
-	<!-- Bootstrap Calendar JS -->
-	<script src="../assets/js/jstz.min.js"></script>
 
 	<!-- Bootstrap Calendar JS -->
+	<script src="../assets/js/jstz.min.js"></script>
 	<script src="../assets/js/calendar.js"></script>
 	<script src="../assets/js/calendar-app.js"></script>
 	<script src="../assets/js/underscore.min.js"></script>
