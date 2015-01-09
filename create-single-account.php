@@ -666,9 +666,9 @@ include 'includes/signin.php';
 
 	$("#student-button").click(function (e) {
 		e.preventDefault();
-		$("#lecturer-toggle").fadeOut();
-		$("#admin-toggle").fadeOut();
-		$("#student-toggle").fadeIn();
+		$(".lecturer-toggle").fadeOut();
+		$(".admin-toggle").fadeOut();
+		$(".student-toggle").fadeIn();
 		$(".lecturer-tile").removeClass("tile-selected");
 		$(".lecturer-tile p").removeClass("tile-text-selected");
 		$(".lecturer-tile i").removeClass("tile-text-selected");
@@ -682,9 +682,9 @@ include 'includes/signin.php';
 
 	$("#lecture-button").click(function (e) {
 		e.preventDefault();
-		$("#student-toggle").fadeOut();
-		$("#admin-toggle").fadeOut();
-		$("#lecturer-toggle").fadeIn();
+		$(".student-toggle").fadeOut();
+		$(".admin-toggle").fadeOut();
+		$(".lecturer-toggle").fadeIn();
 		$(".student-tile").removeClass("tile-selected");
 		$(".student-tile p").removeClass("tile-text-selected");
 		$(".student-tile i").removeClass("tile-text-selected");
@@ -698,9 +698,9 @@ include 'includes/signin.php';
 
 	$("#admin-button").click(function (e) {
 		e.preventDefault();
-		$("#student-toggle").fadeOut();
-		$("#lecturer-toggle").fadeOut();
-		$("#admin-toggle").fadeIn();
+		$(".student-toggle").fadeOut();
+		$(".lecturer-toggle").fadeOut();
+		$(".admin-toggle").fadeIn();
 		$(".student-tile").removeClass("tile-selected");
 		$(".student-tile p").removeClass("tile-text-selected");
 		$(".student-tile i").removeClass("tile-text-selected");
