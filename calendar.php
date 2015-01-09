@@ -386,13 +386,7 @@ else $userid = '';
 		$(".calendar-tile p").addClass("tile-text-selected");
 		$(".calendar-tile i").addClass("tile-text-selected");
 	});
-	
-	$(".calendar-table tr:has(td:contains(''))").each(function () {
-    $(this).hide();
-	});
 
-
-	
 	});
 
 	</script>
