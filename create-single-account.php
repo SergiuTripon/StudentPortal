@@ -112,7 +112,7 @@ include 'includes/signin.php';
 
 	</div><!-- /row -->
 	
-	<div class="panel-group" id="accordion student-toggle" role="tablist" aria-multiselectable="true">
+	<div class="panel-group student-toggle" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
 
@@ -243,7 +243,7 @@ include 'includes/signin.php';
 	
 	</div><!-- /panel-group -->
 
-	<div class="panel-group" id="accordion lecturer-toggle" role="tablist" aria-multiselectable="true">
+	<div class="panel-group lecturer-toggle" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
 
@@ -374,7 +374,7 @@ include 'includes/signin.php';
 
 	</div><!-- /panel-group -->
 
-	<div class="panel-group" id="accordion admin-toggle" role="tablist" aria-multiselectable="true">
+	<div class="panel-group admin-toggle" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
 
@@ -663,9 +663,9 @@ include 'includes/signin.php';
 	<script>
 	$(document).ready(function() {
 
-	$("#student-toggle").hide();
-	$("#lecturer-toggle").hide();
-	$("#admin-toggle").hide();
+	$(".student-toggle").hide();
+	$(".lecturer-toggle").hide();
+	$(".admin-toggle").hide();
 
 	$("#student-button").click(function (e) {
 		e.preventDefault();
