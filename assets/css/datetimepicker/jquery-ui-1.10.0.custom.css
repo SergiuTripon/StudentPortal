@@ -1269,6 +1269,7 @@ body .ui-tooltip { border-width:2px; }
 
 
 .ui-datepicker td .ui-state-active{
+  color: #333333;
   background:#FFA500;
   margin-bottom:0px;
   font-size:normal;
