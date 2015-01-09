@@ -267,7 +267,7 @@ include 'includes/signin.php';
 
     <div class="form-group">
 
-    <div class="col-xs-6 col-sm-6 mb20 full-width">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter a first name">
     <label>Surname</label>
