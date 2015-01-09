@@ -261,7 +261,7 @@
 
   position: relative;
   margin-bottom: 18px;
-  color: #FFFFFF !important;
+  color: #333333 !important;
   background-color: #FFA500 !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #eedc94 #eedc94 #e4c652;
@@ -1250,8 +1250,8 @@ body .ui-tooltip { border-width:2px; }
 
 
 .ui-datepicker td .ui-state-active{
-  color: #333333 !important;
-  background:#4DC742;
+  color: #FFFFFF !important;
+  background:#4DC742 !important;
   margin-bottom:0px;
   font-size:normal;
   text-shadow: 0px;
