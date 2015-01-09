@@ -174,7 +174,7 @@ include 'includes/signin.php';
 	
     <div class="col-xs-6 col-sm-6 full-width">
 	<label>Date of Birth</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth" readonly/>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
@@ -289,7 +289,7 @@ include 'includes/signin.php';
 
     <div class="col-xs-6 col-sm-6 full-width">
 	<label>Date of Birth</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth" readonly/>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
@@ -397,7 +397,7 @@ include 'includes/signin.php';
 
     <div class="col-xs-6 col-sm-6 full-width">
 	<label>Date of Birth</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth" readonly/>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
