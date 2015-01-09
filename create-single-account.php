@@ -188,7 +188,7 @@ include 'includes/signin.php';
 	
     <div class="col-xs-6 col-sm-6 full-width">
 	<label>Date of Birth (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="datepicker1" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
@@ -319,7 +319,7 @@ include 'includes/signin.php';
 
     <div class="col-xs-6 col-sm-6 full-width">
 	<label>Date of Birth (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="datepicker1" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
@@ -450,7 +450,7 @@ include 'includes/signin.php';
 
     <div class="col-xs-6 col-sm-6 full-width">
 	<label>Date of Birth (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="datepicker1" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
@@ -586,10 +586,7 @@ include 'includes/signin.php';
 
 	<script>
 	$(function () {
-	$('#task_startdate').datetimepicker({
-		dateFormat: "yy-mm-dd", controlType: 'select'
-	});
-	$('#task_duedate').datetimepicker({
+	$('#dateofbirth').datetimepicker({
 		dateFormat: "yy-mm-dd", controlType: 'select'
 	});
 	});
