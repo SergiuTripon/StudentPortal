@@ -398,7 +398,7 @@ include 'includes/signin.php';
 
 	<div class="form-group">
 
-	<div class="col-xs-12 col-sm-12 mb20 full-width">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
 	</div>
