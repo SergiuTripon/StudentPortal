@@ -28,9 +28,10 @@ include 'includes/signin.php';
 
     <!-- Ladda CSS -->
     <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
-	
-	<!-- Bootstrap Date Picker CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css">
+
+	<!-- Date Time Picker CSS -->
+	<link href="../assets/css/datetimepicker/jquery-ui-1.10.0.custom.css" rel='stylesheet' type='text/css'>
+	<link href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css" rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/custom.css" rel="stylesheet">
@@ -83,7 +84,7 @@ include 'includes/signin.php';
 	<div class="row mb10">
 
 	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a href="student-button">
+	<a id="student-button">
 	<div class="tile student-tile">
 	<i class="fa fa-user"></i>
 	<p class="tile-text">Student</p>
@@ -577,17 +578,21 @@ include 'includes/signin.php';
 
 	<!-- Bootstrap JS -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
-	<!-- Bootstrap Date Picker JS -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-	<script src="../assets/js/bootstrap-datetimepicker.js"></script>
+
+	<!-- Date Time Picker JS -->
+	<script src="../assets/js/datetimepicker/jquery-ui-1.10.0.custom.min.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
 
 	<script>
-    $(function () {
-        $('#datepicker1').datetimepicker({
-            pickTime: false
-        });
-    });
+	$(function () {
+	$('#task_startdate').datetimepicker({
+		dateFormat: "yy-mm-dd", controlType: 'select'
+	});
+	$('#task_duedate').datetimepicker({
+		dateFormat: "yy-mm-dd", controlType: 'select'
+	});
+	});
 	</script>
 
 	<!-- Spin JS -->
