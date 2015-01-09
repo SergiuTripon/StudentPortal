@@ -118,7 +118,7 @@ include 'includes/signin.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a single account</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a student account</a>
 	</h4>
     </div>
 
@@ -249,7 +249,7 @@ include 'includes/signin.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a single account</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a lecturer account</a>
 	</h4>
     </div>
 
@@ -380,7 +380,7 @@ include 'includes/signin.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a single account</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create an administrator account</a>
 	</h4>
     </div>
 
