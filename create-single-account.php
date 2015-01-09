@@ -129,24 +129,10 @@ include 'includes/signin.php';
 	<!-- Create a student account -->
     <div class="content-panel mb10" style="border: none;">
     
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
+	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createstudentaccount_form" id="createstudentaccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
-	
-    <div class="form-group">
-	
-    <div class="col-xs-12 col-sm-12 full-width">
-    <label>Account type</label>
-    <select class="form-control" name="account_type" id="account_type">
-    <option style="color:gray" value="null" disabled selected>Select an account type</option>
-    <option style="color: #FFA500" class="others">student</option>
-    <option style="color: #FFA500" class="others">lecturer</option>
-    <option style="color: #FFA500" class="others">admin</option>
-    </select>
-    </div>
-	
-    </div>
 
 	<div class="form-group">
     
@@ -166,16 +152,16 @@ include 'includes/signin.php';
 	
     <div class="col-xs-6 col-sm-6 mb20 full-width">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
+    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter a first name">
     <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
+    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter a surname">
 	<label for="studentno">Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
+    <input class="form-control" type="text" name="studentno" id="studentno" placeholder="Enter a student number">
 	 </div>
 
     <div class="col-xs-6 col-sm-6 mb20 full-width">
 	<label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
+    <input class="form-control" type="email" name="email" id="email" placeholder="Enter a email address">
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
 	<label>Confirm password</label>
@@ -187,12 +173,12 @@ include 'includes/signin.php';
     <div class="form-group">
 	
     <div class="col-xs-6 col-sm-6 full-width">
-	<label>Date of Birth (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
+	<label>Date of Birth</label>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth" readonly/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
-    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
+    <input class="form-control" type="text" name="phonenumber" id="phonenumber" placeholder="Enter a phone number">
     </div>
 	
     </div>
@@ -201,7 +187,7 @@ include 'includes/signin.php';
 	
     <div class="col-xs-12 col-sm-12 mb20 full-width">
     <label for="degree">Programme of Study</label>
-    <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
+    <input class="form-control" type="text" name="degree" id="degree" placeholder="Enter a programme of study">
     </div>
 	
     </div>
@@ -210,20 +196,20 @@ include 'includes/signin.php';
     
 	<div class="col-xs-6 col-sm-6 full-width">
     <label>Address line 1</label>
-    <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
+    <input class="form-control" type="text" name="address1" id="address1" placeholder="Enter a address line 1">
     <label>Address 2 line (Optional)</label>
-    <input class="form-control" type="text" name="address2" id="address2" value="" placeholder="Enter a address line 2 (Optional)">
+    <input class="form-control" type="text" name="address2" id="address2" placeholder="Enter a address line 2 (Optional)">
     <label>Town</label>
-    <input class="form-control" type="text" name="town" id="town" value="" placeholder="Enter a town">
+    <input class="form-control" type="text" name="town" id="town" placeholder="Enter a town">
 	</div>
 
     <div class="col-xs-6 col-sm-6 full-width">
     <label>City</label>
-    <input class="form-control" type="text" name="city" id="city" value="" placeholder="Enter a city">
+    <input class="form-control" type="text" name="city" id="city" placeholder="Enter a city">
     <label>Country</label>
     <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     <label>Postcode</label>
-    <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
+    <input class="form-control" type="text" name="postcode" id="postcode" placeholder="Enter a postcode">
     </div>
     
 	</div>
@@ -260,24 +246,10 @@ include 'includes/signin.php';
 	<!-- Create a lecturer account -->
     <div class="content-panel mb10" style="border: none;">
 
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
+	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createlectureraccount_form" id="createlectureraccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
-
-    <div class="form-group">
-
-    <div class="col-xs-12 col-sm-12 full-width">
-    <label>Account type</label>
-    <select class="form-control" name="account_type" id="account_type">
-    <option style="color:gray" value="null" disabled selected>Select an account type</option>
-    <option style="color: #FFA500" class="others">student</option>
-    <option style="color: #FFA500" class="others">lecturer</option>
-    <option style="color: #FFA500" class="others">admin</option>
-    </select>
-    </div>
-
-    </div>
 
 	<div class="form-group">
 
@@ -297,16 +269,14 @@ include 'includes/signin.php';
 
     <div class="col-xs-6 col-sm-6 mb20 full-width">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
+    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter a first name">
     <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
-	<label for="studentno">Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
+    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter a surname">
 	 </div>
 
     <div class="col-xs-6 col-sm-6 mb20 full-width">
 	<label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
+    <input class="form-control" type="email" name="email" id="email" placeholder="Enter a email address">
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
 	<label>Confirm password</label>
@@ -318,21 +288,12 @@ include 'includes/signin.php';
     <div class="form-group">
 
     <div class="col-xs-6 col-sm-6 full-width">
-	<label>Date of Birth (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
+	<label>Date of Birth</label>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth" readonly/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
-    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
-    </div>
-
-    </div>
-
-    <div class="form-group">
-
-    <div class="col-xs-12 col-sm-12 mb20 full-width">
-    <label for="degree">Programme of Study</label>
-    <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
+    <input class="form-control" type="text" name="phonenumber" id="phonenumber" placeholder="Enter a phone number">
     </div>
 
     </div>
@@ -341,20 +302,20 @@ include 'includes/signin.php';
 
 	<div class="col-xs-6 col-sm-6 full-width">
     <label>Address line 1</label>
-    <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
+    <input class="form-control" type="text" name="address1" id="address1" placeholder="Enter a address line 1">
     <label>Address 2 line (Optional)</label>
-    <input class="form-control" type="text" name="address2" id="address2" value="" placeholder="Enter a address line 2 (Optional)">
+    <input class="form-control" type="text" name="address2" id="address2" placeholder="Enter a address line 2 (Optional)">
     <label>Town</label>
-    <input class="form-control" type="text" name="town" id="town" value="" placeholder="Enter a town">
+    <input class="form-control" type="text" name="town" id="town" placeholder="Enter a town">
 	</div>
 
     <div class="col-xs-6 col-sm-6 full-width">
     <label>City</label>
-    <input class="form-control" type="text" name="city" id="city" value="" placeholder="Enter a city">
+    <input class="form-control" type="text" name="city" id="city" placeholder="Enter a city">
     <label>Country</label>
     <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     <label>Postcode</label>
-    <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
+    <input class="form-control" type="text" name="postcode" id="postcode" placeholder="Enter a postcode">
     </div>
 
 	</div>
@@ -391,24 +352,10 @@ include 'includes/signin.php';
 	<!-- Create an admin account -->
     <div class="content-panel mb10" style="border: none;">
 
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
+	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createadminaccount_form" id="createadminaccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
-
-    <div class="form-group">
-
-    <div class="col-xs-12 col-sm-12 full-width">
-    <label>Account type</label>
-    <select class="form-control" name="account_type" id="account_type">
-    <option style="color:gray" value="null" disabled selected>Select an account type</option>
-    <option style="color: #FFA500" class="others">student</option>
-    <option style="color: #FFA500" class="others">lecturer</option>
-    <option style="color: #FFA500" class="others">admin</option>
-    </select>
-    </div>
-
-    </div>
 
 	<div class="form-group">
 
@@ -428,11 +375,11 @@ include 'includes/signin.php';
 
     <div class="col-xs-6 col-sm-6 mb20 full-width">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
+    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter a first name">
     <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
-	<label for="studentno">Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
+    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter a surname">
+	<label>Student number</label>
+    <input class="form-control" type="text" name="studentno" id="studentno" placeholder="Enter a student number">
 	 </div>
 
     <div class="col-xs-6 col-sm-6 mb20 full-width">
@@ -449,21 +396,12 @@ include 'includes/signin.php';
     <div class="form-group">
 
     <div class="col-xs-6 col-sm-6 full-width">
-	<label>Date of Birth (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
+	<label>Date of Birth</label>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth" readonly/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
-    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
-    </div>
-
-    </div>
-
-    <div class="form-group">
-
-    <div class="col-xs-12 col-sm-12 mb20 full-width">
-    <label for="degree">Programme of Study</label>
-    <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
+    <input class="form-control" type="text" name="phonenumber" id="phonenumber" placeholder="Enter a phone number">
     </div>
 
     </div>
@@ -472,20 +410,20 @@ include 'includes/signin.php';
 
 	<div class="col-xs-6 col-sm-6 full-width">
     <label>Address line 1</label>
-    <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
+    <input class="form-control" type="text" name="address1" id="address1" placeholder="Enter a address line 1">
     <label>Address 2 line (Optional)</label>
-    <input class="form-control" type="text" name="address2" id="address2" value="" placeholder="Enter a address line 2 (Optional)">
+    <input class="form-control" type="text" name="address2" id="address2" placeholder="Enter a address line 2 (Optional)">
     <label>Town</label>
-    <input class="form-control" type="text" name="town" id="town" value="" placeholder="Enter a town">
+    <input class="form-control" type="text" name="town" id="town" placeholder="Enter a town">
 	</div>
 
     <div class="col-xs-6 col-sm-6 full-width">
     <label>City</label>
-    <input class="form-control" type="text" name="city" id="city" value="" placeholder="Enter a city">
+    <input class="form-control" type="text" name="city" id="city" placeholder="Enter a city">
     <label>Country</label>
     <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     <label>Postcode</label>
-    <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
+    <input class="form-control" type="text" name="postcode" id="postcode" placeholder="Enter a postcode">
     </div>
 
 	</div>
