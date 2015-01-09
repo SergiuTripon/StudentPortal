@@ -378,8 +378,6 @@ include 'includes/signin.php';
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter a first name">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter a surname">
-	<label>Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" placeholder="Enter a student number">
 	 </div>
 
     <div class="col-xs-6 col-sm-6 mb20 full-width">
