@@ -280,8 +280,8 @@
 
   position: relative;
   margin-bottom: 18px;
-  color: #FFFFFF;
-  background-color: #4DC742;
+  color: #FFFFFF !important;
+  background-color: #4DC742 !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #eedc94 #eedc94 #e4c652;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
