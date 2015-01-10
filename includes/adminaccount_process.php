@@ -27,7 +27,7 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
 
     if ($studentno = '') {
-        $studentno = 'none';
+        $studentno = 'none1';
     }
     if ($dateofbirth = '') {
         $dateofbirth = 'NULL';
