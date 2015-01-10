@@ -26,8 +26,8 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $country = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING);
     $postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
 
-    if ($dateofbirth = '') {
-        $dateofbirth = 'NULL';
+    if (empty($dateofbirth)) {
+        $dateofbirth = NULL;
     }
     if ($account_type = 'student') {
     $fee_amount = '9000.00';
