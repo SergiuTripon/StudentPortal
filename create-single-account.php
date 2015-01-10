@@ -28,9 +28,6 @@ include 'includes/signin.php';
 
     <!-- Ladda CSS -->
     <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
-	
-	<!-- Bootstrap Date Picker CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/custom.css" rel="stylesheet">
@@ -282,18 +279,6 @@ include 'includes/signin.php';
 
 	<!-- Bootstrap JS -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
-	<!-- Bootstrap Date Picker JS -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-	<script src="../assets/js/bootstrap-datetimepicker.js"></script>
-
-	<script>
-    $(function () {
-        $('#datepicker1').datetimepicker({
-            pickTime: false
-        });
-    });
-	</script>
 
 	<!-- Spin JS -->
 	<script src="../assets/js/spin.min.js"></script>
