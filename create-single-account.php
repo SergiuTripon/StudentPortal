@@ -311,6 +311,11 @@ include 'includes/signin.php';
   		} else {
 			$('#gender').css('color', '#FFA500');
 		}
+		if($(this).val() = 'student'){
+			$('.breadcrumb').hide();
+		} else {
+			$('.breadcrumb').show();
+		}
 	});
 
 	$('#account_type').css('color', 'gray');
