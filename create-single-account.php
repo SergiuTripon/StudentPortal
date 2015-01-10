@@ -400,6 +400,7 @@ include 'includes/signin.php';
 	}
 
 	if (account_type === 'student') {
+		studentno = $("#studentno").val();
 		if(studentno === '') {
 			$("#error").show();
 			$("#error").empty().append("Please enter a student number.");
