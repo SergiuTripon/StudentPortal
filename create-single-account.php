@@ -333,8 +333,6 @@ include 'includes/signin.php';
     });
 
 	});
-
-    });
 	</script>
 	
 	<script>
