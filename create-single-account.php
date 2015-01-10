@@ -315,14 +315,13 @@ include 'includes/signin.php';
 
 	$('#account_type').css('color', 'gray');
 
-    $('#account_type').change(function () {
-    var current = $('#account_type').val();
-	if (current != '') {
-        $('#account_type').css('color', '#FFA500');
-	} else {
-		$('#account_type').css('color', 'gray');
-	}
-    });
+	$('#account_type').change(function(){
+		if($(this).val() = ''){
+			$('#account_type').css('color', 'gray');
+		} else {
+			$('#account_type').css('color', '#FFA500');
+		}
+	});
 
     });
 	</script>
