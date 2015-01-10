@@ -296,46 +296,11 @@ include 'includes/signin.php';
 	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
-		// Bind normal buttons
-		Ladda.bind('.ladda-button', {timeout: 2000});
+	Ladda.bind('.ladda-button', {timeout: 2000});
 	</script>
 	
 	<script>
     $(document).ready(function () {
-
-	$('#account_type').css('color', 'gray');
-
-	$('#account_type').change(function(){
-
-		var current = $('#account_type').val();
-
-		if (current = ''){
-			$('#account_type').css('color', 'gray');
-		} else {
-			$('#account_type').css('color', '#FFA500');
-		}
-		if(current = 'lecturer'){
-			$('#studentno').hide();
-			$('#degree').hide();
-		}
-		if(current = 'admin'){
-			$('#studentno').hide();
-			$('#degree').hide();
-		}
-	});
-
-	$('#gender').css('color', 'gray');
-
-	$('#gender').change(function(){
-
-		var current1 = $('#gender').val();
-
-  		if(current1 = ''){
-			$('#gender').css('color', 'gray');
-  		} else {
-			$('#gender').css('color', '#FFA500');
-		}
-	});
 
     });
 	</script>
