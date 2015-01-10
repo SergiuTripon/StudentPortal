@@ -303,16 +303,15 @@ include 'includes/signin.php';
 	<script>
     $(document).ready(function () {
 
-    $('#gender').css('color', 'gray');
+	$('#gender').css('color', 'gray');
 
-    $('#gender').change(function () {
-    var current = $('#gender').val();
-	if (current != '') {
-        $('#gender').css('color', '#FFA500');
-	} else {
-		$('#gender').css('color', 'gray');
-	}
-    });
+	$('#gender').change(function(){
+  		if($(this).val() = ''){
+			$('#gender').css('color', 'gray');
+  		} else {
+			$('#gender').css('color', '#FFA500');
+		}
+	});
 
 	$('#account_type').css('color', 'gray');
 
