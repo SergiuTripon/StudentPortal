@@ -308,13 +308,11 @@ include 'includes/signin.php';
 	$('#account_type').change(function(){
 		if($(this).val() = ''){
 			$('#account_type').css('color', 'gray');
-		} else {
-			$('#account_type').css('color', '#FFA500');
 		}
 		else if($(this).val() = 'student'){
 			$('.breadcrumb').hide();
 		} else {
-			$('.breadcrumb').show();
+			$('#account_type').css('color', '#FFA500');
 		}
 	});
 
