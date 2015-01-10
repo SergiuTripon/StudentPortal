@@ -306,10 +306,13 @@ include 'includes/signin.php';
 	$('#account_type').css('color', 'gray');
 
 	$('#account_type').change(function(){
-		if($(this).val() = ''){
+
+		current = $('#account_type').val();
+
+		if (current = ''){
 			$('#account_type').css('color', 'gray');
 		}
-		else if($(this).val() = 'student'){
+		else if(current = 'student'){
 			$('.breadcrumb').hide();
 		} else {
 			$('#account_type').css('color', '#FFA500');
