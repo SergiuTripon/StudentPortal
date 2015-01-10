@@ -56,7 +56,7 @@ if(isset($_POST["gender"], $_POST["firstname"], $_POST["surname"], $_POST["stude
 	$stmt3->close();
 	
 	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, studentno, firstname, surname, created_on) VALUES (?, ?, ?, ?, ?)");
-	$stmt4->bind_param('sssss', $gender, $studentno, $firstname, $surname, $created_on);
+	$stmt4->bind_param('sisss', $gender, $studentno, $firstname, $surname, $created_on);
 	$stmt4->execute();
 	$stmt4->close();
 	
