@@ -336,35 +336,6 @@ include 'includes/signin.php';
 	}
     });
 
-	$('#account_type').change(function(){
-
-	if($(this).val() == 'student'){
-		$('label[for="studentno"]').show();
-		$('#studentno').show();
-		$('label[for="degree"]').show();
-		$('#degree').show();
-
-		studentno1 = $("#studentno").val();
-
-		if(studentno1 === '') {
-			$("#error").show();
-			$("#error").empty().append("Please enter a student number.");
-			$("#studentno").css("border-color", "#FF5454");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error").hide();
-			$("#studentno").css("border-color", "#4DC742");
-		}
-		} else {
-			$('label[for="studentno"]').show();
-			$('#studentno').show();
-			$('label[for="degree"]').show();
-			$('#degree').show();
-			studentno1 = $("#studentno").val();
-		}
-	});
-
     });
 	</script>
 	
@@ -376,6 +347,7 @@ include 'includes/signin.php';
 	var hasError = false;
 	
 	account_type1 = $('#account_type option:selected').val();
+
 	if (account_type1 === 'null') {
         $("#error").empty().append("Please select an account type.");
 		$("#account_type").css("border-color", "#FF5454");
