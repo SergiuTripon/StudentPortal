@@ -72,27 +72,37 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $stmt2->close();
     }
 
+    $stmt3 = $mysqli->prepare("SELECT userid FROM user_signin ORDER BY userid DESC LIMIT 1");
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($userid);
+    $stmt3->fetch();
+
+    if (empty($studentno)) {
+        $studentnoe = $userid + 1;
+    }
+
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-    $stmt3 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
-    $stmt3->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
-    $stmt3->execute();
-    $stmt3->close();
-
-    $stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, studentno, dateofbirth, phonenumber, degree, address1, address2, town, city, country, postcode, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt4->bind_param('sssissssssssss', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $country, $postcode, $created_on);
+    $stmt4 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
+    $stmt4->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
     $stmt4->execute();
     $stmt4->close();
 
-    $token = null;
-
-    $stmt5 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
-    $stmt5->bind_param('s', $token);
+    $stmt5 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, studentno, dateofbirth, phonenumber, degree, address1, address2, town, city, country, postcode, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt5->bind_param('sssissssssssss', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $country, $postcode, $created_on);
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("INSERT INTO user_fees (fee_amount, created_on) VALUES (?, ?)");
-    $stmt6->bind_param('is', $fee_amount, $created_on);
+    $token = null;
+
+    $stmt6 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
+    $stmt6->bind_param('s', $token);
     $stmt6->execute();
     $stmt6->close();
+
+    $stmt7 = $mysqli->prepare("INSERT INTO user_fees (fee_amount, created_on) VALUES (?, ?)");
+    $stmt7->bind_param('is', $fee_amount, $created_on);
+    $stmt7->execute();
+    $stmt7->close();
 }
