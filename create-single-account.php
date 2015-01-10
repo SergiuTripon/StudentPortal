@@ -311,7 +311,7 @@ include 'includes/signin.php';
 		} else {
 			$('#account_type').css('color', '#FFA500');
 		}
-		if($(this).val() = 'student'){
+		else if($(this).val() = 'student'){
 			$('.breadcrumb').hide();
 		} else {
 			$('.breadcrumb').show();
