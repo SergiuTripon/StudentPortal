@@ -344,6 +344,14 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#account_type").css("border-color", "#4DC742");
 	}
+
+	if (account_type === 'student') {
+		$("#studentno").show();
+		$("#degree").show();
+	} else {
+		$("#studentno").hide();
+		$("#degree").hide();
+	}
 	
 	gender = $('#gender option:selected').val();
 	if (gender === 'null') {
@@ -380,16 +388,6 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#surname").css("border-color", "#4DC742");
 	}
-
-	$('#account_type').change(function(){
-		if($(this).val() == 'student'){
-			$('#studentno').show();
-			$('#degree').show();
-		} else {
-			$('#studentno').hide();
-			$('#degree').hide();
-		}
-	});
 
 	studentno = $("#studentno").val();
 	if(studentno === '') {
