@@ -94,8 +94,8 @@ include 'includes/signin.php';
     
 	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
 
-    <p id="error" class="sad-feedback text-center"></p>
-	<p id="success" class="happy-feedback text-center"></p>
+    <p id="error" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-happy text-center"></p>
 	
     <div class="form-group">
 	
@@ -381,28 +381,27 @@ include 'includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	$('#account_type').change(function () {
-    var current = $('#account_type').val();
-	if (current = 'student') {
-		studentno = $("#studentno").val();
-		if(studentno === '') {
-			$("#studentno").show();
-			$("#degree").show();
-			$("#error").show();
-			$("#error").empty().append("Please enter a student number.");
-			$("#studentno").css("border-color", "#FF5454");
-			hasError  = true;
-			return false;
+	$('#account_type').change(function(){
+		if($(this).val() == 'student'){
+			$('#studentno').show();
+			$('#degree').show();
 		} else {
-			$("#error").hide();
-			$("#studentno").css("border-color", "#4DC742");
+			$('#studentno').hide();
+			$('#degree').hide();
 		}
+	});
+
+	studentno = $("#studentno").val();
+	if(studentno === '') {
+		$("#error").show();
+		$("#error").empty().append("Please enter a student number.");
+		$("#studentno").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
 	} else {
-		 $("#studentno").hide();
-		$("#degree").hide();
-		studentno = $("#studentno").val();
+		$("#error").hide();
+		$("#studentno").css("border-color", "#4DC742");
 	}
-    });
 	
 	email = $("#email").val();
 	if(email === '') {
