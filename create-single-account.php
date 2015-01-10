@@ -303,6 +303,16 @@ include 'includes/signin.php';
 	<script>
     $(document).ready(function () {
 
+	$('#account-type').change(function(){
+		if($(this).val() === 'student'){
+			$('#studentno').show();
+			$('#degree').show();
+		} else {
+			$('#studentno').hide();
+			$('#degree').hide();
+		}
+	});
+
     $('#gender').css('color', 'gray');
 
     $('#gender').change(function () {
@@ -323,16 +333,9 @@ include 'includes/signin.php';
 	} else {
 		$('#account_type').css('color', 'gray');
 	}
-	if (current = 'student') {
-		$('#studentno').show();
-		$('#degree').show();
-	} else {
-		$('#studentno').hide();
-		$('#degree').hide();
-	}
     });
 
-	});
+    });
 	</script>
 	
 	<script>
