@@ -317,7 +317,12 @@ include 'includes/signin.php';
 		if(current = 'student'){
 			$('#studentno').show();
 			$('#degree').show();
-		} else {
+		}
+		if(current = 'lecturer'){
+			$('#studentno').hide();
+			$('#degree').hide();
+		}
+		if(current = 'admin'){
 			$('#studentno').hide();
 			$('#degree').hide();
 		}
