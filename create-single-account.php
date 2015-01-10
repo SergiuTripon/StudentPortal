@@ -323,16 +323,15 @@ include 'includes/signin.php';
 	} else {
 		$('#account_type').css('color', 'gray');
 	}
+	if (current = 'student') {
+		$('#studentno').show();
+		$('#degree').show();
+	} else {
+		$('#studentno').hide();
+		$('#degree').hide();
+	}
     });
 
-	$('#account-type').change(function(){
-		if($(this).val() == 'student'){
-			$('#studentno').show();
-			$('#degree').show();
-		} else {
-			$('#studentno').hide();
-			$('#degree').hide();
-		}
 	});
 
     });
