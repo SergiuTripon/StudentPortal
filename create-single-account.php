@@ -303,13 +303,13 @@ include 'includes/signin.php';
 	<script>
     $(document).ready(function () {
 
-	$('#gender').css('color', 'gray');
+	$('#account_type').css('color', 'gray');
 
-	$('#gender').change(function(){
-  		if($(this).val() = ''){
-			$('#gender').css('color', 'gray');
-  		} else {
-			$('#gender').css('color', '#FFA500');
+	$('#account_type').change(function(){
+		if($(this).val() = ''){
+			$('#account_type').css('color', 'gray');
+		} else {
+			$('#account_type').css('color', '#FFA500');
 		}
 		if($(this).val() = 'student'){
 			$('.breadcrumb').hide();
@@ -318,13 +318,13 @@ include 'includes/signin.php';
 		}
 	});
 
-	$('#account_type').css('color', 'gray');
+	$('#gender').css('color', 'gray');
 
-	$('#account_type').change(function(){
-		if($(this).val() = ''){
-			$('#account_type').css('color', 'gray');
-		} else {
-			$('#account_type').css('color', '#FFA500');
+	$('#gender').change(function(){
+  		if($(this).val() = ''){
+			$('#gender').css('color', 'gray');
+  		} else {
+			$('#gender').css('color', '#FFA500');
 		}
 	});
 
