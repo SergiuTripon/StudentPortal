@@ -28,6 +28,9 @@ include 'includes/signin.php';
 
     <!-- Ladda CSS -->
     <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
+	
+	<!-- Bootstrap Date Picker CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/custom.css" rel="stylesheet">
@@ -132,7 +135,7 @@ include 'includes/signin.php';
     <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
-	<label>Student number</label>
+	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
 	 </div>
 
@@ -163,7 +166,7 @@ include 'includes/signin.php';
     <div class="form-group">
 	
     <div class="col-xs-12 col-sm-12 mb20 full-width">
-    <label>Programme of Study</label>
+    <label for="degree">Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
     </div>
 	
@@ -279,6 +282,18 @@ include 'includes/signin.php';
 
 	<!-- Bootstrap JS -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap Date Picker JS -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	<script src="../assets/js/bootstrap-datetimepicker.js"></script>
+
+	<script>
+    $(function () {
+        $('#datepicker1').datetimepicker({
+            pickTime: false
+        });
+    });
+	</script>
 
 	<!-- Spin JS -->
 	<script src="../assets/js/spin.min.js"></script>
@@ -296,11 +311,51 @@ include 'includes/signin.php';
 	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
-	Ladda.bind('.ladda-button', {timeout: 2000});
+		// Bind normal buttons
+		Ladda.bind('.ladda-button', {timeout: 2000});
 	</script>
 	
 	<script>
     $(document).ready(function () {
+    $('#gender').css('color', 'gray');
+    $('#gender').change(function () {
+    var current = $('#gender').val();
+	if (current != '') {
+        $('#gender').css('color', '#FFA500');
+	} else {
+		$('#gender').css('color', 'gray');
+	}
+    });
+	$('#account_type').css('color', 'gray');
+    $('#account_type').change(function () {
+    var current = $('#account_type').val();
+	if (current != '') {
+        $('#account_type').css('color', '#FFA500');
+	} else {
+		$('#account_type').css('color', 'gray');
+	}
+    });
+
+	$('#account_type').change(function(){
+		if($(this).val() == 'student'){
+			$('label[for="studentno"]').show();
+			$('#studentno').show();
+			$('label[for="degree"]').show();
+			$('#degree').show();
+		}
+		if($(this).val() == 'lecturer'){
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
+		if($(this).val() == 'admin'){
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
+	});
 
     });
 	</script>
@@ -312,8 +367,8 @@ include 'includes/signin.php';
 	
 	var hasError = false;
 	
-	account_type = $('#account_type option:selected').val();
-	if (account_type === 'null') {
+	account_type1 = $('#account_type option:selected').val();
+	if (account_type1 === 'null') {
         $("#error").empty().append("Please select an account type.");
 		$("#account_type").css("border-color", "#FF5454");
 		hasError  = true;
@@ -322,17 +377,9 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#account_type").css("border-color", "#4DC742");
 	}
-
-	if (account_type === 'student') {
-		$("#studentno").show();
-		$("#degree").show();
-	} else {
-		$("#studentno").hide();
-		$("#degree").hide();
-	}
 	
-	gender = $('#gender option:selected').val();
-	if (gender === 'null') {
+	gender1 = $('#gender option:selected').val();
+	if (gender1 === 'null') {
 		$("#error").show();
         $("#error").empty().append("Please select a gender.");
 		$("#gender").css("border-color", "#FF5454");
@@ -343,8 +390,8 @@ include 'includes/signin.php';
 		$("#gender").css("border-color", "#4DC742");
 	}
 	
-	firstname = $("#firstname").val();
-	if(firstname === '') {
+	firstname1 = $("#firstname").val();
+	if(firstname1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
@@ -355,8 +402,8 @@ include 'includes/signin.php';
 		$("#firstname").css("border-color", "#4DC742");
 	}
 	
-	surname = $("#surname").val();
-	if(surname === '') {
+	surname1 = $("#surname").val();
+	if(surname1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
@@ -367,20 +414,25 @@ include 'includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	studentno = $("#studentno").val();
-	if(studentno === '') {
+	if (account_type1 === 'student') {
+		studentno1 = $("#studentno").val();
+	}
+
+	if(studentno1 === '') {
 		$("#error").show();
-		$("#error").empty().append("Please enter a student number.");
+        $("#error").empty().append("Please enter a student number.");
 		$("#studentno").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
-	} else {
+    } else {
 		$("#error").hide();
 		$("#studentno").css("border-color", "#4DC742");
 	}
+
+	studentno1 = $("#studentno").val();
 	
-	email = $("#email").val();
-	if(email === '') {
+	email1 = $("#email").val();
+	if(email1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -391,8 +443,8 @@ include 'includes/signin.php';
 		$("#email").css("border-color", "#4DC742");
 	}
 	
-	password = $("#password").val();
-	if(password === '') {
+	password1 = $("#password").val();
+	if(password1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
@@ -403,9 +455,9 @@ include 'includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 	}
 	
-	if (password.length < 6) {
+	if (password1.length < 6) {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -418,19 +470,19 @@ include 'includes/signin.php';
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 	
-	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#error").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	}
 	
-	confirmpwd = $("#confirmpwd").val();
-	if(confirmpwd === '') {
+	confirmpwd1 = $("#confirmpwd").val();
+	if(confirmpwd1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
@@ -441,9 +493,9 @@ include 'includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	if(password != confirmpwd) {
+	if(password1 != confirmpwd1) {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#error").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
@@ -454,22 +506,22 @@ include 'includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	dateofbirth = $("#dateofbirth").val();
-	phonenumber = $("#phonenumber").val();
-	degree = $("#degree").val();
-	address1 = $("#address1").val();
-	address2 = $("#address2").val();
-	town = $("#town").val();
-	city = $("#city").val();
-	country = $("#country").val();
-	postcode = $("#postcode").val();
+	dateofbirth1 = $("#dateofbirth").val();
+	phonenumber1 = $("#phonenumber").val();
+	degree1 = $("#degree").val();
+	address11 = $("#address1").val();
+	address21 = $("#address2").val();
+	town1 = $("#town").val();
+	city1 = $("#city").val();
+	country1 = $("#country").val();
+	postcode1 = $("#postcode").val();
 
 	
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/adminaccount_process.php",
-    data:'account_type=' + account_type + '&gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&degree=' + degree + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
+	url: "http://test.student-portal.co.uk/includes/account_process.php",
+    data:'account_type1=' + account_type1 + '&gender1=' + gender1 + '&firstname1=' + firstname1 + '&surname1=' + surname1 + '&studentno1=' + studentno1 + '&email1=' + email1 + '&password1=' + password1 + '&confirmpwd1=' + confirmpwd1 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(response){
 		$("#error").hide();
 		$("#success").empty().append('Account created successfully. To create another account, simply fill in the form again.');
