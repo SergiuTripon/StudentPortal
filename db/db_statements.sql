@@ -26,7 +26,7 @@ ON DELETE CASCADE
 
 CREATE TABLE `student_portal`.`user_details` (
 	`userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
-	`studentno` VARCHAR(9) NOT NULL,
+	`studentno` INT(9) NOT NULL UNIQUE,
 	`firstname` VARCHAR(70) NOT NULL,
 	`surname` VARCHAR(70) NOT NULL,
 	`gender` VARCHAR(6) NOT NULL,

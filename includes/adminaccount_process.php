@@ -26,9 +26,6 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $country = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING);
     $postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
 
-    if ($studentno = '') {
-        $studentno1 = 'none';
-    }
     if ($dateofbirth = '') {
         $dateofbirth = 'NULL';
     }
@@ -83,7 +80,7 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $stmt3->close();
 
     $stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, studentno, dateofbirth, phonenumber, degree, address1, address2, town, city, country, postcode, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt4->bind_param('ssssssssssssss', $gender, $firstname, $surname, $studentno1, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $country, $postcode, $created_on);
+    $stmt4->bind_param('sssissssssssss', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $country, $postcode, $created_on);
     $stmt4->execute();
     $stmt4->close();
 
