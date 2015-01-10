@@ -28,10 +28,9 @@ include 'includes/signin.php';
 
     <!-- Ladda CSS -->
     <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
-
-	<!-- Date Time Picker CSS -->
-	<link href="../assets/css/datetimepicker/jquery-ui-1.10.0.custom.css" rel='stylesheet' type='text/css'>
-	<link href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css" rel='stylesheet' type='text/css'>
+	
+	<!-- Bootstrap Date Picker CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/custom.css" rel="stylesheet">
@@ -78,47 +77,14 @@ include 'includes/signin.php';
 	<li><a href="../account/">Account</a></li>
     <li class="active">Create a single account</li>
     </ol>
-
-	<p class="feedback-custom text-center">What type of account do you want to create?</p>
-
-	<div class="row mb10">
-
-	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a id="student-button">
-	<div class="tile student-tile">
-	<i class="fa fa-user"></i>
-	<p class="tile-text">Student</p>
-	</div>
-	</a>
-	</div>
-
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-	<a id="lecture-button">
-	<div class="tile lecturer-tile">
-	<i class="fa fa-user"></i>
-	<p class="tile-text">Lecturer</p>
-	</div>
-	</a>
-	</div>
-
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-	<a id="admin-button">
-	<div class="tile admin-tile">
-	<i class="fa fa-user"></i>
-	<p class="tile-text">Administrator</p>
-	</div>
-	</a>
-	</div>
-
-	</div><!-- /row -->
 	
-	<div class="panel-group student-toggle" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a student account</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a single account</a>
 	</h4>
     </div>
 
@@ -126,13 +92,27 @@ include 'includes/signin.php';
     
 	<div class="panel-body">
 	
-	<!-- Create a student account -->
+	<!-- Create single account -->
     <div class="content-panel mb10" style="border: none;">
     
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createstudentaccount_form" id="createstudentaccount_form" novalidate>
+	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
+	
+    <div class="form-group">
+	
+    <div class="col-xs-12 col-sm-12 full-width">
+    <label>Account type</label>
+    <select class="form-control" name="account_type" id="account_type">
+    <option style="color:gray" value="null" disabled selected>Select an account type</option>
+    <option style="color: #FFA500" class="others">student</option>
+    <option style="color: #FFA500" class="others">lecturer</option>
+    <option style="color: #FFA500" class="others">admin</option>
+    </select>
+    </div>
+	
+    </div>
 
 	<div class="form-group">
     
@@ -152,16 +132,16 @@ include 'includes/signin.php';
 	
     <div class="col-xs-6 col-sm-6 mb20 full-width">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter a first name">
+    <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
     <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter a surname">
+    <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
 	<label for="studentno">Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" placeholder="Enter a student number">
+    <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
 	 </div>
 
     <div class="col-xs-6 col-sm-6 mb20 full-width">
 	<label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" placeholder="Enter a email address">
+    <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
 	<label>Confirm password</label>
@@ -173,12 +153,12 @@ include 'includes/signin.php';
     <div class="form-group">
 	
     <div class="col-xs-6 col-sm-6 full-width">
-	<label>Date of Birth</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
+	<label>Date of Birth (YYYY-MM-DD)</label>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="datepicker1" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
-    <input class="form-control" type="text" name="phonenumber" id="phonenumber" placeholder="Enter a phone number">
+    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
     </div>
 	
     </div>
@@ -187,7 +167,7 @@ include 'includes/signin.php';
 	
     <div class="col-xs-12 col-sm-12 mb20 full-width">
     <label for="degree">Programme of Study</label>
-    <input class="form-control" type="text" name="degree" id="degree" placeholder="Enter a programme of study">
+    <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
     </div>
 	
     </div>
@@ -196,20 +176,20 @@ include 'includes/signin.php';
     
 	<div class="col-xs-6 col-sm-6 full-width">
     <label>Address line 1</label>
-    <input class="form-control" type="text" name="address1" id="address1" placeholder="Enter a address line 1">
+    <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
     <label>Address 2 line (Optional)</label>
-    <input class="form-control" type="text" name="address2" id="address2" placeholder="Enter a address line 2 (Optional)">
+    <input class="form-control" type="text" name="address2" id="address2" value="" placeholder="Enter a address line 2 (Optional)">
     <label>Town</label>
-    <input class="form-control" type="text" name="town" id="town" placeholder="Enter a town">
+    <input class="form-control" type="text" name="town" id="town" value="" placeholder="Enter a town">
 	</div>
 
     <div class="col-xs-6 col-sm-6 full-width">
     <label>City</label>
-    <input class="form-control" type="text" name="city" id="city" placeholder="Enter a city">
+    <input class="form-control" type="text" name="city" id="city" value="" placeholder="Enter a city">
     <label>Country</label>
     <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     <label>Postcode</label>
-    <input class="form-control" type="text" name="postcode" id="postcode" placeholder="Enter a postcode">
+    <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
     </div>
     
 	</div>
@@ -228,235 +208,9 @@ include 'includes/signin.php';
     </div><!-- /panel-default -->
 	
 	</div><!-- /panel-group -->
-
-	<div class="panel-group lecturer-toggle" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a lecturer account</a>
-	</h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-
-	<div class="panel-body">
-
-	<!-- Create a lecturer account -->
-    <div class="content-panel mb10" style="border: none;">
-
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createlectureraccount_form" id="createlectureraccount_form" novalidate>
-
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
-
-	<div class="form-group">
-
-	<div class="col-xs-12 col-sm-12 full-width">
-    <label>Gender</label>
-    <select class="form-control" name="gender" id="gender">
-    <option style="color:gray" value="null" disabled selected>Select a gender</option>
-    <option style="color: #FFA500" class="others">Male</option>
-    <option style="color: #FFA500" class="others">Female</option>
-	<option style="color: #FFA500" class="others">Other</option>
-    </select>
-    </div>
-
-	</div>
-
-    <div class="form-group">
-
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter a first name">
-    <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter a surname">
-	 </div>
-
-    <div class="col-xs-6 col-sm-6 full-width">
-	<label>Password</label>
-    <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
-	<label>Confirm password</label>
-    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
-    </div>
-
-    </div>
-
-	<div class="form-group">
-
-	<div class="col-xs-12 col-sm-12 full-width">
-	<label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
-	</div>
-
-    </div>
-
-    <div class="form-group">
-
-    <div class="col-xs-6 col-sm-6 full-width">
-	<label>Date of Birth</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
-    </div>
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label>Phone number</label>
-    <input class="form-control" type="text" name="phonenumber" id="phonenumber" placeholder="Enter a phone number">
-    </div>
-
-    </div>
-
-    <div class="form-group">
-
-	<div class="col-xs-6 col-sm-6 full-width">
-    <label>Address line 1</label>
-    <input class="form-control" type="text" name="address1" id="address1" placeholder="Enter a address line 1">
-    <label>Address 2 line (Optional)</label>
-    <input class="form-control" type="text" name="address2" id="address2" placeholder="Enter a address line 2 (Optional)">
-    <label>Town</label>
-    <input class="form-control" type="text" name="town" id="town" placeholder="Enter a town">
-	</div>
-
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label>City</label>
-    <input class="form-control" type="text" name="city" id="city" placeholder="Enter a city">
-    <label>Country</label>
-    <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
-    <label>Postcode</label>
-    <input class="form-control" type="text" name="postcode" id="postcode" placeholder="Enter a postcode">
-    </div>
-
-	</div>
-
-    <div class="text-right">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create</span></button>
-    </div>
-
-    </form>
-
-	</div><!-- /content-panel -->
-    <!-- End of Change Password -->
-
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-
-	</div><!-- /panel-group -->
-
-	<div class="panel-group admin-toggle" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create an administrator account</a>
-	</h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-
-	<div class="panel-body">
-
-	<!-- Create an admin account -->
-    <div class="content-panel mb10" style="border: none;">
-
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createadminaccount_form" id="createadminaccount_form" novalidate>
-
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
-
-	<div class="form-group">
-
-	<div class="col-xs-12 col-sm-12 full-width">
-    <label>Gender</label>
-    <select class="form-control" name="gender" id="gender">
-    <option style="color:gray" value="null" disabled selected>Select a gender</option>
-    <option style="color: #FFA500" class="others">Male</option>
-    <option style="color: #FFA500" class="others">Female</option>
-	<option style="color: #FFA500" class="others">Other</option>
-    </select>
-    </div>
-
-	</div>
-
-    <div class="form-group">
-
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter a first name">
-    <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter a surname">
-	 </div>
-
-    <div class="col-xs-6 col-sm-6 full-width">
-	<label>Password</label>
-    <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
-	<label>Confirm password</label>
-    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
-    </div>
-
-    </div>
-
-	<div class="form-group">
-
-	<div class="col-xs-12 col-sm-12 full-width">
-	<label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
-	</div>
-
-    </div>
-
-    <div class="form-group">
-
-    <div class="col-xs-6 col-sm-6 full-width">
-	<label>Date of Birth</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
-    </div>
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label>Phone number</label>
-    <input class="form-control" type="text" name="phonenumber" id="phonenumber" placeholder="Enter a phone number">
-    </div>
-
-    </div>
-
-    <div class="form-group">
-
-	<div class="col-xs-6 col-sm-6 full-width">
-    <label>Address line 1</label>
-    <input class="form-control" type="text" name="address1" id="address1" placeholder="Enter a address line 1">
-    <label>Address 2 line (Optional)</label>
-    <input class="form-control" type="text" name="address2" id="address2" placeholder="Enter a address line 2 (Optional)">
-    <label>Town</label>
-    <input class="form-control" type="text" name="town" id="town" placeholder="Enter a town">
-	</div>
-
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label>City</label>
-    <input class="form-control" type="text" name="city" id="city" placeholder="Enter a city">
-    <label>Country</label>
-    <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
-    <label>Postcode</label>
-    <input class="form-control" type="text" name="postcode" id="postcode" placeholder="Enter a postcode">
-    </div>
-
-	</div>
-
-    <div class="text-right">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create</span></button>
-    </div>
-
-    </form>
-
-	</div><!-- /content-panel -->
-    <!-- End of Create an admin account -->
-
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-
-	</div><!-- /panel-group -->
-
+            
 	</div> <!-- /container -->
-
+	
 	<?php include 'includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
@@ -528,18 +282,17 @@ include 'includes/signin.php';
 
 	<!-- Bootstrap JS -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-	<!-- Date Time Picker JS -->
-	<script src="../assets/js/datetimepicker/jquery-ui-1.10.0.custom.min.js"></script>
-	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
-	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
+	
+	<!-- Bootstrap Date Picker JS -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	<script src="../assets/js/bootstrap-datetimepicker.js"></script>
 
 	<script>
-	$(function () {
-	$('#dateofbirth').datetimepicker({
-		dateFormat: "yy-mm-dd", controlType: 'select'
-	});
-	});
+    $(function () {
+        $('#datepicker1').datetimepicker({
+            pickTime: false
+        });
+    });
 	</script>
 
 	<!-- Spin JS -->
@@ -589,18 +342,23 @@ include 'includes/signin.php';
 			$('#studentno').show();
 			$('label[for="degree"]').show();
 			$('#degree').show();
-		}
-		if($(this).val() == 'lecturer'){
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-		if($(this).val() == 'admin'){
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
+
+			studentno1 = $("#studentno").val();
+
+			if(studentno1 === '') {
+				$("#error").show();
+				$("#error").empty().append("Please enter a student number.");
+				$("#studentno").css("border-color", "#FF5454");
+				hasError  = true;
+				return false;
+			} else {
+				$("#error").hide();
+				$("#studentno").css("border-color", "#4DC742");
+			}
+		} else {
+
+			studentno1 = $("#studentno").val();
+
 		}
 	});
 
@@ -609,59 +367,6 @@ include 'includes/signin.php';
 	
 	<script>
 	$(document).ready(function() {
-
-	$(".student-toggle").hide();
-	$(".lecturer-toggle").hide();
-	$(".admin-toggle").hide();
-
-	$("#student-button").click(function (e) {
-		e.preventDefault();
-		$(".lecturer-toggle").fadeOut();
-		$(".admin-toggle").fadeOut();
-		$(".student-toggle").fadeIn();
-		$(".lecturer-tile").removeClass("tile-selected");
-		$(".lecturer-tile p").removeClass("tile-text-selected");
-		$(".lecturer-tile i").removeClass("tile-text-selected");
-		$(".admin-tile").removeClass("tile-selected");
-		$(".admin-tile p").removeClass("tile-text-selected");
-		$(".admin-tile i").removeClass("tile-text-selected");
-		$(".student-tile").addClass("tile-selected");
-		$(".student-tile p").addClass("tile-text-selected");
-		$(".student-tile i").addClass("tile-text-selected");
-	});
-
-	$("#lecture-button").click(function (e) {
-		e.preventDefault();
-		$(".student-toggle").fadeOut();
-		$(".admin-toggle").fadeOut();
-		$(".lecturer-toggle").fadeIn();
-		$(".student-tile").removeClass("tile-selected");
-		$(".student-tile p").removeClass("tile-text-selected");
-		$(".student-tile i").removeClass("tile-text-selected");
-		$(".admin-tile").removeClass("tile-selected");
-		$(".admin-tile p").removeClass("tile-text-selected");
-		$(".admin-tile i").removeClass("tile-text-selected");
-		$(".lecturer-tile").addClass("tile-selected");
-		$(".lecturer-tile p").addClass("tile-text-selected");
-		$(".lecturer-tile i").addClass("tile-text-selected");
-	});
-
-	$("#admin-button").click(function (e) {
-		e.preventDefault();
-		$(".student-toggle").fadeOut();
-		$(".lecturer-toggle").fadeOut();
-		$(".admin-toggle").fadeIn();
-		$(".student-tile").removeClass("tile-selected");
-		$(".student-tile p").removeClass("tile-text-selected");
-		$(".student-tile i").removeClass("tile-text-selected");
-		$(".lecturer-tile").removeClass("tile-selected");
-		$(".lecturer-tile p").removeClass("tile-text-selected");
-		$(".lecturer-tile i").removeClass("tile-text-selected");
-		$(".admin-tile").addClass("tile-selected");
-		$(".admin-tile p").addClass("tile-text-selected");
-		$(".admin-tile i").addClass("tile-text-selected");
-	});
-
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -714,9 +419,7 @@ include 'includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	if (account_type1 === 'student') {
-		studentno1 = $("#studentno").val();
-	}
+	studentno1 = $("#studentno").val();
 
 	if(studentno1 === '') {
 		$("#error").show();
@@ -728,8 +431,6 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#studentno").css("border-color", "#4DC742");
 	}
-
-	studentno1 = $("#studentno").val();
 	
 	email1 = $("#email").val();
 	if(email1 === '') {
@@ -837,7 +538,6 @@ include 'includes/signin.php';
 	return true;
 	
 	});
-
 	});
 	</script>
 
