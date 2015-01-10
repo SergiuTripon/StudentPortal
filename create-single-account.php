@@ -324,6 +324,17 @@ include 'includes/signin.php';
 		$('#account_type').css('color', 'gray');
 	}
     });
+
+	$('#account-type').change(function(){
+		if($(this).val() == 'student'){
+			$('#studentno').show();
+			$('#degree').show();
+		} else {
+			$('#studentno').hide();
+			$('#degree').hide();
+		}
+	});
+
     });
 	</script>
 	
