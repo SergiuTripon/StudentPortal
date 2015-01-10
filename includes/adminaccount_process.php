@@ -26,9 +26,7 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $country = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING);
     $postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
 
-    if ($studentno = '') {
-        $studentno1 = 'none';
-    }
+
     if ($dateofbirth = '') {
         $dateofbirth = 'NULL';
     }
@@ -48,7 +46,7 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     }
 
     // Check existing studentno
-    $stmt1 = $mysqli->prepare("SELECT userid FROM user_details WHERE studentno = ? AND NOT studentno = 'none' LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT userid FROM user_details WHERE studentno = ? AND NOT studentno = '0' LIMIT 1");
     $stmt1->bind_param('i', $studentno);
     $stmt1->execute();
     $stmt1->store_result();
