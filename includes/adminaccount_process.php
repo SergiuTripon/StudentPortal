@@ -79,7 +79,7 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $stmt3->fetch();
 
     if (empty($studentno)) {
-        $studentnoe = $userid + 1;
+        $studentno = $userid + 1;
     }
 
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
