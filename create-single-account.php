@@ -503,7 +503,7 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/account_process.php",
+	url: "http://test.student-portal.co.uk/includes/adminaccount_process.php",
     data:'account_type1=' + account_type1 + '&gender1=' + gender1 + '&firstname1=' + firstname1 + '&surname1=' + surname1 + '&studentno1=' + studentno1 + '&email1=' + email1 + '&password1=' + password1 + '&confirmpwd1=' + confirmpwd1 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(response){
 		$("#error").hide();
