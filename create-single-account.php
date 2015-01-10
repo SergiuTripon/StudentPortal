@@ -331,7 +331,10 @@ include 'includes/signin.php';
 	$('#gender').css('color', 'gray');
 
 	$('#gender').change(function(){
-  		if($(this).val() = ''){
+
+		var current1 = $('#gender').val();
+
+  		if(current1 = ''){
 			$('#gender').css('color', 'gray');
   		} else {
 			$('#gender').css('color', '#FFA500');
