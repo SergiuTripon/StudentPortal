@@ -315,11 +315,11 @@ include 'includes/signin.php';
 			$('#account_type').css('color', '#FFA500');
 		}
 		if(current = 'student'){
-			$('#studentno').hide();
-			$('#degree').hide();
-		} else {
 			$('#studentno').show();
 			$('#degree').show();
+		} else {
+			$('#studentno').hide();
+			$('#degree').hide();
 		}
 	});
 
