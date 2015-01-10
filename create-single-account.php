@@ -313,7 +313,8 @@ include 'includes/signin.php';
 			$('#account_type').css('color', 'gray');
 		}
 		else if(current = 'student'){
-			$('.breadcrumb').hide();
+			$('#studentno').hide();
+			$('#degree').hide();
 		} else {
 			$('#account_type').css('color', '#FFA500');
 		}
