@@ -307,7 +307,7 @@ include 'includes/signin.php';
 
 	$('#account_type').change(function(){
 
-		current = $('#account_type').val();
+		var current = $('#account_type').val();
 
 		if (current = ''){
 			$('#account_type').css('color', 'gray');
