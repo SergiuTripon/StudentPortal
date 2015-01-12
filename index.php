@@ -45,10 +45,6 @@ include 'includes/signin.php';
 	html, body {
 		height: 100% !important;
 	}
-    .feature-icon-selected {
-        color: #333333;
-        background-color: #FFA500;
-    }
 	</style>
 	
 </head>
@@ -245,7 +241,7 @@ include 'includes/signin.php';
 	</script>
 
     <script>
-        $(document).on('click', '.timetable-tile', function (event) {
+        $(document).on('click', '.messenger-tile', function (event) {
             $('#messenger').addClass("feature-icon-selected");
         });
     </script>

@@ -37,6 +37,11 @@
 		margin-bottom: 20px;
 	}
 
+	.feature-icon-selected {
+		color: #333333;
+		background-color: #FFA500;
+	}
+
 	.feature-icon i {
 		font-size: 40px;
 		padding: 20px;
