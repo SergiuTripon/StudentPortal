@@ -18,26 +18,26 @@
 	/* End of About section */
 
 	/* Features section */
-	.features {
+	.features-detail {
 		color: #FFA500;
 		padding: 100px 0;
 		border-top: 1px solid #FFA500;
 	}
 
-	.features h2 {
+	.features-detail h2 {
 		color: #FFA500;
 		font-size: 48px;
 	}
 
 	/* Feature icons */
-	.fi {
+	.feature-icon {
 		height: 250px;
 		padding-right: 15px;
 		padding-left: 15px;
 		margin-bottom: 20px;
 	}
 
-	.fi i {
+	.feature-icon i {
 		font-size: 40px;
 		padding: 20px;
 	}
@@ -97,7 +97,7 @@
 	</style>
 	
 	<!-- About -->
-    <section class="about" id="about">
+    <section class="features" id="features">
     <div class="container">
     <div class="row">
     <div class="col-lg-12 text-center">
@@ -107,7 +107,7 @@
     <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="">
+	<a class="page-scroll" href="#timetable">
     <div class="tile large-tile">
     <i class="fa fa-table"></i>
 	<p class="large-tile-text">Timetable</p>
@@ -116,7 +116,7 @@
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a href="">
+	<a class="page-scroll" href="#exams">
     <div class="tile">
 	<i class="fa fa-pencil"></i>
 	<p class="tile-text">Exams</p>
@@ -125,7 +125,7 @@
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-	<a href="">
+	<a class="page-scroll" href="#library">
 	<div class="tile">
     <i class="fa fa-book"></i>
 	<p class="tile-text">Library</p>
@@ -134,7 +134,7 @@
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a href="../transport/">
+	<a class="page-scroll" href="#transport">
     <div class="tile">
     <i class="fa fa-bus"></i>
 	<p class="tile-text">Transport</p>
@@ -143,7 +143,7 @@
 	</div>
 
 	<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a href="../calendar/">
+	<a class="page-scroll" href="#calendar">
 	<div class="tile">
     <i class="fa fa-calendar"></i>
 	<p class="tile-text">Calendar</p>
@@ -152,7 +152,7 @@
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a href="">
+	<a class="page-scroll" href="#events">
     <div class="tile">
 	<i class="fa fa-beer"></i>
 	<p class="tile-text">Events</p>
@@ -161,7 +161,7 @@
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a href="">
+	<a class="page-scroll" href="#universitymap">
     <div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p class="tile-text">University Map</p>
@@ -170,16 +170,16 @@
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a href="">
+	<a class="page-scroll" href="#feedback">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
-	<p class="tile-text">Feeback</p>
+	<p class="tile-text">Feedback</p>
     </div>
     </a>
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="">
+	<a class="page-scroll" href="#messenger">
     <div class="tile">
     <i class="fa fa-comments"></i>
 	<p class="tile-text">Messenger</p>
@@ -188,7 +188,7 @@
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="../account/">
+	<a class="page-scroll" href="#account">
     <div class="tile">
     <i class="fa fa-user"></i>
 	<p class="tile-text">Account</p>
@@ -206,7 +206,7 @@
     </section>
 	
 	<!-- Features -->
-	<section class="features" id="features">
+	<section class="features-detail" id="features-detail">
 	<div class="container">
 	<div class="row text-center">
 	<h2>Features</h2>
@@ -214,37 +214,56 @@
 	</div>
     <div class="row text-center">
 	<div class="col-lg-12">
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width fi">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="timetable">
     <i class="fa fa-table"></i>
     <h4>Timetable</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width fi">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="exams">
     <i class="fa fa-pencil"></i>
     <h4>Exams</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width fi">
-    <i class="fa fa-beer"></i>
-    <h4>Events</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>    	
-
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width fi">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="library">
     <i class="fa fa-book"></i>
     <h4>Library</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
     </div>
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width fi">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="transport">
+    <i class="fa fa-bus"></i>
+    <h4>Transport</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
+    </div>
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="calendar">
     <i class="fa fa-calendar"></i>
     <h4>Calendar</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width fi">
-    <i class="fa fa-bus"></i>
-    <h4>Transport</h4>
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="events">
+    <i class="fa fa-beer"></i>
+    <h4>Events</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>    	
+    </div>
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="universitymap">
+    <i class="fa fa-map-marker"></i>
+    <h4>University Map</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
+    </div>
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="feedback">
+    <i class="fa fa-check-square-o"></i>
+    <h4>Feedback</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
+    </div>
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="messenger">
+    <i class="fa fa-comments"></i>
+    <h4>Messenger</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
+    </div>
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="account">
+    <i class="fa fa-user"></i>
+    <h4>Feedback</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
+    </div>
 	</div><!-- /.col-lg-12 -->
     </div><!-- /.row -->
     </div><!-- /.container -->
