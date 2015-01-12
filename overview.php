@@ -362,15 +362,15 @@ include 'includes/signin.php';
     
 	<form class="form-custom">
 
-    <div class="custom-logo animated fadeIn delay1">
+    <div class="logo-custom animated fadeIn delay1">
 	<i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="custom-hr">
+    <hr class="hr-custom">
 
-    <p class="sad-feedback text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
 
-    <hr class="custom-hr">
+    <hr class="hr-custom">
 
     <div class="text-center">
 	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
