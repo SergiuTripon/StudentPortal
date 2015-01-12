@@ -240,5 +240,11 @@ include 'includes/signin.php';
     });
 	</script>
 
+    <script>
+        $(document).on('click', '.timetable-tile', function (event) {
+            $('#messenger').addClass(feature-icon-selected);
+        });
+    </script>
+
 </body>
 </html>

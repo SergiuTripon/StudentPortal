@@ -352,9 +352,3 @@
 	<!-- /.container -->
 	</footer>
 	<!-- /.footer -->
-
-	<script>
-	$(document).on('click', '.timetable-tile', function (event) {
-		$('#messenger').addClass(feature-icon-selected);
-	});
-	</script>
