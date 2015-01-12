@@ -37,6 +37,11 @@
 		margin-bottom: 20px;
 	}
 
+	.feature-icon-selected {
+		color: #333333;
+		background-color: #FFA500;
+	}
+
 	.feature-icon i {
 		font-size: 40px;
 		padding: 20px;
@@ -108,7 +113,7 @@
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<a class="page-scroll" href="#timetable">
-    <div class="tile large-tile">
+    <div class="tile large-tile timetable-tile">
     <i class="fa fa-table"></i>
 	<p class="large-tile-text">Timetable</p>
     </div>
@@ -347,3 +352,9 @@
 	<!-- /.container -->
 	</footer>
 	<!-- /.footer -->
+
+	<script>
+	$(document).on('click', '.timetable-tile', function (event) {
+		$('#messenger').addClass(feature-icon-selected);
+	});
+	</script>
