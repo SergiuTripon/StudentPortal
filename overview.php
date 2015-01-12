@@ -244,7 +244,7 @@ include 'includes/signin.php';
 
     <?php else : ?>
 
-	    <div class="container">
+    <div class="container">
     <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div class="row">

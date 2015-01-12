@@ -104,7 +104,101 @@
     <div class="col-lg-12 text-center">
     <h2 class="about-title"><b>Student Portal</b></h2>
 	<h2>All your university needs, in one single place.</h2>
-	<img class="img-responsive" src="../assets/img/macbook/macbook-air.png">
+
+   <div class="row">
+
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+	<a href="">
+    <div class="tile large-tile">
+    <i class="fa fa-table"></i>
+	<p class="large-tile-text">Timetable</p>
+    </div>
+    </a>
+	</div>
+
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+	<a href="">
+    <div class="tile">
+	<i class="fa fa-pencil"></i>
+	<p class="tile-text">Exams</p>
+    </div>
+    </a>
+	</div>
+
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+	<a href="">
+	<div class="tile">
+    <i class="fa fa-book"></i>
+	<p class="tile-text">Library</p>
+    </div>
+    </a>
+	</div>
+
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+	<a href="../transport/">
+    <div class="tile">
+    <i class="fa fa-bus"></i>
+	<p class="tile-text">Transport</p>
+    </div>
+    </a>
+	</div>
+
+	<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+	<a href="../calendar/">
+	<div class="tile">
+    <i class="fa fa-calendar"></i>
+	<p class="tile-text">Calendar</p>
+    </div>
+    </a>
+	</div>
+
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+	<a href="">
+    <div class="tile">
+	<i class="fa fa-beer"></i>
+	<p class="tile-text">Events</p>
+    </div>
+    </a>
+	</div>
+
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+	<a href="">
+    <div class="tile">
+    <i class="fa fa-map-marker"></i>
+	<p class="tile-text">University Map</p>
+    </div>
+	<a>
+	</div>
+
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+	<a href="">
+    <div class="tile">
+    <i class="fa fa-check-square-o"></i>
+	<p class="tile-text">Feeback</p>
+    </div>
+    </a>
+	</div>
+
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+	<a href="">
+    <div class="tile">
+    <i class="fa fa-comments"></i>
+	<p class="tile-text">Messenger</p>
+    </div>
+    </a>
+	</div>
+
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+	<a href="../account/">
+    <div class="tile">
+    <i class="fa fa-user"></i>
+	<p class="tile-text">Account</p>
+    </div>
+    </a>
+	</div>
+
+	</div><!-- /row -->
+
 	</div>
 	</div>
     <!-- /.row -->
