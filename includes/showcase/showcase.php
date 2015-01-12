@@ -2,7 +2,6 @@
 	/* About section */
 	.about {
 		color: #FFA500;
-		font-size: 48px;
 		padding: 100px 0;
 		border-top: 1px solid #FFA500;
 	}
@@ -105,7 +104,7 @@
     <h2 class="about-title"><b>Student Portal</b></h2>
 	<h2>All your university needs, in one single place.</h2>
 
-   <div class="row">
+    <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<a href="">
