@@ -1,17 +1,17 @@
 	<style>
 	/* About section */
-	.about {
+	.features {
 		color: #FFA500;
 		padding: 100px 0;
 		border-top: 1px solid #FFA500;
 	}
 
-	.about h2 {
+	.features h2 {
 		margin-top: 0px;
 		padding-bottom: 10px;
 	}
 
-	.about-title {
+	.features-title {
 		font-size: 35px;
 		margin-bottom: 0px;
 	}
@@ -96,12 +96,12 @@
 	/* End of Footer */
 	</style>
 	
-	<!-- About -->
+	<!-- Features -->
     <section class="features" id="features">
     <div class="container">
     <div class="row">
     <div class="col-lg-12 text-center">
-    <h2 class="about-title"><b>Student Portal</b></h2>
+    <h2 class="features-title"><b>Student Portal</b></h2>
 	<h2>All your university needs, in one single place.</h2>
 
     <div class="row">
@@ -205,7 +205,7 @@
 	<!-- /.container -->
     </section>
 	
-	<!-- Features -->
+	<!-- Features detail -->
 	<section class="features-detail" id="features-detail">
 	<div class="container">
 	<div class="row text-center">
