@@ -117,10 +117,10 @@
     <a href="#page-top"></a>
     </li>
     <li class="bl br">
-    <a class="page-scroll" href="#about">About</a>
+    <a class="page-scroll" href="#features">About</a>
     </li>
     <li class="br">
-    <a class="page-scroll" href="#features">Features</a>
+    <a class="page-scroll" href="#features-detail">Features</a>
     </li>
 	<li class="br">
     <a class="page-scroll" href="#usermanual">User Manual</a>
