@@ -117,7 +117,7 @@
 	<div class="container">
 	<div class="row text-center">
 	<h2>Features</h2>
-	<hr class="custom-hr small-hr mt10 pb30">
+	<hr class="hr-custom hr-small mt10 pb30">
 	</div>
     <div class="row text-center">
 	<div class="col-lg-12">
@@ -162,7 +162,7 @@
     <div class="container">
 	<div class="row text-center">
 	<h2>Contact Us</h2>
-	<hr class="custom-hr small-hr mt10 pb30">
+	<hr class="hr-custom hr-small mt10 pb30">
 	</div>
     <div class="row text-center">
     <div class="col-lg-12">
@@ -211,7 +211,7 @@
     <div class="container">
 	<div class="row">
 	<h2>Connect with us</h2>
-	<hr class="custom-hr small-hr mt10">
+	<hr class="hr-custom hr-small mt10">
 	</div>
     <div class="row">
     <div class="social-buttons">
