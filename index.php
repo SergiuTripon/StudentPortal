@@ -240,5 +240,13 @@ include 'includes/signin.php';
     });
 	</script>
 
+    <script>
+    $( "#timetable" ).click(function() {
+        $('#modal-custom').modal('show');
+        $('#modal-custom-label').append("<p>Timetable</p>");
+        $('.modal-body').append("<p>Test</p>");
+    });
+    </script>
+
 </body>
 </html>

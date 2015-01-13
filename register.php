@@ -149,7 +149,7 @@ include 'includes/signin.php';
 	</div>
 
 	<div class="text-right">
-    <a class="help" href="#help-modal" data-toggle="modal">Need help?</a>
+    <a class="help" href="#modal-custom" data-toggle="modal">Need help?</a>
     </div>
 	
 	</div>
@@ -176,13 +176,13 @@ include 'includes/signin.php';
     <?php include 'includes/showcase/showcase.php'; ?>
 
     <!-- Help Modal -->
-    <div class="modal fade" id="help-modal" tabindex="-1" role="dialog" aria-labelledby="help-modal-label" aria-hidden="true">
+    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
     
 	<div class="modal-header">
     <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
-    <h4 class="modal-title" id="help-modal-label">Need help?</h4>
+    <h4 class="modal-title" id="modal-custom-label">Need help?</h4>
     </div>
 
     <div class="modal-body">

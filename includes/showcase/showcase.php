@@ -111,89 +111,73 @@
 
     <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-    <div class="tile large-tile md-trigger" data-modal="niftymodal">
+    <div class="tile large-tile" id="timetable">
     <i class="fa fa-table"></i>
 	<p class="large-tile-text">Timetable</p>
     </div>
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div class="tile exams-tile">
+    <div class="tile" id="exams">
 	<i class="fa fa-pencil"></i>
 	<p class="tile-text">Exams</p>
     </div>
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-	<a class="page-scroll" href="#library">
 	<div class="tile">
     <i class="fa fa-book"></i>
 	<p class="tile-text">Library</p>
     </div>
-    </a>
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a class="page-scroll" href="#transport">
-    <div class="tile">
+    <div class="tile" id="transport">
     <i class="fa fa-bus"></i>
 	<p class="tile-text">Transport</p>
     </div>
-    </a>
 	</div>
 
 	<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a class="page-scroll" href="#calendar">
-	<div class="tile">
+	<div class="tile" id="calendar">
     <i class="fa fa-calendar"></i>
 	<p class="tile-text">Calendar</p>
     </div>
-    </a>
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a class="page-scroll" href="#events">
-    <div class="tile">
+    <div class="tile" id="events">
 	<i class="fa fa-beer"></i>
 	<p class="tile-text">Events</p>
     </div>
-    </a>
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a class="page-scroll" href="#universitymap">
-    <div class="tile">
+    <div class="tile" id="universitymap">
     <i class="fa fa-map-marker"></i>
 	<p class="tile-text">University Map</p>
     </div>
-	<a>
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a class="page-scroll" href="#feedback">
-    <div class="tile">
+    <div class="tile" id="feedback">
     <i class="fa fa-check-square-o"></i>
 	<p class="tile-text">Feedback</p>
     </div>
-    </a>
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a class="page-scroll" href="#messenger">
-    <div class="tile">
+    <div class="tile" id="messenger">
     <i class="fa fa-comments"></i>
 	<p class="tile-text">Messenger</p>
     </div>
-    </a>
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a class="page-scroll" href="#account">
-    <div class="tile">
+    <div class="tile" id="account">
     <i class="fa fa-user"></i>
 	<p class="tile-text">Account</p>
     </div>
-    </a>
 	</div>
 	</div><!-- /.row -->
 
@@ -264,10 +248,8 @@
     <a href="https://www.linkedin.com/in/triponsergiu"><i class="fa fa-linkedin-square" target="_blank"></i></a>
 	</div>
     </div>
-	</div>
-	<!-- /.container -->
-	</div>
-	<!-- /.Social -->
+	</div><!-- /.container -->
+	</div><!-- /.Social -->
 	
 	<!-- Footer -->
 	<footer>
@@ -275,19 +257,17 @@
 	<div class="row">
 	<p>&copy; 2014 Student Portal - All Rights Reserved.</p>
 	</div>
-	</div>
-	<!-- /.container -->
-	</footer>
-	<!-- /.footer -->
+	</div><!-- /.container -->
+	</footer><!-- /.footer -->
 
     <!-- Feature Modal -->
-    <div class="modal fade" id="feature-modal" tabindex="-1" role="dialog" aria-labelledby="feature-modal-label" aria-hidden="true">
+    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
 	<div class="modal-header">
     <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
-    <h4 class="modal-title" id="feature-modal-label"></h4>
+    <h4 class="modal-title" id="modal-custom-label"></h4>
     </div>
 
     <div class="modal-body">
