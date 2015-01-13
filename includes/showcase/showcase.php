@@ -1,5 +1,5 @@
 	<style>
-	/* About section */
+	/* Features section */
 	.features {
 		color: #FFA500;
 		padding: 100px 0;
@@ -17,19 +17,8 @@
 	}
 	/* End of About section */
 
-	/* Features section */
-	.features-detail {
-		color: #FFA500;
-		padding: 100px 0;
-		border-top: 1px solid #FFA500;
-	}
+	/* Feature section */
 
-	.features-detail h2 {
-		color: #FFA500;
-		font-size: 48px;
-	}
-
-	/* Feature icons */
 	.feature {
 		color: #333333;
 		background-color: #FFA500;
@@ -45,7 +34,7 @@
 		font-size: 40px;
 		padding: 20px;
 	}
-	/* End of Features section */
+	/* End of Feature section */
 
 	/* Contact section */
 	.contact {
@@ -214,70 +203,6 @@
     </div>
 	<!-- /.container -->
     </section>
-	
-	<!-- Features detail -->
-	<section class="features-detail" id="features-detail">
-	<div class="container">
-	<div class="row text-center">
-	<h2>Features</h2>
-	<hr class="hr-custom hr-small mt10 pb30">
-	</div>
-    <div class="row text-center">
-	<div class="col-lg-12">
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="timetable">
-    <i class="fa fa-table"></i>
-    <h4>Timetable</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="exams">
-    <i class="fa fa-pencil"></i>
-    <h4>Exams</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="library">
-    <i class="fa fa-book"></i>
-    <h4>Library</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="transport">
-    <i class="fa fa-bus"></i>
-    <h4>Transport</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="calendar">
-    <i class="fa fa-calendar"></i>
-    <h4>Calendar</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="events">
-    <i class="fa fa-beer"></i>
-    <h4>Events</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="universitymap">
-    <i class="fa fa-map-marker"></i>
-    <h4>University Map</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="feedback">
-    <i class="fa fa-check-square-o"></i>
-    <h4>Feedback</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="messenger">
-    <i class="fa fa-comments"></i>
-    <h4>Messenger</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="account">
-    <i class="fa fa-user"></i>
-    <h4>Feedback</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
-    </div>
-	</div><!-- /.col-lg-12 -->
-    </div><!-- /.row -->
-    </div><!-- /.container -->
-	</section>
 	
 	<!-- Contact -->
     <section class="contact" id="contact">
