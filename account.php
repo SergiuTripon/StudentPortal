@@ -177,7 +177,7 @@ include 'includes/signin.php';
 	<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 
     <a href="/create-single-account/">
-    <div class="tile large-tile">
+    <div class="tile">
     <i class="fa fa-user"></i>
 	<p class="large-tile-text">Create a single account</p>
     </div>
