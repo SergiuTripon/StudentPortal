@@ -122,10 +122,9 @@
 	
 	<!-- Features -->
     <section class="features" id="features">
-    <div class="container">
+    <div class="container text-center">
 
     <div class="row tiles">
-	<div class="col-lg-12 text-center">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="tile large-tile timetable-tile">
@@ -213,6 +212,8 @@
     </a>
 	</div>
 
+	</div><!-- /.row -->
+
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature">
 	<i class="fa"></i>
 	<h4 class="feature-title"></h4>
@@ -222,8 +223,6 @@
 	</div>
 	</div>
 
-	</div>
-	</div><!-- /.row -->
     </div><!-- /.container -->
 
     </section>
