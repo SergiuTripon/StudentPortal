@@ -34,7 +34,9 @@
 		height: 250px;
 		padding-right: 15px;
 		padding-left: 15px;
+		margin: auto;
 		margin-bottom: 20px;
+		float: none;
 	}
 
 	.feature-icon-selected {
