@@ -207,19 +207,6 @@
     </a>
 	</div>
 
-	<!-- Feature -->
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width">
-	<div class="feature">
-	<i id="feature-icon" class="fa"></i>
-	<h4 id="feature-title"></h4>
-	<p id="feature-detail"></p>
-	<div class="text-right">
-	<a id="back-button" class="btn btn-custom-reverse btn-lg ladda-button mt20" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Back</span></a>
-	</div>
-	</div>
-	</div>
-	<!-- End of Feature -->
-
 	</div><!-- /.row -->
     </div><!-- /.container -->
 

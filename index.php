@@ -210,9 +210,6 @@ include 'includes/signin.php';
 	return true;
 	
 	});
-
-    $('.feature').hide();
-
 	});
 	</script>
 
@@ -242,27 +239,6 @@ include 'includes/signin.php';
         $('.navbar-toggle:visible').click();
     });
 	</script>
-
-    <script>
-        $(document).on('click', '.timetable-tile', function (event) {
-            $('#tiles').hide();
-            $('.feature').show();
-            $('#feature-icon').addClass("fa-table");
-            $('#feature-title').empty().append("Timetable");
-            $('#feature-detail').empty().append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
-        });
-        $(document).on('click', '.exams-tile', function (event) {
-            $('#tiles').hide();
-            $('.feature').show();
-            $('#feature-icon').addClass("fa-pencil");
-            $('#feature-title').empty().append("Exams");
-            $('#feature-detail').empty().append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
-        });
-        $(document).on('click', '#back-button', function (event) {
-            $('.feature').hide();
-            $('#tiles').show();
-        });
-    </script>
 
 </body>
 </html>
