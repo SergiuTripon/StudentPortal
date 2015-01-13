@@ -124,10 +124,6 @@
 	<!-- Features -->
     <section class="features" id="features">
     <div class="container">
-    <div class="row">
-    <div class="col-lg-12 text-center">
-    <h2 class="features-title"><b>Student Portal</b></h2>
-	<h2>All your university needs, in one single place.</h2>
 
     <div class="row tiles">
 
@@ -228,9 +224,7 @@
 	</div>
 	</div>
 
-	</div>
-	</div>
-    <!-- /.row -->
+	</div><!-- /.row -->
     </div><!-- /.container -->
 
     </section>
