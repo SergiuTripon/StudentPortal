@@ -208,6 +208,7 @@ include 'includes/signin.php';
 	</div><!-- /modal -->
     </div><!-- /modal-dialog -->
     </div><!-- /modal-content -->
+	<!-- End of Help Modal -->
 
 	<?php endif; ?>
 

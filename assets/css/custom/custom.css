@@ -472,25 +472,25 @@ hr {
 /* End of Form Group style */
 
 /* Help Modal style */
-#help-modal .modal-content {
+#modal-custom .modal-content {
     border-color: #FFA500;
     border-radius: 0px;
     background-color: #333333;
 }
 
-#help-modal .modal-header {
+#modal-custom .modal-header {
     border-color: #FFA500;
 }
 
-#help-modal .modal-footer {
+#modal-custom .modal-footer {
     border-color: #FFA500;
 }
 
-#help-modal .modal-title {
+#modal-custom .modal-title {
     color: #FFA500;
 }
 
-#help-modal .close, .close:hover, .close:focus {
+#modal-custom .close, .close:hover, .close:focus {
     color: #FFA500;
     outline: none !important;
     opacity: 1;
