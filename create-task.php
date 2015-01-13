@@ -26,14 +26,14 @@ include 'includes/signin.php';
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
 
     <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 
 	<!-- Date Time Picker CSS -->
-	<link href="../assets/css/datetimepicker/jquery-ui-1.10.0.custom.css" rel='stylesheet' type='text/css'>
-	<link href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css" rel='stylesheet' type='text/css'>
+	<link href="../assets/css/datetimepicker/datetimepicker/jquery-ui-1.10.0.custom.css" rel='stylesheet' type='text/css'>
+	<link href="../assets/css/datetimepicker/datetimepicker/jquery-ui-timepicker-addon.css" rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

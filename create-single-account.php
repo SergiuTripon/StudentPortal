@@ -153,8 +153,8 @@ include 'includes/signin.php';
     <div class="form-group">
 	
     <div class="col-xs-6 col-sm-6 full-width">
-	<label>Date of Birth (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="datepicker1" data-date-format="YYYY-MM-DD" value="" placeholder="Select the date of birth (YYYY-MM-DD)"/>
+	<label>Date of Birth</label>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
@@ -302,8 +302,15 @@ include 'includes/signin.php';
 	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
-		// Bind normal buttons
-		Ladda.bind('.ladda-button', {timeout: 2000});
+	Ladda.bind('.ladda-button', {timeout: 2000});
+	</script>
+
+	<script>
+	$(function () {
+	$('#dateofbirth').datetimepicker({
+		dateFormat: "yy-mm-dd", controlType: 'select'
+	});
+	});
 	</script>
 	
 	<script>
