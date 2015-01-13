@@ -11,9 +11,9 @@ else $userid = '';
 <html lang="en">
 
 <head>
+
 	<!-- Pace JS -->
     <script src="../assets/js/pace-js/pace.js"></script>
-
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
