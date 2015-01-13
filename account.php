@@ -298,11 +298,11 @@ include 'includes/signin.php';
 	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
 
 	<!-- tileJS -->
-	<script src="../assets/js/tilejs/tileJs.min.js"></script>
+	<script src="../assets/js/tile-js/tileJs.min.js"></script>
 
 	<!-- Spin JS -->
-	<script src="../assets/js/pacejs/spin.min.js"></script>
-    <script src="../assets/js/pacejs/pace.js"></script>
+	<script src="../assets/js/pace-js/spin.min.js"></script>
+    <script src="../assets/js/pace-js/pace.js"></script>
 
 	<!-- Ladda JS -->
 	<script src="../assets/js/ladda/ladda.min.js"></script>

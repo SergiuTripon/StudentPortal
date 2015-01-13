@@ -7,7 +7,7 @@ include_once '../signin.php';
 
 <head>
 	<!-- Pace JS -->
-    <script src="../../assets/js/pacejs/pace.js"></script>
+    <script src="../../assets/js/pace-js/pace.js"></script>
 	
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -112,7 +112,7 @@ include_once '../signin.php';
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
 	<!-- Spin JS -->
-	<script src="../../assets/js/pacejs/spin.min.js"></script>
+	<script src="../../assets/js/pace-js/spin.min.js"></script>
 	
 	<!-- Ladda JS -->
 	<script src="../../assets/js/ladda/ladda.min.js"></script>
