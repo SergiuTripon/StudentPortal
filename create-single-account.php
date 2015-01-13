@@ -309,7 +309,7 @@ include 'includes/signin.php';
 	$(function () {
 	$('#dateofbirth').datepicker({
 		dateFormat: "yy-mm-dd",
-		defaultDate: new Date(1985, 00, 01)
+		defaultDate: new Date(1993, 01, 01)
 	});
 	});
 	</script>
