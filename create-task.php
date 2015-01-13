@@ -200,9 +200,9 @@ include 'includes/signin.php';
     <script src="../assets/js/pacejs/pace.js"></script>
 
 	<!-- Date Time Picker JS -->
-	<script src="../assets/js/jquery-ui-1.10.0.custom.min.js"></script>
-	<script src="../assets/js/jquery-ui-timepicker-addon.js"></script>
-	<script src="../assets/js/jquery-ui-sliderAccess.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-1.10.0.custom.min.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
+	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
 
 	<!-- Custom JS -->
 	<script src="../assets/js/common/custom.js"></script>
