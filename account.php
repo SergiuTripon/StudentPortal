@@ -174,7 +174,7 @@ include 'includes/signin.php';
 			
     <div class="row">
 
-	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+	<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 
     <a href="/create-single-account/">
     <div class="tile">
@@ -184,7 +184,7 @@ include 'includes/signin.php';
     </a>
 	</div>
 
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<a href="/create-multiple-accounts/">
     <div class="tile">
     <i class="fa fa-users"></i>
@@ -193,7 +193,7 @@ include 'includes/signin.php';
     </a>
 	</div>
 				
-	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+	<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<a href="/update-an-account/">
     <div class="tile">
     <i class="fa fa-refresh"></i>
@@ -202,7 +202,7 @@ include 'includes/signin.php';
 	</a>
 	</div>
 	
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+	<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
 	<a href="/change-account-password/">
     <div class="tile">
     <i class="fa fa-key"></i>
@@ -211,7 +211,7 @@ include 'includes/signin.php';
     </a>
 	</div>
 	
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+    <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
 	<a href="/delete-an-account/">
     <div class="tile">
     <i class="fa fa-trash"></i>
