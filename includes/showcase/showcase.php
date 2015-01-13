@@ -187,11 +187,6 @@
 
 	</div><!-- /row -->
 
-	</div>
-	</div>
-    <!-- /.row -->
-    </div><!-- /.container -->
-
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature">
 	<i class="fa"></i>
 	<h4 class="feature-title"></h4>
@@ -200,6 +195,11 @@
 	<a id="back-button" class="btn btn-custom-reverse btn-lg ladda-button mt20" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Back</span></a>
 	</div>
 	</div>
+
+	</div>
+	</div>
+    <!-- /.row -->
+    </div><!-- /.container -->
 
     </section>
 	
