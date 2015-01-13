@@ -1,4 +1,22 @@
 	<style>
+	/* About section */
+	.about {
+		color: #FFA500;
+		padding: 100px 0;
+		border-top: 1px solid #FFA500;
+	}
+
+	.about h2 {
+		margin-top: 0px;
+		padding-bottom: 10px;
+	}
+
+	.about-title {
+		font-size: 35px;
+		margin-bottom: 0px;
+	}
+	/* End of About section */
+
 	/* Features section */
 	.features {
 		color: #FFA500;
@@ -15,7 +33,7 @@
 		font-size: 35px;
 		margin-bottom: 0px;
 	}
-	/* End of About section */
+	/* End of Features section */
 
 	/* Feature section */
 
@@ -88,6 +106,20 @@
 	}
 	/* End of Footer */
 	</style>
+
+	<!-- About -->
+	<section class="about" id="about">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12 text-center">
+    <h2 class="about-title"><b>Student Portal</b></h2>
+	<h2>All your university needs, in one single place.</h2>
+	</div>
+	</div><!-- /.row -->
+    </div><!-- /.container -->
+    </section>
+
+	<!-- End of About -->
 	
 	<!-- Features -->
     <section class="features" id="features">
