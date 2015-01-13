@@ -471,7 +471,7 @@ hr {
 }
 /* End of Form Group style */
 
-/* Help Modal style */
+/* Modal Custom style */
 #modal-custom .modal-content {
     border-color: #FFA500;
     border-radius: 0px;
@@ -496,7 +496,7 @@ hr {
     opacity: 1;
     text-shadow: none;
 }
-/* End of Help Modal style */
+/* End of Modal Custom style */
 
 /* Lock Modal style */
 #lock-modal .modal-dialog {
