@@ -492,10 +492,10 @@ hr {
 
 #modal-custom .close, .close:hover, .close:focus {
     color: #FFA500;
+    font-size: 30px;
     outline: none !important;
     opacity: 1;
     text-shadow: none;
-    margin-top: 3px;
 }
 /* End of Modal Custom style */
 
