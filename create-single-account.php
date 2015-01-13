@@ -306,12 +306,7 @@ include 'includes/signin.php';
 	</script>
 
 	<script>
-	$(function () {
-	$('#dateofbirth').datepicker({
-		dateFormat: "yy-mm-dd",
-		setDate: "01/01/1993"
-	});
-	});
+	$('#dateofbirth').datepicker( "setDate", "10/12/2012" );
 	</script>
 	
 	<script>
