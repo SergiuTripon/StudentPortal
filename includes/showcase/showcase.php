@@ -41,10 +41,10 @@
 		padding: 100px 0;
 		border-top: 1px solid #FFA500;
 	}
-	.contact h2 {
-		font-size: 48px;
+	.contact h1 {
+		margin-top: 0px;
+		margin-bottom: 0px;
 	}
-
 	textarea[name=message] {
 		resize: none;
 	}
@@ -204,8 +204,8 @@
     <section class="contact" id="contact">
     <div class="container">
 	<div class="row text-center">
-	<h2>Contact Us</h2>
-	<hr class="hr-custom hr-small mt10 pb30">
+	<h1>Contact Us</h1>
+	<hr class="hr-custom hr-small">
 	</div>
     <div class="row text-center">
     <div class="col-lg-12">
