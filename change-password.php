@@ -23,13 +23,13 @@ include 'includes/signin.php';
     <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- FontAwesome CSS -->
-    <link href="..assets/css/font-awesome/font-awesome.min.css">
+    <link href="..assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
 
     <!-- Ladda CSS -->
-    <link href="../assets/css/ladda/ladda-themeless.min.css">
+    <link href="../assets/css/ladda/ladda-themeless.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/common/custom.css">
+    <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
