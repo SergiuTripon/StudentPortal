@@ -245,10 +245,10 @@ include 'includes/signin.php';
 
     <script>
         $(document).on('click', '.timetable-tile', function (event) {
-            $('#tiles').fadeOut();
-            $('#feature').fadeIn();
-            $('#feature-title').append("Timetable");
-            $('#feature-detail').append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
+            $('.tiles').fadeOut();
+            $('.feature').fadeIn();
+            $('.feature-title').append("Timetable");
+            $('.feature-detail').append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
         });
     </script>
 
