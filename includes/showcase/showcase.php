@@ -125,7 +125,7 @@
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-	<div class="tile">
+	<div class="tile" id="library">
     <i class="fa fa-book"></i>
 	<p class="tile-text">Library</p>
     </div>
