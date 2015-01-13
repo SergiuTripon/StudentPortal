@@ -64,6 +64,10 @@
 		margin-bottom: 0px;
 	}
 
+	.social-buttons {
+		margin-top: 20px;
+	}
+
 	.social-buttons i {
 		color: #FFA500;
 		font-size: 80px;
