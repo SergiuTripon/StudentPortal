@@ -96,7 +96,6 @@
     <script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 	
 	<script>
-	// Bind normal buttons
 	Ladda.bind( '.ladda-button', { timeout: 2000 } );
 	</script>
 
