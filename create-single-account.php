@@ -308,7 +308,7 @@ include 'includes/signin.php';
 	<script>
 	$(function () {
 	$('#dateofbirth').datepicker({
-		dateFormat: "yy-mm-dd", controlType: 'select'
+		dateFormat: "yy-mm-dd"
 	});
 	});
 	</script>
