@@ -16,7 +16,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap CSS -->
-    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/bootstrap/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- FontAwesome CSS -->
     <link href="../assets/css/fontawesome/font-awesome.min.css" rel="stylesheet" type="text/css">
