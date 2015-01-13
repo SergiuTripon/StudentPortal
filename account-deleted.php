@@ -12,17 +12,14 @@
 
     <title>Student Portal | Account deleted</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <!-- FontAwesome CSS -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
     <!-- Open Sans font -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
 
-    <!-- Animate CSS -->
-  	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- FontAwesome CSS -->
+    <link href="../assets/css/fontawesome/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 	<!-- Ladda CSS -->
 	<link rel="stylesheet" href="/assets/css/ladda/ladda-themeless.min.css">
@@ -53,7 +50,7 @@
 	
 	<form class="form-custom" name="paypal_success_form">
 
-    <div class="logo-custom animated fadeIn delay">
+    <div class="logo-custom">
     <i class="fa fa-trash"></i>
     </div>
 
@@ -81,7 +78,7 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
 	<!-- Bootstrap JS -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
 
 	<!-- Spin JS -->
 	<script src="/assets/js/pacejs/spin.min.js"></script>
