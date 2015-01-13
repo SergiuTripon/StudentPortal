@@ -20,7 +20,7 @@ $xml_weekend = new SimpleXMLElement($result);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="assets/img/favicon/favicon.ico">
+    <link rel="icon" href="../assets/img/favicon/favicon.ico">
 
     <title>Student Portal | Tube - This Weekend</title>
 
