@@ -38,16 +38,16 @@ else $userid = '';
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
 	
     <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 	
 	<!-- Bootstrap Calendar CSS -->
-    <link rel="stylesheet" href="../assets/css/calendar.css">
+    <link rel="stylesheet" href="../assets/css/calendar/calendar.css">
 	
 	<!-- DataTables CSS -->
-    <link rel="stylesheet" href="../assets/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="../assets/css/datatables/jquery.dataTables.css">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -233,7 +233,7 @@ else $userid = '';
 	<?php include 'includes/footers/portal_footer.php'; ?>
 		
 	<!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 	
@@ -299,16 +299,16 @@ else $userid = '';
 	<script src="../assets/js/calendar-app.js"></script>
 	
 	<!-- tileJS -->
-	<script src="../assets/js/tileJs.min.js"></script>
+	<script src="../assets/js/tilejs/tileJs.min.js"></script>
 
-	<!-- Spin JS -->
-	<script src="../assets/js/spin.min.js"></script>
+	<!-- Pace JS -->
+	<script src="../assets/js/pacejs/spin.min.js"></script>
 
 	<!-- Ladda JS -->
-	<script src="../assets/js/ladda.min.js"></script>
+	<script src="../assets/js/ladda/ladda.min.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 	
 	<script>
     // Bind normal buttons
