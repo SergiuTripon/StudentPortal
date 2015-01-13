@@ -82,12 +82,12 @@ b, strong {
 /* hr style */
 hr {
     border-color: #FFA500;
-    margin-top: 5px;
-    margin-bottom: 0px;
 }
 
 .hr-custom {
     border-color: #FFA500;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 .hr-small {
