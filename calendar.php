@@ -12,7 +12,7 @@ else $userid = '';
 
 <head>
 	<!-- Pace JS -->
-    <script src="../assets/js/pacejs/pace.js"></script>
+    <script src="../assets/js/pace-js/pace.js"></script>
 
 
     <meta charset="utf-8">
