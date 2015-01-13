@@ -106,7 +106,7 @@
     <div class="container">
     <div class="row">
     <div class="col-lg-12 text-center">
-    <h2 class="about-title"><b>Student Portal</b></h2>
+    <h2><b>Student Portal</b></h2>
 	<h2>All your university needs, in one single place.</h2>
 	</div>
 	</div><!-- /.row -->
