@@ -109,7 +109,7 @@
     <h2 class="features-title"><b>Student Portal</b></h2>
 	<h2>All your university needs, in one single place.</h2>
 
-    <div class="row">
+    <div class="row tiles">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<a class="page-scroll" href="#timetable">

@@ -241,8 +241,8 @@ include 'includes/signin.php';
 	</script>
 
     <script>
-        $(document).on('click', '.messenger-tile', function (event) {
-            $('#messenger').addClass("feature-icon-selected");
+        $(document).ready(function() {
+            $('.tiles').hide();
         });
     </script>
 
