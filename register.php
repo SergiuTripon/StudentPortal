@@ -32,7 +32,7 @@ include 'includes/signin.php';
     <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/custom/custom.css" rel="stylesheet">
+    <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -232,7 +232,7 @@ include 'includes/signin.php';
 	<script src="../assets/js/custom/custom.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../assets/js/general/ie10-viewport-bug-workaround.js"></script>
+	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 	
 	<script>
     Ladda.bind('.ladda-button', {timeout: 2000});
