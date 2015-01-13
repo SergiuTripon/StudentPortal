@@ -106,7 +106,7 @@
     <div class="row tiles">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a class="page-scroll" href="#timetable">
+	<a href="">
     <div class="tile large-tile timetable-tile">
     <i class="fa fa-table"></i>
 	<p class="large-tile-text">Timetable</p>
