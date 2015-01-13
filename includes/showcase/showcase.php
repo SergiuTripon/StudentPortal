@@ -83,7 +83,7 @@
     <div class="container">
     <div class="row">
     <div class="col-lg-12 text-center">
-    <h2>Student Portal</h2>
+    <h1>Student Portal</h1>
 	<h2>All your university needs, in one single place.</h2>
 	</div>
 	</div><!-- /.row -->
@@ -95,7 +95,7 @@
     <section class="features" id="features">
     <div class="container">
 	<div class="row text-center pb30">
-	<h2>Features</h2>
+	<h1>Features</h1>
 	<hr class="hr-custom hr-small">
 	</div>
 
