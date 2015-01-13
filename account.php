@@ -175,7 +175,6 @@ include 'includes/signin.php';
     <div class="row">
 
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-
     <a href="/create-single-account/">
     <div class="tile">
     <i class="fa fa-user"></i>
@@ -184,14 +183,14 @@ include 'includes/signin.php';
     </a>
 	</div>
 
-    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-	<a href="/create-multiple-accounts/">
+    <!--<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+    <a href="/create-multiple-accounts/">
     <div class="tile">
     <i class="fa fa-users"></i>
-	<p class="tile-text">Create multiple accounts</p>
+    <p class="tile-text">Create multiple accounts</p>
     </div>
     </a>
-	</div>
+    </div>-->
 				
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 	<a href="/update-an-account/">
