@@ -251,6 +251,13 @@ include 'includes/signin.php';
             $('.feature-title').append("Timetable");
             $('.feature-detail').append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
         });
+        $(document).on('click', '.exams-tile', function (event) {
+            $('.tiles').fadeOut();
+            $('.feature').fadeIn();
+            $('.fa').addClass("fa-pencil");
+            $('.feature-title').append("Exams");
+            $('.feature-detail').append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
+        });
     </script>
 
 </body>
