@@ -247,22 +247,23 @@ include 'includes/signin.php';
         $(document).on('click', '.timetable-tile', function (event) {
             $('.tiles').hide();
             $('.feature').show();
-            $('.feature').focus();
             $('#feature-icon').addClass("fa-table");
             $('#feature-title').empty().append("Timetable");
             $('#feature-detail').empty().append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
+            $('.feature').focus();
         });
         $(document).on('click', '.exams-tile', function (event) {
             $('.tiles').hide();
             $('.feature').show();
-            $('.feature').focus();
             $('#feature-icon').addClass("fa-pencil");
             $('#feature-title').empty().append("Exams");
             $('#feature-detail').empty().append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
+            $('.feature').focus();
         });
         $(document).on('click', '#back-button', function (event) {
             $('.feature').hide();
             $('.tiles').show();
+            $('.tiles').focus();
         });
     </script>
 
