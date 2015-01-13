@@ -250,7 +250,6 @@ include 'includes/signin.php';
             $('#feature-icon').addClass("fa-table");
             $('#feature-title').empty().append("Timetable");
             $('#feature-detail').empty().append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
-            $('body').scrollTo('.feature');
         });
         $(document).on('click', '.exams-tile', function (event) {
             $('.tiles').hide();
@@ -258,12 +257,10 @@ include 'includes/signin.php';
             $('#feature-icon').addClass("fa-pencil");
             $('#feature-title').empty().append("Exams");
             $('#feature-detail').empty().append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
-            $('body').scrollTo('.feature');
         });
         $(document).on('click', '#back-button', function (event) {
             $('.feature').hide();
             $('.tiles').show();
-            $('body').scrollTo('.tiles');
         });
     </script>
 
