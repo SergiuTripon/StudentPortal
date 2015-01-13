@@ -49,35 +49,6 @@ include 'includes/signin.php';
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
-    
-	<header class="intro">
-    <div class="intro-body">
-    <form class="form-custom">
-
-	<div class="logo-custom">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr class="mt10 hr-custom">
-	
-	<p class="feedback-sad text-center">You need to have a student or lecturer account to access this area.</p>
-
-    <hr class="hr-custom">
-
-    <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/overview/"><span class="ladda-label">Overview</span></a>
-    </div>
-
-    </form>
-    
-	</div><!-- /intro-body -->
-    </header>
-
-    <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
-
-    <?php else : ?>
 
     <div class="container">
 	<?php include 'includes/menus/portal_menu.php'; ?>
@@ -150,7 +121,6 @@ include 'includes/signin.php';
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php endif; ?>
 	<?php else : ?>
 
     <style>
