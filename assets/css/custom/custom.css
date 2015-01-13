@@ -86,12 +86,12 @@ hr {
 
 .hr-custom {
     border-color: #FFA500;
-    margin-top: 5px;
-    margin-bottom: 0px;
 }
 
 .hr-small {
     max-width: 300px;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 /* End of hr style */
 
