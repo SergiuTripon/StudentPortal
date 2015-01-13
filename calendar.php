@@ -24,18 +24,14 @@ else $userid = '';
 
     <title>Student Portal | Calendar</title>
 
+	<!-- Open Sans font -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+
     <!-- Bootstrap CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- FontAwesome CSS -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
-
-    <!-- Open Sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
-
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
+    <link href="../assets/css/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
 	
     <!-- Ladda CSS -->
     <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
@@ -44,16 +40,16 @@ else $userid = '';
     <link rel="stylesheet" href="../assets/css/calendar/calendar.css">
 	
 	<!-- DataTables CSS -->
-	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/font-awesome/dataTables.fontAwesome.css">
+	<link rel="stylesheet" href="../assets/css/data-tables/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="../assets/css/data-tables/dataTables.fontAwesome.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="../assets/css/common/html5shiv.min.js"></script>
+    <script src="../assets/css/common//respond.min.js"></script>
     <![endif]-->
 
 </head>
@@ -247,9 +243,9 @@ else $userid = '';
     <header class="intro">
     <div class="intro-body">
     
-	<form class="form-custom orange-form">
+	<form class="form-custom">
 
-    <div class="logo-custom animated fadeIn delay1">
+    <div class="logo-custom">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
@@ -272,26 +268,12 @@ else $userid = '';
 
 	<!-- JS library -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	
-	<!-- dataTables JS -->
-	<script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
-
-	<script type="text/javascript" class="init">
-    $(document).ready(function () {
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no tasks at the moment."
-		}
-	});
-    });
-	</script>
 
 	<!-- Bootstrap JS -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+
+	<!-- dataTables JS -->
+	<script src="../assets/js/data-tables/jquery.dataTables.min.js"></script>
 
 	<!-- Bootstrap Calendar JS -->
 	<script src="../assets/js/calendar/jstz.min.js"></script>
@@ -312,8 +294,21 @@ else $userid = '';
 	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 	
 	<script>
-    // Bind normal buttons
     Ladda.bind('.ladda-button', {timeout: 1000});
+	</script>
+
+	<script type="text/javascript" class="init">
+    $(document).ready(function () {
+    $('.table-custom').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no tasks at the moment."
+		}
+	});
+    });
 	</script>
 	
 	<script>
