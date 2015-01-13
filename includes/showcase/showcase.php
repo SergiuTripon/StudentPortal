@@ -45,7 +45,6 @@
 		padding-left: 15px;
 		float: none;
 		margin: auto;
-		margin-bottom: 20px;
 	}
 
 	.feature i {
