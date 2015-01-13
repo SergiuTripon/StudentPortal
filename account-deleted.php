@@ -13,24 +13,24 @@
     <title>Student Portal | Account deleted</title>
 
     <!-- Open Sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- FontAwesome CSS -->
-    <link href="../assets/css/fontawesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/fontawesome/font-awesome.min.css" rel="stylesheet">
 
 	<!-- Ladda CSS -->
-	<link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
+	<link href="../assets/css/ladda/ladda-themeless.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/common/custom.css" rel="stylesheet">
 	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="../assets/common/html5shiv.min.js"></script>
-      <script src="../assets/common/respond.min.js"></script>
+      <script src="../assets/js/common/html5shiv.min.js"></script>
+      <script src="../assets/js/common/respond.min.js"></script>
     <![endif]-->
 	
 	<style>
