@@ -59,8 +59,9 @@
 		border-bottom: 1px solid #FFA500;
 	}
 
-	.social h2 {
-		font-size: 40px;
+	.social h1 {
+		margin-top: 0px;
+		margin-bottom: 0px;
 	}
 
 	.social-buttons i {
