@@ -28,11 +28,6 @@
 		margin-top: 0px;
 		padding-bottom: 10px;
 	}
-
-	.features-title {
-		font-size: 35px;
-		margin-bottom: 0px;
-	}
 	/* End of Features section */
 
 	/* Feature section */
@@ -122,9 +117,9 @@
 	
 	<!-- Features -->
     <section class="features" id="features">
-    <div class="container text-center">
+    <div class="container">
 
-    <div class="row tiles">
+    <div id="tiles" class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="tile large-tile timetable-tile">
@@ -213,8 +208,13 @@
 	</div>
 
 	</div><!-- /.row -->
+    </div><!-- /.container -->
 
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature">
+    </section>
+
+	<!-- Feature -->
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width">
+	<div class="feature">
 	<i id="feature-icon" class="fa"></i>
 	<h4 id="feature-title"></h4>
 	<p id="feature-detail"></p>
@@ -222,10 +222,8 @@
 	<a id="back-button" class="btn btn-custom-reverse btn-lg ladda-button mt20" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Back</span></a>
 	</div>
 	</div>
-
-    </div><!-- /.container -->
-
-    </section>
+	</div>
+	<!-- End of Feature -->
 	
 	<!-- Contact -->
     <section class="contact" id="contact">
