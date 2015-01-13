@@ -493,6 +493,7 @@ hr {
 #modal-custom .close, .close:hover, .close:focus {
     color: #FFA500;
     font-size: 30px;
+    cursor: pointer;
     outline: none !important;
     opacity: 1;
     text-shadow: none;
