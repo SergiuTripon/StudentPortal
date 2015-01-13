@@ -192,22 +192,20 @@ $xml_station_status = new SimpleXMLElement($result2);
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 	<!-- tileJS -->
-	<script src="../assets/js/tileJs.min.js"></script>
-
-	<!-- Spin JS -->
-	<script src="../assets/js/spin.min.js"></script>
+	<script src="../assets/js/tilejs/tileJs.min.js"></script>
 
 	<!-- Ladda JS -->
-	<script src="../assets/js/ladda.min.js"></script>
+	<script src="../assets/js//ladda/ladda.min.js"></script>
 	
 	<!-- Pace JS -->
-    <script src="../assets/js/pace.js"></script>
+    <script src="../assets/js/pacejs/pace.js"></script>
+	<script src="../assets/js/pacejs/spin.min.js"></script>
 
 	<!-- Custom JS -->
-	<script src="../assets/js/custom.js"></script>
+	<script src="../assets/js/common/custom.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 
 	<script type="text/javascript" class="init">
