@@ -98,7 +98,7 @@
 	<h2>All your university needs, in one single place.</h2>
 
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature">
-    <i class="fa fa-table"></i>
+    <i class="fa"></i>
     <h4 class="feature-title"></h4>
     <p class="feature-detail"></p>
     </div>

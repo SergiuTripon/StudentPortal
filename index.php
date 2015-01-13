@@ -247,6 +247,7 @@ include 'includes/signin.php';
         $(document).on('click', '.timetable-tile', function (event) {
             $('.tiles').fadeOut();
             $('.feature').fadeIn();
+            $('.fa').addClass("fa-table");
             $('.feature-title').append("Timetable");
             $('.feature-detail').append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
         });
