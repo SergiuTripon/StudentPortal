@@ -75,6 +75,10 @@ a, a:hover, a:focus {
     outline: none !important;
 }
 
+p {
+    margin-bottom: 5px;
+}
+
 b, strong {
     font-weight: 600;
 }
