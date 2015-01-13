@@ -196,7 +196,7 @@ include 'includes/signin.php';
 	<script src="../assets/js/ladda/ladda.min.js"></script>
 	
 	<!-- Pace JS -->
-	<script src="../assets/js/ladda/spin.min.js"></script>
+	<script src="../assets/js/pacejs/spin.min.js"></script>
     <script src="../assets/js/pacejs/pace.js"></script>
 
 	<!-- Date Time Picker JS -->
