@@ -243,8 +243,8 @@ include 'includes/signin.php';
     <script>
     $( "#timetable" ).click(function() {
         $('#modal-custom').modal('show');
-        $('#modal-custom-label').append("<p>Timetable</p>");
-        $('.modal-body').append("<p>Test</p>");
+        $('#modal-custom-label').empty().append("Timetable");
+        $('.modal-body').append("<p class="feedback-custom">Test</p>");
     });
     </script>
 
