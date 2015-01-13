@@ -281,11 +281,6 @@ include 'includes/signin.php';
 	<!-- Ladda JS -->
 	<script src="../assets/js/ladda/ladda.min.js"></script>
 
-    <!-- Date Time Picker JS -->
-    <script src="../assets/js/datetimepicker/jquery-ui-1.10.0.custom.min.js"></script>
-    <script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
-    <script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
-
 	<!-- Custom JS -->
 	<script src="../assets/js/common/custom.js"></script>
 
