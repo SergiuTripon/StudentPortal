@@ -101,7 +101,8 @@
     <i class="fa"></i>
     <h4 class="feature-title"></h4>
     <p class="feature-detail"></p>
-    </div>
+	<a id="back-button" class="btn btn-custom-reverse btn-lg ladda-button mt20" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Back</span></a>
+	</div>
 
     <div class="row tiles">
 

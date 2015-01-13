@@ -605,7 +605,7 @@ hr {
 
 /* End of Button Style */
 
-/* Orange button style */
+/* Custom button style */
 .btn-custom {
     font-size: 16px;
     color: #FFA500 !important;
@@ -618,7 +618,22 @@ hr {
     outline: none !important;
 }
 
-/* End of Orange button style */
+/* End of Custom button style */
+
+/* Custom reverse button style */
+.btn-custom-reverse {
+    font-size: 16px;
+    color: #FFA500 !important;
+    outline: none !important;
+    background-color: transparent;
+    border: 1px solid #FFA500 !important;
+}
+
+.btn-custom-reverse:hover, .btn-custom-reverse:focus {
+    outline: none !important;
+}
+
+/* End of Custom reverse button style */
 
 /* Tiles style */
 .tile {
