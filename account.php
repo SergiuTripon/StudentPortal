@@ -270,7 +270,7 @@ include 'includes/signin.php';
     
 	<form class="form-custom">
 
-    <div class="logo-custom animated fadeIn delay1">
+    <div class="logo-custom">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
