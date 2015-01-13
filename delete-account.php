@@ -46,10 +46,10 @@ $stmt2->fetch();
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
 
     <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -200,7 +200,7 @@ $stmt2->fetch();
 	<?php include 'includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
 	<?php else : ?>
@@ -241,23 +241,20 @@ $stmt2->fetch();
 	<!-- Bootstrap JS -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-	<!-- Spin JS -->
-	<script src="../assets/js/spin.min.js"></script>
-
 	<!-- Ladda JS -->
-	<script src="../assets/js/ladda.min.js"></script>
+	<script src="../assets/js/ladda/ladda.min.js"></script>
 	
 	<!-- Pace JS -->
-    <script src="../assets/js/pace.js"></script>
+    <script src="../assets/js/pacejs/spin.min.js"></script>
+    <script src="../assets/js/pacejs/pace.js"></script>
 
 	<!-- Custom JS -->
-	<script src="../assets/js/custom.js"></script>
+	<script src="../assets/js/common/custom.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
-    // Bind normal buttons
     Ladda.bind('.ladda-button', {timeout: 1000});
 	</script>
 
