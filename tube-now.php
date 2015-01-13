@@ -207,7 +207,6 @@ $xml_station_status = new SimpleXMLElement($result2);
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
-
 	<script type="text/javascript" class="init">
 	$(document).ready(function () {
 	$('.table-custom').dataTable({
@@ -217,7 +216,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 		"info": false
 	});
 	});
-</script>
+	</script>
 
 </body>
 </html>
