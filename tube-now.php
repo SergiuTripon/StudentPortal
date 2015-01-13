@@ -39,13 +39,14 @@ $xml_station_status = new SimpleXMLElement($result2);
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
 
     <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/font-awesome/dataTables.fontAwesome.css">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -146,8 +147,8 @@ $xml_station_status = new SimpleXMLElement($result2);
 	
 	<?php include 'includes/footers/portal_footer.php'; ?>
 
-           <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
+   <!-- Sign Out (Inactive) JS -->
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
@@ -187,17 +188,6 @@ $xml_station_status = new SimpleXMLElement($result2);
 	<!-- dataTables JS -->
 	<script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
 
-	<script type="text/javascript" class="init">
-    $(document).ready(function () {
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false
-	});
-    });
-	</script>
-
 	<!-- Bootstrap JS -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
@@ -218,6 +208,18 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+	<script type="text/javascript" class="init">
+	$(document).ready(function () {
+	$('.table-custom').dataTable({
+		"iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false
+	});
+	});
+</script>
 
 </body>
 </html>
