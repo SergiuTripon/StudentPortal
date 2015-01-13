@@ -65,7 +65,7 @@
 	}
 
 	.social-buttons {
-		margin-top: 20px;
+		margin-top: 30px;
 	}
 
 	.social-buttons i {
