@@ -4,7 +4,7 @@
     timeOut = window.setTimeout( "redir()" , 900000 );
 	}
 	function redir() {
-    window.location = "../sign-out-inactive.php";
+    window.location = "../../../sign-out-inactive.php";
 	}
 	window.onload = function() { setTimeout("redir()" , 900000 ) };
 	window.onmousemove = reset;
