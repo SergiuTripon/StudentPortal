@@ -174,6 +174,33 @@ include 'includes/signin.php';
 			
     <div class="row">
 
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+    <a href="/update-account/">
+    <div class="tile">
+    <i class="fa fa-refresh"></i>
+	<p class="tile-text">Update account</p>
+    </div>
+    </a>
+	</div>
+
+	<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+	<a href="/change-password/">
+    <div class="tile">
+    <i class="fa fa-key"></i>
+	<p class="tile-text">Change password</p>
+	</div>
+    </a>
+	</div>
+
+    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+	<a href="/delete-account/">
+    <div class="tile">
+    <i class="fa fa-trash"></i>
+	<p class="tile-text">Delete account</p>
+	</div>
+    </a>
+	</div>
+
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
     <a href="/create-single-account/">
     <div class="tile">
