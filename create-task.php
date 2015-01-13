@@ -192,40 +192,37 @@ include 'includes/signin.php';
 	<!-- Bootstrap JS -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-	<!-- Spin JS -->
-	<script src="../assets/js/spin.min.js"></script>
-
 	<!-- Ladda JS -->
-	<script src="../assets/js/ladda.min.js"></script>
+	<script src="../assets/js/ladda/ladda.min.js"></script>
 	
 	<!-- Pace JS -->
-    <script src="../assets/js/pace.js"></script>
+	<script src="../assets/js/ladda/spin.min.js"></script>
+    <script src="../assets/js/pacejs/pace.js"></script>
 
 	<!-- Date Time Picker JS -->
 	<script src="../assets/js/datetimepicker/jquery-ui-1.10.0.custom.min.js"></script>
 	<script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
 	<script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
 
-	<script>
-	$(function () {
-		$('#task_startdate').datetimepicker({
-			dateFormat: "yy-mm-dd", controlType: 'select'
-		});
-		$('#task_duedate').datetimepicker({
-			dateFormat: "yy-mm-dd", controlType: 'select'
-		});
-	});
-	</script>
-
 	<!-- Custom JS -->
-	<script src="../assets/js/custom.js"></script>
+	<script src="../assets/js/common/custom.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
-	// Bind normal buttons
 	Ladda.bind('.ladda-button', {timeout: 2000});	
+	</script>
+
+	<script>
+	$(function () {
+	$('#task_startdate').datetimepicker({
+		dateFormat: "yy-mm-dd", controlType: 'select'
+	});
+	$('#task_duedate').datetimepicker({
+		dateFormat: "yy-mm-dd", controlType: 'select'
+	});
+	});
 	</script>
 	
 	<script>
