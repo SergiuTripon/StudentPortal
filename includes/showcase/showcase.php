@@ -213,8 +213,6 @@
     </a>
 	</div>
 
-	</div><!-- /row -->
-
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature">
 	<i class="fa"></i>
 	<h4 class="feature-title"></h4>
