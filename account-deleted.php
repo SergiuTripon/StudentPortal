@@ -80,14 +80,12 @@
 	<!-- Bootstrap JS -->
     <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
 
-	<!-- Spin JS -->
-	<script src="../assets/js/pacejs/spin.min.js"></script>
-
 	<!-- Ladda JS -->
 	<script src="../assets/js/ladda/ladda.min.js"></script>
 
 	<!-- Pace JS -->
-    <script src="../assets/js/pacejs/pace.js"></script>
+    <script src="../assets/js/pace-js/spin.min.js"></script>
+    <script src="../assets/js/pace-js/pace.js"></script>
 
     <!-- Custom JS -->
     <script src="../assets/js/common/custom.js"></script>
