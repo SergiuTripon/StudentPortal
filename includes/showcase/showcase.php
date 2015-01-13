@@ -113,12 +113,10 @@
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a class="page-scroll" href="#exams">
-    <div class="tile">
+    <div class="tile exam-tile">
 	<i class="fa fa-pencil"></i>
 	<p class="tile-text">Exams</p>
     </div>
-    </a>
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
