@@ -32,8 +32,9 @@ include 'includes/signin.php';
     <!-- Ladda CSS -->
     <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
 
-    <!-- Bootstrap Date Picker CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-1.10.0.custom.css">
+    <link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/custom.css" rel="stylesheet">
@@ -271,22 +272,25 @@ include 'includes/signin.php';
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 	<!-- tileJS -->
-	<script src="../assets/js/tileJs.min.js"></script>
+	<script src="../assets/js/tilejs/tileJs.min.js"></script>
 
 	<!-- Spin JS -->
-	<script src="../assets/js/spin.min.js"></script>
+	<script src="../assets/js/pacejs/spin.min.js"></script>
+    <script src="../assets/js/pacejs/pace.js"></script>
 
 	<!-- Ladda JS -->
-	<script src="../assets/js/ladda.min.js"></script>
+	<script src="../assets/js/ladda/ladda.min.js"></script>
 
-    <!-- Pace JS -->
-    <script src="../assets/js/pace.js"></script>
+    <!-- tileJS -->
+    <script src="../assets/js/datetimepicker/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="../assets/js/datetimepicker/jquery-ui-sliderAccess.js"></script>
+    <script src="../assets/js/datetimepicker/jquery-ui-timepicker-addon.js"></script>
 
 	<!-- Custom JS -->
-	<script src="../assets/js/custom.js"></script>
+	<script src="../assets/js/common/custom.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 </html>
