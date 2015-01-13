@@ -176,7 +176,7 @@ include 'includes/signin.php';
     <?php include 'includes/showcase/showcase.php'; ?>
 
     <!-- Help Modal -->
-    <div class="modal fade" id="modal-help modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
     
