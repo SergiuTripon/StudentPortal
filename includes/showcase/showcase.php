@@ -111,7 +111,7 @@
 
     <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-    <div class="tile large-tile md-trigger" data-modal="modal">
+    <div class="tile large-tile md-trigger" data-modal="niftymodal">
     <i class="fa fa-table"></i>
 	<p class="large-tile-text">Timetable</p>
     </div>
@@ -280,7 +280,7 @@
 	</footer>
 	<!-- /.footer -->
 
-	<div class="md-modal md-effect-1" id="modal">
+	<div class="md-modal md-effect-1" id="niftymodal">
 	<div class="md-content">
 	<h3>Modal Dialog</h3>
 	<div>
