@@ -211,7 +211,7 @@ include 'includes/signin.php';
 	
 	});
 
-    $('#feature').hide();
+    $('.feature').hide();
 
 	});
 	</script>
