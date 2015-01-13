@@ -6,6 +6,11 @@
 		border-top: 1px solid #FFA500;
 	}
 
+	.about h1 {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
 	.about h2 {
 		margin-top: 0px;
 		margin-bottom: 0px;
@@ -17,6 +22,11 @@
 		color: #FFA500;
 		padding: 100px 0;
 		border-top: 1px solid #FFA500;
+	}
+
+	.features h1 {
+		margin-top: 0px;
+		margin-bottom: 0px;
 	}
 
 	.features h2 {
@@ -31,7 +41,6 @@
 		padding: 100px 0;
 		border-top: 1px solid #FFA500;
 	}
-
 	.contact h2 {
 		font-size: 48px;
 	}
