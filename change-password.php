@@ -20,7 +20,7 @@ include 'includes/signin.php';
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300">
 
     <!-- Bootstrap CSS -->
-    <link href="../assets/css/bootstrap/bootstrap.min.css">
+    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- FontAwesome CSS -->
     <link href="..assets/css/font-awesome/font-awesome.min.css">
