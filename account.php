@@ -17,20 +17,20 @@ include 'includes/signin.php';
     <title>Student Portal | Account</title>
 
     <!-- Open Sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- FontAwesome CSS -->
-    <link href="../assets/css/fontawesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/fontawesome/font-awesome.min.css" rel="stylesheet">
 
     <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
+    <link href="../assets/css/ladda/ladda-themeless.min.css" rel="stylesheet">
 
     <!-- Date Picker CSS -->
-    <link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-1.10.0.custom.css">
-    <link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css">
+    <link href="../assets/css/datetimepicker/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+    <link href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/common/custom.css" rel="stylesheet">
@@ -292,7 +292,7 @@ include 'includes/signin.php';
 	<?php endif; ?>
 
 	<!-- JS library -->
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 	<!-- Bootstrap JS -->
 	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
