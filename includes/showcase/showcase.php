@@ -8,12 +8,8 @@
 
 	.about h2 {
 		margin-top: 0px;
-		padding-bottom: 10px;
-	}
-
-	.about-title {
-		font-size: 35px;
 		margin-bottom: 0px;
+		padding-bottom: 0px;
 	}
 	/* End of About section */
 
