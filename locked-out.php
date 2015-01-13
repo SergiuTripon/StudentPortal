@@ -99,8 +99,7 @@ include 'includes/signin.php';
 	
 	</div>
     </header>
-	
-	
+
 	<header id="after" class="intro"">
     <div class="intro-body">
 	
@@ -128,7 +127,7 @@ include 'includes/signin.php';
     <hr class="hr-custom">
 
     <div class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="register/"><span class="ladda-label">Register</span></a>
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="../register/"><span class="ladda-label">Register</span></a>
     </div>
 
     <div class="text-right">
