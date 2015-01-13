@@ -28,9 +28,9 @@ include 'includes/signin.php';
     <!-- Ladda CSS -->
     <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 
-	<!-- Date Time Picker CSS -->
-	<link href="../assets/css/datetimepicker/datetimepicker/jquery-ui-1.10.0.custom.css" rel='stylesheet' type='text/css'>
-	<link href="../assets/css/datetimepicker/datetimepicker/jquery-ui-timepicker-addon.css" rel='stylesheet' type='text/css'>
+	<!-- Date Picker CSS -->
+	<link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-1.10.0.custom.css">
+	<link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/common/custom.css" rel="stylesheet">
@@ -152,7 +152,7 @@ include 'includes/signin.php';
 	<?php include 'includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
