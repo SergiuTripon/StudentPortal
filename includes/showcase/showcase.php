@@ -207,11 +207,6 @@
     </a>
 	</div>
 
-	</div><!-- /.row -->
-    </div><!-- /.container -->
-
-    </section>
-
 	<!-- Feature -->
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width">
 	<div class="feature">
@@ -224,6 +219,11 @@
 	</div>
 	</div>
 	<!-- End of Feature -->
+
+	</div><!-- /.row -->
+    </div><!-- /.container -->
+
+    </section>
 	
 	<!-- Contact -->
     <section class="contact" id="contact">
