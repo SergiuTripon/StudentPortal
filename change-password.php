@@ -17,7 +17,7 @@ include 'includes/signin.php';
     <title>Student Portal | Change password</title>
 
 	<!-- Open Sans font -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
