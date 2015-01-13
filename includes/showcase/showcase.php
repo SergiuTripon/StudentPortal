@@ -97,15 +97,6 @@
     <h2 class="features-title"><b>Student Portal</b></h2>
 	<h2>All your university needs, in one single place.</h2>
 
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature">
-    <i class="fa"></i>
-    <h4 class="feature-title"></h4>
-    <p class="feature-detail"></p>
-	<div class="text-right">
-	<a id="back-button" class="btn btn-custom-reverse btn-lg ladda-button mt20" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Back</span></a>
-	</div>
-	</div>
-
     <div class="row tiles">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
