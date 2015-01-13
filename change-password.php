@@ -23,7 +23,7 @@ include 'includes/signin.php';
     <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- FontAwesome CSS -->
-    <link href="..assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
 
     <!-- Ladda CSS -->
     <link href="../assets/css/ladda/ladda-themeless.min.css" rel="stylesheet">
