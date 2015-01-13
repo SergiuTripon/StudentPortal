@@ -22,15 +22,15 @@
     <link href="../assets/css/fontawesome/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 	<!-- Ladda CSS -->
-	<link rel="stylesheet" href="/assets/css/ladda/ladda-themeless.min.css">
+	<link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="/assets/css/common/custom.css" rel="stylesheet">
+    <link href="../assets/css/common/custom.css" rel="stylesheet">
 	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="../assets/common/html5shiv.min.js"></script>
+      <script src="../assets/common/respond.min.js"></script>
     <![endif]-->
 	
 	<style>
@@ -75,25 +75,25 @@
     </header>
 
 	<!-- JS library -->
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 	<!-- Bootstrap JS -->
     <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
 
 	<!-- Spin JS -->
-	<script src="/assets/js/pacejs/spin.min.js"></script>
+	<script src="../assets/js/pacejs/spin.min.js"></script>
 
 	<!-- Ladda JS -->
-	<script src="/assets/js/ladda/ladda.min.js"></script>
+	<script src="../assets/js/ladda/ladda.min.js"></script>
 
 	<!-- Pace JS -->
-    <script src="/assets/js/pacejs/pace.js"></script>
+    <script src="../assets/js/pacejs/pace.js"></script>
 
     <!-- Custom JS -->
-    <script src="/assets/js/common/custom.js"></script>
+    <script src="../assets/js/common/custom.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/assets/js/common/ie10-viewport-bug-workaround.js"></script>
+    <script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 	
 	<script>
 	// Bind normal buttons
