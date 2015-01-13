@@ -30,14 +30,14 @@ include 'includes/signin.php';
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
 
     <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 
     <!-- Date Picker CSS -->
     <link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-1.10.0.custom.css">
     <link rel="stylesheet" href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -226,7 +226,7 @@ include 'includes/signin.php';
 	<?php include 'includes/footers/portal_footer.php'; ?>
 		
 	<!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
+    <script src="../assets/js/common/sign-out-inactive.js"></script>
 	
 	<?php endif; ?>
     <?php endif; ?>
