@@ -32,6 +32,9 @@ include 'includes/signin.php';
     <!-- Ladda CSS -->
     <link rel="stylesheet" href="assets/css/ladda-themeless.min.css">
 
+    <!-- Nifty Modal CSS -->
+    <link rel="stylesheet" href="assets/css/niftymodal/component.css">
+
     <!-- Custom styles for this template -->
     <link href="assets/css/custom.css" rel="stylesheet">
 
@@ -150,6 +153,12 @@ include 'includes/signin.php';
 
     <!-- Pace JS -->
     <script src="../assets/js/pace.js"></script>
+
+    <!-- Nifty Modal JS -->
+    <script src="assets/js/niftymodal/classie.js"></script>
+    <script src="assets/js/niftymodal/modalEffects.js"></script>
+    <script src="assets/js/niftymodal/cssParser.js"></script>
+    <script src="assets/js/niftymodal/css-filters-polyfill.js"></script>
 
 	<!-- Custom JS -->
 	<script src="assets/js/custom.js"></script>
