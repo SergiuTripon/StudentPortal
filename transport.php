@@ -12,7 +12,7 @@ $time = date('G:i');
 
 <head>
     <!-- Pace JS -->
-    <script src="../assets/js/pace.js"></script>
+    <script src="../assets/js/pacejs/pace.js"></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
