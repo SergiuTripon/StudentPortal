@@ -172,7 +172,7 @@ include 'includes/signin.php';
 	<li class="active">Account</li>
     </ol>
 			
-    <div class="row">
+    <div class="row pb30">
 
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
     <a href="/update-account/">
