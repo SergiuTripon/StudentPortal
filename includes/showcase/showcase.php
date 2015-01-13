@@ -266,7 +266,7 @@
     <div class="modal-content">
 
 	<div class="modal-header">
-    <i id="feature-icon" class="fa"></i>
+    <button type="button" class="close" data-dismiss="modal"><i id="feature-icon" class="fa"></i></button>
     <h4 class="modal-title" id="modal-custom-label"></h4>
     </div>
 
