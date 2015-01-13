@@ -149,7 +149,7 @@ include 'includes/signin.php';
 	<script src="assets/js/ladda/ladda.min.js"></script>
 
     <!-- Pace JS -->
-    <script src="../assets/js/pace.js"></script>
+    <script src="../assets/js/pacejs/pace.js"></script>
 
 	<!-- Custom JS -->
 	<script src="assets/js/custom/custom.js"></script>
