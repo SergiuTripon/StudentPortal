@@ -6,8 +6,6 @@ include 'includes/signin.php';
 
 <html lang="en">
 <head>
-    <!-- Pace JS -->
-    <script src="../assets/js/pace.js"></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,10 +30,10 @@ include 'includes/signin.php';
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
 
     <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="../assets/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -155,17 +153,18 @@ include 'includes/signin.php';
 	<!-- Easing JS -->
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-	<!-- Spin JS -->
-	<script src="../assets/js/spin.min.js"></script>
+    <!-- Pace JS -->
+    <script src="../assets/js/pacejs/spin.min.js"></script>
+    <script src="../assets/js/pacejs/pace.js"></script>
 
 	<!-- Ladda JS -->
-	<script src="../assets/js/ladda.min.js"></script>
+	<script src="../assets/js/ladda/ladda.min.js"></script>
 
 	<!-- Custom JS -->
-	<script src="../assets/js/custom.js"></script>
+	<script src="../assets/js/common/custom.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
     // Bind normal buttons
