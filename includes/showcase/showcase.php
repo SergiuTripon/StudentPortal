@@ -253,8 +253,8 @@
 	<div class="social" id="social">
     <div class="container">
 	<div class="row">
-	<h2>Connect with us</h2>
-	<hr class="hr-custom hr-small mt10">
+	<h1>Connect with us</h1>
+	<hr class="hr-custom hr-small">
 	</div>
     <div class="row">
     <div class="social-buttons">
