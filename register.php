@@ -229,7 +229,7 @@ include 'includes/signin.php';
 	<script src="../assets/js/ladda/ladda.min.js"></script>
 
 	<!-- Custom JS -->
-	<script src="../assets/js/custom/custom.js"></script>
+	<script src="../assets/js/common/custom.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
