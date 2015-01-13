@@ -13,7 +13,7 @@
 	}
 	/* End of About section */
 
-	/* Features section */
+	/* Features */
 	.features {
 		color: #FFA500;
 		padding: 100px 0;
@@ -22,27 +22,10 @@
 
 	.features h2 {
 		margin-top: 0px;
+		margin-bottom: 0px;
 		padding-bottom: 10px;
 	}
-	/* End of Features section */
-
-	/* Feature section */
-
-	.feature {
-		color: #333333;
-		background-color: #FFA500;
-		height: 250px;
-		padding-right: 15px;
-		padding-left: 15px;
-		float: none;
-		margin: auto;
-	}
-
-	.feature i {
-		font-size: 40px;
-		padding: 20px;
-	}
-	/* End of Feature section */
+	/* End of Features */
 
 	/* Contact section */
 	.contact {
@@ -108,7 +91,6 @@
 	</div><!-- /.row -->
     </div><!-- /.container -->
     </section>
-
 	<!-- End of About -->
 	
 	<!-- Features -->
@@ -119,8 +101,7 @@
 	<hr class="hr-custom hr-small mt10 pb30">
 	</div>
 
-    <div id="tiles" class="row">
-
+    <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="tile large-tile timetable-tile">
     <i class="fa fa-table"></i>
@@ -206,11 +187,11 @@
     </div>
     </a>
 	</div>
-
 	</div><!-- /.row -->
-    </div><!-- /.container -->
 
+	</div><!-- /.container -->
     </section>
+	<!-- End of Features -->
 	
 	<!-- Contact -->
     <section class="contact" id="contact">
