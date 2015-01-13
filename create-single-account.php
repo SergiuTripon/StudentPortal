@@ -278,7 +278,7 @@ include 'includes/signin.php';
 	<?php endif; ?>
 
 	<!-- JS library -->
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 	<!-- Bootstrap JS -->
 	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
