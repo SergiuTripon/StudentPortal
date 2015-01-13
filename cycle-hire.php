@@ -41,6 +41,7 @@ $cycle_hire = new SimpleXMLElement($result);
 
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/font-awesome/dataTables.fontAwesome.css">
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/common/custom.css" rel="stylesheet">
