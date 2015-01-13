@@ -16,21 +16,20 @@ include 'includes/signin.php';
 
     <title>Student Portal | Change password</title>
 
+	<!-- Open Sans font -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300">
+
     <!-- Bootstrap CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/bootstrap/bootstrap.min.css">
 
     <!-- FontAwesome CSS -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
-
-    <!-- Open Sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <link href="..assets/css/font-awesome/font-awesome.min.css">
 
     <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
+    <link href="../assets/css/ladda/ladda-themeless.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/common/custom.css" rel="stylesheet">
+    <link href="../assets/css/common/custom.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -56,15 +55,15 @@ include 'includes/signin.php';
     <div class="intro-body">
     <form class="form-custom">
 
-	<div class="custom-logo animated fadeIn delay1">
+	<div class="logo-custom">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="mt10 custom-hr">
+    <hr class="mt10 hr-custom">
 	
-	<p class="error text-center">You need to have a student or lecturer account to access this area.</p>
+	<p class="feedback-sad text-center">You need to have a student or lecturer account to access this area.</p>
 
-    <hr class="custom-hr">
+    <hr class="hr-custom">
 
     <div class="text-center">
     <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/overview/"><span class="ladda-label">Overview</span></a>
@@ -188,11 +187,11 @@ include 'includes/signin.php';
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
 	<!-- Bootstrap JS -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
 
 	<!-- Pace JS -->
-	<script src="../assets/js/pacejs/spin.min.js"></script>
-	<script src="../assets/js/pacejs/pace.js"></script>
+	<script src="../assets/js/pace-js/spin.min.js"></script>
+	<script src="../assets/js/pace-js/pace.js"></script>
 
 	<!-- Ladda JS -->
 	<script src="../assets/js/ladda/ladda.min.js"></script>
@@ -204,7 +203,6 @@ include 'includes/signin.php';
 	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
-	// Bind normal buttons
 	Ladda.bind('.ladda-button', {timeout: 1000});
 	</script>
 	
