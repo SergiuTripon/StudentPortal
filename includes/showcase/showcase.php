@@ -107,6 +107,7 @@
 	<div class="row text-center pb30">
 	<h1>Features</h1>
 	<hr class="hr-custom hr-small">
+	<p class="text-right">Click and discover</p>
 	</div>
 
     <div class="row">
