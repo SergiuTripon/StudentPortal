@@ -113,7 +113,7 @@
 	<hr class="hr-custom hr-small">
 	</div>
 
-	<p class="text-right">Click and discover</p>
+	<p class="text-left">Click and discover</p>
 
     <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
