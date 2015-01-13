@@ -96,9 +96,9 @@
 	<!-- Features -->
     <section class="features" id="features">
     <div class="container">
-	<div class="row text-center">
+	<div class="row text-center pb30">
 	<h2>Features</h2>
-	<hr class="hr-custom hr-small mt10 pb30">
+	<hr class="hr-custom hr-small">
 	</div>
 
     <div class="row">
