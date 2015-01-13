@@ -34,6 +34,8 @@
 		color: #333333;
 		background-color: #FFA500;
 		height: 250px;
+		padding-right: 15px;
+		padding-left: 15px;
 		float: none;
 		margin: auto;
 		margin-bottom: 20px;
