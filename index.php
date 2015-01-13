@@ -210,6 +210,9 @@ include 'includes/signin.php';
 	return true;
 	
 	});
+
+    $('#feature').hide();
+
 	});
 	</script>
 
@@ -241,8 +244,11 @@ include 'includes/signin.php';
 	</script>
 
     <script>
-        $(document).ready(function() {
-            $('.tiles').hide();
+        $(document).on('click', '.timetable-tile', function (event) {
+            $('#tiles').fadeOut();
+            $('#feature').fadeIn();
+            $('#feature-title').append("Timetable");
+            $('#feature-detail').append("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.");
         });
     </script>
 

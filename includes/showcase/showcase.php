@@ -30,7 +30,7 @@
 	}
 
 	/* Feature icons */
-	.feature-icon {
+	.feature {
 		color: #333333;
 		background-color: #FFA500;
 		height: 250px;
@@ -41,12 +41,7 @@
 		margin-bottom: 20px;
 	}
 
-	.feature-icon-selected {
-		color: #333333;
-		background-color: #FFA500;
-	}
-
-	.feature-icon i {
+	.feature i {
 		font-size: 40px;
 		padding: 20px;
 	}
@@ -113,10 +108,10 @@
     <h2 class="features-title"><b>Student Portal</b></h2>
 	<h2>All your university needs, in one single place.</h2>
 
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature-icon" id="timetable">
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width feature">
     <i class="fa fa-table"></i>
-    <h4>Timetable</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet pulvinar purus, vitae gravida arcu blandit eu. Suspendisse laoreet metus eget sollicitudin varius.</p>
+    <h4 class="feature-title"></h4>
+    <p class="feature-detail"></p>
     </div>
 
     <div class="row tiles">
