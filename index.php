@@ -143,7 +143,7 @@ include 'includes/signin.php';
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- tileJS -->
-    <script src="assets/js/tileJs.min.js"></script>
+    <script src="assets/js/tilejs/tileJs.min.js"></script>
 
     <!-- Pace JS -->
     <script src="assets/js/pacejs/spin.min.js"></script>
