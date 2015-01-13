@@ -125,6 +125,7 @@
     <div class="container">
 
     <div class="row tiles">
+	<div class="col-lg-12 text-center">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="tile large-tile timetable-tile">
@@ -223,6 +224,7 @@
 	</div>
 	</div>
 
+	</div>
 	</div><!-- /.row -->
     </div><!-- /.container -->
 
