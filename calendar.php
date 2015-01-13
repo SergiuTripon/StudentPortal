@@ -293,10 +293,10 @@ else $userid = '';
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 	<!-- Bootstrap Calendar JS -->
-	<script src="../assets/js/jstz.min.js"></script>
-	<script src="../assets/js/underscore.min.js"></script>
-	<script src="../assets/js/calendar.js"></script>
-	<script src="../assets/js/calendar-app.js"></script>
+	<script src="../assets/js/calendar/jstz.min.js"></script>
+	<script src="../assets/js/calendar/underscore.min.js"></script>
+	<script src="../assets/js/calendar/calendar.js"></script>
+	<script src="../assets/js/calendar/calendar-app.js"></script>
 	
 	<!-- tileJS -->
 	<script src="../assets/js/tilejs/tileJs.min.js"></script>
