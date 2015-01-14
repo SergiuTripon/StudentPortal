@@ -72,6 +72,7 @@
 
 	.dropdown-menu>li>a {
 		color: #FFA500;
+		font-size: 2.4em;
 	}
 
 	.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus  {
