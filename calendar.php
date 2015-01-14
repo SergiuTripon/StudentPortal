@@ -264,7 +264,7 @@ else $userid = '';
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 	<!-- bootstrap -->
-	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 	<!-- tile-js -->
 	<script src="../assets/js/tile-js/tileJs.min.js"></script>
