@@ -56,7 +56,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 	<div class="content-panel mb10">
 	<h4><i class="fa fa-angle-right"></i> Line status | Now</h4>
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-transport">
 
 	<thead class="cf">
 	<tr>
@@ -87,7 +87,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 	<div class="content-panel mb10">
 	<h4><i class="fa fa-angle-right"></i> Station status | Now</h4>
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-transport">
 
 	<thead>
 	<tr>
