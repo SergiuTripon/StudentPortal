@@ -1,5 +1,5 @@
 <!-- favicon -->
-<link rel="icon" href="../img/favicon/favicon.ico">
+<link rel="icon" href="../assets/img/favicon/favicon.ico">
 
 <!-- open-sans-font -->
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel='stylesheet' type="text/css">
