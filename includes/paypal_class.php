@@ -74,6 +74,16 @@ class paypal_class {
 		</head>\n";
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
 
+		echo "<form method=\"post\" name=\"paypal_form\" ";
+		echo "action=\"".$paypal_url."\">\n";
+		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
+		foreach ($this->fields as $name => $value) {
+			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
+		}
+		echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
+
+		echo "</form>\n";
+
 		echo "<header class=\"intro\">
     	<div class=\"intro-body\">
 
@@ -90,16 +100,6 @@ class paypal_class {
     	</p>
 
     	<hr class=\"hr-custom\">";
-
-		echo "<form method=\"post\" name=\"paypal_form\" ";
-		echo "action=\"".$paypal_url."\">\n";
-		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
-		foreach ($this->fields as $name => $value) {
-			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
-		}
-		echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
-
-		echo "</form>\n";
 
     	echo "</form>
 
