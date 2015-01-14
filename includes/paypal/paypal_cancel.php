@@ -15,7 +15,7 @@ include_once 'signin.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Payment Cancelled</title>
 
