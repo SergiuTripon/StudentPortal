@@ -7,7 +7,7 @@ include_once 'signin.php';
 
 <head>
 
-    <?php include 'assets/js-paths/pacejs-js-path.php'; ?>
+    <?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 	
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,7 @@ include_once 'signin.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Payment Cancelled</title>
 
@@ -85,7 +85,7 @@ include_once 'signin.php';
 	
 	<?php endif; ?>
 
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
     Ladda.bind( '.ladda-button', { timeout: 2000 } );
