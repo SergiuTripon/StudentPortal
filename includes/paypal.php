@@ -104,7 +104,7 @@ switch($payment){
 	$stmt3->execute();
 	$stmt3->close();
 	
-	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isFalf = ? WHERE userid = ? LIMIT 1");
+	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isHalf = ? WHERE userid = ? LIMIT 1");
 	$stmt4->bind_param('ii', $isHalf, $userid);
 	$stmt4->execute();
 	$stmt4->close();
