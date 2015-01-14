@@ -67,11 +67,13 @@ class paypal_class {
 		$paypal_url = ($_GET['sandbox'] == 1) ? SSL_SAND_URL : SSL_P_URL;
 		echo "<html>\n";
 		echo "<head><title>Processing Payment...</title>
+		<link href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">
+		<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css\" rel=\"stylesheet\">
 		<link href=\"../assets/css/custom/custom.css\" rel=\"stylesheet\">
 		</head>\n";
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
-		echo "<center><h2>Please wait, your order is being processed and you";
-		echo " will be redirected to the paypal website.</h2></center>\n";
+		echo "<h2>Please wait, your order is being processed and you";
+		echo " will be redirected to the paypal website.</h2>\n";
 		echo "<form method=\"post\" name=\"paypal_form\" ";
 		echo "action=\"".$paypal_url."\">\n";
 		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
