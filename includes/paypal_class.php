@@ -84,11 +84,7 @@ class paypal_class {
 
     	<hr class=\"hr-custom\">
 
-    	<p class=\"feedback-sad text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.</p>
-
-    	<hr class=\"hr-custom\">
-
-    	</form>";
+    	<p class=\"feedback-sad text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.</p>";
 
 		echo "<form method=\"post\" name=\"paypal_form\" ";
 		echo "action=\"".$paypal_url."\">\n";
@@ -101,6 +97,10 @@ class paypal_class {
 		echo "<div class=\"text-center\"><input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\"></div>\n";
 
 		echo "</form>\n";
+
+    	echo "<hr class=\"hr-custom\">
+
+    	</form>";
 
 		echo "</div><!-- /intro-body -->
     	</header>";
