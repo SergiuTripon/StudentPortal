@@ -144,29 +144,27 @@ include 'includes/signin.php';
 
 	<?php endif; ?>
 
-	<!-- JS -->
+	<!-- js -->
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
-	<!-- Bootstrap JS -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!-- bootstrap -->
+	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
 
-	<!-- Easing JS -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<!-- easing -->
+	<script src="../assets/js/easing/jquery.easing.min.js"></script>
 
-    <!-- tileJS -->
+    <!-- tile-js -->
     <script src="../assets/js/tile-js/tileJs.min.js"></script>
 
-	<!-- Pace JS -->
+	<!-- pace-js -->
 	<script src="../assets/js/pace-js/spin.min.js"></script>
 	<script src="../assets/js/pace-js/pace.js"></script>
 
-	<!-- Ladda JS -->
+	<!-- ladda -->
 	<script src="../assets/js/ladda/ladda.min.js"></script>
 
-	<!-- Custom JS-->
+	<!-- custom-->
 	<script src="../assets/js/common/custom.js"></script>
-
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
