@@ -12,8 +12,8 @@ $cycle_hire = new SimpleXMLElement($result);
 
 <head>
 
-	<!-- Pace JS -->
-	<script src="../assets/js/pacejs/pace.js"></script>
+	<!-- pace-js -->
+	<script src="../assets/js/pace-js/pace.js"></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,32 +24,29 @@ $cycle_hire = new SimpleXMLElement($result);
 
     <title>Student Portal | Cycle Hire</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!-- OpenSans -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel="stylesheet">
 
-    <!-- FontAwesome CSS -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- boostrap -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Open Sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <!-- fontawesome -->
+    <link href="../assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
 
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css">
-
-    <!-- Ladda CSS -->
+    <!-- ladda -->
     <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
 
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/font-awesome/dataTables.fontAwesome.css">
+    <!-- data-tables -->
+    <link rel="stylesheet" href="../assets/css/data-tables/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="../assets/css/data-tables/dataTables.fontAwesome.css">
 
-    <!-- Custom styles for this template -->
+    <!-- common -->
     <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="../assets/js/common/html5shiv.min.js"></script>
+    <script src="../assets/js/common/respond.min.js"></script>
     <![endif]-->
 
 </head>
@@ -157,40 +154,38 @@ $cycle_hire = new SimpleXMLElement($result);
 
 	<?php endif; ?>
 
-	<!-- JS library -->
+	<!-- js -->
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	
-	<!-- dataTables JS -->
-	<script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+	<!-- data-tables js -->
+	<script src="../assets/js/data-tables/jquery.dataTables.min.js"></script>
+
+	<!-- Bootstrap JS -->
+	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+
+	<!-- tile-js -->
+	<script src="../../assets/js/tile-js/tileJs.min.js"></script>
+
+	<!-- ladda -->
+	<script src="../../assets/js/ladda/ladda.min.js"></script>
+
+    <!-- pace-js -->
+	<script src="../../assets/js/pace-js/spin.min.js"></script>
+
+	<!-- custom -->
+	<script src="../../assets/js/common/custom.js"></script>
+	<script src="../../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 	<script type="text/javascript" class="init">
-    $(document).ready(function () {
+	$(document).ready(function () {
 	$('.table-custom').dataTable({
 		"iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false
 	});
-    });
+	});
 	</script>
-
-	<!-- Bootstrap JS -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-	<!-- tileJS -->
-	<script src="../../assets/js/tilejs/tileJs.min.js"></script>
-
-	<!-- Ladda JS -->
-	<script src="../../assets/js/ladda/ladda.min.js"></script>
-
-    <!-- Pace JS -->
-	<script src="../../assets/js/pacejs/spin.min.js"></script>
-
-	<!-- Custom JS -->
-	<script src="../../assets/js/common/custom.js"></script>
-
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 </html>

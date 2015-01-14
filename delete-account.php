@@ -36,25 +36,25 @@ $stmt2->fetch();
 
     <title>Student Portal | Delete Account</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- OpenSans -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel="stylesheet">
 
-    <!-- FontAwesome CSS -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- bootstrap -->
+    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Open Sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <!-- font-awesome -->
+    <link href="../assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
 
-    <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda/ladda-themeless.min.css">
+    <!-- ladda -->
+    <link href="../assets/css/ladda/ladda-themeless.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- common -->
     <link href="../assets/css/common/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="../assets/js/common/html5shiv.min.js"></script>
+    <script src="../assets/js/common/respond.min.js"></script>
     <![endif]-->
 
 </head>
@@ -64,37 +64,7 @@ $stmt2->fetch();
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
-	
-    <header class="intro">
-    <div class="intro-body">
-                
-	<form class="form-custom">
 
-    <div class="custom-logo animated fadeIn delay1">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr class="hr-custom">
-
-    <p class="sad-feedback text-center">You need to have a student or lecturer account to access this area.</p>
-
-    <hr class="custom-hr">
-
-	<div class="text-center">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/overview/"><span class="ladda-label">Overview</span></a>
-	</div>
-
-    </form>
-    
-	</div><!-- /intro-body -->
-    </header>
-
-    <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
-
-    <?php else : ?>
-	
     <div class="container">
 
     <?php include 'includes/menus/portal_menu.php'; ?>
@@ -202,7 +172,6 @@ $stmt2->fetch();
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php endif; ?>
 	<?php else : ?>
 
     <style>
@@ -235,23 +204,21 @@ $stmt2->fetch();
 
 	<?php endif; ?>
 
-	<!-- JS library -->
+	<!-- js -->
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
-	<!-- Bootstrap JS -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!-- bootstrap -->
+	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
 
-	<!-- Ladda JS -->
+	<!-- ladda -->
 	<script src="../assets/js/ladda/ladda.min.js"></script>
 	
-	<!-- Pace JS -->
-    <script src="../assets/js/pacejs/spin.min.js"></script>
-    <script src="../assets/js/pacejs/pace.js"></script>
+	<!-- pace-js -->
+    <script src="../assets/js/pace-js/spin.min.js"></script>
+    <script src="../assets/js/pace-js/pace.js"></script>
 
-	<!-- Custom JS -->
+	<!-- common -->
 	<script src="../assets/js/common/custom.js"></script>
-
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 
 	<script>
