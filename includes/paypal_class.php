@@ -81,9 +81,9 @@ class paypal_class {
 		foreach ($this->fields as $name => $value) {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
-		echo "<center><br/><br/>If you are not automatically redirected to ";
-		echo "paypal within 5 seconds...<br/><br/>\n";
-		echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
+		echo "<br/><br/><h4 class=\"feedback-custom text-center\">If you are not automatically redirected
+		to paypal within 5 seconds...</h4><br/><br/>\n";
+		echo "<input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\"></center>\n";
 		
 		echo "</form>\n";
 		echo "</body></html>\n";
