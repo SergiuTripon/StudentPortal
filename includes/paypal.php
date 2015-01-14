@@ -103,12 +103,12 @@ switch($payment){
 	$updated_on = date("Y-m-d G:i:s");
 	
 	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ? WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('ii', $half_fees, $updated_on, $userid);
+	$stmt3->bind_param('isi', $half_fees, $updated_on, $userid);
 	$stmt3->execute();
 	$stmt3->close();
 	
 	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isHalf = ?, updated_on = ? WHERE userid = ? LIMIT 1");
-	$stmt4->bind_param('ii', $isHalf, $updated_on, $userid);
+	$stmt4->bind_param('isi', $isHalf, $updated_on, $userid);
 	$stmt4->execute();
 	$stmt4->close();
 	
