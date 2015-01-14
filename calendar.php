@@ -18,7 +18,27 @@ else $userid = '';
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths.php'; ?>
+	<!-- favicon -->
+	<link rel="icon" href="../assets/img/favicon/favicon.ico">
+
+	<!-- open-sans-font -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel='stylesheet' type="text/css">
+
+	<!-- bootstrap -->
+	<link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+	<!-- font-awesome -->
+	<link href="../assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
+
+	<!-- bootstrap calendar -->
+	<link href="../assets/css/calendar/calendar.css" rel="stylesheet">
+
+	<!-- common -->
+	<link href="../assets/css/common/custom.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="../assets/css/common/html5shiv.min.js"></script>
+	<script src="../assets/css/common/respond.min.js"></script>
+	<![endif]-->
 
     <title>Student Portal | Calendar</title>
 
@@ -236,7 +256,31 @@ else $userid = '';
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths.php'; ?>
+	<!-- pace-js -->
+	<script src="../assets/js/pace-js/spin.min.js"></script>
+	<script src="../assets/js/pace-js/pace.js"></script>
+
+	<!-- js library -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<!-- bootstrap -->
+	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+
+	<!-- tile-js -->
+	<script src="../assets/js/tile-js/tileJs.min.js"></script>
+
+	<!-- dataTables JS -->
+	<script src="../assets/js/data-tables/jquery.dataTables.min.js"></script>
+
+	<!-- Bootstrap Calendar JS -->
+	<script src="../assets/js/calendar/jstz.min.js"></script>
+	<script src="../assets/js/calendar/underscore-min.js"></script>
+	<script src="../assets/js/calendar/calendar.js"></script>
+	<script src="../assets/js/calendar/calendar-app.js"></script>
+
+	<!-- common-->
+	<script src="../assets/js/common/custom.js"></script>
+	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
 	
 	<script>
     Ladda.bind('.ladda-button', {timeout: 1000});
