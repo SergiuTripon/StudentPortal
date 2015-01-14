@@ -214,14 +214,6 @@ include 'includes/signin.php';
 	</script>
 	
 	<script>
-	$('#loading').bind('ajaxStart', function(){
-    $(this).append('Loading...');
-	}).bind('ajaxStop', function(){
-    $(this).hide();
-	});
-	</script>
-	
-	<script>
 	$(document).ready(function() {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();

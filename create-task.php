@@ -119,6 +119,14 @@ include 'includes/signin.php';
     </div>
 
 	</div>
+
+	<div id="success-button1" class="pull-left" style="display: none;">
+    <a class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500" href="../"><span class="ladda-label">Back</span></a>
+    </div>
+
+	<div id="success-button2" class="text-right" style="display: none;">
+    <a class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500" href=""><span class="ladda-label">Create another</span></a>
+    </div>
 	
     </form>
     </div><!-- /content-panel -->
@@ -267,7 +275,8 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").empty().append('Task created successfully. To create another task, simply fill in the form again.');
-		$('#createtask_form').trigger("reset");
+		$("#success-button1").show();
+		$("#success-button2").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
