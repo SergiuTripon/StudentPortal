@@ -12,7 +12,7 @@ else $userid = '';
 
 <head>
 
-	<?php include 'assets/js-paths/pacejs-path.php'; ?>
+	<?php include 'assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -240,7 +240,7 @@ else $userid = '';
 	<?php endif; ?>
 
 	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/tile-js-paths.php'; ?>
+	<?php include 'assets/js-paths/tilejs-js-paths.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-paths.php'; ?>
 	<?php include 'assets/js-paths/calendar-js-paths.php'; ?>
 

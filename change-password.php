@@ -7,7 +7,7 @@ include 'includes/signin.php';
 
 <head>
 
-	<?php include 'assets/js-paths/tile-js-paths.php'; ?>
+	<?php include 'assets/js-paths/pacejs-js-paths.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
