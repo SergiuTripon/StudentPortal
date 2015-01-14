@@ -37,7 +37,7 @@ if ($fee_amount == "4500.00") {
 
 if ($fee_amount == "0.00") {
     $fee_title = 'Nothing to pay';
-    $conditional_style = "<style> .checkbox { display: none !important; } .btn-orange { display: none !important; }</style>";
+    $conditional_style = "<style> .checkbox { display: none !important; } .btn-custom { display: none !important; }</style>";
 }
 
 ?>
