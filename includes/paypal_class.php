@@ -72,20 +72,42 @@ class paypal_class {
 		<link href=\"../assets/css/custom/custom.css\" rel=\"stylesheet\">
 		</head>\n";
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
-		echo "<div class=\"container\">
-		<h3 class=\"feedback-custom text-center\">Please wait, your order is being processed and you
-		will be redirected to the paypal website.</h3></div>\n";
+
+		echo "<header class=\"intro\">
+    	<div class=\"intro-body\">
+
+		<form class=\"form-custom\">
+
+    	<div class=\"logo-custom animated fadeIn delay1\">
+		<i class=\"fa fa-graduation-cap\"></i>
+    	</div>
+
+    	<hr class=\"hr-custom\">
+
+    	<p class=\"feedback-sad text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.<br>
+    	If you are not automatically redirected to paypal within 5 seconds...
+    	</p>";
+
 		echo "<form method=\"post\" name=\"paypal_form\" ";
 		echo "action=\"".$paypal_url."\">\n";
 		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
 		foreach ($this->fields as $name => $value) {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
-		echo "<br/><h4 class=\"feedback-custom text-center\">If you are not automatically redirected
-		to paypal within 5 seconds...</h4><br/>\n";
 		echo "<div class=\"text-center\"><input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\"></div>\n";
-		
 		echo "</form>\n";
+
+    	echo "<hr class=\"hr-custom\">
+
+    	<div class=\"text-center\">
+		<a class=\"btn btn-custom btn-lg ladda-button\" data-style=\"slide-up\" data-spinner-color=\"#FFA500\" href=\"/\"><span class=\"ladda-label\">Sign In</span></a>
+    	</div>
+
+	    </form>
+
+		</div><!-- /intro-body -->
+    	</header>";
+
 		echo "</body></html>\n";
 	}
    
