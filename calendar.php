@@ -281,10 +281,6 @@ else $userid = '';
 	<!-- common-->
 	<script src="../assets/js/common/custom.js"></script>
 	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
-	
-	<script>
-    Ladda.bind('.ladda-button', {timeout: 1000});
-	</script>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
