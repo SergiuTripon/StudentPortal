@@ -143,11 +143,11 @@ switch($payment){
 	break;
 	
 	case "ipn": // IPN case to receive payment information. this case will not displayed in browser. This is server to server communication. PayPal will send the transactions each and every details to this case in secured POST menthod by server to server. 
-		$transaction_id  = $_POST["txn_id"];
-		$payment_status = strtolower($_POST["payment_status"]);
-		$invoice_id = $_POST["invoice"];
-		
-		$completed_on = date("Y-m-d G:i:s");
+	$transaction_id  = $_POST["txn_id"];
+	$payment_status = strtolower($_POST["payment_status"]);
+	$invoice_id = $_POST["invoice"];
+
+	$completed_on = date("Y-m-d G:i:s");
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 			
