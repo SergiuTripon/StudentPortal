@@ -82,11 +82,13 @@ class paypal_class {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
 
-		echo "<div class=\"logo-custom\"><i class=\"fa fa-graduation-cap\"></i></div>\n";
+		echo "<div class=\"logo-custom\"><i class=\"fa fa-paypal\"></i></div>\n";
 
 		echo "<hr class=\"hr-custom\">";
 
-		echo "<p class=\"feedback-sad text-center\">Looks like you're not signed in yet. Please sign in before accessing this area.</p>\n";
+		echo "<p class=\"feedback-custom text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.</p>\n";
+
+		echo "<p class=\"feedback-custom text-center\">If you are not automatically redirected to PayPal within 5 seconds, click on the button below.</p>\n";
 
 	    echo "<hr class=\"hr-custom\">\n";
 
