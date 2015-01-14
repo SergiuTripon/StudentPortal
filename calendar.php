@@ -274,7 +274,7 @@ else $userid = '';
 
 	<!-- Bootstrap Calendar JS -->
 	<script src="../assets/js/calendar/jstz.min.js"></script>
-	<script src="../assets/js/calendar/underscore-min.js"></script>
+	<script src="../assets/js/calendar/underscore.min.js"></script>
 	<script src="../assets/js/calendar/calendar.js"></script>
 	<script src="../assets/js/calendar/calendar-app.js"></script>
 
