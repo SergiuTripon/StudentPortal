@@ -69,38 +69,30 @@ class paypal_class {
 		echo "<head><title>Processing Payment...</title>
 		<link href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">
 		<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css\" rel=\"stylesheet\">
-		<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css\" rel=\"stylesheet\">
 		<link href=\"../assets/css/custom/custom.css\" rel=\"stylesheet\">
 		</head>\n";
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
 
-		echo "<form method=\"post\" name=\"paypal_form\" ";
-		echo "action=\"".$paypal_url."\">\n";
+		echo "<header class=\"intro\">\n";
+    	echo "<div class=\"intro-body\">\n";
+
+		echo "<form class=\"form-custom\" method=\"post\" name=\"paypal_form\" action=\"".$paypal_url."\">\n";
 		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
 		foreach ($this->fields as $name => $value) {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
 
-		echo "<header class=\"intro\">\n";
-    	echo "<div class=\"intro-body\">\n";
+		echo "<div class=\"logo-custom\"><i class=\"fa fa-graduation-cap\"></i></div>\n";
 
-		echo "<form class=\"form-custom\">\n";
+		echo "<hr class=\"hr-custom\">";
 
-	    echo "<div class=\"logo-custom\"><i class=\"fa fa-paypal\"></i></div>\n";
+		echo "<p class=\"feedback-sad text-center\">Looks like you're not signed in yet. Please sign in before accessing this area.</p>"\n;
 
-    	echo "<hr class=\"hr-custom\">\n";
+	    echo "<hr class=\"hr-custom\">\n";
 
-    	echo "<p class=\"feedback-custom text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.<br><br>
-    	If you are not automatically redirected to paypal within 5 seconds...
-    	</p>\n";
-
-    	echo "<hr class=\"hr-custom\">\n";
-
-		echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
+		echo "<div class=\"text-center\"><button class=\"btn btn-custom btn-lg ladda-button\" type=\"submit\" data-style=\"slide-up\" data-spinner-color=\"#FFA500\"><span class="ladda-label">Click here</span></button></div>\n";
 
 		echo "</form>\n";
-
-    	echo "</form>\n";
 
 		echo "</div>\n";
     	echo "</header>\n";
