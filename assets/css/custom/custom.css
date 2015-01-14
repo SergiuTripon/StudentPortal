@@ -5,6 +5,7 @@ html, body {
 }
 
 body {
+    font-size: 62.5% !important;
     background-color: #333333;
     background-image: url(../../img/bg/bg-pattern.png);
 }
@@ -681,13 +682,13 @@ hr {
 
 .tile i {
 	color: #FFA500;
-    font-size: 80px;
-    margin-top: 30px;
+    font-size: 5.7em;
+    margin-top: 0.4em;
 }
 
 .tile-text {
 	color: #FFA500;
-    font-size: 1em;
+    font-size: 1.1em;
     cursor: pointer;
     text-align: left;
     padding-top: 15px;
@@ -701,7 +702,7 @@ hr {
 
 .large-tile-text {
 	color: #FFA500;
-    font-size: 1em;
+    font-size: 1.1em;
 	cursor: pointer;
     text-align: left;
     padding-top: 15px;
@@ -721,7 +722,7 @@ hr {
 
 .large-tile-text {
 	color: #FFA500;
-    font-size: 1em;
+    font-size: 1.1em;
 	cursor: pointer;
 	text-align: left;
     padding-top: 70px;
