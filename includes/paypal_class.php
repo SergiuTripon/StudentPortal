@@ -65,9 +65,9 @@ class paypal_class {
 	public function submit_paypal_post() {
 
 		$paypal_url = ($_GET['sandbox'] == 1) ? SSL_SAND_URL : SSL_P_URL;
-		include '../assets/css-paths/common-css-paths.css';
 		echo "<html>\n";
 		echo "<head><title>Processing Payment...</title></head>\n";
+		include '../assets/css-paths/common-css-paths.css';
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
 		echo "<center><h2>Please wait, your order is being processed and you";
 		echo " will be redirected to the paypal website.</h2></center>\n";
