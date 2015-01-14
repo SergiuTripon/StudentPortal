@@ -14,6 +14,7 @@ $payment = $_REQUEST["payment"];
 
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
+$updated_on = date("Y-m-d G:i:s");
 
 $isHalf = '0';
 $invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
@@ -35,8 +36,8 @@ $payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STR
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, updated WHERE userid = ? LIMIT 1");
-		$stmt->bind_param('sssi', $payer_address1, $payer_city, $payer_postcode, $userid);
+		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, updated_on WHERE userid = ? LIMIT 1");
+		$stmt->bind_param('sssi', $payer_address1, $payer_city, $payer_postcode, $updated_on, $userid);
 		$stmt->execute();
 		$stmt->close();
 
@@ -84,9 +85,10 @@ switch($payment){
 	if ($product_amount == '9000.00' ) {
 	
 	$full_fees = 0.00;
+	$updated_on = date("Y-m-d G:i:s");
 	
-	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?,  WHERE userid = ? LIMIT 1");
-	$stmt2->bind_param('ii', $full_fees, $userid);
+	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ?  WHERE userid = ? LIMIT 1");
+	$stmt2->bind_param('ii', $full_fees, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
 	
@@ -100,22 +102,24 @@ switch($payment){
 	$isHalf = 1;
 	$updated_on = date("Y-m-d G:i:s");
 	
-	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('ii', $half_fees, $userid);
+	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ? WHERE userid = ? LIMIT 1");
+	$stmt3->bind_param('ii', $half_fees, $updated_on, $userid);
 	$stmt3->execute();
 	$stmt3->close();
 	
-	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isHalf = ? WHERE userid = ? LIMIT 1");
-	$stmt4->bind_param('ii', $isHalf, $userid);
+	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isHalf = ?, updated_on = ? WHERE userid = ? LIMIT 1");
+	$stmt4->bind_param('ii', $isHalf, $updated_on, $userid);
 	$stmt4->execute();
 	$stmt4->close();
 	
 	include_once '../includes/paypal/paypal_success.php';
 
 	} else {
+
+	$updated_on = date("Y-m-d G:i:s");
 	
-	$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
-	$stmt5->bind_param('ii', $full_fees, $userid);
+	$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ? WHERE userid = ? LIMIT 1");
+	$stmt5->bind_param('ii', $full_fees, $updated_on, $userid);
 	$stmt5->execute();
 	$stmt5->close();
 	
