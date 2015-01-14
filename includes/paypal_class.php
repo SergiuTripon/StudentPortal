@@ -69,6 +69,7 @@ class paypal_class {
 		echo "<head><title>Processing Payment...</title>
 		<link href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">
 		<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css\" rel=\"stylesheet\">
+		<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css\" rel=\"stylesheet\">
 		<link href=\"../assets/css/custom/custom.css\" rel=\"stylesheet\">
 		</head>\n";
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
@@ -98,6 +99,8 @@ class paypal_class {
 
 		echo "</div>\n";
     	echo "</header>\n";
+
+		echo "<script>Ladda.bind('.ladda-button', {timeout: 2000});</script>";
 
 		echo "</body></html>\n";
 	}
