@@ -333,17 +333,14 @@ hr {
 /* Feedback messages style */
 .feedback-custom {
     color: #FFA500;
-    font-size: 15px;
 }
 
 .feedback-sad {
     color: #FF5454;
-    font-size: 15px;
 }
 
 .feedback-happy {
     color: #4DC742;
-    font-size: 15px;
 }
 /* End of Feedback messages style */
 
@@ -384,7 +381,6 @@ hr {
 
 .form-custom .form-control {
 	color: #FFA500;
-    font-size: 15px;
     z-index: 30;
     background: none;
 	border-color: #FFA500;
@@ -399,7 +395,6 @@ hr {
 
 .form-custom label {
 	color: #FFA500;
-    font-size: 15px;
     font-weight: normal;
 }
 
@@ -444,22 +439,18 @@ hr {
 /* Placeholder style */
 .form-custom .form-control::-webkit-input-placeholder {
 	color: gray;
-    font-size: 15px;
 }
 
 .form-custom .form-control:-moz-placeholder {
     color: gray;
-	font-size: 15px;
 }
 
 .form-custom .form-control::-moz-placeholder {
     color: gray;
-	font-size: 15px;
 }
 
 .form-custom .form-control:-ms-input-placeholder {
     color: gray;
-	font-size: 15px;
 }
 /* End of Placeholder style */
 /* End of Custom Form style */
@@ -639,7 +630,6 @@ hr {
 
 /* Custom button style */
 .btn-custom {
-    font-size: 15px;
     color: #FFA500 !important;
     outline: none !important;
     background-color: transparent;
@@ -654,7 +644,6 @@ hr {
 
 /* Custom reverse button style */
 .btn-custom-reverse {
-    font-size: 15px;
     color: #333333 !important;
     outline: none !important;
     background-color: transparent;
@@ -1028,14 +1017,12 @@ hr {
 }
 
 .dataTables_wrapper .dataTables_filter label {
-    font-size: 15px;
     color: #FFA500;
     font-weight: normal;
     margin-bottom: 5px;
 }
 
 .dataTables_wrapper .dataTables_length label {
-    font-size: 15px;
     color: #FFA500;
     font-weight: normal !important;
     margin-bottom: 7px;
