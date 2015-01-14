@@ -69,6 +69,7 @@ class paypal_class {
 		echo "<head><title>Processing Payment...</title>
 		<link href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">
 		<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css\" rel=\"stylesheet\">
+		<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css\" rel=\"stylesheet\">
 		<link href=\"../assets/css/custom/custom.css\" rel=\"stylesheet\">
 		</head>\n";
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
@@ -79,7 +80,7 @@ class paypal_class {
 		<form class=\"form-custom\">";
 
 	    echo "<div class=\"logo-custom\">
-		<i class=\"fa fa-graduation-cap\"></i>
+		<i class=\"fa fa-paypal\"></i>
     	</div>
 
     	<hr class=\"hr-custom\">
@@ -96,8 +97,7 @@ class paypal_class {
 		foreach ($this->fields as $name => $value) {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
-
-		echo "<div class=\"text-center\"><input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\"></div>\n";
+		echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
 
 		echo "</form>\n";
 
