@@ -108,7 +108,7 @@ class paypal_class {
 		echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js\"></script>\n";
 		echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda.min.js\"></script>\n";
 
-		echo "<script>Ladda.bind('.ladda-button', {timeout: 15000});</script>\n";
+		echo "<script>Ladda.bind('.ladda-button', {timeout: 20000});</script>\n";
 
 		echo "</body>\n";
 		echo "</html>\n";
