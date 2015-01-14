@@ -13,15 +13,13 @@ $p->admin_mail = EMAIL_ADD;
 $payment = $_REQUEST["payment"];
 
 date_default_timezone_set('Europe/London');
-$posted_date = date("Y-m-d G:i:s");
 
-$half = '0';
+$isHalf = '0';
 $invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
 $product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
 $product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 $product_amount = filter_input(INPUT_POST, 'product_amount', FILTER_SANITIZE_STRING);
-$pending = 'pending';
 $payer_firstname = filter_input(INPUT_POST, 'payer_firstname', FILTER_SANITIZE_STRING);
 $payer_surname = filter_input(INPUT_POST, 'payer_surname', FILTER_SANITIZE_STRING);
 $payer_email = filter_input(INPUT_POST, 'payer_email', FILTER_SANITIZE_STRING);
@@ -31,17 +29,20 @@ $payer_address2 = filter_input(INPUT_POST, 'payer_address2', FILTER_SANITIZE_STR
 $payer_town = filter_input(INPUT_POST, 'payer_town', FILTER_SANITIZE_STRING);
 $payer_city = filter_input(INPUT_POST, 'payer_city', FILTER_SANITIZE_STRING);
 $payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
+$payment_status = 'pending';
+$created_on = date("Y-m-d G:i:s");
+$updated_on = date("Y-m-d G:i:s");
 
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=? WHERE userid = ? LIMIT 1");
-		$stmt->bind_param('sssi', $payer_address1, $payer_city, $payer_postcode, $userid);
+		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt->bind_param('sssi', $payer_address1, $payer_city, $payer_postcode, $updated_on, $userid);
 		$stmt->execute();
 		$stmt->close();
 
-		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, half, invoice_id, product_id, product_name, product_quantity, product_amount, posted_date, payment_status, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param('iiiisiisssssssssss', $userid, $half, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $posted_date, $pending, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode);
+		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, isHalf, invoice_id, product_id, product_name, product_quantity, product_amount, posted_date, payment_status, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param('iiiisiisssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode, $payment_status, $posted_date);
 		$stmt->execute();
 		$stmt->close();
 		
@@ -68,7 +69,7 @@ switch($payment){
 		$p->add_field('country', $_POST["payer_country"]);
 		$p->add_field('zip', $_POST["payer_postcode"]);
 		$p->submit_paypal_post(); // POST it to paypal
-		$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
+		//$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
 	break;
 	
 	case "success": // success case to show the user payment got success
@@ -84,9 +85,10 @@ switch($payment){
 	if ($product_amount == '9000.00' ) {
 	
 	$full_fees = 0.00;
+	$updated_on = date("Y-m-d G:i:s");
 	
-	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
-	$stmt2->bind_param('ii', $full_fees, $userid);
+	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on=? WHERE userid = ? LIMIT 1");
+	$stmt2->bind_param('isi', $full_fees, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
 	
@@ -97,24 +99,27 @@ switch($payment){
 	if ($product_amount == '4500.00' AND $half == '0' ) {
 	
 	$half_fees = 4500.00;
-	$half_fees1 = 1;
+	$isHalf = 1;
+	$updated_on = date("Y-m-d G:i:s");
 	
-	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('ii', $half_fees, $userid);
+	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on=? WHERE userid = ? LIMIT 1");
+	$stmt3->bind_param('isi', $half_fees, $updated_on, $userid);
 	$stmt3->execute();
 	$stmt3->close();
 	
-	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET half = ? WHERE userid = ? LIMIT 1");
-	$stmt4->bind_param('ii', $half_fees1, $userid);
+	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET half = ?, updated_on=? WHERE userid = ? LIMIT 1");
+	$stmt4->bind_param('isi', $isHalf, $updated_on, $userid);
 	$stmt4->execute();
 	$stmt4->close();
 	
 	include_once '../includes/paypal/paypal_success.php';
 
 	} else {
-	
-	$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
-	$stmt5->bind_param('ii', $full_fees, $userid);
+
+	$updated_on = date("Y-m-d G:i:s");
+
+	$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+	$stmt5->bind_param('ii', $full_fees, $updated_on, $userid);
 	$stmt5->execute();
 	$stmt5->close();
 	
@@ -125,11 +130,11 @@ switch($payment){
 	
 	case "cancel": // case cancel to show user the transaction was cancelled
 	
-	$paymentstatus1 = 'cancelled';
-	$cancelled_date = date("Y-m-d G:i:s");
+	$payment_status = 'cancelled';
+	$cancelled_on = date("Y-m-d G:i:s");
 	
-	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, cancelled_date=? WHERE userid = ? ORDER BY posted_date DESC LIMIT 1");
-	$stmt5->bind_param('ssi', $paymentstatus1, $cancelled_date, $userid);
+	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, cancelled_on=? WHERE userid = ? ORDER BY created_on DESC LIMIT 1");
+	$stmt5->bind_param('ssi', $payment_status, $cancelled_on, $userid);
 	$stmt5->execute();
 	$stmt5->close();
 	
@@ -142,11 +147,11 @@ switch($payment){
 		$payment_status = strtolower($_POST["payment_status"]);
 		$invoice_id = $_POST["invoice"];
 		
-		$completed_date = date("Y-m-d G:i:s");
+		$completed_on = date("Y-m-d G:i:s");
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 			
-	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_date='$completed_date' WHERE invoice_id ='$invoice_id'");
+	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_date='$completed_on' WHERE invoice_id ='$invoice_id'");
 	$stmt6->execute();
 	$stmt6->close();
 			
