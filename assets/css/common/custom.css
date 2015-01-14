@@ -246,7 +246,6 @@ hr {
 .breadcrumb > .active {
     color: #FFA500;
     cursor: default;
-    font-size: 16px;
 }
 
 .breadcrumb > li + li:before {
