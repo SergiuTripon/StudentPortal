@@ -27,8 +27,8 @@ $xml_station_status = new SimpleXMLElement($result2);
 
     <title>Student Portal | Tube - Now</title>
 
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
