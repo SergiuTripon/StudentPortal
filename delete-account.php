@@ -32,30 +32,10 @@ $stmt2->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../assets/img/favicon/favicon.ico">
+
+    <?php include 'assets/css-paths.php'; ?>
 
     <title>Student Portal | Delete Account</title>
-
-    <!-- OpenSans -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel="stylesheet">
-
-    <!-- bootstrap -->
-    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-
-    <!-- font-awesome -->
-    <link href="../assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
-
-    <!-- ladda -->
-    <link href="../assets/css/ladda/ladda-themeless.min.css" rel="stylesheet">
-
-    <!-- common -->
-    <link href="../assets/css/common/custom.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="../assets/js/common/html5shiv.min.js"></script>
-    <script src="../assets/js/common/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
@@ -204,22 +184,7 @@ $stmt2->fetch();
 
 	<?php endif; ?>
 
-	<!-- js -->
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-
-	<!-- bootstrap -->
-	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
-
-	<!-- ladda -->
-	<script src="../assets/js/ladda/ladda.min.js"></script>
-	
-	<!-- pace-js -->
-    <script src="../assets/js/pace-js/spin.min.js"></script>
-    <script src="../assets/js/pace-js/pace.js"></script>
-
-	<!-- common -->
-	<script src="../assets/js/common/custom.js"></script>
-	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
+    <?php include 'assets/js-paths.php'; ?>
 
 	<script>
     Ladda.bind('.ladda-button', {timeout: 1000});

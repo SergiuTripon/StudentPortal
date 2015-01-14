@@ -16,30 +16,7 @@ include 'includes/signin.php';
 
     <title>Student Portal | Account</title>
 
-    <!-- Open Sans font -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-
-    <!-- FontAwesome CSS -->
-    <link href="../assets/css/fontawesome/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Ladda CSS -->
-    <link href="../assets/css/ladda/ladda-themeless.min.css" rel="stylesheet">
-
-    <!-- Date Picker CSS -->
-    <link href="../assets/css/datetimepicker/jquery-ui-1.10.0.custom.css" rel="stylesheet">
-    <link href="../assets/css/datetimepicker/jquery-ui-timepicker-addon.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../assets/css/common/custom.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="../assets/js/common/html5shiv.min.js"></script>
-    <script src="../assets/js/common/respond.min.js"></script>
-    <![endif]-->
+    <?php include 'assets/css-paths.php'; ?>
 
 </head>
 
@@ -291,27 +268,7 @@ include 'includes/signin.php';
 
 	<?php endif; ?>
 
-	<!-- JS library -->
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-	<!-- Bootstrap JS -->
-	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
-
-	<!-- tileJS -->
-	<script src="../assets/js/tile-js/tileJs.min.js"></script>
-
-	<!-- Spin JS -->
-	<script src="../assets/js/pace-js/spin.min.js"></script>
-    <script src="../assets/js/pace-js/pace.js"></script>
-
-	<!-- Ladda JS -->
-	<script src="../assets/js/ladda/ladda.min.js"></script>
-
-	<!-- Custom JS -->
-	<script src="../assets/js/common/custom.js"></script>
-
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
+	<?php include 'assets/js-paths.php'; ?>
 
 </body>
 </html>

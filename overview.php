@@ -17,26 +17,8 @@ include 'includes/signin.php';
 
     <title>Student Portal | Overview</title>
 
-    <!-- OpenSans -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel="stylesheet">
+    <?php include 'assets/css-paths.php'; ?>
 
-    <!-- bootstrap -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- font-awesome -->
-    <link href="../assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
-
-    <!-- ladda -->
-    <link href="../assets/css/ladda/ladda-themeless.min.css" rel="stylesheet">
-
-    <!-- common -->
-    <link href="../assets/css/common/custom.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="../assets/js/common/html5shiv.min.js"></script>
-    <script src="../assets/js/common/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -380,28 +362,9 @@ include 'includes/signin.php';
 
 	<?php endif; ?>
 
-	<!-- js -->
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-
-	<!-- bootstrap -->
-	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
-
-	<!-- tile-js -->
-	<script src="../assets/js/tile-js/tileJs.min.js"></script>
-
-    <!-- pace-js -->
-    <script src="../assets/js/pace-js/spin.min.js"></script>
-    <script src="../assets/js/pace-js/pace.js"></script>
-
-	<!-- ladda -->
-	<script src="../assets/js/ladda/ladda.min.js"></script>
-
-	<!-- common -->
-	<script src="../assets/js/common/custom.js"></script>
-	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
+    <?php include 'assets/js-paths.php'; ?>
 
 	<script>
-    // Bind normal buttons
     Ladda.bind('.ladda-button', {timeout: 2000});
 	</script>
 
