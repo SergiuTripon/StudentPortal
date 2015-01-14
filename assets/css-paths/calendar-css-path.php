@@ -1,2 +1,2 @@
 <!-- bootstrap calendar -->
-<link href="../css/calendar/calendar.css" rel="stylesheet">
+<link href="../assets/css/calendar/calendar.css" rel="stylesheet">
