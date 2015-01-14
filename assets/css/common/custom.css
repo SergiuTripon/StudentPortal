@@ -938,7 +938,6 @@ hr {
 
 /* Table Custom style */
 .table-custom {
-    font-size: 15px;
 	border-collapse: collapse !important;
     border: 1px solid #FFA500 !important;
 }
@@ -969,7 +968,6 @@ hr {
 
 /* Table Transport style */
 .table-transport {
-    font-size: 15px;
     border-collapse: collapse !important;
     border: 1px solid #FFA500 !important;
 }
