@@ -22,15 +22,13 @@
 
 	.navbar-brand {
 		color: #FFA500;
-		font-size: 40px;
-		padding: 5px;
-		padding: 0px;
-		border-right: 1px solid #FFA500;
+		font-size: 1.1em;
+		padding: 0.1em;
+		padding: 0em;
+		border-right: 0.04em solid #FFA500;
 	}
 	.navbar-brand i {
 		color: #FFA500;
-		font-size: 40px;
-		padding: 5px;
 	}
 
 	.navbar-default .navbar-toggle:hover,
