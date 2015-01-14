@@ -73,10 +73,23 @@ class paypal_class {
 		</head>\n";
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
 
+		echo "<header class=\"intro\">
+    	<div class=\"intro-body\">
 
-		echo "<div class=\"container\">
-		<h3 class=\"feedback-custom text-center\">Please wait, your order is being processed and you
-		will be redirected to the paypal website.</h3></div>\n";
+		<form class=\"form-custom\">
+
+	    <div class=\"logo-custom\">
+		<i class=\"fa fa-graduation-cap\"></i>
+    	</div>
+
+    	<hr class=\"hr-custom\">
+
+    	<p class=\"feedback-sad text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.</p>
+
+    	<hr class=\"hr-custom\">
+
+    	</form>";
+
 		echo "<form method=\"post\" name=\"paypal_form\" ";
 		echo "action=\"".$paypal_url."\">\n";
 		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
@@ -88,6 +101,10 @@ class paypal_class {
 		echo "<div class=\"text-center\"><input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\"></div>\n";
 
 		echo "</form>\n";
+
+		</div><!-- /intro-body -->
+    	</header>
+
 		echo "</body></html>\n";
 	}
    
