@@ -99,6 +99,8 @@ if ($dateofbirth == "0000-00-00") {
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
+	<div id="hide">
+
 	<div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
@@ -157,6 +159,8 @@ if ($dateofbirth == "0000-00-00") {
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
     </div>
 
+	</div>
+
     </form>
 
     </div><!-- /content-panel -->
@@ -209,6 +213,8 @@ if ($dateofbirth == "0000-00-00") {
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
+	<div id="hide">
+
 	<div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
@@ -259,6 +265,8 @@ if ($dateofbirth == "0000-00-00") {
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
     </div>
+
+	</div>
 
     </form>
 
