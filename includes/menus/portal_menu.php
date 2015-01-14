@@ -57,7 +57,7 @@
 
 	.navbar-default .navbar-nav>li>a {
 		color: #FFA500;
-		font-size: 1em;
+		font-size: 2.4em;
 	}
 
 	.navbar-default .navbar-nav>li>a:hover,
