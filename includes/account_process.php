@@ -34,7 +34,7 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 		$dateofbirth = NULL;
 	}
 
-	if ($degree == '') {
+	if ($degree == 'undefined') {
 		$degree = NULL;
 	}
 
