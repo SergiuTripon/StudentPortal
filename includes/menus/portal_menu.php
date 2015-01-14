@@ -72,7 +72,7 @@
 
 	.dropdown-menu>li>a {
 		color: #FFA500;
-		font-size: 2.4em;
+		font-size: 1em;
 	}
 
 	.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus  {
@@ -88,6 +88,7 @@
 	.navbar-default .navbar-nav>.open>a:hover,
 	.navbar-default .navbar-nav>.open>a:focus {
 		color: #FFA500;
+		font-size: 1em;
 		background: none;
 	}
 	
