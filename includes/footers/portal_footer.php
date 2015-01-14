@@ -16,7 +16,7 @@
 	}
 	footer p {
 		color: #FFA500;
-		font-size: 2.3em;
+		font-size: 2.4em;
 		text-align: center;
 		padding-top: 20px;
 	}
