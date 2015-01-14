@@ -184,6 +184,17 @@ header('Location: ../calendar/');
 	<script>
 	Ladda.bind('.ladda-button', {timeout: 2000});	
 	</script>
+
+	<script>
+	$(function () {
+	$('#task_startdate').datetimepicker({
+		dateFormat: "yy-mm-dd", controlType: 'select'
+	});
+	$('#task_duedate').datetimepicker({
+		dateFormat: "yy-mm-dd", controlType: 'select'
+	});
+	});
+	</script>
 	
 	<script>
 	$(document).ready(function() {
