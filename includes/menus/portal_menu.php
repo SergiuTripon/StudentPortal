@@ -57,6 +57,7 @@
 
 	.navbar-default .navbar-nav>li>a {
 		color: #FFA500;
+		font-size: 1em;
 	}
 
 	.navbar-default .navbar-nav>li>a:hover,
@@ -88,7 +89,6 @@
 	.navbar-default .navbar-nav>.open>a:hover,
 	.navbar-default .navbar-nav>.open>a:focus {
 		color: #FFA500;
-		font-size: 1em;
 		background: none;
 	}
 	
