@@ -73,59 +73,9 @@ switch($payment){
 	break;
 	
 	case "success": // success case to show the user payment got success
-	
-	$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
-	$stmt1->bind_param('i', $userid);
-	$stmt1->execute();
-	$stmt1->store_result();	
-	$stmt1->bind_result($half, $product_amount);
-	$stmt1->fetch();
-	$stmt1->close();
-	
-	if ($product_amount == '9000.00' ) {
-	
-	$full_fees = 0.00;
-	$updated_on = date("Y-m-d G:i:s");
-	
-	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ?  WHERE userid = ? LIMIT 1");
-	$stmt2->bind_param('ii', $full_fees, $updated_on, $userid);
-	$stmt2->execute();
-	$stmt2->close();
-	
-	include_once '../includes/paypal/paypal_success.php';
-	
-	} else {
-	
-	if ($product_amount == '4500.00' AND $half == '0' ) {
-	
-	$half_fees = 4500.00;
-	$isHalf = 1;
-	$updated_on = date("Y-m-d G:i:s");
-	
-	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ? WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('isi', $half_fees, $updated_on, $userid);
-	$stmt3->execute();
-	$stmt3->close();
-	
-	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isHalf = ?, updated_on = ? WHERE userid = ? LIMIT 1");
-	$stmt4->bind_param('isi', $isHalf, $updated_on, $userid);
-	$stmt4->execute();
-	$stmt4->close();
-	
+
 	include_once '../includes/paypal/paypal_success.php';
 
-	} else {
-
-	$updated_on = date("Y-m-d G:i:s");
-	
-	$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ? WHERE userid = ? LIMIT 1");
-	$stmt5->bind_param('isi', $full_fees, $updated_on, $userid);
-	$stmt5->execute();
-	$stmt5->close();
-	
-	include_once '../includes/paypal/paypal_success.php';
-	}
-	}
 	break;
 	
 	case "cancel": // case cancel to show user the transaction was cancelled
@@ -143,11 +93,60 @@ switch($payment){
 	break;
 	
 	case "ipn": // IPN case to receive payment information. this case will not displayed in browser. This is server to server communication. PayPal will send the transactions each and every details to this case in secured POST menthod by server to server. 
-		$transaction_id  = $_POST["txn_id"];
-		$payment_status = strtolower($_POST["payment_status"]);
-		$invoice_id = $_POST["invoice"];
+
+	$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
+	$stmt1->bind_param('i', $userid);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($half, $product_amount);
+	$stmt1->fetch();
+	$stmt1->close();
+
+	if ($product_amount == '9000.00' ) {
+
+	$full_fees = 0.00;
+	$updated_on = date("Y-m-d G:i:s");
+
+	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ?  WHERE userid = ? LIMIT 1");
+	$stmt2->bind_param('ii', $full_fees, $updated_on, $userid);
+	$stmt2->execute();
+	$stmt2->close();
+
+	} else {
+
+	if ($product_amount == '4500.00' AND $half == '0' ) {
+
+	$half_fees = 4500.00;
+	$isHalf = 1;
+	$updated_on = date("Y-m-d G:i:s");
+
+	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ? WHERE userid = ? LIMIT 1");
+	$stmt3->bind_param('isi', $half_fees, $updated_on, $userid);
+	$stmt3->execute();
+	$stmt3->close();
+
+	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isHalf = ?, updated_on = ? WHERE userid = ? LIMIT 1");
+	$stmt4->bind_param('isi', $isHalf, $updated_on, $userid);
+	$stmt4->execute();
+	$stmt4->close();
+
+	} else {
+
+	$updated_on = date("Y-m-d G:i:s");
+
+	$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ? WHERE userid = ? LIMIT 1");
+	$stmt5->bind_param('isi', $full_fees, $updated_on, $userid);
+	$stmt5->execute();
+	$stmt5->close();
+
+	}
+	}
+
+	$transaction_id  = $_POST["txn_id"];
+	$payment_status = strtolower($_POST["payment_status"]);
+	$invoice_id = $_POST["invoice"];
 		
-		$completed_on = date("Y-m-d G:i:s");
+	$completed_on = date("Y-m-d G:i:s");
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 			
