@@ -120,7 +120,7 @@ if ($dateofbirth == "0000-00-00") {
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
 	<label>Date of Birth (YYYY-MM-DD)</label>
-    <input type='text' class="form-control" type="text" name="dateofbirth" id="datepicker1" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
+    <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
@@ -230,7 +230,7 @@ if ($dateofbirth == "0000-00-00") {
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
 	<label>Date of Birth (YYYY-MM-DD)</label>
-    <input type='text' class="form-control" type="text" name="dateofbirth" id="datepicker1" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
+    <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
@@ -318,6 +318,15 @@ if ($dateofbirth == "0000-00-00") {
 	<script>
     Ladda.bind('.ladda-button', {timeout: 1000});
 	</script>
+
+	<script>
+	$(function () {
+	$('#dateofbirth').datetimepicker({
+		dateFormat: "yy-mm-dd",
+		defaultDate: new Date(1985, 00, 01)
+	});
+	});
+	</script>
 	
 	<script>
 	val = $("#gender").val();
@@ -326,7 +335,7 @@ if ($dateofbirth == "0000-00-00") {
 	if(val === '') { $("#firstname").css("border-color", "#FF5454"); }
 	val = $("#surname").val();
 	if(val === '') { $("#surname").css("border-color", "#FF5454"); }
-	val = $("#datepicker1").val();
+	val = $("#dateofbirth").val();
 	if(val === '') { $("#datepicker1").css("border-color", "#FF5454"); }
 	val = $("#email").val();
 	if(val === '') { $("#email").css("border-color", "#FF5454"); }
@@ -385,7 +394,7 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 	
-	dateofbirth = $("#datepicker1").val();
+	dateofbirth = $("#dateofbirth").val();
 	if(dateofbirth === '') {
 		dateofbirth = null;
 	}
@@ -405,6 +414,7 @@ if ($dateofbirth == "0000-00-00") {
     data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&dateofbirth=' + dateofbirth + '&studentno=' + studentno + '&email=' + email + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode + '&degree=' + degree,
     success:function(response){
 		$("#error").hide();
+		$("#hide").hide();
 		$("#success").empty().append('Your personal details have been updated successfully. You can review them below:');
     },
     error:function (xhr, ajaxOptions, thrownError){
