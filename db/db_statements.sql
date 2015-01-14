@@ -80,6 +80,7 @@ CREATE TABLE `student_portal`.`paypal_log` (
 	`payer_postcode` VARCHAR(70) NOT NULL,
 	`payment_status` VARCHAR(9) NOT NULL,
 	`created_on` DATETIME NOT NULL,
+	`updated_on` DATETIME,
 	`completed_on` DATETIME,
 	`cancelled_on` DATETIME,
 FOREIGN KEY (userid)    

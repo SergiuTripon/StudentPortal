@@ -35,7 +35,7 @@ $payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STR
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=? WHERE userid = ? LIMIT 1");
+		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, updated WHERE userid = ? LIMIT 1");
 		$stmt->bind_param('sssi', $payer_address1, $payer_city, $payer_postcode, $userid);
 		$stmt->execute();
 		$stmt->close();
@@ -85,7 +85,7 @@ switch($payment){
 	
 	$full_fees = 0.00;
 	
-	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
+	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?,  WHERE userid = ? LIMIT 1");
 	$stmt2->bind_param('ii', $full_fees, $userid);
 	$stmt2->execute();
 	$stmt2->close();
@@ -98,6 +98,7 @@ switch($payment){
 	
 	$half_fees = 4500.00;
 	$isHalf = 1;
+	$updated_on = date("Y-m-d G:i:s");
 	
 	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ? WHERE userid = ? LIMIT 1");
 	$stmt3->bind_param('ii', $half_fees, $userid);
