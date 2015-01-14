@@ -80,9 +80,6 @@ class paypal_class {
 		foreach ($this->fields as $name => $value) {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
-		echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
-
-		echo "</form>\n";
 
 		echo "<header class=\"intro\">
     	<div class=\"intro-body\">
@@ -100,6 +97,10 @@ class paypal_class {
     	</p>
 
     	<hr class=\"hr-custom\">";
+
+		echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
+
+		echo "</form>\n";
 
     	echo "</form>
 
