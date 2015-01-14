@@ -632,6 +632,7 @@ hr {
 /* Custom button style */
 .btn-custom {
     color: #FFA500 !important;
+    font-size: 15px !important;
     outline: none !important;
     background-color: transparent;
     border: 1px solid #FFA500 !important;
@@ -646,6 +647,7 @@ hr {
 /* Custom reverse button style */
 .btn-custom-reverse {
     color: #333333 !important;
+    font-size: 15px !important;
     outline: none !important;
     background-color: transparent;
     border: 1px solid #333333 !important;
