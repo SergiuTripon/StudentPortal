@@ -15,7 +15,7 @@ include 'includes/signin.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <?php include 'assets/css-paths/common-paths.php'; ?>
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Account</title>
 
