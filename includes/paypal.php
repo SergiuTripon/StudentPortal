@@ -73,7 +73,7 @@ switch($payment){
 	
 	case "success": // success case to show the user payment got success
 	
-	$stmt1 = $mysqli->prepare("SELECT isFalf, product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
+	$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userid);
 	$stmt1->execute();
 	$stmt1->store_result();	
