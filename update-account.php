@@ -402,11 +402,6 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 	
-	dateofbirth = $("#dateofbirth").val();
-	if(dateofbirth === '') {
-		dateofbirth = null;
-	}
-	
 	phonenumber = $("#phonenumber").val();
 	address1 = $("#address1").val();
 	address2 = $("#address2").val();
