@@ -2,7 +2,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- pace-js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js"></script>
+<script src="../assets/js/pace-js/spin.min.js"></script>
 <script src="../assets/js/pace-js/pace.min.js"></script>
 
 <!-- bootstrap -->
