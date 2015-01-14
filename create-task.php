@@ -271,8 +271,7 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").empty().append('Task created successfully. To create another task, simply fill in the form again.');
-		$("#success-button1").show();
-		$("#success-button2").show();
+		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
