@@ -1035,13 +1035,13 @@ hr {
 
 .dataTables_wrapper .dataTables_filter label {
     font-size: 15px;
+    color: #FFA500;
     font-weight: normal;
     margin-bottom: 5px;
 }
 
 .dataTables_wrapper .dataTables_length label {
     font-size: 15px;
-    color: #FFA500;
     font-weight: normal !important;
     margin-bottom: 7px;
     margin-left: 5px;
