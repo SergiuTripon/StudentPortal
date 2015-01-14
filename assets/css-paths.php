@@ -15,7 +15,7 @@
 
 <!-- Date Picker CSS -->
 <link rel="stylesheet" href="../assets/css/date-time-picker/jquery-ui-1.10.0.custom.css">
-
+<link rel="stylesheet" href="../assets/css/date-time-picker/jquery-ui-timepicker-addon.css">
 
 <!-- bootstrap calendar -->
 <link href="../assets/css/calendar/calendar.css" rel="stylesheet">
