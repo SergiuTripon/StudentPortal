@@ -41,7 +41,7 @@ switch($payment){
 		$stmt->execute();
 		$stmt->close();
 
-		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id) VALUES (?, ?, ?)");
+		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, created_on) VALUES (?, ?, ?)");
 		$stmt->bind_param('iis', $userid, $invoice_id, $created_on);
 		$stmt->execute();
 		$stmt->close();
