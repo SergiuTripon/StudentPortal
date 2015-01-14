@@ -87,7 +87,6 @@
 
 	footer p {
 		color: #FFA500;
-		font-size: 2.4em;
 		text-align: center;
 	}
 	/* End of Footer */

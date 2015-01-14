@@ -22,13 +22,15 @@
 
 	.navbar-brand {
 		color: #FFA500;
-		font-size: 1.1em;
-		padding: 0.1em;
-		padding: 0em;
-		border-right: 0.04em solid #FFA500;
+		font-size: 40px;
+		padding: 5px;
+		padding: 0px;
+		border-right: 1px solid #FFA500;
 	}
 	.navbar-brand i {
 		color: #FFA500;
+		font-size: 40px;
+		padding: 5px;
 	}
 
 	.navbar-default .navbar-toggle:hover,
@@ -55,7 +57,6 @@
 
 	.navbar-default .navbar-nav>li>a {
 		color: #FFA500;
-		font-size: 2.4em;
 	}
 
 	.navbar-default .navbar-nav>li>a:hover,
@@ -71,7 +72,6 @@
 
 	.dropdown-menu>li>a {
 		color: #FFA500;
-		font-size: 1em;
 	}
 
 	.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus  {
