@@ -81,6 +81,8 @@ header('Location: ../calendar/');
 	
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
+
+	<div id="hide">
 	
 	<div class="form-group">
 	
@@ -98,10 +100,10 @@ header('Location: ../calendar/');
 	<input class="form-control" type="text" name="task_url" id="task_url" value="<?php echo $task_url; ?>" placeholder="Enter an external URL">
 
 	<label>Start date (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="task_duedate" id="datepicker1" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
+	<input type='text' class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
 
 	<label>Due date (YYYY-MM-DD)</label>
-    <input type='text' class="form-control" type="text" name="task_duedate" id="datepicker2"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
+    <input type='text' class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
 	</div>
     
 	</div>
@@ -124,6 +126,8 @@ header('Location: ../calendar/');
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
     </div>
+
+	</div>
 	
     </form>
     </div><!-- /content-panel -->
@@ -204,7 +208,7 @@ header('Location: ../calendar/');
 	task_notes = $("#task_notes").val();
 	task_url = $("#task_url").val();
 
-	task_startdate = $("#datepicker1").val();
+	task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
 		$("#error").show();
 		$("#error").empty().append("Please enter a task start date and time.");
@@ -216,7 +220,7 @@ header('Location: ../calendar/');
 		$("#datepicker1").css("border-color", "#4DC742");
 	}
 
-	task_duedate = $("#datepicker2").val();
+	task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a task due date.");
@@ -247,6 +251,7 @@ header('Location: ../calendar/');
     data:'taskid=' + taskid + '&task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
     success:function(response){
 		$("#error").hide();
+		$("#hide").hide();
 		$("#success").empty().append('Task updated successfully.');
 		$('#updatetask_form').trigger("reset");
     },
