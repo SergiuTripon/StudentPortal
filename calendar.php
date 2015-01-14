@@ -20,8 +20,8 @@ else $userid = '';
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
     <title>Student Portal | Calendar</title>
