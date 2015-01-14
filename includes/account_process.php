@@ -34,10 +34,6 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 		$dateofbirth = NULL;
 	}
 
-	if ($degree == 'undefined') {
-		$degree = NULL;
-	}
-
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
 		exit();
