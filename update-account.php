@@ -179,7 +179,9 @@ if ($dateofbirth == "0000-00-00") {
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
 
-    <?php else : ?>
+	<?php endif; ?>
+
+	<?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
 
 	<div class="container">
 
@@ -289,6 +291,117 @@ if ($dateofbirth == "0000-00-00") {
     <script src="../assets/js/sign-out-inactive.js"></script>
 	
     <?php endif; ?>
+
+	<?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
+
+	<div class="container">
+
+    <?php include 'includes/menus/portal_menu.php'; ?>
+
+    <ol class="breadcrumb">
+	<li><a href="../overview/">Overview</a></li>
+	<li><a href="../account/">Account</a></li>
+    <li class="active">Update account</li>
+    </ol>
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <div class="panel panel-default">
+
+	<div class="panel-heading" role="tab" id="headingOne">
+	<h4 class="panel-title">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Update account</a>
+	</h4>
+    </div>
+
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+	<div class="panel-body">
+
+	<!-- Update account -->
+    <div class="content-panel mb10" style="border: none;">
+
+	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="updateaccount_form" novalidate>
+
+	<p id="error" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-happy text-center"></p>
+
+	<div id="hide">
+
+	<div class="form-group">
+
+    <div class="col-xs-12 col-sm-12 full-width">
+    <label>Gender</label>
+    <select class="form-control" name="gender" id="gender">
+    <option <?php if($gender == "Male") echo "selected=selected"; ?> class="others">Male</option>
+    <option <?php if($gender == "Female") echo "selected=selected"; ?> class="others">Female</option>
+    <option <?php if($gender == "Other") echo "selected=selected"; ?> class="others">Other</option>
+    </select>
+    </div>
+
+    </div>
+
+    <div class="form-group">
+
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label>First name</label>
+    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
+    <label>Surname</label>
+    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
+	<label>Date of Birth (YYYY-MM-DD)</label>
+    <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
+	<label>Student number</label>
+    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
+    <label>Email address</label>
+    <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
+	<label>Phone number</label>
+    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
+	</div>
+
+    <div class="col-xs-6 col-sm-6 full-width">
+	<label>Address line 1</label>
+    <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter your address line 1">
+    <label>Address 2 line (Optional)</label>
+    <input class="form-control" type="text" name="address2" id="address2" value="<?php echo $address2; ?>" placeholder="Enter your address line 2 (Optional)">
+	<label>Town</label>
+    <input class="form-control" type="text" name="town" id="town" value="<?php echo $town; ?>" placeholder="Enter your town">
+    <label>City</label>
+    <input class="form-control" type="text" name="city" id="city" value="<?php echo $city; ?>" placeholder="Enter your city">
+    <label>Country</label>
+	<input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter your country" readonly="readonly">
+	<label>Postcode</label>
+    <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
+	</div>
+
+    </div>
+
+    <input type="hidden" name="degree" id="degree">
+
+    <div class="text-right">
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
+    </div>
+
+	</div>
+
+    </form>
+
+    </div><!-- /content-panel -->
+    <!-- End of Update account -->
+
+    </div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+    </div><!-- /panel-default -->
+
+	</div><!-- /panel-group -->
+
+    </div> <!-- /container -->
+
+	<?php include 'includes/footers/portal_footer.php'; ?>
+
+    <!-- Sign Out (Inactive) JS -->
+    <script src="../assets/js/sign-out-inactive.js"></script>
+
+	<?php endif; ?>
 	
 	<?php else : ?>
 	
