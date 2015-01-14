@@ -78,15 +78,6 @@ class paypal_class {
 
 		<form class=\"form-custom\">";
 
-		echo "<form method=\"post\" name=\"paypal_form\" ";
-		echo "action=\"".$paypal_url."\">\n";
-		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
-		foreach ($this->fields as $name => $value) {
-			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
-		}
-
-		echo "</form>\n";
-
 	    echo "<div class=\"logo-custom\">
 		<i class=\"fa fa-graduation-cap\"></i>
     	</div>
@@ -99,7 +90,16 @@ class paypal_class {
 
     	<hr class=\"hr-custom\">";
 
+		echo "<form method=\"post\" name=\"paypal_form\" ";
+		echo "action=\"".$paypal_url."\">\n";
+		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
+		foreach ($this->fields as $name => $value) {
+			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
+		}
+
 		echo "<div class=\"text-center\"><input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\"></div>\n";
+
+		echo "</form>\n";
 
     	echo "</form>
 
