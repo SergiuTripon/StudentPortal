@@ -20,8 +20,8 @@ $xml_weekend = new SimpleXMLElement($result);
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Tube - This Weekend</title>
 
