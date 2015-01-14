@@ -76,19 +76,7 @@ class paypal_class {
 		echo "<header class=\"intro\">
     	<div class=\"intro-body\">
 
-		<form class=\"form-custom\">
-
-	    <div class=\"logo-custom\">
-		<i class=\"fa fa-graduation-cap\"></i>
-    	</div>
-
-    	<hr class=\"hr-custom\">
-
-    	<p class=\"feedback-sad text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.</p>
-
-    	<hr class=\"hr-custom\">
-
-    	</form>";
+		<form class=\"form-custom\">";
 
 		echo "<form method=\"post\" name=\"paypal_form\" ";
 		echo "action=\"".$paypal_url."\">\n";
@@ -96,13 +84,26 @@ class paypal_class {
 		foreach ($this->fields as $name => $value) {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
-		echo "<br/><h4 class=\"feedback-custom text-center\">If you are not automatically redirected
-		to paypal within 5 seconds...</h4><br/>\n";
-		echo "<div class=\"text-center\"><input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\"></div>\n";
 
 		echo "</form>\n";
 
-		echo "</div><!-- /intro-body -->
+	    echo "<div class=\"logo-custom\">
+		<i class=\"fa fa-graduation-cap\"></i>
+    	</div>
+
+    	<hr class=\"hr-custom\">
+
+    	<p class=\"feedback-custom text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.<br><br>
+    	If you are not automatically redirected to paypal within 5 seconds...
+    	</p>
+
+    	<hr class=\"hr-custom\">";
+
+		echo "<div class=\"text-center\"><input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\"></div>\n";
+
+    	echo "</form>
+
+		</div><!-- /intro-body -->
     	</header>";
 
 		echo "</body></html>\n";
