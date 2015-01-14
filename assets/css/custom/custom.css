@@ -687,6 +687,7 @@ hr {
 
 .tile-text {
 	color: #FFA500;
+    font-size: 1em;
     cursor: pointer;
     text-align: left;
     padding-top: 15px;
@@ -700,6 +701,7 @@ hr {
 
 .large-tile-text {
 	color: #FFA500;
+    font-size: 1em;
 	cursor: pointer;
     text-align: left;
     padding-top: 15px;
@@ -719,6 +721,7 @@ hr {
 
 .large-tile-text {
 	color: #FFA500;
+    font-size: 1em;
 	cursor: pointer;
 	text-align: left;
     padding-top: 70px;
