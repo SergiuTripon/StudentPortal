@@ -16,6 +16,7 @@ include 'includes/signin.php';
     <meta name="author" content="">
 
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include 'assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Create a task</title>
 
