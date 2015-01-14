@@ -391,7 +391,9 @@ if ($dateofbirth == "0000-00-00") {
 		hasError  = true;
 		return false;
 	}
-	
+
+	dateofbirth = $("#dateofbirth").val();
+
 	studentno = $("#studentno").val();
 	email = $("#email").val();
 	if(email === '') {
