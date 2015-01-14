@@ -21,6 +21,7 @@ $xml_weekend = new SimpleXMLElement($result);
     <meta name="author" content="">
 
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
 
     <title>Student Portal | Tube - This Weekend</title>
 
@@ -158,7 +159,7 @@ $xml_weekend = new SimpleXMLElement($result);
 
 	<script type="text/javascript" class="init">
 	$(document).ready(function () {
-	$('.table-custom').dataTable({
+	$('.table-transport').dataTable({
 		"iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,

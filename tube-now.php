@@ -28,6 +28,7 @@ $xml_station_status = new SimpleXMLElement($result2);
     <title>Student Portal | Tube - Now</title>
 
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
 
 </head>
 
@@ -162,7 +163,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 	<script type="text/javascript" class="init">
 	$(document).ready(function () {
-	$('.table-custom').dataTable({
+	$('.table-transport').dataTable({
 		"iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
