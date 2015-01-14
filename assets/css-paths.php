@@ -10,19 +10,8 @@
 <!-- font-awesome -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-<!-- ladda -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda-themeless.min.css" rel="stylesheet">
-
-<!-- Date Picker CSS -->
-<link rel="stylesheet" href="../assets/css/date-time-picker/jquery-ui-1.10.0.custom.css">
-<link rel="stylesheet" href="../assets/css/date-time-picker/jquery-ui-timepicker-addon.css">
-
 <!-- bootstrap calendar -->
 <link href="../assets/css/calendar/calendar.css" rel="stylesheet">
-
-<!-- data-tables -->
-<link href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/plug-ins/3cfcc339e89/integration/font-awesome/dataTables.fontAwesome.css" rel="stylesheet">
 
 <!-- common -->
 <link href="../assets/css/common/custom.css" rel="stylesheet">
