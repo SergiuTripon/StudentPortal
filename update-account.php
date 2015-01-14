@@ -177,7 +177,7 @@ if ($dateofbirth == "0000-00-00") {
 
     <?php else : ?>
 
-<div class="container">
+	<div class="container">
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
@@ -255,13 +255,6 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 
     </div>
-
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width">
-	<label>Programme of Study</label>
-    <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter your programme of study">
-	</div>
-	</div>
 
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
