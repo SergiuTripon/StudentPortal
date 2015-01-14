@@ -37,7 +37,7 @@ switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
 		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, updated_on WHERE userid = ? LIMIT 1");
-		$stmt->bind_param('sssi', $payer_address1, $payer_city, $payer_postcode, $updated_on, $userid);
+		$stmt->bind_param('ssssi', $payer_address1, $payer_city, $payer_postcode, $updated_on, $userid);
 		$stmt->execute();
 		$stmt->close();
 
