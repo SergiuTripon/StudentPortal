@@ -241,10 +241,12 @@ hr {
 
 .breadcrumb a {
     color: #FFFFFF;
+    font-size: 1em;
 }
 
 .breadcrumb > .active {
     color: #FFA500;
+    font-size: 1.1em;
     cursor: default;
 }
 
