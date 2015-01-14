@@ -30,28 +30,36 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	$postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
 	$degree = filter_input(INPUT_POST, 'degree', FILTER_SANITIZE_STRING);
 
+	if ($dateofbirth == '') {
+		$dateofbirth = NULL;
+	}
+
+	if ($degree == '') {
+		$degree = NULL;
+	}
+
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
 		exit();
 	}
 	else {
 
-		$stmt1 = $mysqli->prepare("SELECT email from user_signin where userid = ?");
-		$stmt1->bind_param('i', $userid);
-		$stmt1->execute();
-		$stmt1->store_result();
-		$stmt1->bind_result($db_email);
-		$stmt1->fetch();
+	$stmt1 = $mysqli->prepare("SELECT email from user_signin where userid = ?");
+	$stmt1->bind_param('i', $userid);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($db_email);
+	$stmt1->fetch();
 
-		if ($db_email == $email) {
+	if ($db_email == $email) {
 
-			$stmt2 = $mysqli->prepare("UPDATE user_details SET gender=?, firstname=?, surname=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, degree=?, updated_on=?  WHERE userid = ?");
-			$stmt2->bind_param('sssssssssssssi', $gender, $firstname, $surname, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $degree, $updated_on, $userid);
-			$stmt2->execute();
-			$stmt2->close();
+	$stmt2 = $mysqli->prepare("UPDATE user_details SET gender=?, firstname=?, surname=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, degree=?, updated_on=?  WHERE userid = ?");
+	$stmt2->bind_param('sssssssssssssi', $gender, $firstname, $surname, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $degree, $updated_on, $userid);
+	$stmt2->execute();
+	$stmt2->close();
 
-			$subject = 'Account updated successfully';
-			$message = "
+	$subject = 'Account updated successfully';
+	$message = "
 	<html>
 	<head>
 	<title>Student Portal | Account</title>
@@ -64,41 +72,41 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	</body>
 	</html>";
 
-			// To send HTML mail, the Content-type header must be set
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			$headers .= 'From: Student Portal <contact@sergiu-tripon.com>' . "\r\n";
-			mail ($email, $subject, $message, $headers);
-		}
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$headers .= 'From: Student Portal <contact@sergiu-tripon.com>' . "\r\n";
+	mail ($email, $subject, $message, $headers);
+	}
 
-		else {
+	else {
 
-			$stmt3 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
-			$stmt3->bind_param('s', $email);
-			$stmt3->execute();
-			$stmt3->store_result();
-			$stmt3->bind_result($db_userid);
-			$stmt3->fetch();
+	$stmt3 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
+	$stmt3->bind_param('s', $email);
+	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($db_userid);
+	$stmt3->fetch();
 
-			if ($stmt3->num_rows == 1) {
-				header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
-				exit();
-				$stmt3->close();
-			}
-			else {
+	if ($stmt3->num_rows == 1) {
+		header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
+		exit();
+		$stmt3->close();
+	}
+	else {
 
-				$stmt4 = $mysqli->prepare("UPDATE user_details SET gender=?, firstname=?, surname=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, degree=?, updated_on=?  WHERE userid = ?");
-				$stmt4->bind_param('ssssssssssssssi', $gender, $firstname, $surname, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $degree, $updated_on, $userid);
-				$stmt4->execute();
-				$stmt4->close();
+	$stmt4 = $mysqli->prepare("UPDATE user_details SET gender=?, firstname=?, surname=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, degree=?, updated_on=?  WHERE userid = ?");
+	$stmt4->bind_param('ssssssssssssssi', $gender, $firstname, $surname, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $degree, $updated_on, $userid);
+	$stmt4->execute();
+	$stmt4->close();
 
-				$stmt5 = $mysqli->prepare("UPDATE user_signin SET email=?, updated_on=? WHERE userid = ?");
-				$stmt5->bind_param('ssi', $email, $updated_on, $userid);
-				$stmt5->execute();
-				$stmt5->close();
+	$stmt5 = $mysqli->prepare("UPDATE user_signin SET email=?, updated_on=? WHERE userid = ?");
+	$stmt5->bind_param('ssi', $email, $updated_on, $userid);
+	$stmt5->execute();
+	$stmt5->close();
 
-				$subject = 'Account updated successfully';
-				$message = "
+	$subject = 'Account updated successfully';
+	$message = "
 	<html>
 	<head>
 	<title>Student Portal | Account</title>
@@ -111,14 +119,14 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	</body>
 	</html>";
 
-				// To send HTML mail, the Content-type header must be set
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				$headers .= 'From: Student Portal <contact@sergiu-tripon.com>' . "\r\n";
-				mail ($email, $subject, $message, $headers);
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$headers .= 'From: Student Portal <contact@sergiu-tripon.com>' . "\r\n";
+	mail ($email, $subject, $message, $headers);
 
-			}
-		}
+	}
+	}
 	}
 }
 
