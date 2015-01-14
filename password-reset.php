@@ -16,9 +16,6 @@ include 'includes/signin.php';
 
     <title>Student Portal | Password Reset</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
     <!-- FontAwesome CSS -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
