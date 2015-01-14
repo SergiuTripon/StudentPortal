@@ -72,8 +72,9 @@ class paypal_class {
 		<link href=\"../assets/css/custom/custom.css\" rel=\"stylesheet\">
 		</head>\n";
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
-		echo "<h2>Please wait, your order is being processed and you";
-		echo " will be redirected to the paypal website.</h2>\n";
+		echo "<div class=\"container\">
+		<h3 class=\"feedback-custom text-center\">Please wait, your order is being processed and you
+		will be redirected to the paypal website.</h3></div>\n";
 		echo "<form method=\"post\" name=\"paypal_form\" ";
 		echo "action=\"".$paypal_url."\">\n";
 		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
