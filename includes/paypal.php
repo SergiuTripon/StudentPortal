@@ -68,7 +68,7 @@ switch($payment){
 		$p->add_field('country', $_POST["payer_country"]);
 		$p->add_field('zip', $_POST["payer_postcode"]);
 		$p->submit_paypal_post(); // POST it to paypal
-		$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
+		//$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
 	break;
 	
 	case "success": // success case to show the user payment got success
