@@ -102,8 +102,8 @@ class paypal_class {
 
 		echo "</form>\n";
 
-		</div><!-- /intro-body -->
-    	</header>
+		echo "</div><!-- /intro-body -->
+    	</header>";
 
 		echo "</body></html>\n";
 	}
