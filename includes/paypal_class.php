@@ -82,9 +82,9 @@ class paypal_class {
 		}
 
 		echo "<header class=\"intro\">
-    	<div class=\"intro-body\">
+    	<div class=\"intro-body\">";
 
-		<form class=\"form-custom\">";
+		echo "<form class=\"form-custom\">";
 
 	    echo "<div class=\"logo-custom\">
 		<i class=\"fa fa-paypal\"></i>
