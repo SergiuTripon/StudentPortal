@@ -7,7 +7,7 @@ include 'includes/signin.php';
 
 <head>
 
-    <?php include 'assets/js-paths/pace-js-path.php'; ?>
+    <?php include 'assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -128,7 +128,7 @@ include 'includes/signin.php';
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
     <?php include 'assets/js-paths/easing-js-path.php'; ?>
-    <?php include 'assets/js-paths/tile-js-path.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
 	<script>
     Ladda.bind('.ladda-button', {timeout: 1000});
