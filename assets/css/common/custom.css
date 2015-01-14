@@ -1041,13 +1041,14 @@ hr {
 
 .dataTables_wrapper .dataTables_length label {
     font-size: 15px;
+    color: #FFA500;
     font-weight: normal !important;
     margin-bottom: 7px;
     margin-left: 5px;
 }
 
 .dataTables_wrapper .dataTables_length select {
-    color: #333333;
+    color: #FFA500;
     outline: 0 !important;
 }
 
