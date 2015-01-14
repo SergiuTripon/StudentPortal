@@ -92,7 +92,7 @@ class paypal_class {
 		echo "</div>\n";
 
 		echo "<hr class=\"hr-custom\">";
-		echo "<p class=\"feedback-custom text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.</p>\n";
+		echo "<p class=\"feedback-custom text-center\">Please wait, your order is being processed and you will be redirected to the PayPal website.</p>\n";
 		echo "<p class=\"feedback-custom text-center\">If you are not automatically redirected to PayPal within 5 seconds, click on the button below.</p>\n";
 	    echo "<hr class=\"hr-custom\">\n";
 

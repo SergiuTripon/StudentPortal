@@ -94,6 +94,14 @@ switch($payment){
 	
 	case "ipn": // IPN case to receive payment information. this case will not displayed in browser. This is server to server communication. PayPal will send the transactions each and every details to this case in secured POST menthod by server to server. 
 
+	$transaction_id  = $_POST["txn_id"];
+	$payment_status = strtolower($_POST["payment_status"]);
+	$invoice_id = $_POST["invoice"];
+		
+	$completed_on = date("Y-m-d G:i:s");
+		
+	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
+
 	$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userid);
 	$stmt1->execute();
@@ -142,14 +150,6 @@ switch($payment){
 	}
 	}
 
-	$transaction_id  = $_POST["txn_id"];
-	$payment_status = strtolower($_POST["payment_status"]);
-	$invoice_id = $_POST["invoice"];
-		
-	$completed_on = date("Y-m-d G:i:s");
-		
-	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
-			
 	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
 	$stmt6->execute();
 	$stmt6->close();
