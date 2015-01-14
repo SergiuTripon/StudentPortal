@@ -83,7 +83,7 @@ class paypal_class {
 		}
 		echo "<br/><br/><h4 class=\"feedback-custom text-center\">If you are not automatically redirected
 		to paypal within 5 seconds...</h4><br/><br/>\n";
-		echo "<input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\"></center>\n";
+		echo "<input class=\"btn btn-custom\" type=\"submit\" value=\"Click Here\">\n";
 		
 		echo "</form>\n";
 		echo "</body></html>\n";
