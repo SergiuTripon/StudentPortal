@@ -329,7 +329,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<script>
 	$(function () {
-	$('#dateofbirth').datetimepicker({
+	$('#dateofbirth').datepicker({
 		dateFormat: "yy-mm-dd",
 		defaultDate: new Date(1985, 00, 01)
 	});
@@ -423,7 +423,7 @@ if ($dateofbirth == "0000-00-00") {
     success:function(response){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#success").empty().append('Your personal details have been updated successfully. You can review them below:');
+		$("#success").empty().append('Your personal details have been updated successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
