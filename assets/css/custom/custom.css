@@ -443,23 +443,23 @@ hr {
 
 /* Placeholder style */
 .form-custom .form-control::-webkit-input-placeholder {
-	color: grey;
-    font-size: 16px;
+	color: gray;
+    font-size: 15px;
 }
 
 .form-custom .form-control:-moz-placeholder {
-    color: grey;
-	font-size: 16px;
+    color: gray;
+	font-size: 15px;
 }
 
 .form-custom .form-control::-moz-placeholder {
-    color: grey;
-	font-size: 16px;
+    color: gray;
+	font-size: 15px;
 }
 
 .form-custom .form-control:-ms-input-placeholder {
-    color: grey;
-	font-size: 16px;
+    color: gray;
+	font-size: 15px;
 }
 /* End of Placeholder style */
 /* End of Custom Form style */
