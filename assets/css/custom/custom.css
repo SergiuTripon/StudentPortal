@@ -680,14 +680,14 @@ hr {
 .tile i {
 	color: #FFA500;
     font-size: 80px;
-    margin-top: 30px;
+    margin-top: 23px;
+    margin-bottom: 23px;
 }
 
 .tile-text {
 	color: #FFA500;
     cursor: pointer;
     text-align: left;
-    padding-top: 15px;
     padding-left: 5px;
 }
 
