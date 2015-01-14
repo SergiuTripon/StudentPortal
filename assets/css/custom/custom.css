@@ -712,13 +712,13 @@ hr {
 	color: #FFA500;
 	cursor: pointer;
 	text-align: left;
-    padding-top: 70px;
     padding-left: 5px;
 }
 
 .large-tile i {
 	font-size: 120px;
-    margin-top: 95px;
+    margin-top: 83px;
+    margin-bottom: 83px;
 }
 }
 /* End of Tiles style */
