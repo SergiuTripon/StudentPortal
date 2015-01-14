@@ -86,7 +86,7 @@ class paypal_class {
 
 		echo "<hr class=\"hr-custom\">";
 
-		echo "<p class=\"feedback-sad text-center\">Looks like you're not signed in yet. Please sign in before accessing this area.</p>"\n;
+		echo "<p class=\"feedback-sad text-center\">Looks like you're not signed in yet. Please sign in before accessing this area.</p>\n";
 
 	    echo "<hr class=\"hr-custom\">\n";
 
