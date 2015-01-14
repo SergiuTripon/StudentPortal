@@ -12,33 +12,16 @@ else $userid = '';
 
 <head>
 
+	<?php include 'assets/js-paths/pacejs-path.php'; ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<!-- favicon -->
-	<link rel="icon" href="../assets/img/favicon/favicon.ico">
-
-	<!-- open-sans-font -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel='stylesheet' type="text/css">
-
-	<!-- bootstrap -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- font-awesome -->
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-	<!-- bootstrap calendar -->
-	<link href="../assets/css/calendar/calendar.css" rel="stylesheet">
-
-	<!-- common -->
-	<link href="../assets/css/common/custom.css" rel="stylesheet">
-	<!--[if lt IE 9]>
-	<script src="../assets/css/common/html5shiv.min.js"></script>
-	<script src="../assets/css/common/respond.min.js"></script>
-	<![endif]-->
+	<?php include 'assets/css-paths/common-paths.php'; ?>
+	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
     <title>Student Portal | Calendar</title>
 
@@ -256,31 +239,10 @@ else $userid = '';
 
 	<?php endif; ?>
 
-	<!-- pace-js -->
-	<script src="../assets/js/pace-js/spin.min.js"></script>
-	<script src="../assets/js/pace-js/pace.js"></script>
-
-	<!-- js library -->
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-	<!-- bootstrap -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-	<!-- tile-js -->
-	<script src="../assets/js/tile-js/tileJs.min.js"></script>
-
-	<!-- dataTables JS -->
-	<script src="../assets/js/data-tables/jquery.dataTables.min.js"></script>
-
-	<!-- Bootstrap Calendar JS -->
-	<script src="../assets/js/calendar/jstz.min.js"></script>
-	<script src="../assets/js/calendar/underscore.min.js"></script>
-	<script src="../assets/js/calendar/calendar.js"></script>
-	<script src="../assets/js/calendar/calendar-app.js"></script>
-
-	<!-- common-->
-	<script src="../assets/js/common/custom.js"></script>
-	<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/tile-js-paths.php'; ?>
+	<?php include 'assets/js-paths/datatables-js-paths.php'; ?>
+	<?php include 'assets/js-paths/calendar-js-paths.php'; ?>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {

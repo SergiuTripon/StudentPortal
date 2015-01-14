@@ -7,13 +7,15 @@ include 'includes/signin.php';
 
 <head>
 
+	<?php include 'assets/js-paths/tile-js-paths.php'; ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Change password</title>
 	
@@ -133,7 +135,7 @@ include 'includes/signin.php';
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths.php'; ?>
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
 	Ladda.bind('.ladda-button', {timeout: 1000});

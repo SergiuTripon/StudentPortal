@@ -48,6 +48,8 @@ if ($fee_amount == "0.00") {
 
 <head>
 
+    <?php include 'assets/js-paths/pace-js-path.php'; ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +59,7 @@ if ($fee_amount == "0.00") {
 
     <title>Student Portal | Pay Course Fees</title>
 
-    <?php include 'assets/css-paths.php'; ?>
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <style>
         #gender {
@@ -243,7 +245,7 @@ if ($fee_amount == "0.00") {
 
 	<?php endif; ?>
 
-    <?php include 'assets/js-paths.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
 	
 	<script>
     Ladda.bind('.ladda-button', {timeout: 2000});

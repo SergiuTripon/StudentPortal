@@ -7,13 +7,15 @@ include 'includes/signin.php';
 
 <head>
 
+	<?php include 'assets/js-paths/pace-js-path.php'; ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Create a single account</title>
 	
@@ -253,7 +255,8 @@ include 'includes/signin.php';
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths.php'; ?>
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
 	Ladda.bind('.ladda-button', {timeout: 2000});

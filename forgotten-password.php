@@ -7,6 +7,8 @@ include 'includes/signin.php';
 
 <head>
 
+    <?php include 'assets/js-paths/pace-js-path.php'; ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +18,7 @@ include 'includes/signin.php';
 
     <title>Student Portal | Forgotten Password</title>
 
-    <?php include 'assets/css-paths.php'; ?>
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 	
 	<style>
 	html, body {
@@ -109,7 +111,9 @@ include 'includes/signin.php';
 
 	<?php endif; ?>
 
-    <?php include 'assets/js-paths.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/easing-js-path.php'; ?>
+    <?php include 'assets/js-paths/tile-js-path.php'; ?>
 
 	<script>
     Ladda.bind('.ladda-button', {timeout: 1000});

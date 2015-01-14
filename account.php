@@ -7,16 +7,17 @@ include 'includes/signin.php';
 
 <head>
 
+    <?php include 'assets/js-paths/pacejs-path.php'; ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../assets/img/favicon/favicon.ico">
+
+    <?php include 'assets/css-paths/common-paths.php'; ?>
 
     <title>Student Portal | Account</title>
-
-    <?php include 'assets/css-paths.php'; ?>
 
 </head>
 
@@ -268,7 +269,8 @@ include 'includes/signin.php';
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths.php'; ?>
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/tilejs-paths.php'; ?>
 
 </body>
 </html>

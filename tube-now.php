@@ -16,6 +16,8 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 <head>
 
+	<?php include 'assets/js-paths/pace-js-path.php'; ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +27,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 
     <title>Student Portal | Tube - Now</title>
 
-	<?php include 'assets/css-paths.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -155,7 +157,8 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths.php'; ?>
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
 	$(document).ready(function () {

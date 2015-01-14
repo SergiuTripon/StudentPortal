@@ -3,9 +3,11 @@ include 'includes/signin.php';
 ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
+
+    <?php include 'assets/js-paths/pace-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +18,7 @@ include 'includes/signin.php';
 
     <title>Student Portal | Locked out</title>
 
-    <?php include 'assets/css-paths.php'; ?>
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 	
 	<style>
 	html, body {
@@ -120,7 +122,9 @@ include 'includes/signin.php';
 
 	<?php endif; ?>
 
-    <?php include 'assets/js-paths.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/easing-js-path.php'; ?>
+    <?php include 'assets/js-paths/tile-js-path.php'; ?>
 
 	<script>
     Ladda.bind('.ladda-button', {timeout: 2000});
