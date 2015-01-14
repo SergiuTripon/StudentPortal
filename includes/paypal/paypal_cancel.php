@@ -1,5 +1,5 @@
 <?php
-include_once '../signin.php';
+include_once 'signin.php';
 ?>
 
 <!DOCTYPE html>
