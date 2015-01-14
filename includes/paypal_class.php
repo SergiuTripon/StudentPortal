@@ -81,31 +81,29 @@ class paypal_class {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
 
-		echo "<header class=\"intro\">
-    	<div class=\"intro-body\">";
+		echo "<header class=\"intro\">\n";
+    	echo "<div class=\"intro-body\">\n";
 
-		echo "<form class=\"form-custom\">";
+		echo "<form class=\"form-custom\">\n";
 
-	    echo "<div class=\"logo-custom\">
-		<i class=\"fa fa-paypal\"></i>
-    	</div>
+	    echo "<div class=\"logo-custom\"><i class=\"fa fa-paypal\"></i></div>\n";
 
-    	<hr class=\"hr-custom\">
+    	echo "<hr class=\"hr-custom\">\n";
 
-    	<p class=\"feedback-custom text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.<br><br>
+    	echo "<p class=\"feedback-custom text-center\">Please wait, your order is being processed and you will be redirected to the paypal website.<br><br>
     	If you are not automatically redirected to paypal within 5 seconds...
-    	</p>
+    	</p>\n";
 
-    	<hr class=\"hr-custom\">";
+    	echo "<hr class=\"hr-custom\">\n";
 
 		echo "<input type=\"submit\" value=\"Click Here\"></center>\n";
 
 		echo "</form>\n";
 
-    	echo "</form>
+    	echo "</form>\n";
 
-		</div><!-- /intro-body -->
-    	</header>";
+		echo "</div>\n";
+    	echo "</header>\n";
 
 		echo "</body></html>\n";
 	}
