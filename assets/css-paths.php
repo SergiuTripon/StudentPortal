@@ -13,6 +13,10 @@
 <!-- bootstrap calendar -->
 <link href="../assets/css/calendar/calendar.css" rel="stylesheet">
 
+<!-- data-tables -->
+<link href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/plug-ins/3cfcc339e89/integration/font-awesome/dataTables.fontAwesome.css" rel="stylesheet">
+
 <!-- common -->
 <link href="../assets/css/common/custom.css" rel="stylesheet">
 <!--[if lt IE 9]>
