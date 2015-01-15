@@ -90,9 +90,9 @@ switch ($_GET['action']) {
 	$p->add_field('business', PAYPAL_EMAIL_ADD);
 	$p->add_field('cmd', $_POST["cmd"]);
 	$p->add_field('upload', '1');
-	$p->add_field('return', $this_script.'?payment=success');
-	$p->add_field('cancel_return', $this_script.'?payment=cancel');
-	$p->add_field('notify_url', $this_script.'?payment=ipn');
+	$p->add_field('return', $this_script.'?action=success');
+	$p->add_field('cancel_return', $this_script.'?action=cancel');
+	$p->add_field('notify_url', $this_script.'?action=ipn');
 	$p->add_field('currency_code', $_POST["currency_code"]);
 	$p->add_field('invoice', $_POST["invoice_id"]);
 	$p->add_field('item_name_1', $_POST["product_name"]);
