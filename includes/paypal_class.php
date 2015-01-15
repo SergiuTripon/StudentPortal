@@ -195,6 +195,7 @@ class paypal_class {
 	}
 
 	public function send_report($subject) {
+		$body = '';
 		$body .= "from " . $this->ipn_data ['payer_email'] . " on " . date ( 'm/d/Y' );
 		$body .= " at " . date ( 'g:i A' ) . "\n\nDetails:\n" . $this->ipn_status;
 		mail ( $this->admin_mail, $subject, $body );
