@@ -40,7 +40,7 @@ if ($fee_amount == "0.00") {
     $conditional_style = "<style> .checkbox { display: none !important; } .btn-custom { display: none !important; }</style>";
 }
 
-$invoice_id = substr(number_format(time() * mt_rand(),0,'',''),0,10);
+$invoice_id = rand(1111111111,9999999999);
 
 ?>
 
