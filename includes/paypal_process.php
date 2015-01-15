@@ -39,6 +39,27 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 // if there is not action variable, set the default action of 'process'
 if (empty($_GET['payment'])) $_GET['payment'] = 'process';
 
+date_default_timezone_set('Europe/London');
+$created_on = date("Y-m-d G:i:s");
+$updated_on = date("Y-m-d G:i:s");
+
+$isHalf = '0';
+$invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
+$product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
+$product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
+$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
+$product_amount = filter_input(INPUT_POST, 'product_amount', FILTER_SANITIZE_STRING);
+$payment_status = 'pending';
+$payer_firstname = filter_input(INPUT_POST, 'payer_firstname', FILTER_SANITIZE_STRING);
+$payer_surname = filter_input(INPUT_POST, 'payer_surname', FILTER_SANITIZE_STRING);
+$payer_email = filter_input(INPUT_POST, 'payer_email', FILTER_SANITIZE_STRING);
+$payer_phonenumber = filter_input(INPUT_POST, 'payer_phonenumber', FILTER_SANITIZE_STRING);
+$payer_address1 = filter_input(INPUT_POST, 'payer_address1', FILTER_SANITIZE_STRING);
+$payer_address2 = filter_input(INPUT_POST, 'payer_address2', FILTER_SANITIZE_STRING);
+$payer_town = filter_input(INPUT_POST, 'payer_town', FILTER_SANITIZE_STRING);
+$payer_city = filter_input(INPUT_POST, 'payer_city', FILTER_SANITIZE_STRING);
+$payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
+
 switch ($_GET['payment']) {
 
 	case 'process':      // Process and order...
@@ -59,6 +80,11 @@ switch ($_GET['payment']) {
 	// $p->add_field('first_name', $_POST['first_name']);
 	// $p->add_field('last_name', $_POST['last_name']);
 
+	$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, isHalf, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt->bind_param('iiiisiisssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode, $payment_status, $created_on);
+	$stmt->execute();
+	$stmt->close();
+
 	$p->add_field('business', PAYPAL_EMAIL_ADD);
 	$p->add_field('cmd', $_POST["cmd"]);
 	$p->add_field('upload', '1');
@@ -66,7 +92,7 @@ switch ($_GET['payment']) {
 	$p->add_field('cancel_return', $this_script.'?action=cancel');
 	$p->add_field('notify_url', $this_script.'?action=ipn');
 	$p->add_field('currency_code', $_POST["currency_code"]);
-	$p->add_field('invoice', $_POST["invoice_id"]);
+	$p->add_field('invoice', $invoice_id);
 	$p->add_field('item_name_1', $_POST["product_name"]);
 	$p->add_field('item_number_1', $_POST["product_id"]);
 	$p->add_field('quantity_1', $_POST["product_quantity"]);
