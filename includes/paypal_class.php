@@ -187,7 +187,7 @@ class paypal_class {
 		}
 		
 		// Invalid IPN transaction.  Check the $ipn_status and log for details.
-		if (preg_match("~VERIFIED~i",$this->ipn_response)) {
+		if (! eregi("VERIFIED",$this->ipn_response)) {
 			$this->ipn_status = 'IPN Validation Failed';
 			$this->log_ipn_results(false);   
 			return false;
