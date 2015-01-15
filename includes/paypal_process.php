@@ -1,6 +1,6 @@
 <?php
-include_once("config.php");
-include_once("paypal.class.php");
+include_once("paypal_config.php");
+include_once("paypal_class.php");
 
 $paypalmode = ($PayPalMode=='sandbox') ? '.sandbox' : '';
 
