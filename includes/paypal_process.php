@@ -17,7 +17,7 @@ $p->paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
 
 $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 
-if (empty($_GET['action'])) $_GET['action'] = 'process';
+if (empty($_GET['payment'])) $_GET['payment'] = 'process';
 
 date_default_timezone_set('Europe/London');
 
