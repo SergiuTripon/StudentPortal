@@ -66,21 +66,22 @@ class paypal_class {
 
 		$paypal_url = ($_GET['sandbox'] == 1) ? SSL_SAND_URL : SSL_P_URL;
 		echo "<html>\n";
-		echo "<head>\n";
+		echo "<head>";
+		echo "<title>Processing Payment...</title>\n";
+
 		echo "<link href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">\n";
 		echo "<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css\" rel=\"stylesheet\">\n";
 		echo "<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css\" rel=\"stylesheet\">\n";
 		echo "<link href=\"https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda-themeless.min.css\" rel=\"stylesheet\">\n";
 		echo "<link href=\"../assets/css/custom/custom.css\" rel=\"stylesheet\">\n";
-		echo "<title>Processing Payment...</title>\n";
-		echo "</head>\n";
+		"</head>\n";
 
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
 
 		echo "<header class=\"intro\">\n";
     	echo "<div class=\"intro-body\">\n";
 
-		echo "<form class=\"form-custom\" method=\"post\" name=\"paypal_form\" \"action=\"".$paypal_url."\">\n";
+		echo "<form class=\"form-custom\" method=\"post\" name=\"paypal_form\" action=\"".$paypal_url."\">\n";
 		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
 		foreach ($this->fields as $name => $value) {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
@@ -88,18 +89,17 @@ class paypal_class {
 
 		echo "<div class=\"logo-custom\">\n";
 		echo "<i class=\"fa fa-paypal\"></i>\n";
-    	echo "</div>\n";
+		echo "</div>\n";
 
-		echo "<hr class=\"hr-custom\">\n";
-
-    	echo "<p class=\"feedback-custom text-center\">Looks like you're not signed in yet. Please sign in before accessing this area.</p>\n";
-
-    	echo "<hr class=\"hr-custom\">\n";
+		echo "<hr class=\"hr-custom\">";
+		echo "<p class=\"feedback-custom text-center\">Please wait, your order is being processed and you will be redirected to the PayPal website.</p>\n";
+		echo "<p class=\"feedback-custom text-center\">If you are not automatically redirected to PayPal within 5 seconds, click on the button below.</p>\n";
+	    echo "<hr class=\"hr-custom\">\n";
 
 		echo "<div class=\"text-center\">\n";
-    	echo "<button type=\"submit\" class=\"btn btn-custom btn-lg ladda-button\" data-style=\"slide-up\" data-spinner-color=\"#FFA500\"><span class=\"ladda-label\">Click here</span></button>\n";
-    	echo "</div>\n";
-		
+		echo "<button type=\"submit\" class=\"btn btn-custom btn-lg ladda-button\" data-style=\"slide-up\" data-spinner-color=\"#FFA500\"><span class=\"ladda-label\">Click here</span></button>\n";
+		echo "</div>\n";
+
 		echo "</form>\n";
 
 		echo "</div>\n";
