@@ -96,6 +96,8 @@ switch($payment){
 	$invoice_id = $_POST["invoice"];
 	$paypal_product_amount = $_POST["mc_gross"];
 	$completed_on = date("Y-m-d G:i:s");
+	$updated_on_on = date("Y-m-d G:i:s");
+	$full_fees = '0.00';
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 
