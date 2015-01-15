@@ -1,5 +1,5 @@
 <?php
-include_once 'signin.php';
+include 'signin.php';
 
 if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
@@ -7,7 +7,7 @@ else $userid = '';
 
 define('EMAIL_ADD', 'contact@sergiu-tripon.com');
 define('PAYPAL_EMAIL_ADD', 'triponsergiu-facilitator@hotmail.co.uk');
-require_once("paypal_class.php");
+require ("paypal_class.php");
 $p = new paypal_class();
 $p->admin_mail = EMAIL_ADD;
 $payment = $_REQUEST["payment"];
