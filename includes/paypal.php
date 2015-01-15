@@ -94,15 +94,8 @@ switch($payment){
 	$transaction_id  = $_POST["txn_id"];
 	$payment_status = strtolower($_POST["payment_status"]);
 	$invoice_id = $_POST["invoice"];
+	$product_amount = $_POST["mc_gross"];
 	$completed_on = date("Y-m-d G:i:s");
-
-	$stmt1 = $mysqli->prepare("SELECT product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
-	$stmt1->bind_param('i', $userid);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($product_amount);
-	$stmt1->fetch();
-	$stmt1->close();
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 			
