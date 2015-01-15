@@ -9,8 +9,15 @@ define('EMAIL_ADD', 'contact@sergiu-tripon.com');
 define('PAYPAL_EMAIL_ADD', 'triponsergiu-facilitator@hotmail.co.uk');
 require ("paypal_class.php");
 $p = new paypal_class();
+
 $p->admin_mail = EMAIL_ADD;
-$payment = $_REQUEST["payment"];
+
+$p->paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
+//$p->paypal_url = 'https://www.paypal.com/cgi-bin/webscr';
+
+$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+
+if (empty($_GET['action'])) $_GET['action'] = 'process';
 
 date_default_timezone_set('Europe/London');
 
@@ -33,16 +40,16 @@ $payment_status = 'pending';
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
-switch($payment){
+switch ($_GET['payment']) {
 	case "process":
 
 		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, isHalf, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$stmt->bind_param('iiiisiisssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode, $payment_status, $created_on);
 		$stmt->execute();
 		$stmt->close();
-		
+
 		$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-		
+
 		$p->add_field('business', PAYPAL_EMAIL_ADD);
 		$p->add_field('cmd', $_POST["cmd"]);
 		$p->add_field('upload', '1');
@@ -66,90 +73,91 @@ switch($payment){
 		$p->submit_paypal_post();
 		//$p->dump_fields();
 	break;
-	
+
 	case "success":
-	
+
 	$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userid);
 	$stmt1->execute();
-	$stmt1->store_result();	
+	$stmt1->store_result();
 	$stmt1->bind_result($isHalf, $product_amount);
 	$stmt1->fetch();
 	$stmt1->close();
-	
+
 	if ($product_amount == '9000.00' ) {
-	
+
 	$full_fees = 0.00;
 	$updated_on = date("Y-m-d G:i:s");
-	
+
 	$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
 	$stmt2->bind_param('isi', $full_fees, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
-	
+
 	include_once '../includes/paypal/paypal_success.php';
-	
+
 	} else {
-	
+
 	if ($product_amount == '4500.00' AND $isHalf == '0' ) {
-	
+
 	$half_fees = 4500.00;
 	$isHalf = 1;
 	$updated_on = date("Y-m-d G:i:s");
-	
+
 	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
 	$stmt3->bind_param('isi', $half_fees, $updated_on, $userid);
 	$stmt3->execute();
 	$stmt3->close();
-	
+
 	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
 	$stmt4->bind_param('isi', $isHalf, $updated_on, $userid);
 	$stmt4->execute();
 	$stmt4->close();
-	
+
 	include_once '../includes/paypal/paypal_success.php';
 
 	} else {
 
 	$updated_on = date("Y-m-d G:i:s");
-	
+
 	$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
 	$stmt5->bind_param('isi', $full_fees, $updated_on, $userid);
 	$stmt5->execute();
 	$stmt5->close();
-	
+
 	include_once '../includes/paypal/paypal_success.php';
 	}
 	}
 	break;
-	
+
 	case "cancel":
-	
+
 	$payment_status = 'cancelled';
 	$cancelled_on = date("Y-m-d G:i:s");
-	
+
 	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status=?, cancelled_on=? WHERE userid = ? ORDER BY created_on DESC LIMIT 1");
 	$stmt5->bind_param('ssi', $payment_status, $cancelled_on, $userid);
 	$stmt5->execute();
 	$stmt5->close();
-	
+
 	include_once '../includes/paypal/paypal_cancel.php';
-	
+
 	break;
-	
+
 	case "ipn":
+
 	$transaction_id  = $_POST["txn_id"];
 	$payment_status = strtolower($_POST["payment_status"]);
 	$invoice_id = $_POST["invoice"];
-		
+
 	$completed_on = date("Y-m-d G:i:s");
-		
+
 	if ($p->validate_ipn()){
-			
+
 	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
 	$stmt6->execute();
 	$stmt6->close();
-			
+
 	$subject = 'Instant Payment Notification - Recieved Payment';
 	$p->send_report($subject);
 	} else {
