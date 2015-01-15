@@ -22,6 +22,9 @@ else $userid = '';
  *  See the header of paypal.class.php for additional resources and information.
 */
 
+define('EMAIL_ADD', 'contact@sergiu-tripon.com');
+define('PAYPAL_EMAIL_ADD', 'triponsergiu-facilitator@hotmail.co.uk');
+
 // Setup class
 require_once('paypal_class.php');  // include the class file
 $p = new paypal_class;             // initiate an instance of the class
