@@ -42,7 +42,7 @@ if (empty($_GET['action'])) $_GET['action'] = 'process';
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
-$payment = $_REQUEST["payment"];
+
 $isHalf = '0';
 $invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
 $product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
