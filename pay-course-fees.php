@@ -108,7 +108,7 @@ if ($fee_amount == "0.00") {
 	<!-- Pay course fees -->
 	<div class="content-panel" style="border: none;">
 	
-    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="../includes/paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="../includes/paypal.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
     <?php
     if (!empty($conditional_style)) {
@@ -181,7 +181,7 @@ if ($fee_amount == "0.00") {
 	<?php include 'includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../assets/js/sign-out-inactive.js"></script>
 		
     <?php else : ?>
 
@@ -210,7 +210,7 @@ if ($fee_amount == "0.00") {
     </header>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../assets/js/sign-out-inactive.js"></script>
 
     <?php endif; ?>
 	<?php else : ?>
