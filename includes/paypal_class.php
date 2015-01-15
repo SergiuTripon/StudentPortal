@@ -187,7 +187,7 @@ class paypal_class {
 		}
 		
 		// Invalid IPN transaction.  Check the $ipn_status and log for details.
-		if (! eregi("VERIFIED",$this->ipn_response)) {
+		if (! preg_match("VERIFIED",$this->ipn_response)) {
 			$this->ipn_status = 'IPN Validation Failed';
 			$this->log_ipn_results(false);   
 			return false;
@@ -229,6 +229,7 @@ class paypal_class {
 	}
 
 	public function send_report($subject) {
+		$body = '';
 		$body .= "from " . $this->ipn_data ['payer_email'] . " on " . date ( 'm/d/Y' );
 		$body .= " at " . date ( 'g:i A' ) . "\n\nDetails:\n" . $this->ipn_status;
 		mail ( $this->admin_mail, $subject, $body );
