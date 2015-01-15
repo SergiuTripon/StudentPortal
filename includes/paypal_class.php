@@ -163,9 +163,7 @@ class paypal_class {
 		echo "<header class=\"intro\">\n";
 		echo "<div class=\"intro-body\">\n";
 
-		echo "<form class=\"form-custom\" method=\"post\" name=\"paypal_form\" action=\"".$paypal_url."\">\n";
-
-		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
+		echo "<form class=\"form-custom\" method=\"post\" name=\"paypal_form\" \"action=\"".$this->paypal_url."\">\n";
 		foreach ($this->fields as $name => $value) {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
