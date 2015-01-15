@@ -43,23 +43,6 @@ date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
-$isHalf = '0';
-$invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
-$product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
-$product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
-$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
-$product_amount = filter_input(INPUT_POST, 'product_amount', FILTER_SANITIZE_STRING);
-$payment_status = 'pending';
-$payer_firstname = filter_input(INPUT_POST, 'payer_firstname', FILTER_SANITIZE_STRING);
-$payer_surname = filter_input(INPUT_POST, 'payer_surname', FILTER_SANITIZE_STRING);
-$payer_email = filter_input(INPUT_POST, 'payer_email', FILTER_SANITIZE_STRING);
-$payer_phonenumber = filter_input(INPUT_POST, 'payer_phonenumber', FILTER_SANITIZE_STRING);
-$payer_address1 = filter_input(INPUT_POST, 'payer_address1', FILTER_SANITIZE_STRING);
-$payer_address2 = filter_input(INPUT_POST, 'payer_address2', FILTER_SANITIZE_STRING);
-$payer_town = filter_input(INPUT_POST, 'payer_town', FILTER_SANITIZE_STRING);
-$payer_city = filter_input(INPUT_POST, 'payer_city', FILTER_SANITIZE_STRING);
-$payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
-
 switch ($_GET['payment']) {
 
 	case 'process':      // Process and order...
@@ -74,16 +57,11 @@ switch ($_GET['payment']) {
 	// You would take your POST vars and load them into the class like below,
 	// only using the POST values instead of constant string expressions.
 
-	// For example, after ensureing all the POST variables from your custom
+	// For example, after ensuring all the POST variables from your custom
 	// order form are valid, you might have:
 	//
 	// $p->add_field('first_name', $_POST['first_name']);
 	// $p->add_field('last_name', $_POST['last_name']);
-
-	$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, isHalf, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-	$stmt->bind_param('iiiisiisssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode, $payment_status, $created_on);
-	$stmt->execute();
-	$stmt->close();
 
 	$p->add_field('business', PAYPAL_EMAIL_ADD);
 	$p->add_field('cmd', $_POST["cmd"]);
