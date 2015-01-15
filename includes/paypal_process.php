@@ -34,12 +34,7 @@ $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
 switch($payment){
-	case "process": // case process insert the form data in DB and process to the paypal
-
-		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt->bind_param('ssssi', $payer_address1, $payer_city, $payer_postcode, $updated_on, $userid);
-		$stmt->execute();
-		$stmt->close();
+	case "process":
 
 		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, isHalf, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$stmt->bind_param('iiiisiisssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode, $payment_status, $created_on);
@@ -48,12 +43,12 @@ switch($payment){
 		
 		$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 		
-		$p->add_field('business', PAYPAL_EMAIL_ADD); // Call the facilitator account
-		$p->add_field('cmd', $_POST["cmd"]); // cmd should be _cart for cart checkout
+		$p->add_field('business', PAYPAL_EMAIL_ADD);
+		$p->add_field('cmd', $_POST["cmd"]);
 		$p->add_field('upload', '1');
-		$p->add_field('return', $this_script.'?payment=success'); // return URL after the transaction got over
-		$p->add_field('cancel_return', $this_script.'?payment=cancel'); // cancel URL if the trasaction was cancelled during half of the transaction
-		$p->add_field('notify_url', $this_script.'?payment=ipn'); // Notify URL which received IPN (Instant Payment Notification)
+		$p->add_field('return', $this_script.'?payment=success');
+		$p->add_field('cancel_return', $this_script.'?payment=cancel');
+		$p->add_field('notify_url', $this_script.'?payment=ipn');
 		$p->add_field('currency_code', $_POST["currency_code"]);
 		$p->add_field('invoice', $_POST["invoice_id"]);
 		$p->add_field('item_name_1', $_POST["product_name"]);
@@ -68,11 +63,11 @@ switch($payment){
 		$p->add_field('city', $_POST["payer_city"]);
 		$p->add_field('country', $_POST["payer_country"]);
 		$p->add_field('zip', $_POST["payer_postcode"]);
-		$p->submit_paypal_post(); // POST it to paypal
-		$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
+		$p->submit_paypal_post();
+		//$p->dump_fields();
 	break;
 	
-	case "success": // success case to show the user payment got success
+	case "success":
 	
 	$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userid);
@@ -128,7 +123,7 @@ switch($payment){
 	}
 	break;
 	
-	case "cancel": // case cancel to show user the transaction was cancelled
+	case "cancel":
 	
 	$payment_status = 'cancelled';
 	$cancelled_on = date("Y-m-d G:i:s");
@@ -142,24 +137,24 @@ switch($payment){
 	
 	break;
 	
-	case "ipn": // IPN case to receive payment information. this case will not displayed in browser. This is server to server communication. PayPal will send the transactions each and every details to this case in secured POST menthod by server to server. 
+	case "ipn":
 	$transaction_id  = $_POST["txn_id"];
 	$payment_status = strtolower($_POST["payment_status"]);
 	$invoice_id = $_POST["invoice"];
 		
 	$completed_on = date("Y-m-d G:i:s");
 		
-	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
+	if ($p->validate_ipn()){
 			
 	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_date='$completed_on' WHERE invoice_id ='$invoice_id'");
 	$stmt6->execute();
 	$stmt6->close();
 			
 	$subject = 'Instant Payment Notification - Recieved Payment';
-	$p->send_report($subject); // Send the notification about the transaction
+	$p->send_report($subject);
 	} else {
 	$subject = 'Instant Payment Notification - Payment Fail';
-	$p->send_report($subject); // failed notification
+	$p->send_report($subject);
 	}
 	break;
 }
