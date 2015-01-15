@@ -20,17 +20,13 @@ define('SSL_P_URL', 'https://www.paypal.com/cgi-bin/webscr');
 define('SSL_SAND_URL','https://www.sandbox.paypal.com/cgi-bin/webscr');
 
 class paypal_class {
-	
-	private $ipn_status;                // holds the last status
-	public $admin_mail; 				// receive the ipn status report pre transaction
-	public $paypal_mail;				// paypal account, if set, class need to verify receiver
-	public $txn_id;						// array: if the txn_id array existed, class need to verified the txn_id duplicate
-	public $ipn_log;                    // bool: log IPN results to text file?
-	private $ipn_response;              // holds the IPN response from paypal   
 
-	public $ipn_data = array();         // array contains the POST values for IPN
-	private $fields = array();          // array holds the fields to submit to paypal
-	private $ipn_debug; 				// ipn_debug
+	var $ipn_log;                    // bool: log IPN results to text file?
+	var $ipn_log_file;               // filename of the IPN log
+	var $ipn_response;              // holds the IPN response from paypal
+
+	var $ipn_data = array();         // array contains the POST values for IPN
+	var $fields = array();          // array holds the fields to submit to paypal
 	
 	// initialization constructor.  Called when class is created.
 	function __construct() {
@@ -258,21 +254,6 @@ class paypal_class {
 		foreach ($this->fields as $key => $value) {echo "<tr><td>$key</td><td>".urldecode($value)."&nbsp;</td></tr>";}
 		echo "</table><br>"; 
 	}
-
-	private function debug($msg) {
-		
-		if (! $this->ipn_debug)
-			return;
-		
-		$today = date ( "Y-m-d H:i:s " );
-		$myFile = ".ipn_debugs.log";
-		$fh = fopen ( $myFile, 'a' ) or die ( "Can't open debug file. Please manually create the 'debug.log' file and make it writable." );
-		$ua_simple = preg_replace ( "/(.*)\s\(.*/", "\\1", $_SERVER ['HTTP_USER_AGENT'] );
-		fwrite ( $fh, $today . " [from: " . $_SERVER ['REMOTE_ADDR'] . "|$ua_simple] - " . $msg . "\n" );
-		fclose ( $fh );
-		chmod ( $myFile, 0600 );
-	}
-
 }         
 
 
