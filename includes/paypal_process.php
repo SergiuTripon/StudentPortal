@@ -85,8 +85,6 @@ switch ($_GET['action']) {
 	$stmt->execute();
 	$stmt->close();
 
-	$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-
 	$p->add_field('business', PAYPAL_EMAIL_ADD);
 	$p->add_field('cmd', $_POST["cmd"]);
 	$p->add_field('upload', '1');
