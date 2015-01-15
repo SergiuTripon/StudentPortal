@@ -37,7 +37,7 @@ if ($fee_amount == "4500.00") {
 
 if ($fee_amount == "0.00") {
     $fee_title = 'Nothing to pay';
-    $conditional_style = "<style> .checkbox { display: none !important; } .btn-orange { display: none !important; }</style>";
+    $conditional_style = "<style> .checkbox { display: none !important; } .btn-custom { display: none !important; }</style>";
 }
 
 ?>
@@ -47,8 +47,8 @@ if ($fee_amount == "0.00") {
 <html lang="en">
 
 <head>
-    <!-- Pace JS -->
-    <script src="../assets/js/pace.js"></script>
+
+    <?php include 'assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,27 +59,7 @@ if ($fee_amount == "0.00") {
 
     <title>Student Portal | Pay Course Fees</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <!-- FontAwesome CSS -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
-
-    <!-- Open Sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
-
-    <!-- Ladda CSS -->
-    <link rel="stylesheet" href="../assets/css/ladda-themeless.min.css">
-
-    <!-- Custom styles for this template -->
-    <link href="../assets/css/custom.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <style>
         #gender {
@@ -142,7 +122,7 @@ if ($fee_amount == "0.00") {
 	<input type="hidden" name="payment" value="process"/>
     <input type="hidden" name="cmd" value="_cart"/>
     <input type="hidden" name="currency_code" value="GBP"/>
-    <input type="hidden" name="invoice_id" value="1"/>
+    <input type="hidden" name="invoice_id" value="<?php echo date("His") . rand(1234, 9632); ?>"/>
     <input type="hidden" name="product_id" id="product_id" value="1">
     <input type="hidden" name="product_quantity" id="product_quantity" value="1">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
@@ -265,26 +245,9 @@ if ($fee_amount == "0.00") {
 
 	<?php endif; ?>
 
-	<!-- JS library -->
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-
-	<!-- Bootstrap JS -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
-	<!-- Spin JS -->
-	<script src="../assets/js/spin.min.js"></script>
-
-	<!-- Ladda JS -->
-	<script src="../assets/js/ladda.min.js"></script>
-
-	<!-- Custom JS -->
-	<script src="../assets/js/custom.js"></script>
-
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
 	
 	<script>
-    // Bind normal buttons
     Ladda.bind('.ladda-button', {timeout: 2000});
 	</script>
 	
