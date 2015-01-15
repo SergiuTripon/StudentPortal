@@ -94,26 +94,25 @@ switch($payment){
 	$transaction_id  = $_POST["txn_id"];
 	$payment_status = strtolower($_POST["payment_status"]);
 	$invoice_id = $_POST["invoice"];
-	$product_amount = $_POST["mc_gross"];
+	$paypal_product_amount = $_POST["mc_gross"];
 	$completed_on = date("Y-m-d G:i:s");
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
-			
-	$stmt2 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
-	$stmt2->execute();
-	$stmt2->close();
 
-	if ($product_amount == '9000.00' ) {
+	if ($paypal_product_amount == '9000.00' ) {
 
 	$full_fees = 0.00;
 	$updated_on = date("Y-m-d G:i:s");
 
-	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = ?, updated_on = ?  WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('isi', $full_fees, $updated_on, $userid);
+	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = '$full_fees', updated_on = '$updated_on'  WHERE userid = ? LIMIT 1");
 	$stmt3->execute();
 	$stmt3->close();
 
 	}
+
+	$stmt2 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
+	$stmt2->execute();
+	$stmt2->close();
 			
 	$subject = 'Instant Payment Notification - Recieved Payment';
 	$p->send_report($subject); // Send the notification about the transaction
