@@ -37,7 +37,7 @@ $p->paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';   // testing p
 $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 
 // if there is not action variable, set the default action of 'process'
-if (empty($_GET['action'])) $_GET['action'] = 'process';
+if (empty($_GET['payment'])) $_GET['payment'] = 'process';
 
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
@@ -60,7 +60,7 @@ $payer_town = filter_input(INPUT_POST, 'payer_town', FILTER_SANITIZE_STRING);
 $payer_city = filter_input(INPUT_POST, 'payer_city', FILTER_SANITIZE_STRING);
 $payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
 
-switch ($_GET['action']) {
+switch ($_GET['payment']) {
 
 	case 'process':      // Process and order...
 
