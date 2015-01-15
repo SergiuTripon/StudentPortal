@@ -68,6 +68,8 @@ class paypal_class {
 		echo "<html>\n";
 		echo "<head>";
 
+		echo "<script src=\"../assets/js/pace-js/pace.js\"></script>";
+
 		echo "<title>Processing Payment...</title>\n";
 
 		echo "<link href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">\n";
@@ -79,6 +81,7 @@ class paypal_class {
 		"</head>\n";
 
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
+		echo "<div class=\"preloader\"></div>";
 
 		echo "<header class=\"intro\">\n";
 		echo "<div class=\"intro-body\">\n";
