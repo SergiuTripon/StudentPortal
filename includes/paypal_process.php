@@ -1,4 +1,9 @@
 <?php
+include_once 'signin.php';
+
+if (isset($_SESSION['userid']))
+$userid = $_SESSION['userid'];
+else $userid = '';
 
 /*  PHP Paypal IPN Integration Class Demonstration File
  *  4.16.2005 - Micah Carrick, email@micahcarrick.com
