@@ -113,13 +113,6 @@
 		$this->ipn_log_file = '.ipn_results.log';
 		$this->ipn_log = true;
 		$this->ipn_response = '';
-
-		// populate $fields array with a few default values.  See the Paypal
-		// documentation for a list of fields and their data types. These default
-		// values can be overwritten by the calling script.
-
-		$this->add_field('rm', '2');           // Return method = POST
-		$this->add_field('cmd', '_cart');
 	}
 
 	function add_field($field, $value) {
