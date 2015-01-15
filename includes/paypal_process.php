@@ -39,10 +39,6 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 // if there is not action variable, set the default action of 'process'
 if (empty($_GET['payment'])) $_GET['payment'] = 'process';
 
-date_default_timezone_set('Europe/London');
-$created_on = date("Y-m-d G:i:s");
-$updated_on = date("Y-m-d G:i:s");
-
 switch ($_GET['payment']) {
 
 	case 'process':      // Process and order...
