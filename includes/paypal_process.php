@@ -91,7 +91,7 @@ switch($payment){
 	
 	} else {
 	
-	if ($product_amount == '4500.00' AND $half == '0' ) {
+	if ($product_amount == '4500.00' AND $isHalf == '0' ) {
 	
 	$half_fees = 4500.00;
 	$isHalf = 1;
