@@ -119,7 +119,7 @@ if ($fee_amount == "0.00") {
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
-	<input type="hidden" name="payment" value="process"/>
+	<input type="hidden" name="action" value="process"/>
     <input type="hidden" name="cmd" value="_cart"/>
     <input type="hidden" name="currency_code" value="GBP"/>
     <input type="hidden" name="invoice_id" value="<?php echo date("His") . rand(1234, 9632); ?>"/>

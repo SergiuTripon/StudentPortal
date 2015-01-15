@@ -28,6 +28,8 @@ define('PAYPAL_EMAIL_ADD', 'triponsergiu-facilitator@hotmail.co.uk');
 // Setup class
 require_once('paypal_class.php');  // include the class file
 $p = new paypal_class;             // initiate an instance of the class
+$p->admin_mail = EMAIL_ADD;
+
 $p->paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';   // testing paypal url
 //$p->paypal_url = 'https://www.paypal.com/cgi-bin/webscr';     	// paypal url
 
@@ -36,6 +38,27 @@ $this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 
 // if there is not action variable, set the default action of 'process'
 if (empty($_GET['action'])) $_GET['action'] = 'process';
+
+date_default_timezone_set('Europe/London');
+$created_on = date("Y-m-d G:i:s");
+$updated_on = date("Y-m-d G:i:s");
+$payment = $_REQUEST["payment"];
+$isHalf = '0';
+$invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
+$product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
+$product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
+$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
+$product_amount = filter_input(INPUT_POST, 'product_amount', FILTER_SANITIZE_STRING);
+$payment_status = 'pending';
+$payer_firstname = filter_input(INPUT_POST, 'payer_firstname', FILTER_SANITIZE_STRING);
+$payer_surname = filter_input(INPUT_POST, 'payer_surname', FILTER_SANITIZE_STRING);
+$payer_email = filter_input(INPUT_POST, 'payer_email', FILTER_SANITIZE_STRING);
+$payer_phonenumber = filter_input(INPUT_POST, 'payer_phonenumber', FILTER_SANITIZE_STRING);
+$payer_address1 = filter_input(INPUT_POST, 'payer_address1', FILTER_SANITIZE_STRING);
+$payer_address2 = filter_input(INPUT_POST, 'payer_address2', FILTER_SANITIZE_STRING);
+$payer_town = filter_input(INPUT_POST, 'payer_town', FILTER_SANITIZE_STRING);
+$payer_city = filter_input(INPUT_POST, 'payer_city', FILTER_SANITIZE_STRING);
+$payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
 
 switch ($_GET['action']) {
 
