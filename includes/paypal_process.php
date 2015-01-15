@@ -14,7 +14,7 @@ $payment = $_REQUEST["payment"];
 
 date_default_timezone_set('Europe/London');
 
-$half = '0';
+$isHalf = '0';
 $invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
 $product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
