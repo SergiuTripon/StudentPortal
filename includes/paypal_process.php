@@ -12,13 +12,13 @@
  *  returns a user to upon canceling an order, and finally, it's the page that
  *  handles the IPN request from Paypal.
  *
- *  I tried to comment this file, aswell as the actual class file, as well as
+ *  I tried to comment this file, as well as the actual class file, as well as
  *  I possibly could.  Please email me with questions, comments, and suggestions.
  *  See the header of paypal.class.php for additional resources and information.
 */
 
 // Setup class
-require_once('paypal.class.php');  // include the class file
+require_once('paypal_class.php');  // include the class file
 $p = new paypal_class;             // initiate an instance of the class
 $p->paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';   // testing paypal url
 //$p->paypal_url = 'https://www.paypal.com/cgi-bin/webscr';     	// paypal url
