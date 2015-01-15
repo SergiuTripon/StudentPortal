@@ -101,6 +101,7 @@ switch($payment){
 		$transaction_id  = $_POST["txn_id"];
 		$payment_status = strtolower($_POST["payment_status"]);
 		$invoice_id = $_POST["invoice"];
+		$completed_on = date("Y-m-d G:i:s");
 
 		if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 
