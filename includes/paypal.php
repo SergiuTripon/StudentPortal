@@ -99,16 +99,9 @@ switch($payment){
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 
-	if ($paypal_product_amount == '9000.00' ) {
-
-	$full_fees = 0.00;
-	$updated_on = date("Y-m-d G:i:s");
-
-	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = '$full_fees', updated_on = '$updated_on'  WHERE userid = ? LIMIT 1");
+	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount = '$full_fees', updated_on = '$updated_on'  WHERE userid = '$userid' LIMIT 1");
 	$stmt3->execute();
 	$stmt3->close();
-
-	}
 
 	$stmt2 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
 	$stmt2->execute();
