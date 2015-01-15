@@ -13,7 +13,6 @@ $p->admin_mail = EMAIL_ADD;
 $payment = $_REQUEST["payment"];
 
 date_default_timezone_set('Europe/London');
-$posted_date = date("Y-m-d G:i:s");
 
 $half = '0';
 $invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
@@ -21,7 +20,6 @@ $product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
 $product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 $product_amount = filter_input(INPUT_POST, 'product_amount', FILTER_SANITIZE_STRING);
-$pending = 'pending';
 $payer_firstname = filter_input(INPUT_POST, 'payer_firstname', FILTER_SANITIZE_STRING);
 $payer_surname = filter_input(INPUT_POST, 'payer_surname', FILTER_SANITIZE_STRING);
 $payer_email = filter_input(INPUT_POST, 'payer_email', FILTER_SANITIZE_STRING);
@@ -31,23 +29,26 @@ $payer_address2 = filter_input(INPUT_POST, 'payer_address2', FILTER_SANITIZE_STR
 $payer_town = filter_input(INPUT_POST, 'payer_town', FILTER_SANITIZE_STRING);
 $payer_city = filter_input(INPUT_POST, 'payer_city', FILTER_SANITIZE_STRING);
 $payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
+$payment_status = 'pending';
+$created_on = date("Y-m-d G:i:s");
+$updated_on = date("Y-m-d G:i:s");
 
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=? WHERE userid = ? LIMIT 1");
-		$stmt->bind_param('sssi', $payer_address1, $payer_city, $payer_postcode, $userid);
+		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt->bind_param('ssssi', $payer_address1, $payer_city, $payer_postcode, $updated_on, $userid);
 		$stmt->execute();
 		$stmt->close();
 
-		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, half, invoice_id, product_id, product_name, product_quantity, product_amount, posted_date, payment_status, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param('iiiisiisssssssssss', $userid, $half, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $posted_date, $pending, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode);
+		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, isHalf, invoice_id, product_id, product_name, product_quantity, product_amount, posted_date, payment_status, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param('iiiisiisssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode, $payment_status, $created_on);
 		$stmt->execute();
 		$stmt->close();
 		
 		$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 		
-		$p->add_field('business', PAYPAL_EMAIL_ADD); // Call the facilitator eaccount
+		$p->add_field('business', PAYPAL_EMAIL_ADD); // Call the facilitator account
 		$p->add_field('cmd', $_POST["cmd"]); // cmd should be _cart for cart checkout
 		$p->add_field('upload', '1');
 		$p->add_field('return', $this_script.'?payment=success'); // return URL after the transaction got over
