@@ -27,6 +27,7 @@ class paypal_class {
 	public $txn_id;						// array: if the txn_id array existed, class need to verified the txn_id duplicate
 	public $ipn_log;                    // bool: log IPN results to text file?
 	private $ipn_response;              // holds the IPN response from paypal   
+
 	public $ipn_data = array();         // array contains the POST values for IPN
 	private $fields = array();          // array holds the fields to submit to paypal
 	private $ipn_debug; 				// ipn_debug
