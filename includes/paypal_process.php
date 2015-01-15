@@ -81,7 +81,7 @@ switch ($_GET['payment']) {
 	$p->add_field('zip', $_POST["payer_postcode"]);
 
 	$p->submit_paypal_post(); // submit the fields to paypal
-	//$p->dump_fields();      // for debugging, output a table of all the fields
+	$p->dump_fields();      // for debugging, output a table of all the fields
 	break;
 
 	case 'success':      // Order was successful...
