@@ -151,7 +151,7 @@ switch($payment){
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 			
-	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_date='$completed_on' WHERE invoice_id ='$invoice_id'");
+	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
 	$stmt6->execute();
 	$stmt6->close();
 			
