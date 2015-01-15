@@ -62,7 +62,7 @@ ON DELETE CASCADE
 CREATE TABLE `student_portal`.`paypal_log` (
 	`userid` INT(11) NOT NULL,
 	`isHalf` TINYINT(1) NOT NULL,
-	`invoice_id` INT(10) NOT NULL,
+	`invoice_id` BIGINT(10) NOT NULL,
 	`transaction_id` VARCHAR(17) NOT NULL,
 	`product_id` INT(1) NOT NULL,
 	`product_name` VARCHAR(9) NOT NULL,
