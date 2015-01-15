@@ -13,9 +13,6 @@
  * 
  */
 
-/** filename of the IPN log */
-define('LOG_FILE', '.ipn_results.log');
-
 define('SSL_P_URL', 'https://www.paypal.com/cgi-bin/webscr');
 define('SSL_SAND_URL','https://www.sandbox.paypal.com/cgi-bin/webscr');
 
@@ -27,18 +24,19 @@ class paypal_class {
 
 	var $ipn_data = array();         // array contains the POST values for IPN
 	var $fields = array();          // array holds the fields to submit to paypal
-	
-	// initialization constructor.  Called when class is created.
-	function __construct() {
 
-		$this->ipn_status = '';
-		$this->admin_mail = null;
-		$this->paypal_mail = null;
-		$this->txn_id = null;
-		$this->tax = null;
+	function paypal_class() {
+
+		// initialization constructor.  Called when class is created.
+
+		$this->paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
+		//$this->paypal_url = 'https://www.paypal.com/cgi-bin/webscr';
+
+		$this->last_error = '';
+
+		$this->ipn_log_file = '.ipn_results.log';
 		$this->ipn_log = true;
 		$this->ipn_response = '';
-		$this->ipn_debug = false;
 	}
 
 	// adds a key=>value pair to the fields array, which is what will be 
@@ -61,7 +59,6 @@ class paypal_class {
 	// is redirected to paypal.
 	public function submit_paypal_post() {
 
-		$paypal_url = ($_GET['sandbox'] == 1) ? SSL_SAND_URL : SSL_P_URL;
 		echo "<html>\n";
 
 		echo "<head>";
@@ -81,7 +78,7 @@ class paypal_class {
 		echo "<header class=\"intro\">\n";
 		echo "<div class=\"intro-body\">\n";
 
-		echo "<form class=\"form-custom\" method=\"post\" name=\"paypal_form\" action=\"".$paypal_url."\">\n";
+		echo "<form class=\"form-custom\" method=\"post\" name=\"paypal_form\" action=\"".$this->paypal_url."\">\n";
 
 		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
 		foreach ($this->fields as $name => $value) {
