@@ -15,7 +15,7 @@ $payment = $_REQUEST["payment"];
 date_default_timezone_set('Europe/London');
 
 $isHalf = '0';
-$invoice_id = $_POST['invoice_id'];
+$invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
 $product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
 $product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
@@ -41,8 +41,8 @@ switch($payment){
 		$stmt->execute();
 		$stmt->close();
 
-		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, created_on) VALUES (?, ?, ?)");
-		$stmt->bind_param('iis', $userid, $invoice_id, $created_on);
+		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param('iiiisiisssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode, $payment_status, $created_on);
 		$stmt->execute();
 		$stmt->close();
 		
