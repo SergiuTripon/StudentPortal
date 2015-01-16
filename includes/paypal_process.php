@@ -150,8 +150,8 @@ switch($payment){
 		$stmt5->execute();
 		$stmt5->close();
 
-		}
-		}
+	}
+	}
 
 		$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
 		$stmt8->execute();
