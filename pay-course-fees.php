@@ -40,8 +40,6 @@ if ($fee_amount == "0.00") {
     $conditional_style = "<style> .checkbox { display: none !important; } .btn-custom { display: none !important; }</style>";
 }
 
-$invoice_id = rand(1111111111,9999999999);
-
 ?>
 
 
@@ -124,7 +122,6 @@ $invoice_id = rand(1111111111,9999999999);
 	<input type="hidden" name="payment" value="process"/>
     <input type="hidden" name="cmd" value="_cart"/>
     <input type="hidden" name="currency_code" value="GBP"/>
-    <input type="hidden" name="invoice_id" value="<?php echo $invoice_id ?>"/>
     <input type="hidden" name="product_id" id="product_id" value="1">
     <input type="hidden" name="product_quantity" id="product_quantity" value="1">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">

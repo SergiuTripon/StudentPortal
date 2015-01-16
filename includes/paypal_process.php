@@ -17,7 +17,7 @@ $p->admin_mail = EMAIL_ADD; // set notification email
 $payment = $_REQUEST["payment"];
 
 $isHalf = '0';
-$invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
+$invoice_id = rand(1111111111,9999999999);
 $product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
 $product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
@@ -59,7 +59,7 @@ switch($payment){
 		$p->add_field('cancel_return', $this_script.'?payment=cancel'); // cancel URL if the trasaction was cancelled during half of the transaction
 		$p->add_field('notify_url', $this_script.'?payment=ipn'); // Notify URL which received IPN (Instant Payment Notification)
 		$p->add_field('currency_code', $_POST["currency_code"]);
-		$p->add_field('invoice', $_POST["invoice_id"]);
+		$p->add_field('invoice', $invoice_id);
 		$p->add_field('item_name_1', $_POST["product_name"]);
 		$p->add_field('item_number_1', $_POST["product_id"]);
 		$p->add_field('quantity_1', $_POST["product_quantity"]);
