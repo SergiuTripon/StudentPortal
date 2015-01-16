@@ -127,7 +127,8 @@ switch($payment){
 			$stmt2->close();
 		}
 
-		$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
+		$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, completed_on=? WHERE invoice_id =?");
+		$stmt8->bind_param('sssi', $transaction_id, $payment_status, $completed_on, $invoice_id);
 		$stmt8->execute();
 		$stmt8->close();
 
