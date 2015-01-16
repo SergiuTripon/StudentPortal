@@ -112,7 +112,7 @@ switch($payment){
 		$stmt1->bind_param('i', $userid);
 		$stmt1->execute();
 		$stmt1->store_result();
-		$stmt1->bind_result($userid, $isHalf, $product_amount);
+		$stmt1->bind_result($isHalf, $product_amount);
 		$stmt1->fetch();
 		$stmt1->close();
 
