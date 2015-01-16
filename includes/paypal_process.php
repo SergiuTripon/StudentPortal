@@ -143,7 +143,7 @@ switch($payment){
 		$updated_on = date("Y-m-d G:i:s");
 
 		$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
-		$stmt3->bind_param('isi', $half_fees, $updated_on, $userid);
+		$stmt3->bind_param('iisi', $half_fees, $isHalf, $updated_on, $userid);
 		$stmt3->execute();
 		$stmt3->close();
 
