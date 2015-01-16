@@ -51,6 +51,7 @@ ON DELETE CASCADE
 CREATE TABLE `student_portal`.`user_fees` (
 	`userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`fee_amount` NUMERIC(15,2) NOT NULL,
+	`isHalf` TINYINT(1) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
 FOREIGN KEY (userid)    
@@ -61,7 +62,6 @@ ON DELETE CASCADE
 
 CREATE TABLE `student_portal`.`paypal_log` (
 	`userid` INT(11) NOT NULL,
-	`isHalf` TINYINT(1) NOT NULL,
 	`invoice_id` BIGINT(10) NOT NULL,
 	`transaction_id` VARCHAR(17) NOT NULL,
 	`product_id` INT(1) NOT NULL,
