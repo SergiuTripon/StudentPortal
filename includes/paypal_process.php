@@ -163,7 +163,7 @@ switch($payment){
 	$stmt7->execute();
 	$stmt7->close();
 			
-	$subject = 'Instant Payment Notification - Recieved Payment';
+	$subject = 'Instant Payment Notification - Received Payment';
 	$p->send_report($subject); // Send the notification about the transaction
 	} else {
 	$subject = 'Instant Payment Notification - Payment Fail';
