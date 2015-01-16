@@ -102,66 +102,23 @@ switch($payment){
 		$transaction_id  = $_POST["txn_id"];
 		$payment_status = strtolower($_POST["payment_status"]);
 		$invoice_id = $_POST["invoice"];
+		$product_amount = $_POST["mc_gross"];
 		
 		$completed_on = date("Y-m-d G:i:s");
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 
-		$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
-		$stmt1->bind_param('i', $invoice_id);
-		$stmt1->execute();
-		$stmt1->store_result();
-		$stmt1->bind_result($db_userid);
-		$stmt1->fetch();
-		$stmt1->close();
-
-		$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? ORDER BY created_on DESC LIMIT 1");
-		$stmt1->bind_param('i', $db_userid);
-		$stmt1->execute();
-		$stmt1->store_result();
-		$stmt1->bind_result($isHalf, $product_amount);
-		$stmt1->fetch();
-		$stmt1->close();
-
 		if ($product_amount == '9000.00' ) {
 
-		$full_fees = 0.00;
-		$updated_on = date("Y-m-d G:i:s");
+			$full_fees = 0.00;
+			$updated_on = date("Y-m-d G:i:s");
 
-		$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt2->bind_param('isi', $full_fees, $updated_on, $db_userid);
-		$stmt2->execute();
-		$stmt2->close();
+			$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+			$stmt2->bind_param('isi', $full_fees, $updated_on, $db_userid);
+			$stmt2->execute();
+			$stmt2->close();
+		}
 
-		} else {
-
-		if ($product_amount == '4500.00' AND $isHalf == '0' ) {
-
-		$half_fees = 4500.00;
-		$isHalf = 1;
-		$updated_on = date("Y-m-d G:i:s");
-
-		$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
-		$stmt3->bind_param('isi', $half_fees, $updated_on, $db_userid);
-		$stmt3->execute();
-		$stmt3->close();
-
-		$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
-		$stmt4->bind_param('isi', $isHalf, $updated_on, $db_userid);
-		$stmt4->execute();
-		$stmt4->close();
-
-	} else {
-
-		$full_fees = 0.00;
-		$updated_on = date("Y-m-d G:i:s");
-
-		$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt5->bind_param('isi', $full_fees, $updated_on, $db_userid);
-		$stmt5->execute();
-		$stmt5->close();
-	}
-	}
 		$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
 		$stmt8->execute();
 		$stmt8->close();
