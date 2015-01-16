@@ -9,7 +9,7 @@ $userid = $_SESSION['userid'];
 else $userid = '';
 
 define('EMAIL_ADD', 'admin@student-portal.co.uk'); // define any notification email
-define('PAYPAL_EMAIL_ADD', 'triponsergiu-facilitator@hotmail.co.uk'); // facilitator email which will receive payments change this email to a live paypal account id when the site goes live
+define('PAYPAL_EMAIL_ADD', 'admin-facilitator@student-portal.co.uk'); // facilitator email which will receive payments change this email to a live paypal account id when the site goes live
 
 $p = new paypal_class(); // paypal class
 $p->admin_mail = EMAIL_ADD; // set notification email
