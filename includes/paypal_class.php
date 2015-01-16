@@ -110,6 +110,7 @@ class paypal_class {
 		echo "</div>\n";
 		echo "</header>\n";
 
+		echo "<script src=\"http://code.jquery.com/jquery-latest.min.js\"></script>\n";
 		echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js\"></script>\n";
 		echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda.min.js\"></script>\n";
 
