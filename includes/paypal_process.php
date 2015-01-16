@@ -1,18 +1,20 @@
 <?php
 include_once 'signin.php';
+require_once("paypal_class.php");
+
+date_default_timezone_set('Europe/London');
 
 if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
-define('EMAIL_ADD', 'contact@sergiu-tripon.com');
-define('PAYPAL_EMAIL_ADD', 'triponsergiu-facilitator@hotmail.co.uk');
-require_once("paypal_class.php");
-$p = new paypal_class();
-$p->admin_mail = EMAIL_ADD;
-$payment = $_REQUEST["payment"];
+define('EMAIL_ADD', 'contact@sergiu-tripon.com'); // define any notification email
+define('PAYPAL_EMAIL_ADD', 'triponsergiu-facilitator@hotmail.co.uk'); // facilitator email which will receive payments change this email to a live paypal account id when the site goes live
 
-date_default_timezone_set('Europe/London');
+$p = new paypal_class(); // paypal class
+$p->admin_mail = EMAIL_ADD; // set notification email
+
+$payment = $_REQUEST["payment"];
 
 $isHalf = '0';
 $invoice_id = filter_input(INPUT_POST, 'invoice_id', FILTER_SANITIZE_STRING);
