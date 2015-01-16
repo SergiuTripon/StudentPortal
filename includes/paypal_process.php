@@ -30,6 +30,7 @@ $payer_address1 = filter_input(INPUT_POST, 'payer_address1', FILTER_SANITIZE_STR
 $payer_address2 = filter_input(INPUT_POST, 'payer_address2', FILTER_SANITIZE_STRING);
 $payer_town = filter_input(INPUT_POST, 'payer_town', FILTER_SANITIZE_STRING);
 $payer_city = filter_input(INPUT_POST, 'payer_city', FILTER_SANITIZE_STRING);
+$payer_country = filter_input(INPUT_POST, 'payer_country', FILTER_SANITIZE_STRING);
 $payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
 
 $payment_status = 'pending';
@@ -39,13 +40,13 @@ $updated_on = date("Y-m-d G:i:s");
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt->bind_param('ssssi', $payer_address1, $payer_city, $payer_postcode, $updated_on, $userid);
+		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $userid);
 		$stmt->execute();
 		$stmt->close();
 
-		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, isHalf, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_postcode, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param('iiiisiisssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_postcode, $payment_status, $created_on);
+		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, isHalf, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param('iiiisiissssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_status, $created_on);
 		$stmt->execute();
 		$stmt->close();
 		
@@ -104,7 +105,7 @@ switch($payment){
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 
-		$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE invoice_id = ? LIMIT 1");
+		$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
 		$stmt1->bind_param('i', $invoice_id);
 		$stmt1->execute();
 		$stmt1->store_result();
@@ -126,7 +127,7 @@ switch($payment){
 		$updated_on = date("Y-m-d G:i:s");
 
 		$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt2->bind_param('isi', $full_fees, $updated_on, $userid);
+		$stmt2->bind_param('isi', $full_fees, $updated_on, $db_userid);
 		$stmt2->execute();
 		$stmt2->close();
 
@@ -139,12 +140,12 @@ switch($payment){
 		$updated_on = date("Y-m-d G:i:s");
 
 		$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
-		$stmt3->bind_param('isi', $half_fees, $updated_on, $userid);
+		$stmt3->bind_param('isi', $half_fees, $updated_on, $db_userid);
 		$stmt3->execute();
 		$stmt3->close();
 
 		$stmt4 = $mysqli->prepare("UPDATE paypal_log SET isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
-		$stmt4->bind_param('isi', $isHalf, $updated_on, $userid);
+		$stmt4->bind_param('isi', $isHalf, $updated_on, $db_userid);
 		$stmt4->execute();
 		$stmt4->close();
 
@@ -154,7 +155,7 @@ switch($payment){
 		$updated_on = date("Y-m-d G:i:s");
 
 		$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt5->bind_param('isi', $full_fees, $updated_on, $userid);
+		$stmt5->bind_param('isi', $full_fees, $updated_on, $db_userid);
 		$stmt5->execute();
 		$stmt5->close();
 	}
