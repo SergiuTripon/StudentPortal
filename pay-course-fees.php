@@ -120,8 +120,6 @@ if ($fee_amount == "0.00") {
 
 	<!-- Hidden fields -->
 	<input type="hidden" name="payment" value="process"/>
-    <input type="hidden" name="cmd" value="_cart"/>
-    <input type="hidden" name="currency_code" value="GBP"/>
     <input type="hidden" name="product_id" id="product_id" value="1">
     <input type="hidden" name="product_quantity" id="product_quantity" value="1">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
