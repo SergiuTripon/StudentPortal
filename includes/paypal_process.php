@@ -112,7 +112,7 @@ switch($payment){
 		$stmt6->fetch();
 		$stmt6->close();
 
-		$stmt7 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? LIMIT 1 ORDER BY created_on DESC LIMIT 1");
+		$stmt7 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? ORDER BY created_on DESC LIMIT 1");
 		$stmt7->bind_param('i', $userid);
 		$stmt7->execute();
 		$stmt7->store_result();
