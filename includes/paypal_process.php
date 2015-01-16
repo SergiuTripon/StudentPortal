@@ -104,9 +104,13 @@ switch($payment){
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 
-		if (isset($_SESSION['userid']))
-		$userid = $_SESSION['userid'];
-		else $userid = '';
+		$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE invoice_id = ? LIMIT 1");
+		$stmt1->bind_param('i', $invoice_id);
+		$stmt1->execute();
+		$stmt1->store_result();
+		$stmt1->bind_result($userid);
+		$stmt1->fetch();
+		$stmt1->close();
 
 		$stmt1 = $mysqli->prepare("SELECT isHalf, product_amount FROM paypal_log WHERE userid = ? LIMIT 1");
 		$stmt1->bind_param('i', $userid);
