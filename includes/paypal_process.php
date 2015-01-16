@@ -145,7 +145,7 @@ switch($payment){
 		$full_fees = 0.00;
 		$updated_on = date("Y-m-d G:i:s");
 
-		$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
+		$stmt5 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
 		$stmt5->bind_param('isi', $full_fees, $updated_on, $userid);
 		$stmt5->execute();
 		$stmt5->close();
