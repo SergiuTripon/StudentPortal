@@ -155,13 +155,21 @@ switch($payment){
 		
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 
-	$stmt6 = $mysqli->prepare("UPDATE user_details SET firstname='Serginho' WHERE userid ='$userid'");
+	$stmt6 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id ='$invoice_id'");
+	$stmt6->bind_param('i', $invoice_id);
 	$stmt6->execute();
-	$stmt6->close();
+	$stmt6->store_result();
+	$stmt6->bind_result($userid);
+	$stmt6->fetch();
+	$stmt6->fetch();
 
-	$stmt7 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
+	$stmt7 = $mysqli->prepare("UPDATE user_details SET firstname='Serginho' WHERE userid ='$userid'");
 	$stmt7->execute();
 	$stmt7->close();
+
+	$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transaction_id='$transaction_id', payment_status ='$payment_status', completed_on='$completed_on' WHERE invoice_id ='$invoice_id'");
+	$stmt8->execute();
+	$stmt8->close();
 			
 	$subject = 'Instant Payment Notification - Received Payment';
 	$p->send_report($subject); // Send the notification about the transaction
