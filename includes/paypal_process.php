@@ -116,15 +116,47 @@ switch($payment){
 		$stmt1->fetch();
 		$stmt1->close();
 
-		if ($product_amount == '9000.00' ) {
+		$stmt2 = $mysqli->prepare("SELECT isHalf FROM user_fees WHERE userid = ? LIMIT 1");
+		$stmt2->bind_param('i', $userid);
+		$stmt2->execute();
+		$stmt2->store_result();
+		$stmt2->bind_result($isHalf);
+		$stmt2->fetch();
+		$stmt2->close();
 
-			$full_fees = 0.00;
-			$updated_on = date("Y-m-d G:i:s");
+		if ($product_amount == '9000.00' AND $isHalf == '0' ) {
 
-			$stmt2 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
-			$stmt2->bind_param('isi', $full_fees, $updated_on, $userid);
-			$stmt2->execute();
-			$stmt2->close();
+		$full_fees = 0.00;
+		$updated_on = date("Y-m-d G:i:s");
+
+		$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt3->bind_param('isi', $full_fees, $updated_on, $userid);
+		$stmt3->execute();
+		$stmt3->close();
+
+		} else {
+
+		if ($product_amount == '9000.00' AND $isHalf == '1') {
+
+		$half_fees = 4500.00;
+		$isHalf = 1;
+		$updated_on = date("Y-m-d G:i:s");
+
+		$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
+		$stmt3->bind_param('isi', $half_fees, $updated_on, $userid);
+		$stmt3->execute();
+		$stmt3->close();
+		} else {
+
+		$full_fees = 0.00;
+		$updated_on = date("Y-m-d G:i:s");
+
+		$stmt4 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt4->bind_param('isi', $full_fees, $updated_on, $userid);
+		$stmt4->execute();
+		$stmt4->close();
+
+		}
 		}
 
 		$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, completed_on=? WHERE invoice_id =?");
