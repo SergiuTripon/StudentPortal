@@ -125,7 +125,7 @@ switch($payment){
 		$full_fees = 0.00;
 		$updated_on = date("Y-m-d G:i:s");
 
-		$stmt8 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt8 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? ORDER BY created_on DESC LIMIT 1");
 		$stmt8->bind_param('isi', $full_fees, $updated_on, $userid);
 		$stmt8->execute();
 		$stmt8->close();
@@ -138,12 +138,12 @@ switch($payment){
 		$isHalf = 1;
 		$updated_on = date("Y-m-d G:i:s");
 
-		$stmt9 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
+		$stmt9 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid=? ORDER BY created_on DESC LIMIT 1");
 		$stmt9->bind_param('isi', $half_fees, $updated_on, $userid);
 		$stmt9->execute();
 		$stmt9->close();
 
-		$stmt10 = $mysqli->prepare("UPDATE paypal_log SET isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
+		$stmt10 = $mysqli->prepare("UPDATE paypal_log SET isHalf=?, updated_on=? WHERE userid=? ORDER BY created_on DESC LIMIT 1");
 		$stmt10->bind_param('isi', $isHalf, $updated_on, $userid);
 		$stmt10->execute();
 		$stmt10->close();
@@ -153,7 +153,7 @@ switch($payment){
 		$full_fees = 0.00;
 		$updated_on = date("Y-m-d G:i:s");
 
-		$stmt11 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt11 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? ORDER BY created_on DESC LIMIT 1");
 		$stmt11->bind_param('isi', $full_fees, $updated_on, $userid);
 		$stmt11->execute();
 		$stmt11->close();
