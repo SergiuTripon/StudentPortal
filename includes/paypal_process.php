@@ -65,6 +65,8 @@ switch($payment){
 		$p->add_field('currency_code', $currency_code);
 		$p->add_field('invoice', $invoice_id);
 		$p->add_field('item_name_1', $_POST["product_name"]);
+		$p->add_field('item_number_1', $_POST["product_id"]);
+		$p->add_field('quantity_1', $_POST["product_quantity"]);
 		$p->add_field('amount_1', $_POST["product_amount"]);
 		$p->add_field('first_name', $_POST["payer_firstname"]);
 		$p->add_field('last_name', $_POST["payer_surname"]);
