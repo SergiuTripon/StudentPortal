@@ -16,8 +16,6 @@ $p->admin_mail = EMAIL_ADD; // set notification email
 
 $payment = $_REQUEST["payment"];
 
-$isHalf = '0';
-
 $cmd = '_cart';
 $currency_code = 'GBP';
 $invoice_id = rand(1111111111,9999999999);
@@ -49,8 +47,8 @@ switch($payment){
 		$stmt->execute();
 		$stmt->close();
 
-		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, isHalf, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param('iiiisiissssssssssss', $userid, $isHalf, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_status, $created_on);
+		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param('iiisiissssssssssss', $userid, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_status, $created_on);
 		$stmt->execute();
 		$stmt->close();
 		
