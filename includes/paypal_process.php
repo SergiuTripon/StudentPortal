@@ -146,6 +146,7 @@ switch($payment){
 		$stmt3->bind_param('isi', $half_fees, $updated_on, $userid);
 		$stmt3->execute();
 		$stmt3->close();
+
 		} else {
 
 		$full_fees = 0.00;
