@@ -1996,3 +1996,1039 @@ VERIFIED
 
 
 
+[01/16/2015 11:07 AM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=2243129499 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=03:07:37 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=AYh-XTRUJrmmCvvrw0pwKeXAiMWPAMwyJt.w9jIPGOdLPb.2ZaeOB7Hg 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=6T844157WS967033K 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=e54ecc61b8370 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 11:07:46 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=gjTy0IpgarwD-6jKgppmsUuDvAabRvwRW_1JpD6ehjVQraBGH-xxmFs4aD36fbFuC_uqrkSnCDlIDSB4tmaqYXf4N41VEZGuj-9F38Aoalr5s-oQ5ThAF-B8avNfZ6O2BBfPqMO61oL1gX0ozCzq8_Q2vhXFSR-Q6O-gvNZSK0CB36o_F5RqDHmOqhga7CdKPej9YINTGzQ2RDDlI7DbpyYT8gVgW_oV_XjwsMWLQImAynLu3EoGGQdP7uHEYDKvSvRNJjKrfeJuLgPetGgR_rl_zTOA9A4AbZZcF7yMJ0A9t1ks7QDHR9f-prAFWpk5FU-e1_7l8qCUtLw_ZsGm6d2rnZL3UgRk8HW4QQ0EKG8ComDEHkH0N9PUCoCN0VbJ6w4XWDZ8jpbeY7VYsw3uLbyj1MAD-4C4xNdzjcFKqY_6QUwNpW4R96EdEcC; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 11:07:46 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 11:07:46 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421406466458808; path=/; expires=Sun, 08-Jan-45 11:07:46 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D49395796; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421406466443592; path=/; expires=Sun, 08-Jan-45 11:07:46 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 11:09 AM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=5700567099 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=03:09:28 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=AXLBAZ8mhJqBnIVEvA7e4UhYAZ4dAwHpuuV8L96tKcToWlw7GtYzHsMy 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=4EP38173H5712683L 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=e1e9ff8888679 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 11:09:36 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=DcwBGwFIiLyc2gHLbYqeiXTR0Dwwm_6K6XH_GfeVwOASUgfETwf0Lss4Y-mXN8cOx0zwLZFmCee__rdLvhda9sSir4-rmCEKOnIoSFR35CJBIMkUXfNAKEW8yOqA9S6muoWngJVpVhLLfJNM5mufCY9IQJd7AAGOJf5QG_n787V7CwaUI9gHkhJ0sgwllcDrWb6XFT5efLd5m4I14UHOXCTBn3qln7h-BQkScmczog6nJYg9F3KfOm6nOVet6b-XyTzZgMBXvQ5_Hh1CS6JOlEEgo3s9-XzJTguuQVJ85tpUo46jV71RonpisYC1KhD_X017dmSdjW155lFqwtJR1x-ieI0u42nnTWnuucWGYGAJSv7hXXlLxQKnWZiiacTqklLPLImACYNjUhAF5ZGJbSN567YmxY34xhPnsla0Kxt2wvf17VQijtIuLm4; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 11:09:36 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 11:09:36 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421406576414004; path=/; expires=Sun, 08-Jan-45 11:09:36 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D1894889556; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421406576402291; path=/; expires=Sun, 08-Jan-45 11:09:36 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 11:14 AM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=9000.00 
+invoice=5689697025 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=03:14:33 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=306.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=ApBHX6qbpxJW-Ll3oP22LSbo0WeuA8U.hUzrhwYUiN9TtgRzOV8rM5N0 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=5DY35207DM6087401 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Full Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=9000.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=cbc8a714813a4 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 11:14:41 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=5ZbR-Hz4L_mwx6ZNCstubEGDssJIOPC06rVllpehCqsATF0EcG7t0KZXfo6nFYlKykHQrHXeqfCxrOCeYb1lU2JeCDzh1xEA1ypLWBFE8fiyzli6sQIJtASPdKGvhRIiFwnb_tCER6OFxsg8uZO8PERhiK-UNqjlEUbR5aq3OBo0jjt-sYF1GgC_vfIotqRG0_F1LXSgjqllhvm-MYC7Cvw8luAms_ttytjevIrqvJz-xAvWPls5ELT9EKmd1RVd_tn5XOhvNXoISQDgB0SZUFdOIjplMscVg1edLaQv-lR7KRJrbdBeRAuywnofqINAS4lVuX6vgOChciEsuFejJ7Kr-Y3v0_ESTHz8b18Sh6CQFs60URGzHPN0dT_Z2MD1zltqWv7nWDbuL23ujfsDxPWjMCjSbl6oJS_MpGBxoVcSbxsS0EnaRu-Jkka; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 11:14:41 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 11:14:41 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421406881240977; path=/; expires=Sun, 08-Jan-45 11:14:41 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D2717038676; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421406881226157; path=/; expires=Sun, 08-Jan-45 11:14:41 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 12:15 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=1669000643 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=1 Main Terrace 
+payment_date=04:15:01 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=W12 4LQ 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Test Buyer 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=Wolverhampton 
+verify_sign=ALxGJYdzDSvPgFHgC84ph2vBgxZUAeBDOzFm34xZPtdkFORvkbKdEvtw 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=770001430X486642P 
+payment_type=instant 
+last_name=Buyer 
+address_state=West Midlands 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=2bdbe8407a00e 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 12:15:07 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=KqQKTeO8HKFgzCYiG-DayX2-uAdm8lemEUFU4OnHULW7g4VfVnjQc_SKCqCJp2YX32uQcr8ggfHrhIBUvuM0VrR5sUJy98XpquNKasCaVjeQUhEPh3gcAcaK7u_sVv88UuhLLDK98o0HwFH2eC5vIjjmLNCAVB6flWLjrdzpvWftgc6nILL25X5ASHiq6bxykTeY_PF7TPvHTMWarKOUt-f0HKi4GH5jSagLa5gMlyjVC-p2pgmFC2aaaMVmjcIkAv3BTgpH6KycCrfoNNhX3j3-aa-s-yZWFzJCtzXCOQ-zJuxUba09m9RqKExwdbNFHf2PYpIfgyaOvMjaLZDbObF1Lxp91OP4_i_obEyc3uNqIX0zCTUaYy8CVtIx7GWiR2_qrf8gBefZu20kaLNpJj9zdhBR7Vo5RxBargU2ZIAfLfWeioGeythVEAa; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 12:15:07 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 12:15:07 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421410507405380; path=/; expires=Sun, 08-Jan-45 12:15:07 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D3405822292; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421410507389395; path=/; expires=Sun, 08-Jan-45 12:15:07 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 12:18 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=1710671769 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=04:18:49 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=A4RS71fc8k5JEUuMfEIqo69kB7I9AE2x-6N1djhCxZGHt2E6or1MEHAB 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=5M752774F53865920 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=5b345721a59b4 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 12:18:56 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=5QXB7pIbd7mLpVHaC__X9ZjLtjiaenu5Cfxn0gBVdfeqqmq-DVe5yJtNYQgs8kQ674zRTCKytkWFjnKgW-UToRnFuvIg9YHOskjOTDmMlJWaxdbrbJMIzmmWQw1b1lwZk-sWQ4LMX0BnUMtNBptaX_qz29LukDAY_lBx2YundvRML0MZ5OYqoIjBeuBE2uly_T5_hzz0749KG2M6mVqT-0Drjj8kBWsX88NnrZTdGf5KU-kBV_tHog-o2nRdJUGE9wqx21uJXCb_s60LCk1I7J4SHCjvJAOnJput2dDp8yAAaQRSjt5FQNXYrs_DRsOTaOr7RjfXwQO9A_PH7384WoqVEcLB1TFb1rLB91tiySjL92r4aQe3gzhg9xoaTSfyeR3GD46N9HJekzGXxw0NlEspoAbHXUTKX17sK7V2xoJhocsIn9WPnO7CH0K; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 12:18:57 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 12:18:57 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421410736966670; path=/; expires=Sun, 08-Jan-45 12:18:56 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D2952902996; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421410736951115; path=/; expires=Sun, 08-Jan-45 12:18:56 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 12:26 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=3998144008 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=04:26:04 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=AVfSQ5PLCwiNa3zy.rOy.Na-EbloAc-B.jnMXEJ4FFaCiKODMtxpTBFF 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=2MF77955XH495883J 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=34ca5d356b62d 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 12:26:13 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=HA5UIfebKnBvTyw8TuHCDgb_do3MOp5kCWH6o3kSICGtmgMPD9s4RVDQTjovNCidF15SugqKBEUzccesh6KTXb84Wctk2WS_47jMz4LOV7wXkHcyaNC2fFD6TaHSw1kV_9xb9JHAX9OLaGuymkr-3bYxO5KO11Rn0-3kCzmvUotqMB3E7SoGq-Bvd0uFoCaFPq92lFfMuuIp3rKlzj8EM_cxEKAfX2odscIOj5anJtbiGltY31M8myMU8cJeCa4UFGjhLtjIWT9Tp4n65tHfVTs2Dafyz9iLatmrDc_J3um-8QoLkULnBo7l1xgEeETZzheQjN-VWp1iNl2_O4BZV4vLXRwsZjoJtLs28xmjo0DmP-dlzYPcIURrABqga2Ttg-H7yoNFRu-fQwlkv0DCyjgTIfCrlaw3Vg8wF0fy9LuHQ9F6dtECUh9fIGy; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 12:26:13 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 12:26:13 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421411173235475; path=/; expires=Sun, 08-Jan-45 12:26:13 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D1694742868; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421411173223431; path=/; expires=Sun, 08-Jan-45 12:26:13 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 12:33 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=5113058396 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=04:33:28 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=AS9YL5lFoFgs7f6.6DGsQZvcnqoKA8vwTv2mg2mbhIod8V6KvfVkKNm3 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=0XT16084WV979172X 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=39f4a385a5e8 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 12:33:31 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=9ZjnOzG9pLNCjjuE3l8Hxz6wZqwJTEuySg3i5_ZvI3HQldGMokfiGEQyOOon8UnkXecEqB8cpjMpMZNlCqZ-rkd9VSXVDtMwzp4zZ50sVX9K9VDP9IwTT7sfRkBMRmMowFiYZqfmTVkz0tpysTWYvhcCK9FE7MSp1lWTwQjuKS723CGwVdal0-eTYs3-gcCprtY_f5we_av1hWuwGq7p1CGSlu0Y3iLCUtB4GSi-VZLdS5pLoC3IxZSaFa508QtH0LaV6G9DSidEp16hoFEpQD8aBTzULb9zEkAM0h95uc9WjOqfMMxzW_rpLqBn8M5Mk6YwGid1fcIORD-nznyHZSrIo86IPyPEp84uSSyrHK-IIw_IWQWTZr8R9UPO282XduTyVoqWJSn7BMjs202UNv8Pi2MA4FfClXUQb2-iBomhzLdCvsRyZjcM9U4; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 12:33:32 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 12:33:32 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421411612057856; path=/; expires=Sun, 08-Jan-45 12:33:32 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D470137172; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421411612042672; path=/; expires=Sun, 08-Jan-45 12:33:31 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 9:53 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=2476702170 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=13:53:08 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=AzEgWl.ODucA-B-xx3wVGcOU8ZfNAH-KSMsWzzE.zvEevuZULAJrPIoM 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=7GJ55460FF646135R 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=14173285201db 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 21:53:15 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=N6h8N5VIQLfA7G57XQD8ep2efXEM-d2VG0xDXshAy8OrHjFc6ruQTGXAh6cKxHu0MJM2XFXZb21qKqLjI7Ed2g3sP3hrjJRRqoJVk94bgv6Tz_TT7RbLVIUpR_GdTbryeNHk9pfoh1az3LOH07vbyd10eswuZE_SfojQTwnH8XFWDk9tUYM4vowLLqJ7XLRyuqxE6MPI8l0So68NSKvqOJTUEpNutVSq-bviKiy7bApkEHsJk0QgY7m9_enfDBfFiBRMkssgZTtYm14iyiA0NLmACQwyU6U7vigueIjJrSzdu-FgagVpiLZNC_gh9W6o4UBD5bu_VC1J9TodR3VtdagrzurDEh_oEq0O97chsekPCQlpno3jA8MSLqrsqkSIaLPHg3UjAnePTh1iLmxX_4_d_ycWz6ZDWTfJr09Ls7Mn9OuiBy0SlaMLH60; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 21:53:15 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 21:53:15 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421445195337961; path=/; expires=Sun, 08-Jan-45 21:53:15 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D1267251540; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421445195322975; path=/; expires=Sun, 08-Jan-45 21:53:15 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 9:56 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=9000.00 
+invoice=4890703989 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=13:56:48 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=306.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=AacbgUfYc9OIHFTM9RG7R3OzSS0sAMxCmAeJLSbRSmIFND-dodZSRnea 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=47A68851L15820207 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Full Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=9000.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=186e6e33dc430 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 21:56:55 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=om6wGbOoQXvC3bXpFIYhP-sGDPNlP3iGDoMtvz5-wgo2ImO43smH-7A016CfcqArWdaedF_a8HPcXJDzKUu9pDdY2L651rsgdE_2LawXrAq1cRjXENYTBNRZPTpKkoX5TeMCr4ZZZDjjJmP9-BgMr7x1QPiWjFG-JFuigLt8ACUJ9Q3W23uvPDMmhz_yzvyQ4Vdd3S2u8p5o1MCq7NkIi3GyhK81Ae7ygOgcEOHcDxV53ckzMrzbhGdfe83ZlH2CtWpONgSeJQw8xCjCGbQAiLoAIQuWMiY0LlR9j4lX5ATFaAiMKZbFcVRFwRSJrIsee3h3v8cZfG7A2ulQPLn5SRRo3x9KD2oGsXm9HKolIJC1yjohBo14aYp30IAcDl0fiNTJCqWWTbXxHWixAJgmIpaGQqsiKxtKBmR-diEYGYAVYo0hvO2ESM8zM04; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 21:56:56 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 21:56:56 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421445415992039; path=/; expires=Sun, 08-Jan-45 21:56:55 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D663337300; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421445415976960; path=/; expires=Sun, 08-Jan-45 21:56:55 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 10:06 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=7555709655 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=14:06:49 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=AKwUpvimaCAfmfJ-.PhckWeGqTcrA5t6VZr6oT0cXsqe9IXnC50p-3Ls 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=09771840XB348983C 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=62776d8e28291 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 22:06:52 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=c008yYiVcwyt2jzXiipPJGQlEibMnQHgjx-zRRY9_6qwcSiDSctX6_Tkt7Bmx6fcg4mgzzHQ2X__sXL01InnNeNS-CLal3OuLM589bJymaNt4y8qAcQOp8Z12ZaQMbcYf29vAg1Ey-gwlLG7I4m8ANX9t-8zpbh-sLE-jxYsXvu-4C0DABRus0d8Sl1SN1tv6VB_db1Kd8C74g79L5XEVBC2nLO6jA8-WP_qL4XXgM40DrAMTjBRpt2wnzdVINm_cx5pchXd85WI3MhXgUiWq6toUVMl51Q1kdGMH9ayQw_gfU0zcjMZUE_KotSOvt1OZPm1_3FMDpol95xKw9wE4xn6WIaxNTkGDl9eD3_4ESEnepMHCEzaHl4maA81V73SePmWrDHZsmOwHAq3Q2Ama5sGc1gWEpX_uR3NQiv97WCwVbZ1vfVYxVoTQWq; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 22:06:53 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 22:06:53 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421446012729873; path=/; expires=Sun, 08-Jan-45 22:06:52 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D2089531732; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421446012713194; path=/; expires=Sun, 08-Jan-45 22:06:52 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 10:09 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=4373541279 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=14:09:51 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=ARTWVaUGckuviK6HZ-Of6l88vDtdA4FHjHcY-1BrFe76qaeHXOq45lUh 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=41D052543S621000A 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=d7ea6d32b7a03 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 22:09:57 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=nDgVBytYUz7lCprL81T3RdsmDOoBocJtQaLEvuw4be19FvoGmknlSbbBKCOnMuVhhOhlcksItNGyyd_CoGe2nVJKpcGPihKjzhZTPcKi2eYeBmNLhGRBq6IpJNzw66ELGYC6qxUaTR0M7Z_pXzsm3_dl0lKqunxqRjBiKURXblVQW5DA2J4Pkn1fsnsJxduRbvstRAB4F5AZtgL32Nf9YJjJ2G8TG4EszijIi-pXy-cIO-Wh3y7rziRT4O9Ek4CabqL2ZCbK91qr98_szTTPKYldv50fJx5nDDX2WpV4j9exC4g_-qu0oLE9iBHAGPxTHmMvLhoWgbRyY5TKkys8M89WBWo1nYbwmqwAMZ7CGgATdNFYG5QTvZQ5VlYi2VhGaRO-N8h-C1F8VLgSk3yYNqK3bCjj_jqCJVxDtst385DIwb5A2NvyKiQ3wF0; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 22:09:57 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 22:09:57 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421446197627993; path=/; expires=Sun, 08-Jan-45 22:09:57 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D898414932; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421446197616347; path=/; expires=Sun, 08-Jan-45 22:09:57 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 10:15 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=4302913939 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=14:15:09 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=ACUe-E7Hjxmeel8FjYAtjnx-yjHAAwxGW2yxh8NIcjySfbzc3ee8hZm9 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=0V01387644432554K 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=3ca99d6a1f67d 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 22:15:12 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=gfBGmRg6GgJ1npBtw8gKcDm_HcYvolDrayCbmmBtbtejntFB1dYMgAoVtXmn4mvONVlcvCj4Exm_3y9ZHu_P4Sz_WHm-BsI4CPJfiiM3MoqrxB_xhgKfq1AETBCWD8y612Rr4biirA56ve4Y6vI5wUawHu_ajeEl6Wp440L-F6YIlLvBJiaZBK1srYu4X2bG2JwoIObuQZesVeqnbcwR3V8gUE1qLtYi_9ryuPGLBpDyhGslogRk_eCyfD2uCf4LTwyunWDE9I3P61GVTgBKAH7wERj8_TyqWdpQps4ap4ZZhZRVXkxx-f5Kth1yAzHhOn8qkx-m37pLIqF0-wjXco2hC5Dr7Nex55g7VhA7TBadBho7-ltbmO8Ztn6l2fCTSRiHXR8ASuaGxb8YTqNLJcw-TWFGCs28idZ-V7uNWRz6gylHUdLgJzdJ-UW; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 22:15:12 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 22:15:12 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421446512543510; path=/; expires=Sun, 08-Jan-45 22:15:12 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D1888336212; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421446512532341; path=/; expires=Sun, 08-Jan-45 22:15:12 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 10:53 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=6769161543 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=14:52:53 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=AFHtPW7RGMm27uHFjQQTI3VSExsWACiuf0sjBqBsQnx6--dDacZa01JE 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=6B148486G65466509 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=a0d830f5210e5 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 22:53:01 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=dYp9uIIJ3-e1nH2xZVqM9YS6nMf8x1buISpUsflENZIt7I5XZbBAdEHFxZ44lNoZsY31VuqcBPZx8bHlYhKGNQ5VdFfy5OqmXs-ETO9S6KgclUTcAro4irs5rdwQWIk_IraQ7ilqyhRvS0qZTh_ysNsAEHZDBygCPAyj3kYIy0UOlwEEUPYZA5xkkWEziN4CSEqyQYQmhz4pJKTEc2LMUPmACELB-Al6lZPtWbaIduxU18WmTIVwd7TdGQMjUCNQKdBR5Y2I776_hYYleC5CTYFlgXFmHmH2amwwNu6jMx2XUlcUBLtni0PgdZeIO8QOScytbbyD1JGfwOow2nFlQ0p-k2sUfC3OpFAIQlH68icbDEqajp0AiKB91AHzOPV8UXO5_sD_8pDW8NkghorbvFHdrqSurxEGdbiMtcb-b1SScmfySZpeXH8y_cm; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 22:53:02 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 22:53:02 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421448781859940; path=/; expires=Sun, 08-Jan-45 22:53:01 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D1301723476; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421448781844458; path=/; expires=Sun, 08-Jan-45 22:53:01 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[01/16/2015 10:54 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=1751000069 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=B2FFGA52RFURU 
+tax=0.00 
+address_street=38 Clarence Road, Flat 2 
+payment_date=14:54:30 Jan 16, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=triponsergiu-facilitator@hotmail.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=A7fHCzB5FqLImJd5uarK2d0215wXASUymjD9Cn1gAUNSnutOXH9xtWxO 
+payer_email=triponsergiu-buyer@hotmail.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=67H86820RY470994S 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=triponsergiu-facilitator@hotmail.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=CXLWWC2ZKSE64 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=d420f6e765273 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 16 Jan 2015 22:54:37 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=6-PaQklxEMqXOi8bEZuUXKL0SHapA5GjibQdMmiq2K8MbK7qVuDudXt0QGz5PPqNYPrzFh_q32PbyUsE6TDkzk5Su_LGx-wYJqpaMU3CoMY1cu1_gQviZ1-_crFW8XO_TliYrS_56EsBe862BaZVPubn8xlrTqUqbL9TXT4irATquN2-oC22OykBDXRP1O2pcCQ-67TIG5HDK5z0o49Qc_74IhaX8ugwZAvptnfsAOdJ6ZL0YayxMQu06dFCm-kd9dWEH3BwGSlSLTlhvqQry59y7YGKXA5dDQ5Hhpu8kZUxz_xB_48cdduxVb8wRbV0vCXy0-Z5_iYp-vwsxT2V_7EZHG1ZXGZ_c4mSxst8qtSDiTotUcUWv6XWl2-YGRVlgo_zxF395qvASserjLe1uNOHvnIRPzjOmrd-pTLUej4FknQaAowG7Ux0ARq; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 13-Jan-2025 22:54:38 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 15-Jan-2017 22:54:38 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1421448878088609; path=/; expires=Sun, 08-Jan-45 22:54:38 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D2929113428; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1421448878076203; path=/; expires=Sun, 08-Jan-45 22:54:37 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
