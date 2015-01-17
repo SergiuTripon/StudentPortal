@@ -19,7 +19,7 @@
 		text-align: center;
 		padding-top: 20px;
 	}
-	footer seal {
+	footer #seal {
 		text-align: center;
 	}
 	</style>
