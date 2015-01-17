@@ -16,17 +16,13 @@
 	}
 	footer p {
 		color: #FFA500;
-		padding-top: 7px;
-	}
-	footer .footer-items {
-		margin-top: 10px;
+		text-align: center;
+		padding-top: 20px;
 	}
 	</style>
 	
 	<footer>
     <div class="container">
-	<div class="footer-items">
-	<div class="pull-left"><p>&copy; 2014 Student Portal - All Rights Reserved.</p></div>
-	<div class="pull-right"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=csOvqppO0S9h469AZ4vAXvtrvg75WztsHqitRvaKQvjaRfs62ebr39CvkC86"></script></div>
-	</div>
+    <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
+    </div>
     </footer>
