@@ -1,2 +1,2 @@
 <!-- pace-js -->
-<script src="../assets/js/pace-js/pace.js"></script>
+<script src="https://sergiu-tripon.co.uk/assets/js/pace-js/pace.js"></script>

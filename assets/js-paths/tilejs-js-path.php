@@ -1,2 +1,2 @@
 <!-- tile-js -->
-<script src="../assets/js/tile-js/tileJs.min.js"></script>
+<script src="https://sergiu-tripon.co.uk/assets/js/tile-js/tileJs.min.js"></script>
