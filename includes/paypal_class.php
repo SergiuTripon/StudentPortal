@@ -70,6 +70,12 @@ class paypal_class {
 
 		echo "<script src=\"../assets/js/pace-js/pace.js\"></script>";
 
+		echo <meta charset=\"utf-8\">\n";
+    	echo <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n";
+    	echo <meta name="viewport" content="width=device-width, initial-scale=1">\n";
+    	echo <meta name="description" content="">\n";
+    	echo <meta name="author" content="">\n";
+
 		echo "<title>Processing Payment...</title>\n";
 
 		echo "<link href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">\n";
