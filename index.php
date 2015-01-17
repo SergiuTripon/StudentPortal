@@ -152,7 +152,7 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/signin_process.php",
+	url: "https://www.student-portal.co.uk/includes/signin_process.php",
     data:'email=' + email + '&password=' + password,
     success:function(response){
 		window.location = '../overview/';
