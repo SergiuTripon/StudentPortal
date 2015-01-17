@@ -13,7 +13,7 @@
     <!-- ladda -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda-themeless.min.css" rel="stylesheet">
 
-    <!-- common -->
+    <!-- custom -->
     <link href="https://student-portal.co.uk/assets/css/custom/custom.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
