@@ -19,7 +19,7 @@
 		padding-top: 7px;
 	}
 	footer .footer-items {
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 	</style>
 	
