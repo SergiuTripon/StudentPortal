@@ -1,6 +1,11 @@
 Options -MultiViews
 RewriteEngine On
 
+#Redirecting from www to non-www
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
 #Redirecting from HTTP to HTTPS
 RewriteCond %{HTTPS} !on
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
