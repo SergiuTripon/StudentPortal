@@ -1,7 +1,6 @@
 RewriteEngine On
-RewriteCond %{SERVER_PORT} !=443
-RewriteCond %{HTTP_HOST} ^(www\.)?student-portal\.co.uk$ [NC]
-RewriteRule ^$ https://www.student-portal.co.uk/%{REQUEST_URI} [R,L]
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 Options -MultiViews
 RewriteEngine On
