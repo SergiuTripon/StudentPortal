@@ -9,5 +9,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda.min.js"></script>
 
 <!-- common-->
-<script src="../assets/js/custom/custom.js"></script>
-<script src="../assets/js/common/ie10-viewport-bug-workaround.js"></script>
+<script src="https://student-portal.co.uk/assets/js/custom/custom.js"></script>
+<script src="https://student-portal.co.uk/assets/js/common/ie10-viewport-bug-workaround.js"></script>
