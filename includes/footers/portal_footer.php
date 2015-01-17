@@ -16,18 +16,16 @@
 	}
 	footer p {
 		color: #FFA500;
-		text-align: center;
-		padding-top: 20px;
-	}
-	footer #seal {
-		text-align: center;
-		margin-bottom: 20px;
 	}
 	</style>
 	
 	<footer>
     <div class="container">
+	<div class="text-left">
     <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
-	<div id="seal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=csOvqppO0S9h469AZ4vAXvtrvg75WztsHqitRvaKQvjaRfs62ebr39CvkC86"></script></div>
+	</div>
+	<div class="pull-right">
+	<script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=csOvqppO0S9h469AZ4vAXvtrvg75WztsHqitRvaKQvjaRfs62ebr39CvkC86"></script>
+	</div>
 	</div>
     </footer>
