@@ -261,7 +261,6 @@
 	<footer>
     <div class="container">
 	<div class="row">
-	<span id="siteseal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=csOvqppO0S9h469AZ4vAXvtrvg75WztsHqitRvaKQvjaRfs62ebr39CvkC86"></script></span>
 	<p>&copy; 2014 Student Portal - All Rights Reserved.</p>
 	</div>
 	</div><!-- /.container -->
