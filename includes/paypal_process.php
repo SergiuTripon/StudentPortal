@@ -16,6 +16,9 @@ $p->admin_mail = EMAIL_ADD; // set notification email
 
 if (isset($_REQUEST["payment"])) {
 	$payment = $_REQUEST["payment"];
+} else {
+	header('HTTP/1.0 550 Not received.');
+	exit();
 }
 
 $cmd = '_cart';
