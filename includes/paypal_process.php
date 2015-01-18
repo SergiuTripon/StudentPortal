@@ -14,7 +14,9 @@ define('PAYPAL_EMAIL_ADD', 'admin-facilitator@student-portal.co.uk'); // facilit
 $p = new paypal_class(); // paypal class
 $p->admin_mail = EMAIL_ADD; // set notification email
 
-$payment = $_REQUEST["payment"];
+if (isset($_REQUEST["payment"])) {
+	$payment = $_REQUEST["payment"];
+}
 
 $cmd = '_cart';
 $currency_code = 'GBP';
