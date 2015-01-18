@@ -304,7 +304,7 @@ include 'includes/signin.php';
 	
 	if (password.length < 6) {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -322,7 +322,7 @@ include 'includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 	} else {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#error").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;

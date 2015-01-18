@@ -128,14 +128,6 @@ if ($fee_amount == "0.00") {
 	<input type="hidden" name="payer_town" id="payer_town" value="<?php echo $town; ?>">
 	<!-- End of Hidden fields -->
 
-    payment = $("#payment").val();
-    product_id = $("#product_id").val();
-    product_quantity = $("#product_quantity").val();
-    payer_email = $("#payer_email").val();
-    payer_phonenumber = $("#payer_phonenumber").val();
-    payer_address2 = $("#payer_address2").val();
-    payer_town = $("#payer_town").val();
-	
     <div class="form-group">
 	
     <div class="col-xs-6 col-sm-6 full-width">
@@ -305,7 +297,15 @@ if ($fee_amount == "0.00") {
     e.preventDefault();
 	
 	var hasError = false;
-	
+
+    payment = $("#payment").val();
+    product_id = $("#product_id").val();
+    product_quantity = $("#product_quantity").val();
+    payer_email = $("#payer_email").val();
+    payer_phonenumber = $("#payer_phonenumber").val();
+    payer_address2 = $("#payer_address2").val();
+    payer_town = $("#payer_town").val();
+
 	address1 = $('#payer_address1').val();
 	if (address1 === '') {
         $("#error").empty().append("Please select the first line of an address.");
