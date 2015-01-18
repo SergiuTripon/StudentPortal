@@ -2,6 +2,8 @@
 
 if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
     echo "shit";
+} else {
+    echo "good";
 }
 
 if (session_status() == PHP_SESSION_NONE) {
