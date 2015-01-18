@@ -15,7 +15,7 @@ $p = new paypal_class(); // paypal class
 $p->admin_mail = EMAIL_ADD; // set notification email
 
 if (isset($_REQUEST["payment"])) {
-	$payment = $_REQUEST["payment"];
+	header('HTTP/1.0 550 Not received.');
 } else {
 	header('HTTP/1.0 550 Not received.');
 	exit();
