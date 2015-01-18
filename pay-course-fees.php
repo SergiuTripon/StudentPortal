@@ -119,7 +119,7 @@ if ($fee_amount == "0.00") {
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
-	<input type="hidden" name="payment" value="payment"/>
+	<input type="hidden" name="payment" value="process"/>
     <input type="hidden" name="product_id" id="product_id" value="1">
     <input type="hidden" name="product_quantity" id="product_quantity" value="1">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
@@ -298,15 +298,7 @@ if ($fee_amount == "0.00") {
 	
 	var hasError = false;
 
-    payment = $("#payment").val();
-    product_id = $("#product_id").val();
-    product_quantity = $("#product_quantity").val();
-    payer_email = $("#payer_email").val();
-    payer_phonenumber = $("#payer_phonenumber").val();
-    payer_address2 = $("#payer_address2").val();
-    payer_town = $("#payer_town").val();
-
-	address1 = $('#payer_address1').val();
+	payer_address1 = $('#payer_address1').val();
 	if (address1 === '') {
         $("#error").empty().append("Please select the first line of an address.");
 		$("#payer_address1").css("border-color", "#FF5454");
@@ -316,8 +308,8 @@ if ($fee_amount == "0.00") {
 		$("#error").hide();
 		$("#payer_address1").css("border-color", "#4DC742");
 	}
-	
-	city = $("#payer_city").val();
+
+    payer_city = $("#payer_city").val();
 	if(city === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a city.");
@@ -328,8 +320,8 @@ if ($fee_amount == "0.00") {
 		$("#error").hide();
 		$("#payer_city").css("border-color", "#4DC742");
 	}
-	
-	postcode = $("#payer_postcode").val();
+
+    payer_postcode = $("#payer_postcode").val();
 	if(postcode === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a postcode.");
@@ -341,19 +333,28 @@ if ($fee_amount == "0.00") {
 		$("#payer_postcode").css("border-color", "#4DC742");
 	}
 
+    payment = $("#payment").val();
+    product_id = $("#product_id").val();
+    product_quantity = $("#product_quantity").val();
+    payer_email = $("#payer_email").val();
+    payer_phonenumber = $("#payer_phonenumber").val();
+    payer_address2 = $("#payer_address2").val();
+    payer_town = $("#payer_town").val();
+
+    payer_firstname = $("#payer_firstname").val();
+    payer_surname = $("#payer_surname").val();
+    product_name = $("#product_name").val();
+    product_amount = $("#product_amount").val();
+    payer_country = $("#payer_country").val();
+
 	if(hasError == false){
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/paypal_process.php",
-    data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd,
+    data:'payment=' + payment + '&product_id=' + product_id + '&product_quantity=' + product_quantity + '&payer_email=' + payer_email + '&payer_phonenumber=' + payer_phonenumber + '&payer_address2=' + payer_address2 + '&payer_town=' + payer_town + payer_address2 + '&payer_firstname=' + payer_firstname + '&payer_surname=' + payer_surname + '&product_name=' + product_name + '&product_amount=' + product_amount + '&payer_address1=' + payer_address1 + '&payer_city=' + payer_city + '&payer_postcode=' + payer_postcode + '&payer_country=' + payer_country,
     success:function(response){
-		$("#hide").hide();
-		$("#register-button").hide();
-		$("#FormSubmit").hide();
 		$("#error").hide();
-		$("#success").append('Thank you for your registration. You can now sign in to your account.');
-		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
