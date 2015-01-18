@@ -1,11 +1,9 @@
 <?php
 
-if ($_SERVER['HTTPS'] != "on") {
-    echo "This is not HTTPS";
-} else {
-    echo "This is HTTPS";
+if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
+    header('Location: https://mywebserver.com/login.php');
+    exit;
 }
-
 
 if (session_status() == PHP_SESSION_NONE) {
 	session_cache_limiter('none');
