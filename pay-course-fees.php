@@ -338,6 +338,7 @@ if ($fee_amount == "0.00") {
 		$("#error").hide();
     },
     error:function (xhr, ajaxOptions, thrownError){
+        $("#error").show();
         $("#error").empty().append(thrownError);
     }
 	});
