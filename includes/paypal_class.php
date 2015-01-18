@@ -68,7 +68,7 @@ class paypal_class {
 		echo "<html>\n";
 		echo "<head>";
 
-		include 'https://student-portal.co.uk/assets/js/pace-js/pace.js';
+		echo "<script src=\"https://student-portal.co.uk/assets/js/pace-js/pace.js\"></script>";
 
 		echo "<meta charset=\"utf-8\">\n";
     	echo "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n";
@@ -78,7 +78,11 @@ class paypal_class {
 
 		echo "<title>Processing Payment...</title>\n";
 
-		echo "<link href=\"https://student-portal.co.uk/assets/css-paths/common-css-paths.php\" rel=\"stylesheet\">\n";
+		echo "<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">\n";
+		echo "<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css\" rel=\"stylesheet\">\n";
+		echo "<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css\" rel=\"stylesheet\">\n";
+		echo "<link href=\"https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda-themeless.min.css\" rel=\"stylesheet\">\n";
+		echo "<link href=\"https://student-portal.co.uk/assets/css/custom/custom.css\" rel=\"stylesheet\">\n";
 
 		"</head>\n";
 
@@ -112,7 +116,9 @@ class paypal_class {
 		echo "</div>\n";
 		echo "</header>\n";
 
-		include 'https://student-portal.co.uk/assets/js-paths/common-js-paths.php';
+		echo "<script src=\"https://code.jquery.com/jquery-latest.min.js\"></script>\n";
+		echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js\"></script>\n";
+		echo "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda.min.js\"></script>\n";
 
 		echo "<script>Ladda.bind('.ladda-button', {timeout: 20000});</script>\n";
 
@@ -234,9 +240,7 @@ class paypal_class {
 		$body = '';
 		$body .= "from " . $this->ipn_data ['payer_email'] . " on " . date ( 'm/d/Y' );
 		$body .= " at " . date ( 'g:i A' ) . "\n\nDetails:\n" . $this->ipn_status;
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'From: Student Portal <contact@sergiu-tripon.com>' . "\r\n";
-		mail ( $this->admin_mail, $subject, $body, $headers);
+		mail ( $this->admin_mail, $subject, $body );
 	}
 
 	public function print_report(){
