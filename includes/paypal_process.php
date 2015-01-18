@@ -14,12 +14,7 @@ define('PAYPAL_EMAIL_ADD', 'admin-facilitator@student-portal.co.uk'); // facilit
 $p = new paypal_class(); // paypal class
 $p->admin_mail = EMAIL_ADD; // set notification email
 
-if (isset($_REQUEST["payment"])) {
-	header('HTTP/1.0 550 Not received.');
-} else {
-	header('HTTP/1.0 550 Not received.');
-	exit();
-}
+if (empty($_GET['payment'])) $_GET['payment'] = 'process';
 
 $cmd = '_cart';
 $currency_code = 'GBP';
@@ -44,7 +39,7 @@ $payment_status = 'pending';
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
-switch($payment){
+switch ($_GET['payment']) {
 	case "process": // case process insert the form data in DB and process to the paypal
 
 		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
