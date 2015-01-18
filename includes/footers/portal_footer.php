@@ -4,7 +4,7 @@
 		min-height: 100% !important;
 	}
 	body {
-		margin-bottom: 60px;
+		margin-bottom: 90px;
 	}
 	footer {
 		position: absolute;
