@@ -15,6 +15,11 @@
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
+	@media (max-width: 768px) {
+	.about {
+		padding: 30px 0;
+	}
+	}
 	/* End of About section */
 
 	/* Features */
@@ -33,6 +38,11 @@
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
+	@media (max-width: 768px) {
+	.features {
+		padding: 30px 0;
+	}
+	}
 	/* End of Features */
 
 	/* Contact section */
@@ -47,6 +57,11 @@
 	}
 	textarea[name=message] {
 		resize: none;
+	}
+	@media (max-width: 768px) {
+	.contact {
+		padding: 30px 0;
+	}
 	}
 	/* End of Contact section */
 
@@ -71,6 +86,11 @@
 	.social-buttons i {
 		color: #FFA500;
 		font-size: 80px;
+	}
+	@media (max-width: 768px) {
+	.social {
+		padding: 30px 0;
+	}
 	}
 	/* End of Social section */
 
