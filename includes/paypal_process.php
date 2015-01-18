@@ -101,8 +101,10 @@ switch($payment){
 	case "ipn": // IPN case to receive payment information. this case will not displayed in browser. This is server to server communication. PayPal will send the transactions each and every details to this case in secured POST menthod by server to server. 
 		$transaction_id  = $_POST["txn_id"];
 		$payment_status = strtolower($_POST["payment_status"]);
+		$payment_status1 = ($_POST["payment_status"]);
 		$invoice_id = $_POST["invoice"];
 		$product_amount = $_POST["mc_gross"];
+		$payment_date = $_POST["payment_date"];
 		
 		$completed_on = date("Y-m-d G:i:s");
 		
@@ -121,6 +123,14 @@ switch($payment){
 		$stmt2->execute();
 		$stmt2->store_result();
 		$stmt2->bind_result($email);
+		$stmt2->fetch();
+		$stmt2->close();
+
+		$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+		$stmt2->bind_param('i', $userid);
+		$stmt2->execute();
+		$stmt2->store_result();
+		$stmt2->bind_result($firstname, $surname);
 		$stmt2->fetch();
 		$stmt2->close();
 
@@ -177,12 +187,14 @@ switch($payment){
 
 		$message = '<html><body>';
 		$message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
-		$message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td> </td></tr>";
-		$message .= "<tr><td><strong>Email:</strong> </td><td> </td></tr>";
-		$message .= "<tr><td><strong>Type of Change:</strong> </td><td> </td></tr>";
-		$message .= "<tr><td><strong>Urgency:</strong> </td><td> </td></tr>";
-		$message .= "<tr><td><strong>URL To Change (main):</strong> </td><td> </td></tr>";
-		$message .= "<tr><td><strong>NEW Content:</strong> </td><td> </td></tr>";
+		$message .= "<tr style='background: #eee;'><td><strong>First name:</strong> </td><td>$firstname</td></tr>";
+		$message .= "<tr><td><strong>Surname:</strong> </td><td> $surname</td></tr>";
+		$message .= "<tr><td><strong>Email:</strong> $email</td><td> </td></tr>";
+		$message .= "<tr><td><strong>Invoice ID:</strong> $invoice_id</td><td> </td></tr>";
+		$message .= "<tr><td><strong>Transaction ID:</strong> </td><td> $transaction_id</td></tr>";
+		$message .= "<tr><td><strong>Amount paid:</strong> </td><td> $product_amount</td></tr>";
+		$message .= "<tr><td><strong>Payment date:</strong> </td><td> $payment_date</td></tr>";
+		$message .= "<tr><td><strong>Payment status:</strong> </td><td> $payment_status1</td></tr>";
 		$message .= "</table>";
 		$message .= "</body></html>";
 

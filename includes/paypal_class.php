@@ -235,7 +235,6 @@ class paypal_class {
 		$body .= "from " . $this->ipn_data ['payer_email'] . " on " . date ( 'm/d/Y' );
 		$body .= " at " . date ( 'g:i A' ) . "\n\nDetails:\n" . $this->ipn_status;
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		$headers .= 'From: Student Portal <contact@sergiu-tripon.com>' . "\r\n";
 		mail ( $this->admin_mail, $subject, $body, $headers);
 	}
