@@ -186,11 +186,11 @@ switch($payment){
 		$subject = 'Request to change your password';
 
 		$message = '<html><body>';
-		$message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
-		$message .= "<tr style='background: #eee;'><td><strong>First name:</strong> </td><td>$firstname</td></tr>";
+		$message .= '<table rules="all" style="border: 1px solid #333333; background-color: #333333;" cellpadding="10">';
+		$message .= "<tr><td><strong>First name:</strong> </td><td>$firstname</td></tr>";
 		$message .= "<tr><td><strong>Surname:</strong> </td><td> $surname</td></tr>";
-		$message .= "<tr><td><strong>Email:</strong> $email</td><td> </td></tr>";
-		$message .= "<tr><td><strong>Invoice ID:</strong> $invoice_id</td><td> </td></tr>";
+		$message .= "<tr><td><strong>Email:</strong> </td><td> $email</td></tr>";
+		$message .= "<tr><td><strong>Invoice ID:</strong> </td><td> $invoice_id</td></tr>";
 		$message .= "<tr><td><strong>Transaction ID:</strong> </td><td> $transaction_id</td></tr>";
 		$message .= "<tr><td><strong>Amount paid:</strong> </td><td> $product_amount</td></tr>";
 		$message .= "<tr><td><strong>Payment date:</strong> </td><td> $payment_date</td></tr>";
