@@ -68,7 +68,7 @@ class paypal_class {
 		echo "<html>\n";
 		echo "<head>";
 
-		echo "<script src=\"https://student-portal.co.uk/assets/js/pace-js/pace.js\"></script>";
+		include 'https://student-portal.co.uk/assets/js/pace-js/pace.js';
 
 		echo "<meta charset=\"utf-8\">\n";
     	echo "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n";
@@ -112,7 +112,7 @@ class paypal_class {
 		echo "</div>\n";
 		echo "</header>\n";
 
-		echo "<script src=\"https://student-portal.co.uk/assets/js-paths/common-js-paths.php\"></script>\n";
+		include 'https://student-portal.co.uk/assets/js-paths/common-js-paths.php';
 
 		echo "<script>Ladda.bind('.ladda-button', {timeout: 20000});</script>\n";
 
