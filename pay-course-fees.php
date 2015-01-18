@@ -178,7 +178,7 @@ if ($fee_amount == "0.00") {
 	<?php include 'includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
+    <script src="https://sergiu-tripon.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 		
     <?php else : ?>
 
@@ -207,7 +207,7 @@ if ($fee_amount == "0.00") {
     </header>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
+    <script src="https://sergiu-tripon.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
 	<?php else : ?>
