@@ -279,7 +279,7 @@ if ($fee_amount == "0.00") {
 	var hasError = false;
 
     payer_address1 = $('#payer_address1').val();
-	if (address1 === '') {
+	if (payer_address1 === '') {
         $("#error").empty().append("Please select the first line of an address.");
 		$("#payer_address1").css("border-color", "#FF5454");
 		hasError  = true;
@@ -290,7 +290,7 @@ if ($fee_amount == "0.00") {
 	}
 
     payer_city = $("#payer_city").val();
-	if(city === '') {
+	if(payer_city === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a city.");
 		$("#payer_city").css("border-color", "#FF5454");
@@ -302,7 +302,7 @@ if ($fee_amount == "0.00") {
 	}
 
     payer_postcode = $("#payer_postcode").val();
-	if(postcode === '') {
+	if(payer_postcode === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a postcode.");
 		$("#payer_postcode").css("border-color", "#FF5454");
