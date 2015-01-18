@@ -119,7 +119,7 @@ if ($fee_amount == "0.00") {
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
-	<input type="hidden" name="payment" value="process"/>
+	<input type="hidden" name="payment" value="payment"/>
     <input type="hidden" name="product_id" id="product_id" value="1">
     <input type="hidden" name="product_quantity" id="product_quantity" value="1">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
@@ -127,6 +127,14 @@ if ($fee_amount == "0.00") {
     <input type="hidden" name="payer_address2" id="payer_address2" value="<?php echo $address2; ?>">
 	<input type="hidden" name="payer_town" id="payer_town" value="<?php echo $town; ?>">
 	<!-- End of Hidden fields -->
+
+    payment = $("#payment").val();
+    product_id = $("#product_id").val();
+    product_quantity = $("#product_quantity").val();
+    payer_email = $("#payer_email").val();
+    payer_phonenumber = $("#payer_phonenumber").val();
+    payer_address2 = $("#payer_address2").val();
+    payer_town = $("#payer_town").val();
 	
     <div class="form-group">
 	
@@ -332,10 +340,26 @@ if ($fee_amount == "0.00") {
 		$("#error").hide();
 		$("#payer_postcode").css("border-color", "#4DC742");
 	}
-	
+
 	if(hasError == false){
-	
-	$("#paycoursefees_form").submit();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/paypal_process.php",
+    data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd,
+    success:function(response){
+		$("#hide").hide();
+		$("#register-button").hide();
+		$("#FormSubmit").hide();
+		$("#error").hide();
+		$("#success").append('Thank you for your registration. You can now sign in to your account.');
+		$("#success-button").show();
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
 	
     }
 	

@@ -269,7 +269,7 @@ include 'includes/signin.php';
 
     if (studentno.length != 9) {
 		$("#error").show();
-        $("#error").empty().append("The student number entered is invalid. The student number must exactly 9 digits in length.");
+        $("#error").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
 		$("#studentno").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
