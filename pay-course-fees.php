@@ -61,16 +61,6 @@ if ($fee_amount == "0.00") {
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
-    <style>
-        #gender {
-            background-color: #333333;
-        }
-
-        #gender option {
-            color: #FFA500;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -250,25 +240,16 @@ if ($fee_amount == "0.00") {
 	
 	<script>
     $(document).ready(function () {
-        $('#half-fees').click(function () {
-            if ($('#half-fees').is(':checked')) {
-                $('input[name=product_amount]').val('4500.00');
-                $('input[name=product_name]').val('Half Fees');
-            } else {
-                $('input[name=product_amount]').val('9000.00');
-                $('input[name=product_name]').val('Full Fees');
-            }
-        });
+    $('#half-fees').click(function () {
+    if ($('#half-fees').is(':checked')) {
+        $('input[name=product_amount]').val('4500.00');
+        $('input[name=product_name]').val('Half Fees');
+    } else {
+        $('input[name=product_amount]').val('9000.00');
+        $('input[name=product_name]').val('Full Fees');
+    }
+    });
 
-        $('#gender').css('color', 'gray');
-        $('#gender').change(function () {
-            var current = $('#account_type').val();
-            if (current != '') {
-                $('#gender').css('color', '#FFA500');
-            } else {
-                $('#gender').css('color', 'gray');
-            }
-        });
     });
 	</script>
 	
@@ -299,7 +280,7 @@ if ($fee_amount == "0.00") {
 	var hasError = false;
 
 	payer_address1 = $('#payer_address1').val();
-	if (address1 === '') {
+	if (payer_address1 === '') {
         $("#error").empty().append("Please select the first line of an address.");
 		$("#payer_address1").css("border-color", "#FF5454");
 		hasError  = true;
@@ -310,7 +291,7 @@ if ($fee_amount == "0.00") {
 	}
 
     payer_city = $("#payer_city").val();
-	if(city === '') {
+	if(payer_city === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a city.");
 		$("#payer_city").css("border-color", "#FF5454");
@@ -322,7 +303,7 @@ if ($fee_amount == "0.00") {
 	}
 
     payer_postcode = $("#payer_postcode").val();
-	if(postcode === '') {
+	if(payer_postcode === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a postcode.");
 		$("#payer_postcode").css("border-color", "#FF5454");
