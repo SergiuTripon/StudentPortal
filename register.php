@@ -324,7 +324,7 @@ include 'includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 	} else {
 		$("#error").show();
-		$("#error").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#error").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
