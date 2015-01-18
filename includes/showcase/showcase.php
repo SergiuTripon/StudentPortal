@@ -5,12 +5,10 @@
 		padding: 100px 0;
 		border-top: 1px solid #FFA500;
 	}
-
 	.about h1 {
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
-
 	.about h2 {
 		margin-top: 0px;
 		margin-bottom: 0px;
@@ -23,12 +21,10 @@
 		padding: 100px 0;
 		border-top: 1px solid #FFA500;
 	}
-
 	.features h1 {
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
-
 	.features h2 {
 		margin-top: 0px;
 		margin-bottom: 0px;
@@ -58,16 +54,13 @@
 		border-top: 1px solid #FFA500;
 		border-bottom: 1px solid #FFA500;
 	}
-
 	.social h1 {
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
-
 	.social-buttons {
 		margin-top: 30px;
 	}
-
 	.social-buttons i {
 		color: #FFA500;
 		font-size: 80px;
@@ -79,12 +72,10 @@
 		color: #FFA500;
 		text-align: center;
 	}
-
 	footer .container {
 		padding-top: 20px;
 		padding-bottom: 10px;
 	}
-
 	footer p {
 		color: #FFA500;
 		text-align: center;
