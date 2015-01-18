@@ -98,7 +98,7 @@ if ($fee_amount == "0.00") {
 	<!-- Pay course fees -->
 	<div class="content-panel" style="border: none;">
 	
-    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="https://student-portal.co.uk/includes/paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
     <?php
     if (!empty($conditional_style)) {
@@ -117,7 +117,7 @@ if ($fee_amount == "0.00") {
     <input type="hidden" name="payer_address2" id="payer_address2" value="<?php echo $address2; ?>">
 	<input type="hidden" name="payer_town" id="payer_town" value="<?php echo $town; ?>">
 	<!-- End of Hidden fields -->
-
+	
     <div class="form-group">
 	
     <div class="col-xs-6 col-sm-6 full-width">
@@ -249,7 +249,6 @@ if ($fee_amount == "0.00") {
         $('input[name=product_name]').val('Full Fees');
     }
     });
-
     });
 	</script>
 	
@@ -279,8 +278,8 @@ if ($fee_amount == "0.00") {
 	
 	var hasError = false;
 
-	payer_address1 = $('#payer_address1').val();
-	if (payer_address1 === '') {
+    payer_address1 = $('#payer_address1').val();
+	if (address1 === '') {
         $("#error").empty().append("Please select the first line of an address.");
 		$("#payer_address1").css("border-color", "#FF5454");
 		hasError  = true;
@@ -291,7 +290,7 @@ if ($fee_amount == "0.00") {
 	}
 
     payer_city = $("#payer_city").val();
-	if(payer_city === '') {
+	if(city === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a city.");
 		$("#payer_city").css("border-color", "#FF5454");
@@ -303,7 +302,7 @@ if ($fee_amount == "0.00") {
 	}
 
     payer_postcode = $("#payer_postcode").val();
-	if(payer_postcode === '') {
+	if(postcode === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a postcode.");
 		$("#payer_postcode").css("border-color", "#FF5454");
@@ -313,35 +312,10 @@ if ($fee_amount == "0.00") {
 		$("#error").hide();
 		$("#payer_postcode").css("border-color", "#4DC742");
 	}
-
-    payment = $("#payment").val();
-    product_id = $("#product_id").val();
-    product_quantity = $("#product_quantity").val();
-    payer_email = $("#payer_email").val();
-    payer_phonenumber = $("#payer_phonenumber").val();
-    payer_address2 = $("#payer_address2").val();
-    payer_town = $("#payer_town").val();
-
-    payer_firstname = $("#payer_firstname").val();
-    payer_surname = $("#payer_surname").val();
-    product_name = $("#product_name").val();
-    product_amount = $("#product_amount").val();
-    payer_country = $("#payer_country").val();
-
+	
 	if(hasError == false){
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/paypal_process.php?sandbox=1",
-    data:'payment=' + payment + '&product_id=' + product_id + '&product_quantity=' + product_quantity + '&payer_email=' + payer_email + '&payer_phonenumber=' + payer_phonenumber + '&payer_address2=' + payer_address2 + '&payer_town=' + payer_town + payer_address2 + '&payer_firstname=' + payer_firstname + '&payer_surname=' + payer_surname + '&product_name=' + product_name + '&product_amount=' + product_amount + '&payer_address1=' + payer_address1 + '&payer_city=' + payer_city + '&payer_postcode=' + payer_postcode + '&payer_country=' + payer_country,
-    success:function(response){
-		$("#error").hide();
-    },
-    error:function (xhr, ajaxOptions, thrownError){
-        $("#error").show();
-        $("#error").empty().append(thrownError);
-    }
-	});
+	
+	$("#paycoursefees_form").submit();
 	
     }
 	
