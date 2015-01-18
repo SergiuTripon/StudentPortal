@@ -283,7 +283,8 @@ else $userid = '';
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
-		alert(thrownError);
+		$("#error").show();
+		$("#error").empty().append(thrownError);
 	}
 
 	});
