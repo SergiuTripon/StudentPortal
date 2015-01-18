@@ -301,7 +301,8 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
-	
+
+    password = $("#password").val();
 	if (password.length < 6) {
 		$("#error").show();
 		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
