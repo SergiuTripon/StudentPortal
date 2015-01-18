@@ -317,7 +317,8 @@ include 'includes/signin.php';
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
-	
+
+    password = $("#password").val();
 	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
