@@ -313,7 +313,7 @@ if ($fee_amount == "0.00") {
 		$("#payer_postcode").css("border-color", "#4DC742");
 	}
 	
-	if(hasError == false){
+	if(hasError == false) {
 	
 	$("#paycoursefees_form").submit();
 	
