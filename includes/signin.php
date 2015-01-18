@@ -1,9 +1,8 @@
 <?php
 
 if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
-    echo "shit";
-} else {
-    echo "good";
+    $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    header("Location: $url");
 }
 
 if (session_status() == PHP_SESSION_NONE) {
