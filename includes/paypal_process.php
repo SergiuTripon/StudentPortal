@@ -116,6 +116,14 @@ switch($payment){
 		$stmt1->fetch();
 		$stmt1->close();
 
+		$stmt2 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ? LIMIT 1");
+		$stmt2->bind_param('i', $userid);
+		$stmt2->execute();
+		$stmt2->store_result();
+		$stmt2->bind_result($email);
+		$stmt2->fetch();
+		$stmt2->close();
+
 		$stmt2 = $mysqli->prepare("SELECT isHalf FROM user_fees WHERE userid = ? LIMIT 1");
 		$stmt2->bind_param('i', $userid);
 		$stmt2->execute();
@@ -164,6 +172,27 @@ switch($payment){
 		$stmt8->bind_param('sssi', $transaction_id, $payment_status, $completed_on, $invoice_id);
 		$stmt8->execute();
 		$stmt8->close();
+
+		$subject = 'Request to change your password';
+
+		$message = '<html><body>';
+		$message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+		$message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td> </td></tr>";
+		$message .= "<tr><td><strong>Email:</strong> </td><td> </td></tr>";
+		$message .= "<tr><td><strong>Type of Change:</strong> </td><td> </td></tr>";
+		$message .= "<tr><td><strong>Urgency:</strong> </td><td> </td></tr>";
+		$message .= "<tr><td><strong>URL To Change (main):</strong> </td><td> </td></tr>";
+		$message .= "<tr><td><strong>NEW Content:</strong> </td><td> </td></tr>";
+		$message .= "</table>";
+		$message .= "</body></html>";
+
+		// To send HTML mail, the Content-type header must be set
+		$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= 'CC: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		mail ($email, $subject, $message, $headers);
 
 		$subject = 'Instant Payment Notification - Received Payment';
 		$p->send_report($subject); // Send the notification about the transaction
