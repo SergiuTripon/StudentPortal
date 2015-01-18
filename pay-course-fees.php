@@ -98,7 +98,7 @@ if ($fee_amount == "0.00") {
 	<!-- Pay course fees -->
 	<div class="content-panel" style="border: none;">
 	
-    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="https://student-portal.co.uk/includes/paypal_class.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
     <?php
     if (!empty($conditional_style)) {
@@ -332,7 +332,7 @@ if ($fee_amount == "0.00") {
 
 	jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/paypal_process.php",
+	url: "https://student-portal.co.uk/includes/paypal_process.php?sandbox=1",
     data:'payment=' + payment + '&product_id=' + product_id + '&product_quantity=' + product_quantity + '&payer_email=' + payer_email + '&payer_phonenumber=' + payer_phonenumber + '&payer_address2=' + payer_address2 + '&payer_town=' + payer_town + payer_address2 + '&payer_firstname=' + payer_firstname + '&payer_surname=' + payer_surname + '&product_name=' + product_name + '&product_amount=' + product_amount + '&payer_address1=' + payer_address1 + '&payer_city=' + payer_city + '&payer_postcode=' + payer_postcode + '&payer_country=' + payer_country,
     success:function(response){
 		$("#error").hide();
