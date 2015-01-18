@@ -1,8 +1,7 @@
 <?php
 
 if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
-    header('Location: https://mywebserver.com/login.php');
-    exit;
+    echo "shit";
 }
 
 if (session_status() == PHP_SESSION_NONE) {
