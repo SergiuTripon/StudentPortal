@@ -345,7 +345,7 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/register_process.php",
+	url: "https://student-portal.co.uk/includes/register_process.php",
     data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd,
     success:function(response){
 		$("#hide").hide();

@@ -272,7 +272,7 @@ else $userid = '';
 
 	jQuery.ajax({
 	type: "POST",
-	url: "http://test.student-portal.co.uk/includes/calendar_process.php",
+	url: "https://student-portal.co.uk/includes/calendar_process.php",
 	dataType:"text",
 	data:myData,
 	success:function(response){
