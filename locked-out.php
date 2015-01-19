@@ -135,6 +135,7 @@ include 'includes/signin.php';
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
     <script>
+    $(document).ready(function() {
     setInterval( function() {
         // Create a newDate() object and extract the seconds of the current time on the visitor's
         var seconds = new Date().getSeconds();
