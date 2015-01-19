@@ -103,7 +103,7 @@ switch($payment){
 		$payment_status = strtolower($_POST["payment_status"]);
 		$payment_status1 = ($_POST["payment_status"]);
 		$invoice_id = $_POST["invoice"];
-		$payment_date = $_POST["payment_date"];
+		$payment_date = date('H:i d-m-Y', strtotime($_POST["payment_date"]));
 
 		$product_name = $_POST["item_name1"];
 		$product_amount = $_POST["mc_gross"];
@@ -197,7 +197,7 @@ switch($payment){
 		$message .= "<tr><td><strong>Transaction ID:</strong> </td><td> $transaction_id</td></tr>";
 		$message .= "<tr><td><strong>Payment:</strong> </td><td> $product_name</td></tr>";
 		$message .= "<tr><td><strong>Amount paid (&pound;):</strong> </td><td> &pound;$product_amount</td></tr>";
-		$message .= "<tr><td><strong>Payment date:</strong> </td><td> $payment_date</td></tr>";
+		$message .= "<tr><td><strong>Payment date and time:</strong> </td><td> $payment_date</td></tr>";
 		$message .= "<tr><td><strong>Payment status:</strong> </td><td> $payment_status1</td></tr>";
 		$message .= "</table>";
 		$message .= "</body></html>";
