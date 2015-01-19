@@ -44,27 +44,25 @@ if (isset($_POST["email"])) {
 		$passwordlink = "<a href=http://test.student-portal.co.uk/password-reset/?token=". $token .">here</a>";
 
 		$subject = 'Request to change your password';
-		$message = "
-		<html>
-		<head>
-		<title>Student Portal | Password Reset</title>
-		</head>
-		<body>
-		<p>Dear ".$firstname.",</p>
-		<p>We have received a request to reset the password for your account.</p>
-		<p>To proceed please click ".$passwordlink.".</p>
-		<p>If you did not submit this request, please ignore this email.</p>
-		<p>Kind Regards,<br>The Student Portal Team</p>
-		</body>
-		</html>";
+		$message = '<html>';
+		$message .= '<head>';
+		$message .= '<title>Student Portal | Password Reset</title>';
+		$message .= '</head>';
+		$message .= '<body>';
+		$message .= '<p>Dear \".$firstname.\",</p>';
+		$message .= '<p>We have received a request to reset the password for your account.</p>';
+		$message .= "<p>To proceed please click \".$passwordlink.\".</p>";
+		$message .= '<p>If you did not submit this request, please ignore this email.</p>';
+		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+		$message .= '</body>';
+		$message .= '</html>';
 
 		// To send HTML mail, the Content-type header must be set
 		// To send HTML mail, the Content-type header must be set
 		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers = 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers = 'CC: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers = "MIME-Version: 1.0\r\n";
-		$headers = "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		mail ($email, $subject, $message, $headers);
 
 		$stmt->close();
@@ -125,7 +123,7 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 		$message .= '<title>Student Portal | Account</title>';
 		$message .= '</head>';
 		$message .= '<body>';
-		$message .= '<p>Dear ".$firstname.",</p>';
+		$message .= "<p>Dear \".$firstname.\",</p>";
 		$message .= '<p>Your password has been successfully reset.</p>';
 		$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>';
 		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
@@ -135,7 +133,6 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 		// To send HTML mail, the Content-type header must be set
 		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= 'CC: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 		$headers .= "MIME-Version: 1.0\r\n";
 		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		mail ($email, $subject, $message, $headers);
