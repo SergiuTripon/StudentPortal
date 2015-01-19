@@ -103,7 +103,7 @@ switch($payment){
 		$payment_status = strtolower($_POST["payment_status"]);
 		$payment_status1 = ($_POST["payment_status"]);
 		$invoice_id = $_POST["invoice"];
-		$payment_date = date('H:i d-m-Y', strtotime($_POST["payment_date"]));
+		$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
 
 		$product_name = $_POST["item_name1"];
 		$product_amount = $_POST["mc_gross"];
