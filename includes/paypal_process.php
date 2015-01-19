@@ -103,8 +103,10 @@ switch($payment){
 		$payment_status = strtolower($_POST["payment_status"]);
 		$payment_status1 = ($_POST["payment_status"]);
 		$invoice_id = $_POST["invoice"];
-		$product_amount = $_POST["mc_gross"];
 		$payment_date = $_POST["payment_date"];
+
+		$product_name = $_POST["item_name1"];
+		$product_amount = $_POST["mc_gross"];
 		
 		$completed_on = date("Y-m-d G:i:s");
 		
@@ -183,16 +185,18 @@ switch($payment){
 		$stmt8->execute();
 		$stmt8->close();
 
-		$subject = 'Request to change your password';
+		$subject = 'Payment confirmation';
 
 		$message = '<html><body>';
-		$message .= '<table rules="all" style="border: 1px solid #333333; background-color: #333333;" cellpadding="10">';
+		$message = '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
+		$message .= '<table rules="all" style="color: #FFA500; background-color: #333333; border: 1px solid #333333;" cellpadding="10">';
 		$message .= "<tr><td><strong>First name:</strong> </td><td>$firstname</td></tr>";
 		$message .= "<tr><td><strong>Surname:</strong> </td><td> $surname</td></tr>";
 		$message .= "<tr><td><strong>Email:</strong> </td><td> $email</td></tr>";
 		$message .= "<tr><td><strong>Invoice ID:</strong> </td><td> $invoice_id</td></tr>";
 		$message .= "<tr><td><strong>Transaction ID:</strong> </td><td> $transaction_id</td></tr>";
-		$message .= "<tr><td><strong>Amount paid:</strong> </td><td> $product_amount</td></tr>";
+		$message .= "<tr><td><strong>Payment:</strong> </td><td> $product_name</td></tr>";
+		$message .= "<tr><td><strong>Amount paid (£):</strong> </td><td> £$product_amount</td></tr>";
 		$message .= "<tr><td><strong>Payment date:</strong> </td><td> $payment_date</td></tr>";
 		$message .= "<tr><td><strong>Payment status:</strong> </td><td> $payment_status1</td></tr>";
 		$message .= "</table>";

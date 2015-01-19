@@ -44,18 +44,18 @@ if (isset($_POST["email"])) {
 
 		$subject = 'Request to change your password';
 		$message = "
-	<html>
-	<head>
-	<title>Student Portal | Password Reset</title>
-	</head>
-	<body>
-	<p>Dear ".$firstname.",</p>
-	<p>We have received a request to reset the password for your account.</p>
-	<p>To proceed please click ".$passwordlink.".</p>
-	<p>If you did not submit this request, please ignore this email.</p> 
-	<p>Kind Regards,<br>The Student Portal Team</p>
-	</body>
-	</html>";
+		<html>
+		<head>
+		<title>Student Portal | Password Reset</title>
+		</head>
+		<body>
+		<p>Dear ".$firstname.",</p>
+		<p>We have received a request to reset the password for your account.</p>
+		<p>To proceed please click ".$passwordlink.".</p>
+		<p>If you did not submit this request, please ignore this email.</p>
+		<p>Kind Regards,<br>The Student Portal Team</p>
+		</body>
+		</html>";
 
 		// To send HTML mail, the Content-type header must be set
 		// To send HTML mail, the Content-type header must be set
