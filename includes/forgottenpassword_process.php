@@ -1,6 +1,8 @@
 <?php
 include_once 'signin.php';
 
+date_default_timezone_set('Europe/London');
+
 if (isset($_POST["email"])) {
 
 	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -32,7 +34,6 @@ if (isset($_POST["email"])) {
 		$uniqueid = uniqid(true);
 		$token = password_hash($uniqueid, PASSWORD_BCRYPT);
 
-		date_default_timezone_set('Europe/London');
 		$created_on = date("Y-m-d G:i:s");
 
 		$stmt2 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
@@ -59,11 +60,11 @@ if (isset($_POST["email"])) {
 
 		// To send HTML mail, the Content-type header must be set
 		// To send HTML mail, the Content-type header must be set
-		$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= 'CC: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= "MIME-Version: 1.0\r\n";
-		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers = 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers = 'CC: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers = "MIME-Version: 1.0\r\n";
+		$headers = "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		mail ($email, $subject, $message, $headers);
 
 		$stmt->close();
@@ -111,7 +112,6 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 
 		$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-		date_default_timezone_set('Europe/London');
 		$updated_on = date("Y-m-d G:i:s");
 
 		$stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
