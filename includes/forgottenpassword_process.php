@@ -120,18 +120,17 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 		$stmt4->close();
 
 		$subject = 'Password reset successfully';
-		$message = "
-		<html>
-		<head>
-		<title>Student Portal | Account</title>
-		</head>
-		<body>
-		<p>Dear ".$firstname.",</p>
-		<p>Your password has been successfully reset.</p>
-		<p>If this action wasn't performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>
-		<p>Kind Regards,<br>The Student Portal Team</p>
-		</body>
-		</html>";
+		$message = '<html>';
+		$message .= '<head>';
+		$message .= '<title>Student Portal | Account</title>';
+		$message .= '</head>';
+		$message .= '<body>';
+		$message .= '<p>Dear ".$firstname.",</p>';
+		$message .= '<p>Your password has been successfully reset.</p>';
+		$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>';
+		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+		$message .= '</body>';
+		$message .= '</html>';
 
 		// To send HTML mail, the Content-type header must be set
 		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
