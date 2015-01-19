@@ -146,7 +146,7 @@ include 'includes/signin.php';
     // Extract the current date from Date object
     newDate.setDate(newDate.getDate());
     // Output the day, date, month and year
-    $('#showdate').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getYear());
+    $('#showdate').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
 
     setInterval( function() {
         // Create a newDate() object and extract the seconds of the current time on the visitor's
