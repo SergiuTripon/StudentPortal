@@ -104,8 +104,7 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a id="normal-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change password</a>
-	<a id="success-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Password changed successfully.</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Due tasks</a>
     </h4>
     </div>
 
@@ -159,8 +158,6 @@ else $userid = '';
 	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
     </div><!-- /panel-default -->
-
-	</div><!-- /panel-group -->
 	
 	<?php 
 	
@@ -175,18 +172,15 @@ else $userid = '';
 	$stmt2->close();
 	?>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
     <div class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingOne">
+    <div class="panel-heading" role="tab" id="headingTwo">
     <h4 class="panel-title">
-    <a id="normal-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change password</a>
-	<a id="success-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Password changed successfully.</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Completed tasks</a>
     </h4>
     </div>
 
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 
 	<div class="panel-body">
 
