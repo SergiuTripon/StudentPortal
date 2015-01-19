@@ -134,9 +134,11 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 		</html>";
 
 		// To send HTML mail, the Content-type header must be set
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		$headers .= 'From: Student Portal <contact@sergiu-tripon.com>' . "\r\n";
+		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= 'CC: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		mail ($email, $subject, $message, $headers);
 
 		$empty_token = NULL;

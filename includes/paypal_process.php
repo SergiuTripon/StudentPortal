@@ -188,26 +188,26 @@ switch($payment){
 		$subject = 'Payment confirmation';
 
 		$message = '<html><body>';
-		$message = '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
-		$message = '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
-		$message = "<tr><td><strong>First name:</strong> </td><td>$firstname</td></tr>";
-		$message = "<tr><td><strong>Surname:</strong> </td><td> $surname</td></tr>";
-		$message = "<tr><td><strong>Email:</strong> </td><td> $email</td></tr>";
-		$message = "<tr><td><strong>Invoice ID:</strong> </td><td> $invoice_id</td></tr>";
-		$message = "<tr><td><strong>Transaction ID:</strong> </td><td> $transaction_id</td></tr>";
-		$message = "<tr><td><strong>Payment:</strong> </td><td> $product_name</td></tr>";
-		$message = "<tr><td><strong>Amount paid (&pound;):</strong> </td><td> &pound;$product_amount</td></tr>";
-		$message = "<tr><td><strong>Payment time and date:</strong> </td><td> $payment_date</td></tr>";
-		$message = "<tr><td><strong>Payment status:</strong> </td><td> $payment_status1</td></tr>";
-		$message = "</table>";
-		$message = "</body></html>";
+		$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
+		$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+		$message .= "<tr><td><strong>First name:</strong> </td><td>$firstname</td></tr>";
+		$message .= "<tr><td><strong>Surname:</strong> </td><td> $surname</td></tr>";
+		$message .= "<tr><td><strong>Email:</strong> </td><td> $email</td></tr>";
+		$message .= "<tr><td><strong>Invoice ID:</strong> </td><td> $invoice_id</td></tr>";
+		$message .= "<tr><td><strong>Transaction ID:</strong> </td><td> $transaction_id</td></tr>";
+		$message .= "<tr><td><strong>Payment:</strong> </td><td> $product_name</td></tr>";
+		$message .= "<tr><td><strong>Amount paid (&pound;):</strong> </td><td> &pound;$product_amount</td></tr>";
+		$message .= "<tr><td><strong>Payment time and date:</strong> </td><td> $payment_date</td></tr>";
+		$message .= "<tr><td><strong>Payment status:</strong> </td><td> $payment_status1</td></tr>";
+		$message .= "</table>";
+		$message .= "</body></html>";
 
 		// To send HTML mail, the Content-type header must be set
 		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers = 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers = 'CC: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers = "MIME-Version: 1.0\r\n";
-		$headers = "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= 'CC: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		mail ($email, $subject, $message, $headers);
 
 		$subject = 'Instant Payment Notification - Received Payment';
