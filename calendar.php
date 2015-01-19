@@ -127,13 +127,15 @@ function fix_url($url) {
 	<?php
 
 	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'active'");
-	
+
+	$url = fix_url('.$row["task_url"].');
+
 	while($row = $stmt1->fetch_assoc()) {			
 	  echo '<tr id="task-'.$row["taskid"].'">
 		
 			<td data-title="Name">'.$row["task_name"].'</td>
 			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-			<td class="url-hide" data-title="External URL"><a target="_blank" href="fix_url('.$row["task_url"].')">Link</a></td>
+			<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$url.'">Link</a></td>
 			<td data-title="Start date">'.$row["task_startdate"].'</td>
 			<td data-title="Due date">'.$row["task_duedate"].'</td>
 			<td data-title="Category">'.$row["task_category"].'</td>
@@ -185,12 +187,14 @@ function fix_url($url) {
 
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
 
+	$url = fix_url('.$row["task_url"].');
+
 	while($row = $stmt2->fetch_assoc()) {
 	echo '<tr id="task-'.$row["taskid"].'">
 
 	<td data-title="Name">'.$row["task_name"].'</td>
 	<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-	<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$row["task_url"].'">Link</a></td>
+	<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$url.'">Link</a></td>
 	<td data-title="Start date">'.$row["task_startdate"].'</td>
 	<td data-title="Due date">'.$row["task_duedate"].'</td>
 	<td data-title="Category">'.$row["task_category"].'</td>
