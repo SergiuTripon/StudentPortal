@@ -73,7 +73,7 @@ $time = date('H:i:s');
     <header id="before" class="intro">
     <div class="intro-body">
 	
-    <div id="showtime"><?php $time ?></div>
+    <div id="showtime"><?php echo $time; ?></div>
 	<p class="feedback-custom text-center" style="font-size: 20px;">You've be inactive for 15 minutes, so we've locked you out for security reasons</>
     <div id="lock-screen">
     <a id="lock-icon"><i class="fa fa-lock"></i></a><br>
