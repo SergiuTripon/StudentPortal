@@ -322,7 +322,9 @@ else $userid = '';
 	data:myData,
 	success:function(response){
 		$('#task-'+DbNumberID).fadeOut();
-		$('#completedtasks-toggle').html(result);
+		setTimeout(function(){
+			location.reload();
+		}, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
