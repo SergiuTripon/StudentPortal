@@ -303,19 +303,8 @@ if ($dateofbirth == "0000-00-00") {
     <li class="active">Update account</li>
     </ol>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-	<div class="panel-heading" role="tab" id="headingOne">
-	<h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Update account</a>
-	</h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-
-	<div class="panel-body">
+	<div class="content-panel mb10">
+	<h4><i class="fa fa-angle-right"></i> Update account</h4>
 
 	<!-- Update account -->
     <div class="content-panel mb10" style="border: none;">
@@ -387,11 +376,7 @@ if ($dateofbirth == "0000-00-00") {
     </div><!-- /content-panel -->
     <!-- End of Update account -->
 
-    </div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-
-	</div><!-- /panel-group -->
+    </div><!-- /content-panel -->
 
     </div> <!-- /container -->
 
