@@ -72,9 +72,20 @@ else $userid = '';
 	</div>
 	
 	</div><!-- /row -->
-	
-	<div class="content-panel mb10" id="calendar-toggle">
-	<h4><i class="fa fa-angle-right"></i> Calendar view</h4>
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Due tasks</a>
+    </h4>
+    </div>
+
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+	<div class="panel-body">
 	
 	<div class="pull-right form-inline">
 	<div class="btn-group">
@@ -95,8 +106,12 @@ else $userid = '';
 	</div>
 	
 	<div id="calendar"></div>
-	
-	</div><!-- /content-panel -->
+
+	</div><!-- /panel-body -->
+	</div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+	</div><!-- /panel-group -->
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
