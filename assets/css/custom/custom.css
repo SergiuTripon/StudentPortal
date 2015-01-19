@@ -1221,6 +1221,9 @@ table.dataTable thead .sorting_desc_disabled {
 
 /* Calendar style */
 @media (max-width: 768px) {
+.page-header h3 {
+    text-align: center;
+}
 .calendar-buttons {
     text-align: center;
 }
