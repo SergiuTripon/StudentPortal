@@ -45,8 +45,6 @@ include 'includes/signin.php';
 	<h4><i class="fa fa-angle-right"></i> Change password</h4>
 	
 	<!-- Change Password -->
-    <div class="content-panel mb10" style="border: none;">
-    
 	<form class="form-custom" style="max-width: 700px; padding-top: 0px;" name="changepassword_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
@@ -75,7 +73,6 @@ include 'includes/signin.php';
     </div>
 
     </form>
-    </div><!-- /content-panel -->
     <!-- End of Change Password -->
 	
 	</div><!-- /content-panel -->

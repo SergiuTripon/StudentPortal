@@ -61,8 +61,6 @@ $stmt2->fetch();
 	<h4><i class="fa fa-angle-right"></i> Delete account</h4>
 	
     <!-- Delete account -->
-    <div class="content-panel mb10" style="border: none;">
-                                    
 	<form class="form-custom" style="max-width: 600px; padding-top: 0px;" name="deleteaccount_form">
 
     <div class="form-group">
@@ -88,8 +86,6 @@ $stmt2->fetch();
     </div>
 
     </form>
-
-    </div><!-- /content-panel -->
     <!-- End of Delete account -->
 	
 	</div><!-- /content-panel -->
