@@ -135,7 +135,7 @@ function fix_url($url) {
 		
 			<td data-title="Name">'.$row["task_name"].'</td>
 			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-			<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$url.'">Link</a></td>
+			<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$url1.'">Link</a></td>
 			<td data-title="Start date">'.$row["task_startdate"].'</td>
 			<td data-title="Due date">'.$row["task_duedate"].'</td>
 			<td data-title="Category">'.$row["task_category"].'</td>
@@ -194,7 +194,7 @@ function fix_url($url) {
 
 	<td data-title="Name">'.$row["task_name"].'</td>
 	<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-	<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$url.'">Link</a></td>
+	<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$url1.'">Link</a></td>
 	<td data-title="Start date">'.$row["task_startdate"].'</td>
 	<td data-title="Due date">'.$row["task_duedate"].'</td>
 	<td data-title="Category">'.$row["task_category"].'</td>
