@@ -69,7 +69,7 @@ include 'includes/signin.php';
     <header id="before" class="intro">
     <div class="intro-body">
 
-	<div id="showdate">
+	<div id="showdate"></div>
     <div id="showtime">
     <ul>
       <li id="hours"></li>
