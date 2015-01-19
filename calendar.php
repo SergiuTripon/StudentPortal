@@ -97,10 +97,23 @@ else $userid = '';
 	<div id="calendar"></div>
 	
 	</div><!-- /content-panel -->
-	
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+    <a id="normal-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change password</a>
+	<a id="success-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Password changed successfully.</a>
+    </h4>
+    </div>
+
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+	<div class="panel-body">
+
 	<!-- Due tasks -->
-	<div class="content-panel mb10" id="duetasks-toggle">
-	<h4><i class="fa fa-angle-right"></i> Due tasks</h4>
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -142,7 +155,12 @@ else $userid = '';
 
 	</table>
 	</section>
-	</div><!-- /content-panel -->
+
+	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+    </div><!-- /panel-default -->
+
+	</div><!-- /panel-group -->
 	
 	<?php 
 	
@@ -157,9 +175,22 @@ else $userid = '';
 	$stmt2->close();
 	?>
 
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+    <a id="normal-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change password</a>
+	<a id="success-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Password changed successfully.</a>
+    </h4>
+    </div>
+
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+	<div class="panel-body">
+
 	<!-- Completed tasks -->
-	<div class="content-panel mb10" id="completedtasks-toggle">
-	<h4><i class="fa fa-angle-right"></i> Completed tasks</h4>
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -197,7 +228,12 @@ else $userid = '';
 
 	</table>
 	</section>
-	</div><!-- /content-panel -->
+
+	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+    </div><!-- /panel-default -->
+
+	</div><!-- /panel-group -->
 	
     </div><!-- /container -->
 	
