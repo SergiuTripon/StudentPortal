@@ -197,7 +197,7 @@ switch($payment){
 		$message .= "<tr><td><strong>Transaction ID:</strong> </td><td> $transaction_id</td></tr>";
 		$message .= "<tr><td><strong>Payment:</strong> </td><td> $product_name</td></tr>";
 		$message .= "<tr><td><strong>Amount paid (&pound;):</strong> </td><td> &pound;$product_amount</td></tr>";
-		$message .= "<tr><td><strong>Payment date and time:</strong> </td><td> $payment_date</td></tr>";
+		$message .= "<tr><td><strong>Payment time and date:</strong> </td><td> $payment_date</td></tr>";
 		$message .= "<tr><td><strong>Payment status:</strong> </td><td> $payment_status1</td></tr>";
 		$message .= "</table>";
 		$message .= "</body></html>";
