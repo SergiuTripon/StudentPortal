@@ -119,7 +119,7 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingTwo">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Due tasks</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Task calendar</a>
     </h4>
     </div>
 
