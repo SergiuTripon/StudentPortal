@@ -188,7 +188,7 @@ switch($payment){
 		$subject = 'Payment confirmation';
 
 		$message = '<html><body>';
-		$message = '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
+		$message = '<p style="text-align: center;">Thank you for your recent payment! Below, you can find the payment summary:</p>';
 		$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
 		$message .= "<tr><td><strong>First name:</strong> </td><td>$firstname</td></tr>";
 		$message .= "<tr><td><strong>Surname:</strong> </td><td> $surname</td></tr>";
