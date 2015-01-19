@@ -105,39 +105,31 @@ if ($fee_amount == "0.00") {
 	<input type="hidden" name="payer_town" id="payer_town" value="<?php echo $town; ?>">
 	<!-- End of Hidden fields -->
 
-        <div class="form-group">
+    <div class="form-group">
 
-            <div class="col-xs-6 col-sm-6 full-width">
-                <label>First name</label>
-                <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter a first name">
-                <label>Surname</label>
-                <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter a surname">
-                <label>Date of Birth (YYYY-MM-DD)</label>
-                <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select a date of birth"/>
-                <label>Student number</label>
-                <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter a student number" disabled="disabled">
-                <label>Email address</label>
-                <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
-                <label>Phone number</label>
-                <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter a phone number">
-            </div>
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label>First name</label>
+    <input class="form-control" type="text" name="payer_firstname" id="payer_firstname" value="<?php echo $firstname; ?>" readonly="readonly">
+    <label>Surname</label>
+    <input class="form-control" type="text" name="payer_surname" id="payer_surname" value="<?php echo $surname; ?>" readonly="readonly">
+	<label>Payment</label>
+    <input class="form-control" type="text" type="text" name="product_name" id="product_name" value="<?php echo $fee_title; ?>" readonly="readonly">
+	<label>Amount due (&pound;)</label>
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" readonly="readonly">
+	</div>
 
-            <div class="col-xs-6 col-sm-6 full-width">
-                <label>Address line 1</label>
-                <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter address line 1">
-                <label>Address 2 line (Optional)</label>
-                <input class="form-control" type="text" name="address2" id="address2" value="<?php echo $address2; ?>" placeholder="Enter address line 2 (Optional)">
-                <label>Town</label>
-                <input class="form-control" type="text" name="town" id="town" value="<?php echo $town; ?>" placeholder="Enter a town">
-                <label>City</label>
-                <input class="form-control" type="text" name="city" id="city" value="<?php echo $city; ?>" placeholder="Enter a city">
-                <label>Country</label>
-                <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
-                <label>Postcode</label>
-                <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter a postcode">
-            </div>
+    <div class="col-xs-6 col-sm-6 full-width">
+	<label>Address line 1</label>
+    <input class="form-control" type="text" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Enter address line 1">
+    <label>City</label>
+    <input class="form-control" type="text" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="Enter address line 2 (Optional)">
+	<label>Country</label>
+    <input class="form-control" type="text" name="payer_country" id="payer_country" value="United Kingdom" readonly="readonly">
+    <label>Postcode</label>
+    <input class="form-control" type="text" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Enter a postcode">
+	</div>
 
-        </div>
+    </div>
 
     <div class="checkbox ml5">
     <label><input type="checkbox" name="half-fees" id="half-fees" value="half-fees"> Pay half of the fee amount</label>
