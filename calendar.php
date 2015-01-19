@@ -79,7 +79,7 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Calendar</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Calendar - click to minimize or expand</a>
     </h4>
     </div>
 
@@ -119,7 +119,7 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingTwo">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Due tasks</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Due tasks - click to minimize or expand</a>
     </h4>
     </div>
 
@@ -191,7 +191,7 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingThree">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Completed tasks</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Completed tasks - click to minimize or expand</a>
     </h4>
     </div>
 
