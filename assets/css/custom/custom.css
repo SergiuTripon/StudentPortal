@@ -1226,7 +1226,12 @@ table.dataTable thead .sorting_desc_disabled {
 }
 .calendar-buttons {
     text-align: center;
-    margin-bottom: 10px;
+}
+#calendar-buttons1 {
+    margin-bottom: 5px;
+}
+#calendar-buttons2 {
+    margin-bottom: 5px;
 }
 }
 /* End of Calendar style */
