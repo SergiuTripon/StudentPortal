@@ -1,5 +1,9 @@
 <?php
 include 'includes/signin.php';
+
+date_default_timezone_set('Europe/London');
+$time = date('H:i:s');
+
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +73,7 @@ include 'includes/signin.php';
     <header id="before" class="intro">
     <div class="intro-body">
 	
-    <div id="showtime"></div>
+    <div id="showtime"><?php $time ?></div>
 	<p class="feedback-custom text-center" style="font-size: 20px;">You've be inactive for 15 minutes, so we've locked you out for security reasons</>
     <div id="lock-screen">
     <a id="lock-icon"><i class="fa fa-lock"></i></a><br>
@@ -190,29 +194,6 @@ include 'includes/signin.php';
 	});
 	
 	});
-	</script>
-
-	<script>
-    function getTime() {
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-
-        // add a zero in front of numbers<10
-        m = checkTime(m);
-        s = checkTime(s);
-        document.getElementById('showtime').innerHTML = h + ":" + m + ":" + s;
-        t = setTimeout(function () {
-            getTime()
-        }, 500);
-    }
-    function checkTime(i) {
-        if (i < 10) {
-            i = "0" + i;
-        }
-        return i;
-    }
 	</script>
 
 	<script>

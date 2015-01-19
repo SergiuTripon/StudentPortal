@@ -3,7 +3,7 @@ include'includes/signin.php';
 include 'includes/tube/tube_brief.php';
 
 date_default_timezone_set('Europe/London');
-$time = date('G:i');
+$time = date('H:i');
 ?>
 
 
