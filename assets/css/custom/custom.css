@@ -928,15 +928,12 @@ hr {
 .content-panel {
     background: #333333;
     border: 1px solid #FFA500;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 0px 10px 10px 10px;
+
 }
 
 .content-panel h4 {
-    font-weight: 600;
-    padding-left: 10px;
+    padding-left: 0px;
     padding-bottom: 20px;
     color: #FFA500;
 }
