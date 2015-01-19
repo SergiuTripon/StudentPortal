@@ -1,9 +1,5 @@
 <?php
 include 'includes/signin.php';
-
-date_default_timezone_set('Europe/London');
-$time = date('H:i:s');
-
 ?>
 
 <!DOCTYPE html>
@@ -73,8 +69,16 @@ $time = date('H:i:s');
     <header id="before" class="intro">
     <div class="intro-body">
 	
-    <div id="showtime"><?php echo $time; ?></div>
-	<p class="feedback-custom text-center" style="font-size: 20px;">You've be inactive for 15 minutes, so we've locked you out for security reasons</>
+    <div id="showtime">
+    <ul>
+      <li id="hours"></li>
+      <li id="point">:</li>
+      <li id="min"></li>
+      <li id="point">:</li>
+      <li id="sec"></li>
+    </ul>
+    </div>
+	<p class="feedback-custom text-center" style="font-size: 20px;">You've been inactive for 15 minutes, so we've locked you out for security reasons</>
     <div id="lock-screen">
     <a id="lock-icon"><i class="fa fa-lock"></i></a><br>
     <a id="lock-text">UNLOCK</a>
@@ -129,6 +133,30 @@ $time = date('H:i:s');
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
     <?php include 'assets/js-paths/easing-js-path.php'; ?>
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+
+    <script>
+    setInterval( function() {
+        // Create a newDate() object and extract the seconds of the current time on the visitor's
+        var seconds = new Date().getSeconds();
+        // Add a leading zero to seconds value
+        $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+    },1000);
+
+    setInterval( function() {
+        // Create a newDate() object and extract the minutes of the current time on the visitor's
+        var minutes = new Date().getMinutes();
+        // Add a leading zero to the minutes value
+        $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+    },1000);
+
+    setInterval( function() {
+        // Create a newDate() object and extract the hours of the current time on the visitor's
+        var hours = new Date().getHours();
+        // Add a leading zero to the hours value
+        $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+    }, 1000);
+    });
+    </script>
 
 	<script>
     Ladda.bind('.ladda-button', {timeout: 2000});
