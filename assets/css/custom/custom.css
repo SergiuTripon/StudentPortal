@@ -600,6 +600,10 @@ hr {
     padding-bottom: 10px;
 }
 
+#showtime li {
+    display: inline;
+}
+
 #lock-screen {
 	padding-top: 20px;
     text-align: center;
