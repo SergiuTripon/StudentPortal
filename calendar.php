@@ -75,7 +75,7 @@ else $userid = '';
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-    <div class="panel panel-default">
+    <div id="calendar-toggle" class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
@@ -111,19 +111,15 @@ else $userid = '';
 	</div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-	</div><!-- /panel-group -->
+    <div id="duetasks-toggle" class="panel panel-default">
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
+    <div class="panel-heading" role="tab" id="headingTwo">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Due tasks</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Due tasks</a>
     </h4>
     </div>
 
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
 
 	<div class="panel-body">
 
@@ -187,15 +183,15 @@ else $userid = '';
 	$stmt2->close();
 	?>
 
-    <div class="panel panel-default">
+    <div id="completedtasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingTwo">
+    <div class="panel-heading" role="tab" id="headingThree">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Completed tasks</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Completed tasks</a>
     </h4>
     </div>
 
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 
 	<div class="panel-body">
 
