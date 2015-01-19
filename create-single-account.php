@@ -60,8 +60,6 @@ include 'includes/signin.php';
 	<h4><i class="fa fa-angle-right"></i> Create single account</h4>
 	
 	<!-- Create single account -->
-    <div class="content-panel mb10" style="border: none;">
-    
 	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
@@ -166,8 +164,6 @@ include 'includes/signin.php';
     </div>
 	
     </form>
-    
-	</div><!-- /content-panel -->
     <!-- End of Change Password -->
 	
 	</div><!-- /content-panel -->
