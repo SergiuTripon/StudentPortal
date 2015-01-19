@@ -121,17 +121,17 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 
 		$subject = 'Password reset successfully';
 		$message = "
-	<html>
-	<head>
-	<title>Student Portal | Account</title>
-	</head>
-	<body>
-	<p>Dear ".$firstname.",</p>
-	<p>Your password has been successfully reset.</p>
-	<p>If this action wasn't performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>
-	<p>Kind Regards,<br>The Student Portal Team</p>
-	</body>
-	</html>";
+		<html>
+		<head>
+		<title>Student Portal | Account</title>
+		</head>
+		<body>
+		<p>Dear ".$firstname.",</p>
+		<p>Your password has been successfully reset.</p>
+		<p>If this action wasn't performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>
+		<p>Kind Regards,<br>The Student Portal Team</p>
+		</body>
+		</html>";
 
 		// To send HTML mail, the Content-type header must be set
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
