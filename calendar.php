@@ -177,7 +177,7 @@ else $userid = '';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %Y %h:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %Y %h:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
 
 	while($row = $stmt2->fetch_assoc()) {
 	echo '<tr id="task-'.$row["taskid"].'">
