@@ -594,10 +594,9 @@ hr {
 /* Lock page style */
 #showdate {
     color: #FFA500;
-    font-size: 45px;
+    font-size: 35px;
     text-align: center;
     font-weight: 400;
-    padding-bottom: 10px;
 }
 
 #showtime {
