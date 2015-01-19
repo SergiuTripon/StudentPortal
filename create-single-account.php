@@ -56,19 +56,8 @@ include 'includes/signin.php';
     <li class="active">Create a single account</li>
     </ol>
 	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a single account</a>
-	</h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-    
-	<div class="panel-body">
+	<div class="content-panel mb10">
+	<h4><i class="fa fa-angle-right"></i> Create single account</h4>
 	
 	<!-- Create single account -->
     <div class="content-panel mb10" style="border: none;">
@@ -181,12 +170,8 @@ include 'includes/signin.php';
 	</div><!-- /content-panel -->
     <!-- End of Change Password -->
 	
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-	
-	</div><!-- /panel-group -->
-            
+	</div><!-- /content-panel -->
+
 	</div> <!-- /container -->
 	
 	<?php include 'includes/footers/portal_footer.php'; ?>

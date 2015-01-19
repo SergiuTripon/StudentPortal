@@ -41,20 +41,8 @@ include 'includes/signin.php';
     <li class="active">Change password</li>
     </ol>
 	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a id="normal-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change password</a>
-	<a id="success-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Password changed successfully.</a>
-    </h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-    
-	<div class="panel-body">
+	<div class="content-panel mb10">
+	<h4><i class="fa fa-angle-right"></i> Change password</h4>
 	
 	<!-- Change Password -->
     <div class="content-panel mb10" style="border: none;">
@@ -90,11 +78,7 @@ include 'includes/signin.php';
     </div><!-- /content-panel -->
     <!-- End of Change Password -->
 	
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-	
-	</div><!-- /panel-group -->
+	</div><!-- /content-panel -->
             
 	</div> <!-- /container -->
 	

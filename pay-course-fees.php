@@ -81,19 +81,8 @@ if ($fee_amount == "0.00") {
     <li class="active">Pay course fees</li>
     </ol>
 	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Pay course fees</a>
-    </h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-    
-	<div class="panel-body">
+	<div class="content-panel mb10">
+	<h4><i class="fa fa-angle-right"></i> Pay course fees</h4>
 	
 	<!-- Pay course fees -->
 	<div class="content-panel" style="border: none;">
@@ -157,12 +146,8 @@ if ($fee_amount == "0.00") {
     </div><!-- /content-panel -->
     <!-- End of Pay course fees -->
 	
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-	</div><!-- /panel-group -->
-	
-	
+	</div><!-- /content-panel -->
+
     </div><!-- /container -->
 	
 	<?php include 'includes/footers/portal_footer.php'; ?>
