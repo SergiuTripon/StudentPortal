@@ -57,10 +57,23 @@ $stmt2->fetch();
     <li class="active">Delete account</li>
     </ol>
 	
-	<div class="content-panel mb10">
-	<h4><i class="fa fa-angle-right"></i> Delete account</h4>
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	
+	<div class="panel panel-default">
+	
+	<div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Delete account</a>
+    </h4>
+    </div>
+
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    
+	<div class="panel-body">
 	
     <!-- Delete account -->
+    <div class="content-panel mb10" style="border: none;">
+                                    
 	<form class="form-custom" style="max-width: 600px; padding-top: 0px;" name="deleteaccount_form">
 
     <div class="form-group">
@@ -86,9 +99,14 @@ $stmt2->fetch();
     </div>
 
     </form>
+
+    </div><!-- /content-panel -->
     <!-- End of Delete account -->
 	
-	</div><!-- /content-panel -->
+	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+    </div><!-- /panel-default -->
+	</div><!-- /panel-group -->
 
     <!-- Delete Account Modal -->
 
