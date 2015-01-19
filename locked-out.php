@@ -69,8 +69,8 @@ include 'includes/signin.php';
     <header id="before" class="intro">
     <div class="intro-body">
 
-	<div id="showdate"></div>
     <div id="showtime">
+    <div id="showdate"></div>
     <ul>
       <li id="hours"></li>
       <li id="point">:</li>
