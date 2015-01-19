@@ -5,6 +5,12 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
+function fix_url($url) {
+	if (substr($url, 0, 7) == 'http://') { return $url; }
+	if (substr($url, 0, 8) == 'https://') { return $url; }
+	return 'http://'. $url;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +133,7 @@ else $userid = '';
 		
 			<td data-title="Name">'.$row["task_name"].'</td>
 			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-			<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$row["task_url"].'">'.$row["task_url"].'</a></td>
+			<td class="url-hide" data-title="External URL"><a target="_blank" href="fix_url('.$row["task_url"].')">Link</a></td>
 			<td data-title="Start date">'.$row["task_startdate"].'</td>
 			<td data-title="Due date">'.$row["task_duedate"].'</td>
 			<td data-title="Category">'.$row["task_category"].'</td>
@@ -184,7 +190,7 @@ else $userid = '';
 
 	<td data-title="Name">'.$row["task_name"].'</td>
 	<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-	<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$row["task_url"].'">'.$row["task_url"].'</a></td>
+	<td class="url-hide" data-title="External URL"><a target="_blank" href="'.$row["task_url"].'">Link</a></td>
 	<td data-title="Start date">'.$row["task_startdate"].'</td>
 	<td data-title="Due date">'.$row["task_duedate"].'</td>
 	<td data-title="Category">'.$row["task_category"].'</td>
