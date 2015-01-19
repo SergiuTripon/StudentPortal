@@ -79,7 +79,7 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Due tasks</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Calendar</a>
     </h4>
     </div>
 
@@ -119,7 +119,7 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingTwo">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Task calendar</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Due tasks</a>
     </h4>
     </div>
 
