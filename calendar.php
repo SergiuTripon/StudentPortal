@@ -87,13 +87,13 @@ else $userid = '';
 
 	<div class="panel-body">
 	
-	<div class="pull-right form-inline">
-	<div class="btn-group">
+	<div class="calendar-buttons text-right">
+	<div id="calendar-buttons1" class="btn-group">
 		<button class="btn btn-custom" data-calendar-nav="prev"><< Prev</button>
 		<button class="btn btn-custom" data-calendar-nav="today">Today</button>
 		<button class="btn btn-custom" data-calendar-nav="next">Next >></button>
 	</div>
-	<div class="btn-group">
+	<div id="calendar-buttons2" class="btn-group">
 		<button class="btn btn-custom" data-calendar-view="year">Year</button>
 		<button class="btn btn-custom active" data-calendar-view="month">Month</button>
 		<button class="btn btn-custom" data-calendar-view="week">Week</button>

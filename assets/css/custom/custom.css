@@ -1218,3 +1218,11 @@ table.dataTable thead .sorting_desc_disabled {
 
 }
 /* End of No More Responsive Table*/
+
+/* Calendar style */
+@media (max-width: 768px) {
+.calendar-buttons {
+    text-align: center;
+}
+}
+/* End of Calendar style */
