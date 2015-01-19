@@ -276,10 +276,8 @@ else $userid = '';
 	dataType:"text",
 	data:myData,
 	success:function(response){
-		$('#task-'+DbNumberID).fadeOut();		
-		setTimeout(function(){
-			location.reload();
-        }, 1000);
+		$('#task-'+DbNumberID).fadeOut();
+		$('#completedtasks-toggle').html(result);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
