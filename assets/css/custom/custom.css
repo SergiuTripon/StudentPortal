@@ -1226,11 +1226,6 @@ table.dataTable thead .sorting_desc_disabled {
 }
 .calendar-buttons {
     text-align: center;
-}
-}
-
-@media (max-width: 480px) {
-#calendar-buttons1 {
     margin-bottom: 10px;
 }
 }
