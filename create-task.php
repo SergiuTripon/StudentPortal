@@ -77,7 +77,7 @@ include 'includes/signin.php';
     <label>Notes (Optional)</label>
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Enter notes"></textarea>
 
-	<label>External URL</label>
+	<label>External URL (www.example.com)</label>
 	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
 	</div>
     
