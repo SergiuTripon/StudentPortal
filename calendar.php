@@ -194,6 +194,10 @@ else $userid = '';
     </div><!-- /panel-collapse -->
   	</div><!-- /panel-default -->
 
+	</div><!-- /panel-group -->
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
 	<div id="calendar-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
@@ -339,7 +343,7 @@ else $userid = '';
 	$("#task-button").click(function (e) {
     e.preventDefault();
 		$("#calendar-toggle").fadeOut("slow");
-		$("#duetasks-toggle").fadeOut("slow");
+		$("#duetasks-toggle").fadeIn("slow");
 		$("#completedtasks-toggle").fadeIn("slow");
 		$(".calendar-tile").removeClass("tile-selected");
 		$(".calendar-tile p").removeClass("tile-text-selected");
