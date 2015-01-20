@@ -136,8 +136,6 @@ else $userid = '';
 
 	</div><!-- /panel-group -->
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-	
 	<?php 
 	
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
@@ -150,6 +148,8 @@ else $userid = '';
 	
 	$stmt2->close();
 	?>
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div id="completedtasks-toggle" class="panel panel-default">
 
