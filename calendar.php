@@ -179,7 +179,7 @@ else $userid = '';
 	while($row = $stmt2->fetch_assoc()) {
 
 	if (!empty($row["task_url"])) {
-		$url = "<a target=\"_blank\" href=\"//'.$row[task_url].'\">Link</a>";
+		$url = "<a target=\"_blank\" href=\"\">Link</a>";
 	}
 
 	echo '<tr id="task-'.$row["taskid"].'">
