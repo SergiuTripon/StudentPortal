@@ -119,11 +119,19 @@ else $userid = '';
 
 	while($row = $stmt1->fetch_assoc()) {
 
- 	 echo '<tr id="task-'.$row["taskid"].'">
+	$url = $row["task_url"];
+
+	if (!empty($row["task_url"])) {
+		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
+	} else {
+		$url1 = "";
+	}
+
+	echo '<tr id="task-'.$row["taskid"].'">
 
 			<td data-title="Name">'.$row["task_name"].'</td>
 			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-			<td class="url-hide" data-title="External URL">'.$row["task_url"].'</td>
+			<td class="url-hide" data-title="External URL">'.$url1.'</td>
 			<td data-title="Start date">'.$row["task_startdate"].'</td>
 			<td data-title="Due date">'.$row["task_duedate"].'</td>
 			<td data-title="Category">'.$row["task_category"].'</td>
@@ -177,7 +185,7 @@ else $userid = '';
 	$url = $row["task_url"];
 
 	if (!empty($row["task_url"])) {
-		$url1 = "<a target=\"_blank\" href=\"$url\">Link</a>";
+		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
 	} else {
 		$url1 = "";
 	}
