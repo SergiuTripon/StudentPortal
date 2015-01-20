@@ -193,7 +193,7 @@ else $userid = '';
     </div><!-- /panel-collapse -->
   	</div><!-- /panel-default -->
 
-	<div class="panel panel-default">
+	<div id="calendar-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
 	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
