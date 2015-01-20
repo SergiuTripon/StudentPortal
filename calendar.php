@@ -130,7 +130,7 @@ else $userid = '';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-	<div id="completedtasks-toggle" class="panel panel-default">
+	<div class="panel panel-default">
 
 	<?php
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
@@ -193,16 +193,13 @@ else $userid = '';
     </div><!-- /panel-collapse -->
   	</div><!-- /panel-default -->
 
-	</div><!-- /panel-group -->
-
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-	<div id="calendar-toggle" class="panel panel-default">
-	<div class="panel-heading" role="tab" id="headingOne">
+	<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Calendar - click to minimize or maximize</a>
+	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
   	<div class="panel-body">
 
 	<div class="calendar-buttons text-right">
