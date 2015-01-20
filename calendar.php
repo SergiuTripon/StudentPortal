@@ -88,7 +88,7 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Due tasks - click to minimize or maximize</a>
+	<a data-toggle="collapse" data-parent="#collapseOne" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Due tasks - click to minimize or maximize</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -145,10 +145,10 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Complete tasks - click to minimize or maximize</a>
+	<a class="collapsed" data-toggle="collapse" data-target="#collapseTwo" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Complete tasks - click to minimize or maximize</a>
   	</h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
 	<!-- Completed tasks -->
@@ -199,13 +199,13 @@ else $userid = '';
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="calendar-toggle" class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-  	<h4 class="panel-title">
-	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
-  	</h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-  	<div class="panel-body">
+	<div class="panel-heading" role="tab" id="headingThree">
+	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#collapseThree" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
+	</h4>
+	</div>
+	<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+	<div class="panel-body">
 
 	<div class="calendar-buttons text-right">
 	<div id="calendar-buttons1" class="btn-group">
