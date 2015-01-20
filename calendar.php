@@ -74,6 +74,7 @@ else $userid = '';
 	</div><!-- /row -->
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
 	<div id="duetasks-toggle" class="panel panel-default">
 
 	<?php
@@ -199,6 +200,7 @@ else $userid = '';
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="calendar-toggle" class="panel panel-default">
+
 	<div class="panel-heading" role="tab" id="headingThree">
 	<h4 class="panel-title">
 	<a data-toggle="collapse" data-parent="#collapseThree" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
