@@ -77,49 +77,11 @@ else $userid = '';
 	<div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-  	Collapsible Group Item #1
-	</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Due tasks - click to minimize or expand</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
-	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-  	</div>
-    </div>
-	</div>
-
-	<div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
- 	 Collapsible Group Item #2
-	</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-  	</div>
-    </div>
-  	</div>
-
-	</div>
-
-
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div id="duetasks-toggle" class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Due tasks - click to minimize or expand</a>
-    </h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-
-	<div class="panel-body">
 
 	<!-- Due tasks -->
 	<section id="no-more-tables">
@@ -138,14 +100,14 @@ else $userid = '';
 	</tr>
 	</thead>
 
-	<tbody>	
+	<tbody>
 	<?php
 
 	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'active'");
 
-	while($row = $stmt1->fetch_assoc()) {			
+	while($row = $stmt1->fetch_assoc()) {
 	  echo '<tr id="task-'.$row["taskid"].'">
-		
+
 			<td data-title="Name">'.$row["task_name"].'</td>
 			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
 			<td class="url-hide" data-title="External URL"><a target="_blank" href="//'.$row["task_url"].'">Link</a></td>
@@ -164,38 +126,29 @@ else $userid = '';
 	</table>
 	</section>
 
-	</div><!-- /panel-body -->
+  	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
+	</div><!-- /panel-default -->
 
-	</div><!-- /panel-group -->
+	<div class="panel panel-default">
 
-	<?php 
-	
+	<?php
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
-
-	while($row = $stmt2->fetch_assoc()) {			
+	while($row = $stmt2->fetch_assoc()) {
 	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="../update-task/" method="POST">
 			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["taskid"].'"/>
 			</form>';
 	}
-	
 	$stmt2->close();
 	?>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div id="completedtasks-toggle" class="panel panel-default">
-
     <div class="panel-heading" role="tab" id="headingTwo">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Completed tasks - click to minimize or expand</a>
-    </h4>
+  	<h4 class="panel-title">
+	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Complete tasks - click to minimize or expand</a>
+  	</h4>
     </div>
-
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-
-	<div class="panel-body">
+  	<div class="panel-body">
 
 	<!-- Completed tasks -->
 	<section id="no-more-tables">
@@ -236,9 +189,9 @@ else $userid = '';
 	</table>
 	</section>
 
-	</div><!-- /panel-body -->
+  	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
+  	</div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
 
