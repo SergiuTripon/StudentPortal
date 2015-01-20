@@ -113,8 +113,6 @@ else $userid = '';
 
 	</div><!-- /panel-group -->
 
-	</div><!-- /panel-group -->
-
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div id="duetasks-toggle" class="panel panel-default">
@@ -175,6 +173,8 @@ else $userid = '';
 	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
     </div><!-- /panel-default -->
+
+	</div><!-- /panel-group -->
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 	
