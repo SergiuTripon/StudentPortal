@@ -143,7 +143,6 @@ else $userid = '';
 	</div><!-- /panel-default -->
 
 	<div id="completedtasks-toggle" class="panel panel-default">
-
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
 	<a class="collapsed" data-toggle="collapse" data-target="#collapseTwo" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Complete tasks - click to minimize or maximize</a>
@@ -200,7 +199,6 @@ else $userid = '';
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="calendar-toggle" class="panel panel-default">
-
 	<div class="panel-heading" role="tab" id="headingThree">
 	<h4 class="panel-title">
 	<a data-toggle="collapse" data-parent="#collapseThree" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
