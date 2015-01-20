@@ -75,55 +75,15 @@ else $userid = '';
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-    <div id="calendar-toggle" class="panel panel-default">
+    <div id="duetasks-toggle" class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Calendar - click to minimize or expand</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Due tasks - click to minimize or expand</a>
     </h4>
     </div>
 
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-
-	<div class="panel-body">
-	
-	<div class="calendar-buttons text-right">
-	<div id="calendar-buttons1" class="btn-group">
-		<button class="btn btn-custom" data-calendar-nav="prev"><< Prev</button>
-		<button class="btn btn-custom" data-calendar-nav="today">Today</button>
-		<button class="btn btn-custom" data-calendar-nav="next">Next >></button>
-	</div>
-	<div id="calendar-buttons2" class="btn-group">
-		<button class="btn btn-custom" data-calendar-view="year">Year</button>
-		<button class="btn btn-custom active" data-calendar-view="month">Month</button>
-		<button class="btn btn-custom" data-calendar-view="week">Week</button>
-		<button class="btn btn-custom" data-calendar-view="day">Day</button>
-	</div>
-	</div>
-	
-	<div class="page-header">
-	<h3></h3>
-	</div>
-	
-	<div id="calendar"></div>
-
-	</div><!-- /panel-body -->
-	</div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	</div><!-- /panel-group -->
-
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div id="duetasks-toggle" class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingTwo">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Due tasks - click to minimize or expand</a>
-    </h4>
-    </div>
-
-    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
 
 	<div class="panel-body">
 
@@ -193,13 +153,13 @@ else $userid = '';
 
     <div id="completedtasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingThree">
+    <div class="panel-heading" role="tab" id="headingTwo">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Completed tasks - click to minimize or expand</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Completed tasks - click to minimize or expand</a>
     </h4>
     </div>
 
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 
 	<div class="panel-body">
 
@@ -245,6 +205,46 @@ else $userid = '';
 	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
     </div><!-- /panel-default -->
+
+	</div><!-- /panel-group -->
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <div id="calendar-toggle" class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingThree">
+    <h4 class="panel-title">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Calendar - click to minimize or expand</a>
+    </h4>
+    </div>
+
+    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+
+	<div class="panel-body">
+
+	<div class="calendar-buttons text-right">
+	<div id="calendar-buttons1" class="btn-group">
+		<button class="btn btn-custom" data-calendar-nav="prev"><< Prev</button>
+		<button class="btn btn-custom" data-calendar-nav="today">Today</button>
+		<button class="btn btn-custom" data-calendar-nav="next">Next >></button>
+	</div>
+	<div id="calendar-buttons2" class="btn-group">
+		<button class="btn btn-custom" data-calendar-view="year">Year</button>
+		<button class="btn btn-custom active" data-calendar-view="month">Month</button>
+		<button class="btn btn-custom" data-calendar-view="week">Week</button>
+		<button class="btn btn-custom" data-calendar-view="day">Day</button>
+	</div>
+	</div>
+
+	<div class="page-header">
+	<h3></h3>
+	</div>
+
+	<div id="calendar"></div>
+
+	</div><!-- /panel-body -->
+	</div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
 	
