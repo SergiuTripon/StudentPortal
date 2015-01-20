@@ -361,7 +361,7 @@ else $userid = '';
 	$("#task-button").click(function (e) {
     e.preventDefault();
 		$("#calendar-toggle").hide();
-		$("#duetasks-toggle").hide();
+		$("#duetasks-toggle").show();
 		$("#completedtasks-toggle").show();
 		$(".calendar-tile").removeClass("tile-selected");
 		$(".calendar-tile p").removeClass("tile-text-selected");
