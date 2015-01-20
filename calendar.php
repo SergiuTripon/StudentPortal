@@ -338,9 +338,9 @@ else $userid = '';
 	
 	$("#task-button").click(function (e) {
     e.preventDefault();
-		$("#calendar-toggle").fadeTo("slow",0);
-		$("#duetasks-toggle").fadeTo("slow",0);
-		$("#completedtasks-toggle").fadeTo("slow",1);
+		$("#calendar-toggle").fadeOut("slow");
+		$("#duetasks-toggle").fadeOut("slow");
+		$("#completedtasks-toggle").fadeIn("slow");
 		$(".calendar-tile").removeClass("tile-selected");
 		$(".calendar-tile p").removeClass("tile-text-selected");
 		$(".calendar-tile i").removeClass("tile-text-selected");
@@ -351,9 +351,9 @@ else $userid = '';
 	
 	$("#calendar-button").click(function (e) {
     e.preventDefault();
-		$("#duetasks-toggle").fadeTo("slow",0);
-		$("#completedtasks-toggle").fadeTo("slow",0);
-		$("#calendar-toggle").fadeTo("slow",1);
+		$("#duetasks-toggle").fadeOut("slow");
+		$("#completedtasks-toggle").fadeOut("slow");
+		$("#calendar-toggle").fadeIn("slow");
 		$(".task-tile").removeClass("tile-selected");
 		$(".task-tile p").removeClass("tile-text-selected");
 		$(".task-tile i").removeClass("tile-text-selected");
