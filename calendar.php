@@ -119,16 +119,11 @@ else $userid = '';
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$url1 = $row["task_url"];
-	if (!empty($row["task_url"])) {
-		$url = "<a target=\"_blank\" href=\"//$url1\">Link</a>";
-	}
-
  	 echo '<tr id="task-'.$row["taskid"].'">
 
 			<td data-title="Name">'.$row["task_name"].'</td>
 			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-			<td class="url-hide" data-title="External URL">'.$url.'</td>
+			<td class="url-hide" data-title="External URL">'.$row["task_url"].'</td>
 			<td data-title="Start date">'.$row["task_startdate"].'</td>
 			<td data-title="Due date">'.$row["task_duedate"].'</td>
 			<td data-title="Category">'.$row["task_category"].'</td>
@@ -179,17 +174,11 @@ else $userid = '';
 
 	while($row = $stmt2->fetch_assoc()) {
 
-	$url1 = $row["task_url"];
-
-	if (!empty($row["task_url"])) {
-		$url = "<a target=\"_blank\" href=\"//$url1\">Link</a>";
-	}
-
 	echo '<tr id="task-'.$row["taskid"].'">
 
 	<td data-title="Name">'.$row["task_name"].'</td>
 	<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-	<td class="url-hide" data-title="External URL">'.$url.'</td>
+	<td class="url-hide" data-title="External URL">'.$row["task_url"].'</td>
 	<td data-title="Start date">'.$row["task_startdate"].'</td>
 	<td data-title="Due date">'.$row["task_duedate"].'</td>
 	<td data-title="Category">'.$row["task_category"].'</td>
