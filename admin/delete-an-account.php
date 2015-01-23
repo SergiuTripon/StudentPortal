@@ -1,5 +1,5 @@
 <?php
-include 'includes/signin.php';
+include '../includes/signin.php';
 
 if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
@@ -12,7 +12,7 @@ else $userid = '';
 
 <head>
 
-	<?php include 'assets/js-paths/pacejs-js-path.php'; ?>
+	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,9 +20,9 @@ else $userid = '';
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
+	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
+	<?php include '../assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../assets/css-paths/calendar-css-path.php'; ?>
 
     <title>Student Portal | Calendar</title>
 
@@ -292,10 +292,10 @@ else $userid = '';
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
+	<?php include '../assets/js-paths/common-js-paths.php'; ?>
+	<?php include '../assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
+	<?php include '../assets/js-paths/calendar-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
