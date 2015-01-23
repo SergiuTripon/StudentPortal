@@ -190,8 +190,8 @@ include 'includes/signin.php';
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
     <a href="/admin/create-single-account/">
     <div class="tile">
-    <i class="fa fa-user"></i>
-	<p class="tile-text">Create a single account</p>
+    <i class="fa fa-user-plus"></i>
+	<p class="tile-text">Create an account</p>
     </div>
     </a>
 	</div>
@@ -204,30 +204,12 @@ include 'includes/signin.php';
     </div>
     </a>
     </div>-->
-				
-	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-	<a href="/admin/update-an-account/">
-    <div class="tile">
-    <i class="fa fa-refresh"></i>
-	<p class="tile-text">Update an account</p>
-    </div>
-	</a>
-	</div>
-	
-	<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-	<a href="/admin/change-account-password/">
-    <div class="tile">
-    <i class="fa fa-key"></i>
-	<p class="tile-text">Change an account's password</p>
-	</div>
-    </a>
-	</div>
 	
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 	<a href="/admin/delete-an-account/">
     <div class="tile">
-    <i class="fa fa-trash"></i>
-	<p class="tile-text">Delete an account</p>
+    <i class="fa fa-wrench"></i>
+	<p class="tile-text">Modify/Delete account</p>
 	</div>
     </a>
 	</div>
