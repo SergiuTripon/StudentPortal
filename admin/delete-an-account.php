@@ -85,42 +85,8 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a href="#deleteaccount-modal"><i class="fa fa-close"></i></a></td>
-			</tr>
-
-			<div class="modal fade" id="deleteaccount-modal" tabindex="-1" role="dialog" aria-labelledby="deleteaccount-modal-label" aria-hidden="true">
-			<div class="modal-dialog">
-			<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="logo-custom animated fadeIn delay1">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-
-			<p class="feedback-custom text-center">Are you sure you want to delete this user account?</p>
-
-			</div>
-
-			<div class="modal-footer">
-
-			<div class="pull-left">
-    		<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button">Yes</a>
-    		</div>
-
-    		<div class="text-right">
-    		<a class="btn btn-custom btn-lg" data-dismiss="modal">No</a>
-    		</div>
-
-    		</div>
-
-			</div>
-			</div>
-			</div>
-
-    		';
+			<td data-title="Delete"><a><i class="fa fa-close"></i></a></td>
+			</tr>';
 	}
 
 	$stmt1->close();
