@@ -37,8 +37,9 @@ else $userid = '';
     <?php include '../includes/menus/portal_menu.php'; ?>
 
 	<ol class="breadcrumb">
-    <li><a href="../overview/">Overview</a></li>
-	<li class="active">Calendar</li>
+    <li><a href="../../overview/">Overview</a></li>
+	<li><a href="../../account/">Account</a></li>
+	<li class="active">Delete an account</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -57,7 +58,7 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users tasks</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
