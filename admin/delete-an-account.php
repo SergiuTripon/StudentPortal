@@ -20,8 +20,7 @@ else $userid = '';
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
-
+	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Delete an account</title>
@@ -154,7 +153,7 @@ else $userid = '';
 	<?php endif; ?>
 
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
+	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
