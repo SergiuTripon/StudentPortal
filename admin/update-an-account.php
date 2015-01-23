@@ -3,15 +3,7 @@ include '../includes/signin.php';
 
 if (isset($_POST["recordToUpdate"])) {
 
-$idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
-
-$stmt1 = $mysqli->prepare("SELECT user_details.gender, user_details.firstname, user_details.surname, user_details.studentnumber, user_signin.email  FROM user_siginin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_sigin.userid = ? LIMIT 1");
-$stmt1->bind_param('i', $idToUpdate);
-$stmt1->execute();
-$stmt1->store_result();
-$stmt1->bind_result($gender, $firstname, $surname, $studentnumber, $email);
-$stmt1->fetch();
-$stmt1->close();
+echo $_POST["recordToUpdate"];
 
 } else {
 header('Location: ../../account/');
