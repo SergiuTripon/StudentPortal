@@ -192,7 +192,7 @@ include '../includes/signin.php';
 	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php else : ?>
 
@@ -220,7 +220,7 @@ include '../includes/signin.php';
     </header>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
 	<?php else : ?>
