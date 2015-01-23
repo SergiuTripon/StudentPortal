@@ -68,14 +68,13 @@ else $userid = '';
 
 	<thead>
 	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>External URL</th>
-	<th>Start</th>
-	<th>Due</th>
-	<th>Category</th>
-	<th>Complete</th>
-	<th>Update</th>
+	<th>User ID</th>
+	<th>First name</th>
+	<th>Surname</th>
+	<th>Email address</th>
+	<th>Account type</th>
+	<th>Created on</th>
+	<th>Delete</th>
 	</tr>
 	</thead>
 
@@ -89,11 +88,11 @@ else $userid = '';
 	echo '<tr id="task-'.$row["userid"].'">
 
 			<td data-title="User ID">'.$row["userid"].'</td>
-			<td data-title="First Name">'.$row["firstname"].'</td>
+			<td data-title="First name">'.$row["firstname"].'</td>
 			<td data-title="Surname">'.$row["surname"].'</td>
 			<td data-title="Email address">'.$row["email"].'</td>
-			<td data-title="Account Type">'.$row["account_type"].'</td>
-			<td data-title="Created On">'.$row["created_on"].'</td>
+			<td data-title="Account type">'.$row["account_type"].'</td>
+			<td data-title="Created on">'.$row["created_on"].'</td>
 			<td data-title="Delete"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
 			</tr>';
 	}
@@ -153,6 +152,21 @@ else $userid = '';
 	<?php endif; ?>
 
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+	<script type="text/javascript" class="init">
+    $(document).ready(function () {
+    $('.table-custom').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no tasks at the moment."
+		}
+	});
+    });
+	</script>
 
 	<script>
 
