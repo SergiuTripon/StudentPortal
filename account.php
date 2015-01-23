@@ -179,7 +179,7 @@ include 'includes/signin.php';
 
     </div><!-- /row -->
 
-    <h4 class="feedback-custom">Perform actions against other accounts</h4>
+    <h4 class="feedback-custom mb20">Perform actions against other accounts</h4>
     <hr class="hr-custom">
 
     <div class="row">
