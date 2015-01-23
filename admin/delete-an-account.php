@@ -20,9 +20,7 @@ else $userid = '';
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-	<?php include '../assets/css-paths/calendar-css-path.php'; ?>
 
     <title>Student Portal | Calendar</title>
 
@@ -256,7 +254,7 @@ else $userid = '';
 	<?php include 'includes/footers/portal_footer.php'; ?>
 
 	<!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
@@ -293,9 +291,6 @@ else $userid = '';
 	<?php endif; ?>
 
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-	<?php include '../assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
-	<?php include '../assets/js-paths/calendar-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
