@@ -179,6 +179,9 @@ include 'includes/signin.php';
 
     </div><!-- /row -->
 
+    <h3>Perform actions against other accounts</h4>
+    <hr class="hr-custom">
+
     <div class="row">
 
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
