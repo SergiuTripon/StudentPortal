@@ -46,6 +46,16 @@ else $userid = '';
 
 	<div class="panel panel-default">
 
+	<?php
+	$stmt1 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt1->fetch_assoc()) {
+		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../change-account-password/" method="POST">
+		<input type="hidden" name="recordToChange" id="recordToChange" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt1->close();
+	?>
+
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Change an account's password</a>
@@ -73,9 +83,9 @@ else $userid = '';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt2->fetch_assoc()) {
 
 	echo '<tr id="user-'.$row["userid"].'">
 
@@ -85,11 +95,11 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a id="delete-'.$row["userid"].'" class="delete-button"><i class="fa fa-close"></i></a></td>
+			<td data-title="Delete"><a id="change-'.$row["userid"].'" class="change-button"><i class="fa fa-refresh"></i></a></td>
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt2->close();
 	?>
 	</tbody>
 
@@ -101,6 +111,16 @@ else $userid = '';
 	</div><!-- /panel-default -->
 
 	<div class="panel panel-default">
+
+	<?php
+	$stmt3 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt3->fetch_assoc()) {
+		echo '<form id="update-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
+		<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt3->close();
+	?>
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
@@ -129,9 +149,9 @@ else $userid = '';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	$stmt4 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt4->fetch_assoc()) {
 
 	echo '<tr id="user-'.$row["userid"].'">
 
@@ -141,11 +161,11 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a id="delete-'.$row["userid"].'" class="delete-button"><i class="fa fa-close"></i></a></td>
+			<td data-title="Delete"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt4->close();
 	?>
 	</tbody>
 
@@ -157,6 +177,16 @@ else $userid = '';
 	</div><!-- /panel-default -->
 
 	<div class="panel panel-default">
+
+	<?php
+	$stmt5 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt5->fetch_assoc()) {
+		echo '<form id="delete-account-form-'.$row["userid"].'" style="display: none;" action="../delete-an-account/" method="POST">
+		<input type="hidden" name="recordToDelete" id="recordToDelete" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt5->close();
+	?>
 
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
@@ -275,6 +305,27 @@ else $userid = '';
 	<script>
 
 	$(document).ready(function() {
+
+	$("body").on("click", ".change-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#change-password-form-" + DbNumberID).submit();
+
+	});
+
+	$("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#update-account-form-" + DbNumberID).submit();
+
+	});
+
 
 	$("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
