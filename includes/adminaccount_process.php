@@ -1,6 +1,10 @@
 <?php
 include_once 'signin.php';
 
+if (isset($_SESSION['userid']))
+$userid = $_SESSION['userid'];
+else $userid = '';
+
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 
@@ -105,4 +109,15 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $stmt7->bind_param('is', $fee_amount, $created_on);
     $stmt7->execute();
     $stmt7->close();
+}
+
+elseif (isset($_POST["recordToDelete"])) {
+
+    $idToDelete = filter_input(INPUT_POST, 'recordToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ? LIMIT 1");
+    $stmt1->bind_param('i', $idToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
 }
