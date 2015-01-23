@@ -165,6 +165,10 @@ else $userid = '';
 	$(document).ready(function() {
 
 	$("body").on("click", ".delete-button", function(e) {
+
+		if(!confirm('are you sure') )
+			return false;
+
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
