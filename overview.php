@@ -134,7 +134,7 @@ include 'includes/signin.php';
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php else : ?>
+    <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
 
@@ -222,7 +222,9 @@ include 'includes/signin.php';
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php else : ?>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
     <div class="container">
     <?php include 'includes/menus/portal_menu.php'; ?>
@@ -327,10 +329,9 @@ include 'includes/signin.php';
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
-    <?php endif; ?>
 
 	<?php else : ?>
-	
+
 	<style>
 	 html, body {
 		height: 100% !important;
