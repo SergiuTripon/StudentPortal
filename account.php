@@ -184,7 +184,6 @@ include 'includes/signin.php';
     <h4 class="feedback-custom">Perform actions against other accounts</h4>
     <hr class="hr-thin">
     <br>
-    <br>
 
     <div class="row">
 
