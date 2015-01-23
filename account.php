@@ -180,7 +180,7 @@ include 'includes/signin.php';
     </div><!-- /row -->
 
     <h4 class="feedback-custom mb20">Perform actions against other accounts</h4>
-    <hr class="hr-custom">
+    <hr class="hr-thin">
 
     <div class="row">
 
