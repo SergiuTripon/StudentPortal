@@ -3,7 +3,15 @@ include '../includes/signin.php';
 
 if (isset($_POST["recordToUpdate"])) {
 
-echo $_POST["recordToUpdate"];
+$idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
+
+$stmt1 = $mysqli->prepare("SELECT gender, firstname, surname, studentnumber FROM user_details WHERE userid = ? LIMIT 1");
+$stmt1->bind_param('i', $idToUpdate);
+$stmt1->execute();
+$stmt1->store_result();
+$stmt1->bind_result($gender, $firstname, $surname, $studentnumber);
+$stmt1->fetch();
+$stmt1->close();
 
 } else {
 header('Location: ../../account/');
