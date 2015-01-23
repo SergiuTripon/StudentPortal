@@ -46,16 +46,6 @@ else $userid = '';
 
 	<div class="panel panel-default">
 
-	<?php
-	$stmt1 = $mysqli->query("SELECT userid FROM user_tasks");
-	while($row = $stmt1->fetch_assoc()) {
-	  echo '<form id="update-task-form-'.$row["userid"].'" style="display: none;" action="../update-task/" method="POST">
-			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["userid"].'"/>
-			</form>';
-	}
-	$stmt1->close();
-	?>
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users</a>
