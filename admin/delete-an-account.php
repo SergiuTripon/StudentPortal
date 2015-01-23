@@ -82,28 +82,19 @@ else $userid = '';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid");
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$url = $row["task_url"];
+	echo '<tr id="task-'.$row["userid"].'">
 
-	if (!empty($row["task_url"])) {
-		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
-	} else {
-		$url1 = "";
-	}
-
-	echo '<tr id="task-'.$row["taskid"].'">
-
-			<td data-title="Name">'.$row["task_name"].'</td>
-			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-			<td class="url-hide" data-title="External URL">'.$url1.'</td>
-			<td data-title="Start date">'.$row["task_startdate"].'</td>
-			<td data-title="Due date">'.$row["task_duedate"].'</td>
-			<td data-title="Category">'.$row["task_category"].'</td>
-			<td data-title="Complete"><a id="complete-'.$row["taskid"].'" class="complete-button"><i class="fa fa-check"></i></a></td>
-			<td data-title="Update"><a id="update-'.$row["taskid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
+			<td data-title="User ID">'.$row["userid"].'</td>
+			<td data-title="First Name">'.$row["firstname"].'</td>
+			<td data-title="Surname">'.$row["surname"].'</td>
+			<td data-title="Email address">'.$row["email"].'</td>
+			<td data-title="Account Type">'.$row["account_type"].'</td>
+			<td data-title="Created On">'.$row["created_on"].'</td>
+			<td data-title="Delete"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
 			</tr>';
 	}
 
