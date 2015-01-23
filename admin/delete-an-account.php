@@ -1,5 +1,5 @@
 <?php
-include 'https://student-portal.co.uk/includes/signin.php';
+include '../includes/signin.php';
 
 if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
@@ -12,7 +12,7 @@ else $userid = '';
 
 <head>
 
-	<?php include 'https://student-portal.co.uk/assets/js-paths/pacejs-js-path.php'; ?>
+	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@ else $userid = '';
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'https://student-portal.co.uk/assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Calendar</title>
 
@@ -251,10 +251,10 @@ else $userid = '';
 
     </div><!-- /container -->
 
-	<?php include 'https://student-portal.co.uk/includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/portal_footer.php'; ?>
 
 	<!-- Sign Out (Inactive) JS -->
-    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
@@ -290,7 +290,7 @@ else $userid = '';
 
 	<?php endif; ?>
 
-	<?php include 'https://student-portal.co.uk/assets/js-paths/common-js-paths.php'; ?>
+	<?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
