@@ -100,6 +100,118 @@ else $userid = '';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+		<div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Users -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>User ID</th>
+	<th>First name</th>
+	<th>Surname</th>
+	<th>Email address</th>
+	<th>Account type</th>
+	<th>Created on</th>
+	<th>Delete</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	echo '<tr id="user-'.$row["userid"].'">
+
+			<td data-title="User ID">'.$row["userid"].'</td>
+			<td data-title="First name">'.$row["firstname"].'</td>
+			<td data-title="Surname">'.$row["surname"].'</td>
+			<td data-title="Email address">'.$row["email"].'</td>
+			<td data-title="Account type">'.$row["account_type"].'</td>
+			<td data-title="Created on">'.$row["created_on"].'</td>
+			<td data-title="Delete"><a id="delete-'.$row["userid"].'" class="delete-button"><i class="fa fa-close"></i></a></td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+		<div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Users -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>User ID</th>
+	<th>First name</th>
+	<th>Surname</th>
+	<th>Email address</th>
+	<th>Account type</th>
+	<th>Created on</th>
+	<th>Delete</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	echo '<tr id="user-'.$row["userid"].'">
+
+			<td data-title="User ID">'.$row["userid"].'</td>
+			<td data-title="First name">'.$row["firstname"].'</td>
+			<td data-title="Surname">'.$row["surname"].'</td>
+			<td data-title="Email address">'.$row["email"].'</td>
+			<td data-title="Account type">'.$row["account_type"].'</td>
+			<td data-title="Created on">'.$row["created_on"].'</td>
+			<td data-title="Delete"><a id="delete-'.$row["userid"].'" class="delete-button"><i class="fa fa-close"></i></a></td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
 	</div><!-- /panel-group -->
 
     </div><!-- /container -->
