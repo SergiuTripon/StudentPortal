@@ -42,16 +42,16 @@ else $userid = '';
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="duetasks-toggle" class="panel panel-default">
+	<div class="panel panel-default">
 
 	<?php
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
-	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="../update-task/" method="POST">
-			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["taskid"].'"/>
+	$stmt1 = $mysqli->query("SELECT userid FROM user_tasks");
+	while($row = $stmt1->fetch_assoc()) {
+	  echo '<form id="update-task-form-'.$row["userid"].'" style="display: none;" action="../update-task/" method="POST">
+			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["userid"].'"/>
 			</form>';
 	}
-	$stmt2->close();
+	$stmt1->close();
 	?>
 
     <div class="panel-heading" role="tab" id="headingOne">
@@ -85,7 +85,7 @@ else $userid = '';
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	echo '<tr id="task-'.$row["userid"].'">
+	echo '<tr id="user-'.$row["userid"].'">
 
 			<td data-title="User ID">'.$row["userid"].'</td>
 			<td data-title="First name">'.$row["firstname"].'</td>
@@ -93,7 +93,7 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
+			<td data-title="Delete"><a id="delete-'.$row["userid"].'" class="delete-button"><i class="fa fa-close"></i></a></td>
 			</tr>';
 	}
 
@@ -172,20 +172,20 @@ else $userid = '';
 
 	$(document).ready(function() {
 
-	$("body").on("click", ".complete-button", function(e) {
+	$("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
     var DbNumberID = clickedID[1];
-    var myData = 'recordToComplete='+ DbNumberID;
+    var myData = 'recordToDelete='+ DbNumberID;
 
 	jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/calendar_process.php",
+	url: "https://student-portal.co.uk/includes/admin_process.php",
 	dataType:"text",
 	data:myData,
 	success:function(response){
-		$('#task-'+DbNumberID).fadeOut();
+		$('#user-'+DbNumberID).fadeOut();
 		setTimeout(function(){
 			location.reload();
 		}, 1000);
