@@ -115,7 +115,7 @@ else $userid = '';
 	<?php
 	$stmt3 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 	while($row = $stmt3->fetch_assoc()) {
-		echo '<form id="update-account-form-'.$row["userid"].'" style="display: none;" action="../../update-an-account/" method="POST">
+		echo '<form id="update-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
 		<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["userid"].'"/>
 		</form>';
 	}

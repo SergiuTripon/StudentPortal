@@ -14,7 +14,7 @@ $stmt1->fetch();
 $stmt1->close();
 
 } else {
-header('Location: ../account/');
+header('Location: ../../account/');
 }
 
 if ($dateofbirth == "0000-00-00") {
