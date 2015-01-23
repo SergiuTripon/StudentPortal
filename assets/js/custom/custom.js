@@ -3,10 +3,6 @@
     if ($(this).html().trim().length === 0) 
     $(this).append("No Extra Information");
     });
-	
-	// Disables the background of a cell that contains Victoria in the Station Status table
-	$(".table-transport td").filter(function(index) { return $.trim($(this).text()) === "Victoria"; }).
-	closest('tr').addClass( "no-background" );
 
 	// Adds a specific class to a row that contains a specific Tube Line name
 	$('.table-transport td').filter(function(index) { return $.trim($(this).text()) === "Bakerloo"; }).
