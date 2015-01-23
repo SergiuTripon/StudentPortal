@@ -209,7 +209,7 @@ include 'includes/signin.php';
 	<a href="/admin/delete-an-account/">
     <div class="tile">
     <i class="fa fa-wrench"></i>
-	<p class="tile-text">Modify/Delete account</p>
+	<p class="tile-text">Modify/Delete an account</p>
 	</div>
     </a>
 	</div>
