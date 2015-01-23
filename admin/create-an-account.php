@@ -1,5 +1,5 @@
 <?php
-include 'includes/signin.php';
+include '../includes/signin.php';
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ include 'includes/signin.php';
 
 <head>
 
-	<?php include 'assets/js-paths/pacejs-js-path.php'; ?>
+	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,7 @@ include 'includes/signin.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Create a single account</title>
 	
@@ -48,7 +48,7 @@ include 'includes/signin.php';
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
     
 	<div class="container">
-	<?php include 'includes/menus/portal_menu.php'; ?>
+	<?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
@@ -189,7 +189,7 @@ include 'includes/signin.php';
             
 	</div> <!-- /container -->
 	
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -255,8 +255,8 @@ include 'includes/signin.php';
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/datetimepicker-js-path.php'; ?>
+	<?php include '../assets/js-paths/common-js-paths.php'; ?>
+	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
 	Ladda.bind('.ladda-button', {timeout: 2000});
