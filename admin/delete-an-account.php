@@ -183,7 +183,7 @@ else $userid = '';
 
 	jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/admin_process.php",
+	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
 	dataType:"text",
 	data:myData,
 	success:function(response){
