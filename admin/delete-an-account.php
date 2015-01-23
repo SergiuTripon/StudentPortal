@@ -23,7 +23,7 @@ else $userid = '';
 	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal | Delete an account</title>
+    <title>Student Portal | Modify/Delete an account</title>
 
 </head>
 
@@ -39,7 +39,7 @@ else $userid = '';
 	<ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
-	<li class="active">Delete an account</li>
+	<li class="active">Modify/Delete an account</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -54,7 +54,7 @@ else $userid = '';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Due tasks -->
+	<!-- Users -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
