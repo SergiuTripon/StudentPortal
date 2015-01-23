@@ -48,13 +48,13 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Update an account</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Change an account's password</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Users -->
+	<!-- Change an account's password -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -104,13 +104,13 @@ else $userid = '';
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Change an account's password</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Update an account</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Users -->
+	<!-- Update an account -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -166,7 +166,7 @@ else $userid = '';
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
   	<div class="panel-body">
 
-	<!-- Users -->
+	<!-- Delete an account -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
