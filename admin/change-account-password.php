@@ -195,8 +195,8 @@ if ($dateofbirth == "0000-00-00") {
 		$("#password").css("border-color", "#4DC742");
 	}
 
-    var password1 = $("#password").val();
-	if (password1.length < 6) {
+    password = $("#password").val();
+	if (password.length < 6) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
