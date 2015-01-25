@@ -148,7 +148,7 @@ include 'includes/signin.php';
 	
 	var hasError = false;
 	
-	password = $("#password").val();
+	var password = $("#password").val();
 	if(password === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
@@ -186,7 +186,7 @@ include 'includes/signin.php';
 		return false;
 	}
 	
-	confirmpwd = $("#confirmpwd").val();
+	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password confirmation.");

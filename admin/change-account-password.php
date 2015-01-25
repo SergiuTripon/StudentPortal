@@ -52,8 +52,8 @@ if (isset($_POST["recordToChange"])) {
 	<?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
-    <li><a href="../overview/">Overview</a></li>
-	<li><a href="../account/">Account</a></li>
+    <li><a href="../../overview/">Overview</a></li>
+	<li><a href="../../account/">Account</a></li>
     <li class="active">Change password</li>
     </ol>
 
@@ -166,7 +166,7 @@ if (isset($_POST["recordToChange"])) {
 
 	var hasError = false;
 
-	password = $("#password").val();
+	var password = $("#password").val();
 	if(password === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
@@ -204,7 +204,7 @@ if (isset($_POST["recordToChange"])) {
 		return false;
 	}
 
-	confirmpwd = $("#confirmpwd").val();
+	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password confirmation.");
