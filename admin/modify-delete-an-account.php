@@ -95,7 +95,7 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a id="change-'.$row["userid"].'" class="change-button"><i class="fa fa-refresh"></i></a></td>
+			<td data-title="Delete"><a id="change-'.$row["userid"].'" class="change-button"><i class="fa fa-lock"></i></a></td>
 			</tr>';
 	}
 
