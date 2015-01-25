@@ -49,7 +49,7 @@ if (isset($_POST["recordToChange"])) {
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
     <div class="container">
-	<?php include 'includes/menus/portal_menu.php'; ?>
+	<?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
