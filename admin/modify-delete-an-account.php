@@ -246,8 +246,10 @@ else $userid = '';
 
 	</div><!-- /panel-group -->
 
+	<a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
+
 	<!-- Help Modal -->
-    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
