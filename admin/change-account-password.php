@@ -233,7 +233,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
-	if(password1 != confirmpwd) {
+	if(password1 != confirmpwd1) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
