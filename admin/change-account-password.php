@@ -250,7 +250,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
-    data:'userid=' + userid + '&password=' + password + '&confirmpwd=' + confirmpwd,
+    data:'userid1=' + userid1 + '&password=' + password1 + '&confirmpwd=' + confirmpwd1,
     success:function(response){
 		$("#hide").hide();
 		$("#error").hide();
