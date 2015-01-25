@@ -148,8 +148,8 @@ elseif (isset($_POST['userid'], $_POST['firstname1'], $_POST['surname1'], $_POST
 
 	if ($db_email == $email) {
 
-	$stmt2 = $mysqli->prepare("UPDATE user_details SET gender=?, firstname=?, surname=?, studentno=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, degree=?, updated_on=?  WHERE userid = ?");
-	$stmt2->bind_param('ssssssssssssssi', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $degree, $updated_on, $userid);
+	$stmt2 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, dateofbirth=?, studentno=?, degree=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
+	$stmt2->bind_param('sssissssssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $degree, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
 
@@ -171,8 +171,8 @@ elseif (isset($_POST['userid'], $_POST['firstname1'], $_POST['surname1'], $_POST
 	}
 	else {
 
-	$stmt4 = $mysqli->prepare("UPDATE user_details SET gender=?, firstname=?, surname=?, studentno=?,dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, degree=?, updated_on=?  WHERE userid = ?");
-	$stmt4->bind_param('sssssssssssssssi', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $degree, $updated_on, $userid);
+	$stmt4 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, dateofbirth=?, studentno=?, degree=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
+	$stmt4->bind_param('sssisssssssssssi', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $degree, $updated_on, $userid);
 	$stmt4->execute();
 	$stmt4->close();
 
