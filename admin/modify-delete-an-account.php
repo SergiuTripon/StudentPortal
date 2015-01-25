@@ -118,25 +118,7 @@ else $userid = '';
 
     <div class="modal-body">
 
-	<form class="form-custom" style="max-width: 700px; padding-top: 0px;" name="changepassword_form" novalidate>
-
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
-
-    <div class="form-group">
-
-	<div class="col-xs-6 col-sm-6 full-width">
-    <label>New password</label>
-    <input class="form-control" type="password" name="password" id="password" placeholder="New password">
-    </div>
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label>New password confirmation</label>
-    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
-    </div>
-
-    </div>
-
-	</form>
+	<p class="feedback-custom">Hello</p>
 
     </div>
 
