@@ -140,6 +140,7 @@ else $userid = '';
 	<div class="text-right">
 	<button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
 	</div>
+	</div>
 
 	</form>
     </div>
