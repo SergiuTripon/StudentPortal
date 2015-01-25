@@ -6,7 +6,7 @@ $userid = $_SESSION['userid'];
 else $userid = '';
 
 if (isset($_SESSION['firstname']))
-	$session_firstname = $_SESSION['firstname'];
+$session_firstname = $_SESSION['firstname'];
 else $session_firstname = '';
 
 date_default_timezone_set('Europe/London');

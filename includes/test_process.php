@@ -1,16 +1,20 @@
 <?php
+include_once 'signin.php';
 
+date_default_timezone_set('Europe/London');
+$updated_on = date("Y-m-d G:i:s");
 
-if (isset($_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['dateofbirth1'], $_POST['studentno1'], $_POST['degree1'], $_POST['email1'], $_POST['phonenumber1'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
-    $gender = filter_input(INPUT_POST, 'gender1', FILTER_SANITIZE_STRING);
+if (isset($_POST['userid'], $_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['dateofbirth1'], $_POST['studentno1'], $_POST['degree1'], $_POST['email1'], $_POST['phonenumber1'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
+    $userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname1', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname1', FILTER_SANITIZE_STRING);
+    $gender = filter_input(INPUT_POST, 'gender1', FILTER_SANITIZE_STRING);
+    $dateofbirth = filter_input(INPUT_POST, 'dateofbirth1', FILTER_SANITIZE_STRING);
     $studentno = filter_input(INPUT_POST, 'studentno1', FILTER_SANITIZE_STRING);
+    $degree = filter_input(INPUT_POST, 'degree1', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email1', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$dateofbirth = filter_input(INPUT_POST, 'dateofbirth1', FILTER_SANITIZE_STRING);
 	$phonenumber = filter_input(INPUT_POST, 'phonenumber1', FILTER_SANITIZE_STRING);
-    $degree = filter_input(INPUT_POST, 'degree1', FILTER_SANITIZE_STRING);
 	$address1 = filter_input(INPUT_POST, 'address11', FILTER_SANITIZE_STRING);
 	$address2 = filter_input(INPUT_POST, 'address21', FILTER_SANITIZE_STRING);
 	$town = filter_input(INPUT_POST, 'town1', FILTER_SANITIZE_STRING);
