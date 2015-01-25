@@ -190,8 +190,6 @@ else $userid = '';
 
     </div>
 
-    </div>
-
 	<div class="modal-footer">
 	<button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
     </div>
