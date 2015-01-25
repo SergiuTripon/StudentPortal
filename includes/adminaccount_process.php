@@ -183,6 +183,9 @@ elseif (isset($_POST['gender1'], $_POST['firstname1'], $_POST['surname1'], $_POS
 	}
 	}
 	}
+} else {
+    header('HTTP/1.0 550 Variables not set properly.');
+    exit();
 }
 
 elseif (isset($_POST["recordToDelete"])) {
