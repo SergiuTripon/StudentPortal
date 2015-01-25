@@ -77,4 +77,7 @@ if (isset($_POST['userid'], $_POST['firstname1'], $_POST['surname1'], $_POST['ge
 	}
 	}
 	}
+} else {
+    header('HTTP/1.0 550 The email address you entered is invalid.');
+    exit();
 }
