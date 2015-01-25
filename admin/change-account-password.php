@@ -3,22 +3,18 @@ include '../includes/signin.php';
 
 if (isset($_POST["recordToChange"])) {
 
-$idToChange = filter_input(INPUT_POST, 'recordToChange', FILTER_SANITIZE_NUMBER_INT);
+    $idToChange = filter_input(INPUT_POST, 'recordToChange', FILTER_SANITIZE_NUMBER_INT);
 
-$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE userid = ? LIMIT 1");
-$stmt1->bind_param('i', $idToChange);
-$stmt1->execute();
-$stmt1->store_result();
-$stmt1->bind_result($userid);
-$stmt1->fetch();
-$stmt1->close();
+    $stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE userid = ? LIMIT 1");
+    $stmt1->bind_param('i', $idToChange);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($userid);
+    $stmt1->fetch();
+    $stmt1->close();
 
 } else {
-header('Location: ../../account/');
-}
-
-if ($dateofbirth == "0000-00-00") {
-    $dateofbirth = '';
+    header('Location: ../../account/');
 }
 ?>
 
@@ -27,7 +23,7 @@ if ($dateofbirth == "0000-00-00") {
 
 <head>
 
-	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
+	<?php include 'assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,109 +31,99 @@ if ($dateofbirth == "0000-00-00") {
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal | Change an account's password</title>
+    <title>Student Portal | Change password</title>
 
-    <style>
-    #gender {
-		color: #FFA500;
-		background-color: #333333;
+	<style>
+	#success-title1 {
+		display: none;
 	}
-    </style>
+	</style>
 
 </head>
 
 <body>
-
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
-
-	<div class="container">
-
-    <?php include '../includes/menus/portal_menu.php'; ?>
+    <div class="container">
+	<?php include 'includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
-	<li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../account/">Account</a></li>
-    <li class="active">Change an account's password</li>
+    <li><a href="../overview/">Overview</a></li>
+	<li><a href="../account/">Account</a></li>
+    <li class="active">Change password</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
 
-	<div class="panel-heading" role="tab" id="headingOne">
-	<h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change an account's password</a>
-	</h4>
+    <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+    <a id="normal-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change password</a>
+	<a id="success-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Password changed successfully.</a>
+    </h4>
     </div>
 
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 
 	<div class="panel-body">
 
-	<!-- Change an account's password -->
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
+
+	<!-- Change Password -->
     <div class="content-panel mb10" style="border: none;">
 
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="changepassword_form" novalidate>
+	<form class="form-custom" style="max-width: 700px; padding-top: 0px;" name="changepassword_form" novalidate>
 
-	<p id="error" class="feedback-sad text-center"></p>
+    <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
-	<div id="hide">
-
-    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
+    <div id="hide">
 
     <div class="form-group">
 
-    <div class="col-xs-6 col-sm-6 full-width">
+	<div class="col-xs-6 col-sm-6 full-width">
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
-	</div>
+    </div>
 
     <div class="col-xs-6 col-sm-6 full-width">
     <label>New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
-	</div>
-
     </div>
 
-    <input type="hidden" name="degree" id="degree">
+	</div><!-- /form-group -->
 
     <div class="text-right">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
     </div>
 
-	</div>
+    </div>
 
     </form>
-
     </div><!-- /content-panel -->
-    <!-- End of Update account -->
+    <!-- End of Change Password -->
 
-    </div><!-- /panel-body -->
+	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
     </div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
 
-    </div> <!-- /container -->
+	</div> <!-- /container -->
 
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include 'includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
-
-	<?php endif; ?>
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
-	<style>
+    <style>
     html, body {
 		height: 100% !important;
 	}
@@ -146,7 +132,7 @@ if ($dateofbirth == "0000-00-00") {
     <header class="intro">
     <div class="intro-body">
 
-    <form class="form-custom orange-form">
+    <form class="form-custom">
 
 	<div class="logo-custom animated fadeIn delay1">
     <i class="fa fa-graduation-cap"></i>
@@ -167,12 +153,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<?php endif; ?>
 
-	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
-
-	<script>
-    Ladda.bind('.ladda-button', {timeout: 1000});
-	</script>
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
 	Ladda.bind('.ladda-button', {timeout: 1000});
@@ -274,4 +255,3 @@ if ($dateofbirth == "0000-00-00") {
 
 </body>
 </html>
-
