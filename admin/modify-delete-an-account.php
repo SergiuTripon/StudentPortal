@@ -118,7 +118,19 @@ else $userid = '';
 
     <div class="modal-body">
 
-	<p class="feedback-custom">Hello</p>
+	<div class="form-group">
+
+    <div class="col-xs-6 col-sm-6 full-width">
+	<label>Phone number</label>
+    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
+	</div>
+
+    <div class="col-xs-6 col-sm-6 full-width">
+	<label>Postcode</label>
+    <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
+	</div>
+
+    </div>
 
     </div>
 
