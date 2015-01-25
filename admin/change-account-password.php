@@ -183,8 +183,8 @@ if ($dateofbirth == "0000-00-00") {
 
     var userid1 = $("#userid").val();
 
-	var password = $("#password").val();
-	if(password === '') {
+	var password1 = $("#password").val();
+	if(password1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
@@ -195,7 +195,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#password").css("border-color", "#4DC742");
 	}
 
-	if (password.length < 6) {
+	if (password1.length < 6) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -210,7 +210,7 @@ if ($dateofbirth == "0000-00-00") {
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
-	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -221,8 +221,8 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	var confirmpwd = $("#confirmpwd").val();
-	if(confirmpwd === '') {
+	var confirmpwd1 = $("#confirmpwd").val();
+	if(confirmpwd1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
@@ -233,7 +233,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
-	if(password != confirmpwd) {
+	if(password1 != confirmpwd) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -250,7 +250,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
-    data:'userid1=' + userid1 + '&password=' + password1 + '&confirmpwd=' + confirmpwd1,
+    data:'userid1=' + userid1 + '&password1=' + password1 + '&confirmpwd1=' + confirmpwd1,
     success:function(response){
 		$("#hide").hide();
 		$("#error").hide();
