@@ -189,6 +189,7 @@ elseif (isset($_POST['userid'], $_POST['firstname1'], $_POST['surname1'], $_POST
 
 elseif (isset($_POST["userid1"], $_POST["password"], $_POST["confirmpwd"])) {
 
+    $userid = filter_input(INPUT_POST, 'userid1', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 	$confirmpwd = filter_input(INPUT_POST, 'confirmpwd', FILTER_SANITIZE_STRING);
 
@@ -208,39 +209,12 @@ elseif (isset($_POST["userid1"], $_POST["password"], $_POST["confirmpwd"])) {
 
 	} else {
 
-		$password_hash = password_hash($password, PASSWORD_BCRYPT);
+    $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-		$stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
-		$stmt2->bind_param('ssi', $password_hash, $updated_on, $userid);
-		$stmt2->execute();
-		$stmt2->close();
-
-		$stmt3 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ?");
-		$stmt3->bind_param('i', $userid);
-		$stmt3->execute();
-		$stmt3->store_result();
-		$stmt3->bind_result($email);
-		$stmt3->fetch();
-
-		$subject = 'Password changed successfully';
-		$message = '<html>';
-		$message .= '<head>';
-		$message .= '<title>Student Portal | Account</title>';
-		$message .= '</head>';
-		$message .= '<body>';
-		$message .= "<p>Dear \".$session_firstname.\",</p>";
-		$message .= '<p>Your password has been changed successfully.</p>';
-		$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>';
-		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-		$message .= '</body>';
-		$message .= '</html>';
-
-		// To send HTML mail, the Content-type header must be set
-		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= "MIME-Version: 1.0\r\n";
-		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-		mail ($email, $subject, $message, $headers);
+    $stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
+    $stmt2->bind_param('ssi', $password_hash, $updated_on, $userid);
+    $stmt2->execute();
+    $stmt2->close();
 
 	$stmt1->close();
 	}
