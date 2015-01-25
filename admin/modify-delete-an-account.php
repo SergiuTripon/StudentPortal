@@ -331,16 +331,6 @@ else $userid = '';
 
 	$(document).ready(function() {
 
-	$("body").on("click", ".change-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#change-password-form-" + DbNumberID).submit();
-
-	});
-
 	$("body").on("click", ".update-button", function(e) {
     e.preventDefault();
 
