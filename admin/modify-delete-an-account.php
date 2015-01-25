@@ -95,7 +95,7 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a id="change-'.$row["userid"].'" class="change-button" href="#modal-custom"><i class="fa fa-lock"></i></a></td>
+			<td data-title="Delete"><a id="change-'.$row["userid"].'" class="change-button" href="#modal-help" data-toggle="modal"><i class="fa fa-lock"></i></a></td>
 			</tr>';
 	}
 
@@ -245,8 +245,6 @@ else $userid = '';
 	</div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
-
-	<a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
 
 	<!-- Help Modal -->
     <div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
