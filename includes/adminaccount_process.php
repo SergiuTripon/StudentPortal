@@ -204,7 +204,7 @@ elseif (isset($_POST["userid1"], $_POST["password1"], $_POST["confirmpwd1"])) {
 
     if (password_verify($password, $db_password)) {
 
-		header('HTTP/1.0 550 This is your current password. Please enter a new password.');
+		header('HTTP/1.0 550 This is the account\'s current password. Please enter a new password.');
 		exit();
 		$stmt1->close();
 

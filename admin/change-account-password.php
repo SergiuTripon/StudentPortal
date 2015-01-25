@@ -72,8 +72,6 @@ if (isset($_POST["recordToChange"])) {
 
 	<div class="panel-body">
 
-    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
-
 	<!-- Change Password -->
     <div class="content-panel mb10" style="border: none;">
 
@@ -83,6 +81,8 @@ if (isset($_POST["recordToChange"])) {
 	<p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
+
+	<input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
 
     <div class="form-group">
 
@@ -220,7 +220,7 @@ if (isset($_POST["recordToChange"])) {
 
 	if(password != confirmpwd) {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
+		$(".sad-feedback").empty().append("The password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
@@ -234,12 +234,12 @@ if (isset($_POST["recordToChange"])) {
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/account_process.php",
+	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
     data:'password=' + password + '&confirmpwd=' + confirmpwd,
     success:function(response){
 		$("#hide").hide();
 		$("#error").hide();
-		$("#success").append('Your password has been changed successfully.');
+		$("#success").append('The password has been changed successfully.');
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
