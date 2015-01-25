@@ -477,9 +477,9 @@ if ($dateofbirth == "0000-00-00") {
 
 	var hasError = false;
 
-	gender1 = $("#gender").val();
+	var gender1 = $("#gender").val();
 
-	firstname1 = $("#firstname").val();
+	var firstname1 = $("#firstname").val();
 	if(firstname1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a first name.");
@@ -488,7 +488,7 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	surname1 = $("#surname").val();
+	var surname1 = $("#surname").val();
 	if(surname1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a surname.");
@@ -497,10 +497,10 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	dateofbirth1 = $("#dateofbirth").val();
+	var dateofbirth1 = $("#dateofbirth").val();
 
-	studentno1 = $("#studentno").val();
-	email1 = $("#email").val();
+    var studentno1 = $("#studentno").val();
+    var email1 = $("#email").val();
 	if(email1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
@@ -509,14 +509,14 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	phonenumber1 = $("#phonenumber").val();
-	address11 = $("#address1").val();
-	address21 = $("#address2").val();
-	town1 = $("#town").val();
-	city1 = $("#city").val();
-	country1 = $("#country").val();
-	postcode1 = $("#postcode").val();
-	degree1 = $("#degree").val();
+	var phonenumber1 = $("#phonenumber").val();
+    var address11 = $("#address1").val();
+    var address21 = $("#address2").val();
+    var town1 = $("#town").val();
+    var city1 = $("#city").val();
+    var country1 = $("#country").val();
+    var postcode1 = $("#postcode").val();
+    var degree1 = $("#degree").val();
 
     jQuery.ajax({
 	type: "POST",
