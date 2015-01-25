@@ -95,7 +95,7 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a id="change-'.$row["userid"].'" class="change-button"><i class="fa fa-lock"></i></a></td>
+			<td data-title="Delete"><a id="change-'.$row["userid"].'" class="change-button" href="#change-password"><i class="fa fa-lock"></i></a></td>
 			</tr>';
 	}
 
@@ -109,6 +109,29 @@ else $userid = '';
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
+
+	<!-- Change an account's password modal -->
+    <div class="modal fade" id="modal-custom change-password" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+	<div class="modal-header">
+    <div class="close"></div>
+    <h4 class="modal-title" id="modal-custom-label"></h4>
+    </div>
+
+    <div class="modal-body">
+    </div>
+
+	<div class="modal-footer">
+    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">Close</button>
+    </div>
+
+	</div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
+	<!-- End of Change an account's password modal -->
+
 
 	<div class="panel panel-default">
 
