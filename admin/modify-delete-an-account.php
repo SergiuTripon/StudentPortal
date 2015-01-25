@@ -110,27 +110,40 @@ else $userid = '';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-	<!-- Change an account's password modal -->
-    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
+	<!-- Help Modal -->
+    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
 	<div class="modal-header">
-    <div class="close"></div>
-    <h4 class="modal-title" id="modal-custom-label"></h4>
+    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
+    <h4 class="modal-title" id="modal-custom-label">Need help?</h4>
     </div>
 
     <div class="modal-body">
+    <ul class="feedback-custom">
+    <li>Usernames may contain only digits, upper and lower case letters and underscores</li>
+    <li>Emails must have a valid email format</li>
+    <li>Passwords must be at least 6 characters long</li>
+    <li>Passwords must contain
+    <ul>
+    <li>At least one upper case letter (A..Z)</li>
+    <li>At least one lower case letter (a..z)</li>
+    <li>At least one number (0..9)</li>
+    </ul>
+    </li>
+    <li>Your password and confirmation must match exactly</li>
+    </ul>
     </div>
 
 	<div class="modal-footer">
-    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">Back</button>
     </div>
 
 	</div><!-- /modal -->
     </div><!-- /modal-dialog -->
     </div><!-- /modal-content -->
-	<!-- End of Change an account's password modal -->
+	<!-- End of Help Modal -->
 
 
 	<div class="panel panel-default">
