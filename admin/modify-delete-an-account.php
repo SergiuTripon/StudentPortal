@@ -87,7 +87,7 @@ else $userid = '';
 
 	while($row = $stmt2->fetch_assoc()) {
 
-	echo '<tr id="user-'.$row["userid"].'">
+	echo '<tr>
 
 			<td data-title="User ID">'.$row["userid"].'</td>
 			<td data-title="First name">'.$row["firstname"].'</td>
@@ -154,7 +154,7 @@ else $userid = '';
 
 	while($row = $stmt4->fetch_assoc()) {
 
-	echo '<tr id="user-'.$row["userid"].'">
+	echo '<tr>
 
 			<td data-title="User ID">'.$row["userid"].'</td>
 			<td data-title="First name">'.$row["firstname"].'</td>
