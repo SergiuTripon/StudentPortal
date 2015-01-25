@@ -178,9 +178,10 @@ if (isset($_POST["recordToChange"])) {
 		$("#password").css("border-color", "#4DC742");
 	}
 
+    password = $("#password").val();
 	if (password.length < 6) {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -193,12 +194,13 @@ if (isset($_POST["recordToChange"])) {
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
+    password = $("#password").val();
 	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#error").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
