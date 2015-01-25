@@ -5,11 +5,11 @@ if (isset($_POST["recordToUpdate"])) {
 
 $idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-$stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.gender, user_details.firstname, user_details.surname, user_details.studentno, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.gender, user_details.firstname, user_details.surname, user_details.studentno, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($email, $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+$stmt1->bind_result($userid, $email, $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -318,6 +318,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div id="hide">
 
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
+
 	<div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
@@ -477,6 +479,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	var hasError = false;
 
+    var userid = $("#userid").val();
 	var gender1 = $("#gender").val();
 
 	var firstname1 = $("#firstname").val();
@@ -520,8 +523,8 @@ if ($dateofbirth == "0000-00-00") {
 
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
-    data:'gender1=' + gender1 + '&firstname=1' + firstname1 + '&surname1=' + surname1 + '&dateofbirth1=' + dateofbirth1 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email1=' + email1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
+	url: "https://student-portal.co.uk/includes/test_process.php",
+    data:'userid=' + userid + '&gender1=' + gender1 + '&firstname=1' + firstname1 + '&surname1=' + surname1 + '&dateofbirth1=' + dateofbirth1 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email1=' + email1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(response){
 		$("#error").hide();
 		$("#hide").hide();
