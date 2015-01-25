@@ -144,15 +144,25 @@ else $userid = '';
     <div class="form-group">
 
     <div class="col-xs-6 col-sm-6 full-width">
+    <label>Email address</label>
+    <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 	</div>
 
     <div class="col-xs-6 col-sm-6 full-width">
+    <label>Country</label>
+	<input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter your country" readonly="readonly">
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
 	</div>
 
+    </div>
+
+    <input type="hidden" name="degree" id="degree">
+
+    <div class="text-right">
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
     </div>
 
 	</div>
