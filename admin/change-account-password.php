@@ -175,13 +175,15 @@ if ($dateofbirth == "0000-00-00") {
 	</script>
 
 	<script>
+	Ladda.bind('.ladda-button', {timeout: 1000});
+	</script>
+
+	<script>
 	$(document).ready(function() {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
-
-    var userid1 = $("#userid").val();
 
 	password = $("#password").val();
 	if(password === '') {
@@ -249,12 +251,12 @@ if ($dateofbirth == "0000-00-00") {
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
-    data:'userid1=' + userid1 + '&password1=' + password1 + '&confirmpwd1=' + confirmpwd1,
+	url: "https://student-portal.co.uk/includes/account_process.php",
+    data:'password=' + password + '&confirmpwd=' + confirmpwd,
     success:function(response){
 		$("#hide").hide();
 		$("#error").hide();
-		$("#success").append('The password has been changed successfully.');
+		$("#success").append('Your password has been changed successfully.');
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
