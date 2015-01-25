@@ -188,7 +188,7 @@ include 'includes/signin.php';
     <div class="row">
 
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-    <a href="/admin/create-single-account/">
+    <a href="/admin/create-an-account/">
     <div class="tile">
     <i class="fa fa-user-plus"></i>
 	<p class="tile-text">Create an account</p>
