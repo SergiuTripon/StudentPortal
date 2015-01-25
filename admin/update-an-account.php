@@ -521,7 +521,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
-    data:'gender1=' + gender1 + '&firstname=1' + firstname1 + '&surname1=' + surname1 + '&studentno1=' + studentno1 + '&email1=' + email1 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
+    data:'gender1=' + gender1 + '&firstname=1' + firstname1 + '&surname1=' + surname1 + '&dateofbirth1=' + dateofbirth1 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email1=' + email1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(response){
 		$("#error").hide();
 		$("#hide").hide();

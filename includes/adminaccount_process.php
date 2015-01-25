@@ -111,7 +111,7 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $stmt7->close();
 }
 
-if (isset($_POST['gender1'], $_POST['firstname1'], $_POST['surname1'], $_POST['studentno1'], $_POST['email1'], $_POST['dateofbirth1'], $_POST['phonenumber1'], $_POST['degree1'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
+elseif (isset($_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['dateofbirth1'], $_POST['studentno1'], $_POST['degree1'], $_POST['email1'], $_POST['phonenumber1'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
     $gender = filter_input(INPUT_POST, 'gender1', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname1', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname1', FILTER_SANITIZE_STRING);
@@ -183,13 +183,10 @@ if (isset($_POST['gender1'], $_POST['firstname1'], $_POST['surname1'], $_POST['s
 	}
 	}
 	}
-} else {
-    header('HTTP/1.0 550 Variables not set properly.');
-    exit();
 }
 
 
-if (isset($_POST["recordToDelete"])) {
+elseif (isset($_POST["recordToDelete"])) {
 
     $idToDelete = filter_input(INPUT_POST, 'recordToDelete', FILTER_SANITIZE_NUMBER_INT);
 
