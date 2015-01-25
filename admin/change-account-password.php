@@ -195,6 +195,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#password").css("border-color", "#4DC742");
 	}
 
+    var password1 = $("#password").val();
 	if (password1.length < 6) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
@@ -210,6 +211,7 @@ if ($dateofbirth == "0000-00-00") {
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
+    var password1 = $("#password").val();
 	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
@@ -233,6 +235,8 @@ if ($dateofbirth == "0000-00-00") {
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
+    var password1 = $("#password").val();
+    var confirmpwd1 = $("#confirmpwd").val();
 	if(password1 != confirmpwd1) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
