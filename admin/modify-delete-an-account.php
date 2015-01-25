@@ -117,23 +117,31 @@ else $userid = '';
     </div>
 
     <div class="modal-body">
-    <ul class="feedback-custom">
-    <li>Usernames may contain only digits, upper and lower case letters and underscores</li>
-    <li>Emails must have a valid email format</li>
-    <li>Passwords must be at least 6 characters long</li>
-    <li>Passwords must contain
-    <ul>
-    <li>At least one upper case letter (A..Z)</li>
-    <li>At least one lower case letter (a..z)</li>
-    <li>At least one number (0..9)</li>
-    </ul>
-    </li>
-    <li>Your password and confirmation must match exactly</li>
-    </ul>
+
+	<form class="form-custom" style="max-width: 700px; padding-top: 0px;" name="changepassword_form" novalidate>
+
+    <p id="error" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-happy text-center"></p>
+
+    <div class="form-group">
+
+	<div class="col-xs-6 col-sm-6 full-width">
+    <label>New password</label>
+    <input class="form-control" type="password" name="password" id="password" placeholder="New password">
+    </div>
+
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label>New password confirmation</label>
+    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
+    </div>
     </div>
 
 	<div class="modal-footer">
-    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">Back</button>
+	<div class="text-right">
+	<button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
+	</div>
+
+	</form>
     </div>
 
 	</div><!-- /modal -->
