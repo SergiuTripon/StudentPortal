@@ -95,7 +95,7 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a id="change-'.$row["userid"].'" class="change-button" href="#change-password"><i class="fa fa-lock"></i></a></td>
+			<td data-title="Delete"><a id="change-'.$row["userid"].'" class="change-button" href="#modal-custom"><i class="fa fa-lock"></i></a></td>
 			</tr>';
 	}
 
@@ -111,7 +111,7 @@ else $userid = '';
 	</div><!-- /panel-default -->
 
 	<!-- Change an account's password modal -->
-    <div class="modal fade" id="modal-custom change-password" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
+    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
