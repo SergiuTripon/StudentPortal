@@ -187,6 +187,66 @@ elseif (isset($_POST['userid'], $_POST['firstname1'], $_POST['surname1'], $_POST
 	}
 }
 
+elseif (isset($_POST["userid1"], $_POST["password"], $_POST["confirmpwd"])) {
+
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+	$confirmpwd = filter_input(INPUT_POST, 'confirmpwd', FILTER_SANITIZE_STRING);
+
+	// Getting user login details
+	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
+	$stmt1->bind_param('i', $userid);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($db_password);
+	$stmt1->fetch();
+
+    if (password_verify($password, $db_password)) {
+
+		header('HTTP/1.0 550 This is your current password. Please enter a new password.');
+		exit();
+		$stmt1->close();
+
+	} else {
+
+		$password_hash = password_hash($password, PASSWORD_BCRYPT);
+
+		$stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
+		$stmt2->bind_param('ssi', $password_hash, $updated_on, $userid);
+		$stmt2->execute();
+		$stmt2->close();
+
+		$stmt3 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ?");
+		$stmt3->bind_param('i', $userid);
+		$stmt3->execute();
+		$stmt3->store_result();
+		$stmt3->bind_result($email);
+		$stmt3->fetch();
+
+		$subject = 'Password changed successfully';
+		$message = '<html>';
+		$message .= '<head>';
+		$message .= '<title>Student Portal | Account</title>';
+		$message .= '</head>';
+		$message .= '<body>';
+		$message .= "<p>Dear \".$session_firstname.\",</p>";
+		$message .= '<p>Your password has been changed successfully.</p>';
+		$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>';
+		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+		$message .= '</body>';
+		$message .= '</html>';
+
+		// To send HTML mail, the Content-type header must be set
+		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		mail ($email, $subject, $message, $headers);
+
+	$stmt1->close();
+	}
+
+}
+
 elseif (isset($_POST["recordToDelete"])) {
 
     $idToDelete = filter_input(INPUT_POST, 'recordToDelete', FILTER_SANITIZE_NUMBER_INT);

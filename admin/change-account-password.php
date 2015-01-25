@@ -181,7 +181,9 @@ if ($dateofbirth == "0000-00-00") {
 
 	var hasError = false;
 
-	password = $("#password").val();
+    var userid1 = $("#userid").val();
+
+	var password = $("#password").val();
 	if(password === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
@@ -219,7 +221,7 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	confirmpwd = $("#confirmpwd").val();
+	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password confirmation.");
@@ -247,12 +249,12 @@ if ($dateofbirth == "0000-00-00") {
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/account_process.php",
-    data:'password=' + password + '&confirmpwd=' + confirmpwd,
+	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
+    data:'userid=' + userid + '&password=' + password + '&confirmpwd=' + confirmpwd,
     success:function(response){
 		$("#hide").hide();
 		$("#error").hide();
-		$("#success").append('Your password has been changed successfully.');
+		$("#success").append('The password has been changed successfully.');
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
