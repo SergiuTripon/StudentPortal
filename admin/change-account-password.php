@@ -38,7 +38,7 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
-    <title>Student Portal | Change account password</title>
+    <title>Student Portal | Change an account's password</title>
 
     <style>
     #gender {
@@ -64,7 +64,7 @@ if ($dateofbirth == "0000-00-00") {
     <ol class="breadcrumb">
 	<li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
-    <li class="active">Update an account</li>
+    <li class="active">Change an account's password</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -73,7 +73,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div class="panel-heading" role="tab" id="headingOne">
 	<h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Update an account</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change an account's password</a>
 	</h4>
     </div>
 
