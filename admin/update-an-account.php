@@ -291,7 +291,7 @@ if ($dateofbirth == "0000-00-00") {
     <ol class="breadcrumb">
 	<li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
-    <li class="active">Update account</li>
+    <li class="active">Update an account</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -300,7 +300,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div class="panel-heading" role="tab" id="headingOne">
 	<h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Update account</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Update an account</a>
 	</h4>
     </div>
 
@@ -308,7 +308,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div class="panel-body">
 
-	<!-- Update account -->
+	<!-- Update an account -->
     <div class="content-panel mb10" style="border: none;">
 
 	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="updateaccount_form" novalidate>
