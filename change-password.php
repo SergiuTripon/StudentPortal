@@ -147,7 +147,7 @@ include 'includes/signin.php';
     e.preventDefault();
 	
 	var hasError = false;
-	
+
 	var password = $("#password").val();
 	if(password === '') {
 		$("#error").show();
@@ -159,10 +159,11 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
-	
+
+    password = $("#password").val();
 	if (password.length < 6) {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -170,22 +171,23 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
-	
+
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
-	
+
+    password = $("#password").val();
 	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
 		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#error").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	}
-	
+
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
 		$("#error").show();
@@ -197,7 +199,7 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
-	
+
 	if(password != confirmpwd) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
