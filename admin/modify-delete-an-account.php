@@ -129,25 +129,24 @@ else $userid = '';
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
     </div>
-
     <div class="col-xs-6 col-sm-6 full-width">
     <label>New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
     </div>
+
     </div>
+
+	</form>
+
     </div>
 
 	<div class="modal-footer">
-	<div class="text-right">
-	<button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
-	</div>
-
-	</form>
+	<button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
     </div>
 
-	</div><!-- /modal -->
+	</div><!-- /modal-content -->
     </div><!-- /modal-dialog -->
-    </div><!-- /modal-content -->
+    </div><!-- /modal -->
 	<!-- End of Change an acount's password modal -->
 
   	</div><!-- /panel-body -->
