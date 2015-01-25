@@ -7,6 +7,7 @@ else $userid = '';
 
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
+$updated_on = date("Y-m-d G:i:s");
 
 
 if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['studentno'], $_POST['email'], $_POST['password'], $_POST['confirmpwd'], $_POST['dateofbirth'], $_POST['phonenumber'], $_POST['degree'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'])) {
