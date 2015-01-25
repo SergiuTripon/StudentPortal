@@ -23,7 +23,7 @@ if (isset($_POST["recordToChange"])) {
 
 <head>
 
-	<?php include 'assets/js-paths/pacejs-js-path.php'; ?>
+	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +31,7 @@ if (isset($_POST["recordToChange"])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Change password</title>
 
@@ -116,10 +116,10 @@ if (isset($_POST["recordToChange"])) {
 
 	</div> <!-- /container -->
 
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
@@ -153,7 +153,7 @@ if (isset($_POST["recordToChange"])) {
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
 	Ladda.bind('.ladda-button', {timeout: 1000});
