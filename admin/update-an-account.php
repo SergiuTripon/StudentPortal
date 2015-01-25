@@ -477,10 +477,10 @@ if ($dateofbirth == "0000-00-00") {
 
 	var hasError = false;
 
-	gender = $("#gender").val();
+	gender1 = $("#gender").val();
 
-	firstname = $("#firstname").val();
-	if(firstname === '') {
+	firstname1 = $("#firstname").val();
+	if(firstname1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
@@ -488,8 +488,8 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	surname = $("#surname").val();
-	if(surname === '') {
+	surname1 = $("#surname").val();
+	if(surname1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
@@ -497,11 +497,11 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	dateofbirth = $("#dateofbirth").val();
+	dateofbirth1 = $("#dateofbirth").val();
 
-	studentno = $("#studentno").val();
-	email = $("#email").val();
-	if(email === '') {
+	studentno1 = $("#studentno").val();
+	email1 = $("#email").val();
+	if(email1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -509,19 +509,19 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	phonenumber = $("#phonenumber").val();
-	address1 = $("#address1").val();
-	address2 = $("#address2").val();
-	town = $("#town").val();
-	city = $("#city").val();
-	country = $("#country").val();
-	postcode = $("#postcode").val();
-	degree = $("#degree").val();
+	phonenumber1 = $("#phonenumber").val();
+	address11 = $("#address1").val();
+	address21 = $("#address2").val();
+	town1 = $("#town").val();
+	city1 = $("#city").val();
+	country1 = $("#country").val();
+	postcode1 = $("#postcode").val();
+	degree1 = $("#degree").val();
 
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/account_process.php",
-    data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&dateofbirth=' + dateofbirth + '&studentno=' + studentno + '&email=' + email + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode + '&degree=' + degree,
+	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
+    data:'gender1=' + gender1 + '&firstname=1' + firstname1 + '&surname1=' + surname1 + '&dateofbirth1=' + dateofbirth1 + '&studentno1=' + studentno1 + '&email1=' + email1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1 + '&degree1=' + degree1,
     success:function(response){
 		$("#error").hide();
 		$("#hide").hide();
