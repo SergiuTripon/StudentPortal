@@ -142,6 +142,7 @@ else $userid = '';
 	<th>Email address</th>
 	<th>Account type</th>
 	<th>Created on</th>
+	<th>Updated on</th>
 	<th>Delete</th>
 	</tr>
 	</thead>
@@ -161,7 +162,7 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Created on">'.$row["updated_on"].'</td>
+			<td data-title="Updated on">'.$row["updated_on"].'</td>
 			<td data-title="Delete"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
 			</tr>';
 	}
