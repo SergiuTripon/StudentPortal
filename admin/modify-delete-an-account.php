@@ -219,9 +219,9 @@ else $userid = '';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	$stmt6 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt6->fetch_assoc()) {
 
 	echo '<tr id="user-'.$row["userid"].'">
 
@@ -231,16 +231,58 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a id="delete-'.$row["userid"].'" class="delete-button"><i class="fa fa-close"></i></a></td>
+			<td data-title="Delete"><a href="modal-custom" data-trigger="modal"><i class="fa fa-close"></i></a></td>
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt6->close();
 	?>
 	</tbody>
 
 	</table>
 	</section>
+
+	<!-- Delete an account modal -->
+    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+	<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
+    <h4 class="modal-title" id="modal-custom-label">Need help?</h4>
+    </div>
+
+    <div class="modal-body">
+    <ul class="feedback-custom">
+    <li>Usernames may contain only digits, upper and lower case letters and underscores</li>
+    <li>Emails must have a valid email format</li>
+    <li>Passwords must be at least 6 characters long</li>
+    <li>Passwords must contain
+    <ul>
+    <li>At least one upper case letter (A..Z)</li>
+    <li>At least one lower case letter (a..z)</li>
+    <li>At least one number (0..9)</li>
+    </ul>
+    </li>
+    <li>Your password and confirmation must match exactly</li>
+    </ul>
+    </div>
+
+	<div class="modal-footer">
+	<?php
+	$stmt5 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt5->fetch_assoc()) {
+		echo '<a id="delete-'.$row["userid"].'" class="delete-button"><i class="fa fa-close"></i></a>';
+	}
+	$stmt5->close();
+	?>
+    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">Back</button>
+    </div>
+
+	</div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
+	<!-- End of Delete an account modal -->
 
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
