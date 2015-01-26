@@ -405,10 +405,7 @@ else $userid = '';
 	data:myData,
 	success:function(response){
 		$('#user-'+DbNumberID).fadeOut();
-		$('#modal-'+DbNumberID).modal('hide');
-		setTimeout(function(){
-			location.reload();
-		}, 1000);
+		$('#feedback-custom').append('The account has been deleted successfully.');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
