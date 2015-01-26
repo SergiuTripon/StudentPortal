@@ -699,8 +699,7 @@ hr {
 }
 
 .transport-panel .transport-header {
-    padding: 3px;
-    margin-bottom: 25px;
+    padding: 5px;
     background-color: #333333;
     border-bottom: 1px solid #FFFFFF;
 }
@@ -709,14 +708,15 @@ hr {
     color: #FFFFFF;
 }
 
+.transport-body {
+    margin-top: 37px;
+    margin-bottom: 37px;
+}
+
 .transport-body a,
 .transport-body a:hover,
 .transport-body a:focus {
     color: #FFFFFF;
-}
-
-.transport-body h4 {
-    margin-bottom: 25px;
 }
 
 .transport-body h1 i {

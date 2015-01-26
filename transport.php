@@ -49,16 +49,14 @@ $time = date('H:i');
 
 	<!-- Tube now -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 full-width">
-    <div class="transport-panel animated fadeIn delay1">
+    <div class="transport-panel">
 
     <div class="transport-header">
     <h4>Tube</h4>
     </div>
 
     <div class="transport-body">
-	<div class="img-responsive">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-	</div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/">Now</a></h4>
     </div>
 
@@ -77,16 +75,14 @@ $time = date('H:i');
 
     <!-- Tube this weekend -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 full-width">
-    <div class="transport-panel animated fadeIn delay1">
+    <div class="transport-panel">
 
     <div class="transport-header">
     <h4>Tube</h4>
     </div>
 
     <div class="transport-body">
-    <div class="img-responsive">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-this-weekend/">This weekend</a></h4>
     </div>
 
@@ -105,7 +101,7 @@ $time = date('H:i');
 
     <!-- Tube map -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 full-width">
-    <div class="transport-panel animated fadeIn delay1">
+    <div class="transport-panel">
 
     <div class="transport-header">
 	<h4>Tube</h4>
@@ -122,7 +118,7 @@ $time = date('H:i');
 
 	<!-- Cycle hire -->
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 full-width">
-    <div class="transport-panel animated fadeIn delay1">
+    <div class="transport-panel">
     <div class="transport-header">
 	<h4>Cycle Hire</h4>
 	</div>
@@ -153,16 +149,14 @@ $time = date('H:i');
 
     <!-- Bakerloo line -->
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width">
-    <div class="transport-panel bakerloo animated fadeIn delay1">
+    <div class="transport-panel bakerloo">
 
     <div class="transport-header">
     <h4><?php echo $bakerloo1 ?></h4>
     </div>
 
     <div class="transport-body">
-    <div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-	</div>
+    <h1><i class="fa fa-map-marker"></i></h1>
 	<h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $bakerloo ?></a></h4>
     </div>
 
@@ -181,16 +175,14 @@ $time = date('H:i');
 
     <!-- Central line -->
     <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width">
-    <div class="transport-panel central animated fadeIn delay1">
+    <div class="transport-panel central">
 
     <div class="transport-header">
     <h4><?php echo $central1 ?></h4>
     </div>
 
     <div class="transport-body">
-    <div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $central ?></a></h4>
     </div>
 
@@ -209,16 +201,14 @@ $time = date('H:i');
 
     <!-- Circle line -->
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 full-width">
-    <div class="transport-panel circle animated fadeIn delay1">
+    <div class="transport-panel circle">
 
     <div class="transport-header">
     <h4 style="color: #FFFFFF;"><?php echo $circle1 ?></h4>
     </div>
 
     <div class="transport-body">
-    <div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground-blue.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/"><?php echo $circle ?></a></h4>
     </div>
 
@@ -243,16 +233,14 @@ $time = date('H:i');
 
     <!-- District line -->
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 full-width">
-    <div class="transport-panel district animated fadeIn delay1">
+    <div class="transport-panel district">
 
     <div class="transport-header">
     <h4><?php echo $district1 ?></h4>
     </div>
 
     <div class="transport-body">
-    <div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $circle ?></a></h4>
     </div>
 
@@ -271,16 +259,14 @@ $time = date('H:i');
 
     <!-- DLR -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 full-width">
-    <div class="transport-panel dlr animated fadeIn delay1">
+    <div class="transport-panel dlr">
 
     <div class="transport-header">
     <h4><?php echo $dlr1 ?></h4>
     </div>
 
     <div class="transport-body">
-    <div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $dlr ?></a></h4>
     </div>
 
@@ -299,16 +285,14 @@ $time = date('H:i');
 
     <!-- Hammersmith & City line -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 full-width">
-    <div class="transport-panel hammersmith animated fadeIn delay1">
+    <div class="transport-panel hammersmith">
 
     <div class="transport-header">
     <h4 style="color: #FFFFFF;"><?php echo $hammersmith1 ?></h4>
     </div>
 
     <div class="transport-body">
-    <div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground-blue.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
 	<h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/"><?php echo $hammersmith ?></a></h4>
     </div>
 
@@ -327,16 +311,14 @@ $time = date('H:i');
 
     <!-- Jubilee line -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 full-width">
-    <div class="transport-panel jubilee animated fadeIn delay1">
+    <div class="transport-panel jubilee">
 
     <div class="transport-header">
     <h4><?php echo $jubilee1 ?></h4>
     </div>
 
     <div class="transport-body">
-    <div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $jubilee ?></a></h4>
     </div>
 
@@ -361,16 +343,14 @@ $time = date('H:i');
 
     <!-- Metropolitan line -->
     <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width">
-    <div class="transport-panel metropolitan animated fadeIn delay1">
+    <div class="transport-panel metropolitan">
 
     <div class="transport-header">
     <h4><?php echo $metropolitan1 ?></h4>
     </div>
 
     <div class="transport-body">
-	<div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $metropolitan ?></a></h4>
     </div>
 
@@ -389,16 +369,14 @@ $time = date('H:i');
 
     <!-- Northern line -->
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 full-width">
-    <div class="transport-panel northern animated fadeIn delay1">
+    <div class="transport-panel northern">
 
     <div class="transport-header">
     <h4><?php echo $northern1 ?></h4>
                             </div>
 
     <div class="transport-body">
-    <div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $northern ?></a></h4>
     </div>
 
@@ -417,16 +395,14 @@ $time = date('H:i');
 
     <!-- Picadilly line -->
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 full-width">
-    <div class="transport-panel picadilly animated fadeIn delay1">
+    <div class="transport-panel picadilly">
 
     <div class="transport-header">
     <h4><?php echo $picadilly1 ?></h4>
     </div>
 
     <div class="transport-body">
-    <div class="img-responsive tfl-logo">
-    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-    </div>
+    <h1><i class="fa fa-map-marker"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $picadilly ?></a></h4>
     </div>
 
@@ -451,16 +427,14 @@ $time = date('H:i');
 
 	<!-- Victoria line -->
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 full-width">
-	<div class="transport-panel victoria animated fadeIn delay1">
+	<div class="transport-panel victoria">
 
 	<div class="transport-header">
 	<h4><?php echo $victoria1 ?></h4>
 	</div>
 
 	<div class="transport-body">
-	<div class="img-responsive tfl-logo">
-	<img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
-	</div>
+    <h1><i class="fa fa-map-marker"></i></h1>
 	<h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $victoria ?></a></h4>
 	</div>
 
@@ -479,16 +453,14 @@ $time = date('H:i');
 
 	<!-- Waterloo & City line -->
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 full-width">
-	<div class="transport-panel waterloo animated fadeIn delay1">
+	<div class="transport-panel waterloo">
 
 	<div class="transport-header">
 	<h4 style="color: #FFFFFF !important;"><?php echo $waterloo1 ?></h4>
 	</div>
 
 	<div class="transport-body">
-	<div class="img-responsive tfl-logo">
-	<img src="../assets/img/logo/other/underground-blue.png" width="115px" height="92px"/>
-	</div>
+    <h1><i class="fa fa-map-marker"></i></h1>
 	<h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/"><?php echo $waterloo ?></a></h4>
 	</div>
 
