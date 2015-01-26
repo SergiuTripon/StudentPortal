@@ -231,11 +231,11 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a href="#user-'.$row["userid"].'" data-toggle="modal"><i class="fa fa-close"></i></a></td>
+			<td data-title="Delete"><a href="#test-'.$row["userid"].'" data-toggle="modal"><i class="fa fa-close"></i></a></td>
 			</tr>
 
 			<!-- Delete an account modal -->
-    		<div class="modal" id="modal-custom user'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal" id="modal-custom test-'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
