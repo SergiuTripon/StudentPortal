@@ -253,8 +253,8 @@ else $userid = '';
 			<div id="hide">
 			<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button ladda-button" data-style="slide-up" data-spinner-color="#FFA500">Yes</a>
 			<button type="button" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal">Back</button>
-			<a id="success-button" class="btn btn-custom btn-lg ladda-button" style="display: none;" data-style="slide-up" data-spinner-color="#FFA500">Continue</a>
 			</div>
+			<a id="success-button" class="btn btn-custom btn-lg ladda-button" style="display: none;" data-style="slide-up" data-spinner-color="#FFA500">Continue</a>
 			</div>
 
 			</div><!-- /modal -->
@@ -413,8 +413,8 @@ else $userid = '';
 	success:function(response){
 		$('#user-'+DbNumberID).fadeOut();
 		$('#hide').hide();
-		$('.feedback-custom').removeClass('.feedback-custom');
-		$('.feedback-custom').addClass('.feedback-happy');
+		$('.feedback-custom').removeClass('feedback-custom');
+		$('.feedback-custom').addClass('feedback-happy');
 		$('.feedback-custom').empty().append('The account has been deleted successfully.');
 		$('#success-button').show();
 		$("#success-button").click(function () {
