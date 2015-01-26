@@ -56,7 +56,9 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-subway"></i></h1>
+	<div class="img-responsive">
+    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
+	</div>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/">Now</a></h4>
     </div>
 
@@ -82,7 +84,9 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-subway"></i></h1>
+    <div class="img-responsive">
+    <img src="../assets/img/logo/other/underground.png" width="115px" height="92px"/>
+    </div>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-this-weekend/">This weekend</a></h4>
     </div>
 
