@@ -219,7 +219,7 @@ include 'includes/signin.php';
 	
 	<?php include 'includes/footers/portal_footer.php'; ?>
 		
-<!-- Sign Out (Inactive) JS -->
+    <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
