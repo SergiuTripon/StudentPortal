@@ -242,6 +242,14 @@ else $userid = '';
 	</table>
 	</section>
 
+	<?php
+	$stmt7 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt7->fetch_assoc()) {
+		echo '<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button">Yes</a>';
+	}
+	$stmt7->close();
+	?>
+
 	<!-- Help Modal -->
     <div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
@@ -269,14 +277,7 @@ else $userid = '';
     </div>
 
 	<div class="modal-footer">
-	<?php
-	$stmt7 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
-	while($row = $stmt7->fetch_assoc()) {
-		echo '<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button">Yes</a>';
-	}
-	$stmt7->close();
-	?>
-    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">No</button>
+    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">Back</button>
     </div>
 
 	</div><!-- /modal -->
