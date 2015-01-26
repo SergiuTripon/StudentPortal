@@ -251,10 +251,16 @@ else $userid = '';
 
 			<div class="modal-footer">
 			<div id="hide">
+			<div class="pull-left">
 			<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button ladda-button" data-style="slide-up" data-spinner-color="#FFA500">Yes</a>
+			</div>
+			<div class="text-right">
 			<button type="button" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal">Back</button>
 			</div>
+			</div>
+			<div class="text-center">
 			<a id="success-button" class="btn btn-custom btn-lg ladda-button" style="display: none;" data-style="slide-up" data-spinner-color="#FFA500">Continue</a>
+			</div>
 			</div>
 
 			</div><!-- /modal -->
@@ -414,8 +420,8 @@ else $userid = '';
 		$('#user-'+DbNumberID).fadeOut();
 		$('#hide').hide();
 		$('.feedback-custom').removeClass('feedback-custom');
-		$('.feedback-custom').addClass('feedback-happy');
-		$('.feedback-custom').empty().append('The account has been deleted successfully.');
+		$('.modal-body p').addClass('feedback-happy');
+		$('.feedback-happy').empty().append('The account has been deleted successfully.');
 		$('#success-button').show();
 		$("#success-button").click(function () {
 			location.reload();
