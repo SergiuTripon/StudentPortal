@@ -166,6 +166,8 @@ if (isset($_POST["recordToChange"])) {
 
 	var hasError = false;
 
+	var userid1 = $("#userid").val();
+
 	var password1 = $("#password").val();
 	if(password1 === '') {
 		$("#error").show();
