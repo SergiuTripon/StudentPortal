@@ -235,7 +235,7 @@ else $userid = '';
 			</tr>
 
 			<!-- Delete an account modal -->
-    		<div class="modal" id="modal-'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal" id="modal-custom modal-'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
