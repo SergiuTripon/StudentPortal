@@ -7,6 +7,4 @@ define("DATABASE", "student_portal");
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "member");
 
-define("SECURE", TRUE);
-
 ?>
