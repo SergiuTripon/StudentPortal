@@ -329,7 +329,7 @@ include '../includes/signin.php';
 	
 	var hasError = false;
 	
-	account_type = $('#account_type option:selected').val();
+	var account_type = $('#account_type option:selected').val();
 	if (account_type === 'null') {
         $("#error").empty().append("Please select an account type.");
 		$("#account_type").css("border-color", "#FF5454");
@@ -340,7 +340,7 @@ include '../includes/signin.php';
 		$("#account_type").css("border-color", "#4DC742");
 	}
 
-	gender = $('#gender option:selected').val();
+	var gender = $('#gender option:selected').val();
 	if (gender === 'null') {
 		$("#error").show();
         $("#error").empty().append("Please select a gender.");
@@ -351,8 +351,7 @@ include '../includes/signin.php';
 		$("#error").hide();
 		$("#gender").css("border-color", "#4DC742");
 	}
-
-	firstname = $("#firstname").val();
+	var firstname = $("#firstname").val();
 	if(firstname === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a first name.");
@@ -364,7 +363,7 @@ include '../includes/signin.php';
 		$("#firstname").css("border-color", "#4DC742");
 	}
 	
-	surname = $("#surname").val();
+	var surname = $("#surname").val();
 	if(surname === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a surname.");
@@ -377,7 +376,7 @@ include '../includes/signin.php';
 	}
 
 	if (account_type === 'student') {
-		studentno = $("#studentno").val();
+		var studentno = $("#studentno").val();
 		if(studentno === '') {
 			$("#error").show();
 			$("#error").empty().append("Please enter a student number.");
@@ -389,10 +388,10 @@ include '../includes/signin.php';
 			$("#studentno").css("border-color", "#4DC742");
 		}
 	} else {
-		studentno = $("#studentno").val();
+		var studentno = $("#studentno").val();
 	}
 	
-	email = $("#email").val();
+	var email = $("#email").val();
 	if(email === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
@@ -404,7 +403,7 @@ include '../includes/signin.php';
 		$("#email").css("border-color", "#4DC742");
 	}
 	
-	password = $("#password").val();
+	var password = $("#password").val();
 	if(password === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
@@ -442,7 +441,7 @@ include '../includes/signin.php';
 		return false;
 	}
 	
-	confirmpwd = $("#confirmpwd").val();
+	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password confirmation.");
@@ -467,15 +466,15 @@ include '../includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	dateofbirth = $("#dateofbirth").val();
-	phonenumber = $("#phonenumber").val();
-	degree = $("#degree").val();
-	address1 = $("#address1").val();
-	address2 = $("#address2").val();
-	town = $("#town").val();
-	city = $("#city").val();
-	country = $("#country").val();
-	postcode = $("#postcode").val();
+	var dateofbirth = $("#dateofbirth").val();
+	var phonenumber = $("#phonenumber").val();
+	var degree = $("#degree").val();
+ 	var address1 = $("#address1").val();
+	var address2 = $("#address2").val();
+	var town = $("#town").val();
+	var city = $("#city").val();
+	var country = $("#country").val();
+	var postcode = $("#postcode").val();
 
 	
 	if(hasError == false){
