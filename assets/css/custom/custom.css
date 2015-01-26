@@ -475,25 +475,25 @@ hr {
 /* End of Form Group style */
 
 /* Modal Custom style */
-#modal-custom .modal-content {
+.modal-custom .modal-content {
     border-color: #FFA500;
     border-radius: 0px;
     background-color: #333333;
 }
 
-#modal-custom .modal-header {
+.modal-custom .modal-header {
     border-color: #FFA500;
 }
 
-#modal-custom .modal-footer {
+.modal-custom .modal-footer {
     border-color: #FFA500;
 }
 
-#modal-custom .modal-title {
+.modal-custom .modal-title {
     color: #FFA500;
 }
 
-#modal-custom .close, .close:hover, .close:focus {
+.modal-custom .close, .close:hover, .close:focus {
     color: #FFA500;
     font-size: 30px;
     cursor: default;
