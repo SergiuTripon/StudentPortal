@@ -11,8 +11,6 @@ body {
 }
 
 /* Preloader style */
-9999999
-
 .pace {
     -webkit-pointer-events: none;
     pointer-events: none;
@@ -21,7 +19,7 @@ body {
     -moz-user-select: none;
     user-select: none;
 
-    z-index: 2000;
+    z-index: 9999999;
     position: fixed;
     margin: auto;
     top: 0;
