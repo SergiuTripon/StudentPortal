@@ -250,6 +250,8 @@ else $userid = '';
 	$stmt7->close();
 	?>
 
+	<a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
+
 	<!-- Help Modal -->
     <div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
