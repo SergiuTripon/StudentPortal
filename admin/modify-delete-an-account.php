@@ -405,7 +405,7 @@ else $userid = '';
 	data:myData,
 	success:function(response){
 		$('#user-'+DbNumberID).fadeOut();
-		$('#modal-custom').modal('hide');
+		$('#modal-'+DbNumberID).modal('hide');
 		setTimeout(function(){
 			location.reload();
 		}, 1000);
