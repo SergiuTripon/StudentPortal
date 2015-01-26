@@ -240,7 +240,7 @@ else $userid = '';
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="logo-custom animated fadeIn delay1">
+			<div class="logo-custom">
 			<i class="fa fa-trash"></i>
 			</div>
 			</div>
@@ -419,6 +419,8 @@ else $userid = '';
 	success:function(response){
 		$('#user-'+DbNumberID).fadeOut();
 		$('#hide').hide();
+		$('.logo-custom i').removeClass('fa-trash');
+		$('.logo-custom i').addClass('fa-check-square-o');
 		$('.feedback-custom').removeClass('feedback-custom');
 		$('.modal-body p').addClass('feedback-happy');
 		$('.feedback-happy').empty().append('The account has been deleted successfully.');
