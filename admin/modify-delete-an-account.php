@@ -242,10 +242,10 @@ else $userid = '';
 	</table>
 	</section>
 
-	<a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
+	<a class="help" href="#modal-custom" data-toggle="modal">Need help?</a>
 
 	<!-- Help Modal -->
-    <div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
@@ -255,19 +255,7 @@ else $userid = '';
     </div>
 
     <div class="modal-body">
-    <ul class="feedback-custom">
-    <li>Usernames may contain only digits, upper and lower case letters and underscores</li>
-    <li>Emails must have a valid email format</li>
-    <li>Passwords must be at least 6 characters long</li>
-    <li>Passwords must contain
-    <ul>
-    <li>At least one upper case letter (A..Z)</li>
-    <li>At least one lower case letter (a..z)</li>
-    <li>At least one number (0..9)</li>
-    </ul>
-    </li>
-    <li>Your password and confirmation must match exactly</li>
-    </ul>
+	<p class="feedback-custom text-center">Are you sure you want to delete this account?</p>
     </div>
 
 	<div class="modal-footer">
@@ -424,6 +412,7 @@ else $userid = '';
 	data:myData,
 	success:function(response){
 		$('#user-'+DbNumberID).fadeOut();
+		$('#modal-custom').modal('hide');
 		setTimeout(function(){
 			location.reload();
 		}, 1000);
