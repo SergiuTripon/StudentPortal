@@ -17,7 +17,7 @@ include '../includes/signin.php';
 
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal | Create a single account</title>
+    <title>Student Portal | Create an account</title>
 	
 	<style>
 	#account_type {
@@ -53,7 +53,7 @@ include '../includes/signin.php';
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
-    <li class="active">Create a single account</li>
+    <li class="active">Create an account</li>
     </ol>
 	
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -62,7 +62,7 @@ include '../includes/signin.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a single account</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create an account</a>
 	</h4>
     </div>
 
@@ -195,6 +195,12 @@ include '../includes/signin.php';
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php else : ?>
+
+	<style>
+	html, body {
+		height: 100% !important;
+	}
+	</style>
 
     <header class="intro">
     <div class="intro-body">

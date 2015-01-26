@@ -32,6 +32,8 @@ else $userid = '';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
+	<?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
+
 	<div class="container">
 
     <?php include '../includes/menus/portal_menu.php'; ?>
@@ -253,6 +255,41 @@ else $userid = '';
 	<!-- Sign Out (Inactive) JS -->
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
+	<?php else : ?>
+
+	<style>
+	html, body {
+		height: 100% !important;
+	}
+	</style>
+
+    <header class="intro">
+    <div class="intro-body">
+    <form class="form-custom orange-form">
+
+	<div class="logo-custom animated fadeIn delay1">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr class="hr-custom">
+
+	<p class="feedback-sad text-center">You need to have an admin account to access this area.</p>
+
+    <hr class="hr-custom">
+
+    <div class="text-center">
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/overview/"><span class="ladda-label">Overview</span></a>
+    </div>
+
+    </form>
+
+	</div><!-- /intro-body -->
+    </header>
+
+    <!-- Sign Out (Inactive) JS -->
+    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
+
+	<?php endif; ?>
 	<?php else : ?>
 
 	<style>
