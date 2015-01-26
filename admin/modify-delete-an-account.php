@@ -231,7 +231,7 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a href="modal-help" data-toggle="modal"><i class="fa fa-close"></i></a></td>
+			<td data-title="Delete"><a href="#modal-custom" data-toggle="modal"><i class="fa fa-close"></i></a></td>
 			</tr>';
 	}
 
@@ -242,7 +242,7 @@ else $userid = '';
 	</table>
 	</section>
 
-	<a class="help" href="#modal-custom" data-toggle="modal">Need help?</a>
+	<a class="help" >Need help?</a>
 
 	<!-- Help Modal -->
     <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -250,8 +250,9 @@ else $userid = '';
     <div class="modal-content">
 
 	<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
-    <h4 class="modal-title" id="modal-custom-label">Need help?</h4>
+    <div class="logo-custom animated fadeIn delay1">
+    <i class="fa fa-trash"></i>
+    </div>
     </div>
 
     <div class="modal-body">
