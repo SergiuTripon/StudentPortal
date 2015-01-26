@@ -250,8 +250,10 @@ else $userid = '';
 			</div>
 
 			<div class="modal-footer">
+			<div id="hide">
 			<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button">Yes</a>
 			<button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">Back</button>
+			</div>
 			</div>
 
 			</div><!-- /modal -->
@@ -405,6 +407,7 @@ else $userid = '';
 	data:myData,
 	success:function(response){
 		$('#user-'+DbNumberID).fadeOut();
+		$('#hide').hide();
 		$('.feedback-custom').append('The account has been deleted successfully.');
 	},
 
