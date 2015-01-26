@@ -355,6 +355,10 @@ else $userid = '';
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
 	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
+	<script>
+	Ladda.bind('.ladda-button', {timeout: 2000});
+	</script>
+
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
     $('.table-custom').dataTable({
