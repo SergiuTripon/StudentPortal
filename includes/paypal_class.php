@@ -68,7 +68,7 @@ class paypal_class {
 		echo "<html>\n";
 		echo "<head>";
 
-		echo "<script src=\"https://student-portal.co.uk/assets/js/pace-js/pace.js\"></script>";
+		echo "<script src=\"https://student-portal.co.uk/assets/js/pace-js/pace.min.js\"></script>";
 
 		echo "<meta charset=\"utf-8\">\n";
     	echo "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n";
