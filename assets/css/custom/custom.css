@@ -504,25 +504,25 @@ hr {
 /* End of Modal Custom style */
 
 /* Modal Help style */
-#modal-help .modal-content {
+.modal-help .modal-content {
     border-color: #FFA500;
     border-radius: 0px;
     background-color: #333333;
 }
 
-#modal-help .modal-header {
+.modal-help .modal-header {
     border-color: #FFA500;
 }
 
-#modal-help .modal-footer {
+.modal-help .modal-footer {
     border-color: #FFA500;
 }
 
-#modal-help .modal-title {
+.modal-help .modal-title {
     color: #FFA500;
 }
 
-#modal-help .close, .close:hover, .close:focus {
+.modal-help .close, .close:hover, .close:focus {
     color: #FFA500;
     font-size: 30px;
     cursor: default;
@@ -531,71 +531,6 @@ hr {
     text-shadow: none;
 }
 /* End of Modal Help style */
-
-/* Lock Modal style */
-#lock-modal .modal-dialog {
-    max-width: 350px;
-    margin: 40px auto;
-}
-
-#lock-modal .modal-content {
-    border-color: #FFA500;
-    border-radius: 0px;
-    background-color: #333333;
-}
-
-#lock-modal .modal-header {
-    border-color: #FFA500;
-}
-
-#lock-modal .modal-footer {
-    border-color: #FFA500;
-}
-
-#lock-modal .modal-title {
-    color: #FFA500;
-}
-
-#lock-modal .close, .close:hover, .close:focus {
-    color: #FFA500;
-    outline: none !important;
-    opacity: 1;
-    text-shadow: none;
-}
-/* End of Lock Modal style */
-
-/* Delete account Modal style */
-#deleteaccount-modal .modal-dialog {
-    max-width: 350px;
-    margin: 40px auto;
-}
-
-#deleteaccount-modal .modal-content {
-    border-color: #FFA500;
-    border-radius: 0px;
-    background-color: #333333;
-}
-
-#deleteaccount-modal .modal-header {
-    border-color: #FFA500;
-}
-
-#deleteaccount-modal .modal-footer {
-    border-color: #FFA500;
-}
-
-#deleteaccount-modal .modal-title {
-    color: #FFA500;
-}
-
-#deleteaccount-modal .close, .close:hover, .close:focus {
-    color: #FFA500;
-    outline: none !important;
-    opacity: 1;
-    text-shadow: none;
-}
-
-/* End of Delete account Modal style */
 
 /* Lock page style */
 #showdate {

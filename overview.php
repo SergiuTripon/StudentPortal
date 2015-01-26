@@ -65,7 +65,7 @@ include 'includes/signin.php';
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<a href="../transport/">
     <div class="tile">
-    <i class="fa fa-bus"></i>
+    <i class="fa fa-subway"></i>
 	<p class="tile-text">Transport</p>
     </div>
     </a>
@@ -155,7 +155,7 @@ include 'includes/signin.php';
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<a href="../transport/">
     <div class="tile">
-    <i class="fa fa-bus"></i>
+    <i class="fa fa-subway"></i>
 	<p class="tile-text">Transport</p>
     </div>
     </a>
@@ -263,7 +263,7 @@ include 'includes/signin.php';
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<a href="../transport/">
     <div class="tile">
-    <i class="fa fa-bus"></i>
+    <i class="fa fa-subway"></i>
 	<p class="tile-text">Transport</p>
     </div>
     </a>
