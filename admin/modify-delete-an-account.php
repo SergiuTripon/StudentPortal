@@ -63,7 +63,7 @@ else $userid = '';
 	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Change an account's password</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
 	<!-- Change an account's password -->
@@ -242,9 +242,7 @@ else $userid = '';
 	</table>
 	</section>
 
-	<a class="help" >Need help?</a>
-
-	<!-- Help Modal -->
+	<!-- Delete an account modal -->
     <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -273,7 +271,7 @@ else $userid = '';
 	</div><!-- /modal -->
     </div><!-- /modal-dialog -->
     </div><!-- /modal-content -->
-	<!-- End of Help Modal -->
+	<!-- End of Delete an account modal -->
 
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
