@@ -5,11 +5,9 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
-$db = new PDO('mysql:host=localhost;dbname=student_portal;charset=utf8', 'sergiutripon', 'MJvmJRG4XGdV8Wv');
-
 $sql = 'SELECT taskid, task_name, task_url, task_class, task_startdate, task_duedate FROM user_tasks WHERE userid = "'.$userid.'" AND task_status = "active"';
 
-$res = $db->query($sql);
+$res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);
 
 $out = array();
