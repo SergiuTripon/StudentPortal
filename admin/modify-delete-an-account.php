@@ -231,7 +231,7 @@ else $userid = '';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$row["account_type"].'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a class="help" href="#modal-help" data-toggle="modal"><i class="fa fa-close"></i></a></td>
+			<td data-title="Delete"><a href="modal-custom" data-toggle="modal"><i class="fa fa-close"></i></a></td>
 			</tr>';
 	}
 
@@ -242,8 +242,8 @@ else $userid = '';
 	</table>
 	</section>
 
-    <!-- Help Modal -->
-    <div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+	<!-- Help Modal -->
+    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
@@ -269,7 +269,14 @@ else $userid = '';
     </div>
 
 	<div class="modal-footer">
-    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">Back</button>
+	<?php
+	$stmt7 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt7->fetch_assoc()) {
+		echo '<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button">Yes</a>';
+	}
+	$stmt7->close();
+	?>
+    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">No</button>
     </div>
 
 	</div><!-- /modal -->
