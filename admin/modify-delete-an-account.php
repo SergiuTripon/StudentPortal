@@ -419,7 +419,7 @@ else $userid = '';
 		$('#success-button').show();
 		$("#success-button").click(function () {
 			location.reload();
-		}
+		});
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
