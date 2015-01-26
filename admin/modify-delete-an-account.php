@@ -413,11 +413,8 @@ else $userid = '';
 		$('.feedback-custom').addClass('.feedback-happy');
 		$('.feedback-custom').empty().append('The account has been deleted successfully.');
 		$('#success-button').show();
-		$("#success-button").click(function (e) {
-			e.preventDefault();
-			setTimeout(function(){
-				location.reload();
-			}, 1000);
+		$("#success-button").click(function () {
+			location.reload();
 		}
 	},
 
