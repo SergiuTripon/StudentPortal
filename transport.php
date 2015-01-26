@@ -56,7 +56,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/">Now</a></h4>
     </div>
 
@@ -82,7 +82,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-this-weekend/">This weekend</a></h4>
     </div>
 
@@ -156,7 +156,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
 	<h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $bakerloo ?></a></h4>
     </div>
 
@@ -182,7 +182,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $central ?></a></h4>
     </div>
 
@@ -208,7 +208,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/"><?php echo $circle ?></a></h4>
     </div>
 
@@ -240,7 +240,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $circle ?></a></h4>
     </div>
 
@@ -266,7 +266,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $dlr ?></a></h4>
     </div>
 
@@ -292,7 +292,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
 	<h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/"><?php echo $hammersmith ?></a></h4>
     </div>
 
@@ -318,7 +318,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $jubilee ?></a></h4>
     </div>
 
@@ -350,7 +350,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $metropolitan ?></a></h4>
     </div>
 
@@ -376,7 +376,7 @@ $time = date('H:i');
                             </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $northern ?></a></h4>
     </div>
 
@@ -402,7 +402,7 @@ $time = date('H:i');
     </div>
 
     <div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
     <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $picadilly ?></a></h4>
     </div>
 
@@ -434,7 +434,7 @@ $time = date('H:i');
 	</div>
 
 	<div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
 	<h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $victoria ?></a></h4>
 	</div>
 
@@ -460,7 +460,7 @@ $time = date('H:i');
 	</div>
 
 	<div class="transport-body">
-    <h1><i class="fa fa-map-marker"></i></h1>
+    <h1><i class="fa fa-subway"></i></h1>
 	<h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/"><?php echo $waterloo ?></a></h4>
 	</div>
 
