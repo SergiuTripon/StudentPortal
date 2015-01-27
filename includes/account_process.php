@@ -86,7 +86,7 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 
 	// Additional headers
 	$headers .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
-	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'From: Birthday Reminder <admin@student-portal.co.uk>' . "\r\n";
 	$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
 	$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 
