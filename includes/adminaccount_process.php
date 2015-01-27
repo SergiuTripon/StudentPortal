@@ -31,10 +31,6 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $country = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING);
     $postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
 
-    if (empty($dateofbirth)) {
-        $dateofbirth = NULL;
-    }
-
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('HTTP/1.0 550 The email address you entered is invalid.');
     exit();
@@ -85,6 +81,10 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $stmt4->execute();
     $stmt4->close();
 
+    if (empty($dateofbirth)) {
+        $dateofbirth = NULL;
+    }
+
     $stmt5 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, studentno, dateofbirth, phonenumber, degree, address1, address2, town, city, country, postcode, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt5->bind_param('sssissssssssss', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $country, $postcode, $created_on);
     $stmt5->execute();
@@ -97,13 +97,13 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $stmt6->execute();
     $stmt6->close();
 
-    if ($account_type = 'student') {
+    if ($account_type == 'student') {
     $fee_amount = '9000.00';
     }
-    elseif ($account_type = 'lecturer') {
+    elseif ($account_type == 'lecturer') {
     $fee_amount = '0.00';
     }
-    elseif ($account_type = 'admin') {
+    elseif ($account_type == 'admin') {
     $fee_amount = '0.00';
     }
 
