@@ -204,7 +204,7 @@ $stmt2->fetch();
     url: "https://student-portal.co.uk/includes/account_process.php",
     data:'deleteaccount_button=' + deleteaccount_button,
     success:function(response){
-        window.location.href = "/account-deleted/";
+        window.location.href = "/account/account-deleted/";
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();

@@ -1,5 +1,5 @@
 <?php
-include 'includes/signin.php';
+include '../includes/signin.php';
 
 $url1 = 'http://cloud.tfl.gov.uk/TrackerNet/LineStatus';
 $result1 = file_get_contents($url1);
@@ -16,7 +16,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 <head>
 
-	<?php include 'assets/js-paths/pacejs-js-path.php'; ?>
+	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,8 +27,8 @@ $xml_station_status = new SimpleXMLElement($result2);
 
     <title>Student Portal | Tube - Now</title>
 
-	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
+	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -39,7 +39,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 
     <div class="container">
 
-    <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -121,7 +121,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 
     </div><!-- /container -->
 	
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/portal_footer.php'; ?>
 
    <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -158,8 +158,8 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
+	<?php include '../assets/js-paths/common-js-paths.php'; ?>
+	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
 	$(document).ready(function () {

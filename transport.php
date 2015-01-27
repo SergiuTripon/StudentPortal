@@ -57,7 +57,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/">Now</a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/account/tube-now/">Now</a></h4>
     </div>
 
     <div class="transport-footer">
