@@ -325,6 +325,7 @@ include '../includes/signin.php';
 	
 	var hasError = false;
 
+	var account_type = $('#account_type option:selected').val();
 	if (account_type === 'null') {
         $("#error").empty().append("Please select an account type.");
 		$("#account_type").css("border-color", "#FF5454");
@@ -335,6 +336,7 @@ include '../includes/signin.php';
 		$("#account_type").css("border-color", "#4DC742");
 	}
 
+	var gender = $('#gender option:selected').val();
 	if (gender === 'null') {
 		$("#error").show();
         $("#error").empty().append("Please select a gender.");
