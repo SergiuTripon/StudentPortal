@@ -71,7 +71,7 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	// To send HTML mail, the Content-type header must be set
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	$headers .= 'From: Student Portal <admin@student-portal.com>' . "\r\n";
+	$headers .= 'From: Student Portal <admin@student-portal.co.uk>';
 	$headers .= 'Reply-To: Student Portal <admin@student-portal.com>' . "\r\n";
 	mail ($email, $subject, $message, $headers);
 	}
