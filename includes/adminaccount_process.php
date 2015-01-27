@@ -100,10 +100,10 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     if ($account_type = 'student') {
     $fee_amount = '9000.00';
     }
-    if ($account_type = 'lecturer') {
+    elseif ($account_type = 'lecturer') {
     $fee_amount = '0.00';
     }
-    if ($account_type = 'admin') {
+    elseif ($account_type = 'admin') {
     $fee_amount = '0.00';
     }
 
