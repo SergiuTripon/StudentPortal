@@ -77,20 +77,20 @@ include '../includes/signin.php';
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
-	
-    <div class="form-group">
-	
-    <div class="col-xs-12 col-sm-12 full-width">
+
+	<div class="form-group">
+
+	<div class="col-xs-12 col-sm-12 full-width">
     <label>Account type</label>
     <select class="form-control" name="account_type" id="account_type">
     <option style="color:gray" value="null" disabled selected>Select an account type</option>
     <option style="color: #FFA500" class="others">student</option>
     <option style="color: #FFA500" class="others">lecturer</option>
-    <option style="color: #FFA500" class="others">admin</option>
+	<option style="color: #FFA500" class="others">admin</option>
     </select>
     </div>
-	
-    </div>
+
+	</div>
 
 	<div class="form-group">
     
@@ -308,10 +308,11 @@ include '../includes/signin.php';
     e.preventDefault();
 	
 	var hasError = false;
-	
+
 	var account_type = $('#account_type option:selected').val();
 	if (account_type === 'null') {
-        $("#error").empty().append("Please select an account type.");
+		$("#error").show();
+        $("#error").empty().append("Please select a gender.");
 		$("#account_type").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
