@@ -57,7 +57,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="/account/tube-now/">Now</a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Now</a></h4>
     </div>
 
     <div class="transport-footer">
@@ -65,7 +65,7 @@ $time = date('H:i');
 	<h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-    <h5><a class="ladda-button" data-style="slide-down" href="../../tube-now/">Station status <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Station status <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -83,7 +83,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../tube-this-weekend/">This weekend</a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-this-weekend/">This weekend</a></h4>
     </div>
 
     <div class="transport-footer">
@@ -91,7 +91,7 @@ $time = date('H:i');
     <h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-    <h5><a class="ladda-button" data-style="slide-down" href="../tube-this-weekend/">Station status <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-this-weekend/">Station status <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
