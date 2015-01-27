@@ -279,15 +279,6 @@ include '../includes/signin.php';
 	
 	<script>
     $(document).ready(function () {
-    $('#gender').css('color', 'gray');
-    $('#gender').change(function () {
-    var current = $('#gender').val();
-	if (current != '') {
-        $('#gender').css('color', '#FFA500');
-	} else {
-		$('#gender').css('color', 'gray');
-	}
-    });
 	$('#account_type').css('color', 'gray');
     $('#account_type').change(function () {
     var current = $('#account_type').val();
@@ -298,26 +289,15 @@ include '../includes/signin.php';
 	}
     });
 
-	$('#account_type').change(function(){
-		if($(this).val() == 'student'){
-			$('label[for="studentno"]').show();
-			$('#studentno').show();
-			$('label[for="degree"]').show();
-			$('#degree').show();
-		}
-		if($(this).val() == 'lecturer'){
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-		if($(this).val() == 'admin'){
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-	});
+	$('#gender').css('color', 'gray');
+    $('#gender').change(function () {
+    var current = $('#gender').val();
+	if (current != '') {
+        $('#gender').css('color', '#FFA500');
+	} else {
+		$('#gender').css('color', 'gray');
+	}
+    });
 
     });
 	</script>
@@ -375,21 +355,7 @@ include '../includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	if (account_type === 'student') {
-		var studentno = $("#studentno").val();
-		if(studentno === '') {
-			$("#error").show();
-			$("#error").empty().append("Please enter a student number.");
-			$("#studentno").css("border-color", "#FF5454");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error").hide();
-			$("#studentno").css("border-color", "#4DC742");
-		}
-	} else {
-		var studentno = $("#studentno").val();
-	}
+	var studentno = $("#studentno").val();
 	
 	var email = $("#email").val();
 	if(email === '') {
