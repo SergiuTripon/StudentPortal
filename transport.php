@@ -125,7 +125,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-bicycle"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../cycle-hire/">Now</a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/cycle-hire/">Now</a></h4>
     </div>
 
     <div class="transport-footer">
@@ -133,7 +133,7 @@ $time = date('H:i');
     <h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-    <h5><a class="ladda-button" data-style="slide-down" href="../cycle-hire/">Availability updates <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button" data-style="slide-down" href="/transport/cycle-hire/">Availability updates <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -157,7 +157,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-	<h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $bakerloo ?></a></h4>
+	<h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $bakerloo ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -165,7 +165,7 @@ $time = date('H:i');
     <h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-    <h5><a class="ladda-button" data-style="slide-down" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
 	</div>
 	</div>
 
@@ -183,7 +183,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $central ?></a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $central ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -191,7 +191,7 @@ $time = date('H:i');
 	<h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
 	</div>
     <div class="pull-right">
-    <h5><a class="ladda-button" data-style="slide-down" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -209,7 +209,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway" style="color: #113892 !important;"></i></h1>
-    <h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/"><?php echo $circle ?></a></h4>
+    <h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="/transport/tube-now/"><?php echo $circle ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -217,7 +217,7 @@ $time = date('H:i');
     <h5 style="color: #113892 !important;"><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-    <h5><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -241,7 +241,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $circle ?></a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $circle ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -249,7 +249,7 @@ $time = date('H:i');
     <h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-	<h5><a class="ladda-button long" data-style="slide-down" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+	<h5><a class="ladda-button long" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -267,7 +267,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $dlr ?></a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $dlr ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -275,7 +275,7 @@ $time = date('H:i');
     <h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-	<h5><a class="ladda-button long" data-style="slide-down" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+	<h5><a class="ladda-button long" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -293,7 +293,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway" style="color: #113892 !important;"></i></h1>
-	<h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/"><?php echo $hammersmith ?></a></h4>
+	<h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="/transport/tube-now/"><?php echo $hammersmith ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -301,7 +301,7 @@ $time = date('H:i');
 	<h5 style="color: #113892 !important;"><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
 	</div>
     <div class="pull-right">
-    <h5><a class="ladda-button long" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button long" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -319,7 +319,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $jubilee ?></a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $jubilee ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -327,7 +327,7 @@ $time = date('H:i');
     <h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-	<h5><a class="ladda-button" data-style="slide-down" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+	<h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -351,7 +351,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $metropolitan ?></a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $metropolitan ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -359,7 +359,7 @@ $time = date('H:i');
     <h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-    <h5><a class="ladda-button" data-style="slide-down" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -377,7 +377,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $northern ?></a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $northern ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -385,7 +385,7 @@ $time = date('H:i');
     <h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-    <h5><a class="ladda-button" data-style="slide-down" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
 	</div>
     </div>
 
@@ -403,7 +403,7 @@ $time = date('H:i');
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $picadilly ?></a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $picadilly ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -411,7 +411,7 @@ $time = date('H:i');
     <h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
     </div>
     <div class="pull-right">
-    <h5><a class="ladda-button" data-style="slide-down" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
@@ -435,7 +435,7 @@ $time = date('H:i');
 
 	<div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-	<h4><a class="ladda-button" data-style="slide-down" href="../tube-now/"><?php echo $victoria ?></a></h4>
+	<h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $victoria ?></a></h4>
 	</div>
 
 	<div class="transport-footer">
@@ -443,7 +443,7 @@ $time = date('H:i');
 	<h5><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
 	</div>
 	<div class="pull-right">
-	<h5><a class="ladda-button" data-style="slide-down" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+	<h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
 	</div>
 	</div>
 
@@ -461,7 +461,7 @@ $time = date('H:i');
 
 	<div class="transport-body">
     <h1><i class="fa fa-subway" style="color: #113892 !important;"></i></h1>
-	<h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/"><?php echo $waterloo ?></a></h4>
+	<h4><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="/transport/tube-now/"><?php echo $waterloo ?></a></h4>
 	</div>
 
 	<div class="transport-footer">
@@ -469,7 +469,7 @@ $time = date('H:i');
 	<h5 style="color: #113892 !important;"><i class="fa fa-clock-o"></i> <?php echo $time ?></h5>
 	</div>
 	<div class="pull-right">
-	<h5><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="../tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
+	<h5><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
 	</div>
 	</div>
     
