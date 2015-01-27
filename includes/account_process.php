@@ -55,28 +55,40 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	$stmt2->close();
 
 	// subject
-	$subject = 'Account updated successfully';
+	$subject = 'Birthday Reminders for August';
 
 	// message
-	$message = '<html>';
-	$message .= '<head>';
-	$message .= '<title>Student Portal | Account</title>';
-	$message .= '</head>';
-	$message .= '<body>';
-	$message .= "<p>Dear $session_firstname,</p>";
-	$message .= '<p>Your account has been updated succesfully.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here</a>.';
-	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-	$message .= '</body>';
-	$message .= '</html>';
+	$message = '
+	<html>
+	<head>
+  	<title>Birthday Reminders for August</title>
+	</head>
+	<body>
+  	<p>Here are the birthdays upcoming in August!</p>
+  	<table>
+    <tr>
+      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
+    </tr>
+    <tr>
+      <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
+    </tr>
+    <tr>
+      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
+    </tr>
+  	</table>
+	</body>
+	</html>
+	';
 
 	// To send HTML mail, the Content-type header must be set
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 	// Additional headers
+	$headers .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
 	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
+	$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 
 	// Mail it
 	mail($email, $subject, $message, $headers);
