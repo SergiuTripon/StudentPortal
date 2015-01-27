@@ -62,7 +62,7 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	$message .= '<body>';
 	$message .= "<p>Dear $session_firstname,</p>";
 	$message .= '<p>Your account has been updated succesfully.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@student-portal.co.uk\">here</a>.';
+	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here</a>.';
 	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
 	$message .= '</body>';
 	$message .= '</html>';
@@ -109,7 +109,7 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	$message .= '<body>';
 	$message .= "<p>Dear $session_firstname,</p>";
 	$message .= '<p>Your account has been updated succesfully.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>';
+	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here.</a>';
 	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
 	$message .= '</body>';
 	$message .=	'</html>';
