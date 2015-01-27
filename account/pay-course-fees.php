@@ -1,5 +1,5 @@
 <?php
-include 'includes/signin.php';
+include '../includes/signin.php';
 
 if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
@@ -59,7 +59,7 @@ if ($fee_amount == "0.00") {
 
     <title>Student Portal | Pay Course Fees</title>
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -73,11 +73,11 @@ if ($fee_amount == "0.00") {
 		
 	<div class="container">
 
-    <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
-    <li><a href="../overview/">Overview</a></li>
-	<li><a href="../account/">Account</a></li>
+    <li><a href="../../overview/">Overview</a></li>
+	<li><a href="../../account/">Account</a></li>
     <li class="active">Pay course fees</li>
     </ol>
 	
@@ -165,7 +165,7 @@ if ($fee_amount == "0.00") {
 	
     </div><!-- /container -->
 	
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
@@ -232,7 +232,7 @@ if ($fee_amount == "0.00") {
 
 	<?php endif; ?>
 
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 	
 	<script>
     Ladda.bind('.ladda-button', {timeout: 2000});

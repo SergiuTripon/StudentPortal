@@ -52,8 +52,8 @@ $stmt2->fetch();
     <?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
-    <li><a href="../overview/">Overview</a></li>
-	<li><a href="../account/">Account</a></li>
+    <li><a href="../../overview/">Overview</a></li>
+	<li><a href="../../account/">Account</a></li>
     <li class="active">Delete account</li>
     </ol>
 	
@@ -152,7 +152,7 @@ $stmt2->fetch();
 	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 

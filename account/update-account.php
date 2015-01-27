@@ -1,5 +1,5 @@
 <?php
-include 'includes/signin.php';
+include '../includes/signin.php';
 
 if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
@@ -36,7 +36,7 @@ if ($dateofbirth == "0000-00-00") {
 
 <head>
 
-	<?php include 'assets/js-paths/pacejs-js-path.php'; ?>
+	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,8 +44,8 @@ if ($dateofbirth == "0000-00-00") {
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-	<?php include 'assets/css-paths/datetimepicker-css-path.php'; ?>
+	<?php include '../assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 	
     <title>Student Portal | Update Account</title>
 
@@ -68,11 +68,11 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="container">
 
-    <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
-	<li><a href="../overview/">Overview</a></li>
-	<li><a href="../account/">Account</a></li>
+	<li><a href="../../overview/">Overview</a></li>
+	<li><a href="../../account/">Account</a></li>
     <li class="active">Update account</li>
     </ol>
 
@@ -173,10 +173,10 @@ if ($dateofbirth == "0000-00-00") {
 
     </div> <!-- /container -->
 
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php endif; ?>
 
@@ -184,11 +184,11 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div class="container">
 
-    <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
-	<li><a href="../overview/">Overview</a></li>
-	<li><a href="../account/">Account</a></li>
+	<li><a href="../../overview/">Overview</a></li>
+	<li><a href="../../account/">Account</a></li>
     <li class="active">Update account</li>
     </ol>
 
@@ -284,7 +284,7 @@ if ($dateofbirth == "0000-00-00") {
 
     </div> <!-- /container -->
 
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -295,7 +295,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div class="container">
 
-    <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
 	<li><a href="../overview/">Overview</a></li>
@@ -395,10 +395,10 @@ if ($dateofbirth == "0000-00-00") {
 
     </div> <!-- /container -->
 
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php endif; ?>
 	
@@ -434,8 +434,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/datetimepicker-js-path.php'; ?>
+	<?php include '../assets/js-paths/common-js-paths.php'; ?>
+	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
     Ladda.bind('.ladda-button', {timeout: 1000});
