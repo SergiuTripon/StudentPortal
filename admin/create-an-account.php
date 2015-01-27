@@ -78,19 +78,19 @@ include '../includes/signin.php';
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
-	<div class="form-group">
+    <div class="form-group">
 
-	<div class="col-xs-12 col-sm-12 full-width">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label>Account type</label>
     <select class="form-control" name="account_type" id="account_type">
     <option style="color:gray" value="null" disabled selected>Select an account type</option>
     <option style="color: #FFA500" class="others">student</option>
     <option style="color: #FFA500" class="others">lecturer</option>
-	<option style="color: #FFA500" class="others">admin</option>
+    <option style="color: #FFA500" class="others">admin</option>
     </select>
     </div>
 
-	</div>
+    </div>
 
 	<div class="form-group">
     
@@ -289,10 +289,31 @@ include '../includes/signin.php';
 	}
     });
 
+	$('#account_type').change(function(){
+		if($(this).val() == 'student'){
+			$('label[for="studentno"]').show();
+			$('#studentno').show();
+			$('label[for="degree"]').show();
+			$('#degree').show();
+		}
+		if($(this).val() == 'lecturer'){
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
+		if($(this).val() == 'admin'){
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
+	});
+
 	$('#gender').css('color', 'gray');
     $('#gender').change(function () {
-    var current = $('#gender').val();
-	if (current != '') {
+    var current1 = $('#gender').val();
+	if (current1 != '') {
         $('#gender').css('color', '#FFA500');
 	} else {
 		$('#gender').css('color', 'gray');
@@ -311,8 +332,7 @@ include '../includes/signin.php';
 
 	var account_type = $('#account_type option:selected').val();
 	if (account_type === 'null') {
-		$("#error").show();
-        $("#error").empty().append("Please select a gender.");
+        $("#error").empty().append("Please select an account type.");
 		$("#account_type").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -356,7 +376,21 @@ include '../includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	var studentno = $("#studentno").val();
+	if (account_type === 'student') {
+		var studentno = $("#studentno").val();
+		if(studentno === '') {
+			$("#error").show();
+			$("#error").empty().append("Please enter a student number.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		}
+	} else {
+		var studentno = $("#studentno").val();
+	}
 	
 	var email = $("#email").val();
 	if(email === '') {
