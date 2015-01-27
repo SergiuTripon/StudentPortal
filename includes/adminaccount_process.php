@@ -34,15 +34,7 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     if (empty($dateofbirth)) {
         $dateofbirth = NULL;
     }
-    if ($account_type = 'student') {
-    $fee_amount = '9000.00';
-    }
-    if ($account_type = 'lecturer') {
-    $fee_amount = '0.00';
-    }
-    if ($account_type = 'admin') {
-    $fee_amount = '0.00';
-    }
+
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('HTTP/1.0 550 The email address you entered is invalid.');
