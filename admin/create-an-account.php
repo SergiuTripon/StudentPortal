@@ -281,8 +281,8 @@ include '../includes/signin.php';
     $(document).ready(function () {
 	$('#account_type').css('color', 'gray');
     $('#account_type').change(function () {
-    var current = $('#account_type').val();
-	if (current != '') {
+    var account_type = $('#account_type').val();
+	if (account_type != '') {
         $('#account_type').css('color', '#FFA500');
 	} else {
 		$('#account_type').css('color', 'gray');
@@ -312,19 +312,14 @@ include '../includes/signin.php';
 
 	$('#gender').css('color', 'gray');
     $('#gender').change(function () {
-    var current1 = $('#gender').val();
-	if (current1 != '') {
+    var gender = $('#gender').val();
+	if (gender != '') {
         $('#gender').css('color', '#FFA500');
 	} else {
 		$('#gender').css('color', 'gray');
 	}
     });
 
-    });
-	</script>
-	
-	<script>
-	$(document).ready(function() {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -341,7 +336,6 @@ include '../includes/signin.php';
 		$("#account_type").css("border-color", "#4DC742");
 	}
 
-	var gender = $('#gender option:selected').val();
 	if (gender === 'null') {
 		$("#error").show();
         $("#error").empty().append("Please select a gender.");
