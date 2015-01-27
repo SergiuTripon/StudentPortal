@@ -281,7 +281,7 @@ include '../includes/signin.php';
     $(document).ready(function () {
 	$('#account_type').css('color', 'gray');
     $('#account_type').change(function () {
-    var account_type = $('#account_type').val();
+	var account_type = $('#account_type option:selected').val();
 	if (account_type != '') {
         $('#account_type').css('color', '#FFA500');
 	} else {
@@ -312,7 +312,7 @@ include '../includes/signin.php';
 
 	$('#gender').css('color', 'gray');
     $('#gender').change(function () {
-    var gender = $('#gender').val();
+	var gender = $('#gender option:selected').val();
 	if (gender != '') {
         $('#gender').css('color', '#FFA500');
 	} else {
@@ -325,7 +325,6 @@ include '../includes/signin.php';
 	
 	var hasError = false;
 
-	var account_type = $('#account_type option:selected').val();
 	if (account_type === 'null') {
         $("#error").empty().append("Please select an account type.");
 		$("#account_type").css("border-color", "#FF5454");
