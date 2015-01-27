@@ -383,6 +383,16 @@ include '../includes/signin.php';
 			$("#error").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
+		if (studentno.length != 9) {
+			$("#error").show();
+			$("#error").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		}
 	} else {
 		var studentno = $("#studentno").val();
 	}

@@ -203,8 +203,8 @@ include 'includes/signin.php';
     $(document).ready(function () {
     $('#gender').css('color', 'gray');
     $('#gender').change(function () {
-    var current = $('#gender').val();
-	if (current != '') {
+    var gender = $('#gender option:selected').val();
+	if (gender != '') {
         $('#gender').css('color', '#FFA500');
 	} else {
 		$('#gender').css('color', 'gray');
@@ -220,7 +220,7 @@ include 'includes/signin.php';
 	
 	var hasError = false;
 	
-	gender = $('#gender option:selected').val();
+	var gender = $('#gender option:selected').val();
 	if (gender === 'null') {
         $("#error").empty().append("Please select a gender.");
 		$("#gender").css("border-color", "#FF5454");
@@ -230,8 +230,7 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#gender").css("border-color", "#4DC742");
 	}
-	
-	firstname = $("#firstname").val();
+    var firstname = $("#firstname").val();
 	if(firstname === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a first name.");
@@ -243,7 +242,7 @@ include 'includes/signin.php';
 		$("#firstname").css("border-color", "#4DC742");
 	}
 	
-	surname = $("#surname").val();
+	var surname = $("#surname").val();
 	if(surname === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a surname.");
@@ -255,7 +254,7 @@ include 'includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 	
-	studentno = $("#studentno").val();
+	var studentno = $("#studentno").val();
 	if(studentno === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a student number.");
@@ -278,7 +277,7 @@ include 'includes/signin.php';
 		$("#studentno").css("border-color", "#4DC742");
 	}
 	
-	email = $("#email").val();
+	var email = $("#email").val();
 	if(email === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
