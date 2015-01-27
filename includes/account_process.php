@@ -55,23 +55,23 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	$stmt2->close();
 
 	$subject = 'Account updated successfully';
-	$message = '<html>';
-	$message .= '<head>';
-	$message .= '<title>Student Portal | Account</title>';
-	$message .= '</head>';
-	$message .= '<body>';
-	$message .= "<p>Dear $session_firstname,</p>";
-	$message .= '<p>Your account has been updated succesfully.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here</a>.';
-	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-	$message .= '</body>';
-	$message .= '</html>';
+	$message = "
+	<html>
+	<head>
+	<title>Student Portal | Account</title>
+	</head>
+	<body>
+	<p>Dear ".$session_firstname.",</p>
+	<p>Your account has been updated succesfully.</p>
+	<p>If this action wasn't performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>
+	<p>Kind Regards,<br>The Student Portal Team</p>
+	</body>
+	</html>";
 
 	// To send HTML mail, the Content-type header must be set
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'From: Student Portal <contact@sergiu-tripon.com>' . "\r\n";
 	mail ($email, $subject, $message, $headers);
 	}
 
