@@ -61,9 +61,9 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	<title>Student Portal | Account</title>
 	</head>
 	<body>
-	<p>Dear ".$session_firstname.",</p>
+	<p>Dear $session_firstname,</p>
 	<p>Your account has been updated succesfully.</p>
-	<p>If this action wasn't performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>
+	<p>If this action wasn't performed by you, please contact Student Portal as soon as possible, by clicking <a href=mailto:contact@student-portal.co.uk>here.</a>
 	<p>Kind Regards,<br>The Student Portal Team</p>
 	</body>
 	</html>";
