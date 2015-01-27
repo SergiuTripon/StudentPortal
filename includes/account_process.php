@@ -54,6 +54,10 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	$stmt2->execute();
 	$stmt2->close();
 
+	// multiple recipients
+	$to  = 'aidan@example.com' . ', '; // note the comma
+	$to .= 'wez@example.com';
+
 	// subject
 	$subject = 'Birthday Reminders for August';
 
@@ -86,7 +90,7 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 
 	// Additional headers
 	$headers .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
-	$headers .= 'From: Birthday Reminder <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'From: Birthday Reminder <birthday@example.com>' . "\r\n";
 	$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
 	$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 
