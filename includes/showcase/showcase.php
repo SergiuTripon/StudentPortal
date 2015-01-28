@@ -271,8 +271,10 @@
     </div>
 
 	<div class="modal-footer">
+	<div class="text-center">
     <button type="button" class="btn btn-custom btn-lg" data-style="slide-up" data-dismiss="modal">Close</button>
-    </div>
+	</div>
+	</div>
 
 	</div><!-- /modal -->
     </div><!-- /modal-dialog -->
