@@ -152,7 +152,7 @@ include 'includes/signin.php';
     </a>
 	</div>
 
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<a href="../transport/">
     <div class="tile">
     <i class="fa fa-subway"></i>
@@ -170,7 +170,7 @@ include 'includes/signin.php';
     </a>
 	</div>
 
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<a href="">
     <div class="tile">
 	<i class="fa fa-beer"></i>
@@ -179,7 +179,7 @@ include 'includes/signin.php';
     </a>
 	</div>
 
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<a href="">
     <div class="tile">
     <i class="fa fa-map-marker"></i>
@@ -197,7 +197,7 @@ include 'includes/signin.php';
     </a>
 	</div>
 
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<a href="">
     <div class="tile">
     <i class="fa fa-comments"></i>
