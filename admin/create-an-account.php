@@ -78,6 +78,8 @@ include '../includes/signin.php';
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
+	<div id="hide">
+
     <div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
@@ -172,6 +174,8 @@ include '../includes/signin.php';
     
 	</div>
 
+	</div>
+
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create</span></button>
     </div>
@@ -252,6 +256,10 @@ include '../includes/signin.php';
 
     <div class="text-center">
     <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+	</div>
+
+	<div id="success-button" class="text-center" style="display:none">
+	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 	
     </form>
@@ -490,8 +498,10 @@ include '../includes/signin.php';
     data:'account_type=' + account_type + '&gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&degree=' + degree + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
     success:function(response){
 		$("#error").hide();
+		$("#hide").hide();
+		$("#FormSubmit").hide();
 		$("#success").empty().append('Account created successfully. To create another account, simply fill in the form again.');
-		$('#createsingleaccount_form').trigger("reset");
+		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();

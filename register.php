@@ -360,10 +360,10 @@ include 'includes/signin.php';
 	url: "https://student-portal.co.uk/includes/register_process.php",
     data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd,
     success:function(response){
+        $("#error").hide();
 		$("#hide").hide();
 		$("#register-button").hide();
 		$("#FormSubmit").hide();
-		$("#error").hide();
 		$("#success").append('Thank you for your registration. You can now sign in to your account.');
 		$("#success-button").show();
     },
