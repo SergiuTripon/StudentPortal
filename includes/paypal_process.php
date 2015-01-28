@@ -169,8 +169,10 @@ switch($payment){
 		$stmt8->execute();
 		$stmt8->close();
 
+		// subject
 		$subject = 'Payment confirmation';
 
+		// message
 		$message = '<html>';
 		$message .= '<body>';
 		$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
@@ -189,12 +191,15 @@ switch($payment){
 		$message .= '</html>';
 
 		// To send HTML mail, the Content-type header must be set
-		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+		// Additional headers
+		$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= 'CC: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= "MIME-Version: 1.0\r\n";
-		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-		mail ($email, $subject, $message, $headers);
+
+		// Mail it
+		mail($email, $subject, $message, $headers);
 
 		$subject = 'Instant Payment Notification - Received Payment';
 		$p->send_report($subject); // Send the notification about the transaction
