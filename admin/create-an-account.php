@@ -179,6 +179,10 @@ include '../includes/signin.php';
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create</span></button>
     </div>
+
+	<div id="success-button" class="text-center" style="display:none">
+	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href=""><span class="ladda-label">Create another</span></a>
+	</div>
 	
     </form>
     
@@ -256,10 +260,6 @@ include '../includes/signin.php';
 
     <div class="text-center">
     <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
-	</div>
-
-	<div id="success-button" class="text-center" style="display:none">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 	
     </form>
