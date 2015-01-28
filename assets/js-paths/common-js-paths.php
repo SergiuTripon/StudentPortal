@@ -1,12 +1,12 @@
     <!-- js library -->
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js"></script>
 
     <!-- bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/bootstrap/bootstrap.min.js"></script>
 
     <!-- ladda -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda.min.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/ladda/spin.min.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/ladda/ladda.min.js"></script>
 
     <!-- custom -->
     <script src="https://student-portal.co.uk/assets/js/custom/custom.js"></script>

@@ -8,10 +8,10 @@
     <link href="https://student-portal.co.uk/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- font-awesome -->
-    <link href="https://student-portal.co.uk/css/font-awesome/font-awesome.min.css" rel="stylesheet">
+    <link href="https://student-portal.co.uk/assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
 
     <!-- ladda -->
-    <link href="https://student-portal.co.uk/ladda/ladda-themeless.min.css" rel="stylesheet">
+    <link href="https://student-portal.co.uk/assets/ladda/ladda-themeless.min.css" rel="stylesheet">
 
     <!-- custom -->
     <link href="https://student-portal.co.uk/assets/css/custom/custom.css" rel="stylesheet">
