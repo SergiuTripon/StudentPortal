@@ -183,12 +183,6 @@ include '../includes/signin.php';
 	</script>
 
 	<script>
-	$(document).ready(function () {
-		$("#task-category").select2();
-	});
-	</script>
-
-	<script>
 	$(function () {
 	$('#task_startdate').datetimepicker({
 		dateFormat: "yy-mm-dd", controlType: 'select'
@@ -201,6 +195,9 @@ include '../includes/signin.php';
 	
 	<script>
     $(document).ready(function () {
+
+	$('select').select2();
+
     $('#task_category').css('color', 'gray');
     $('#task_category').change(function () {
     var current = $('#task_category').val();
