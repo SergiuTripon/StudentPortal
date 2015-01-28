@@ -5,7 +5,7 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
-$stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_sigin LEFT JOIN user_details ON user_signin.userid = user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid = user_details.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $userid);
 $stmt1->execute();
 $stmt1->store_result();
