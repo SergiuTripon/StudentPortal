@@ -421,9 +421,10 @@ else $userid = '';
 		$('#hide').hide();
 		$('.logo-custom i').removeClass('fa-trash');
 		$('.logo-custom i').addClass('fa-check-square-o');
-		$('.feedback-custom').removeClass('feedback-custom');
+		$('.modal-body p').removeClass('feedback-custom');
 		$('.modal-body p').addClass('feedback-happy');
-		$('.feedback-happy').empty().append('The account has been deleted successfully.');
+		$("#success").hide();
+		$('#success').empty().append('The account has been deleted successfully.');
 		$('#success-button').show();
 		$("#success-button").click(function () {
 			location.reload();
@@ -431,6 +432,7 @@ else $userid = '';
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
+		$("#success").hide();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
