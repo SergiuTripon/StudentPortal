@@ -275,12 +275,14 @@ if (isset($_POST["recordToChange"])) {
 	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
     data:'userid1=' + userid1 + '&password1=' + password1 + '&confirmpwd1=' + confirmpwd1,
     success:function(response){
-		$("#hide").hide();
 		$("#error").hide();
+		$("#hide").hide();
+		$("#success").show();
 		$("#success").append('The password has been changed successfully.');
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
+		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
