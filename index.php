@@ -202,7 +202,7 @@ include 'includes/signin.php';
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Timetable");
         $('.close').empty().append("<i class=\"fa fa-table\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\"><p>Timetable - your own personal secretary who sits in your back pocket. They'll nag you about where you need to be and when.</p>");
     });
     $( "#exams" ).click(function() {
         $('#modal-features').modal('show');
