@@ -208,7 +208,7 @@ include 'includes/signin.php';
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Exams");
         $('.close').empty().append("<i class=\"fa fa-pencil\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Exams - The word that every student hates. But this feature will make your life a little less stressful by helping you get to your exams on time and get the best results (revision's all on you though).</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Exams - The word that every student hates. But this feature will make your life a little less stressful by helping you get to your exams on time and get the best results. Revision's all on you though.</p>");
     });
     $( "#library" ).click(function() {
         $('#modal-features').modal('show');
