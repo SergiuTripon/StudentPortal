@@ -106,11 +106,11 @@
   filter: alpha(opacity=0); }
 
 .select2-container--default .select2-selection--single {
-  background-color: #fff;
-  border: 1px solid #aaa;
-  border-radius: 4px; }
+  background-color: #333333;
+  border: 1px solid #FFA500;
+  border-radius: 0px; }
   .select2-container--default .select2-selection--single .select2-selection__rendered {
-    color: #444;
+    color: #FFA500;
     line-height: 28px; }
   .select2-container--default .select2-selection--single .select2-selection__clear {
     cursor: pointer;
@@ -146,7 +146,7 @@
   .select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__clear {
     display: none; }
 .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
-  border-color: transparent transparent #888 transparent;
+  border-color: transparent transparent #FFA500 transparent;
   border-width: 0 4px 5px 4px; }
 .select2-container--default .select2-selection--multiple {
   background-color: white;
