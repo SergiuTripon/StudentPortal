@@ -202,19 +202,19 @@ include 'includes/signin.php';
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Timetable");
         $('.close').empty().append("<i class=\"fa fa-table\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">No one likes 9am lectures, especially when hungover from the night before. An easily accessible timetable should help you organise yourself better as you roll out of bed in the morning‏.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">No one likes 9am lectures, especially when hungover from the night before. An easily accessible timetable will help you organise yourself better as you roll out of bed in the morning‏.</p>");
     });
     $( "#exams" ).click(function() {
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Exams");
         $('.close').empty().append("<i class=\"fa fa-pencil\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Exams - The word that every student hates. But this feature will make your life a little less stressful by helping you get to your exams on time and get the best results. Revision's all on you though.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">The word that every student hates. But this feature will make your life a little less stressful by helping you get to your exams on time and get the best results. Revision's all on you though.</p>");
     });
     $( "#library" ).click(function() {
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Library");
         $('.close').empty().append("<i class=\"fa fa-book\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Library - feeling like a couch potato and don't want to go to the library? No sweat, just log on, have a browse and reserve what you fancy, or renew something that you already have on loan‏.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Feeling like a couch potato and don't want to go to the library? No sweat, just log on, have a browse and reserve what you fancy, or renew something that you already have on loan‏.</p>");
     });
     $( "#transport" ).click(function() {
         $('#modal-features').modal('show');
@@ -226,19 +226,19 @@ include 'includes/signin.php';
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Calendar");
         $('.close').empty().append("<i class=\"fa fa-calendar\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Calendar - your own personal secretary who sits in your back pocket. They'll nag you about what you need to do and when.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Your own personal secretary who sits in your back pocket. They'll nag you about what you need to do and when.</p>");
     });
     $( "#events" ).click(function() {
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Events");
         $('.close').empty().append("<i class=\"fa fa-beer\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Events - Let's be honest. We all say at the beginning of the year that we'll go to events but we never do. Here's your chance to get involved and have some fun. It's in your hands‏.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Let's be honest. We all say at the beginning of the year that we'll go to events but we never do. Here's your chance to get involved and have some fun. It's in your hands‏.</p>");
     });
     $( "#universitymap" ).click(function() {
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("University Map");
         $('.close').empty().append("<i class=\"fa fa-map-marker\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">University Map - That moment of panic when you have to go to a new classroom that you've never heard of. Admit it, it's not just freshers who get lost. But fear not, with the web app you'll have your own portable TomTom&#8482;‏.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">That moment of panic when you have to go to a new classroom that you've never heard of. Admit it, it's not just freshers who get lost. But fear not, with the web app you'll have your own portable TomTom&#8482;‏.</p>");
     });
     $( "#feedback" ).click(function() {
         $('#modal-features').modal('show');
@@ -250,13 +250,13 @@ include 'includes/signin.php';
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Messenger");
         $('.close').empty().append("<i class=\"fa fa-comments\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Messenger - So your lecturers office is on the fourth floor and there's no lift. Why bother climbing the stairs or opening your email when you can just send them a quick message? Simples.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">So your lecturers office is on the fourth floor and there's no lift. Why bother climbing the stairs or opening your email when you can just send them a quick message? Simples.</p>");
     });
     $( "#account" ).click(function() {
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Account");
         $('.close').empty().append("<i class=\"fa fa-user\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Account - There are some things in life you can't control, but you can have full control of your account right here. See what it feels like to be the boss.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">There are some things in life you can't control, but you can have full control of your account right here. See what it feels like to be the boss.</p>");
     });
     </script>
 
