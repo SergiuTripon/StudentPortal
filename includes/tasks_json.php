@@ -14,12 +14,12 @@ $out = array();
 foreach($res as $row) 
 {
   $out[] = array(
-    'id' => $row->taskid,
+    'id'    => $row->taskid,
     'title' => $row->task_name,
-    'url' => $row->task_url,
+    'url'   => $row->task_url,
 	'class' => $row->task_class,
     'start' => strtotime($row->task_startdate) . '000',
-    'end' => strtotime($row->task_duedate) .'000'
+    'end'   => strtotime($row->task_duedate) .'000'
    );
 }
 

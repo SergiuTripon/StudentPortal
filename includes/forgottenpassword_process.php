@@ -92,19 +92,12 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 	$stmt1->bind_result($userid);
 	$stmt1->fetch();
 
-	$stmt2 = $mysqli->prepare("SELECT token FROM user_token WHERE userid = ? LIMIT 1");
+	$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_detials.userid WHERE user_token.userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
 	$stmt2->execute();
 	$stmt2->store_result();
-	$stmt2->bind_result($db_token);
+	$stmt2->bind_result($db_token, $firstname);
 	$stmt2->fetch();
-
-	$stmt3 = $mysqli->prepare("SELECT firstname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('i', $userid);
-	$stmt3->execute();
-	$stmt3->store_result();
-	$stmt3->bind_result($firstname);
-	$stmt3->fetch();
 
 	if ($token == $db_token) {
 
@@ -123,7 +116,7 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 		$message .= '<title>Student Portal | Account</title>';
 		$message .= '</head>';
 		$message .= '<body>';
-		$message .= "<p>Dear \".$firstname.\",</p>";
+		$message .= "<p>Dear $firstname,</p>";
 		$message .= '<p>Your password has been successfully reset.</p>';
 		$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>';
 		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';

@@ -120,27 +120,11 @@ switch($payment){
 		$stmt1->fetch();
 		$stmt1->close();
 
-		$stmt2 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ? LIMIT 1");
+		$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_fees.isHalf FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.user LEFT JOIN user_fees ON user_signin.userid=user_fees.userid WHERE user_signin.userid = ? LIMIT 1");
 		$stmt2->bind_param('i', $userid);
 		$stmt2->execute();
 		$stmt2->store_result();
-		$stmt2->bind_result($email);
-		$stmt2->fetch();
-		$stmt2->close();
-
-		$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-		$stmt2->bind_param('i', $userid);
-		$stmt2->execute();
-		$stmt2->store_result();
-		$stmt2->bind_result($firstname, $surname);
-		$stmt2->fetch();
-		$stmt2->close();
-
-		$stmt2 = $mysqli->prepare("SELECT isHalf FROM user_fees WHERE userid = ? LIMIT 1");
-		$stmt2->bind_param('i', $userid);
-		$stmt2->execute();
-		$stmt2->store_result();
-		$stmt2->bind_result($isHalf);
+		$stmt2->bind_result($email, $firstname, $surname, $isHalf);
 		$stmt2->fetch();
 		$stmt2->close();
 
