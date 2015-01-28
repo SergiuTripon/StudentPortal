@@ -151,7 +151,7 @@ include 'includes/signin.php';
     <div class="row">
 
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-    <a href="/update-account/">
+    <a href="/account/update-account/">
     <div class="tile">
     <i class="fa fa-refresh"></i>
 	<p class="tile-text">Update account</p>
@@ -160,7 +160,7 @@ include 'includes/signin.php';
 	</div>
 
 	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a href="/change-password/">
+	<a href="/account/change-password/">
     <div class="tile">
     <i class="fa fa-key"></i>
 	<p class="tile-text">Change password</p>
@@ -169,7 +169,7 @@ include 'includes/signin.php';
 	</div>
 
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a href="/delete-account/">
+	<a href="/account/delete-account/">
     <div class="tile">
     <i class="fa fa-trash"></i>
 	<p class="tile-text">Delete account</p>
