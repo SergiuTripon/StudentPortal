@@ -362,6 +362,7 @@ include 'includes/signin.php';
     success:function(response){
         $("#error").hide();
 		$("#hide").hide();
+        $("#FormSubmit").hide();
 		$("#register-button").hide();
         $("#success").show();
 		$("#success").append('Thank you for your registration. You can now sign in to your account.');
