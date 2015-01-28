@@ -1,3 +1,7 @@
+.select2-container.form-control {
+  height: auto !important;
+}
+
 .select2-container {
   box-sizing: border-box;
   display: inline-block;
