@@ -180,7 +180,12 @@ include '../includes/signin.php';
 
 	<script>
 	Ladda.bind('.ladda-button', {timeout: 2000});
-	$("#task-category").select2();
+	</script>
+
+	<script>
+	$(document).ready(function () {
+		$("#task-category").select2();
+	});
 	</script>
 
 	<script>
