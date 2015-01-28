@@ -139,7 +139,7 @@ include 'includes/signin.php';
     <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 	
-    <div id="register-button" class="text-right">
+    <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Register</span></button>
     </div>
 	
