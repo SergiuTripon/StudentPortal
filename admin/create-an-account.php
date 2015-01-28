@@ -498,9 +498,9 @@ include '../includes/signin.php';
     data:'account_type=' + account_type + '&gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&degree=' + degree + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
     success:function(response){
 		$("#error").hide();
-		$("#hide").hide();
-		$("#FormSubmit").hide();
-		$("#success").empty().append('Account created successfully. To create another account, simply fill in the form again.');
+		$("#hide").fadeOut();
+		$("#FormSubmit").fadeOut();
+		$("#success").empty().append('Account created successfully.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
