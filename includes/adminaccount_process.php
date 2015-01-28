@@ -31,6 +31,8 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $country = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING);
     $postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
 
+    $account_type = strtolower($account_type);
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('HTTP/1.0 550 The email address you entered is invalid.');
     exit();
