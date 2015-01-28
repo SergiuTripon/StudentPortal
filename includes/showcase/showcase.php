@@ -271,7 +271,7 @@
     </div>
 
 	<div class="modal-footer">
-    <button type="button" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-custom btn-lg" data-style="slide-up" data-dismiss="modal">Close</button>
     </div>
 
 	</div><!-- /modal -->

@@ -256,7 +256,7 @@ include 'includes/signin.php';
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Account");
         $('.close').empty().append("<i class=\"fa fa-user\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\"></p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Account - There are some things in life you can't control, but you can have full control of your account right here. See what it feels like to be the boss.</p>");
     });
     </script>
 
