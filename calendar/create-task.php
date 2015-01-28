@@ -68,6 +68,8 @@ include '../includes/signin.php';
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
+	<div id="hide">
+
 	<div class="form-group">
 	
 	<div class="col-xs-12 col-sm-12 full-width">
@@ -112,9 +114,15 @@ include '../includes/signin.php';
     
 	</div>
 
+	</div>
+
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create</span></button>
     </div>
+
+	<div id="success-button" class="text-center" style="display:none">
+	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href=""><span class="ladda-label">Create another</span></a>
+	</div>
 	
     </form>
     </div><!-- /content-panel -->
@@ -261,10 +269,14 @@ include '../includes/signin.php';
     data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
     success:function(response){
 		$("#error").hide();
-		$("#success").empty().append('Task created successfully. To create another task, simply fill in the form again.');
-		$('#createtask_form').trigger("reset");
+		$("#hide").hide();
+		$("#FormSubmit").hide();
+		$("#success").show();
+		$("#success").empty().append('Task created successfully.');
+		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
+		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
