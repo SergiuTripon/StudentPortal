@@ -43,7 +43,10 @@ if (isset($_POST["email"])) {
 
 		$passwordlink = "<a href=http://test.student-portal.co.uk/password-reset/?token=". $token .">here</a>";
 
+		// subject
 		$subject = 'Request to change your password';
+
+		// message
 		$message = '<html>';
 		$message .= '<head>';
 		$message .= '<title>Student Portal | Password Reset</title>';
@@ -58,12 +61,15 @@ if (isset($_POST["email"])) {
 		$message .= '</html>';
 
 		// To send HTML mail, the Content-type header must be set
-		// To send HTML mail, the Content-type header must be set
-		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+		// Additional headers
+		$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= "MIME-Version: 1.0\r\n";
-		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-		mail ($email, $subject, $message, $headers);
+
+		// Mail it
+		mail($email, $subject, $message, $headers);
 
 		$stmt->close();
 	}
@@ -85,21 +91,21 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 		exit();
 	}
 
-	$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
-	$stmt1->bind_param('s', $email);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($userid);
-	$stmt1->fetch();
+		$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
+		$stmt1->bind_param('s', $email);
+		$stmt1->execute();
+		$stmt1->store_result();
+		$stmt1->bind_result($userid);
+		$stmt1->fetch();
 
-	$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_detials.userid WHERE user_token.userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $userid);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($db_token, $firstname);
-	$stmt2->fetch();
+		$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_detials.userid WHERE user_token.userid = ? LIMIT 1");
+		$stmt2->bind_param('i', $userid);
+		$stmt2->execute();
+		$stmt2->store_result();
+		$stmt2->bind_result($db_token, $firstname);
+		$stmt2->fetch();
 
-	if ($token == $db_token) {
+		if ($token == $db_token) {
 
 		$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
@@ -110,7 +116,18 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 		$stmt4->execute();
 		$stmt4->close();
 
+		$empty_token = NULL;
+		$empty_created_on = NULL;
+
+		$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
+		$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
+		$stmt4->execute();
+		$stmt4->close();
+
+		// subject
 		$subject = 'Password reset successfully';
+
+		// message
 		$message = '<html>';
 		$message .= '<head>';
 		$message .= '<title>Student Portal | Account</title>';
@@ -124,19 +141,15 @@ elseif (isset($_POST["token"], $_POST["email1"], $_POST["password"], $_POST["con
 		$message .= '</html>';
 
 		// To send HTML mail, the Content-type header must be set
-		$headers = 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+		// Additional headers
+		$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= "MIME-Version: 1.0\r\n";
-		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-		mail ($email, $subject, $message, $headers);
 
-		$empty_token = NULL;
-		$empty_created_on = NULL;
-
-		$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
-		$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
-		$stmt4->execute();
-		$stmt4->close();
+		// Mail it
+		mail($email, $subject, $message, $headers);
 
 	}
 	else
