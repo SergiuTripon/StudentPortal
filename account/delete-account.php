@@ -5,19 +5,12 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
-$stmt1 = $mysqli->prepare("SELECT studentno, firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_sigin LEFT JOIN user_details ON user_signin.userid = user_details.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $userid);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($studentno, $firstname, $surname);
+$stmt1->bind_result($email, $studentno, $firstname, $surname);
 $stmt1->fetch();
-
-$stmt2 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ? LIMIT 1");
-$stmt2->bind_param('i', $userid);
-$stmt2->execute();
-$stmt2->store_result();
-$stmt2->bind_result($email);
-$stmt2->fetch();
 
 ?>
 

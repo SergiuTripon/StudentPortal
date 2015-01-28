@@ -5,26 +5,12 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
-$stmt = $mysqli->prepare("SELECT studentno, firstname, surname, gender, dateofbirth, phonenumber, degree, address1, address2, town, city, postcode FROM user_details WHERE userid = ? LIMIT 1");
+$stmt = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname, user_details.gender, user_details.dateofbirth, user_details.phonenumber, user_details.degree, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.postcode, user_fees.fee_amount FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid LEFT JOIN user_fees on user_signin.userid=user_fees.signin WHERE user_signin.userid = ? LIMIT 1");
 $stmt->bind_param('i', $userid);
 $stmt->execute();
 $stmt->store_result();
-$stmt->bind_result($studentno, $firstname, $surname, $gender, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $postcode);
+$stmt->bind_result($email, $studentno, $firstname, $surname, $gender, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $postcode, $fee_amount);
 $stmt->fetch();
-
-$stmt1 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ? LIMIT 1");
-$stmt1->bind_param('i', $userid);
-$stmt1->execute();
-$stmt1->store_result();
-$stmt1->bind_result($email);
-$stmt1->fetch();
-
-$stmt2 = $mysqli->prepare("SELECT fee_amount FROM user_fees WHERE userid = ? LIMIT 1");
-$stmt2->bind_param('i', $userid);
-$stmt2->execute();
-$stmt2->store_result();
-$stmt2->bind_result($fee_amount);
-$stmt2->fetch();
 
 if ($fee_amount == "9000.00") {
     $fee_title = 'Full Fees';
