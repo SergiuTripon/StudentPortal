@@ -19,3 +19,13 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
 RewriteRule (.*)$ /$1/ [R=301,L]
+
+#Apache (.htaccess)
+AddType application/vnd.ms-fontobject .eot
+AddType application/font-woff .woff
+AddType application/x-font-truetype .ttf
+AddType image/svg+xml .svg
+AddType application/x-font-opentype .otf
+
+# could use application/octet-stream for default binary file transfer
+#AddType application/octet-stream .otf .ttf
