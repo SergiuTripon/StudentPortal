@@ -54,7 +54,14 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	$stmt2->execute();
 	$stmt2->close();
 
-	$subject = 'Account updated successfully';
+		// multiple recipients
+	$to  = 'aidan@example.com' . ', '; // note the comma
+	$to .= 'wez@example.com';
+
+	// subject
+	$subject = 'Birthday Reminders for August';
+
+	// message
 	$message = '<html>';
 	$message .= '<head>';
 	$message .= '<title>Student Portal | Account</title>';
@@ -70,9 +77,13 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	// To send HTML mail, the Content-type header must be set
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	$headers .= 'From: Student Portal <admin@student-portal.com>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.com>' . "\r\n";
-	mail ($email, $subject, $message, $headers);
+
+	// Additional headers
+	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+	// Mail it
+	mail($email, $subject, $message, $headers);
 	}
 
 	else {
