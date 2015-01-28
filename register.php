@@ -367,7 +367,8 @@ include 'includes/signin.php';
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
+        $("#success").hide();
+        $("#error").show();
         $("#error").empty().append(thrownError);
     }
 	});
