@@ -258,7 +258,7 @@
 	</footer><!-- /.footer -->
 
     <!-- Feature Modal -->
-    <div class="modal fade" id="modal-custom" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
+    <div class="modal modal-custom fade" id="modal-features" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
