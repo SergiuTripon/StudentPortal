@@ -363,6 +363,7 @@ include 'includes/signin.php';
         $("#error").hide();
 		$("#hide").hide();
 		$("#register-button").hide();
+        $("#success").show();
 		$("#success").append('Thank you for your registration. You can now sign in to your account.');
 		$("#success-button").show();
     },
