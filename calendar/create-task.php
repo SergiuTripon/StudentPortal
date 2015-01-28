@@ -105,10 +105,10 @@ include '../includes/signin.php';
     <label>Task category</label>
     <select class="form-control" name="task_category" id="task_category">
     <option style="color:gray" value="null" disabled selected>Select a task category</option>
-    <option style="color: #AD2121" class="others">University</option>
-    <option style="color: #1E90FF" class="others">Work</option>
-    <option style="color: #E3BC08" class="others">Personal</option>
-	<option style="color: #006400" class="others">Other</option>
+    <option style="background-color: #AD2121;" class="others">University</option>
+    <option style="background-color: #1E90FF;" class="others">Work</option>
+    <option style="background-color: #E3BC08;" class="others">Personal</option>
+	<option style="background-color: #006400;" class="others">Other</option>
 	</select>
 	</div>
     
