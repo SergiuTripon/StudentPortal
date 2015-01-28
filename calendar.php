@@ -45,7 +45,7 @@ else $userid = '';
 	<div class="row mb10">
 
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a href="/create-task/">
+	<a href="/calendar/create-task/">
     <div class="tile">
     <i class="fa fa-plus"></i>
 	<p class="tile-text">Create a task</p>
