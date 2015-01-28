@@ -202,7 +202,7 @@ include 'includes/signin.php';
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Timetable");
         $('.close').empty().append("<i class=\"fa fa-table\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\"><p>Timetable - your own personal secretary who sits in your back pocket. They'll nag you about where you need to be and when.</p>");
+        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Timetable - your own personal secretary who sits in your back pocket. They'll nag you about where you need to be and when.</p>");
     });
     $( "#exams" ).click(function() {
         $('#modal-features').modal('show');
