@@ -379,7 +379,7 @@ include '../includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	if (account_type === 'student') {
+	if (account_type === 'Student') {
 		var studentno = $("#studentno").val();
 		if(studentno === '') {
 			$("#error").show();
