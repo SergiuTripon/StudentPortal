@@ -1,2 +1,2 @@
     <!-- dataTables JS -->
-    <script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://student-portal.co.uk/js/data-tables/jquery.dataTables.min.js"></script>

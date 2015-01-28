@@ -1,2 +1,2 @@
     <!-- easing -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://student-portal.co.uk/js/easing/jquery.easing.min.js"></script>

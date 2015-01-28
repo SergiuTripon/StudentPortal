@@ -1,4 +1,4 @@
-<!-- favicon -->
+    <!-- favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="https://student-portal.co.uk/assets/img/favicon/favicon.ico">
 
     <!-- open-sans-font -->
