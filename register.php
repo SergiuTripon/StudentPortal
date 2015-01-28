@@ -139,7 +139,7 @@ include 'includes/signin.php';
     <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 	
-    <div class="text-right">
+    <div id="register-button" class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Register</span></button>
     </div>
 	
@@ -363,7 +363,6 @@ include 'includes/signin.php';
         $("#error").hide();
 		$("#hide").hide();
 		$("#register-button").hide();
-		$("#FormSubmit").hide();
 		$("#success").append('Thank you for your registration. You can now sign in to your account.');
 		$("#success-button").show();
     },
