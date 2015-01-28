@@ -84,9 +84,9 @@ include '../includes/signin.php';
     <label>Account type</label>
     <select class="form-control" name="account_type" id="account_type">
     <option style="color:gray" value="null" disabled selected>Select an account type</option>
-    <option style="color: #FFA500" class="others">student</option>
-    <option style="color: #FFA500" class="others">lecturer</option>
-    <option style="color: #FFA500" class="others">admin</option>
+    <option style="color: #FFA500" class="others">Student</option>
+    <option style="color: #FFA500" class="others">Lecturer</option>
+    <option style="color: #FFA500" class="others">Admin</option>
     </select>
     </div>
 
