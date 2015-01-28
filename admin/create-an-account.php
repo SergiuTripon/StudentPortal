@@ -500,10 +500,12 @@ include '../includes/signin.php';
 		$("#error").hide();
 		$("#hide").hide();
 		$("#FormSubmit").hide();
+		$("#success").show();
 		$("#success").empty().append('Account created successfully.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
+		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
