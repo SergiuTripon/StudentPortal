@@ -498,8 +498,8 @@ include '../includes/signin.php';
     data:'account_type=' + account_type + '&gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&degree=' + degree + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
     success:function(response){
 		$("#error").hide();
-		$("#hide").fadeOut();
-		$("#FormSubmit").fadeOut();
+		$("#hide").hide();
+		$("#FormSubmit").hide();
 		$("#success").empty().append('Account created successfully.');
 		$("#success-button").show();
 	},
