@@ -184,10 +184,14 @@ include '../includes/signin.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	Ladda.bind('.ladda-button', {timeout: 2000});
-	</script>
+	var task_category;
 
-	<script>
+	$(document).ready(function() {
+
+	//Ladda
+	Ladda.bind('.ladda-button', {timeout: 2000});
+
+	//Date Time Picker
 	$(function () {
 	$('#task_startdate').datetimepicker({
 		dateFormat: "yy-mm-dd", controlType: 'select'
@@ -196,16 +200,12 @@ include '../includes/signin.php';
 		dateFormat: "yy-mm-dd", controlType: 'select'
 	});
 	});
-	</script>
 
-	<script>
-	$(document).ready(function() {
-
+	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
-	var task_category = 0;
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
