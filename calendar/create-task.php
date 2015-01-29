@@ -206,7 +206,10 @@ include '../includes/signin.php';
 
 	<script>
 	$(function() {
-		$('#task_category').selectize();
+		$('#task_category').selectize({
+		create: true,
+		sortField: 'text'
+		});
 	});
 	</script>
 	
