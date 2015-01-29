@@ -211,6 +211,8 @@ include '../includes/signin.php';
 	
 	var hasError = false;
 
+	alert($(".btn").hasClass("active"));
+
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
         $("#error").empty().append("Please enter task name.");
