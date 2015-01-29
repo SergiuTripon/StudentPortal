@@ -17,10 +17,12 @@ if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST[
     $task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
     $task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
 
-    if ($task_category == 'University') { $task_class = 'event-important'; }
-    if ($task_category == 'Work') { $task_class = 'event-info'; }
-    if ($task_category == 'Personal') { $task_class = 'event-warning'; }
-    if ($task_category == 'Other') { $task_class = 'event-success'; }
+    $task_category = strtolower($task_category);
+
+    if ($task_category == 'university') { $task_class = 'event-important'; }
+    if ($task_category == 'work') { $task_class = 'event-info'; }
+    if ($task_category == 'personal') { $task_class = 'event-warning'; }
+    if ($task_category == 'other') { $task_class = 'event-success'; }
 
     // Check if task exists
     $stmt1 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE task_name = ? AND userid = ? LIMIT 1");
