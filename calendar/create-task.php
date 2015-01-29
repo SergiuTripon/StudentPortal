@@ -17,7 +17,7 @@ include '../includes/signin.php';
 
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
-	<?php include '../assets/css-paths/selectize-css-path.php'; ?>
+	<?php include '../assets/css-paths/select2-css-path.php'; ?>
 
 	<title>Student Portal | Create a task</title>
 
@@ -187,7 +187,7 @@ include '../includes/signin.php';
 
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
-	<?php include '../assets/js-paths/selectize-js-path.php'; ?>
+	<?php include '../assets/js-paths/select2-js-path.php'; ?>
 
 	<script>
 	Ladda.bind('.ladda-button', {timeout: 2000});
@@ -206,7 +206,7 @@ include '../includes/signin.php';
 
 	<script>
 	$(function() {
-		$('#task_category').selectize();
+		$('#task_category').select2();
 	});
 	</script>
 	
