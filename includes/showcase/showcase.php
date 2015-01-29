@@ -117,66 +117,84 @@
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div class="tile" id="exams">
+    <div id="exams">
+	<div class="tile">
 	<i class="fa fa-pencil"></i>
 	<p class="tile-text">Exams</p>
     </div>
 	</div>
+	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-	<div class="tile" id="library">
+	<div id="library">
+	<div class="tile">
     <i class="fa fa-book"></i>
 	<p class="tile-text">Library</p>
-    </div>
+	</div>
+	</div>
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div class="tile" id="transport">
+    <div id="transport">
+	<div class="tile" id="transport">
     <i class="fa fa-bus"></i>
 	<p class="tile-text">Transport</p>
     </div>
 	</div>
+	</div>
 
 	<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<div class="tile" id="calendar1">
+	<div id="calendar">
+	<div class="tile">
     <i class="fa fa-calendar"></i>
 	<p class="tile-text">Calendar</p>
-    </div>
+	</div>
+	</div>
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div class="tile" id="events">
+    <div id="events">
+	<div class="tile">
 	<i class="fa fa-beer"></i>
 	<p class="tile-text">Events</p>
-    </div>
+	</div>
+	</div>
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div class="tile" id="universitymap">
+    <div id="universitymap">
+	<div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p class="tile-text">University Map</p>
-    </div>
+	</div>
+	</div>
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div class="tile" id="feedback">
+    <div id="feedback">
+	<div class="tile">
     <i class="fa fa-check-square-o"></i>
 	<p class="tile-text">Feedback</p>
-    </div>
+	</div>
+	</div>
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-    <div class="tile" id="messenger">
+    <div id="messenger">
+	<div class="tile">
     <i class="fa fa-comments"></i>
 	<p class="tile-text">Messenger</p>
-    </div>
+	</div>
+	</div>
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-    <div class="tile" id="account">
+	<div id="account">
+	<div class="tile">
     <i class="fa fa-user"></i>
 	<p class="tile-text">Account</p>
-    </div>
+	</div>
+	</div>
 	</div>
 	</div><!-- /.row -->
 

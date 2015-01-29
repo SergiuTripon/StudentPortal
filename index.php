@@ -222,7 +222,7 @@ include 'includes/signin.php';
         $('.close').empty().append("<i class=\"fa fa-subway\"></i>");
         $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">So you get to the tube station and your line is delayed. We've all been there. Now you can check transport updates from our web app without the hassle of going on the TfL website‏.</p>");
     });
-    $( "#calendar1" ).click(function() {
+    $( "#calendar" ).click(function() {
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Calendar");
         $('.close').empty().append("<i class=\"fa fa-calendar\"></i>");
