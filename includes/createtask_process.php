@@ -45,5 +45,8 @@ if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST[
         $stmt1->close();
     }
 
+} else {
+    header('HTTP/1.0 550 A task with the task name entered already exists.');
+    exit();
 }
 
