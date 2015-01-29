@@ -205,7 +205,7 @@ include '../includes/signin.php';
 
 	<script>
 	$(function() {
-		$('#select-beast').selectize({
+		$('#task_category').selectize({
 		create: true,
 		sortField: 'text'
 		});
