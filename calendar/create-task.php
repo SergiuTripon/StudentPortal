@@ -211,8 +211,6 @@ include '../includes/signin.php';
 	
 	var hasError = false;
 
-	alert($(".btn").hasClass("active"));
-
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
         $("#error").empty().append("Please enter task name.");
@@ -251,7 +249,20 @@ include '../includes/signin.php';
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
 
-	var task_category = $('#task_category').val();
+	var myLink = $(".btn");
+	if (myLink.hasClass('active')) {
+		$("#error").hide();
+		$(".btn-group").css("border-color", "#4DC742");
+	}
+	else {
+		$("#error").show();
+		$("#error").empty().append("Please select a task category.");
+		$(".btn-group").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	}
+
+		var task_category = $('#task_category').val();
 	
 	if(hasError == false){
     jQuery.ajax({
