@@ -195,7 +195,7 @@ include '../includes/signin.php';
 
 	<script>
 	$(function() {
-		$('#task_category').magicSuggest();
+		$('#task_name').magicSuggest();
 	});
 	</script>
 	
