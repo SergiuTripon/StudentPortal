@@ -105,16 +105,16 @@ include '../includes/signin.php';
 	<input type="hidden" name="task_category" id="task_category" value="" />
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom">
+	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
-	<label class="btn btn-custom">
+	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Work
 	</label>
-	<label class="btn btn-custom">
+	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
 	</label>
-	<label class="btn btn-custom">
+	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
@@ -249,8 +249,8 @@ include '../includes/signin.php';
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
 
-	var myLink = $(".btn");
-	if (myLink.hasClass('active')) {
+	var task_category_check = $("task_category");
+	if ($(this).hasClass('active')) {
 		$("#error").hide();
 		$(".btn-group").css("border-color", "#4DC742");
 	}
