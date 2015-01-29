@@ -115,14 +115,17 @@ include '../includes/signin.php';
 
 	<div class="col-xs-12 col-sm-12 full-width">
 	<div class="btn-group" data-toggle="buttons">
-	<label class="btn btn-primary">
-		<input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
+	<label class="btn btn-important">
+		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
-	<label class="btn btn-primary">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
+	<label class="btn btn-info">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Work
 	</label>
-	<label class="btn btn-primary">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
+	<label class="btn btn-warning">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
+	</label>
+	<label class="btn btn-success">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
 	</div>
