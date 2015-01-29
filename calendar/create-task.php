@@ -187,8 +187,6 @@ include '../includes/signin.php';
 
 	$(document).ready(function() {
 
-	var task_category;
-
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
@@ -254,7 +252,7 @@ include '../includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/createtask_process.php",
-    data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
+    data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate,
     success:function(response){
 		$("#error").hide();
 		$("#hide").hide();

@@ -8,21 +8,15 @@ else $userid = '';
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 
-if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
+if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'])) {
 
     $task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
     $task_notes = filter_input(INPUT_POST, 'task_notes', FILTER_SANITIZE_STRING);
     $task_url = filter_input(INPUT_POST, 'task_url', FILTER_SANITIZE_STRING);
     $task_startdate = filter_input(INPUT_POST, 'task_startdate', FILTER_SANITIZE_STRING);
     $task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
-    $task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
 
-    $task_category = strtolower($task_category);
-
-    if ($task_category == 'university') { $task_class = 'event-important'; }
-    if ($task_category == 'work') { $task_class = 'event-info'; }
-    if ($task_category == 'personal') { $task_class = 'event-warning'; }
-    if ($task_category == 'other') { $task_class = 'event-success'; }
+    $task_class = 'event-important';
 
     // Check if task exists
     $stmt1 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE task_name = ? AND userid = ? LIMIT 1");
@@ -39,8 +33,8 @@ if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST[
     } else {
         $task_status = 'active';
 
-        $stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt2->bind_param('isssssssss', $userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
+        $stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('issssssss', $userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_status, $created_on);
         $stmt2->execute();
         $stmt2->close();
 
