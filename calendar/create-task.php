@@ -112,6 +112,13 @@ include '../includes/signin.php';
 	<option style="background-color: #006400; color: #FFFFFF;" class="others">Other</option>
 	</select>
 	</div>
+
+	<select class="task_category form-control">
+		<option>University</option>
+		<option>Work</option>
+		<option>Personal</option>
+		<option>Other</option>
+	</select>
     
 	</div>
 
@@ -194,8 +201,9 @@ include '../includes/signin.php';
 	</script>
 
 	<script>
-	$(function() {
-		$('select').select2();
+	$(".task-category").select2({
+		placeholder: "Select a state",
+		allowClear: true
 	});
 	</script>
 	
