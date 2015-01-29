@@ -113,9 +113,11 @@ include '../includes/signin.php';
 	</select>
 	</div>
 
+	<div class="col-xs-12 col-sm-12 full-width">
 	<select class="js-example-placeholder-single js-states form-control">
 		<option></option>
 	</select>
+	</div>
     
 	</div>
 
