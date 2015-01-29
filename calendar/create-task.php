@@ -115,16 +115,16 @@ include '../includes/signin.php';
 
 	<div class="col-xs-12 col-sm-12 full-width">
 	<div class="btn-group" data-toggle="buttons">
-	<label class="btn" style="background-color: #AD2121; color: #FFFFFF;">
+	<label class="btn">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
-	<label class="btn" style="background-color: #1E90FF; color: #FFFFFF;">
+	<label class="btn">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Work
 	</label>
-	<label class="btn" style="background-color: #E3BC08; color: #FFFFFF;">
+	<label class="btn">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
 	</label>
-	<label class="btn" style="background-color: #006400; color: #FFFFFF;">
+	<label class="btn">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
