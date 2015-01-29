@@ -68,10 +68,10 @@
     /* Change the border color on hover, focus and when open */
     .sod_select:hover,
     .sod_select.open,
-    .sod_select.focus { border-color: #000000; }
+    .sod_select.focus { border-color: #FFA500; }
 
         .sod_select.open { color: #919191; }
-        .sod_select.focus { box-shadow: 0 0 5px rgba(0,0,0,.2); }
+        .sod_select.focus { box-shadow: 0 0 0px rgba(0,0,0,.2); }
 
     /* When the entire SoD is disabled, go crazy! */
     .sod_select.disabled
@@ -85,7 +85,7 @@
     .sod_select .sod_label
         {
             display: block;
-            overflow: hidden;
+            overflow: visible;
             white-space: nowrap;
             text-overflow: ellipsis;
 
