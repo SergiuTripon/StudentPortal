@@ -196,7 +196,7 @@ include '../includes/signin.php';
 	<script>
     $(document).ready(function () {
 
-	$('select').select2();
+	$('#task_category').chosen();
 
     $('#task_category').css('color', 'gray');
     $('#task_category').change(function () {
