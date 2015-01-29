@@ -112,6 +112,16 @@ include '../includes/signin.php';
 	<option style="background-color: #006400; color: #FFFFFF;" class="others">Other</option>
 	</select>
 	</div>
+
+	<div class="col-xs-12 col-sm-12 full-width">
+	<label for="select-beast">Beast:</label>
+	<select id="select-beast" class="demo-default" placeholder="Select a person...">
+		<option value="">Select a person...</option>
+		<option value="1">Chuck Testa</option>
+		<option value="4">Sage Cattabriga-Alosa</option>
+		<option value="3">Nikola Tesla</option>
+	</select>
+	</div>
     
 	</div>
 
@@ -194,7 +204,12 @@ include '../includes/signin.php';
 	</script>
 
 	<script>
-		$("#task_category").selectize();
+	$(function() {
+		$('#select-beast').selectize({
+		create: true,
+		sortField: 'text'
+		});
+	});
 	</script>
 	
 	<script>
