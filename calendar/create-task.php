@@ -200,14 +200,6 @@ include '../includes/signin.php';
 	});
 	});
 
-	//Global variable
-	var task_category;
-
-	//Setting variable value
-	$('.btn-group .btn').click(function(){
-		task_category = ($(this).html())
-	})
-
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
@@ -251,6 +243,8 @@ include '../includes/signin.php';
 		$("#error").hide();
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
+
+	var task_category = $('.btn-group > .btn.active').html();
 	
 	if(hasError == false){
     jQuery.ajax({
