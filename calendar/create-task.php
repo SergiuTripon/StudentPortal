@@ -103,7 +103,7 @@ include '../includes/signin.php';
 	<div class="form-group">
 
 	<div class="col-xs-12 col-sm-12 full-width">
-	<label>Task category</label>
+	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
