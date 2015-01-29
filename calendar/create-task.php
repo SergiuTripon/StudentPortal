@@ -102,7 +102,6 @@ include '../includes/signin.php';
 	<div class="form-group">
 
 	<div class="col-xs-12 col-sm-12 full-width">
-	<input type="hidden" name="task_category" id="task_category" value="" />
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom task_category">
@@ -201,11 +200,15 @@ include '../includes/signin.php';
 	});
 	});
 
-	$(".btn-group .btn").click(function() {
-		$("#task_category").val($(this).text().replace(/^\s+|\s+$/g,''));
-	});
+	//Global variable
+	var task_category;
 
-		//Ajax call
+	//Setting variable value
+	$('.btn-group .btn').click(function(){
+		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
+	})
+
+	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -262,8 +265,6 @@ include '../includes/signin.php';
 		return false;
 	}
 
-	var task_category = $('#task_category').val();
-	
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
