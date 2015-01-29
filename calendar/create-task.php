@@ -192,11 +192,15 @@ include '../includes/signin.php';
 	});
 	});
 	</script>
+
+	<script>
+	$(function() {
+		$('#task_category').magicSuggest();
+	});
+	</script>
 	
 	<script>
     $(document).ready(function () {
-
-	$('#task_category').chosen();
 
     $('#task_category').css('color', 'gray');
     $('#task_category').change(function () {
