@@ -205,7 +205,7 @@ include '../includes/signin.php';
 
 	//Setting variable value
 	$('.btn-group .btn').click(function(){
-		task_category = ($(this).text())
+		task_category = ($(this).html())
 	})
 
 	//Ajax call
