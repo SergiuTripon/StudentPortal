@@ -200,12 +200,19 @@ include '../includes/signin.php';
 	});
 	});
 
+	//Global variable
+	var task_category;
+
+	//Setting variable value
+	$('.btn-group .btn').click(function(){
+		task_category = ($(this).text())
+	})
+
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
-	var task_category = 'blah';
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
@@ -244,10 +251,6 @@ include '../includes/signin.php';
 		$("#error").hide();
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
-
-	$('.btn-group .btn').click(function(){
-		task_category = ($(this).text())
-	})
 	
 	if(hasError == false){
     jQuery.ajax({
