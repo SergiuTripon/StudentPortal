@@ -239,30 +239,30 @@ include '../includes/signin.php';
 	if(task_startdate === '') {
 		$("#error").show();
 		$("#error").empty().append("Please enter a task start date and time.");
-		$("#datepicker1").css("border-color", "#FF5454");
+		$("#task_startdate").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
 		$("#error").hide();
-		$("#datepicker1").css("border-color", "#4DC742");
+		$("#task_startdate").css("border-color", "#4DC742");
 	}
 
 	task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a task due date and time.");
-		$("#datepicker2").css("border-color", "#FF5454");
+		$("#task_duedate").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
 		$("#error").hide();
-		$("#datepicker2").css("border-color", "#4DC742");
+		$("#task_duedate").css("border-color", "#4DC742");
 	}
 	
 	task_category = $('#task_category option:selected').val();
 	if (task_category === 'null') {
 		$("#error").show();
-        $("#error").empty().append("Please select a gender.");
+        $("#error").empty().append("Please select a task category.");
 		$("#task_category").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
