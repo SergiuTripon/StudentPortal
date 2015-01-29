@@ -195,7 +195,7 @@ include '../includes/signin.php';
 
 	<script>
 	$(function() {
-		$('#task_category').select2();
+		$('select').select2();
 	});
 	</script>
 	
