@@ -195,10 +195,10 @@ include '../includes/signin.php';
 
 	<select class="js-source-states" style="display: none;">
 		<optgroup label="Options">
-			<option>University</option>
-			<option>Work</option>
-			<option>Personal</option>
-			<option>Other</option>
+			<option value="1">University</option>
+			<option value="2">Work</option>
+			<option value="3">Personal</option>
+			<option value="4">Other</option>
 		</optgroup>
 	</select>
 
