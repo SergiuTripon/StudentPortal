@@ -197,7 +197,7 @@ include '../includes/signin.php';
 
 	<select class="js-source-states" style="display: none;">
 		<optgroup label="Alaskan/Hawaiian Time Zone">
-			<option value="AK">Alaska</option>
+			<option style="background-color: #FFA500 !important; color: #333333 !important;" value="AK">Alaska</option>
 			<option value="HI">Hawaii</option>
 		</optgroup>
 		<optgroup label="Pacific Time Zone">
