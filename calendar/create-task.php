@@ -202,7 +202,7 @@ include '../includes/signin.php';
 	});
 
 	$(".btn-group .btn").click(function() {
-		$("#task_category").val($(this).text().replace(/ /g,''));
+		$("#task_category").val($(this).text().replace(/^\s+|\s+$/g,''));
 	});
 
 		//Ajax call
