@@ -35,7 +35,7 @@ if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST[
         $task_status = 'active';
 
         $stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt2->bind_param('isssssssss', $userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_status, $task_category, $created_on);
+        $stmt2->bind_param('isssssssss', $userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
         $stmt2->execute();
         $stmt2->close();
 
