@@ -15,7 +15,7 @@ if (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST[
     $task_url = filter_input(INPUT_POST, 'task_url', FILTER_SANITIZE_STRING);
     $task_startdate = filter_input(INPUT_POST, 'task_startdate', FILTER_SANITIZE_STRING);
     $task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
-    $task_category = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
+    $task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
 
     $task_class = 'event-important';
 
