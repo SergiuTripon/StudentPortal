@@ -205,7 +205,7 @@ include '../includes/signin.php';
     e.preventDefault();
 	
 	var hasError = false;
-	var task_category;
+	var task_category = 0;
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
