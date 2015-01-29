@@ -197,30 +197,17 @@ include '../includes/signin.php';
 	});
 	});
 	</script>
-	
-	<script>
-    $(document).ready(function () {
 
-    $('#task_category').css('color', 'gray');
-    $('#task_category').change(function () {
-    var current = $('#task_category').val();
-	if (current != '') {
-        $('#task_category').css('color', '#FFA500');
-	} else {
-		$('#task_category').css('color', 'gray');
-	}
-    });
-    });
-	</script>
-	
 	<script>
 	$(document).ready(function() {
+
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
-	
-	task_name = $("#task_name").val();
+	var task_category;
+
+	var task_name = $("#task_name").val();
 	if(task_name === '') {
         $("#error").empty().append("Please enter task name.");
 		$("#task_name").css("border-color", "#FF5454");
@@ -231,10 +218,10 @@ include '../includes/signin.php';
 		$("#task_name").css("border-color", "#4DC742");
 	}
 	
-	task_notes = $("#task_notes").val();
-	task_url = $("#task_url").val();
+	var task_notes = $("#task_notes").val();
+	var task_url = $("#task_url").val();
 
-	task_startdate = $("#task_startdate").val();
+	var task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
 		$("#error").show();
 		$("#error").empty().append("Please enter a task start date and time.");
@@ -246,7 +233,7 @@ include '../includes/signin.php';
 		$("#task_startdate").css("border-color", "#4DC742");
 	}
 
-	task_duedate = $("#task_duedate").val();
+	var task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a task due date and time.");
@@ -257,18 +244,10 @@ include '../includes/signin.php';
 		$("#error").hide();
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
-	
-	task_category = $('#task_category option:selected').val();
-	if (task_category === 'null') {
-		$("#error").show();
-        $("#error").empty().append("Please select a task category.");
-		$("#task_category").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-	} else {
-		$("#error").hide();
-		$("#task_category").css("border-color", "#4DC742");
-	}
+
+	$('.btn-group .btn').click(function(){
+		task_category = ($(this).text())
+	})
 	
 	if(hasError == false){
     jQuery.ajax({
