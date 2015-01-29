@@ -184,9 +184,10 @@ include '../includes/signin.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	var task_category;
 
 	$(document).ready(function() {
+
+	var task_category;
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
