@@ -102,6 +102,7 @@ include '../includes/signin.php';
 	<div class="form-group">
 
 	<div class="col-xs-12 col-sm-12 full-width">
+	<input type="hidden" name="task_category" id="task_category" value="" />
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom">
@@ -200,7 +201,11 @@ include '../includes/signin.php';
 	});
 	});
 
-	//Ajax call
+	$(".btn-group .btn").click(function() {
+		$("#task_category").val($(this).text());
+	});
+
+		//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -244,7 +249,7 @@ include '../includes/signin.php';
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
 
-	var task_category = $('.btn-group > .btn.active').html();
+	var task_category = $('#task_category').val();
 	
 	if(hasError == false){
     jQuery.ajax({
