@@ -116,11 +116,11 @@ include '../includes/signin.php';
 	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="task_category">Beast:</label>
 	<select id="task_category" placeholder="Select a task category">
-		<option>Select a task category</option>
-		<option>University</option>
-		<option>Work</option>
-		<option>Personal</option>
-		<option>Other</option>
+		<option value="">Select a task category</option>
+		<option value="1">University</option>
+		<option value="2">Work</option>
+		<option value="3">Personal</option>
+		<option value="4">Other</option>
 	</select>
 	</div>
     
@@ -207,7 +207,6 @@ include '../includes/signin.php';
 	<script>
 	$(function() {
 		$('#task_category').selectize({
-		create: true,
 		sortField: 'text'
 		});
 	});
