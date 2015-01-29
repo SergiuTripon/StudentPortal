@@ -581,6 +581,14 @@ hr {
 	outline: none !important;
     border-radius: 0px;
 }
+.btn-group {
+    width: 100%;
+}
+
+.btn:active, .btn.active {
+    color: #333333 !important;
+    background-color: #FFA500;
+}
 
 /* End of Button Style */
 
