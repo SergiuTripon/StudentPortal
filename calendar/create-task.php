@@ -205,7 +205,7 @@ include '../includes/signin.php';
     e.preventDefault();
 	
 	var hasError = false;
-	var task_category = 'University';
+	var task_category = 'blah';
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
