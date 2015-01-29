@@ -249,8 +249,8 @@ include '../includes/signin.php';
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
 
-	var task_category_check = $("task_category");
-	if ($(this).hasClass('active')) {
+	var task_category_check = $(".task_category");
+	if (task_category_check.hasClass('active')) {
 		$("#error").hide();
 		$(".btn-group").css("border-color", "#4DC742");
 	}
@@ -262,7 +262,7 @@ include '../includes/signin.php';
 		return false;
 	}
 
-		var task_category = $('#task_category').val();
+	var task_category = $('#task_category').val();
 	
 	if(hasError == false){
     jQuery.ajax({
