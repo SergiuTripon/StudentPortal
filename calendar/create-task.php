@@ -192,6 +192,10 @@ include '../includes/signin.php';
 	});
 	});
 	</script>
+
+	<script>
+		$("#task_category").selectOrDie();
+	</script>
 	
 	<script>
     $(document).ready(function () {
