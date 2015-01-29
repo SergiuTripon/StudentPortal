@@ -205,6 +205,7 @@ include '../includes/signin.php';
     e.preventDefault();
 	
 	var hasError = false;
+	var task_category = 'University';
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
@@ -252,7 +253,7 @@ include '../includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/createtask_process.php",
-    data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate,
+    data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
     success:function(response){
 		$("#error").hide();
 		$("#hide").hide();
