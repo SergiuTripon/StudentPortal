@@ -192,12 +192,6 @@ include '../includes/signin.php';
 	});
 	});
 	</script>
-
-	<script>
-	$(function() {
-		$('#task_name').magicSuggest();
-	});
-	</script>
 	
 	<script>
     $(document).ready(function () {
