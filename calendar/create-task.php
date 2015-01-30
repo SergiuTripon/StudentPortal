@@ -230,6 +230,7 @@ include '../includes/signin.php';
 
 	var task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
+		$("#error-icon1").show();
 		$("#error2").show();
 		$("#error2").empty().append("Please enter a task start date and time.");
 		$("#task_startdate").css("border-color", "#FF5454");
@@ -237,6 +238,7 @@ include '../includes/signin.php';
 		return false;
 	} else {
 		$("#error2").hide();
+		$("#error-icon1").hide();
 		$("#task_startdate").css("border-color", "#4DC742");
 	}
 
