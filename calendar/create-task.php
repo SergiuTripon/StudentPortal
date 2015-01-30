@@ -72,8 +72,6 @@ include '../includes/signin.php';
 
     <label>Name</label>
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
-	<span id="error-icon1" class="error-icon fa fa-close" style="display: none;"></span>
-	<span id="success-icon1" class="success-icon fa fa-check" style="display: none;"></span>
 	<p id="error1" class="feedback-sad text-center"></p>
 
     <label>Notes (Optional)</label>
@@ -193,6 +191,7 @@ include '../includes/signin.php';
 		var width = $(window).width();
 		if(width <= 420){
 			$('.btn-group').removeClass('btn-group-justified');
+			$('.btn-group').addClass('btn-group-vertical full-width');
 		} else {
 			$('.btn-group').addClass('btn-group-justified');
 		}
@@ -215,15 +214,13 @@ include '../includes/signin.php';
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
-		$("#error-icon1").find('.error-icon').show();
+		$("#error1").show();
         $("#error1").empty().append("Please enter task name.");
 		$("#task_name").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error-icon1").find('.error-icon').hide();
 		$("#error1").hide();
-		$("#success-icon1").find('.success-icon').show();
 		$("#task_name").css("border-color", "#4DC742");
 	}
 	
@@ -232,7 +229,6 @@ include '../includes/signin.php';
 
 	var task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
-		$("#error-icon1").show();
 		$("#error2").show();
 		$("#error2").empty().append("Please enter a task start date and time.");
 		$("#task_startdate").css("border-color", "#FF5454");
@@ -240,7 +236,6 @@ include '../includes/signin.php';
 		return false;
 	} else {
 		$("#error2").hide();
-		$("#error-icon1").hide();
 		$("#task_startdate").css("border-color", "#4DC742");
 	}
 
