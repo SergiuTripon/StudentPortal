@@ -72,7 +72,7 @@ include '../includes/signin.php';
 
     <label>Name</label>
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
-	<span class="fa fa-info-circle error-icon1" style="display: none;"></span>
+	<span id="error-icon1" class="fa fa-info-circle" style="display: none;"></span>
 	<p id="error1" class="feedback-sad text-center"></p>
 
     <label>Notes (Optional)</label>
