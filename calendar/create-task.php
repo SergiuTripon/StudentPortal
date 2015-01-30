@@ -64,8 +64,7 @@ include '../includes/signin.php';
     <div class="content-panel mb10" style="border: none;">
     
 	<form class="form-custom" style="max-width: 600px; padding-top: 0px;" name="createtask_form" id="createtask_form">
-	
-    <p id="error" class="feedback-sad text-center"></p>
+
 	<p id="success" class="feedback-happy text-center"></p>
 
 	<div id="hide">
@@ -75,6 +74,7 @@ include '../includes/signin.php';
 	<div class="col-xs-12 col-sm-12 full-width">
     <label>Name</label>
     <input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
+	<p id="error1" class="feedback-sad text-center"></p>
 
     <label>Notes (Optional)</label>
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Enter notes"></textarea>
@@ -89,6 +89,7 @@ include '../includes/signin.php';
 	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Start date and time</label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
+	<p id="error2" class="feedback-sad text-center"></p>
 	</div>
 	</div>
 
@@ -96,6 +97,7 @@ include '../includes/signin.php';
 	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Due date and time</label>
 	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
+	<p id="error3" class="feedback-sad text-center"></p>
 	</div>
 	</div>
 	
@@ -116,6 +118,7 @@ include '../includes/signin.php';
 	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
+	<p id="error4" class="feedback-sad text-center"></p>
 	</div>
 	</div>
     
@@ -216,12 +219,12 @@ include '../includes/signin.php';
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
-        $("#error").empty().append("Please enter task name.");
+        $("#error1").empty().append("Please enter task name.");
 		$("#task_name").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#task_name").css("border-color", "#4DC742");
 	}
 	
@@ -230,8 +233,8 @@ include '../includes/signin.php';
 
 	var task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
-		$("#error").show();
-		$("#error").empty().append("Please enter a task start date and time.");
+		$("#error2").show();
+		$("#error2").empty().append("Please enter a task start date and time.");
 		$("#task_startdate").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -242,24 +245,24 @@ include '../includes/signin.php';
 
 	var task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a task due date and time.");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter a task due date and time.");
 		$("#task_duedate").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error3").hide();
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
 
 	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
-		$("#error").hide();
+		$("#error4").hide();
 		$(".btn-group").css("border-color", "#4DC742");
 	}
 	else {
-		$("#error").show();
-		$("#error").empty().append("Please select a task category.");
+		$("#error4").show();
+		$("#error4").empty().append("Please select a task category.");
 		$(".btn-group").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
