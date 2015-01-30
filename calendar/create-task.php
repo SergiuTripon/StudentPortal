@@ -71,8 +71,10 @@ include '../includes/signin.php';
 	<div id="hide">
 
     <label>Name</label>
-    <input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
+	<div class="input-group">
+	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
 	<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
 
     <label>Notes (Optional)</label>
