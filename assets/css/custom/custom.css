@@ -489,6 +489,10 @@ hr {
     border-radius: 0px;
 }
 
+.btn-group, .btn-group-vertical {
+    margin-top: 10px;
+}
+
 .btn.active {
     color: #333333 !important;
     background-color: #FFA500;

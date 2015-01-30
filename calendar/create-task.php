@@ -251,7 +251,7 @@ include '../includes/signin.php';
 	var task_category_check = $("#validation1");
 	if (task_category_check.hasClass('active')) {
 		$("#error4").hide();
-		$(".btn-group").css("border-color", "#4DC742");
+		$("#validation1").css("border-color", "#4DC742");
 	}
 	else {
 		$("#error4").show();
