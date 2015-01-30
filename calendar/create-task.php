@@ -251,12 +251,12 @@ include '../includes/signin.php';
 	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
 		$("#error4").hide();
-		$(".btn-group .btn-custom").css("border-color", "#4DC742");
+		$(".btn-group > .btn-custom").css("border-color", "#4DC742");
 	}
 	else {
 		$("#error4").show();
 		$("#error4").empty().append("Please select a task category.");
-		$(".btn-group .btn-custom").css("border-color", "#FF5454");
+		$(".btn-group > .btn-custom").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	}
