@@ -381,7 +381,7 @@ hr {
 /* End of Form Group style */
 
 /* Form Validation */
-.error-icon1 {
+#error-icon1 {
     float: right;
     margin-right: 20px;
     margin-top: -37px;
