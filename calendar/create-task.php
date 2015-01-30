@@ -256,7 +256,7 @@ include '../includes/signin.php';
 	else {
 		$("#error4").show();
 		$("#error4").empty().append("Please select a task category.");
-		$(".btn-group").css("border-color", "#FF5454");
+		$("#validation1").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	}
