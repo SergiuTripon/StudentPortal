@@ -83,6 +83,7 @@ include '../includes/signin.php';
 
 	<label>Start date and time</label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
+	<span id="error-icon1" class="fa fa-info-circle" style="display: none;"></span>
 	<p id="error2" class="feedback-sad text-center"></p>
 
 	<label>Due date and time</label>
