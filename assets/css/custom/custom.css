@@ -85,8 +85,8 @@ b, strong {
 }
 
 /* hr style */
-hr {
-    border: 1px solid #FFA500;
+.hr-custom {
+    border: 1px solid #FFA500 !important;
 }
 
 .hr-thin {
