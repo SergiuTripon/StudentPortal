@@ -192,8 +192,10 @@ include '../includes/signin.php';
 		var width = $(window).width();
 		if(width <= 420){
 			$('.btn-group').addClass('btn-group-xs');
+			$('.btn-group').removeClass('btn-group-justified');
 		} else {
 			$('.btn-group').removeClass('btn-group-xs');
+			$('.btn-group').addClass('btn-group-justified');
 		}
 	})
 	.resize();//trigger the resize event on page load.
