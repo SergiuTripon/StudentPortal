@@ -219,7 +219,7 @@ include '../includes/signin.php';
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
+
 		$("#task_name").css("border-color", "#4DC742");
 	}
 	
