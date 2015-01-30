@@ -89,7 +89,7 @@ include '../includes/signin.php';
 	<p id="error3" class="feedback-sad text-center"></p>
 
 	<label>Task category - select below</label>
-	<div class="btn-group btn-group-xs btn-group-justified" data-toggle="buttons">
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
@@ -185,13 +185,12 @@ include '../includes/signin.php';
 	});
 	});
 
+	//Responsiveness
 	$(window).resize(function(){
 		var width = $(window).width();
 		if(width <= 420){
-			$('.btn-group').addClass('btn-group-xs');
 			$('.btn-group').removeClass('btn-group-justified');
 		} else {
-			$('.btn-group').removeClass('btn-group-xs');
 			$('.btn-group').addClass('btn-group-justified');
 		}
 	})
