@@ -494,6 +494,10 @@ hr {
     margin-top: 10px;
 }
 
+.btn-group, .btn-custom {
+    line-height: 1.9;
+}
+
 .btn.active {
     color: #333333 !important;
     background-color: #FFA500;
