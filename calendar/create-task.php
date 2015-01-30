@@ -109,6 +109,8 @@ include '../includes/signin.php';
 	</div>
 	</div>
 
+	<hr class="hr-custom">
+
 	</div>
 
     <div class="text-right">
