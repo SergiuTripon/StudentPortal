@@ -73,7 +73,8 @@ include '../includes/signin.php';
     <label>Name</label>
 	<div class="input-group">
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
-	<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+	<span id="error-icon1" class="input-group-addon" style="display: none;"><i class="fa fa-close fa-fw"></i></span>
+	<span id="success-icon1" class="input-group-addon" style="display: none;"><i class="fa fa-check fa-fw"></i></span>
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
 
@@ -215,12 +216,15 @@ include '../includes/signin.php';
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
+		$("#error-icon1").show();
         $("#error1").empty().append("Please enter task name.");
 		$("#task_name").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
 		$("#error1").hide();
+		$("#error-icon1").hide();
+		$("#success-icon1").show();
 		$("#task_name").css("border-color", "#4DC742");
 	}
 	
