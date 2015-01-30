@@ -257,12 +257,10 @@ hr {
 
 .feedback-sad {
     color: #FF5454;
-    margin-top: 10px;
 }
 
 .feedback-happy {
     color: #4DC742;
-    margin-top: 10px;
 }
 /* End of Feedback messages style */
 
@@ -491,7 +489,7 @@ hr {
 }
 
 .btn-group, .btn-group-vertical {
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .btn-group, .btn-custom {
