@@ -381,7 +381,7 @@ hr {
 /* End of Form Group style */
 
 /* Form Validation */
-#error-icon {
+.error-icon {
     font-size: 20px;
     float: right;
     margin-right: 20px;
@@ -390,7 +390,7 @@ hr {
     z-index: 2;
     color: #FF5454;
 }
-#success-icon {
+.success-icon {
     font-size: 20px;
     float: right;
     margin-right: 20px;
