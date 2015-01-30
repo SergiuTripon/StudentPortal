@@ -73,8 +73,8 @@ include '../includes/signin.php';
     <label>Name</label>
 	<div class="input-group">
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
-	<span id="error-icon1" class="input-group-addon" style="display: none;"><i class="fa fa-close fa-fw"></i></span>
-	<span id="success-icon1" class="input-group-addon" style="display: none;"><i class="fa fa-check fa-fw"></i></span>
+	<span class="input-group-addon"><i id="error-icon1" class="fa fa-close fa-fw" style="display: none;"></i></span>
+	<span class="input-group-addon"><i id="success-icon1" class="fa fa-check fa-fw" style="display: none;"></i></span>
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
 
