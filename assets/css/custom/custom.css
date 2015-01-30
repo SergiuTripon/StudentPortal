@@ -513,6 +513,12 @@ hr {
     margin-bottom: 10px;
 }
 
+.btn-group-vertical > :last-child:not(:first-child).btn {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
 .btn-group, .btn-custom {
     line-height: 1.9;
 }
