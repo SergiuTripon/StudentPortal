@@ -89,19 +89,13 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
-	<label>Task category - select below</label>
-	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom task_category">
-		<input type="radio" name="options" id="option1" autocomplete="off"> Male
-	</label>
-	<label class="btn btn-custom task_category">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Female
-	</label>
-	<label class="btn btn-custom task_category">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Other
-	</label>
-	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
+            <label>Gender</label>
+            <select class="form-control" name="gender" id="gender">
+                <option <?php if($gender == "Male") echo "selected=selected"; ?> class="others">Male</option>
+                <option <?php if($gender == "Female") echo "selected=selected"; ?> class="others">Female</option>
+                <option <?php if($gender == "Other") echo "selected=selected"; ?> class="others">Other</option>
+            </select>
+        </div>
 
     </div>
 
@@ -149,6 +143,8 @@ if ($dateofbirth == "0000-00-00") {
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
     </div>
+
+
 
 	</div>
 
@@ -430,19 +426,19 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function() {
-
     Ladda.bind('.ladda-button', {timeout: 1000});
+	</script>
 
-    // Date Time Picker
+	<script>
 	$(function () {
 	$('#dateofbirth').datepicker({
 		dateFormat: "yy-mm-dd",
 		defaultDate: new Date(1985, 00, 01)
 	});
 	});
+	</script>
 
-    //Checking if fields are empty
+	<script>
 	val = $("#gender").val();
 	if(val === '') { $("#gender").css("border-color", "#FF5454"); }
 	val = $("#firstname").val();
@@ -469,44 +465,16 @@ if ($dateofbirth == "0000-00-00") {
 	if(val === '') { $("#postcode").css("border-color", "#FF5454"); }
 	val = $("#degree").val();
 	if(val === '') { $("#degree").css("border-color", "#FF5454"); }
+	</script>
 
-    //Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480){
-			$('.btn-group').removeClass('btn-group-justified');
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		} else {
-			$('.btn-group').addClass('btn-group-justified');
-		}
-	})
-	.resize();//trigger the resize event on page load.
-
-    //Global variable
-    var gender;
-
-    //Setting variable value
-    $('.btn-group .btn').click(function(){
-        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
-    })
-
-    //Ajax call
+	<script>
+	$(document).ready(function() {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-	var task_category_check = $(".task_category");
-	if (task_category_check.hasClass('active')) {
-		$("#error4").hide();
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
-	}
-	else {
-		$("#error4").empty().append("Please select a task category.");
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
-		hasError  = true;
-		return false;
-	}
+	gender = $("#gender").val();
 	
 	firstname = $("#firstname").val();
 	if(firstname === '') {
