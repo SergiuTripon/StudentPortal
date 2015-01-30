@@ -63,7 +63,7 @@ include '../includes/signin.php';
 	<!-- Create a task -->
     <div class="content-panel mb10" style="border: none;">
     
-	<form class="form-custom" style="max-width: 600px; padding-top: 0px;" name="createtask_form" id="createtask_form">
+	<form class="form-custom" style="max-width: 900px; padding-top: 0px;" name="createtask_form" id="createtask_form">
 
 	<p id="success" class="feedback-happy text-center"></p>
 
