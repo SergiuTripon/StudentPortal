@@ -215,15 +215,15 @@ include '../includes/signin.php';
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
-		$("#error-icon1 .error-icon").show();
+		$(".error-icon > #error-icon1").show();
         $("#error1").empty().append("Please enter task name.");
 		$("#task_name").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error-icon1 .error-icon").hide();
+		$(".error-icon > #error-icon1").hide();
 		$("#error1").hide();
-		$("#success-icon1 .success-icon").show();
+		$(".success-icon > #success-icon1").show();
 		$("#task_name").css("border-color", "#4DC742");
 	}
 	
