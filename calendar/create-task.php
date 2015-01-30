@@ -89,16 +89,16 @@ include '../includes/signin.php';
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-xs btn-group-justified" data-toggle="buttons">
-	<label id="validation1" class="btn btn-custom">
+	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
-	<label id="validation1" class="btn btn-custom">
+	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Work
 	</label>
-	<label id="validation1" class="btn btn-custom">
+	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
 	</label>
-	<label id="validation1" class="btn btn-custom">
+	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
@@ -248,15 +248,15 @@ include '../includes/signin.php';
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
 
-	var task_category_check = $("#validation1");
+	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
 		$("#error4").hide();
-		$("#validation1").css("border-color", "#4DC742");
+		$(".btn-group").css("border-color", "#4DC742");
 	}
 	else {
 		$("#error4").show();
 		$("#error4").empty().append("Please select a task category.");
-		$("#validation1").css("border-color", "#FF5454");
+		$(".btn-group").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	}
