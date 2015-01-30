@@ -381,14 +381,23 @@ hr {
 /* End of Form Group style */
 
 /* Form Validation */
-#error-icon1 {
+#error-icon {
     font-size: 20px;
     float: right;
     margin-right: 20px;
     margin-top: -42px;
     position: relative;
     z-index: 2;
-    color: #ff5454;
+    color: #FF5454;
+}
+#success-icon {
+    font-size: 20px;
+    float: right;
+    margin-right: 20px;
+    margin-top: -42px;
+    position: relative;
+    z-index: 2;
+    color: #4DC742;
 }
 /* End of Form Validation */
 
