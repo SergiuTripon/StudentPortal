@@ -257,11 +257,12 @@ hr {
 
 .feedback-sad {
     color: #FF5454;
+    margin-top: 10px;
 }
 
 .feedback-happy {
     color: #4DC742;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 /* End of Feedback messages style */
 
