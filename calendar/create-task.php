@@ -219,7 +219,7 @@ include '../includes/signin.php';
 		hasError  = true;
 		return false;
     } else {
-
+		$("#error1").hide();
 		$("#task_name").css("border-color", "#4DC742");
 	}
 	
@@ -228,7 +228,6 @@ include '../includes/signin.php';
 
 	var task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
-		$("#error2").show();
 		$("#error2").empty().append("Please enter a task start date and time.");
 		$("#task_startdate").css("border-color", "#FF5454");
 		hasError  = true;
@@ -240,7 +239,6 @@ include '../includes/signin.php';
 
 	var task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
-		$("#error3").show();
         $("#error3").empty().append("Please enter a task due date and time.");
 		$("#task_duedate").css("border-color", "#FF5454");
 		hasError  = true;
@@ -256,7 +254,6 @@ include '../includes/signin.php';
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error4").show();
 		$("#error4").empty().append("Please select a task category.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
