@@ -91,7 +91,7 @@ include '../includes/signin.php';
 	<p id="error3" class="feedback-sad text-center"></p>
 
 	<label>Task category - select below</label>
-	<div class="btn-group-vertical btn-group-justified" data-toggle="buttons">
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label id="validation1" class="btn btn-custom">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
@@ -187,6 +187,14 @@ include '../includes/signin.php';
 		dateFormat: "yy-mm-dd", controlType: 'select'
 	});
 	});
+
+	$(window).resize(function(){
+		var width = $(window).width();
+		if(width <= 480){
+			$('#btn-group').removeClass('btn-group-justified');
+		}
+	})
+	.resize();//trigger the resize event on page load.
 
 	//Global variable
 	var task_category;
