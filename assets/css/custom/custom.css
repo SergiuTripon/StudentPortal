@@ -526,6 +526,7 @@ hr {
 .btn.active {
     color: #333333 !important;
     background-color: #FFA500;
+    box-shadow: none;
 }
 
 /* End of Button Style */
