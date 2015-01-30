@@ -89,15 +89,15 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
-	<label>Task category - select below</label>
+	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom task_category">
+	<label <?php if($gender == "Male") echo "active=active"; ?> class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Male
 	</label>
-	<label class="btn btn-custom task_category">
+	<label <?php if($gender == "Female") echo "active=active"; ?> class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Female
 	</label>
-	<label class="btn btn-custom task_category">
+	<label <?php if($gender == "Other") echo "active=active"; ?> class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
