@@ -71,7 +71,7 @@ include '../includes/signin.php';
 
 	<div class="form-group">
 	
-	<div class="col-xs-12 col-sm-12 full-width nprl">
+	<div class="col-xs-12 col-sm-12 full-width nprl mb20">
     <label>Name</label>
     <input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
 	<p id="error1" class="feedback-sad text-center"></p>
