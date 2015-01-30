@@ -189,7 +189,7 @@ include '../includes/signin.php';
 	//Responsiveness
 	$(window).resize(function(){
 		var width = $(window).width();
-		if(width <= 460){
+		if(width <= 480){
 			$('.btn-group').removeClass('btn-group-justified');
 			$('.btn-group').addClass('btn-group-vertical full-width');
 		} else {
