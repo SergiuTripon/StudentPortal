@@ -89,13 +89,13 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
-    <label>Gender</label>
-    <select class="form-control" name="gender" id="gender">
-    <option <?php if($gender == "Male") echo "selected=selected"; ?> class="others">Male</option>
-    <option <?php if($gender == "Female") echo "selected=selected"; ?> class="others">Female</option>
-    <option <?php if($gender == "Other") echo "selected=selected"; ?> class="others">Other</option>
-    </select>
-    </div>
+            <label>Gender</label>
+            <select class="form-control" name="gender" id="gender">
+                <option <?php if($gender == "Male") echo "selected=selected"; ?> class="others">Male</option>
+                <option <?php if($gender == "Female") echo "selected=selected"; ?> class="others">Female</option>
+                <option <?php if($gender == "Other") echo "selected=selected"; ?> class="others">Other</option>
+            </select>
+        </div>
 
     </div>
 
@@ -139,6 +139,8 @@ if ($dateofbirth == "0000-00-00") {
     <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter your programme of study">
 	</div>
 	</div>
+
+    <hr class="hr-custom">
 
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
