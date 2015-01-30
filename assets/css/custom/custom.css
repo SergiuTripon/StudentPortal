@@ -228,6 +228,10 @@ hr {
     background-color: #333333;
 }
 
+.panel-body {
+    padding: 10px;
+}
+
 @media (max-width: 480px) {
 .panel-body {
     padding-right: 0px !important;
@@ -311,8 +315,6 @@ hr {
     margin: 0 auto;
     padding-top: 40px;
     padding-bottom: 0px;
-    padding-right: 10px;
-    padding-left: 10px;
 }
 
 .form-custom .form-control {
@@ -798,7 +800,7 @@ hr {
 .content-panel {
     background: #333333;
     border: 1px solid #FFA500;
-    padding: 0px 10px 10px 10px;
+    padding: 0px 0px 10px 0px;
 
 }
 
