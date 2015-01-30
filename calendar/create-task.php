@@ -71,11 +71,8 @@ include '../includes/signin.php';
 	<div id="hide">
 
     <label>Name</label>
-	<div class="input-group">
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
-	<span class="input-group-addon" style="visibility: hidden;"><i id="error-icon1" class="fa fa-close fa-fw"></i></span>
-	<span class="input-group-addon" style="visibility: hidden;"><i id="success-icon1" class="fa fa-check fa-fw" style="display: none;"></i></span>
-	</div>
+	<span class="fa fa-info-circle error-icon1"></span>
 	<p id="error1" class="feedback-sad text-center"></p>
 
     <label>Notes (Optional)</label>

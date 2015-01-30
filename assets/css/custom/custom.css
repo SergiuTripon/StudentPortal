@@ -380,6 +380,17 @@ hr {
 }
 /* End of Form Group style */
 
+/* Form Validation */
+.error1 {
+    float: right;
+    margin-right: 6px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+    color: red;
+}
+/* End of Form Validation */
+
 /* Modal Custom style */
 .modal-custom .modal-content {
     border-color: #FFA500;
