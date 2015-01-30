@@ -68,8 +68,6 @@ include '../includes/signin.php';
 	<p id="success" class="feedback-happy text-center"></p>
 
 	<div id="hide">
-
-	<div class="form-group">
 	
 	<div class="col-xs-12 col-sm-12 full-width nprl mb20">
     <label>Name</label>
@@ -106,7 +104,6 @@ include '../includes/signin.php';
 	</label>
 	</div>
 	<p id="error4" class="feedback-sad text-center"></p>
-	</div>
 	</div>
 
 	<hr class="hr-custom">
