@@ -89,13 +89,22 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
-            <label>Gender</label>
-            <select class="form-control" name="gender" id="gender">
-                <option <?php if($gender == "Male") echo "selected=selected"; ?> class="others">Male</option>
-                <option <?php if($gender == "Female") echo "selected=selected"; ?> class="others">Female</option>
-                <option <?php if($gender == "Other") echo "selected=selected"; ?> class="others">Other</option>
-            </select>
-        </div>
+	<label>Task category - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom task_category">
+		<input type="radio" name="options" id="option1" autocomplete="off"> University
+	</label>
+	<label class="btn btn-custom task_category">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Work
+	</label>
+	<label class="btn btn-custom task_category">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
+	</label>
+	<label class="btn btn-custom task_category">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
+	</label>
+	</div>
+	<p id="error4" class="feedback-sad text-center"></p>
 
     </div>
 
@@ -143,8 +152,6 @@ if ($dateofbirth == "0000-00-00") {
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
     </div>
-
-
 
 	</div>
 
