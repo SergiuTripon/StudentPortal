@@ -103,16 +103,13 @@ include '../includes/signin.php';
 	</label>
 	</div>
 	<p id="error4" class="feedback-sad text-center"></p>
+	</div>
 
 	<hr class="hr-custom">
-
-	</div>
 
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create</span></button>
     </div>
-
-	<hr class="hr-custom">
 
 	<div id="success-button" class="text-center" style="display:none">
 	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href=""><span class="ladda-label">Create another</span></a>
