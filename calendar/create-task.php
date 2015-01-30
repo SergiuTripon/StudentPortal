@@ -118,8 +118,8 @@ include '../includes/signin.php';
 	<label class="btn btn-custom task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
-	<p id="error4" class="feedback-sad text-center"></p>
 	</div>
+	<p id="error4" class="feedback-sad text-center"></p>
 	</div>
     
 	</div>
