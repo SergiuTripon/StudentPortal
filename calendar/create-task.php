@@ -81,29 +81,15 @@ include '../includes/signin.php';
 
 	<label>External URL (www.example.com)</label>
 	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
-	</div>
-    
-	</div>
 
-	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Start date and time</label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
 	<p id="error2" class="feedback-sad text-center"></p>
-	</div>
-	</div>
 
-	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Due date and time</label>
 	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
 	<p id="error3" class="feedback-sad text-center"></p>
-	</div>
-	</div>
-	
-	<div class="form-group">
 
-	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom task_category">
@@ -121,7 +107,6 @@ include '../includes/signin.php';
 	</div>
 	<p id="error4" class="feedback-sad text-center"></p>
 	</div>
-    
 	</div>
 
 	</div>
