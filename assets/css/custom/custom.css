@@ -86,8 +86,7 @@ b, strong {
 
 /* hr style */
 hr {
-    border: 1px;
-    border-color: #FFA500;
+    border: 1px solid #FFA500;
 }
 
 .hr-thin {
