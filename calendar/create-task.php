@@ -66,6 +66,7 @@ include '../includes/signin.php';
 	<form class="form-custom" style="max-width: 900px; padding-top: 0px;" name="createtask_form" id="createtask_form">
 
 	<p id="success" class="feedback-happy text-center"></p>
+	<p id="error" class="feedback-sad text-center"></p>
 
 	<div id="hide">
 
