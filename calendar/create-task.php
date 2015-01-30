@@ -224,7 +224,7 @@ include '../includes/signin.php';
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#task_startdate").css("border-color", "#4DC742");
 	}
 
