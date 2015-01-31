@@ -523,10 +523,6 @@ if ($dateofbirth == "0000-00-00") {
     e.preventDefault();
 	
 	var hasError = false;
-
-     if ($('.btn-group .gender').hasClass("active")) {
-        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
-    }
 	
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
