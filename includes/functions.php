@@ -662,7 +662,6 @@ function UpdateAnAccount() {
     $gender = filter_input(INPUT_POST, 'gender3', FILTER_SANITIZE_STRING);
     $dateofbirth = filter_input(INPUT_POST, 'dateofbirth2', FILTER_SANITIZE_STRING);
     $studentno = filter_input(INPUT_POST, 'studentno3', FILTER_SANITIZE_STRING);
-    $degree = filter_input(INPUT_POST, 'degree2', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email6', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$phonenumber = filter_input(INPUT_POST, 'phonenumber2', FILTER_SANITIZE_STRING);
@@ -692,8 +691,8 @@ function UpdateAnAccount() {
 
 	if ($db_email == $email) {
 
-	$stmt2 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, dateofbirth=?, studentno=?, degree=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
-	$stmt2->bind_param('ssssisssssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $degree, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt2 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, dateofbirth=?, studentno=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
+	$stmt2->bind_param('ssssisssssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
 
@@ -715,8 +714,8 @@ function UpdateAnAccount() {
 	}
 	else {
 
-	$stmt4 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, dateofbirth=?, studentno=?, degree=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
-	$stmt4->bind_param('ssssisssssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $degree, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt4 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, dateofbirth=?, studentno=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
+	$stmt4->bind_param('ssssisssssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
 	$stmt4->execute();
 	$stmt4->close();
 

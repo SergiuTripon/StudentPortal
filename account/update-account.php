@@ -259,8 +259,6 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
     </div>
 
-    <input type="hidden" name="degree" id="degree">
-
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
     </div>
@@ -363,8 +361,6 @@ if ($dateofbirth == "0000-00-00") {
 	<input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter your country" readonly="readonly">
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
-
-    <input type="hidden" name="degree" id="degree">
 
     <hr class="hr-custom">
 
@@ -524,8 +520,6 @@ if ($dateofbirth == "0000-00-00") {
 	}
 
 	var dateofbirth = $("#dateofbirth").val();
-    var degree = $("#degree").val();
-
 
 	var email4 = $("#email").val();
 	if(email4 === '') {
@@ -549,7 +543,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'gender1=' + gender1 + '&firstname1=' + firstname1 + '&surname1=' + surname1 + '&dateofbirth=' + dateofbirth + '&degree=' + degree + '&email4=' + email4 + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
+    data:'gender1=' + gender1 + '&firstname1=' + firstname1 + '&surname1=' + surname1 + '&dateofbirth=' + dateofbirth + '&email4=' + email4 + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
