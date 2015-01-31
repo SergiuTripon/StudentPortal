@@ -86,7 +86,7 @@ b, strong {
 
 /* hr style */
 hr {
-    border: 2px solid #FFA500;
+    border-top: 1px solid #FFA500;
 }
 
 .hr-custom {
