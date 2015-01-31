@@ -80,33 +80,45 @@ include '../includes/signin.php';
 
 	<div id="hide">
 
+	<div class="form-group">
+
+    <div class="col-xs-12 col-sm-12 full-width">
+	<label>Gender - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom account_type">
+		<input type="radio" name="options" id="option1" autocomplete="off"> Student
+	</label>
+	<label class="btn btn-custom account_type">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Lecturer
+	</label>
+	<label class="btn btn-custom account_type">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Admin
+	</label>
+	</div>
+	<p id="error1" class="feedback-sad text-center"></p>
+    </div>
+
+    </div>
+
     <div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
-    <label>Account type</label>
-    <select class="form-control" name="account_type" id="account_type">
-    <option style="color:gray" value="null" disabled selected>Select an account type</option>
-    <option style="color: #FFA500" class="others">Student</option>
-    <option style="color: #FFA500" class="others">Lecturer</option>
-    <option style="color: #FFA500" class="others">Admin</option>
-    </select>
-    </div>
-
-    </div>
-
-	<div class="form-group">
-    
-	<div class="col-xs-12 col-sm-12 full-width">
-    <label>Gender</label>
-    <select class="form-control" name="gender" id="gender">
-    <option style="color:gray" value="null" disabled selected>Select a gender</option>
-    <option style="color: #FFA500" class="others">Male</option>
-    <option style="color: #FFA500" class="others">Female</option>
-	<option style="color: #FFA500" class="others">Other</option>
-    </select>
-    </div>
-    
+	<label>Gender - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom gender">
+		<input type="radio" name="options" id="option1" autocomplete="off"> Male
+	</label>
+	<label class="btn btn-custom gender">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Female
+	</label>
+	<label class="btn btn-custom gender">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
+	</label>
 	</div>
+	<p id="error1" class="feedback-sad text-center"></p>
+    </div>
+
+    </div>
 
     <div class="form-group">
 	
@@ -273,88 +285,73 @@ include '../includes/signin.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	Ladda.bind('.ladda-button', {timeout: 2000});
-	</script>
+	$(document).ready(function () {
 
-	<script>
+	//Ladda
+	Ladda.bind('.ladda-button', {timeout: 2000});
+
+	//Date Time Picker
 	$(function () {
 	$('#dateofbirth').datepicker({
 		dateFormat: "yy-mm-dd",
 		defaultDate: new Date(1985, 00, 01)
 	});
 	});
-	</script>
-	
-	<script>
-    $(document).ready(function () {
-	$('#account_type').css('color', 'gray');
-    $('#account_type').change(function () {
-	var account_type = $('#account_type option:selected').val();
-	if (account_type != '') {
-        $('#account_type').css('color', '#FFA500');
-	} else {
-		$('#account_type').css('color', 'gray');
-	}
-    });
 
-	$('#account_type').change(function(){
-		if($(this).val() == 'student'){
-			$('label[for="studentno"]').show();
-			$('#studentno').show();
-			$('label[for="degree"]').show();
-			$('#degree').show();
+	//Responsiveness
+	$(window).resize(function(){
+		var width = $(window).width();
+		if(width <= 480){
+			$('.btn-group').removeClass('btn-group-justified');
+			$('.btn-group').addClass('btn-group-vertical full-width');
+		} else {
+			$('.btn-group').addClass('btn-group-justified');
 		}
-		if($(this).val() == 'lecturer'){
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-		if($(this).val() == 'admin'){
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-	});
+	})
+	.resize();//trigger the resize event on page load.
 
-	$('#gender').css('color', 'gray');
-    $('#gender').change(function () {
-	var gender = $('#gender option:selected').val();
-	if (gender != '') {
-        $('#gender').css('color', '#FFA500');
-	} else {
-		$('#gender').css('color', 'gray');
-	}
-    });
+    //Global variable
+	var account_type;
+	var gender;
 
+	//Setting variable value
+	$('.btn-group .btn').click(function(){
+		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
+	})
+	$('.btn-group .btn').click(function(){
+		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
+	})
+
+	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-	var account_type = $('#account_type option:selected').val();
-	if (account_type === 'null') {
-        $("#error").empty().append("Please select an account type.");
-		$("#account_type").css("border-color", "#FF5454");
+	var account_type = $(".account_type");
+	if (account_type.hasClass('active')) {
+		$("#error").hide();
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+	}
+	else {
+		$("#error").empty().append("Please select an account type.");
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
-	} else {
-		$("#error").hide();
-		$("#account_type").css("border-color", "#4DC742");
 	}
 
-	var gender = $('#gender option:selected').val();
-	if (gender === 'null') {
-		$("#error").show();
-        $("#error").empty().append("Please select a gender.");
-		$("#gender").css("border-color", "#FF5454");
+	var gender = $(".gender");
+	if (gender.hasClass('active')) {
+		$("#error").hide();
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+	}
+	else {
+		$("#error").empty().append("Please select a gender.");
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
-	} else {
-		$("#error").hide();
-		$("#gender").css("border-color", "#4DC742");
 	}
+
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
 		$("#error").show();
