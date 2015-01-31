@@ -210,6 +210,8 @@ header('Location: ../calendar/');
 	//Global variable
 	var task_category1;
 
+	task_category1 = ($('.task_category.active').text().replace(/^\s+|\s+$/g,''));
+
 	//Setting variable value
 	$('.btn-group .task_category').click(function(){
 		task_category1 = ($(this).text().replace(/^\s+|\s+$/g,''))
