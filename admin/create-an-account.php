@@ -114,7 +114,7 @@ include '../includes/signin.php';
 	<label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
 	<p id="error4" class="feedback-sad text-center"></p>
-	<label for="studentno">Student number</label>
+	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
 	<p id="error5" class="feedback-sad text-center"></p>
 
@@ -134,7 +134,7 @@ include '../includes/signin.php';
     <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
 
-    <label for="degree">Programme of Study</label>
+    <label>Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
 
     <label>Address line 1</label>
@@ -280,6 +280,7 @@ include '../includes/signin.php';
     //Global variable
 	var account_type;
 	var gender;
+	var studentno;
 
 	//Setting variable value
 	$('.btn-group .account_type').click(function(){
@@ -364,11 +365,29 @@ include '../includes/signin.php';
 	}
 
 	if (account_type === 'Student') {
-		$("#error5").show();
-		$("#error5").empty().append("Please enter a student number.");
-		$("#studentno").css("border-color", "#FF5454");
-		hasError = true;
-		return false;
+		var studentno = $("#studentno").val();
+		if(studentno === '') {
+			$("#error").show();
+			$("#error").empty().append("Please enter a student number.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		}
+		if (studentno.length != 9) {
+			$("#error").show();
+			$("#error").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		}
+	} else {
+		var studentno = $("#studentno").val();
 	}
 	
 	var email = $("#email6").val();
