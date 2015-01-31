@@ -136,7 +136,6 @@ if ($account_type1 == "admin") {
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 
-    <div class="col-xs-6 col-sm-6 full-width">
 	<label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter your address line 1">
     <label>Address 2 line (Optional)</label>
