@@ -59,7 +59,7 @@ header('Location: ../calendar/');
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a task</a>
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Update a task</a>
 	</h4>
     </div>
 
