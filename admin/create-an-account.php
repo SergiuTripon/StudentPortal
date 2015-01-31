@@ -260,26 +260,26 @@ include '../includes/signin.php';
 	.resize();//trigger the resize event on page load.
 
     //Global variable
-	var account_type;
-	var gender;
+	var account_type1;
+	var gender1;
 
 	//Setting variable value
 	$('.btn-group > .account_type').click(function(){
-		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
+		account_type1 = ($(this).text().replace(/^\s+|\s+$/g,''))
 
-		if(account_type === 'Student') {
+		if(account_type1 === 'Student') {
 			$('label[for="studentno"]').show();
 			$('#studentno').show();
 			$('label[for="degree"]').show();
 			$('#degree').show();
 		}
-		if(account_type === 'Lecturer') {
+		if(account_type1 === 'Lecturer') {
 			$('label[for="studentno"]').hide();
 			$('#studentno').hide();
 			$('label[for="degree"]').hide();
 			$('#degree').hide();
 		}
-		if(account_type === 'Admin') {
+		if(account_type1 === 'Admin') {
 			$('label[for="studentno"]').hide();
 			$('#studentno').hide();
 			$('label[for="degree"]').hide();
@@ -288,7 +288,7 @@ include '../includes/signin.php';
 
 	})
 	$('.btn-group > .gender').click(function(){
-		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
+		gender1 = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 
 	//Ajax call
@@ -321,8 +321,8 @@ include '../includes/signin.php';
 		return false;
 	}
 
-	var firstname = $("#firstname").val();
-	if(firstname === '') {
+	var firstname1 = $("#firstname").val();
+	if(firstname1 === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
@@ -333,8 +333,8 @@ include '../includes/signin.php';
 		$("#firstname").css("border-color", "#4DC742");
 	}
 	
-	var surname = $("#surname").val();
-	if(surname === '') {
+	var surname1 = $("#surname").val();
+	if(surname1 === '') {
 		$("#error4").show();
         $("#error4").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
@@ -345,9 +345,9 @@ include '../includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	if (account_type === 'Student') {
-		var studentno = $("#studentno").val();
-		if(studentno === '') {
+	if (account_type1 === 'Student') {
+		var studentno1 = $("#studentno").val();
+		if(studentno1 === '') {
 			$("#error5").show();
 			$("#error5").empty().append("Please enter a student number.");
 			$("#studentno").css("border-color", "#FF5454");
@@ -357,7 +357,7 @@ include '../includes/signin.php';
 			$("#error5").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
-		if (studentno.length != 9) {
+		if (studentno1.length != 9) {
 			$("#error5").show();
 			$("#error5").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
 			$("#studentno").css("border-color", "#FF5454");
@@ -368,11 +368,11 @@ include '../includes/signin.php';
 			$("#studentno").css("border-color", "#4DC742");
 		}
 	} else {
-		var studentno = $("#studentno").val();
+		var studentno1 = $("#studentno").val();
 	}
 	
-	var email = $("#email").val();
-	if(email === '') {
+	var email1 = $("#email").val();
+	if(email1 === '') {
 		$("#error6").show();
         $("#error6").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -383,8 +383,8 @@ include '../includes/signin.php';
 		$("#email").css("border-color", "#4DC742");
 	}
 	
-	var password = $("#password").val();
-	if(password === '') {
+	var password1 = $("#password").val();
+	if(password1 === '') {
 		$("#erro7").show();
         $("#erro7").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
@@ -395,7 +395,7 @@ include '../includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 	}
 	
-	if (password.length < 6) {
+	if (password1.length < 6) {
 		$("#error7").show();
 		$("#error7").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -410,7 +410,7 @@ include '../includes/signin.php';
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 	
-	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
 		$("#error7").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -421,8 +421,8 @@ include '../includes/signin.php';
 		return false;
 	}
 	
-	var confirmpwd = $("#confirmpwd").val();
-	if(confirmpwd === '') {
+	var confirmpwd1 = $("#confirmpwd").val();
+	if(confirmpwd1 === '') {
 		$("#error8").show();
         $("#error8").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
@@ -433,7 +433,7 @@ include '../includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	if(password != confirmpwd) {
+	if(password1 != confirmpwd1) {
 		$("#error8").show();
 		$("#error8").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -446,23 +446,23 @@ include '../includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	var dateofbirth = $("#dateofbirth").val();
-	var phonenumber = $("#phonenumber").val();
-	var degree = $("#degree").val();
- 	var address1 = $("#address1").val();
-	var address2 = $("#address2").val();
-	var town = $("#town").val();
-	var city = $("#city").val();
-	var country = $("#country").val();
-	var postcode = $("#postcode").val();
+	var dateofbirth1 = $("#dateofbirth").val();
+	var phonenumber1 = $("#phonenumber").val();
+	var degree1 = $("#degree").val();
+ 	var address11 = $("#address1").val();
+	var address21 = $("#address2").val();
+	var town1 = $("#town").val();
+	var city1 = $("#city").val();
+	var country1 = $("#country").val();
+	var postcode1 = $("#postcode").val();
 
 	
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
-    data:'account_type=' + account_type + '&gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&degree=' + degree + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
-    success:function(response){
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'account_type1=' + account_type1 + '&gender1=' + gender1 + '&firstname1=' + firstname1 + '&surname1=' + surname1 + '&studentno1=' + studentno1 + '&email1=' + email1 + '&password1=' + password1 + '&confirmpwd1=' + confirmpwd1 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
+    success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#FormSubmit").hide();

@@ -194,7 +194,7 @@ $stmt1->fetch();
 
     jQuery.ajax({
     type: "POST",
-    url: "https://student-portal.co.uk/includes/account_process.php",
+    url: "https://student-portal.co.uk/includes/processes.php",
     data:'deleteaccount_button=' + deleteaccount_button,
     success:function(response){
         window.location.href = "/account/account-deleted/";

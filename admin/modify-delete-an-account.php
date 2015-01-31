@@ -413,10 +413,10 @@ else $userid = '';
 
 	jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
+	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:myData,
-	success:function(response){
+	success:function(){
 		$('#user-'+DbNumberID).fadeOut();
 		$('#hide').hide();
 		$('.logo-custom i').removeClass('fa-trash');

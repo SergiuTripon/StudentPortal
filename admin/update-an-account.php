@@ -286,11 +286,11 @@ if ($dateofbirth == "0000-00-00") {
 
 	var hasError = false;
 
-    var userid = $("#userid").val();
-	var gender1 = $("#gender").val();
+    var userid1 = $("#userid").val();
+	var gender2 = $("#gender").val();
 
-	var firstname1 = $("#firstname").val();
-	if(firstname1 === '') {
+	var firstname2 = $("#firstname").val();
+	if(firstname2 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
@@ -298,8 +298,8 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	var surname1 = $("#surname").val();
-	if(surname1 === '') {
+	var surname2 = $("#surname").val();
+	if(surname2 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
@@ -307,11 +307,11 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	var dateofbirth1 = $("#dateofbirth").val();
+	var dateofbirth2 = $("#dateofbirth").val();
 
-    var studentno1 = $("#studentno").val();
-    var email1 = $("#email").val();
-	if(email1 === '') {
+    var studentno2 = $("#studentno").val();
+    var email2 = $("#email").val();
+	if(email2 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -319,20 +319,21 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	var phonenumber1 = $("#phonenumber").val();
-    var address11 = $("#address1").val();
-    var address21 = $("#address2").val();
-    var town1 = $("#town").val();
-    var city1 = $("#city").val();
-    var country1 = $("#country").val();
-    var postcode1 = $("#postcode").val();
-    var degree1 = $("#degree").val();
+	var phonenumber2 = $("#phonenumber").val();
+    var address12 = $("#address1").val();
+    var address22 = $("#address2").val();
+    var town2 = $("#town").val();
+    var city2 = $("#city").val();
+    var country2 = $("#country").val();
+    var postcode2 = $("#postcode").val();
+    var degree2 = $("#degree").val();
 
+	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
-    data:'userid=' + userid + '&gender1=' + gender1 + '&firstname1=' + firstname1 + '&surname1=' + surname1 + '&dateofbirth1=' + dateofbirth1 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email1=' + email1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
-    success:function(response){
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'userid1=' + userid1 + '&gender2=' + gender2 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&dateofbirth2=' + dateofbirth2 + '&studentno2=' + studentno2 + '&degree2=' + degree2 + '&email2=' + email2 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
+    success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
@@ -344,6 +345,7 @@ if ($dateofbirth == "0000-00-00") {
         $("#error").empty().append(thrownError);
     }
 	});
+	}
 
 	return true;
 

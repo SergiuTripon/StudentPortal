@@ -204,10 +204,10 @@ if (isset($_POST["recordToChange"])) {
 
 	var hasError = false;
 
-	var userid1 = $("#userid").val();
+	var userid2 = $("#userid").val();
 
-	var password1 = $("#password").val();
-	if(password1 === '') {
+	var password2 = $("#password").val();
+	if(password2 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
@@ -218,7 +218,7 @@ if (isset($_POST["recordToChange"])) {
 		$("#password").css("border-color", "#4DC742");
 	}
 
-	if (password1.length < 6) {
+	if (password2.length < 6) {
 		$("#error").show();
 		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -233,7 +233,7 @@ if (isset($_POST["recordToChange"])) {
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
-	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
+	if(password2.match(upperCase) && password2.match(lowerCase) && password2.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -244,8 +244,8 @@ if (isset($_POST["recordToChange"])) {
 		return false;
 	}
 
-	var confirmpwd1 = $("#confirmpwd").val();
-	if(confirmpwd1 === '') {
+	var confirmpwd2 = $("#confirmpwd").val();
+	if(confirmpwd2 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
@@ -256,7 +256,7 @@ if (isset($_POST["recordToChange"])) {
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
-	if(password1 != confirmpwd1) {
+	if(password2 != confirmpwd2) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("The password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -272,9 +272,9 @@ if (isset($_POST["recordToChange"])) {
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/adminaccount_process.php",
-    data:'userid1=' + userid1 + '&password1=' + password1 + '&confirmpwd1=' + confirmpwd1,
-    success:function(response){
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'userid2=' + userid2 + '&password2=' + password2 + '&confirmpwd2=' + confirmpwd2,
+    success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
