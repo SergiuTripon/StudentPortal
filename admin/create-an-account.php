@@ -80,7 +80,7 @@ include '../includes/signin.php';
 
 	<div id="hide">
 
-	<label>Gender - select below</label>
+	<label>Account type - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom account_type">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Student
