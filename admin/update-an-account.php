@@ -131,7 +131,7 @@ if ($account_type == "lecturer" or $account_type = "admin") {
 	<p id="error2" class="feedback-sad text-center"></p>
 	<label>Date of Birth (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
-	<label>Student number</label>
+	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
@@ -158,7 +158,7 @@ if ($account_type == "lecturer" or $account_type = "admin") {
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width">
-	<label>Programme of Study</label>
+	<label for="degree">Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
 	</div>
     </div>
