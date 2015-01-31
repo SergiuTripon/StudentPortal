@@ -152,8 +152,10 @@ if ($account_type1 == "admin") {
 	<label for="degree">Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
 
-    <div class="text-right">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
+	<hr class="hr-custom">
+
+    <div class="text-center">
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update account</span></button>
     </div>
 
 	</div>
