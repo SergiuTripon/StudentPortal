@@ -323,9 +323,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div id="hide">
 
-	<div class="form-group">
 
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
@@ -337,14 +335,8 @@ if ($dateofbirth == "0000-00-00") {
 	<label class="btn btn-custom gender <?php if($gender == "Other") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
-	</div>
     </div>
 
-    </div>
-
-    <div class="form-group">
-
-    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
     <p id="error1" class="feedback-sad text-center"></p>
@@ -360,7 +352,6 @@ if ($dateofbirth == "0000-00-00") {
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 	</div>
 
-    <div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter your address line 1">
     <label>Address 2 line (Optional)</label>
@@ -373,15 +364,8 @@ if ($dateofbirth == "0000-00-00") {
 	<input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter your country" readonly="readonly">
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
-	</div>
-
-    </div>
 
     <input type="hidden" name="degree" id="degree">
-
-    <div class="text-right">
-        <a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
-    </div>
 
     <hr class="hr-custom">
 
