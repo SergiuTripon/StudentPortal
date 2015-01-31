@@ -80,9 +80,6 @@ include '../includes/signin.php';
 
 	<div id="hide">
 
-	<div class="form-group">
-
-    <div class="col-xs-12 col-sm-12 full-width">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom account_type">
@@ -96,13 +93,7 @@ include '../includes/signin.php';
 	</label>
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
-    </div>
 
-    </div>
-
-    <div class="form-group">
-
-    <div class="col-xs-12 col-sm-12 full-width">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom gender">
@@ -115,81 +106,56 @@ include '../includes/signin.php';
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
-    </div>
+	<p id="error2" class="feedback-sad text-center"></p>
 
-    </div>
-
-    <div class="form-group">
-	
-    <div class="col-xs-6 col-sm-6 mb20 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
-    <label>Surname</label>
+	<p id="error3" class="feedback-sad text-center"></p>
+	<label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
+	<p id="error4" class="feedback-sad text-center"></p>
 	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
-	 </div>
+	<p id="error5" class="feedback-sad text-center"></p>
 
-    <div class="col-xs-6 col-sm-6 mb20 full-width">
 	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
+	<p id="error6" class="feedback-sad text-center"></p>
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
+	<p id="error7" class="feedback-sad text-center"></p>
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
-    </div>
-	
-    </div>
+	<p id="error8" class="feedback-sad text-center"></p>
 
-    <div class="form-group">
-	
-    <div class="col-xs-6 col-sm-6 full-width">
 	<label>Date of Birth</label>
 	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
-    </div>
-	
-    </div>
 
-    <div class="form-group">
-	
-    <div class="col-xs-12 col-sm-12 mb20 full-width">
     <label for="degree">Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
-    </div>
-	
-    </div>
 
-    <div class="form-group">
-    
-	<div class="col-xs-6 col-sm-6 full-width">
     <label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
     <label>Address 2 line (Optional)</label>
     <input class="form-control" type="text" name="address2" id="address2" value="" placeholder="Enter a address line 2 (Optional)">
     <label>Town</label>
     <input class="form-control" type="text" name="town" id="town" value="" placeholder="Enter a town">
-	</div>
 
-    <div class="col-xs-6 col-sm-6 full-width">
     <label>City</label>
     <input class="form-control" type="text" name="city" id="city" value="" placeholder="Enter a city">
     <label>Country</label>
     <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     <label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
-    </div>
-    
-	</div>
 
 	</div>
 
-    <div class="text-right">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create</span></button>
+    <div class="text-center">
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create account</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
@@ -330,11 +296,11 @@ include '../includes/signin.php';
 
 	var account_type = $(".account_type");
 	if (account_type.hasClass('active')) {
-		$("#error").hide();
+		$("#error1").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error").empty().append("Please select an account type.");
+		$("#error1").empty().append("Please select an account type.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
@@ -342,11 +308,11 @@ include '../includes/signin.php';
 
 	var gender = $(".gender");
 	if (gender.hasClass('active')) {
-		$("#error").hide();
+		$("#error2").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error").empty().append("Please select a gender.");
+		$("#error2").empty().append("Please select a gender.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
@@ -354,58 +320,32 @@ include '../includes/signin.php';
 
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a first name.");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error3").hide();
 		$("#firstname").css("border-color", "#4DC742");
 	}
 	
 	var surname = $("#surname").val();
 	if(surname === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a surname.");
+		$("#error4").show();
+        $("#error4").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error4").hide();
 		$("#surname").css("border-color", "#4DC742");
-	}
-
-	if (account_type === 'Student') {
-		var studentno = $("#studentno").val();
-		if(studentno === '') {
-			$("#error").show();
-			$("#error").empty().append("Please enter a student number.");
-			$("#studentno").css("border-color", "#FF5454");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error").hide();
-			$("#studentno").css("border-color", "#4DC742");
-		}
-		if (studentno.length != 9) {
-			$("#error").show();
-			$("#error").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
-			$("#studentno").css("border-color", "#FF5454");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error").hide();
-			$("#studentno").css("border-color", "#4DC742");
-		}
-	} else {
-		var studentno = $("#studentno").val();
 	}
 	
 	var email = $("#email").val();
 	if(email === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter an email address.");
+		$("#error5").show();
+        $("#error5").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
