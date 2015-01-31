@@ -13,7 +13,26 @@ date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
+//Call UpdateAccount function
 if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['dateofbirth'], $_POST['email'], $_POST['phonenumber'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'], $_POST['degree'])) {
+	UpdateAccount();
+}
+
+//Call ChangePassword function
+elseif (isset($_POST["password"], $_POST["confirmpwd"])) {
+	ChangePassword();
+}
+
+//Call DeleteAccount function
+elseif (isset($_POST['deleteaccount_button'])) {
+	DeleteAccount();
+}
+
+//UpdateAccount function
+function UpdateAccount() {
+
+	global $mysqli;
+	global $session_firstname;
 
 	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
@@ -53,10 +72,6 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	$stmt2->bind_param('sssssssssssssi', $gender, $firstname, $surname, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $degree, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
-
-		// multiple recipients
-	$to  = 'aidan@example.com' . ', '; // note the comma
-	$to .= 'wez@example.com';
 
 	// subject
 	$subject = 'Account updated successfully';
@@ -144,10 +159,12 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	}
 }
 
-elseif (isset($_POST["password"], $_POST["confirmpwd"])) {
+//Change Password function
+function ChangePassword() {
+
+	global $mysqli;
 
 	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-	$confirmpwd = filter_input(INPUT_POST, 'confirmpwd', FILTER_SANITIZE_STRING);
 
 	// Getting user login details
 	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
@@ -210,7 +227,10 @@ elseif (isset($_POST["password"], $_POST["confirmpwd"])) {
 	}
 }
 
-elseif (isset($_POST['deleteaccount_button'])) {
+//DeleteAccount Function
+function DeleteAccount() {
+
+	global $mysqli;
 
 	$stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
 	$stmt1->bind_param('i', $userid);
@@ -218,4 +238,5 @@ elseif (isset($_POST['deleteaccount_button'])) {
 	$stmt1->close();
 
 	session_destroy();
+
 }
