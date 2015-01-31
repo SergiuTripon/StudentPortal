@@ -494,7 +494,11 @@ if ($dateofbirth == "0000-00-00") {
         gender = ($(this).text().replace(/^\s+|\s+$/g,''))
     })
 
-    //Ajax call
+    $("#error1").hide();
+    $("#error2").hide();
+    $("#error3").hide();
+
+        //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
