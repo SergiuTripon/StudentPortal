@@ -127,7 +127,7 @@ include 'includes/signin.php';
 	
 	var hasError = false;
 	
-	email = $('#email').val();
+	var email = $('#email').val();
 	if (email === '') {
         $("#error").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -138,7 +138,7 @@ include 'includes/signin.php';
 		$("#email").css("border-color", "#4DC742");
 	}
 	
-	password = $("#password").val();
+	var password = $("#password").val();
 	if(password === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
