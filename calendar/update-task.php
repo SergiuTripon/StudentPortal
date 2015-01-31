@@ -286,7 +286,7 @@ header('Location: ../calendar/');
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/calendar_process.php",
     data:'taskid1=' + taskid1 + '&task_name1=' + task_name1 + '&task_notes1=' + task_notes1 + '&task_url1=' + task_url1 + '&task_startdate1=' + task_startdate1 + '&task_duedate1=' + task_duedate1 + '&task_category1=' + task_category1,
-    success:function(response){
+    success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").empty().append('Task updated successfully.');
