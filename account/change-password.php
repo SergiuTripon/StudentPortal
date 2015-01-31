@@ -19,12 +19,6 @@ include '../includes/signin.php';
 
     <title>Student Portal | Change password</title>
 	
-	<style>
-	#success-title1 {
-		display: none;
-	}
-	</style>
-	
 </head>
 
 <body>
@@ -65,22 +59,17 @@ include '../includes/signin.php';
 	<p id="success" class="feedback-happy text-center"></p>
 	
     <div id="hide">
-
-    <div class="form-group">
-    
-	<div class="col-xs-6 col-sm-6 full-width">
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
     </div>
 
-    <div class="col-xs-6 col-sm-6 full-width">
+    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
-    </div>
-	
-	</div><!-- /form-group -->
 
-    <div class="text-right">
+	<hr class="hr-custom">
+
+    <div class="text-center">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
     </div>
 
