@@ -28,6 +28,7 @@ elseif (isset($_POST['deleteaccount_button'])) {
 	DeleteAccount();
 }
 
+//UpdateAccount function
 function UpdateAccount() {
 
 	global $mysqli;
