@@ -298,11 +298,11 @@ include '../includes/signin.php';
 	var account_type = $(".account_type");
 	if (account_type.hasClass('active')) {
 		$("#error1").hide();
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+		$(".btn-group > .account_type").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
 		$("#error1").empty().append("Please select an account type.");
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
+		$(".btn-group > .account_type").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
 	}
@@ -310,11 +310,11 @@ include '../includes/signin.php';
 	var gender = $(".gender");
 	if (gender.hasClass('active')) {
 		$("#error2").hide();
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
 		$("#error2").empty().append("Please select a gender.");
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
+		$(".btn-group > .gender").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
 	}
