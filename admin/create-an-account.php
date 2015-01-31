@@ -262,7 +262,6 @@ include '../includes/signin.php';
     //Global variable
 	var account_type;
 	var gender;
-	var studentno;
 
 	//Setting variable value
 	$('.btn-group > .account_type').click(function(){
