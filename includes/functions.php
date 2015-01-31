@@ -13,6 +13,311 @@ date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
+function SignIn() {
+
+	global $mysqli;
+	global $userid;
+
+	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	header('HTTP/1.0 550 The email address you entered is invalid.');
+	exit();
+    } else {
+
+	// Getting user login details
+	$stmt1 = $mysqli->prepare("SELECT userid, account_type, password FROM user_signin WHERE email = ? LIMIT 1");
+	$stmt1->bind_param('s', $email);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($userid, $account_type, $db_password);
+	$stmt1->fetch();
+
+	if ($stmt1->num_rows == 1) {
+
+	// Getting firstname and surname for the user
+	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $userid);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($firstname, $surname);
+	$stmt2->fetch();
+	$stmt2->close();
+
+	if (password_verify($password, $db_password)) {
+
+	// Setting a session variable
+	$_SESSION['loggedin'] = true;
+
+	$userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
+	$email = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $email);
+	$firstname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $firstname);
+	$surname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $surname);
+
+ 	$_SESSION['userid'] = $userid;
+	$_SESSION['account_type'] = $account_type;
+	$_SESSION['email'] = $email;
+	$_SESSION['firstname'] = $firstname;
+	$_SESSION['surname'] = $surname;
+
+	} else {
+	header('HTTP/1.0 550 The password you entered is incorrect.');
+	exit();
+	$stmt1->close();
+	}
+
+	} else {
+	header('HTTP/1.0 550 The email address you entered is incorrect.');
+	exit();
+	$stmt1->close();
+	}
+
+	}
+}
+
+//RegisterUser function
+function RegisterUser() {
+
+	global $mysqli;
+	global $created_on;
+
+	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
+	$firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING);
+	$studentno = filter_input(INPUT_POST, 'studentno', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	header('HTTP/1.0 550 The email address you entered is invalid.');
+	exit();
+    } else {
+
+	// Check existing student number
+	$stmt1 = $mysqli->prepare("SELECT userid FROM user_details WHERE studentno = ? LIMIT 1");
+	$stmt1->bind_param('i', $studentno);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($db_userid);
+	$stmt1->fetch();
+
+	if ($stmt1->num_rows == 1) {
+	$stmt1->close();
+	header('HTTP/1.0 550 An account with the student number entered already exists.');
+	exit();
+	} else {
+
+	// Check existing e-mail address
+	$stmt2 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
+	$stmt2->bind_param('s', $email);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($db_userid);
+	$stmt2->fetch();
+
+	if ($stmt2->num_rows == 1) {
+	$stmt2->close();
+	header('HTTP/1.0 550 An account with the email address entered already exists.');
+	exit();
+	} else {
+
+	$account_type = 'student';
+	$password_hash = password_hash($password, PASSWORD_BCRYPT);
+
+	$stmt3 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
+	$stmt3->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
+	$stmt3->execute();
+	$stmt3->close();
+
+	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, studentno, firstname, surname, created_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt4->bind_param('sisss', $gender, $studentno, $firstname, $surname, $created_on);
+	$stmt4->execute();
+	$stmt4->close();
+
+	$token = null;
+
+	$stmt5 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
+	$stmt5->bind_param('s', $token);
+	$stmt5->execute();
+	$stmt5->close();
+
+	$fee_amount = '9000.00';
+
+	$stmt6 = $mysqli->prepare("INSERT INTO user_fees (fee_amount, created_on) VALUES (?, ?)");
+	$stmt6->bind_param('is', $fee_amount, $created_on);
+	$stmt6->execute();
+	$stmt6->close();
+
+	}
+	}
+	}
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//SendPasswordToken function
+function SendPasswordToken() {
+
+	global $mysqli;
+	global $userid;
+	global $created_on;
+
+	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		header('HTTP/1.0 550 The email address you entered is invalid.');
+		exit();
+	}
+
+	// Getting user login details
+	$stmt = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
+	$stmt->bind_param('s', $email);
+	$stmt->execute();
+	$stmt->store_result();
+	$stmt->bind_result($userid);
+	$stmt->fetch();
+
+	$stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+	$stmt1->bind_param('i', $userid);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($firstname, $surname);
+	$stmt1->fetch();
+	$stmt1->close();
+
+	if ($stmt->num_rows == 1) {
+
+		$uniqueid = uniqid(true);
+		$token = password_hash($uniqueid, PASSWORD_BCRYPT);
+
+		$stmt2 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
+		$stmt2->bind_param('ssi', $token, $created_on, $userid);
+		$stmt2->execute();
+		$stmt2->close();
+
+		$passwordlink = "<a href=http://test.student-portal.co.uk/password-reset/?token=". $token .">here</a>";
+
+		// subject
+		$subject = 'Request to change your password';
+
+		// message
+		$message = '<html>';
+		$message .= '<head>';
+		$message .= '<title>Student Portal | Password Reset</title>';
+		$message .= '</head>';
+		$message .= '<body>';
+		$message .= '<p>Dear \".$firstname.\",</p>';
+		$message .= '<p>We have received a request to reset the password for your account.</p>';
+		$message .= "<p>To proceed please click \".$passwordlink.\".</p>";
+		$message .= '<p>If you did not submit this request, please ignore this email.</p>';
+		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+		$message .= '</body>';
+		$message .= '</html>';
+
+		// To send HTML mail, the Content-type header must be set
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+		// Additional headers
+		$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+		// Mail it
+		mail($email, $subject, $message, $headers);
+
+		$stmt->close();
+	}
+	else
+		header('HTTP/1.0 550 The email address you entered is incorrect.');
+	exit();
+}
+
+function ResetPassword() {
+
+	global $mysqli;
+	global $userid;
+	global $updated_on;
+
+	$token = $_POST["token"];
+	$email = filter_input(INPUT_POST, 'email1', FILTER_SANITIZE_EMAIL);
+	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
+
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		header('HTTP/1.0 550 The email address you entered is invalid.');
+		exit();
+	}
+
+		$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
+		$stmt1->bind_param('s', $email);
+		$stmt1->execute();
+		$stmt1->store_result();
+		$stmt1->bind_result($userid);
+		$stmt1->fetch();
+
+		$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_detials.userid WHERE user_token.userid = ? LIMIT 1");
+		$stmt2->bind_param('i', $userid);
+		$stmt2->execute();
+		$stmt2->store_result();
+		$stmt2->bind_result($db_token, $firstname);
+		$stmt2->fetch();
+
+		if ($token == $db_token) {
+
+		$password_hash = password_hash($password, PASSWORD_BCRYPT);
+
+		$stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
+		$stmt4->bind_param('sss', $password_hash, $updated_on, $email);
+		$stmt4->execute();
+		$stmt4->close();
+
+		$empty_token = NULL;
+		$empty_created_on = NULL;
+
+		$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
+		$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
+		$stmt4->execute();
+		$stmt4->close();
+
+		// subject
+		$subject = 'Password reset successfully';
+
+		// message
+		$message = '<html>';
+		$message .= '<head>';
+		$message .= '<title>Student Portal | Account</title>';
+		$message .= '</head>';
+		$message .= '<body>';
+		$message .= "<p>Dear $firstname,</p>";
+		$message .= '<p>Your password has been successfully reset.</p>';
+		$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href=\"mailto:contact@sergiu-tripon.co.uk\">here.</a>';
+		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+		$message .= '</body>';
+		$message .= '</html>';
+
+		// To send HTML mail, the Content-type header must be set
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+		// Additional headers
+		$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+		// Mail it
+		mail($email, $subject, $message, $headers);
+
+	}
+	else
+		header('HTTP/1.0 550 The password reset key is invalid.');
+	exit();
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
 //Account functions
 //UpdateAccount function
 function UpdateAccount() {
