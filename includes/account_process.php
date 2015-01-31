@@ -10,7 +10,6 @@ $session_firstname = $_SESSION['firstname'];
 else $session_firstname = '';
 
 date_default_timezone_set('Europe/London');
-$created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
 //Call UpdateAccount function
@@ -32,6 +31,7 @@ elseif (isset($_POST['deleteaccount_button'])) {
 function UpdateAccount() {
 
 	global $mysqli;
+	global $updated_on;
 	global $session_firstname;
 
 	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
@@ -163,6 +163,8 @@ function UpdateAccount() {
 function ChangePassword() {
 
 	global $mysqli;
+	global $updated_on;
+	global $session_firstname;
 
 	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
