@@ -509,10 +509,6 @@ if ($dateofbirth == "0000-00-00") {
     //Global variable
     var gender;
 
-    if ($('.btn-group .gender').hasClass("active")) {
-        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
-    }
-
     //Setting variable value
     $('.btn-group .gender').click(function(){
         gender = ($(this).text().replace(/^\s+|\s+$/g,''))
@@ -527,6 +523,10 @@ if ($dateofbirth == "0000-00-00") {
     e.preventDefault();
 	
 	var hasError = false;
+
+     if ($('.btn-group .gender').hasClass("active")) {
+        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
+    }
 	
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
