@@ -360,6 +360,28 @@ if ($account_type1 == "admin") {
 	var dateofbirth2 = $("#dateofbirth").val();
 
     var studentno3 = $("#studentno").val();
+	if(studentno3 === '') {
+		$("#error").show();
+        $("#error").empty().append("Please enter a student number.");
+		$("#studentno").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error").hide();
+		$("#studentno").css("border-color", "#4DC742");
+	}
+
+    if (studentno3.length != 9) {
+		$("#error").show();
+        $("#error").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+		$("#studentno").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error").hide();
+		$("#studentno").css("border-color", "#4DC742");
+	}
+
 
     var email6 = $("#email").val();
 	if(email6 === '') {
