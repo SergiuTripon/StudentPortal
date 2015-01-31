@@ -131,8 +131,8 @@ if ($dateofbirth == "0000-00-00") {
 
     <hr class="hr-custom">
 
-    <div class="text-right">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
+    <div class="text-center">
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update account</span></button>
     </div>
 
 	</div>
