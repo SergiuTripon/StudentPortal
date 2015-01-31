@@ -107,8 +107,6 @@ if ($account_type1 == "admin") {
 
     <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
 
-	<div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
@@ -121,11 +119,7 @@ if ($account_type1 == "admin") {
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-    </div>
-    </div>
 
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
 	<p id="error1" class="feedback-sad text-center"></p>
@@ -141,7 +135,6 @@ if ($account_type1 == "admin") {
 	<p id="error3" class="feedback-sad text-center"></p>
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
-	</div>
 
     <div class="col-xs-6 col-sm-6 full-width">
 	<label>Address line 1</label>
@@ -156,15 +149,9 @@ if ($account_type1 == "admin") {
 	<input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter your country" readonly="readonly">
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
-	</div>
-    </div>
 
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="degree">Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
-	</div>
-    </div>
 
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
