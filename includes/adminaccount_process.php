@@ -183,7 +183,7 @@ function UpdateAnAccount() {
 	if ($db_email == $email) {
 
 	$stmt2 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, dateofbirth=?, studentno=?, degree=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
-	$stmt2->bind_param('ssssissssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $degree, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt2->bind_param('ssssisssssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $degree, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
 
