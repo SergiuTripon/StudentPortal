@@ -465,7 +465,9 @@ if ($dateofbirth == "0000-00-00") {
 	});
 
     //Checking if fields are empty
-	val = $("#gender").val();
+	var val;
+
+    val = $("#gender").val();
 	if(val === '') { $("#gender").css("border-color", "#FF5454"); }
 	val = $("#firstname").val();
 	if(val === '') { $("#firstname").css("border-color", "#FF5454"); }
