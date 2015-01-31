@@ -23,12 +23,9 @@ function CompleteTask() {
 	$stmt1->close();
 }
 
+function UpdateTask() {
 
-if (isset($_POST["recordToComplete"])) {
-	CompleteTask();
-}
-
-elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
+	global $mysqli;
 
 	$taskid = filter_input(INPUT_POST, 'taskid', FILTER_SANITIZE_NUMBER_INT);
 	$task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
@@ -44,32 +41,32 @@ elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POS
 	if ($task_category == 'work') { $task_class = 'event-info'; }
 	if ($task_category == 'personal') { $task_class = 'event-warning'; }
 	if ($task_category == 'other') { $task_class = 'event-success'; }
-	
+
 	$stmt1 = $mysqli->prepare("SELECT task_name from user_tasks where taskid = ?");
 	$stmt1->bind_param('i', $taskid);
 	$stmt1->execute();
 	$stmt1->store_result();
 	$stmt1->bind_result($db_taskname);
 	$stmt1->fetch();
-	
+
 	if ($db_taskname == $task_name) {
-	
+
 	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_url=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
 	$stmt2->bind_param('ssssssi', $task_notes, $task_url, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
 	$stmt2->execute();
 	$stmt2->close();
 
 	}
-	
+
 	else {
-	
+
 	$stmt3 = $mysqli->prepare("SELECT taskid from user_tasks where task_name = ? AND userid = ? LIMIT 1");
 	$stmt3->bind_param('si', $task_name, $userid);
 	$stmt3->execute();
 	$stmt3->store_result();
 	$stmt3->bind_result($db_taskid);
 	$stmt3->fetch();
-	
+
 	if ($stmt3->num_rows == 1) {
 	header('HTTP/1.0 550 A task with the name entered already exists.');
 	exit();
@@ -81,7 +78,17 @@ elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POS
 	$stmt4->bind_param('sssssssi', $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
 	$stmt4->execute();
 	$stmt4->close();
-	
+
 	}
 	}
+}
+
+
+if (isset($_POST["recordToComplete"])) {
+	CompleteTask();
+}
+
+
+elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
+	UpdateTask();
 }
