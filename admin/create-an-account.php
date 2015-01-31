@@ -284,6 +284,26 @@ include '../includes/signin.php';
 	//Setting variable value
 	$('.btn-group .account_type').click(function(){
 		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
+
+		if(account_type === 'Student') {
+			$('label[for="studentno"]').show();
+			$('#studentno').show();
+			$('label[for="degree"]').show();
+			$('#degree').show();
+		}
+		if(account_type === 'Lecturer') {
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
+		if(account_type === 'Admin') {
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
+
 	})
 	$('.btn-group .gender').click(function(){
 		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
@@ -341,32 +361,6 @@ include '../includes/signin.php';
     } else {
 		$("#error4").hide();
 		$("#surname").css("border-color", "#4DC742");
-	}
-
-	if (account_type === 'Student') {
-		var studentno = $("#studentno").val();
-		if(studentno === '') {
-			$("#error").show();
-			$("#error").empty().append("Please enter a student number.");
-			$("#studentno").css("border-color", "#FF5454");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error").hide();
-			$("#studentno").css("border-color", "#4DC742");
-		}
-		if (studentno.length != 9) {
-			$("#error").show();
-			$("#error").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
-			$("#studentno").css("border-color", "#FF5454");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error").hide();
-			$("#studentno").css("border-color", "#4DC742");
-		}
-	} else {
-		var studentno = $("#studentno").val();
 	}
 	
 	var email = $("#email").val();
