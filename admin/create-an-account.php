@@ -366,61 +366,61 @@ include '../includes/signin.php';
 	if (account_type === 'Student') {
 		var studentno = $("#studentno").val();
 		if(studentno === '') {
-			$("#error").show();
-			$("#error").empty().append("Please enter a student number.");
+			$("#error5").show();
+			$("#error5").empty().append("Please enter a student number.");
 			$("#studentno").css("border-color", "#FF5454");
 			hasError  = true;
 			return false;
 		} else {
-			$("#error").hide();
+			$("#error5").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
 		if (studentno.length != 9) {
-			$("#error").show();
-			$("#error").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+			$("#error5").show();
+			$("#error5").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
 			$("#studentno").css("border-color", "#FF5454");
 			hasError  = true;
 			return false;
 		} else {
-			$("#error").hide();
+			$("#error5").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
 	} else {
 		var studentno = $("#studentno").val();
 	}
 	
-	var email = $("#email").val();
+	var email = $("#email6").val();
 	if(email === '') {
-		$("#error5").show();
-        $("#error5").empty().append("Please enter an email address.");
+		$("#error6").show();
+        $("#error6").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error6").hide();
 		$("#email").css("border-color", "#4DC742");
 	}
 	
 	var password = $("#password").val();
 	if(password === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password.");
+		$("#erro7").show();
+        $("#erro7").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error7").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 	
 	if (password.length < 6) {
-		$("#error").show();
-		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error7").show();
+		$("#error7").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error7").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 	
@@ -429,11 +429,11 @@ include '../includes/signin.php';
 	var numbers = new RegExp('[0-9]');
 	
 	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
-		$("#error").hide();
+		$("#error7").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
-		$("#error").show();
-		$("#error").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#error7").show();
+		$("#error7").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -441,25 +441,25 @@ include '../includes/signin.php';
 	
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password confirmation.");
+		$("#error8").show();
+        $("#error8").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error8").hide();
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
 	if(password != confirmpwd) {
-		$("#error").show();
-		$("#error").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#error8").show();
+		$("#error8").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error8").hide();
 		$("#password").css("border-color", "#4DC742");
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
