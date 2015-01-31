@@ -100,6 +100,8 @@ if ($dateofbirth == "0000-00-00") {
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
+    </div>
+    </div>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
