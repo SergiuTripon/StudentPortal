@@ -114,7 +114,7 @@ include '../includes/signin.php';
 	<label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
 	<p id="error4" class="feedback-sad text-center"></p>
-	<label>Student number</label>
+	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
 	<p id="error5" class="feedback-sad text-center"></p>
 
@@ -134,7 +134,7 @@ include '../includes/signin.php';
     <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
 
-    <label>Programme of Study</label>
+    <label for="degree">Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
 
     <label>Address line 1</label>
