@@ -19,24 +19,6 @@ include '../includes/signin.php';
 
     <title>Student Portal | Create an account</title>
 	
-	<style>
-	#account_type {
-		background-color: #333333;
-    }
-
-    #account_type option {
-		color: #FFA500;
-    }
-	
-    #gender {
-		background-color: #333333;
-    }
-	
-	#gender option {
-		color: #FFA500;
-    }
-    </style>
-	
 </head>
 
 <body>
@@ -334,7 +316,7 @@ include '../includes/signin.php';
 		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error2").empty().append("Please select a gender.");
+		$("#error2").empty().append("Please select an account type.");
 		$(".btn-group > .gender").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
