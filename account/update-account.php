@@ -5,11 +5,11 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
-$stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname, user_details.gender, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.postcode, user_fees.fee_amount FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid LEFT JOIN user_fees ON user_signin.userid=user_fees.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname, user_details.gender, user_details.studentno, user_details.degree, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.postcode, user_fees.fee_amount FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid LEFT JOIN user_fees ON user_signin.userid=user_fees.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $userid);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($email, $studentno, $firstname, $surname, $gender, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $postcode, $fee_amount);
+$stmt1->bind_result($email, $studentno, $firstname, $surname, $gender, $studentno, $degree, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $postcode, $fee_amount);
 $stmt1->fetch();
 
 if ($dateofbirth == "0000-00-00") {
@@ -86,8 +86,6 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div id="hide">
 
-    <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
@@ -100,11 +98,7 @@ if ($dateofbirth == "0000-00-00") {
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-    </div>
-    </div>
 
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
     <p id="error1" class="feedback-sad text-center"></p>
@@ -115,14 +109,16 @@ if ($dateofbirth == "0000-00-00") {
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
+
+    <label>Programme of Study</label>
+    <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter your postcode">
+
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
     <p id="error3" class="feedback-sad text-center"></p>
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
-	</div>
 
-    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter your address line 1">
     <label>Address 2 line (Optional)</label>
@@ -135,8 +131,7 @@ if ($dateofbirth == "0000-00-00") {
 	<input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter your country" readonly="readonly">
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
-    </div>
-    </div>
+
 
     <hr class="hr-custom">
 
