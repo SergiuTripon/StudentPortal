@@ -465,7 +465,7 @@ include '../includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'account_type1=' + account_type1 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&gender2=' + gender2 + '&studentno1=' + studentno2 + '&email5=' + email5 + '&password4=' + password4 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
+    data:'account_type1=' + account_type1 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&gender2=' + gender2 + '&studentno2=' + studentno2 + '&email5=' + email5 + '&password4=' + password4 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
