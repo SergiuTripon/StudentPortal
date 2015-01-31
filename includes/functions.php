@@ -692,7 +692,7 @@ function UpdateAnAccount() {
 	if ($db_email == $email) {
 
 	$stmt2 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, dateofbirth=?, studentno=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
-	$stmt2->bind_param('sssssssssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt2->bind_param('ssssissssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
 
@@ -715,7 +715,7 @@ function UpdateAnAccount() {
 	else {
 
 	$stmt4 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, dateofbirth=?, studentno=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
-	$stmt4->bind_param('sssssssssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt4->bind_param('ssssissssssssi', $firstname, $surname, $gender, $dateofbirth, $studentno, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
 	$stmt4->execute();
 	$stmt4->close();
 
