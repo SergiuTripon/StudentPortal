@@ -86,6 +86,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div id="hide">
 
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
@@ -99,6 +101,8 @@ if ($dateofbirth == "0000-00-00") {
 	</label>
 	</div>
 
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
     <p id="error1" class="feedback-sad text-center"></p>
@@ -114,7 +118,10 @@ if ($dateofbirth == "0000-00-00") {
     <p id="error3" class="feedback-sad text-center"></p>
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
-	<label>Address line 1</label>
+	</div>
+
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter your address line 1">
     <label>Address 2 line (Optional)</label>
     <input class="form-control" type="text" name="address2" id="address2" value="<?php echo $address2; ?>" placeholder="Enter your address line 2 (Optional)">
@@ -128,6 +135,9 @@ if ($dateofbirth == "0000-00-00") {
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
 	<label>Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter your programme of study">
+    </div>
+    </div>
+
 
     <hr class="hr-custom">
 
@@ -194,7 +204,6 @@ if ($dateofbirth == "0000-00-00") {
 	<div id="hide">
 
 	<div class="form-group">
-
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
@@ -209,11 +218,9 @@ if ($dateofbirth == "0000-00-00") {
 	</label>
 	</div>
     </div>
-
     </div>
 
     <div class="form-group">
-
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
@@ -246,7 +253,6 @@ if ($dateofbirth == "0000-00-00") {
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
 	</div>
-
     </div>
 
     <input type="hidden" name="degree" id="degree">
