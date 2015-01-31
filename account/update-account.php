@@ -350,7 +350,6 @@ if ($dateofbirth == "0000-00-00") {
     <p id="error3" class="feedback-sad text-center"></p>
     <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
-	</div>
 
 	<label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter your address line 1">
