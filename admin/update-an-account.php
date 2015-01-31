@@ -9,7 +9,7 @@ $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, 
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($userid, $account_type, $email, $gender, $firstname, $surname, $studentno, $degree, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+$stmt1->bind_result($userid, $account_type1, $email, $gender, $firstname, $surname, $studentno, $degree, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -21,7 +21,7 @@ if ($dateofbirth == "0000-00-00") {
     $dateofbirth = '';
 }
 
-if ($account_type == "lecturer" or $account_type = "admin") {
+if ($account_type1 == "lecturer" or $account_type1 = "admin") {
 	$conditional_style = "<style> #studentno { display: none !important; } label[for=\"studentno\"] { display: none !important; } #degree { display: none !important; } label[for=\"degree\"] { display: none !important; }</style>";
 }
 ?>
