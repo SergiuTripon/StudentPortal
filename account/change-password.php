@@ -63,7 +63,6 @@ include '../includes/signin.php';
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
     </div>
 
-    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 
