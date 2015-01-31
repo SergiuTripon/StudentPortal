@@ -101,7 +101,6 @@ if ($dateofbirth == "0000-00-00") {
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-    <p id="error1" class="feedback-sad text-center"></p>
     </div>
 
     </div>
@@ -111,17 +110,17 @@ if ($dateofbirth == "0000-00-00") {
     <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
-    <p id="error2" class="feedback-sad text-center"></p>
+    <p id="error1" class="feedback-sad text-center"></p>
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
-    <p id="error3" class="feedback-sad text-center"></p>
+    <p id="error2" class="feedback-sad text-center"></p>
     <label>Date of Birth (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
-    <p id="error4" class="feedback-sad text-center"></p>
+    <p id="error3" class="feedback-sad text-center"></p>
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 	</div>
@@ -227,7 +226,6 @@ if ($dateofbirth == "0000-00-00") {
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-    <p id="error1" class="feedback-sad text-center"></p>
     </div>
 
     </div>
@@ -237,17 +235,17 @@ if ($dateofbirth == "0000-00-00") {
     <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
-    <p id="error2" class="feedback-sad text-center"></p>
+    <p id="error1" class="feedback-sad text-center"></p>
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
-    <p id="error3" class="feedback-sad text-center"></p>
+    <p id="error2" class="feedback-sad text-center"></p>
     <label>Date of Birth</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
-    <p id="error4" class="feedback-sad text-center"></p>
+    <p id="error3" class="feedback-sad text-center"></p>
     <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 	</div>
@@ -348,7 +346,6 @@ if ($dateofbirth == "0000-00-00") {
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-    <p id="error1" class="feedback-sad text-center"></p>
     </div>
 
     </div>
@@ -358,17 +355,17 @@ if ($dateofbirth == "0000-00-00") {
     <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
-    <p id="error2" class="feedback-sad text-center"></p>
+    <p id="error1" class="feedback-sad text-center"></p>
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
-    <p id="error3" class="feedback-sad text-center"></p>
+    <p id="error2" class="feedback-sad text-center"></p>
     <label>Date of Birth (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
-    <p id="error4" class="feedback-sad text-center"></p>
+    <p id="error3" class="feedback-sad text-center"></p>
     <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 	</div>
@@ -519,23 +516,11 @@ if ($dateofbirth == "0000-00-00") {
     e.preventDefault();
 	
 	var hasError = false;
-
-	var gender_check = $(".gender");
-	if (gender_check.hasClass('active')) {
-		$("#error1").hide();
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
-	}
-	else {
-		$("#error1").empty().append("Please select a task category.");
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
-		hasError  = true;
-		return false;
-	}
 	
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a first name.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -543,8 +528,8 @@ if ($dateofbirth == "0000-00-00") {
 	
 	var surname = $("#surname").val();
 	if(surname === '') {
-		$("#error3").show();
-        $("#error3").empty().append("Please enter a surname.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -555,8 +540,8 @@ if ($dateofbirth == "0000-00-00") {
 	var studentno = $("#studentno").val();
 	var email = $("#email").val();
 	if(email === '') {
-		$("#error4").show();
-        $("#error4").empty().append("Please enter an email address.");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
