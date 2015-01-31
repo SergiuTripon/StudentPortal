@@ -371,6 +371,8 @@ if ($dateofbirth == "0000-00-00") {
 
     <input type="hidden" name="degree" id="degree">
 
+    <div class="text-right"></div>
+
     <hr class="hr-custom">
 
     <div class="text-center">
