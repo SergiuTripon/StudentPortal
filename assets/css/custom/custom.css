@@ -384,6 +384,16 @@ hr {
 .form-group {
     margin-bottom: 0px;
 }
+
+.form-group .col-xs-6 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.form-group .col-sm-6 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
 /* End of Form Group style */
 
 /* Form Validation */
