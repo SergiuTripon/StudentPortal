@@ -22,7 +22,7 @@ if ($dateofbirth == "0000-00-00") {
 }
 
 if ($account_type == "lecturer" or $account_type = "admin") {
-	$conditional_style = "<style> #studentno { display: none !important; } #degree { display: none !important; }</style>";
+	$conditional_style = "<style> #studentno { display: none !important; } label[for=\"studentno\"] { display:none; } #degree { display: none !important; } label[for=\"degree\"] { display:none; }</style>";
 }
 ?>
 
