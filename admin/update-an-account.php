@@ -159,7 +159,7 @@ if ($account_type == "lecturer" or $account_type = "admin") {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Programme of Study</label>
-    <input class="form-control" type="text" name="degree2" id="degree2" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
+    <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
 	</div>
     </div>
 
