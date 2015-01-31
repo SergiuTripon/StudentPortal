@@ -116,18 +116,19 @@ include 'includes/signin.php';
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
 	<script>
+    $(document).ready(function() {
+
+    //Ladda
     Ladda.bind('.ladda-button', {timeout: 1000});
-	</script>
-	
-	<script>
-	$(document).ready(function() {
+
+    //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 	
-	email = $("#email").val();
-	if(email === '') {
+	var email2 = $("#email").val();
+	if(email2 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -138,9 +139,9 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/forgottenpassword_process.php",
-    data:'email=' + email,
-    success:function(response){
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'email2=' + email2,
+    success:function(){
         $("#error").hide();
 		$("#hide").hide();
         $("label").hide();

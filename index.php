@@ -116,11 +116,12 @@ include 'includes/signin.php';
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
 	<script>
+    $(document).ready(function() {
+
+    //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
-	</script>
-	
-	<script>
-	$(document).ready(function() {
+
+    //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -152,9 +153,9 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/signin_process.php",
+	url: "https://student-portal.co.uk/includes/processes.php",
     data:'email=' + email + '&password=' + password,
-    success:function(response){
+    success:function(){
 		window.location = '../overview/';
     },
     error:function (xhr, ajaxOptions, thrownError){

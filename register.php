@@ -304,8 +304,8 @@ include 'includes/signin.php';
 		$("#email").css("border-color", "#4DC742");
 	}
 	
-	var password = $("#password").val();
-	if(password === '') {
+	var password1 = $("#password").val();
+	if(password1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
@@ -316,8 +316,8 @@ include 'includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 	}
 
-    password = $("#password").val();
-	if (password.length < 6) {
+    password1 = $("#password").val();
+	if (password1.length < 6) {
 		$("#error").show();
 		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -332,8 +332,8 @@ include 'includes/signin.php';
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
-    password = $("#password").val();
-	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+    password1 = $("#password").val();
+	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -356,7 +356,7 @@ include 'includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	if(password != confirmpwd) {
+	if(password1 != confirmpwd) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -372,9 +372,9 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/register_process.php",
-    data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd,
-    success:function(response){
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password1=' + password1,
+    success:function(){
         $("#error").hide();
 		$("#hide").hide();
         $("#FormSubmit").hide();

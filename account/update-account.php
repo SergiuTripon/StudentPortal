@@ -507,13 +507,13 @@ if ($dateofbirth == "0000-00-00") {
 	.resize();//trigger the resize event on page load.
 
     //Global variable
-    var gender;
+    var gender1;
 
-    gender = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
+    gender1 = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
 
     //Setting variable value
     $('.btn-group .gender').click(function(){
-        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
+        gender1 = ($(this).text().replace(/^\s+|\s+$/g,''))
     })
 
     $("#error1").hide();
@@ -526,8 +526,8 @@ if ($dateofbirth == "0000-00-00") {
 	
 	var hasError = false;
 	
-	var firstname = $("#firstname").val();
-	if(firstname === '') {
+	var firstname1 = $("#firstname").val();
+	if(firstname1 === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
@@ -535,8 +535,8 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 	
-	var surname = $("#surname").val();
-	if(surname === '') {
+	var surname1 = $("#surname").val();
+	if(surname1 === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
@@ -545,10 +545,11 @@ if ($dateofbirth == "0000-00-00") {
 	}
 
 	var dateofbirth = $("#dateofbirth").val();
+    var degree = $("#degree").val();
 
-	var studentno = $("#studentno").val();
-	var email = $("#email").val();
-	if(email === '') {
+
+	var email4 = $("#email").val();
+	if(email4 === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -563,14 +564,13 @@ if ($dateofbirth == "0000-00-00") {
     var city = $("#city").val();
     var country = $("#country").val();
     var postcode = $("#postcode").val();
-    var degree = $("#degree").val();
 
     if(hasError == false){
 
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&dateofbirth=' + dateofbirth + '&studentno=' + studentno + '&email=' + email + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode + '&degree=' + degree,
+    data:'gender1=' + gender1 + '&firstname1=' + firstname1 + '&surname1=' + surname1 + '&dateofbirth=' + dateofbirth + '&degree=' + degree + '&email=' + email4 + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();

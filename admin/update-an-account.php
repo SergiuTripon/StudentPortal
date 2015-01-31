@@ -300,13 +300,13 @@ if ($dateofbirth == "0000-00-00") {
 	.resize();//trigger the resize event on page load.
 
     //Global variable
-    var gender;
+    var gender3;
 
-    gender = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
+    gender3 = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
 
     //Setting variable value
     $('.btn-group .gender').click(function(){
-        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
+        gender3 = ($(this).text().replace(/^\s+|\s+$/g,''))
     })
 
     $("#error1").hide();
@@ -319,11 +319,10 @@ if ($dateofbirth == "0000-00-00") {
 
 	var hasError = false;
 
-    var userid1 = $("#userid").val();
-	var gender2 = $("#gender").val();
+    var userid = $("#userid").val();
 
-	var firstname2 = $("#firstname").val();
-	if(firstname2 === '') {
+	var firstname3 = $("#firstname").val();
+	if(firstname3 === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
@@ -331,8 +330,8 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	var surname2 = $("#surname").val();
-	if(surname2 === '') {
+	var surname3 = $("#surname").val();
+	if(surname3 === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
@@ -342,10 +341,10 @@ if ($dateofbirth == "0000-00-00") {
 
 	var dateofbirth2 = $("#dateofbirth").val();
 
-    var studentno2 = $("#studentno").val();
+    var studentno3 = $("#studentno").val();
 
-    var email2 = $("#email").val();
-	if(email2 === '') {
+    var email6 = $("#email").val();
+	if(email6 === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -366,7 +365,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid1=' + userid1 + '&gender2=' + gender2 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&dateofbirth2=' + dateofbirth2 + '&studentno2=' + studentno2 + '&degree2=' + degree2 + '&email2=' + email2 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
+    data:'userid=' + userid + '&gender3=' + gender3 + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&dateofbirth2=' + dateofbirth2 + '&studentno3=' + studentno3 + '&degree2=' + degree2 + '&email6=' + email6 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();

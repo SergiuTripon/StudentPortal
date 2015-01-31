@@ -261,7 +261,8 @@ include '../includes/signin.php';
 
     //Global variable
 	var account_type1;
-	var gender1;
+	var gender2;
+	var studentno2;
 
 	//Setting variable value
 	$('.btn-group > .account_type').click(function(){
@@ -288,7 +289,7 @@ include '../includes/signin.php';
 
 	})
 	$('.btn-group > .gender').click(function(){
-		gender1 = ($(this).text().replace(/^\s+|\s+$/g,''))
+		gender2 = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 
 	//Ajax call
@@ -321,8 +322,8 @@ include '../includes/signin.php';
 		return false;
 	}
 
-	var firstname1 = $("#firstname").val();
-	if(firstname1 === '') {
+	var firstname2 = $("#firstname").val();
+	if(firstname2 === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
@@ -333,8 +334,8 @@ include '../includes/signin.php';
 		$("#firstname").css("border-color", "#4DC742");
 	}
 	
-	var surname1 = $("#surname").val();
-	if(surname1 === '') {
+	var surname2 = $("#surname").val();
+	if(surname2 === '') {
 		$("#error4").show();
         $("#error4").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
@@ -345,9 +346,11 @@ include '../includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
+	var dateofbirth1 = $("#dateofbirth").val();
+
 	if (account_type1 === 'Student') {
-		var studentno1 = $("#studentno").val();
-		if(studentno1 === '') {
+		studentno2 = $("#studentno").val();
+		if(studentno2 === '') {
 			$("#error5").show();
 			$("#error5").empty().append("Please enter a student number.");
 			$("#studentno").css("border-color", "#FF5454");
@@ -357,7 +360,7 @@ include '../includes/signin.php';
 			$("#error5").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
-		if (studentno1.length != 9) {
+		if (studentno2.length != 9) {
 			$("#error5").show();
 			$("#error5").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
 			$("#studentno").css("border-color", "#FF5454");
@@ -368,11 +371,13 @@ include '../includes/signin.php';
 			$("#studentno").css("border-color", "#4DC742");
 		}
 	} else {
-		var studentno1 = $("#studentno").val();
+		studentno2 = $("#studentno").val();
 	}
+
+	var degree1 = $("#degree").val();
 	
-	var email1 = $("#email").val();
-	if(email1 === '') {
+	var email5 = $("#email").val();
+	if(email5 === '') {
 		$("#error6").show();
         $("#error6").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -382,9 +387,11 @@ include '../includes/signin.php';
 		$("#error6").hide();
 		$("#email").css("border-color", "#4DC742");
 	}
-	
-	var password1 = $("#password").val();
-	if(password1 === '') {
+
+	var phonenumber1 = $("#phonenumber").val();
+
+	var password4 = $("#password").val();
+	if(password4 === '') {
 		$("#erro7").show();
         $("#erro7").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
@@ -395,7 +402,7 @@ include '../includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 	}
 	
-	if (password1.length < 6) {
+	if (password4.length < 6) {
 		$("#error7").show();
 		$("#error7").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -410,7 +417,7 @@ include '../includes/signin.php';
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 	
-	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
+	if(password4.match(upperCase) && password4.match(lowerCase) && password4.match(numbers)) {
 		$("#error7").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -421,8 +428,8 @@ include '../includes/signin.php';
 		return false;
 	}
 	
-	var confirmpwd1 = $("#confirmpwd").val();
-	if(confirmpwd1 === '') {
+	var confirmpwd = $("#confirmpwd").val();
+	if(confirmpwd === '') {
 		$("#error8").show();
         $("#error8").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
@@ -433,7 +440,7 @@ include '../includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	if(password1 != confirmpwd1) {
+	if(password4 != confirmpwd) {
 		$("#error8").show();
 		$("#error8").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -445,10 +452,7 @@ include '../includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
-	
-	var dateofbirth1 = $("#dateofbirth").val();
-	var phonenumber1 = $("#phonenumber").val();
-	var degree1 = $("#degree").val();
+
  	var address11 = $("#address1").val();
 	var address21 = $("#address2").val();
 	var town1 = $("#town").val();
@@ -461,7 +465,7 @@ include '../includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'account_type1=' + account_type1 + '&gender1=' + gender1 + '&firstname1=' + firstname1 + '&surname1=' + surname1 + '&studentno1=' + studentno1 + '&email1=' + email1 + '&password1=' + password1 + '&confirmpwd1=' + confirmpwd1 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
+    data:'account_type1=' + account_type1 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&gender2=' + gender2 + '&studentno1=' + studentno2 + '&email1=' + email5 + '&password1=' + password4 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();

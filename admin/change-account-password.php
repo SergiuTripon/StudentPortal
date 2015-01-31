@@ -198,10 +198,10 @@ if (isset($_POST["recordToChange"])) {
 
 	var hasError = false;
 
-	var userid2 = $("#userid").val();
+	var userid1 = $("#userid").val();
 
-	var password2 = $("#password").val();
-	if(password2 === '') {
+	var password5 = $("#password").val();
+	if(password5 === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
@@ -212,7 +212,7 @@ if (isset($_POST["recordToChange"])) {
 		$("#password").css("border-color", "#4DC742");
 	}
 
-	if (password2.length < 6) {
+	if (password5.length < 6) {
 		$("#error1").show();
 		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -227,7 +227,7 @@ if (isset($_POST["recordToChange"])) {
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
-	if(password2.match(upperCase) && password2.match(lowerCase) && password2.match(numbers)) {
+	if(password5.match(upperCase) && password5.match(lowerCase) && password5.match(numbers)) {
 		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -238,8 +238,8 @@ if (isset($_POST["recordToChange"])) {
 		return false;
 	}
 
-	var confirmpwd2 = $("#confirmpwd").val();
-	if(confirmpwd2 === '') {
+	var confirmpwd = $("#confirmpwd").val();
+	if(confirmpwd === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
@@ -250,7 +250,7 @@ if (isset($_POST["recordToChange"])) {
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
-	if(password2 != confirmpwd2) {
+	if(password5 != confirmpwd) {
 		$("#error2").show();
 		$(".error2").empty().append("The password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -267,7 +267,7 @@ if (isset($_POST["recordToChange"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid2=' + userid2 + '&password2=' + password2 + '&confirmpwd2=' + confirmpwd2,
+    data:'userid1=' + userid1 + '&password5=' + password5,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -276,7 +276,6 @@ if (isset($_POST["recordToChange"])) {
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
-		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }

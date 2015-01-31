@@ -141,8 +141,8 @@ include '../includes/signin.php';
 	
 	var hasError = false;
 
-	var password = $("#password").val();
-	if(password === '') {
+	var password3 = $("#password").val();
+	if(password3 === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
@@ -153,8 +153,8 @@ include '../includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 	}
 
-    password = $("#password").val();
-	if (password.length < 6) {
+    password3 = $("#password").val();
+	if (password3.length < 6) {
 		$("#error1").show();
 		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -169,8 +169,8 @@ include '../includes/signin.php';
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
-    password = $("#password").val();
-	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+    password3 = $("#password").val();
+	if(password3.match(upperCase) && password3.match(lowerCase) && password3.match(numbers)) {
 		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -193,7 +193,7 @@ include '../includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
-	if(password != confirmpwd) {
+	if(password3 != confirmpwd) {
 		$("#error2").show();
 		$("#error2").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -210,8 +210,8 @@ include '../includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'password=' + password + '&confirmpwd=' + confirmpwd,
-    success:function(response){
+    data:'password=' + password3,
+    success:function(){
 		$("#hide").hide();
 		$("#error").hide();
 		$("#success").append('Your password has been changed successfully.');

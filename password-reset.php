@@ -131,20 +131,21 @@ include 'includes/signin.php';
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
 	<script>
+    $(document).ready(function() {
+
+    //Ladda
     Ladda.bind('.ladda-button', {timeout: 1000});
-	</script>
-	
-	<script>
-	$(document).ready(function() {
+
+    //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 	
-	token = $("#token").val();
+	var token = $("#token").val();
 	
-	email = $("#email1").val();
-	if(email === '') {
+	var email3 = $("#email1").val();
+	if(email3 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -155,8 +156,8 @@ include 'includes/signin.php';
 		$("#email").css("border-color", "#4DC742");
 	}
 	
-	password = $("#password").val();
-	if(password === '') {
+	var password2 = $("#password").val();
+	if(password2 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
@@ -167,7 +168,7 @@ include 'includes/signin.php';
 		$("#password").css("border-color", "#4DC742");
 	}
 	
-	if (password.length < 6) {
+	if (password2.length < 6) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -182,7 +183,7 @@ include 'includes/signin.php';
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 	
-	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+	if(password2.match(upperCase) && password2.match(lowerCase) && password2.match(numbers)) {
 		$("#error").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -193,7 +194,7 @@ include 'includes/signin.php';
 		return false;
 	}
 	
-	confirmpwd = $("#confirmpwd").val();
+	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password confirmation.");
@@ -205,7 +206,7 @@ include 'includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
-	if(password != confirmpwd) {
+	if(password2 != confirmpwd) {
 		$("#error").show();
 		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -222,8 +223,8 @@ include 'includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/forgottenpassword_process.php",
-    data:'token=' + token + '&email=' + email + '&password=' + password + '&confirmpwd=' + confirmpwd,
-    success:function(response){
+    data:'token=' + token + '&email=' + email3 + '&password=' + password2 + '&confirmpwd=' + confirmpwd,
+    success:function(){
 		$("#hide").hide();
 		$("#register-button").hide();
 		$("#FormSubmit").hide();

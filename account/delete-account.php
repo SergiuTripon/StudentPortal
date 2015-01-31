@@ -182,21 +182,22 @@ $stmt1->fetch();
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    Ladda.bind('.ladda-button', {timeout: 1000});
-	</script>
-
-    <script>
     $(document).ready(function() {
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 1000});
+
+    //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    deleteaccount_button = $("#deleteaccount_button").val();
+    var deleteaccount_button = $("#deleteaccount_button").val();
 
     jQuery.ajax({
     type: "POST",
     url: "https://student-portal.co.uk/includes/processes.php",
     data:'deleteaccount_button=' + deleteaccount_button,
-    success:function(response){
+    success:function(){
         window.location.href = "/account/account-deleted/";
     },
     error:function (xhr, ajaxOptions, thrownError){
