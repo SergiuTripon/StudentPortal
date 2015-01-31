@@ -13,7 +13,27 @@ date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
+//Call UpdateAccount function
 if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['dateofbirth'], $_POST['email'], $_POST['phonenumber'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'], $_POST['degree'])) {
+	UpdateAccount();
+}
+
+//Call ChangePassword function
+elseif (isset($_POST["password"], $_POST["confirmpwd"])) {
+	ChangePassword();
+}
+
+//Call DeleteAccount function
+elseif (isset($_POST['deleteaccount_button'])) {
+	DeleteAccount();
+}
+
+function UpdateAccount() {
+
+	global $mysqli;
+	global $userid;
+	global $updated_on;
+	global $session_firstname;
 
 	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
@@ -53,10 +73,6 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	$stmt2->bind_param('sssssssssssssi', $gender, $firstname, $surname, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $degree, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
-
-		// multiple recipients
-	$to  = 'aidan@example.com' . ', '; // note the comma
-	$to .= 'wez@example.com';
 
 	// subject
 	$subject = 'Account updated successfully';
@@ -144,30 +160,6 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	}
 }
 
-//Call DeleteAccount function
-elseif (isset($_POST['deleteaccount_button'])) {
-	DeleteAccount();
-}
-
-//Call ChangePassword function
-elseif (isset($_POST["password"], $_POST["confirmpwd"])) {
-	ChangePassword();
-}
-
-//DeleteAccount function
-function DeleteAccount() {
-
-	global $mysqli;
-	global $userid;
-
-	$stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
-	$stmt1->bind_param('i', $userid);
-	$stmt1->execute();
-	$stmt1->close();
-
-	session_destroy();
-}
-
 //ChangePassword function
 function ChangePassword() {
 
@@ -237,4 +229,18 @@ function ChangePassword() {
 
 	$stmt1->close();
 	}
+}
+
+//DeleteAccount function
+function DeleteAccount() {
+
+	global $mysqli;
+	global $userid;
+
+	$stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+	$stmt1->bind_param('i', $userid);
+	$stmt1->execute();
+	$stmt1->close();
+
+	session_destroy();
 }
