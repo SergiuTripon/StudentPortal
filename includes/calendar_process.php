@@ -9,6 +9,21 @@ date_default_timezone_set('Europe/London');
 $completed_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
+//Call CreateTask function
+if (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
+	CreateTask();
+}
+
+//Call UpdateTask function
+else if (isset($_POST['taskid1'], $_POST['task_name1'], $_POST['task_notes1'], $_POST['task_url1'], $_POST['task_startdate1'], $_POST['task_duedate1'], $_POST['task_category1'])) {
+	UpdateTask();
+}
+
+//Call CompleteTask function
+elseif (isset($_POST["recordToComplete"])) {
+	CompleteTask();
+}
+
 //CreateTask function
 function CreateTask () {
 
@@ -126,20 +141,4 @@ function CompleteTask() {
 	$stmt1->bind_param('ssi', $task_status, $completed_on, $idToComplete);
 	$stmt1->execute();
 	$stmt1->close();
-}
-
-
-//Call CreateTask function
-if (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
-	CreateTask();
-}
-
-//Call UpdateTask function
-else if (isset($_POST['taskid1'], $_POST['task_name1'], $_POST['task_notes1'], $_POST['task_url1'], $_POST['task_startdate1'], $_POST['task_duedate1'], $_POST['task_category1'])) {
-	UpdateTask();
-}
-
-//Call CompleteTask function
-elseif (isset($_POST["recordToComplete"])) {
-	CompleteTask();
 }
