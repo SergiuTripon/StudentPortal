@@ -835,7 +835,7 @@ function UpdateTask() {
 
 	global $mysqli;
 
-	$taskid = filter_input(INPUT_POST, 'taskid1', FILTER_SANITIZE_NUMBER_INT);
+	$taskid = filter_input(INPUT_POST, 'taskid', FILTER_SANITIZE_NUMBER_INT);
 	$task_name = filter_input(INPUT_POST, 'task_name1', FILTER_SANITIZE_STRING);
     $task_notes = filter_input(INPUT_POST, 'task_notes1', FILTER_SANITIZE_STRING);
 	$task_url = filter_input(INPUT_POST, 'task_url1', FILTER_SANITIZE_STRING);
