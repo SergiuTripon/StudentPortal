@@ -133,11 +133,15 @@ if ($dateofbirth == "0000-00-00") {
 	<input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter your country" readonly="readonly">
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
-	<label>Programme of Study</label>
-    <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter your programme of study">
     </div>
     </div>
 
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>Programme of Study</label>
+    <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter your programme of study">
+    </div>
+    </div>
 
     <hr class="hr-custom">
 
