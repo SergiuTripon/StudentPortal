@@ -130,8 +130,7 @@ include '../includes/signin.php';
 
 	<label>Date of Birth</label>
 	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
-    </div>
-    <div class="col-xs-6 col-sm-6 full-width">
+
     <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
 
