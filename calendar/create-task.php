@@ -72,7 +72,7 @@ include '../includes/signin.php';
 
     <label>Name</label>
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
-	<p id="error1" class="feedback-sad text-center" style="display:none;"></p>
+	<p id="error1" class="feedback-sad text-center"></p>
 
     <label>Notes (Optional)</label>
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Enter notes"></textarea>
@@ -82,11 +82,11 @@ include '../includes/signin.php';
 
 	<label>Start date and time</label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
-	<p id="error2" class="feedback-sad text-center" style="display:none;"></p>
+	<p id="error2" class="feedback-sad text-center"></p>
 
 	<label>Due date and time</label>
 	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
-	<p id="error3" class="feedback-sad text-center" style="display:none;"></p>
+	<p id="error3" class="feedback-sad text-center"></p>
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
@@ -103,7 +103,7 @@ include '../includes/signin.php';
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-	<p id="error4" class="feedback-sad text-center" style="display:none;"></p>
+	<p id="error4" class="feedback-sad text-center"></p>
 	</div>
 
 	<hr class="hr-custom">
@@ -204,6 +204,12 @@ include '../includes/signin.php';
 	$('.btn-group .task_category').click(function(){
 		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
+
+	//Hiding error messages
+	$("#error1").hide();
+	$("#error2").hide();
+	$("#error3").hide();
+	$("#error4").hide();
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
