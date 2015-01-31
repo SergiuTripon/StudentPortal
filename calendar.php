@@ -120,8 +120,7 @@ else $userid = '';
 	while($row = $stmt1->fetch_assoc()) {
 
 	$url = $row["task_url"];
-	$task_category = $row["$task_category"];
-	$task_category = ucfirst($task_category);
+	$row["task_category"] = ucfirst($row["task_category"]);;
 
 	if (!empty($row["task_url"])) {
 		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
@@ -185,8 +184,7 @@ else $userid = '';
 	while($row = $stmt2->fetch_assoc()) {
 
 	$url = $row["task_url"];
-	$task_category = $row["$task_category"];
-	$task_category = ucfirst($task_category);
+	$row["task_category"] = ucfirst($row["task_category"]);
 
 	if (!empty($row["task_url"])) {
 		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
@@ -201,7 +199,7 @@ else $userid = '';
 	<td class="url-hide" data-title="External URL">'.$url1.'</td>
 	<td data-title="Start date">'.$row["task_startdate"].'</td>
 	<td data-title="Due date">'.$row["task_duedate"].'</td>
-	<td data-title="Category">'.$task_category.'</td>
+	<td data-title="Category">'.$row["task_category"].'</td>
 	</tr>';
 	}
 
