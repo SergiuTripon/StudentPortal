@@ -3,7 +3,7 @@
 
 <head>
 
-    <?php include 'assets/js-paths/pacejs-js-path.php'; ?>
+    <?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <?php include 'assets/css-paths/common-paths.php'; ?>
+    <?php include '../assets/css-paths/common-paths.php'; ?>
 
     <title>Student Portal | Account deleted</title>
 	
@@ -56,7 +56,7 @@
 	</div><!-- /intro-body -->
     </header>
 
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 	
 	<script>
 	Ladda.bind( '.ladda-button', { timeout: 2000 } );
