@@ -311,7 +311,7 @@ hr {
 	color: #FFA500;
     font-size: 15px;
     z-index: 30;
-    background: none;
+    background: #333333;
 	border-color: #FFA500;
     height: auto;
     padding: 10px;

@@ -130,9 +130,10 @@ if ($account_type1 == "admin") {
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number">
-    <label>Email address</label>
-    <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
 	<p id="error3" class="feedback-sad text-center"></p>
+	<label>Email address</label>
+    <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
+	<p id="error4" class="feedback-sad text-center"></p>
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 
@@ -349,8 +350,8 @@ if ($account_type1 == "admin") {
 
     var studentno3 = $("#studentno").val();
 	if(studentno3 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a student number.");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter a student number.");
 		$("#studentno").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -360,8 +361,8 @@ if ($account_type1 == "admin") {
 	}
 
     if (studentno3.length != 9) {
-		$("#error").show();
-        $("#error").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+		$("#error3").show();
+        $("#error3").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
 		$("#studentno").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -373,8 +374,8 @@ if ($account_type1 == "admin") {
 
     var email6 = $("#email").val();
 	if(email6 === '') {
-		$("#error3").show();
-        $("#error3").empty().append("Please enter an email address.");
+		$("#error4").show();
+        $("#error4").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
