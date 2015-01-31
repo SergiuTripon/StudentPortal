@@ -94,31 +94,37 @@ if ($dateofbirth == "0000-00-00") {
     <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
 
 	<div class="form-group">
-
-    <div class="col-xs-12 col-sm-12 full-width">
-    <label>Gender</label>
-    <select class="form-control" name="gender" id="gender">
-    <option <?php if($gender == "Male") echo "selected=selected"; ?> class="others">Male</option>
-    <option <?php if($gender == "Female") echo "selected=selected"; ?> class="others">Female</option>
-    <option <?php if($gender == "Other") echo "selected=selected"; ?> class="others">Other</option>
-    </select>
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Gender - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
+		<input type="radio" name="options" id="option1" autocomplete="off"> Male
+	</label>
+	<label class="btn btn-custom gender <?php if($gender == "Female") echo "active"; ?>">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Female
+	</label>
+	<label class="btn btn-custom gender <?php if($gender == "Other") echo "active"; ?>">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
+	</label>
+	</div>
     </div>
-
     </div>
 
     <div class="form-group">
-
     <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
-    <label>Surname</label>
+	<p id="error1" class="feedback-sad text-center"></p>
+	<label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
+	<p id="error2" class="feedback-sad text-center"></p>
 	<label>Date of Birth (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
+	<p id="error3" class="feedback-sad text-center"></p>
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 	</div>
@@ -137,7 +143,6 @@ if ($dateofbirth == "0000-00-00") {
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
 	</div>
-
     </div>
 
     <input type="hidden" name="degree" id="degree">
@@ -238,19 +243,22 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-    Ladda.bind('.ladda-button', {timeout: 1000});
-	</script>
+	$(document).ready(function() {
 
-	<script>
+	//Ladda
+	Ladda.bind('.ladda-button', {timeout: 1000});
+
+	//Date Time Picker
 	$(function () {
 	$('#dateofbirth').datepicker({
 		dateFormat: "yy-mm-dd",
 		defaultDate: new Date(1985, 00, 01)
 	});
 	});
-	</script>
 
-	<script>
+	//Checking if fields are empty
+	var val;
+
 	val = $("#gender").val();
 	if(val === '') { $("#gender").css("border-color", "#FF5454"); }
 	val = $("#firstname").val();
@@ -277,10 +285,34 @@ if ($dateofbirth == "0000-00-00") {
 	if(val === '') { $("#postcode").css("border-color", "#FF5454"); }
 	val = $("#degree").val();
 	if(val === '') { $("#degree").css("border-color", "#FF5454"); }
-	</script>
 
-	<script>
-	$(document).ready(function() {
+	//Responsiveness
+	$(window).resize(function(){
+		var width = $(window).width();
+		if(width <= 480){
+			$('.btn-group').removeClass('btn-group-justified');
+			$('.btn-group').addClass('btn-group-vertical full-width');
+		} else {
+			$('.btn-group').addClass('btn-group-justified');
+		}
+	})
+	.resize();//trigger the resize event on page load.
+
+    //Global variable
+    var gender;
+
+    gender = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
+
+    //Setting variable value
+    $('.btn-group .gender').click(function(){
+        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
+    })
+
+    $("#error1").hide();
+    $("#error2").hide();
+    $("#error3").hide();
+
+	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
@@ -291,8 +323,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	var firstname2 = $("#firstname").val();
 	if(firstname2 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a first name.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -300,8 +332,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	var surname2 = $("#surname").val();
 	if(surname2 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a surname.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -310,10 +342,11 @@ if ($dateofbirth == "0000-00-00") {
 	var dateofbirth2 = $("#dateofbirth").val();
 
     var studentno2 = $("#studentno").val();
+
     var email2 = $("#email").val();
 	if(email2 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter an email address.");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;

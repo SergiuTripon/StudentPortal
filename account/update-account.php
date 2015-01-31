@@ -520,7 +520,7 @@ if ($dateofbirth == "0000-00-00") {
     $("#error2").hide();
     $("#error3").hide();
 
-        //Ajax call
+    //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
