@@ -1,5 +1,5 @@
 <?php
-include_once 'signin.php';
+include 'signin.php';
 
 if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
