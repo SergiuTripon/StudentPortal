@@ -282,10 +282,10 @@ include '../includes/signin.php';
 	var gender;
 
 	//Setting variable value
-	$('.btn-group .btn').click(function(){
+	$('.btn-group .account_type').click(function(){
 		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
-	$('.btn-group .btn').click(function(){
+	$('.btn-group .gender').click(function(){
 		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 
