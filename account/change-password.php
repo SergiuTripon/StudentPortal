@@ -60,10 +60,11 @@ include '../includes/signin.php';
     <div id="hide">
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
-    </div>
+	<p id="error1" class="feedback-sad text-center"></p>
 
     <label>New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
+	<p id="error2" class="feedback-sad text-center"></p>
 
 	<hr class="hr-custom">
 
@@ -125,11 +126,16 @@ include '../includes/signin.php';
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-	Ladda.bind('.ladda-button', {timeout: 1000});
-	</script>
-	
-	<script>
 	$(document).ready(function() {
+
+
+	//Ladda
+	Ladda.bind('.ladda-button', {timeout: 1000});
+
+	$("#error1").hide();
+	$("#error2").hide();
+
+	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -137,25 +143,25 @@ include '../includes/signin.php';
 
 	var password = $("#password").val();
 	if(password === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 
     password = $("#password").val();
 	if (password.length < 6) {
-		$("#error").show();
-		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error1").show();
+		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 
@@ -165,11 +171,11 @@ include '../includes/signin.php';
 
     password = $("#password").val();
 	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
-		$("#error").show();
-		$("#error").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+		$("#error1").show();
+		$("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -177,25 +183,25 @@ include '../includes/signin.php';
 
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password confirmation.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
 	if(password != confirmpwd) {
-		$("#error").show();
-		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#error2").show();
+		$("#error2").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#password").css("border-color", "#4DC742");
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
