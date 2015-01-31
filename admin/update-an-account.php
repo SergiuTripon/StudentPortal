@@ -21,7 +21,10 @@ if ($dateofbirth == "0000-00-00") {
     $dateofbirth = '';
 }
 
-if ($account_type1 == "lecturer" or $account_type1 = "admin") {
+if ($account_type1 == "lecturer") {
+	$conditional_style = "<style> #studentno { display: none !important; } label[for=\"studentno\"] { display: none !important; } #degree { display: none !important; } label[for=\"degree\"] { display: none !important; }</style>";
+}
+if ($account_type1 == "admin") {
 	$conditional_style = "<style> #studentno { display: none !important; } label[for=\"studentno\"] { display: none !important; } #degree { display: none !important; } label[for=\"degree\"] { display: none !important; }</style>";
 }
 ?>
