@@ -298,8 +298,8 @@ include '../includes/signin.php';
 	
 	var hasError = false;
 
-	var account_type1 = $(".account_type");
-	if (account_type1.hasClass('active')) {
+	var account_type_check = $(".account_type");
+	if (account_type_check.hasClass('active')) {
 		$("#error1").hide();
 		$(".btn-group > .account_type").css('cssText', 'border-color: #4DC742 !important');
 	}
@@ -310,8 +310,8 @@ include '../includes/signin.php';
 		return false;
 	}
 
-	var gender1 = $(".gender");
-	if (gender1.hasClass('active')) {
+	var gender_check = $(".gender");
+	if (gender_check.hasClass('active')) {
 		$("#error2").hide();
 		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
 	}
