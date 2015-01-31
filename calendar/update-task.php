@@ -70,7 +70,7 @@ header('Location: ../calendar/');
 	<!-- Create a task -->
     <div class="content-panel mb10" style="border: none;">
     
-	<form class="form-custom" style="max-width: 600px; padding-top: 0px;" name="updatetask_form" id="updatetask_form">
+	<form class="form-custom" style="max-width: 900px; padding-top: 0px;" name="updatetask_form" id="updatetask_form">
 	
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -89,13 +89,18 @@ header('Location: ../calendar/');
 	<label>External URL (Optional)</label>
 	<input class="form-control" type="text" name="task_url" id="task_url" value="<?php echo $task_url; ?>" placeholder="Enter an external URL">
 
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Start date (YYYY-MM-DD)</label>
 	<input type='text' class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
 	<p id="error2" class="feedback-sad text-center"></p>
-
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Due date (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
 	<p id="error3" class="feedback-sad text-center"></p>
+	</div>
+	</div>
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
