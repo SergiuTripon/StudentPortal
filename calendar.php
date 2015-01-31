@@ -120,7 +120,7 @@ else $userid = '';
 	while($row = $stmt1->fetch_assoc()) {
 
 	$url = $row["task_url"];
-	$row["task_category"] = ucfirst($row["task_category"]);;
+	$task_category = $row["task_url"];
 
 	if (!empty($row["task_url"])) {
 		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
@@ -184,7 +184,7 @@ else $userid = '';
 	while($row = $stmt2->fetch_assoc()) {
 
 	$url = $row["task_url"];
-	$row["task_category"] = ucfirst($row["task_category"]);
+	$task_category = $row["task_url"];
 
 	if (!empty($row["task_url"])) {
 		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
