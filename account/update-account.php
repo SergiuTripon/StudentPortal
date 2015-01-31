@@ -236,8 +236,6 @@ if ($dateofbirth == "0000-00-00") {
     <p id="error2" class="feedback-sad text-center"></p>
     <label>Date of Birth</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
-	<label>Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
     <p id="error3" class="feedback-sad text-center"></p>
@@ -355,8 +353,6 @@ if ($dateofbirth == "0000-00-00") {
     <p id="error2" class="feedback-sad text-center"></p>
     <label>Date of Birth (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
-	<label>Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
     <p id="error3" class="feedback-sad text-center"></p>
