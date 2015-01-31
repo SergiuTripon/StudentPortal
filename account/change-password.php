@@ -53,7 +53,7 @@ include '../includes/signin.php';
 	<!-- Change Password -->
     <div class="content-panel mb10" style="border: none;">
     
-	<form class="form-custom" style="max-width: 700px; padding-top: 0px;" name="changepassword_form" novalidate>
+	<form class="form-custom" style="max-width: 900px; padding-top: 0px;" name="changepassword_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -69,7 +69,7 @@ include '../includes/signin.php';
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change password</span></button>
     </div>
 
     </div>
