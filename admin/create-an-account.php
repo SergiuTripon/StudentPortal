@@ -316,8 +316,8 @@ include '../includes/signin.php';
 	
 	var hasError = false;
 
-	var account_type = $(".account_type");
-	if (account_type.hasClass('active')) {
+	var account_type1 = $(".account_type");
+	if (account_type1.hasClass('active')) {
 		$("#error1").hide();
 		$(".btn-group > .account_type").css('cssText', 'border-color: #4DC742 !important');
 	}
@@ -364,27 +364,30 @@ include '../includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	var studentno = $("#studentno").val();
-	if(studentno === '') {
-		$("#error5").show();
-		$("#error5").empty().append("Please enter a student number.");
-		$("#studentno").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
+	if (account_type === 'Student') {
+		var studentno = $("#studentno").val();
+		if(studentno === '') {
+			$("#error5").show();
+			$("#error5").empty().append("Please enter a student number.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error5").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		}
+		if (studentno.length != 9) {
+			$("#error5").show();
+			$("#error5").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error5").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		}
 	} else {
-		$("#error5").hide();
-		$("#studentno").css("border-color", "#4DC742");
-	}
-
-	if (studentno.length != 9) {
-		$("#error5").show();
-		$("#error5").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
-		$("#studentno").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-	} else {
-		$("#error5").hide();
-		$("#studentno").css("border-color", "#4DC742");
+		var studentno = $("#studentno").val();
 	}
 	
 	var email = $("#email6").val();
