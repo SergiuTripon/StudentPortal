@@ -99,16 +99,16 @@ header('Location: ../calendar/');
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom task_category <?php if($task_category == "University") echo "active"; ?>">
+	<label class="btn btn-custom task_category <?php if($task_category == "university") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
-	<label class="btn btn-custom task_category <?php if($task_category == "Work") echo "active"; ?>">
+	<label class="btn btn-custom task_category <?php if($task_category == "work") echo "active"; ?>">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Work
 	</label>
-	<label class="btn btn-custom task_category <?php if($task_category == "Personal") echo "active"; ?>">
+	<label class="btn btn-custom task_category <?php if($task_category == "personal") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
 	</label>
-	<label class="btn btn-custom task_category <?php if($task_category == "Other") echo "active"; ?>">
+	<label class="btn btn-custom task_category <?php if($task_category == "other") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
