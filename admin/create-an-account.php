@@ -364,30 +364,27 @@ include '../includes/signin.php';
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	if (account_type === 'Student') {
-		var studentno = $("#studentno").val();
-		if(studentno === '') {
-			$("#error5").show();
-			$("#error5").empty().append("Please enter a student number.");
-			$("#studentno").css("border-color", "#FF5454");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error5").hide();
-			$("#studentno").css("border-color", "#4DC742");
-		}
-		if (studentno.length != 9) {
-			$("#error5").show();
-			$("#error5").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
-			$("#studentno").css("border-color", "#FF5454");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error5").hide();
-			$("#studentno").css("border-color", "#4DC742");
-		}
+	var studentno = $("#studentno").val();
+	if(studentno === '') {
+		$("#error5").show();
+		$("#error5").empty().append("Please enter a student number.");
+		$("#studentno").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
 	} else {
-		var studentno = $("#studentno").val();
+		$("#error5").hide();
+		$("#studentno").css("border-color", "#4DC742");
+	}
+
+	if (studentno.length != 9) {
+		$("#error5").show();
+		$("#error5").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+		$("#studentno").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	} else {
+		$("#error5").hide();
+		$("#studentno").css("border-color", "#4DC742");
 	}
 	
 	var email = $("#email6").val();
