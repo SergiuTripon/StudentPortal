@@ -27,7 +27,7 @@ if (isset($_POST['account_type1'], $_POST['gender1'], $_POST['firstname1'], $_PO
 	CreateAnAccount();
 }
 
-//Call UpdateAccount function
+//Call UpdateAnAccount function
 elseif (isset($_POST['userid1'], $_POST['firstname2'], $_POST['surname2'], $_POST['gender2'], $_POST['dateofbirth2'], $_POST['studentno2'], $_POST['degree2'], $_POST['email2'], $_POST['phonenumber2'], $_POST['address12'], $_POST['address22'], $_POST['town2'], $_POST['city2'], $_POST['country2'], $_POST['postcode2'])) {
 	UpdateAnAccount();
 }

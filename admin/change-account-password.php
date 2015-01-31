@@ -65,8 +65,7 @@ if (isset($_POST["recordToChange"])) {
 
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
-    <a id="normal-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change password</a>
-	<a id="success-title1" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Password changed successfully.</a>
+	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Change account password</a>
     </h4>
     </div>
 
@@ -86,19 +85,13 @@ if (isset($_POST["recordToChange"])) {
 
 	<input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
 
-    <div class="form-group">
-
-	<div class="col-xs-6 col-sm-6 full-width">
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
-    </div>
+	<p id="error1" class="feedback-sad text-center"></p>
 
-    <div class="col-xs-6 col-sm-6 full-width">
     <label>New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
-    </div>
-
-	</div><!-- /form-group -->
+	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
@@ -208,24 +201,24 @@ if (isset($_POST["recordToChange"])) {
 
 	var password2 = $("#password").val();
 	if(password2 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 
 	if (password2.length < 6) {
-		$("#error").show();
-		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error1").show();
+		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 
@@ -234,11 +227,11 @@ if (isset($_POST["recordToChange"])) {
 	var numbers = new RegExp('[0-9]');
 
 	if(password2.match(upperCase) && password2.match(lowerCase) && password2.match(numbers)) {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
-		$("#error").show();
-		$("#error").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+		$("#error1").show();
+		$("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -246,25 +239,25 @@ if (isset($_POST["recordToChange"])) {
 
 	var confirmpwd2 = $("#confirmpwd").val();
 	if(confirmpwd2 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password confirmation.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
 	if(password2 != confirmpwd2) {
-		$("#error").show();
-		$(".sad-feedback").empty().append("The password and confirmation do not match. Please try again.");
+		$("#error2").show();
+		$(".error2").empty().append("The password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#password").css("border-color", "#4DC742");
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}

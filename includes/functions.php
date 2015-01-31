@@ -352,7 +352,7 @@ function UpdateAnAccount() {
     global $userid;
     global $updated_on;
 
-    $userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_STRING);
+    $userid = filter_input(INPUT_POST, 'userid1', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname2', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname2', FILTER_SANITIZE_STRING);
     $gender = filter_input(INPUT_POST, 'gender2', FILTER_SANITIZE_STRING);
@@ -433,8 +433,8 @@ function ChangeAccountPassword() {
     global $userid;
     global $updated_on;
 
-    $userid = filter_input(INPUT_POST, 'userid1', FILTER_SANITIZE_STRING);
-    $password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
+    $userid = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_STRING);
 
 	// Getting user login details
 	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
