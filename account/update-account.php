@@ -371,7 +371,9 @@ if ($dateofbirth == "0000-00-00") {
 
     <input type="hidden" name="degree" id="degree">
 
-    <div class="text-right"></div>
+    <div class="text-right">
+        <a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
+    </div>
 
     <hr class="hr-custom">
 
