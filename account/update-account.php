@@ -509,6 +509,8 @@ if ($dateofbirth == "0000-00-00") {
     //Global variable
     var gender;
 
+    gender = $('.gender.active');
+
     //Setting variable value
     $('.btn-group .gender').click(function(){
         gender = ($(this).text().replace(/^\s+|\s+$/g,''))
