@@ -9,8 +9,32 @@ date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
-
+//Call CreateAnAccount function
 if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['studentno'], $_POST['email'], $_POST['password'], $_POST['confirmpwd'], $_POST['dateofbirth'], $_POST['phonenumber'], $_POST['degree'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'])) {
+    CreateAnAccount();
+}
+
+//Call UpdateAccount function
+elseif (isset($_POST['userid'], $_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['dateofbirth1'], $_POST['studentno1'], $_POST['degree1'], $_POST['email1'], $_POST['phonenumber1'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
+    UpdateAnAccount();
+}
+
+//Call ChangeAccountPassword function
+elseif (isset($_POST["userid1"], $_POST["password1"], $_POST["confirmpwd1"])) {
+    ChangeAccountPassword();
+}
+
+//Call DeleteAnAccount function
+elseif (isset($_POST["recordToDelete"])) {
+    DeleteAnAccount();
+}
+
+//CreateAnAccount function
+function CreateAnAccount() {
+
+    global $mysqli;
+    global $userid;
+    global $created_on;
 
     $account_type = filter_input(INPUT_POST, 'account_type', FILTER_SANITIZE_STRING);
     $gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
@@ -115,7 +139,12 @@ if (isset($_POST['account_type'], $_POST['gender'], $_POST['firstname'], $_POST[
     $stmt7->close();
 }
 
-elseif (isset($_POST['userid'], $_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['dateofbirth1'], $_POST['studentno1'], $_POST['degree1'], $_POST['email1'], $_POST['phonenumber1'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
+//UpdateAnAccount function
+function UpdateAnAccount() {
+
+    global $mysqli;
+    global $userid;
+    global $updated_on;
 
     $userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname1', FILTER_SANITIZE_STRING);
@@ -191,11 +220,15 @@ elseif (isset($_POST['userid'], $_POST['firstname1'], $_POST['surname1'], $_POST
 	}
 }
 
-elseif (isset($_POST["userid1"], $_POST["password1"], $_POST["confirmpwd1"])) {
+//ChangeAccountPassword function
+function ChangeAccountPassword() {
+
+    global $mysqli;
+    global $userid;
+    global $updated_on;
 
     $userid = filter_input(INPUT_POST, 'userid1', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
-	$confirmpwd = filter_input(INPUT_POST, 'confirmpwd1', FILTER_SANITIZE_STRING);
 
 	// Getting user login details
 	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
@@ -222,10 +255,13 @@ elseif (isset($_POST["userid1"], $_POST["password1"], $_POST["confirmpwd1"])) {
 
 	$stmt1->close();
 	}
-
 }
 
-elseif (isset($_POST["recordToDelete"])) {
+//DeleteAnAccount function
+function DeleteAnAccount() {
+
+    global $mysqli;
+    global $userid;
 
     $idToDelete = filter_input(INPUT_POST, 'recordToDelete', FILTER_SANITIZE_NUMBER_INT);
 
@@ -233,5 +269,4 @@ elseif (isset($_POST["recordToDelete"])) {
     $stmt1->bind_param('i', $idToDelete);
     $stmt1->execute();
     $stmt1->close();
-
 }
