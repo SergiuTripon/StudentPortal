@@ -11,7 +11,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 //Call Register function
 //Call RegisterUser function
-if(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email1"], $_POST["studentno"], $_POST["password1"], $_POST["confirmpwd"])) {
+if(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email1"], $_POST["studentno"], $_POST["password1"])) {
 	RegisterUser();
 }
 
@@ -24,7 +24,7 @@ if (isset($_POST["email2"])) {
 }
 
 //Call ResetPassword function
-elseif (isset($_POST["token"], $_POST["email3"], $_POST["password2"], $_POST["confirmpwd1"])) {
+elseif (isset($_POST["token"], $_POST["email3"], $_POST["password2"])) {
 	ResetPassword();
 }
 
@@ -37,7 +37,7 @@ elseif (isset($_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POS
 }
 
 //Call ChangePassword function
-elseif (isset($_POST["password3"], $_POST["confirmpwd2"])) {
+elseif (isset($_POST["password3"])) {
 	ChangePassword();
 }
 
@@ -50,7 +50,7 @@ elseif (isset($_POST['deleteaccount_button'])) {
 
 //Call Admin Account functions
 //Call CreateAnAccount function
-elseif (isset($_POST['account_type1'], $_POST['firstname2'], $_POST['surname2'], $_POST['gender2'], $_POST['dateofbirth1'], $_POST['studentno2'], $_POST['degree1'], $_POST['email5'], $_POST['phonenumber1'], $_POST['password4'], $_POST['confirmpwd3'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
+elseif (isset($_POST['account_type1'], $_POST['firstname2'], $_POST['surname2'], $_POST['gender2'], $_POST['dateofbirth1'], $_POST['studentno2'], $_POST['degree1'], $_POST['email5'], $_POST['phonenumber1'], $_POST['password4'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
 	CreateAnAccount();
 }
 
@@ -60,7 +60,7 @@ elseif (isset($_POST['userid'], $_POST['firstname3'], $_POST['surname3'], $_POST
 }
 
 //Call ChangeAccountPassword function
-elseif (isset($_POST["userid1"], $_POST["password5"], $_POST["confirmpwd4"])) {
+elseif (isset($_POST["userid1"], $_POST["password5"])) {
 	ChangeAccountPassword();
 }
 
@@ -73,12 +73,12 @@ elseif (isset($_POST["recordToDelete"])) {
 
 //Call Calendar functions
 //Call CreateTask function
-elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
+elseif (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
 	CreateTask();
 }
 
 //Call UpdateTask function
-elseif (isset($_POST['taskid1'], $_POST['task_name1'], $_POST['task_notes1'], $_POST['task_url1'], $_POST['task_startdate1'], $_POST['task_duedate1'], $_POST['task_category1'])) {
+elseif (isset($_POST['taskid'], $_POST['task_name1'], $_POST['task_notes1'], $_POST['task_url1'], $_POST['task_startdate1'], $_POST['task_duedate1'], $_POST['task_category1'])) {
 	UpdateTask();
 }
 

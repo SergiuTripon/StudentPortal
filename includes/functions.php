@@ -89,7 +89,7 @@ function RegisterUser() {
 	$studentno = filter_input(INPUT_POST, 'studentno', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 	header('HTTP/1.0 550 The email address you entered is invalid.');
@@ -165,7 +165,7 @@ function SendPasswordToken() {
 	global $userid;
 	global $created_on;
 
-	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+	$email = filter_input(INPUT_POST, 'email2', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -243,9 +243,9 @@ function ResetPassword() {
 	global $updated_on;
 
 	$token = $_POST["token"];
-	$email = filter_input(INPUT_POST, 'email1', FILTER_SANITIZE_EMAIL);
+	$email = filter_input(INPUT_POST, 'email3', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
+	$password = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_STRING);
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
@@ -327,11 +327,12 @@ function UpdateAccount() {
 	global $updated_on;
 	global $session_firstname;
 
-	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
-	$firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING);
+	$firstname = filter_input(INPUT_POST, 'firstname1', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'surname1', FILTER_SANITIZE_STRING);
+	$gender = filter_input(INPUT_POST, 'gender1', FILTER_SANITIZE_STRING);
 	$dateofbirth = filter_input(INPUT_POST, 'dateofbirth', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+	$degree = filter_input(INPUT_POST, 'degree', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'email4', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$phonenumber = filter_input(INPUT_POST, 'phonenumber', FILTER_SANITIZE_STRING);
 	$address1 = filter_input(INPUT_POST, 'address1', FILTER_SANITIZE_STRING);
@@ -340,7 +341,6 @@ function UpdateAccount() {
 	$city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
 	$country = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING);
 	$postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
-	$degree = filter_input(INPUT_POST, 'degree', FILTER_SANITIZE_STRING);
 
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
@@ -460,7 +460,7 @@ function ChangePassword() {
 	global $updated_on;
 	global $session_firstname;
 
-	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+	$password = filter_input(INPUT_POST, 'password3', FILTER_SANITIZE_STRING);
 
 	// Getting user login details
 	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
@@ -548,17 +548,16 @@ function CreateAnAccount() {
     global $created_on;
 
     $account_type = filter_input(INPUT_POST, 'account_type1', FILTER_SANITIZE_STRING);
-    $gender = filter_input(INPUT_POST, 'gender1', FILTER_SANITIZE_STRING);
-    $firstname = filter_input(INPUT_POST, 'firstname1', FILTER_SANITIZE_STRING);
-    $surname = filter_input(INPUT_POST, 'surname1', FILTER_SANITIZE_STRING);
-    $studentno = filter_input(INPUT_POST, 'studentno1', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email1', FILTER_SANITIZE_STRING);
+    $firstname = filter_input(INPUT_POST, 'firstname2', FILTER_SANITIZE_STRING);
+    $surname = filter_input(INPUT_POST, 'surname2', FILTER_SANITIZE_STRING);
+	$gender = filter_input(INPUT_POST, 'gender2', FILTER_SANITIZE_STRING);
+	$dateofbirth = filter_input(INPUT_POST, 'dateofbirth1', FILTER_SANITIZE_STRING);
+    $studentno = filter_input(INPUT_POST, 'studentno2', FILTER_SANITIZE_STRING);
+	$degree = filter_input(INPUT_POST, 'degree1', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email5', FILTER_SANITIZE_STRING);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-    $password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
-    $confirmpwd = filter_input(INPUT_POST, 'confirmpwd1', FILTER_SANITIZE_STRING);
-    $dateofbirth = filter_input(INPUT_POST, 'dateofbirth1', FILTER_SANITIZE_STRING);
-    $phonenumber = filter_input(INPUT_POST, 'phonenumber1', FILTER_SANITIZE_STRING);
-    $degree = filter_input(INPUT_POST, 'degree1', FILTER_SANITIZE_STRING);
+	$phonenumber = filter_input(INPUT_POST, 'phonenumber1', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password4', FILTER_SANITIZE_STRING);
     $address1 = filter_input(INPUT_POST, 'address11', FILTER_SANITIZE_STRING);
     $address2 = filter_input(INPUT_POST, 'address21', FILTER_SANITIZE_STRING);
     $town = filter_input(INPUT_POST, 'town1', FILTER_SANITIZE_STRING);
@@ -657,14 +656,14 @@ function UpdateAnAccount() {
     global $userid;
     global $updated_on;
 
-    $userid = filter_input(INPUT_POST, 'userid1', FILTER_SANITIZE_STRING);
-	$firstname = filter_input(INPUT_POST, 'firstname2', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname2', FILTER_SANITIZE_STRING);
-    $gender = filter_input(INPUT_POST, 'gender2', FILTER_SANITIZE_STRING);
+    $userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_STRING);
+	$firstname = filter_input(INPUT_POST, 'firstname3', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'surname3', FILTER_SANITIZE_STRING);
+    $gender = filter_input(INPUT_POST, 'gender3', FILTER_SANITIZE_STRING);
     $dateofbirth = filter_input(INPUT_POST, 'dateofbirth2', FILTER_SANITIZE_STRING);
-    $studentno = filter_input(INPUT_POST, 'studentno2', FILTER_SANITIZE_STRING);
+    $studentno = filter_input(INPUT_POST, 'studentno3', FILTER_SANITIZE_STRING);
     $degree = filter_input(INPUT_POST, 'degree2', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email2', FILTER_SANITIZE_EMAIL);
+    $email = filter_input(INPUT_POST, 'email6', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$phonenumber = filter_input(INPUT_POST, 'phonenumber2', FILTER_SANITIZE_STRING);
 	$address1 = filter_input(INPUT_POST, 'address12', FILTER_SANITIZE_STRING);
@@ -738,8 +737,8 @@ function ChangeAccountPassword() {
     global $userid;
     global $updated_on;
 
-    $userid = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
-    $password = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_STRING);
+    $userid = filter_input(INPUT_POST, 'userid1', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password5', FILTER_SANITIZE_STRING);
 
 	// Getting user login details
 	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
