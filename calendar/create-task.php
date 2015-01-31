@@ -81,13 +81,13 @@ include '../includes/signin.php';
 	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Start date and time</label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
 	<p id="error2" class="feedback-sad text-center"></p>
 	</div>
 
-	<div class="col-xs-6 col-sm-6 full-width">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Due date and time</label>
 	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
 	<p id="error3" class="feedback-sad text-center"></p>

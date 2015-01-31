@@ -131,8 +131,12 @@ hr {
     padding-left: 0px;
 }
 
-.mb20 {
-    margin-bottom: 20px;
+.pr0 {
+    padding-right: 0px;
+}
+
+.pl0 {
+    padding-left: 0px;
 }
 
 /* End of Global Spacing */
@@ -383,16 +387,6 @@ hr {
 /* Form Group style */
 .form-group {
     margin-bottom: 0px;
-}
-
-.form-group .col-xs-6 {
-    padding-right: 0px;
-    padding-left: 0px;
-}
-
-.form-group .col-sm-6 {
-    padding-right: 0px;
-    padding-left: 0px;
 }
 /* End of Form Group style */
 
