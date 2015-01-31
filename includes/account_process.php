@@ -217,6 +217,7 @@ elseif (isset($_POST['deleteaccount_button'])) {
 function DeleteAccount() {
 
 	global $mysqli;
+	global $userid;
 
 	$stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
 	$stmt1->bind_param('i', $userid);
