@@ -9,17 +9,23 @@ date_default_timezone_set('Europe/London');
 $completed_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 
-if (isset($_POST["recordToComplete"])) {
+
+function CompleteTask() {
+
+	global $mysqli;
 
 	$idToComplete = filter_input(INPUT_POST, 'recordToComplete', FILTER_SANITIZE_NUMBER_INT);
-	
 	$task_status = 'completed';
-	
+
 	$stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, completed_on = ? WHERE taskid = ? LIMIT 1");
 	$stmt1->bind_param('ssi', $task_status, $completed_on, $idToComplete);
 	$stmt1->execute();
 	$stmt1->close();
+}
 
+
+if (isset($_POST["recordToComplete"])) {
+	CompleteTask();
 }
 
 elseif (isset($_POST['taskid'], $_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
