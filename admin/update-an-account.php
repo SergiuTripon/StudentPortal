@@ -5,11 +5,11 @@ if (isset($_POST["recordToUpdate"])) {
 
 $idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.gender, user_details.firstname, user_details.surname, user_details.studentno, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, user_details.gender, user_details.firstname, user_details.surname, user_details.studentno, user_details.degree, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($userid, $email, $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+$stmt1->bind_result($userid, $account_type, $email, $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -19,6 +19,10 @@ header('Location: ../../account/');
 
 if ($dateofbirth == "0000-00-00") {
     $dateofbirth = '';
+}
+
+if ($account_type == "lecturer" or $account_type = "admin") {
+	$conditional_style = "<style> #studentno { display: none !important; } #degree { display: none !important; }</style>";
 }
 ?>
 
@@ -122,7 +126,7 @@ if ($dateofbirth == "0000-00-00") {
 	<label>Date of Birth (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
+    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
 	<p id="error3" class="feedback-sad text-center"></p>
@@ -146,7 +150,12 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
     </div>
 
-    <input type="hidden" name="degree" id="degree">
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width">
+	<label>Programme of Study</label>
+    <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
+	</div>
+    </div>
 
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
