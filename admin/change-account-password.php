@@ -94,7 +94,9 @@ if (isset($_POST["recordToChange"])) {
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	<p id="error2" class="feedback-sad text-center"></p>
 
-    <div class="text-right">
+	<hr class="hr-custom">
+
+    <div class="text-center">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Change</span></button>
     </div>
 
