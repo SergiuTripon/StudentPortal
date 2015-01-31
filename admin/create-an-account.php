@@ -265,7 +265,7 @@ include '../includes/signin.php';
 	var studentno;
 
 	//Setting variable value
-	$('.btn-group .account_type').click(function(){
+	$('.btn-group > .account_type').click(function(){
 		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
 
 		if(account_type === 'Student') {
@@ -288,7 +288,7 @@ include '../includes/signin.php';
 		}
 
 	})
-	$('.btn-group .gender').click(function(){
+	$('.btn-group > .gender').click(function(){
 		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 
@@ -310,7 +310,7 @@ include '../includes/signin.php';
 		return false;
 	}
 
-	var gender = $(".gender");
+	gender = $(".gender");
 	if (gender.hasClass('active')) {
 		$("#error2").hide();
 		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
