@@ -284,8 +284,8 @@ if ($dateofbirth == "0000-00-00") {
     <?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
-	<li><a href="../overview/">Overview</a></li>
-	<li><a href="../account/">Account</a></li>
+	<li><a href="../../overview/">Overview</a></li>
+	<li><a href="../../account/">Account</a></li>
     <li class="active">Update account</li>
     </ol>
 
