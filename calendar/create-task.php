@@ -280,7 +280,7 @@ include '../includes/signin.php';
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
-    success:function(response){
+    success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#FormSubmit").hide();

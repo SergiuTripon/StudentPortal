@@ -788,6 +788,8 @@ function DeleteAnAccount() {
 function CreateTask () {
 
 	global $mysqli;
+	global $userid;
+	global $created_on;
 
 	$task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
     $task_notes = filter_input(INPUT_POST, 'task_notes', FILTER_SANITIZE_STRING);
