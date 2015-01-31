@@ -509,7 +509,7 @@ if ($dateofbirth == "0000-00-00") {
     //Global variable
     var gender;
 
-    if ( $('.gender').hasClass("active")) {
+    if ($('.btn-group .gender').hasClass("active")) {
         gender = ($(this).text().replace(/^\s+|\s+$/g,''))
     }
 
