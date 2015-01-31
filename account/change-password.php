@@ -210,7 +210,7 @@ include '../includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'password=' + password3,
+    data:'password3=' + password3,
     success:function(){
 		$("#hide").hide();
 		$("#error").hide();
