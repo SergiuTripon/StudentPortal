@@ -80,7 +80,7 @@ else $userid = '';
 	<?php
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
 	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="/calendar/update-task/" method="POST">
+	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="/update-task/" method="POST">
 			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["taskid"].'"/>
 			</form>';
 	}
@@ -120,7 +120,6 @@ else $userid = '';
 	while($row = $stmt1->fetch_assoc()) {
 
 	$url = $row["task_url"];
-	$task_category = $row["task_url"];
 
 	if (!empty($row["task_url"])) {
 		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
@@ -135,7 +134,7 @@ else $userid = '';
 			<td class="url-hide" data-title="External URL">'.$url1.'</td>
 			<td data-title="Start date">'.$row["task_startdate"].'</td>
 			<td data-title="Due date">'.$row["task_duedate"].'</td>
-			<td data-title="Category">'.$task_category.'</td>
+			<td data-title="Category">'.$row["task_category"].'</td>
 			<td data-title="Complete"><a id="complete-'.$row["taskid"].'" class="complete-button"><i class="fa fa-check"></i></a></td>
 			<td data-title="Update"><a id="update-'.$row["taskid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
 			</tr>';
@@ -184,7 +183,6 @@ else $userid = '';
 	while($row = $stmt2->fetch_assoc()) {
 
 	$url = $row["task_url"];
-	$task_category = $row["task_url"];
 
 	if (!empty($row["task_url"])) {
 		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
