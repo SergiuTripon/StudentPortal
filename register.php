@@ -224,7 +224,7 @@ include 'includes/signin.php';
 
 	//Setting variable value
 	$('.btn-group .btn').click(function(){
-		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
+        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 
 	//Ajax call
@@ -239,7 +239,7 @@ include 'includes/signin.php';
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error").empty().append("Please select a task category.");
+		$("#error").empty().append("Please select a gender.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
