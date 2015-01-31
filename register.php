@@ -233,8 +233,8 @@ include 'includes/signin.php';
 	
 	var hasError = false;
 
-	var gender1 = $(".gender");
-	if (gender1.hasClass('active')) {
+	var gender_check = $(".gender");
+	if (gender_check.hasClass('active')) {
 		$("#error").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}

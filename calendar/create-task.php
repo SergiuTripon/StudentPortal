@@ -202,7 +202,7 @@ include '../includes/signin.php';
 	var task_category;
 
 	//Setting variable value
-	$('.btn-group .btn').click(function(){
+	$('.btn-group .task_category').click(function(){
 		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 

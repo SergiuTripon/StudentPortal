@@ -37,13 +37,6 @@ header('Location: ../calendar/');
 
     <title>Student Portal | Update task</title>
 	
-	<style>
-	#task_category {
-		color: #FFA500;
-		background-color: #333333;
-	}
-    </style>
-	
 </head>
 
 <body>
@@ -83,15 +76,12 @@ header('Location: ../calendar/');
 	<p id="success" class="feedback-happy text-center"></p>
 
 	<div id="hide">
-	
-	<div class="form-group">
-	
-	<div class="col-xs-12 col-sm-12 full-width">
-	
+
 	<input type="hidden" name="taskid" id="taskid" value="<?php echo $taskid; ?>" />
 	
     <label>Name</label>
     <input class="form-control" type="text" name="task_name" id="task_name" value="<?php echo $task_name; ?>" placeholder="Enter a name">
+	<p id="error1" class="feedback-sad text-center"></p>
 
     <label>Notes (Optional)</label>
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" value="<?php echo $task_notes; ?>" placeholder="Notes"></textarea>
@@ -101,27 +91,28 @@ header('Location: ../calendar/');
 
 	<label>Start date (YYYY-MM-DD)</label>
 	<input type='text' class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
+	<p id="error2" class="feedback-sad text-center"></p>
 
 	<label>Due date (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
+	<p id="error3" class="feedback-sad text-center"></p>
+
+	<label>Task category - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom task_category <?php if($task_category == "University") echo "active"; ?>">
+		<input type="radio" name="options" id="option1" autocomplete="off"> University
+	</label>
+	<label class="btn btn-custom task_category <?php if($task_category == "Work") echo "active"; ?>">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Work
+	</label>
+	<label class="btn btn-custom task_category <?php if($task_category == "Personal") echo "active"; ?>">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
+	</label>
+	<label class="btn btn-custom task_category <?php if($task_category == "Other") echo "active"; ?>">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
+	</label>
 	</div>
-    
-	</div>
-	
-	<div class="form-group">
-                        
-	<div class="col-xs-12 col-sm-12 full-width">
-    <label>Task category</label>
-    <select class="form-control" name="task_category" id="task_category">
-    <option style="color:gray" value="null" disabled selected>Select a task category</option>
-    <option <?php if($task_category == "University") echo "selected=selected"; ?> class="others">University</option>
-    <option <?php if($task_category == "Work") echo "selected=selected"; ?> class="others">Work</option>
-    <option <?php if($task_category == "Personal") echo "selected=selected"; ?> class="others">Personal</option>
-	<option <?php if($task_category == "Other") echo "selected=selected"; ?> class="others">Other</option>
-	</select>
-	</div>
-    
-	</div>
+	<p id="error4" class="feedback-sad text-center"></p>
 
     <div class="text-right">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
@@ -182,10 +173,12 @@ header('Location: ../calendar/');
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	Ladda.bind('.ladda-button', {timeout: 2000});	
-	</script>
+	$(document).ready(function() {
 
-	<script>
+	//Ladda
+	Ladda.bind('.ladda-button', {timeout: 2000});	
+
+	//Date Time Picker
 	$(function () {
 	$('#task_startdate').datetimepicker({
 		dateFormat: "yy-mm-dd", controlType: 'select'
@@ -194,18 +187,36 @@ header('Location: ../calendar/');
 		dateFormat: "yy-mm-dd", controlType: 'select'
 	});
 	});
-	</script>
-	
-	<script>
-	$(document).ready(function() {
+
+	//Responsiveness
+	$(window).resize(function(){
+		var width = $(window).width();
+		if(width <= 480){
+			$('.btn-group').removeClass('btn-group-justified');
+			$('.btn-group').addClass('btn-group-vertical full-width');
+		} else {
+			$('.btn-group').addClass('btn-group-justified');
+		}
+	})
+	.resize();//trigger the resize event on page load.
+
+	//Global variable
+	var task_category;
+
+	//Setting variable value
+	$('.btn-group .task_category').click(function(){
+		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
+	})
+
+	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 	
-	taskid = $("#taskid").val();
+	var taskid = $("#taskid").val();
 	
-	task_name = $("#task_name").val();
+	var task_name = $("#task_name").val();
 	if(task_name === '') {
         $("#error").empty().append("Please enter task name.");
 		$("#task_name").css("border-color", "#FF5454");
@@ -216,10 +227,10 @@ header('Location: ../calendar/');
 		$("#task_name").css("border-color", "#4DC742");
 	}
 	
-	task_notes = $("#task_notes").val();
-	task_url = $("#task_url").val();
+	var task_notes = $("#task_notes").val();
+	var task_url = $("#task_url").val();
 
-	task_startdate = $("#task_startdate").val();
+	var task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
 		$("#error").show();
 		$("#error").empty().append("Please enter a task start date and time.");
@@ -231,7 +242,7 @@ header('Location: ../calendar/');
 		$("#datepicker1").css("border-color", "#4DC742");
 	}
 
-	task_duedate = $("#task_duedate").val();
+	var task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a task due date.");
@@ -242,17 +253,17 @@ header('Location: ../calendar/');
 		$("#error").hide();
 		$("#datepicker2").css("border-color", "#4DC742");
 	}
-	
-	task_category = $('#task_category option:selected').val();
-	if (task_category === 'null') {
-		$("#error").show();
-        $("#error").empty().append("Please select a gender.");
-		$("#task_category").css("border-color", "#FF5454");
+
+	var task_category_check = $(".task_category");
+	if (task_category_check.hasClass('active')) {
+		$("#error4").hide();
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+	}
+	else {
+		$("#error4").empty().append("Please select a task category.");
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
-	} else {
-		$("#error").hide();
-		$("#task_category").css("border-color", "#4DC742");
 	}
 	
 	if(hasError == false){
