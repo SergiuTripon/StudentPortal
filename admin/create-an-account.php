@@ -310,8 +310,8 @@ include '../includes/signin.php';
 		return false;
 	}
 
-	gender = $(".gender");
-	if (gender.hasClass('active')) {
+	var gender1 = $(".gender");
+	if (gender1.hasClass('active')) {
 		$("#error2").hide();
 		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
 	}
