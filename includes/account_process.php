@@ -144,10 +144,39 @@ if (isset($_POST['gender'], $_POST['firstname'], $_POST['surname'], $_POST['date
 	}
 }
 
+//Call DeleteAccount function
+elseif (isset($_POST['deleteaccount_button'])) {
+	DeleteAccount();
+}
+
+//Call ChangePassword function
 elseif (isset($_POST["password"], $_POST["confirmpwd"])) {
+	ChangePassword();
+}
+
+//DeleteAccount function
+function DeleteAccount() {
+
+	global $mysqli;
+	global $userid;
+
+	$stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+	$stmt1->bind_param('i', $userid);
+	$stmt1->execute();
+	$stmt1->close();
+
+	session_destroy();
+}
+
+//ChangePassword function
+function ChangePassword() {
+
+	global $mysqli;
+	global $userid;
+	global $updated_on;
+	global $session_firstname;
 
 	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-	$confirmpwd = filter_input(INPUT_POST, 'confirmpwd', FILTER_SANITIZE_STRING);
 
 	// Getting user login details
 	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
@@ -208,21 +237,4 @@ elseif (isset($_POST["password"], $_POST["confirmpwd"])) {
 
 	$stmt1->close();
 	}
-}
-
-elseif (isset($_POST['deleteaccount_button'])) {
-	DeleteAccount();
-}
-
-function DeleteAccount() {
-
-	global $mysqli;
-	global $userid;
-
-	$stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
-	$stmt1->bind_param('i', $userid);
-	$stmt1->execute();
-	$stmt1->close();
-
-	session_destroy();
 }
