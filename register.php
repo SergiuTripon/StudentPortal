@@ -92,18 +92,24 @@ include 'includes/signin.php';
     <div id="hide">
 
     <div class="form-group">
-                        
-	<div class="col-xs-12 col-sm-12 full-width">
-    <label>Gender</label>
-    <select class="form-control" name="gender" id="gender">
-    <option style="color:gray" value="null" disabled selected>Select your gender</option>
-    <option style="color: #FFA500" class="others">Male</option>
-    <option style="color: #FFA500" class="others">Female</option>
-    <option style="color: #FFA500" class="others">Other</option>
-	</select>
+
+    <div class="col-xs-12 col-sm-12 full-width">
+	<label>Gender - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom gender">
+		<input type="radio" name="options" id="option1" autocomplete="off"> Male
+	</label>
+	<label class="btn btn-custom gender">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Female
+	</label>
+	<label class="btn btn-custom gender">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
+	</label>
 	</div>
-    
-	</div>
+	<p id="error1" class="feedback-sad text-center"></p>
+    </div>
+
+    </div>
 
     <div class="form-group">
     

@@ -91,19 +91,19 @@ if ($dateofbirth == "0000-00-00") {
     <div class="col-xs-12 col-sm-12 full-width">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom task_category <?php if($gender == "Male") echo "active"; ?>">
+	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Male
 	</label>
-	<label class="btn btn-custom task_category <?php if($gender == "Female") echo "active"; ?>">
+	<label class="btn btn-custom gender <?php if($gender == "Female") echo "active"; ?>">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Female
 	</label>
-	<label class="btn btn-custom task_category <?php if($gender == "Other") echo "active"; ?>">
+	<label class="btn btn-custom gender <?php if($gender == "Other") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
-
+    <p id="error1" class="feedback-sad text-center"></p>
     </div>
+
     </div>
 
     <div class="form-group">
@@ -111,14 +111,17 @@ if ($dateofbirth == "0000-00-00") {
     <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
+    <p id="error2" class="feedback-sad text-center"></p>
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
-	<label>Date of Birth (YYYY-MM-DD)</label>
+    <p id="error3" class="feedback-sad text-center"></p>
+    <label>Date of Birth (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
+    <p id="error4" class="feedback-sad text-center"></p>
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 	</div>
@@ -212,12 +215,19 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
-    <label>Gender</label>
-    <select class="form-control" name="gender" id="gender">
-    <option <?php if($gender == "Male") echo "selected=selected"; ?> class="others">Male</option>
-    <option <?php if($gender == "Female") echo "selected=selected"; ?> class="others">Female</option>
-    <option <?php if($gender == "Other") echo "selected=selected"; ?> class="others">Other</option>
-    </select>
+	<label>Gender - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
+		<input type="radio" name="options" id="option1" autocomplete="off"> Male
+	</label>
+	<label class="btn btn-custom gender <?php if($gender == "Female") echo "active"; ?>">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Female
+	</label>
+	<label class="btn btn-custom gender <?php if($gender == "Other") echo "active"; ?>">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
+	</label>
+	</div>
+    <p id="error1" class="feedback-sad text-center"></p>
     </div>
 
     </div>
@@ -227,15 +237,18 @@ if ($dateofbirth == "0000-00-00") {
     <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
+    <p id="error2" class="feedback-sad text-center"></p>
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
-	<label>Date of Birth</label>
+    <p id="error3" class="feedback-sad text-center"></p>
+    <label>Date of Birth</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
-	<label>Phone number</label>
+    <p id="error4" class="feedback-sad text-center"></p>
+    <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 	</div>
 
@@ -323,12 +336,19 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 
     <div class="col-xs-12 col-sm-12 full-width">
-    <label>Gender</label>
-    <select class="form-control" name="gender" id="gender">
-    <option <?php if($gender == "Male") echo "selected=selected"; ?> class="others">Male</option>
-    <option <?php if($gender == "Female") echo "selected=selected"; ?> class="others">Female</option>
-    <option <?php if($gender == "Other") echo "selected=selected"; ?> class="others">Other</option>
-    </select>
+	<label>Gender - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
+		<input type="radio" name="options" id="option1" autocomplete="off"> Male
+	</label>
+	<label class="btn btn-custom gender <?php if($gender == "Female") echo "active"; ?>">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Female
+	</label>
+	<label class="btn btn-custom gender <?php if($gender == "Other") echo "active"; ?>">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
+	</label>
+	</div>
+    <p id="error1" class="feedback-sad text-center"></p>
     </div>
 
     </div>
@@ -338,15 +358,18 @@ if ($dateofbirth == "0000-00-00") {
     <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
+    <p id="error2" class="feedback-sad text-center"></p>
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
-	<label>Date of Birth (YYYY-MM-DD)</label>
+    <p id="error3" class="feedback-sad text-center"></p>
+    <label>Date of Birth (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number" disabled="disabled">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
-	<label>Phone number</label>
+    <p id="error4" class="feedback-sad text-center"></p>
+    <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
 	</div>
 
@@ -497,57 +520,59 @@ if ($dateofbirth == "0000-00-00") {
 	
 	var hasError = false;
 
-	var task_category_check = $(".task_category");
-	if (task_category_check.hasClass('active')) {
-		$("#error4").hide();
+	var gender_check = $(".gender");
+	if (gender_check.hasClass('active')) {
+		$("#error1").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error4").empty().append("Please select a task category.");
+		$("#error1").empty().append("Please select a task category.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
 	}
 	
-	firstname = $("#firstname").val();
+	var firstname = $("#firstname").val();
 	if(firstname === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a first name.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	}
 	
-	surname = $("#surname").val();
+	var surname = $("#surname").val();
 	if(surname === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a surname.");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	}
 
-	dateofbirth = $("#dateofbirth").val();
+	var dateofbirth = $("#dateofbirth").val();
 
-	studentno = $("#studentno").val();
-	email = $("#email").val();
+	var studentno = $("#studentno").val();
+	var email = $("#email").val();
 	if(email === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter an email address.");
+		$("#error4").show();
+        $("#error4").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	}
 	
-	phonenumber = $("#phonenumber").val();
-	address1 = $("#address1").val();
-	address2 = $("#address2").val();
-	town = $("#town").val();
-	city = $("#city").val();
-	country = $("#country").val();
-	postcode = $("#postcode").val();
-	degree = $("#degree").val();
-	
+	var phonenumber = $("#phonenumber").val();
+	var address1 = $("#address1").val();
+    var address2 = $("#address2").val();
+	var town = $("#town").val();
+    var city = $("#city").val();
+    var country = $("#country").val();
+    var postcode = $("#postcode").val();
+    var degree = $("#degree").val();
+
+    if(hasError == false){
+
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/account_process.php",
@@ -562,11 +587,12 @@ if ($dateofbirth == "0000-00-00") {
         $("#error").empty().append(thrownError);
     }
 	});
-	
-	return true;
-	
-	});
-	});
+    }
+
+    return true;
+
+    });
+    });
 	</script>
 
 </body>
