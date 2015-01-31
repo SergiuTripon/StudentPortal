@@ -227,7 +227,7 @@ header('Location: ../calendar/');
 	
 	var hasError = false;
 	
-	var taskid1 = $("#taskid").val();
+	var taskid = $("#taskid").val();
 	
 	var task_name1 = $("#task_name").val();
 	if(task_name1 === '') {
@@ -285,7 +285,7 @@ header('Location: ../calendar/');
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/calendar_process.php",
-    data:'taskid1=' + taskid1 + '&task_name1=' + task_name1 + '&task_notes1=' + task_notes1 + '&task_url1=' + task_url1 + '&task_startdate1=' + task_startdate1 + '&task_duedate1=' + task_duedate1 + '&task_category1=' + task_category1,
+    data:'taskid=' + taskid + '&task_name1=' + task_name1 + '&task_notes1=' + task_notes1 + '&task_url1=' + task_url1 + '&task_startdate1=' + task_startdate1 + '&task_duedate1=' + task_duedate1 + '&task_category1=' + task_category1,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();

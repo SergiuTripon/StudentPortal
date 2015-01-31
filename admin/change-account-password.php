@@ -276,6 +276,7 @@ if (isset($_POST["recordToChange"])) {
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
+		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
