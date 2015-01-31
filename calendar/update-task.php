@@ -119,7 +119,9 @@ header('Location: ../calendar/');
 	</div>
 	<p id="error4" class="feedback-sad text-center"></p>
 
-    <div class="text-right">
+	<hr class="hr-custom">
+
+    <div class="text-center">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update</span></button>
     </div>
 
@@ -213,6 +215,12 @@ header('Location: ../calendar/');
 		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 
+	//Hiding error messages
+	$("#error1").hide();
+	$("#error2").hide();
+	$("#error3").hide();
+	$("#error4").hide();
+
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
@@ -223,12 +231,13 @@ header('Location: ../calendar/');
 	
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
-        $("#error").empty().append("Please enter task name.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter task name.");
 		$("#task_name").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#task_name").css("border-color", "#4DC742");
 	}
 	
@@ -237,30 +246,31 @@ header('Location: ../calendar/');
 
 	var task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
-		$("#error").show();
-		$("#error").empty().append("Please enter a task start date and time.");
-		$("#datepicker1").css("border-color", "#FF5454");
+		$("#error2").show();
+		$("#error2").empty().append("Please enter a task start date and time.");
+		$("#task_startdate").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#datepicker1").css("border-color", "#4DC742");
 	}
 
 	var task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a task due date.");
-		$("#datepicker2").css("border-color", "#FF5454");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter a task due date.");
+		$("#task_duedate").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error3").hide();
 		$("#datepicker2").css("border-color", "#4DC742");
 	}
 
 	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
+		$("#error4").show();
 		$("#error4").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}
