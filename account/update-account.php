@@ -435,6 +435,7 @@ if ($dateofbirth == "0000-00-00") {
 	<script>
     $(document).ready(function() {
 
+    //Ladda
     Ladda.bind('.ladda-button', {timeout: 1000});
 
     // Date Time Picker
