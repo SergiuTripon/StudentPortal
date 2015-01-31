@@ -9,7 +9,7 @@ $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, 
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($userid, $account_type, $email, $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+$stmt1->bind_result($userid, $account_type, $email, $gender, $firstname, $surname, $studentno, $degree, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 $stmt1->fetch();
 $stmt1->close();
 
