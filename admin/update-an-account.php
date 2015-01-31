@@ -91,6 +91,12 @@ if ($account_type == "lecturer" or $account_type = "admin") {
 
 	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="updateaccount_form" novalidate>
 
+	<?php
+	if (!empty($conditional_style)) {
+		echo $conditional_style;
+	}
+	?>
+
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
