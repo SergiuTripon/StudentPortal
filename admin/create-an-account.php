@@ -390,7 +390,7 @@ include '../includes/signin.php';
 		var studentno = $("#studentno").val();
 	}
 	
-	var email = $("#email6").val();
+	var email = $("#email").val();
 	if(email === '') {
 		$("#error6").show();
         $("#error6").empty().append("Please enter an email address.");
