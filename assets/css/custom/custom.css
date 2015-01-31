@@ -85,7 +85,26 @@ b, strong {
 }
 
 /* hr style */
+hr {
+    border-color: #FFA500;
+}
 
+.hr-custom {
+    border-color: #FFA500;
+}
+
+.hr-thin {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-color: #FFA500;
+}
+
+.hr-small {
+    max-width: 300px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    border-color: #FFA500;
+}
 /* End of hr style */
 
 /* End of Global Rules */
