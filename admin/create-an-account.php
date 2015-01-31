@@ -316,7 +316,7 @@ include '../includes/signin.php';
 		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error2").empty().append("Please select an account type.");
+		$("#error2").empty().append("Please select a gender.");
 		$(".btn-group > .gender").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
