@@ -137,7 +137,7 @@ if ($dateofbirth == "0000-00-00") {
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Programme of Study</label>
     <input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter your programme of study">
     </div>
