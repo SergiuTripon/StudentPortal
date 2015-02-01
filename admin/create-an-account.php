@@ -411,7 +411,7 @@ include '../includes/signin.php';
 			$("#error4").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
-		if ($.isNumeric($(studentno) {
+		if ($.isNumeric(studentno)) {
 			$("#error4").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		} else {
