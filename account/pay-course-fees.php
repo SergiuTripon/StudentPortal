@@ -136,6 +136,7 @@ if ($fee_amount == "0.00") {
 	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="City">
     </div>
     </div>
+    <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
@@ -147,12 +148,15 @@ if ($fee_amount == "0.00") {
     <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code">
     </div>
     </div>
+    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="checkbox ml5">
     <label><input type="checkbox" name="half-fees" id="half-fees" value="half-fees"> Pay half of the fee amount</label>
     </div>
 
-    <div class="text-right">
+    <hr class="hr-custom">
+
+    <div class="text-center">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Pay with PayPal</span></button>
 	</div>
 
@@ -239,11 +243,12 @@ if ($fee_amount == "0.00") {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 	
 	<script>
-    Ladda.bind('.ladda-button', {timeout: 2000});
-	</script>
-	
-	<script>
     $(document).ready(function () {
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //Toggles fee amount
     $('#half-fees').click(function () {
     if ($('#half-fees').is(':checked')) {
         $('input[name=product_amount]').val('4500.00');
@@ -253,11 +258,9 @@ if ($fee_amount == "0.00") {
         $('input[name=product_name]').val('Full Fees');
     }
     });
-    });
-	</script>
-	
-	<script>
-	
+
+    //Checks for empty values
+    var val;
 	val = $("#payer_firstname").val();
 	if(val === '') { $("#payer_firstname").css("border-color", "#FF5454"); }
 	val = $("#payer_surname").val();
@@ -272,48 +275,46 @@ if ($fee_amount == "0.00") {
 	if(val === '') { $("#payer_city").css("border-color", "#FF5454"); }
 	val = $("#payer_postcode").val();
 	if(val === '') { $("#payer_postcode").css("border-color", "#FF5454"); }
-	
-	</script>
-	
-	<script>
-	$(document).ready(function() {
+
+    //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-    payer_address1 = $('#payer_address1').val();
+    var payer_address1 = $('#payer_address1').val();
 	if (payer_address1 === '') {
-        $("#error").empty().append("Please select the first line of an address.");
+        $("#error1").show();
+        $("#error1").empty().append("Please select the first line of an address.");
 		$("#payer_address1").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#payer_address1").css("border-color", "#4DC742");
 	}
 
-    payer_city = $("#payer_city").val();
+    var payer_city = $("#payer_city").val();
 	if(payer_city === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a city.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a city.");
 		$("#payer_city").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#payer_city").css("border-color", "#4DC742");
 	}
 
-    payer_postcode = $("#payer_postcode").val();
+    var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a postcode.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a postcode.");
 		$("#payer_postcode").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#payer_postcode").css("border-color", "#4DC742");
 	}
 	
