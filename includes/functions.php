@@ -734,7 +734,6 @@ function UpdateAnAccount() {
 function ChangeAccountPassword() {
 
     global $mysqli;
-    global $userid;
     global $updated_on;
 
     $userid = filter_input(INPUT_POST, 'userid1', FILTER_SANITIZE_STRING);
