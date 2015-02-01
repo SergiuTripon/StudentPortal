@@ -154,7 +154,7 @@ $stmt1->fetch();
     <ul class="nav navbar-nav navbar-right">
     
     <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><?php echo $firstname $surname ; ?></b> <span class="fa fa-chevron-down"></span></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><?php echo "$firstname $surname"; ?></b> <span class="fa fa-chevron-down"></span></a>
     <ul class="dropdown-menu" role="menu">
     <li><a href="../update-account/">Update personal details</a></li>
    	<li><a href="../change-password/">Change password</a></li>
