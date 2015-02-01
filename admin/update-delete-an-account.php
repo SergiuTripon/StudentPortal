@@ -49,74 +49,6 @@ else $userid = '';
 	<div class="panel panel-default">
 
 	<?php
-	$stmt1 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
-	while($row = $stmt1->fetch_assoc()) {
-		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../change-account-password/" method="POST">
-		<input type="hidden" name="recordToChange" id="recordToChange" value="'.$row["userid"].'"/>
-		</form>';
-	}
-	$stmt1->close();
-	?>
-
-    <div class="panel-heading" role="tab" id="headingOne">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Change an account's password</a>
-  	</h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-  	<div class="panel-body">
-
-	<!-- Change an account's password -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>User ID</th>
-	<th>First name</th>
-	<th>Surname</th>
-	<th>Email address</th>
-	<th>Account type</th>
-	<th>Created on</th>
-	<th>Change</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
-
-	while($row = $stmt2->fetch_assoc()) {
-
-	$account_type = ucfirst($row["account_type"]);
-
-	echo '<tr>
-
-			<td data-title="User ID">'.$row["userid"].'</td>
-			<td data-title="First name">'.$row["firstname"].'</td>
-			<td data-title="Surname">'.$row["surname"].'</td>
-			<td data-title="Email address">'.$row["email"].'</td>
-			<td data-title="Account type">'.$account_type.'</td>
-			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Change"><a id="change-'.$row["userid"].'" class="change-button" href="#modal-help" data-toggle="modal"><i class="fa fa-lock"></i></a></td>
-			</tr>';
-	}
-
-	$stmt2->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	<div class="panel panel-default">
-
-	<?php
 	$stmt3 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 	while($row = $stmt3->fetch_assoc()) {
 		echo '<form id="update-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
@@ -126,12 +58,12 @@ else $userid = '';
 	$stmt3->close();
 	?>
 
-    <div class="panel-heading" role="tab" id="headingTwo">
+    <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Update an account</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Update an account</a>
   	</h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
 	<!-- Update an account -->
@@ -174,6 +106,74 @@ else $userid = '';
 	}
 
 	$stmt4->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+	<div class="panel panel-default">
+
+	<?php
+	$stmt1 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt1->fetch_assoc()) {
+		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../change-account-password/" method="POST">
+		<input type="hidden" name="recordToChange" id="recordToChange" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt1->close();
+	?>
+
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Change an account's password</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Change an account's password -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>User ID</th>
+	<th>First name</th>
+	<th>Surname</th>
+	<th>Email address</th>
+	<th>Account type</th>
+	<th>Created on</th>
+	<th>Change</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+	$account_type = ucfirst($row["account_type"]);
+
+	echo '<tr>
+
+			<td data-title="User ID">'.$row["userid"].'</td>
+			<td data-title="First name">'.$row["firstname"].'</td>
+			<td data-title="Surname">'.$row["surname"].'</td>
+			<td data-title="Email address">'.$row["email"].'</td>
+			<td data-title="Account type">'.$account_type.'</td>
+			<td data-title="Created on">'.$row["created_on"].'</td>
+			<td data-title="Change"><a id="change-'.$row["userid"].'" class="change-button" href="#modal-help" data-toggle="modal"><i class="fa fa-lock"></i></a></td>
+			</tr>';
+	}
+
+	$stmt2->close();
 	?>
 	</tbody>
 
