@@ -11,7 +11,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 //Call Register function
 //Call RegisterUser function
-if(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email1"], $_POST["studentno"], $_POST["password1"])) {
+if(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email1"], $_POST["password1"])) {
 	RegisterUser();
 }
 

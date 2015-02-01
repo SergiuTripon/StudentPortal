@@ -140,8 +140,6 @@ include 'includes/signin.php';
     
 	</div>
 
-    <input type="hidden" name="studentno" id="studentno">
-
 	<div class="text-right">
     <a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
     </div>
@@ -280,8 +278,8 @@ include 'includes/signin.php';
 
     var studentno = $("#studentno").val();
 	
-	var email = $("#email").val();
-	if(email === '') {
+	var email1 = $("#email").val();
+	if(email1 === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -361,7 +359,7 @@ include 'includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'firstname=' + firstname + '&surname=' + surname + '&gender=' + gender + '&studentno=' + studentno + '&email=' + email + '&password1=' + password1,
+    data:'firstname=' + firstname + '&surname=' + surname + '&gender=' + gender + '&email1=' + email1 + '&password1=' + password1,
     success:function(){
         $("#error").hide();
 		$("#hide").hide();
