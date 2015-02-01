@@ -94,7 +94,6 @@ function RegisterUser() {
 	$password_hash = password_hash($password, PASSWORD_BCRYPT);
 	$gender = strtolower($gender);
 	$token = NULL;
-	$studentno = '';
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 	header('HTTP/1.0 550 The email address you entered is invalid.');
@@ -122,8 +121,8 @@ function RegisterUser() {
 	$stmt3->execute();
 	$stmt3->close();
 
-	$stmt4 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, studentno, created_on) VALUES (?, ?, ?, ?, ?)");
-	$stmt4->bind_param('sssis', $firstname, $surname, $gender, $studentno, $created_on);
+	$stmt4 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, created_on) VALUES (?, ?, ?, ?)");
+	$stmt4->bind_param('ssss', $firstname, $surname, $gender, $created_on);
 	$stmt4->execute();
 	$stmt4->close();
 
