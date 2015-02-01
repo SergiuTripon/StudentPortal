@@ -320,9 +320,9 @@ if ($dateofbirth == "0000-00-00") {
 	val = $("#email").val();
 	if(val === '') { $("#email").css("border-color", "#FF5454"); }
 	val = $("#studentno").val();
-	if(val === '') { $("#email").css("border-color", "#FF5454"); }
+	if(val === '') { $("#studentno").css("border-color", "#FF5454"); }
 	val = $("#degree").val();
-	if(val === '') { $("#email").css("border-color", "#FF5454"); }
+	if(val === '') { $("#degree").css("border-color", "#FF5454"); }
 	val = $("#dateofbirth").val();
 	if(val === '') { $("#dateofbirth").css("border-color", "#FF5454"); }
 	val = $("#phonenumber").val();
