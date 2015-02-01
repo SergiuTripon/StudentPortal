@@ -51,13 +51,13 @@ function SignIn() {
 	// Setting a session variable
 	$_SESSION['loggedin'] = true;
 
-	$userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
+	$session_userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
 	$session_account_type = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $surname);
 	$session_email = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $email);
 	$session_firstname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $firstname);
 	$session_surname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $surname);
 
- 	$_SESSION['userid'] = $userid;
+ 	$_SESSION['userid'] = $session_userid;
 	$_SESSION['account_type'] = $session_account_type;
 	$_SESSION['email'] = $session_email;
 	$_SESSION['firstname'] = $session_firstname;
