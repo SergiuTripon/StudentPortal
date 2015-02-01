@@ -1,6 +1,7 @@
 <?php
-include_once 'signin.php';
-require_once("paypal_class.php");
+include 'signin.php';
+include 'functions.php';
+require "paypal_class.php";
 
 date_default_timezone_set('Europe/London');
 
