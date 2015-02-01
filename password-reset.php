@@ -87,14 +87,27 @@ include 'includes/signin.php';
 	} ?>
 
 	<div id="hide">
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label>Email address</label>
     <input class="form-control" type="text" name="email1" id="email1" placeholder="Enter your email address">
+    </div>
+    </div>
+    <p id="error1" class="feedback-sad text-center"></p>
 
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your new password">
-
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Confirm new password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your new password confirmation">
+    </div>
+    </div>
+    <p id="error2" class="feedback-sad text-center"></p>
+
     <input class="form-control" type="hidden" name="token" id="token" value="<?php echo $token; ?>">
 	
 	</div>
@@ -105,7 +118,7 @@ include 'includes/signin.php';
     echo $success_footer;
     } ?>
 
-    <div id="register-button" class="pull-left">
+    <div id="signin-button" class="pull-left">
     <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
@@ -146,36 +159,36 @@ include 'includes/signin.php';
 	
 	var email3 = $("#email1").val();
 	if(email3 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter an email address.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#email").css("border-color", "#4DC742");
 	}
 	
 	var password2 = $("#password").val();
 	if(password2 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 	
 	if (password2.length < 6) {
-		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error2").show();
+		$("#error2").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 	
@@ -184,11 +197,11 @@ include 'includes/signin.php';
 	var numbers = new RegExp('[0-9]');
 	
 	if(password2.match(upperCase) && password2.match(lowerCase) && password2.match(numbers)) {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
-		$("#error").show();
-		$(".sad-feedback").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#error2").show();
+		$("#error2").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -196,25 +209,25 @@ include 'includes/signin.php';
 	
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password confirmation.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
 	if(password2 != confirmpwd) {
-		$("#error").show();
-		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#error2").show();
+		$("#error2").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#password").css("border-color", "#4DC742");
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
@@ -226,7 +239,7 @@ include 'includes/signin.php';
     data:'token=' + token + '&email3=' + email3 + '&password2=' + password2,
     success:function(){
 		$("#hide").hide();
-		$("#register-button").hide();
+		$("#siginin-button").hide();
 		$("#FormSubmit").hide();
 		$("#email").hide();
 		$("#error").hide();
