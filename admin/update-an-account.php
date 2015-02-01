@@ -200,9 +200,9 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 	</div>
 
-	</div>
-
 	<hr class="hr-custom">
+
+	</div>
 
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update account</span></button>
@@ -327,6 +327,9 @@ if ($dateofbirth == "0000-00-00") {
 	var gender3;
 	var studentno1;
 
+	account_type1 = ($('.account_type.active').text().replace(/^\s+|\s+$/g,''));
+	gender3 = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
+
 	//Setting variable value
 	$('.btn-group > .account_type').click(function(){
 		account_type1 = ($(this).text().replace(/^\s+|\s+$/g,''))
@@ -387,6 +390,18 @@ if ($dateofbirth == "0000-00-00") {
 		$("#surname").css("border-color", "#4DC742");
 	}
 
+	var email6 = $("#email").val();
+	if(email6 === '') {
+		$("#error5").show();
+        $("#error5").empty().append("Please enter an email address.");
+		$("#email").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error5").hide();
+		$("#email").css("border-color", "#4DC742");
+	}
+
 	if (account_type1 === 'Student') {
 		studentno1 = $("#studentno").val();
 		if(studentno1 === '') {
@@ -435,18 +450,6 @@ if ($dateofbirth == "0000-00-00") {
 		$("#degree").css("border-color", "#4DC742");
 	}
 
-	var email6 = $("#email").val();
-	if(email6 === '') {
-		$("#error5").show();
-        $("#error5").empty().append("Please enter an email address.");
-		$("#email").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error5").hide();
-		$("#email").css("border-color", "#4DC742");
-	}
-
 	var nationality2 = $("#nationality").val();
 	var dateofbirth2 = $("#dateofbirth").val();
 	var phonenumber2 = $("#phonenumber").val();
@@ -468,7 +471,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Account created successfully.');
+		$("#success").empty().append('The account has been updated successfully.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
