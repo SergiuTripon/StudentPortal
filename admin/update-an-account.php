@@ -394,6 +394,17 @@ if ($dateofbirth == "0000-00-00") {
 		return true;
 	}
 
+	if ($.isNumeric(studentno)) {
+		$("#error4").hide();
+		$("#studentno").css("border-color", "#4DC742");
+	} else {
+		$("#error4").show();
+		$("#error4").empty().append("The student number entered is invalid.<br>The student number must be numeric.");
+		$("#studentno").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	}
+
     if (studentno1.length != 9) {
 		$("#error3").show();
         $("#error3").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
