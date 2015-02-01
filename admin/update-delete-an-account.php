@@ -89,13 +89,15 @@ else $userid = '';
 
 	while($row = $stmt2->fetch_assoc()) {
 
+	$account_type = ucfirst($row["account_type"]);
+
 	echo '<tr>
 
 			<td data-title="User ID">'.$row["userid"].'</td>
 			<td data-title="First name">'.$row["firstname"].'</td>
 			<td data-title="Surname">'.$row["surname"].'</td>
 			<td data-title="Email address">'.$row["email"].'</td>
-			<td data-title="Account type">'.$row["account_type"].'</td>
+			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
 			<td data-title="Change"><a id="change-'.$row["userid"].'" class="change-button" href="#modal-help" data-toggle="modal"><i class="fa fa-lock"></i></a></td>
 			</tr>';
@@ -156,13 +158,15 @@ else $userid = '';
 
 	while($row = $stmt4->fetch_assoc()) {
 
+	$account_type = ucfirst($row["account_type"]);
+
 	echo '<tr>
 
 			<td data-title="User ID">'.$row["userid"].'</td>
 			<td data-title="First name">'.$row["firstname"].'</td>
 			<td data-title="Surname">'.$row["surname"].'</td>
 			<td data-title="Email address">'.$row["email"].'</td>
-			<td data-title="Account type">'.$row["account_type"].'</td>
+			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
 			<td data-title="Updated on">'.$row["updated_on"].'</td>
 			<td data-title="Update"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
@@ -223,13 +227,15 @@ else $userid = '';
 
 	while($row = $stmt6->fetch_assoc()) {
 
+	$account_type = ucfirst($row["account_type"]);
+
 	echo '<tr id="user-'.$row["userid"].'">
 
 			<td data-title="User ID">'.$row["userid"].'</td>
 			<td data-title="First name">'.$row["firstname"].'</td>
 			<td data-title="Surname">'.$row["surname"].'</td>
 			<td data-title="Email address">'.$row["email"].'</td>
-			<td data-title="Account type">'.$row["account_type"].'</td>
+			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
 			<td data-title="Delete"><a href="#modal-'.$row["userid"].'" data-toggle="modal"><i class="fa fa-close"></i></a></td>
 			</tr>
