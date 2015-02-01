@@ -1,32 +1,5 @@
 <?php
 include '../includes/signin.php';
-
-if (isset($_POST["recordToUpdate"])) {
-
-$idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
-
-$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, user_details.gender, user_details.firstname, user_details.surname, user_details.studentno, user_details.degree, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-$stmt1->bind_param('i', $idToUpdate);
-$stmt1->execute();
-$stmt1->store_result();
-$stmt1->bind_result($userid, $account_type1, $email, $gender, $firstname, $surname, $studentno, $degree, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
-$stmt1->fetch();
-$stmt1->close();
-
-} else {
-header('Location: ../../account/');
-}
-
-if ($dateofbirth == "0000-00-00") {
-    $dateofbirth = '';
-}
-
-if ($account_type1 == "lecturer") {
-	$conditional_style = "<style> #studentno { display: none !important; } label[for=\"studentno\"] { display: none !important; } #degree { display: none !important; } label[for=\"degree\"] { display: none !important; }</style>";
-}
-if ($account_type1 == "admin") {
-	$conditional_style = "<style> #studentno { display: none !important; } label[for=\"studentno\"] { display: none !important; } #degree { display: none !important; } label[for=\"degree\"] { display: none !important; }</style>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -43,16 +16,8 @@ if ($account_type1 == "admin") {
     <meta name="author" content="">
 
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
-    <title>Student Portal | Update Account</title>
-
-    <style>
-    #gender {
-		color: #FFA500;
-		background-color: #333333;
-	}
-    </style>
+    <title>Student Portal | Create an account</title>
 
 </head>
 
@@ -62,26 +27,24 @@ if ($account_type1 == "admin") {
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-	<?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
 	<div class="container">
-
-    <?php include '../includes/menus/portal_menu.php'; ?>
+	<?php include '../includes/menus/portal_menu.php'; ?>
 
     <ol class="breadcrumb">
-	<li><a href="../../overview/">Overview</a></li>
+    <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
-	<li><a href="../../admin/modify-delete-an-account">Modify/Delete an account</a></li>
-    <li class="active">Update an account</li>
+    <li class="active">Create an account</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
 
-	<div class="panel-heading" role="tab" id="headingOne">
-	<h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Update an account</a>
+    <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create an account</a>
 	</h4>
     </div>
 
@@ -89,143 +52,174 @@ if ($account_type1 == "admin") {
 
 	<div class="panel-body">
 
-	<!-- Update an account -->
+	<!-- Create single account -->
     <div class="content-panel mb10" style="border: none;">
 
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="updateaccount_form" novalidate>
+	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
 
-	<?php
-	if (!empty($conditional_style)) {
-		echo $conditional_style;
-	}
-	?>
-
-	<p id="error" class="feedback-sad text-center"></p>
+    <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
 	<div id="hide">
 
-    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
+	<label>Account type - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom account_type">
+		<input type="radio" name="options" id="option1" autocomplete="off"> Student
+	</label>
+	<label class="btn btn-custom account_type">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Lecturer
+	</label>
+	<label class="btn btn-custom account_type">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Admin
+	</label>
+	</div>
+	<p id="error1" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter a first name">
+    <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter a surname">
+	<input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
 	</div>
 	</div>
+	<p id="error2" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
+	<label class="btn btn-custom gender">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Male
 	</label>
-	<label class="btn btn-custom gender <?php if($gender == "Female") echo "active"; ?>">
+	<label class="btn btn-custom gender">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Female
 	</label>
-	<label class="btn btn-custom gender <?php if($gender == "Other") echo "active"; ?>">
+	<label class="btn btn-custom gender">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
 	</div>
 	</div>
-
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Email address</label>
-	<input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
-	</div>
-	</div>
+	<p id="error3" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label for="studentno">Student number</label>
-	<input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter your student number">
+    <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="degree">Programme of Study</label>
-	<input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
+	<input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
 	</div>
 	</div>
+	<p id="error4" class="feedback-sad text-center"></p>
 
-	<hr class="hr-custom">
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Email address</label>
+    <input class="form-control" type="email" name="email" id="email" placeholder="Enter a email address">
+	</div>
+	</div>
+	<p id="error5" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Date of Birth (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
+	<label>Password</label>
+    <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Confirm password</label>
+    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
+	</div>
+	</div>
+	<p id="error6" class="feedback-sad text-center"></p>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Nationality</label>
+    <input class="form-control" type="text" name="nationality" id="nationality" placeholder="Enter a country">
+	</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Date of Birth</label>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Phone number</label>
-	<input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
+    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Address line 1</label>
-	<input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter your address line 1">
+    <label>Address line 1</label>
+    <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Address 2 line (Optional)</label>
-	<input class="form-control" type="text" name="address2" id="address2" value="<?php echo $address2; ?>" placeholder="Enter your address line 2 (Optional)">
+    <label>Address 2 line (Optional)</label>
+    <input class="form-control" type="text" name="address2" id="address2" value="" placeholder="Enter a address line 2 (Optional)">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Town</label>
-	<input class="form-control" type="text" name="town" id="town" value="<?php echo $town; ?>" placeholder="Enter your town">
+    <label>Town</label>
+    <input class="form-control" type="text" name="town" id="town" value="" placeholder="Enter a town">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>City</label>
-	<input class="form-control" type="text" name="city" id="city" value="<?php echo $city; ?>" placeholder="Enter your city">
+    <label>City</label>
+    <input class="form-control" type="text" name="city" id="city" value="" placeholder="Enter a city">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Country</label>
-	<input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter your country" readonly="readonly">
-	</div>
+    <label>Country</label>
+    <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
+    </div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Postcode</label>
-	<input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
+    <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
 	</div>
+	</div>
+
 	</div>
 
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update account</span></button>
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create account</span></button>
     </div>
 
+	<div id="success-button" class="text-center" style="display:none">
+	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href=""><span class="ladda-label">Create another</span></a>
 	</div>
 
     </form>
 
-    </div><!-- /content-panel -->
-    <!-- End of Update account -->
+	</div><!-- /content-panel -->
+    <!-- End of Change Password -->
 
-    </div><!-- /panel-body -->
+	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
     </div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
 
-    </div> <!-- /container -->
+	</div> <!-- /container -->
 
 	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
-	<?php else : ?>
+    <?php else : ?>
 
 	<style>
 	html, body {
@@ -260,10 +254,9 @@ if ($account_type1 == "admin") {
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
-
 	<?php else : ?>
 
-	<style>
+    <style>
     html, body {
 		height: 100% !important;
 	}
@@ -297,10 +290,10 @@ if ($account_type1 == "admin") {
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function() {
+	$(document).ready(function () {
 
 	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 1000});
+	Ladda.bind('.ladda-button', {timeout: 2000});
 
 	//Date Time Picker
 	$(function () {
@@ -309,36 +302,6 @@ if ($account_type1 == "admin") {
 		defaultDate: new Date(1985, 00, 01)
 	});
 	});
-
-	//Checking if fields are empty
-	var val;
-
-	val = $("#gender").val();
-	if(val === '') { $("#gender").css("border-color", "#FF5454"); }
-	val = $("#firstname").val();
-	if(val === '') { $("#firstname").css("border-color", "#FF5454"); }
-	val = $("#surname").val();
-	if(val === '') { $("#surname").css("border-color", "#FF5454"); }
-	val = $("#dateofbirth").val();
-	if(val === '') { $("#dateofbirth").css("border-color", "#FF5454"); }
-	val = $("#email").val();
-	if(val === '') { $("#email").css("border-color", "#FF5454"); }
-	val = $("#phonenumber").val();
-	if(val === '') { $("#phonenumber").css("border-color", "#FF5454"); }
-	val = $("#address1").val();
-	if(val === '') { $("#address1").css("border-color", "#FF5454"); }
-	val = $("#address2").val();
-	if(val === '') { $("#address2").css("border-color", "#FF5454"); }
-	val = $("#town").val();
-	if(val === '') { $("#town").css("border-color", "#FF5454"); }
-	val = $("#city").val();
-	if(val === '') { $("#city").css("border-color", "#FF5454"); }
-	val = $("#country").val();
-	if(val === '') { $("#country").css("border-color", "#FF5454"); }
-	val = $("#postcode").val();
-	if(val === '') { $("#postcode").css("border-color", "#FF5454"); }
-	val = $("#degree").val();
-	if(val === '') { $("#degree").css("border-color", "#FF5454"); }
 
 	//Responsiveness
 	$(window).resize(function(){
@@ -353,18 +316,37 @@ if ($account_type1 == "admin") {
 	.resize();//trigger the resize event on page load.
 
     //Global variable
-    var gender3;
+	var account_type1;
+	var gender2;
+	var studentno;
 
-    gender3 = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
+	//Setting variable value
+	$('.btn-group > .account_type').click(function(){
+		account_type1 = ($(this).text().replace(/^\s+|\s+$/g,''))
 
-    //Setting variable value
-    $('.btn-group .gender').click(function(){
-        gender3 = ($(this).text().replace(/^\s+|\s+$/g,''))
-    })
+		if(account_type1 === 'Student') {
+			$('label[for="studentno"]').show();
+			$('#studentno').show();
+			$('label[for="degree"]').show();
+			$('#degree').show();
+		}
+		if(account_type1 === 'Lecturer') {
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
+		if(account_type1 === 'Admin') {
+			$('label[for="studentno"]').hide();
+			$('#studentno').hide();
+			$('label[for="degree"]').hide();
+			$('#degree').hide();
+		}
 
-    $("#error1").hide();
-    $("#error2").hide();
-    $("#error3").hide();
+	})
+	$('.btn-group > .gender').click(function(){
+		gender2 = ($(this).text().replace(/^\s+|\s+$/g,''))
+	})
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
@@ -372,88 +354,208 @@ if ($account_type1 == "admin") {
 
 	var hasError = false;
 
-    var userid = $("#userid").val();
-
-	var firstname3 = $("#firstname").val();
-	if(firstname3 === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a first name.");
-		$("#firstname").css("border-color", "#FF5454");
+	var account_type_check = $(".account_type");
+	if (account_type_check.hasClass('active')) {
+		$("#error1").hide();
+		$(".btn-group > .account_type").css('cssText', 'border-color: #4DC742 !important');
+	}
+	else {
+		$("#error1").empty().append("Please select an account type.");
+		$(".btn-group > .account_type").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
 	}
 
-	var surname3 = $("#surname").val();
-	if(surname3 === '') {
+	var firstname2 = $("#firstname").val();
+	if(firstname2 === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a first name.");
+		$("#firstname").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+		$("#firstname").css("border-color", "#4DC742");
+	}
+
+	var surname2 = $("#surname").val();
+	if(surname2 === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
+    } else {
+		$("#error2").hide();
+		$("#surname").css("border-color", "#4DC742");
 	}
 
-	var dateofbirth2 = $("#dateofbirth").val();
-
-    var studentno1 = $("#studentno").val();
-	if(studentno1 === '') {
-		$("#error3").show();
-        $("#error3").empty().append("Please enter a student number.");
-		$("#studentno").css("border-color", "#FF5454");
+	var gender_check = $(".gender");
+	if (gender_check.hasClass('active')) {
+		$("#error3").hide();
+		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
+	}
+	else {
+		$("#error3").empty().append("Please select a gender.");
+		$(".btn-group > .gender").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
-    } else {
-		$("#error").hide();
-		$("#studentno").css("border-color", "#4DC742");
 	}
 
-    if (studentno1.length != 9) {
-		$("#error3").show();
-        $("#error3").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
-		$("#studentno").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error").hide();
-		$("#studentno").css("border-color", "#4DC742");
+	if (account_type1 === 'Student') {
+		studentno = $("#studentno").val();
+		if(studentno === '') {
+			$("#error4").show();
+			$("#error4").empty().append("Please enter a student number.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error4").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		}
+		if ($.isNumeric(studentno)) {
+			$("#error4").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		} else {
+			$("#error4").show();
+			$("#error4").empty().append("The student number entered is invalid.<br>The student number must be numeric.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		}
+		if (studentno.length != 9) {
+			$("#error4").show();
+			$("#error4").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error4").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		}
+	} else {
+		studentno = $("#studentno").val();
 	}
 
-
-    var email6 = $("#email").val();
-	if(email6 === '') {
+	var degree = $("#degree").val();
+	if(degree === '') {
 		$("#error4").show();
-        $("#error4").empty().append("Please enter an email address.");
+        $("#error4").empty().append("Please enter a programme of study.");
+		$("#degree").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error4").hide();
+		$("#degree").css("border-color", "#4DC742");
+	}
+
+	var email5 = $("#email").val();
+	if(email5 === '') {
+		$("#error5").show();
+        $("#error5").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
+    } else {
+		$("#error5").hide();
+		$("#email").css("border-color", "#4DC742");
 	}
 
-	var phonenumber2 = $("#phonenumber").val();
-    var address12 = $("#address1").val();
-    var address22 = $("#address2").val();
-    var town2 = $("#town").val();
-    var city2 = $("#city").val();
-    var country2 = $("#country").val();
-    var postcode2 = $("#postcode").val();
-    var degree1 = $("#degree").val();
+	var password4 = $("#password").val();
+	if(password4 === '') {
+		$("#error6").show();
+        $("#error6").empty().append("Please enter a password.");
+		$("#password").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error6").hide();
+		$("#password").css("border-color", "#4DC742");
+	}
+
+	if (password4.length < 6) {
+		$("#error6").show();
+		$("#error6").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#password").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	} else {
+		$("#error6").hide();
+		$("#password").css("border-color", "#4DC742");
+	}
+
+	var upperCase= new RegExp('[A-Z]');
+	var lowerCase= new RegExp('[a-z]');
+	var numbers = new RegExp('[0-9]');
+
+	if(password4.match(upperCase) && password4.match(lowerCase) && password4.match(numbers)) {
+		$("#error6").hide();
+		$("#password").css("border-color", "#4DC742");
+	} else {
+		$("#error6").show();
+		$("#error6").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#password").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	}
+
+	var confirmpwd = $("#confirmpwd").val();
+	if(confirmpwd === '') {
+		$("#error6").show();
+        $("#error6").empty().append("Please enter a password confirmation.");
+		$("#confirmpwd").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error6").hide();
+		$("#confirmpwd").css("border-color", "#4DC742");
+	}
+
+	if(password4 != confirmpwd) {
+		$("#error6").show();
+		$("#error6").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#password").css("border-color", "#FF5454");
+		$("#confirmpwd").css("border-color", "#FF5454");
+        hasError  = true;
+		return false;
+	} else {
+		$("#error6").hide();
+		$("#password").css("border-color", "#4DC742");
+		$("#confirmpwd").css("border-color", "#4DC742");
+	}
+
+	var nationality1 = $("#nationality").val();
+	var dateofbirth1 = $("#dateofbirth").val();
+	var phonenumber1 = $("#phonenumber").val();
+ 	var address11 = $("#address1").val();
+	var address21 = $("#address2").val();
+	var town1 = $("#town").val();
+	var city1 = $("#city").val();
+	var country1 = $("#country").val();
+	var postcode1 = $("#postcode").val();
+
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&gender3=' + gender3 + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&dateofbirth2=' + dateofbirth2 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email6=' + email6 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
+    data:'account_type1=' + account_type1 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&gender2=' + gender2 + '&studentno=' + studentno + '&degree=' + degree + '&email5=' + email5 + '&password4=' + password4 + '&nationality1=' + nationality1 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
+		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('The personal details have been updated successfully.');
-    },
+		$("#success").empty().append('Account created successfully.');
+		$("#success-button").show();
+	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
 	});
-	}
+    }
 
 	return true;
 
@@ -463,4 +565,3 @@ if ($account_type1 == "admin") {
 
 </body>
 </html>
-
