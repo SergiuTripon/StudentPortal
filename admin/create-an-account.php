@@ -295,11 +295,11 @@ include '../includes/session.php';
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-	//Date Time Picker
+    // Date Time Picker
 	$(function () {
 	$('#dateofbirth').datepicker({
 		dateFormat: "yy-mm-dd",
-		defaultDate: new Date(1985, 00, 01)
+		defaultDate: new Date(1993, 00, 01)
 	});
 	});
 

@@ -117,7 +117,7 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Date of Birth (YYYY-MM-DD)</label>
+    <label>Date of Birth</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select a date"/>
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
@@ -230,7 +230,7 @@ if ($dateofbirth == "0000-00-00") {
 	$(function () {
 	$('#dateofbirth').datepicker({
 		dateFormat: "yy-mm-dd",
-		defaultDate: new Date(1985, 00, 01)
+		defaultDate: new Date(1993, 00, 01)
 	});
 	});
 
