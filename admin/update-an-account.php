@@ -390,10 +390,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#studentno").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
-    } else {
-		$("#error").hide();
-		$("#studentno").css("border-color", "#4DC742");
-	}
+    }
 
     if (studentno1.length != 9) {
 		$("#error3").show();
@@ -401,10 +398,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#studentno").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
-    } else {
-		$("#error").hide();
-		$("#studentno").css("border-color", "#4DC742");
-	}
+    }
 
 	var degree1 = $("#degree").val();
 	var dateofbirth2 = $("#dateofbirth").val();
