@@ -133,7 +133,7 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 	</div>
 
-	<div class="margin-top-lg margin-bottom-lg">
+	<div class="mt20 mb20">
 	<h4 class="feedback-custom text-center">Extras</h4>
 	<hr class="hr-thin">
 	</div>

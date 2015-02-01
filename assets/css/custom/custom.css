@@ -135,6 +135,14 @@ hr {
     padding-left: 0px;
 }
 
+.mt20 {
+    margin-top: 20px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
 /* End of Global Spacing */
 
 /* Header */
