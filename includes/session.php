@@ -5,6 +5,8 @@ if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
     header("Location: $url");
 }
 
+include 'db_connection.php';
+
 if (session_status() == PHP_SESSION_NONE) {
 	session_cache_limiter('none');
     session_start();
@@ -13,5 +15,3 @@ if (session_status() == PHP_SESSION_NONE) {
 if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
-
-include 'db_connection.php';
