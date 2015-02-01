@@ -3,12 +3,6 @@ include 'session.php';
 include 'functions.php';
 require "paypal_class.php";
 
-date_default_timezone_set('Europe/London');
-
-if (isset($_SESSION['userid']))
-$userid = $_SESSION['userid'];
-else $userid = '';
-
 define('EMAIL_ADD', 'admin@student-portal.co.uk'); // define any notification email
 define('PAYPAL_EMAIL_ADD', 'admin-facilitator@student-portal.co.uk'); // facilitator email which will receive payments change this email to a live paypal account id when the site goes live
 
@@ -37,8 +31,6 @@ $payer_country = filter_input(INPUT_POST, 'payer_country', FILTER_SANITIZE_STRIN
 $payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
 
 $payment_status = 'pending';
-$created_on = date("Y-m-d G:i:s");
-$updated_on = date("Y-m-d G:i:s");
 
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal

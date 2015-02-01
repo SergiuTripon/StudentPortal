@@ -1,10 +1,6 @@
 <?php
 include 'session.php';
 
-if (isset($_SESSION['userid']))
-$userid = $_SESSION['userid'];
-else $userid = '';
-
 $sql = 'SELECT taskid, task_name, task_url, task_class, task_startdate, task_duedate FROM user_tasks WHERE userid = "'.$userid.'" AND task_status = "active"';
 
 $res = $pdo->query($sql);

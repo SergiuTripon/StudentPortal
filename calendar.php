@@ -1,10 +1,6 @@
 <?php
 include 'includes/session.php';
 
-if (isset($_SESSION['userid']))
-$userid = $_SESSION['userid'];
-else $userid = '';
-
 ?>
 
 <!DOCTYPE html>

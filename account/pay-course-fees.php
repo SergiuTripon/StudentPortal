@@ -1,10 +1,6 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_SESSION['userid']))
-$userid = $_SESSION['userid'];
-else $userid = '';
-
 $stmt = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname, user_details.gender, user_details.dateofbirth, user_details.phonenumber, user_details.degree, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.postcode, user_fees.fee_amount FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid LEFT JOIN user_fees ON user_signin.userid=user_fees.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt->bind_param('i', $userid);
 $stmt->execute();
