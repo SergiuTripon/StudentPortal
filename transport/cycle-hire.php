@@ -42,15 +42,18 @@ $cycle_hire = new SimpleXMLElement($result);
 	<li class="active">Cycle Hire</li>
 	</ol>
 
-	<div class="row">
-	<div class="col-lg-12">
-
-	<div class="row">
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<!-- Cycle Hire - Availability updates -->
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<div class="content-panel mb10">
-	<h4><i class="fa fa-angle-right"></i> Cycle Hire | Availability updates</h4>
+	<div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Cycle Hire - Availability updates</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
 	<section id="no-more-tables">
 	<table class="table table-condensed table-transport">
 
@@ -84,12 +87,13 @@ $cycle_hire = new SimpleXMLElement($result);
 	</section>
 	</div><!-- /content-panel -->
 	</div>
-	<!-- End of Tube Live - Line Status -->
+	<!-- End of Cycle hire - Availability Updates -->
 
-	</div><!-- /row -->
+	</div><!-- /panel-body -->
+	</div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
 
-	</div>
-	</div>
+	</div><!-- /panel-group -->
 
     </div> <!-- /container -->
 	

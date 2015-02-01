@@ -42,15 +42,18 @@ $xml_weekend = new SimpleXMLElement($result);
 	<li class="active">Tube - This Weekend</li>
 	</ol>
 
-	<div class="row">
-	<div class="col-lg-12">
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div class="row">
+	<!-- Line status | This weekend -->
+	<div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Line status | This weekend</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
 
-	<!-- Tube weekend - Line status -->
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 full-width">
-	<div class="content-panel mb10">
-	<h4><i class="fa fa-angle-right"></i> Line Status | This Weekend</h4>
 	<section id="no-more-tables">
 	<table class="table table-condensed table-transport">
 
@@ -74,14 +77,22 @@ $xml_weekend = new SimpleXMLElement($result);
 
 	</table>
 	</section>
-	</div><!-- /content-panel -->
-	</div>
-	<!-- End of Tube Live - Line Status -->
 
-	<!-- Tube weekend - Station status -->
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 full-width">
-	<div class="content-panel mb10">
-	<h4><i class="fa fa-angle-right"></i> Station Status | This Weekend</h4>
+	</div><!-- /panel-body -->
+	</div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+	<!-- End of Line Status | This weekend -->
+
+	<!-- Station status | This weekend -->
+	<div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Station status | This weekend</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
 	<section id="no-more-tables">
 	<table class="table table-condensed table-transport">
 
@@ -106,14 +117,12 @@ $xml_weekend = new SimpleXMLElement($result);
 	</table>
 
 	</section>
-	</div><!-- /content-panel -->
-	</div>
-	<!-- End of Tube Live - Status Status -->
+	</div><!-- /panel-body -->
+	</div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+	<!-- End of Station status | This weekend -->
 
-	</div><!-- /row -->
-
-	</div>
-	</div>
+	</div><!-- /panel-group -->
 
     </div> <!-- /container -->
 	
