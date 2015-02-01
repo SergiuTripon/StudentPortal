@@ -20,13 +20,6 @@ header('Location: ../../account/');
 if ($dateofbirth == "0000-00-00") {
     $dateofbirth = '';
 }
-
-if ($account_type1 == "lecturer") {
-	$conditional_style = "<style> #studentno { display: none !important; } label[for=\"studentno\"] { display: none !important; } #degree { display: none !important; } label[for=\"degree\"] { display: none !important; }</style>";
-}
-if ($account_type1 == "admin") {
-	$conditional_style = "<style> #studentno { display: none !important; } label[for=\"studentno\"] { display: none !important; } #degree { display: none !important; } label[for=\"degree\"] { display: none !important; }</style>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -46,13 +39,6 @@ if ($account_type1 == "admin") {
 	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Update Account</title>
-
-    <style>
-    #gender {
-		color: #FFA500;
-		background-color: #333333;
-	}
-    </style>
 
 </head>
 
@@ -93,12 +79,6 @@ if ($account_type1 == "admin") {
     <div class="content-panel mb10" style="border: none;">
 
 	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="updateaccount_form" novalidate>
-
-	<?php
-	if (!empty($conditional_style)) {
-		echo $conditional_style;
-	}
-	?>
 
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
