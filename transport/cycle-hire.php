@@ -44,7 +44,7 @@ $cycle_hire = new SimpleXMLElement($result);
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<!-- Cycle Hire - Availability updates -->
+	<!-- Cycle Hire | Availability updates -->
 	<div class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
@@ -87,7 +87,7 @@ $cycle_hire = new SimpleXMLElement($result);
 	</section>
 	</div><!-- /content-panel -->
 	</div>
-	<!-- End of Cycle hire - Availability Updates -->
+	<!-- End of Cycle hire | Availability Updates -->
 
 	</div><!-- /panel-body -->
 	</div><!-- /panel-collapse -->

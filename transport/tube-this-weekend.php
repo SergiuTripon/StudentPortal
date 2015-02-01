@@ -44,11 +44,11 @@ $xml_weekend = new SimpleXMLElement($result);
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<!-- Line status | This weekend -->
+	<!-- Tube | This weekend | Line status -->
 	<div class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Line status | This weekend</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Tube | This weekend | Line status</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -81,13 +81,13 @@ $xml_weekend = new SimpleXMLElement($result);
 	</div><!-- /panel-body -->
 	</div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
-	<!-- End of Line Status | This weekend -->
+	<!-- End of Tube | This weekend | Line Status -->
 
-	<!-- Station status | This weekend -->
+	<!-- Tube | This weekend | Station status -->
 	<div class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Station status | This weekend</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Tube | This weekend | Station status</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
@@ -120,7 +120,7 @@ $xml_weekend = new SimpleXMLElement($result);
 	</div><!-- /panel-body -->
 	</div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
-	<!-- End of Station status | This weekend -->
+	<!-- End of Tube | This weekend | Station status -->
 
 	</div><!-- /panel-group -->
 

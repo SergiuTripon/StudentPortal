@@ -49,11 +49,11 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<!-- Tube now - Line status -->
+	<!-- Tube | Now | Line status -->
 	<div class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Line status | Now</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Now | Line status</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -86,13 +86,13 @@ $xml_station_status = new SimpleXMLElement($result2);
 	</div><!-- /panel-body -->
 	</div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
-	<!-- End of Tube now - Line status -->
+	<!-- End of Tube | Now | Line status -->
 
-	<!-- Tube now - Station status -->
+	<!-- Tube | Now | Station status -->
 	<div class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Station status | Now</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Tube | Now | Station status</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
@@ -124,7 +124,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 	</div><!-- /panel-body -->
 	</div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
-	<!-- End of Tube now - Station status -->
+	<!-- End of Tube | Now | Station status -->
 
 	</div><!-- /panel-group -->
 
