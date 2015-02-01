@@ -1,5 +1,5 @@
 <?php
-include 'signin.php';
+include 'session.php';
 include 'functions.php';
 
 //Call SignIn function

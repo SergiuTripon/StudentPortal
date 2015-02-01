@@ -1,5 +1,5 @@
 <?php
-include '../includes/signin.php';
+include '../includes/session.php';
 
 $url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
 $result = file_get_contents($url);

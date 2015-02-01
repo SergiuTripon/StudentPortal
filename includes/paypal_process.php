@@ -1,5 +1,5 @@
 <?php
-include 'signin.php';
+include 'session.php';
 include 'functions.php';
 require "paypal_class.php";
 

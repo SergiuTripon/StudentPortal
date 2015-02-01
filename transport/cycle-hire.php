@@ -1,5 +1,5 @@
 <?php
-include '../includes/signin.php';
+include '../includes/session.php';
 
 $url = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
 $result = file_get_contents($url);
