@@ -5,11 +5,11 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
-$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid LEFT JOIN user_fees ON user_signin.userid=user_fees.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
 $stmt1->bind_param('i', $userid);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($userid, $firstname, $surname);
+$stmt1->bind_result($session_firstname, $session_surname);
 $stmt1->fetch();
 
 ?>
@@ -154,7 +154,7 @@ $stmt1->fetch();
     <ul class="nav navbar-nav navbar-right">
     
     <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><?php echo "$firstname $surname"; ?></b> <span class="fa fa-chevron-down"></span></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><?php echo "$session_firstname $session_surname"; ?></b> <span class="fa fa-chevron-down"></span></a>
     <ul class="dropdown-menu" role="menu">
     <li><a href="../update-account/">Update personal details</a></li>
    	<li><a href="../change-password/">Change password</a></li>
