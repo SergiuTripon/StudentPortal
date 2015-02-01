@@ -275,8 +275,6 @@ include 'includes/signin.php';
 		hasError  = true;
 		return false;
 	}
-
-    var studentno = $("#studentno").val();
 	
 	var email1 = $("#email").val();
 	if(email1 === '') {
