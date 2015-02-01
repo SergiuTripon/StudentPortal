@@ -104,28 +104,31 @@ include '../includes/signin.php';
 	</div>
 	</div>
 
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
-	<p id="error5" class="feedback-sad text-center"></p>
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label for="degree">Programme of Study</label>
+	<input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
+	</div>
+	</div>
 
 	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
-	<p id="error6" class="feedback-sad text-center"></p>
+
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
-	<p id="error7" class="feedback-sad text-center"></p>
+
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
-	<p id="error8" class="feedback-sad text-center"></p>
 
 	<label>Date of Birth</label>
 	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
 
     <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
-
-    <label for="degree">Programme of Study</label>
-    <input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
 
     <label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
