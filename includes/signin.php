@@ -11,5 +11,3 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 include 'db_connection.php';
-
-?>
