@@ -308,7 +308,6 @@ function UpdateAccount() {
 	global $mysqli;
 	global $userid;
 	global $updated_on;
-	global $session_firstname;
 
 	$firstname = filter_input(INPUT_POST, 'firstname1', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname1', FILTER_SANITIZE_STRING);
@@ -358,7 +357,7 @@ function UpdateAccount() {
 	$message .= '<title>Student Portal | Account</title>';
 	$message .= '</head>';
 	$message .= '<body>';
-	$message .= "<p>Dear $session_firstname,</p>";
+	$message .= "<p>Dear $firstname,</p>";
 	$message .= '<p>Your account has been updated succesfully.</p>';
 	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here.</a>';
 	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
@@ -412,7 +411,7 @@ function UpdateAccount() {
 	$message .= '<title>Student Portal | Account</title>';
 	$message .= '</head>';
 	$message .= '<body>';
-	$message .= "<p>Dear $session_firstname,</p>";
+	$message .= "<p>Dear $firstname,</p>";
 	$message .= '<p>Your account has been updated succesfully.</p>';
 	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here.</a>';
 	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
