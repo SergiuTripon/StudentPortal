@@ -223,7 +223,6 @@ function SendPasswordToken() {
 function ResetPassword() {
 
 	global $mysqli;
-	global $userid;
 	global $updated_on;
 
 	$token = $_POST["token"];
