@@ -261,7 +261,7 @@ else $userid = '';
 			<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button ladda-button" data-style="slide-up" data-spinner-color="#FFA500">Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal">Back</button>
+			<button type="button" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
@@ -368,11 +368,12 @@ else $userid = '';
 	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
-	Ladda.bind('.ladda-button', {timeout: 2000});
-	</script>
+	$(document).ready(function () {
 
-	<script type="text/javascript" class="init">
-    $(document).ready(function () {
+	//Ladda
+	Ladda.bind('.ladda-button', {timeout: 2000});
+
+	//DataTables
     $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
@@ -382,13 +383,8 @@ else $userid = '';
 			"emptyTable": "There are no users to display."
 		}
 	});
-    });
-	</script>
 
-	<script>
-
-	$(document).ready(function() {
-
+	//Change account password form submit
 	$("body").on("click", ".change-button", function(e) {
     e.preventDefault();
 
@@ -399,6 +395,7 @@ else $userid = '';
 
 	});
 
+	//Update an account form submit
 	$("body").on("click", ".update-button", function(e) {
     e.preventDefault();
 
@@ -409,7 +406,7 @@ else $userid = '';
 
 	});
 
-
+	//Delete an account ajax call
 	$("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
