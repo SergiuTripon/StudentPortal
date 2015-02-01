@@ -92,13 +92,13 @@ if ($dateofbirth == "0000-00-00") {
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
+	<label class="btn btn-custom gender <?php if($gender == "male") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Male
 	</label>
-	<label class="btn btn-custom gender <?php if($gender == "Female") echo "active"; ?>">
+	<label class="btn btn-custom gender <?php if($gender == "female") echo "active"; ?>">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Female
 	</label>
-	<label class="btn btn-custom gender <?php if($gender == "Other") echo "active"; ?>">
+	<label class="btn btn-custom gender <?php if($gender == "other") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
