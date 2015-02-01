@@ -246,7 +246,7 @@ else $userid = '';
 			</div>
 
 			<div class="modal-body">
-			<p class="feedback-custom text-center">Are you sure you want to delete this account?</p>
+			<p id="success" class="feedback-custom text-center">Are you sure you want to delete this account?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -423,6 +423,7 @@ else $userid = '';
 		$('.logo-custom i').addClass('fa-check-square-o');
 		$('.modal-body p').removeClass('feedback-custom');
 		$('.modal-body p').addClass('feedback-happy');
+		$("#success").hide();
 		$('#success').empty().append('The account has been deleted successfully.');
 		$('#success-button').show();
 		$("#success-button").click(function () {
