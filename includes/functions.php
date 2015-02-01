@@ -529,7 +529,7 @@ function CreateAnAccount() {
     global $userid;
     global $created_on;
 
-    $account_type = filter_input(INPUT_POST, 'account_type1', FILTER_SANITIZE_STRING);
+    $account_type = filter_input(INPUT_POST, 'account_type', FILTER_SANITIZE_STRING);
     $firstname = filter_input(INPUT_POST, 'firstname2', FILTER_SANITIZE_STRING);
     $surname = filter_input(INPUT_POST, 'surname2', FILTER_SANITIZE_STRING);
 	$gender = filter_input(INPUT_POST, 'gender2', FILTER_SANITIZE_STRING);
