@@ -379,18 +379,7 @@ if ($dateofbirth == "0000-00-00") {
 		return true;
 	}
 
-	var email6 = $("#email").val();
-	if(email6 === '') {
-		$("#error4").show();
-        $("#error4").empty().append("Please enter an email address.");
-		$("#email").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-	} else {
-		return true;
-	}
-
-    var studentno1 = $("#studentno").val();
+	var studentno1 = $("#studentno").val();
 	if(studentno1 === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter a student number.");
@@ -423,6 +412,19 @@ if ($dateofbirth == "0000-00-00") {
 	}
 
 	var degree1 = $("#degree").val();
+
+	var email6 = $("#email").val();
+	if(email6 === '') {
+		$("#error4").show();
+        $("#error4").empty().append("Please enter an email address.");
+		$("#email").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	} else {
+		return true;
+	}
+
+	var nationality2 = $("#nationality2").val();
 	var dateofbirth2 = $("#dateofbirth").val();
 	var phonenumber2 = $("#phonenumber").val();
     var address12 = $("#address1").val();
@@ -436,7 +438,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&gender3=' + gender3 + '&email6=' + email6 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&dateofbirth2=' + dateofbirth2 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
+    data:'userid=' + userid + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&gender3=' + gender3 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email6=' + email6 + '&nationality2=' + nationality2 + '&dateofbirth2=' + dateofbirth2 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
