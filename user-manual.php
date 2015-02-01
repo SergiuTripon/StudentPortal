@@ -61,7 +61,7 @@
     <li><a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a></li>
 
     <li>
-    <a href="" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
     <ul id="demo" class="collapse">
 
     <li><a href="#">Dropdown Item</a></li>
@@ -76,20 +76,15 @@
     <li><a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a></li>
 
     </ul>
-    </div>
-    <!-- /.navbar-collapse -->
+    </div><!-- /.navbar-collapse -->
     </nav>
 
     <div id="page-wrapper">
-
     <div class="container-fluid">
-
     <!-- Page Heading -->
     <div class="row">
     <div class="col-lg-12">
     <h1 class="page-header">Blank Page<small>Subheading</small></h1>
-
-
     <ol class="breadcrumb">
     <li>
     <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
@@ -99,17 +94,11 @@
     </li>
     </ol>
     </div>
-    </div>
-    <!-- /.row -->
+    </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+    </div><!-- /#page-wrapper -->
 
-    </div>
-    <!-- /.container-fluid -->
-
-    </div>
-    <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
+    </div><!-- /#wrapper -->
 
     <!-- js library -->
     <script src="https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js"></script>
