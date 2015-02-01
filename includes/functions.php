@@ -114,8 +114,6 @@ function RegisterUser() {
 	exit();
 	} else {
 
-
-
 	$stmt3 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
 	$stmt3->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
 	$stmt3->execute();
