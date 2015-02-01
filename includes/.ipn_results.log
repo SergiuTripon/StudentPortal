@@ -5548,3 +5548,77 @@ VERIFIED
 
 
 
+[02/01/2015 7:33 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=4500.00 
+invoice=9306468367 
+protection_eligibility=Eligible 
+address_status=confirmed 
+item_number1=1 
+payer_id=WE85TDNF4P39S 
+tax=0.00 
+address_street=38 Clarence Road 
+payment_date=11:33:47 Feb 01, 2015 PST 
+payment_status=Completed 
+charset=windows-1252 
+address_zip=N22 8PL 
+mc_shipping=0.00 
+mc_handling=0.00 
+first_name=Test 
+mc_fee=153.20 
+address_country_code=GB 
+address_name=Sergiu Tripon 
+notify_version=3.8 
+custom= 
+payer_status=verified 
+business=admin-facilitator@student-portal.co.uk 
+address_country=United Kingdom 
+num_cart_items=1 
+mc_handling1=0.00 
+address_city=London 
+verify_sign=A55ZtW2.brEMDd0Mgf1KejzIIM9TACKDX3STMNtEEOLfRtv-4LgN-JdL 
+payer_email=admin-buyer@student-portal.co.uk 
+mc_shipping1=0.00 
+tax1=0.00 
+txn_id=7ND35406VY8176411 
+payment_type=instant 
+last_name=Buyer 
+address_state= 
+item_name1=Half Fees 
+receiver_email=admin-facilitator@student-portal.co.uk 
+payment_fee= 
+quantity1=1 
+receiver_id=PE64ST4N6M354 
+txn_type=cart 
+mc_gross_1=4500.00 
+mc_currency=GBP 
+residence_country=GB 
+test_ipn=1 
+transaction_subject= 
+payment_gross= 
+ipn_track_id=2969dbce40235 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Sun, 01 Feb 2015 19:33:51 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=HhuB2H0s-NXnkI5PFpgOYYyc5tQj0_yBhk8EwQwkEZD4i847RftqeT0mR-zRoubU4AkokpI4upF6Lj6qpi_ULkHs3NBZGkOXoH6NJAcWDrR03eqdyf8X8O1CX9zsZqudBO8zuCq2_kMjcq5E6juT6lYWeZ_I3wzrSzDTvLYogIa4mpqI_7HBN74FqrGTbOR9apzEIUndt-t2P07_l7fU3nBjzYRX4WJSBqCDNVsRSkckzUc5BJrK9hLEzlAO1E2Q2myyABhWOX_SpBParAfCWeQDwe9cohF6yBW7Csp9fVPJBg-NLogB8_emjyrbCqjZueRtQHasSkVHfgzVBb-tY5_sTT_pjtxn_RIRzmxa8WLYf2JsxH5h9LtGKVxcoUzWFvRuNoNwpkJ1MZRJVdnjIOi0-J3NBcN6hupDLCOrytYDs2eHvPvqFC53PIO; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Wed, 29-Jan-2025 19:33:51 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Tue, 31-Jan-2017 19:33:51 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.108.11.1422819231279082; path=/; expires=Tue, 24-Jan-45 19:33:51 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dappdispatcher%26TIME%3D2675953236; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1422819231264327; path=/; expires=Tue, 24-Jan-45 19:33:51 GMT
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
