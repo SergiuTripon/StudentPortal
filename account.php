@@ -206,10 +206,10 @@ include 'includes/signin.php';
     </div>-->
 	
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-	<a href="/admin/modify-delete-an-account/">
+	<a href="/admin/update-delete-an-account/">
     <div class="tile">
     <i class="fa fa-wrench"></i>
-	<p class="tile-text">Modify/Delete an account</p>
+	<p class="tile-text">Update/Delete an account</p>
 	</div>
     </a>
 	</div>
