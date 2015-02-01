@@ -535,8 +535,8 @@ function CreateAnAccount() {
     $surname = filter_input(INPUT_POST, 'surname2', FILTER_SANITIZE_STRING);
 	$gender = filter_input(INPUT_POST, 'gender2', FILTER_SANITIZE_STRING);
 	$dateofbirth = filter_input(INPUT_POST, 'dateofbirth1', FILTER_SANITIZE_STRING);
-    $studentno = filter_input(INPUT_POST, 'studentno2', FILTER_SANITIZE_STRING);
-	$degree = filter_input(INPUT_POST, 'degree1', FILTER_SANITIZE_STRING);
+    $studentno = filter_input(INPUT_POST, 'studentno', FILTER_SANITIZE_STRING);
+	$degree = filter_input(INPUT_POST, 'degree', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email5', FILTER_SANITIZE_STRING);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$phonenumber = filter_input(INPUT_POST, 'phonenumber1', FILTER_SANITIZE_STRING);
