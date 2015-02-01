@@ -28,7 +28,7 @@ include 'includes/signin.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
+    <?php if (isset($session_account_type) && $session_account_type == 'student') : ?>
 
     <div class="container">
     <?php include 'includes/menus/portal_menu.php'; ?>
