@@ -467,11 +467,11 @@ function ChangePassword() {
 	$stmt2->execute();
 	$stmt2->close();
 
-	$stmt3 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ?");
+	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ?");
 	$stmt3->bind_param('i', $userid);
 	$stmt3->execute();
 	$stmt3->store_result();
-	$stmt3->bind_result($email);
+	$stmt3->bind_result($email, $firstname);
 	$stmt3->fetch();
 
 	// subject
@@ -483,7 +483,7 @@ function ChangePassword() {
 	$message .= '<title>Student Portal | Account</title>';
 	$message .= '</head>';
 	$message .= '<body>';
-	$message .= "<p>Dear $session_firstname,</p>";
+	$message .= "<p>Dear $firstname,</p>";
 	$message .= '<p>Your password has been changed successfully.</p>';
 	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here.</a>';
 	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
