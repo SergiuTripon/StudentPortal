@@ -9,7 +9,7 @@ if (isset($_POST["recordToChange"])) {
     $stmt1->bind_param('i', $idToChange);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($userid1);
+    $stmt1->bind_result($userid);
     $stmt1->fetch();
     $stmt1->close();
 
