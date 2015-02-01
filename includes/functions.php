@@ -117,8 +117,10 @@ function RegisterUser() {
 	$stmt3->execute();
 	$stmt3->close();
 
-	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, created_on) VALUES (?, ?, ?, ?)");
-	$stmt4->bind_param('ssss', $gender, $firstname, $surname, $created_on);
+	$studentno = '';
+
+	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, created_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt4->bind_param('issss', $studentno, $gender, $firstname, $surname, $created_on);
 	$stmt4->execute();
 	$stmt4->close();
 
