@@ -133,7 +133,7 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 	</div>
 
-	<hr class="hr-custom">
+	<hr class="hr-thin">
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
