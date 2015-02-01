@@ -87,6 +87,7 @@ include 'includes/signin.php';
 	
 	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Email address">
+    <p id="error1" class="feedback-sad text-center"></p>
 
     <hr class="hr-custom">
 
@@ -129,12 +130,15 @@ include 'includes/signin.php';
 	
 	var email2 = $("#email").val();
 	if(email2 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter an email address.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
-	}
+	} else {
+        $("#error1").hide();
+        $("#email").css("border-color", "#4DC742");
+    }
 	
 	if(hasError == false){
     jQuery.ajax({
