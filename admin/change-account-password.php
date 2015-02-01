@@ -86,13 +86,17 @@ if (isset($_POST["recordToChange"])) {
 
 	<input type="hidden" name="userid" id="userid" value="<?php echo $userid1; ?>" />
 
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
-	<p id="error1" class="feedback-sad text-center"></p>
-
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
     <label>New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
-	<p id="error2" class="feedback-sad text-center"></p>
+	</div>
+	</div>
+	<p id="error1" class="feedback-sad text-center"></p>
 
 	<hr class="hr-custom">
 
@@ -242,25 +246,25 @@ if (isset($_POST["recordToChange"])) {
 
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a password confirmation.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
+		$("#error1").hide();
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
 	if(password5 != confirmpwd) {
-		$("#error2").show();
-		$(".error2").empty().append("The password and confirmation do not match. Please try again.");
+		$("#error1").show();
+		$(".error1").empty().append("The password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
 		return false;
 	} else {
-		$("#error2").hide();
+		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
