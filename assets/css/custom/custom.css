@@ -550,7 +550,7 @@ hr {
     color: #FFA500 !important;
     font-size: 15px !important;
     outline: none !important;
-    background-color: transparent;
+    background-color: #333333;
     border: 1px solid #FFA500 !important;
 }
 
@@ -565,7 +565,7 @@ hr {
     color: #333333 !important;
     font-size: 15px !important;
     outline: none !important;
-    background-color: transparent;
+    background-color: #FFA500;
     border: 1px solid #333333 !important;
 }
 
