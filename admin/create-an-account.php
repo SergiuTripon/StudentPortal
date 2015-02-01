@@ -453,8 +453,8 @@ include '../includes/signin.php';
 
 	var password4 = $("#password").val();
 	if(password4 === '') {
-		$("#erro6").show();
-        $("#erro6").empty().append("Please enter a password.");
+		$("#error6").show();
+        $("#error6").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
