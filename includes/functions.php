@@ -83,10 +83,11 @@ function RegisterUser() {
 	global $mysqli;
 	global $created_on;
 
-	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
+	$studentno = filter_input(INPUT_POST, 'studentno', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
 
@@ -116,8 +117,6 @@ function RegisterUser() {
 	$stmt3->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
 	$stmt3->execute();
 	$stmt3->close();
-
-	$studentno = '321321';
 
 	$stmt4 = $mysqli->prepare("INSERT INTO user_details (studentno, firstname, surname, gender, created_on) VALUES (?, ?, ?, ?, ?)");
 	$stmt4->bind_param('sssis', $studentno, $firstname, $surname, $gender, $created_on);

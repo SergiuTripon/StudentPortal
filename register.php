@@ -92,7 +92,17 @@ include 'includes/signin.php';
     <div id="hide">
 
     <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width">
+    <label>First name</label>
+    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label>Surname</label>
+    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
+	</div>
+    </div>
 
+    <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
@@ -108,18 +118,6 @@ include 'includes/signin.php';
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
     </div>
-
-    </div>
-
-    <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
-    <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
-    </div>
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
-	</div>
     </div>
 
     <div class="form-group">
@@ -141,6 +139,8 @@ include 'includes/signin.php';
 	</div>
     
 	</div>
+
+    <input type="hidden" name="studentno" id="studentno">
 
 	<div class="text-right">
     <a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
@@ -242,18 +242,6 @@ include 'includes/signin.php';
 	
 	var hasError = false;
 
-	var gender_check = $(".gender");
-	if (gender_check.hasClass('active')) {
-		$("#error").hide();
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
-	}
-	else {
-		$("#error").empty().append("Please select a gender.");
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
-		hasError  = true;
-		return false;
-	}
-
     var firstname = $("#firstname").val();
 	if(firstname === '') {
 		$("#error").show();
@@ -277,6 +265,20 @@ include 'includes/signin.php';
 		$("#error").hide();
 		$("#surname").css("border-color", "#4DC742");
 	}
+
+    var gender_check = $(".gender");
+	if (gender_check.hasClass('active')) {
+		$("#error").hide();
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+	}
+	else {
+		$("#error").empty().append("Please select a gender.");
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
+		hasError  = true;
+		return false;
+	}
+
+    var studentno = $("#studentno").val();
 	
 	var email = $("#email").val();
 	if(email === '') {
@@ -359,7 +361,7 @@ include 'includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&email=' + email + '&password1=' + password1,
+    data:'firstname=' + firstname + '&surname=' + surname + '&gender=' + gender + '&studentno=' + studentno + '&email=' + email + '&password1=' + password1,
     success:function(){
         $("#error").hide();
 		$("#hide").hide();
