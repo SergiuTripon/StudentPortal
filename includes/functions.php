@@ -623,6 +623,7 @@ function DeleteAccount() {
 	$stmt1->execute();
 	$stmt1->close();
 
+	session_unset();
 	session_destroy();
 }
 
