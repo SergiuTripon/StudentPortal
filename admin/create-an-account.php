@@ -116,7 +116,7 @@ include '../includes/signin.php';
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
 	</div>
@@ -127,7 +127,7 @@ include '../includes/signin.php';
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
 	</div>
@@ -138,25 +138,44 @@ include '../includes/signin.php';
 	<label>Date of Birth</label>
 	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
 	</div>
 	</div>
 
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Address 2 line (Optional)</label>
     <input class="form-control" type="text" name="address2" id="address2" value="" placeholder="Enter a address line 2 (Optional)">
+	</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Town</label>
     <input class="form-control" type="text" name="town" id="town" value="" placeholder="Enter a town">
-
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
     <label>City</label>
     <input class="form-control" type="text" name="city" id="city" value="" placeholder="Enter a city">
+	</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Country</label>
     <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
-    <label>Postcode</label>
+    </div>
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
+	</div>
+	</div>
 
 	</div>
 
