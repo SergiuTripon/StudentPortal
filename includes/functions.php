@@ -509,6 +509,112 @@ function ChangePassword() {
 	}
 }
 
+function PaypalPaymentSuccess() {
+
+	global $mysqli;
+	global $created_on;
+
+	$transaction_id  = $_POST["txn_id"];
+	$payment_status = strtolower($_POST["payment_status"]);
+	$payment_status1 = ($_POST["payment_status"]);
+	$invoice_id = $_POST["invoice"];
+	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
+
+	$product_name = $_POST["item_name1"];
+	$product_amount = $_POST["mc_gross"];
+
+
+	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
+	$stmt1->bind_param('i', $invoice_id);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($userid);
+	$stmt1->fetch();
+	$stmt1->close();
+
+	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_fees.isHalf FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid LEFT JOIN user_fees ON user_signin.userid=user_fees.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $userid);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($email, $firstname, $surname, $isHalf);
+	$stmt2->fetch();
+	$stmt2->close();
+
+	if ($product_amount == '9000.00' AND $isHalf == '0' ) {
+
+	$full_fees = 0.00;
+	$updated_on = date("Y-m-d G:i:s");
+
+	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+	$stmt3->bind_param('isi', $full_fees, $updated_on, $userid);
+	$stmt3->execute();
+	$stmt3->close();
+
+	} else {
+
+	if ($product_amount == '4500.00' AND $isHalf == '0') {
+
+	$half_fees = 4500.00;
+	$isHalf = 1;
+	$updated_on = date("Y-m-d G:i:s");
+
+	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
+	$stmt3->bind_param('iisi', $half_fees, $isHalf, $updated_on, $userid);
+	$stmt3->execute();
+	$stmt3->close();
+
+	} else {
+
+	$full_fees = 0.00;
+	$updated_on = date("Y-m-d G:i:s");
+
+	$stmt4 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+	$stmt4->bind_param('isi', $full_fees, $updated_on, $userid);
+	$stmt4->execute();
+	$stmt4->close();
+
+	}
+	}
+
+	$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, completed_on=? WHERE invoice_id =?");
+	$stmt8->bind_param('sssi', $transaction_id, $payment_status, $completed_on, $invoice_id);
+	$stmt8->execute();
+	$stmt8->close();
+
+	// subject
+	$subject = 'Payment confirmation';
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
+	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $invoice_id</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Transaction ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $transaction_id</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $product_name</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Amount paid (&pound;):</strong> </td><td style=\"border: 1px solid #FFA500;\"> &pound;$product_amount</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment time and date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $payment_date</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $payment_status1</td></tr>";
+	$message .= '</table>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+	// Mail it
+	mail($email, $subject, $message, $headers);
+
+}
+
 //DeleteAccount function
 function DeleteAccount() {
 
