@@ -71,14 +71,14 @@ $stmt1->fetch();
 
     <div class="form-group">
     
-	<div class="col-xs-6 col-sm-6 full-width">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="First name" readonly="readonly">
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Student Number" readonly="readonly">
 	</div>
 
-    <div class="col-xs-6 col-sm-6 full-width">
+    <div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Surname" readonly="readonly">
     <label>Email address</label>
@@ -87,8 +87,10 @@ $stmt1->fetch();
     
 	</div>
 
-    <div class="text-right">
-    <a class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500" data-toggle="modal" href="#deleteaccount-modal"><span class="ladda-label">Delete account</span></a>
+    <hr class="hr-custom">
+
+    <div class="text-center">
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-toggle="modal" href="#deleteaccount-modal"><span class="ladda-label">Delete account</span></a>
     </div>
 
     </form>
