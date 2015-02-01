@@ -224,6 +224,7 @@ function ResetPassword() {
 
 	global $mysqli;
 	global $updated_on;
+	global $db_userid;
 
 	$token = $_POST["token"];
 	$email = filter_input(INPUT_POST, 'email3', FILTER_SANITIZE_EMAIL);
