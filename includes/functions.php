@@ -12,6 +12,8 @@ else $session_firstname = '';
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
+$completed_on = date("Y-m-d G:i:s");
+$cancelled_on = date("Y-m-d G:i:s");
 
 function SignIn() {
 
@@ -237,63 +239,63 @@ function ResetPassword() {
 		exit();
 	}
 
-		$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
-		$stmt1->bind_param('s', $email);
-		$stmt1->execute();
-		$stmt1->store_result();
-		$stmt1->bind_result($userid);
-		$stmt1->fetch();
+	$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
+	$stmt1->bind_param('s', $email);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($userid);
+	$stmt1->fetch();
 
-		$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_details.userid WHERE user_token.userid = ? LIMIT 1");
-		$stmt2->bind_param('i', $userid);
-		$stmt2->execute();
-		$stmt2->store_result();
-		$stmt2->bind_result($db_token, $firstname);
-		$stmt2->fetch();
+	$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_details.userid WHERE user_token.userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $userid);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($db_token, $firstname);
+	$stmt2->fetch();
 
-		if ($token == $db_token) {
+	if ($token == $db_token) {
 
-		$password_hash = password_hash($password, PASSWORD_BCRYPT);
+	$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-		$stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
-		$stmt4->bind_param('sss', $password_hash, $updated_on, $email);
-		$stmt4->execute();
-		$stmt4->close();
+	$stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
+	$stmt4->bind_param('sss', $password_hash, $updated_on, $email);
+	$stmt4->execute();
+	$stmt4->close();
 
-		$empty_token = NULL;
-		$empty_created_on = NULL;
+	$empty_token = NULL;
+	$empty_created_on = NULL;
 
-		$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
-		$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
-		$stmt4->execute();
-		$stmt4->close();
+	$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
+	$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
+	$stmt4->execute();
+	$stmt4->close();
 
-		// subject
-		$subject = 'Password reset successfully';
+	// subject
+	$subject = 'Password reset successfully';
 
-		// message
-		$message = '<html>';
-		$message .= '<head>';
-		$message .= '<title>Student Portal | Account</title>';
-		$message .= '</head>';
-		$message .= '<body>';
-		$message .= "<p>Dear $firstname,</p>";
-		$message .= '<p>Your password has been successfully reset.</p>';
-		$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
-		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-		$message .= '</body>';
-		$message .= '</html>';
+	// message
+	$message = '<html>';
+	$message .= '<head>';
+	$message .= '<title>Student Portal | Account</title>';
+	$message .= '</head>';
+	$message .= '<body>';
+	$message .= "<p>Dear $firstname,</p>";
+	$message .= '<p>Your password has been successfully reset.</p>';
+	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
+	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+	$message .= '</body>';
+	$message .= '</html>';
 
-		// To send HTML mail, the Content-type header must be set
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-		// Additional headers
-		$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	// Additional headers
+	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
-		// Mail it
-		mail($email, $subject, $message, $headers);
+	// Mail it
+	mail($email, $subject, $message, $headers);
 
 	}
 	else
@@ -509,10 +511,12 @@ function ChangePassword() {
 	}
 }
 
+//PaypalPaymentSuccess function
 function PaypalPaymentSuccess() {
 
 	global $mysqli;
-	global $created_on;
+	global $updated_on;
+	global $completed_on;
 
 	$transaction_id  = $_POST["txn_id"];
 	$payment_status = strtolower($_POST["payment_status"]);
@@ -522,7 +526,6 @@ function PaypalPaymentSuccess() {
 
 	$product_name = $_POST["item_name1"];
 	$product_amount = $_POST["mc_gross"];
-
 
 	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
 	$stmt1->bind_param('i', $invoice_id);
@@ -556,7 +559,6 @@ function PaypalPaymentSuccess() {
 
 	$half_fees = 4500.00;
 	$isHalf = 1;
-	$updated_on = date("Y-m-d G:i:s");
 
 	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
 	$stmt3->bind_param('iisi', $half_fees, $isHalf, $updated_on, $userid);
@@ -613,6 +615,20 @@ function PaypalPaymentSuccess() {
 	// Mail it
 	mail($email, $subject, $message, $headers);
 
+}
+
+//PaypalPaymentCancel function
+function PaypalPaymentCancel() {
+
+	global $mysqli;
+	global $userid;
+
+	$payment_status = 'cancelled';
+
+	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, cancelled_on=? WHERE userid = ? ORDER BY created_on DESC LIMIT 1");
+	$stmt5->bind_param('ssi', $payment_status, $cancelled_on, $userid);
+	$stmt5->execute();
+	$stmt5->close();
 }
 
 //DeleteAccount function
