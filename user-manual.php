@@ -80,6 +80,8 @@
     </div><!-- /.navbar-collapse -->
     </nav>
 
+    <!-- Update your account -->
+    <div id="update-your-account">
     <div id="page-wrapper">
     <div class="container-fluid">
     <!-- Page Heading -->
@@ -91,13 +93,15 @@
     <i class="fa fa-fw fa-user"></i>  <a href="index.html">Account</a>
     </li>
     <li class="active">
-    <i class="fa fa-fw fa-refresh"></i> How to update an account
+    <i class="fa fa-fw fa-refresh"></i> How to update your account
     </li>
     </ol>
     </div>
     </div><!-- /.row -->
     </div><!-- /.container-fluid -->
     </div><!-- /#page-wrapper -->
+    </div><!-- /#update-your-account -->
+    <!-- End of Update your account -->
 
     </div><!-- /#wrapper -->
 
@@ -106,6 +110,12 @@
 
     <!-- bootstrap -->
     <script src="https://student-portal.co.uk/assets/js/bootstrap/bootstrap.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#update-your-account').hide()
+    });
+    </script>
 
 </body>
 
