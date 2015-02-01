@@ -446,7 +446,6 @@ function ChangePassword() {
 	global $mysqli;
 	global $userid;
 	global $updated_on;
-	global $session_firstname;
 
 	$password = filter_input(INPUT_POST, 'password3', FILTER_SANITIZE_STRING);
 
