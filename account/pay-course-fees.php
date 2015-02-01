@@ -285,7 +285,7 @@ if ($fee_amount == "0.00") {
     var payer_address1 = $('#payer_address1').val();
 	if (payer_address1 === '') {
         $("#error1").show();
-        $("#error1").empty().append("Please select the first line of an address.");
+        $("#error1").empty().append("Please enter the first line of an address.");
 		$("#payer_address1").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
