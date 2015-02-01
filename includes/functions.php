@@ -86,7 +86,6 @@ function RegisterUser() {
 	$firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING);
 	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
-	$studentno = filter_input(INPUT_POST, 'studentno', FILTER_SANITIZE_STRING);
 	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
