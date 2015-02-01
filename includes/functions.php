@@ -90,6 +90,8 @@ function RegisterUser() {
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
 
+	$gender = strtolower($gender);
+
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 	header('HTTP/1.0 550 The email address you entered is invalid.');
 	exit();
@@ -324,6 +326,8 @@ function UpdateAccount() {
 	$country = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING);
 	$postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
 
+	$gender = strtolower($gender);
+
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
 	}
@@ -548,6 +552,8 @@ function CreateAnAccount() {
     $country = filter_input(INPUT_POST, 'country1', FILTER_SANITIZE_STRING);
     $postcode = filter_input(INPUT_POST, 'postcode1', FILTER_SANITIZE_STRING);
 
+	$gender = strtolower($gender);
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('HTTP/1.0 550 The email address you entered is invalid.');
     exit();
@@ -657,6 +663,8 @@ function UpdateAnAccount() {
 	$city = filter_input(INPUT_POST, 'city2', FILTER_SANITIZE_STRING);
 	$country = filter_input(INPUT_POST, 'country2', FILTER_SANITIZE_STRING);
 	$postcode = filter_input(INPUT_POST, 'postcode2', FILTER_SANITIZE_STRING);
+
+	$gender = strtolower($gender);
 
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
