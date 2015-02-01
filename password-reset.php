@@ -157,7 +157,7 @@ include 'includes/signin.php';
 	
 	var token = $("#token").val();
 	
-	var email3 = $("#email1").val();
+	var email3 = $("#email").val();
 	if(email3 === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
