@@ -5,26 +5,7 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
-$stmt = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname, user_details.gender, user_details.dateofbirth, user_details.phonenumber, user_details.degree, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.postcode, user_fees.fee_amount FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid LEFT JOIN user_fees on user_signin.userid=user_fees.signin WHERE user_signin.userid = ? LIMIT 1");
-$stmt->bind_param('i', $userid);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($email, $studentno, $firstname, $surname, $gender, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $postcode, $fee_amount);
-$stmt->fetch();
 
-if ($fee_amount == "9000.00") {
-    $fee_title = 'Full Fees';
-}
-
-if ($fee_amount == "4500.00") {
-    $fee_title = 'Half Fees';
-    $conditional_style = "<style> .checkbox { display: none !important; }</style>";
-}
-
-if ($fee_amount == "0.00") {
-    $fee_title = 'Nothing to pay';
-    $conditional_style = "<style> .checkbox { display: none !important; } .btn-custom { display: none !important; }</style>";
-}
 
 ?>
 
