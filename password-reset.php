@@ -239,7 +239,7 @@ include 'includes/signin.php';
     data:'token=' + token + '&email3=' + email3 + '&password2=' + password2,
     success:function(){
 		$("#hide").hide();
-		$("#siginin-button").hide();
+		$("#signin-button").hide();
 		$("#FormSubmit").hide();
 		$("#email").hide();
 		$("#error").hide();
