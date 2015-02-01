@@ -49,7 +49,7 @@
     <ul class="nav navbar-nav side-nav">
 
     <li>
-    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Account <i class="fa fa-fw fa-caret-down"></i></a>
+    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-user"></i> Account <i class="fa fa-fw fa-caret-down"></i></a>
     <ul id="demo" class="collapse">
 
     <li><a href="#">Update account</a></li>
@@ -72,13 +72,13 @@
     <!-- Page Heading -->
     <div class="row">
     <div class="col-lg-12">
-    <h1 class="page-header">Blank Page<small>Subheading</small></h1>
+    <h1 class="page-header">Account <small>How to update an account</small></h1>
     <ol class="breadcrumb">
     <li>
-    <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+    <i class="fa fa-dashboard"></i>  <a href="index.html">Account</a>
     </li>
     <li class="active">
-    <i class="fa fa-file"></i> Blank Page
+    <i class="fa fa-file"></i> How to update an account
     </li>
     </ol>
     </div>
