@@ -34,13 +34,6 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 	
     <title>Student Portal | Update Account</title>
-
-    <style>
-    #gender {
-		color: #FFA500;
-		background-color: #333333;
-	}
-    </style>
 	
 </head>
 
@@ -86,6 +79,19 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div id="hide">
 
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>First name</label>
+    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <label>Surname</label>
+    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom gender <?php if($gender == "Male") echo "active"; ?>">
@@ -98,34 +104,59 @@ if ($dateofbirth == "0000-00-00") {
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
+    </div>
+    </div>
 
-    <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
-    <p id="error1" class="feedback-sad text-center"></p>
-    <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
-    <p id="error2" class="feedback-sad text-center"></p>
-    <label>Date of Birth (YYYY-MM-DD)</label>
-    <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select your date of birth"/>
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Email address</label>
-    <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter your email address">
-    <p id="error3" class="feedback-sad text-center"></p>
-	<label>Phone number</label>
-    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter your phone number">
+    <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
+    </div>
+    </div>
 
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>Date of Birth (YYYY-MM-DD)</label>
+    <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select a date"/>
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <label>Phone number</label>
+    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter a phone number">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Address line 1</label>
-    <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter your address line 1">
+    <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter the address line 1">
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Address 2 line (Optional)</label>
-    <input class="form-control" type="text" name="address2" id="address2" value="<?php echo $address2; ?>" placeholder="Enter your address line 2 (Optional)">
-	<label>Town</label>
-    <input class="form-control" type="text" name="town" id="town" value="<?php echo $town; ?>" placeholder="Enter your town">
-    <label>City</label>
-    <input class="form-control" type="text" name="city" id="city" value="<?php echo $city; ?>" placeholder="Enter your city">
-    <label>Country</label>
-	<input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter your country" readonly="readonly">
-	<label>Postcode</label>
-    <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter your postcode">
+    <input class="form-control" type="text" name="address2" id="address2" value="<?php echo $address2; ?>" placeholder="Enter the address line 2 (Optional)">
+    </div>
+    </div>
 
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>Town</label>
+    <input class="form-control" type="text" name="town" id="town" value="<?php echo $town; ?>" placeholder="Enter a town">
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <label>City</label>
+    <input class="form-control" type="text" name="city" id="city" value="<?php echo $city; ?>" placeholder="Enter a city">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>Country</label>
+    <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <label>Postcode</label>
+    <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter a postcode">
+    </div>
+    </div>
 
     <hr class="hr-custom">
 
