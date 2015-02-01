@@ -93,8 +93,8 @@ function RegisterUser() {
 	$account_type = 'student';
 	$password_hash = password_hash($password, PASSWORD_BCRYPT);
 	$gender = strtolower($gender);
-	$token = null;
-	$studentno = null;
+	$token = NULL;
+	$studentno = NULL;
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 	header('HTTP/1.0 550 The email address you entered is invalid.');
