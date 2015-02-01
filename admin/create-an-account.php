@@ -319,6 +319,7 @@ include '../includes/signin.php';
 	var account_type;
 	var gender2;
 	var studentno;
+	var degree;
 
 	//Setting variable value
 	$('.btn-group > .account_type').click(function(){
@@ -404,6 +405,8 @@ include '../includes/signin.php';
 
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
+		degree = $("#degree").val();
+
 		if(studentno === '') {
 			$("#error4").show();
 			$("#error4").empty().append("Please enter a student number.");
@@ -434,20 +437,19 @@ include '../includes/signin.php';
 			$("#error4").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
+		if(degree === '') {
+			$("#error4").show();
+			$("#error4").empty().append("Please enter a programme of study.");
+			$("#degree").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error4").hide();
+			$("#degree").css("border-color", "#4DC742");
+		}
 	} else {
 		studentno = $("#studentno").val();
-	}
-
-	var degree = $("#degree").val();
-	if(degree === '') {
-		$("#error4").show();
-        $("#error4").empty().append("Please enter a programme of study.");
-		$("#degree").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error4").hide();
-		$("#degree").css("border-color", "#4DC742");
+		degree = $("#degree").val();
 	}
 
 	var email5 = $("#email").val();
