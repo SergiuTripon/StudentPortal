@@ -1,10 +1,6 @@
 <?php
 include 'session.php';
 
-if (isset($_SESSION['userid']))
-$userid = $_SESSION['userid'];
-else $userid = '';
-
 $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
 $stmt1->bind_param('i', $userid);
 $stmt1->execute();

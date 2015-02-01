@@ -15,3 +15,9 @@ if (session_status() == PHP_SESSION_NONE) {
 if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
+
+date_default_timezone_set('Europe/London');
+$created_on = date("Y-m-d G:i:s");
+$updated_on = date("Y-m-d G:i:s");
+$completed_on = date("Y-m-d G:i:s");
+$cancelled_on = date("Y-m-d G:i:s");
