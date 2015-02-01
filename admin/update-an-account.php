@@ -134,7 +134,7 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Nationality</label>
-	<input class="form-control" type="text" name="nationality" id="nationality" value="<?php echo nationality; ?>" placeholder="Enter a country">
+	<input class="form-control" type="text" name="nationality" id="nationality" value="<?php echo $nationality; ?>" placeholder="Enter a country">
 	</div>
 	</div>
 
