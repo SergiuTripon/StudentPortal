@@ -9,7 +9,7 @@ $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, 
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($userid, $account_type, $email, $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+$stmt1->bind_result($userid1, $account_type1, $email1, $firstname1, $surname1, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -83,19 +83,19 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div id="hide">
 
-    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid1; ?>" />
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Account type - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom account_type <?php if($account_type == "student") echo "active"; ?>">
+	<label class="btn btn-custom account_type <?php if($account_type1 == "student") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Student
 	</label>
-	<label class="btn btn-custom account_type <?php if($account_type == "lecturer") echo "active"; ?>">
+	<label class="btn btn-custom account_type <?php if($account_type1 == "lecturer") echo "active"; ?>">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Lecturer
 	</label>
-	<label class="btn btn-custom account_type <?php if($account_type == "admin") echo "active"; ?>">
+	<label class="btn btn-custom account_type <?php if($account_type1 == "admin") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Admin
 	</label>
 	</div>
@@ -105,11 +105,11 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter a first name">
+    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname1; ?>" placeholder="Enter a first name">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter a surname">
+    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname1; ?>" placeholder="Enter a surname">
 	</div>
 	</div>
 
@@ -133,7 +133,7 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Email address</label>
-	<input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
+	<input class="form-control" type="text" name="email" id="email" value="<?php echo $email1; ?>" placeholder="Enter a email address">
 	</div>
 	</div>
 
