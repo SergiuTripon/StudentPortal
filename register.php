@@ -116,7 +116,6 @@ include 'includes/signin.php';
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
     </div>
-
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
@@ -360,7 +359,7 @@ include 'includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&studentno=' + studentno + '&email=' + email + '&password1=' + password1,
+    data:'gender=' + gender + '&firstname=' + firstname + '&surname=' + surname + '&email=' + email + '&password1=' + password1,
     success:function(){
         $("#error").hide();
 		$("#hide").hide();

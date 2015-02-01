@@ -86,7 +86,6 @@ function RegisterUser() {
 	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING);
-	$studentno = filter_input(INPUT_POST, 'studentno', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
@@ -95,20 +94,6 @@ function RegisterUser() {
 	header('HTTP/1.0 550 The email address you entered is invalid.');
 	exit();
     } else {
-
-	// Check existing student number
-	$stmt1 = $mysqli->prepare("SELECT userid FROM user_details WHERE studentno = ? LIMIT 1");
-	$stmt1->bind_param('i', $studentno);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($db_userid);
-	$stmt1->fetch();
-
-	if ($stmt1->num_rows == 1) {
-	$stmt1->close();
-	header('HTTP/1.0 550 An account with the student number entered already exists.');
-	exit();
-	} else {
 
 	// Check existing e-mail address
 	$stmt2 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
@@ -132,8 +117,8 @@ function RegisterUser() {
 	$stmt3->execute();
 	$stmt3->close();
 
-	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, studentno, firstname, surname, created_on) VALUES (?, ?, ?, ?, ?)");
-	$stmt4->bind_param('sisss', $gender, $studentno, $firstname, $surname, $created_on);
+	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, created_on) VALUES (?, ?, ?, ?)");
+	$stmt4->bind_param('sisss', $gender, $firstname, $surname, $created_on);
 	$stmt4->execute();
 	$stmt4->close();
 
@@ -151,7 +136,6 @@ function RegisterUser() {
 	$stmt6->execute();
 	$stmt6->close();
 
-	}
 	}
 	}
 }
