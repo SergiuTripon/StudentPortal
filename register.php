@@ -112,14 +112,11 @@ include 'includes/signin.php';
     </div>
 
     <div class="form-group">
-    
 	<div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
-    <label>Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" placeholder="Enter your student number">
     </div>
 
     <div class="col-xs-6 col-sm-6 full-width">
@@ -127,6 +124,25 @@ include 'includes/signin.php';
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email address">
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
+	<label>Confirm password</label>
+    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your password confirmation">
+	</div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width">
+    <label>Email address</label>
+    <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email address">
+    </div>
+    </div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width">
+    <label>Password</label>
+    <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
+    </div>
+
+    <div class="col-xs-6 col-sm-6 full-width">
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your password confirmation">
 	</div>
@@ -267,29 +283,6 @@ include 'includes/signin.php';
     } else {
 		$("#error").hide();
 		$("#surname").css("border-color", "#4DC742");
-	}
-	
-	var studentno = $("#studentno").val();
-	if(studentno === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a student number.");
-		$("#studentno").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error").hide();
-		$("#studentno").css("border-color", "#4DC742");
-	}
-
-    if (studentno.length != 9) {
-		$("#error").show();
-        $("#error").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
-		$("#studentno").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error").hide();
-		$("#studentno").css("border-color", "#4DC742");
 	}
 	
 	var email = $("#email").val();

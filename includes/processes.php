@@ -11,7 +11,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 //Call Register function
 //Call RegisterUser function
-if(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email1"], $_POST["studentno"], $_POST["password1"])) {
+if(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email1"], $_POST["password1"])) {
 	RegisterUser();
 }
 
@@ -32,7 +32,7 @@ elseif (isset($_POST["token"], $_POST["email3"], $_POST["password2"])) {
 
 //Call Account functions
 //Call UpdateAccount function
-elseif (isset($_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['dateofbirth'], $_POST['studentno1'], $_POST['degree'], $_POST['email4'], $_POST['phonenumber'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'])) {
+elseif (isset($_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['dateofbirth'], $_POST['email4'], $_POST['phonenumber'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'])) {
 	UpdateAccount();
 }
 
@@ -50,12 +50,12 @@ elseif (isset($_POST['deleteaccount_button'])) {
 
 //Call Admin Account functions
 //Call CreateAnAccount function
-elseif (isset($_POST['account_type1'], $_POST['firstname2'], $_POST['surname2'], $_POST['gender2'], $_POST['dateofbirth1'], $_POST['studentno2'], $_POST['degree1'], $_POST['email5'], $_POST['phonenumber1'], $_POST['password4'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
+elseif (isset($_POST['account_type1'], $_POST['firstname2'], $_POST['surname2'], $_POST['gender2'], $_POST['dateofbirth1'], $_POST['studentno'], $_POST['degree'], $_POST['email5'], $_POST['phonenumber1'], $_POST['password4'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
 	CreateAnAccount();
 }
 
 //Call UpdateAnAccount function
-elseif (isset($_POST['userid'], $_POST['firstname3'], $_POST['surname3'], $_POST['gender3'], $_POST['dateofbirth2'], $_POST['studentno3'], $_POST['degree2'], $_POST['email6'], $_POST['phonenumber2'], $_POST['address12'], $_POST['address22'], $_POST['town2'], $_POST['city2'], $_POST['country2'], $_POST['postcode2'])) {
+elseif (isset($_POST['userid'], $_POST['firstname3'], $_POST['surname3'], $_POST['gender3'], $_POST['dateofbirth2'], $_POST['studentno1'], $_POST['degree1'], $_POST['email6'], $_POST['phonenumber2'], $_POST['address12'], $_POST['address22'], $_POST['town2'], $_POST['city2'], $_POST['country2'], $_POST['postcode2'])) {
 	UpdateAnAccount();
 }
 
