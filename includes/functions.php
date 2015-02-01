@@ -262,7 +262,7 @@ function ResetPassword() {
 		$empty_created_on = NULL;
 
 		$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
-		$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
+		$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $db_userid);
 		$stmt4->execute();
 		$stmt4->close();
 
