@@ -93,14 +93,13 @@ header('Location: ../calendar/');
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Start date (YYYY-MM-DD)</label>
 	<input type='text' class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
-	<p id="error2" class="feedback-sad text-center"></p>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Due date (YYYY-MM-DD)</label>
     <input type='text' class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
-	<p id="error3" class="feedback-sad text-center"></p>
 	</div>
 	</div>
+	<p id="error2" class="feedback-sad text-center"></p>
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
@@ -117,7 +116,7 @@ header('Location: ../calendar/');
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-	<p id="error4" class="feedback-sad text-center"></p>
+	<p id="error3" class="feedback-sad text-center"></p>
 
 	<hr class="hr-custom">
 
@@ -221,7 +220,6 @@ header('Location: ../calendar/');
 	$("#error1").hide();
 	$("#error2").hide();
 	$("#error3").hide();
-	$("#error4").hide();
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
@@ -260,24 +258,24 @@ header('Location: ../calendar/');
 
 	var task_duedate1 = $("#task_duedate").val();
 	if(task_duedate1 === '') {
-		$("#error3").show();
-        $("#error3").empty().append("Please enter a task due date.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a task due date.");
 		$("#task_duedate").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error3").hide();
+		$("#error2").hide();
 		$("#datepicker2").css("border-color", "#4DC742");
 	}
 
 	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
-		$("#error4").show();
-		$("#error4").hide();
+		$("#error3").show();
+		$("#error3").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error4").empty().append("Please select a task category.");
+		$("#error3").empty().append("Please select a task category.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
