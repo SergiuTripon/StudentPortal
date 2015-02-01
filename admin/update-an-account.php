@@ -9,7 +9,7 @@ $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, 
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($userid, $account_type, $email, $firstname1, $surname1, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+$stmt1->bind_result($userid, $account_type1, $email1, $firstname1, $surname1, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -86,6 +86,23 @@ if ($dateofbirth == "0000-00-00") {
     <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
 
 	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Account type - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-custom account_type <?php if($account_type1 == "Student") echo "active"; ?>">
+		<input type="radio" name="options" id="option1" autocomplete="off"> Male
+	</label>
+	<label class="btn btn-custom account_type <?php if($account_type1 == "Lecturer") echo "active"; ?>">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Female
+	</label>
+	<label class="btn btn-custom account_type <?php if($account_type1 == "Admin") echo "active"; ?>">
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
+	</label>
+	</div>
+	</div>
+	</div>
+
+	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname1; ?>" placeholder="Enter a first name">
@@ -116,7 +133,7 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Email address</label>
-	<input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
+	<input class="form-control" type="text" name="email" id="email" value="<?php echo $email1; ?>" placeholder="Enter a email address">
 	</div>
 	</div>
 
@@ -337,13 +354,18 @@ if ($dateofbirth == "0000-00-00") {
 
     //Global variable
     var gender3;
+	var account_type1;
 
     gender3 = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
+	account_type1 = ($('.account_type.active').text().replace(/^\s+|\s+$/g,''));
 
     //Setting variable value
     $('.btn-group .gender').click(function(){
         gender3 = ($(this).text().replace(/^\s+|\s+$/g,''))
     })
+	$('.btn-group .account_type').click(function(){
+		account_type1 = ($(this).text().replace(/^\s+|\s+$/g,''))
+	})
 
     $("#error1").hide();
     $("#error2").hide();
@@ -438,7 +460,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&gender3=' + gender3 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email6=' + email6 + '&nationality2=' + nationality2 + '&dateofbirth2=' + dateofbirth2 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
+    data:'userid=' + userid + '&account_type1=' + account_type1 + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&gender3=' + gender3 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email6=' + email6 + '&nationality2=' + nationality2 + '&dateofbirth2=' + dateofbirth2 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
