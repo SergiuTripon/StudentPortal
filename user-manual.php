@@ -75,7 +75,7 @@
     <h1 class="page-header">Account <small>How to update an account</small></h1>
     <ol class="breadcrumb">
     <li>
-    <i class="fa fa-fw fa-account"></i>  <a href="index.html">Account</a>
+    <i class="fa fa-fw fa-user"></i>  <a href="index.html">Account</a>
     </li>
     <li class="active">
     <i class="fa fa-fw fa-refresh"></i> How to update an account
