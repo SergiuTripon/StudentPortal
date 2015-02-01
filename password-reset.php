@@ -223,7 +223,7 @@ include 'includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'token=' + token + '&email=' + email3 + '&password=' + password2 + '&confirmpwd=' + confirmpwd,
+    data:'token=' + token + '&email3=' + email3 + '&password2=' + password2 + '&confirmpwd=' + confirmpwd,
     success:function(){
 		$("#hide").hide();
 		$("#register-button").hide();
