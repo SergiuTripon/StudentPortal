@@ -5,6 +5,10 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
+if (isset($_SESSION['firstname']))
+$session_firstname = $_SESSION['firstname'];
+else $session_firstname = '';
+
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
@@ -47,17 +51,16 @@ function SignIn() {
 	// Setting a session variable
 	$_SESSION['loggedin'] = true;
 
-	$session_userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
-	$session_account_type = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $surname);
-	$session_email = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $email);
-	$session_firstname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $firstname);
-	$session_surname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $surname);
+	$userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
+	$email = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $email);
+	$firstname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $firstname);
+	$surname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $surname);
 
- 	$_SESSION['userid'] = $session_userid;
-	$_SESSION['account_type'] = $session_account_type;
-	$_SESSION['email'] = $session_email;
-	$_SESSION['firstname'] = $session_firstname;
-	$_SESSION['surname'] = $session_surname;
+ 	$_SESSION['userid'] = $userid;
+	$_SESSION['account_type'] = $account_type;
+	$_SESSION['email'] = $email;
+	$_SESSION['firstname'] = $firstname;
+	$_SESSION['surname'] = $surname;
 
 	} else {
 	header('HTTP/1.0 550 The password you entered is incorrect.');
