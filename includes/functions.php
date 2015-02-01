@@ -548,8 +548,6 @@ function CreateAnAccount() {
     $country = filter_input(INPUT_POST, 'country1', FILTER_SANITIZE_STRING);
     $postcode = filter_input(INPUT_POST, 'postcode1', FILTER_SANITIZE_STRING);
 
-    $account_type = strtolower($account_type);
-
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('HTTP/1.0 550 The email address you entered is invalid.');
     exit();
@@ -594,6 +592,8 @@ function CreateAnAccount() {
     }
 
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
+
+	$account_type = strtolower($account_type);
 
     $stmt4 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
     $stmt4->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
@@ -677,15 +677,15 @@ function UpdateAnAccount() {
 
 	if ($db_email == $email) {
 
-	$stmt2 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
-	$stmt2->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$account_type = strtolower($account_type);
+
+	$stmt2 = $mysqli->prepare("UPDATE user_signin SET account_type=?, updated_on=? WHERE userid = ?");
+	$stmt2->bind_param('ssi', $account_type, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
 
-	$account_type = strtolower($account_type);
-
-	$stmt3 = $mysqli->prepare("UPDATE user_signin SET account_type=?, updated_on=? WHERE userid = ?");
-	$stmt3->bind_param('ssi', $account_type, $updated_on, $userid);
+	$stmt3 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
+	$stmt3->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
 	$stmt3->execute();
 	$stmt3->close();
 
