@@ -23,13 +23,6 @@ include 'includes/signin.php';
     html, body {
 		height: 100% !important;
 	}
-	#gender {
-		background-color: #333333;
-    }
-
-    #gender option {
-		color: #FFA500;
-    }
     </style>
 
 </head>
@@ -230,7 +223,7 @@ include 'includes/signin.php';
 	var gender;
 
 	//Setting variable value
-	$('.btn-group .btn').click(function(){
+	$('.btn-group .gender').click(function(){
         gender = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 
