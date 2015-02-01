@@ -90,11 +90,16 @@ include '../includes/signin.php';
 	</div>
 	<p id="error2" class="feedback-sad text-center"></p>
 
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
-	<p id="error3" class="feedback-sad text-center"></p>
 	<label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
+	<input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
+	</div>
+	</div>
+
+	<p id="error3" class="feedback-sad text-center"></p>
 	<p id="error4" class="feedback-sad text-center"></p>
 	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
