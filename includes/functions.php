@@ -833,7 +833,6 @@ function CreateTask () {
 function UpdateTask() {
 
 	global $mysqli;
-	global $task_class;
 	global $updated_on;
 
 	$taskid = filter_input(INPUT_POST, 'taskid', FILTER_SANITIZE_NUMBER_INT);
@@ -860,8 +859,8 @@ function UpdateTask() {
 
 	if ($db_taskname == $task_name) {
 
-	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_url=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-	$stmt2->bind_param('ssssssi', $task_notes, $task_url, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
+	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	$stmt2->bind_param('sssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
 	$stmt2->execute();
 	$stmt2->close();
 
@@ -883,8 +882,8 @@ function UpdateTask() {
 	}
 	else {
 
-	$stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_url=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-	$stmt4->bind_param('sssssssi', $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
+	$stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	$stmt4->bind_param('ssssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
 	$stmt4->execute();
 	$stmt4->close();
 
