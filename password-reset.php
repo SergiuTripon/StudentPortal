@@ -222,7 +222,7 @@ include 'includes/signin.php';
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/forgottenpassword_process.php",
+	url: "https://student-portal.co.uk/includes/processes.php",
     data:'token=' + token + '&email=' + email3 + '&password=' + password2 + '&confirmpwd=' + confirmpwd,
     success:function(){
 		$("#hide").hide();
