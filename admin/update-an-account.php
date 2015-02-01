@@ -76,8 +76,6 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="panel-body">
 
 	<!-- Update an account -->
-    <div class="content-panel mb10" style="border: none;">
-
 	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="updateaccount_form" novalidate>
 
 	<p id="error" class="feedback-sad text-center"></p>
@@ -191,8 +189,6 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 
     </form>
-
-    </div><!-- /content-panel -->
     <!-- End of Update account -->
 
     </div><!-- /panel-body -->
