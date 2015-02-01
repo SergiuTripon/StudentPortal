@@ -9,7 +9,7 @@ if (isset($_POST["recordToChange"])) {
     $stmt1->bind_param('i', $idToChange);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($userid);
+    $stmt1->bind_result($userid1);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -84,7 +84,7 @@ if (isset($_POST["recordToChange"])) {
 
     <div id="hide">
 
-	<input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
+	<input type="hidden" name="userid" id="userid" value="<?php echo $userid1; ?>" />
 
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
