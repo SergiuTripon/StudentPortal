@@ -49,8 +49,8 @@
     <ul class="nav navbar-nav side-nav">
 
     <li>
-    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-user"></i> Account <i class="fa fa-fw fa-caret-down"></i></a>
-    <ul id="demo" class="collapse">
+    <a href="javascript:;" data-toggle="collapse" data-target="#account"><i class="fa fa-fw fa-user"></i> Account <i class="fa fa-fw fa-caret-down"></i></a>
+    <ul id="account" class="collapse">
 
     <li><a href="#">Update account</a></li>
 
@@ -64,8 +64,8 @@
     </li>
 
     <li>
-    <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-user"></i> Calendar <i class="fa fa-fw fa-caret-down"></i></a>
-    <ul id="demo1" class="collapse">
+    <a href="javascript:;" data-toggle="collapse" data-target="#calendar"><i class="fa fa-fw fa-user"></i> Calendar <i class="fa fa-fw fa-caret-down"></i></a>
+    <ul id="calendar" class="collapse">
 
     <li><a href="#">Create a task</a></li>
 
