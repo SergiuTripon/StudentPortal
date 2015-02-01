@@ -411,6 +411,16 @@ include '../includes/signin.php';
 			$("#error4").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
+		if (studentno.isNumeric()) {
+			$("#error4").hide();
+			$("#studentno").css("border-color", "#4DC742");
+		} else {
+			$("#error4").show();
+			$("#error4").empty().append("The student number entered is invalid.<br>The student number must be numeric.");
+			$("#studentno").css("border-color", "#FF5454");
+			hasError  = true;
+			return false;
+		}
 		if (studentno.length != 9) {
 			$("#error4").show();
 			$("#error4").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
