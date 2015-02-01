@@ -199,11 +199,6 @@ include '../includes/signin.php';
 		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 
-	//Hiding error messages
-	$("#error1").hide();
-	$("#error2").hide();
-	$("#error3").hide();
-
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
