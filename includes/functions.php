@@ -119,8 +119,8 @@ function RegisterUser() {
 
 	$studentno = '3321321';
 
-	$stmt4 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, created_on) VALUES (?, ?, ?, ?, ?)");
-	$stmt4->bind_param('issss', $studentno, $gender, $firstname, $surname, $created_on);
+	$stmt4 = $mysqli->prepare("INSERT INTO user_details (studentno, firstname, surname, gender, created_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt4->bind_param('sssis', $studentno, $firstname, $surname, $gender, $created_on);
 	$stmt4->execute();
 	$stmt4->close();
 
