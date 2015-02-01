@@ -130,7 +130,7 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label for="studentno">Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentnoo; ?>" placeholder="Enter a student number">
+    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter a student number">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="degree">Programme of Study</label>
@@ -168,11 +168,11 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Address line 1</label>
-    <input class="form-control" type="text" name="address1" id="address1" value="<?php echo address1; ?>" placeholder="Enter a address line 1">
+    <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter a address line 1">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Address 2 line (Optional)</label>
-    <input class="form-control" type="text" name="address2" id="address2" value="<?php echo address2; ?>" placeholder="Enter a address line 2 (Optional)">
+    <input class="form-control" type="text" name="address2" id="address2" value="<?php echo $address2; ?>" placeholder="Enter a address line 2 (Optional)">
 	</div>
 	</div>
 
