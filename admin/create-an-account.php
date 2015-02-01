@@ -171,7 +171,7 @@ include '../includes/signin.php';
     <label>Country</label>
     <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     </div>
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
 	</div>
