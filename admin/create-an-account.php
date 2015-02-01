@@ -86,6 +86,7 @@ include '../includes/signin.php';
 	<input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
 	</div>
 	</div>
+	<p id="error2" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -103,6 +104,7 @@ include '../includes/signin.php';
 	</div>
 	</div>
 	</div>
+	<p id="error3" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -114,6 +116,7 @@ include '../includes/signin.php';
 	<input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
 	</div>
 	</div>
+	<p id="error4" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -121,6 +124,7 @@ include '../includes/signin.php';
     <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
 	</div>
 	</div>
+	<p id="error5" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -132,6 +136,7 @@ include '../includes/signin.php';
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
 	</div>
 	</div>
+	<p id="error6" class="feedback-sad text-center"></p>
 
 	<hr class="hr-custom">
 
@@ -356,40 +361,40 @@ include '../includes/signin.php';
 		return false;
 	}
 
-	var gender_check = $(".gender");
-	if (gender_check.hasClass('active')) {
-		$("#error2").hide();
-		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
-	}
-	else {
-		$("#error2").empty().append("Please select a gender.");
-		$(".btn-group > .gender").css('cssText', 'border-color: #FF5454 !important');
-		hasError  = true;
-		return false;
-	}
-
 	var firstname2 = $("#firstname").val();
 	if(firstname2 === '') {
-		$("#error3").show();
-        $("#error3").empty().append("Please enter a first name.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error3").hide();
+		$("#error2").hide();
 		$("#firstname").css("border-color", "#4DC742");
 	}
 	
 	var surname2 = $("#surname").val();
 	if(surname2 === '') {
-		$("#error4").show();
-        $("#error4").empty().append("Please enter a surname.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error4").hide();
+		$("#error2").hide();
 		$("#surname").css("border-color", "#4DC742");
+	}
+
+	var gender_check = $(".gender");
+	if (gender_check.hasClass('active')) {
+		$("#error3").hide();
+		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
+	}
+	else {
+		$("#error3").empty().append("Please select a gender.");
+		$(".btn-group > .gender").css('cssText', 'border-color: #FF5454 !important');
+		hasError  = true;
+		return false;
 	}
 
 	var dateofbirth1 = $("#dateofbirth").val();
@@ -397,40 +402,50 @@ include '../includes/signin.php';
 	if (account_type1 === 'Student') {
 		studentno = $("#studentno").val();
 		if(studentno === '') {
-			$("#error5").show();
-			$("#error5").empty().append("Please enter a student number.");
+			$("#error4").show();
+			$("#error4").empty().append("Please enter a student number.");
 			$("#studentno").css("border-color", "#FF5454");
 			hasError  = true;
 			return false;
 		} else {
-			$("#error5").hide();
+			$("#error4").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
 		if (studentno.length != 9) {
-			$("#error5").show();
-			$("#error5").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+			$("#error4").show();
+			$("#error4").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
 			$("#studentno").css("border-color", "#FF5454");
 			hasError  = true;
 			return false;
 		} else {
-			$("#error5").hide();
+			$("#error4").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
 	} else {
 		studentno = $("#studentno").val();
 	}
 
-	var degree1 = $("#degree").val();
-	
+	var degree = $("#degree").val();
+	if(degree === '') {
+		$("#error4").show();
+        $("#error4").empty().append("Please enter a programme of study.");
+		$("#degree").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error4").hide();
+		$("#degree").css("border-color", "#4DC742");
+	}
+
 	var email5 = $("#email").val();
 	if(email5 === '') {
-		$("#error6").show();
-        $("#error6").empty().append("Please enter an email address.");
+		$("#error5").show();
+        $("#error5").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error6").hide();
+		$("#error5").hide();
 		$("#email").css("border-color", "#4DC742");
 	}
 
@@ -438,24 +453,24 @@ include '../includes/signin.php';
 
 	var password4 = $("#password").val();
 	if(password4 === '') {
-		$("#erro7").show();
-        $("#erro7").empty().append("Please enter a password.");
+		$("#erro6").show();
+        $("#erro6").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error7").hide();
+		$("#error6").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 	
 	if (password4.length < 6) {
-		$("#error7").show();
-		$("#error7").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error6").show();
+		$("#error6").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error7").hide();
+		$("#error6").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 	
@@ -464,11 +479,11 @@ include '../includes/signin.php';
 	var numbers = new RegExp('[0-9]');
 	
 	if(password4.match(upperCase) && password4.match(lowerCase) && password4.match(numbers)) {
-		$("#error7").hide();
+		$("#error6").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
-		$("#error7").show();
-		$("#error7").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#error6").show();
+		$("#error6").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -476,25 +491,25 @@ include '../includes/signin.php';
 	
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-		$("#error8").show();
-        $("#error8").empty().append("Please enter a password confirmation.");
+		$("#error6").show();
+        $("#error6").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error8").hide();
+		$("#error6").hide();
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
 	if(password4 != confirmpwd) {
-		$("#error8").show();
-		$("#error8").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#error6").show();
+		$("#error6").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
 		return false;
 	} else {
-		$("#error8").hide();
+		$("#error6").hide();
 		$("#password").css("border-color", "#4DC742");
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
