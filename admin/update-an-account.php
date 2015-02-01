@@ -5,11 +5,11 @@ if (isset($_POST["recordToUpdate"])) {
 
 $idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, user_details.firstname, user_details.surname, user_details.gender, user_details.studentno, user_details.degree, user_details.nationality, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_details.firstname, user_details.surname, user_details.gender, user_details.studentno, user_details.degree, user_signin.email, user_details.nationality, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($userid1, $account_type1, $email1, $firstname1, $surname1, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+$stmt1->bind_result($userid, $account_type, $firstname, $surname, $gender, $studentno, $degree, $email, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -83,33 +83,16 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div id="hide">
 
-    <input type="hidden" name="userid" id="userid" value="<?php echo $userid1; ?>" />
-
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Account type - select below</label>
-	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom account_type <?php if($account_type1 == "student") echo "active"; ?>">
-		<input type="radio" name="options" id="option1" autocomplete="off"> Student
-	</label>
-	<label class="btn btn-custom account_type <?php if($account_type1 == "lecturer") echo "active"; ?>">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Lecturer
-	</label>
-	<label class="btn btn-custom account_type <?php if($account_type1 == "admin") echo "active"; ?>">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Admin
-	</label>
-	</div>
-	</div>
-	</div>
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname1; ?>" placeholder="Enter a first name">
+    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter a first name">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname1; ?>" placeholder="Enter a surname">
+    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter a surname">
 	</div>
 	</div>
 
@@ -133,7 +116,7 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Email address</label>
-	<input class="form-control" type="text" name="email" id="email" value="<?php echo $email1; ?>" placeholder="Enter a email address">
+	<input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
 	</div>
 	</div>
 
@@ -151,7 +134,7 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Nationality</label>
-	<input class="form-control" type="text" name="nationality" id="nationality" value="<?php echo $nationality; ?>" placeholder="Enter a country">
+	<input class="form-control" type="text" name="nationality" id="nationality" value="<?php echo nationality; ?>" placeholder="Enter a country">
 	</div>
 	</div>
 
@@ -221,7 +204,7 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../includes/footers/portal_footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
@@ -320,9 +303,9 @@ if ($dateofbirth == "0000-00-00") {
 	val = $("#email").val();
 	if(val === '') { $("#email").css("border-color", "#FF5454"); }
 	val = $("#studentno").val();
-	if(val === '') { $("#studentno").css("border-color", "#FF5454"); }
+	if(val === '') { $("#email").css("border-color", "#FF5454"); }
 	val = $("#degree").val();
-	if(val === '') { $("#degree").css("border-color", "#FF5454"); }
+	if(val === '') { $("#email").css("border-color", "#FF5454"); }
 	val = $("#dateofbirth").val();
 	if(val === '') { $("#dateofbirth").css("border-color", "#FF5454"); }
 	val = $("#phonenumber").val();
@@ -354,18 +337,13 @@ if ($dateofbirth == "0000-00-00") {
 
     //Global variable
     var gender3;
-	var account_type1;
 
     gender3 = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
-	account_type1 = ($('.account_type.active').text().replace(/^\s+|\s+$/g,''));
 
     //Setting variable value
     $('.btn-group .gender').click(function(){
         gender3 = ($(this).text().replace(/^\s+|\s+$/g,''))
     })
-	$('.btn-group .account_type').click(function(){
-		account_type1 = ($(this).text().replace(/^\s+|\s+$/g,''))
-	})
 
     $("#error1").hide();
     $("#error2").hide();
@@ -401,7 +379,18 @@ if ($dateofbirth == "0000-00-00") {
 		return true;
 	}
 
-	var studentno1 = $("#studentno").val();
+	var email6 = $("#email").val();
+	if(email6 === '') {
+		$("#error4").show();
+        $("#error4").empty().append("Please enter an email address.");
+		$("#email").css("border-color", "#FF5454");
+		hasError  = true;
+		return false;
+	} else {
+		return true;
+	}
+
+    var studentno1 = $("#studentno").val();
 	if(studentno1 === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter a student number.");
@@ -412,7 +401,7 @@ if ($dateofbirth == "0000-00-00") {
 		return true;
 	}
 
-	if ($.isNumeric(studentno1)) {
+	if ($.isNumeric(studentno)) {
 		$("#error4").hide();
 		$("#studentno").css("border-color", "#4DC742");
 	} else {
@@ -434,19 +423,6 @@ if ($dateofbirth == "0000-00-00") {
 	}
 
 	var degree1 = $("#degree").val();
-
-	var email6 = $("#email").val();
-	if(email6 === '') {
-		$("#error4").show();
-        $("#error4").empty().append("Please enter an email address.");
-		$("#email").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-	} else {
-		return true;
-	}
-
-	var nationality2 = $("#nationality2").val();
 	var dateofbirth2 = $("#dateofbirth").val();
 	var phonenumber2 = $("#phonenumber").val();
     var address12 = $("#address1").val();
@@ -460,7 +436,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&gender3=' + gender3 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email6=' + email6 + '&nationality2=' + nationality2 + '&dateofbirth2=' + dateofbirth2 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
+    data:'userid=' + userid + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&gender3=' + gender3 + '&email6=' + email6 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&dateofbirth2=' + dateofbirth2 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
