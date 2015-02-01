@@ -109,26 +109,40 @@ include '../includes/signin.php';
 	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="degree">Programme of Study</label>
 	<input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
 	</div>
 	</div>
 
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pr0 pl0">
 	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
+	</div>
+	</div>
 
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
-
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
+	</div>
+	</div>
 
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Date of Birth</label>
 	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
-
-    <label>Phone number</label>
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
+	</div>
+	</div>
 
     <label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
