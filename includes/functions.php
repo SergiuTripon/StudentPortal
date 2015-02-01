@@ -224,7 +224,6 @@ function ResetPassword() {
 
 	global $mysqli;
 	global $updated_on;
-	global $db_userid;
 
 	$token = $_POST["token"];
 	$email = filter_input(INPUT_POST, 'email3', FILTER_SANITIZE_EMAIL);
@@ -240,11 +239,11 @@ function ResetPassword() {
 		$stmt1->bind_param('s', $email);
 		$stmt1->execute();
 		$stmt1->store_result();
-		$stmt1->bind_result($db_userid);
+		$stmt1->bind_result($userid);
 		$stmt1->fetch();
 
-		$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_detials.userid WHERE user_token.userid = ? LIMIT 1");
-		$stmt2->bind_param('i', $db_userid);
+		$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_details.userid WHERE user_token.userid = ? LIMIT 1");
+		$stmt2->bind_param('i', $userid);
 		$stmt2->execute();
 		$stmt2->store_result();
 		$stmt2->bind_result($db_token, $firstname);
@@ -263,7 +262,7 @@ function ResetPassword() {
 		$empty_created_on = NULL;
 
 		$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
-		$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $db_userid);
+		$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
 		$stmt4->execute();
 		$stmt4->close();
 
