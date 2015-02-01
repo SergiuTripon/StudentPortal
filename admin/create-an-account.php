@@ -76,6 +76,19 @@ include '../includes/signin.php';
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
 
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>First name</label>
+    <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Surname</label>
+	<input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
+	</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-custom gender">
@@ -88,19 +101,9 @@ include '../includes/signin.php';
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-	<p id="error2" class="feedback-sad text-center"></p>
-
-	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
-    <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
-	<label>Surname</label>
-	<input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
 	</div>
 	</div>
 
-	<p id="error3" class="feedback-sad text-center"></p>
-	<p id="error4" class="feedback-sad text-center"></p>
 	<label for="studentno">Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
 	<p id="error5" class="feedback-sad text-center"></p>
