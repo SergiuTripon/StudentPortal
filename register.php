@@ -115,17 +115,11 @@ include 'includes/signin.php';
 	<div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
-    <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
     </div>
 
     <div class="col-xs-6 col-sm-6 full-width">
-    <label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email address">
-	<label>Password</label>
-    <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
-	<label>Confirm password</label>
-    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your password confirmation">
+    <label>Surname</label>
+    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
 	</div>
     </div>
 
