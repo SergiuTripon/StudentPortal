@@ -363,6 +363,8 @@ if ($dateofbirth == "0000-00-00") {
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
+	} else {
+		return true;
 	}
 
 	var surname3 = $("#surname").val();
@@ -372,6 +374,8 @@ if ($dateofbirth == "0000-00-00") {
 		$("#surname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
+	} else {
+		return true;
 	}
 
 	var email6 = $("#email").val();
@@ -381,6 +385,8 @@ if ($dateofbirth == "0000-00-00") {
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
+	} else {
+		return true;
 	}
 
     var studentno1 = $("#studentno").val();
@@ -390,7 +396,9 @@ if ($dateofbirth == "0000-00-00") {
 		$("#studentno").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
-    }
+    } else {
+		return true;
+	}
 
     if (studentno1.length != 9) {
 		$("#error3").show();
@@ -398,7 +406,9 @@ if ($dateofbirth == "0000-00-00") {
 		$("#studentno").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
-    }
+    } else {
+		return true;
+	}
 
 	var degree1 = $("#degree").val();
 	var dateofbirth2 = $("#dateofbirth").val();
