@@ -74,15 +74,13 @@ include '../includes/signin.php';
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Start date and time</label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
-	<p id="error2" class="feedback-sad text-center"></p>
 	</div>
-
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Due date and time</label>
 	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
-	<p id="error3" class="feedback-sad text-center"></p>
 	</div>
 	</div>
+	<p id="error2" class="feedback-sad text-center"></p>
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
@@ -99,7 +97,7 @@ include '../includes/signin.php';
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-	<p id="error4" class="feedback-sad text-center"></p>
+	<p id="error3" class="feedback-sad text-center"></p>
 	</div>
 
 	<hr class="hr-custom">
@@ -205,7 +203,6 @@ include '../includes/signin.php';
 	$("#error1").hide();
 	$("#error2").hide();
 	$("#error3").hide();
-	$("#error4").hide();
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
@@ -242,24 +239,24 @@ include '../includes/signin.php';
 
 	var task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
-		$("#error3").show();
-        $("#error3").empty().append("Please enter a task due date and time.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a task due date and time.");
 		$("#task_duedate").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error3").hide();
+		$("#error2").hide();
 		$("#task_duedate").css("border-color", "#4DC742");
 	}
 
 	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
-		$("#error4").show();
-		$("#error4").hide();
+		$("#error3").show();
+		$("#error3").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error4").empty().append("Please select a task category.");
+		$("#error3").empty().append("Please select a task category.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
