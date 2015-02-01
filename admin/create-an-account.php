@@ -133,6 +133,8 @@ include '../includes/signin.php';
 	</div>
 	</div>
 
+	<hr class="hr-custom">
+
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Date of Birth</label>
