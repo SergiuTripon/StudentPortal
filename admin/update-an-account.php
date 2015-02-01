@@ -9,7 +9,7 @@ $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, 
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($userid, $account_type1, $email1, $firstname1, $surname1, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+$stmt1->bind_result($userid1, $account_type1, $email1, $firstname1, $surname1, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -83,7 +83,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div id="hide">
 
-    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" />
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid1; ?>" />
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
