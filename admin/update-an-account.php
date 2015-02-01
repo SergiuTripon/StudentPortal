@@ -133,12 +133,10 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 	</div>
 
-	<br>
-
-	<h4 class="feedback-custom">Extras</h4>
+	<div class="margin-top-lg margin-bottom-lg">
+	<h4 class="feedback-custom text-center">Extras</h4>
 	<hr class="hr-thin">
-
-	<br>
+	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
