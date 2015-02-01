@@ -194,9 +194,9 @@ function SendPasswordToken() {
 		$message .= '<title>Student Portal | Password Reset</title>';
 		$message .= '</head>';
 		$message .= '<body>';
-		$message .= '<p>Dear \".$firstname.\",</p>';
+		$message .= "<p>Dear $firstname,</p>";
 		$message .= '<p>We have received a request to reset the password for your account.</p>';
-		$message .= "<p>To proceed please click \".$passwordlink.\".</p>";
+		$message .= "<p>To proceed please click $passwordlink.</p>";
 		$message .= '<p>If you did not submit this request, please ignore this email.</p>';
 		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
 		$message .= '</body>';
