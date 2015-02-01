@@ -80,8 +80,6 @@
     </div><!-- /.navbar-collapse -->
     </nav>
 
-    <!-- Update your account -->
-    <div id="update-your-account">
     <div id="page-wrapper">
     <div class="container-fluid">
     <!-- Page Heading -->
@@ -96,12 +94,11 @@
     <i class="fa fa-fw fa-refresh"></i> How to update your account
     </li>
     </ol>
+    <p></p>
     </div>
     </div><!-- /.row -->
     </div><!-- /.container-fluid -->
     </div><!-- /#page-wrapper -->
-    </div><!-- /#update-your-account -->
-    <!-- End of Update your account -->
 
     </div><!-- /#wrapper -->
 
@@ -113,7 +110,6 @@
 
     <script>
     $(document).ready(function() {
-        $('#update-your-account').hide()
     });
     </script>
 
