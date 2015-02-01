@@ -640,7 +640,6 @@ function UpdateAnAccount() {
     global $updated_on;
 
     $userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_STRING);
-	$account_type = filter_input(INPUT_POST, 'account_type1', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname3', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname3', FILTER_SANITIZE_STRING);
     $gender = filter_input(INPUT_POST, 'gender3', FILTER_SANITIZE_STRING);
@@ -682,38 +681,33 @@ function UpdateAnAccount() {
 	$stmt2->execute();
 	$stmt2->close();
 
-	$stmt3 = $mysqli->prepare("UPDATE user_details SET  account_type=?, updated_on=? WHERE userid = ?");
-	$stmt3->bind_param('ssi', $account_type, $updated_on, $userid);
-	$stmt3->execute();
-	$stmt3->close();
-
 	}
 
 	else {
 
-	$stmt4 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
-	$stmt4->bind_param('s', $email);
-	$stmt4->execute();
-	$stmt4->store_result();
-	$stmt4->bind_result($db_userid);
-	$stmt4->fetch();
+	$stmt3 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
+	$stmt3->bind_param('s', $email);
+	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($db_userid);
+	$stmt3->fetch();
 
-	if ($stmt4->num_rows == 1) {
+	if ($stmt3->num_rows == 1) {
 		header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
 		exit();
 		$stmt3->close();
 	}
 	else {
 
-	$stmt5 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
-	$stmt5->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt4 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
+	$stmt4->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt4->execute();
+	$stmt4->close();
+
+	$stmt5 = $mysqli->prepare("UPDATE user_signin SET email=?, updated_on=? WHERE userid = ?");
+	$stmt5->bind_param('ssi', $email, $updated_on, $userid);
 	$stmt5->execute();
 	$stmt5->close();
-
-	$stmt6 = $mysqli->prepare("UPDATE user_signin SET account_type=?, email=?, updated_on=? WHERE userid = ?");
-	$stmt6->bind_param('sssi', $account_type, $email, $updated_on, $userid);
-	$stmt6->execute();
-	$stmt6->close();
 
 	}
 	}
