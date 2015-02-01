@@ -277,7 +277,7 @@ function ResetPassword() {
 		$message .= '<body>';
 		$message .= "<p>Dear $firstname,</p>";
 		$message .= '<p>Your password has been successfully reset.</p>';
-		$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here.</a>';
+		$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
 		$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
 		$message .= '</body>';
 		$message .= '</html>';
@@ -359,7 +359,7 @@ function UpdateAccount() {
 	$message .= '<body>';
 	$message .= "<p>Dear $firstname,</p>";
 	$message .= '<p>Your account has been updated succesfully.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here.</a>';
+	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here</a>.';
 	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
 	$message .= '</body>';
 	$message .=	'</html>';
@@ -413,7 +413,7 @@ function UpdateAccount() {
 	$message .= '<body>';
 	$message .= "<p>Dear $firstname,</p>";
 	$message .= '<p>Your account has been updated succesfully.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here.</a>';
+	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here</a>.';
 	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
 	$message .= '</body>';
 	$message .=	'</html>';
@@ -533,13 +533,14 @@ function CreateAnAccount() {
     $firstname = filter_input(INPUT_POST, 'firstname2', FILTER_SANITIZE_STRING);
     $surname = filter_input(INPUT_POST, 'surname2', FILTER_SANITIZE_STRING);
 	$gender = filter_input(INPUT_POST, 'gender2', FILTER_SANITIZE_STRING);
-	$dateofbirth = filter_input(INPUT_POST, 'dateofbirth1', FILTER_SANITIZE_STRING);
-    $studentno = filter_input(INPUT_POST, 'studentno', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'email5', FILTER_SANITIZE_STRING);
+	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$password = filter_input(INPUT_POST, 'password4', FILTER_SANITIZE_STRING);
+	$nationality = filter_input(INPUT_POST, 'nationality1', FILTER_SANITIZE_STRING);
+	$studentno = filter_input(INPUT_POST, 'studentno', FILTER_SANITIZE_STRING);
 	$degree = filter_input(INPUT_POST, 'degree', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email5', FILTER_SANITIZE_STRING);
-    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$dateofbirth = filter_input(INPUT_POST, 'dateofbirth1', FILTER_SANITIZE_STRING);
 	$phonenumber = filter_input(INPUT_POST, 'phonenumber1', FILTER_SANITIZE_STRING);
-    $password = filter_input(INPUT_POST, 'password4', FILTER_SANITIZE_STRING);
     $address1 = filter_input(INPUT_POST, 'address11', FILTER_SANITIZE_STRING);
     $address2 = filter_input(INPUT_POST, 'address21', FILTER_SANITIZE_STRING);
     $town = filter_input(INPUT_POST, 'town1', FILTER_SANITIZE_STRING);
@@ -603,8 +604,8 @@ function CreateAnAccount() {
         $dateofbirth = NULL;
     }
 
-    $stmt5 = $mysqli->prepare("INSERT INTO user_details (gender, firstname, surname, studentno, dateofbirth, phonenumber, degree, address1, address2, town, city, country, postcode, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt5->bind_param('sssissssssssss', $gender, $firstname, $surname, $studentno, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $country, $postcode, $created_on);
+    $stmt5 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, studentno, degree, nationality, dateofbirth, phonenumber, address1, address2, town, city, country, postcode, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt5->bind_param('sssisssssssssss', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $created_on);
     $stmt5->execute();
     $stmt5->close();
 

@@ -121,7 +121,7 @@ include '../includes/signin.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" value="" placeholder="Enter a email address">
+    <input class="form-control" type="email" name="email" id="email" placeholder="Enter a email address">
 	</div>
 	</div>
 	<p id="error5" class="feedback-sad text-center"></p>
@@ -138,7 +138,12 @@ include '../includes/signin.php';
 	</div>
 	<p id="error6" class="feedback-sad text-center"></p>
 
-	<hr class="hr-custom">
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Nationality</label>
+    <input class="form-control" type="text" name="nationality" id="nationality" placeholder="Enter a country">
+	</div>
+	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -397,8 +402,6 @@ include '../includes/signin.php';
 		return false;
 	}
 
-	var dateofbirth1 = $("#dateofbirth").val();
-
 	if (account_type1 === 'Student') {
 		studentno = $("#studentno").val();
 		if(studentno === '') {
@@ -459,8 +462,6 @@ include '../includes/signin.php';
 		$("#email").css("border-color", "#4DC742");
 	}
 
-	var phonenumber1 = $("#phonenumber").val();
-
 	var password4 = $("#password").val();
 	if(password4 === '') {
 		$("#error6").show();
@@ -472,7 +473,7 @@ include '../includes/signin.php';
 		$("#error6").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
-	
+
 	if (password4.length < 6) {
 		$("#error6").show();
 		$("#error6").empty().append("Passwords must be at least 6 characters long. Please try again.");
@@ -483,11 +484,11 @@ include '../includes/signin.php';
 		$("#error6").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
-	
+
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
-	
+
 	if(password4.match(upperCase) && password4.match(lowerCase) && password4.match(numbers)) {
 		$("#error6").hide();
 		$("#password").css("border-color", "#4DC742");
@@ -498,7 +499,7 @@ include '../includes/signin.php';
 		hasError  = true;
 		return false;
 	}
-	
+
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
 		$("#error6").show();
@@ -510,7 +511,7 @@ include '../includes/signin.php';
 		$("#error6").hide();
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
-	
+
 	if(password4 != confirmpwd) {
 		$("#error6").show();
 		$("#error6").empty().append("Your password and confirmation do not match. Please try again.");
@@ -524,6 +525,9 @@ include '../includes/signin.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
+	var nationality1 = $("#nationality").val();
+	var dateofbirth1 = $("#dateofbirth").val();
+	var phonenumber1 = $("#phonenumber").val();
  	var address11 = $("#address1").val();
 	var address21 = $("#address2").val();
 	var town1 = $("#town").val();
@@ -536,7 +540,7 @@ include '../includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'account_type1=' + account_type1 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&gender2=' + gender2 + '&studentno=' + studentno + '&degree=' + degree + '&email5=' + email5 + '&password4=' + password4 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
+    data:'account_type1=' + account_type1 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&gender2=' + gender2 + '&studentno=' + studentno + '&degree=' + degree + '&email5=' + email5 + '&password4=' + password4 + '&nationality1=' + nationality1 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
