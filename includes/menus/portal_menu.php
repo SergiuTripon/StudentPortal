@@ -1,5 +1,5 @@
 <?php
-include '../includes/session.php';
+include 'session.php';
 
 $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
 $stmt1->bind_param('i', $userid);
