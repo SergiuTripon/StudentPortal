@@ -5,7 +5,7 @@ if (isset($_POST["recordToUpdate"])) {
 
 $idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_details.firstname, user_details.surname, user_details.gender, user_details.studentno, user_details.degree, user_signin.email, user_details.nationality, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_details.firstname, user_details.surname, user_details.gender, user_details.studentno, user_details.degree, user_signin.email, user_details.nationality, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
