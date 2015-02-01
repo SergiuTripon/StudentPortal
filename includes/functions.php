@@ -5,10 +5,6 @@ if (isset($_SESSION['userid']))
 $userid = $_SESSION['userid'];
 else $userid = '';
 
-if (isset($_SESSION['firstname']))
-$session_firstname = $_SESSION['firstname'];
-else $session_firstname = '';
-
 date_default_timezone_set('Europe/London');
 $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
