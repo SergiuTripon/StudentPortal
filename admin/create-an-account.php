@@ -262,7 +262,7 @@ include '../includes/signin.php';
     //Global variable
 	var account_type1;
 	var gender2;
-	var studentno2;
+	var studentno;
 
 	//Setting variable value
 	$('.btn-group > .account_type').click(function(){
@@ -349,8 +349,8 @@ include '../includes/signin.php';
 	var dateofbirth1 = $("#dateofbirth").val();
 
 	if (account_type1 === 'Student') {
-		studentno2 = $("#studentno").val();
-		if(studentno2 === '') {
+		studentno = $("#studentno").val();
+		if(studentno === '') {
 			$("#error5").show();
 			$("#error5").empty().append("Please enter a student number.");
 			$("#studentno").css("border-color", "#FF5454");
@@ -360,7 +360,7 @@ include '../includes/signin.php';
 			$("#error5").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
-		if (studentno2.length != 9) {
+		if (studentno.length != 9) {
 			$("#error5").show();
 			$("#error5").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
 			$("#studentno").css("border-color", "#FF5454");
@@ -371,7 +371,7 @@ include '../includes/signin.php';
 			$("#studentno").css("border-color", "#4DC742");
 		}
 	} else {
-		studentno2 = $("#studentno").val();
+		studentno = $("#studentno").val();
 	}
 
 	var degree1 = $("#degree").val();
@@ -465,7 +465,7 @@ include '../includes/signin.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'account_type1=' + account_type1 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&gender2=' + gender2 + '&studentno2=' + studentno2 + '&email5=' + email5 + '&password4=' + password4 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&degree1=' + degree1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
+    data:'account_type1=' + account_type1 + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&gender2=' + gender2 + '&studentno=' + studentno + '&degree=' + degree + '&email5=' + email5 + '&password4=' + password4 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();

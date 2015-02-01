@@ -50,7 +50,7 @@ elseif (isset($_POST['deleteaccount_button'])) {
 
 //Call Admin Account functions
 //Call CreateAnAccount function
-elseif (isset($_POST['account_type1'], $_POST['firstname2'], $_POST['surname2'], $_POST['gender2'], $_POST['dateofbirth1'], $_POST['studentno1'], $_POST['degree'], $_POST['email5'], $_POST['phonenumber1'], $_POST['password4'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
+elseif (isset($_POST['account_type1'], $_POST['firstname2'], $_POST['surname2'], $_POST['gender2'], $_POST['dateofbirth1'], $_POST['studentno'], $_POST['degree'], $_POST['email5'], $_POST['phonenumber1'], $_POST['password4'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
 	CreateAnAccount();
 }
 

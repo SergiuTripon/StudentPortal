@@ -348,8 +348,8 @@ if ($account_type1 == "admin") {
 
 	var dateofbirth2 = $("#dateofbirth").val();
 
-    var studentno3 = $("#studentno").val();
-	if(studentno3 === '') {
+    var studentno1 = $("#studentno").val();
+	if(studentno1 === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter a student number.");
 		$("#studentno").css("border-color", "#FF5454");
@@ -360,7 +360,7 @@ if ($account_type1 == "admin") {
 		$("#studentno").css("border-color", "#4DC742");
 	}
 
-    if (studentno3.length != 9) {
+    if (studentno1.length != 9) {
 		$("#error3").show();
         $("#error3").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
 		$("#studentno").css("border-color", "#FF5454");
@@ -388,13 +388,13 @@ if ($account_type1 == "admin") {
     var city2 = $("#city").val();
     var country2 = $("#country").val();
     var postcode2 = $("#postcode").val();
-    var degree2 = $("#degree").val();
+    var degree1 = $("#degree").val();
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&gender3=' + gender3 + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&dateofbirth2=' + dateofbirth2 + '&studentno3=' + studentno3 + '&degree2=' + degree2 + '&email6=' + email6 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
+    data:'userid=' + userid + '&gender3=' + gender3 + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&dateofbirth2=' + dateofbirth2 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email6=' + email6 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
