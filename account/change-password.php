@@ -58,13 +58,18 @@ include '../includes/signin.php';
 	<p id="success" class="feedback-happy text-center"></p>
 	
     <div id="hide">
+
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
-	<p id="error1" class="feedback-sad text-center"></p>
-
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
     <label>New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
-	<p id="error2" class="feedback-sad text-center"></p>
+	</div>
+	</div>
+	<p id="error1" class="feedback-sad text-center"></p>
 
 	<hr class="hr-custom">
 
@@ -128,10 +133,10 @@ include '../includes/signin.php';
 	<script>
 	$(document).ready(function() {
 
-
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 1000});
 
+	//Hiding error message
 	$("#error1").hide();
 	$("#error2").hide();
 
@@ -183,25 +188,25 @@ include '../includes/signin.php';
 
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a password confirmation.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
+		$("#error1").hide();
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
 	if(password3 != confirmpwd) {
-		$("#error2").show();
-		$("#error2").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#error1").show();
+		$("#error1").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
 		return false;
 	} else {
-		$("#error2").hide();
+		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
