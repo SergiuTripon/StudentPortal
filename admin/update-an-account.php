@@ -412,7 +412,7 @@ if ($dateofbirth == "0000-00-00") {
 		return true;
 	}
 
-	if ($.isNumeric(studentno)) {
+	if ($.isNumeric(studentno1)) {
 		$("#error4").hide();
 		$("#studentno").css("border-color", "#4DC742");
 	} else {
