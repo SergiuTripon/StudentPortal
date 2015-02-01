@@ -86,14 +86,8 @@ switch($payment){
 	break;
 	
 	case "cancel": // case cancel to show user the transaction was cancelled
-	
-		$payment_status = 'cancelled';
-		$cancelled_on = date("Y-m-d G:i:s");
 
-		$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, cancelled_on=? WHERE userid = ? ORDER BY created_on DESC LIMIT 1");
-		$stmt5->bind_param('ssi', $payment_status, $cancelled_on, $userid);
-		$stmt5->execute();
-		$stmt5->close();
+		PaypalPaymentCancel();
 
 		include_once '../includes/paypal/paypal_cancel.php';
 	
