@@ -94,6 +94,7 @@ include 'includes/signin.php';
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
 	</div>
     </div>
+    <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
@@ -109,9 +110,9 @@ include 'includes/signin.php';
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
     </div>
     </div>
+    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
@@ -119,6 +120,7 @@ include 'includes/signin.php';
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email address">
     </div>
     </div>
+    <p id="error3" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
@@ -130,8 +132,8 @@ include 'includes/signin.php';
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your password confirmation">
 	</div>
-    
 	</div>
+    <p id="error4" class="feedback-sad text-center"></p>
 
 	<div class="text-right">
     <a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
@@ -235,35 +237,35 @@ include 'includes/signin.php';
 
     var firstname = $("#firstname").val();
 	if(firstname === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a first name.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#firstname").css("border-color", "#4DC742");
 	}
 	
 	var surname = $("#surname").val();
 	if(surname === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a surname.");
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#surname").css("border-color", "#4DC742");
 	}
 
     var gender_check = $(".gender");
 	if (gender_check.hasClass('active')) {
-		$("#error").hide();
+		$("#error2").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
 	}
 	else {
-		$("#error").empty().append("Please select a gender.");
+		$("#error2").empty().append("Please select a gender.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
@@ -271,37 +273,37 @@ include 'includes/signin.php';
 	
 	var email1 = $("#email").val();
 	if(email1 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter an email address.");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error3").hide();
 		$("#email").css("border-color", "#4DC742");
 	}
 	
 	var password1 = $("#password").val();
 	if(password1 === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password.");
+		$("#error4").show();
+        $("#error4").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error4").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 
     password1 = $("#password").val();
 	if (password1.length < 6) {
-		$("#error").show();
-		$("#error").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#error4").show();
+		$("#error4").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error4").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 	
@@ -311,11 +313,11 @@ include 'includes/signin.php';
 
     password1 = $("#password").val();
 	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
-		$("#error").hide();
+		$("#error4").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
-		$("#error").show();
-		$("#error").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+		$("#error4").show();
+		$("#error4").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -323,8 +325,8 @@ include 'includes/signin.php';
 	
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password confirmation.");
+		$("#error4").show();
+        $("#error4").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
@@ -334,14 +336,14 @@ include 'includes/signin.php';
 	}
 	
 	if(password1 != confirmpwd) {
-		$("#error").show();
-		$(".sad-feedback").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#error4").show();
+		$("#error4").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
 		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error4").hide();
 		$("#password").css("border-color", "#4DC742");
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
