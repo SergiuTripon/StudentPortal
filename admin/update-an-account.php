@@ -5,11 +5,11 @@ if (isset($_POST["recordToUpdate"])) {
 
 $idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, user_details.gender, user_details.firstname, user_details.surname, user_details.studentno, user_details.degree, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_details.firstname, user_details.surname, user_details.gender, user_details.studentno, user_details.degree, user_signin.email, user_details.nationality, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $idToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($userid, $account_type1, $email, $gender, $firstname, $surname, $studentno, $degree, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+$stmt1->bind_result($userid, $account_type, $firstname, $surname, $gender, $studentno, $degree, $email, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -128,6 +128,13 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="degree">Programme of Study</label>
 	<input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
+	</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Nationality</label>
+	<input class="form-control" type="text" name="nationality" id="nationality" value="<?php echo nationality; ?>" placeholder="Enter a country">
 	</div>
 	</div>
 
