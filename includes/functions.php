@@ -682,6 +682,8 @@ function UpdateAnAccount() {
 	$stmt2->execute();
 	$stmt2->close();
 
+	$account_type = strtolower($account_type);
+
 	$stmt3 = $mysqli->prepare("UPDATE user_signin SET account_type=?, updated_on=? WHERE userid = ?");
 	$stmt3->bind_param('ssi', $account_type, $updated_on, $userid);
 	$stmt3->execute();
