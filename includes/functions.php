@@ -183,7 +183,7 @@ function SendPasswordToken() {
 		$stmt2->execute();
 		$stmt2->close();
 
-		$passwordlink = "<a href=http://test.student-portal.co.uk/password-reset/?token=". $token .">here</a>";
+		$passwordlink = "<a href=https://student-portal.co.uk/password-reset/?token=". $token .">here</a>";
 
 		// subject
 		$subject = 'Request to change your password';
