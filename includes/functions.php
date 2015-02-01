@@ -117,7 +117,7 @@ function RegisterUser() {
 	$stmt3->execute();
 	$stmt3->close();
 
-	$studentno = '';
+	$studentno = '321321';
 
 	$stmt4 = $mysqli->prepare("INSERT INTO user_details (studentno, firstname, surname, gender, created_on) VALUES (?, ?, ?, ?, ?)");
 	$stmt4->bind_param('sssis', $studentno, $firstname, $surname, $gender, $created_on);
