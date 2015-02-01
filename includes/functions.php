@@ -644,8 +644,8 @@ function UpdateAnAccount() {
 	$surname = filter_input(INPUT_POST, 'surname3', FILTER_SANITIZE_STRING);
     $gender = filter_input(INPUT_POST, 'gender3', FILTER_SANITIZE_STRING);
     $dateofbirth = filter_input(INPUT_POST, 'dateofbirth2', FILTER_SANITIZE_STRING);
-    $studentno = filter_input(INPUT_POST, 'studentno3', FILTER_SANITIZE_STRING);
-    $degree = filter_input(INPUT_POST, 'degree2', FILTER_SANITIZE_STRING);
+    $studentno = filter_input(INPUT_POST, 'studentno1', FILTER_SANITIZE_STRING);
+    $degree = filter_input(INPUT_POST, 'degree1', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email6', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$phonenumber = filter_input(INPUT_POST, 'phonenumber2', FILTER_SANITIZE_STRING);
