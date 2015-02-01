@@ -1,5 +1,25 @@
 <?php
 include '../includes/signin.php';
+
+if (isset($_POST["recordToUpdate"])) {
+
+	$idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
+
+	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, user_details.firstname, user_details.surname, user_details.gender, user_details.studentno, user_details.degree, user_details.nationality, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt1->bind_param('i', $idToUpdate);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($userid1, $account_type1, $email1, $firstname1, $surname1, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+	$stmt1->fetch();
+	$stmt1->close();
+
+} else {
+	header('Location: ../../account/');
+}
+
+if ($dateofbirth == "0000-00-00") {
+	$dateofbirth = '';
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +37,7 @@ include '../includes/signin.php';
 
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal | Create an account</title>
+    <title>Student Portal | Update an account</title>
 
 </head>
 
@@ -35,7 +55,8 @@ include '../includes/signin.php';
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
-    <li class="active">Create an account</li>
+	<li><a href="../../update-delete-an-account/">Update/Delete an account</a></li>
+    <li class="active">Update an account</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -52,10 +73,10 @@ include '../includes/signin.php';
 
 	<div class="panel-body">
 
-	<!-- Create single account -->
+	<!-- Update an account -->
     <div class="content-panel mb10" style="border: none;">
 
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
+	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="updateanaccount_form" id="updateanaccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -79,11 +100,11 @@ include '../includes/signin.php';
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
+    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname1; ?>" placeholder="Enter a first name">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Surname</label>
-	<input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
+	<input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname1; ?>" placeholder="Enter a surname">
 	</div>
 	</div>
 	<p id="error2" class="feedback-sad text-center"></p>
@@ -109,11 +130,11 @@ include '../includes/signin.php';
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label for="studentno">Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
+    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentnoo; ?>" placeholder="Enter a student number">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="degree">Programme of Study</label>
-	<input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
+	<input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
 	</div>
 	</div>
 	<p id="error4" class="feedback-sad text-center"></p>
@@ -121,60 +142,48 @@ include '../includes/signin.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" placeholder="Enter a email address">
+    <input class="form-control" type="email" name="email" id="email" value="<?php echo $email1; ?>" placeholder="Enter a email address">
 	</div>
 	</div>
 	<p id="error5" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Password</label>
-    <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
-	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Confirm password</label>
-    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
-	</div>
-	</div>
-	<p id="error6" class="feedback-sad text-center"></p>
-
-	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Nationality</label>
-    <input class="form-control" type="text" name="nationality" id="nationality" placeholder="Enter a country">
+    <input class="form-control" type="text" name="nationality" id="nationality" value="<?php echo $nationality; ?>" placeholder="Enter a country">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Date of Birth</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
+	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" value="<?php echo $dateofbirth; ?>" placeholder="Select the date of birth"/>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Phone number</label>
-    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
+    <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter a phone number">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Address line 1</label>
-    <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
+    <input class="form-control" type="text" name="address1" id="address1" value="<?php echo address1; ?>" placeholder="Enter a address line 1">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Address 2 line (Optional)</label>
-    <input class="form-control" type="text" name="address2" id="address2" value="" placeholder="Enter a address line 2 (Optional)">
+    <input class="form-control" type="text" name="address2" id="address2" value="<?php echo address2; ?>" placeholder="Enter a address line 2 (Optional)">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Town</label>
-    <input class="form-control" type="text" name="town" id="town" value="" placeholder="Enter a town">
+    <input class="form-control" type="text" name="town" id="town" value="<?php echo $town; ?>" placeholder="Enter a town">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
     <label>City</label>
-    <input class="form-control" type="text" name="city" id="city" value="" placeholder="Enter a city">
+    <input class="form-control" type="text" name="city" id="city" value="<?php echo $city; ?>" placeholder="Enter a city">
 	</div>
 	</div>
 
@@ -185,7 +194,7 @@ include '../includes/signin.php';
     </div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Postcode</label>
-    <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
+    <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter a postcode">
 	</div>
 	</div>
 
