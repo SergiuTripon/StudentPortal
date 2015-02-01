@@ -19,16 +19,6 @@ include '../includes/signin.php';
 	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
 	<title>Student Portal | Create a task</title>
-
-	<style>
-	#task_category {
-		background-color: #333333;
-    }
-
-    #task_category option {
-		color: #FFA500;
-    }
-    </style>
 	
 </head>
 

@@ -833,6 +833,8 @@ function CreateTask () {
 function UpdateTask() {
 
 	global $mysqli;
+	global $task_class;
+	global $updated_on;
 
 	$taskid = filter_input(INPUT_POST, 'taskid', FILTER_SANITIZE_NUMBER_INT);
 	$task_name = filter_input(INPUT_POST, 'task_name1', FILTER_SANITIZE_STRING);
