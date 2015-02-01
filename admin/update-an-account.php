@@ -87,13 +87,13 @@ if ($dateofbirth == "0000-00-00") {
 
 	<label>Account type - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom account_type <?php if($account_type1 == "Student") echo "active"; ?>">
+	<label class="btn btn-custom account_type <?php if($account_type1 == "student") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Student
 	</label>
-	<label class="btn btn-custom account_type <?php if($account_type1 == "Lecturer") echo "active"; ?>">
+	<label class="btn btn-custom account_type <?php if($account_type1 == "lecturer") echo "active"; ?>">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Lecturer
 	</label>
-	<label class="btn btn-custom account_type <?php if($account_type1 == "Admin") echo "active"; ?>">
+	<label class="btn btn-custom account_type <?php if($account_type1 == "admin") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Admin
 	</label>
 	</div>
