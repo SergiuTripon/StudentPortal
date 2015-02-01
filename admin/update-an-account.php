@@ -36,6 +36,7 @@ if ($dateofbirth == "0000-00-00") {
     <meta name="author" content="">
 
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Update an account</title>
 
@@ -306,7 +307,7 @@ if ($dateofbirth == "0000-00-00") {
 	$(function () {
 	$('#dateofbirth').datepicker({
 		dateFormat: "yy-mm-dd",
-		defaultDate: new Date(1985, 00, 01)
+		defaultDate: new Date(1993, 00, 01)
 	});
 	});
 
