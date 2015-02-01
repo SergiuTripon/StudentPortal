@@ -52,10 +52,18 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 	<div class="row">
 
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
 	<!-- Tube now - Line status -->
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 full-width">
-	<div class="content-panel mb10">
-	<h4><i class="fa fa-angle-right"></i> Line status | Now</h4>
+	<div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingThree">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Line status | Now </a>
+  	</h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+  	<div class="panel-body">
+
 	<section id="no-more-tables">
 	<table class="table table-condensed table-transport">
 
@@ -79,14 +87,23 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 	</table>
 	</section>
-	</div><!-- /content-panel -->
-	</div>
+
+	</div><!-- /panel-body -->
+	</div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
 	<!-- End of Tube now - Line status -->
 
 	<!-- Tube now - Station status -->
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 full-width">
-	<div class="content-panel mb10">
-	<h4><i class="fa fa-angle-right"></i> Station status | Now</h4>
+	<div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingThree">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Station status | Now </a>
+  	</h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+  	<div class="panel-body">
+
+
 	<section id="no-more-tables">
 	<table class="table table-condensed table-transport table-stationstatus">
 
@@ -110,9 +127,13 @@ $xml_station_status = new SimpleXMLElement($result2);
 	</table>
 
 	</section>
-	</div><!-- /content-panel -->
-	</div>
-	<!-- End of Tube Live - Status Status -->
+	</div><!-- /panel-body -->
+	</div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+	<!-- End of Tube now - Station status -->
+
+	</div><!-- /panel-group -->
+
 
 	</div><!-- /row -->
 
