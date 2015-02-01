@@ -52,15 +52,16 @@ function SignIn() {
 	$_SESSION['loggedin'] = true;
 
 	$userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
-	$email = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $email);
-	$firstname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $firstname);
-	$surname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $surname);
+	$session_account_type = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $surname);
+	$session_email = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $email);
+	$session_firstname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $firstname);
+	$session_surname = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $surname);
 
  	$_SESSION['userid'] = $userid;
-	$_SESSION['account_type'] = $account_type;
-	$_SESSION['email'] = $email;
-	$_SESSION['firstname'] = $firstname;
-	$_SESSION['surname'] = $surname;
+	$_SESSION['account_type'] = $session_account_type;
+	$_SESSION['email'] = $session_email;
+	$_SESSION['firstname'] = $session_firstname;
+	$_SESSION['surname'] = $session_surname;
 
 	} else {
 	header('HTTP/1.0 550 The password you entered is incorrect.');
