@@ -77,6 +77,8 @@ include 'includes/session.php';
     </div><!-- /intro-body -->
     </header>
 
+    <div class="container">
+
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
@@ -188,6 +190,7 @@ include 'includes/session.php';
 	</div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
+	</div><!-- /container -->
 
 
 	<?php endif; ?>
