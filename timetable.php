@@ -346,6 +346,9 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
+    <br>
+    <br>
+
     <h3 class="feedback-custom">Modules</h3>
     <hr class="hr-thin">
 
