@@ -38,6 +38,8 @@ include 'includes/session.php';
 	<li class="active">Calendar</li>
     </ol>
 
+	<br>
+
     <h3 class="feedback-custom">Lectures</h3>
     <hr class="hr-thin">
 
