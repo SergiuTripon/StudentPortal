@@ -108,7 +108,7 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Name">'.$row["lecture_name"].'</td>
-			<td data-title="Notes">'.$row["lecture_name"].'</td>
+			<td data-title="Notes">'.$row["lecture_notes"].'</td>
 			<td data-title="From">'.$row["lecture_from_time"].'</td>
 			<td data-title="To">'.$row["lecture_to_time"].'</td>
 			<td data-title="Location">'.$row["lecture_location"].'</td>
