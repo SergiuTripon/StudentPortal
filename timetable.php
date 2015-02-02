@@ -130,15 +130,15 @@ include 'includes/session.php';
 
     <div id="duetasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingOne">
+    <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Tuesday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Tuesday</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Monday -->
+	<!-- Tuesday -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -184,15 +184,15 @@ include 'includes/session.php';
 
     <div id="duetasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingTwo">
+    <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Wednesday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Wednesday</a>
   	</h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
   	<div class="panel-body">
 
-	<!-- Tuesday -->
+	<!-- Wednesday -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -238,15 +238,15 @@ include 'includes/session.php';
 
     <div id="duetasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingThree">
+    <div class="panel-heading" role="tab" id="headingFour">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Thursday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Thursday</a>
   	</h4>
     </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headindFour">
   	<div class="panel-body">
 
-	<!-- Modules -->
+	<!-- Thursday -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -292,15 +292,15 @@ include 'includes/session.php';
 
     <div id="duetasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingFour">
+    <div class="panel-heading" role="tab" id="headingFive">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Friday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">Friday</a>
   	</h4>
     </div>
-    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
   	<div class="panel-body">
 
-	<!-- Modules -->
+	<!-- Friday -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -343,68 +343,6 @@ include 'includes/session.php';
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
-
-	<div id="completedtasks-toggle" class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingFive">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Complete tasks - click to minimize or maximize</a>
-  	</h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-  	<div class="panel-body">
-
-	<!-- Completed tasks -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>External URL</th>
-	<th>Start</th>
-	<th>Due</th>
-	<th>Category</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
-
-	while($row = $stmt2->fetch_assoc()) {
-
-	$url = $row["task_url"];
-	$task_category = ucfirst($row["task_category"]);
-
-	if (!empty($row["task_url"])) {
-		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
-	} else {
-		$url1 = "";
-	}
-
-	echo '<tr id="task-'.$row["taskid"].'">
-
-	<td data-title="Name">'.$row["task_name"].'</td>
-	<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-	<td class="url-hide" data-title="External URL">'.$url1.'</td>
-	<td data-title="Start date">'.$row["task_startdate"].'</td>
-	<td data-title="Due date">'.$row["task_duedate"].'</td>
-	<td data-title="Category">'.$task_category.'</td>
-	</tr>';
-	}
-
-	$stmt2->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-  	</div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
 
