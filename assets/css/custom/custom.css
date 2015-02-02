@@ -307,8 +307,6 @@ hr {
 .form-custom {
     max-width: 500px;
     margin: 0 auto;
-    padding-top: 40px;
-    padding-bottom: 0px;
 }
 
 .form-custom .form-control {
