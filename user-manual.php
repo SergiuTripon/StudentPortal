@@ -68,7 +68,18 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-
+	<!-- User -->
+	<section class="about" id="about">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12 text-center">
+    <h1>Student Portal</h1>
+	<h2>All your university needs, in one single place.</h2>
+	</div>
+	</div><!-- /.row -->
+    </div><!-- /.container -->
+    </section>
+	<!-- End of About -->
 
 	<?php endif; ?>
 
