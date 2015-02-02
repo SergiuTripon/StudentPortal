@@ -215,6 +215,7 @@ include '../includes/session.php';
     } else {
 		$("#error1").hide();
 		$("#task_name").css("border-color", "#4DC742");
+		return true;
 	}
 	
 	var task_notes = $("#task_notes").val();
@@ -230,6 +231,7 @@ include '../includes/session.php';
 	} else {
 		$("#error2").hide();
 		$("#task_startdate").css("border-color", "#4DC742");
+		return true;
 	}
 
 	var task_duedate = $("#task_duedate").val();
@@ -242,6 +244,7 @@ include '../includes/session.php';
     } else {
 		$("#error2").hide();
 		$("#task_duedate").css("border-color", "#4DC742");
+		return true;
 	}
 
 	var task_category_check = $(".task_category");
@@ -255,6 +258,8 @@ include '../includes/session.php';
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
+	} else {
+		return true;
 	}
 
 	if(hasError == false){
