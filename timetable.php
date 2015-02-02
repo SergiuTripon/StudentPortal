@@ -380,13 +380,13 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingSeven">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">Wednesday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">Tuesday</a>
   	</h4>
     </div>
     <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
   	<div class="panel-body">
 
-	<!-- Wednesday -->
+	<!-- Tuesday -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -404,7 +404,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_tutorials ON system_tutorials.tutorialid=user_timetable.tutorialid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Wednesday' LIMIT 1");
+	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_tutorials ON system_tutorials.tutorialid=user_timetable.tutorialid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Tuesday' LIMIT 1");
 
 	while($row = $stmt1->fetch_assoc()) {
 
