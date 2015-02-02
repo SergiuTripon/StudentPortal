@@ -211,11 +211,9 @@ include '../includes/session.php';
         $("#error1").empty().append("Please enter task name.");
 		$("#task_name").css("border-color", "#FF5454");
 		hasError  = true;
-		return false;
     } else {
 		$("#error1").hide();
 		$("#task_name").css("border-color", "#4DC742");
-		return true;
 	}
 	
 	var task_notes = $("#task_notes").val();
@@ -227,11 +225,9 @@ include '../includes/session.php';
 		$("#error2").empty().append("Please enter a task start date and time.");
 		$("#task_startdate").css("border-color", "#FF5454");
 		hasError  = true;
-		return false;
 	} else {
 		$("#error2").hide();
 		$("#task_startdate").css("border-color", "#4DC742");
-		return true;
 	}
 
 	var task_duedate = $("#task_duedate").val();
@@ -240,11 +236,9 @@ include '../includes/session.php';
         $("#error2").empty().append("Please enter a task due date and time.");
 		$("#task_duedate").css("border-color", "#FF5454");
 		hasError  = true;
-		return false;
     } else {
 		$("#error2").hide();
 		$("#task_duedate").css("border-color", "#4DC742");
-		return true;
 	}
 
 	var task_category_check = $(".task_category");
@@ -252,13 +246,11 @@ include '../includes/session.php';
 		$("#error3").show();
 		$("#error3").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
-		return true;
 	}
 	else {
 		$("#error3").empty().append("Please select a task category.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError = true;
-		return false;
 	}
 
 	if(hasError == false){
