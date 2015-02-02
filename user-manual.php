@@ -196,6 +196,8 @@ include 'includes/session.php';
     </section>
     <!-- End of User Manual -->
 
+    <?php include 'includes/showcase/showcase.php'; ?>
+
 
 	<?php endif; ?>
 
