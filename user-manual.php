@@ -23,6 +23,36 @@ include 'includes/session.php';
 	html, body {
 		height: 100% !important;
 	}
+	/* About section */
+	.user-manual {
+		color: #FFA500;
+		padding: 100px 0;
+		border-top: 1px solid #FFA500;
+	}
+	.user-manual h1 {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	.user-manual h2 {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	/* End of About section */
+
+    /* Footer */
+    footer {
+        color: #FFA500;
+        text-align: center;
+    }
+    footer .container {
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    footer p {
+        color: #FFA500;
+        text-align: center;
+    }
+    /* End of Footer */
 	</style>
 
 </head>
