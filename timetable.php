@@ -361,7 +361,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Modules -->
+	<!-- Monday -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
