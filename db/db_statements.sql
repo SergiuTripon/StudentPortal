@@ -195,7 +195,16 @@ INSERT INTO `system_modules`(`moduleid`, `module_name`, `module_notes`, `module_
 INSERT INTO `system_lectures`(`lectureid`, `lecture_name`, `lecture_notes`, `lecture_day`, `lecture_from_time`, `lecture_to_time`, `lecture_from_date`, `lecture_to_date`, `lecture_location`, `lecture_capacity`, `lecture_status`, `created_on`, `updated_on`) VALUES ('1','Theory of Computation - Lecture', '','Monday','15:00:00', '17:00:00', '2015-02-01','2015-03-01','Great Hall','150','active','0000-00-00 00:00:00','');
 INSERT INTO `system_tutorials`(`tutorialid`, `tutorial_name`, `tutorial_notes`, `tutorial_day`, `tutorial_from_time`, `tutorial_to_time`, `tutorial_from_date`, `tutorial_to_date`, `tutorial_location`, `tutorial_capacity`, `tutorial_status`, `created_on`, `updated_on`) VALUES (1,'Theory of Computation - Tutorial','','Tuesday','11:00:00','13:00:00',2015-02-01,'2015-03-01', 'EG12', '30','active','0000-00-00 0000:00:00','');
 INSERT INTO `system_exams`(`examid`, `exam_name`, `exam_notes`, `exam _date`, `exam_time`, `exam_location`, `exam_capacity`, `exam_status`, `created_on`, `updated_on`) VALUES ('1','Theory of Computation - Exam','','2015-03-01','14:00:00','The Crypt','40','active','0000-00-00 00:00:00', '');
-INSERT INTO `user_timetable`(`userid`, `moduleid`, `lectureid`, `tutorialid`, `examid`) VALUES (2,1,1,1,1)
+INSERT INTO `user_timetable`(`userid`, `moduleid`, `lectureid`, `tutorialid`, `examid`) VALUES (2,1,1,1,1);
+
+SELECT system_modules.module_name, system_lectures.lecture_name, system_tutorials.tutorial_name
+
+FROM user_timetable
+	LEFT JOIN system_modules ON system_modules.moduleid=user_timetable.moduleid
+	LEFT JOIN system_lectures ON system_lectures.lectureid=user_timetable.lectureid
+	LEFT JOIN system_tutorials ON system_tutorials.tutorialid=user_timetable.tutorialid
+
+WHERE user_timetable.userid = 1;
 
 INSERT INTO `user_signin`(`userid`, `account_type`, `email`, `password`, `created_on`) VALUES ('1', 'admin', 'admin@student-portal.co.uk', '$2y$10$2UOneiOEmmi6kI4DG0di4u2/8oOsdpYDRsc8XzoM2.nKx3ZErPjEe', '0000-00-00 00:00:00');
 INSERT INTO `user_fees`(`userid`, `fee_amount`, `created_on`) VALUES ('1', '0.00', '0000-00-00 00:00:00');

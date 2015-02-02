@@ -73,19 +73,9 @@ include 'includes/session.php';
 
 	<div id="duetasks-toggle" class="panel panel-default">
 
-	<?php
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
-	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="/calendar/update-task/" method="POST">
-			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["taskid"].'"/>
-			</form>';
-	}
-	$stmt2->close();
-	?>
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Due tasks - click to minimize or maximize</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Monday</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -97,43 +87,24 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>External URL</th>
-	<th>Start</th>
-	<th>Due</th>
-	<th>Category</th>
-	<th>Complete</th>
-	<th>Update</th>
+	<th>Module Name</th>
+	<th>Lecture Name</th>
+	<th>Tutorial Name</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT system_modules.module_name, system_lectures.lecture_name, system_tutorials.tutorial_name FROM user_timetable LEFT JOIN system_modules ON system_modules.moduleid=user_timetable.moduleid LEFT JOIN system_lectures ON system_lectures.lectureid=user_timetable.lectureid LEFT JOIN system_tutorials ON system_tutorials.tutorialid=user_timetable.tutorialid WHERE user_timetable.userid = '$userid' LIMIT 1");
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$url = $row["task_url"];
-	$task_category = ucfirst($row["task_category"]);
+	echo '<tr>
 
-	if (!empty($row["task_url"])) {
-		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
-	} else {
-		$url1 = "";
-	}
-
-	echo '<tr id="task-'.$row["taskid"].'">
-
-			<td data-title="Name">'.$row["task_name"].'</td>
-			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-			<td class="url-hide" data-title="External URL">'.$url1.'</td>
-			<td data-title="Start date">'.$row["task_startdate"].'</td>
-			<td data-title="Due date">'.$row["task_duedate"].'</td>
-			<td data-title="Category">'.$task_category.'</td>
-			<td data-title="Complete"><a id="complete-'.$row["taskid"].'" class="complete-button"><i class="fa fa-check"></i></a></td>
-			<td data-title="Update"><a id="update-'.$row["taskid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
+			<td data-title="Name">'.$row["module_name"].'</td>
+			<td class="notes-hide" data-title="Notes">'.$row["lecture_name"].'</td>
+			<td class="url-hide" data-title="External URL">'.$row["tutorial_name"].'</td>
 			</tr>';
 	}
 
