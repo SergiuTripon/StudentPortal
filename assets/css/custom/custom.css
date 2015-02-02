@@ -576,10 +576,10 @@ hr {
     height: 70px;
     margin-top: 15px;
     padding: 7px 16px;
-    border: 2px solid #fff;
+    border: 2px solid #FFA500;
     border-radius: 35px;
     font-size: 40px;
-    color: #fff;
+    color: #FFA500;
     background: 0 0;
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
@@ -589,8 +589,8 @@ hr {
 .btn-circle:hover,
 .btn-circle:focus {
     outline: 0;
-    color: #fff;
-    background: rgba(255,255,255,.1);
+    color: #333333;
+    background: #FFA500;
 }
 
 .btn-circle i.animated {
