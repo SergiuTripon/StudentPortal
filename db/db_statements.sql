@@ -171,6 +171,7 @@ CREATE TABLE `student_portal`.`user_module` (
 	`moduleid` INT(11) NOT NULL,
 	`lectureid` INT(11) NOT NULL,
 	`tutorialid` INT(11) NOT NULL,
+	`examid` INT(11) NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (moduleid)
@@ -185,9 +186,13 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
-INSERT INTO `user_signin`(`userid`, `account_type`, `email`, `password`, `created_on`)
-VALUES ('1', 'admin', 'admin@student-portal.co.uk', '$2y$10$2UOneiOEmmi6kI4DG0di4u2/8oOsdpYDRsc8XzoM2.nKx3ZErPjEe', '0000-00-00 00:00:00');
+INSERT INTO `system_modules`(`moduleid`, `module_name`, `module_notes`, `module_url`, `module_status`, `created_on`, `updated_on`) VALUES ('1','Theory of Computation','','','active','0000-00-00 00:00:00','');
+INSERT INTO `system_lectures`(`lectureid`, `lecture_name`, `lecture_notes`, `lecture_day`, `lecture_from_time`, `lecture_to_time`, `lecture_from_date`, `lecture_to_date`, `lecture_location`, `lecture_capacity`, `lecture_status`, `created_on`, `updated_on`) VALUES ('1','Theory of Computation - Lecture', '','Monday','15:00:00', '17:00:00', '2015-02-01','2015-03-01','Great Hall','150','active','0000-00-00 00:00:00','');
+INSERT INTO `system_tutorials`(`tutorialid`, `tutorial_name`, `tutorial_notes`, `tutorial_day`, `tutorial_from_time`, `tutorial_to_time`, `tutorial_from_date`, `tutorial_to_date`, `tutorial_location`, `tutorial_capacity`, `tutorial_status`, `created_on`, `updated_on`) VALUES (1,'Theory of Computation - Tutorial','','Tuesday','11:00:00','13:00:00',2015-02-01,'2015-03-01', 'EG12', '30','active','0000-00-00 0000:00:00','');
+
+
+
+INSERT INTO `user_signin`(`userid`, `account_type`, `email`, `password`, `created_on`) VALUES ('1', 'admin', 'admin@student-portal.co.uk', '$2y$10$2UOneiOEmmi6kI4DG0di4u2/8oOsdpYDRsc8XzoM2.nKx3ZErPjEe', '0000-00-00 00:00:00');
 INSERT INTO `user_fees`(`userid`, `fee_amount`, `created_on`) VALUES ('1', '0.00', '0000-00-00 00:00:00');
-INSERT INTO `user_details`(`userid`, `studentno`, `firstname`, `surname`, `gender`, `dateofbirth`, `phonenumber`, `degree`, `address1`, `address2`, `town`, `city`, `country`, `postcode`, `created_on`)
-VALUES ('1','1','Admin','strator', 'male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00');
+INSERT INTO `user_details`(`userid`, `studentno`, `firstname`, `surname`, `gender`, `dateofbirth`, `phonenumber`, `degree`, `address1`, `address2`, `town`, `city`, `country`, `postcode`, `created_on`) VALUES ('1','1','Admin','strator', 'male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00');
 INSERT INTO `user_token`(`userid`, `token`, `created_on`) VALUES ('1', NULL, '0000-00-00 00:00:00');
