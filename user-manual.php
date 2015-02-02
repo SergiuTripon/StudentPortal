@@ -3,60 +3,78 @@
 
 <head>
 
+    <?php include 'assets/js-paths/pacejs-js-path.php'; ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
-    <!-- bootstrap -->
-    <link href="https://student-portal.co.uk/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <title>Student Portal | Sign In</title>
 
-    <!-- custom -->
-    <link href="https://student-portal.co.uk/assets/css/user-manual/user-manual.css" rel="stylesheet">
-
-    <!--[if lt IE 9]>
-    <script src="https://student-portal.co.uk/js/html5shiv/html5shiv.min.js"></script>
-    <script src="https://student-portal.co.uk/js/respond/respond.min.js"></script>
-    <![endif]-->
+	<style>
+	html, body {
+		height: 100% !important;
+	}
+	</style>
 
 </head>
 
-<body>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    <div id="wrapper">
+	<div class="preloader"></div>
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
+    <?php include 'includes/menus/menu.php'; ?>
 
-    <li class="sidebar-brand"><a href="#">Student Portal</a></li>
-    <li><a href="#">Dashboard</a></li>
+    <header class="intro">
+    <div class="intro-body">
 
-    <li><a href="#">Shortcuts</a></li>
+    <form class="form-custom" name="signin_form" id="signin_form">
 
-    <li><a href="#">Overview</a></li>
+    <div class="logo-custom">
+	<i class="fa fa-graduation-cap"></i>
+    </div>
 
-    <li><a href="#">Events</a></li>
+    <hr class="hr-custom">
 
-    <li><a href="#">About</a></li>
+	<p id="error" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-happy text-center"></p>
 
-    <li><a href="#">Services</a></li>
+    <label>Email address</label>
+    <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address">
 
-    <li><a href="#">Contact</a></li>
+    <label>Password</label>
+    <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
 
-    </ul>
-    </div><!-- /#sidebar-wrapper -->
-    <!-- End of Sidebar -->
+    <div class="text-right">
+    <a class="forgot-password" href="forgotten-password/">Forgotten your password?</a>
+    </div>
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-    <div class="container-fluid">
-    <div class="row">
-    <div class="col-lg-12">
-    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+    <hr class="hr-custom">
+
+    <div class="pull-left">
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="register/"><span class="ladda-label">Register</span></a>
+    </div>
+
+    <div class="text-right">
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Sign In</span></button>
+	</div>
+
+    </form>
+
+    </div><!-- /intro-body -->
+    </header>
+
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/easing-js-path.php'; ?>
+
+</body>
+</html>
+
+
 
     <h1 class="page-header">Account <small>Updating your account</small></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum libero sed nisl aliquet, bibendum dictum enim luctus. Suspendisse consequat fermentum tortor non egestas. Cras sed purus turpis.
@@ -231,28 +249,3 @@
     Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam non massa sit amet elit pretium maximus. Maecenas eu metus aliquam, gravida massa a, posuere odio. Maecenas dictum non odio eu commodo.
     Nunc scelerisque mauris ac ultricies laoreet. Nunc tincidunt consequat commodo. Etiam viverra ullamcorper metus ut porttitor. Vivamus a tortor at elit blandit congue.</p>
     </div>
-
-    </div><!-- /col-lg-12 -->
-    </div><!--/row -->
-    </div><!--/container-fluid -->
-    </div><!-- /#page-content-wrapper -->
-
-    </div><!-- /#wrapper -->
-
-    <!-- js library -->
-    <script src="https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js"></script>
-
-    <!-- bootstrap -->
-    <script src="https://student-portal.co.uk/assets/js/bootstrap/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-
-</body>
-
-</html>
