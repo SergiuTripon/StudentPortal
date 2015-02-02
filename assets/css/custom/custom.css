@@ -1,13 +1,13 @@
 /* Global Rules */
 html, body {
     font-family: 'Open Sans', sans-serif;
-	width: 100%;
+    font-size: 15px;
+    color: #FFA500;
+    width: 100%;
 }
 
 body {
-    font-size: 15px;
-    background-color: #333333;
-    background-image: url(../../img/bg/bg-pattern.png);
+    background: #333333 url(../../img/bg/bg-pattern.png);
 }
 
 /* Preloader style */
