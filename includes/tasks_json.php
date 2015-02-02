@@ -1,11 +1,7 @@
 <?php
 include 'session.php';
 
-header("Cache-Control: no-store, no-cache, must-revalidate"); // HTTP/1.1
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-header("Pragma: no-cache"); // HTTP/1.0
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-cache, must-revalidate");
 
 $sql = 'SELECT taskid, task_name, task_url, task_class, task_startdate, task_duedate FROM user_tasks WHERE userid = "'.$userid.'" AND task_status = "active"';
 
