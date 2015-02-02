@@ -69,7 +69,7 @@ include 'includes/session.php';
 
 	</div><!-- /row -->
 
-    <h4 class="feedback-custom">Lectures</h4>
+    <h3 class="feedback-custom">Lectures</h3>
     <hr class="hr-thin">
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
