@@ -512,7 +512,6 @@ hr {
 /* Button Style */
 .btn, .btn:hover, btn:focus {
 	outline: none !important;
-    border-radius: 0px;
 }
 
 .btn-group, .btn-group-vertical {
@@ -544,10 +543,12 @@ hr {
     outline: none !important;
     background-color: #333333;
     border: 1px solid #FFA500 !important;
+    border-radius: 0px;
 }
 
 .btn-custom:hover, .btn-custom:focus {
     outline: none !important;
+    border-radius: 0px;
 }
 
 /* End of Custom button style */
@@ -559,10 +560,12 @@ hr {
     outline: none !important;
     background-color: #FFA500;
     border: 1px solid #333333 !important;
+    border-radius: 0px;
 }
 
 .btn-custom-reverse:hover, .btn-custom-reverse:focus {
     outline: none !important;
+    border-radius: 0px;
 }
 
 /* End of Custom reverse button style */
