@@ -9,16 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Student Portal | User Manual</title>
+    <title>Simple Sidebar - Start Bootstrap Template</title>
 
     <!-- bootstrap -->
     <link href="https://student-portal.co.uk/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- custom -->
     <link href="https://student-portal.co.uk/assets/css/user-manual/user-manual.css" rel="stylesheet">
-
-    <!-- font-awesome -->
-    <link href="https://student-portal.co.uk/assets/css/font-awesome/font-awesome.min.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
     <script src="https://student-portal.co.uk/js/html5shiv/html5shiv.min.js"></script>
@@ -31,61 +28,36 @@
 
     <div id="wrapper">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="index.html">SB Admin</a>
-    </div>
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
 
-    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav side-nav">
+    <li class="sidebar-brand"><a href="#">Student Portal</a></li>
+    <li><a href="#">Dashboard</a></li>
 
-    <li>
-    <a href="javascript:;" data-toggle="collapse" data-target="#account"><i class="fa fa-fw fa-user"></i> Account <i class="fa fa-fw fa-caret-down"></i></a>
-    <ul id="account" class="collapse">
+    <li><a href="#">Shortcuts</a></li>
 
-    <li><a class="page-scroll" href="#update-account">Update account</a></li>
+    <li><a href="#">Overview</a></li>
 
-    <li><a class="page-scroll" href="#change-password">Change password</a></li>
+    <li><a href="#">Events</a></li>
 
-    <li><a class="page-scroll" href="#pay-course-fees">Pay course fees</a></li>
+    <li><a href="#">About</a></li>
 
-    <li><a class="page-scroll" href="#delete-account">Delete account</a></li>
+    <li><a href="#">Services</a></li>
+
+    <li><a href="#">Contact</a></li>
 
     </ul>
-    </li>
+    </div><!-- /#sidebar-wrapper -->
+    <!-- End of Sidebar -->
 
-    <li>
-    <a href="javascript:;" data-toggle="collapse" data-target="#calendar"><i class="fa fa-fw fa-user"></i> Calendar <i class="fa fa-fw fa-caret-down"></i></a>
-    <ul id="calendar" class="collapse">
-
-    <li><a class="page-scroll" href="#create-task">Create a task</a></li>
-
-    <li><a class="page-scroll" href="#update-task">Update a task</a></li>
-
-    <li><a class="page-scroll" href="#complete-task">Complete a task</a></li>
-
-    </ul>
-    </li>
-
-    </ul>
-    </div><!-- /.navbar-collapse -->
-    </nav>
-
-    <div id="page-wrapper">
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
     <div class="container-fluid">
-    <!-- Page Heading -->
     <div class="row">
     <div class="col-lg-12">
-    <div id="update-account">
+    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+
     <h1 class="page-header">Account <small>Updating your account</small></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum libero sed nisl aliquet, bibendum dictum enim luctus. Suspendisse consequat fermentum tortor non egestas. Cras sed purus turpis.
     Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam non massa sit amet elit pretium maximus. Maecenas eu metus aliquam, gravida massa a, posuere odio. Maecenas dictum non odio eu commodo.
@@ -260,12 +232,13 @@
     Nunc scelerisque mauris ac ultricies laoreet. Nunc tincidunt consequat commodo. Etiam viverra ullamcorper metus ut porttitor. Vivamus a tortor at elit blandit congue.</p>
     </div>
 
-    </div>
-    </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-    </div><!-- /#page-wrapper -->
+    </div><!-- /col-lg-12 -->
+    </div><!--/row -->
+    </div><!--/container-fluid -->
+    </div><!-- /#page-content-wrapper -->
 
-    </div><!-- /#wrapper -->
+    </div>
+    <!-- /#wrapper -->
 
     <!-- js library -->
     <script src="https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js"></script>
@@ -273,22 +246,11 @@
     <!-- bootstrap -->
     <script src="https://student-portal.co.uk/assets/js/bootstrap/bootstrap.min.js"></script>
 
-    <!-- easing -->
-    <script src="https://student-portal.co.uk/assets/js/easing/jquery.easing.min.js"></script>
-
+    <!-- Menu Toggle Script -->
     <script>
-    $(document).ready(function() {
-
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $(function () {
-        $('a.page-scroll').bind('click', function (event) {
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top
-            }, 1500, 'easeInOutExpo');
-            event.preventDefault();
-        });
-    });
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
     });
     </script>
 
