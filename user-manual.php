@@ -75,7 +75,7 @@ include 'includes/session.php';
     <div class="logo-custom">
     <i class="fa fa-graduation-cap"></i>
     </div>
-    <a href="#about" class="btn btn-circle page-scroll">
+    <a href="#user-manual" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
     </a>
     </div>
@@ -84,7 +84,7 @@ include 'includes/session.php';
     </header>
 
 	<!-- User Manual -->
-	<section class="about" id="about">
+	<section class="user-manual" id="user-manual">
     <div class="container">
     <div class="row">
 
@@ -202,7 +202,14 @@ include 'includes/session.php';
     </section>
     <!-- End of User Manual -->
 
-    <?php include 'includes/showcase/showcase.php'; ?>
+    <!-- Footer -->
+    <footer>
+    <div class="container">
+    <div class="row">
+    <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
+    </div>
+    </div><!-- /.container -->
+    </footer><!-- /.footer -->
 
 
 	<?php endif; ?>
