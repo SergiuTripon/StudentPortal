@@ -71,13 +71,9 @@ include 'includes/session.php';
     <header class="intro">
     <div class="intro-body">
 
-    <form class="form-custom">
-
     <div class="logo-custom">
     <i class="fa fa-graduation-cap"></i>
     </div>
-
-    </form>
 
     </div><!-- /intro-body -->
     </header>
