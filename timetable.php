@@ -81,7 +81,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Due tasks -->
+	<!-- Modules -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
