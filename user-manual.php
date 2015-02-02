@@ -237,8 +237,7 @@
     </div><!--/container-fluid -->
     </div><!-- /#page-content-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+    </div><!-- /#wrapper -->
 
     <!-- js library -->
     <script src="https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js"></script>
