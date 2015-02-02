@@ -20,7 +20,7 @@ include 'includes/session.php';
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
-    <title>Student Portal | Calendar</title>
+    <title>Student Portal | Timetable</title>
 
 </head>
 
@@ -37,37 +37,6 @@ include 'includes/session.php';
     <li><a href="../overview/">Overview</a></li>
 	<li class="active">Calendar</li>
     </ol>
-
-	<div class="row mb10">
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a href="/calendar/create-task/">
-    <div class="tile">
-    <i class="fa fa-plus"></i>
-	<p class="tile-text">Create a task</p>
-    </div>
-    </a>
-	</div>
-
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-	<a id="task-button">
-    <div class="tile task-tile">
-	<i class="fa fa-tasks"></i>
-	<p class="tile-text">Task view</p>
-    </div>
-    </a>
-	</div>
-
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-	<a id="calendar-button">
-	<div class="tile calendar-tile">
-    <i class="fa fa-calendar"></i>
-	<p class="tile-text">Calendar view</p>
-    </div>
-    </a>
-	</div>
-
-	</div><!-- /row -->
 
     <h3 class="feedback-custom">Lectures</h3>
     <hr class="hr-thin">
@@ -626,43 +595,6 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-	<div id="calendar-toggle" class="panel panel-default">
-	<div class="panel-heading" role="tab" id="headingThree">
-	<h4 class="panel-title">
-	<a data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
-	</h4>
-	</div>
-	<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-	<div class="panel-body">
-
-	<div class="calendar-buttons text-right">
-	<div id="calendar-buttons1" class="btn-group">
-		<button class="btn btn-custom" data-calendar-nav="prev"><< Prev</button>
-		<button class="btn btn-custom" data-calendar-nav="today">Today</button>
-		<button class="btn btn-custom" data-calendar-nav="next">Next >></button>
-	</div>
-	<div id="calendar-buttons2" class="btn-group">
-		<button class="btn btn-custom" data-calendar-view="year">Year</button>
-		<button class="btn btn-custom active" data-calendar-view="month">Month</button>
-		<button class="btn btn-custom" data-calendar-view="week">Week</button>
-		<button class="btn btn-custom" data-calendar-view="day">Day</button>
-	</div>
-	</div>
-
-	<div class="page-header">
-	<h3></h3>
-	</div>
-
-	<div id="calendar"></div>
-
-	</div><!-- /panel-body -->
-	</div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	</div><!-- /panel-group -->
-
     </div><!-- /container -->
 
 	<?php include 'includes/footers/portal_footer.php'; ?>
@@ -763,37 +695,6 @@ include 'includes/session.php';
 
 	$("#update-task-form-" + DbNumberID).submit();
 
-	});
-
-	$("#calendar-toggle").hide();
-	$(".task-tile").addClass("tile-selected");
-	$(".task-tile p").addClass("tile-text-selected");
-	$(".task-tile i").addClass("tile-text-selected");
-
-	$("#task-button").click(function (e) {
-    e.preventDefault();
-		$("#calendar-toggle").hide();
-		$("#duetasks-toggle").show();
-		$("#completedtasks-toggle").show();
-		$(".calendar-tile").removeClass("tile-selected");
-		$(".calendar-tile p").removeClass("tile-text-selected");
-		$(".calendar-tile i").removeClass("tile-text-selected");
-		$(".task-tile").addClass("tile-selected");
-		$(".task-tile p").addClass("tile-text-selected");
-		$(".task-tile i").addClass("tile-text-selected");
-	});
-
-	$("#calendar-button").click(function (e) {
-    e.preventDefault();
-		$("#duetasks-toggle").hide();
-		$("#completedtasks-toggle").hide();
-		$("#calendar-toggle").show();
-		$(".task-tile").removeClass("tile-selected");
-		$(".task-tile p").removeClass("tile-text-selected");
-		$(".task-tile i").removeClass("tile-text-selected");
-		$(".calendar-tile").addClass("tile-selected");
-		$(".calendar-tile p").addClass("tile-text-selected");
-		$(".calendar-tile i").addClass("tile-text-selected");
 	});
 
 	});
