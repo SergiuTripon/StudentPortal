@@ -177,37 +177,6 @@ include 'includes/session.php';
 
 	});
 
-	$("#calendar-toggle").hide();
-	$(".task-tile").addClass("tile-selected");
-	$(".task-tile p").addClass("tile-text-selected");
-	$(".task-tile i").addClass("tile-text-selected");
-
-	$("#task-button").click(function (e) {
-    e.preventDefault();
-		$("#calendar-toggle").hide();
-		$("#duetasks-toggle").show();
-		$("#completedtasks-toggle").show();
-		$(".calendar-tile").removeClass("tile-selected");
-		$(".calendar-tile p").removeClass("tile-text-selected");
-		$(".calendar-tile i").removeClass("tile-text-selected");
-		$(".task-tile").addClass("tile-selected");
-		$(".task-tile p").addClass("tile-text-selected");
-		$(".task-tile i").addClass("tile-text-selected");
-	});
-
-	$("#calendar-button").click(function (e) {
-    e.preventDefault();
-		$("#duetasks-toggle").hide();
-		$("#completedtasks-toggle").hide();
-		$("#calendar-toggle").show();
-		$(".task-tile").removeClass("tile-selected");
-		$(".task-tile p").removeClass("tile-text-selected");
-		$(".task-tile i").removeClass("tile-text-selected");
-		$(".calendar-tile").addClass("tile-selected");
-		$(".calendar-tile p").addClass("tile-text-selected");
-		$(".calendar-tile i").addClass("tile-text-selected");
-	});
-
 	});
 
 	</script>
