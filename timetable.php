@@ -324,12 +324,12 @@ include 'includes/session.php';
 
 	<div id="duetasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingOne">
+    <div class="panel-heading" role="tab" id="headingSix">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Monday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">Monday</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
   	<div class="panel-body">
 
 	<!-- Monday -->
@@ -378,12 +378,12 @@ include 'includes/session.php';
 
     <div id="duetasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingTwo">
+    <div class="panel-heading" role="tab" id="headingSeven">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Tuesday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">Tuesday</a>
   	</h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
   	<div class="panel-body">
 
 	<!-- Tuesday -->
@@ -432,12 +432,12 @@ include 'includes/session.php';
 
     <div id="duetasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingThree">
+    <div class="panel-heading" role="tab" id="headingEight">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Wednesday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight">Wednesday</a>
   	</h4>
     </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+    <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
   	<div class="panel-body">
 
 	<!-- Wednesday -->
@@ -486,12 +486,12 @@ include 'includes/session.php';
 
     <div id="duetasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingFour">
+    <div class="panel-heading" role="tab" id="headingNine">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Thursday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine">Thursday</a>
   	</h4>
     </div>
-    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headindFour">
+    <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headindNine">
   	<div class="panel-body">
 
 	<!-- Thursday -->
@@ -540,12 +540,12 @@ include 'includes/session.php';
 
     <div id="duetasks-toggle" class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingFive">
+    <div class="panel-heading" role="tab" id="headingTen">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">Friday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="true" aria-controls="collapseTen">Friday</a>
   	</h4>
     </div>
-    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+    <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
   	<div class="panel-body">
 
 	<!-- Friday -->
