@@ -1,7 +1,7 @@
 <?php
 include 'includes/session.php';
 
-header ("Cache-Control: max-age=0");
+header("Cache-Control: no-cache, must-revalidate");
 
 ?>
 
