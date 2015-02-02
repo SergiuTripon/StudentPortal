@@ -404,18 +404,18 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_tutorials ON system_tutorials.tutorialid=user_timetable.tutorialid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Tuesday' LIMIT 1");
+	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_to_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_tutorials ON system_tutorials.tutorialid=user_timetable.tutorialid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Tuesday' LIMIT 1");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	echo '<tr>
 
-			<td data-title="Name">'.$row["lecture_name"].'</td>
-			<td data-title="Notes">'.$row["lecture_notes"].'</td>
-			<td data-title="From">'.$row["lecture_from_time"].'</td>
-			<td data-title="To">'.$row["lecture_to_time"].'</td>
-			<td data-title="Location">'.$row["lecture_location"].'</td>
-			<td data-title="Capacity">'.$row["lecture_capacity"].'</td>
+			<td data-title="Name">'.$row["tutorial_name"].'</td>
+			<td data-title="Notes">'.$row["tutorial_notes"].'</td>
+			<td data-title="From">'.$row["tutorial_from_time"].'</td>
+			<td data-title="To">'.$row["tutorial_to_time"].'</td>
+			<td data-title="Location">'.$row["tutorial_location"].'</td>
+			<td data-title="Capacity">'.$row["tutorial_capacity"].'</td>
 			</tr>';
 	}
 
