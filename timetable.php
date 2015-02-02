@@ -69,6 +69,8 @@ include 'includes/session.php';
 
 	</div><!-- /row -->
 
+    <h2>Lectures</h2>
+
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="duetasks-toggle" class="panel panel-default">
@@ -87,24 +89,30 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Module Name</th>
-	<th>Lecture Name</th>
-	<th>Tutorial Name</th>
+	<th>Name</th>
+	<th>Notes</th>
+	<th>From</th>
+    <th>To</th>
+    <th>Location</th>
+    <th>Capacity</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_modules.module_name, system_lectures.lecture_name, system_tutorials.tutorial_name FROM user_timetable LEFT JOIN system_modules ON system_modules.moduleid=user_timetable.moduleid LEFT JOIN system_lectures ON system_lectures.lectureid=user_timetable.lectureid LEFT JOIN system_tutorials ON system_tutorials.tutorialid=user_timetable.tutorialid WHERE user_timetable.userid = '$userid' LIMIT 1");
+	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lecture.lecture_capacity  FROM user_timetable LEFT JOIN system_lectures ON system_lectures.lectureid=user_timetable.lectureid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Monday' LIMIT 1");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	echo '<tr>
 
-			<td data-title="Name">'.$row["module_name"].'</td>
-			<td class="notes-hide" data-title="Notes">'.$row["lecture_name"].'</td>
-			<td class="url-hide" data-title="External URL">'.$row["tutorial_name"].'</td>
+			<td data-title="Name">'.$row["lecture_name"].'</td>
+			<td data-title="Notes">'.$row["lecture_name"].'</td>
+			<td data-title="From">'.$row["lecture_from_time"].'</td>
+			<td data-title="To">'.$row["lecture_to_time"].'</td>
+			<td data-title="Location">'.$row["lecture_location"].'</td>
+			<td data-title="Capacity">'.$row["lecture_capacity"].'</td>
 			</tr>';
 	}
 
