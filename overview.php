@@ -36,7 +36,7 @@ include 'includes/session.php';
     <div class="row mb10">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../timetable/">
     <div class="tile large-tile">
     <i class="fa fa-table"></i>
 	<p class="large-tile-text">Timetable</p>
@@ -45,7 +45,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a href="">
+	<a href="../exams/">
     <div class="tile">
 	<i class="fa fa-pencil"></i>
 	<p class="tile-text">Exams</p>
@@ -54,7 +54,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-	<a href="">
+	<a href="../library/">
 	<div class="tile">
     <i class="fa fa-book"></i>
 	<p class="tile-text">Library</p>
@@ -81,7 +81,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a href="">
+	<a href="../events/">
     <div class="tile">
 	<i class="fa fa-beer"></i>
 	<p class="tile-text">Events</p>
@@ -90,7 +90,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../university-map/">
     <div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p class="tile-text">University Map</p>
@@ -99,7 +99,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../feedback/">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
 	<p class="tile-text">Feeback</p>
@@ -108,7 +108,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../messenger/">
     <div class="tile">
     <i class="fa fa-comments"></i>
 	<p class="tile-text">Messenger</p>
@@ -144,7 +144,7 @@ include 'includes/session.php';
     <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../library/">
 	<div class="tile">
     <i class="fa fa-book"></i>
 	<p class="tile-text">Library</p>
@@ -171,7 +171,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a href="">
+	<a href="../events/">
     <div class="tile">
 	<i class="fa fa-beer"></i>
 	<p class="tile-text">Events</p>
@@ -180,7 +180,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="">
+	<a href="university-map">
     <div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p class="tile-text">University Map</p>
@@ -189,7 +189,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../feedback/">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
 	<p class="tile-text">Feeback</p>
@@ -198,7 +198,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a href="">
+	<a href="../messenger/">
     <div class="tile">
     <i class="fa fa-comments"></i>
 	<p class="tile-text">Messenger</p>
@@ -234,7 +234,7 @@ include 'includes/session.php';
     <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../timetable/">
     <div class="tile large-tile">
     <i class="fa fa-table"></i>
 	<p class="large-tile-text">Timetable</p>
@@ -243,7 +243,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a href="">
+	<a href="../exams/">
     <div class="tile">
 	<i class="fa fa-pencil"></i>
 	<p class="tile-text">Exams</p>
@@ -252,7 +252,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-	<a href="">
+	<a href="../library/">
 	<div class="tile">
     <i class="fa fa-book"></i>
 	<p class="tile-text">Library</p>
@@ -279,7 +279,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-	<a href="">
+	<a href="../events/">
     <div class="tile">
 	<i class="fa fa-beer"></i>
 	<p class="tile-text">Events</p>
@@ -288,7 +288,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../university-map/">
     <div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p class="tile-text">University Map</p>
@@ -297,7 +297,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../feedback/">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
 	<p class="tile-text">Feeback</p>
@@ -306,7 +306,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<a href="">
+	<a href="../messenger/">
     <div class="tile">
     <i class="fa fa-comments"></i>
 	<p class="tile-text">Messenger</p>
