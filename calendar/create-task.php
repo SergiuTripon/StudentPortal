@@ -252,14 +252,13 @@ include '../includes/session.php';
 		$("#error3").show();
 		$("#error3").hide();
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+		return true;
 	}
 	else {
 		$("#error3").empty().append("Please select a task category.");
 		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
-		hasError  = true;
+		hasError = true;
 		return false;
-	} else {
-		return true;
 	}
 
 	if(hasError == false){
