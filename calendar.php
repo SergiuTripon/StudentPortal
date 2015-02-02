@@ -59,7 +59,7 @@ include 'includes/session.php';
 	</div>
 	
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-	<a id="calendar-button">
+	<a href="/calendar-view/">
 	<div class="tile calendar-tile">
     <i class="fa fa-calendar"></i>
 	<p class="tile-text">Calendar view</p>
