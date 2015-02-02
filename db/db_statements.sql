@@ -145,10 +145,14 @@ CREATE TABLE `student_portal`.`system_lectures` (
 CREATE TABLE `student_portal`.`system_tutorials` (
 	`tutorialid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`tutorial_name` VARCHAR(300) NOT NULL,
-	`tutorial_notes` VARCHAR(5000), `tutorial_day` VARCHAR(9) NOT NULL,
-	`tutorial_from_time` TIME NOT NULL, `tutorial_to_time` TIME NOT NULL,
-	`tutorial_from_date` DATE NOT NULL, `tutorial_to_date` DATE NOT NULL,
-	`tutorial_location` VARCHAR(300) NOT NULL, `tutorial_capacity` VARCHAR(11) NOT NULL,
+	`tutorial_notes` VARCHAR(5000),
+	`tutorial_day` VARCHAR(9) NOT NULL,
+	`tutorial_from_time` TIME NOT NULL,
+	`tutorial_to_time` TIME NOT NULL,
+	`tutorial_from_date` DATE NOT NULL,
+	`tutorial_to_date` DATE NOT NULL,
+	`tutorial_location` VARCHAR(300) NOT NULL,
+	`tutorial_capacity` VARCHAR(11) NOT NULL,
 	`tutorial_status` VARCHAR(9) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME
@@ -156,7 +160,8 @@ CREATE TABLE `student_portal`.`system_tutorials` (
 
 CREATE TABLE `student_portal`.`system_exams` (
 	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-	`exam_name` VARCHAR(300) NOT NULL, `exam_notes` VARCHAR(5000),
+	`exam_name` VARCHAR(300) NOT NULL,
+	`exam_notes` VARCHAR(5000),
 	`exam _date` DATETIME NOT NULL,
 	`exam_time` TIME NOT NULL,
 	`exam_location` VARCHAR(300) NOT NULL,
@@ -166,7 +171,7 @@ CREATE TABLE `student_portal`.`system_exams` (
 	`updated_on` DATETIME
 ) ENGINE = InnoDB;
 
-CREATE TABLE `student_portal`.`user_module` (
+CREATE TABLE `student_portal`.`user_timetable` (
 	`userid` INT(11) NOT NULL,
 	`moduleid` INT(11) NOT NULL,
 	`lectureid` INT(11) NOT NULL,
@@ -189,8 +194,8 @@ ON DELETE CASCADE
 INSERT INTO `system_modules`(`moduleid`, `module_name`, `module_notes`, `module_url`, `module_status`, `created_on`, `updated_on`) VALUES ('1','Theory of Computation','','','active','0000-00-00 00:00:00','');
 INSERT INTO `system_lectures`(`lectureid`, `lecture_name`, `lecture_notes`, `lecture_day`, `lecture_from_time`, `lecture_to_time`, `lecture_from_date`, `lecture_to_date`, `lecture_location`, `lecture_capacity`, `lecture_status`, `created_on`, `updated_on`) VALUES ('1','Theory of Computation - Lecture', '','Monday','15:00:00', '17:00:00', '2015-02-01','2015-03-01','Great Hall','150','active','0000-00-00 00:00:00','');
 INSERT INTO `system_tutorials`(`tutorialid`, `tutorial_name`, `tutorial_notes`, `tutorial_day`, `tutorial_from_time`, `tutorial_to_time`, `tutorial_from_date`, `tutorial_to_date`, `tutorial_location`, `tutorial_capacity`, `tutorial_status`, `created_on`, `updated_on`) VALUES (1,'Theory of Computation - Tutorial','','Tuesday','11:00:00','13:00:00',2015-02-01,'2015-03-01', 'EG12', '30','active','0000-00-00 0000:00:00','');
-
-
+INSERT INTO `system_exams`(`examid`, `exam_name`, `exam_notes`, `exam _date`, `exam_time`, `exam_location`, `exam_capacity`, `exam_status`, `created_on`, `updated_on`) VALUES ('1','Theory of Computation - Exam','','2015-03-01','14:00:00','The Crypt','40','active','0000-00-00 00:00:00', '');
+INSERT INTO `user_timetable`(`userid`, `moduleid`, `lectureid`, `tutorialid`, `examid`) VALUES (2,1,1,1,1)
 
 INSERT INTO `user_signin`(`userid`, `account_type`, `email`, `password`, `created_on`) VALUES ('1', 'admin', 'admin@student-portal.co.uk', '$2y$10$2UOneiOEmmi6kI4DG0di4u2/8oOsdpYDRsc8XzoM2.nKx3ZErPjEe', '0000-00-00 00:00:00');
 INSERT INTO `user_fees`(`userid`, `fee_amount`, `created_on`) VALUES ('1', '0.00', '0000-00-00 00:00:00');
