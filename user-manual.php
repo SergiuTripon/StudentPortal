@@ -71,12 +71,14 @@ include 'includes/session.php';
     <header class="intro">
     <div class="intro-body">
 
+    <div class="text-center">
     <div class="logo-custom">
     <i class="fa fa-graduation-cap"></i>
     </div>
     <a href="#about" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
     </a>
+    </div>
 
     </div><!-- /intro-body -->
     </header>
