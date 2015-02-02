@@ -71,27 +71,7 @@ include 'includes/session.php';
     <header class="intro">
     <div class="intro-body">
 
-    <form class="form-custom">
 
-    <div class="logo-custom">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr class="hr-custom">
-
-    <p class="feedback-sad text-center">You are already logged in. You don't have to log in again.</p>
-
-    <hr class="hr-custom">
-
-	<div class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="overview/"><span class="ladda-label">Overview</span></a>
-    </div>
-
-    <div class="text-right">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="sign-out/"><span class="ladda-label">Sign Out</span></a>
-    </div>
-
-    </form>
 
     </div><!-- /intro-body -->
     </header>
