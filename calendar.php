@@ -8,6 +8,7 @@ include 'includes/session.php';
 
 <head>
 
+	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 	<?php include 'assets/js-paths/pacejs-js-path.php'; ?>
 
     <meta charset="utf-8">
@@ -293,7 +294,6 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
