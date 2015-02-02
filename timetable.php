@@ -101,7 +101,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lecture.lecture_capacity  FROM user_timetable LEFT JOIN system_lectures ON system_lectures.lectureid=user_timetable.lectureid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Monday' LIMIT 1");
+	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_lectures ON system_lectures.lectureid=user_timetable.lectureid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Monday' LIMIT 1");
 
 	while($row = $stmt1->fetch_assoc()) {
 
