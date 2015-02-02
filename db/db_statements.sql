@@ -2,7 +2,12 @@ DROP TABLE paypal_log;
 DROP TABLE user_details; 
 DROP TABLE user_fees; 
 DROP TABLE user_token; 
-DROP TABLE user_tasks; 
+DROP TABLE user_tasks;
+DROP TABLE system_modules;
+DROP TABLE system_lectures;
+DROP TABLE system_tutorials;
+DROP TABLE system_exams;
+DROP TABLE user_timetable;
 DROP TABLE user_signin; 
 
 CREATE TABLE `student_portal`.`user_signin` (
@@ -109,6 +114,75 @@ FOREIGN KEY (userid)
 REFERENCES user_signin(userid)   
 ON UPDATE CASCADE   
 ON DELETE CASCADE   
+) ENGINE = InnoDB;
+
+CREATE TABLE `student_portal`.`system_modules` (
+	`moduleid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	`module_name` VARCHAR(300) NOT NULL,
+	`module_notes` VARCHAR(5000),
+	`module_url` VARCHAR(70),
+	`module_status` VARCHAR(10) NOT NULL,
+	`created_on` DATETIME NOT NULL,
+	`updated_on` DATETIME
+) ENGINE = InnoDB;
+
+CREATE TABLE `student_portal`.`system_lectures` (
+	`lectureid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	`lecture_name` VARCHAR(300) NOT NULL,
+	`lecture_notes` VARCHAR(5000),
+	`lecture_day` VARCHAR(9) NOT NULL,
+	`lecture_from_time` TIME NOT NULL,
+	`lecture_to_time` TIME NOT NULL,
+	`lecture_from_date` DATE NOT NULL,
+	`lecture_to_date` DATE NOT NULL,
+	`lecture_location` VARCHAR(300) NOT NULL,
+	`lecture_capacity` INT(11) NOT NULL,
+	`lecture_status` VARCHAR(9) NOT NULL,
+	`created_on` DATETIME NOT NULL,
+	`updated_on` DATETIME
+) ENGINE = InnoDB;
+
+CREATE TABLE `student_portal`.`system_tutorials` (
+	`tutorialid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	`tutorial_name` VARCHAR(300) NOT NULL,
+	`tutorial_notes` VARCHAR(5000), `tutorial_day` VARCHAR(9) NOT NULL,
+	`tutorial_from_time` TIME NOT NULL, `tutorial_to_time` TIME NOT NULL,
+	`tutorial_from_date` DATE NOT NULL, `tutorial_to_date` DATE NOT NULL,
+	`tutorial_location` VARCHAR(300) NOT NULL, `tutorial_capacity` VARCHAR(11) NOT NULL,
+	`tutorial_status` VARCHAR(9) NOT NULL,
+	`created_on` DATETIME NOT NULL,
+	`updated_on` DATETIME
+) ENGINE = InnoDB;
+
+CREATE TABLE `student_portal`.`system_exams` (
+	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	`exam_name` VARCHAR(300) NOT NULL, `exam_notes` VARCHAR(5000),
+	`exam _date` DATETIME NOT NULL,
+	`exam_time` TIME NOT NULL,
+	`exam_location` VARCHAR(300) NOT NULL,
+	`exam_capacity` INT(11) NOT NULL,
+	`exam_status` VARCHAR(9) NOT NULL,
+	`created_on` DATETIME NOT NULL,
+	`updated_on` DATETIME
+) ENGINE = InnoDB;
+
+CREATE TABLE `student_portal`.`user_module` (
+	`userid` INT(11) NOT NULL,
+	`moduleid` INT(11) NOT NULL,
+	`lectureid` INT(11) NOT NULL,
+	`tutorialid` INT(11) NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
+FOREIGN KEY (moduleid)
+REFERENCES system_modules(moduleid),
+FOREIGN KEY (lectureid)
+REFERENCES system_lectures(lectureid),
+FOREIGN KEY (tutorialid)
+REFERENCES system_tutorials(tutorialid),
+FOREIGN KEY (examid)
+REFERENCES system_exams(examid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 INSERT INTO `user_signin`(`userid`, `account_type`, `email`, `password`, `created_on`)
