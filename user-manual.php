@@ -159,7 +159,7 @@ include 'includes/session.php';
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
     <h4 class="panel-title">
-    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Account | Changing your account's password</a>
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Account | Changing your password</a>
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
