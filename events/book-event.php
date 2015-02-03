@@ -323,7 +323,7 @@ if (isset($_POST["recordToBook"])) {
 
     var event_ticket_no = $("#event_ticket_no").val();
     var product_quantity1 = $("#product_quantity").val();
-	if(event_ticket_no > product_quantity) {
+	if(event_ticket_no > product_quantity1) {
 		$("#error3").show();
         $("#error3").empty().append("Please enter a quantity.");
 		$("#product_quantity").css("border-color", "#FF5454");
