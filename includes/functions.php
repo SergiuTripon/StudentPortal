@@ -1112,7 +1112,7 @@ function EventsQuantityCheck () {
 	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 
 	if ($product_quantity > $event_ticket_no) {
-		header('HTTP/1.0 550 The quantity entered exceeds the amount of tickets that are left.<br> Please check the tickets availability on the Events page.');
+		header('HTTP/1.0 550 The quantity entered exceeds the amount of tickets available. You can check the tickets availability on the Events page.');
 		exit();
 	}
 
