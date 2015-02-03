@@ -257,19 +257,14 @@ if (isset($_POST["recordToBook"])) {
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //Checks for empty values
-    var val;
-	val = $("#payer_firstname").val();
-	if(val === '') { $("#payer_firstname").css("border-color", "#FF5454"); }
-	val = $("#payer_surname").val();
-	if(val === '') { $("#payer_surname").css("border-color", "#FF5454"); }
-	val = $("#payer_address1").val();
-	if(val === '') { $("#payer_address1").css("border-color", "#FF5454"); }
-	val = $("#payer_city").val();
-	if(val === '') { $("#payer_city").css("border-color", "#FF5454"); }
-	val = $("#payer_postcode").val();
-	if(val === '') { $("#payer_postcode").css("border-color", "#FF5454"); }
-    val = $("#product_quantity").val();
-    if(val === '') { $("#product_quantity").css("border-color", "#FF5454"); }
+    var payer_address1 = $("#payer_firstname").val();
+	if(payer_address1 === '') { $("#payer_firstname").css("border-color", "#FF5454"); }
+    var payer_city = $("#payer_city").val();
+	if(payer_city === '') { $("#payer_city").css("border-color", "#FF5454"); }
+    var payer_postcode = $("#payer_postcode").val();
+	if(payer_postcode === '') { $("#payer_postcode").css("border-color", "#FF5454"); }
+    var product_quantity = $("#product_quantity").val();
+    if(product_quantity === '') { $("#product_quantity").css("border-color", "#FF5454"); }
 
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
@@ -277,7 +272,8 @@ if (isset($_POST["recordToBook"])) {
 
 	var hasError = false;
 
-    var payer_address1 = $('#payer_address1').val();
+    var event_ticket_no = $("#event_ticket_no").val();
+
 	if (payer_address1 === '') {
         $("#error1").show();
         $("#error1").empty().append("Please enter the first line of an address.");
@@ -288,7 +284,6 @@ if (isset($_POST["recordToBook"])) {
 		$("#payer_address1").css("border-color", "#4DC742");
 	}
 
-    var payer_city = $("#payer_city").val();
 	if(payer_city === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a city.");
@@ -299,7 +294,6 @@ if (isset($_POST["recordToBook"])) {
 		$("#payer_city").css("border-color", "#4DC742");
 	}
 
-    var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a postcode.");
@@ -310,7 +304,6 @@ if (isset($_POST["recordToBook"])) {
 		$("#payer_postcode").css("border-color", "#4DC742");
 	}
 
-    var product_quantity = $("#product_quantity").val();
 	if(product_quantity === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter a quantity.");
@@ -321,16 +314,15 @@ if (isset($_POST["recordToBook"])) {
 		$("#product_quantity").css("border-color", "#4DC742");
 	}
 
-    var event_ticket_no = $("#event_ticket_no").val();
-	if(product_quantity > event_ticket_no) {
-		$("#error3").show();
+    if(product_quantity > event_ticket_no) {
+        $("#error3").show();
         $("#error3").empty().append("Please enter a quantity.");
-		$("#product_quantity").css("border-color", "#FF5454");
-		hasError  = true;
+        $("#product_quantity").css("border-color", "#FF5454");
+        hasError  = true;
     } else {
-		$("#error3").hide();
-		$("#product_quantity").css("border-color", "#4DC742");
-	}
+        $("#error3").hide();
+        $("#product_quantity").css("border-color", "#4DC742");
+    }
 
 	if(hasError == false) {
 
