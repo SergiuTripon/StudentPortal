@@ -58,7 +58,6 @@ switch($payment){
 			$stmt2->execute();
 			$stmt2->close();
 
-		}
 
 		$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 
@@ -85,6 +84,8 @@ switch($payment){
 		$p->submit_paypal_post(); // POST it to paypal
 		//$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
 	break;
+
+	}
 
 	case "success": // success case to show the user payment got success
 
