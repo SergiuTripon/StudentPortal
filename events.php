@@ -277,6 +277,9 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
+	$(document).ready(function () {
+
+	//Sets calendar options
 	(function($) {
 
 	"use strict";
@@ -314,11 +317,9 @@ include 'includes/session.php';
 		});
 	});
 	}(jQuery));
-	</script>
 
-	<script type="text/javascript" class="init">
-    $(document).ready(function () {
-    $('.table-custom').dataTable({
+	//DataTables
+    $('.bookedevents-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
@@ -328,6 +329,7 @@ include 'includes/session.php';
 		}
 	});
 
+	//Book event form submit
 	$("body").on("click", ".book-button", function(e) {
     e.preventDefault();
 
