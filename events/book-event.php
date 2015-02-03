@@ -344,7 +344,6 @@ if (isset($_POST["recordToBook"])) {
 
     },
     error:function (xhr, ajaxOptions, thrownError){
-        $("#success").hide();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
