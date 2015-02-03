@@ -1110,17 +1110,11 @@ function EventsQuantityCheck () {
 
 	global $mysqli;
 
-	$product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
-	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
+	$event_ticket_no = filter_input(INPUT_POST, '$product_quantity', FILTER_SANITIZE_STRING);
+	$product_quantity = filter_input(INPUT_POST, '$product_quantity', FILTER_SANITIZE_STRING);
 
-	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
-	$stmt1->bind_param('i', $product_id);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($event_ticket_no);
-	$stmt1->fetch();
 
-	if ($stmt1->num_rows == 1) {
+	if ($product_quantity > $event_ticket_no) {
 		header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
 		exit();
 		$stmt3->close();

@@ -90,6 +90,6 @@ elseif (isset($_POST["recordToComplete"])) {
 /////////////////////////////////////////////////////////////
 
 //Call EventsQuantityCheck function
-elseif (isset($_POST["product_id"], $_POST["product_quantity"])) {
+elseif (isset($_POST["event_ticket_no"], $_POST["product_quantity"])) {
 	EventsQuantityCheck();
 }

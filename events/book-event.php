@@ -274,6 +274,7 @@ if (isset($_POST["recordToBook"])) {
 
     var event_ticket_no = $("#event_ticket_no").val();
 
+    var payer_address1 = $("#payer_address1").val();
 	if (payer_address1 === '') {
         $("#error1").show();
         $("#error1").empty().append("Please enter the first line of an address.");
@@ -284,7 +285,8 @@ if (isset($_POST["recordToBook"])) {
 		$("#payer_address1").css("border-color", "#4DC742");
 	}
 
-	if(payer_city === '') {
+    var payer_city = $("#payer_city").val();
+    if(payer_city === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a city.");
 		$("#payer_city").css("border-color", "#FF5454");
@@ -294,6 +296,7 @@ if (isset($_POST["recordToBook"])) {
 		$("#payer_city").css("border-color", "#4DC742");
 	}
 
+    var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a postcode.");
@@ -304,6 +307,7 @@ if (isset($_POST["recordToBook"])) {
 		$("#payer_postcode").css("border-color", "#4DC742");
 	}
 
+    var product_quantity = $("#product_quantity").val();
     if(product_quantity === '') {
         $("#error3").show();
         $("#error3").empty().append("Please enter a quantity.");
@@ -314,15 +318,19 @@ if (isset($_POST["recordToBook"])) {
         $("#product_quantity").css("border-color", "#4DC742");
     }
 
-    var product_quantity1 = $("#product_quantity").val();
-
-    alert (event_ticket_no);
-    alert(product_quantity1);
-
-	if(hasError == false) {
-
-	$("#paycoursefees_form").submit();
-
+    if(hasError == false){
+    jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'event_ticket_no=' + event_ticket_no + '&product_quantity=' + product_quantity,
+    success:function(){
+        $("#paycoursefees_form").submit();
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+        $("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
     }
 
 	return true;
