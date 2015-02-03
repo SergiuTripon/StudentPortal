@@ -12,8 +12,8 @@ $out = array();
 foreach($res as $row)
 {
   $out[] = array(
-    'id'    => $row->taskid,
-    'title' => $row->task_name
+    'id'    => $row->lectureid,
+    'title' => $row->lecture_name
    );
 }
 
