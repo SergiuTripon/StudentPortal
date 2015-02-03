@@ -151,7 +151,7 @@ if (isset($_POST["recordToBook"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Price (&pound;)</label>
-    <input class="form-control" type="text" name="event_price" id="event_price" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Quantity</label>
@@ -159,13 +159,6 @@ if (isset($_POST["recordToBook"])) {
     </div>
     </div>
     <p id="error3" class="feedback-sad text-center"></p>
-
-    <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Amount to pay (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" placeholder="Amount to pay" readonly="readonly">
-    </div>
-    </div>
 
     <hr class="hr-custom">
 
