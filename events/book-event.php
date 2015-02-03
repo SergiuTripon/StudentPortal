@@ -109,28 +109,6 @@ if (isset($_POST["recordToBook"])) {
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Name</label>
-    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_name; ?>" placeholder="Product Name" readonly="readonly">
-	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Price (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>From</label>
-    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_from; ?>" placeholder="Product Name" readonly="readonly">
-	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>To</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_to; ?>" placeholder="Amount" readonly="readonly">
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Address line 1</label>
     <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Address 1">
     </div>
@@ -153,8 +131,26 @@ if (isset($_POST["recordToBook"])) {
     </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
-    <div class="checkbox ml5">
-    <label><input type="checkbox" name="half-fees" id="half-fees" value="half-fees"> Pay half of the fee amount</label>
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>Name</label>
+    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_name; ?>" placeholder="Product Name" readonly="readonly">
+	</div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <label>Price (&pound;)</label>
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>From</label>
+    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_from; ?>" placeholder="Product Name" readonly="readonly">
+	</div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <label>To</label>
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_to; ?>" placeholder="Amount" readonly="readonly">
+    </div>
     </div>
 
     <hr class="hr-custom">
@@ -250,17 +246,6 @@ if (isset($_POST["recordToBook"])) {
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
-
-    //Toggles fee amount
-    $('#half-fees').click(function () {
-    if ($('#half-fees').is(':checked')) {
-        $('input[name=product_amount]').val('4500.00');
-        $('input[name=product_name]').val('Half Fees');
-    } else {
-        $('input[name=product_amount]').val('9000.00');
-        $('input[name=product_name]').val('Full Fees');
-    }
-    });
 
     //Checks for empty values
     var val;
