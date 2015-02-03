@@ -172,7 +172,8 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 CREATE TABLE `student_portal`.`system_exams` (
-	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	`moduleid` INT(11) NOT NULL,
+	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`exam_name` VARCHAR(300) NOT NULL,
 	`exam_notes` VARCHAR(5000),
 	`exam _date` DATETIME NOT NULL,
