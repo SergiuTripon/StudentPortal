@@ -5,11 +5,11 @@ if (isset($_POST["recordToBook"])) {
 
     $idToBook = filter_input(INPUT_POST, 'recordToBook', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_from, event_to, event_amount FROM system_events WHERE eventid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_from, event_to, event_amount, event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
     $stmt1->bind_param('i', $idToBook);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($eventid, $event_name, $event_from, $event_to, $event_amount);
+    $stmt1->bind_result($eventid, $event_name, $event_from, $event_to, $event_amount, $event_ticket_no);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -87,7 +87,9 @@ if (isset($_POST["recordToBook"])) {
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
-	<input type="hidden" name="payment" value="process"/>
+    <input type="hidden" name="payment" id="payment" value="<?php echo $event_ticket_no; ?>"/>
+
+	<input type="hidden" name="payment" id="payment" value="process"/>
     <input type="hidden" name="product_id" id="product_id" value="<?php echo $eventid; ?>">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
     <input type="hidden" name="payer_phonenumber" id="payer_phonenumber" value="<?php echo $phonenumber; ?>">
@@ -317,7 +319,17 @@ if (isset($_POST["recordToBook"])) {
     } else {
 		$("#error3").hide();
 		$("#product_quantity").css("border-color", "#4DC742");
-        $("#product_amount").css("border-color", "#4DC742");
+	}
+
+    var event_ticket_no = $("#event_ticket_no").val();
+	if(event_ticket_no > product_quantity) {
+		$("#error3").show();
+        $("#error3").empty().append("Please enter a quantity.");
+		$("#product_quantity").css("border-color", "#FF5454");
+		hasError  = true;
+    } else {
+		$("#error3").hide();
+		$("#product_quantity").css("border-color", "#4DC742");
 	}
 
 	if(hasError == false) {
