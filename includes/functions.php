@@ -1108,15 +1108,11 @@ function EventsPaypalPaymentSuccess() {
 //EventsQuantityCheck function
 function EventsQuantityCheck () {
 
-	$event_ticket_no = filter_input(INPUT_POST, '$event_ticket_no', FILTER_SANITIZE_STRING);
-	$product_quantity = filter_input(INPUT_POST, '$product_quantity', FILTER_SANITIZE_STRING);
-
+	$event_ticket_no = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
+	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 
 	if ($product_quantity > $event_ticket_no) {
-		header('HTTP/1.0 550 An account with the e-mail address entered already exists1.');
-		exit();
-	} else {
-		header('HTTP/1.0 550 An account with the e-mail address entered already exists1.');
+		header('HTTP/1.0 550 The quantity entered exceeds the amount of tickets that are left. Please check the tickets availability on the Events page.');
 		exit();
 	}
 
