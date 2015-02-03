@@ -321,6 +321,9 @@ if (isset($_POST["recordToBook"])) {
 		$("#product_quantity").css("border-color", "#4DC742");
 	}
 
+    var event_ticket_no = $("#event_ticket_no").val();
+    alert (event_ticket_no);
+
 	if(hasError == false) {
 
 	$("#paycoursefees_form").submit();
