@@ -82,9 +82,9 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Due tasks -->
+	<!-- Event -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom events-toggle">
 
 	<thead>
 	<tr>
@@ -151,9 +151,9 @@ include 'includes/session.php';
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Due tasks -->
+	<!-- Booked events -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom bookedevents-table">
 
 	<thead>
 	<tr>
@@ -319,7 +319,17 @@ include 'includes/session.php';
 	}(jQuery));
 
 	//DataTables
-    $('.bookedevents-table').dataTable({
+    $('.events-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no tasks at the moment."
+		}
+	});
+
+	$('.bookedevents-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
@@ -340,6 +350,7 @@ include 'includes/session.php';
 
 	});
 
+	//Event view/Calendar view toggle
 	$("#calendar-toggle").hide();
 	$(".task-tile").addClass("tile-selected");
 	$(".task-tile p").addClass("tile-text-selected");
@@ -348,8 +359,8 @@ include 'includes/session.php';
 	$("#task-button").click(function (e) {
     e.preventDefault();
 		$("#calendar-toggle").hide();
-		$("#duetasks-toggle").show();
-		$("#completedtasks-toggle").show();
+		$("#events-toggle").show();
+		$("#bookedevents-toggle").show();
 		$(".calendar-tile").removeClass("tile-selected");
 		$(".calendar-tile p").removeClass("tile-text-selected");
 		$(".calendar-tile i").removeClass("tile-text-selected");
@@ -360,8 +371,8 @@ include 'includes/session.php';
 
 	$("#calendar-button").click(function (e) {
     e.preventDefault();
-		$("#duetasks-toggle").hide();
-		$("#completedtasks-toggle").hide();
+		$("#events-toggle").hide();
+		$("#bookedevents-toggle").hide();
 		$("#calendar-toggle").show();
 		$(".task-tile").removeClass("tile-selected");
 		$(".task-tile p").removeClass("tile-text-selected");
