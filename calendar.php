@@ -74,7 +74,7 @@ include 'includes/session.php';
 	<div id="duetasks-toggle" class="panel panel-default">
 
 	<?php
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT taskid FROM user_tasks WHERE userid = '$userid' AND task_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
 	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="/calendar/update-task/" method="POST">
 			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["taskid"].'"/>
@@ -111,7 +111,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks WHERE userid = '$userid' AND task_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 

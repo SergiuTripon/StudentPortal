@@ -44,7 +44,7 @@ include 'includes/session.php';
 	<a id="task-button">
     <div class="tile task-tile">
 	<i class="fa fa-tasks"></i>
-	<p class="tile-text">Event view</p>
+	<p class="tile-text">Events view</p>
     </div>
     </a>
 	</div>
