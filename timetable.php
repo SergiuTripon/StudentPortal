@@ -336,7 +336,7 @@ include 'includes/session.php';
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table id="tutorial-table" class="table table-condensed table-custom">
+	<table class="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -390,7 +390,7 @@ include 'includes/session.php';
 
 	<!-- Tuesday -->
 	<section id="no-more-tables">
-	<table id="tutorial-table" class="table table-condensed table-custom">
+	<table class="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -444,7 +444,7 @@ include 'includes/session.php';
 
 	<!-- Wednesday -->
 	<section id="no-more-tables">
-	<table id="tutorial-table" class="table table-condensed table-custom">
+	<table class="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -498,7 +498,7 @@ include 'includes/session.php';
 
 	<!-- Thursday -->
 	<section id="no-more-tables">
-	<table id="tutorial-table" class="table table-condensed table-custom">
+	<table class="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -552,7 +552,7 @@ include 'includes/session.php';
 
 	<!-- Friday -->
 	<section id="no-more-tables">
-	<table id="tutorial-table" class="table table-condensed table-custom">
+	<table class="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -656,13 +656,13 @@ include 'includes/session.php';
 		}
 	});
 
-    $('#tutorial-table').dataTable({
+    $('.tutorial-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You have no lectures on this day."
+			"emptyTable": "You have no tutorials on this day."
 		}
 	});
 
