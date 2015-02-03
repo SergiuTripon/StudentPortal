@@ -322,8 +322,6 @@ if (isset($_POST["recordToBook"])) {
 	}
 
     var event_quantity = $("#event_quantity").val();
-    var product_quantity = $("#product_quantity").val();
-
     if (product_quantity > event_quantity) {
         $("#error3").show();
         $("#error3").empty().append("Please enter a quantity.");
