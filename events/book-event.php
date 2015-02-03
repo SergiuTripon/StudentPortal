@@ -277,9 +277,6 @@ if (isset($_POST["recordToBook"])) {
 
 	var hasError = false;
 
-    var event_quantity = $("#event_quantity").val();
-    var product_quantity = $("#product_quantity").val();
-
     var payer_address1 = $('#payer_address1').val();
 	if (payer_address1 === '') {
         $("#error1").show();
@@ -322,8 +319,20 @@ if (isset($_POST["recordToBook"])) {
     } else {
 		$("#error3").hide();
 		$("#product_quantity").css("border-color", "#4DC742");
-        $("#product_amount").css("border-color", "#4DC742");
 	}
+
+    var event_quantity = $("#event_quantity").val();
+    var product_quantity = $("#product_quantity").val();
+
+    if (product_quantity > event_quantity) {
+        $("#error3").show();
+        $("#error3").empty().append("Please enter a quantity.");
+        $("#product_quantity").css("border-color", "#FF5454");
+        hasError  = true;
+    } else {
+        $("#error3").hide();
+        $("#product_quantity").css("border-color", "#4DC742");
+    }
 
     if(hasError == false){
 
