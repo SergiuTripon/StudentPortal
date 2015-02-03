@@ -258,15 +258,6 @@ if (isset($_POST["recordToBook"])) {
 	<script>
     $(document).ready(function () {
 
-    $('#product_quantity').keyup(function() {
-        var quantity = $("#product_quantity").val();
-        var price = $("#event_price").val();
-
-        var total = quantity * price;
-
-        $("#product_amount").val(total.toFixed(2)); // sets the total price input to the quantity * price
-    });
-
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
