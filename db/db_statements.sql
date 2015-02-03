@@ -3,11 +3,13 @@ DROP TABLE user_details;
 DROP TABLE user_fees; 
 DROP TABLE user_token; 
 DROP TABLE user_tasks;
-DROP TABLE user_timetable;
-DROP TABLE system_modules;
 DROP TABLE system_lectures;
 DROP TABLE system_tutorials;
+DROP TABLE system_modules;
+DROP TABLE user_timetable;
 DROP TABLE system_exams;
+DROP TABLE system_events;
+DROP TABLE booked_events;
 DROP TABLE user_signin; 
 
 CREATE TABLE `student_portal`.`user_signin` (
