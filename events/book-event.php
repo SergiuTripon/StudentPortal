@@ -257,7 +257,7 @@ if (isset($_POST["recordToBook"])) {
 	<script>
     $(document).ready(function () {
 
-    $('#quantity').keyup(function() {
+    $('#product_quantity').keyup(function() {
         var quantity = $("#product_quantity").val();
         var price = $("#event_price").val();
 
