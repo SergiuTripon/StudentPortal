@@ -5,11 +5,11 @@ if (isset($_POST["recordToBook"])) {
 
     $idToBook = filter_input(INPUT_POST, 'recordToBook', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_from, event_to, event_amount, event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_from, event_to, event_amount FROM system_events WHERE eventid = ? LIMIT 1");
     $stmt1->bind_param('i', $idToBook);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($eventid, $event_name, $event_from, $event_to, $event_amount, $event_ticket_no);
+    $stmt1->bind_result($eventid, $event_name, $event_from, $event_to, $event_amount);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -87,8 +87,6 @@ if (isset($_POST["recordToBook"])) {
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
-    <input type="hidden" name="event_ticket_no" id="event_ticket_no" value="<?php echo $event_ticket_no; ?>">
-
     <input type="hidden" name="payment" id="payment" value="process"/>
     <input type="hidden" name="product_id" id="product_id" value="<?php echo $eventid; ?>">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
@@ -272,8 +270,6 @@ if (isset($_POST["recordToBook"])) {
 
 	var hasError = false;
 
-    var event_ticket_no = $("#event_ticket_no").val();
-
     var payer_address1 = $("#payer_address1").val();
 	if (payer_address1 === '') {
         $("#error1").show();
@@ -318,11 +314,13 @@ if (isset($_POST["recordToBook"])) {
         $("#product_quantity").css("border-color", "#4DC742");
     }
 
+    var eventid = $("#product_id").val();
+
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'event_ticket_no=' + event_ticket_no + '&product_quantity=' + product_quantity,
+    data:'eventid=' + eventid + '&product_quantity=' + product_quantity,
     success:function(msg){
         if (msg == 'error') {
             $("#error").empty().append("The quantity entered exceeds the amount of tickets available.<br>You can check the ticket availability on the Events page.");
