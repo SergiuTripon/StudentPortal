@@ -3,13 +3,13 @@ include 'session.php';
 
 header("Cache-Control: no-cache, must-revalidate");
 
-$sql = 'SELECT taskid, task_name, task_url, task_class, task_startdate, task_duedate FROM user_tasks WHERE userid = "'.$userid.'" AND task_status = "active"';
+$sql = 'SELECT lectureid, lecture_name FROM system_lectures WHERE userid = "'.$userid.'"';
 
 $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);
 
 $out = array();
-foreach($res as $row) 
+foreach($res as $row)
 {
   $out[] = array(
     'id'    => $row->taskid,
