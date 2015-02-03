@@ -314,8 +314,10 @@ if (isset($_POST["recordToBook"])) {
         $("#product_quantity").css("border-color", "#4DC742");
     }
 
+    var product_quantity1 = $("#product_quantity").val();
+
     alert (event_ticket_no);
-    alert(product_quantity);
+    alert(product_quantity1);
 
 	if(hasError == false) {
 
