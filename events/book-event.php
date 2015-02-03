@@ -276,8 +276,6 @@ if (isset($_POST["recordToBook"])) {
 	if(val === '') { $("#payer_firstname").css("border-color", "#FF5454"); }
 	val = $("#payer_surname").val();
 	if(val === '') { $("#payer_surname").css("border-color", "#FF5454"); }
-	val = $("#product_name").val();
-	if(val === '') { $("#product_name").css("border-color", "#FF5454"); }
 	val = $("#payer_address1").val();
 	if(val === '') { $("#payer_address1").css("border-color", "#FF5454"); }
 	val = $("#payer_city").val();
