@@ -325,7 +325,7 @@ if (isset($_POST["recordToBook"])) {
     data:'event_ticket_no=' + event_ticket_no + '&product_quantity=' + product_quantity,
     success:function(msg){
         if (msg == 'error') {
-            $("#error").empty().append("The quantity entered exceeds the amount of tickets available.<br>You can check the tickets availability on the Events page.");
+            $("#error").empty().append("The quantity entered exceeds the amount of tickets available.<br>You can check the ticket availability on the Events page.");
         } else {
             $("#paycoursefees_form").submit();
         }
