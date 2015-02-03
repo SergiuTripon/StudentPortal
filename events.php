@@ -235,6 +235,46 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
+	<script>
+	(function($) {
+
+	"use strict";
+
+	var options = {
+		events_source: '../../includes/events_json.php',
+		view: 'month',
+		tmpl_path: '../assets/tmpls/',
+		tmpl_cache: false,
+		onAfterViewLoad: function(view) {
+			$('.page-header h3').text(this.getTitle());
+			$('.btn-group button').removeClass('active');
+			$('button[data-calendar-view="' + view + '"]').addClass('active');
+		},
+		classes: {
+			months: {
+				general: 'label'
+			}
+		}
+	};
+
+	var calendar = $('#calendar').calendar(options);
+
+	$('.btn-group button[data-calendar-nav]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.navigate($this.data('calendar-nav'));
+		});
+	});
+
+	$('.btn-group button[data-calendar-view]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.view($this.data('calendar-view'));
+		});
+	});
+	}(jQuery));
+	</script>
+
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
     $('.table-custom').dataTable({
