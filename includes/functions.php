@@ -1118,10 +1118,6 @@ function EventsQuantityCheck () {
 		header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
 		exit();
 		$stmt3->close();
-	} else {
-		header('HTTP/1.0 550 The quantity entered exceeds the amount of tickets that are left. Please check the tickets availability on the Events page.');
-		exit();
-		$stmt1->close();
 	}
 
 }
