@@ -325,7 +325,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no tasks at the moment."
+			"emptyTable": "There are no events at the moment."
 		}
 	});
 
@@ -335,7 +335,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no tasks at the moment."
+			"emptyTable": "You haven't booked any events."
 		}
 	});
 
