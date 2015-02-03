@@ -309,6 +309,7 @@ if (isset($_POST["recordToBook"])) {
         $("#error3").empty().append("Please enter a quantity.");
         $("#product_quantity").css("border-color", "#FF5454");
         hasError  = true;
+        return false;
     } else {
         $("#error3").hide();
         $("#product_quantity").css("border-color", "#4DC742");
