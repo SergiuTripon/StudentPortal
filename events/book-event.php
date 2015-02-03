@@ -61,8 +61,8 @@ if (isset($_POST["recordToBook"])) {
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../account/">Account</a></li>
-    <li class="active">Event</li>
+	<li><a href="../../events/">Events</a></li>
+    <li class="active">Book event</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
