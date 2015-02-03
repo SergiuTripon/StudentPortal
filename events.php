@@ -126,7 +126,7 @@ include 'includes/session.php';
 			<td data-title="Price">'.$row["event_amount"].'</td>
 			<td data-title="Tickets">'.$row["event_ticket_no"].'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td data-title="Book"><a id="book-'.$row["eventid"].'" class="update-button"><i class="fa fa-gbp"></i></a></td>
+			<td data-title="Book"><a id="book-'.$row["eventid"].'" class="book-button"><i class="fa fa-gbp"></i></a></td>
 			</tr>';
 	}
 
