@@ -9,7 +9,7 @@ if (isset($_POST["recordToBook"])) {
     $stmt1->bind_param('i', $idToBook);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($eventid, $event_name, $event_from, $event_to, $event_price);
+    $stmt1->bind_result($eventid, $event_name, $event_from, $event_to, $event_amount);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -114,7 +114,7 @@ if (isset($_POST["recordToBook"])) {
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Amount due (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_price; ?>" placeholder="Amount" readonly="readonly">
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
     </div>
     </div>
 
