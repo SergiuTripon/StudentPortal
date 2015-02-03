@@ -1011,19 +1011,96 @@ function CompleteTask() {
 //EventsPaypalPaymentSuccess function
 
 //PaypalPaymentSuccess function
-function EventsPaypalPaymentSuccess () {
+function EventsPaypalPaymentSuccess() {
 
 	global $mysqli;
-	global $userid;
+	global $newquantity;
+	global $updated_on;
 	global $created_on;
+	global $completed_on;
 
-	$product_id = $_POST["item_number1"];
+	$item_number1 = $_POST["item_number1"];
+	$quantity1 = $_POST["quantity1"];
 	$product_name = $_POST["item_name1"];
 	$product_amount = $_POST["mc_gross"];
-	$tickets_quantity  = $_POST["quantity1"];
 
-	$stmt2 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, tickets_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('iisiis', $userid, $product_id, $product_name, $product_amount, $tickets_quantity, $created_on);
+	$invoice_id = $_POST["invoice"];
+	$transaction_id  = $_POST["txn_id"];
+
+	$payment_status = strtolower($_POST["payment_status"]);
+	$payment_status1 = ($_POST["payment_status"]);
+	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
+
+	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
+	$stmt1->bind_param('i', $invoice_id);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($userid);
+	$stmt1->fetch();
+	$stmt1->close();
+
+	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_fees.isHalf FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $userid);
 	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($email, $firstname, $surname);
+	$stmt2->fetch();
 	$stmt2->close();
+
+	$stmt3 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, tickets_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt3->bind_param('iisiis', $userid, $item_number1, $product_name, $product_amount, $quantity1, $created_on);
+	$stmt3->execute();
+	$stmt3->close();
+
+	$stmt4 = $mysqli->prepare("SELECT event_ticket_no from system_events where eventid = ?");
+	$stmt4->bind_param('i', $item_number1);
+	$stmt4->execute();
+	$stmt4->store_result();
+	$stmt4->bind_result($event_ticket_no);
+	$stmt4->fetch();
+	$stmt4->close();
+
+	$newquantity = $event_ticket_no - $quantity1;
+
+	$stmt5 = $mysqli->prepare("UPDATE system_events SET event_ticket_no=? WHERE eventid =?");
+	$stmt5->bind_param('ii', $newquantity, $eventid);
+	$stmt5->execute();
+	$stmt5->close();
+
+	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
+	$stmt5->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
+	$stmt5->execute();
+	$stmt5->close();
+
+	// subject
+	$subject = 'Payment confirmation';
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
+	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $invoice_id</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Transaction ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $transaction_id</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $product_name</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Amount paid (&pound;):</strong> </td><td style=\"border: 1px solid #FFA500;\"> &pound;$product_amount</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment time and date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $payment_date</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $payment_status1</td></tr>";
+	$message .= '</table>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+	// Mail it
+	mail($email, $subject, $message, $headers);
 }
