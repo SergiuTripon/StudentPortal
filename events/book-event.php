@@ -329,8 +329,7 @@ if (isset($_POST["recordToBook"])) {
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'&product_id=' + product_id + 'product_quantity=' + product_quantity,
     success:function(){
-        $("#error").show();
-        $("#error").empty().append('Hello.');
+
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
