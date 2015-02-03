@@ -309,21 +309,13 @@ if (isset($_POST["recordToBook"])) {
         $("#error3").empty().append("Please enter a quantity.");
         $("#product_quantity").css("border-color", "#FF5454");
         hasError  = true;
-        return false;
     } else {
         $("#error3").hide();
         $("#product_quantity").css("border-color", "#4DC742");
     }
 
-    if(product_quantity === '') {
-        $("#error3").show();
-        $("#error3").empty().append("Please enter a quantity.");
-        $("#product_quantity").css("border-color", "#FF5454");
-        hasError  = true;
-    } else {
-        $("#error3").hide();
-        $("#product_quantity").css("border-color", "#4DC742");
-    }
+    alert (event_ticket_no);
+    alert(product_quantity);
 
 	if(hasError == false) {
 
