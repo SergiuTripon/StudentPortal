@@ -1108,7 +1108,7 @@ function EventsPaypalPaymentSuccess() {
 //EventsQuantityCheck function
 function EventsQuantityCheck () {
 
-	$event_ticket_no = filter_input(INPUT_POST, '$product_quantity', FILTER_SANITIZE_STRING);
+	$event_ticket_no = filter_input(INPUT_POST, '$event_ticket_no', FILTER_SANITIZE_STRING);
 	$product_quantity = filter_input(INPUT_POST, '$product_quantity', FILTER_SANITIZE_STRING);
 
 
