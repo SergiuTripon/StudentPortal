@@ -158,6 +158,7 @@ if (isset($_POST["recordToBook"])) {
     <input class="form-control" type="text" name="product_quantity" id="product_quantity" placeholder="Quantity">
     </div>
     </div>
+    <p id="error3" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -298,7 +299,6 @@ if (isset($_POST["recordToBook"])) {
         $("#error1").empty().append("Please enter the first line of an address.");
 		$("#payer_address1").css("border-color", "#FF5454");
 		hasError  = true;
-		return false;
 	} else {
 		$("#error1").hide();
 		$("#payer_address1").css("border-color", "#4DC742");
@@ -310,7 +310,6 @@ if (isset($_POST["recordToBook"])) {
         $("#error1").empty().append("Please enter a city.");
 		$("#payer_city").css("border-color", "#FF5454");
 		hasError  = true;
-		return false;
     } else {
 		$("#error1").hide();
 		$("#payer_city").css("border-color", "#4DC742");
@@ -322,10 +321,20 @@ if (isset($_POST["recordToBook"])) {
         $("#error2").empty().append("Please enter a postcode.");
 		$("#payer_postcode").css("border-color", "#FF5454");
 		hasError  = true;
-		return false;
     } else {
 		$("#error2").hide();
 		$("#payer_postcode").css("border-color", "#4DC742");
+	}
+
+    var product_quantity = $("#product_quantity").val();
+	if(product_quantity === '') {
+		$("#error3").show();
+        $("#error3").empty().append("Please enter a quantity.");
+		$("#product_quantity").css("border-color", "#FF5454");
+		hasError  = true;
+    } else {
+		$("#error3").hide();
+		$("#product_quantity").css("border-color", "#4DC742");
 	}
 
 	if(hasError == false) {
