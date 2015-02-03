@@ -65,7 +65,7 @@ include 'includes/session.php';
 	<div id="duetasks-toggle" class="panel panel-default">
 
 	<?php
-	$stmt2 = $mysqli->query("SELECT eventid FROM system_events");
+	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
 	  echo '<form id="book-event-form-'.$row["eventid"].'" style="display: none;" action="/events/book-event/" method="POST">
 			<input type="hidden" name="recordToBook" id="recordToBook" value="'.$row["eventid"].'"/>
