@@ -1031,7 +1031,7 @@ function EventsPaypalPaymentSuccess() {
 	$payment_status1 = ($_POST["payment_status"]);
 	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
 
-	$stmt1 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt1 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, tickets_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
 	$stmt1->bind_param('iisiis', $userid, $item_number1, $product_name, $product_amount, $quantity1, $created_on);
 	$stmt1->execute();
 	$stmt1->close();
