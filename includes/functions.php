@@ -1014,28 +1014,47 @@ function CompleteTask() {
 function EventsPaypalPaymentSuccess() {
 
 	global $mysqli;
+	global $newquantity;
 	global $updated_on;
+	global $created_on;
 	global $completed_on;
 
-	$transaction_id  = $_POST["txn_id"];
-	$payment_status = strtolower($_POST["payment_status"]);
-	$payment_status1 = ($_POST["payment_status"]);
-	$invoice_id = $_POST["invoice"];
+	$item_number1 = $_POST["item_number1"];
 	$quantity1 = $_POST["quantity1"];
-	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
-
 	$product_name = $_POST["item_name1"];
 	$product_amount = $_POST["mc_gross"];
 
-	$stmt1 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, ticket_quantity, booked_on) VALUES (?, ?, ?, ?)");
-	$stmt1->bind_param('iisiis', $userid, $eventid, $event_name, $event_amount, $tickets_quantity, $created_on);
+	$invoice_id = $_POST["invoice"];
+	$transaction_id  = $_POST["txn_id"];
+
+	$payment_status = strtolower($_POST["payment_status"]);
+	$payment_status1 = ($_POST["payment_status"]);
+	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
+
+	$stmt1 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt1->bind_param('iisiis', $userid, $item_number1, $product_name, $product_amount, $quantity1, $created_on);
 	$stmt1->execute();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
-	$stmt2->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
+	$stmt2 = $mysqli->prepare("SELECT event_ticket_no from system_events where eventid = ?");
+	$stmt2->bind_param('i', $item_number1);
 	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($event_ticket_no);
+	$stmt2->fetch();
 	$stmt2->close();
+
+	$newquantity = $event_ticket_no - $quantity1;
+
+	$stmt3 = $mysqli->prepare("UPDATE system_events SET event_ticket_no=? WHERE eventid =?");
+	$stmt3->bind_param('ii', $newquantity, $eventid);
+	$stmt3->execute();
+	$stmt3->close();
+
+	$stmt4 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
+	$stmt4->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
+	$stmt4->execute();
+	$stmt4->close();
 
 	// subject
 	$subject = 'Payment confirmation';

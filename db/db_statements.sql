@@ -85,6 +85,7 @@ CREATE TABLE `student_portal`.`paypal_log` (
 	`payer_city` VARCHAR(70) NOT NULL,
 	`payer_country` VARCHAR(70),
 	`payer_postcode` VARCHAR(70) NOT NULL,
+	`payment_type` VARCHAR(5) NOT NULL,
 	`payment_status` VARCHAR(9) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
