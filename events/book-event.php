@@ -88,7 +88,7 @@ if (isset($_POST["recordToBook"])) {
 
 	<!-- Hidden fields -->
 	<input type="hidden" name="payment" value="process"/>
-    <input type="hidden" name="product_id" id="product_id" value="1">
+    <input type="hidden" name="product_id" id="product_id" value="<?php echo $eventid; ?>">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
     <input type="hidden" name="payer_phonenumber" id="payer_phonenumber" value="<?php echo $phonenumber; ?>">
     <input type="hidden" name="payer_address2" id="payer_address2" value="<?php echo $address2; ?>">
