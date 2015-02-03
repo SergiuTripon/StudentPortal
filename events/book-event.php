@@ -254,7 +254,7 @@ if (isset($_POST["recordToBook"])) {
     $(document).ready(function () {
 
     $('#product_quantity').keyup(function() {
-        if (product_quantity === '') {
+        if ($(this) === '') {
             product_quantity.val('0');
         }
     }
