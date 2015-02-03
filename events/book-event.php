@@ -324,14 +324,15 @@ if (isset($_POST["recordToBook"])) {
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'event_ticket_no=' + event_ticket_no + '&product_quantity=' + product_quantity,
     success:function(msg){
-        if (msg == 'ERROR') {
-            $("#error").empty().append("Please enter a postcode.");
+        if (msg == 'error') {
+            $("#error").empty().append(msg);
         } else {
             $("#paycoursefees_form").submit();
         }
     },
     error:function (xhr, ajaxOptions, thrownError){
-
+        $("#error").show();
+        $("#error").empty().append(thrownError);
     }
 	});
     }
