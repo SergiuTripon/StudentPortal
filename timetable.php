@@ -336,7 +336,7 @@ include 'includes/session.php';
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table class="tutorial-table" class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom tutorial-table">
 
 	<thead>
 	<tr>
@@ -390,7 +390,7 @@ include 'includes/session.php';
 
 	<!-- Tuesday -->
 	<section id="no-more-tables">
-	<table class="tutorial-table" class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom tutorial-table">
 
 	<thead>
 	<tr>
@@ -444,7 +444,7 @@ include 'includes/session.php';
 
 	<!-- Wednesday -->
 	<section id="no-more-tables">
-	<table class="tutorial-table" class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom tutorial-table">
 
 	<thead>
 	<tr>
@@ -498,7 +498,7 @@ include 'includes/session.php';
 
 	<!-- Thursday -->
 	<section id="no-more-tables">
-	<table class="tutorial-table" class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom tutorial-table">
 
 	<thead>
 	<tr>
@@ -552,7 +552,7 @@ include 'includes/session.php';
 
 	<!-- Friday -->
 	<section id="no-more-tables">
-	<table class="tutorial-table" class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom tutorial-table">
 
 	<thead>
 	<tr>
