@@ -85,7 +85,7 @@ switch($payment){
 		//$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
 	break;
 
-	}
+		}
 
 	case "success": // success case to show the user payment got success
 
