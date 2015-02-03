@@ -20,7 +20,7 @@ include 'includes/session.php';
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
-    <title>Student Portal | Calendar</title>
+    <title>Student Portal | Events</title>
 
 </head>
 
@@ -40,25 +40,16 @@ include 'includes/session.php';
 
 	<div class="row mb10">
 
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a href="/calendar/create-task/">
-    <div class="tile">
-    <i class="fa fa-plus"></i>
-	<p class="tile-text">Create a task</p>
-    </div>
-    </a>
-	</div>
-
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
 	<a id="task-button">
     <div class="tile task-tile">
 	<i class="fa fa-tasks"></i>
-	<p class="tile-text">Task view</p>
+	<p class="tile-text">Event view</p>
     </div>
     </a>
 	</div>
 
-	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
 	<a id="calendar-button">
 	<div class="tile calendar-tile">
     <i class="fa fa-calendar"></i>
@@ -74,10 +65,10 @@ include 'includes/session.php';
 	<div id="duetasks-toggle" class="panel panel-default">
 
 	<?php
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, task_status FROM user_tasks where userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT eventid FROM system_events where userid = '$userid'");
 	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="/calendar/update-task/" method="POST">
-			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["taskid"].'"/>
+	  echo '<form id="book-event-form-'.$row["eventid"].'" style="display: none;" action="/events/book-event/" method="POST">
+			<input type="hidden" name="recordToBook" id="recordToBook" value="'.$row["eventid"].'"/>
 			</form>';
 	}
 	$stmt2->close();
@@ -85,7 +76,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Due tasks - click to minimize or maximize</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Events - click to minimize or maximize</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -287,41 +278,13 @@ include 'includes/session.php';
 		}
 	});
 
-	$("body").on("click", ".complete-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-    var myData = 'recordToComplete='+ DbNumberID;
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:myData,
-	success:function(response){
-		$('#task-'+DbNumberID).fadeOut();
-		setTimeout(function(){
-			location.reload();
-		}, 1000);
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-
-    });
-
-	$("body").on("click", ".update-button", function(e) {
+	$("body").on("click", ".book-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
     var DbNumberID = clickedID[1];
 
-	$("#update-task-form-" + DbNumberID).submit();
+	$("#book-event-form-" + DbNumberID).submit();
 
 	});
 
