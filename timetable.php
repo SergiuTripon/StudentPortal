@@ -73,9 +73,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Monday' LIMIT 1");
+	$stmt2 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Monday' LIMIT 1");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt2->fetch_assoc()) {
 
 	echo '<tr>
 
@@ -88,7 +88,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt2->close();
 	?>
 	</tbody>
 
@@ -127,9 +127,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Tuesday' LIMIT 1");
+	$stmt2 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Tuesday' LIMIT 1");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt2->fetch_assoc()) {
 
 	echo '<tr>
 
@@ -142,7 +142,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt2->close();
 	?>
 	</tbody>
 
@@ -181,9 +181,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Wednesday' LIMIT 1");
+	$stmt3 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Wednesday' LIMIT 1");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt3->fetch_assoc()) {
 
 	echo '<tr>
 
@@ -196,7 +196,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt3->close();
 	?>
 	</tbody>
 
@@ -235,9 +235,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Thursday' LIMIT 1");
+	$stmt4 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Thursday' LIMIT 1");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt4->fetch_assoc()) {
 
 	echo '<tr>
 
@@ -250,7 +250,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt4->close();
 	?>
 	</tbody>
 
@@ -289,9 +289,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Friday' LIMIT 1");
+	$stmt5 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Friday' LIMIT 1");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt5->fetch_assoc()) {
 
 	echo '<tr>
 
@@ -304,7 +304,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt5->close();
 	?>
 	</tbody>
 
@@ -352,9 +352,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Monday' LIMIT 1");
+	$stmt6 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Monday' LIMIT 1");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt6->fetch_assoc()) {
 
 	echo '<tr>
 
@@ -367,7 +367,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt6->close();
 	?>
 	</tbody>
 
@@ -406,9 +406,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Tuesday' LIMIT 1");
+	$stmt7 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Tuesday' LIMIT 1");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt7->fetch_assoc()) {
 
 	echo '<tr>
 
@@ -421,7 +421,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt7->close();
 	?>
 	</tbody>
 
@@ -460,9 +460,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Wednesday' LIMIT 1");
+	$stmt8 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Wednesday' LIMIT 1");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt8->fetch_assoc()) {
 
 	echo '<tr>
 
@@ -475,7 +475,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt8->close();
 	?>
 	</tbody>
 
@@ -514,9 +514,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Thursday' LIMIT 1");
+	$stmt9 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Thursday' LIMIT 1");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt9->fetch_assoc()) {
 
 	echo '<tr>
 
@@ -529,7 +529,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt9->close();
 	?>
 	</tbody>
 
@@ -568,9 +568,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Friday' LIMIT 1");
+	$stmt10 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Friday' LIMIT 1");
 
-	if ($stmt1->num_rows == 0) {
+	if ($stmt10->num_rows == 0) {
 		$nolectures = 'You have no lectures on this day!';
 	}
 
@@ -587,7 +587,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt10->close();
 	?>
 	</tbody>
 
