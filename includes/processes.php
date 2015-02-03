@@ -86,3 +86,10 @@ elseif (isset($_POST['taskid'], $_POST['task_name1'], $_POST['task_notes1'], $_P
 elseif (isset($_POST["recordToComplete"])) {
 	CompleteTask();
 }
+
+/////////////////////////////////////////////////////////////
+
+//Call EventsQuantityCheck function
+elseif (isset($_POST["product_id"], $_POST["product_quantity"])) {
+	EventsQuantityCheck();
+}

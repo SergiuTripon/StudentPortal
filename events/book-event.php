@@ -84,16 +84,10 @@ if (isset($_POST["recordToBook"])) {
 
     <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
-    <?php
-    if (!empty($error_msg)) {
-        echo $error_msg;
-    }
-    ?>
-
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
-	<input type="hidden" name="payment" value="process"/>
+	<input type="hidden" name="payment" id="payment" value="process"/>
     <input type="hidden" name="product_id" id="product_id" value="<?php echo $eventid; ?>">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
     <input type="hidden" name="payer_phonenumber" id="payer_phonenumber" value="<?php echo $phonenumber; ?>">
@@ -281,6 +275,9 @@ if (isset($_POST["recordToBook"])) {
 
 	var hasError = false;
 
+    var product_id = $("#product_id").val();
+    var product_quantity = $("#product_quantity").val();
+
     var payer_address1 = $('#payer_address1').val();
 	if (payer_address1 === '') {
         $("#error1").show();
@@ -326,10 +323,19 @@ if (isset($_POST["recordToBook"])) {
         $("#product_amount").css("border-color", "#4DC742");
 	}
 
-	if(hasError == false) {
-
-	$("#paycoursefees_form").submit();
-
+    if(hasError == false){
+    jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'&product_id=' + product_id + 'product_quantity=' + product_quantity,
+    success:function(){
+        $("#paycoursefees_form").submit();
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+        $("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
     }
 
 	return true;

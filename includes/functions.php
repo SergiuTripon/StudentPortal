@@ -1104,3 +1104,26 @@ function EventsPaypalPaymentSuccess() {
 	// Mail it
 	mail($email, $subject, $message, $headers);
 }
+
+//EventsQuantityCheck function
+function EventsQuantityCheck () {
+
+	global $mysqli;
+
+	$product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_NUMBER_INT);
+	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_NUMBER_INT);
+
+	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
+	$stmt1->bind_param('i', $product_id);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($event_ticket_no);
+	$stmt1->fetch();
+
+	if ($product_quantity > $event_ticket_no) {
+		header('HTTP/1.0 550 The quantity entered exceeds the amount of tickets that are left. Please check the tickets availability on the Events page.');
+		exit();
+		$stmt1->close();
+	}
+
+}
