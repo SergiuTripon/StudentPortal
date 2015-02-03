@@ -268,8 +268,6 @@ if (isset($_POST["recordToBook"])) {
 	if(val === '') { $("#payer_postcode").css("border-color", "#FF5454"); }
     val = $("#product_quantity").val();
     if(val === '') { $("#product_quantity").css("border-color", "#FF5454"); }
-    val = $("#product_amount").val();
-    if(val === '') { $("#product_amount").css("border-color", "#FF5454"); }
 
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
