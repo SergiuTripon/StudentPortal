@@ -1017,13 +1017,13 @@ function EventsPaypalPaymentSuccess () {
 	global $userid;
 	global $created_on;
 
-	$eventid = $_POST["item_number1"];
-	$event_name = $_POST["item_name1"];
-	$event_amount = $_POST["mc_gross"];
+	$product_id = $_POST["item_number1"];
+	$product_name = $_POST["item_name1"];
+	$product_amount = $_POST["mc_gross"];
 	$tickets_quantity  = $_POST["quantity1"];
 
 	$stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, eventid, event_name, event_amount, tickets_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('iisiis', $userid, $eventid, $event_name, $event_amount, $tickets_quantity, $created_on);
+	$stmt2->bind_param('iisiis', $userid, $product_id, $product_name, $product_amount, $tickets_quantity, $created_on);
 	$stmt2->execute();
 	$stmt2->close();
 }
