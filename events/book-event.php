@@ -282,6 +282,10 @@ if (isset($_POST["recordToBook"])) {
 	if(val === '') { $("#payer_city").css("border-color", "#FF5454"); }
 	val = $("#payer_postcode").val();
 	if(val === '') { $("#payer_postcode").css("border-color", "#FF5454"); }
+    val = $("#product_quantity").val();
+    if(val === '') { $("#product_quantity").css("border-color", "#FF5454"); }
+    val = $("#product_amount").val();
+    if(val === '') { $("#product_amount").css("border-color", "#FF5454"); }
 
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
@@ -331,6 +335,7 @@ if (isset($_POST["recordToBook"])) {
     } else {
 		$("#error3").hide();
 		$("#product_quantity").css("border-color", "#4DC742");
+        $("#product_amount").css("border-color", "#4DC742");
 	}
 
 	if(hasError == false) {
