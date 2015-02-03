@@ -1037,7 +1037,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->execute();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("SELECT event_ticket_no from system_events where eventid = ?");
+	$stmt2 = $mysqli->prepare("SELECT event_ticket_no from system_events WHERE eventid = ? LIMIT 1");
 	$stmt2->bind_param('i', $item_number1);
 	$stmt2->execute();
 	$stmt2->store_result();
@@ -1056,6 +1056,14 @@ function EventsPaypalPaymentSuccess() {
 	$stmt4->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
 	$stmt4->execute();
 	$stmt4->close();
+
+	$stmt5 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt5->bind_param('i', $userid);
+	$stmt5->execute();
+	$stmt5->store_result();
+	$stmt5->bind_result($email, $firstname, $surname);
+	$stmt5->fetch();
+	$stmt5->close();
 
 	// subject
 	$subject = 'Payment confirmation';

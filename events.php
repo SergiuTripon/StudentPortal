@@ -107,7 +107,7 @@ include 'includes/session.php';
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$url = $row["task_url"];
+	$url = $row["event_url"];
 	$event_category = ucfirst($row["event_category"]);
 
 	if (!empty($row["event_url"])) {
