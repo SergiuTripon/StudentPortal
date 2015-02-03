@@ -111,7 +111,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE task_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -147,68 +147,6 @@ include 'includes/session.php';
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
-
-	<div id="completedtasks-toggle" class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Complete tasks - click to minimize or maximize</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<!-- Completed tasks -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>External URL</th>
-	<th>Start</th>
-	<th>Due</th>
-	<th>Category</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
-
-	while($row = $stmt2->fetch_assoc()) {
-
-	$url = $row["task_url"];
-	$task_category = ucfirst($row["task_category"]);
-
-	if (!empty($row["task_url"])) {
-		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
-	} else {
-		$url1 = "";
-	}
-
-	echo '<tr id="task-'.$row["taskid"].'">
-
-	<td data-title="Name">'.$row["task_name"].'</td>
-	<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-	<td class="url-hide" data-title="External URL">'.$url1.'</td>
-	<td data-title="Start date">'.$row["task_startdate"].'</td>
-	<td data-title="Due date">'.$row["task_duedate"].'</td>
-	<td data-title="Category">'.$task_category.'</td>
-	</tr>';
-	}
-
-	$stmt2->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-  	</div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
 

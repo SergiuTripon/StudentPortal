@@ -192,6 +192,43 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
+CREATE TABLE `student_portal`.`system_events` (
+	`eventid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	`event_name` VARCHAR(70) NOT NULL,
+	`event_notes` VARCHAR(5000),
+	`event_url` VARCHAR(70),
+	`event_class` VARCHAR(15) NOT NULL,
+	`event_from` DATETIME NOT NULL,
+	`event_to` DATETIME NOT NULL,
+	`event_amount` NUMERIC(15,2) NOT NULL,
+	`event_ticket_no` INT(11) NOT NULL,
+	`event_category` VARCHAR(10) NOT NULL,
+	`event_status` VARCHAR(10) NOT NULL,
+	`created_on` DATETIME NOT NULL,
+	`updated_on` DATETIME
+) ENGINE = InnoDB;
+
+CREATE TABLE `student_portal`.`booked_events` (
+	`userid` INT(11) NOT NULL,
+	`eventid` INT(11) NOT NULL,
+	`event_name` VARCHAR(300) NOT NULL,
+	`event_amount` NUMERIC(15,2) NOT NULL,
+	`tickets_quantity` VARCHAR(11) NOT NULL,
+	`booked_on` DATETIME NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
+FOREIGN KEY (eventid)
+REFERENCES system_events(eventid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Events dummy data
+INSERT INTO `system_events`(`eventid`, `event_name`, `event_notes`, `event_url`, `event_class`, `event_from`, `event_to`, `event_amount`, `event_ticket_no`, `event_category`, `event_status`, `created_on`, `updated_on`) VALUES (1,'City Careers','','','event-important','2015-03-02 16:00:00','2015-03-02 19:00:00','10.00','50','Careers','active','0000-00-00 0000:00:00','');
+
+
+
+#Timetable dummy data
 INSERT INTO `system_modules`(`moduleid`, `module_name`, `module_notes`, `module_url`, `module_status`, `created_on`, `updated_on`) VALUES ('1','Theory of Computation','','','active','0000-00-00 00:00:00','');
 INSERT INTO `system_lectures`(`moduleid`,`lectureid`, `lecture_name`, `lecture_notes`, `lecture_day`, `lecture_from_time`, `lecture_to_time`, `lecture_from_date`, `lecture_to_date`, `lecture_location`, `lecture_capacity`, `lecture_status`, `created_on`, `updated_on`) VALUES ('1','1','Theory of Computation - Lecture', '','Monday','15:00:00', '17:00:00', '2015-02-01','2015-03-01','Great Hall', '150','active','0000-00-00 00:00:00','');
 INSERT INTO `system_tutorials`(`moduleid`, `tutorialid`, `tutorial_name`, `tutorial_notes`, `tutorial_day`, `tutorial_from_time`, `tutorial_to_time`, `tutorial_from_date`, `tutorial_to_date`, `tutorial_location`, `tutorial_capacity`, `tutorial_status`, `created_on`, `updated_on`) VALUES ('1','1','Theory of Computation - Tutorial','','Tuesday','11:00:00','13:00:00','2015-02-01','2015-03-01', 'EG12', '30','active','0000-00-00 0000:00:00','');
@@ -204,7 +241,7 @@ LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid
 LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid
 WHERE user_timetable.userid = 1 AND system_lectures.lecture_day = 'Monday' AND system_tutorials.tutorial_day <> 'Tuesday';
 
-
+#User dummy data
 INSERT INTO `user_signin`(`userid`, `account_type`, `email`, `password`, `created_on`) VALUES ('1', 'admin', 'admin@student-portal.co.uk', '$2y$10$2UOneiOEmmi6kI4DG0di4u2/8oOsdpYDRsc8XzoM2.nKx3ZErPjEe', '0000-00-00 00:00:00');
 INSERT INTO `user_fees`(`userid`, `fee_amount`, `created_on`) VALUES ('1', '0.00', '0000-00-00 00:00:00');
 INSERT INTO `user_details`(`userid`, `studentno`, `firstname`, `surname`, `gender`, `dateofbirth`, `phonenumber`, `degree`, `address1`, `address2`, `town`, `city`, `country`, `postcode`, `created_on`) VALUES ('1','1','Admin','strator', 'male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00');
