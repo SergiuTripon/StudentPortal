@@ -3,7 +3,7 @@ include 'session.php';
 
 header("Cache-Control: no-cache, must-revalidate");
 
-$sql = 'SELECT lectureid, lecture_name FROM system_lectures WHERE userid = "'.$userid.'"';
+$sql = 'SELECT lectureid, lecture_name FROM system_lectures WHERE moduleid = 1 ';
 
 $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);
