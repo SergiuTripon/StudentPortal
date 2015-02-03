@@ -45,7 +45,7 @@ include 'includes/session.php';
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="duetasks-toggle" class="panel panel-default">
+	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
@@ -99,7 +99,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div id="duetasks-toggle" class="panel panel-default">
+    <div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
@@ -153,7 +153,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div id="duetasks-toggle" class="panel panel-default">
+    <div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
@@ -207,7 +207,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div id="duetasks-toggle" class="panel panel-default">
+    <div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingFour">
   	<h4 class="panel-title">
@@ -261,7 +261,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div id="duetasks-toggle" class="panel panel-default">
+    <div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingFive">
   	<h4 class="panel-title">
@@ -319,12 +319,12 @@ include 'includes/session.php';
 
     <br>
 
-    <h3 class="feedback-custom">Modules</h3>
+    <h3 class="feedback-custom">Tutorials</h3>
     <hr class="hr-thin">
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="duetasks-toggle" class="panel panel-default">
+	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingSix">
   	<h4 class="panel-title">
@@ -336,7 +336,7 @@ include 'includes/session.php';
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -378,7 +378,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-   	<div id="duetasks-toggle" class="panel panel-default">
+   	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingSeven">
   	<h4 class="panel-title">
@@ -390,7 +390,7 @@ include 'includes/session.php';
 
 	<!-- Tuesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -432,7 +432,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div id="duetasks-toggle" class="panel panel-default">
+    <div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingEight">
   	<h4 class="panel-title">
@@ -444,7 +444,7 @@ include 'includes/session.php';
 
 	<!-- Wednesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -486,7 +486,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div id="duetasks-toggle" class="panel panel-default">
+    <div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingNine">
   	<h4 class="panel-title">
@@ -498,7 +498,7 @@ include 'includes/session.php';
 
 	<!-- Thursday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -540,7 +540,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div id="duetasks-toggle" class="panel panel-default">
+    <div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingTen">
   	<h4 class="panel-title">
@@ -552,7 +552,7 @@ include 'includes/session.php';
 
 	<!-- Friday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="tutorial-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -644,6 +644,8 @@ include 'includes/session.php';
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
+
+	//DataTables
     $('#lecture-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
@@ -653,13 +655,18 @@ include 'includes/session.php';
 			"emptyTable": "You have no lectures on this day."
 		}
 	});
-    });
-	</script>
 
-	<script>
+    $('#tutorial-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "You have no lectures on this day."
+		}
+	});
 
-	$(document).ready(function() {
-
+	//Ajax call
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
 
