@@ -64,7 +64,7 @@ class paypal_class {
 	// is redirected to paypal.
 	public function submit_paypal_post() {
 
-		$paypal_url = ($_GET['sandbox'] == 1) ? SSL_SAND_URL : SSL_P_URL;
+		$paypal_url = SSL_SAND_URL;
 		echo "<html>\n";
 		echo "<head>";
 
