@@ -1062,8 +1062,8 @@ function EventsPaypalPaymentSuccess() {
 
 	$newquantity = $event_ticket_no - $quantity1;
 
-	$stmt5 = $mysqli->prepare("UPDATE system_events SET event_ticket_no=? WHERE eventid =?");
-	$stmt5->bind_param('ii', $newquantity, $eventid);
+	$stmt5 = $mysqli->prepare("UPDATE system_events SET event_ticket_no=? WHERE eventid=?");
+	$stmt5->bind_param('ii', $newquantity, $item_number1);
 	$stmt5->execute();
 	$stmt5->close();
 
