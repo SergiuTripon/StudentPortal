@@ -1113,7 +1113,10 @@ function EventsQuantityCheck () {
 
 
 	if ($product_quantity > $event_ticket_no) {
-		header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
+		header('HTTP/1.0 550 An account with the e-mail address entered already exists1.');
+		exit();
+	} else {
+		header('HTTP/1.0 550 An account with the e-mail address entered already exists1.');
 		exit();
 	}
 
