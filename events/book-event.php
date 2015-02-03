@@ -82,12 +82,12 @@ if (isset($_POST["recordToBook"])) {
 	<!-- Pay course fees -->
 	<div class="content-panel" style="border: none;">
 
-    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
-	<input type="hidden" name="payment" id="payment" value="process"/>
+	<input type="hidden" name="payment" value="process"/>
     <input type="hidden" name="product_id" id="product_id" value="<?php echo $eventid; ?>">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
     <input type="hidden" name="payer_phonenumber" id="payer_phonenumber" value="<?php echo $phonenumber; ?>">
@@ -275,21 +275,6 @@ if (isset($_POST["recordToBook"])) {
 
 	var hasError = false;
 
-    var payment = $('#payment').val();
-
-
-    var product_id = $('#product_id').val();
-    var product_name = $('#product_name').val();
-    var product_amount = $('#product_amount').val();
-
-    var payer_email = $('#payer_email').val();
-    var payer_phonenumber = $('#payer_phonenumber').val();
-    var payer_address2 = $('#payer_address2').val();
-    var payer_town = $('#payer_town').val();
-
-    var payer_firstname = $('#payer_firstname').val();
-    var payer_surname = $('#payer_surname').val();
-
     var payer_address1 = $('#payer_address1').val();
 	if (payer_address1 === '') {
         $("#error1").show();
@@ -335,19 +320,10 @@ if (isset($_POST["recordToBook"])) {
         $("#product_amount").css("border-color", "#4DC742");
 	}
 
-    if(hasError == false){
-    jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1",
-    data:'payment=' + payment + '&product_id=' + product_id + '&product_name=' + product_name + '&product_amount=' + product_amount + '&payer_email=' + payer_email + '&payer_phonenumber=' + payer_phonenumber + '&payer_address2=' + payer_address2 + '&payer_town=' + payer_town + '&payer_firstname=' + payer_firstname + '&payer_surname=' + payer_surname + '&payer_address1=' + payer_address1 + '&payer_city=' + payer_city + '&payer_country=' + payer_country + '&payer_postcode=' + payer_postcode + '&product_quantity=' + product_quantity,
-    success:function(){
+	if(hasError == false) {
 
-    },
-    error:function (xhr, ajaxOptions, thrownError){
-        $("#error").show();
-        $("#error").empty().append(thrownError);
-    }
-	});
+	$("#paycoursefees_form").submit();
+
     }
 
 	return true;
