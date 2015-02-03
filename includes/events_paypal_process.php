@@ -36,15 +36,29 @@ $payment_status = 'pending';
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $userid);
-		$stmt->execute();
-		$stmt->close();
+		$stmt1 = $mysqli->prepare("SELECT event_ticket_no from system_events where eventid = ?");
+		$stmt1->bind_param('i', $item_number1);
+		$stmt1->execute();
+		$stmt1->store_result();
+		$stmt1->bind_result($event_ticket_no);
+		$stmt1->fetch();
 
-		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param('iiisiisssssssssssss', $userid, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
-		$stmt->execute();
-		$stmt->close();
+		if ($product_quantity > $event_ticket_no){
+			$error_msg = "<p id=\"error\" class=\"feedback-sad text-center\">There are $event_ticket_no tickets left. Please enter a quantity below $event_ticket_no.</p>";
+			$stmt1->close();
+		} else {
+
+			$stmt1 = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
+			$stmt1->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $userid);
+			$stmt1->execute();
+			$stmt1->close();
+
+			$stmt2 = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			$stmt2->bind_param('iiisiisssssssssssss', $userid, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
+			$stmt2->execute();
+			$stmt2->close();
+
+		}
 
 		$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 

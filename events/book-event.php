@@ -84,6 +84,12 @@ if (isset($_POST["recordToBook"])) {
 
     <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
+    <?php
+    if (!empty($error_msg)) {
+        echo $error_msg;
+    }
+    ?>
+
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
