@@ -5,7 +5,7 @@ if (isset($_POST["recordToBook"])) {
 
     $idToBook = filter_input(INPUT_POST, 'recordToBook', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_from, event_to, event_price FROM system_events WHERE eventid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_from, event_to, event_amount FROM system_events WHERE eventid = ? LIMIT 1");
     $stmt1->bind_param('i', $idToBook);
     $stmt1->execute();
     $stmt1->store_result();
