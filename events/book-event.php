@@ -132,10 +132,8 @@ if (isset($_POST["recordToBook"])) {
     <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="text-center">
-    <p>About the event</>
+    <p class="feedback-custom">About the event</p>
     </div>
-
-    <hr class="hr-custom">
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
