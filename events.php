@@ -62,7 +62,7 @@ include 'includes/session.php';
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="duetasks-toggle" class="panel panel-default">
+	<div id="events-toggle" class="panel panel-default">
 
 	<?php
 	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
@@ -131,6 +131,56 @@ include 'includes/session.php';
 	}
 
 	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+	<div id="bookedevents-toggle" class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Booked events - click to minimize or maximize</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Due tasks -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Price</th>
+	<th>Quality</th>
+	<th>Booked on</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt2 = $mysqli->query("SELECT event_name, event_amount, tickets_quantity, DATE_FORMAT(booked_on,'%d %b %y %H:%i') as booked_on FROM booked_events WHERE userid = '$userid'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+	echo '<tr>
+
+			<td data-title="Name">'.$row["event_name"].'</td>
+			<td data-title="Price">'.$row["event_amount"].'</td>
+			<td data-title="Quantity">'.$row["tickets_quantity"].'</td>
+			<td data-title="From">'.$row["booked_on"].'</td>
+			</tr>';
+	}
+
+	$stmt2->close();
 	?>
 	</tbody>
 
