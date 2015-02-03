@@ -491,7 +491,7 @@ function ChangePassword() {
 }
 
 //PaypalPaymentSuccess function
-function PaypalPaymentSuccess() {
+function FeesPaypalPaymentSuccess() {
 
 	global $mysqli;
 	global $updated_on;
@@ -593,7 +593,6 @@ function PaypalPaymentSuccess() {
 
 	// Mail it
 	mail($email, $subject, $message, $headers);
-
 }
 
 //PaypalPaymentCancel function

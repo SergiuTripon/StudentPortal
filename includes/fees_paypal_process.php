@@ -89,7 +89,7 @@ switch($payment){
 
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 
-		PaypalPaymentSuccess();
+		FeesPaypalPaymentSuccess();
 
 		$subject = 'Instant Payment Notification - Received Payment';
 		$p->send_report($subject); // Send the notification about the transaction
