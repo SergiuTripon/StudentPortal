@@ -201,7 +201,7 @@ include 'includes/session.php';
 	<a data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
 	</h4>
 	</div>
-	<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+	<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 	<div class="panel-body">
 
 	<div class="calendar-buttons text-right">
