@@ -574,7 +574,7 @@ include 'includes/session.php';
 		$nolectures = 'You have no lectures on this day!';
 	}
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt10->fetch_assoc()) {
 
 	echo '<tr>
 
