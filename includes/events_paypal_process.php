@@ -9,6 +9,8 @@ define('PAYPAL_EMAIL_ADD', 'admin-facilitator@student-portal.co.uk'); // facilit
 $p = new paypal_class(); // paypal class
 $p->admin_mail = EMAIL_ADD; // set notification email
 
+$error_msg = "";
+
 $payment = $_REQUEST["payment"];
 
 $cmd = '_cart';
