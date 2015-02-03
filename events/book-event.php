@@ -261,7 +261,7 @@ if (isset($_POST["recordToBook"])) {
         var quantity = $("#product_quantity").val();
         var price = $("#event_price").val();
 
-        var total = quantity * price;
+        var total = parseFloat(quantity) * parseFloat(price);
 
         $("#product_amount").val(total); // sets the total price input to the quantity * price
     });
