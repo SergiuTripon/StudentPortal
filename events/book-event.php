@@ -161,7 +161,7 @@ if (isset($_POST["recordToBook"])) {
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Amount to pay</label>
+    <label>Amount to pay (&pound;)</label>
     <input class="form-control" type="text" name="product_amount" id="product_amount" value="" placeholder="Amount to pay" readonly="readonly">
     </div>
     </div>
