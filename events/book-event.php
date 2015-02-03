@@ -131,19 +131,11 @@ if (isset($_POST["recordToBook"])) {
     </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
-    <div class="text-center">
-    <p class="feedback-custom">About the event</p>
-    </div>
-
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Name</label>
     <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_name; ?>" placeholder="Product Name" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Price (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
-    </div>
     </div>
 
     <div class="form-group">
@@ -154,6 +146,17 @@ if (isset($_POST["recordToBook"])) {
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>To</label>
     <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_to; ?>" placeholder="Amount" readonly="readonly">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>Price (&pound;)</label>
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
+	</div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <label>Quantity</label>
+    <input class="form-control" type="text" name="product_amount" id="product_amount" placeholder="Amount" readonly="readonly">
     </div>
     </div>
 
