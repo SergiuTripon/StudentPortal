@@ -321,6 +321,18 @@ if (isset($_POST["recordToBook"])) {
 		$("#product_quantity").css("border-color", "#4DC742");
 	}
 
+    var event_ticket_no = $("#event_ticket_no").val();
+    var product_quantity1 = $("#product_quantity").val();
+	if(event_ticket_no > product_quantity) {
+		$("#error3").show();
+        $("#error3").empty().append("Please enter a quantity.");
+		$("#product_quantity").css("border-color", "#FF5454");
+		hasError  = true;
+    } else {
+		$("#error3").hide();
+		$("#product_quantity").css("border-color", "#4DC742");
+	}
+
 	if(hasError == false) {
 
 	$("#paycoursefees_form").submit();
