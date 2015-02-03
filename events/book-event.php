@@ -87,6 +87,8 @@ if (isset($_POST["recordToBook"])) {
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
+    <input type="hidden" name="event_ticket_no" id="event_ticket_no" value="<?php echo $event_ticket_no; ?>">
+
     <input type="hidden" name="payment" id="payment" value="process"/>
     <input type="hidden" name="product_id" id="product_id" value="<?php echo $eventid; ?>">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
@@ -156,7 +158,6 @@ if (isset($_POST["recordToBook"])) {
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Quantity</label>
     <input class="form-control" type="text" name="product_quantity" id="product_quantity" placeholder="Quantity">
-    <input class="form-control" type="" name="event_ticket_no" id="event_ticket_no" value="<?php echo $event_ticket_no; ?>" placeholder="Quantity">
     </div>
     </div>
     <p id="error3" class="feedback-sad text-center"></p>
