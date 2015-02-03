@@ -273,7 +273,7 @@ if (isset($_POST["recordToBook"])) {
 
     var event_ticket_no = $("#event_ticket_no").val();
 
-    alert(product_quantity + event_ticket_no);
+    alert(product_quantity);
 
 	if (payer_address1 === '') {
         $("#error1").show();
