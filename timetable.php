@@ -57,7 +57,7 @@ include 'includes/session.php';
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="lecture-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -111,7 +111,7 @@ include 'includes/session.php';
 
 	<!-- Tuesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="lecture-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -165,7 +165,7 @@ include 'includes/session.php';
 
 	<!-- Wednesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="lecture-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -219,7 +219,7 @@ include 'includes/session.php';
 
 	<!-- Thursday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="lecture-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -273,7 +273,7 @@ include 'includes/session.php';
 
 	<!-- Friday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table id="lecture-table" class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -644,7 +644,7 @@ include 'includes/session.php';
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
-    $('.table-custom').dataTable({
+    $('#lecture-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
