@@ -253,11 +253,6 @@ if (isset($_POST["recordToBook"])) {
 	<script>
     $(document).ready(function () {
 
-    $('#product_quantity').keyup(function() {
-        if ($(this) === '') {
-            product_quantity.val('0');
-        }
-    }
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
