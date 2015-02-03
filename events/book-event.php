@@ -273,8 +273,6 @@ if (isset($_POST["recordToBook"])) {
 
     var event_ticket_no = $("#event_ticket_no").val();
 
-    alert(product_quantity);
-
 	if (payer_address1 === '') {
         $("#error1").show();
         $("#error1").empty().append("Please enter the first line of an address.");
@@ -304,6 +302,16 @@ if (isset($_POST["recordToBook"])) {
 		$("#error2").hide();
 		$("#payer_postcode").css("border-color", "#4DC742");
 	}
+
+    if(product_quantity === '') {
+        $("#error3").show();
+        $("#error3").empty().append("Please enter a quantity.");
+        $("#product_quantity").css("border-color", "#FF5454");
+        hasError  = true;
+    } else {
+        $("#error3").hide();
+        $("#product_quantity").css("border-color", "#4DC742");
+    }
 
 	if(hasError == false) {
 
