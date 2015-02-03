@@ -329,7 +329,6 @@ if (isset($_POST["recordToBook"])) {
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'&product_id=' + product_id + 'product_quantity=' + product_quantity,
     success:function(){
-        $("#paycoursefees_form").submit();
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
