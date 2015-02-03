@@ -263,7 +263,7 @@ if (isset($_POST["recordToBook"])) {
 
         var total = quantity * price;
 
-        $("#product_amount").val.(total).toFixed(2); // sets the total price input to the quantity * price
+        $("#product_amount").val(total).toFixed(2); // sets the total price input to the quantity * price
     });
 
     //Ladda
