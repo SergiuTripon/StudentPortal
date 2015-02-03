@@ -89,7 +89,6 @@ if (isset($_POST["recordToBook"])) {
 	<!-- Hidden fields -->
 	<input type="hidden" name="payment" value="process"/>
     <input type="hidden" name="product_id" id="product_id" value="1">
-    <input type="hidden" name="product_quantity" id="product_quantity" value="1">
     <input type="hidden" name="payer_email" id="payer_email" value="<?php echo $email; ?>">
     <input type="hidden" name="payer_phonenumber" id="payer_phonenumber" value="<?php echo $phonenumber; ?>">
     <input type="hidden" name="payer_address2" id="payer_address2" value="<?php echo $address2; ?>">
@@ -110,11 +109,11 @@ if (isset($_POST["recordToBook"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Address line 1</label>
-    <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Address 1">
+    <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Enter the first line of an address">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>City</label>
-	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="City">
+	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="Enter a city">
     </div>
     </div>
     <p id="error1" class="feedback-sad text-center"></p>
@@ -122,11 +121,11 @@ if (isset($_POST["recordToBook"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Country</label>
-    <input class="form-control" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Country" readonly="readonly">
+    <input class="form-control" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Post code</label>
-    <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code">
+    <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Enter a post code">
     </div>
     </div>
     <p id="error2" class="feedback-sad text-center"></p>
@@ -134,18 +133,18 @@ if (isset($_POST["recordToBook"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Name</label>
-    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_name; ?>" placeholder="Product Name" readonly="readonly">
+    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_name; ?>" placeholder="Name" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>From</label>
-    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_from; ?>" placeholder="Product Name" readonly="readonly">
+    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_from; ?>" placeholder="From" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>To</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_to; ?>" placeholder="Amount" readonly="readonly">
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_to; ?>" placeholder="To" readonly="readonly">
     </div>
     </div>
 
@@ -156,7 +155,7 @@ if (isset($_POST["recordToBook"])) {
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Quantity</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" placeholder="Amount" readonly="readonly">
+    <input class="form-control" type="text" name="product_quantity" id="product_quantity" placeholder="Quantity">
     </div>
     </div>
 
