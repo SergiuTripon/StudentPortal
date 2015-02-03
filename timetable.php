@@ -544,7 +544,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingTen">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="true" aria-controls="collapseTen">Friday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="true" aria-controls="collapseTen">Friday - <?php echo $nolectures; ?></a>
   	</h4>
     </div>
     <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
@@ -569,6 +569,10 @@ include 'includes/session.php';
 	<?php
 
 	$stmt1 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_from_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Friday' LIMIT 1");
+
+	if ($stmt1->num_rows == 0) {
+		$nolectures = 'You have no lectures on this day!';
+	}
 
 	while($row = $stmt1->fetch_assoc()) {
 
