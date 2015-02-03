@@ -151,11 +151,18 @@ if (isset($_POST["recordToBook"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Price (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
+    <input class="form-control" type="text" name="event_price" id="event_price" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Quantity</label>
     <input class="form-control" type="text" name="product_quantity" id="product_quantity" placeholder="Quantity">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Amount to pay</label>
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="" placeholder="Amount to pay" readonly="readonly">
     </div>
     </div>
 
@@ -249,6 +256,15 @@ if (isset($_POST["recordToBook"])) {
 
 	<script>
     $(document).ready(function () {
+
+    $('#quantity').keyup(function() {
+        var quantity = $("#product_quantity").val();
+        var price = $("#event_price").val();
+
+        var total = quantity * price;
+
+        $("#product_amount").val(total); // sets the total price input to the quantity * price
+    });
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
