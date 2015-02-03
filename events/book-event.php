@@ -82,7 +82,7 @@ if (isset($_POST["recordToBook"])) {
 	<!-- Pay course fees -->
 	<div class="content-panel" style="border: none;">
 
-    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 
@@ -338,7 +338,7 @@ if (isset($_POST["recordToBook"])) {
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/events_paypal_process.php",
+	url: "https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1",
     data:'payment=' + payment + '&product_id=' + product_id + '&product_name=' + product_name + '&product_amount=' + product_amount + '&payer_email=' + payer_email + '&payer_phonenumber=' + payer_phonenumber + '&payer_address2=' + payer_address2 + '&payer_town=' + payer_town + '&payer_firstname=' + payer_firstname + '&payer_surname=' + payer_surname + '&payer_address1=' + payer_address1 + '&payer_city=' + payer_city + '&payer_country=' + payer_country + '&payer_postcode=' + payer_postcode + '&product_quantity=' + product_quantity,
     success:function(){
 
