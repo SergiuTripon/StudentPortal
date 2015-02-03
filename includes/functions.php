@@ -1112,7 +1112,7 @@ function EventsQuantityCheck () {
 	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 
 	if ($product_quantity > $event_ticket_no) {
-		echo 'error tickets: '.$event_ticket_no.'';
+		echo 'error';
 	}
 
 }
