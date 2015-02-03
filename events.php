@@ -100,11 +100,12 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Notes</th>
 	<th>External URL</th>
-	<th>Start</th>
-	<th>Due</th>
+	<th>From</th>
+	<th>To</th>
+	<th>Price</th>
+	<th>Tickets</th>
 	<th>Category</th>
-	<th>Complete</th>
-	<th>Update</th>
+	<th>Book</th>
 	</tr>
 	</thead>
 
@@ -116,24 +117,25 @@ include 'includes/session.php';
 	while($row = $stmt1->fetch_assoc()) {
 
 	$url = $row["task_url"];
-	$task_category = ucfirst($row["task_category"]);
+	$event_category = ucfirst($row["event_category"]);
 
-	if (!empty($row["task_url"])) {
+	if (!empty($row["event_url"])) {
 		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
 	} else {
 		$url1 = "";
 	}
 
-	echo '<tr id="task-'.$row["taskid"].'">
+	echo '<tr id="task-'.$row["eventid"].'">
 
-			<td data-title="Name">'.$row["task_name"].'</td>
-			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
+			<td data-title="Name">'.$row["event_name"].'</td>
+			<td class="notes-hide" data-title="Notes">'.$row["event_notes"].'</td>
 			<td class="url-hide" data-title="External URL">'.$url1.'</td>
-			<td data-title="Start date">'.$row["task_startdate"].'</td>
-			<td data-title="Due date">'.$row["task_duedate"].'</td>
-			<td data-title="Category">'.$task_category.'</td>
-			<td data-title="Complete"><a id="complete-'.$row["taskid"].'" class="complete-button"><i class="fa fa-check"></i></a></td>
-			<td data-title="Update"><a id="update-'.$row["taskid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
+			<td data-title="From">'.$row["event_from"].'</td>
+			<td data-title="To">'.$row["event_to"].'</td>
+			<td data-title="Price">'.$row["event_amount"].'</td>
+			<td data-title="Tickets">'.$row["event_ticket_no"].'</td>
+			<td data-title="Category">'.$event_category.'</td>
+			<td data-title="Book"><a id="book-'.$row["eventid"].'" class="update-button"><i class="fa fa-gbp"></i></a></td>
 			</tr>';
 	}
 
