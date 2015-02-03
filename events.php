@@ -84,7 +84,7 @@ include 'includes/session.php';
 
 	<!-- Event -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom events-toggle">
+	<table class="table table-condensed table-custom events-table">
 
 	<thead>
 	<tr>
