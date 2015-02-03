@@ -163,7 +163,7 @@ if (isset($_POST["recordToBook"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Amount to pay (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="" placeholder="Amount to pay" readonly="readonly">
+    <input class="form-control" type="text" name="product_amount" id="product_amount" placeholder="Amount to pay" readonly="readonly">
     </div>
     </div>
 
@@ -278,8 +278,6 @@ if (isset($_POST["recordToBook"])) {
 	if(val === '') { $("#payer_surname").css("border-color", "#FF5454"); }
 	val = $("#product_name").val();
 	if(val === '') { $("#product_name").css("border-color", "#FF5454"); }
-	val = $("#product_amount").val();
-	if(val === '') { $("#product_amount").css("border-color", "#FF5454"); }
 	val = $("#payer_address1").val();
 	if(val === '') { $("#payer_address1").css("border-color", "#FF5454"); }
 	val = $("#payer_city").val();
