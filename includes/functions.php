@@ -1110,8 +1110,8 @@ function EventsQuantityCheck () {
 
 	global $mysqli;
 
-	$product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_NUMBER_INT);
-	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_NUMBER_INT);
+	$product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
+	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 
 	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
 	$stmt1->bind_param('i', $product_id);
