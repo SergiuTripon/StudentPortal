@@ -24,7 +24,6 @@ include 'includes/session.php';
 		height: 100% !important;
 	}
 
-
     #about {
         color: #333333;
         background: #FFA500;
@@ -96,7 +95,7 @@ include 'includes/session.php';
     <div class="logo-custom">
     <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
     </div>
-    <a href="#about" class="btn btn-circle page-scroll">
+    <a href="#about1" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
     </a>
     </div>
@@ -105,7 +104,7 @@ include 'includes/session.php';
     </header>
 
     <!-- About -->
-    <header id="about" class="intro">
+    <header id="about1" class="intro">
     <div class="intro-body">
     <div class="text-center">
     <h1>Student Portal</h1>
