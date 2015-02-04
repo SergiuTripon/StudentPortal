@@ -508,7 +508,7 @@ hr {
 /* End of Lock page style */
 
 /* Button Style */
-.btn, .btn:hover, btn:focus {
+.btn, .btn:hover, .btn:focus {
 	outline: none !important;
 }
 
@@ -575,7 +575,7 @@ hr {
     margin-top: 15px;
     padding: 7px 16px;
     border: 2px solid #FFA500;
-    border-radius: 35px;
+    border-radius: 0px;
     font-size: 40px;
     color: #FFA500;
     background: 0 0;
