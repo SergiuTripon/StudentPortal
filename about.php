@@ -31,6 +31,7 @@ include 'includes/session.php';
 
     /* About */
     #about1 {
+        border-top: 1px solid #FFA500;
         border-bottom: 1px solid #FFA500;
     }
 
