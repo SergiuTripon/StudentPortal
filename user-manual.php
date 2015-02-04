@@ -17,7 +17,7 @@ include 'includes/session.php';
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal | Sign In</title>
+    <title>Student Portal | User Manual</title>
 
 	<style>
 	html, body {
