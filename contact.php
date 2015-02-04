@@ -156,19 +156,19 @@ include 'includes/session.php';
     <p id="error" class="feedback-sad"></p>
 
 	<div class="form-group">
-	<div class="col-sm-4 full-width pr0 pl0">
+	<div class="col-sm-4 full-width pl0">
 	<input class="form-control" type="text" name="firstname" id="firstname" placeholder="First name">
     </div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-sm-4 full-width pr0 pl0">
+	<div class="col-sm-4 full-width ">
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Surname">
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-sm-4 full-width pr0 pl0">
+	<div class="col-sm-4 full-width pr0">
     <input class="form-control" type="email" name="email" id="email" placeholder="E-mail address">
 	</div>
 	</div>
