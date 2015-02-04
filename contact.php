@@ -144,10 +144,8 @@ include 'includes/session.php';
     <div class="intro-body">
     <div class="container">
 
-	<div class="row text-center">
 	<h1>Contact Us</h1>
 	<hr class="hr-custom hr-small">
-	</div>
 
 	<form class="form-custom" style="max-width: 700px;">
 
