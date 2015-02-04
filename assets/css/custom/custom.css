@@ -283,7 +283,7 @@ hr {
 }
 .logo-custom i {
     font-size: 80px;
-    color: #FFA500;
+    color: #F0AD4E;
     cursor: default;
 }
 /* End of Custom Logo */
@@ -303,11 +303,11 @@ hr {
 }
 
 .form-custom .form-control {
-	color: #FFA500;
+	color: #F0AD4E;
     font-size: 15px;
     z-index: 30;
     background: #333333;
-	border-color: #FFA500;
+	border-color: #F0AD4E;
     height: auto;
     padding: 10px;
     position: relative;
@@ -510,6 +510,7 @@ hr {
 
 /* Button Style */
 .btn, .btn:hover, btn:focus {
+    border-radius: 0px !important;
 	outline: none !important;
 }
 
