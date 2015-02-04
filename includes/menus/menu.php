@@ -20,7 +20,7 @@
 	}
 	
 	.navbar-custom a {
-		color: #FFA500;
+		color: #337AB7;
 	}
 	
 	.navbar-custom .navbar-brand {
