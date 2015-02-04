@@ -589,6 +589,10 @@ hr {
     color: #333333;
     background: #FFA500;
 }
+
+.btn-circle:focus {
+    color: #333333;
+}
 /* End of Custom circle button style */
 
 /* Tiles style */
