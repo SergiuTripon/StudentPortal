@@ -131,7 +131,7 @@ include 'includes/session.php';
     <div class="logo-custom">
     <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
     </div>
-    <a href="#about1" class="btn btn-circle page-scroll">
+    <a href="#contact1" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
     </a>
     </div>
@@ -140,7 +140,7 @@ include 'includes/session.php';
     </header>
 
     	<!-- Contact -->
-    <section class="contact" id="contact">
+    <section class="contact" id="contact1">
     <div class="container">
 	<div class="row text-center">
 	<h1>Contact Us</h1>
