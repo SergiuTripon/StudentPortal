@@ -303,11 +303,11 @@ hr {
 }
 
 .form-custom .form-control {
-	color: #FFA500;
+	color: #F0AD4E;
     font-size: 15px;
     z-index: 30;
-    background: #333333;
-	border-color: #FFA500;
+    background: #F0AD4E;
+	border-color: #F0AD4E;
     height: auto;
     padding: 10px;
     position: relative;
