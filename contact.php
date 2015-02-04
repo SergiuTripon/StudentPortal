@@ -144,8 +144,10 @@ include 'includes/session.php';
     <div class="intro-body">
     <div class="container">
 
+    <div class="text-center">
 	<h1>Contact Us</h1>
 	<hr class="hr-custom hr-small">
+    </div>
 
 	<form class="form-custom" style="max-width: 700px;">
 
@@ -155,7 +157,7 @@ include 'includes/session.php';
     <div id="hide">
 
 	<div class="form-group">
-	<div class="col-sm-4 full-width">
+	<div class="col-sm-4 full-width pl0">
 	<input class="form-control" type="text" name="firstname" id="firstname" placeholder="First name">
     </div>
 	</div>
@@ -167,7 +169,7 @@ include 'includes/session.php';
 	</div>
 
 	<div class="form-group">
-	<div class="col-sm-4 full-width">
+	<div class="col-sm-4 full-widthpr0">
     <input class="form-control" type="email" name="email" id="email" placeholder="E-mail address">
 	</div>
 	</div>
