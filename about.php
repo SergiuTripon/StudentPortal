@@ -29,6 +29,15 @@ include 'includes/session.php';
         background: #FFA500;
     }
 
+    /* About */
+    #about1 {
+        border-bottom: 1px solid #FFA500;
+    }
+
+    #about1 h1, h2 {
+        color: #FFA500;
+    }
+
     /* Footer */
     footer {
         color: #FFA500;
