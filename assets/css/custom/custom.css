@@ -383,12 +383,12 @@ hr {
     margin-bottom: 0px;
 }
 
-.form-group.col-xs-4 {
+.form-group > .col-xs-4 {
     padding-right: 0px;
     padding-left: 0px;
 }
 
-.form-group.col-sm-4 {
+.form-group > .col-sm-4 {
     padding-right: 0px;
     padding-left: 0px;
 }
