@@ -48,7 +48,6 @@ include 'includes/session.php';
 		padding: 100px 0;
 		text-align: center;
 		border-top: 1px solid #FFA500;
-		border-bottom: 1px solid #FFA500;
 	}
 	.social h1 {
 		margin-top: 0px;
@@ -67,6 +66,7 @@ include 'includes/session.php';
     footer {
         color: #FFA500;
         text-align: center;
+        border-TOP: 1px solid #FFA500;
     }
     footer .container {
         padding-top: 20px;
