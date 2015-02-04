@@ -30,12 +30,10 @@ include 'includes/session.php';
     }
 
 	/* Contact section */
-	.contact {
-		color: #FFA500;
-		padding: 100px 0;
-		border-top: 1px solid #FFA500;
-	}
-	.contact h1 {
+    #contact1 {
+        border-top: 1px solid #FFA500;
+    }
+	#contact1 h1 {
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
@@ -141,7 +139,7 @@ include 'includes/session.php';
 
     <!-- Contact -->
 
-    <header class="intro" id="features1">
+    <header class="intro" id="contact1">
     <div class="intro-body">
     <div class="container">
 
