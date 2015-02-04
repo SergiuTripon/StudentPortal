@@ -510,6 +510,7 @@ hr {
 
 /* Button Style */
 .btn, .btn:hover, btn:focus {
+    border-radius: 0px;
 	outline: none !important;
 }
 
