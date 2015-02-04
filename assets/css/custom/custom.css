@@ -120,6 +120,33 @@ hr {
     padding-left: 5px;
 }
 
+@media (max-width: 480px) {
+.form-group > .col-xs-4 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.form-group > .col-sm-4 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.form-group > .col-xs-6 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.form-group > .col-sm-6 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.form-group > .col-xs-12 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.form-group > .col-sm-12 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+}
+
 .nprl {
     padding-right: 0px;
     padding-left: 0px;
@@ -381,18 +408,6 @@ hr {
 /* Form Group style */
 .form-group {
     margin-bottom: 0px;
-}
-
-@media (max-width: 480px) {
-.form-group > .col-xs-4 {
-    padding-right: 0px;
-    padding-left: 0px;
-}
-
-.form-group > .col-sm-4 {
-    padding-right: 0px;
-    padding-left: 0px;
-}
 }
 /* End of Form Group style */
 
