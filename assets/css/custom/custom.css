@@ -584,14 +584,10 @@ hr {
     transition: background .3s ease-in-out;
 }
 
-.btn-circle:hover {
+.btn-circle:hover, .btn-circle:focus {
     outline: 0;
     color: #333333;
     background: #FFA500;
-}
-
-.btn-circle:focus {
-    color: #FFA500;
 }
 /* End of Custom circle button style */
 
