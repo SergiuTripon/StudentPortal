@@ -122,12 +122,8 @@ include 'includes/session.php';
     </header>
 
     <!-- Features -->
-    <section class="features" id="features1">
-    <div class="container">
-	<div class="row text-center pb30">
-	<h1>Features</h1>
-	<hr class="hr-custom hr-small">
-	</div>
+    <header class="intro">
+    <div class="intro-body">
 
 	<p class="text-left" style="margin-bottom: 0px;">Click and discover</p>
 
@@ -223,9 +219,8 @@ include 'includes/session.php';
 	</div>
 	</div><!-- /.row -->
 
-	</div><!-- /.container -->
-    </section>
-	<!-- End of Features -->
+    </div><!-- /intro-body -->
+    </header>
 
     <!-- Feature Modal -->
     <div class="modal modal-custom fade" id="modal-features" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
