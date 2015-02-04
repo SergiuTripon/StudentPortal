@@ -17,12 +17,19 @@ include 'includes/session.php';
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal | Sign In</title>
+    <title>Student Portal | About</title>
 
 	<style>
 	html, body {
 		height: 100% !important;
 	}
+
+
+    #about {
+        color: #333333;
+        background: #FFA500;
+    }
+
     /* Footer */
     footer {
         color: #FFA500;
@@ -89,7 +96,7 @@ include 'includes/session.php';
     <div class="logo-custom">
     <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
     </div>
-    <a href="#user-manual" class="btn btn-circle page-scroll">
+    <a href="#about" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
     </a>
     </div>
