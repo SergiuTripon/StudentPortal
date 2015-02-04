@@ -240,8 +240,8 @@ include 'includes/session.php';
 
 	var hasError = false;
 
-	var firstname = $('#firstname').val();
-	if (firstname === '') {
+	var firstname4 = $('#firstname').val();
+	if (firstname4 === '') {
         $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
@@ -251,8 +251,8 @@ include 'includes/session.php';
 		$("#firstname").css("border-color", "#4DC742");
 	}
 
-	var surname = $("#surname").val();
-    if(surname === '') {
+	var surname4 = $("#surname").val();
+    if(surname4 === '') {
         $("#error1").show();
         $("#error1").empty().append("Please enter a surname.");
         $("#surname").css("border-color", "#FF5454");
@@ -263,8 +263,8 @@ include 'includes/session.php';
         $("#surname").css("border-color", "#4DC742");
     }
 
-    var email = $("#email").val();
-    if(email === '') {
+    var email7 = $("#email").val();
+    if(email7 === '') {
         $("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
         $("#email").css("border-color", "#FF5454");
@@ -291,7 +291,7 @@ include 'includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'firstname4=' + firstname + '&surname4=' + surname + '&email7=' + email + '&message=' + message,
+    data:'firstname4=' + firstname4 + '&surname4=' + surname4 + '&email7=' + email7 + '&message=' + message,
     success:function(){
 		window.location = '../overview/';
     },
