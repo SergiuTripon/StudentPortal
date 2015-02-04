@@ -84,15 +84,16 @@ include 'includes/session.php';
     </div>
 
     <hr class="hr-custom">
-	
-	<p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+
+    <p id="error" class="feedback-sad text-center"></p>
 	
     <label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address">
+    <p id="error1" class="feedback-sad text-center"></p>
 
     <label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
+    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="text-right">
     <a class="forgot-password" href="forgotten-password/">Forgotten your password?</a>
@@ -133,24 +134,24 @@ include 'includes/session.php';
 	
 	var email = $('#email').val();
 	if (email === '') {
-        $("#error").empty().append("Please enter an email address.");
+        $("#error1").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#email").css("border-color", "#4DC742");
 	}
 	
 	var password = $("#password").val();
 	if(password === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a password.");
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#password").css("border-color", "#4DC742");
 	}
 	
