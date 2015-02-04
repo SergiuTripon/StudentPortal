@@ -119,7 +119,7 @@ include 'includes/session.php';
 
 	if (empty($event_ticket_no)) {
 		$event_ticket_no = "Sold Out";
-		$event_soldout_style = "<style> #task-$eventid #soldout-$eventid { display: none; } </style>";
+		$event_soldout_style = "<style> #book-$eventid { display: none; } </style>";
 	}
 
 	if (!empty($event_url)) {
@@ -138,7 +138,7 @@ include 'includes/session.php';
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.$event_ticket_no.'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td id="soldout-'.$eventid.'" data-title="Book"><a id="book-'.$eventid.'" class="book-button"><i class="fa fa-gbp"></i></a></td>
+			<td data-title="Book"><a id="book-'.$eventid.'" class="book-button"><i class="fa fa-gbp"></i></a></td>
 			</tr>';
 	}
 
