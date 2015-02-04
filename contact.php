@@ -181,9 +181,11 @@ include 'includes/session.php';
 	</div>
     <p id="error2" class="feedback-sad"></p>
 
+    <hr class="hr-custom">
+
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button mt20" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Contact us</span></a>
-    </div>
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Contact us</span></button>
+	</div>
 
     </form>
 
