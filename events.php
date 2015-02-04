@@ -119,6 +119,7 @@ include 'includes/session.php';
 
 	if (empty($event_ticket_no)) {
 		$event_ticket_no = "Sold Out";
+
 	} else {
 		$event_ticket_no = $row["event_ticket_no"];
 	}
@@ -139,7 +140,7 @@ include 'includes/session.php';
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.$event_ticket_no.'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td data-title="Book"><a id="book-'.$row["eventid"].'" class="book-button"><i class="fa fa-gbp"></i></a></td>
+			<td data-title="Book"><a id="book-'.$eventid.'" class="book-button"><i class="fa fa-gbp"></i></a></td>
 			</tr>';
 	}
 
