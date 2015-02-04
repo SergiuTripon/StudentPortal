@@ -162,7 +162,7 @@ include 'includes/session.php';
 	</div>
 
 	<div class="form-group">
-	<div class="col-sm-4 full-width ">
+	<div class="col-sm-4 full-width">
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Surname">
 	</div>
 	</div>
