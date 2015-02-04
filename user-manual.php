@@ -36,7 +36,6 @@ include 'includes/session.php';
 		color: #FFA500;
 		padding: 100px 0;
 		border-top: 1px solid #FFA500;
-        border-bottom: 1px solid #FFA500;
 	}
 	/* End of User manual */
 
@@ -44,6 +43,7 @@ include 'includes/session.php';
     footer {
         color: #FFA500;
         text-align: center;
+        border-top: 1px solid #FFA500;
     }
     footer .container {
         padding-top: 20px;
