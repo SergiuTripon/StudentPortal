@@ -30,12 +30,12 @@ include 'includes/session.php';
     }
 
     /* About */
-    #about1 {
+    .intro {
         border-top: 1px solid #FFA500;
         border-bottom: 1px solid #FFA500;
     }
 
-    #about1 h1, h2 {
+    .intro h1, h2 {
         color: #FFA500;
     }
 
