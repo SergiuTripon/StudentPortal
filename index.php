@@ -95,11 +95,11 @@ include 'includes/session.php';
     <hr class="hr-custom">
 
     <div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFFFFF" href="register/"><span class="ladda-label">Register</span></a>
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="register/"><span class="ladda-label">Register</span></a>
     </div>
 
     <div class="text-right">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFFFFF"><span class="ladda-label">Sign In</span></button>
+    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Sign In</span></button>
 	</div>
 
     </form>
