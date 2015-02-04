@@ -119,8 +119,6 @@ include 'includes/session.php';
 
 	if (empty($event_ticket_no)) {
 		$event_ticket_no = "Sold Out";
-		$event_soldout_style = "<style>.book-button { display: none !important; }</style>";
-
 	} else {
 		$event_ticket_no = $row["event_ticket_no"];
 	}
@@ -130,8 +128,6 @@ include 'includes/session.php';
 	} else {
 		$event_url = "";
 	}
-
-	echo $event_soldout_style;
 
 	echo '<tr id="task-'.$row["eventid"].'">
 
