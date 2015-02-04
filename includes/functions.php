@@ -1165,7 +1165,7 @@ function ContactUs() {
 
 	// Additional headers
 	$headers .= 'From: Student Portal '.$email.'' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Reply-To: Student Portal '.$email.'' . "\r\n";
 
 	// Mail it
 	mail($to, $subject, $message, $headers);
