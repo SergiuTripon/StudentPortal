@@ -3,11 +3,11 @@
 		height: 100% !important;
 	}
 	.br {
-		border-right: 1px solid #FFA500;
+		border-right: 1px solid #1B325F;
 	}
 	
 	.bl {
-		border-left: 1px solid #FFA500;
+		border-left: 1px solid #1B325F;
 	}
 	/* Menu master */
 	.navbar-custom {
@@ -20,7 +20,7 @@
 	}
 	
 	.navbar-custom a {
-		color: #337AB7;
+		color: #1B325F;
 	}
 	
 	.navbar-custom .navbar-brand {
