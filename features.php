@@ -33,9 +33,13 @@ include 'includes/session.php';
     .intro {
         color: #FFA500;
         padding: 100px 0;
-        border-bottom: 1px solid #FFA500;
     }
     /* End of Features */
+
+    #features1 {
+        border-top: 1px solid #FFA500;
+        border-bottom: 1px solid #FFA500;
+    }
 
     /* Footer */
     footer {
