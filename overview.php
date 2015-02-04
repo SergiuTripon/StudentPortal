@@ -233,14 +233,14 @@ include 'includes/session.php';
 
     <div class="row">
 
-    <a href="../timetable/">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+	<a href="../timetable/">
     <div class="tile large-tile">
     <i class="fa fa-table"></i>
 	<p class="large-tile-text">Timetable</p>
     </div>
-	</div>
     </a>
+	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<a href="../exams/">
