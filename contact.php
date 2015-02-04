@@ -245,6 +245,7 @@ include 'includes/session.php';
         $("#error1").empty().append("Please enter a password.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
+        return false;
 	} else {
 		$("#error1").hide();
 		$("#firstname").css("border-color", "#4DC742");
@@ -256,6 +257,7 @@ include 'includes/session.php';
         $("#error1").empty().append("Please enter a surname.");
         $("#surname").css("border-color", "#FF5454");
         hasError  = true;
+        return false;
     } else {
         $("#error1").hide();
         $("#surname").css("border-color", "#4DC742");
@@ -267,6 +269,7 @@ include 'includes/session.php';
         $("#error1").empty().append("Please enter an email address.");
         $("#email").css("border-color", "#FF5454");
         hasError  = true;
+        return false;
     } else {
         $("#error1").hide();
         $("#email").css("border-color", "#4DC742");
@@ -278,6 +281,7 @@ include 'includes/session.php';
         $("#error2").empty().append("Please enter a message.");
         $("#message").css("border-color", "#FF5454");
         hasError  = true;
+        return false;
     } else {
         $("#error2").hide();
         $("#message").css("border-color", "#4DC742");
