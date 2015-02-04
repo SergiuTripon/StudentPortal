@@ -2,13 +2,6 @@
 	html, body {
 		height: 100% !important;
 	}
-	.br {
-		border-right: 1px solid #FFA500;
-	}
-	
-	.bl {
-		border-left: 1px solid #FFA500;
-	}
 	/* Menu master */
 	.navbar-custom {
 		margin-bottom: 0;
@@ -47,13 +40,6 @@
 	}
 	
 	@media(max-width:767px) {
-	.br {
-		border-right: none;
-	}
-	
-	.bl {
-		border-left: none;
-	}
 	.navbar-custom .navbar-toggle {
 		padding: 4px 6px;
 		font-size: 16px;

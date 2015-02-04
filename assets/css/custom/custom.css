@@ -572,6 +572,10 @@ hr {
 .btn-circle {
     width: 70px;
     height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #FFA500;
+    border-radius: 35px;
     font-size: 40px;
     color: #FFA500;
     background: 0 0;
@@ -582,8 +586,9 @@ hr {
 
 .btn-circle:hover,
 .btn-circle:focus {
-    color: #FFA500;
-    outline: none !important;
+    outline: 0;
+    color: #333333;
+    background: #FFA500;
 }
 
 .btn-circle i.animated {
