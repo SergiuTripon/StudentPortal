@@ -102,18 +102,17 @@
     <li class="hidden">
     <a href="#page-top"></a>
     </li>
-    <li class="bl br">
-    <a id="about" class="page-scroll" href="/about/">About</a>
-    </li>
-    <li class="br">
-    <a id="features" class="page-scroll" href="/features/">Features</a>
-    </li>
-	<li class="br">
-    <a id="user-manual" class="page-scroll" href="/user-manual/">User Manual</a>
-    </li>
-    <li class="br">
-    <a id="contact" class="page-scroll" href="/contact/">Contact</a>
-    </li>
+
+	<li><a id="home" href="/">Home</a></li>
+
+	<li><a id="about" href="/about/">About</a></li>
+
+    <li><a id="features" href="/features/">Features</a></li>
+
+	<li><a id="user-manual" href="/user-manual/">User Manual</a></li>
+
+	<li><a id="contact" href="/contact/">Contact</a></li>
+
 	</ul>
     </div>
     <!-- /.navbar-collapse -->
