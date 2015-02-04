@@ -111,7 +111,7 @@ include 'includes/session.php';
     <div class="logo-custom">
     <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
     </div>
-    <a href="#about1" class="btn btn-circle page-scroll">
+    <a href="#features1" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
     </a>
     </div>
