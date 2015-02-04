@@ -23,23 +23,6 @@ include 'includes/session.php';
 	html, body {
 		height: 100% !important;
 	}
-	/* About section */
-	.about {
-		color: #FFA500;
-		padding: 100px 0;
-		border-top: 1px solid #FFA500;
-        border-bottom: 1px solid #FFA500;
-	}
-	.about h1 {
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
-	.about h2 {
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
-	/* End of About section */
-
     /* Footer */
     footer {
         color: #FFA500;
@@ -115,7 +98,7 @@ include 'includes/session.php';
     </header>
 
     <!-- About -->
-    <header class="intro">
+    <header class="intro about">
     <div class="intro-body">
     <h1>Student Portal</h1>
 	<h2>All your university needs, in one single place.</h2>
