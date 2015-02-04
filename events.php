@@ -111,9 +111,9 @@ include 'includes/session.php';
 	$event_name = $row["event_name"];
 	$event_notes = $row["event_notes"];
 	$event_url = $row["event_url"];
-	$event_from = $row["event_url"];
-	$event_to = $row["event_url"];
-	$event_amount = $row["event_url"];
+	$event_from = $row["event_from"];
+	$event_to = $row["event_to"];
+	$event_amount = $row["event_amount"];
 	$event_ticket_no = $row["event_ticket_no"];
 	$event_category = ucfirst($row["event_category"]);
 
