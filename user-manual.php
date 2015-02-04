@@ -23,7 +23,13 @@ include 'includes/session.php';
 	html, body {
 		height: 100% !important;
 	}
-	/* About section */
+
+    #user-manual {
+        color: #333333;
+        background-color: #FFA500;
+    }
+
+	/* User manual */
 	.user-manual {
 		color: #FFA500;
 		padding: 100px 0;
@@ -38,7 +44,7 @@ include 'includes/session.php';
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
-	/* End of About section */
+	/* End of User manual */
 
     /* Footer */
     footer {
@@ -106,7 +112,7 @@ include 'includes/session.php';
     <div class="logo-custom">
     <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
     </div>
-    <a href="#user-manual" class="btn btn-circle page-scroll">
+    <a href="#user-manual1" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
     </a>
     </div>
@@ -115,7 +121,7 @@ include 'includes/session.php';
     </header>
 
 	<!-- User Manual -->
-	<section class="user-manual" id="user-manual">
+	<section class="user-manual" id="user-manual1">
     <div class="container">
     <div class="row">
 
