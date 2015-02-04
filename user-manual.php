@@ -41,6 +41,7 @@ include 'includes/session.php';
     footer {
         color: #FFA500;
         text-align: center;
+        border-top: 1px solid #FFA500;
     }
     footer .container {
         padding-top: 20px;
