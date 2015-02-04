@@ -114,7 +114,7 @@ include 'includes/session.php';
     </header>
 
     <!-- About -->
-    <header id="about1" class="intro">
+    <header class="intro" id="about1">
     <div class="intro-body">
     <div class="text-center">
     <h1>Student Portal</h1>
