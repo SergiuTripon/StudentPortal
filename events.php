@@ -22,12 +22,6 @@ include 'includes/session.php';
 
     <title>Student Portal | Events</title>
 
-	<style>
-		.book-button {
-			display: none;
-		}
-	</style>
-
 </head>
 
 <body>
@@ -125,6 +119,11 @@ include 'includes/session.php';
 
 	if (empty($event_ticket_no)) {
 		$event_ticket_no = "Sold Out";
+		echo "<style>
+		.book-button {
+			display: none;
+		}
+	</style>";
 	} else {
 		$event_ticket_no = $row["event_ticket_no"];
 	}
