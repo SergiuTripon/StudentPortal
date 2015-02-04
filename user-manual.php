@@ -27,13 +27,16 @@ include 'includes/session.php';
     /* Activating menu item */
     #user-manual {
         color: #333333;
-        background: #FFA500;
+        background-color: #FFA500;
     }
     /* End of Activating menu item */
 
 	/* User manual */
 	#user-manual1 {
-        border-top: 1px solid #FFA500;
+		color: #FFA500;
+		padding: 100px 0;
+		border-top: 1px solid #FFA500;
+        border-bottom: 1px solid #FFA500;
 	}
 	/* End of User manual */
 
@@ -41,7 +44,6 @@ include 'includes/session.php';
     footer {
         color: #FFA500;
         text-align: center;
-        border-top: 1px solid #FFA500;
     }
     footer .container {
         padding-top: 20px;
@@ -102,7 +104,7 @@ include 'includes/session.php';
 
     <div class="text-center">
     <div class="logo-custom">
-    <i class="fa fa-book" style="font-size: 150px;"></i>
+    <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
     </div>
     <a href="#user-manual1" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
@@ -113,8 +115,7 @@ include 'includes/session.php';
     </header>
 
 	<!-- User Manual -->
-    <header class="intro" id="user-manual1">
-    <div class="intro-body">
+	<section class="user-manual" id="user-manual1">
     <div class="container">
     <div class="row">
 
@@ -822,9 +823,9 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
+    </div><!-- /.row -->
     </div><!-- /.container -->
-    </div><!-- /intro-body -->
-    </header>
+    </section>
     <!-- End of User Manual -->
 
     <!-- Footer -->
