@@ -37,7 +37,7 @@ include 'includes/session.php';
     /* End of Features */
 
     #features1 {
-        border-bottom: 1px solid #FFA500;
+        border-top: 1px solid #FFA500;
     }
 
     /* Footer */
