@@ -301,7 +301,6 @@ include 'includes/session.php';
 	return true;
 
 	});
-	});
 
     // jQuery to collapse the navbar on scroll
     $(window).scroll(function () {
