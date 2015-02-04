@@ -37,7 +37,6 @@ include 'includes/session.php';
     /* End of Features */
 
     #features1 {
-        border-top: 1px solid #FFA500;
         border-bottom: 1px solid #FFA500;
     }
 
@@ -45,6 +44,7 @@ include 'includes/session.php';
     footer {
         color: #FFA500;
         text-align: center;
+        border-top: 1px solid #FFA500;
     }
     footer .container {
         padding-top: 20px;
