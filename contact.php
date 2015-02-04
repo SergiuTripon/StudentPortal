@@ -140,8 +140,11 @@ include 'includes/session.php';
     </header>
 
     <!-- Contact -->
-    <section class="contact" id="contact1">
+
+    <header class="intro" id="features1">
+    <div class="intro-body">
     <div class="container">
+
 	<div class="row text-center">
 	<h1>Contact Us</h1>
 	<hr class="hr-custom hr-small">
@@ -182,11 +185,11 @@ include 'includes/session.php';
     </form>
 
 	</div>
-	</div>
-    <!-- /.row -->
-    </div>
-	<!-- /.container -->
-    </section>
+	</div><!-- /.row -->
+
+    </div><!-- /.container -->
+    </div><!-- /intro-body -->
+    </header><!-- End of Features -->
 
 	<!-- Social -->
 	<div class="social" id="social">
