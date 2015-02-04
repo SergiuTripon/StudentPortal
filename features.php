@@ -24,21 +24,22 @@ include 'includes/session.php';
 		height: 100% !important;
 	}
 
+    /* Activating menu item */
     #features {
         color: #333333;
         background: #FFA500;
     }
+    /* End of Activating menu item */
 
     /* Features */
     .intro {
         color: #FFA500;
         padding: 100px 0;
     }
-    /* End of Features */
-
     #features1 {
         border-top: 1px solid #FFA500;
     }
+    /* End of Features */
 
     /* Footer */
     footer {
