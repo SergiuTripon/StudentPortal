@@ -24,25 +24,16 @@ include 'includes/session.php';
 		height: 100% !important;
 	}
 
+    /* Activating menu item */
     #user-manual {
         color: #333333;
-        background-color: #FFA500;
+        background: #FFA500;
     }
+    /* End of Activating menu item */
 
 	/* User manual */
-	.user-manual {
-		color: #FFA500;
-		padding: 100px 0;
-		border-top: 1px solid #FFA500;
-        border-bottom: 1px solid #FFA500;
-	}
-	.user-manual h1 {
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
-	.user-manual h2 {
-		margin-top: 0px;
-		margin-bottom: 0px;
+	#user-manual1 {
+        border-top: 1px solid #FFA500;
 	}
 	/* End of User manual */
 
@@ -121,7 +112,8 @@ include 'includes/session.php';
     </header>
 
 	<!-- User Manual -->
-	<section class="user-manual" id="user-manual1">
+    <header class="intro" id="user-manual1">
+    <div class="intro-body">
     <div class="container">
     <div class="row">
 
@@ -829,9 +821,9 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
-    </div><!-- /.row -->
     </div><!-- /.container -->
-    </section>
+    </div><!-- /intro-body -->
+    </header>
     <!-- End of User Manual -->
 
     <!-- Footer -->

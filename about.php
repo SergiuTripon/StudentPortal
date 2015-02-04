@@ -125,6 +125,7 @@ include 'includes/session.php';
     </div>
     </div><!-- /intro-body -->
     </header>
+    <!-- End of About -->
 
     <!-- Footer -->
     <footer>
