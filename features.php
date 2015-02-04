@@ -112,7 +112,7 @@ include 'includes/session.php';
     </header>
 
     <!-- Features -->
-    <header class="intro">
+    <header class="intro" id="features1">
     <div class="intro-body">
     <div class="container">
 
