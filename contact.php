@@ -169,7 +169,7 @@ include 'includes/session.php';
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-4 col-sm-4 full-widthpr0">
+	<div class="col-xs-4 col-sm-4 full-width pr0">
     <input class="form-control" type="email" name="email" id="email" placeholder="E-mail address">
 	</div>
 	</div>
