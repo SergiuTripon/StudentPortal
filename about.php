@@ -32,7 +32,6 @@ include 'includes/session.php';
     /* About */
     .intro {
         border-top: 1px solid #FFA500;
-        border-bottom: 1px solid #FFA500;
     }
 
     .intro h1, h2 {
