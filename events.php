@@ -119,11 +119,7 @@ include 'includes/session.php';
 
 	if (empty($event_ticket_no)) {
 		$event_ticket_no = "Sold Out";
-		echo "<style>
-		.book-button {
-			display: none;
-		}
-	</style>";
+		$event_soldout_style = "<style> .book-button { display: none; } </style>";
 	} else {
 		$event_ticket_no = $row["event_ticket_no"];
 	}
@@ -158,6 +154,8 @@ include 'includes/session.php';
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
+
+	<?php echo $event_soldout_style; ?>
 
 	<div id="bookedevents-toggle" class="panel panel-default">
 
