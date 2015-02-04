@@ -119,9 +119,7 @@ include 'includes/session.php';
 
 	if (empty($event_ticket_no)) {
 		$event_ticket_no = "Sold Out";
-		$event_soldout_style = "<style> .book-button { display: none; } </style>";
-	} else {
-		$event_ticket_no = $row["event_ticket_no"];
+		$event_soldout_style = "<style> #book-'.$eventid.' { display: none; } </style>";
 	}
 
 	if (!empty($event_url)) {
