@@ -139,7 +139,7 @@ include 'includes/session.php';
     </div><!-- /intro-body -->
     </header>
 
-    	<!-- Contact -->
+    <!-- Contact -->
     <section class="contact" id="contact1">
     <div class="container">
 	<div class="row text-center">
