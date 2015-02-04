@@ -171,7 +171,7 @@ include 'includes/session.php';
 
 	<div class="form-group">
 	<div class="col-sm-12 full-width">
-	<textarea class="form-control" rows="5" name="message" id="message" placeholder="Message"></textarea>
+	<textarea class="form-control" rows="8" name="message" id="message" placeholder="Message"></textarea>
 	</div>
 	</div>
 
