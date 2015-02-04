@@ -359,8 +359,22 @@ include 'includes/session.php';
 	var clickedID = this.id.split('-');
     var DbNumberID = clickedID[1];
 
-	$("#book-event-form-" + DbNumberID).submit();
-
+    jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'events_soldout_check=' + DbNumberID,
+    success:function(msg){
+		if (msg == 'error') {
+			$("#error").empty().append("The quantity entered exceeds the amount of tickets available.<br>You can check the ticket availability on the Events page.");
+		} else {
+			$("#book-event-form-" + DbNumberID).submit();
+		}
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+        $("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
 	});
 
 	//Event view/Calendar view toggle

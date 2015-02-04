@@ -93,3 +93,8 @@ elseif (isset($_POST["recordToComplete"])) {
 elseif (isset($_POST["eventid"], $_POST["product_quantity"])) {
 	EventsQuantityCheck();
 }
+
+//Call EventsSoldOutCheck function
+elseif (isset($_POST["events_soldout_check"])) {
+	EventsSoldOutCheck();
+}

@@ -1126,3 +1126,24 @@ function EventsQuantityCheck () {
 	}
 
 }
+
+//EventsQuantityCheck function
+function EventsSoldOutCheck () {
+
+	global $mysqli;
+
+	$eventid = filter_input(INPUT_POST, 'events_soldout_check', FILTER_SANITIZE_STRING);
+
+	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
+	$stmt1->bind_param('i', $eventid);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($event_ticket_no);
+	$stmt1->fetch();
+
+	if ($event_ticket_no = '0') {
+		echo 'error';
+		$stmt1->close();
+	}
+
+}
