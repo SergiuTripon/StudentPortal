@@ -34,6 +34,7 @@ include 'includes/session.php';
         border-top: 1px solid #FFA500;
     }
 	#contact1 h1 {
+        color: #FFA500;
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
