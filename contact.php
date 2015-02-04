@@ -148,8 +148,6 @@ include 'includes/session.php';
 	<h1>Contact Us</h1>
 	<hr class="hr-custom hr-small">
 	</div>
-    <div class="row text-center">
-    <div class="col-lg-12">
 
 	<form class="form-custom" style="max-width: 700px;">
 
@@ -193,9 +191,6 @@ include 'includes/session.php';
     </div>
 
     </form>
-
-	</div>
-	</div><!-- /.row -->
 
     </div><!-- /.container -->
     </div><!-- /intro-body -->
