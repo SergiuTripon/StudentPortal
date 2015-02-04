@@ -155,7 +155,7 @@ include 'includes/session.php';
     <div id="hide">
 
 	<div class="form-group">
-	<div class="col-sm-4 full-width pl0">
+	<div class="col-sm-4 full-width">
 	<input class="form-control" type="text" name="firstname" id="firstname" placeholder="First name">
     </div>
 	</div>
@@ -167,14 +167,14 @@ include 'includes/session.php';
 	</div>
 
 	<div class="form-group">
-	<div class="col-sm-4 full-width pr0">
+	<div class="col-sm-4 full-width">
     <input class="form-control" type="email" name="email" id="email" placeholder="E-mail address">
 	</div>
 	</div>
     <p id="error1" class="feedback-sad"></p>
 
 	<div class="form-group">
-	<div class="col-sm-12 full-width pr0 pl0">
+	<div class="col-sm-12 full-width">
 	<textarea class="form-control" rows="8" name="message" id="message" placeholder="Message"></textarea>
 	</div>
 	</div>

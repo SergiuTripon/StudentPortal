@@ -35,7 +35,7 @@ include 'includes/session.php';
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-	<li class="active">Calendar</li>
+	<li class="active">Timetable</li>
     </ol>
 
 	<br>
