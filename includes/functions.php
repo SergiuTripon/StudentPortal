@@ -1143,19 +1143,19 @@ function ContactUs () {
 	}
 
 	// subject
-	$subject = 'Payment confirmation';
+	$subject = 'New Message';
 
 	$to = 'contact@student-portal.co.uk';
 
 	// message
 	$message = '<html>';
 	$message .= '<body>';
-	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
+	$message .= '<p>The following person contacted Student Portal:</p>';
 	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message1</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message1</td></tr>";
 	$message .= '</table>';
 	$message .= '</body>';
 	$message .= '</html>';
