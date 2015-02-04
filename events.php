@@ -119,6 +119,7 @@ include 'includes/session.php';
 
 	if (empty($event_ticket_no)) {
 		$event_ticket_no = "Sold Out";
+		echo "<style>.book-button { display: none !important; }</style>";
 
 	} else {
 		$event_ticket_no = $row["event_ticket_no"];
