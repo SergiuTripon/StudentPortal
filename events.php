@@ -22,6 +22,12 @@ include 'includes/session.php';
 
     <title>Student Portal | Events</title>
 
+	<style>
+		.book-button {
+			display: none;
+		}
+	</style>
+
 </head>
 
 <body>
