@@ -127,8 +127,6 @@ include 'includes/session.php';
 	</div>
     </header>
 
-    <?php include 'includes/showcase/showcase.php'; ?>
-
 	<?php endif; ?>
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
