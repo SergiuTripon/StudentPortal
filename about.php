@@ -98,10 +98,12 @@ include 'includes/session.php';
     </header>
 
     <!-- About -->
-    <header class="intro about">
+    <header id="about" class="intro">
     <div class="intro-body">
+    <div class="text-center">
     <h1>Student Portal</h1>
 	<h2>All your university needs, in one single place.</h2>
+    </div>
     </div><!-- /intro-body -->
     </header>
 
