@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-    background: #333333 url(../../img/bg/bg-pattern.png);
+    background: #8A8A8A url(../../img/bg/bg-pattern.png);
 }
 
 /* Preloader style */
@@ -283,7 +283,7 @@ hr {
 }
 .logo-custom i {
     font-size: 80px;
-    color: #F0AD4E;
+    color: #FFA500;
     cursor: default;
 }
 /* End of Custom Logo */
@@ -303,11 +303,11 @@ hr {
 }
 
 .form-custom .form-control {
-	color: #F0AD4E;
+	color: #FFA500;
     font-size: 15px;
     z-index: 30;
     background: #333333;
-	border-color: #F0AD4E;
+	border-color: #FFA500;
     height: auto;
     padding: 10px;
     position: relative;
@@ -510,7 +510,6 @@ hr {
 
 /* Button Style */
 .btn, .btn:hover, btn:focus {
-    border-radius: 0px !important;
 	outline: none !important;
 }
 
