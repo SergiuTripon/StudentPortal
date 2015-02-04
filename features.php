@@ -24,7 +24,7 @@ include 'includes/session.php';
 		height: 100% !important;
 	}
 
-    #about {
+    #features {
         color: #333333;
         background: #FFA500;
     }
