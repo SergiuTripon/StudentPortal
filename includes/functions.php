@@ -1128,22 +1128,47 @@ function EventsQuantityCheck () {
 }
 
 //EventsQuantityCheck function
-function EventsSoldOutCheck () {
+function ContactUs () {
 
-	global $mysqli;
+	$firstname = filter_input(INPUT_POST, 'firstname4', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'surname4', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'email7', FILTER_SANITIZE_EMAIL);
+	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$message1 = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
 
-	$eventid = filter_input(INPUT_POST, 'events_soldout_check', FILTER_SANITIZE_STRING);
 
-	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
-	$stmt1->bind_param('i', $eventid);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($event_ticket_no);
-	$stmt1->fetch();
-
-	if ($event_ticket_no = '0') {
-		echo 'error';
-		$stmt1->close();
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		header('HTTP/1.0 550 The email address you entered is invalid.');
+		exit();
 	}
+
+	// subject
+	$subject = 'Payment confirmation';
+
+	$to = 'contact@student-portal.co.uk';
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
+	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message1</td></tr>";
+	$message .= '</table>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+	// Mail it
+	mail($to, $subject, $message, $headers);
 
 }

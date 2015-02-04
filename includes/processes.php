@@ -94,7 +94,7 @@ elseif (isset($_POST["eventid"], $_POST["product_quantity"])) {
 	EventsQuantityCheck();
 }
 
-//Call EventsSoldOutCheck function
-elseif (isset($_POST["events_soldout_check"])) {
-	EventsSoldOutCheck();
+//Call ContactUs function
+elseif (isset($_POST["firstname4"], $_POST["surname4"], $_POST["email7"], $_POST["message"])) {
+	ContactUs();
 }

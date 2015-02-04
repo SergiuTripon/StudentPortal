@@ -242,7 +242,7 @@ include 'includes/session.php';
 
 	var firstname = $('#firstname').val();
 	if (firstname === '') {
-        $("#error1").empty().append("Please enter a password.");
+        $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
         return false;
@@ -291,7 +291,7 @@ include 'includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'email=' + email + '&password=' + password,
+    data:'firstname4=' + firstname + '&surname4=' + surname + '&email7=' + email + '&message=' + message,
     success:function(){
 		window.location = '../overview/';
     },
