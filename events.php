@@ -107,24 +107,37 @@ include 'includes/session.php';
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$url = $row["event_url"];
+	$eventid = $row["eventid"];
+	$event_name = $row["event_name"];
+	$event_notes = $row["event_notes"];
+	$event_url = $row["event_url"];
+	$event_from = $row["event_url"];
+	$event_to = $row["event_url"];
+	$event_amount = $row["event_url"];
+	$event_ticket_no = $row["event_ticket_no"];
 	$event_category = ucfirst($row["event_category"]);
 
-	if (!empty($row["event_url"])) {
-		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
+	if (empty($event_ticket_no)) {
+		$event_ticket_no = "Sold Out";
 	} else {
-		$url1 = "";
+		$event_ticket_no = $row["event_ticket_no"];
+	}
+
+	if (!empty($event_url)) {
+		$event_url = "<a target=\"_blank\" href=\"//$url\">Link</a>";
+	} else {
+		$event_url = "";
 	}
 
 	echo '<tr id="task-'.$row["eventid"].'">
 
-			<td data-title="Name">'.$row["event_name"].'</td>
-			<td class="notes-hide" data-title="Notes">'.$row["event_notes"].'</td>
-			<td class="url-hide" data-title="External URL">'.$url1.'</td>
-			<td data-title="From">'.$row["event_from"].'</td>
-			<td data-title="To">'.$row["event_to"].'</td>
-			<td data-title="Price">'.$row["event_amount"].'</td>
-			<td data-title="Tickets">'.$row["event_ticket_no"].'</td>
+			<td data-title="Name">'.$event_name.'</td>
+			<td class="notes-hide" data-title="Notes">'.$event_notes.'</td>
+			<td class="url-hide" data-title="External URL">'.$event_url.'</td>
+			<td data-title="From">'.$event_from.'</td>
+			<td data-title="To">'.$event_to.'</td>
+			<td data-title="Price">'.$event_amount.'</td>
+			<td data-title="Tickets">'.$event_ticket_no.'</td>
 			<td data-title="Category">'.$event_category.'</td>
 			<td data-title="Book"><a id="book-'.$row["eventid"].'" class="book-button"><i class="fa fa-gbp"></i></a></td>
 			</tr>';
