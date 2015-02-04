@@ -124,6 +124,7 @@ include 'includes/session.php';
     <!-- Features -->
     <header class="intro">
     <div class="intro-body">
+    <div class="container">
 
 	<p class="text-left" style="margin-bottom: 0px;">Click and discover</p>
 
@@ -219,6 +220,7 @@ include 'includes/session.php';
 	</div>
 	</div><!-- /.row -->
 
+    </div>
     </div><!-- /intro-body -->
     </header>
 
