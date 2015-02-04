@@ -383,6 +383,7 @@ hr {
     margin-bottom: 0px;
 }
 
+@media (max-width: 480px) {
 .form-group > .col-xs-4 {
     padding-right: 0px;
     padding-left: 0px;
@@ -391,6 +392,7 @@ hr {
 .form-group > .col-sm-4 {
     padding-right: 0px;
     padding-left: 0px;
+}
 }
 /* End of Form Group style */
 
