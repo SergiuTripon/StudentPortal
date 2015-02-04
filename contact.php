@@ -153,7 +153,10 @@ include 'includes/session.php';
 
 	<form class="form-custom" style="max-width: 700px;">
 
+    <p id="success" class="feedback-happy"></p>
     <p id="error" class="feedback-sad"></p>
+
+    <div id="hide">
 
 	<div class="form-group">
 	<div class="col-sm-4 full-width pl0">
@@ -186,6 +189,8 @@ include 'includes/session.php';
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Contact us</span></button>
 	</div>
+
+    </div>
 
     </form>
 
@@ -240,8 +245,8 @@ include 'includes/session.php';
 
 	var hasError = false;
 
-	var firstname4 = $('#firstname').val();
-	if (firstname4 === '') {
+	var firstname = $('#firstname').val();
+	if (firstname === '') {
         $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
 		hasError  = true;
@@ -251,8 +256,8 @@ include 'includes/session.php';
 		$("#firstname").css("border-color", "#4DC742");
 	}
 
-	var surname4 = $("#surname").val();
-    if(surname4 === '') {
+	var surname = $("#surname").val();
+    if(surname === '') {
         $("#error1").show();
         $("#error1").empty().append("Please enter a surname.");
         $("#surname").css("border-color", "#FF5454");
@@ -263,8 +268,8 @@ include 'includes/session.php';
         $("#surname").css("border-color", "#4DC742");
     }
 
-    var email7 = $("#email").val();
-    if(email7 === '') {
+    var email = $("#email").val();
+    if(email === '') {
         $("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
         $("#email").css("border-color", "#FF5454");
@@ -291,11 +296,15 @@ include 'includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'firstname4=' + firstname4 + '&surname4=' + surname4 + '&email7=' + email7 + '&message=' + message,
+    data:'firstname4=' + firstname + '&surname4=' + surname + '&email7=' + email + '&message=' + message,
     success:function(){
-		window.location = '../overview/';
+        $("#error").hide();
+        $("#hide").hide();
+        $("#success").show();
+        $("#success").append('Thank you for contacting us.<br>We will check your message and reply as soon as possible.');
     },
     error:function (xhr, ajaxOptions, thrownError){
+        $("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
