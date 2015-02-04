@@ -153,15 +153,17 @@ include 'includes/session.php';
 
 	<form class="form-custom" style="max-width: 700px;">
 
+    <p id="error" class="feedback-sad"></p>
+
 	<div class="form-group">
 	<div class="col-sm-4 full-width">
-	<input class="form-control" type="firstname" name="firstname" id="firstname" placeholder="First name">
+	<input class="form-control" type="text" name="firstname" id="firstname" placeholder="First name">
     </div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-sm-4 full-width">
-    <input class="form-control" type="surname" name="surname" id="surname" placeholder="Surname">
+    <input class="form-control" type="text" name="surname" id="surname" placeholder="Surname">
 	</div>
 	</div>
 
@@ -170,12 +172,14 @@ include 'includes/session.php';
     <input class="form-control" type="email" name="email" id="email" placeholder="E-mail address">
 	</div>
 	</div>
+    <p id="error1" class="feedback-sad"></p>
 
 	<div class="form-group">
 	<div class="col-sm-12 full-width">
 	<textarea class="form-control" rows="8" name="message" id="message" placeholder="Message"></textarea>
 	</div>
 	</div>
+    <p id="error2" class="feedback-sad"></p>
 
     <div class="text-center">
     <a class="btn btn-custom btn-lg ladda-button mt20" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Contact us</span></a>
@@ -224,6 +228,78 @@ include 'includes/session.php';
 
 	<script>
     $(document).ready(function() {
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //Ajax call
+    $("#FormSubmit").click(function (e) {
+    e.preventDefault();
+
+	var hasError = false;
+
+	var firstname = $('#firstname').val();
+	if (firstname === '') {
+        $("#error1").empty().append("Please enter a password.");
+		$("#firstname").css("border-color", "#FF5454");
+		hasError  = true;
+	} else {
+		$("#error1").hide();
+		$("#firstname").css("border-color", "#4DC742");
+	}
+
+	var surname = $("#surname").val();
+    if(surname === '') {
+        $("#error1").show();
+        $("#error1").empty().append("Please enter a surname.");
+        $("#surname").css("border-color", "#FF5454");
+        hasError  = true;
+    } else {
+        $("#error1").hide();
+        $("#surname").css("border-color", "#4DC742");
+    }
+
+    var email = $("#email").val();
+    if(email === '') {
+        $("#error1").show();
+        $("#error1").empty().append("Please enter an email address.");
+        $("#email").css("border-color", "#FF5454");
+        hasError  = true;
+    } else {
+        $("#error1").hide();
+        $("#email").css("border-color", "#4DC742");
+    }
+
+    var message = $("#message").val();
+    if(message === '') {
+        $("#error2").show();
+        $("#error2").empty().append("Please enter a message.");
+        $("#message").css("border-color", "#FF5454");
+        hasError  = true;
+    } else {
+        $("#error2").hide();
+        $("#message").css("border-color", "#4DC742");
+    }
+
+	if(hasError == false){
+    jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'email=' + email + '&password=' + password,
+    success:function(){
+		window.location = '../overview/';
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
+    }
+
+	return true;
+
+	});
+	});
 
     // jQuery to collapse the navbar on scroll
     $(window).scroll(function () {
