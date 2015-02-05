@@ -106,7 +106,7 @@ include 'includes/session.php';
 
     <div class="text-center">
     <div class="logo-custom">
-    <i class="fa fa-comment" style="font-size: 150px;"></i>
+    <i class="fa fa-comment-o" style="font-size: 150px;"></i>
     </div>
     <a href="#about1" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
