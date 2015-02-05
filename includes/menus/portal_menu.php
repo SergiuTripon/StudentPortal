@@ -9,7 +9,7 @@
 	
 	/* Portal Menu */
 	.navbar {
-		background-color: #333333;
+		background-color: #4F4F4F;
 		border-color: #FFA500;
 		border-radius: 0px;
 		margin-top: 20px;
