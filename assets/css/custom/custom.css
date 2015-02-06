@@ -105,16 +105,11 @@ form .form-control {
 }
 
 form label {
-    color: #CCCCCC;
+    color: #333333;
     font-weight: normal;
 }
 
 form input {
-    margin-bottom: 10px;
-    border-radius: 0;
-}
-
-form select {
     margin-bottom: 10px;
     border-radius: 0;
 }
