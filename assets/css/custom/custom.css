@@ -345,8 +345,25 @@ form .form-control:-ms-input-placeholder {
 
 /* Error messages */
 .error-style {
+    color: #FFFFFF !important;
     border-color: #FF5454 !important;
     background-color: #FF5454 !important;
+}
+
+form .error-style::-webkit-input-placeholder {
+    color: #FFFFFF;
+}
+
+form .error-style:-moz-placeholder {
+    color: #FFFFFF;
+}
+
+form .error-style::-moz-placeholder {
+    color: #FFFFFF;
+}
+
+form .error-style:-ms-input-placeholder {
+    color: #FFFFFF;
 }
 
 .feedback-sad {
