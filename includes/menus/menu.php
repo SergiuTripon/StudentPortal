@@ -4,96 +4,57 @@
 	}
 	/* Menu master */
 	.navbar-custom {
-		margin-bottom: 0;
-		background-color: #3D3D3D;
+    	margin-bottom: 0;
+    	border-bottom: 1px solid rgba(255,255,255,.3);
+    	text-transform: uppercase;
+    	background-color: #000;
+	}
+
+	.navbar-custom .navbar-brand {
+    	font-weight: 700;
 	}
 
 	.navbar-custom .navbar-brand:focus {
-		outline: 0;
+    	outline: 0;
 	}
-	
+
+	.navbar-custom .navbar-brand .navbar-toggle {
+    	padding: 4px 6px;
+    	font-size: 16px;
+    	color: #fff;
+	}
+
+	.navbar-custom .navbar-brand .navbar-toggle:focus,
+	.navbar-custom .navbar-brand .navbar-toggle:active {
+    	outline: 0;
+	}
+
 	.navbar-custom a {
-		color: #FFA500;
+    	color: #fff;
 	}
-	
-	.navbar-custom .navbar-brand {
-		font-weight: 600;
-	}
-	
-	.navbar-custom .nav li a {
-		text-align: center;
-		-webkit-transition: background .3s ease-in-out;
-		-moz-transition: background .3s ease-in-out;
-		transition: background .3s ease-in-out;
-	}
-	
+
 	.navbar-custom .nav li.active {
-		outline: none;
-		background-color: #333333;
+    	outline: none;
+    	background-color: rgba(255,255,255,.3);
 	}
+
+	.navbar-custom .nav li a {
+    	-webkit-transition: background .3s ease-in-out;
+    	-moz-transition: background .3s ease-in-out;
+    	transition: background .3s ease-in-out;
+}
 
 	.navbar-custom .nav li a:hover,
 	.navbar-custom .nav li a:focus,
 	.navbar-custom .nav li a.active {
-		outline: 0;
-		color: #333333;
-		background: #FFA500;
+    	outline: 0;
+    	background-color: rgba(255,255,255,.3);
 	}
 
-	.dropdown-menu {
-		color: #FFA500;
-		border: 1px solid #FFA500;
-		background-color: #333333;
-	}
-
-	.dropdown-menu>li>a {
-		color: #FFA500;
-	}
-
-	.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus  {
-		color: #333333;
-		background-color: #FFA500;
-	}
-
-	.dropdown-menu .divider {
-		background-color: #FFA500;
-	}
-
-	.navbar-default .navbar-nav>.open>a,
-	.navbar-default .navbar-nav>.open>a:hover,
-	.navbar-default .navbar-nav>.open>a:focus {
-		color: #333333;
-		background: #FFA500;
-	}
-
-	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-		color: #FFA500;
-	}
-	
-	@media(max-width:767px) {
-	.navbar-custom .navbar-toggle {
-		padding: 4px 6px;
-		font-size: 16px;
-		color: #FFA500;
-	}
-
-	.navbar-custom .navbar-toggle:focus,
-	.navbar-custom .navbar-toggle:active {
-		outline: 0;
-	}
-	.navbar-header {
-		border-bottom: 1px solid #FFA500;
-	}
-	.navbar-collapse {
-		border-bottom: 1px solid #FFA500;
-		border-top: none;
-	}
-	}
-	
 	@media(min-width:767px) {
-	.navbar {
-		padding: 20px 0;
-		border-bottom: 0;
+    .navbar {
+        padding: 20px 0;
+        border-bottom: 0;
         letter-spacing: 1px;
         background: 0 0;
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -103,58 +64,43 @@
 
     .top-nav-collapse {
         padding: 0;
-        background-color: #3D3D3D;
+        background-color: #000;
     }
 
     .navbar-custom.top-nav-collapse {
-        border-bottom: 1px solid #FFA500;
+        border-bottom: 1px solid rgba(255,255,255,.3);
     }
 	}
+
 	/* End of Menu master */
 	</style>
 	
     <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-    <div class="container">
-    
+	<!-- Navigation -->
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+	<div class="container">
 	<div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-    <i class="fa fa-bars"></i>
-    </button>
-    <a class="navbar-brand page-scroll" href="#page-top">
-    <i class="fa fa-graduation-cap"></i> Student Portal
-    </a>
-    </div>
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+	<i class="fa fa-bars"></i>
+	</button>
+	<a class="navbar-brand page-scroll" href="#page-top">
+	<i class="fa fa-play-circle"></i>  <span class="light">Start</span> Bootstrap
+	</a>
+	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-    <ul class="nav navbar-nav">
-    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-    <li class="hidden">
-    <a href="#page-top"></a>
-    </li>
+	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+	<ul class="nav navbar-nav">
+	<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+	<li class="hidden"><a href="#page-top"></a></li>
 
-	<li><a id="home" href="/">Sign In</a></li>
+	<li><a class="page-scroll" href="#about">About</a></li>
 
-	<li><a id="register" href="/">Register</a></li>
+	<li><a class="page-scroll" href="#download">Download</a></li>
 
-	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find out more <span class="caret"></span></a>
-		<ul class="dropdown-menu" role="menu">
-			<li><a id="about" href="/about/">About</a></li>
-
-			<li><a id="features" href="/features/">Features</a></li>
-
-			<li><a id="user-manual" href="/user-manual/">User Manual</a></li>
-
-			<li><a id="contact" href="/contact/">Contact</a></li>
-		</ul>
-	</li>
-
-
+	<li><a class="page-scroll" href="#contact">Contact</a></li>
 	</ul>
-    </div>
-    <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-    </nav>
+	</div><!-- /.navbar-collapse -->
+	</div><!-- /.container -->
+	</nav>
+   	<!-- End of Navigation -->
