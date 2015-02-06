@@ -345,15 +345,15 @@ form .form-control:-ms-input-placeholder {
 
 /* Error messages */
 .error-style {
-    border-color: #FF5454;
-    background-color: #FF5454;
+    border-color: #FF5454 !important;
+    background-color: #FF5454 !important;
 }
 
 .feedback-sad {
     color: #FF5454;
 }
 
-.succes-style {
+.success-style {
     border-color: #4DC742;
     background-color: #4DC742;
 }
