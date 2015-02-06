@@ -64,7 +64,6 @@ include 'includes/session.php';
     <?php include 'includes/menus/menu.php'; ?>
 
     <header><!-- Header -->
-    <div class="wrapper"><!-- Wrapper -->
 
     <form method="post" name="forgotpassword_form">
 
@@ -99,7 +98,6 @@ include 'includes/session.php';
 
     </form>
 
-    </div><!-- End of Wrapper -->
     </header><!-- End of Header -->
 
 	<?php endif; ?>
