@@ -82,24 +82,14 @@ include 'includes/session.php';
 
 	<div id="hide">
 
-    <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" placeholder="Enter your email address">
-    </div>
-    </div>
     <p id="error1" class="feedback-sad text-center"></p>
 
-    <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pl0">
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your new password">
-    </div>
-    <div class="col-xs-12 col-sm-12 full-width pr0">
     <label>Confirm new password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your new password confirmation">
-    </div>
-    </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
     <input class="form-control" type="hidden" name="token" id="token" value="<?php echo $token; ?>">
