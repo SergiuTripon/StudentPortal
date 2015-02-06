@@ -18,7 +18,7 @@ include 'includes/session.php';
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal</title>
-	
+
 </head>
 
 <body>
@@ -101,6 +101,8 @@ include 'includes/session.php';
 
     </div><!-- End of Wrapper body -->
     </header><!-- End of Wrapper -->
+
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
