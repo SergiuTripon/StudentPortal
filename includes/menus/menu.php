@@ -2,168 +2,45 @@
 	html, body {
 		height: 100% !important;
 	}
-	/* Menu master */
-	.navbar-custom {
-		margin-bottom: 0;
-		background-color: #3D3D3D;
-	}
 
-	.navbar-custom .navbar-brand:focus {
-		outline: 0;
-	}
-	
-	.navbar-custom a {
-		color: #FFA500;
-	}
-	
-	.navbar-custom .navbar-brand {
-		font-weight: 600;
-	}
-	
-	.navbar-custom .nav li a {
-		text-align: center;
-		-webkit-transition: background .3s ease-in-out;
-		-moz-transition: background .3s ease-in-out;
-		transition: background .3s ease-in-out;
-	}
-	
-	.navbar-custom .nav li.active {
-		outline: none;
-		background-color: #333333;
-	}
-
-	.navbar-custom .nav li a:hover,
-	.navbar-custom .nav li a:focus,
-	.navbar-custom .nav li a.active {
-		outline: 0;
-		color: #333333;
-		background: #FFA500;
-	}
-
-	.dropdown-menu {
-		color: #FFA500;
-		border: 1px solid #FFA500;
-		background-color: #333333;
-	}
-
-	.dropdown-menu>li>a {
-		color: #FFA500;
-	}
-
-	.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus  {
-		color: #333333;
-		background-color: #FFA500;
-	}
-
-	.dropdown-menu .divider {
-		background-color: #FFA500;
-	}
-
-	.navbar-default .navbar-nav>.open>a,
-	.navbar-default .navbar-nav>.open>a:hover,
-	.navbar-default .navbar-nav>.open>a:focus {
-		color: #333333;
-		background: #FFA500;
-	}
-
-	.dropdown-menu {
-		min-width: 100%;
-	}
-
-	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-		color: #FFA500;
-	}
-
-	.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-		color: #333333;
-		background-color: #FFA500;
-	}
-	
-	@media(max-width:767px) {
-	.navbar-custom .navbar-toggle {
-		padding: 4px 6px;
-		font-size: 16px;
-		color: #FFA500;
-	}
-
-	.navbar-custom .navbar-toggle:focus,
-	.navbar-custom .navbar-toggle:active {
-		outline: 0;
-	}
-	.navbar-header {
-		border-bottom: 1px solid #FFA500;
-	}
-	.navbar-collapse {
-		border-bottom: 1px solid #FFA500;
-		border-top: none;
-	}
-	}
-	
-	@media(min-width:767px) {
-	.navbar {
-		padding: 20px 0;
-		border-bottom: 0;
-        letter-spacing: 1px;
-        background: 0 0;
-        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        transition: background .5s ease-in-out,padding .5s ease-in-out;
-    }
-
-    .top-nav-collapse {
-        padding: 0;
-        background-color: #3D3D3D;
-    }
-
-    .navbar-custom.top-nav-collapse {
-        border-bottom: 1px solid #FFA500;
-    }
-	}
 	/* End of Menu master */
 	</style>
 	
     <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-    <div class="container">
-    
-	<div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-    <i class="fa fa-bars"></i>
-    </button>
-    <a class="navbar-brand page-scroll" href="#page-top">
-    <i class="fa fa-graduation-cap"></i> Student Portal
-    </a>
-    </div>
-
-	<!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-    <ul class="nav navbar-nav">
-    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-    <li class="hidden">
-    <a href="#page-top"></a>
-    </li>
-
-	<li><a id="home" href="/">Sign In</a></li>
-
-	<li><a id="register" href="/">Register</a></li>
-
-	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find out more <span class="fa fa-caret-down"></span></a>
-		<ul class="dropdown-menu" role="menu">
-			<li><a id="about" href="/about/">About</a></li>
-
-			<li><a id="features" href="/features/">Features</a></li>
-
-			<li><a id="user-manual" href="/user-manual/">User Manual</a></li>
-
-			<li><a id="contact" href="/contact/">Contact</a></li>
-		</ul>
-	</li>
-
-
-	</ul>
-    </div>
-    <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-    </nav>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Project name</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Nav header</li>
+							<li><a href="#">Separated link</a></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="../navbar/">Default</a></li>
+					<li><a href="../navbar-static-top/">Static top</a></li>
+					<li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
