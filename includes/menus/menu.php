@@ -23,28 +23,10 @@
     </nav>
     <!-- End of Navigation -->
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <!-- Footer -->
+    <footer class="footer">
     <div class="container">
-    <div class="navbar-header">
-    <!-- Toggle -->
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1" aria-expanded="false" aria-controls="navbar">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    </button>
-    <!-- End of Toggle -->
+    <p class="text-muted">Place sticky footer content here.</p>
     </div>
-
-    <div id="navbar1" class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="/about/">About</a></li>
-        <li><a href="/features/">Features</a></li>
-        <li><a href="/user-manual/">User Manual</a></li>
-        <li><a href="/contact/">Contact</a></li>
-    </ul>
-    </div><!--/.nav-collapse -->
-    </div><!--/.container -->
-    </nav>
-    <!-- End of Navigation -->
+    </footer>
+    <!-- End of Footer -->
