@@ -5,12 +5,10 @@
     <!-- Toggle -->
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
     <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
+    <i class="fa fa-bars fa-lg"></i>
     </button>
     <!-- End of Toggle -->
-    <a class="navbar-brand" href="#">Project name</a>
+    <a class="navbar-brand" href="#">Student Portal</a>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
