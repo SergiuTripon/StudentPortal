@@ -77,20 +77,12 @@ include 'includes/session.php';
 
     <div id="hide">
 
-    <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
-    </div>
-    <div class="col-xs-6 col-sm-6 full-width">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
-	</div>
-    </div>
     <p id="error1" class="feedback-sad text-center"></p>
 
-    <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg gender">
@@ -103,29 +95,17 @@ include 'includes/session.php';
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-    </div>
-    </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
-    <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width">
     <label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email address">
-    </div>
-    </div>
     <p id="error3" class="feedback-sad text-center"></p>
 
-    <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
     <label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
-    </div>
 
-    <div class="col-xs-6 col-sm-6 full-width">
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your password confirmation">
-	</div>
-	</div>
     <p id="error4" class="feedback-sad text-center"></p>
 
 	<div class="text-right">
