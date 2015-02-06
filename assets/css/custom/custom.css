@@ -334,12 +334,8 @@ form .form-control:-ms-input-placeholder {
     border-radius: 3px;
 }
 
-.btn-default:hover,
-.btn-default:focus,
-.focus.btn-default,
 .btn-default:active,
-.active.btn-default,
-.open > .btn-default.dropdown-toggle {
+.active.btn-default {
     color: #FFFFFF;
     background-color: #5D5D5D;
 }
