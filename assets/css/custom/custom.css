@@ -31,7 +31,6 @@ hr {
 }
 
 /* Sets the padding for widths within form groups */
-@media (max-width: 480px) {
 .form-group > .col-xs-4 {
     padding-right: 0px;
     padding-left: 0px;
@@ -55,7 +54,6 @@ hr {
 .form-group > .col-sm-12 {
     padding-right: 0px;
     padding-left: 0px;
-}
 }
 
 /* End of Global */
