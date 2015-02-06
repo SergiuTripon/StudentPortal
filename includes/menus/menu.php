@@ -17,6 +17,15 @@
     <ul class="nav navbar-nav navbar-right">
         <li><a href="/">Sign In</a></li>
         <li><a href="/register/">Register</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fidn out more <span class="fa fa-caret-down"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/about/">About</a></li>
+            <li><a href="/features/">Features</a></li>
+            <li><a href="/user-manual/">User manual</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </li>
     </ul>
     </div><!--/.nav-collapse -->
     </div><!--/.container -->
