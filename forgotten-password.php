@@ -65,13 +65,13 @@ include 'includes/session.php';
     <header><!-- Header -->
     <div class="wrapper-body"><!-- Wrapper-->
 
-    <form class="form-custom" <?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post" name="forgotpassword_form">
+    <form class="form-custom" method="post" name="forgotpassword_form">
 
-    <div class="logo-custom animated fadeIn delay">
+    <div class="form-logo">
     <i class="fa fa-lock"></i>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <p id="hide" class="feedback-custom text-justify">Please enter the email you used to register to the <b>Student Portal</b> and we will email you a link to reset your password.</p>
 
@@ -82,18 +82,18 @@ include 'includes/session.php';
     <input class="form-control" type="email" name="email" id="email" placeholder="Email address">
     <p id="error1" class="feedback-sad text-center"></p>
 
-    <hr class="hr-custom">
+    <hr>
 
     <div id="register-button" class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
     <div id="register-button" class="text-right">
-    <button id="FormSubmit" class="btn btn-lg btn-custom ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Continue</span></button>
+    <button id="FormSubmit" class="btn btn-lg btn-primary ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Continue</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Continue</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Continue</span></a>
     </div>
 
     </form>
