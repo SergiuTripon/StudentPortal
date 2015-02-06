@@ -255,11 +255,11 @@ include 'includes/session.php';
     var gender_check = $(".gender");
 	if (gender_check.hasClass('active')) {
 		$("#error2").hide();
-		$(".btn-group > .btn-custom").css('cssText', 'background-color: #FF5454; border-color: #FF5454 !important');
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 	}
 	else {
 		$("#error2").empty().append("Please select a gender.");
-		$(".btn-group > .btn-custom").css('cssText', 'background-color: #FF5454; border-color: #FF5454 !important;');
+		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
 		hasError  = true;
 		return false;
 	}
