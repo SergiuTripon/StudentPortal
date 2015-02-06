@@ -43,6 +43,10 @@
 		color: #333333;
 		background-color: #FFA500 !important;
 	}
+
+	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+		color: #FFA500;
+	}
 	
 	@media(max-width:767px) {
 	.navbar-custom .navbar-toggle {
