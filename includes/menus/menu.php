@@ -6,7 +6,6 @@
 	.navbar-custom {
     	margin-bottom: 0;
     	border-bottom: 1px solid rgba(255,255,255,.3);
-    	text-transform: uppercase;
     	background-color: #000;
 	}
 
