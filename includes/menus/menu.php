@@ -36,7 +36,7 @@
 	.navbar-custom .nav li a:focus,
 	.navbar-custom .nav li a.active {
 		outline: 0;
-		color: #FFA500;
+		color: #333333;
 		background: #FFA500;
 	}
 
