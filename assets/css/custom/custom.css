@@ -1,20 +1,17 @@
 /* Global */
-html, body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
+html {
     position: relative;
     min-height: 100%;
 }
-
 body {
+    /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background: #FFFFFF url(../../img/bg/background.png);
 }
-
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+    /* Set the fixed height of the footer here */
     height: 60px;
     background-color: #f5f5f5;
 }
@@ -49,7 +46,26 @@ hr {
 
 /* End of Navbar */
 
+/* Wrapper */
+.wrapper {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 10px 50px 10px;
+}
 
+.wrapper .wrapper-body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+@media (min-width: 767px) {
+    .wrapper {
+        height: 100%;
+        padding: 0;
+    }
+}
+/* End of Wrapper */
 
 
 /* Form Logo */
