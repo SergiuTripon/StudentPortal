@@ -14,41 +14,40 @@ include 'includes/session.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../assets/img/favicon/favicon.ico">
+
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Forgotten Password</title>
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
-	
 </head>
 
 <body>
-	
+
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
     <header><!-- Header -->
-    <div class="wrapper"><!-- Wrapper -->
+    <div class="wrapper-body"><!-- Wrapper -->
 
     <form class="form-custom">
 
-    <div class="logo-custom">
+    <div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
     <hr>
 
-    <p class="feedback-sad text-center">You are already signed in which means you haven't forgotten your password. <br><br>If you have, you can sign out and access the "Forgotten your password?" facility.</p>
+    <p class="feedback-sad text-center">You are already logged in. You don't have to log in again.</p>
 
     <hr>
 
-    <div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="overview/"><span class="ladda-label">Overview</span></a>
+	<div class="pull-left">
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="overview/"><span class="ladda-label">Overview</span></a>
     </div>
-	
+
     <div class="text-right">
-    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="../sign-out/"><span class="ladda-label">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="sign-out/"><span class="ladda-label">Sign Out</span></a>
     </div>
 
     </form>
@@ -64,14 +63,45 @@ include 'includes/session.php';
     <?php include 'includes/menus/menu.php'; ?>
 
     <header><!-- Header -->
-    <div class="wrapper">
+    <div class="wrapper-body"><!-- Wrapper-->
 
-    <form method="post" name="forgotpassword_form">
+    <form class="form-custom" <?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="post" name="forgotpassword_form">
 
+    <div class="logo-custom animated fadeIn delay">
+    <i class="fa fa-lock"></i>
+    </div>
+
+    <hr class="hr-custom">
+
+    <p id="hide" class="feedback-custom text-justify">Please enter the email you used to register to the <b>Student Portal</b> and we will email you a link to reset your password.</p>
+
+	<p id="error" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-happy text-center"></p>
+
+	<label>Email address</label>
+    <input class="form-control" type="email" name="email" id="email" placeholder="Email address">
+    <p id="error1" class="feedback-sad text-center"></p>
+
+    <hr class="hr-custom">
+
+    <div id="register-button" class="pull-left">
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    </div>
+
+    <div id="register-button" class="text-right">
+    <button id="FormSubmit" class="btn btn-lg btn-custom ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Continue</span></button>
+    </div>
+
+	<div id="success-button" class="text-center" style="display:none">
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Continue</span></a>
+    </div>
 
     </form>
-    </div>
+
+    </div><!-- End of Wrapper -->
     </header><!-- End of Header -->
+
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
@@ -83,26 +113,26 @@ include 'includes/session.php';
     $(document).ready(function() {
 
     //Ladda
-    Ladda.bind('.ladda-button', {timeout: 1000});
+    Ladda.bind('.ladda-button', {timeout: 2000});
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
 	var hasError = false;
-	
+
 	var email2 = $("#email").val();
 	if(email2 === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
-		$("#email").addClass("error-style");
+		$("#email").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
         $("#error1").hide();
-        $("#email").addClass("success-style");
+        $("#email").css("border-color", "#4DC742");
     }
-	
+
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
@@ -124,9 +154,9 @@ include 'includes/session.php';
     }
 	});
     }
-	
+
 	return true;
-	
+
 	});
 	});
 	</script>
