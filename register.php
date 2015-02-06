@@ -93,13 +93,13 @@ include 'includes/session.php';
     <div class="col-xs-12 col-sm-12 full-width">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default gender">
+	<label class="btn btn-default btn-lg gender">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Male
 	</label>
-	<label class="btn btn-default gender">
+	<label class="btn btn-default btn-lg gender">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Female
 	</label>
-	<label class="btn btn-default gender">
+	<label class="btn btn-default btn-lg gender">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
