@@ -27,6 +27,11 @@ hr {
     color: #FFFFFF;
 }
 
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #FFFFFF;
+}
+
 /* End of Navbar */
 
 /* Wrapper */
