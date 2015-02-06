@@ -98,6 +98,7 @@ html, body {
 .form-custom {
     max-width: 500px;
     margin: 0 auto;
+    padding: 15px;
     background-color: #1863E6;
 }
 /* End of Custom Form */
