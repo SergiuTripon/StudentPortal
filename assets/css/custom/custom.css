@@ -31,11 +31,13 @@ hr {
 
 .navbar-default .navbar-nav>li>a {
     color: #FFFFFF;
+    outline: none !important;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #FFFFFF;
+    outline: none !important;
 }
 
 /* End of Navbar */
