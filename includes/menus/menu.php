@@ -28,7 +28,7 @@
     <div class="container">
     <div class="navbar-header">
     <!-- Toggle -->
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1" aria-expanded="false" aria-controls="navbar">
     <span class="sr-only">Toggle navigation</span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
@@ -37,7 +37,7 @@
     <!-- End of Toggle -->
     </div>
 
-    <div id="navbar" class="navbar-collapse collapse">
+    <div id="navbar1" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
         <li><a href="/about/">About</a></li>
         <li><a href="/features/">Features</a></li>
