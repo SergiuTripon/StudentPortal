@@ -15,7 +15,7 @@ a, a:focus, a:hover {
 }
 
 hr {
-    border-color: #CCCCCC;
+    border: 1px solid #CCCCCC;
 }
 
 @media (max-width: 480px) {
