@@ -109,7 +109,12 @@ form .form-control {
 }
 
 form a {
-    color: 4582EC;
+    color: #4582EC;
+    text-decoration: none;
+}
+
+form a:focus, form a:hover {
+    color: #4582EC;
     text-decoration: none;
 }
 
