@@ -141,7 +141,7 @@ include 'includes/session.php';
     $(document).ready(function() {
 
     //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+    Ladda.bind('.ladda-button', {timeout: 1000});
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
@@ -149,8 +149,11 @@ include 'includes/session.php';
 
 	var hasError = false;
 
-	var email = $('#email').val();
-	if (email === '') {
+	var token = $("#token").val();
+
+	var email3 = $("#email").val();
+	if(email3 === '') {
+		$("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
 		$("#email").addClass("error-style");
 		hasError  = true;
@@ -160,8 +163,8 @@ include 'includes/session.php';
 		$("#email").addClass("success-style");
 	}
 
-	var password = $("#password").val();
-	if(password === '') {
+	var password2 = $("#password").val();
+	if(password2 === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a password.");
 		$("#password").addClass("error-style");
@@ -172,13 +175,70 @@ include 'includes/session.php';
 		$("#password").addClass("success-style");
 	}
 
+	if (password2.length < 6) {
+		$("#error2").show();
+		$("#error2").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#password").addClass("error-style");
+		hasError  = true;
+		return false;
+	} else {
+		$("#error2").hide();
+		$("#password").addClass("success-style");
+	}
+
+	var upperCase= new RegExp('[A-Z]');
+	var lowerCase= new RegExp('[a-z]');
+	var numbers = new RegExp('[0-9]');
+
+	if(password2.match(upperCase) && password2.match(lowerCase) && password2.match(numbers)) {
+		$("#error2").hide();
+		$("#password").addClass("success-style");
+	} else {
+		$("#error2").show();
+		$("#error2").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
+		$("#password").addClass("error-style");
+		hasError  = true;
+		return false;
+	}
+
+	var confirmpwd = $("#confirmpwd").val();
+	if(confirmpwd === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a password confirmation.");
+		$("#confirmpwd").addClass("error-style");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+		$("#confirmpwd").addClass("success-style");
+	}
+
+	if(password2 != confirmpwd) {
+		$("#error2").show();
+		$("#error2").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#password").addClass("error-style");
+		$("#confirmpwd").addClass("error-style");
+        hasError  = true;
+		return false;
+	} else {
+		$("#error2").hide();
+		$("#password").addClass("success-style");
+		$("#confirmpwd").addClass("success-style");
+	}
+
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'email=' + email + '&password=' + password,
+    data:'token=' + token + '&email3=' + email3 + '&password2=' + password2,
     success:function(){
-		window.location = '../overview/';
+		$("#hide").hide();
+		$("#signin-button").hide();
+		$("#FormSubmit").hide();
+		$("#email").hide();
+		$("#error").hide();
+		$("#success").append('Your password has been reset successfully. You can now sign in with your new password.');
+		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
