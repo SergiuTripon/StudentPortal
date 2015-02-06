@@ -91,11 +91,11 @@ include 'includes/session.php';
     <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-12 col-sm-12 full-width pl0">
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your new password">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-12 col-sm-12 full-width pr0">
     <label>Confirm new password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your new password confirmation">
     </div>
