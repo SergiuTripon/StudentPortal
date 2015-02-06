@@ -249,7 +249,7 @@ include 'includes/session.php';
 		return false;
     } else {
 		$("#error1").hide();
-		$("#surname").css("border-color", "#4DC742", "background-color", "#4DC742");
+		$("#surname").css("border-color" : "#4DC742", "background-color" : "#4DC742");
 	}
 
     var gender_check = $(".gender");

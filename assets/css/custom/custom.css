@@ -343,4 +343,26 @@ form .form-control:-ms-input-placeholder {
 
 /* End of Button group */
 
+/* Error messages */
+.error-style {
+    border-color: #FF5454;
+    background-color: #FF5454;
+}
+
+.feedback-sad {
+    color: #FF5454;
+}
+
+.succes-style {
+    border-color: #4DC742;
+    background-color: #4DC742;
+}
+
+.feedback-happy {
+    color: #4DC742;
+}
+
+
+/* End of Error messages */
+
 
