@@ -67,7 +67,7 @@ include 'includes/session.php';
 
     <form class="form-custom" style="max-width: 600px;" id="register_form" name="register_form">
 
-    <div class="logo-custom">
+    <div class="form-logo">
 	<i class="fa fa-check-square-o"></i>
     </div>
 
