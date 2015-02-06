@@ -84,6 +84,20 @@ hr {
     outline: none !important;
 }
 
+.navbar-default .navbar-toggle {
+    border: none;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background: none;
+}
+
+/* Styles the toggle */
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFFFFF;
+}
+
 /* End of Navbar */
 
 /* Wrapper */
