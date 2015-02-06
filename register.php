@@ -182,7 +182,7 @@ include 'includes/session.php';
     </div>
     
 	<div class="modal-footer">
-    <button type="button" class="btn btn-custom btn-lg" data-dismiss="modal">Back</button>
+    <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Back</button>
     </div>
             
 	</div><!-- /modal -->
