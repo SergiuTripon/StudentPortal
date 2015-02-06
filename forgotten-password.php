@@ -85,15 +85,15 @@ include 'includes/session.php';
     <hr>
 
     <div id="register-button" class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
     <div id="register-button" class="text-right">
-    <button id="FormSubmit" class="btn btn-lg btn-primary ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Continue</span></button>
+    <button id="FormSubmit" class="btn btn-lg btn-primary ladda-button" data-style="slide-up"><span class="ladda-label">Continue</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Continue</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Continue</span></a>
     </div>
 
     </form>
