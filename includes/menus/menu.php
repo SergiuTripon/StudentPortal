@@ -11,6 +11,12 @@
     .navbar-default .navbar-nav>li>a {
         color: #FFA500;
     }
+
+    .navbar-default .navbar-nav>li>a:focus,
+    .navbar-default .navbar-nav>li>a:hover {
+        color:#FFA500;
+        background-color:transparent;
+    }
     </style>
 
 
