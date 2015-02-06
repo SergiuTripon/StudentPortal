@@ -105,7 +105,7 @@
 
 	<li><a id="home" href="/">Sign In</a></li>
 
-	<li><a id="home" href="/">Register</a></li>
+	<li><a id="register" href="/">Register</a></li>
 
 	<li><a id="about" href="/about/">About</a></li>
 
