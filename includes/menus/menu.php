@@ -71,6 +71,7 @@
 	}
 
 	.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+		color: #FFA500;
 		background-color: #FFA500;
 	}
 	
