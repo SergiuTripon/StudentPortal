@@ -350,7 +350,7 @@ form .form-control:-ms-input-placeholder {
     background-color: #FF5454 !important;
 }
 
-.error-style > .btn-default {
+.error-style.btn-default {
     border-color: #FFFFFF !important;
 }
 
