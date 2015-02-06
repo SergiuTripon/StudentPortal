@@ -5,7 +5,9 @@
     <!-- Toggle -->
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
     <span class="sr-only">Toggle navigation</span>
-    <i class="fa fa-bars fa-lg"></i>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
     </button>
     <!-- End of Toggle -->
     <a class="navbar-brand" href="#">Student Portal</a>
