@@ -18,6 +18,13 @@ hr {
     border-color: #CCCCCC;
 }
 
+@media (max-width: 480px) {
+.full-width {
+    width: 100% !important;
+}
+}
+
+
 /* End of Global */
 
 /* Navbar */
@@ -230,7 +237,23 @@ form .form-control:-ms-input-placeholder {
     background-color: #EC971F;
     border-color: #EB9316;
 }
-/*End of Buttons */
+/* End of Buttons */
 
+/* Button group */
+.btn-group, .btn-group-vertical {
+    margin-bottom: 10px;
+}
+
+.btn-group-vertical > :last-child:not(:first-child).btn {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.btn-group, .btn-custom {
+    line-height: 1.9;
+}
+
+/* End of Button group */
 
 
