@@ -244,12 +244,12 @@ include 'includes/session.php';
 	if(surname === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a surname.");
-		$("#surname").css("border-color", "#FF5454");
+		$("#surname").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error1").hide();
-		$("#surname").css("border-color" : "#4DC742", "background-color" : "#4DC742");
+		$("#surname").addClass("success-style");
 	}
 
     var gender_check = $(".gender");
