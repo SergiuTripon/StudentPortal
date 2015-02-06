@@ -139,7 +139,7 @@
 	<li><a id="register" href="/">Register</a></li>
 
 	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find out more <span class="caret"></span></a>
 		<ul class="dropdown-menu" role="menu">
 			<li><a id="about" href="/about/">About</a></li>
 
