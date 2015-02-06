@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
-      <?php include 'assets/css-paths/common-css-paths.php'; ?>
+      <!-- bootstrap -->
+      <link href="https://student-portal.co.uk/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <title>Sticky Footer Navbar Template for Bootstrap</title>
 
