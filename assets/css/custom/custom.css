@@ -10,8 +10,28 @@ html, body {
 .navbar-default {
     background-color: #D9534F;
 }
+.navbar-default .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #FFFFFF;
+}
 
 /* End of Navbar */
+
+/* Buttons */
+.btn-primary {
+    color: #FFFFFF;
+    background-color: #4582EC;
+    border-color: #4582EC;
+}
+.btn-primary:hover {
+    color: #FFFFFF;
+    background-color: #1863E6;
+    border-color: #175FDD;
+}
+/*End of Buttons */
 
 /* Form Logo */
 .form-logo {
