@@ -61,8 +61,8 @@
 	.navbar-default .navbar-nav>.open>a,
 	.navbar-default .navbar-nav>.open>a:hover,
 	.navbar-default .navbar-nav>.open>a:focus {
-		color: #FFA500;
-		background: none;
+		color: #333333;
+		background: #FFA500;
 	}
 
 	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
