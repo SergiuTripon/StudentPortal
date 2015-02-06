@@ -141,7 +141,7 @@ include 'includes/session.php';
     </div>
 	
     <div id="register-button" class="text-right">
-    <button id="FormSubmit" class="btn btn-default btn-lg ladda-button" data-style="slide-up" data-spinner-color="#333333"><span class="ladda-label">Register</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#333333"><span class="ladda-label">Register</span></button>
     </div>
 	
 	<div id="success-button" class="text-center" style="display:none">
@@ -255,11 +255,11 @@ include 'includes/session.php';
     var gender_check = $(".gender");
 	if (gender_check.hasClass('active')) {
 		$("#error2").hide();
-        $(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+		$(".btn-group > .btn-default").addClass("success-style");
 	}
 	else {
 		$("#error2").empty().append("Please select a gender.");
-        $(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
+		$(".btn-group > .btn-default").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
