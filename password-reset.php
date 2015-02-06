@@ -68,16 +68,16 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
-    <form class="form-custom" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="passwordreset_form">
+    <form class="form-custom" method="post" name="passwordreset_form">
 
     <div class="logo-custom animated fadeIn delay">
 	<i class="fa fa-key"></i>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -119,21 +119,21 @@ include 'includes/session.php';
     } ?>
 
     <div id="signin-button" class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
     <div id="register-button" class="text-right">
-	<button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Continue</span></button>
+	<button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Continue</span></button>
     </div>
 	
 	<div id="success-button" class="text-center" style="display:none;">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
 	<?php endif; ?>
 
