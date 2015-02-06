@@ -93,8 +93,8 @@ form .form-control {
     color: #FFA500;
     font-size: 15px;
     z-index: 30;
-    background: #333333;
-    border-color: #FFA500;
+    background: #E3E3E3;
+    border-color: #CCCCCC;
     height: auto;
     padding: 10px;
     position: relative;
