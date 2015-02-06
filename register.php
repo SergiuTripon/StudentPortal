@@ -77,10 +77,15 @@ include 'includes/session.php';
 
     <div id="hide">
 
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
+    </div>
+    </div>
     <p id="error1" class="feedback-sad text-center"></p>
 
 	<label>Gender - select below</label>
