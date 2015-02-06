@@ -125,12 +125,12 @@ include 'includes/session.php';
 	if(email2 === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
-		$("#email").css("border-color", "#FF5454");
+		$("#email").addClass("error-style");
 		hasError  = true;
 		return false;
 	} else {
         $("#error1").hide();
-        $("#email").css("border-color", "#4DC742");
+        $("#email").addClass("success-style");
     }
 
 	if(hasError == false){
