@@ -10,6 +10,10 @@ body {
     background: #FFFFFF url(../../img/bg/background.png);
 }
 
+a, a:focus, a:hover {
+    outline: none !important;
+}
+
 hr {
     border-color: #CCCCCC;
 }
@@ -102,6 +106,11 @@ form .form-control {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+form a {
+    color: 4582EC;
+    text-decoration: none;
 }
 
 form label {
