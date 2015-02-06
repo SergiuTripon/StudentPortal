@@ -27,8 +27,8 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <header class="wrapper"><!-- Wrapper -->
-    <div class="wrapper-body"><!-- Wrapper body -->
+    <header><!-- Header -->
+    <div class="wrapper-body"><!-- Wrapper -->
 
     <form class="form-custom">
 
@@ -52,8 +52,8 @@ include 'includes/session.php';
 
     </form>
 
-    </div><!-- End of wrapper-body -->
-    </header><!-- End of Wrapper -->
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
@@ -62,8 +62,8 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header class="wrapper"><!-- Wrapper -->
-    <div class="wrapper-body"><!-- Wrapper body -->
+    <header><!-- Header -->
+    <div class="wrapper-body"><!-- Wrapper-->
 
     <form class="form-custom" name="signin_form" id="signin_form">
 
@@ -99,8 +99,8 @@ include 'includes/session.php';
 
     </form>
 
-    </div><!-- End of Wrapper body -->
-    </header><!-- End of Wrapper -->
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
     <?php include 'includes/footers/footer.php'; ?>
 

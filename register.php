@@ -27,20 +27,20 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <form class="form-custom">
                 
-	<div class="logo-custom animated fadeIn delay">
+	<div class="form-logo">
     <i class="fa fa-check-square-o"></i>
     </div>
     
-	<hr class="hr-custom">
+	<hr>
                 
 	<p class="feedback-sad text-center">You already have an account and therefore cannot register for another. Only one account is allowed per user.</p>
     
-	<hr class="hr-custom">
+	<hr>
                 
 	<div class="pull-left">
     <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="../overview/"><span class="ladda-label">Overview</span></a>
@@ -52,8 +52,8 @@ include 'includes/session.php';
     
 	</form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
@@ -62,16 +62,16 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header class="wrapper">
-    <div class="wrapper-body">
+    <header><!-- Header -->
+    <div class="wrapper-body"><!-- Wrapper -->
 
     <form class="form-custom" style="max-width: 600px;" id="register_form" name="register_form">
 
-    <div class="logo-custom animated fadeIn delay">
+    <div class="logo-custom">
 	<i class="fa fa-check-square-o"></i>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
 	<p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
@@ -130,12 +130,12 @@ include 'includes/session.php';
     <p id="error4" class="feedback-sad text-center"></p>
 
 	<div class="text-right">
-    <a class="help" href="#modal-help" data-toggle="modal">Need help?</a>
+    <a href="#modal-help" data-toggle="modal">Need help?</a>
     </div>
 	
 	</div>
 
-    <hr class="hr-custom">
+    <hr>
 
 	<div id="register-button" class="pull-left">
     <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
@@ -151,8 +151,8 @@ include 'includes/session.php';
 	
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
     <?php include 'includes/showcase/showcase.php'; ?>
 
