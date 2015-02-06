@@ -76,7 +76,7 @@ hr {
 /* End of Form Logo */
 
 
-/* Custom Form */
+/* Form */
 form {
     max-width: 500px;
     margin: 0 auto;
@@ -88,7 +88,86 @@ form {
     -moz-box-shadow: 0 0 8px 0 #CCCCCC;
     box-shadow: 0 0 8px 0 #CCCCCC;
 }
-/* End of Custom Form */
+
+form .form-control {
+    color: #FFA500;
+    font-size: 15px;
+    z-index: 30;
+    background: #333333;
+    border-color: #FFA500;
+    height: auto;
+    padding: 10px;
+    position: relative;
+    border-radius: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+form label {
+    color: #FFA500;
+    font-weight: normal;
+}
+
+form input {
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+
+form select {
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+
+form textarea {
+    margin-bottom: 10px;
+    resize: none;
+}
+
+/* Overwrites box shadow effect */
+form .form-control input:focus,
+form .form-control:focus,
+form .form-control textarea:focus {
+    border-color: #FFA500;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -15px 0 10px -10px rgba(255, 165, 0, 1);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -15px 0 10px -10px rgba(255, 165, 0, 1);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -15px 0 10px -10px rgba(255, 165, 0, 1);
+}
+
+/* Remember Password hack (Chrome) */
+form input:-webkit-autofill {
+    -webkit-text-fill-color: #FFA500;
+    -webkit-box-shadow: 0 0 0px 1000px #333333 inset;
+}
+
+form input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #FFA500;
+    -webkit-box-shadow: 0 0 0px 1000px #333333 inset;
+}
+/* End of Remember Password hack (Chrome) */
+
+
+/* Placeholder */
+form .form-control::-webkit-input-placeholder {
+    color: gray;
+}
+
+form .form-control:-moz-placeholder {
+    color: gray;
+}
+
+form .form-control::-moz-placeholder {
+    color: gray;
+}
+
+form .form-control:-ms-input-placeholder {
+    color: gray;
+}
+/* End of Placeholder */
+/* End of Form */
+
+
+/* End of Form */
 
 /* Buttons */
 .btn-default {
