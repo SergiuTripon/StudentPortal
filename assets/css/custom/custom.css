@@ -98,6 +98,21 @@ hr {
     background-color: #FFFFFF;
 }
 
+@media all and (max-width:767px) {
+.navbar-default .navbar-nav .open .dropdown-menu > li > a,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #FFFFFF;
+    background-color: transparent;
+    text-align: center;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #FFFFFF;
+    text-align: center;
+}
+}
+
+
 /* End of Navbar */
 
 /* Wrapper */
