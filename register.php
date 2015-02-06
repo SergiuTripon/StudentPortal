@@ -255,11 +255,11 @@ include 'includes/session.php';
     var gender_check = $(".gender");
 	if (gender_check.hasClass('active')) {
 		$("#error2").hide();
-		$(".btn-group.btn-custom").addClass("success-style");
+		$(".btn-group > .btn-custom").addClass("success-style");
 	}
 	else {
 		$("#error2").empty().append("Please select a gender.");
-		$(".btn-group.btn-custom").addClass("error-style");
+		$(".btn-group > .btn-custom").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
