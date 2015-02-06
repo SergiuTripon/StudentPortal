@@ -41,7 +41,7 @@
 
 	.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
 		color: #333333;
-		background-color: #FFA500;
+		background-color: #FFA500 !important;
 	}
 	
 	@media(max-width:767px) {
