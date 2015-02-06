@@ -4,6 +4,11 @@ html, body {
     font-size: 15px;
     width: 100%;
 }
+
+body {
+    background: #FFFFFF url(../../img/bg/bg-pattern.png);
+}
+
 /* End of Global */
 
 /* Navbar */
@@ -99,7 +104,7 @@ form {
     max-width: 500px;
     margin: 0 auto;
     padding: 15px;
-    background-color: #E3E3E3;
+    background-color: #F8F8F8;
     border: 1px solid #333333;
 }
 /* End of Custom Form */
