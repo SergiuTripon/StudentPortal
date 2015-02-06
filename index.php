@@ -19,18 +19,6 @@ include 'includes/session.php';
 
     <title>Student Portal</title>
 	
-	<style>
-	html, body {
-		height: 100% !important;
-	}
-    /* Activating menu item */
-    #home {
-        color: #333333;
-        background: #FFA500;
-    }
-    /* End of Activating menu item */
-	</style>
-	
 </head>
 
 <body>
