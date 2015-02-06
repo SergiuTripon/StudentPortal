@@ -32,27 +32,27 @@ hr {
 
 /* Sets the padding for widths within form groups */
 .form-group > .col-xs-4 {
-    padding-right: 5px;
+    padding-right: 10px;
     padding-left: 0px;
 }
 .form-group > .col-sm-4 {
-    padding-right: 5px;
+    padding-right: 10px;
     padding-left: 0px;
 }
 .form-group > .col-xs-6 {
-    padding-right: 5px;
+    padding-right: 10px;
     padding-left: 0px;
 }
 .form-group > .col-sm-6 {
-    padding-right: 5px;
+    padding-right: 10px;
     padding-left: 0px;
 }
 .form-group > .col-xs-12 {
-    padding-right: 5px;
+    padding-right: 10px;
     padding-left: 0px;
 }
 .form-group > .col-sm-12 {
-    padding-right: 5px;
+    padding-right: 10px;
     padding-left: 0px;
 }
 
