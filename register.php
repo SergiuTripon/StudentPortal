@@ -232,12 +232,12 @@ include 'includes/session.php';
 	if(firstname === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a first name.");
-		$("#firstname").css("border-color", "#FF5454");
+		$("#firstname").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error1").hide();
-		$("#firstname").css("border-color", "#4DC742");
+		$("#firstname").addClass("success-style");
 	}
 	
 	var surname = $("#surname").val();
@@ -255,11 +255,11 @@ include 'includes/session.php';
     var gender_check = $(".gender");
 	if (gender_check.hasClass('active')) {
 		$("#error2").hide();
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+		$(".btn-group > .btn-custom").addClass("success-style");
 	}
 	else {
 		$("#error2").empty().append("Please select a gender.");
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
+		$(".btn-group > .btn-custom").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
@@ -268,36 +268,36 @@ include 'includes/session.php';
 	if(email1 === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter an email address.");
-		$("#email").css("border-color", "#FF5454");
+		$("#email").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error3").hide();
-		$("#email").css("border-color", "#4DC742");
+		$("#email").addClass("success-style");
 	}
 	
 	var password1 = $("#password").val();
 	if(password1 === '') {
 		$("#error4").show();
         $("#error4").empty().append("Please enter a password.");
-		$("#password").css("border-color", "#FF5454");
+		$("#password").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error4").hide();
-		$("#password").css("border-color", "#4DC742");
+		$("#password").addClass("success-style");
 	}
 
     password1 = $("#password").val();
 	if (password1.length < 6) {
 		$("#error4").show();
 		$("#error4").empty().append("Passwords must be at least 6 characters long. Please try again.");
-		$("#password").css("border-color", "#FF5454");
+		$("#password").addClass("success-style");
 		hasError  = true;
 		return false;
 	} else {
 		$("#error4").hide();
-		$("#password").css("border-color", "#4DC742");
+		$("#password").addClass("error-style");
 	}
 	
 	var upperCase= new RegExp('[A-Z]');
@@ -307,11 +307,11 @@ include 'includes/session.php';
     password1 = $("#password").val();
 	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
 		$("#error4").hide();
-		$("#password").css("border-color", "#4DC742");
+		$("#password").addClass("success-style");
 	} else {
 		$("#error4").show();
 		$("#error4").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
-		$("#password").css("border-color", "#FF5454");
+		$("#password").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
@@ -320,25 +320,25 @@ include 'includes/session.php';
 	if(confirmpwd === '') {
 		$("#error4").show();
         $("#error4").empty().append("Please enter a password confirmation.");
-		$("#confirmpwd").css("border-color", "#FF5454");
+		$("#confirmpwd").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error").hide();
-		$("#confirmpwd").css("border-color", "#4DC742");
+		$("#confirmpwd").addClass("success-style");
 	}
 	
 	if(password1 != confirmpwd) {
 		$("#error4").show();
 		$("#error4").empty().append("Your password and confirmation do not match. Please try again.");
-		$("#password").css("border-color", "#FF5454");
-		$("#confirmpwd").css("border-color", "#FF5454");
+		$("#password").addClass("error-style");
+		$("#confirmpwd").addClass("error-style");
         hasError  = true;
 		return false;
 	} else {
 		$("#error4").hide();
-		$("#password").css("border-color", "#4DC742");
-		$("#confirmpwd").css("border-color", "#4DC742");
+		$("#password").addClass("success-style");
+		$("#confirmpwd").addClass("success-style");
 	}
 	
 	if(hasError == false){
