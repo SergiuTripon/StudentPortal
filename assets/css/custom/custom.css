@@ -9,6 +9,10 @@ body {
     background: #FFFFFF url(../../img/bg/background.png);
 }
 
+hr {
+    border-color: #E3E3E3;
+}
+
 /* End of Global */
 
 /* Navbar */
@@ -24,6 +28,50 @@ body {
 }
 
 /* End of Navbar */
+
+/* Wrapper */
+.wrapper {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 10px 50px 10px;
+}
+
+.wrapper .wrapper-body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+@media (min-width: 767px) {
+    .wrapper {
+        height: 100%;
+        padding: 0;
+    }
+}
+/* End of Wrapper */
+
+
+/* Form Logo */
+.form-logo {
+    text-align: center;
+}
+.form-logo i {
+    font-size: 80px;
+    color: #4582EC;
+    cursor: default;
+}
+/* End of Form Logo */
+
+
+/* Custom Form */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #F8F8F8;
+    border: 1px solid #E3E3E3;
+}
+/* End of Custom Form */
 
 /* Buttons */
 .btn-default {
@@ -87,48 +135,6 @@ body {
     border-color: #EB9316;
 }
 /*End of Buttons */
-
-/* Form Logo */
-.form-logo {
-    text-align: center;
-}
-.form-logo i {
-    font-size: 80px;
-    color: #4582EC;
-    cursor: default;
-}
-/* End of Form Logo */
-
-/* Custom Form */
-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 15px;
-    background-color: #F8F8F8;
-    border: 1px solid #333333;
-}
-/* End of Custom Form */
-
-/* Wrapper */
-.wrapper {
-    display: table;
-    width: 100%;
-    height: auto;
-    padding: 100px 10px 50px 10px;
-}
-
-.wrapper .wrapper-body {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-@media (min-width: 767px) {
-.wrapper {
-    height: 100%;
-    padding: 0;
-}
-}
-/* End of Wrapper */
 
 
 
