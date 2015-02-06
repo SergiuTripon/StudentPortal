@@ -66,6 +66,10 @@
 		background: #FFA500;
 	}
 
+	.dropdown-menu {
+		min-width: 100%;
+	}
+
 	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
 		color: #FFA500;
 	}
