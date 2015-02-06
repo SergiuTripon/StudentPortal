@@ -152,6 +152,10 @@ form .form-control:-ms-input-placeholder {
 /* End of Form */
 
 /* Buttons */
+.btn, .btn:focus, .btn:hover {
+    outline: none !important;
+}
+
 .btn-default {
     color: #333333;
     background-color: #FFFFFF;
