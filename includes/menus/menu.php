@@ -36,7 +36,7 @@
 	.navbar-custom .nav li a:focus,
 	.navbar-custom .nav li a.active {
 		outline: 0;
-		background: none;
+		background: #FFA500;
 	}
 
 	.dropdown-menu {
