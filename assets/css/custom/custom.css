@@ -14,7 +14,7 @@ a, a:focus, a:hover {
     outline: none !important;
 }
 
-.hr {
+hr {
     height: 5px;
     border-top: 0;
     background: #c4e17f;
