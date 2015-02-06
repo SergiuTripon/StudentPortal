@@ -31,29 +31,31 @@ hr {
 }
 
 /* Sets the padding for widths within form groups */
+@media (max-width: 480px) {
 .form-group > .col-xs-4 {
-    padding-right: 10px;
+    padding-right: 0px;
     padding-left: 0px;
 }
 .form-group > .col-sm-4 {
-    padding-right: 10px;
+    padding-right: 0px;
     padding-left: 0px;
 }
 .form-group > .col-xs-6 {
-    padding-right: 10px;
+    padding-right: 0px;
     padding-left: 0px;
 }
 .form-group > .col-sm-6 {
-    padding-right: 10px;
+    padding-right: 0px;
     padding-left: 0px;
 }
 .form-group > .col-xs-12 {
-    padding-right: 10px;
+    padding-right: 0px;
     padding-left: 0px;
 }
 .form-group > .col-sm-12 {
-    padding-right: 10px;
+    padding-right: 0px;
     padding-left: 0px;
+}
 }
 
 /* End of Global */
