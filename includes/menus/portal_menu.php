@@ -89,6 +89,10 @@
 		color: #FFA500;
 		background: none;
 	}
+
+	.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+		background-color: #FFA500;
+	}
 	
 	@media (max-width: 767px) {
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a,
