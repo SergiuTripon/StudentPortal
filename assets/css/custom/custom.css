@@ -304,13 +304,13 @@ form .form-control:-ms-input-placeholder {
 }
 .btn-danger {
     color: #FFFFFF;
-    background-color: #F0AD4E;
-    border-color: #F0AD4E;
+    background-color: #D9534F;
+    border-color: #D9534F;
 }
 .btn-danger:focus, .btn-danger:hover {
     color: #FFFFFF;
-    background-color: #EC971F;
-    border-color: #EB9316;
+    background-color: #C9302C;
+    border-color: #C12E2A;
 }
 /* End of Buttons */
 
