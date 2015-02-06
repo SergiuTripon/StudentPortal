@@ -19,18 +19,6 @@ include 'includes/session.php';
 
     <title>Student Portal | Register</title>
 
-    <style>
-    html, body {
-		height: 100% !important;
-	}
-    /* Activating menu item */
-    #register {
-        color: #333333;
-        background: #FFA500;
-    }
-    /* End of Activating menu item */
-    </style>
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
