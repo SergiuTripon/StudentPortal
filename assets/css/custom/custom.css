@@ -5,3 +5,22 @@ html, body {
     width: 100%;
 }
 /* End of Global styles */
+
+/* Form Logo */
+.form-logo {
+    text-align: center;
+}
+.form-logo i {
+    font-size: 80px;
+    color: #FFA500;
+    cursor: default;
+}
+/* End of Form Logo */
+
+/* Custom Form style */
+.form-custom {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+

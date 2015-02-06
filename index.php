@@ -33,7 +33,7 @@ include 'includes/session.php';
 	
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body>
 	
 	<div class="preloader"></div>
 
@@ -44,7 +44,7 @@ include 'includes/session.php';
 
     <form class="form-custom">
 
-    <div class="logo-custom">
+    <div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
@@ -79,7 +79,7 @@ include 'includes/session.php';
 
     <form class="form-custom" name="signin_form" id="signin_form">
 
-    <div class="logo-custom">
+    <div class="form-logo">
 	<i class="fa fa-graduation-cap"></i>
     </div>
 
