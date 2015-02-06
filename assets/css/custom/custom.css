@@ -325,6 +325,11 @@ form .form-control:-ms-input-placeholder {
     border-bottom-left-radius: 0px;
 }
 
+.btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
+    border-right: none;
+    border-left: none;
+}
+
 /* End of Button group */
 
 
