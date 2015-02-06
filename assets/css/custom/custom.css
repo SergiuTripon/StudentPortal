@@ -49,26 +49,7 @@ hr {
 
 /* End of Navbar */
 
-/* Wrapper */
-.wrapper {
-    display: table;
-    width: 100%;
-    height: auto;
-    padding: 100px 10px 50px 10px;
-}
 
-.wrapper .wrapper-body {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-@media (min-width: 767px) {
-    .wrapper {
-        height: 100%;
-        padding: 0;
-    }
-}
-/* End of Wrapper */
 
 
 /* Form Logo */
