@@ -9,10 +9,6 @@
     	background-color: #000;
 	}
 
-	.navbar-custom .navbar-brand {
-    	font-weight: 700;
-	}
-
 	.navbar-custom .navbar-brand:focus {
     	outline: 0;
 	}
@@ -20,7 +16,7 @@
 	.navbar-custom .navbar-brand .navbar-toggle {
     	padding: 4px 6px;
     	font-size: 16px;
-    	color: #fff;
+    	color: #FFA500;
 	}
 
 	.navbar-custom .navbar-brand .navbar-toggle:focus,
