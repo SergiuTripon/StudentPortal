@@ -168,11 +168,10 @@ form {
     margin: 0 auto;
     padding: 15px;
     background-color: #F8F8F8;
-    border: 1px solid #CCCCCC;
     border-radius: 3px;
-    -webkit-box-shadow: 0 0 8px 0 #CCCCCC;
-    -moz-box-shadow: 0 0 8px 0 #CCCCCC;
-    box-shadow: 0 0 8px 0 #CCCCCC;
+    -webkit-box-shadow: 0 0 8px 0 #333333;
+    -moz-box-shadow: 0 0 8px 0 #333333;
+    box-shadow: 0 0 8px 0 #333333;
 }
 
 form .form-control {
