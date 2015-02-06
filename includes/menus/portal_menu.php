@@ -87,7 +87,7 @@
 	.navbar-default .navbar-nav>.open>a:hover,
 	.navbar-default .navbar-nav>.open>a:focus {
 		color: #FFA500;
-		background: none;
+		background: #333333;
 	}
 
 	.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
