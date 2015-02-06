@@ -128,10 +128,10 @@ form textarea {
 form .form-control input:focus,
 form .form-control:focus,
 form .form-control textarea:focus {
-    border-color: #FFA500;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -15px 0 10px -10px rgba(255, 165, 0, 1);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -15px 0 10px -10px rgba(255, 165, 0, 1);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -15px 0 10px -10px rgba(255, 165, 0, 1);
+    border-color: #333333;
+    -moz-box-shadow:    inset 0 0 10px #333333;
+    -webkit-box-shadow: inset 0 0 10px #333333;
+    box-shadow:         inset 0 0 10px #333333;
 }
 
 /* Remember Password hack (Chrome) */
