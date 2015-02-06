@@ -70,9 +70,10 @@ form {
     padding: 15px;
     background-color: #F8F8F8;
     border: 1px solid #E3E3E3;
-    -webkit-box-shadow: 0 8px 6px -6px black;
-    -moz-box-shadow: 0 8px 6px -6px black;
-    box-shadow: 0 8px 6px -6px black;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 8px 0 #CCCCCC;
+    -moz-box-shadow: 0 0 8px 0 #CCCCCC;
+    box-shadow: 0 0 8px 0 #CCCCCC;
 }
 /* End of Custom Form */
 
