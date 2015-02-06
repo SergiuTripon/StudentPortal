@@ -66,7 +66,7 @@ include 'includes/session.php';
     <header><!-- Header -->
     <div class="wrapper"><!-- Wrapper -->
 
-    <form class="form-custom" method="post" name="forgotpassword_form">
+    <form method="post" name="forgotpassword_form">
 
     <div class="form-logo">
     <i class="fa fa-lock"></i>
