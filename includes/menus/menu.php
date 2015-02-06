@@ -97,7 +97,7 @@
 	<li><a id="register" href="/features/">Register</a></li>
 
 	<li class="dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="fa fa-caret-down"></span></a>
 	<ul class="dropdown-menu" role="menu">
 	<li><a id="about" href="/about/">About</a></li>
 	<li><a id="features" href="/features/">Features</a></li>
