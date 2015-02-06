@@ -6,7 +6,12 @@ html, body {
 }
 
 body {
-    background: #FFFFFF url(../../img/bg/background.png);
+    background: transparent url(../../img/bg/background.png) repeat scroll;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: auto;
 }
 
 /* End of Global */
