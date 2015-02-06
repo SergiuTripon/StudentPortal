@@ -1,10 +1,10 @@
-/* Global styles */
+/* Global */
 html, body {
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     width: 100%;
 }
-/* End of Global styles */
+/* End of Global */
 
 /* Form Logo */
 .form-logo {
@@ -17,10 +17,33 @@ html, body {
 }
 /* End of Form Logo */
 
-/* Custom Form style */
+/* Custom Form */
 .form-custom {
     max-width: 500px;
     margin: 0 auto;
 }
+/* End of Custom Form */
+
+/* Wrapper */
+.wrapper {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 10px 50px 10px;
+}
+
+.wrapper .wrapper-body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+@media (min-width: 767px) {
+.wrapper {
+    height: 100%;
+    padding: 0;
+}
+}
+/* End of Wrapper */
+
 
 
