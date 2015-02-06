@@ -10,7 +10,7 @@ body {
 }
 
 hr {
-    border-color: #DEDEDE;
+    border-color: #D4D4D4;
 }
 
 /* End of Global */
@@ -69,7 +69,10 @@ form {
     margin: 0 auto;
     padding: 15px;
     background-color: #F8F8F8;
-    border: 1px solid #DEDEDE;
+    border: 1px solid #E3E3E3;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
 }
 /* End of Custom Form */
 
