@@ -95,7 +95,7 @@ html, body {
 /* End of Form Logo */
 
 /* Custom Form */
-.form-custom {
+form {
     max-width: 500px;
     margin: 0 auto;
     padding: 15px;
