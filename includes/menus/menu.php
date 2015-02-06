@@ -1,3 +1,15 @@
+    <style>
+    .navbar-default {
+        background-color: #333333;
+        border-color: #FFA500;
+    }
+
+    .navbar-default .navbar-brand {
+        color: #FFA500;
+    }
+    </style>
+
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -10,7 +22,7 @@
     <span class="icon-bar"></span>
     </button>
     <!-- End of Toggle -->
-    <a class="navbar-brand" href="#">Student Portal</a>
+    <a class="navbar-brand" href="#"><i class="fa fa-graduation-cap"></i> Student Portal</a>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
