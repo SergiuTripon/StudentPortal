@@ -90,7 +90,7 @@ form {
 }
 
 form .form-control {
-    color: #FFA500;
+    color: #333333;
     font-size: 15px;
     z-index: 30;
     background: #E3E3E3;
@@ -98,14 +98,14 @@ form .form-control {
     height: auto;
     padding: 10px;
     position: relative;
-    border-radius: 0;
+    border-radius: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 form label {
-    color: #FFA500;
+    color: #CCCCCC;
     font-weight: normal;
 }
 
