@@ -6,6 +6,13 @@ html, body {
 }
 /* End of Global */
 
+/* Navbar */
+.navbar-default {
+    background-color: #C9302C;
+}
+
+/* End of Navbar */
+
 /* Form Logo */
 .form-logo {
     text-align: center;
