@@ -7,6 +7,10 @@
     .navbar-default .navbar-brand {
         color: #FFA500;
     }
+
+    .navbar-default .navbar-nav>li>a {
+        color: #FFA500;
+    }
     </style>
 
 
