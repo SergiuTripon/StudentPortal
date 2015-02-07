@@ -15,7 +15,7 @@
     <![endif]-->
 
     <style>
-    .container-fluid p {
+    footer p {
         margin: 20px 0;
     }
     </style>
