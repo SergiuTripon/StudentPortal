@@ -557,6 +557,14 @@ form .success-style:-ms-input-placeholder {
     padding-left: 5px;
 }
 
+.large-tile p {
+    color: #FFFFFF;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 5px;
+}
+
 @media (max-width: 992px) {
 .large-tile {
     height: 150px;
@@ -566,14 +574,6 @@ form .success-style:-ms-input-placeholder {
     font-size: 80px;
     margin-top: 23px;
     margin-bottom: 23px;
-}
-
-.large-tile p {
-    color: #FFFFFF;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: left;
-    padding-left: 5px;
 }
 }
 
@@ -586,13 +586,6 @@ form .success-style:-ms-input-placeholder {
     font-size: 120px;
     margin-top: 83px;
     margin-bottom: 83px;
-}
-.large-tile p {
-    color: #FFFFFF;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: left;
-    padding-left: 5px;
 }
 }
 /* End of Tiles style */
