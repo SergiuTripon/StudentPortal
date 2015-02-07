@@ -671,7 +671,7 @@ form .success-style:-ms-input-placeholder {
 
 .panel-group .panel {
     margin-top: 10px;
-    border-radius: 0px;
+    border-radius: 3px;
 }
 
 .panel-group {
@@ -679,7 +679,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 .panel-default {
-    border-color: #FFA500;
+    border-color: #1863E6;
 }
 
 .panel-heading {
@@ -690,14 +690,15 @@ form .success-style:-ms-input-placeholder {
 .panel-default > .panel-heading {
     color: #FFFFFF;
     background-color: #4582EC;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #1863E6;
 }
 
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
+    color: #FFFFFF;
     border-top: none;
-    border-right: 1px solid #FFFFFF;
-    border-left: 1px solid #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
+    border-right: 1px solid #1863E6;
+    border-left: 1px solid #1863E6;
+    border-bottom: 1px solid #1863E6;
     background-color: #4582EC;
     padding: 20px 10px 20px 10px;
 }
