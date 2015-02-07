@@ -4,16 +4,11 @@ html {
     min-height: 100%;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-}
-
 body {
     font-size: 15px;
     font-family: 'Open Sans', sans-serif;
     background: #FFFFFF url(../../img/bg/background.png);
+    margin-bottom: 60px;
 }
 
 a, a:focus, a:hover {
@@ -221,10 +216,7 @@ hr {
 
 /* Wrapper */
 header {
-    height: 100%;
-    width: 100%;
-    display: table;
-    position: relative;
+    padding: 60px 15px 0;
 }
 
 header .wrapper {
