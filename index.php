@@ -38,7 +38,7 @@ include 'includes/session.php';
 
     <form class="form-custom">
 
-    <div class="form-logo">
+    <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
@@ -71,7 +71,7 @@ include 'includes/session.php';
 
     <form class="form-custom" name="signin_form" id="signin_form">
 
-    <div class="form-logo">
+    <div class="form-logo text-center">
 	<i class="fa fa-graduation-cap"></i>
     </div>
 

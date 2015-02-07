@@ -33,7 +33,7 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <div class="container">
+    <div class="container text-center">
 
     <form class="form-custom">
                 
@@ -48,11 +48,11 @@ include 'includes/session.php';
 	<hr>
                 
 	<div class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="../overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="../overview/"><span class="ladda-label">Overview</span></a>
     </div>
 	
     <div class="text-right">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="../sign-out/"><span class="ladda-label">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="../sign-out/"><span class="ladda-label">Sign Out</span></a>
     </div>
     
 	</form>
@@ -72,7 +72,7 @@ include 'includes/session.php';
 
     <form class="form-custom" style="max-width: 600px;" id="register_form" name="register_form">
 
-    <div class="form-logo">
+    <div class="form-logo text-center">
 	<i class="fa fa-check-square-o"></i>
     </div>
 
