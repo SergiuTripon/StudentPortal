@@ -225,10 +225,10 @@ footer {
     width: 100%;
     height: 60px;
     background-color: #F0AD4E;
-    border-top: 1px solid #915B0D;
-    -moz-box-shadow:    0 -5px 5px -5px #915B0D;
-    -webkit-box-shadow: 0 -5px 5px -5px #915B0D;
-    box-shadow:         0 -5px 5px -5px #915B0D;
+    border-top: 1px solid #BF8B41;
+    -moz-box-shadow:    0 -5px 5px -5px #BF8B41;
+    -webkit-box-shadow: 0 -5px 5px -5px #BF8B41;
+    box-shadow:         0 -5px 5px -5px #BF8B41;
 }
 
 footer p {
