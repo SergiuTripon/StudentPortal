@@ -111,25 +111,21 @@ include 'includes/session.php';
 
     </form>
 
-    </div><!-- End of Header -->
-    </header><!-- End of Wrapper -->
+    </div><!-- /.container -->
 
 	<!-- Social -->
-	<div class="social" id="social">
-    <div class="container">
-	<div class="row">
-	<h1>Connect with us</h1>
-	<hr class="hr-custom hr-small">
-	</div>
-    <div class="row">
+	<div id="social-showcase" class="container"><!-- container -->
+
+	<h1 class="text-center">Contact</h1>
+    <hr class="hr-small">
+
     <div class="social-buttons">
     <a href="https://facebook.com/triponsergiu" target="_blank"><i class="fa fa-facebook-square mr10"></i></a>
     <a href="https://twitter.com/SergiuTripon" target="_blank"><i class="fa fa-twitter-square mr10"></i></a>
     <a href="https://www.linkedin.com/in/triponsergiu"><i class="fa fa-linkedin-square" target="_blank"></i></a>
 	</div>
-    </div>
+
 	</div><!-- /.container -->
-	</div><!-- /.Social -->
 
     <?php include 'includes/footers/footer.php'; ?>
 
