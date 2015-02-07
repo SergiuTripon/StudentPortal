@@ -67,7 +67,7 @@ include 'includes/session.php';
 
     <div class="text-center">
     <div>
-    <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
+    <i class="fa fa-pie-chart" style="font-size: 150px;"></i>
     </div>
     <a href="#features1" class="btn btn-circle page-scroll">
     <i class="fa fa-angle-double-down animated"></i>
