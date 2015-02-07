@@ -64,7 +64,10 @@ include 'includes/session.php';
 
     <div class="container"><!-- container -->
 
-	<p class="text-left" style="margin-bottom: 0px;">Click and discover</p>
+    <h1>Features</h1>
+    <hr class="hr-small">
+
+	<p class="text-left">Click and discover</p>
 
     <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
