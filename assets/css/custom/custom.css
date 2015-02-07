@@ -151,9 +151,10 @@ hr {
 .navbar-default {
     background-color: #D9534F;
     border-bottom: 1px solid #992320;
-    -moz-box-shadow:    0 5px 5px -5px #992320;
-    -webkit-box-shadow: 0 5px 5px -5px #992320;
-    box-shadow:         0 5px 5px -5px #992320;
+    box-shadow: 0px 10px 5px #992320;
+    -moz-box-shadow: 0px 10px 5px #992320;
+    -webkit-box-shadow: 0px 10px 5px #992320;
+    -o-box-shadow: 0px 10px 5px #992320;
 }
 .navbar-default .navbar-brand {
     color: #FFFFFF;
