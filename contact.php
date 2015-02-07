@@ -123,8 +123,7 @@ include 'includes/session.php';
 	<!-- Social -->
 	<div id="social-showcase" class="container text-center"><!-- container -->
 
-	<h1>Connect with us</h1>
-    <hr class="hr-small">
+    <hr>
 
     <a href="https://facebook.com/triponsergiu" target="_blank"><i class="fa fa-facebook-square"></i></a>
     <a href="https://twitter.com/SergiuTripon" target="_blank"><i class="fa fa-twitter-square"></i></a>
