@@ -360,6 +360,12 @@ form .form-control:-ms-input-placeholder {
 }
 }
 
+@media (max-width: 480px) {
+.btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+}
 /* End of Button group */
 
 /* Error messages */
