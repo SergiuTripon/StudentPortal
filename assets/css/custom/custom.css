@@ -43,12 +43,6 @@ hr {
     background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 
-.hr-small {
-    max-width: 300px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
 @media (max-width: 480px) {
 .full-width {
     width: 100% !important;
@@ -261,6 +255,12 @@ footer p {
 #features-showcase h1 {
     color: #3FAD46;
 }
+
+#features-showcase hr {
+    border-color: #3FAD46;
+    background-image: none;
+}
+
 /* End of Features showcase */
 
 /* Form Logo */
