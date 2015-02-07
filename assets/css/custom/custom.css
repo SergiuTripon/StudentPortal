@@ -377,7 +377,7 @@ form .form-control:-ms-input-placeholder {
     margin-bottom: 23px;
 }
 
-.tile-text {
+.tile p {
     color: #FFFFFF;
     cursor: pointer;
     text-align: left;
@@ -389,17 +389,17 @@ form .form-control:-ms-input-placeholder {
     height: 150px;
 }
 
-.large-tile-text {
-    color: #FFFFFF;
-    cursor: pointer;
-    text-align: left;
-    padding-left: 5px;
-}
-
 .large-tile i {
     font-size: 80px;
     margin-top: 23px;
     margin-bottom: 23px;
+}
+
+.large-tile p {
+    color: #FFFFFF;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 5px;
 }
 }
 
@@ -408,17 +408,16 @@ form .form-control:-ms-input-placeholder {
     height: 310px;
 }
 
-.large-tile-text {
-    color: #FFFFFF;
-    cursor: pointer;
-    text-align: left;
-    padding-left: 5px;
-}
-
 .large-tile i {
     font-size: 120px;
     margin-top: 83px;
     margin-bottom: 83px;
+}
+.large-tile p {
+    color: #FFFFFF;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 5px;
 }
 }
 /* End of Tiles style */

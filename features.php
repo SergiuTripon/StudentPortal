@@ -74,7 +74,7 @@ include 'includes/session.php';
     <div id="timetable">
 	<div class="tile large-tile">
     <i class="fa fa-table"></i>
-	<p class="large-tile-text">Timetable</p>
+	<p>Timetable</p>
     </div>
 	</div>
 	</div>
@@ -83,7 +83,7 @@ include 'includes/session.php';
     <div id="exams">
 	<div class="tile">
 	<i class="fa fa-pencil"></i>
-	<p class="tile-text">Exams</p>
+	<p>Exams</p>
     </div>
 	</div>
 	</div>
@@ -92,7 +92,7 @@ include 'includes/session.php';
 	<div id="library">
 	<div class="tile">
     <i class="fa fa-book"></i>
-	<p class="tile-text">Library</p>
+	<p>Library</p>
 	</div>
 	</div>
 	</div>
@@ -101,7 +101,7 @@ include 'includes/session.php';
     <div id="transport">
 	<div class="tile" id="transport">
     <i class="fa fa-bus"></i>
-	<p class="tile-text">Transport</p>
+	<p>Transport</p>
     </div>
 	</div>
 	</div>
@@ -110,7 +110,7 @@ include 'includes/session.php';
 	<div id="calendar">
 	<div class="tile">
     <i class="fa fa-calendar"></i>
-	<p class="tile-text">Calendar</p>
+	<p>Calendar</p>
 	</div>
 	</div>
 	</div>
@@ -119,7 +119,7 @@ include 'includes/session.php';
     <div id="events">
 	<div class="tile">
 	<i class="fa fa-beer"></i>
-	<p class="tile-text">Events</p>
+	<p>Events</p>
 	</div>
 	</div>
 	</div>
@@ -128,7 +128,7 @@ include 'includes/session.php';
     <div id="universitymap">
 	<div class="tile">
     <i class="fa fa-map-marker"></i>
-	<p class="tile-text">University Map</p>
+	<p>University Map</p>
 	</div>
 	</div>
 	</div>
@@ -137,7 +137,7 @@ include 'includes/session.php';
     <div id="feedback">
 	<div class="tile">
     <i class="fa fa-check-square-o"></i>
-	<p class="tile-text">Feedback</p>
+	<p>Feedback</p>
 	</div>
 	</div>
 	</div>
@@ -146,7 +146,7 @@ include 'includes/session.php';
     <div id="messenger">
 	<div class="tile">
     <i class="fa fa-comments"></i>
-	<p class="tile-text">Messenger</p>
+	<p>Messenger</p>
 	</div>
 	</div>
 	</div>
@@ -155,7 +155,7 @@ include 'includes/session.php';
 	<div id="account">
 	<div class="tile">
     <i class="fa fa-user"></i>
-	<p class="tile-text">Account</p>
+	<p>Account</p>
 	</div>
 	</div>
 	</div>
