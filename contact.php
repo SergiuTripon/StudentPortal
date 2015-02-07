@@ -78,7 +78,7 @@ include 'includes/session.php';
     </header><!-- End of Wrapper -->
 
     <!-- Contact -->
-    <header><!-- Header -->
+    <header id="contact1"><!-- Header -->
     <div class="wrapper"><!-- Wrapper -->
 
     <div id="hide" class="text-center">
