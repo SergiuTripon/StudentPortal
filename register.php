@@ -78,11 +78,11 @@ include 'includes/session.php';
     <div id="hide">
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width">
+    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
     </div>
