@@ -230,7 +230,7 @@ hr {
 }
 
 .dropdown-menu {
-    max-width: 100%;
+    min-width: 100%;
     background-color: #D9534F;
 }
 
@@ -436,13 +436,13 @@ form .form-control:-ms-input-placeholder {
 
 /* Tiles style */
 .tile {
-    text-align: center;
     height: 150px;
     width: 100%;
     margin-bottom: 10px;
     cursor: pointer;
-    background-color: #3FAD46;
+    text-align: center;
     border-radius: 3px;
+    background-color: #3FAD46;
 }
 
 .tile i {
