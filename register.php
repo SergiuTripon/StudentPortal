@@ -18,6 +18,13 @@ include 'includes/session.php';
 
     <title>Student Portal | Register</title>
 
+    <style>
+    #register {
+        color: #FFFFFF;
+        background-color: #C9302C;
+    }
+    </style>
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
