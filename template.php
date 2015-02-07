@@ -33,18 +33,6 @@
     body > .container {
         padding: 100px;
     }
-    .container .text-muted {
-        margin: 20px 0;
-    }
-
-    .footer > .container {
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-
-    code {
-        font-size: 80%;
-    }
     </style>
 
 
