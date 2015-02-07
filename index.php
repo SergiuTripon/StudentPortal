@@ -28,7 +28,7 @@ include 'includes/session.php';
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
     <header><!-- Header -->
-    <div class="wrapper-body"><!-- Wrapper -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <form class="form-custom">
 

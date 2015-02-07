@@ -62,7 +62,7 @@ include 'includes/session.php';
     <?php include 'includes/menus/menu.php'; ?>
 
     <header><!-- Header -->
-    <div class="wrapper-body"><!-- Wrapper -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <form class="form-custom" style="max-width: 600px;" id="register_form" name="register_form">
 
