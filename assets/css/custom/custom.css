@@ -299,6 +299,18 @@ form .form-control textarea:focus {
     box-shadow:         inset 0 0 5px #333333;
 }
 
+/* Remember Password hack (Chrome) */
+.form-custom input:-webkit-autofill {
+    -webkit-text-fill-color: #333333;
+    -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+}
+
+.form-custom input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #333333;
+    -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+}
+/* End of Remember Password hack (Chrome) */
+
 /* Placeholder */
 form .form-control::-webkit-input-placeholder {
     color: gray;
