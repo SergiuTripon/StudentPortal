@@ -11,6 +11,10 @@ body {
     background: #FFFFFF url(../../img/bg/background.png);
 }
 
+body > .container {
+    padding: 60px;
+}
+
 a, a:focus, a:hover {
     outline: none !important;
 }
