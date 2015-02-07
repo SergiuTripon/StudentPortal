@@ -1,9 +1,22 @@
 /* Global */
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
+    margin-bottom: 60px;
     background: #FFFFFF url(../../img/bg/background.png);
 }
+
+body > .container {
+    padding-top: 150px;
+    padding-bottom: 20px;
+
+}
+
 
 /* IE Responsiveness */
 @-ms-viewport{
@@ -201,6 +214,10 @@ hr {
 }
 
 /* End of Navbar */
+
+/* Footer */
+
+/* End of Footer */
 
 /* Form Logo */
 .form-logo {
