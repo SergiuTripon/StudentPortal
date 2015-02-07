@@ -15,7 +15,7 @@
     <![endif]-->
 
     <style>
-    .container-fluid .text-muted {
+    .container-fluid p {
         margin: 20px 0;
     }
     </style>
