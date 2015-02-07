@@ -62,31 +62,11 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header><!-- Header -->
-    <div class="wrapper"><!-- Wrapper -->
-
-    <div class="text-center">
-    <div>
-    <i class="fa fa-envelope" style="font-size: 150px;"></i>
-    </div>
-    <a href="#contact1" class="btn btn-circle page-scroll">
-    <i class="fa fa-angle-double-down animated"></i>
-    </a>
-    </div>
-
-    </div><!-- End of Header -->
-    </header><!-- End of Wrapper -->
-
     <!-- Contact -->
-    <header id="contact1"><!-- Header -->
-    <div class="wrapper"><!-- Wrapper -->
+    <div id="contact-showcase" class="container"><!-- container -->
 
-    <div class="container">
-    <div id="hide" class="text-center">
-	<h1>Contact Us</h1>
-	<hr>
-    </div>
-    </div>
+    <h1 class="text-center">User manual</h1>
+    <hr class="hr-small">
 
 	<form class="form-custom" style="max-width: 700px;">
 
