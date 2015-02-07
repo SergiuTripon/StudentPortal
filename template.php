@@ -31,10 +31,15 @@
     }
 
     body > .container {
-        padding: 150px;
+        padding: 60px 15px 0;
     }
     .container .text-muted {
         margin: 20px 0;
+    }
+
+    .footer > .container {
+        padding-right: 15px;
+        padding-left: 15px;
     }
 
     code {
@@ -84,39 +89,11 @@
 
     <!-- Begin page content -->
     <div class="container">
-    <form class="form-custom" name="signin_form" id="signin_form">
-
-    <div class="form-logo">
-	<i class="fa fa-graduation-cap"></i>
+    <div class="page-header">
+    <h1>Sticky footer with fixed navbar</h1>
     </div>
-
-    <hr class="hr-custom">
-
-    <p id="error" class="feedback-sad text-center"></p>
-
-    <label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address">
-    <p id="error1" class="feedback-sad text-center"></p>
-
-    <label>Password</label>
-    <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
-    <p id="error2" class="feedback-sad text-center"></p>
-
-    <div class="text-right">
-    <a class="forgot-password" href="forgotten-password/">Forgotten your password?</a>
-    </div>
-
-    <hr class="hr-custom">
-
-    <div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="register/"><span class="ladda-label">Register</span></a>
-    </div>
-
-    <div class="text-right">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-spinner-color="#333333" data-style="slide-up"><span class="ladda-label">Sign In</span></button>
-	</div>
-
-    </form>
+    <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body > .container</code>.</p>
+    <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
     </div>
 
     <footer>
