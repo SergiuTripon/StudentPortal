@@ -116,7 +116,7 @@ include 'includes/session.php';
 	<!-- Social -->
 	<div id="social-showcase" class="container text-center"><!-- container -->
 
-	<h1>Contact</h1>
+	<h1>Connect with us</h1>
     <hr class="hr-small">
 
     <a href="https://facebook.com/triponsergiu" target="_blank"><i class="fa fa-facebook-square"></i></a>
