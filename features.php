@@ -66,8 +66,8 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <form class="form-custom">
 
@@ -91,8 +91,8 @@ include 'includes/session.php';
 
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
@@ -101,8 +101,8 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <div class="text-center">
     <div class="logo-custom">
@@ -113,12 +113,11 @@ include 'includes/session.php';
     </a>
     </div>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
-    <!-- Features -->
-    <header class="intro" id="features1">
-    <div class="intro-body">
+    <header id="features1"><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
     <div class="container">
 
 	<p class="text-left" style="margin-bottom: 0px;">Click and discover</p>
@@ -216,8 +215,8 @@ include 'includes/session.php';
 	</div><!-- /.row -->
 
     </div><!-- /.container -->
-    </div><!-- /intro-body -->
-    </header><!-- End of Features -->
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
     <!-- Feature Modal -->
     <div class="modal modal-custom fade" id="modal-features" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
