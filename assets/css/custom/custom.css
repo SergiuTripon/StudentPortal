@@ -229,6 +229,11 @@ hr {
     background-color: #C9302C;
 }
 
+.dropdown-menu {
+    max-width: 100%;
+    background-color: #D9534F;
+}
+
 /* End of Navbar */
 
 /* Footer */
