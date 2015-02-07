@@ -592,6 +592,34 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Tiles style */
 
+/* Modal Custom style */
+.modal-custom .modal-content {
+    border-color: #CCCCCC;
+    border-radius: 0px;
+    background-color: #FFFFFF;
+}
+
+.modal-custom .modal-header {
+    border-color: #CCCCCC;
+}
+
+.modal-custom .modal-footer {
+    border-color: #CCCCCC;
+}
+
+.modal-custom .modal-title {
+    color: #333333;
+}
+
+.modal-custom .close, .close:hover, .close:focus {
+    color: #333333;
+    font-size: 30px;
+    cursor: default;
+    outline: none !important;
+    opacity: 1;
+    text-shadow: none;
+}
+/* End of Modal Custom style */
 
 /* Buttons */
 .btn, .btn:focus, .btn:hover {

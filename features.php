@@ -24,6 +24,10 @@ include 'includes/session.php';
         color: #FFFFFF;
         background-color: #C9302C;
     }
+    #find-out-more {
+        color: #FFFFFF;
+        background-color: #C9302C;
+    }
     </style>
 
 </head>
@@ -132,7 +136,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div id="universitymap">
+    <div id="university-map">
 	<div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p>University Map</p>
@@ -204,35 +208,6 @@ include 'includes/session.php';
 	<script>
     $(document).ready(function() {
 
-    // jQuery to collapse the navbar on scroll
-    $(window).scroll(function () {
-        if ($(".navbar").offset().top > 50) {
-            $(".navbar-fixed-top").addClass("top-nav-collapse");
-        } else {
-            $(".navbar-fixed-top").removeClass("top-nav-collapse");
-        }
-    });
-
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $(function () {
-        $('a.page-scroll').bind('click', function (event) {
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top
-            }, 1500, 'easeInOutExpo');
-            event.preventDefault();
-        });
-    });
-
-    // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function () {
-        $('.navbar-toggle:visible').click();
-    });
-
-    });
-	</script>
-
-    <script>
     $( "#timetable" ).click(function() {
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Timetable");
@@ -269,7 +244,7 @@ include 'includes/session.php';
         $('.close').empty().append("<i class=\"fa fa-beer\"></i>");
         $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Let's be honest. We all say at the beginning of the year that we'll go to events but we never do. Here's your chance to get involved and have some fun. It's in your hands‏.</p>");
     });
-    $( "#universitymap" ).click(function() {
+    $( "#university-map" ).click(function() {
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("University Map");
         $('.close').empty().append("<i class=\"fa fa-map-marker\"></i>");
@@ -292,6 +267,8 @@ include 'includes/session.php';
         $('#modal-custom-label').empty().append("Account");
         $('.close').empty().append("<i class=\"fa fa-user\"></i>");
         $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">There are some things in life you can't control, but you can have full control of your account right here. See what it feels like to be the boss.</p>");
+    });
+
     });
     </script>
 

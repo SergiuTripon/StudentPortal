@@ -18,7 +18,7 @@
         <li id="signin"><a href="/">Sign In</a></li>
         <li id="register"><a href="/register/">Register</a></li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find out more <span class="fa fa-caret-down"></span></a>
+            <a id="find-out-more" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find out more <span class="fa fa-caret-down"></span></a>
             <ul class="dropdown-menu" role="menu">
             <li id="about"><a href="/about/">About</a></li>
             <li id="features"><a href="/features/">Features</a></li>
