@@ -629,6 +629,10 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
 }
 
+#modal-features .modal-body p {
+    color: #333333;
+}
+
 #modal-help .close, .close:hover, .close:focus {
     color: #333333;
 }
@@ -649,6 +653,10 @@ form .success-style:-ms-input-placeholder {
 }
 
 #modal-features .modal-title {
+    color: #FFFFFF;
+}
+
+#modal-features .modal-body p {
     color: #FFFFFF;
 }
 
