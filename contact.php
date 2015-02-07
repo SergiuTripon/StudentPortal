@@ -171,48 +171,48 @@ include 'includes/session.php';
 	var firstname = $('#firstname').val();
 	if (firstname === '') {
         $("#error1").empty().append("Please enter a first name.");
-		$("#firstname").css("border-color", "#FF5454");
+		$("#firstname").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
 		$("#error1").hide();
-		$("#firstname").css("border-color", "#4DC742");
+		$("#firstname").addClass("success-style");
 	}
 
 	var surname = $("#surname").val();
     if(surname === '') {
         $("#error1").show();
         $("#error1").empty().append("Please enter a surname.");
-        $("#surname").css("border-color", "#FF5454");
+        $("#surname").addClass("error-style");
         hasError  = true;
         return false;
     } else {
         $("#error1").hide();
-        $("#surname").css("border-color", "#4DC742");
+        $("#surname").addClass("success-style");
     }
 
     var email = $("#email").val();
     if(email === '') {
         $("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
-        $("#email").css("border-color", "#FF5454");
+        $("#email").addClass("error-style");
         hasError  = true;
         return false;
     } else {
         $("#error1").hide();
-        $("#email").css("border-color", "#4DC742");
+        $("#email").addClass("success-style");
     }
 
     var message = $("#message").val();
     if(message === '') {
         $("#error2").show();
         $("#error2").empty().append("Please enter a message.");
-        $("#message").css("border-color", "#FF5454");
+        $("#message").addClass("error-style");
         hasError  = true;
         return false;
     } else {
         $("#error2").hide();
-        $("#message").css("border-color", "#4DC742");
+        $("#message").addClass("success-style");
     }
 
 	if(hasError == false){
