@@ -19,45 +19,6 @@ include 'includes/session.php';
 
     <title>Student Portal | About</title>
 
-	<style>
-	html, body {
-		height: 100% !important;
-	}
-
-    /* Activating menu item */
-    #about {
-        color: #333333;
-        background: #FFA500;
-    }
-    /* End of Activating menu item */
-
-    /* About */
-    #about1 {
-        border-top: 1px solid #FFA500;
-    }
-
-    #about1 h1, h2 {
-        color: #FFA500;
-    }
-    /* End of About */
-
-    /* Footer */
-    footer {
-        color: #FFA500;
-        text-align: center;
-        border-top: 1px solid #FFA500;
-    }
-    footer .container {
-        padding-top: 20px;
-        padding-bottom: 10px;
-    }
-    footer p {
-        color: #FFA500;
-        text-align: center;
-    }
-    /* End of Footer */
-	</style>
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
