@@ -344,8 +344,8 @@ form .form-control:-ms-input-placeholder {
 
 .btn-circle:hover, .btn-circle:focus {
     outline: 0;
-    color: #333333;
-    background: #FFA500;
+    color: #FFA500;
+    background: #333333;
 }
 /* End of Buttons */
 
