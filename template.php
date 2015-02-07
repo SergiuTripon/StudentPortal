@@ -15,7 +15,7 @@
     <![endif]-->
 
     <style>
-    footer p, footer a {
+    footer #footer-content {
         margin-top: 20px;
     }
     </style>

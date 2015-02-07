@@ -1,5 +1,6 @@
     <footer>
     <div class="container-fluid">
+    <div id="footer-content">
     <div class="pull-left">
     <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
     </div>
@@ -8,6 +9,7 @@
     <a href="/features/">Features</a>
     <a href="/user-manual/">User Manual</a>
     <a href="/contact/">Contact</a>
+    </div>
     </div>
     </div>
     </footer>
