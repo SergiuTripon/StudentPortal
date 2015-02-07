@@ -257,6 +257,12 @@ footer p {
 }
 /* End of Footer */
 
+/* Features showcase */
+#features-showcase h1 {
+    color: #3FAD46;
+}
+/* End of Features showcase */
+
 /* Form Logo */
 .form-logo i {
     font-size: 80px;
