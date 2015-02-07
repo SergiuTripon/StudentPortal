@@ -150,7 +150,10 @@ hr {
 /* Navbar */
 .navbar-default {
     background-color: #D9534F;
-    border-bottom: 1px solid #1863E6;
+    border-bottom: 1px solid #992320;
+    -webkit-box-shadow: 0 8px 6px -6px #992320;
+    -moz-box-shadow: 0 8px 6px -6px #992320;
+    box-shadow: 0 8px 6px -6px #992320;
 }
 .navbar-default .navbar-brand {
     color: #FFFFFF;
