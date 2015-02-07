@@ -2,17 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+
+    <?php include 'assets/meta-tags.php'; ?>
 
     <title>Student Portal | Template</title>
 
-    <!-- bootstrap -->
-    <link href="https://student-portal.co.uk/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <!--[if lt IE 9]>
     <script src="https://student-portal.co.uk/js/html5shiv/html5shiv.min.js"></script>
