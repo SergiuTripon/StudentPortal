@@ -64,7 +64,7 @@ include 'includes/session.php';
 
     <div class="container"><!-- container -->
 
-    <h1>Features</h1>
+    <h1 class="text-center">Features</h1>
     <hr class="hr-small">
 
 	<p class="text-left">Click and discover</p>
