@@ -263,7 +263,6 @@ footer p {
     margin-top: 0px;
     margin-bottom: 0px;
 }
-
 /* End of Features showcase */
 
 /* User manual showcase */
@@ -278,7 +277,18 @@ footer p {
     margin-top: 0px;
     margin-bottom: 5px;
 }
+/* End of User manual showcase */
 
+/* User manual showcase */
+#contact-showcase h1 {
+    color: #FFA500;
+}
+
+#contact-showcase hr {
+    max-width: 300px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
 /* End of User manual showcase */
 
 /* Form Logo */

@@ -65,7 +65,7 @@ include 'includes/session.php';
     <!-- Contact -->
     <div id="contact-showcase" class="container"><!-- container -->
 
-    <h1 class="text-center">User manual</h1>
+    <h1 class="text-center">Contact</h1>
     <hr class="hr-small">
 
 	<form class="form-custom" style="max-width: 700px;">
