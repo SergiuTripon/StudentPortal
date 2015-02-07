@@ -15,6 +15,7 @@ body > .container {
     padding: 60px;
 }
 
+/* IE Responsiveness */
 @-ms-viewport{
     width: device-width;
 }
