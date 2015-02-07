@@ -380,6 +380,7 @@ form a:focus, form a:hover {
 form label {
     color: #333333;
     font-weight: normal;
+    text-align: left;
 }
 
 form input {
