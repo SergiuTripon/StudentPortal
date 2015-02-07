@@ -15,12 +15,8 @@
     <![endif]-->
 
     <style>
-    .container .text-muted {
+    .container-fluid .text-muted {
         margin: 20px 0;
-    }
-
-    code {
-        font-size: 80%;
     }
     </style>
 
@@ -69,7 +65,7 @@
     </div>
 
     <footer>
-    <div class="container">
+    <div class="container-fluid">
         <p class="text-muted">Place sticky footer content here.</p>
     </div>
     </footer>
