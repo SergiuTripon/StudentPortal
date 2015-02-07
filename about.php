@@ -101,8 +101,8 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <div class="text-center">
     <div class="logo-custom">
@@ -113,8 +113,8 @@ include 'includes/session.php';
     </a>
     </div>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
     <!-- About -->
     <header class="intro" id="about1">

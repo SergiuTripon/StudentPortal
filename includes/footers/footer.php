@@ -2,6 +2,7 @@
     /* Footer */
     footer {
         color: #FFA500;
+        background-color: #333333;
         text-align: center;
         border-top: 1px solid #FFA500;
     }
@@ -16,11 +17,11 @@
     /* End of Footer */
     </style>
 
-    <!-- Footer -->
-    <footer>
+
+    <footer><!-- Footer -->
     <div class="container">
     <div class="row">
     <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
     </div>
     </div><!-- /.container -->
-    </footer><!-- /.footer -->
+    </footer><!-- End of Footer -->
