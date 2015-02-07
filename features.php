@@ -19,45 +19,6 @@ include 'includes/session.php';
 
     <title>Student Portal | Features</title>
 
-	<style>
-	html, body {
-		height: 100% !important;
-	}
-
-    /* Activating menu item */
-    #features {
-        color: #333333;
-        background: #FFA500;
-    }
-    /* End of Activating menu item */
-
-    /* Features */
-    .intro {
-        color: #FFA500;
-        padding: 100px 0;
-    }
-    #features1 {
-        border-top: 1px solid #FFA500;
-    }
-    /* End of Features */
-
-    /* Footer */
-    footer {
-        color: #FFA500;
-        text-align: center;
-        border-top: 1px solid #FFA500;
-    }
-    footer .container {
-        padding-top: 20px;
-        padding-bottom: 10px;
-    }
-    footer p {
-        color: #FFA500;
-        text-align: center;
-    }
-    /* End of Footer */
-	</style>
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -242,15 +203,7 @@ include 'includes/session.php';
     </div><!-- /modal-content -->
 	<!-- End of Feature Modal -->
 
-    <!-- Footer -->
-    <footer>
-    <div class="container">
-    <div class="row">
-    <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
-    </div>
-    </div><!-- /.container -->
-    </footer><!-- /.footer -->
-
+    <?php include 'includes/menus/menu.php'; ?>
 
 	<?php endif; ?>
 
