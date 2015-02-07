@@ -219,11 +219,6 @@ header {
     padding: 60px 15px 0;
 }
 
-header .wrapper {
-    display: table-cell;
-    vertical-align: middle;
-}
-
 @media (min-width: 767px) {
 header {
     height: 100%;
