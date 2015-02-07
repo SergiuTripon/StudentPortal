@@ -68,22 +68,18 @@ include 'includes/session.php';
     <div class="logo-custom">
     <i class="fa fa-comment-o" style="font-size: 150px;"></i>
     </div>
-    <a href="#about1" class="btn btn-circle page-scroll">
-    <i class="fa fa-angle-double-down animated"></i>
-    </a>
     </div>
 
     </div><!-- ./container -->
 
     <!-- About -->
-    <header id="about1">
-    <div class="wrapper">
+    <div class="container"><!-- container -->
     <div class="text-center">
     <h1>Student Portal</h1>
 	<h2>All your university needs, in one single place.</h2>
     </div>
-    </div><!-- End of Wrapper -->
-    </header><!-- End of Header -->
+    </div><!-- ./container -->
+    <!-- End of About -->
 
     <?php include 'includes/footers/footer.php'; ?>
 
