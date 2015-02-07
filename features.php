@@ -62,20 +62,9 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header><!-- Header -->
-    <div class="wrapper"><!-- Wrapper -->
-
-    <div class="text-center">
-    <div>
-    <i class="fa fa-pie-chart" style="font-size: 150px;"></i>
+    <div class="showcase-logo">
+    <i class="fa fa-pie-chart"></i>
     </div>
-    <a href="#features1" class="btn btn-circle page-scroll">
-    <i class="fa fa-angle-double-down animated"></i>
-    </a>
-    </div>
-
-    </div><!-- End of Wrapper -->
-    </header><!-- End of Header -->
 
     <header id="features1"><!-- Header -->
     <div class="wrapper"><!-- Wrapper -->

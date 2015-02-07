@@ -145,6 +145,12 @@ hr {
 }
 /* End of Preloader */
 
+.showcase-logo i {
+    font-size: 150px;
+    color: #2AABD2;
+    cursor: default;
+}
+
 /* End of Global */
 
 /* Navbar */
@@ -240,9 +246,6 @@ footer p {
 /* End of Footer */
 
 /* Form Logo */
-.form-logo {
-    text-align: center;
-}
 .form-logo i {
     font-size: 80px;
     color: #2AABD2;
