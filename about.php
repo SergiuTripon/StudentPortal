@@ -87,15 +87,7 @@ include 'includes/session.php';
     </div><!-- End of Wrapper -->
     </header><!-- End of Header -->
 
-    <!-- Footer -->
-    <footer>
-    <div class="container">
-    <div class="row">
-    <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
-    </div>
-    </div><!-- /.container -->
-    </footer><!-- /.footer -->
-
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
