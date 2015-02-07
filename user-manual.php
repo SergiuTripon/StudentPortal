@@ -19,43 +19,6 @@ include 'includes/session.php';
 
     <title>Student Portal | User Manual</title>
 
-	<style>
-	html, body {
-		height: 100% !important;
-	}
-
-    /* Activating menu item */
-    #user-manual {
-        color: #333333;
-        background-color: #FFA500;
-    }
-    /* End of Activating menu item */
-
-	/* User manual */
-	#user-manual1 {
-		color: #FFA500;
-		padding: 100px 0;
-		border-top: 1px solid #FFA500;
-	}
-	/* End of User manual */
-
-    /* Footer */
-    footer {
-        color: #FFA500;
-        text-align: center;
-        border-top: 1px solid #FFA500;
-    }
-    footer .container {
-        padding-top: 20px;
-        padding-bottom: 10px;
-    }
-    footer p {
-        color: #FFA500;
-        text-align: center;
-    }
-    /* End of Footer */
-	</style>
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -64,8 +27,8 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <form class="form-custom">
 
@@ -73,24 +36,24 @@ include 'includes/session.php';
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <p class="feedback-sad text-center">You are already logged in. You don't have to log in again.</p>
 
-    <hr class="hr-custom">
+    <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="overview/"><span class="ladda-label">Overview</span></a>
     </div>
 
     <div class="text-right">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="sign-out/"><span class="ladda-label">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="sign-out/"><span class="ladda-label">Sign Out</span></a>
     </div>
 
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
@@ -99,11 +62,11 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <div class="text-center">
-    <div class="logo-custom">
+    <div class="form-logo">
     <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
     </div>
     <a href="#user-manual1" class="btn btn-circle page-scroll">
@@ -111,8 +74,8 @@ include 'includes/session.php';
     </a>
     </div>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
 	<!-- User Manual -->
 	<section class="user-manual" id="user-manual1">
@@ -828,14 +791,7 @@ include 'includes/session.php';
     </section>
     <!-- End of User Manual -->
 
-    <!-- Footer -->
-    <footer>
-    <div class="container">
-    <div class="row">
-    <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
-    </div>
-    </div><!-- /.container -->
-    </footer><!-- /.footer -->
+    <?php include 'includes/footers/footer.php'; ?>
 
 
 	<?php endif; ?>
