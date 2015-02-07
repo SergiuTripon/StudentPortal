@@ -19,6 +19,10 @@ include 'includes/session.php';
         color: #FFFFFF;
         background-color: #C9302C;
     }
+    #register:focus, #register:hover {
+        color: #FFFFFF;
+        background-color: #C9302C;
+    }
     </style>
 
 </head>

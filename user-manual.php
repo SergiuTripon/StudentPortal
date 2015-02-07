@@ -20,6 +20,10 @@ include 'includes/session.php';
         color: #FFFFFF;
         background-color: #C9302C;
     }
+    #user-manual:focus, #user-manual:hover {
+        color: #FFFFFF;
+        background-color: #C9302C;
+    }
     #find-out-more {
         color: #FFFFFF;
         background-color: #C9302C;

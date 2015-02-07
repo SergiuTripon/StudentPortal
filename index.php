@@ -20,6 +20,10 @@ include 'includes/session.php';
         color: #FFFFFF;
         background-color: #C9302C;
     }
+    #signin:focus, #signin:hover {
+        color: #FFFFFF;
+        background-color: #C9302C;
+    }
     </style>
 
 </head>
