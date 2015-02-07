@@ -592,7 +592,7 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Tiles style */
 
-/* Modal Custom style */
+/* Modal custom */
 .modal-custom .modal-content {
     border: none;
     border-radius: 3px;
@@ -609,9 +609,9 @@ form .success-style:-ms-input-placeholder {
     opacity: 1;
     text-shadow: none;
 }
-/* End of Modal Custom style */
+/* End of Modal style */
 
-/* Modal Custom style */
+/* Modal help */
 #modal-help .modal-content {
     border-color: #CCCCCC;
     background-color: #FFFFFF;
@@ -632,7 +632,30 @@ form .success-style:-ms-input-placeholder {
 #modal-help .close, .close:hover, .close:focus {
     color: #333333;
 }
-/* End of Modal Custom style */
+/* End of Modal help */
+
+/* Modal features */
+#modal-features .modal-content {
+    border-color: #3FAD46;
+    background-color: #3FAD46;
+}
+
+#modal-features .modal-header {
+    border-color: #FFFFFF;
+}
+
+#modal-features .modal-footer {
+    border-color: #FFFFFF;
+}
+
+#modal-features .modal-title {
+    color: #FFFFFF;
+}
+
+#modal-features .close, .close:hover, .close:focus {
+    color: #FFFFFF;
+}
+/* End of Modal features */
 
 
 /* Buttons */
