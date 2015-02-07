@@ -62,7 +62,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <div class="container"><!-- container -->
+    <div id="user-manual-showcase" class="container"><!-- container -->
 
     <h1 class="text-center">User manual</h1>
     <hr class="hr-small">

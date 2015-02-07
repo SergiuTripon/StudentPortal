@@ -266,6 +266,21 @@ footer p {
 
 /* End of Features showcase */
 
+/* User manual showcase */
+#user-manual-showcase h1 {
+    color: #1863E6;
+}
+
+#user-manual-showcase hr {
+    border-color: #1863E6;
+    background: #1863E6;
+    max-width: 300px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* End of User manual showcase */
+
 /* Form Logo */
 .form-logo i {
     font-size: 80px;
