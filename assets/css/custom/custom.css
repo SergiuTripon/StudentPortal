@@ -333,10 +333,9 @@ form .form-control:-ms-input-placeholder {
     height: 70px;
     margin-top: 15px;
     padding: 7px 16px;
-    border: 2px solid #FFA500;
-    border-radius: 0px;
+    border-radius: 35px;
     font-size: 40px;
-    color: #FFA500;
+    color: #333333;
     background: 0 0;
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
