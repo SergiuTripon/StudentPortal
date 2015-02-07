@@ -66,7 +66,7 @@ include 'includes/session.php';
     <div class="wrapper"><!-- Wrapper -->
 
     <div class="text-center">
-    <div class="logo-custom">
+    <div>
     <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
     </div>
     <a href="#features1" class="btn btn-circle page-scroll">
