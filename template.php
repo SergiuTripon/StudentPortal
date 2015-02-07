@@ -18,6 +18,9 @@
     footer #footer-content {
         margin-top: 20px;
     }
+    #footer-content a {
+        margin-left: 10px;
+    }
     </style>
 
 
