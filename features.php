@@ -16,11 +16,11 @@ include 'includes/session.php';
     <title>Student Portal | Features</title>
 
     <style>
-    #features {
+    #features a {
         color: #FFFFFF;
         background-color: #C9302C;
     }
-    #features:focus, #features:hover {
+    #features a:focus, #features a:hover {
         color: #FFFFFF !important;
         background-color: #C9302C !important;
     }
