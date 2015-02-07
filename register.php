@@ -61,8 +61,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header><!-- Header -->
-    <div class="wrapper"><!-- Wrapper -->
+    <div class="container"><!-- container -->
 
     <form class="form-custom" style="max-width: 600px;" id="register_form" name="register_form">
 
@@ -141,10 +140,9 @@ include 'includes/session.php';
 	
     </form>
 
-    </div><!-- End of Wrapper -->
-    </header><!-- End of Header -->
+    </div><!-- ./container -->
 
-    <?php include 'includes/showcase/showcase.php'; ?>
+    <?php include 'includes/footers/footer.php'; ?>
 
     <!-- Help Modal -->
     <div class="modal fade modal-help" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
