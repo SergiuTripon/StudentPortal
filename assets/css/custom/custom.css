@@ -205,14 +205,15 @@ hr {
 
 /* Wrapper */
 header {
-    display: table;
+    height: 100%;
     width: 100%;
-    height: auto;
-    padding: 100px 10px 50px 10px;
+    display: table;
+    position: relative;
 }
 
 header .wrapper {
     display: table-cell;
+    text-align: center;
     vertical-align: middle;
 }
 
