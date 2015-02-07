@@ -20,7 +20,7 @@
         min-height: 100%;
     }
     body {
-        margin-bottom: 100px;
+        margin-bottom: 60px;
     }
     footer {
         position: absolute;
@@ -31,7 +31,7 @@
     }
 
     body > .container {
-        padding: 60px 15px 0;
+        padding: 100px;
     }
     .container .text-muted {
         margin: 20px 0;
