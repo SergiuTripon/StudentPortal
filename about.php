@@ -62,8 +62,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header><!-- Header -->
-    <div class="wrapper"><!-- Wrapper-->
+    <div><!-- container -->
 
     <div class="text-center">
     <div class="logo-custom">
@@ -74,8 +73,7 @@ include 'includes/session.php';
     </a>
     </div>
 
-    </div><!-- End of Wrapper -->
-    </header><!-- End of Header -->
+    </div><!-- ./container -->
 
     <!-- About -->
     <header id="about1">
