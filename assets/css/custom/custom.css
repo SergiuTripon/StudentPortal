@@ -8,6 +8,7 @@ body {
     font-size: 15px;
     font-family: 'Open Sans', sans-serif;
     background: #FFFFFF url(../../img/bg/background.png);
+    padding-top: 70px;
 }
 
 a, a:focus, a:hover {
