@@ -14,13 +14,6 @@
     <script src="https://student-portal.co.uk/js/respond/respond.min.js"></script>
     <![endif]-->
 
-    <style>
-    footer p {
-        margin-top: 20px;
-    }
-    </style>
-
-
 </head>
 
 <body>

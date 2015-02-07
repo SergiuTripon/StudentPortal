@@ -220,7 +220,12 @@ footer {
     bottom: 0;
     width: 100%;
     height: 60px;
-    background-color: #f5f5f5;
+    background-color: #964B00;
+}
+
+footer p {
+    color: #FFFFFF;
+    margin-top: 20px;
 }
 /* End of Footer */
 
