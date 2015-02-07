@@ -62,8 +62,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header><!-- Header -->
-    <div class="wrapper"><!-- Wrapper-->
+    <div class="container">
 
     <form class="form-custom" method="post" name="forgotpassword_form">
 
@@ -98,8 +97,7 @@ include 'includes/session.php';
 
     </form>
 
-    </div><!-- End of Wrapper -->
-    </header><!-- End of Header -->
+    <div class="container"><!-- container -->
 
     <?php include 'includes/footers/footer.php'; ?>
 
