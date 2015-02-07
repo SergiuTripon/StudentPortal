@@ -62,25 +62,10 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header><!-- Header -->
-    <div class="wrapper"><!-- Wrapper -->
+    <div class="container"><!-- container -->
 
-    <div class="text-center">
-    <div>
-    <i class="fa fa-graduation-cap" style="font-size: 150px;"></i>
-    </div>
-    <a href="#user-manual1" class="btn btn-circle page-scroll">
-    <i class="fa fa-angle-double-down animated"></i>
-    </a>
-    </div>
-
-    </div><!-- End of Wrapper -->
-    </header><!-- End of Header -->
-
-	<!-- User Manual -->
-	<section class="user-manual" id="user-manual1">
-    <div class="container">
-    <div class="row">
+    <h1 class="text-center">User manual</h1>
+    <hr class="hr-small">
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -786,10 +771,7 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
-    </div><!-- /.row -->
     </div><!-- /.container -->
-    </section>
-    <!-- End of User Manual -->
 
     <?php include 'includes/footers/footer.php'; ?>
 
