@@ -90,6 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Links */
 a, a:focus, a:hover {
+    text-decoration: none;
     outline: none !important;
 }
 
@@ -680,11 +681,6 @@ form .success-style:-ms-input-placeholder {
 
 .panel-default {
     border-color: #1863E6;
-}
-
-.panel-heading {
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
 }
 
 .panel-default > .panel-heading {
