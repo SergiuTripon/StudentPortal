@@ -1,5 +1,5 @@
     <footer>
-    <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+    <div class="container-fluid">
+    <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
     </div>
     </footer>
