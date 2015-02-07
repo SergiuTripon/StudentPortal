@@ -380,7 +380,6 @@ form a:focus, form a:hover {
 form label {
     color: #333333;
     font-weight: normal;
-    text-align: left;
 }
 
 form input {
@@ -433,6 +432,12 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Placeholder */
 /* End of Form */
+
+/* Form group */
+.form-group label {
+    text-align: left;
+}
+/* End of Form group */
 
 /* Tiles style */
 .tile {
