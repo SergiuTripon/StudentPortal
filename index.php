@@ -58,7 +58,7 @@ include 'includes/session.php';
 
     </form>
 
-    </div>
+    </div><!-- ./container -->
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
