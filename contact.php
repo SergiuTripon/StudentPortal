@@ -19,67 +19,6 @@ include 'includes/session.php';
 
     <title>Student Portal | Contact</title>
 
-	<style>
-	html, body {
-		height: 100% !important;
-	}
-
-    #contact {
-        color: #333333;
-        background: #FFA500;
-    }
-
-	/* Contact section */
-    #contact1 {
-        border-top: 1px solid #FFA500;
-    }
-	#contact1 h1 {
-        color: #FFA500;
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
-	textarea[name=message] {
-		resize: none;
-	}
-	/* End of Contact section */
-
-	/* Social section */
-	.social {
-		color: #FFA500;
-		padding: 100px 0;
-		text-align: center;
-		border-top: 1px solid #FFA500;
-	}
-	.social h1 {
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
-	.social-buttons {
-		margin-top: 30px;
-	}
-	.social-buttons i {
-		color: #FFA500;
-		font-size: 80px;
-	}
-	/* End of Social section */
-
-    /* Footer */
-    footer {
-        color: #FFA500;
-        text-align: center;
-        border-TOP: 1px solid #FFA500;
-    }
-    footer .container {
-        padding-top: 20px;
-        padding-bottom: 10px;
-    }
-    footer p {
-        color: #FFA500;
-        text-align: center;
-    }
-    /* End of Footer */
-	</style>
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -183,7 +122,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Contact us</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Contact us</span></button>
 	</div>
 
     </div>
@@ -210,7 +149,7 @@ include 'includes/session.php';
 	</div><!-- /.container -->
 	</div><!-- /.Social -->
 
-    <?php include 'includes/menus/menu.php'; ?>
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
