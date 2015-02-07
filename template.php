@@ -89,8 +89,6 @@
 
     <!-- Begin page content -->
     <div class="container">
-    <div class="page-header">
-
     <form class="form-custom" name="signin_form" id="signin_form">
 
     <div class="form-logo">
@@ -124,7 +122,6 @@
 	</div>
 
     </form>
-
     </div>
 
     <footer>
