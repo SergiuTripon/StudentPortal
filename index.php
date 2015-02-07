@@ -63,7 +63,7 @@ include 'includes/session.php';
     <?php include 'includes/menus/menu.php'; ?>
 
     <header><!-- Header -->
-    <div class="wrapper-body"><!-- Wrapper-->
+    <div class="wrapper"><!-- Wrapper-->
 
     <form class="form-custom" name="signin_form" id="signin_form">
 

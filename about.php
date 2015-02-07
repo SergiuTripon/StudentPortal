@@ -102,7 +102,7 @@ include 'includes/session.php';
     <?php include 'includes/menus/menu.php'; ?>
 
     <header><!-- Header -->
-    <div class="wrapper"><!-- Wrapper -->
+    <div class="wrapper"><!-- Wrapper-->
 
     <div class="text-center">
     <div class="logo-custom">
@@ -117,15 +117,14 @@ include 'includes/session.php';
     </header><!-- End of Header -->
 
     <!-- About -->
-    <header class="intro" id="about1">
-    <div class="intro-body">
+    <header id="about1">
+    <div class="wrapper">
     <div class="text-center">
     <h1>Student Portal</h1>
 	<h2>All your university needs, in one single place.</h2>
     </div>
-    </div><!-- /intro-body -->
-    </header>
-    <!-- End of About -->
+    </div><!-- End of Wrapper -->
+    </header><!-- End of Header -->
 
     <!-- Footer -->
     <footer>
