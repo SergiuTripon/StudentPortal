@@ -11,6 +11,10 @@ body {
     margin-bottom: 60px;
 }
 
+body > .container {
+    padding: 60px;
+}
+
 a, a:focus, a:hover {
     outline: none !important;
 }
