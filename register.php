@@ -107,11 +107,16 @@ include 'includes/session.php';
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email address">
     <p id="error3" class="feedback-sad text-center"></p>
 
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
-
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Confirm password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your password confirmation">
+    </div>
+    </div>
     <p id="error4" class="feedback-sad text-center"></p>
 
 	<div class="text-right">
