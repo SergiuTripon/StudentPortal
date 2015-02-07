@@ -663,6 +663,45 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Modal features */
 
+/* Accordion style */
+.panel {
+    border: none !important;
+    background: none !important;
+}
+
+.panel-group .panel {
+    margin-top: 10px;
+    border-radius: 0px;
+}
+
+.panel-group {
+    margin-bottom: 0px;
+}
+
+.panel-default {
+    border-color: #FFA500;
+}
+
+.panel-heading {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.panel-default > .panel-heading {
+    color: #FFFFFF;
+    background-color: #4582EC;
+    border: 1px solid #FFFFFF;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top: none;
+    border-right: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    background-color: #4582EC;
+    padding: 20px 10px 20px 10px;
+}
+/* End of Accordion style */
 
 /* Buttons */
 .btn, .btn:focus, .btn:hover {
