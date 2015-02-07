@@ -331,7 +331,6 @@ form .form-control:-ms-input-placeholder {
 .btn-circle {
     width: 70px;
     height: 70px;
-    margin-top: 15px;
     padding: 7px 16px;
     border-radius: 35px;
     font-size: 40px;
@@ -344,7 +343,7 @@ form .form-control:-ms-input-placeholder {
 
 .btn-circle:hover, .btn-circle:focus {
     outline: 0;
-    color: #FFA500;
+    color: #FFFFFF;
     background: #333333;
 }
 /* End of Buttons */
