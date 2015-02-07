@@ -65,6 +65,16 @@ hr {
 }
 }
 
+/* Controls padding on inputs */
+.pr0 {
+    padding-right: 0px;
+}
+
+.pl0 {
+    padding-left: 0px;
+}
+
+
 /* End of Global */
 
 /* Navbar */
