@@ -366,7 +366,7 @@ form .form-control:-ms-input-placeholder {
     width: 100%;
     margin-bottom: 10px;
     cursor: pointer;
-    background-color: #4582EC;
+    background-color: #3FAD46;
     border-radius: 3px;
 }
 
@@ -385,41 +385,41 @@ form .form-control:-ms-input-placeholder {
 }
 
 @media (max-width: 992px) {
-    .large-tile {
-        height: 150px;
-    }
+.large-tile {
+    height: 150px;
+}
 
-    .large-tile-text {
-        color: #FFA500;
-        cursor: pointer;
-        text-align: left;
-        padding-left: 5px;
-    }
+.large-tile-text {
+    color: #FFFFFF;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 5px;
+}
 
-    .large-tile i {
-        font-size: 80px;
-        margin-top: 23px;
-        margin-bottom: 23px;
-    }
+.large-tile i {
+    font-size: 80px;
+    margin-top: 23px;
+    margin-bottom: 23px;
+}
 }
 
 @media (min-width: 992px) {
-    .large-tile {
-        height: 310px;
-    }
+.large-tile {
+    height: 310px;
+}
 
-    .large-tile-text {
-        color: #FFA500;
-        cursor: pointer;
-        text-align: left;
-        padding-left: 5px;
-    }
+.large-tile-text {
+    color: #FFA500;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 5px;
+}
 
-    .large-tile i {
-        font-size: 120px;
-        margin-top: 83px;
-        margin-bottom: 83px;
-    }
+.large-tile i {
+    font-size: 120px;
+    margin-top: 83px;
+    margin-bottom: 83px;
+}
 }
 /* End of Tiles style */
 
