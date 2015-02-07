@@ -15,11 +15,11 @@ include 'includes/session.php';
     <title>Student Portal | Register</title>
 
     <style>
-    #register {
+    #register a {
         color: #FFFFFF;
         background-color: #C9302C;
     }
-    #register:focus, #register:hover {
+    #register a:focus, #register a:hover {
         color: #FFFFFF;
         background-color: #C9302C;
     }

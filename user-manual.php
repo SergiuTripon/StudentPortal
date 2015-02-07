@@ -16,11 +16,11 @@ include 'includes/session.php';
     <title>Student Portal | User Manual</title>
 
     <style>
-    #user-manual {
+    #user-manual a {
         color: #FFFFFF;
         background-color: #C9302C;
     }
-    #user-manual:focus, #user-manual:hover {
+    #user-manual a:focus, #user-manual a:hover {
         color: #FFFFFF !important;
         background-color: #C9302C !important;
     }

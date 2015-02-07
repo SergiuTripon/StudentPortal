@@ -21,8 +21,8 @@ include 'includes/session.php';
         background-color: #C9302C;
     }
     #features a:focus, #features a:hover {
-        color: #FFFFFF !important;
-        background-color: #C9302C !important;
+        color: #FFFFFF;
+        background-color: #C9302C;
     }
     #find-out-more {
         color: #FFFFFF;
