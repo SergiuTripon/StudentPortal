@@ -88,8 +88,8 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <form class="form-custom">
 
@@ -113,8 +113,8 @@ include 'includes/session.php';
 
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Header -->
+    </header><!-- End of Wrapper -->
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
@@ -123,11 +123,11 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <div class="text-center">
-    <div class="logo-custom">
+    <div>
     <i class="fa fa-envelope" style="font-size: 150px;"></i>
     </div>
     <a href="#contact1" class="btn btn-circle page-scroll">
@@ -135,14 +135,12 @@ include 'includes/session.php';
     </a>
     </div>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div><!-- End of Header -->
+    </header><!-- End of Wrapper -->
 
     <!-- Contact -->
-
-    <header class="intro" id="contact1">
-    <div class="intro-body">
-    <div class="container">
+    <header><!-- Header -->
+    <div class="wrapper"><!-- Wrapper -->
 
     <div id="hide" class="text-center">
 	<h1>Contact Us</h1>
@@ -192,9 +190,8 @@ include 'includes/session.php';
 
     </form>
 
-    </div><!-- /.container -->
-    </div><!-- /intro-body -->
-    </header><!-- End of Features -->
+    </div><!-- End of Header -->
+    </header><!-- End of Wrapper -->
 
 	<!-- Social -->
 	<div class="social" id="social">
