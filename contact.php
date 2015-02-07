@@ -114,16 +114,14 @@ include 'includes/session.php';
     </div><!-- /.container -->
 
 	<!-- Social -->
-	<div id="social-showcase" class="container"><!-- container -->
+	<div id="social-showcase" class="container text-center"><!-- container -->
 
-	<h1 class="text-center">Contact</h1>
+	<h1>Contact</h1>
     <hr class="hr-small">
 
-    <div class="social-buttons">
-    <a href="https://facebook.com/triponsergiu" target="_blank"><i class="fa fa-facebook-square mr10"></i></a>
-    <a href="https://twitter.com/SergiuTripon" target="_blank"><i class="fa fa-twitter-square mr10"></i></a>
+    <a href="https://facebook.com/triponsergiu" target="_blank"><i class="fa fa-facebook-square"></i></a>
+    <a href="https://twitter.com/SergiuTripon" target="_blank"><i class="fa fa-twitter-square"></i></a>
     <a href="https://www.linkedin.com/in/triponsergiu"><i class="fa fa-linkedin-square" target="_blank"></i></a>
-	</div>
 
 	</div><!-- /.container -->
 
