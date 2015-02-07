@@ -348,6 +348,7 @@ form .form-control:-ms-input-placeholder {
 
 .btn-lg, .btn-group-lg > .btn {
     border-radius: 3px;
+    line-height: 1.2;
 }
 
 .btn-default:active,
