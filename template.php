@@ -33,6 +33,13 @@
     body > .container {
         padding: 100px;
     }
+    .container .text-muted {
+        margin: 20px 0;
+    }
+
+    code {
+        font-size: 80%;
+    }
     </style>
 
 
