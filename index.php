@@ -34,7 +34,7 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <div class="container text-center">
+    <div class="container">
 
     <form class="form-custom">
 
@@ -67,7 +67,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <div class="container text-center">
+    <div class="container">
 
     <form class="form-custom" name="signin_form" id="signin_form">
 

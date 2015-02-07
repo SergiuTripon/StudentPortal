@@ -33,7 +33,7 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <div class="container text-center">
+    <div class="container">
 
     <form class="form-custom">
                 
@@ -68,7 +68,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <div class="container text-center">
+    <div class="container">
 
     <form class="form-custom" style="max-width: 600px;" id="register_form" name="register_form">
 

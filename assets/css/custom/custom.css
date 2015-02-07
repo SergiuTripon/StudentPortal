@@ -335,6 +335,7 @@ footer p {
 .form-logo i {
     font-size: 80px;
     color: #2AABD2;
+    text-align: center;
     cursor: default;
 }
 /* End of Form Logo */
@@ -432,12 +433,6 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Placeholder */
 /* End of Form */
-
-/* Form group */
-.form-group label {
-    text-align: left;
-}
-/* End of Form group */
 
 /* Tiles style */
 .tile {
