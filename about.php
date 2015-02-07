@@ -62,22 +62,13 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <div class="container"><!-- container -->
-
-    <div class="text-center">
+    <!-- About -->
+    <div class="container text-center"><!-- container -->
     <div class="logo-custom">
     <i class="fa fa-comment-o" style="font-size: 150px;"></i>
     </div>
-    </div>
-
-    </div><!-- ./container -->
-
-    <!-- About -->
-    <div class="container"><!-- container -->
-    <div class="text-center">
     <h1>Student Portal</h1>
 	<h2>All your university needs, in one single place.</h2>
-    </div>
     </div><!-- ./container -->
     <!-- End of About -->
 
