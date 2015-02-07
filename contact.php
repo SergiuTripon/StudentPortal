@@ -144,7 +144,7 @@ include 'includes/session.php';
 
     <div id="hide" class="text-center">
 	<h1>Contact Us</h1>
-	<hr class="hr-custom hr-small">
+	<hr>
     </div>
 
 	<form class="form-custom" style="max-width: 700px;">
@@ -180,10 +180,10 @@ include 'includes/session.php';
 	</div>
     <p id="error2" class="feedback-sad text-center"></p>
 
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Contact us</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Contact us</span></button>
 	</div>
 
     </div>
@@ -210,15 +210,7 @@ include 'includes/session.php';
 	</div><!-- /.container -->
 	</div><!-- /.Social -->
 
-    <!-- Footer -->
-    <footer>
-    <div class="container">
-    <div class="row">
-    <p>&copy; 2014 Student Portal - All Rights Reserved.</p>
-    </div>
-    </div><!-- /.container -->
-    </footer><!-- /.footer -->
-
+    <?php include 'includes/menus/menu.php'; ?>
 
 	<?php endif; ?>
 
@@ -306,31 +298,6 @@ include 'includes/session.php';
 	return true;
 
 	});
-
-    // jQuery to collapse the navbar on scroll
-    $(window).scroll(function () {
-        if ($(".navbar").offset().top > 50) {
-            $(".navbar-fixed-top").addClass("top-nav-collapse");
-        } else {
-            $(".navbar-fixed-top").removeClass("top-nav-collapse");
-        }
-    });
-
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $(function () {
-        $('a.page-scroll').bind('click', function (event) {
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top
-            }, 1500, 'easeInOutExpo');
-            event.preventDefault();
-        });
-    });
-
-    // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function () {
-        $('.navbar-toggle:visible').click();
-    });
 
     });
 	</script>
