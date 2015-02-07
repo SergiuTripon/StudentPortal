@@ -226,12 +226,16 @@ hr {
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
     color: #ffffff;
-    background-color: #C9302C;
+    background-color: #D9534F;
 }
 
 .dropdown-menu {
     max-width: 100%;
     background-color: #D9534F;
+}
+
+.dropdown-menu > li > a {
+    color: #FFFFFF;
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
