@@ -151,10 +151,10 @@ hr {
 .navbar-default {
     background-color: #D9534F;
     border-bottom: 1px solid #992320;
-    box-shadow: 0px 10px 5px #992320;
-    -moz-box-shadow: 0px 10px 5px #992320;
-    -webkit-box-shadow: 0px 10px 5px #992320;
-    -o-box-shadow: 0px 10px 5px #992320;
+    box-shadow:         0 1px 5px #992320;
+    -moz-box-shadow:    0 1px 5px #992320;
+    -webkit-box-shadow: 0 1px 5px #992320;
+    -o-box-shadow:      0 1px 5px #992320;
 }
 .navbar-default .navbar-brand {
     color: #FFFFFF;
@@ -227,9 +227,10 @@ footer {
     height: 60px;
     background-color: #F0AD4E;
     border-top: 1px solid #BF8B41;
-    -moz-box-shadow:    0 -5px 5px -5px #BF8B41;
-    -webkit-box-shadow: 0 -5px 5px -5px #BF8B41;
-    box-shadow:         0 -5px 5px -5px #BF8B41;
+    box-shadow:         0 -1px 5px #BF8B41;
+    -moz-box-shadow:    0 -1px 5px #BF8B41;
+    -webkit-box-shadow: 0 -1px 5px #BF8B41;
+    -o-box-shadow:      0 -1px 5px #BF8B41;
 }
 
 footer p {
