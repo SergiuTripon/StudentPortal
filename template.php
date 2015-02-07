@@ -31,7 +31,7 @@
     }
 
     body > .container {
-        padding: 150px;
+        padding: 150px 0 20px;
     }
     .container .text-muted {
         margin: 20px 0;
