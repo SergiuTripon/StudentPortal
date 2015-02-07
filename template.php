@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,16 +9,60 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Sticky Footer Navbar Template for Bootstrap</title>
+    <title>Student Portal | Template</title>
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <!-- bootstrap -->
+    <link href="https://student-portal.co.uk/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://student-portal.co.uk/js/html5shiv/html5shiv.min.js"></script>
+    <script src="https://student-portal.co.uk/js/respond/respond.min.js"></script>
     <![endif]-->
-  </head>
+
+    <style>
+    /* Sticky footer styles
+    -------------------------------------------------- */
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        background-color: #f5f5f5;
+    }
+
+
+    /* Custom page CSS
+    -------------------------------------------------- */
+    /* Not required for template or sticky footer method. */
+
+    body > .container {
+        padding: 60px 15px 0;
+    }
+    .container .text-muted {
+        margin: 20px 0;
+    }
+
+    .footer > .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    code {
+        font-size: 80%;
+    }
+    </style>
+
+
+</head>
 
 <body>
 
@@ -71,13 +116,14 @@
     </div>
     </footer>
 
+    <!-- js library -->
+    <script src="https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js"></script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- bootstrap -->
+    <script src="https://student-portal.co.uk/assets/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- common-->
+    <script src="https://student-portal.co.uk/assets/js/common/ie10-viewport-bug-workaround.js"></script>
+
   </body>
 </html>
