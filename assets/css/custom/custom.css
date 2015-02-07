@@ -269,6 +269,7 @@ form .form-control:-ms-input-placeholder {
     cursor: pointer;
     background-color: #333333;
     border: 1px solid #FFA500;
+    border-radius: 3px;
 }
 
 .tile i {

@@ -203,7 +203,7 @@ include 'includes/session.php';
     </div><!-- /modal-content -->
 	<!-- End of Feature Modal -->
 
-    <?php include 'includes/menus/menu.php'; ?>
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
