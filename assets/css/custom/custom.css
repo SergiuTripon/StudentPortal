@@ -150,6 +150,7 @@ hr {
 /* Navbar */
 .navbar-default {
     background-color: #D9534F;
+    border-bottom: 1px solid #1863E6;
 }
 .navbar-default .navbar-brand {
     color: #FFFFFF;
@@ -220,11 +221,12 @@ footer {
     bottom: 0;
     width: 100%;
     height: 60px;
-    background-color: #EC971F;
+    border-top: 1px solid #1863E6;
+    background-color: #F0AD4E;
 }
 
 footer p {
-    color: #333333;
+    color: #1863E6;
     margin-top: 20px;
 }
 /* End of Footer */
