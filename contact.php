@@ -81,9 +81,11 @@ include 'includes/session.php';
     <header id="contact1"><!-- Header -->
     <div class="wrapper"><!-- Wrapper -->
 
+    <div class="container">
     <div id="hide" class="text-center">
 	<h1>Contact Us</h1>
 	<hr>
+    </div>
     </div>
 
 	<form class="form-custom" style="max-width: 700px;">
