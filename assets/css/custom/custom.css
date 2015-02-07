@@ -215,15 +215,8 @@ hr {
 /* End of Footer */
 
 /* Wrapper */
-header {
-    padding: 60px 15px 0;
-}
-
-@media (min-width: 767px) {
-header {
-    height: 100%;
-    padding: 0;
-}
+.wrapper {
+    margin-top: 60px;
 }
 /* End of Wrapper */
 
