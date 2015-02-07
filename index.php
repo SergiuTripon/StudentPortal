@@ -67,7 +67,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <div class="container">
+    <div class="wrapper">
 
     <form class="form-custom" name="signin_form" id="signin_form">
 
