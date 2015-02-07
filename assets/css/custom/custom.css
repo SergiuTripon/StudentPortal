@@ -687,6 +687,8 @@ form .success-style:-ms-input-placeholder {
     color: #FFFFFF;
     background-color: #4582EC;
     border: 1px solid #1863E6;
+    border-bottom-left-radius: 3px;
+    border-bottm-right-radius: 3px;
 }
 
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
