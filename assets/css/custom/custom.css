@@ -12,7 +12,7 @@ body {
 }
 
 body > .container {
-    padding: 60px;
+    padding-top: 60px;
 }
 
 a, a:focus, a:hover {
