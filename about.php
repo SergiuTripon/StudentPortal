@@ -16,15 +16,15 @@ include 'includes/session.php';
     <title>Student Portal | About</title>
 
     <style>
-    #about {
+    #about a {
         color: #FFFFFF;
         background-color: #C9302C;
     }
-    #about:focus, #about:hover {
+    #about a:focus, #about a:hover {
         color: #FFFFFF;
         background-color: #C9302C;
     }
-    #find-out-more {
+    #find-out-more a {
         color: #FFFFFF;
         background-color: #C9302C;
     }

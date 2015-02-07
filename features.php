@@ -24,7 +24,7 @@ include 'includes/session.php';
         color: #FFFFFF;
         background-color: #C9302C;
     }
-    #find-out-more {
+    #find-out-more a {
         color: #FFFFFF;
         background-color: #C9302C;
     }

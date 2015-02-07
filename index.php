@@ -16,11 +16,11 @@ include 'includes/session.php';
     <title>Student Portal</title>
 
     <style>
-    #signin {
+    #signin a {
         color: #FFFFFF;
         background-color: #C9302C;
     }
-    #signin:focus, #signin:hover {
+    #signin a:focus, #signin a:hover {
         color: #FFFFFF;
         background-color: #C9302C;
     }
