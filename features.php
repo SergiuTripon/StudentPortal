@@ -62,13 +62,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <div class="showcase-logo">
-    <i class="fa fa-pie-chart"></i>
-    </div>
-
-    <header id="features1"><!-- Header -->
-    <div class="wrapper"><!-- Wrapper -->
-    <div class="container">
+    <div class="container"><!-- container -->
 
 	<p class="text-left" style="margin-bottom: 0px;">Click and discover</p>
 
@@ -165,8 +159,6 @@ include 'includes/session.php';
 	</div><!-- /.row -->
 
     </div><!-- /.container -->
-    </div><!-- End of Wrapper -->
-    </header><!-- End of Header -->
 
     <!-- Feature Modal -->
     <div class="modal modal-custom fade" id="modal-features" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
