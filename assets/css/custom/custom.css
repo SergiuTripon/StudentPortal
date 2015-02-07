@@ -258,8 +258,10 @@ footer p {
 
 #features-showcase hr {
     border-color: #3FAD46;
-    background-image: none;
+    background: none;
     max-width: 300px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 /* End of Features showcase */
