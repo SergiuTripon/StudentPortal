@@ -594,7 +594,7 @@ form .success-style:-ms-input-placeholder {
 
 /* Modal Custom style */
 .modal-custom .modal-content {
-    border-radius: 0px;
+    border-radius: 3px;
 }
 
 .modal-custom .modal-header .close {
