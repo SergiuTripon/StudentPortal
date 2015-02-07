@@ -234,6 +234,11 @@ hr {
     background-color: #D9534F;
 }
 
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: #FFFFFF;
+    background-color: #D9534F;
+}
+
 /* End of Navbar */
 
 /* Footer */

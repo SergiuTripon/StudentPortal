@@ -19,6 +19,13 @@ include 'includes/session.php';
 
     <title>Student Portal | Contact</title>
 
+    <style>
+    #contact {
+        color: #FFFFFF;
+        background-color: #C9302C;
+    }
+    </style>
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
