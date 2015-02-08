@@ -31,13 +31,13 @@ include 'includes/session.php';
 
 	<?php include 'includes/menus/portal_menu.php'; ?>
 
+	<div class="container">
+
 	<ol class="breadcrumb">
-	<li><a href="../overview/">Overview</a></li>
-	<li class="active">Calendar</li>
+		<li><a href="../overview/">Overview</a></li>
+		<li class="active">Calendar</li>
 	</ol>
 
-	<div class="container">
-	
 	<div class="row">
 
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
