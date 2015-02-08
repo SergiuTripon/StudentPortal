@@ -1347,7 +1347,7 @@ table.dataTable thead .sorting_desc_disabled {
 }
 
 .no-background, .no-background td, .no-background th, .no-background:hover, .no-background td:hover, .no-background th:hover {
-    color: #FFA500 !important;
+    color: #5D5D5D !important;
     background: none !important;
 }
 
