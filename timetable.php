@@ -311,8 +311,6 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
-    <br>
-
     <h3 class="feedback-custom">Tutorials</h3>
     <hr class="hr-thin">
 

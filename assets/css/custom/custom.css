@@ -710,6 +710,11 @@ form .success-style:-ms-input-placeholder {
 #timetable-portal h3 {
     color: #4582EC;
 }
+
+#timetable-portal .breadcrumb {
+    margin-bottom: 20px;
+}
+
 #timetable-portal hr {
     margin-top: 0;
     margin-bottom: 20px;
