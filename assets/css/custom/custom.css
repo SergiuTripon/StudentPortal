@@ -791,6 +791,11 @@ form .success-style:-ms-input-placeholder {
 /* End of Calendar portal */
 
 /* Bootstrap calendar */
+#calendar {
+    border-radius: 3px;
+    border: 1px solid #CCCCCC;
+}
+
 #cal-week-box {
     display: none !important;
 }
