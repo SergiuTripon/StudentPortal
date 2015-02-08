@@ -68,13 +68,13 @@ if ($dateofbirth == "0000-00-00") {
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default gender <?php if($gender == "male") echo "active"; ?>">
+	<label class="btn btn-default btn-lg gender <?php if($gender == "male") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Male
 	</label>
-	<label class="btn btn-default gender <?php if($gender == "female") echo "active"; ?>">
+	<label class="btn btn-default btn-lg gender <?php if($gender == "female") echo "active"; ?>">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Female
 	</label>
-	<label class="btn btn-default gender <?php if($gender == "other") echo "active"; ?>">
+	<label class="btn btn-default btn-lg gender <?php if($gender == "other") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
@@ -239,7 +239,7 @@ if ($dateofbirth == "0000-00-00") {
 			$('.btn-group').addClass('btn-group-justified');
 		}
 	})
-	.resize();//trigger the resize event on page load.
+	.resize();
 
     //Global variable
     var gender1;
@@ -265,7 +265,7 @@ if ($dateofbirth == "0000-00-00") {
 	if(firstname1 === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a first name.");
-		$("#firstname").css("border-color", "#FF5454");
+		$("#firstname").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
@@ -274,7 +274,7 @@ if ($dateofbirth == "0000-00-00") {
 	if(surname1 === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a surname.");
-		$("#surname").css("border-color", "#FF5454");
+		$("#surname").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
@@ -283,7 +283,7 @@ if ($dateofbirth == "0000-00-00") {
 	if(email4 === '') {
 		$("#error3").show();
         $("#error3").empty().append("Please enter an email address.");
-		$("#email").css("border-color", "#FF5454");
+		$("#email").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
