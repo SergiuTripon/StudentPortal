@@ -756,7 +756,7 @@ form .success-style:-ms-input-placeholder {
     color: #4582EC;
 }
 
-#calendar-portal .page-header h3 {
+#calendar-portal .page-header hr {
     margin-top: 5px;
     margin-bottom: 0;
 }
