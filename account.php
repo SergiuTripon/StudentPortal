@@ -142,7 +142,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-	<div class="container">
+	<div id="account-admin-portal" class="container">
 			
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
@@ -182,8 +182,8 @@ include 'includes/session.php';
 
     <br>
     <br>
-    <h4 class="feedback-custom">Perform actions against other accounts</h4>
-    <hr class="hr-thin">
+    <h4>Perform actions against other accounts</h4>
+    <hr>
     <br>
 
     <div class="row">

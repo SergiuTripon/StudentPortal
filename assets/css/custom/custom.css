@@ -820,6 +820,18 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Events portal */
 
+/* Calendar portal */
+#account-admin-portal h4 {
+    color: #3FAD46;
+}
+#account-admin-portal hr {
+    margin-top: 5px;
+    margin-bottom: 0;
+    border-color: #3FAD46;
+    background: #3FAD46;
+}
+/* End of Calendar portal */
+
 /* Bootstrap calendar */
 #calendar {
     border-radius: 3px;
