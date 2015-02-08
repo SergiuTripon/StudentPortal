@@ -784,7 +784,10 @@ form .success-style:-ms-input-placeholder {
 #cal-slide-content a.event-item {
     color: #4582EC !important;
     font-weight: 600 !important;
-    line-height: 0px !important;
+}
+
+.cal-event-list .pull-left.event {
+    margin-top: 5px !important;
 }
 
 @media (max-width: 768px) {
