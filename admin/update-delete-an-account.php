@@ -286,7 +286,7 @@ include '../includes/session.php';
 
     </div><!-- /container -->
 
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
 	<!-- Sign Out (Inactive) JS -->
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
