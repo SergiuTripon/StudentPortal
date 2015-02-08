@@ -106,12 +106,6 @@ hr {
     background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 
-/* hr without margins */
-.hr-thin {
-    margin-top: 0px;
-    margin-bottom: 20px;
-}
-
 /* Sets the padding for widths */
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
     padding-right: 5px;
@@ -301,6 +295,34 @@ footer p {
     background: #4582EC;
 }
 /* End of User manual showcase */
+
+/* User manual accordion style */
+#user-manual-showcase .panel-default {
+    border-color: #4582EC;
+}
+
+#user-manual-showcase .panel-group .panel {
+    border-radius: 3px;
+}
+
+#user-manual-showcase .panel {
+    background-color: #1863E6;
+    border-color: #1863E6;
+    box-shadow: none;
+}
+
+#user-manual-showcase .panel-default>.panel-heading {
+    color: #FFFFFF;
+    background-color: #4582EC;
+    border-color: #1863E6;
+}
+
+#user-manual-showcase .panel-default>.panel-heading+.panel-collapse>.panel-body {
+    color: #FFFFFF;
+    background-color: #4582EC;
+    border-color: #1863E6;
+}
+/* End of User manual accordion style */
 
 /* Contact showcase */
 #contact-showcase h1 {
@@ -679,61 +701,45 @@ form .success-style:-ms-input-placeholder {
     border-radius: 3px;
 }
 
-#user-manual-showcase .panel {
+.panel {
     box-shadow: none;
 }
 /* End of Accordion style */
 
-/* User manual accordion style */
-#user-manual-showcase .panel-default {
+/* Timetable portal */
+#timetable-portal h3 {
+    color: #4582EC;
+}
+#timetable-portal hr {
+    margin-top: 0px;
+    margin-bottom: 0px;
     border-color: #4582EC;
+    background: #4582EC;
 }
-
-#user-manual-showcase .panel-group .panel {
-    border-radius: 3px;
-}
-
-#user-manual-showcase .panel {
-    background-color: #1863E6;
-    border-color: #1863E6;
-    box-shadow: none;
-}
-
-#user-manual-showcase .panel-default>.panel-heading {
-    color: #FFFFFF;
-    background-color: #4582EC;
-    border-color: #1863E6;
-}
-
-#user-manual-showcase .panel-default>.panel-heading+.panel-collapse>.panel-body {
-    color: #FFFFFF;
-    background-color: #4582EC;
-    border-color: #1863E6;
-}
-/* End of User manual accordion style */
+/* End of Timetable portal */
 
 /* Timetable accordion style */
-#timetable-panel .panel .panel-default {
+#timetable-portal .panel .panel-default {
     border-color: #4582EC;
 }
 
-#timetable-panel .panel-group .panel {
+#timetable-portal .panel-group .panel {
     border-radius: 3px;
 }
 
-#timetable-panel .panel {
+#timetable-portal .panel {
     background-color: #1863E6;
     border-color: #1863E6;
     box-shadow: none;
 }
 
-#timetable-panel .panel-default>.panel-heading {
+#timetable-portal .panel-default>.panel-heading {
     color: #FFFFFF;
     background-color: #4582EC;
     border-color: #1863E6;
 }
 
-#timetable-panel .panel-default>.panel-heading+.panel-collapse>.panel-body {
+#timetable-portal .panel-default>.panel-heading+.panel-collapse>.panel-body {
     color: #FFFFFF;
     background-color: #4582EC;
     border-color: #1863E6;
