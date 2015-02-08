@@ -711,8 +711,8 @@ form .success-style:-ms-input-placeholder {
     color: #4582EC;
 }
 #timetable-portal hr {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 20px;
     border-color: #4582EC;
     background: #4582EC;
 }
