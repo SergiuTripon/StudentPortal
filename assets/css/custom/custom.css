@@ -782,9 +782,9 @@ form .success-style:-ms-input-placeholder {
 }
 
 #cal-slide-content a.event-item {
-    color: #4582EC;
-    font-weight: 600;
-    line-height: 0px;
+    color: #4582EC !important;
+    font-weight: 600 !important;
+    line-height: 0px !important;
 }
 
 @media (max-width: 768px) {
