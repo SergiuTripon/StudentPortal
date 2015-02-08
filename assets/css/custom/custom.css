@@ -473,6 +473,7 @@ form .form-control:-ms-input-placeholder {
 .active.btn-default {
     color: #FFFFFF;
     background-color: #5D5D5D;
+    border: 1px solid #5D5D5D;
 }
 
 .btn-group > .btn-default:focus, .btn-group > .btn-default:focus {
