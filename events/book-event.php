@@ -34,12 +34,7 @@ if (isset($_POST["recordToBook"])) {
 
     <?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../assets/img/favicon/favicon.ico">
+    <?php include '../assets/meta-tags.php'; ?>
 
     <title>Student Portal | Book event</title>
 
@@ -55,9 +50,9 @@ if (isset($_POST["recordToBook"])) {
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
 
-	<div class="container">
-
     <?php include '../includes/menus/portal_menu.php'; ?>
+
+	<div class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -65,24 +60,8 @@ if (isset($_POST["recordToBook"])) {
     <li class="active">Book event</li>
     </ol>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Pay course fees</a>
-    </h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-
-	<div class="panel-body">
-
-	<!-- Pay course fees -->
-	<div class="content-panel" style="border: none;">
-
-    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+	<!-- Book event -->
+    <form class="form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 
@@ -163,52 +142,46 @@ if (isset($_POST["recordToBook"])) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Pay with PayPal</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mr5" data-style="slide-up"><span class="ladda-label">Pay with PayPal</span></button>
 	</div>
 
     </form>
-
-    </div><!-- /content-panel -->
-    <!-- End of Pay course fees -->
-
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-	</div><!-- /panel-group -->
-
+    <!-- End of Book event -->
 
     </div><!-- /container -->
 
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
     <?php else : ?>
 
-    <header class="intro">
-	<div class="intro-body">
+    <?php include '../includes/menus/menu.php'; ?>
 
-	<form class="form-custom orange-form">
+	<div class="container">
 
-    <div class="orange-logo animated fadeIn delay1">
+	<form class="form-custom">
+
+    <div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="mt10 orange-hr">
+    <hr>
 
-    <p class="error text-center">You need to have a student account to access this area.</p>
+    <p class="feedbac-sad text-center">You need to have a student account to access this area.</p>
 
-    <hr class="orange-hr">
+    <hr>
 
     <div class="text-center">
-    <a class="btn btn-orange btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-orange btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Overview</span></a>
     </div>
 
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>

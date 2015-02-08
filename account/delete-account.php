@@ -36,9 +36,9 @@ $stmt1->fetch();
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <div class="container">
-
     <?php include '../includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -46,24 +46,8 @@ $stmt1->fetch();
     <li class="active">Delete account</li>
     </ol>
 	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-	
-	<div class="panel panel-default">
-	
-	<div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Delete account</a>
-    </h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-    
-	<div class="panel-body">
-	
     <!-- Delete account -->
-    <div class="content-panel mb10" style="border: none;">
-                                    
-	<form class="form-custom" style="max-width: 600px; padding-top: 0px;" name="deleteaccount_form">
+	<form class="form-custom" style="max-width: 100%;" name="deleteaccount_form">
 
     <div class="form-group">
     
@@ -86,19 +70,10 @@ $stmt1->fetch();
     <hr class="hr-custom">
 
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-toggle="modal" href="#deleteaccount-modal"><span class="ladda-label">Delete account</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-toggle="modal" href="#deleteaccount-modal"><span class="ladda-label">Delete account</span></a>
     </div>
 
     </form>
-
-    </div><!-- /content-panel -->
-    <!-- End of Delete account -->
-	
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-	</div><!-- /panel-group -->
-
     <!-- Delete Account Modal -->
 
     <div class="modal fade modal-custom" id="deleteaccount-modal" tabindex="-1" role="dialog" aria-labelledby="deleteaccount-modal-label" aria-hidden="true">
@@ -140,40 +115,36 @@ $stmt1->fetch();
 
     </div> <!-- /container -->
 	
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
-    <style>
-    html, body {
-		height: 100% !important;
-	}
-    </style>
+    <?php include '../includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <div class="container">
 	
-    <form class="form-custom orange-form">
+    <form class="form-custom">
 
-	<div class="logo-custom animated fadeIn delay1">
+	<div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="mt10 hr-custom">
+    <hr>
     <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 	
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 

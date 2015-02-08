@@ -32,12 +32,7 @@ if ($fee_amount == "0.00") {
 
     <?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../assets/img/favicon/favicon.ico">
+    <?php include '../assets/meta-tags.php'; ?>
 
     <title>Student Portal | Pay Course Fees</title>
 
@@ -52,10 +47,10 @@ if ($fee_amount == "0.00") {
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
-		
-	<div class="container">
 
     <?php include '../includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -63,24 +58,8 @@ if ($fee_amount == "0.00") {
     <li class="active">Pay course fees</li>
     </ol>
 	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Pay course fees</a>
-    </h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-    
-	<div class="panel-body">
-	
 	<!-- Pay course fees -->
-	<div class="content-panel" style="border: none;">
-	
-    <form class="form-custom" style="max-width: 700px; padding-top: 0px;" action="https://student-portal.co.uk/includes/fees_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+    <form class="form-custom" style="max-width: 100%; padding-top: 0px;" action="https://student-portal.co.uk/includes/fees_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
     <?php
     if (!empty($conditional_style)) {
@@ -157,19 +136,11 @@ if ($fee_amount == "0.00") {
 	</div>
 
     </form>
-
-    </div><!-- /content-panel -->
     <!-- End of Pay course fees -->
-	
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-	</div><!-- /panel-group -->
-	
 	
     </div><!-- /container -->
 	
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
@@ -206,33 +177,29 @@ if ($fee_amount == "0.00") {
     <?php endif; ?>
 	<?php else : ?>
 
-    <style>
-    html, body {
-		height: 100% !important;
-	}
-    </style>
+    <?php include '../includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <div class="container">
 	
-    <form class="form-custom orange-form">
+    <form class="form-custom">
 
-	<div class="logo-custom animated fadeIn delay1">
+	<div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="mt10 hr-custom">
+    <hr>
     <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 	
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 

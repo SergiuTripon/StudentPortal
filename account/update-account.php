@@ -20,11 +20,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <?php include '../assets/meta-tags.php'; ?>
 
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
@@ -39,9 +35,9 @@ if ($dateofbirth == "0000-00-00") {
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <div class="container">
-
     <?php include '../includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
 
     <ol class="breadcrumb">
 	<li><a href="../../overview/">Overview</a></li>
@@ -49,24 +45,8 @@ if ($dateofbirth == "0000-00-00") {
     <li class="active">Update account</li>
     </ol>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-	<div class="panel-heading" role="tab" id="headingOne">
-	<h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Update account</a>
-	</h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-
-	<div class="panel-body">
-
 	<!-- Update account -->
-    <div class="content-panel mb10" style="border: none;">
-
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="updateaccount_form" novalidate>
+	<form class="form-custom" style="max-width: 100%;" name="updateaccount_form" novalidate>
 
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -162,58 +142,45 @@ if ($dateofbirth == "0000-00-00") {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update account</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Update account</span></button>
     </div>
 
 	</div>
 
     </form>
 
-    </div><!-- /content-panel -->
-    <!-- End of Update account -->
-
-    </div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-
-	</div><!-- /panel-group -->
-
     </div> <!-- /container -->
 
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 	
 	<?php else : ?>
-	
-	<style>
-    html, body {
-		height: 100% !important;
-	}
-    </style>
 
-    <header class="intro">
-    <div class="intro-body">
-	
-    <form class="form-custom orange-form">
+    <?php include '../includes/menus/menu.php'; ?>
 
-	<div class="logo-custom animated fadeIn delay1">
+    <div class="container">
+	
+    <form class="form-custom">
+
+	<div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="mt10 hr-custom">
+    <hr>
     <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 	
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
