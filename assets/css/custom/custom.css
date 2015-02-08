@@ -824,6 +824,7 @@ form .success-style:-ms-input-placeholder {
 #account-admin-portal h4 {
     color: #3FAD46;
     font-weight: 600;
+    margin-top: 20px;
 }
 #account-admin-portal hr {
     margin-top: 5px;

@@ -180,11 +180,8 @@ include 'includes/session.php';
 
     </div><!-- /row -->
 
-    <br>
-    <br>
     <h4>Perform actions against other accounts</h4>
     <hr>
-    <br>
 
     <div class="row">
 
