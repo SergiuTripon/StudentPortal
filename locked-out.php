@@ -172,7 +172,7 @@ include 'includes/session.php';
 	
     $("#lock-icon").click(function (e) {
 
-	$("#before").hide("700");
+	$("#before").hide();
 	$("#signin_form").show();
 	
 	});
