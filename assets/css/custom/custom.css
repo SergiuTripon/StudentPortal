@@ -850,6 +850,50 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Calendar portal */
 
+/* Lock page style */
+#showdate {
+    color: #333333;
+    font-size: 35px;
+    text-align: center;
+}
+
+#showtime {
+    color: #333333;
+    font-size: 90px;
+    text-align: center;
+}
+
+#showtime li {
+    display: inline;
+}
+
+#lock-screen {
+   padding-top: 20px;
+    text-align: center;
+}
+
+#lock-screen a, #lock-screen a:hover, #lock-screen a:focus {
+    color: #333333;
+}
+
+#lock-icon i {
+    font-size: 60px;
+}
+
+@media (max-width: 480px) {
+#showtime {
+    font-size: 70px;
+}
+}
+
+@media (max-width: 320px) {
+#showtime {
+    font-size: 50px;
+}
+}
+
+/* End of Lock page style */
+
 /* Bootstrap calendar */
 #calendar {
     border-radius: 3px;
@@ -922,7 +966,6 @@ form .success-style:-ms-input-placeholder {
     color: #FFFFFF;
 }
 /* End of Breadcrumb style */
-
 
 /* Buttons */
 .btn, .btn:focus, .btn:hover {
