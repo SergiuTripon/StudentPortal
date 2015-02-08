@@ -25,9 +25,9 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-	<div class="container">
-
     <?php include 'includes/menus/portal_menu.php'; ?>
+
+	<div id="timetable-portal" class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
@@ -39,7 +39,6 @@ include 'includes/session.php';
     <h3 class="feedback-custom">Lectures</h3>
     <hr class="hr-thin">
 
-	<div id="timetable-panel">
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
@@ -592,7 +591,6 @@ include 'includes/session.php';
 	</div><!-- /.panel-default -->
 
 	</div><!-- /.panel-group -->
-	</div><!-- /#timetable-panel -->
 
     </div><!-- /container -->
 
