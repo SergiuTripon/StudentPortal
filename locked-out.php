@@ -88,9 +88,9 @@ include 'includes/session.php';
 	</div>
     </header>
 
-    <div id="after" class="container">
+    <div class="container">
 	
-	<form class="form-custom" name="signin_form" id="signin_form">
+	<form class="form-custom" name="signin_form" id="after signin_form">
 
     <div class="form-logo text-center">
 	<i class="fa fa-graduation-cap"></i>
