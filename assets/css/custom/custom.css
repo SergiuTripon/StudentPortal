@@ -705,11 +705,11 @@ form .success-style:-ms-input-placeholder {
 }
 
 .breadcrumb a {
-    color: #EC971F;
+    color: #FFFFFF;
 }
 
 .breadcrumb > .active {
-    color: #4582EC;
+    color: #333333;
     cursor: default;
 }
 
