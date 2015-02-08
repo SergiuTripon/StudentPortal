@@ -771,7 +771,7 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Calendar portal */
 
-/* Calendar portal */
+/* Events portal */
 #events-portal .page-header {
     margin: 0;
     padding: 0 0 20px 0;
@@ -788,7 +788,11 @@ form .success-style:-ms-input-placeholder {
     border-color: #4582EC;
     background: #4582EC;
 }
-/* End of Calendar portal */
+
+#events-portal .btn-group, #events .btn-group-vertical {
+    margin-bottom: 0px;
+}
+/* End of Events portal */
 
 /* Bootstrap calendar */
 #calendar {
