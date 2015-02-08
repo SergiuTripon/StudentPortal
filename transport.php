@@ -491,34 +491,29 @@ $time = date('H:i');
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
-	
-	<style>
-    html, body {
-		height: 100% !important;
-	}
-    </style>
-	
-    <header class="intro">
-    <div class="intro-body">
-	<form class="form-custom orange-form">
 
-	<div class="logo-custom animated fadeIn delay1">
+    <?php include '../includes/menus/menu.php'; ?>
+
+    <div class="container">
+	<form class="form-custom">
+
+	<div class="form-logo text-center">
 	<i class="fa fa-graduation-cap"></i>
 	</div>
 
-	<hr class="mt10 hr-custom">
-
+	<hr>
 	<p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
-
-	<hr class="hr-custom">
+	<hr>
 
 	<div class="text-center">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 
 	</form>
+
 	</div>
-    </header>
+
+    <?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 

@@ -229,7 +229,7 @@ if ($dateofbirth == "0000-00-00") {
 
     <?php else : ?>
 
-	<?php include '../includes/menus/menu.php'; ?>
+	<?php include '../includes/menus/portal_menu.php'; ?>
 
     <div class="container">
 

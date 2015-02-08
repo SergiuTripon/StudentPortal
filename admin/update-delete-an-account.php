@@ -347,7 +347,7 @@ include '../includes/session.php';
 
 	</div>
 
-	<?php include '../includes/menus/menu.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 

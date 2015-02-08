@@ -33,34 +33,34 @@ include 'includes/session.php';
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-	
-    <header class="intro">
-    <div class="intro-body">
+
+    <?php include 'includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
 
     <form class="form-custom">
 
-    <div class="logo-custom">
+    <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="hr-custom">
-
+    <hr>
     <p class="feedback-sad text-center">You are already logged in. You don't have to log in again.</p>
-
-    <hr class="hr-custom">
+    <hr>
 
     <div class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" href="overview/"><span class="ladda-label">Overview</span></a>
     </div>
 	
     <div class="text-right">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="../sign-out/"><span class="ladda-label">Sign Out</span></a>
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" href="../sign-out/"><span class="ladda-label">Sign Out</span></a>
     </div>
 
     </form>
 
     </div>
-    </header>
+
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php else : ?>
 
@@ -88,12 +88,11 @@ include 'includes/session.php';
 	</div>
     </header>
 
-	<header id="after" class="intro"">
-    <div class="intro-body">
+    <div class="container">
 	
 	<form class="form-custom" name="signin_form" id="signin_form">
 
-    <div class="logo-custom">
+    <div class="form-logo text-center">
 	<i class="fa fa-graduation-cap"></i>
     </div>
 
@@ -125,7 +124,6 @@ include 'includes/session.php';
     </form>
 	
 	</div>
-    </header>
 
 	<?php endif; ?>
 

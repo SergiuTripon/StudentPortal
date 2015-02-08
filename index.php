@@ -34,6 +34,8 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
+    <?php include 'includes/menus/menu.php'; ?>
+
     <div class="container">
 
     <form class="form-custom">
@@ -42,11 +44,9 @@ include 'includes/session.php';
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="hr-custom">
-
+    <hr>
     <p class="feedback-sad text-center">You are already logged in. You don't have to log in again.</p>
-
-    <hr class="hr-custom">
+    <hr>
 
 	<div class="pull-left">
     <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="overview/"><span class="ladda-label">Overview</span></a>
@@ -59,6 +59,8 @@ include 'includes/session.php';
     </form>
 
     </div>
+
+    <?php include 'includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>

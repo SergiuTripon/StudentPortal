@@ -233,7 +233,7 @@ include 'includes/session.php';
     
 	<form class="form-custom">
 
-    <div class="form-logo">
+    <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 

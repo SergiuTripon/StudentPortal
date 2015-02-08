@@ -27,6 +27,8 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
+    <?php include '../includes/menus/portal_menu.php'; ?>
+
     <div class="container">
 
     <form class="form-custom">
@@ -36,9 +38,7 @@ include 'includes/session.php';
     </div>
 
     <hr>
-
     <p class="feedback-sad text-center">You are already logged in. You don't have to log in again.</p>
-
     <hr>
 
 	<div class="pull-left">
@@ -52,6 +52,8 @@ include 'includes/session.php';
     </form>
 
     </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
