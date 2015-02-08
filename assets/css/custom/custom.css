@@ -673,6 +673,7 @@ form .success-style:-ms-input-placeholder {
 
 #user-manual-showcase .panel-default>.panel-heading+.panel-collapse>.panel-body {
     color: #FFFFFF;
+    background-color: #4582EC;
     border-color: #1863E6;
 }
 /* End of Accordion style */
