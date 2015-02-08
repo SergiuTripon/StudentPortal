@@ -130,40 +130,36 @@ $xml_station_status = new SimpleXMLElement($result2);
 
     </div><!-- /container -->
 	
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
    <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
-    <style>
-    html, body {
-		height: 100% !important;
-	}
-    </style>
-	
-    <header class="intro">
-	<div class="intro-body">
-	<form class="form-custom orange-form">
+	<?php include '../includes/menus/menu.php'; ?>
 
-	<div class="logo-custom animated fadeIn delay1">
+	<div class="container">
+
+	<form class="form-custom">
+
+	<div class="form-logo text-center">
 	<i class="fa fa-graduation-cap"></i>
 	</div>
 
-	<hr class="mt10 hr-custom">
-
+	<hr>
 	<p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
-
-	<hr class="hr-custom">
+	<hr>
 
 	<div class="text-center">
 	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 
 	</form>
+
 	</div>
-    </header>
+
+    <?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
