@@ -81,7 +81,6 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
     </div>
     </div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -89,7 +88,7 @@ if ($dateofbirth == "0000-00-00") {
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
     </div>
     </div>
-    <p id="error3" class="feedback-sad text-center"></p>
+    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -282,22 +281,10 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-    var gender_check = $(".gender");
-	if (gender_check.hasClass('active')) {
-		$("#error2").hide();
-		$(".btn-group > .btn-default").addClass("success-style");
-	}
-	else {
-		$("#error2").empty().append("Please select a gender.");
-		$(".btn-group > .btn-default").addClass("error-style");
-		hasError  = true;
-		return false;
-	}
-
 	var email4 = $("#email").val();
 	if(email4 === '') {
-		$("#error3").show();
-        $("#error3").empty().append("Please enter an email address.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter an email address.");
 		$("#email").addClass("error-style");
 		hasError  = true;
 		return false;
