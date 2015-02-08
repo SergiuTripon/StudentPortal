@@ -55,7 +55,7 @@ $xml_weekend = new SimpleXMLElement($result);
   	<div class="panel-body">
 
 	<section id="no-more-tables">
-	<table class="table table-condensed table-transport">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -94,7 +94,7 @@ $xml_weekend = new SimpleXMLElement($result);
   	<div class="panel-body">
 
 	<section id="no-more-tables">
-	<table class="table table-condensed table-transport">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
