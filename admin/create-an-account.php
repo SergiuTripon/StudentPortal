@@ -327,11 +327,11 @@ include '../includes/session.php';
 	var account_type_check = $(".account_type");
 	if (account_type_check.hasClass('active')) {
 		$("#error1").hide();
-		$(".btn-group > .account_type").css('cssText', 'border-color: #4DC742 !important');
+		$(".btn-group > .account_type").addClass("success-style");
 	}
 	else {
 		$("#error1").empty().append("Please select an account type.");
-		$(".btn-group > .account_type").css('cssText', 'border-color: #FF5454 !important');
+		$(".btn-group > .account_type").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
@@ -340,34 +340,34 @@ include '../includes/session.php';
 	if(firstname2 === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a first name.");
-		$("#firstname").css("border-color", "#FF5454");
+		$("#firstname").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#firstname").css("border-color", "#4DC742");
+		$("#firstname").addClass("success-style");
 	}
 	
 	var surname2 = $("#surname").val();
 	if(surname2 === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a surname.");
-		$("#surname").css("border-color", "#FF5454");
+		$("#surname").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#surname").css("border-color", "#4DC742");
+		$("#surname").addClass("success-style");
 	}
 
 	var gender_check = $(".gender");
 	if (gender_check.hasClass('active')) {
 		$("#error3").hide();
-		$(".btn-group > .gender").css('cssText', 'border-color: #4DC742 !important');
+		$(".btn-group > .gender").addClass("success-style");
 	}
 	else {
 		$("#error3").empty().append("Please select a gender.");
-		$(".btn-group > .gender").css('cssText', 'border-color: #FF5454 !important');
+		$(".btn-group > .gender").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
@@ -379,42 +379,42 @@ include '../includes/session.php';
 		if(studentno === '') {
 			$("#error4").show();
 			$("#error4").empty().append("Please enter a student number.");
-			$("#studentno").css("border-color", "#FF5454");
+			$("#studentno").addClass("error-style");
 			hasError  = true;
 			return false;
 		} else {
 			$("#error4").hide();
-			$("#studentno").css("border-color", "#4DC742");
+			$("#studentno").addClass("success-style");
 		}
 		if ($.isNumeric(studentno)) {
 			$("#error4").hide();
-			$("#studentno").css("border-color", "#4DC742");
+			$("#studentno").addClass("success-style");
 		} else {
 			$("#error4").show();
 			$("#error4").empty().append("The student number entered is invalid.<br>The student number must be numeric.");
-			$("#studentno").css("border-color", "#FF5454");
+			$("#studentno").addClass("error-style");
 			hasError  = true;
 			return false;
 		}
 		if (studentno.length != 9) {
 			$("#error4").show();
 			$("#error4").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
-			$("#studentno").css("border-color", "#FF5454");
+			$("#studentno").addClass("error-style");
 			hasError  = true;
 			return false;
 		} else {
 			$("#error4").hide();
-			$("#studentno").css("border-color", "#4DC742");
+			$("#studentno").addClass("success-style");
 		}
 		if(degree === '') {
 			$("#error4").show();
 			$("#error4").empty().append("Please enter a programme of study.");
-			$("#degree").css("border-color", "#FF5454");
+			$("#degree").addClass("error-style");
 			hasError  = true;
 			return false;
 		} else {
 			$("#error4").hide();
-			$("#degree").css("border-color", "#4DC742");
+			$("#degree").addClass("success-style");
 		}
 	} else {
 		studentno = $("#studentno").val();
@@ -425,35 +425,35 @@ include '../includes/session.php';
 	if(email5 === '') {
 		$("#error5").show();
         $("#error5").empty().append("Please enter an email address.");
-		$("#email").css("border-color", "#FF5454");
+		$("#email").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error5").hide();
-		$("#email").css("border-color", "#4DC742");
+		$("#email").addClass("success-style");
 	}
 
 	var password4 = $("#password").val();
 	if(password4 === '') {
 		$("#error6").show();
         $("#error6").empty().append("Please enter a password.");
-		$("#password").css("border-color", "#FF5454");
+		$("#password").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error6").hide();
-		$("#password").css("border-color", "#4DC742");
+		$("#password").addClass("error-style");
 	}
 
 	if (password4.length < 6) {
 		$("#error6").show();
 		$("#error6").empty().append("Passwords must be at least 6 characters long. Please try again.");
-		$("#password").css("border-color", "#FF5454");
+		$("#password").addClass("error-style");
 		hasError  = true;
 		return false;
 	} else {
 		$("#error6").hide();
-		$("#password").css("border-color", "#4DC742");
+		$("#password").addClass("success-style");
 	}
 
 	var upperCase= new RegExp('[A-Z]');
@@ -462,11 +462,11 @@ include '../includes/session.php';
 
 	if(password4.match(upperCase) && password4.match(lowerCase) && password4.match(numbers)) {
 		$("#error6").hide();
-		$("#password").css("border-color", "#4DC742");
+		$("#password").addClass("success-style");
 	} else {
 		$("#error6").show();
 		$("#error6").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
-		$("#password").css("border-color", "#FF5454");
+		$("#password").addClass("error-style");
 		hasError  = true;
 		return false;
 	}
@@ -475,25 +475,25 @@ include '../includes/session.php';
 	if(confirmpwd === '') {
 		$("#error6").show();
         $("#error6").empty().append("Please enter a password confirmation.");
-		$("#confirmpwd").css("border-color", "#FF5454");
+		$("#confirmpwd").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error6").hide();
-		$("#confirmpwd").css("border-color", "#4DC742");
+		$("#confirmpwd").addClass("success-style");
 	}
 
 	if(password4 != confirmpwd) {
 		$("#error6").show();
 		$("#error6").empty().append("Your password and confirmation do not match. Please try again.");
-		$("#password").css("border-color", "#FF5454");
-		$("#confirmpwd").css("border-color", "#FF5454");
+		$("#password").addClass("error-style");
+		$("#confirmpwd").addClass("error-style");
         hasError  = true;
 		return false;
 	} else {
 		$("#error6").hide();
-		$("#password").css("border-color", "#4DC742");
-		$("#confirmpwd").css("border-color", "#4DC742");
+		$("#password").addClass("success-style");
+		$("#confirmpwd").addClass("success-style");
 	}
 
 	var nationality1 = $("#nationality").val();
