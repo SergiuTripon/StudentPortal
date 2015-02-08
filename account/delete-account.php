@@ -92,7 +92,7 @@ $stmt1->fetch();
 
     <input type="hidden" name="deleteaccount_button" id="deleteaccount_button">
 
-    <p class="feedback-custom text-center">Are you sure you want to delete your account?</p>
+    <p class="text-center">Are you sure you want to delete your account?</p>
 
     </div>
     
