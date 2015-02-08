@@ -14,14 +14,6 @@
 	margin-bottom: 0px;
 	padding-left: 5px;
 }
-.btn.active {
-	color: #333333 !important;
-	background-color: #FFA500;
-}
-.btn:active {
-	color: #FFA500 !important;
-	background-color: #333333;
-}
 [class*="cal-cell"] {
   float: left;
   margin-left: 0;
