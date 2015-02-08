@@ -109,7 +109,7 @@ hr {
 /* hr without margins */
 .hr-thin {
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
 /* Sets the padding for widths */
