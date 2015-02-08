@@ -743,9 +743,9 @@ form .success-style:-ms-input-placeholder {
 /* Breadcrumb style */
 .breadcrumb {
     margin-bottom: 10px;
-    background-color: #F0AD4E;
+    background-color: #6B5204;
     border-radius: 3px;
-    border: 1px solid #EC971F;
+    border: 1px solid #6B5204;
 }
 
 .breadcrumb a {
@@ -753,7 +753,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 .breadcrumb > .active {
-    color: #333333;
+    color: #EC971F;
     cursor: default;
 }
 
