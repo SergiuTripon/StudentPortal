@@ -665,6 +665,20 @@ form .success-style:-ms-input-placeholder {
 /* End of Modal features */
 
 /* Accordion style */
+#user-manual-showcase .panel-default {
+    border-color: #4582EC;
+}
+
+#user-manual-showcase .panel-group .panel {
+    border-radius: 3px;
+}
+
+#user-manual-showcase .panel {
+    background-color: #1863E6;
+    border: 1px solid #1863E6;
+    box-shadow: none;
+}
+
 #user-manual-showcase .panel-default>.panel-heading {
     color: #FFFFFF;
     background-color: #4582EC;
