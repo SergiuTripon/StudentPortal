@@ -1009,40 +1009,6 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Table Custom style */
 
-/* Table Transport style */
-.table-transport {
-    border-radius: 3px;
-    border-collapse: collapse !important;
-    border: 1px solid #5D5D5D !important;
-}
-
-.table-transport th {
-    color: #5D5D5D !important;
-    font-weight: 600 !important;
-    text-align: center !important;
-    vertical-align: middle !important;
-    border: 1px solid #5D5D5D !important;
-    background-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-.table-transport tr {
-    color: #5D5D5D !important;
-    border: 1px solid #5D5D5D !important;
-}
-
-.table-transport td {
-    color: #5D5D5D !important;
-    text-align: center !important;
-    vertical-align: middle !important;
-    padding: 7px !important;
-    border: 1px solid #5D5D5D !important;
-}
-
-.table-transport td a, .calendar-table td a:hover {
-    color: #5D5D5D !important;
-}
-/* End of Table Transport style */
-
 /* No More Responsive Table */
 @media only screen and (max-width: 800px) {
 
