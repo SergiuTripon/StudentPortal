@@ -873,6 +873,10 @@ form .success-style:-ms-input-placeholder {
     margin: 0;
     padding: 0;
 }
+
+#before p {
+    font-weight: 600;
+}
 /* End of Lock page style */
 
 /* Bootstrap calendar */
