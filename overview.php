@@ -30,10 +30,10 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
 
-    <div class="container">
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div class="row mb10">
+    <div class="container">
+    <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<a href="../timetable/">
@@ -138,9 +138,9 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
 
-    <div class="container">
     <?php include 'includes/menus/portal_menu.php'; ?>
 
+    <div class="container">
     <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
@@ -228,9 +228,9 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
-    <div class="container">
-    <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include 'includes/menus/menu.php'; ?>
 
+    <div class="container">
     <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
