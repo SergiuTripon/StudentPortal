@@ -66,8 +66,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <header id="before" class="intro">
-    <div class="intro-body">
+    <div class="container">
 
     <div id="showtime">
     <div id="showdate"></div>
@@ -79,14 +78,13 @@ include 'includes/session.php';
       <li id="sec"></li>
     </ul>
     </div>
-	<p class="feedback-custom text-center" style="font-size: 20px;">You've been inactive for 15 minutes, so we've locked you out for security reasons</>
+	<p class="text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons</>
     <div id="lock-screen">
     <a id="lock-icon"><i class="fa fa-lock"></i></a><br>
-    <a id="lock-text">UNLOCK</a>
+    <a id="lock-text">Unlock</a>
     </div>
 	
 	</div>
-    </header>
 
     <div class="container">
 	
@@ -174,8 +172,8 @@ include 'includes/session.php';
 	
     $("#lock-icon").click(function (e) {
 
-	$("#before").fadeOut("700");	
-	$("#signin_form").fadeIn();
+	$("#before").hide("700");
+	$("#signin_form").show();
 	
 	});
 	
