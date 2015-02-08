@@ -14,47 +14,43 @@
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Account deleted</title>
-	
-	<style>
-	html, body {
-		height: 100% !important;
-	}
-	</style>
 
 </head>
 
 <body>
 
+    <?php include '../includes/menus/menu.php'; ?>
+
 	<div class="preloader"></div>
 
-    <header class="intro">
-    <div class="intro-body">
+    <div class="container">
 	
 	<form class="form-custom" name="paypal_success_form">
 
-    <div class="logo-custom">
+    <div class="form-logo">
     <i class="fa fa-trash"></i>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <p class="feedback-happy text-center">Your account has been deleted successfully.</p>
 
-    <hr class="hr-custom">
+    <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 
     <div class="text-right">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/register"><span class="ladda-label">Register</span></a>
+    <a class="btn btn-register btn-lg ladda-button" data-style="slide-up" href="/register"><span class="ladda-label">Register</span></a>
 
 	</div>
 
     </form>
 
-	</div><!-- /intro-body -->
-    </header>
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 	

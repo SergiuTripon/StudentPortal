@@ -132,7 +132,7 @@ if ($fee_amount == "0.00") {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Pay with PayPal</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mr5" data-style="slide-up"><span class="ladda-label">Pay with PayPal</span></button>
 	</div>
 
     </form>
