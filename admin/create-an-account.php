@@ -41,7 +41,7 @@ include '../includes/session.php';
     </ol>
 	
 	<!-- Create single account -->
-	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
+	<form class="form-custom" style="max-width: 100%;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -50,13 +50,13 @@ include '../includes/session.php';
 
 	<label>Account type - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom account_type">
+	<label class="btn btn-default btn-lg account_type">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Student
 	</label>
-	<label class="btn btn-custom account_type">
+	<label class="btn btn-default btn-lg account_type">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Lecturer
 	</label>
-	<label class="btn btn-custom account_type">
+	<label class="btn btn-default btn-lg account_type">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Admin
 	</label>
 	</div>
@@ -78,13 +78,13 @@ include '../includes/session.php';
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom gender">
+	<label class="btn btn-default btn-lg gender">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Male
 	</label>
-	<label class="btn btn-custom gender">
+	<label class="btn btn-default btn-lg gender">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Female
 	</label>
-	<label class="btn btn-custom gender">
+	<label class="btn btn-default btn-lg gender">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
@@ -177,14 +177,14 @@ include '../includes/session.php';
 
 	</div>
 
-	<hr class="hr-custom">
+	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create account</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create account</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href=""><span class="ladda-label">Create another</span></a>
+	<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label">Create another</span></a>
 	</div>
 	
     </form>
