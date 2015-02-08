@@ -252,7 +252,7 @@ if ($dateofbirth == "0000-00-00") {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 
     </form>
