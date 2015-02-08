@@ -242,7 +242,7 @@ include '../includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="logo-custom">
+			<div class="form-logo text-center">
 			<i class="fa fa-trash"></i>
 			</div>
 			</div>
