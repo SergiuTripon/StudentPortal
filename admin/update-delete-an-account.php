@@ -254,14 +254,14 @@ include '../includes/session.php';
 			<div class="modal-footer">
 			<div id="hide">
 			<div class="pull-left">
-			<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button1 ladda-button" data-style="slide-up" data-spinner-color="#FFA500">Yes</a>
+			<a id="delete-'.$row["userid"].'" class="btn btn-danger btn-lg delete-button1 ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button" class="btn btn-custom btn-lg ladda-button" style="display: none;" data-style="slide-up" data-spinner-color="#FFA500">Continue</a>
+			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
