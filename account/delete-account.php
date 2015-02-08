@@ -99,10 +99,10 @@ $stmt1->fetch();
 	<div class="modal-footer">
     
 	<div class="pull-left">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10 mr5" data-style="slide-up" data-spinner-color="#FFA500" type="submit"><span class="ladda-label">Yes</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mt10 mr5" data-style="slide-up" type="submit"><span class="ladda-label">Yes</span></button>
     </div>
     <div class="text-right">
-	<button class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal"><span class="ladda-label">No</span></button>
+	<button class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-dismiss="modal"><span class="ladda-label">No</span></button>
 	</div>
     
 	</div>
