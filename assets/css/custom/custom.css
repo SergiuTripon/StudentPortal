@@ -415,7 +415,7 @@ form a:focus, form a:hover {
 
 form label {
     color: #333333;
-    font-weight: normal;
+    font-weight: 600;
 }
 
 form input {
