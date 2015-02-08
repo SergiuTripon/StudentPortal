@@ -1234,8 +1234,8 @@ table.dataTable thead .sorting_desc_disabled {
 /* Transport Panel */
 .transport-panel {
     text-align: center;
-    background: rgba(68, 76, 87, 1);
-    border: 1px solid #FFFFFF;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
     height: 250px;
     margin-bottom: 10px;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
@@ -1245,15 +1245,9 @@ table.dataTable thead .sorting_desc_disabled {
     transition: background-color ease-in-out 0.5s;
 }
 
-.transport-panel:hover, .transport-panel:focus {
-    background-color: rgba(68, 76, 87, 0.6);
-    box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
-}
-
 .transport-panel .transport-header {
     padding: 5px;
     background-color: #333333;
-    border-bottom: 1px solid #FFFFFF;
 }
 
 .transport-header h4 {

@@ -485,14 +485,14 @@ $time = date('H:i');
 
     </div> <!-- /container -->
 	
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include 'includes/footers/footer.php'; ?>
 
            <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
-    <?php include '../includes/menus/menu.php'; ?>
+    <?php include 'includes/menus/menu.php'; ?>
 
     <div class="container">
 	<form class="form-custom">
@@ -513,7 +513,7 @@ $time = date('H:i');
 
 	</div>
 
-    <?php include '../includes/footers/footer.php'; ?>
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
