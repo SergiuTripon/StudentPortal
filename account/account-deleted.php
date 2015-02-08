@@ -38,11 +38,11 @@
     <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 
     <div class="text-right">
-    <a class="btn btn-register btn-lg ladda-button" data-style="slide-up" href="/register"><span class="ladda-label">Register</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/register"><span class="ladda-label">Register</span></a>
 
 	</div>
 
