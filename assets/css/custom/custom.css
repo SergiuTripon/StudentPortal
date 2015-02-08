@@ -933,7 +933,8 @@ form .success-style:-ms-input-placeholder {
 
 .dataTables_wrapper .dataTables_length select {
     color: #5D5D5D;
-    border-color: #5D5D5D;
+    border-radius: 3px;
+    border: 1px solid #5d5d5d;
     background-color: transparent;
     outline: 0 !important;
 }
