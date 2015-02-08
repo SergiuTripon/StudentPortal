@@ -26,9 +26,10 @@ include '../includes/session.php';
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-    
-    <div class="container">
+
 	<?php include '../includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -36,23 +37,7 @@ include '../includes/session.php';
     <li class="active">Create a task</li>
     </ol>
 	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create a task</a>
-	</h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-    
-	<div class="panel-body">
-	
 	<!-- Create a task -->
-    <div class="content-panel mb10" style="border: none;">
-    
 	<form class="form-custom" style="max-width: 900px; padding-top: 0px;" name="createtask_form" id="createtask_form">
 
 	<p id="success" class="feedback-happy text-center"></p>
@@ -111,14 +96,7 @@ include '../includes/session.php';
 	</div>
 	
     </form>
-    </div><!-- /content-panel -->
-    <!-- End of Change Password -->
-	
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-	
-	</div><!-- /panel-group -->
+    <!-- End of Create a task -->
             
 	</div> <!-- /container -->
 	
