@@ -745,6 +745,17 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Timetable portal */
 
+/* Calendar portal */
+#calendar-portal .page-header {
+    margin: 0px;
+    border-bottom: none;
+}
+
+#calendar-portal .page-header h3 {
+    color: #4582EC;
+}
+/* End of Calendar portal */
+
 
 
 /* Breadcrumb style */
