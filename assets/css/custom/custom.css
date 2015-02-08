@@ -713,11 +713,11 @@ form .success-style:-ms-input-placeholder {
 /* End of User manual accordion style */
 
 /* Timetable accordion style */
-#timetable-panel .panel-default {
+#timetable-panel .panel .panel-default {
     border-color: #4582EC;
 }
 
-#timetable-panel .panel-group .panel {
+#timetable-panel .panel {
     border-radius: 3px;
 }
 
@@ -727,13 +727,13 @@ form .success-style:-ms-input-placeholder {
     box-shadow: none;
 }
 
-#timetable-panel .panel-default>.panel-heading {
+#timetable-panel .panel-default > .panel-heading {
     color: #FFFFFF;
     background-color: #4582EC;
     border-color: #1863E6;
 }
 
-#timetable-panel .panel-default>.panel-heading+.panel-collapse>.panel-body {
+#timetable-panel .panel-default > .panel-heading + .panel-collapse > .panel-body {
     color: #FFFFFF;
     background-color: #4582EC;
     border-color: #1863E6;
