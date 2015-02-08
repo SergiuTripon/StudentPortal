@@ -187,11 +187,11 @@ include '../includes/session.php';
 	if(task_name === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter task name.");
-		$("#task_name").css("border-color", "#FF5454");
+		$("#task_name").addClass("error-style");
 		hasError  = true;
     } else {
 		$("#error1").hide();
-		$("#task_name").css("border-color", "#4DC742");
+		$("#task_name").addClass("success-style");
 	}
 	
 	var task_notes = $("#task_notes").val();
@@ -201,33 +201,33 @@ include '../includes/session.php';
 	if(task_startdate === '') {
 		$("#error2").show();
 		$("#error2").empty().append("Please enter a task start date and time.");
-		$("#task_startdate").css("border-color", "#FF5454");
+		$("#task_startdate").addClass("error-style");
 		hasError  = true;
 	} else {
 		$("#error2").hide();
-		$("#task_startdate").css("border-color", "#4DC742");
+		$("#task_startdate").addClass("success-style");
 	}
 
 	var task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a task due date and time.");
-		$("#task_duedate").css("border-color", "#FF5454");
+		$("#task_duedate").addClass("error-style");
 		hasError  = true;
     } else {
 		$("#error2").hide();
-		$("#task_duedate").css("border-color", "#4DC742");
+		$("#task_duedate").addClass("success-style");
 	}
 
 	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
-		$("#error3").show();
 		$("#error3").hide();
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+		$(".btn-group > .btn-default").addClass("success-style");
 	}
 	else {
+		$("#error3").show();
 		$("#error3").empty().append("Please select a task category.");
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
+		$(".btn-group > .btn-default").addClass("error-style");
 		hasError = true;
 	}
 
