@@ -55,7 +55,7 @@ include '../includes/session.php';
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
 
-	<hr class="hr-custom">
+	<hr>
 
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mt10 mr5" data-style="slide-up"><span class="ladda-label">Change password</span></button>
