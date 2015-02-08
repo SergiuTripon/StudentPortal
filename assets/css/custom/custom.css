@@ -1236,7 +1236,6 @@ table.dataTable thead .sorting_desc_disabled {
     text-align: center;
     border-radius: 3px;
     background: rgba(68, 76, 87, 1);
-    border: 1px solid rgba(68, 76, 87, 1);
     height: 250px;
     margin-bottom: 10px;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
@@ -1291,66 +1290,79 @@ table.dataTable thead .sorting_desc_disabled {
 .bakerloo, .bakerloo td, .central th {
     color: #FFFFFF !important;
     background-color: rgba(174, 97, 24, 1) !important;
+    border: 1px solid rgba(174, 97, 24, 1) !important;
 }
 
 .central, .central td, .central th {
     color: #FFFFFF !important;
     background-color: rgba(228, 31, 31, 1) !important;
+    border: 1px solid rgba(228, 31, 31, 1) !important;
 }
 
 .circle, .circle td, .circle th {
     color: #113892 !important;
     background-color: rgba(248, 212, 45, 1) !important;
+    border: 1px solid rgba(248, 212, 45, 1) !important;
 }
 
 .district, .district td, .district th {
     color: #FFFFFF !important;
     background-color: rgba(0, 114, 41, 1) !important;
+    border: 1px solid rgba(0, 114, 41, 1) !important;
 }
 
 .dlr, .dlr td, .dlr th {
     color: #FFFFFF !important;
     background-color: rgba(0, 187, 180, 1) !important;
+    border: 1px solid rgba(0, 187, 180, 1) !important;
 }
 
 .hammersmith, .hammersmith td, .hammersmith th {
     color: #113892 !important;
     background-color: rgba(232, 153, 168, 1) !important;
+    border: 1px solid rgba(232, 153, 168, 1) !important;
 }
 
 .jubilee, .jubilee td, .jubilee th {
     color: #FFFFFF !important;
     background-color: rgba(104, 110, 114, 1) !important;
+    border: 1px solid rgba(232, 153, 168, 1) !important;
 }
 
 .metropolitan, .metropolitan td, .metropolitan th {
     color: #FFFFFF !important;
     background-color: rgba(137, 50, 103, 1) !important;
+    border: 1px solid rgba(137, 50, 103, 1) !important;
 }
 
 .northern, .northern td, .northern th {
     color: #FFFFFF !important;
     background-color: rgba(0, 0, 0, 1) !important;
+    border: 1px solid rgba(0, 0, 0, 1) !important;
 }
 
 .overground, .overground td, .overground th {
     color: #FFFFFF !important;
     background-color: rgba(248, 108, 0, 1) !important;
+    border: 1px solid rgba(248, 108, 0, 1) !important;
 }
 
 .picadilly, .picadilly td, .picadilly th {
     color: #FFFFFF !important;
     background-color: rgba(4, 80, 161, 1) !important;
+    border: 1px solid rgba(4, 80, 161, 1) !important;
 }
 
 .victoria, .victoria td, .victoria th {
     color: #FFFFFF !important;
     background-color: rgba(0, 159, 224, 1) !important;
+    border: 1px solid rgba(0, 159, 224, 1) !important;
 }
 
 .waterloo, .waterloo td, .waterloo th {
     color: #113892 !important;
     background-color: rgba(112, 195, 206, 1) !important;
+    border: 1px solid rgba(112, 195, 206, 1) !important;
 }
 
 .no-background, .no-background td, .no-background th, .no-background:hover, .no-background td:hover, .no-background th:hover {
