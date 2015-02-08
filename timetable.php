@@ -39,7 +39,8 @@ include 'includes/session.php';
     <h3 class="feedback-custom">Lectures</h3>
     <hr class="hr-thin">
 
-	<div class="panel-group" id="accordion timetable-panel" role="tablist" aria-multiselectable="true">
+	<div id="timetable-panel">
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 
@@ -586,11 +587,12 @@ include 'includes/session.php';
 	</table>
 	</section>
 
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
+  	</div><!-- /.panel-body -->
+    </div><!-- /.panel-collapse -->
+	</div><!-- /.panel-default -->
 
-	</div><!-- /panel-group -->
+	</div><!-- /.panel-group -->
+	</div><!-- /#timetable-panel -->
 
     </div><!-- /container -->
 
