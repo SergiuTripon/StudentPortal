@@ -696,6 +696,29 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Accordion style */
 
+/* Breadcrumb style */
+.breadcrumb {
+    margin-bottom: 10px;
+    background-color: #F0AD4E;
+    border-radius: 0px;
+    border: 1px solid #EC971F;
+}
+
+.breadcrumb a {
+    color: #EC971F;
+}
+
+.breadcrumb > .active {
+    color: #4582EC;
+    cursor: default;
+}
+
+.breadcrumb > li + li:before {
+    color: #FFFFFF;
+}
+/* End of Breadcrumb style */
+
+
 /* Buttons */
 .btn, .btn:focus, .btn:hover {
     outline: none !important;
