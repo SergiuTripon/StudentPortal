@@ -859,26 +859,26 @@ form .success-style:-ms-input-placeholder {
 /* Table Custom style */
 .table-custom {
     border-collapse: collapse !important;
-    border: 1px solid #808080 !important;
+    border: 1px solid #5D5D5D !important;
 }
 
 .table-custom th {
     color: #808080;
     text-align: center;
-    border: 1px solid #808080 !important;
-    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #5D5D5D !important;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .table-custom tr {
     color: #808080;
-    border: 1px solid #808080;
+    border: 1px solid #5D5D5D;
 }
 
 .table-custom td {
     color: #808080;
     text-align: center;
     padding: 7px;
-    border: 1px solid #808080;
+    border: 1px solid #5D5D5D;
 }
 
 .table-custom td a, .calendar-table td a:hover {
