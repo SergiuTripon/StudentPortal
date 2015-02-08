@@ -1294,17 +1294,9 @@ table.dataTable thead .sorting_desc_disabled {
     background-color: rgba(174, 97, 24, 1) !important;
 }
 
-.bakerloo:hover, .bakerloo:focus {
-    background-color: rgba(174, 97, 24, 0.7) !important;
-}
-
 .central, .central td, .central th {
     color: #FFFFFF !important;
     background-color: rgba(228, 31, 31, 1) !important;
-}
-
-.central:hover, .central:focus {
-    background-color: rgba(228, 31, 31, 0.7) !important;
 }
 
 .circle, .circle td, .circle th {
@@ -1312,17 +1304,9 @@ table.dataTable thead .sorting_desc_disabled {
     background-color: rgba(248, 212, 45, 1) !important;
 }
 
-.circle:hover, .circle:focus {
-    background-color: rgba(248, 212, 45, 0.8) !important;
-}
-
 .district, .district td, .district th {
     color: #FFFFFF !important;
     background-color: rgba(0, 114, 41, 1) !important;
-}
-
-.district:hover, .district:focus {
-    background-color: rgba(0, 114, 41, 0.7) !important;
 }
 
 .dlr, .dlr td, .dlr th {
@@ -1330,17 +1314,9 @@ table.dataTable thead .sorting_desc_disabled {
     background-color: rgba(0, 187, 180, 1) !important;
 }
 
-.dlr:hover, .dlr:focus {
-    background-color: rgba(0, 187, 180, 0.7) !important;
-}
-
 .hammersmith, .hammersmith td, .hammersmith th {
     color: #113892 !important;
     background-color: rgba(232, 153, 168, 1) !important;
-}
-
-.hammersmith:hover, .hammersmith:focus {
-    background-color: rgba(232, 153, 168, 0.8) !important;
 }
 
 .jubilee, .jubilee td, .jubilee th {
@@ -1348,17 +1324,9 @@ table.dataTable thead .sorting_desc_disabled {
     background-color: rgba(104, 110, 114, 1) !important;
 }
 
-.jubilee:hover, .jubilee:focus {
-    background-color: rgba(104, 110, 114, 0.7) !important;
-}
-
 .metropolitan, .metropolitan td, .metropolitan th {
     color: #FFFFFF !important;
     background-color: rgba(137, 50, 103, 1) !important;
-}
-
-.metropolitan:hover, .metropolitan:focus {
-    background-color: rgba(137, 50, 103, 0.7) !important;
 }
 
 .northern, .northern td, .northern th {
@@ -1366,17 +1334,9 @@ table.dataTable thead .sorting_desc_disabled {
     background-color: rgba(0, 0, 0, 1) !important;
 }
 
-.northern:hover, .northern:focus {
-    background-color: rgba(0, 0, 0, 0.7) !important;
-}
-
 .overground, .overground td, .overground th {
     color: #FFFFFF !important;
     background-color: rgba(248, 108, 0, 1) !important;
-}
-
-.overground:hover, .overground:focus {
-    background-color: rgba(248, 108, 0, 0.7) !important;
 }
 
 .picadilly, .picadilly td, .picadilly th {
@@ -1384,26 +1344,14 @@ table.dataTable thead .sorting_desc_disabled {
     background-color: rgba(4, 80, 161, 1) !important;
 }
 
-.picadilly:hover, .picadilly:focus {
-    background-color: rgba(4, 80, 161, 0.7) !important;
-}
-
 .victoria, .victoria td, .victoria th {
     color: #FFFFFF !important;
     background-color: rgba(0, 159, 224, 1) !important;
 }
 
-.victoria:hover, .victoria:focus {
-    background-color: rgba(0, 159, 224, 0.7) !important;
-}
-
 .waterloo, .waterloo td, .waterloo th {
     color: #113892 !important;
     background-color: rgba(112, 195, 206, 1) !important;
-}
-
-.waterloo:hover, .waterloo:focus {
-    background-color: rgba(112, 195, 206, 0.8) !important;
 }
 
 .no-background, .no-background td, .no-background th, .no-background:hover, .no-background td:hover, .no-background th:hover {
