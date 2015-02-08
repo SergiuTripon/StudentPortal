@@ -162,6 +162,18 @@ hr {
 .pl0 {
     padding-left: 0px;
 }
+
+.change-button {
+    font-size: 20px;
+}
+
+.update-button {
+    font-size: 20px;
+}
+
+.delete-button {
+    font-size: 20px;
+}
 /* End of Global */
 
 /* Navbar */
