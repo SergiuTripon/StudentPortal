@@ -229,6 +229,7 @@ include 'includes/session.php';
 
 	<div class="page-header">
 	<h3></h3>
+	<hr>
 	</div>
 
 	<div id="calendar"></div>
