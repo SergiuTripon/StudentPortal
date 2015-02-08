@@ -28,10 +28,11 @@ include 'includes/session.php';
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 	
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
-	
-	<div class="container">
+
     <?php include 'includes/menus/portal_menu.php'; ?>
-			
+
+    <div class="container">
+
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
     <li class="active">Account</li>
@@ -79,7 +80,7 @@ include 'includes/session.php';
 	
     </div><!-- /container -->
 	
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include 'includes/footers/footer.php'; ?>
 		
 	<!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -87,11 +88,11 @@ include 'includes/session.php';
     <?php endif; ?>
 	
 	<?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
-	
-	<div class="container">
 
     <?php include 'includes/menus/portal_menu.php'; ?>
-			
+
+    <div class="container">
+
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
     <li class="active">Account</li>
@@ -130,7 +131,7 @@ include 'includes/session.php';
     </div><!-- /row -->
     </div><!-- /container -->
 	
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include 'includes/footers/footer.php'; ?>
 		
 	<!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -138,10 +139,10 @@ include 'includes/session.php';
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
-	
-	<div class="container">
 
     <?php include 'includes/menus/portal_menu.php'; ?>
+
+	<div class="container">
 			
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
@@ -217,7 +218,7 @@ include 'includes/session.php';
     </div><!-- /row -->
     </div><!-- /container -->
 	
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include 'includes/footers/footer.php'; ?>
 		
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -225,36 +226,32 @@ include 'includes/session.php';
     <?php endif; ?>
 	
 	<?php else : ?>
-	
-	<style>
-    html, body {
-		height: 100% !important;
-	}
-	</style>
 
-    <header class="intro">
-    <div class="intro-body">
+    <?php include 'includes/menus/menu.php'; ?>
+
+    <div class="container">
     
 	<form class="form-custom">
 
-    <div class="logo-custom">
+    <div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
 
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
     </form>
      
-	</div><!-- /intro-body -->
-    </header>
+	</div>
+
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
