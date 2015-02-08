@@ -254,7 +254,7 @@ include '../includes/session.php';
 			<div class="modal-footer">
 			<div id="hide">
 			<div class="pull-left">
-			<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button ladda-button" data-style="slide-up" data-spinner-color="#FFA500">Yes</a>
+			<a id="delete-'.$row["userid"].'" class="btn btn-custom btn-lg delete-button1 ladda-button" data-style="slide-up" data-spinner-color="#FFA500">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" data-dismiss="modal">No</button>
@@ -394,7 +394,7 @@ include '../includes/session.php';
 	});
 
 	//Delete an account ajax call
-	$("body").on("click", ".delete-button", function(e) {
+	$("body").on("click", ".delete-button1", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
