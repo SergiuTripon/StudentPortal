@@ -405,9 +405,7 @@ form textarea {
 }
 
 /* Overwrites box shadow effect */
-form .form-control input:focus,
-form .form-control:focus,
-form .form-control textarea:focus {
+form .form-control:focus {
     border-color: #8A8A8A;
     box-shadow:         inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(138, 138, 138, 1);
     -moz-box-shadow:    inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(138, 138, 138, 1);
@@ -498,6 +496,9 @@ form .form-control:-ms-input-placeholder {
     color: #FFFFFF !important;
     border-color: #FF5454 !important;
     background-color: #FF5454 !important;
+}
+
+.error-style:focus {
     box-shadow:         inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1);
     -moz-box-shadow:    inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1);
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1);
@@ -532,6 +533,9 @@ form .error-style:-ms-input-placeholder {
     color: #FFFFFF !important;
     border-color: #4DC742 !important;
     background-color: #4DC742 !important;
+}
+
+.success-style:focus {
     box-shadow:         inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1);
     -moz-box-shadow:    inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1);
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1);
