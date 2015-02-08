@@ -753,8 +753,9 @@ form .success-style:-ms-input-placeholder {
 }
 
 .breadcrumb > .active {
-    color: #EC971F;
+    color: #F0AD4E;
     cursor: default;
+    font-weight: 600;
 }
 
 .breadcrumb > li + li:before {
