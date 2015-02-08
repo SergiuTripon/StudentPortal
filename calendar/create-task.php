@@ -69,16 +69,16 @@ include '../includes/session.php';
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom task_category">
+	<label class="btn btn-default task_category">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
-	<label class="btn btn-custom task_category">
+	<label class="btn btn-default task_category">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Work
 	</label>
-	<label class="btn btn-custom task_category">
+	<label class="btn btn-default task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
 	</label>
-	<label class="btn btn-custom task_category">
+	<label class="btn btn-default task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
@@ -88,7 +88,7 @@ include '../includes/session.php';
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create task</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Create task</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
