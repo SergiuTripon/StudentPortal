@@ -181,24 +181,24 @@ include 'includes/session.php';
 	var email = $('#email').val();
 	if (email === '') {
         $("#error").empty().append("Please enter an email address.");
-		$("#email").css("border-color", "#FF5454");
+		$("#email").addClass("error-style");
 		hasError  = true;
 		return false;
 	} else {
 		$("#error").hide();
-		$("#email").css("border-color", "#4DC742");
+		$("#email").addClass("success-style");
 	}
 	
 	var password = $("#password").val();
 	if(password === '') {
 		$("#error").show();
         $("#error").empty().append("Please enter a password.");
-		$("#password").css("border-color", "#FF5454");
+		$("#password").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error").hide();
-		$("#password").css("border-color", "#4DC742");
+		$("#password").addClass("success-style");
 	}
 	
 	if(hasError == false){
