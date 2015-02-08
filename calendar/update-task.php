@@ -107,7 +107,7 @@ header('Location: ../calendar/');
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update task</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mt10" data-style="slide-up"><span class="ladda-label">Update task</span></button>
     </div>
 
 	</div>
@@ -116,34 +116,27 @@ header('Location: ../calendar/');
             
 	</div> <!-- /container -->
 	
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
-    <style>
-    html, body {
-		height: 100% !important;
-	}
-    </style>
-
-    <header class="intro">
-    <div class="intro-body">
+    <div class="container">
 	
-    <form class="form-custom orange-form">
+    <form class="form-custom">
 
-	<div class="logo-custom animated fadeIn delay1">
+	<div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="mt10 hr-custom">
+    <hr>
     <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 	
     </form>
