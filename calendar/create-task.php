@@ -92,7 +92,7 @@ include '../includes/session.php';
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href=""><span class="ladda-label">Create another</span></a>
+	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href=""><span class="ladda-label">Create another</span></a>
 	</div>
 	
     </form>
@@ -100,7 +100,7 @@ include '../includes/session.php';
             
 	</div> <!-- /container -->
 	
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
