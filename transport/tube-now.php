@@ -60,7 +60,7 @@ $xml_station_status = new SimpleXMLElement($result2);
   	<div class="panel-body">
 
 	<section id="no-more-tables">
-	<table class="table table-condensed table-transport">
+	<table class="table table-condensed table-custom">
 
 	<thead class="cf">
 	<tr>
@@ -99,7 +99,7 @@ $xml_station_status = new SimpleXMLElement($result2);
   	<div class="panel-body">
 
 	<section id="no-more-tables">
-	<table class="table table-condensed table-transport table-stationstatus">
+	<table class="table table-condensed table-custom table-stationstatus">
 
 	<thead>
 	<tr>
@@ -168,7 +168,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 	<script type="text/javascript" class="init">
 	$(document).ready(function () {
-	$('.table-transport').dataTable({
+	$('.table-custom').dataTable({
 		"iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
