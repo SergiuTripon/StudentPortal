@@ -254,11 +254,13 @@ include 'includes/session.php';
 
 	<?php else : ?>
 
+	<?php include 'includes/menus/menu.php'; ?>
+
     <div class="container">
 
 	<form class="form-custom">
 
-    <div class="form-logo">
+    <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
@@ -269,12 +271,14 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
     </form>
      
 	</div>
+
+	<?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
