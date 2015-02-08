@@ -34,8 +34,6 @@ include 'includes/session.php';
 	<li class="active">Timetable</li>
     </ol>
 
-	<br>
-
     <h3 class="feedback-custom">Lectures</h3>
     <hr class="hr-thin">
 
