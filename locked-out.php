@@ -96,7 +96,7 @@ include 'includes/session.php';
 	<i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 	
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -111,14 +111,14 @@ include 'includes/session.php';
     <a class="forgot-password" href="forgotten-password/">Forgotten your password?</a>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <div class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="../register/"><span class="ladda-label">Register</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../register/"><span class="ladda-label">Register</span></a>
     </div>
 
     <div class="text-right">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Sign In</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Sign In</span></button>
 	</div>
 
     </form>
