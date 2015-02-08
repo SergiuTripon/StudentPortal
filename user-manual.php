@@ -80,7 +80,7 @@ include 'includes/session.php';
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-    <div id="user-manual-panel" class="panel panel-default">
+    <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
     <h4 class="panel-title">
     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Account | Updating your account</a>
