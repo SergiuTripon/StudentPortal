@@ -103,11 +103,13 @@ include '../includes/session.php';
 
 	<?php else : ?>
 
+	<?php include '../includes/menus/menu.php'; ?>
+
     <div class="container">
 	
     <form class="form-custom">
 
-	<div class="form-logo">
+	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
@@ -122,6 +124,8 @@ include '../includes/session.php';
     </form>
 
     </div>
+
+	<?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 

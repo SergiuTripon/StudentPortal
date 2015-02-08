@@ -119,11 +119,13 @@ header('Location: ../calendar/');
 
 	<?php else : ?>
 
+	<?php include '../includes/menus/menu.php'; ?>
+
     <div class="container">
 	
     <form class="form-custom">
 
-	<div class="form-logo">
+	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
@@ -137,8 +139,9 @@ header('Location: ../calendar/');
 	
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div>
+
+	<?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
