@@ -644,6 +644,8 @@ form .success-style:-ms-input-placeholder {
 .modal-custom .modal-content {
     border: none;
     border-radius: 3px;
+    border-color: #CCCCCC;
+    background-color: #FFFFFF;
 }
 
 .modal-custom .modal-header .close {
@@ -656,6 +658,22 @@ form .success-style:-ms-input-placeholder {
     outline: none !important;
     opacity: 1;
     text-shadow: none;
+    color: #333333;
+}
+.modal-header {
+    border-color: #CCCCCC;
+}
+
+.modal-footer {
+    border-color: #CCCCCC;
+}
+
+.modal-title {
+    color: #333333;
+}
+
+.modal-body p {
+    color: #333333;
 }
 /* End of Modal style */
 
@@ -677,7 +695,7 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
 }
 
-#modal-features .modal-body p {
+#modal-help .modal-body p {
     color: #333333;
 }
 

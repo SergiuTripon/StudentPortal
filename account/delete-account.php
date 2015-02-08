@@ -88,7 +88,7 @@ $stmt1->fetch();
 
     <div class="modal-body">
 
-    <form class="form-custom" name="deleteaccount_form">
+    <form class="form-custom" style="background: none; border: none;" name="deleteaccount_form">
 
     <input type="hidden" name="deleteaccount_button" id="deleteaccount_button">
 
