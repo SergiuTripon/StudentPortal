@@ -796,10 +796,10 @@ form .success-style:-ms-input-placeholder {
 }
 
 .cal-week-box hr {
-    margin-top: 5px;
+    margin-top: 3px;
     margin-bottom: 0;
-    border-color: #4582EC;
-    background: #4582EC;
+    border-color: #E3E3E3;
+    background: #E3E3E3;
 }
 
 .cal-row-head [class*="cal-cell"]:first-child,
