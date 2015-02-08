@@ -296,8 +296,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	var email4 = $("#email").val();
 	if(email4 === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter an email address.");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter an email address.");
 		$("#email").addClass("error-style");
 		hasError  = true;
 		return false;
