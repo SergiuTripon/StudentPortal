@@ -91,15 +91,24 @@ include 'includes/session.php';
     </div>
 
     <hr>
-	
-	<p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
-	
+
+    <p id="error" class="feedback-sad text-center"></p>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pl0">
     <label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address" autocomplete="no">
+    </div>
+    </div>
+    <p id="error1" class="feedback-sad text-center"></p>
 
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pl0">
     <label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password" autocomplete="no">
+    </div>
+    </div>
+    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="text-right">
     <a class="forgot-password" href="forgotten-password/">Forgotten your password?</a>
@@ -180,24 +189,24 @@ include 'includes/session.php';
 	
 	var email = $('#email').val();
 	if (email === '') {
-        $("#error").empty().append("Please enter an email address.");
+        $("#error1").empty().append("Please enter an email address.");
 		$("#email").addClass("error-style");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error").hide();
+		$("#error1").hide();
 		$("#email").addClass("success-style");
 	}
 	
 	var password = $("#password").val();
 	if(password === '') {
-		$("#error").show();
-        $("#error").empty().append("Please enter a password.");
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a password.");
 		$("#password").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
-		$("#error").hide();
+		$("#error2").hide();
 		$("#password").addClass("success-style");
 	}
 	

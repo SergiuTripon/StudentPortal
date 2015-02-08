@@ -80,13 +80,21 @@ include 'includes/session.php';
     <hr>
 
     <p id="error" class="feedback-sad text-center"></p>
-	
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0">
     <label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address">
+    </div>
+    </div>
     <p id="error1" class="feedback-sad text-center"></p>
 
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0">
     <label>Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
+    </div>
+    </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="text-right">
