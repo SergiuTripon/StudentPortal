@@ -88,7 +88,7 @@ include 'includes/session.php';
 	</div>
     </header>
 
-    <div class="container">
+    <div id="after" class="container">
 	
 	<form class="form-custom" name="signin_form" id="signin_form">
 
@@ -124,6 +124,8 @@ include 'includes/session.php';
     </form>
 	
 	</div>
+
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
