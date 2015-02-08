@@ -20,7 +20,7 @@ include '../session.php';
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-            <a id="find-out-more" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $firstname $surname ?> <span class="fa fa-caret-down"></span></a>
+            <a id="find-out-more" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $session_firstname, '', $session_surname; ?> <span class="fa fa-caret-down"></span></a>
             <ul class="dropdown-menu" role="menu">
             <li id="about"><a href="/about/">About</a></li>
             <li id="features"><a href="/features/">Features</a></li>
