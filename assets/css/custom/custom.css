@@ -541,7 +541,7 @@ form .error-style:-ms-input-placeholder {
 }
 
 .feedback-sad {
-    color: #C9302C;
+    color: #D9534F;
     font-weight: 600;
 }
 
@@ -575,7 +575,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 .feedback-happy {
-    color: #318837;
+    color: #3FAD46;
     font-weight: 600;
 }
 /* End of Error messages */
