@@ -747,8 +747,8 @@ form .success-style:-ms-input-placeholder {
 
 /* Calendar portal */
 #calendar-portal .page-header {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0 0 20px 0;
     border-bottom: none;
 }
 
@@ -759,6 +759,8 @@ form .success-style:-ms-input-placeholder {
 #calendar-portal .page-header hr {
     margin-top: 5px;
     margin-bottom: 0;
+    border-color: #4582EC;
+    background: #4582EC;
 }
 /* End of Calendar portal */
 
