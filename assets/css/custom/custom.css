@@ -723,34 +723,6 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Timetable portal */
 
-/* Timetable accordion style */
-#timetable-portal .panel .panel-default {
-    border-color: #4582EC;
-}
-
-#timetable-portal .panel-group .panel {
-    border-radius: 3px;
-}
-
-#timetable-portal .panel {
-    background-color: #1863E6;
-    border-color: #1863E6;
-    box-shadow: none;
-}
-
-#timetable-portal .panel-default>.panel-heading {
-    color: #FFFFFF;
-    background-color: #4582EC;
-    border-color: #1863E6;
-}
-
-#timetable-portal .panel-default>.panel-heading+.panel-collapse>.panel-body {
-    color: #FFFFFF;
-    background-color: #F8F8F8;
-    border-color: #1863E6;
-}
-/* End of Timetable accordion style */
-
 /* Breadcrumb style */
 .breadcrumb {
     margin-bottom: 10px;
