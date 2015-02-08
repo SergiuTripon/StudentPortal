@@ -71,7 +71,7 @@ include 'includes/session.php';
     </div>
 
     <hr>
-    <p class="text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons</p>
+    <p class="text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons.</p>
     <hr>
 
     <div class="text-center">
@@ -87,7 +87,7 @@ include 'includes/session.php';
 	<form class="form-custom" name="signin_form" id="signin_form">
 
     <div class="form-logo text-center">
-	<i class="fa fa-graduation-cap"></i>
+	<i class="fa fa-unlock"></i>
     </div>
 
     <hr>
