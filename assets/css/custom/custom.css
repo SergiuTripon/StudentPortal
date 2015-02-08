@@ -987,11 +987,11 @@ form .success-style:-ms-input-placeholder {
     border: 0 solid #5D5D5D !important;
 }
 
-#no-more-tables. table-custom tbody {
+#no-more-tables .table-custom tbody {
     border-bottom: 1px solid #5D5D5D !important;
 }
 
-#no-more-tables. table-custom tr {
+#no-more-tables .table-custom tr {
     border-bottom: none !important;
 }
 
