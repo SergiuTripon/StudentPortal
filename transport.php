@@ -203,8 +203,8 @@ $time = date('H:i');
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 full-width">
     <div class="transport-panel circle">
 
-    <div class="transport-header">
-    <h4 style="color: #FFFFFF;"><?php echo $circle1 ?></h4>
+    <div class="transport-header" style="border-color: #113892;">
+    <h4 style="color: #113892 !important;"><?php echo $circle1 ?></h4>
     </div>
 
     <div class="transport-body">
