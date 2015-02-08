@@ -789,7 +789,7 @@ form .success-style:-ms-input-placeholder {
     background: #4582EC;
 }
 
-#events-portal .btn-group, #events .btn-group-vertical {
+#events-portal .calendar-buttons > .btn-group, #events-portal .calendar-buttons > .btn-group-vertical {
     margin-bottom: 0px;
 }
 /* End of Events portal */
