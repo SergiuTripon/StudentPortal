@@ -748,11 +748,17 @@ form .success-style:-ms-input-placeholder {
 /* Calendar portal */
 #calendar-portal .page-header {
     margin: 0px;
+    padding: 0px;
     border-bottom: none;
 }
 
 #calendar-portal .page-header h3 {
     color: #4582EC;
+}
+
+#calendar-portal .page-header h3 {
+    margin-top: 5px;
+    margin-bottom: 0;
 }
 /* End of Calendar portal */
 
