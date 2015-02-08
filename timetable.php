@@ -601,35 +601,31 @@ include 'includes/session.php';
 
 	<?php else : ?>
 
-	<style>
-    html, body {
-		height: 100% !important;
-    }
-    </style>
+	<?php include 'includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <div class="container">
 
 	<form class="form-custom">
 
-    <div class="logo-custom">
+    <div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
 
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+	<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
     </form>
 
-	</div><!-- /intro-body -->
-    </header>
+	</div>
+
+	<?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
@@ -675,7 +671,7 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:myData,
-	success:function(response){
+	success:function(){
 		$('#task-'+DbNumberID).fadeOut();
 		setTimeout(function(){
 			location.reload();
