@@ -30,7 +30,7 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
 
-    <?php include 'includes/menus/menu.php'; ?>
+    <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div class="container">
     <div class="row">
@@ -138,7 +138,7 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
 
-    <?php include 'includes/menus/menu.php'; ?>
+    <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div class="container">
     <div class="row">
@@ -228,7 +228,7 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
-    <?php include 'includes/menus/menu.php'; ?>
+    <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div class="container">
     <div class="row">
