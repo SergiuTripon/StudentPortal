@@ -665,13 +665,13 @@ form .success-style:-ms-input-placeholder {
 /* End of Modal features */
 
 /* Accordion style */
-#features-showcase .panel-default>.panel-heading {
+#user-manual-showcase .panel-default>.panel-heading {
     color: #FFFFFF;
     background-color: #4582EC;
     border-color: #1863E6;
 }
 
-#features-showcase .panel-default>.panel-heading+.panel-collapse>.panel-body {
+#user-manual-showcase .panel-default>.panel-heading+.panel-collapse>.panel-body {
     color: #FFFFFF;
     border-color: #1863E6;
 }
