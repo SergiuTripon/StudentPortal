@@ -221,15 +221,15 @@ include 'includes/session.php';
 
 	<div class="calendar-buttons text-right">
 	<div id="calendar-buttons1" class="btn-group">
-		<button class="btn btn-default btn-lg" data-calendar-nav="prev"><< Prev</button>
-		<button class="btn btn-default btn-lg" data-calendar-nav="today">Today</button>
-		<button class="btn btn-default btn-lg" data-calendar-nav="next">Next >></button>
+		<button class="btn btn-default" data-calendar-nav="prev"><< Prev</button>
+		<button class="btn btn-default" data-calendar-nav="today">Today</button>
+		<button class="btn btn-default" data-calendar-nav="next">Next >></button>
 	</div>
 	<div id="calendar-buttons2" class="btn-group">
-		<button class="btn btn-default btn-lg" data-calendar-view="year">Year</button>
-		<button class="btn btn-default btn-lg active" data-calendar-view="month">Month</button>
-		<button class="btn btn-default btn-lg" data-calendar-view="week">Week</button>
-		<button class="btn btn-default btn-lg" data-calendar-view="day">Day</button>
+		<button class="btn btn-default" data-calendar-view="year">Year</button>
+		<button class="btn btn-default active" data-calendar-view="month">Month</button>
+		<button class="btn btn-default" data-calendar-view="week">Week</button>
+		<button class="btn btn-default" data-calendar-view="day">Day</button>
 	</div>
 	</div>
 
