@@ -764,7 +764,16 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Calendar portal */
 
+/* Bootstrap calendar */
+#cal-week-box {
+    display: none !important;
+}
 
+.cal-row-head [class*="cal-cell"]:first-child,
+.cal-row-head [class*="cal-cell"] {
+    font-weight: 600 !important;
+}
+/* End of Bootstrap calendar */
 
 /* Breadcrumb style */
 .breadcrumb {

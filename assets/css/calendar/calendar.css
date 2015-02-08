@@ -379,7 +379,7 @@
 }
 .cal-row-head [class*="cal-cell"]:first-child,
 .cal-row-head [class*="cal-cell"] {
-  font-weight: 600; /* Modification by Sergiu Tripon */
+  font-weight: bolder;
   text-align: center;
   border: 0px solid;
   padding: 5px 0;
@@ -470,7 +470,6 @@ span[data-cal-date]:hover {
   border-radius: 5px 0 0 5px;
   background-color: #fafafa;
   text-align: right;
-  display: none !important; /* Modification by Sergiu Tripon */
 }
 #cal-day-tick {
   border: 1px solid #e1e1e1;
