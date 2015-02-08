@@ -233,7 +233,7 @@ include '../includes/session.php';
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Delete"><a href="#modal-'.$row["userid"].'" data-toggle="modal"><i class="fa fa-close"></i></a></td>
+			<td data-title="Delete"><a class="delete-button" href="#modal-'.$row["userid"].'" data-toggle="modal"><i class="fa fa-close"></i></a></td>
 			</tr>
 
 			<!-- Delete an account modal -->
