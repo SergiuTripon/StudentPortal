@@ -1244,6 +1244,10 @@ table.dataTable thead .sorting_asc_disabled {
 table.dataTable thead .sorting_desc_disabled {
     padding-right: 20px !important;
 }
+
+table.dataTable thead th.sorting:after {
+    color: #8A8A8A;
+}
 /* End of DataTables style */
 
 /* Transport Panel */
