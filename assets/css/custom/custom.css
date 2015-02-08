@@ -823,10 +823,11 @@ form .success-style:-ms-input-placeholder {
 /* Calendar portal */
 #account-admin-portal h4 {
     color: #3FAD46;
+    font-weight: 600;
 }
 #account-admin-portal hr {
     margin-top: 5px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     border-color: #3FAD46;
     background: #3FAD46;
 }
