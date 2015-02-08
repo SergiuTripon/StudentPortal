@@ -1,6 +1,5 @@
 <?php
 include 'includes/session.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -10,11 +9,7 @@ include 'includes/session.php';
 
 	<?php include 'assets/js-paths/pacejs-js-path.php'; ?>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<?php include 'assets/meta-tags.php'; ?>
 
 	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
@@ -29,9 +24,9 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-	<div class="container">
+	<?php include 'includes/menus/portal_menu.php'; ?>
 
-    <?php include 'includes/menus/portal_menu.php'; ?>
+	<div class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
@@ -220,15 +215,15 @@ include 'includes/session.php';
 
 	<div class="calendar-buttons text-right">
 	<div id="calendar-buttons1" class="btn-group">
-		<button class="btn btn-custom" data-calendar-nav="prev"><< Prev</button>
-		<button class="btn btn-custom" data-calendar-nav="today">Today</button>
-		<button class="btn btn-custom" data-calendar-nav="next">Next >></button>
+		<button class="btn btn-default" data-calendar-nav="prev"><< Prev</button>
+		<button class="btn btn-default" data-calendar-nav="today">Today</button>
+		<button class="btn btn-default" data-calendar-nav="next">Next >></button>
 	</div>
 	<div id="calendar-buttons2" class="btn-group">
-		<button class="btn btn-custom" data-calendar-view="year">Year</button>
-		<button class="btn btn-custom active" data-calendar-view="month">Month</button>
-		<button class="btn btn-custom" data-calendar-view="week">Week</button>
-		<button class="btn btn-custom" data-calendar-view="day">Day</button>
+		<button class="btn btn-default" data-calendar-view="year">Year</button>
+		<button class="btn btn-default active" data-calendar-view="month">Month</button>
+		<button class="btn btn-default" data-calendar-view="week">Week</button>
+		<button class="btn btn-default" data-calendar-view="day">Day</button>
 	</div>
 	</div>
 
@@ -246,7 +241,7 @@ include 'includes/session.php';
 
     </div><!-- /container -->
 
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include 'includes/footers/footer.php'; ?>
 
 	<!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -259,29 +254,27 @@ include 'includes/session.php';
     }
     </style>
 
-    <header class="intro">
-    <div class="intro-body">
+    <div class="container">
 
 	<form class="form-custom">
 
-    <div class="logo-custom">
+    <div class="form-logo">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
 
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
     </form>
 
-	</div><!-- /intro-body -->
-    </header>
+	</div>
 
 	<?php endif; ?>
 
