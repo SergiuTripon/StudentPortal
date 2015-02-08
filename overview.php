@@ -340,7 +340,7 @@ include 'includes/session.php';
 	
     <div class="container">
     
-	<form class="form-custom">
+	<form class="form-custom text-center">
 
     <div class="form-logo">
 	<i class="fa fa-graduation-cap"></i>
