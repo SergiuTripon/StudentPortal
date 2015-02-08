@@ -64,16 +64,16 @@ include '../includes/session.php';
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default task_category">
+	<label class="btn btn-default btn-lg task_category">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
-	<label class="btn btn-default task_category">
+	<label class="btn btn-default btn-lg task_category">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Work
 	</label>
-	<label class="btn btn-default task_category">
+	<label class="btn btn-default btn-lg task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
 	</label>
-	<label class="btn btn-default task_category">
+	<label class="btn btn-default btn-lg task_category">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
