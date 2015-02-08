@@ -1235,10 +1235,19 @@ table.dataTable thead .sorting_desc_disabled {
 .transport-panel {
     text-align: center;
     background: rgba(68, 76, 87, 1);
-    border: 1px solid rgba(68, 76, 87, 1);
-    border-radius: 3px;
+    border: 1px solid #FFFFFF;
     height: 250px;
     margin-bottom: 10px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition: background-color ease-in-out 0.5s;
+    -moz-transition: background-color ease-in-out 0.5s;
+    -o-transition: background-color ease-in-out 0.5s;
+    transition: background-color ease-in-out 0.5s;
+}
+
+.transport-panel:hover, .transport-panel:focus {
+    background-color: rgba(68, 76, 87, 0.6);
+    box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
 }
 
 .transport-panel .transport-header {
@@ -1282,7 +1291,6 @@ table.dataTable thead .sorting_desc_disabled {
 }
 
 /* End of Transport Panel */
-
 
 /* Tube Lines colour definition */
 .bakerloo, .bakerloo td, .central th {
