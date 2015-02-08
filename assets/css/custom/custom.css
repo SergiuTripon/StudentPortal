@@ -1248,6 +1248,12 @@ table.dataTable thead .sorting_desc_disabled {
 table.dataTable thead th.sorting:after {
     color: #8A8A8A !important;
 }
+table.dataTable thead th.sorting_asc:after {
+    color: #5D5D5D !important;
+}
+table.dataTable thead th.sorting_desc:after {
+    color: #5D5D5D !important;
+}
 /* End of DataTables style */
 
 /* Transport Panel */
