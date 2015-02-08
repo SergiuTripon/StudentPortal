@@ -81,7 +81,7 @@ $stmt1->fetch();
     <div class="modal-content">
     
 	<div class="modal-header">
-    <div class="logo-custom animated fadeIn delay1">
+    <div class="form-logo text-center">
     <i class="fa fa-trash"></i>
     </div>
     </div>
@@ -99,10 +99,10 @@ $stmt1->fetch();
 	<div class="modal-footer">
     
 	<div class="pull-left">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mt10 mr5" data-style="slide-up" type="submit"><span class="ladda-label">Yes</span></button>
+    <button id="FormSubmit" class="btn btn-danger btn-lg ladda-button mt10 mr5" data-style="slide-up" type="submit"><span class="ladda-label">Yes</span></button>
     </div>
     <div class="text-right">
-	<button class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-dismiss="modal"><span class="ladda-label">No</span></button>
+	<button class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal"><span class="ladda-label">No</span></button>
 	</div>
     
 	</div>
