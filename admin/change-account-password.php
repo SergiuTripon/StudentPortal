@@ -57,7 +57,7 @@ if (isset($_POST["recordToChange"])) {
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
 	<li><a href="../../admin/update-delete-an-account">Update/Delete an account</a></li>
-    <li class="active">Change password</li>
+    <li class="active">Change an account's password</li>
     </ol>
 
 	<!-- Change Password -->
