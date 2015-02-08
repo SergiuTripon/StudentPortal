@@ -112,6 +112,12 @@ hr {
     padding-left: 5px;
 }
 
+/* Sets the padding for rows */
+.row {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
 /* Full width element on smaller screens */
 @media (max-width: 480px) {
 .full-width {
