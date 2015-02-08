@@ -781,6 +781,12 @@ form .success-style:-ms-input-placeholder {
     background-color: #E3E3E3 !important;
 }
 
+#cal-slide-content a.event-item {
+    color: #4582EC;
+    font-weight: 600;
+    line-height: 0px;
+}
+
 @media (max-width: 768px) {
 #calendar-portal .page-header h3 {
     text-align: center;
