@@ -856,4 +856,35 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Buttons */
 
+/* Table Custom style */
+.table-custom {
+    border-collapse: collapse !important;
+    border: 1px solid #5D5D5D !important;
+}
+
+.table-custom th {
+    color: #FFA500;
+    text-align: center;
+    border: 1px solid #5D5D5D !important;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.table-custom tr {
+    color: #5D5D5D;
+    border: 1px solid #5D5D5D;
+}
+
+.table-custom td {
+    color: #5D5D5D;
+    text-align: center;
+    padding: 7px;
+    border: 1px solid #5D5D5D;
+}
+
+.table-custom td a, .calendar-table td a:hover {
+    color: #5D5D5D;
+}
+/* End of Table Custom style */
+
+
 
