@@ -161,10 +161,6 @@ hr {
 .navbar-default {
     background-color: #D9534F;
     border-bottom: 1px solid #992320;
-    box-shadow:         0 0 2px 2px #992320;
-    -moz-box-shadow:    0 0 2px 2px #992320;
-    -webkit-box-shadow: 0 0 2px 2px #992320;
-    -o-box-shadow:      0 0 2px 2px #992320;
 }
 .navbar-default .navbar-brand {
     color: #FFFFFF;
@@ -250,10 +246,6 @@ footer {
     height: 60px;
     background-color: #F0AD4E;
     border-top: 1px solid #BF8B41;
-    box-shadow:         0 0 2px 2px #BF8B41;
-    -moz-box-shadow:    0 0 2px 2px #BF8B41;
-    -webkit-box-shadow: 0 0 2px 2px #BF8B41;
-    -o-box-shadow:      0 0 2px 2px #BF8B41;
 }
 
 footer p {
@@ -569,10 +561,7 @@ form .success-style:-ms-input-placeholder {
     text-align: center;
     border-radius: 3px;
     background-color: #3FAD46;
-    box-shadow:         0 0 2px 2px #318837;
-    -moz-box-shadow:    0 0 2px 2px #318837;
-    -webkit-box-shadow: 0 0 2px 2px #318837;
-    -o-box-shadow:      0 0 2px 2px #318837;
+    border: 1px solid #318837;
 }
 
 .tile i {
