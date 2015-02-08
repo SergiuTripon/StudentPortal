@@ -483,11 +483,11 @@ form .form-control:-ms-input-placeholder {
 }
 
 .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
-    border-right: 1px solid #FFFFFF;
+    border-right: 1px solid #CCCCCC;
 }
 
 .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
-    border-left: 1px solid #FFFFFF;
+    border-left: 1px solid #CCCCCC;
 }
 
 @media (max-width: 480px) {
