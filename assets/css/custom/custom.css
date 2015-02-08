@@ -370,7 +370,7 @@ form {
     border: 1px solid #B8B8B8;
 }
 
-form .form-control input {
+form .form-control {
     color: #333333;
     font-size: 15px;
     z-index: 30;
@@ -411,7 +411,7 @@ form textarea {
 }
 
 /* Overwrites box shadow effect */
-form .form-control input:focus {
+form .form-control:focus {
     border-color: #8A8A8A;
     box-shadow:         inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(138, 138, 138, 1);
     -moz-box-shadow:    inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(138, 138, 138, 1);
@@ -420,31 +420,31 @@ form .form-control input:focus {
 }
 
 /* Remember Password hack (Chrome) */
-form .form-control input:-webkit-autofill {
+form .form-control:-webkit-autofill {
     -webkit-text-fill-color: #333333;
     -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
 }
 
-form .form-control input:-webkit-autofill:focus {
+form .form-control:-webkit-autofill:focus {
     -webkit-text-fill-color: #333333;
     -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
 }
 /* End of Remember Password hack (Chrome) */
 
 /* Placeholder */
-form .form-control input::-webkit-input-placeholder {
+form .form-control::-webkit-input-placeholder {
     color: gray;
 }
 
-form .form-control input:-moz-placeholder {
+form .form-control:-moz-placeholder {
     color: gray;
 }
 
-form .form-control input::-moz-placeholder {
+form .form-control::-moz-placeholder {
     color: gray;
 }
 
-form .form-control input:-ms-input-placeholder {
+form .form-control:-ms-input-placeholder {
     color: gray;
 }
 /* End of Placeholder */
