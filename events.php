@@ -282,6 +282,18 @@ include 'includes/session.php';
 	<script>
 	$(document).ready(function () {
 
+	//Responsiveness
+	$(window).resize(function(){
+		var width = $(window).width();
+		if(width <= 480){
+			$('.btn-group').removeClass('btn-group-justified');
+			$('.btn-group').addClass('btn-group-vertical full-width');
+		} else {
+			$('.btn-group').addClass('btn-group-justified');
+		}
+	})
+	.resize();//trigger the resize event on page load.
+
 	//Sets calendar options
 	(function($) {
 
