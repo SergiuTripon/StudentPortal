@@ -2,8 +2,9 @@
 	background-color: #FFFFFF;
 }
 .page-header {
-	color: #FFA500;
-	border-bottom-color: #FFA500;
+	color: #4582EC;
+    border-radius: 3px;
+	border-bottom: 5px solid #4582EC;
 	margin-top: 10px;
 	margin-bottom: 5px;
 	padding-bottom: 5px;
