@@ -39,9 +39,9 @@ include 'includes/session.php';
     <h3 class="feedback-custom">Lectures</h3>
     <hr class="hr-thin">
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group" id="accordion timetable-panel" role="tablist" aria-multiselectable="true">
 
-	<div id="timetable-panel" class="panel panel-default">
+	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
