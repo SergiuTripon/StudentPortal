@@ -771,8 +771,9 @@ form .success-style:-ms-input-placeholder {
 
 .cal-row-head [class*="cal-cell"]:first-child,
 .cal-row-head [class*="cal-cell"] {
-    background-color: #8A8A8A !important;
     font-weight: 600 !important;
+    border: 1px solid #E3E3E3 !important;
+    background-color: #8A8A8A !important;
 }
 /* End of Bootstrap calendar */
 
