@@ -908,7 +908,7 @@ form .success-style:-ms-input-placeholder {
 .table-custom th {
     color: #5D5D5D !important;
     font-weight: 600 !important;
-    text-align: center;
+    text-align: center !important;
     border: 1px solid #5D5D5D !important;
     background-color: rgba(0, 0, 0, 0.1) !important;
 }
@@ -920,7 +920,7 @@ form .success-style:-ms-input-placeholder {
 
 .table-custom td {
     color: #5D5D5D !important;
-    text-align: center !important;
+    text-align: center;
     padding: 7px !important;
     border: 1px solid #5D5D5D !important;
 }
