@@ -993,6 +993,36 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Table Custom style */
 
+/* Table Transport style */
+.table-transport {
+    border-collapse: collapse !important;
+    border: 1px solid #FFA500 !important;
+}
+
+.table-transport th {
+    color: #FFA500;
+    text-align: center;
+    border: 1px solid #FFA500 !important;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.table-transport tr {
+    color: #FFA500;
+    border: 1px solid #FFA500;
+}
+
+.table-transport td {
+    color: #FFA500;
+    text-align: center;
+    padding: 7px;
+    border: 1px solid #FFA500;
+}
+
+.table-transport td a, .calendar-table td a:hover {
+    color: #FFA500;
+}
+/* End of Table Transport style */
+
 /* No More Responsive Table */
 @media only screen and (max-width: 800px) {
 
