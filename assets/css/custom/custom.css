@@ -775,6 +775,21 @@ form .success-style:-ms-input-placeholder {
     border: 1px solid #E3E3E3 !important;
     background-color: #8A8A8A !important;
 }
+
+@media (max-width: 768px) {
+#calendar-portal .page-header h3 {
+    text-align: center;
+}
+#calendar-portal .calendar-buttons {
+    text-align: center;
+}
+#calendar-portal #calendar-buttons1 {
+    margin-bottom: 5px;
+}
+#calendar-portal #calendar-buttons2 {
+    margin-bottom: 5px;
+}
+}
 /* End of Bootstrap calendar */
 
 /* Breadcrumb style */
