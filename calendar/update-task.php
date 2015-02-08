@@ -43,9 +43,10 @@ header('Location: ../calendar/');
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-    
-    <div class="container">
+
 	<?php include '../includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -53,24 +54,9 @@ header('Location: ../calendar/');
     <li class="active">Create a task</li>
     </ol>
 	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Update a task</a>
-	</h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+	<!-- Update a task -->
     
-	<div class="panel-body">
-	
-	<!-- Create a task -->
-    <div class="content-panel mb10" style="border: none;">
-    
-	<form class="form-custom" style="max-width: 900px; padding-top: 0px;" name="updatetask_form" id="updatetask_form">
+	<form class="form-custom" style="max-width: 100%;" name="updatetask_form" id="updatetask_form">
 	
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -103,16 +89,16 @@ header('Location: ../calendar/');
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-custom task_category <?php if($task_category == "university") echo "active"; ?>">
+	<label class="btn btn-default task_category <?php if($task_category == "university") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
-	<label class="btn btn-custom task_category <?php if($task_category == "work") echo "active"; ?>">
+	<label class="btn btn-default task_category <?php if($task_category == "work") echo "active"; ?>">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Work
 	</label>
-	<label class="btn btn-custom task_category <?php if($task_category == "personal") echo "active"; ?>">
+	<label class="btn btn-default task_category <?php if($task_category == "personal") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
 	</label>
-	<label class="btn btn-custom task_category <?php if($task_category == "other") echo "active"; ?>">
+	<label class="btn btn-default task_category <?php if($task_category == "other") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
@@ -121,20 +107,12 @@ header('Location: ../calendar/');
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-custom btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update task</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mt10" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Update task</span></button>
     </div>
 
 	</div>
 	
     </form>
-    </div><!-- /content-panel -->
-    <!-- End of Change Password -->
-	
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-	
-	</div><!-- /panel-group -->
             
 	</div> <!-- /container -->
 	
