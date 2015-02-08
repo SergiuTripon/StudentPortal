@@ -541,6 +541,10 @@ form .success-style:-ms-input-placeholder {
     text-align: center;
     border-radius: 3px;
     background-color: #3FAD46;
+    box-shadow: 0 0 10px 5px #3FAD46;
+    -moz-box-shadow: 0 0 10px 5px #3FAD46;
+    -webkit-box-shadow: 0 0 10px 5px #3FAD46;
+    -o-box-shadow: 0 0 10px 5px #3FAD46;
 }
 
 .tile i {
