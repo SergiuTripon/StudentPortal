@@ -769,6 +769,10 @@ form .success-style:-ms-input-placeholder {
     border-color: #4582EC;
     background: #4582EC;
 }
+#events-portal .calendar-buttons > .btn-group,
+#events-portal .calendar-buttons > .btn-group-vertical {
+    margin-bottom: 0px;
+}
 /* End of Calendar portal */
 
 /* Events portal */
@@ -789,7 +793,8 @@ form .success-style:-ms-input-placeholder {
     background: #4582EC;
 }
 
-#events-portal .calendar-buttons > .btn-group, #events-portal .calendar-buttons > .btn-group-vertical {
+#events-portal .calendar-buttons > .btn-group,
+#events-portal .calendar-buttons > .btn-group-vertical {
     margin-bottom: 0px;
 }
 /* End of Events portal */
