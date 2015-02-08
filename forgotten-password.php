@@ -74,7 +74,7 @@ include 'includes/session.php';
 
     <p id="hide" class="feedback-custom text-justify">Please enter the email you used to register to the <b>Student Portal</b> and we will email you a link to reset your password.</p>
 
-    <hr>
+    <br>
 
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
