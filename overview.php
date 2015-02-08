@@ -129,7 +129,7 @@ include 'includes/session.php';
 	
 	</div> <!-- /container -->
 
-	<?php include 'includes/footers/portal_footer.php'; ?>
+	<?php include 'includes/footers/footer.php'; ?>
 	
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -219,7 +219,7 @@ include 'includes/session.php';
     
 	</div> <!-- /container -->
 
-    <?php include 'includes/footers/portal_footer.php'; ?>
+    <?php include 'includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -327,7 +327,7 @@ include 'includes/session.php';
     
 	</div><!-- /container -->
 
-    <?php include 'includes/footers/portal_footer.php'; ?>
+    <?php include 'includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
@@ -336,14 +336,9 @@ include 'includes/session.php';
 
 	<?php else : ?>
 
-	<style>
-	 html, body {
-		height: 100% !important;
-	}
-	</style>
+    <?php include 'includes/menus/menu.php'; ?>
 	
-    <header class="intro">
-    <div class="intro-body">
+    <div class="container">
     
 	<form class="form-custom">
 
@@ -363,8 +358,9 @@ include 'includes/session.php';
 
     </form>
     
-	</div><!-- /intro-body -->
-    </header>
+	</div>
+
+    <?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
