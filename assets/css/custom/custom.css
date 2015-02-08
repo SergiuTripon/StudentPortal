@@ -1326,7 +1326,7 @@ table.dataTable thead .sorting_desc_disabled {
 .jubilee, .jubilee td, .jubilee th {
     color: #FFFFFF !important;
     background-color: rgba(104, 110, 114, 1) !important;
-    border: 1px solid rgba(232, 153, 168, 1) !important;
+    border: 1px solid rgba(104, 110, 114, 1) !important;
 }
 
 .metropolitan, .metropolitan td, .metropolitan th {

@@ -203,7 +203,7 @@ $time = date('H:i');
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 full-width">
     <div class="transport-panel circle">
 
-    <div class="transport-header" style="border-color: #113892;">
+    <div class="transport-header" style="border-color: #113892; !important">
     <h4 style="color: #113892 !important;"><?php echo $circle1 ?></h4>
     </div>
 
@@ -287,8 +287,8 @@ $time = date('H:i');
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 full-width">
     <div class="transport-panel hammersmith">
 
-    <div class="transport-header">
-    <h4 style="color: #FFFFFF;"><?php echo $hammersmith1 ?></h4>
+    <div class="transport-header" style="border-color: #113892; !important">
+    <h4 style="color: #113892;"><?php echo $hammersmith1 ?></h4>
     </div>
 
     <div class="transport-body">
@@ -373,7 +373,7 @@ $time = date('H:i');
 
     <div class="transport-header">
     <h4><?php echo $northern1 ?></h4>
-                            </div>
+    </div>
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
@@ -455,8 +455,8 @@ $time = date('H:i');
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 full-width">
 	<div class="transport-panel waterloo">
 
-	<div class="transport-header">
-	<h4 style="color: #FFFFFF !important;"><?php echo $waterloo1 ?></h4>
+	<div class="transport-header" style="border-color: #113892 !important;">
+	<h4 style="color: #113892 !important;"><?php echo $waterloo1 ?></h4>
 	</div>
 
 	<div class="transport-body">
