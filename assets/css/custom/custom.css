@@ -983,7 +983,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 #no-more-tables .table-custom th {
-    text-align: center !important;
+    text-align: right !important;
     border: 0 solid #5D5D5D !important;
 }
 
