@@ -90,7 +90,7 @@ include 'includes/session.php';
 
     <div class="container">
 	
-	<form class="form-custom" name="signin_form" id="after signin_form">
+	<form class="form-custom" name="signin_form" id="signin_form">
 
     <div class="form-logo text-center">
 	<i class="fa fa-graduation-cap"></i>
@@ -170,12 +170,12 @@ include 'includes/session.php';
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 	
-	$("#after").hide();
+	$("#signin_form").hide();
 	
     $("#lock-icon").click(function (e) {
 
 	$("#before").fadeOut("700");	
-	$("#after").fadeIn();
+	$("#signin_form").fadeIn();
 	
 	});
 	
