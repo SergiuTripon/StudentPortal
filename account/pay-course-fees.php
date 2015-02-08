@@ -147,29 +147,31 @@ if ($fee_amount == "0.00") {
 		
     <?php else : ?>
 
-    <header class="intro">
-	<div class="intro-body">
-               
-	<form class="form-custom orange-form">
+    <?php include '../includes/menu/portal_menu.php'; ?>
 
-    <div class="orange-logo animated fadeIn delay1">
+	<div class="container">
+               
+	<form class="form-custom">
+
+    <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="mt10 orange-hr">
+    <hr>
 
     <p class="error text-center">You need to have a student account to access this area.</p>
 
-    <hr class="orange-hr">
+    <hr>
 
     <div class="text-center">
-    <a class="btn btn-orange btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Overview</span></a>
     </div>
 
     </form>
 	
-    </div><!-- /intro-body -->
-    </header>
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
@@ -183,7 +185,7 @@ if ($fee_amount == "0.00") {
 	
     <form class="form-custom">
 
-	<div class="form-logo">
+	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 

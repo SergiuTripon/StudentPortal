@@ -164,7 +164,7 @@ if ($dateofbirth == "0000-00-00") {
 	
     <form class="form-custom">
 
-	<div class="form-logo">
+	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 

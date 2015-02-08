@@ -25,9 +25,9 @@
 
     <div class="container">
 	
-	<form class="form-custom" name="paypal_success_form">
+	<form class="form-custom">
 
-    <div class="form-logo">
+    <div class="form-logo text-center">
     <i class="fa fa-trash"></i>
     </div>
 

@@ -29,9 +29,10 @@ include '../includes/session.php';
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 	
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
-    
-	<div class="container">
+
 	<?php include '../includes/menus/portal_menu.php'; ?>
+
+	<div class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -39,23 +40,7 @@ include '../includes/session.php';
     <li class="active">Create an account</li>
     </ol>
 	
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-    <h4 class="panel-title">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Create an account</a>
-	</h4>
-    </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-    
-	<div class="panel-body">
-	
 	<!-- Create single account -->
-    <div class="content-panel mb10" style="border: none;">
-    
 	<form class="form-custom" style="max-width: 800px; padding-top: 0px;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
@@ -203,53 +188,42 @@ include '../includes/session.php';
 	</div>
 	
     </form>
-    
-	</div><!-- /content-panel -->
     <!-- End of Change Password -->
-	
-	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-    </div><!-- /panel-default -->
-	
-	</div><!-- /panel-group -->
-            
+
 	</div> <!-- /container -->
 	
-	<?php include '../includes/footers/portal_footer.php'; ?>
+	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php else : ?>
 
-	<style>
-	html, body {
-		height: 100% !important;
-	}
-	</style>
+	<?php include '../includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
-    <form class="form-custom orange-form">
+	<?php include '../includes/menus/menu.php'; ?>
 
-	<div class="logo-custom animated fadeIn delay1">
+    <div class="container">
+
+    <form class="form-custom">
+
+	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="hr-custom">
-	
+    <hr>
 	<p class="feedback-sad text-center">You need to have an admin account to access this area.</p>
-
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Overview</span></a>
     </div>
 
     </form>
     
-	</div><!-- /intro-body -->
-    </header>
+	</div>
+
+	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
@@ -257,33 +231,29 @@ include '../includes/session.php';
     <?php endif; ?>
 	<?php else : ?>
 
-    <style>
-    html, body {
-		height: 100% !important;
-	}
-    </style>
+	<?php include '../includes/menus/menu.php'; ?>
 
-    <header class="intro">
-    <div class="intro-body">
+    <div class="container">
 	
-    <form class="form-custom orange-form">
+    <form class="form-custom">
 
-	<div class="logo-custom animated fadeIn delay1">
+	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
 
-    <hr class="mt10 hr-custom">
+    <hr>
     <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
 	
     </form>
 
-    </div><!-- /intro-body -->
-    </header>
+    </div>
+
+	<?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
 
