@@ -796,8 +796,9 @@ form .success-style:-ms-input-placeholder {
 }
 
 .cal-week-box hr {
-    margin-top: 3px;
+    margin-top: 0;
     margin-bottom: 0;
+    border-radius: 0;
     border-color: #E3E3E3;
     background: #E3E3E3;
 }
