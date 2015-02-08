@@ -1134,6 +1134,9 @@ form .success-style:-ms-input-placeholder {
 .dataTables_wrapper .dataTables_filter input:focus {
     border-color: #5D5D5D;
     outline: 0 !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
     box-shadow:         inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(138, 138, 138, 1);
     -moz-box-shadow:    inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(138, 138, 138, 1);
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(138, 138, 138, 1);
