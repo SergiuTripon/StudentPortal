@@ -1235,7 +1235,7 @@ table.dataTable thead .sorting_desc_disabled {
 .transport-panel {
     text-align: center;
     border-radius: 3px;
-    background: rgba(68, 76, 87, 1);
+    background: #333333;
     height: 250px;
     margin-bottom: 10px;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
