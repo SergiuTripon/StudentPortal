@@ -75,7 +75,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-    <button id="unlock-button" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Unlock</span></button>
+    <a id="unlock-button" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Unlock</span></a>
 	</div>
 
     </form>
