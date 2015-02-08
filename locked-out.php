@@ -55,7 +55,9 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <div class="container">
+    <div id="before" class="container">
+
+	<form class="form-custom" name="signin_form" id="signin_form">
 
     <div id="showtime">
     <div id="showdate"></div>
@@ -67,15 +69,20 @@ include 'includes/session.php';
       <li id="sec"></li>
     </ul>
     </div>
-	<p class="text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons</>
-    <div id="lock-screen">
-    <a id="lock-icon"><i class="fa fa-lock"></i></a><br>
-    <a id="lock-text">Unlock</a>
-    </div>
-	
+
+    <hr>
+    <p class="text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons</p>
+    <hr>
+
+    <div class="text-center">
+    <button id="unlock-button" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Unlock</span></button>
 	</div>
 
-    <div class="container">
+    </form>
+
+	</div>
+
+    <div id="after" class="container">
 	
 	<form class="form-custom" name="signin_form" id="signin_form">
 
@@ -157,12 +164,12 @@ include 'includes/session.php';
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 	
-	$("#signin_form").hide();
+	$("#after").hide();
 	
-    $("#lock-icon").click(function (e) {
+    $("#unlock-button").click(function (e) {
 
 	$("#before").hide();
-	$("#signin_form").show();
+	$("#after").show();
 	
 	});
 	
