@@ -105,7 +105,7 @@ if (isset($_POST["recordToReserve"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Notes</label>
-    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" value="<?php echo $book_notes; ?>" readonly="readonly"</textarea>
+    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" readonly="readonly"><?php echo $book_notes; ?></textarea>
     </div>
     </div>
 
