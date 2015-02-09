@@ -70,15 +70,15 @@ if (isset($_POST["recordToMessage"])) {
     <hr>
 
     <div class="form-group">
-    <div class="col-xs-3 col-sm-3 full-width pl0">
+    <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname1" id="firstname1" value="<?php echo $firstname1; ?>" readonly="readonly">
 	</div>
-    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
+    <div class="col-xs-4 col-sm-4 full-width pr0 pl0">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname1" id="surname1" value="<?php echo $surname1; ?>" readonly="readonly">
     </div>
-    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
+    <div class="col-xs-4 col-sm-4 full-width pr0 pl0">
     <label>Email address</label>
     <input class="form-control" type="email" name="email1" id="email1" value="<?php echo $email1; ?>" readonly="readonly">
 	</div>
@@ -88,15 +88,15 @@ if (isset($_POST["recordToMessage"])) {
     <hr>
 
     <div class="form-group">
-    <div class="col-xs-3 col-sm-3 full-width pl0">
+    <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname2" id="firstname2" value="<?php echo $firstname2; ?>" readonly="readonly">
 	</div>
-    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
+    <div class="col-xs-4 col-sm-4 full-width pr0 pl0">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname2" id="surname2" value="<?php echo $surname2; ?>" readonly="readonly">
     </div>
-    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
+    <div class="col-xs-4 col-sm-4 full-width pr0 pl0">
     <label>Email address</label>
     <input class="form-control" type="email" name="email2" id="email2" value="<?php echo $email2; ?>" readonly="readonly">
 	</div>
@@ -104,7 +104,7 @@ if (isset($_POST["recordToMessage"])) {
 
     <hr>
 
-    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
     <input class="form-control" type="text" name="subject" id="subject">
 	</div>
