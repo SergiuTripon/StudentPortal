@@ -182,7 +182,7 @@ if (isset($_POST["recordToMessage"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&firstname=' + firstname + '&surname=' + surname + '&email=' + email + '&message=' + message + '&subject=' + subject,
+    data:'userid2=' + userid + '&firstname5=' + firstname + '&surname5=' + surname + '&email8=' + email + '&message1=' + message + '&subject=' + subject,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
