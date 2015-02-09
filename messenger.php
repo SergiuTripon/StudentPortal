@@ -15,7 +15,7 @@ include 'includes/session.php';
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
-    <title>Student Portal | Library</title>
+    <title>Student Portal | Messenger</title>
 
 </head>
 
@@ -30,34 +30,12 @@ include 'includes/session.php';
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-	<li class="active">Library</li>
+	<li class="active">Messenger</li>
     </ol>
-
-	<div class="row">
-
-	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
-	<a id="books-toggle">
-    <div class="tile book-tile">
-	<i class="fa fa-book"></i>
-	<p class="tile-text">Book view</p>
-    </div>
-    </a>
-	</div>
-
-	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
-	<a id="calendar-toggle">
-	<div class="tile calendar-tile">
-    <i class="fa fa-calendar"></i>
-	<p class="tile-text">Returns - Calendar view</p>
-    </div>
-    </a>
-	</div>
-
-	</div><!-- /row -->
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="books-content" class="panel panel-default">
+	<div class="panel panel-default">
 
 	<?php
 	$stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE userid IS NOT '$userid'");
@@ -97,7 +75,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin_email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin ON user_signin.userid=user_details.userid WHERE user_signin IS NOT '$userid'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin ON user_signin.userid=user_details.userid WHERE user_signin.userid IS NOT '$userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -110,7 +88,7 @@ include 'includes/session.php';
 	echo '<tr id="book-'.$userid.'">
 
 			<td data-title="Name">'.$firstname.'</td>
-			<td data-title="Surname">'.$surnameame.'</td>
+			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Email address">'.$email.'</td>
 			<td id="message-hide" data-title="Reserve"><a id="message-'.$userid2.'" class="message-button"><i class="fa fa-envelope"></i></a></td>
