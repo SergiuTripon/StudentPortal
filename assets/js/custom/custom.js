@@ -1,7 +1,7 @@
 	// Replaces empty text with "No Extra Information"
     $('.table-custom td').each(function () {
     if ($(this).html().trim().length === 0) 
-    $(this).append("No Information");
+    $(this).append("No information");
     });
 
 	// Disables the background of a cell that contains Victoria in the Station Status table
