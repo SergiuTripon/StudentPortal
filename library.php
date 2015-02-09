@@ -367,7 +367,7 @@ include 'includes/session.php';
 	$(".book-tile p").addClass("tile-text-selected");
 	$(".book-tile i").addClass("tile-text-selected");
 
-	$("#book-toggle").click(function (e) {
+	$("#books-toggle").click(function (e) {
     e.preventDefault();
 		$("#calendar-content").hide();
 		$("#books-content").show();
