@@ -194,21 +194,21 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_messages.message_to, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.userid = '$userid'");
+	$stmt4 = $mysqli->query("SELECT user_messages.message_to, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.userid = '$userid'");
 
-	while($row = $stmt2->fetch_assoc()) {
+	while($row = $stmt4->fetch_assoc()) {
 
     $message_to = $row["message_to"];
 	$message_subject = $row["message_subject"];
 	$message_body = $row["message_body"];
 	$message_sent_on = $row["created_on"];
 
-	$stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('i', $message_to);
-	$stmt3->execute();
-	$stmt3->store_result();
-	$stmt3->bind_result($firstname, $surname);
-	$stmt3->fetch();
+	$stmt5 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+	$stmt5->bind_param('i', $message_to);
+	$stmt5->execute();
+	$stmt5->store_result();
+	$stmt5->bind_result($firstname, $surname);
+	$stmt5->fetch();
 
 	echo '<tr>
 
@@ -219,7 +219,7 @@ include 'includes/session.php';
 			</tr>';
 	}
 
-	$stmt2->close();
+	$stmt4->close();
 	?>
 	</tbody>
 
