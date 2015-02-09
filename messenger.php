@@ -157,7 +157,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no books to display at the moment."
+			"emptyTable": "There are no users to display."
 		}
 	});
 

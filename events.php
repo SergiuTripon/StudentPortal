@@ -338,7 +338,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no events at the moment."
+			"emptyTable": "There are no events to display."
 		}
 	});
 
@@ -348,7 +348,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You haven't booked any events."
+			"emptyTable": "There are no booked events to display."
 		}
 	});
 

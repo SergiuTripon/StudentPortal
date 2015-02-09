@@ -324,7 +324,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no books to display at the moment."
+			"emptyTable": "There are no books to display."
 		}
 	});
 
@@ -334,7 +334,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You haven't reserved any books."
+			"emptyTable": "There are no reserved books to display."
 		}
 	});
 
