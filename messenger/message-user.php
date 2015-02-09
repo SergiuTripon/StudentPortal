@@ -80,7 +80,7 @@ if (isset($_POST["recordToMessage"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Message</label>
-    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" readonly="readonly"></textarea>
+    <textarea class="form-control" rows="5" name="message" id="message"></textarea>
     </div>
     </div>
 
