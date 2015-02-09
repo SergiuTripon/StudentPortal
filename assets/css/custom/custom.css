@@ -167,11 +167,20 @@ hr {
     padding-left: 0px;
 }
 
+/* Action buttons */
 .change-button {
     font-size: 20px;
 }
 
 .update-button {
+    font-size: 20px;
+}
+
+.reserve-button {
+    font-size: 20px;
+}
+
+.book-button {
     font-size: 20px;
 }
 
