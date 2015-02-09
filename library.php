@@ -63,7 +63,7 @@ include 'includes/session.php';
 	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE book_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
 
-        $bookid = $row["bookid"];
+	$bookid = $row["bookid"];
 
 	  echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/library/reserve-book/" method="POST">
 			<input type="hidden" name="recordToReserve" id="recordToReserve" value="'.$bookid.'"/>
@@ -82,7 +82,7 @@ include 'includes/session.php';
 
 	<!-- Books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom events-table">
+	<table class="table table-condensed table-custom books-table">
 
 	<thead>
 	<tr>
@@ -140,7 +140,7 @@ include 'includes/session.php';
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom bookedevents-table">
+	<table class="table table-condensed table-custom reservedbooks-table">
 
 	<thead>
 	<tr>
@@ -308,7 +308,7 @@ include 'includes/session.php';
 	}(jQuery));
 
 	//DataTables
-    $('.events-table').dataTable({
+    $('.books-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
@@ -318,7 +318,7 @@ include 'includes/session.php';
 		}
 	});
 
-	$('.bookedevents-table').dataTable({
+	$('.reservedbooks-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
