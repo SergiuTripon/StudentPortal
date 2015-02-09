@@ -1186,10 +1186,10 @@ function ReserveBook() {
 
 	$isReturned = '0';
 
-	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?)");
-	$stmt1->bind_param('iissi', $userid, $bookid, $reservedbook_from, $reservedbook_to, $isReturned);
-	$stmt1->execute();
-	$stmt1->close();
+	$stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, bookid, book_name VALUES (?, ?, ?)");
+	$stmt2->bind_param('iis', $userid, $bookid, $book_name);
+	$stmt2->execute();
+	$stmt2->close();
 
 	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
@@ -1212,7 +1212,7 @@ function ReserveBook() {
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $studentno</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $studentno</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_name</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_author</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservedbook_from</td></tr>";
