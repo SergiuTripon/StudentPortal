@@ -52,7 +52,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users - click to minimize or maximize</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Send a message - click to minimize or maximize</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -118,7 +118,7 @@ include 'includes/session.php';
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom reservedbooks-table">
+	<table class="table table-condensed table-custom receivedmessages-table">
 
 	<thead>
 	<tr>
@@ -220,6 +220,16 @@ include 'includes/session.php';
 		"info": false,
 		"language": {
 			"emptyTable": "There are no users to display."
+		}
+	});
+
+	$('.receivedmessages-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no messages to display."
 		}
 	});
 
