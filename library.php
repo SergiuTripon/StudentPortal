@@ -140,7 +140,7 @@ include 'includes/session.php';
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom bookedevents-table">
+	<table class="table table-condensed table-custom reservedbooks-table">
 
 	<thead>
 	<tr>
