@@ -63,11 +63,11 @@ include 'includes/session.php';
 	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE book_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
 
-        $bookid = $row["bookid"];
+	$bookid = $row["bookid"];
 
-	  echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/events/reserve-book/" method="POST">
-			<input type="hidden" name="recordToReserve" id="recordToReserve" value="'.$bookid.'"/>
-			</form>';
+ 	echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/events/reserve-book/" method="POST">
+		<input type="hidden" name="recordToReserve" id="recordToReserve" value="'.$bookid.'"/>
+		</form>';
 	}
 	$stmt2->close();
 	?>
@@ -107,7 +107,7 @@ include 'includes/session.php';
 	$book_notes = $row["book_notes"];
     $book_quantity = $row["book_quantity"];
 
-	echo '<tr id="task-'.$bookid.'">
+	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
@@ -339,13 +339,13 @@ include 'includes/session.php';
 	});
 
 	//Book event form submit
-	$("body").on("click", ".book-button", function(e) {
+	$("body").on("click", ".reserve-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
     var DbNumberID = clickedID[1];
 
-	$("#book-event-form-" + DbNumberID).submit();
+	$("#reserve-book-form-" + DbNumberID).submit();
 
 	});
 
