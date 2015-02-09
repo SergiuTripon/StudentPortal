@@ -87,20 +87,32 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
+	<th>Author</th>
+	<th>Notes</th>
+	<th>Books available</th>
+	<th>Reserve</th>
+	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT bookid FROM system_books WHERE book_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_quantity FROM system_books WHERE book_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$bookid = $row["bookid"];
+	$book_name = $row["book_name"];
+	$book_author = $row["book_author"];
+	$book_notes = $row["book_notes"];
+    $book_quantity = $row["book_quantity"];
 
 	echo '<tr id="book-'.$row["bookid"].'">
 
-			<td data-title="Name">'.$bookid.'</td>
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Notes">'.$book_notes.'</td>
+			<td data-title="Books available">'.$book_quantity.'</td>
 			<td class="reserve-hide" data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
 			</tr>';
 	}
@@ -140,7 +152,30 @@ include 'includes/session.php';
 	</thead>
 
 	<tbody>
+	<?php
 
+	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y') as toreturn_on, system_books.book_name, system_books.book_author, system_books.book_notes FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$userid' AND system_books.book_status = 'active' AND isReturned = '0'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+    $book_name = $row["book_name"];
+    $book_author = $row["book_author"];
+    $book_notes = $row["book_notes"];
+    $reserved_on = $row["reserved_on"];
+    $toreturn_on = $row["toreturn_on"];
+
+	echo '<tr>
+
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Price">'.$book_author.'</td>
+			<td data-title="Quantity">'.$book_notes.'</td>
+			<td data-title="From">'.$reserved_on.'</td>
+			<td data-title="From">'.$toreturn_on.'</td>
+			</tr>';
+	}
+
+	$stmt2->close();
+	?>
 	</tbody>
 
 	</table>
