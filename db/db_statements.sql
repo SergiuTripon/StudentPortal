@@ -241,9 +241,6 @@ CREATE TABLE `student_portal`.`system_books` (
 CREATE TABLE `student_portal`.`reserved_books` (
 	`userid` INT(11),
 	`bookid` INT(11),
-	`reserved_on` DATE,
-	`toreturn_on` DATE,
-	`isReturned` TINYINT(1),
 FOREIGN KEY (userid) REFERENCES user_signin(userid),
 FOREIGN KEY (bookid) REFERENCES system_books(bookid)
 ON UPDATE CASCADE
