@@ -1184,8 +1184,8 @@ function ReserveBook () {
 
 	$isReturned = '0';
 
-	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?)");
-	$stmt1->bind_param('iissi', $userid, $bookid, $reservedbook_from, $reservedbook_to, $isReturned);
+	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid) VALUES (?, ?)");
+	$stmt1->bind_param('ii', $userid, $bookid);
 	$stmt1->execute();
 	$stmt1->close();
 
