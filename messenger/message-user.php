@@ -85,6 +85,7 @@ if (isset($_POST["recordToMessage"])) {
     </div>
 
     <h4 class="text-center">To</h4>
+    <hr>
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
