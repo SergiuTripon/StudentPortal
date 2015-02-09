@@ -202,12 +202,12 @@ if (isset($_POST["recordToMessage"])) {
 	if(message === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a message.");
-		$("#firstname").addClass("error-style");
+		$("#message").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#firstname").addClass("success-style");
+		$("#message").addClass("success-style");
 	}
     if (message.length > 5000) {
         $("#error2").show();
