@@ -61,7 +61,7 @@ if (isset($_POST["recordToBook"])) {
     </ol>
 
 	<!-- Book event -->
-    <form class="form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+    <form class="form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1" method="post" name="bookevent_form" id="bookevent_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 
@@ -294,7 +294,7 @@ if (isset($_POST["recordToBook"])) {
         if (msg == 'error') {
             $("#error").empty().append("The quantity entered exceeds the amount of tickets available.<br>You can check the ticket availability on the Events page.");
         } else {
-            $("#paycoursefees_form").submit();
+            $("#bookevent_form").submit();
         }
     },
     error:function (xhr, ajaxOptions, thrownError){
