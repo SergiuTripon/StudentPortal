@@ -14,8 +14,6 @@ foreach($res as $row)
     $out[] = array(
         'id'    => $row->taskid,
         'title' => $row->book_name,
-        'url'   => $row->book_author,
-        'class' => $row->task_class,
         'start' => strtotime($row->task_startdate) . '000',
         'end'   => strtotime($row->task_duedate) .'000'
     );
