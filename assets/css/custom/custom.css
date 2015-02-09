@@ -678,7 +678,7 @@ form .success-style:-ms-input-placeholder {
 /* Tile selected */
 .tile-selected {
     border: 1px solid #3FAD46 !important;
-    background-color: #FFFFFF !important;
+    background-color: #F8F8F8 !important;
 }
 
 .tile-text-selected {
