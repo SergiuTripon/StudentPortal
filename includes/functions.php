@@ -1184,10 +1184,10 @@ function ReserveBook() {
 	$reservedbook_from = filter_input(INPUT_POST, 'reservedbook_from', FILTER_SANITIZE_STRING);
 	$reservedbook_to = filter_input(INPUT_POST, 'reservedbook_to', FILTER_SANITIZE_STRING);
 
-	$stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, bookid, book_name VALUES (?, ?, ?)");
-	$stmt2->bind_param('iis', $userid, $bookid, $book_name);
-	$stmt2->execute();
-	$stmt2->close();
+	$stmt1 = $mysqli->prepare("INSERT INTO user_tasks (userid, bookid, book_name VALUES (?, ?, ?)");
+	$stmt1->bind_param('iis', $userid, $bookid, $book_name);
+	$stmt1->execute();
+	$stmt1->close();
 
 	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
