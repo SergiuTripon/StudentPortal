@@ -351,9 +351,9 @@ include 'includes/session.php';
 
 	//Event view/Calendar view toggle
 	$("#calendar-content").hide();
-	$(".task-tile").addClass("tile-selected");
-	$(".task-tile p").addClass("tile-text-selected");
-	$(".task-tile i").addClass("tile-text-selected");
+	$(".book-tile").addClass("tile-selected");
+	$(".book-tile p").addClass("tile-text-selected");
+	$(".book-tile i").addClass("tile-text-selected");
 
 	$("#books-toggle").click(function (e) {
     e.preventDefault();
