@@ -129,7 +129,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_messages.userid, user_messages.message_to FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.message_to = '3'");
+	$stmt2 = $mysqli->query("SELECT user_messages.userid, user_messages.message_to FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.message_to = '$userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
