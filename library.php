@@ -89,7 +89,7 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Author</th>
 	<th>Notes</th>
-	<th>Available</th>
+	<th>Books available</th>
 	<th>Reserve</th>
 	</tr>
 	</thead>
@@ -112,7 +112,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.$book_notes.'</td>
-			<td data-title="Available">'.$book_quantity.'</td>
+			<td data-title="Books available">'.$book_quantity.'</td>
 			<td id="book-hide" data-title="Reserve"><a id="book-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
 			</tr>';
 	}
