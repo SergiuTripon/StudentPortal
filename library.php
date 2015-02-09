@@ -87,15 +87,26 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Author</th>
-	<th>Notes</th>
-	<th>Books available</th>
-	<th>Reserve</th>
-	</tr>
 	</thead>
 
 	<tbody>
+	<?php
 
+	$stmt1 = $mysqli->query("SELECT bookid FROM system_books WHERE book_status = 'active'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+
+	echo '<tr id="book-'.$row["bookid"].'">
+
+			<td data-title="Name">'.$bookid.'</td>
+			<td class="reserve-hide" data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
 	</tbody>
 
 	</table>
