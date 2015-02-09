@@ -593,7 +593,7 @@ form .error-style:-ms-input-placeholder {
 }
 
 .feedback-sad {
-    color: #FF5454 !important;
+    color: #C9302C !important;
     font-size: 16px !important;
     font-weight: 600 !important;
 }
@@ -628,7 +628,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 .feedback-happy {
-    color: #4DC742 !important;
+    color: #318837 !important;
     font-size: 16px !important;
     font-weight: 600 !important;
 }
