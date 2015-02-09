@@ -64,7 +64,7 @@ if (isset($_POST["recordToMessage"])) {
     <p id="error" class="feedback-sad text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="userid" id="userid" value="<?php echo $userid2; ?>">
+    <input type="hidden" name="userid2" id="userid2" value="<?php echo $userid2; ?>">
 
     <h4 class="text-center">From</h4>
     <hr class="hr-custom">
