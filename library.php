@@ -265,5 +265,64 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
+	<script>
+	$(document).ready(function () {
+
+	//DataTables
+    $('.events-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no books to display at the moment."
+		}
+	});
+
+	$('.bookedevents-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "You haven't reserved any books."
+		}
+	});
+
+	//Event view/Calendar view toggle
+	$("#calendar-content").hide();
+	$(".book-tile").addClass("tile-selected");
+	$(".book-tile p").addClass("tile-text-selected");
+	$(".book-tile i").addClass("tile-text-selected");
+
+	$("#books-toggle").click(function (e) {
+    e.preventDefault();
+		$("#calendar-content").hide();
+		$("#books-content").show();
+		$("#reservedbooks-content").show();
+		$(".calendar-tile").removeClass("tile-selected");
+		$(".calendar-tile p").removeClass("tile-text-selected");
+		$(".calendar-tile i").removeClass("tile-text-selected");
+		$(".book-tile").addClass("tile-selected");
+		$(".book-tile p").addClass("tile-text-selected");
+		$(".book-tile i").addClass("tile-text-selected");
+	});
+
+	$("#calendar-toggle").click(function (e) {
+    e.preventDefault();
+		$("#books-content").hide();
+		$("#reservedbooks-content").hide();
+		$("#calendar-content").show();
+		$(".book-tile").removeClass("tile-selected");
+		$(".book-tile p").removeClass("tile-text-selected");
+		$(".book-tile i").removeClass("tile-text-selected");
+		$(".calendar-tile").addClass("tile-selected");
+		$(".calendar-tile p").addClass("tile-text-selected");
+		$(".calendar-tile i").addClass("tile-text-selected");
+	});
+
+	});
+	</script>
+
 </body>
 </html>
