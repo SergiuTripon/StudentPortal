@@ -71,7 +71,7 @@ if (isset($_POST["recordToMessage"])) {
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-12 col-sm-12 full-width pl0">
     <label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" value="<?php echo $email; ?>" readonly="readonly">
 	</div>
