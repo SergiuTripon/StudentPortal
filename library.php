@@ -145,9 +145,10 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Price</th>
-	<th>Quality</th>
+	<th>Author</th>
+	<th>Notes</th>
 	<th>Booked on</th>
+	<th>Return on</th>
 	</tr>
 	</thead>
 
@@ -167,10 +168,10 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Name">'.$book_name.'</td>
-			<td data-title="Price">'.$book_author.'</td>
-			<td data-title="Quantity">'.$book_notes.'</td>
-			<td data-title="From">'.$reserved_on.'</td>
-			<td data-title="From">'.$toreturn_on.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Notes">'.$book_notes.'</td>
+			<td data-title="Booken on">'.$reserved_on.'</td>
+			<td data-title="Return on">'.$toreturn_on.'</td>
 			</tr>';
 	}
 
