@@ -12,10 +12,10 @@ $out = array();
 foreach($res as $row)
 {
     $out[] = array(
-        'id'    => $row->taskid,
+        'id'    => $row->bookid,
         'title' => $row->book_name,
-        'start' => strtotime($row->task_startdate) . '000',
-        'end'   => strtotime($row->task_duedate) .'000'
+        'start' => strtotime($row->reserved_on) . '000',
+        'end'   => strtotime($row->toreturn_on) .'000'
     );
 }
 
