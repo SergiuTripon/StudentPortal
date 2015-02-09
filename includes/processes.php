@@ -112,5 +112,5 @@ elseif (isset($_POST["firstname4"], $_POST["surname4"], $_POST["email7"], $_POST
 
 //Call MessageUser function
 elseif (isset($_POST["userid2"], $_POST["firstname5"], $_POST["surname5"], $_POST["email8"], $_POST["message1"], $_POST["subject"])) {
-	ReserveBook();
+	MessageUser();
 }
