@@ -1176,6 +1176,7 @@ function ContactUs() {
 function ReserveBook() {
 
 	global $mysqli;
+	global $userid;
 
 	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
 	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
