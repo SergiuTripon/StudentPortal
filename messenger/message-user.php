@@ -187,7 +187,7 @@ if (isset($_POST["recordToMessage"])) {
 		$("#error1").hide();
 		$("#subject").addClass("success-style");
 	}
-    if (subject.length != 300) {
+    if (subject.length > 300) {
         $("#error1").show();
         $("#error1").empty().append("The subject entered is too long.<br>The maximum length of the subject is 300 characters.");
         $("#subject").addClass("error-style");
@@ -209,7 +209,7 @@ if (isset($_POST["recordToMessage"])) {
 		$("#error2").hide();
 		$("#firstname").addClass("success-style");
 	}
-    if (message.length != 5000) {
+    if (message.length > 5000) {
         $("#error2").show();
         $("#error2").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
         $("#message").addClass("error-style");
