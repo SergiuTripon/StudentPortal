@@ -66,7 +66,8 @@ if (isset($_POST["recordToMessage"])) {
     <div id="hide">
     <input type="hidden" name="userid" id="userid" value="<?php echo $userid1; ?>">
 
-    <h4>From</h4>
+    <h4 class="text-center">From</h4>
+    <hr>
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
@@ -83,7 +84,7 @@ if (isset($_POST["recordToMessage"])) {
 	</div>
     </div>
 
-    <h4>To</h4>
+    <h4 class="text-center">To</h4>
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
@@ -99,8 +100,6 @@ if (isset($_POST["recordToMessage"])) {
     <input class="form-control" type="email" name="email2" id="email2" value="<?php echo $email2; ?>" readonly="readonly">
 	</div>
     </div>
-
-    <hr>
 
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
