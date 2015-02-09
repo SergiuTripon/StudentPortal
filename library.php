@@ -26,7 +26,7 @@ include 'includes/session.php';
 
 	<?php include 'includes/menus/portal_menu.php'; ?>
 
-	<div id="events-portal" class="container">
+	<div id="library-portal" class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
@@ -36,7 +36,7 @@ include 'includes/session.php';
 	<div class="row mb10">
 
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
-	<a id="books-button">
+	<a id="books-toggle">
     <div class="tile book-tile">
 	<i class="fa fa-book"></i>
 	<p class="tile-text">Book view</p>
@@ -45,7 +45,7 @@ include 'includes/session.php';
 	</div>
 
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
-	<a id="calendar-button">
+	<a id="calendar-toggle">
 	<div class="tile calendar-tile">
     <i class="fa fa-calendar"></i>
 	<p class="tile-text">Returns - Calendar view</p>
@@ -57,7 +57,7 @@ include 'includes/session.php';
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="books-toggle" class="panel panel-default">
+	<div id="books-content" class="panel panel-default">
 
 	<?php
 	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
@@ -127,7 +127,7 @@ include 'includes/session.php';
 
 	<?php echo $event_soldout_style; ?>
 
-	<div id="reservedbooks-toggle" class="panel panel-default">
+	<div id="reservedbooks-content" class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
@@ -188,7 +188,7 @@ include 'includes/session.php';
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="calendar-toggle" class="panel panel-default">
+	<div id="calendar-content" class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingThree">
 	<h4 class="panel-title">
 	<a data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
@@ -362,16 +362,16 @@ include 'includes/session.php';
 	});
 
 	//Event view/Calendar view toggle
-	$("#calendar-toggle").hide();
+	$("#calendar-content").hide();
 	$(".book-tile").addClass("tile-selected");
 	$(".book-tile p").addClass("tile-text-selected");
 	$(".book-tile i").addClass("tile-text-selected");
 
-	$("#task-button").click(function (e) {
+	$("#book-toggle").click(function (e) {
     e.preventDefault();
-		$("#calendar-toggle").hide();
-		$("#books-toggle").show();
-		$("#reservedbooks-toggle").show();
+		$("#calendar-content").hide();
+		$("#books-content").show();
+		$("#reservedbooks-content").show();
 		$(".calendar-tile").removeClass("tile-selected");
 		$(".calendar-tile p").removeClass("tile-text-selected");
 		$(".calendar-tile i").removeClass("tile-text-selected");
@@ -380,11 +380,11 @@ include 'includes/session.php';
 		$(".book-tile i").addClass("tile-text-selected");
 	});
 
-	$("#calendar-button").click(function (e) {
+	$("#calendar-toggle").click(function (e) {
     e.preventDefault();
-		$("#books-toggle").hide();
-		$("#reservedbooks-toggle").hide();
-		$("#calendar-toggle").show();
+		$("#books-content").hide();
+		$("#reservedbooks-content").hide();
+		$("#calendar-content").show();
 		$(".book-tile").removeClass("tile-selected");
 		$(".book-tile p").removeClass("tile-text-selected");
 		$(".book-tile i").removeClass("tile-text-selected");
