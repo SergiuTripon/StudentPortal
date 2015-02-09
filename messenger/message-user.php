@@ -106,6 +106,7 @@ if (isset($_POST["recordToMessage"])) {
     <label>Subject</label>
     <input class="form-control" type="text" name="subject" id="subject">
 	</div>
+    <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -113,6 +114,7 @@ if (isset($_POST["recordToMessage"])) {
     <textarea class="form-control" rows="5" name="message" id="message"></textarea>
     </div>
     </div>
+    <p id="error2" class="feedback-sad text-center"></p>
 
     <hr>
 
@@ -172,13 +174,59 @@ if (isset($_POST["recordToMessage"])) {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
+    var hasError = false;
+
+    var subject = $("#subject").val();
+	if(subject === '') {
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a subject.");
+		$("#subject").addClass("error-style");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error1").hide();
+		$("#subject").addClass("success-style");
+	}
+    if (subject.length != 300) {
+        $("#error1").show();
+        $("#error1").empty().append("The subject entered is too long.<br>The maximum length of the subject is 300 characters.");
+        $("#subject").addClass("error-style");
+        hasError  = true;
+        return false;
+    } else {
+        $("#error1").hide();
+        $("#subject").addClass("success-style");
+    }
+
+    var message = $("#message").val();
+	if(message === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a message.");
+		$("#firstname").addClass("error-style");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+		$("#firstname").addClass("success-style");
+	}
+    if (message.length != 5000) {
+        $("#error2").show();
+        $("#error2").empty().append("The message entered is too long.<br>The maximum length of the subject is 5000 characters.");
+        $("#message").addClass("error-style");
+        hasError  = true;
+        return false;
+    } else {
+        $("#error2").hide();
+        $("#message").addClass("success-style");
+    }
+
+
     var userid = $("#userid2").val();
     var firstname = $("#firstname2").val();
     var surname = $("#surname2").val();
     var email = $("#email2").val();
-    var message = $("#message").val();
-    var subject = $("#subject").val();
 
+    if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -193,7 +241,7 @@ if (isset($_POST["recordToMessage"])) {
         $("#error").empty().append(thrownError);
     }
 	});
-
+    }
 	return true;
 
 	});
