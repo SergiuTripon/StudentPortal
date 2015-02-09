@@ -72,51 +72,51 @@ if (isset($_POST["recordToReserve"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter a first name" readonly="readonly">
+    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter a surname" readonly="readonly">
+    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter an email address" readonly="readonly">
+    <input class="form-control" type="email" name="email" id="email" value="<?php echo $email; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Student number</label>
-    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter a student number" readonly="readonly">
+    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Name</label>
-    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $book_name; ?>" placeholder="Name" readonly="readonly">
+    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $book_name; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Author</label>
-    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $book_author; ?>" placeholder="Name" readonly="readonly">
+    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $book_author; ?>" readonly="readonly">
     </div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Notes</label>
-    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $book_notes; ?>" placeholder="Name" readonly="readonly">
+    <textarea class="form-control" row="5" name="product_name" id="product_name" value="<?php echo $book_notes; ?>" readonly="readonly">
     </div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>From</label>
-    <input class="form-control" type="text" name="event_from" id="event_from" value="<?php echo $bookreserved_from; ?>" placeholder="From" readonly="readonly">
+    <input class="form-control" type="text" name="event_from" id="event_from" value="<?php echo $bookreserved_from; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>To</label>
-    <input class="form-control" type="text" name="event_to" id="event_to" value="<?php echo $bookreserved_to; ?>" placeholder="To" readonly="readonly">
+    <input class="form-control" type="text" name="event_to" id="event_to" value="<?php echo $bookreserved_to; ?>" readonly="readonly">
     </div>
     </div>
 
