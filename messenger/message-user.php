@@ -5,11 +5,11 @@ if (isset($_POST["recordToMessage"])) {
 
     $idToMessage = filter_input(INPUT_POST, 'recordToMessage', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt1->bind_param('i', $userid);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($email, $studentno, $firstname, $surname);
+    $stmt1->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt1->fetch();
 
 } else {
@@ -57,7 +57,7 @@ if (isset($_POST["recordToMessage"])) {
     <p id="error" class="feedback-sad text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="bookid" id="bookid" value="<?php echo $bookid; ?>">
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>">
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
@@ -142,21 +142,20 @@ if (isset($_POST["recordToMessage"])) {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    var bookid = $("#bookid").val();
-    var book_name = $("#book_name").val();
-    var book_author = $("#book_author").val();
-    var book_notes = $("#book_notes").val();
-    var bookreserved_from = $("#bookreserved_from").val();
-    var bookreserved_to = $("#bookreserved_to").val();
+    var userid = $("#userid").val();
+    var firstname = $("#firstname").val();
+    var surname = $("#surname").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
 
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes + '&bookreserved_from=' + bookreserved_from + '&bookreserved_to=' + bookreserved_to,
+    data:'userid=' + userid + '&firstname=' + firstname + '&surname=' + surname + '&email=' + email + '&message=' + message,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('Book reserved successfully.');
+        $("#success").empty().append('Message sent successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();

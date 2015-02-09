@@ -1127,7 +1127,7 @@ function EventsQuantityCheck () {
 
 }
 
-//EventsQuantityCheck function
+//ContactUs function
 function ContactUs() {
 
 	$firstname = filter_input(INPUT_POST, 'firstname4', FILTER_SANITIZE_STRING);
@@ -1246,4 +1246,45 @@ function ReserveBook() {
 
 	// Mail it
 	mail($email, $subject, $message, $headers);
+}
+
+//MessageUser function
+function MessageUser() {
+
+	$userid = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
+	$firstname = filter_input(INPUT_POST, 'firstname5', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'surname5', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'email8', FILTER_SANITIZE_EMAIL);
+	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$message1 = filter_input(INPUT_POST, 'message1', FILTER_SANITIZE_STRING);
+
+
+
+	// subject
+	$subject = "New Message from $firstname $surname";
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>The following person contacted Student Portal:</p>';
+	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message1</td></tr>";
+	$message .= '</table>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= 'From: Student Portal '.$email.'' . "\r\n";
+	$headers .= 'Reply-To: Student Portal '.$email.'' . "\r\n";
+
+	// Mail it
+	mail($email, $subject, $message, $headers);
+
 }

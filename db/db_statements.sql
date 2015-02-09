@@ -249,3 +249,17 @@ FOREIGN KEY (bookid) REFERENCES system_books(bookid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
+
+CREATE TABLE `student_portal`.`user_messages` (
+	`userid` INT(11) NOT NULL,
+	`messageid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	`message_subject` VARCHAR(300) NOT NULL,
+	`message_body` VARCHAR(5000),
+	`message_to` INT(11) NOT NULL,
+	`isRead` TINYINT(1) NOT NULL,
+	`created_on` DATETIME NOT NULL,
+	`deleted_on` DATETIME,
+FOREIGN KEY (userid) REFERENCES user_signin(userid)
+ON UPDATE CASCADE
+	ON DELETE CASCADE
+) ENGINE = InnoDB;
