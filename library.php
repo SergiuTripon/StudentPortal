@@ -33,7 +33,7 @@ include 'includes/session.php';
 	<li class="active">Calendar</li>
     </ol>
 
-	<div class="row mb10">
+	<div class="row">
 
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
 	<a id="books-toggle">
@@ -54,137 +54,6 @@ include 'includes/session.php';
 	</div>
 
 	</div><!-- /row -->
-
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-	<div id="books-content" class="panel panel-default">
-
-	<?php
-	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
-	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="book-event-form-'.$row["eventid"].'" style="display: none;" action="/events/book-event/" method="POST">
-			<input type="hidden" name="recordToBook" id="recordToBook" value="'.$row["eventid"].'"/>
-			</form>';
-	}
-	$stmt2->close();
-	?>
-
-    <div class="panel-heading" role="tab" id="headingOne">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Books - click to minimize or maximize</a>
-  	</h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-  	<div class="panel-body">
-
-	<!-- Books -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom events-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Author</th>
-	<th>Notes</th>
-	<th>Available</th>
-	<th>Reserve</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_quantity FROM system_books WHERE book_status = 'active'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-	$bookid = $row["bookid"];
-	$book_name = $row["book_name"];
-	$book_author = $row["book_author"];
-	$book_notes = $row["book_notes"];
-    $book_quantity = $row["book_quantity"];
-
-	echo '<tr id="task-'.$row["eventid"].'">
-
-			<td data-title="Name">'.$book_name.'</td>
-			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.$book_notes.'</td>
-			<td data-title="Available">'.$book_quantity.'</td>
-			<td id="book-hide" data-title="Reserve"><a id="book-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
-			</tr>';
-	}
-
-	$stmt1->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	<?php echo $event_soldout_style; ?>
-
-	<div id="reservedbooks-content" class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Reserved books - click to minimize or maximize</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<!-- Reserved books -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom bookedevents-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Price</th>
-	<th>Quality</th>
-	<th>Booked on</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y %H:%i') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y %H:%i') as toreturn_on, system_books.book_name, system_books.book_author, system_books.book_notes FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$userid' AND isReturned = '0'");
-
-	while($row = $stmt2->fetch_assoc()) {
-
-    $book_name = $row["book_name"];
-    $book_author = $row["book_author"];
-    $book_notes = $row["book_notes"];
-    $reserved_on = $row["reserved_on"];
-    $toreturn_on = $row["toreturn_on"];
-
-	echo '<tr>
-
-			<td data-title="Name">'.$book_name.'</td>
-			<td data-title="Price">'.$book_author.'</td>
-			<td data-title="Quantity">'.$book_notes.'</td>
-			<td data-title="From">'.$reserved_on.'</td>
-			<td data-title="From">'.$toreturn_on.'</td>
-			</tr>';
-	}
-
-	$stmt2->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	</div><!-- /panel-group -->
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
