@@ -9,7 +9,7 @@ if (isset($_POST["recordToReserve"])) {
     $stmt1->bind_param('i', $idToReserve);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($eventid, $event_name, $event_from, $event_to, $event_amount);
+    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes, $book_quantity);
     $stmt1->fetch();
     $stmt1->close();
 
