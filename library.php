@@ -153,16 +153,23 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT event_name, event_amount, tickets_quantity, DATE_FORMAT(booked_on,'%d %b %y %H:%i') as booked_on FROM booked_events WHERE userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y %H:%i') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y %H:%i') as toreturn_on, system_books.book_name, system_books.book_author, system_books.book_notes FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
+    $book_name = $row["book_name"];
+    $book_author = $row["book_author"];
+    $book_notes = $row["book_notes"];
+    $reserved_on = $row["reserved_on"];
+    $toreturn_on = $row["toreturn_on"];
+
 	echo '<tr>
 
-			<td data-title="Name">'.$row["event_name"].'</td>
-			<td data-title="Price">'.$row["event_amount"].'</td>
-			<td data-title="Quantity">'.$row["tickets_quantity"].'</td>
-			<td data-title="From">'.$row["booked_on"].'</td>
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Price">'.$book_author.'</td>
+			<td data-title="Quantity">'.$book_notes.'</td>
+			<td data-title="From">'.$reserved_on.'</td>
+			<td data-title="From">'.$toreturn_on.'</td>
 			</tr>';
 	}
 
