@@ -318,23 +318,23 @@ include 'includes/session.php';
 	}(jQuery));
 
 	//DataTables
-    $('.events-table').dataTable({
+    $('.books-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no events at the moment."
+			"emptyTable": "There are no books to display at the moment."
 		}
 	});
 
-	$('.bookedevents-table').dataTable({
+	$('.reservedbooks-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You haven't booked any events."
+			"emptyTable": "You haven't reserved any books."
 		}
 	});
 
