@@ -1180,7 +1180,6 @@ function ReserveBook () {
 
 	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
 	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
-	$book_author = filter_input(INPUT_POST, '$book_author', FILTER_SANITIZE_STRING);
 	$reservedbook_from = filter_input(INPUT_POST, 'reservedbook_from', FILTER_SANITIZE_STRING);
 	$reservedbook_to = filter_input(INPUT_POST, 'reserved_to', FILTER_SANITIZE_STRING);
 
