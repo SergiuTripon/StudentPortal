@@ -230,37 +230,6 @@ include 'includes/session.php';
 	});
 	});
 
-	//Event view/Calendar view toggle
-	$("#calendar-content").hide();
-	$(".book-tile").addClass("tile-selected");
-	$(".book-tile p").addClass("tile-text-selected");
-	$(".book-tile i").addClass("tile-text-selected");
-
-	$("#books-toggle").click(function (e) {
-    e.preventDefault();
-		$("#calendar-content").hide();
-		$("#books-content").show();
-		$("#reservedbooks-content").show();
-		$(".calendar-tile").removeClass("tile-selected");
-		$(".calendar-tile p").removeClass("tile-text-selected");
-		$(".calendar-tile i").removeClass("tile-text-selected");
-		$(".book-tile").addClass("tile-selected");
-		$(".book-tile p").addClass("tile-text-selected");
-		$(".book-tile i").addClass("tile-text-selected");
-	});
-
-	$("#calendar-toggle").click(function (e) {
-    e.preventDefault();
-		$("#books-content").hide();
-		$("#reservedbooks-content").hide();
-		$("#calendar-content").show();
-		$(".book-tile").removeClass("tile-selected");
-		$(".book-tile p").removeClass("tile-text-selected");
-		$(".book-tile i").removeClass("tile-text-selected");
-		$(".calendar-tile").addClass("tile-selected");
-		$(".calendar-tile p").addClass("tile-text-selected");
-		$(".calendar-tile i").addClass("tile-text-selected");
-	});
 
 	});
 	</script>
