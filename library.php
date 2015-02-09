@@ -153,7 +153,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y %H:%i') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y %H:%i') as toreturn_on, system_books.book_name, system_books.book_author, system_books.book_notes FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y %H:%i') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y %H:%i') as toreturn_on, system_books.book_name, system_books.book_author, system_books.book_notes FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$userid' AND isReturned = '0'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -282,7 +282,7 @@ include 'includes/session.php';
 	"use strict";
 
 	var options = {
-		events_source: '../../includes/events_json.php',
+		events_source: '../../includes/reservedbooks_json.php',
 		view: 'month',
 		tmpl_path: '../assets/tmpls/',
 		tmpl_cache: false,
