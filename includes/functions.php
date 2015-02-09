@@ -1171,3 +1171,65 @@ function ContactUs() {
 	mail($to, $subject, $message, $headers);
 
 }
+
+//PaypalPaymentSuccess function
+function ReserveBook() {
+
+	global $mysqli;
+
+	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
+	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
+	$book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
+	$book_notes = filter_input(INPUT_POST, 'book_notes', FILTER_SANITIZE_STRING);
+	$reservedbook_from = filter_input(INPUT_POST, 'reservedbook_from', FILTER_SANITIZE_STRING);
+	$reservedbook_to = filter_input(INPUT_POST, 'reservedbook_to', FILTER_SANITIZE_STRING);
+
+	$isReturned = '0';
+
+	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?)");
+	$stmt1->bind_param('isssssssss', $userid, $bookid, $reservedbook_from, $reservedbook_to, $isReturned);
+	$stmt1->execute();
+	$stmt1->close();
+
+	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $userid);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($email, $firstname, $surname, $studentno);
+	$stmt2->fetch();
+	$stmt2->close();
+
+	$reservation_status = 'Completed';
+
+	// subject
+	$subject = 'Reservation confirmation';
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>Thank you for your recent book reservation! Below, you can find the reservation summary:</p>';
+	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $studentno</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_name</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_author</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservedbook_from</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservedbook_to</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Reservation status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservation_status</td></tr>";
+	$message .= '</table>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+	// Mail it
+	mail($email, $subject, $message, $headers);
+}
