@@ -1191,13 +1191,27 @@ function ReserveBook() {
 	$stmt1->execute();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $userid);
+	$stmt2 = $mysqli->prepare("SELECT book_quantity FROM system_books WHERE bookid = ? LIMIT 1");
+	$stmt2->bind_param('i', $bookid);
 	$stmt2->execute();
 	$stmt2->store_result();
-	$stmt2->bind_result($email, $firstname, $surname, $studentno);
+	$stmt2->bind_result($book_quantity);
 	$stmt2->fetch();
-	$stmt2->close();
+
+	$new_book_quantity = $book_quantity - 1;
+
+	$stmt3 = $mysqli->prepare("UPDATE system_books SET book_quantity=? WHERE bookid =?");
+	$stmt3->bind_param('ii', $new_book_quantity, $bookid);
+	$stmt3->execute();
+	$stmt3->close();
+
+	$stmt4 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt4->bind_param('i', $userid);
+	$stmt4->execute();
+	$stmt4->store_result();
+	$stmt4->bind_result($email, $firstname, $surname, $studentno);
+	$stmt4->fetch();
+	$stmt4->close();
 
 	$reservation_status = 'Completed';
 
