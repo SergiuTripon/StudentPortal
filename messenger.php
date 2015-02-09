@@ -75,7 +75,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
