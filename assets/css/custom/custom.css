@@ -782,8 +782,13 @@ form .success-style:-ms-input-placeholder {
 .panel-group .panel {
     box-shadow: none;
     border-radius: 3px;
+    margin-bottom: 10px;
     border-color: #1863E6;
     background-color: #1863E6;
+}
+
+.panel-group .panel + .panel {
+    margin-top: 0;
 }
 
 .panel .panel-default {
