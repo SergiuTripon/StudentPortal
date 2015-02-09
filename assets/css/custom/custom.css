@@ -684,12 +684,12 @@ form .success-style:-ms-input-placeholder {
 
 /* Tile selected */
 .tile-selected {
-    border: none;
-    background-color: #333333 !important;
+    border: 1px solid #3FAD46 !important;
+    background-color: #F8F8F8 !important;
 }
 
 .tile-text-selected {
-    color: #FFFFFF !important;
+    color: #3FAD46 !important;
 }
 /* End of Tile selected */
 
