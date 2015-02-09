@@ -123,17 +123,23 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>From</th>
+	<th>Subject</th>
+	<th>Message</th>
+	<th>Sent on</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_messages.userid, user_messages.message_to FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.message_to = '$userid'");
+	$stmt2 = $mysqli->query("SELECT user_messages.userid, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as user_messages.created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.message_to = '$userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
     $message_from = $row["userid"];
+	$message_subject = $row["message_subject"];
+	$message_body = $row["message_body"];
+	$message_sent_on = $row["message_sent_on"];
 
 	$stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
 	$stmt3->bind_param('i', $message_from);
@@ -145,6 +151,9 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
+			<td data-title="From">'.$message_subject.'</td>
+			<td data-title="From">'.$message_body.'</td>
+			<td data-title="Sent on">'.$message_sent_on.'</td>
 			</tr>';
 	}
 
