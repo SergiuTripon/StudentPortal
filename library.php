@@ -107,7 +107,7 @@ include 'includes/session.php';
 	$book_notes = $row["book_notes"];
     $book_quantity = $row["book_quantity"];
 
-	echo '<tr id="task-'.$row["eventid"].'">
+	echo '<tr id="task-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
