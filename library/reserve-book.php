@@ -192,7 +192,7 @@ if (isset($_POST["recordToReserve"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes + '&reservedbook_from=' + reservedbook_from + '&reservedbook_to=' + reservedbook_to,
+    data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes + '&reservedbook_from=' + reservedbook_from + '&reservedbook_to=' + reservedbook_to,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
