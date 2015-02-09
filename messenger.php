@@ -162,13 +162,13 @@ include 'includes/session.php';
 	});
 
 	//Book event form submit
-	$("body").on("click", ".reserve-button", function(e) {
+	$("body").on("click", ".message-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
     var DbNumberID = clickedID[1];
 
-	$("#reserve-book-form-" + DbNumberID).submit();
+	$("#message-user-form-" + DbNumberID).submit();
 
 	});
 
