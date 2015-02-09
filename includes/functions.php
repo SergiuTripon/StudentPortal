@@ -1181,13 +1181,13 @@ function ReserveBook() {
 	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
 	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
 	$book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
-	$reservedbook_from = filter_input(INPUT_POST, 'reservedbook_from', FILTER_SANITIZE_STRING);
-	$reservedbook_to = filter_input(INPUT_POST, 'reservedbook_to', FILTER_SANITIZE_STRING);
+	$bookreserved_from = filter_input(INPUT_POST, 'bookreserved_from', FILTER_SANITIZE_STRING);
+	$bookreserved_to = filter_input(INPUT_POST, 'bookreserved_to', FILTER_SANITIZE_STRING);
 
 	$isReturned = 0;
 
-	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid VALUES (?, ?)");
-	$stmt1->bind_param('ii', $userid, $bookid);
+	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, reserved_on, toreturn_on, isReturned VALUES (?, ?, ?, ?, ?)");
+	$stmt1->bind_param('iissi', $userid, $bookid, $bookreserved_from, $bookreserved_to, $isReturned);
 	$stmt1->execute();
 	$stmt1->close();
 

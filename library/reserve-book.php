@@ -186,8 +186,8 @@ if (isset($_POST["recordToReserve"])) {
     var book_name = $("#book_name").val();
     var book_author = $("#book_author").val();
     var book_notes = $("#book_notes").val();
-    var reservedbook_from = $("#reservedbook_from").val();
-    var reservedbook_to = $("#reservedbook_to").val();
+    var reservedbook_from = $("#bookreserved_from").val();
+    var reservedbook_to = $("#bookreserved_to").val();
 
     jQuery.ajax({
 	type: "POST",
