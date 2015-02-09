@@ -259,7 +259,8 @@ CREATE TABLE `student_portal`.`user_messages` (
 	`isRead` TINYINT(1) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`deleted_on` DATETIME,
-FOREIGN KEY (userid) REFERENCES user_signin(userid)
+FOREIGN KEY (userid) REFERENCES user_signin(userid),
+FOREIGN KEY (message_to) REFERENCES user_signin(userid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
