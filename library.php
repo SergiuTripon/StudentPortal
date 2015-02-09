@@ -274,7 +274,7 @@ include 'includes/session.php';
 	"use strict";
 
 	var options = {
-		events_source: '../../includes/bookedevents_json.php',
+		events_source: '../../includes/events_json.php',
 		view: 'month',
 		tmpl_path: '../assets/tmpls/',
 		tmpl_cache: false,
