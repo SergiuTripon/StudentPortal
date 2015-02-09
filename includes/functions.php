@@ -1184,8 +1184,6 @@ function ReserveBook() {
 	$reservedbook_from = filter_input(INPUT_POST, 'reservedbook_from', FILTER_SANITIZE_STRING);
 	$reservedbook_to = filter_input(INPUT_POST, 'reservedbook_to', FILTER_SANITIZE_STRING);
 
-	$isReturned = '0';
-
 	$stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, bookid, book_name VALUES (?, ?, ?)");
 	$stmt2->bind_param('iis', $userid, $bookid, $book_name);
 	$stmt2->execute();
