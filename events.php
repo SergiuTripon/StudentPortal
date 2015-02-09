@@ -38,8 +38,8 @@ include 'includes/session.php';
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
 	<a id="task-button">
     <div class="tile task-tile">
-	<i class="fa fa-tasks"></i>
-	<p class="tile-text">Events view</p>
+	<i class="fa fa-beer"></i>
+	<p class="tile-text">Event view</p>
     </div>
     </a>
 	</div>

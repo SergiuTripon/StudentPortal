@@ -38,8 +38,8 @@ include 'includes/session.php';
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
 	<a id="task-button">
     <div class="tile task-tile">
-	<i class="fa fa-tasks"></i>
-	<p class="tile-text">Events view</p>
+	<i class="fa fa-book"></i>
+	<p class="tile-text">Book view</p>
     </div>
     </a>
 	</div>
@@ -48,7 +48,7 @@ include 'includes/session.php';
 	<a id="calendar-button">
 	<div class="tile calendar-tile">
     <i class="fa fa-calendar"></i>
-	<p class="tile-text">Calendar view</p>
+	<p class="tile-text">Returns - Calendar view</p>
     </div>
     </a>
 	</div>
@@ -84,56 +84,33 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
+	<th>Author</th>
 	<th>Notes</th>
-	<th>External URL</th>
-	<th>From</th>
-	<th>To</th>
-	<th>Price</th>
-	<th>Tickets</th>
-	<th>Category</th>
-	<th>Book</th>
+	<th>Available</th>
+	<th>Reserve</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_quantity FROM system_books WHERE book_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$eventid = $row["eventid"];
-	$event_name = $row["event_name"];
-	$event_notes = $row["event_notes"];
-	$event_url = $row["event_url"];
-	$event_from = $row["event_from"];
-	$event_to = $row["event_to"];
-	$event_amount = $row["event_amount"];
-	$event_ticket_no = $row["event_ticket_no"];
-	$event_category = ucfirst($row["event_category"]);
-
-	if (empty($event_ticket_no)) {
-		$event_ticket_no = "Sold Out";
-		$event_soldout_style = "<style> #book-$eventid { display: none; } </style>";
-	}
-
-	if (!empty($event_url)) {
-		$event_url = "<a target=\"_blank\" href=\"//$url\">Link</a>";
-	} else {
-		$event_url = "";
-	}
+	$bookid = $row["bookid"];
+	$book_name = $row["book_name"];
+	$book_author = $row["book_author"];
+	$book_notes = $row["book_notes"];
+    $book_quantity = $row["book_quantity"];
 
 	echo '<tr id="task-'.$row["eventid"].'">
 
-			<td data-title="Name">'.$event_name.'</td>
-			<td class="notes-hide" data-title="Notes">'.$event_notes.'</td>
-			<td class="url-hide" data-title="External URL">'.$event_url.'</td>
-			<td data-title="From">'.$event_from.'</td>
-			<td data-title="To">'.$event_to.'</td>
-			<td data-title="Price">'.$event_amount.'</td>
-			<td data-title="Tickets">'.$event_ticket_no.'</td>
-			<td data-title="Category">'.$event_category.'</td>
-			<td id="book-hide" data-title="Book"><a id="book-'.$eventid.'" class="book-button"><i class="fa fa-gbp"></i></a></td>
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Notes">'.$book_notes.'</td>
+			<td data-title="Available">'.$book_quantity.'</td>
+			<td id="book-hide" data-title="Reserve"><a id="book-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
 			</tr>';
 	}
 
