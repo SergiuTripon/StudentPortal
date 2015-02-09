@@ -1173,8 +1173,7 @@ function ContactUs() {
 }
 
 //CreateTask function
-function ReserveBook ()
-{
+function ReserveBook () {
 
 	global $mysqli;
 	global $userid;
