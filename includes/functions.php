@@ -1288,8 +1288,8 @@ function MessageUser() {
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 	// Additional headers
-	$headers .= 'From: Student Portal '.$email.'' . "\r\n";
-	$headers .= 'Reply-To: Student Portal '.$email.'' . "\r\n";
+	$headers .= "From: $firstname $surname '.$email.'" . "\r\n";
+	$headers .= "Reply-To: $firstname $surname '.$email.'" . "\r\n";
 
 	// Mail it
 	mail($email, $subject, $message, $headers);
