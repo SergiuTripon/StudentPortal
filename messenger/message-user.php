@@ -13,7 +13,7 @@ if (isset($_POST["recordToMessage"])) {
     $stmt1->fetch();
 
 } else {
-    header('Location: ../../library/');
+    header('Location: ../../messenger/');
 }
 
 ?>
@@ -28,7 +28,7 @@ if (isset($_POST["recordToMessage"])) {
 
     <?php include '../assets/meta-tags.php'; ?>
 
-    <title>Student Portal | Reserve book</title>
+    <title>Student Portal | Message a user</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
@@ -47,11 +47,11 @@ if (isset($_POST["recordToMessage"])) {
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../library/">Library</a></li>
-    <li class="active">Reserve a book</li>
+    <li class="active">Message a user</li>
     </ol>
 
-	<!-- Book event -->
-    <form class="form-custom" style="max-width: 100%;" method="post" name="reservebook_form" id="reservebook_form" novalidate>
+	<!-- Message user -->
+    <form class="form-custom" style="max-width: 100%;" method="post" name="messageuser_form" id="messageuser_form" novalidate>
 
     <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
@@ -79,7 +79,7 @@ if (isset($_POST["recordToMessage"])) {
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Notes</label>
+    <label>Message</label>
     <textarea class="form-control" rows="5" name="book_notes" id="book_notes" readonly="readonly"></textarea>
     </div>
     </div>
@@ -87,7 +87,7 @@ if (isset($_POST["recordToMessage"])) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Reserve book</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Mesasge user</span></button>
 	</div>
 
     </div>
