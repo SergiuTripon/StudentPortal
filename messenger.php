@@ -64,11 +64,11 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
-	<th>Author</th>
-	<th>Notes</th>
-	<th>Available</th>
-	<th>Reserve</th>
+	<th>First name</th>
+	<th>Surname</th>
+	<th>Student number</th>
+	<th>Email address</th>
+	<th>Message</th>
 	</tr>
 	</thead>
 
@@ -87,11 +87,11 @@ include 'includes/session.php';
 
 	echo '<tr id="book-'.$userid.'">
 
-			<td data-title="Name">'.$firstname.'</td>
+			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td id="message-hide" data-title="Reserve"><a id="message-'.$userid2.'" class="message-button"><i class="fa fa-envelope"></i></a></td>
+			<td id="message-hide" data-title="Message"><a id="message-'.$userid2.'" class="message-button"><i class="fa fa-envelope"></i></a></td>
 			</tr>';
 	}
 
