@@ -113,7 +113,7 @@ include 'includes/session.php';
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Available">'.$book_quantity.'</td>
-			<td id="book-hide" data-title="Reserve"><a id="book-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
+			<td id="book-hide" data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
 			</tr>';
 	}
 
