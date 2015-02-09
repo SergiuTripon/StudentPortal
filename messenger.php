@@ -118,7 +118,7 @@ include 'includes/session.php';
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom receivedmessages-table">
+	<table class="table table-condensed table-custom message-table">
 
 	<thead>
 	<tr>
@@ -180,7 +180,7 @@ include 'includes/session.php';
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom receivedmessages-table">
+	<table class="table table-condensed table-custom message-table">
 
 	<thead>
 	<tr>
@@ -285,7 +285,7 @@ include 'includes/session.php';
 		}
 	});
 
-	$('.receivedmessages-table').dataTable({
+	$('.message-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
