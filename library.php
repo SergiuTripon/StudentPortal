@@ -15,7 +15,7 @@ include 'includes/session.php';
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
-    <title>Student Portal | Library</title>
+    <title>Student Portal | Events</title>
 
 </head>
 
@@ -63,9 +63,9 @@ include 'includes/session.php';
 	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE book_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
 
-	$bookid = $row["bookid"];
+        $bookid = $row["bookid"];
 
-	  echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/library/reserve-book/" method="POST">
+	  echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/events/reserve-book/" method="POST">
 			<input type="hidden" name="recordToReserve" id="recordToReserve" value="'.$bookid.'"/>
 			</form>';
 	}
@@ -82,14 +82,14 @@ include 'includes/session.php';
 
 	<!-- Books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom books-table">
+	<table class="table table-condensed table-custom events-table">
 
 	<thead>
 	<tr>
 	<th>Name</th>
 	<th>Author</th>
 	<th>Notes</th>
-	<th>Books available</th>
+	<th>Available</th>
 	<th>Reserve</th>
 	</tr>
 	</thead>
@@ -107,13 +107,13 @@ include 'includes/session.php';
 	$book_notes = $row["book_notes"];
     $book_quantity = $row["book_quantity"];
 
-	echo '<tr id="book-'.$row["bookid"].'">
+	echo '<tr id="task-'.$row["eventid"].'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.$book_notes.'</td>
-			<td data-title="Books available">'.$book_quantity.'</td>
-			<td class="reserve-hide" data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
+			<td data-title="Available">'.$book_quantity.'</td>
+			<td id="book-hide" data-title="Reserve"><a id="book-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
 			</tr>';
 	}
 
@@ -140,7 +140,7 @@ include 'includes/session.php';
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom reservedbooks-table">
+	<table class="table table-condensed table-custom bookedevents-table">
 
 	<thead>
 	<tr>
@@ -154,7 +154,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y') as toreturn_on, system_books.book_name, system_books.book_author, system_books.book_notes FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$userid' AND system_books.book_status = 'active' AND isReturned = '0'");
+	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y %H:%i') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y %H:%i') as toreturn_on, system_books.book_name, system_books.book_author, system_books.book_notes FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$userid' AND system_books.book_status = 'active' AND isReturned = '0'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -268,6 +268,15 @@ include 'includes/session.php';
 	<script>
 	$(document).ready(function () {
 
+	//Responsiveness
+	$(window).resize(function(){
+		var width = $(window).width();
+		if(width <= 480) {
+			$('.btn-group').addClass('btn-group-vertical full-width');
+		}
+	})
+	.resize();
+
 	//Sets calendar options
 	(function($) {
 
@@ -308,7 +317,7 @@ include 'includes/session.php';
 	}(jQuery));
 
 	//DataTables
-    $('.books-table').dataTable({
+    $('.events-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
@@ -318,7 +327,7 @@ include 'includes/session.php';
 		}
 	});
 
-	$('.reservedbooks-table').dataTable({
+	$('.bookedevents-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
