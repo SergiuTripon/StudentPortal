@@ -1172,7 +1172,7 @@ function ContactUs() {
 
 }
 
-//PaypalPaymentSuccess function
+//ReserveBook function
 function ReserveBook() {
 
 	global $mysqli;
