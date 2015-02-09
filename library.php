@@ -268,27 +268,6 @@ include 'includes/session.php';
 	<script>
 	$(document).ready(function () {
 
-	//DataTables
-    $('.events-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no books to display at the moment."
-		}
-	});
-
-	$('.bookedevents-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "You haven't reserved any books."
-		}
-	});
-
 	//Event view/Calendar view toggle
 	$("#calendar-content").hide();
 	$(".book-tile").addClass("tile-selected");
