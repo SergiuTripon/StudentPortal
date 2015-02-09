@@ -96,8 +96,8 @@ elseif (isset($_POST["eventid"], $_POST["product_quantity"])) {
 
 /////////////////////////////////////////////////////////////
 
-//Call EventsQuantityCheck function
-elseif (isset($_POST["userid"], $_POST["bookid"], $_POST["book_name"], $_POST["book_author"], $_POST["book_notes"], $_POST["reservedbook_from"], $_POST["reservedbook_to"])) {
+//Call ReserveBook function
+elseif (isset($_POST["bookid"], $_POST["book_name"], $_POST["book_author"], $_POST["book_notes"], $_POST["reservedbook_from"], $_POST["reservedbook_to"])) {
 	ReserveBook();
 }
 

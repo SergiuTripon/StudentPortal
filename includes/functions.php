@@ -1172,23 +1172,8 @@ function ContactUs() {
 
 }
 
-//CreateTask function
-function ReserveBook () {
-
-	global $mysqli;
-	global $userid;
-
-	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
-
-	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid) VALUES (?, ?)");
-	$stmt1->bind_param('ii', $userid, $bookid);
-	$stmt1->execute();
-	$stmt1->close();
-
-}
-
 //ReserveBook function
-function ReserveBook1() {
+function ReserveBook() {
 
 	global $mysqli;
 	global $userid;
