@@ -1251,14 +1251,19 @@ function ReserveBook() {
 //MessageUser function
 function MessageUser() {
 
-	$userid = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
+	global $mysqli;
+
+	$userid1 = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname5', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname5', FILTER_SANITIZE_STRING);
 	$email = filter_input(INPUT_POST, 'email8', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$message1 = filter_input(INPUT_POST, 'message1', FILTER_SANITIZE_STRING);
+	$message_body = filter_input(INPUT_POST, 'message1', FILTER_SANITIZE_STRING);
 
-
+	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, message_subject, message_body, message_to, created_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt1->bind_param('issis', $userid, $message_subject, $message_body, $userid1, $created_on);
+	$stmt1->execute();
+	$stmt1->close();
 
 	// subject
 	$subject = "New Message from $firstname $surname";

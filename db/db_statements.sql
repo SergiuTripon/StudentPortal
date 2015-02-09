@@ -261,5 +261,5 @@ CREATE TABLE `student_portal`.`user_messages` (
 	`deleted_on` DATETIME,
 FOREIGN KEY (userid) REFERENCES user_signin(userid)
 ON UPDATE CASCADE
-	ON DELETE CASCADE
+ON DELETE CASCADE
 ) ENGINE = InnoDB;
