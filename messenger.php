@@ -106,6 +106,60 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+	<div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Received messages - click to minimize or maximize</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Reserved books -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom reservedbooks-table">
+
+	<thead>
+	<tr>
+	<th>From</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt2 = $mysqli->query("SELECT user_messages.userid, user_messages.message_to FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.message_to = '3'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+    $message_from = $row["userid"];
+    $message_to = $row["book_author"];
+
+	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $message_from);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($firstname, $surname);
+	$stmt2->fetch();
+
+	echo '<tr>
+
+			<td data-title="From">'.$firstname.' '.$surname.'</td>
+			</tr>';
+	}
+
+	$stmt2->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
 	</div><!-- /panel-group -->
 
     </div><!-- /container -->
