@@ -70,6 +70,7 @@ if (isset($_POST["recordToReserve"])) {
     <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
 
+    <div id="hide">
     <input type="hidden" name="bookid" id="bookid" value="<?php echo $bookid; ?>">
 
     <div class="form-group">
@@ -128,6 +129,8 @@ if (isset($_POST["recordToReserve"])) {
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mr5" data-style="slide-up"><span class="ladda-label">Reserve book</span></button>
 	</div>
+
+    </div>
 
     </form>
     <!-- End of Book event -->
