@@ -7,27 +7,6 @@ if (isset($_POST["recordToReserve"])) {
 
     echo $idToReserve;
 
-    $stmt1 = $mysqli->prepare("SELECT book_name FROM system_books WHERE bookdid = ? LIMIT 1");
-    $stmt1->bind_param('i', $idToReserve);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($book_name);
-    $stmt1->fetch();
-    $stmt1->close();
-
-    $stmt = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-    $stmt->bind_param('i', $userid);
-    $stmt->execute();
-    $stmt->store_result();
-    $stmt->bind_result($email, $studentno, $firstname, $surname);
-    $stmt->fetch();
-
-    $bookreserved_from = date("Y-m-d");
-
-    $add10days = new DateTime($bookreserved_from);
-    $add10days->add(new DateInterval('P10D'));
-    $bookreserved_to = $add10days->format('Y-m-d');
-
 } else {
     header('Location: ../../library/');
 }
