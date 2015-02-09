@@ -34,7 +34,7 @@ if (isset($_POST["recordToReserve"])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
 
@@ -92,11 +92,11 @@ if (isset($_POST["recordToReserve"])) {
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pr0 pl0">
     <label>Name</label>
     <input class="form-control" type="text" name="book_name" id="book_name" value="<?php echo $book_name; ?>" readonly="readonly">
 	</div>
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pr0 pl0">
     <label>Author</label>
     <input class="form-control" type="text" name="book_author" id="book_author" value="<?php echo $book_author; ?>" readonly="readonly">
     </div>
@@ -105,7 +105,7 @@ if (isset($_POST["recordToReserve"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Notes</label>
-    <input class="form-control" type="text" name="book_notes" id="book_notes" value="<?php echo $book_notes; ?>" readonly="readonly">
+    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" value="<?php echo $book_notes; ?>" readonly="readonly"</textarea>
     </div>
     </div>
 
