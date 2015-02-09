@@ -168,6 +168,68 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+	<div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Sent messages - click to minimize or maximize</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Reserved books -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom receivedmessages-table">
+
+	<thead>
+	<tr>
+	<th>From</th>
+	<th>Subject</th>
+	<th>Message</th>
+	<th>Sent on</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt2 = $mysqli->query("SELECT user_messages.message_to, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.userid = '$userid'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+    $message_to = $row["message_to"];
+	$message_subject = $row["message_subject"];
+	$message_body = $row["message_body"];
+	$message_sent_on = $row["created_on"];
+
+	$stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+	$stmt3->bind_param('i', $message_to);
+	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($firstname, $surname);
+	$stmt3->fetch();
+
+	echo '<tr>
+
+			<td data-title="To">'.$firstname.' '.$surname.'</td>
+			<td data-title="Subject">'.$message_subject.'</td>
+			<td data-title="Message">'.$message_body.'</td>
+			<td data-title="Sent on">'.$message_sent_on.'</td>
+			</tr>';
+	}
+
+	$stmt2->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
 	</div><!-- /panel-group -->
 
     </div><!-- /container -->
