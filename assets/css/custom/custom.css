@@ -1161,6 +1161,9 @@ form .success-style:-ms-input-placeholder {
 .book-hide {
     display: none !important;
 }
+.reserve-hide {
+    display: none !important;
+}
 }
 /* End of No More Responsive Table */
 

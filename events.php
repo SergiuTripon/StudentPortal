@@ -133,7 +133,7 @@ include 'includes/session.php';
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.$event_ticket_no.'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td id="book-hide" data-title="Book"><a id="book-'.$eventid.'" class="book-button"><i class="fa fa-gbp"></i></a></td>
+			<td class="book-hide" data-title="Book"><a id="book-'.$eventid.'" class="book-button"><i class="fa fa-gbp"></i></a></td>
 			</tr>';
 	}
 
