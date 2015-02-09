@@ -6,7 +6,7 @@ if (isset($_POST["recordToReserve"])) {
     $idToReserve = filter_input(INPUT_POST, 'recordToReserve', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_quantity FROM system_books WHERE eventid = ? LIMIT 1");
-    $stmt1->bind_param('i', $idToBook);
+    $stmt1->bind_param('i', $idToReserve);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($eventid, $event_name, $event_from, $event_to, $event_amount);
