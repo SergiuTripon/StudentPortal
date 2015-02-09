@@ -241,8 +241,8 @@ CREATE TABLE `student_portal`.`system_books` (
 CREATE TABLE `student_portal`.`reserved_books` (
 	`userid` INT(11) NOT NULL,
 	`bookid` INT(11) NOT NULL,
-	`reserved_on` DATETIME NOT NULL,
-	`toreturn_on` DATETIME NOT NULL,
+	`reserved_on` DATE NOT NULL,
+	`toreturn_on` DATE NOT NULL,
 	`isReturned` TINYINT(1) NOT NULL,
 FOREIGN KEY (userid) REFERENCES user_signin(userid),
 FOREIGN KEY (bookid) REFERENCES system_books(bookid)
