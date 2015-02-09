@@ -1259,6 +1259,7 @@ function MessageUser() {
 	$surname = filter_input(INPUT_POST, 'surname5', FILTER_SANITIZE_STRING);
 	$email = filter_input(INPUT_POST, 'email8', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$message_subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
 	$message_body = filter_input(INPUT_POST, 'message1', FILTER_SANITIZE_STRING);
 
 	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, message_subject, message_body, message_to, created_on) VALUES (?, ?, ?, ?, ?)");
@@ -1267,17 +1268,17 @@ function MessageUser() {
 	$stmt1->close();
 
 	// subject
-	$subject = "New Message from $firstname $surname";
+	$subject = "$firstname $surname - $message_subject";
 
 	// message
 	$message = '<html>';
 	$message .= '<body>';
-	$message .= '<p>The following person contacted Student Portal:</p>';
+	$message .= '<p>The following person sent you a message:</p>';
 	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message1</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_body</td></tr>";
 	$message .= '</table>';
 	$message .= '</body>';
 	$message .= '</html>';
