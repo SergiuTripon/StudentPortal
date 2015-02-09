@@ -49,7 +49,7 @@ if (isset($_POST["recordToMessage"])) {
 
     <?php include '../includes/menus/portal_menu.php'; ?>
 
-	<div class="container">
+	<div id="messenger-portal" class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
