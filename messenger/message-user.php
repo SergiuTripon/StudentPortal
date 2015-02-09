@@ -67,7 +67,7 @@ if (isset($_POST["recordToMessage"])) {
     <input type="hidden" name="userid" id="userid" value="<?php echo $userid1; ?>">
 
     <h4 class="text-center">From</h4>
-    <hr>
+    <hr class="hr-custom">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
@@ -85,7 +85,7 @@ if (isset($_POST["recordToMessage"])) {
     </div>
 
     <h4 class="text-center">To</h4>
-    <hr>
+    <hr class="hr-custom">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
@@ -115,7 +115,7 @@ if (isset($_POST["recordToMessage"])) {
     </div>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Mesasge user</span></button>
