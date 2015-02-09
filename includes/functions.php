@@ -1176,13 +1176,9 @@ function ContactUs() {
 function ReserveBook () {
 
 	global $mysqli;
+	global $userid;
 
-	$userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_STRING);
 	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
-	$reservedbook_from = filter_input(INPUT_POST, 'reservedbook_from', FILTER_SANITIZE_STRING);
-	$reservedbook_to = filter_input(INPUT_POST, 'reserved_to', FILTER_SANITIZE_STRING);
-
-	$isReturned = '0';
 
 	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid) VALUES (?, ?)");
 	$stmt1->bind_param('ii', $userid, $bookid);
