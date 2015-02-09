@@ -842,30 +842,6 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Calendar portal */
 
-/* Events portal */
-#events-portal .page-header {
-    margin: 0;
-    padding: 0 0 20px 0;
-    border-bottom: none;
-}
-
-#events-portal .page-header h3 {
-    color: #4582EC;
-}
-
-#events-portal .page-header hr {
-    margin-top: 5px;
-    margin-bottom: 0;
-    border-color: #4582EC;
-    background: #4582EC;
-}
-
-#events-portal .calendar-buttons > .btn-group,
-#events-portal .calendar-buttons > .btn-group-vertical {
-    margin-bottom: 0px;
-}
-/* End of Events portal */
-
 /* Calendar portal */
 #account-admin-portal h4 {
     color: #3FAD46;
@@ -943,17 +919,39 @@ form .success-style:-ms-input-placeholder {
     margin-top: 5px !important;
 }
 
+.container .page-header {
+    margin: 0;
+    padding: 0 0 20px 0;
+    border-bottom: none;
+}
+
+.container .page-header h3 {
+    color: #4582EC;
+}
+
+.container .page-header hr {
+    margin-top: 5px;
+    margin-bottom: 0;
+    border-color: #4582EC;
+    background: #4582EC;
+}
+
+.container .calendar-buttons > .btn-group,
+.container .calendar-buttons > .btn-group-vertical {
+    margin-bottom: 0px;
+}
+
 @media (max-width: 768px) {
-#calendar-portal .page-header h3 {
+.container .page-header h3 {
     text-align: center;
 }
-#calendar-portal .calendar-buttons {
+.container .calendar-buttons {
     text-align: center;
 }
-#calendar-portal #calendar-buttons1 {
+.container #calendar-buttons1 {
     margin-bottom: 5px;
 }
-#calendar-portal #calendar-buttons2 {
+.container #calendar-buttons2 {
     margin-bottom: 5px;
 }
 }
