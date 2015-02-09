@@ -65,7 +65,7 @@ include 'includes/session.php';
 
 	$bookid = $row["bookid"];
 
- 	echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/events/reserve-book/" method="POST">
+ 	echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/library/reserve-book/" method="POST">
 		<input type="hidden" name="recordToReserve" id="recordToReserve" value="'.$bookid.'"/>
 		</form>';
 	}
