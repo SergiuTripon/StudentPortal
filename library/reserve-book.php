@@ -71,6 +71,7 @@ if (isset($_POST["recordToReserve"])) {
     <p id="error" class="feedback-sad text-center"></p>
 
     <div id="hide">
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>">
     <input type="hidden" name="bookid" id="bookid" value="<?php echo $bookid; ?>">
 
     <div class="form-group">
@@ -182,6 +183,7 @@ if (isset($_POST["recordToReserve"])) {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
+    var userid = $("#userid").val();
     var bookid = $("#bookid").val();
     var book_name = $("#book_name").val();
     var book_author = $("#book_author").val();
@@ -192,7 +194,7 @@ if (isset($_POST["recordToReserve"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes + '&reservedbook_from=' + reservedbook_from + '&reservedbook_to=' + reservedbook_to,
+    data:'userid=' + userid + '&bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes + '&reservedbook_from=' + reservedbook_from + '&reservedbook_to=' + reservedbook_to,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
