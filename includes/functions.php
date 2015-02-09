@@ -1229,8 +1229,8 @@ function ReserveBook() {
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $studentno</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_name</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_author</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservedbook_from</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservedbook_to</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_from</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_to</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Reservation status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservation_status</td></tr>";
 	$message .= '</table>';
 	$message .= '</body>';

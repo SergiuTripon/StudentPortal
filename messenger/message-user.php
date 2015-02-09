@@ -106,7 +106,6 @@ if (isset($_POST["recordToMessage"])) {
     <label>Subject</label>
     <input class="form-control" type="text" name="subject" id="subject">
 	</div>
-    </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
