@@ -92,14 +92,11 @@ if (isset($_POST["recordToReserve"])) {
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Name</label>
     <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $book_name; ?>" placeholder="Name" readonly="readonly">
 	</div>
-    </div>
-
-    <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Author</label>
     <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $book_author; ?>" placeholder="Name" readonly="readonly">
     </div>
@@ -107,7 +104,7 @@ if (isset($_POST["recordToReserve"])) {
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Author</label>
+    <label>Notes</label>
     <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $book_notes; ?>" placeholder="Name" readonly="readonly">
     </div>
     </div>
