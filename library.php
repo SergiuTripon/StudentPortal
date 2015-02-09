@@ -15,7 +15,7 @@ include 'includes/session.php';
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
-    <title>Student Portal | Events</title>
+    <title>Student Portal | Library</title>
 
 </head>
 
