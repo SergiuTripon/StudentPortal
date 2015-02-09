@@ -1255,7 +1255,7 @@ function MessageUser() {
 	global $userid;
 	global $created_on;
 
-	$userid1 = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
+	$message_to = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname5', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'surname5', FILTER_SANITIZE_STRING);
 	$email = filter_input(INPUT_POST, 'email8', FILTER_SANITIZE_EMAIL);
@@ -1263,7 +1263,7 @@ function MessageUser() {
 	$message_subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
 	$message_body = filter_input(INPUT_POST, 'message1', FILTER_SANITIZE_STRING);
 
-	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (userid, message_subject, message_body, message_to, created_on) VALUES ('1', 'Hello', 'Bye', ?, '0000-00-00 00:00:00')");
+	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (userid, message_subject, message_body, message_to, created_on) VALUES ('1', 'Hello', 'Bye', '$message_to', '0000-00-00 00:00:00')");
 	$stmt1->bind_param('issis', $userid, $message_subject, $message_body, $userid1, $created_on);
 	$stmt1->execute();
 	$stmt1->close();
