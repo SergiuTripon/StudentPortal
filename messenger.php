@@ -38,7 +38,7 @@ include 'includes/session.php';
 	<div class="panel panel-default">
 
 	<?php
-	$stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE userid IS NOT '$userid'");
+	$stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE NOT userid '$userid'");
 	while($row = $stmt1->fetch_assoc()) {
 
 	$userid1 = $row["userid"];
@@ -75,7 +75,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin ON user_signin.userid=user_details.userid WHERE user_signin.userid IS NOT '$userid'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
