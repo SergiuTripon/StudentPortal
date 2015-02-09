@@ -675,6 +675,17 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Tiles style */
 
+/* Calendar page style */
+.tile-selected {
+    border: 1px solid #3FAD46 !important;
+    background-color: #FFFFFF !important;
+}
+
+.tile-text-selected {
+    color: #3FAD46 !important;
+}
+/* End of Calendar page style */
+
 /* Modal custom */
 .modal-custom .modal-content {
     border: none;

@@ -370,20 +370,20 @@ include 'includes/session.php';
 	$("#task-button").click(function (e) {
     e.preventDefault();
 		$("#calendar-toggle").hide();
-		$("#events-toggle").show();
-		$("#bookedevents-toggle").show();
+		$("#books-toggle").show();
+		$("#reservedbooks-toggle").show();
 		$(".calendar-tile").removeClass("tile-selected");
 		$(".calendar-tile p").removeClass("tile-text-selected");
 		$(".calendar-tile i").removeClass("tile-text-selected");
 		$(".task-tile").addClass("tile-selected");
-		$(".task-tile p").addClass("tile-text-selected");
+		$(".event-tile p").addClass("tile-text-selected");
 		$(".task-tile i").addClass("tile-text-selected");
 	});
 
 	$("#calendar-button").click(function (e) {
     e.preventDefault();
-		$("#events-toggle").hide();
-		$("#bookedevents-toggle").hide();
+		$("#books-toggle").hide();
+		$("#reservedbooks-toggle").hide();
 		$("#calendar-toggle").show();
 		$(".task-tile").removeClass("tile-selected");
 		$(".task-tile p").removeClass("tile-text-selected");
