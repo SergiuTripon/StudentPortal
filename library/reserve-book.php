@@ -5,7 +5,13 @@ if (isset($_POST["recordToReserve"])) {
 
     $idToReserve = filter_input(INPUT_POST, 'recordToReserve', FILTER_SANITIZE_NUMBER_INT);
 
-    echo $idToReserve;
+    $stmt1 = $mysqli->prepare("SELECT book_name FROM system_books WHERE bookdid = ? LIMIT 1");
+    $stmt1->bind_param('i', $idToReserve);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($book_name);
+    $stmt1->fetch();
+    $stmt1->close();
 
 } else {
     header('Location: ../../library/');
@@ -109,7 +115,7 @@ if (isset($_POST["recordToReserve"])) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mr5" data-style="slide-up"><span class="ladda-label">Pay with PayPal</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mr5" data-style="slide-up"><span class="ladda-label">Reserve book</span></button>
 	</div>
 
     </form>
