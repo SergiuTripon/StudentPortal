@@ -125,6 +125,7 @@ include 'includes/session.php';
 	<th>From</th>
 	<th>Subject</th>
 	<th>Message</th>
+	<th>Sent on</th>
 	</tr>
 	</thead>
 
@@ -138,6 +139,7 @@ include 'includes/session.php';
     $message_from = $row["userid"];
 	$message_subject = $row["message_subject"];
 	$message_body = $row["message_body"];
+	$message_sent_on = $row["created_on"];
 
 	$stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
 	$stmt3->bind_param('i', $message_from);
@@ -151,6 +153,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
 			<td data-title="Subject">'.$message_subject.'</td>
 			<td data-title="Message">'.$message_body.'</td>
+			<td data-title="Sent on">'.$message_sent_on.'</td>
 			</tr>';
 	}
 
