@@ -82,7 +82,7 @@ include 'includes/session.php';
 
 	<!-- Books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom events-table">
+	<table class="table table-condensed table-custom books-table">
 
 	<thead>
 	<tr>
