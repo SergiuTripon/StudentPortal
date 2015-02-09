@@ -211,7 +211,7 @@ if (isset($_POST["recordToMessage"])) {
 	}
     if (message.length != 5000) {
         $("#error2").show();
-        $("#error2").empty().append("The message entered is too long.<br>The maximum length of the subject is 5000 characters.");
+        $("#error2").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
         $("#message").addClass("error-style");
         hasError  = true;
         return false;
