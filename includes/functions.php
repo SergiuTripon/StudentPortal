@@ -1263,7 +1263,7 @@ function MessageUser() {
 	$message_subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
 	$message_body = filter_input(INPUT_POST, 'message1', FILTER_SANITIZE_STRING);
 
-	$message_body = htmlspecialchars($message_body, ENT_QUOTES);
+	$message_body = $mysqli->real_escape_string($message_body);
 
 	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (userid, message_subject, message_body, message_to, created_on) VALUES (?, ?, ?, ?, ?)");
 	$stmt1->bind_param('issis', $userid, $message_subject, $message_body, $message_to, $created_on);
