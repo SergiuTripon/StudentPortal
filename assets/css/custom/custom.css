@@ -886,7 +886,7 @@ form .success-style:-ms-input-placeholder {
 }
 #messenger-portal hr {
     margin-top: 5px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     border-color: #3FAD46;
     background: #3FAD46;
 }
