@@ -675,7 +675,7 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Tiles style */
 
-/* Calendar page style */
+/* Tile selected */
 .tile-selected {
     border: 1px solid #3FAD46 !important;
     background-color: #FFFFFF !important;
@@ -684,7 +684,7 @@ form .success-style:-ms-input-placeholder {
 .tile-text-selected {
     color: #3FAD46 !important;
 }
-/* End of Calendar page style */
+/* End of Tile selected */
 
 /* Modal custom */
 .modal-custom .modal-content {

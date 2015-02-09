@@ -36,8 +36,8 @@ include 'includes/session.php';
 	<div class="row mb10">
 
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
-	<a id="task-button">
-    <div class="tile task-tile">
+	<a id="books-button">
+    <div class="tile book-tile">
 	<i class="fa fa-book"></i>
 	<p class="tile-text">Book view</p>
     </div>
@@ -57,7 +57,7 @@ include 'includes/session.php';
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="events-toggle" class="panel panel-default">
+	<div id="books-toggle" class="panel panel-default">
 
 	<?php
 	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
@@ -77,7 +77,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Event -->
+	<!-- Books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom events-table">
 
@@ -127,7 +127,7 @@ include 'includes/session.php';
 
 	<?php echo $event_soldout_style; ?>
 
-	<div id="bookedevents-toggle" class="panel panel-default">
+	<div id="reservedbooks-toggle" class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
@@ -137,7 +137,7 @@ include 'includes/session.php';
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Booked events -->
+	<!-- Reserved books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom bookedevents-table">
 
@@ -363,9 +363,9 @@ include 'includes/session.php';
 
 	//Event view/Calendar view toggle
 	$("#calendar-toggle").hide();
-	$(".task-tile").addClass("tile-selected");
-	$(".task-tile p").addClass("tile-text-selected");
-	$(".task-tile i").addClass("tile-text-selected");
+	$(".book-tile").addClass("tile-selected");
+	$(".book-tile p").addClass("tile-text-selected");
+	$(".book-tile i").addClass("tile-text-selected");
 
 	$("#task-button").click(function (e) {
     e.preventDefault();
@@ -375,9 +375,9 @@ include 'includes/session.php';
 		$(".calendar-tile").removeClass("tile-selected");
 		$(".calendar-tile p").removeClass("tile-text-selected");
 		$(".calendar-tile i").removeClass("tile-text-selected");
-		$(".task-tile").addClass("tile-selected");
-		$(".event-tile p").addClass("tile-text-selected");
-		$(".task-tile i").addClass("tile-text-selected");
+		$(".book-tile").addClass("tile-selected");
+		$(".book-tile p").addClass("tile-text-selected");
+		$(".book-tile i").addClass("tile-text-selected");
 	});
 
 	$("#calendar-button").click(function (e) {
@@ -385,9 +385,9 @@ include 'includes/session.php';
 		$("#books-toggle").hide();
 		$("#reservedbooks-toggle").hide();
 		$("#calendar-toggle").show();
-		$(".task-tile").removeClass("tile-selected");
-		$(".task-tile p").removeClass("tile-text-selected");
-		$(".task-tile i").removeClass("tile-text-selected");
+		$(".book-tile").removeClass("tile-selected");
+		$(".book-tile p").removeClass("tile-text-selected");
+		$(".book-tile i").removeClass("tile-text-selected");
 		$(".calendar-tile").addClass("tile-selected");
 		$(".calendar-tile p").addClass("tile-text-selected");
 		$(".calendar-tile i").addClass("tile-text-selected");
