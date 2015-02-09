@@ -268,31 +268,91 @@ include 'includes/session.php';
 	<script>
 	$(document).ready(function () {
 
-	$('.books-table').dataTable({
+	//Responsiveness
+	$(window).resize(function(){
+		var width = $(window).width();
+		if(width <= 480) {
+			$('.btn-group').addClass('btn-group-vertical full-width');
+		}
+	})
+	.resize();
+
+	//Sets calendar options
+	(function($) {
+
+	"use strict";
+
+	var options = {
+		events_source: '../../includes/events_json.php',
+		view: 'month',
+		tmpl_path: '../assets/tmpls/',
+		tmpl_cache: false,
+		onAfterViewLoad: function(view) {
+			$('.page-header h3').text(this.getTitle());
+			$('.btn-group button').removeClass('active');
+			$('button[data-calendar-view="' + view + '"]').addClass('active');
+		},
+		classes: {
+			months: {
+				general: 'label'
+			}
+		}
+	};
+
+	var calendar = $('#calendar').calendar(options);
+
+	$('.btn-group button[data-calendar-nav]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.navigate($this.data('calendar-nav'));
+		});
+	});
+
+	$('.btn-group button[data-calendar-view]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.view($this.data('calendar-view'));
+		});
+	});
+	}(jQuery));
+
+	//DataTables
+    $('.events-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no tasks at the moment."
+			"emptyTable": "There are no events at the moment."
 		}
 	});
 
-    $('.reservedbooks-table').dataTable({
+	$('.bookedevents-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no tasks at the moment."
+			"emptyTable": "You haven't booked any events."
 		}
+	});
+
+	//Book event form submit
+	$("body").on("click", ".book-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#book-event-form-" + DbNumberID).submit();
+
 	});
 
 	//Event view/Calendar view toggle
 	$("#calendar-content").hide();
-	$(".book-tile").addClass("tile-selected");
-	$(".book-tile p").addClass("tile-text-selected");
-	$(".book-tile i").addClass("tile-text-selected");
+	$(".task-tile").addClass("tile-selected");
+	$(".task-tile p").addClass("tile-text-selected");
+	$(".task-tile i").addClass("tile-text-selected");
 
 	$("#books-toggle").click(function (e) {
     e.preventDefault();
