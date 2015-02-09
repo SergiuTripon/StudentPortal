@@ -107,13 +107,13 @@ include 'includes/session.php';
 	$book_notes = $row["book_notes"];
     $book_quantity = $row["book_quantity"];
 
-	echo '<tr id="task-'.$row["eventid"].'">
+	echo '<tr id="book-'.$row["bookid"].'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Books available">'.$book_quantity.'</td>
-			<td id="book-hide" data-title="Reserve"><a id="book-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
+			<td id="book-hide" data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-arrow-right"></i></a></td>
 			</tr>';
 	}
 
