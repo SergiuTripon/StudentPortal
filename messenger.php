@@ -135,12 +135,12 @@ include 'includes/session.php';
 
     $message_from = $row["userid"];
 
-	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $message_from);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($firstname, $surname);
-	$stmt2->fetch();
+	$stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+	$stmt3->bind_param('i', $message_from);
+	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($firstname, $surname);
+	$stmt3->fetch();
 
 	echo '<tr>
 
