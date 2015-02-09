@@ -27,7 +27,7 @@ if (isset($_POST["recordToReserve"])) {
     $bookreserved_to = $add10days->format('Y-m-d');
 
 } else {
-    header('Location: ../../events/');
+    header('Location: ../../library/');
 }
 
 ?>
