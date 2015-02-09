@@ -134,7 +134,6 @@ include 'includes/session.php';
 	while($row = $stmt2->fetch_assoc()) {
 
     $message_from = $row["userid"];
-    $message_to = $row["book_author"];
 
 	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $message_from);
