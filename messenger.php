@@ -184,7 +184,7 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>From</th>
+	<th>To</th>
 	<th>Subject</th>
 	<th>Message</th>
 	<th>Sent on</th>
