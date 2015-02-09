@@ -9,7 +9,7 @@ if (isset($_POST["recordToMessage"])) {
     $stmt1->bind_param('i', $userid);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($email, $studentno, $firstname);
+    $stmt1->bind_result($email, $studentno, $firstname, $surname);
     $stmt1->fetch();
 
 } else {
