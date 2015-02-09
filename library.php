@@ -15,7 +15,7 @@ include 'includes/session.php';
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
-    <title>Student Portal | Events</title>
+    <title>Student Portal | Library</title>
 
 </head>
 
@@ -30,7 +30,7 @@ include 'includes/session.php';
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-	<li class="active">Calendar</li>
+	<li class="active">Library</li>
     </ol>
 
 	<div class="row">
