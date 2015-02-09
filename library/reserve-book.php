@@ -13,11 +13,11 @@ if (isset($_POST["recordToReserve"])) {
     $stmt1->fetch();
     $stmt1->close();
 
-    $stmt = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt->bind_param('i', $userid);
     $stmt->execute();
     $stmt->store_result();
-    $stmt->bind_result($email, $studentno, $firstname, $surname);
+    $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
     $bookreserved_from = date("Y-m-d");
@@ -67,7 +67,10 @@ if (isset($_POST["recordToReserve"])) {
 	<!-- Book event -->
     <form class="form-custom" style="max-width: 100%;" method="post" name="reservebook_form" id="reservebook_form" novalidate>
 
+    <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
+
+    <input type="hidden" name="bookid" id="bookid" value="<?php echo $bookid; ?>">
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
@@ -92,11 +95,11 @@ if (isset($_POST["recordToReserve"])) {
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Name</label>
     <input class="form-control" type="text" name="book_name" id="book_name" value="<?php echo $book_name; ?>" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Author</label>
     <input class="form-control" type="text" name="book_author" id="book_author" value="<?php echo $book_author; ?>" readonly="readonly">
     </div>
@@ -119,8 +122,6 @@ if (isset($_POST["recordToReserve"])) {
     <input class="form-control" type="text" name="bookreserved_to" id="bookreserved_to" value="<?php echo $bookreserved_to; ?>" readonly="readonly">
     </div>
     </div>
-
-    <p id="error3" class="feedback-sad text-center"></p>
 
     <hr class="hr-custom">
 
@@ -174,86 +175,31 @@ if (isset($_POST["recordToReserve"])) {
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    //Checks for empty values
-    var payer_address1 = $("#payer_firstname").val();
-	if(payer_address1 === '') { $("#payer_firstname").css("border-color", "#FF5454"); }
-    var payer_city = $("#payer_city").val();
-	if(payer_city === '') { $("#payer_city").css("border-color", "#FF5454"); }
-    var payer_postcode = $("#payer_postcode").val();
-	if(payer_postcode === '') { $("#payer_postcode").css("border-color", "#FF5454"); }
-    var product_quantity = $("#product_quantity").val();
-    if(product_quantity === '') { $("#product_quantity").css("border-color", "#FF5454"); }
-
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-	var hasError = false;
+    var bookid = $("#bookid").val();
+    var book_name = $("#book_name").val();
+    var book_author = $("#book_author").val();
+    var book_notes = $("#book_notes").val();
+    var reservedbook_from = $("#reservedbook_from").val();
+    var reservedbook_to = $("#reservedbook_to").val();
 
-    var payer_address1 = $("#payer_address1").val();
-	if (payer_address1 === '') {
-        $("#error1").show();
-        $("#error1").empty().append("Please enter the first line of an address.");
-		$("#payer_address1").css("border-color", "#FF5454");
-		hasError  = true;
-	} else {
-		$("#error1").hide();
-		$("#payer_address1").css("border-color", "#4DC742");
-	}
-
-    var payer_city = $("#payer_city").val();
-    if(payer_city === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a city.");
-		$("#payer_city").css("border-color", "#FF5454");
-		hasError  = true;
-    } else {
-		$("#error1").hide();
-		$("#payer_city").css("border-color", "#4DC742");
-	}
-
-    var payer_postcode = $("#payer_postcode").val();
-	if(payer_postcode === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a postcode.");
-		$("#payer_postcode").css("border-color", "#FF5454");
-		hasError  = true;
-    } else {
-		$("#error2").hide();
-		$("#payer_postcode").css("border-color", "#4DC742");
-	}
-
-    var product_quantity = $("#product_quantity").val();
-    if(product_quantity === '') {
-        $("#error3").show();
-        $("#error3").empty().append("Please enter a quantity.");
-        $("#product_quantity").css("border-color", "#FF5454");
-        hasError  = true;
-    } else {
-        $("#error3").hide();
-        $("#product_quantity").css("border-color", "#4DC742");
-    }
-
-    var eventid = $("#product_id").val();
-
-    if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'eventid=' + eventid + '&product_quantity=' + product_quantity,
-    success:function(msg){
-        if (msg == 'error') {
-            $("#error").empty().append("The quantity entered exceeds the amount of tickets available.<br>You can check the ticket availability on the Events page.");
-        } else {
-            $("#paycoursefees_form").submit();
-        }
+    data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes + '&reservedbook_from=' + reservedbook_from + '&reservedbook_to=' + reservedbook_to,
+    success:function(){
+        $("#error").hide();
+        $("#hide").hide();
+        $("#success").empty().append('Book reserved successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
 	});
-    }
 
 	return true;
 
