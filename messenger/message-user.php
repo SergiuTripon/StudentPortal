@@ -6,10 +6,17 @@ if (isset($_POST["recordToMessage"])) {
     $idToMessage = filter_input(INPUT_POST, 'recordToMessage', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt1->bind_param('i', $userid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($userid1, $email1, $studentno1, $firstname1, $surname1);
+    $stmt1->fetch();
+
+    $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt1->bind_param('i', $idToMessage);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($userid, $email, $studentno, $firstname, $surname);
+    $stmt1->bind_result($userid2, $email2, $studentno2, $firstname2, $surname2);
     $stmt1->fetch();
 
 } else {
@@ -57,23 +64,49 @@ if (isset($_POST["recordToMessage"])) {
     <p id="error" class="feedback-sad text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>">
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid1; ?>">
+
+    <h4>From</h4>
+    <hr>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-3 col-sm-3 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="firstname1" id="firstname1" value="<?php echo $firstname1; ?>" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
     <label>Surname</label>
-    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="surname1" id="surname1" value="<?php echo $surname1; ?>" readonly="readonly">
+    </div>
+    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
+    <label>Email address</label>
+    <input class="form-control" type="email" name="email1" id="email1" value="<?php echo $email1; ?>" readonly="readonly">
 	</div>
     </div>
 
+    <h4>To</h4>
+    <hr>
+
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pl0">
-    <label>To:</label>
-    <input class="form-control" type="email" name="email" id="email" value="<?php echo $email; ?>" readonly="readonly">
+    <div class="col-xs-3 col-sm-3 full-width pl0">
+    <label>First name</label>
+    <input class="form-control" type="text" name="firstname2" id="firstname2" value="<?php echo $firstname2; ?>" readonly="readonly">
+	</div>
+    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
+    <label>Surname</label>
+    <input class="form-control" type="text" name="surname2" id="surname2" value="<?php echo $surname2; ?>" readonly="readonly">
+    </div>
+    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
+    <label>Email address</label>
+    <input class="form-control" type="email" name="email2" id="email2" value="<?php echo $email2; ?>" readonly="readonly">
+	</div>
+    </div>
+
+    <hr>
+
+    <div class="col-xs-3 col-sm-3 full-width pr0 pl0">
+    <label>Subject</label>
+    <input class="form-control" type="text" name="subject" id="subject">
 	</div>
     </div>
 
@@ -142,16 +175,17 @@ if (isset($_POST["recordToMessage"])) {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    var userid = $("#userid").val();
-    var firstname = $("#firstname").val();
-    var surname = $("#surname").val();
-    var email = $("#email").val();
+    var userid = $("#userid2").val();
+    var firstname = $("#firstname2").val();
+    var surname = $("#surname2").val();
+    var email = $("#email2").val();
     var message = $("#message").val();
+    var subject = $("#subject").val();
 
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&firstname=' + firstname + '&surname=' + surname + '&email=' + email + '&message=' + message,
+    data:'userid=' + userid + '&firstname=' + firstname + '&surname=' + surname + '&email=' + email + '&message=' + message + '&subject=' + subject,
     success:function(){
         $("#error").hide();
         $("#hide").hide();

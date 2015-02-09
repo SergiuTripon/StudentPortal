@@ -1252,6 +1252,7 @@ function ReserveBook() {
 function MessageUser() {
 
 	global $mysqli;
+	global $created_on;
 
 	$userid1 = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'firstname5', FILTER_SANITIZE_STRING);
