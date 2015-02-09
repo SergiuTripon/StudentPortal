@@ -46,7 +46,7 @@ if (isset($_POST["recordToMessage"])) {
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../library/">Library</a></li>
+	<li><a href="../../messenger/">Messenger</a></li>
     <li class="active">Message a user</li>
     </ol>
 
