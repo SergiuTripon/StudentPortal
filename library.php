@@ -268,6 +268,26 @@ include 'includes/session.php';
 	<script>
 	$(document).ready(function () {
 
+	$('.books-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no tasks at the moment."
+		}
+	});
+
+    $('.reservedbooks-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no tasks at the moment."
+		}
+	});
+
 	//Event view/Calendar view toggle
 	$("#calendar-content").hide();
 	$(".book-tile").addClass("tile-selected");
