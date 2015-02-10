@@ -125,7 +125,7 @@ if ($fee_amount == "0.00") {
     </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
-	<label>Full or Half fees - select below</label>
+	<label>Pay half or the full fee amount - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg fees_type">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Full fees
