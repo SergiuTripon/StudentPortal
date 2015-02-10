@@ -60,8 +60,8 @@ if (isset($_POST["recordToMessage"])) {
 	<!-- Message user -->
     <form class="form-custom" style="max-width: 100%;" method="post" name="messageuser_form" id="messageuser_form" novalidate>
 
-    <p id="success" class="feedback-happy text-center"></p>
-    <p id="error" class="feedback-sad text-center"></p>
+    <div id="success" class="alert alert-success" role="alert"></div>
+    <div id="error" class="alert alert-success" role="alert"></div>
 
     <div id="hide">
     <input type="hidden" name="userid2" id="userid2" value="<?php echo $userid2; ?>">
@@ -106,7 +106,7 @@ if (isset($_POST["recordToMessage"])) {
     <label>Subject</label>
     <input class="form-control" type="text" name="subject" id="subject">
 	</div>
-    <p id="error1" class="feedback-sad text-center"></p>
+    <div id="error1" class="alert alert-success" role="alert"></div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -114,7 +114,7 @@ if (isset($_POST["recordToMessage"])) {
     <textarea class="form-control" rows="5" name="message" id="message"></textarea>
     </div>
     </div>
-    <p id="error2" class="feedback-sad text-center"></p>
+    <div id="error2" class="alert alert-success" role="alert"></div>
 
     <hr>
 
