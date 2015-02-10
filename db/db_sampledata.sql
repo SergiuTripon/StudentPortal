@@ -21,4 +21,4 @@ INSERT INTO `user_timetable`(`userid`, `moduleid`) VALUES (2,1);
 INSERT INTO `system_events`(`eventid`, `event_name`, `event_notes`, `event_url`, `event_class`, `event_from`, `event_to`, `event_amount`, `event_ticket_no`, `event_category`, `event_status`, `created_on`, `updated_on`) VALUES (1,'City Careers','','','event-important','2015-03-02 16:00:00','2015-03-02 19:00:00','10.00','50','Careers','active','0000-00-00 0000:00:00','');
 
 #Library dummy data
-INSERT INTO `system_books`(`bookid`, `book_name`, `book_author`, `book_notes`, `book_quantity`, `book_status`, `created_on`, `updated_on`) VALUES ('1','Da Vinci Code','Dan Brown','','5','active','0000-00-00 00:00:00','');
+INSERT INTO `system_books`(`bookid`, `book_name`, `book_author`, `book_notes`, `book_copy_no`, `book_status`, `created_on`, `updated_on`) VALUES ('2','Da Vinci Code','Dan Brown','','2','available','0000-00-00 00:00:00','');

@@ -84,6 +84,18 @@ include 'includes/session.php';
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom books-table">
 
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Author</th>
+	<th>Notes</th>
+	<th>Copy no.</th>
+	<th>Status</th>
+	<th>Reserve</th>
+	</tr>
+	</thead>
+
+	<tbody>
 	<?php
 
 	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE NOT book_status = 'cancelled'");
@@ -100,38 +112,24 @@ include 'includes/session.php';
 	$book_status = ucfirst($book_status);
 
 	if ($book_status = 'Reserved') {
-		$book_reserved_style = "<style> #book-hide-$bookid { display: none !important; } </style>";
+		$book_reserved_style = "<style> #reserve-$bookid { display: none; } </style>";
 	}
 
-	echo '
-			<thead>
-			<tr>
-			<th>Name</th>
-			<th>Author</th>
-			<th>Notes</th>
-			<th>Copy no.</th>
-			<th>Status</th>
-			<th id="book-hide-'.$bookid.'">Reserve</th>
-			</tr>
-			</thead>
-
-			<tbody>
-
-			<tr id="book-'.$bookid.'">
+	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td id="book-hide-'.$bookid.'" data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-book"></i></a></td>
-			</tr>
-
-			</tbody>';
+			<td data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-book"></i></a></td>
+			</tr>';
 	}
 
 	$stmt1->close();
 	?>
+	</tbody>
+
 	</table>
 	</section>
 
