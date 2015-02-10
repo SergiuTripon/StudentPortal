@@ -330,35 +330,6 @@ footer p {
 }
 /* End of User manual showcase */
 
-/* User manual accordion style */
-#user-manual-showcase .panel-default {
-    border-color: #4582EC;
-}
-
-#user-manual-showcase .panel-group .panel {
-    border-radius: 3px;
-    margin-bottom: 5px;
-}
-
-#user-manual-showcase .panel {
-    background-color: #1863E6;
-    border-color: #1863E6;
-    box-shadow: none;
-}
-
-#user-manual-showcase .panel-default>.panel-heading {
-    color: #FFFFFF;
-    background-color: #4582EC;
-    border-color: #1863E6;
-}
-
-#user-manual-showcase .panel-default>.panel-heading+.panel-collapse>.panel-body {
-    color: #FFFFFF;
-    background-color: #4582EC;
-    border-color: #1863E6;
-}
-/* End of User manual accordion style */
-
 /* Contact showcase */
 #contact-showcase h1 {
     color: #6B5204;
@@ -834,6 +805,10 @@ form .success-style:-ms-input-placeholder {
 /* Overview portal */
 #overview-portal .panel-group {
     margin-bottom: 0px;
+}
+
+#overview-portal .panel-group .panel {
+    margin-bottom: 10px;
 }
 /* End of Overview portal */
 
