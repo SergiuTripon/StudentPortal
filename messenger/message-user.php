@@ -57,8 +57,6 @@ if (isset($_POST["recordToMessage"])) {
     <li class="active">Message a user</li>
     </ol>
 
-    <div id="error12" class="alert alert-danger" role="alert"></div>
-
 	<!-- Message user -->
     <form class="form-custom" style="max-width: 100%;" method="post" name="messageuser_form" id="messageuser_form" novalidate>
 
@@ -109,6 +107,7 @@ if (isset($_POST["recordToMessage"])) {
     <input class="form-control" type="text" name="subject" id="subject">
 	</div>
     <div id="error1" class="alert alert-danger" role="alert"></div>
+    <div id="error12" class="alert alert-danger" role="alert"></div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
