@@ -231,6 +231,13 @@ include 'includes/session.php';
     <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div class="container">
+
+    <ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active"><a href="#">Home <span class="badge">42</span></a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
+    </ul>
+
     <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
