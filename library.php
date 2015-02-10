@@ -109,6 +109,10 @@ include 'includes/session.php';
 	$book_copy_no = $row["book_copy_no"];
 	$book_status = $row["book_status"];
 
+	if ($book_status = 'Reserved') {
+		$book_reserved_style = "<style> #reserve-$bookid { display: none; } </style>";
+	}
+
 	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
@@ -116,7 +120,7 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-book"></i></a></td>
+			<td data-title="Reserve"><a id="reserve-'.ucfirst($book_status).'" class="reserve-button"><i class="fa fa-book"></i></a></td>
 			</tr>';
 	}
 
