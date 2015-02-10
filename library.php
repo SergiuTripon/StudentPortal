@@ -60,7 +60,7 @@ include 'includes/session.php';
 	<div id="books-content" class="panel panel-default">
 
 	<?php
-	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE book_status = 'active'");
+	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE book_status = 'available'");
 	while($row = $stmt2->fetch_assoc()) {
 
 	$bookid = $row["bookid"];
