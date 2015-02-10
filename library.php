@@ -112,7 +112,7 @@ include 'includes/session.php';
 	$book_status = ucfirst($book_status);
 
 	if ($book_status = 'Reserved') {
-		$book_reserved_style = "<style> #reserve-$bookid { display: none; } </style>";
+		$book_reserved_style = "<style> #book-hide-$bookid { display: none; } </style>";
 	}
 
 	echo '<tr id="book-'.$bookid.'">
@@ -122,7 +122,7 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td id="book-hide" data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-book"></i></a></td>
+			<td id="book-hide-'.$bookid.'" data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-book"></i></a></td>
 			</tr>';
 	}
 
