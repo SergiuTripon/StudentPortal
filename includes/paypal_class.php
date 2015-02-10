@@ -1,6 +1,4 @@
 <?php
-include 'session.php';
-
 /**
  * PHP Paypal IPN Integration Class
  * 6.25.2008 - Eric Wang, http://code.google.com/p/paypal-ipn-class-php/
@@ -67,6 +65,7 @@ class paypal_class {
 	public function submit_paypal_post() {
 
 		$paypal_url = ($_GET['sandbox'] == 1) ? SSL_SAND_URL : SSL_P_URL;
+		include 'session.php';
 		echo "<html>\n";
 		echo "<head>";
 
