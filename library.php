@@ -137,7 +137,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-	<?php echo $event_soldout_style; ?>
+	<?php echo $book_reserved_style; ?>
 
 	<div id="reservedbooks-content" class="panel panel-default">
 
