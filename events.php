@@ -116,7 +116,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$event_name.'</td>
 			<td class="notes-hide" data-title="Notes">'.$event_notes.'</td>
-			<td class="url-hide" data-title="External URL">'.$event_url.'</td>
+			<td class="url-hide" data-title="External URL">'.($event_url === '' ? "" : "<a target=\"_blank\" href=\"//$url\">Link</a>").'</td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
