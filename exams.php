@@ -14,7 +14,6 @@ include 'includes/session.php';
 
 	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
     <title>Student Portal | Exams</title>
 
@@ -27,7 +26,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-	<div id="timetable-portal" class="container">
+	<div id="exams-portal" class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
@@ -143,7 +142,6 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
