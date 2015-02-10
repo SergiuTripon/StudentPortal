@@ -1265,17 +1265,17 @@ function MessageUser() {
 	$stmt1->close();
 
 	// subject
-	$subject = 'New message on Student Portal';
+	$subject = "$firstname $surname - $message_subject";
 
 	// message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>The following person sent you a message:</p>';
 	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\"></td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> </td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> </td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> </td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_body</td></tr>";
 	$message .= '</table>';
 	$message .= '</body>';
 	$message .= '</html>';
@@ -1285,8 +1285,8 @@ function MessageUser() {
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 	// Additional headers
-	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= "From: $firstname $surname '.$email.'" . "\r\n";
+	$headers .= "Reply-To: $firstname $surname '.$email.'" . "\r\n";
 
 	// Mail it
 	mail($email, $subject, $message, $headers);
