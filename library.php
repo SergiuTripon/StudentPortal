@@ -109,7 +109,7 @@ include 'includes/session.php';
 	$book_copy_no = $row["book_copy_no"];
 	$book_status = $row["book_status"];
 
-	if ($book_status = 'Reserved') {
+	if ($book_status = 'reserved') {
 		$book_reserved_style = "<style> #reserve-$bookid { display: none; } </style>";
 	}
 
