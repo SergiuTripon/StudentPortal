@@ -89,7 +89,8 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Author</th>
 	<th>Notes</th>
-	<th>Available</th>
+	<th>Copy no.</th>
+	<th>Status</th>
 	<th>Reserve</th>
 	</tr>
 	</thead>
