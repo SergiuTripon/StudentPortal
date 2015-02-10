@@ -239,6 +239,7 @@ if (isset($_POST["recordToMessage"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
+        $("#success").show();
         $("#success").empty().append('Message sent successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
