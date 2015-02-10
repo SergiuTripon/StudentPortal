@@ -1289,6 +1289,6 @@ function MessageUser() {
 	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
 	// Mail it
-	mail($to, $subject, $message, $headers);
+	mail($email, $subject, $message, $headers);
 
 }
