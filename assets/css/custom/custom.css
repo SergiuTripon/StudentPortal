@@ -1103,13 +1103,6 @@ form .success-style:-ms-input-placeholder {
 .table-custom td a, .calendar-table td a:hover {
     color: #5D5D5D !important;
 }
-
-.table-custom tr:nth-child(even) {
-    background: #CCC !important;
-}
-.table-custom tr:nth-child(odd) {
-    background: #FFF !important;
-}
 /* End of Table Custom style */
 
 /* No More Responsive Table */
@@ -1180,6 +1173,13 @@ form .success-style:-ms-input-placeholder {
     text-align: right !important;
     border: 1px solid #5D5D5D !important;
 }
+#no-more-tables .table-custom tr:nth-child(even) {
+    background: #E3E3E3 !important;
+}
+#no-more-tables .table-custom tr:nth-child(odd) {
+    background: #F8F8F8 !important;
+}
+
 }
 /* End of No More Responsive Table */
 
