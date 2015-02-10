@@ -7,7 +7,7 @@ include '../session.php';
 
 <head>
 
-    <?php include '../assets/js-paths/pacejs-js-path.php'; ?>
+    <?php include '../../assets/js-paths/pacejs-js-path.php'; ?>
 	
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,7 @@ include '../session.php';
 	
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <?php include '../includes/menus/portal_menu.php'; ?>
+    <?php include '../../includes/menus/portal_menu.php'; ?>
 
     <div class="container">
     
@@ -48,11 +48,11 @@ include '../session.php';
 	
 	</div>
 
-    <?php include '../includes/footer/footers.php'; ?>
+    <?php include '../../includes/footers/footer.php'; ?>
 	
 	<?php else : ?>
 
-    <?php include '../includes/menus/menu.php'; ?>
+    <?php include '../../includes/menus/menu.php'; ?>
 
 
     <div class="container">
@@ -74,11 +74,11 @@ include '../session.php';
     </form>
 	</div>
 
-    <?php include '../includes/footer/footers.php'; ?>
+    <?php include '../../includes/footer/footers.php'; ?>
 	
 	<?php endif; ?>
 
-    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
 	Ladda.bind( '.ladda-button', { timeout: 2000 } );
