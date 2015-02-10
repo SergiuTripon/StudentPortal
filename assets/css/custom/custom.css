@@ -867,7 +867,7 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Calendar portal */
 
-/* Accound admin portal */
+/* Account admin portal */
 #account-admin-portal h4 {
     color: #3FAD46;
     font-weight: 600;
@@ -894,6 +894,23 @@ form .success-style:-ms-input-placeholder {
     background: #3FAD46;
 }
 /* End of Calendar portal */
+
+/* Timetable portal */
+#exams-portal h3 {
+    color: #4582EC;
+}
+
+#exams-portal .breadcrumb {
+    margin-bottom: 20px;
+}
+
+#exams-portal hr {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-color: #4582EC;
+    background: #4582EC;
+}
+/* End of Timetable portal */
 
 /* Lock page style */
 #showdate {
