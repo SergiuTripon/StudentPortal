@@ -827,6 +827,12 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Accordion style */
 
+/* Overview portal */
+#overview-portal .dashboard {
+    margin-bottom: 10px;
+}
+/* End of Overview portal */
+
 /* Timetable portal */
 #timetable-portal h3 {
     color: #4582EC;

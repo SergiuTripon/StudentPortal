@@ -230,8 +230,9 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div class="container">
+    <div id="overview-portal" class="container">
 
+    <div class="dashboard">
     <button class="btn btn-primary" type="button">
         Messages <span class="badge">4</span>
     </button>
@@ -244,8 +245,7 @@ include 'includes/session.php';
     <button class="btn btn-primary" type="button">
         Messages <span class="badge">4</span>
     </button>
-
-    <br>
+    </div>
 
     <div class="row">
 
