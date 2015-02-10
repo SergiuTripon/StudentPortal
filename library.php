@@ -91,7 +91,7 @@ include 'includes/session.php';
 	<th>Notes</th>
 	<th>Copy no.</th>
 	<th>Status</th>
-	<th>Reserve</th>
+	<th>Action</th>
 	</tr>
 	</thead>
 
@@ -117,7 +117,7 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Reserve"><a id="reserve-'.$bookid.'" class="btn btn-default btn-md reserve-button">'.($book_status === 'Reserved' ? "Reserved" : "<i class=\"fa fa-book\"></i>").'</a></td>
+			<td data-title="Action">'.($book_status === 'Reserved' ? "<a id=\"request-'.$bookid.'\" class=\"btn btn-default btn-md reserve-button\">Request</a>" : "<a id=\"reserve-'.$bookid.'\" class=\"btn btn-default btn-md reserve-button\">Reserve</a>").'</td>
 			</tr>';
 	}
 
