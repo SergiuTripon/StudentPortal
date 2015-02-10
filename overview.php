@@ -1,6 +1,5 @@
 <?php
-require( 'config.php' );
-include( DIR_INCLUDES . 'session.php' );
+include 'includes/session.php';
 ?>
 
 

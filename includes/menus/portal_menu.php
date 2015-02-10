@@ -1,8 +1,3 @@
-<?php
-require( '../../config.php' );
-include( DIR_INCLUDES . 'session.php' );
-?>
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
