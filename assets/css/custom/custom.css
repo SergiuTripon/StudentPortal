@@ -565,7 +565,10 @@ form .error-style:-ms-input-placeholder {
 }
 
 .feedback-sad {
-    color: #C9302C !important;
+    color: #FFFFFF !important;
+    background-color: #FF5454;
+    border-radius: 3px;
+    border: 1px solid #C9302C;
     font-size: 16px !important;
     font-weight: 600 !important;
 }
@@ -981,7 +984,7 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Bootstrap calendar */
 
-/* Breadcrumb */
+/* Breadcrumb style */
 .breadcrumb {
     margin-bottom: 10px;
     background-color: #6B5204;
@@ -1002,16 +1005,7 @@ form .success-style:-ms-input-placeholder {
 .breadcrumb > li + li:before {
     color: #FFFFFF;
 }
-/* End of Breadcrumb */
-
-/* Alerts */
-.alert {
-    margin-bottom: 10px;
-    background-color: #6B5204;
-    border-radius: 3px;
-    border: 1px solid #6B5204;
-}
-/* End of Alerts */
+/* End of Breadcrumb style */
 
 /* Buttons */
 .btn, .btn:focus, .btn:hover {
