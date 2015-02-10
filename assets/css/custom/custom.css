@@ -828,8 +828,8 @@ form .success-style:-ms-input-placeholder {
 /* End of Accordion style */
 
 /* Overview portal */
-#overview-portal .dashboard {
-    margin-bottom: 10px;
+#overview-portal .panel-group {
+    margin-bottom: 0px;
 }
 /* End of Overview portal */
 
