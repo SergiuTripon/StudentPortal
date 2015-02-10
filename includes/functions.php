@@ -1194,7 +1194,7 @@ function ReserveBook() {
 	$book_status = 'reserved';
 
 	$stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=? WHERE bookid =?");
-	$stmt3->bind_param('ii', $book_status, $bookid);
+	$stmt3->bind_param('si', $book_status, $bookid);
 	$stmt3->execute();
 	$stmt3->close();
 
