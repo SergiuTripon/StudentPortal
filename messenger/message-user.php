@@ -172,11 +172,6 @@ if (isset($_POST["recordToMessage"])) {
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $("#success").hide();
-    $("#error").hide();
-    $("#error1").hide();
-    $("#error2").hide();
-
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
@@ -241,7 +236,6 @@ if (isset($_POST["recordToMessage"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").show();
         $("#success").empty().append('Message sent successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
