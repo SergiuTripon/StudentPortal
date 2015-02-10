@@ -106,7 +106,7 @@ if (isset($_POST["recordToMessage"])) {
     <label>Subject</label>
     <input class="form-control" type="text" name="subject" id="subject">
 	</div>
-    <div id="error1" class="alert alert-error" role="alert"></div>
+    <div id="error1" class="alert alert-danger" role="alert"></div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -114,7 +114,7 @@ if (isset($_POST["recordToMessage"])) {
     <textarea class="form-control" rows="5" name="message" id="message"></textarea>
     </div>
     </div>
-    <div id="error2" class="alert alert-error" role="alert"></div>
+    <div id="error2" class="alert alert-danger" role="alert"></div>
 
     <hr>
 
@@ -169,6 +169,11 @@ if (isset($_POST["recordToMessage"])) {
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
+
+    $("#success").hide();
+    $("#error").hide();
+    $("#error1").hide();
+    $("#error2").hide();
 
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
@@ -234,6 +239,7 @@ if (isset($_POST["recordToMessage"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
+        $("#success").show();
         $("#success").empty().append('Message sent successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
