@@ -1265,7 +1265,7 @@ function MessageUser() {
 	$message_body = addslashes($message_body);
 
 	// subject
-	$subject = "$firstname $surname - $message_subject";
+	$subject = "New message on Student Portal:";
 
 	// message
 	$message = '<html>';
@@ -1275,9 +1275,13 @@ function MessageUser() {
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_subject</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_subject</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_body</td></tr>";
 	$message .= '</table>';
+	$message .= '<a href="https://student-portal.co.uk/messenger">View message on Student Portal</a><br>';
+	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+	$message .= '</body>';
+	$message .= '</html>';
 	$message .= '</body>';
 	$message .= '</html>';
 
