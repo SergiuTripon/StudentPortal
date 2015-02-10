@@ -1264,6 +1264,8 @@ function MessageUser() {
 	$stmt1->execute();
 	$stmt1->close();
 
+	$to = 'triponsergiu@hotmail.co.uk';
+
 	// subject
 	$subject = "$firstname $surname - $message_subject";
 
@@ -1289,6 +1291,6 @@ function MessageUser() {
 	$headers .= "Reply-To: $firstname $surname '.$email.'" . "\r\n";
 
 	// Mail it
-	mail($email, $subject, $message, $headers);
+	mail($to, $subject, $message, $headers);
 
 }

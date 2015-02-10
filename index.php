@@ -34,7 +34,7 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <?php include 'includes/menus/menu.php'; ?>
+    <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div class="container">
 
