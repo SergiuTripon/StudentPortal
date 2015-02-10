@@ -22,9 +22,9 @@ if (isset($_POST["recordToReserve"])) {
 
     $bookreserved_from = date("Y-m-d");
 
-    $add10days = new DateTime($bookreserved_from);
-    $add10days->add(new DateInterval('P10D'));
-    $bookreserved_to = $add10days->format('Y-m-d');
+    $add14days = new DateTime($bookreserved_from);
+    $add14days->add(new DateInterval('P14D'));
+    $bookreserved_to = $add14days->format('Y-m-d');
 
 } else {
     header('Location: ../../library/');
