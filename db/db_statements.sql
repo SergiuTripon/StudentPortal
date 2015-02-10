@@ -245,7 +245,7 @@ CREATE TABLE `student_portal`.`system_books` (
 	`book_name` VARCHAR(300) NOT NULL,
 	`book_author` VARCHAR(300) NOT NULL,
 	`book_notes` VARCHAR(5000),
-	`book_quantity` INT(11) NOT NULL,
+	`book_copy_no` INT(11) NOT NULL,
 	`book_status` VARCHAR(9) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME

@@ -1198,10 +1198,10 @@ function ReserveBook() {
 	$stmt2->bind_result($book_quantity);
 	$stmt2->fetch();
 
-	$new_book_quantity = $book_quantity - 1;
+	$book_status = 'reserved';
 
-	$stmt3 = $mysqli->prepare("UPDATE system_books SET book_quantity=? WHERE bookid =?");
-	$stmt3->bind_param('ii', $new_book_quantity, $bookid);
+	$stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=? WHERE bookid =?");
+	$stmt3->bind_param('ii', $book_status, $bookid);
 	$stmt3->execute();
 	$stmt3->close();
 

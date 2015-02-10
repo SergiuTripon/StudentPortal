@@ -97,7 +97,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_quantity FROM system_books WHERE book_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -105,14 +105,18 @@ include 'includes/session.php';
 	$book_name = $row["book_name"];
 	$book_author = $row["book_author"];
 	$book_notes = $row["book_notes"];
-    $book_quantity = $row["book_quantity"];
+	$book_copy_no = $row["book_copy_no"];
+	$book_status = $row["book_status"];
+
+	$book_status = strtoupper($book_status);
 
 	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.$book_notes.'</td>
-			<td data-title="Available">'.$book_quantity.'</td>
+			<td data-title="Copy no.">'.$book_copy_no.'</td>
+			<td data-title="Status">'.$book_status.'</td>
 			<td id="book-hide" data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-book"></i></a></td>
 			</tr>';
 	}
