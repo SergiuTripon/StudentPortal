@@ -153,6 +153,7 @@ include 'includes/session.php';
 	<th>Author</th>
 	<th>Notes</th>
 	<th>Booked on</th>
+	<th>Return on</th>
 	<th>Status</th>
 	</tr>
 	</thead>
