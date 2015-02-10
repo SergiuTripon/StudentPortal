@@ -121,9 +121,9 @@ include 'includes/session.php';
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
-			<td data-title="Tickets">'.($event_ticket_no = '0' ? "It is 0" : "It is not 0").'</td>
+			<td data-title="Tickets">'.$event_ticket_no.'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td data-title="Book"><a id="book-'.$eventid.'" class="book-button"></a></td>
+			<td data-title="Book"><a id="book-'.$eventid.'" class="book-button">'.($event_ticket_no = '0' ? "" : "	<i class=\"fa fa-gbp\"></i>").'</a></td>
 			</tr>';
 	}
 
