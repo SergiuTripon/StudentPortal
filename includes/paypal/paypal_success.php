@@ -32,7 +32,7 @@ include '../session.php';
     
 	<form class="form-custom" name="paypal_success_form">
     
-    <div class="form-logo">
+    <div class="form-logo text-center">
     <i class="fa fa-paypal"></i>
     </div>
     
@@ -59,7 +59,7 @@ include '../session.php';
 
     <form class="form-custom">
     
-    <div class="form-logo">
+    <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
     
