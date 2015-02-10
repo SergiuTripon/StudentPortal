@@ -106,7 +106,7 @@ if (isset($_POST["recordToMessage"])) {
     <label>Subject</label>
     <input class="form-control" type="text" name="subject" id="subject">
 	</div>
-    <div id="error1" class="alert alert-success" role="alert"></div>
+    <div id="error1" class="alert alert-error" role="alert"></div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -114,7 +114,7 @@ if (isset($_POST["recordToMessage"])) {
     <textarea class="form-control" rows="5" name="message" id="message"></textarea>
     </div>
     </div>
-    <div id="error2" class="alert alert-success" role="alert"></div>
+    <div id="error2" class="alert alert-error" role="alert"></div>
 
     <hr>
 
