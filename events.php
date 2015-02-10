@@ -122,7 +122,7 @@ include 'includes/session.php';
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td data-title="Book"><a id="book-'.$eventid.'" class="book-button">'.($event_ticket_no === '0' ? "Sold Out" : "<i class=\"fa fa-gbp\"></i>").'</a></td>
+			<td data-title="Book">'.($event_ticket_no === '0' ? "Sold Out" : "<a id=\"book-$eventid\" class=\"btn btn-default btn-md book-button\"></a>").'</td>
 			</tr>';
 	}
 
