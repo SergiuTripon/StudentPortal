@@ -99,8 +99,8 @@ include 'includes/session.php';
 	<th>Start</th>
 	<th>Due</th>
 	<th>Category</th>
-	<th>Complete</th>
-	<th>Update</th>
+	<th>Action</th>
+	<th>Action</th>
 	</tr>
 	</thead>
 
@@ -111,25 +111,25 @@ include 'includes/session.php';
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$url = $row["task_url"];
+	$taskid = $row["taskid"];
+	$task_name = $row["task_name"];
+	$task_notes = $row["task_notes"];
+	$task_startdate = $row["task_startdate"];
+	$task_duedate = $row["task_duedate"];
+	$task_url = $row["task_url"];
+	$task_category = $row["task_category"];
 	$task_category = ucfirst($row["task_category"]);
 
-	if (!empty($row["task_url"])) {
-		$url1 = "<a target=\"_blank\" href=\"//$url\">Link</a>";
-	} else {
-		$url1 = "";
-	}
+	echo '<tr id="task-'.$taskid.'">
 
-	echo '<tr id="task-'.$row["taskid"].'">
-
-			<td data-title="Name">'.$row["task_name"].'</td>
-			<td class="notes-hide" data-title="Notes">'.$row["task_notes"].'</td>
-			<td class="url-hide" data-title="External URL">'.$url1.'</td>
-			<td data-title="Start date">'.$row["task_startdate"].'</td>
-			<td data-title="Due date">'.$row["task_duedate"].'</td>
+			<td data-title="Name">'.$task_name.'</td>
+			<td data-title="Notes">'.$task_notes.'</td>
+			<td data-title="External URL">'.($task_url === '' ? "" : "<a target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
+			<td data-title="Start date">'.$task_startdate.'</td>
+			<td data-title="Due date">'.$task_duedate.'</td>
 			<td data-title="Category">'.$task_category.'</td>
-			<td data-title="Complete"><a id="complete-'.$row["taskid"].'" class="complete-button"><i class="fa fa-check"></i></a></td>
-			<td data-title="Update"><a id="update-'.$row["taskid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
+			<td data-title="Action"><a id="complete-'.$taskid.'" class="btn btn-default btn-md complete-button">Complete</a></td>
+			<td data-title="Action"><a id="update-'.$taskid.'" class="btn btn-default btn-md update-button">Update</a></td>
 			</tr>';
 	}
 
