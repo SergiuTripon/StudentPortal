@@ -1261,6 +1261,14 @@ function MessageUser() {
 	$stmt1->execute();
 	$stmt1->close();
 
+	$stmt2 = $mysqli->prepare("SELECT email FROM user_signin WHERE userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $userid);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($email1);
+	$stmt2->fetch();
+	$stmt2->close();
+
 	// subject
 	$subject = "$firstname $surname - New message on Student Portal";
 
@@ -1287,8 +1295,8 @@ function MessageUser() {
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 	// Additional headers
-	$headers .= "From: $firstname $surname '.$email.'" . "\r\n";
-	$headers .= "Reply-To: $firstname $surname '.$email.'" . "\r\n";
+	$headers .= "From: $firstname $surname <$email1>" . "\r\n";
+	$headers .= "Reply-To: $firstname $surname <$email1>" . "\r\n";
 
 	// Mail it
 	mail($email, $subject, $message, $headers);
