@@ -134,6 +134,7 @@ if ($fee_amount == "0.00") {
 		<input type="radio" name="options" id="option2" autocomplete="off"> Half fees
 	</label>
 	</div>
+    <p id="error3" class="feedback-sad text-center"></p>
 
     <hr class="hr-custom">
 
@@ -293,6 +294,18 @@ if ($fee_amount == "0.00") {
     } else {
 		$("#error2").hide();
 		$("#payer_postcode").css("border-color", "#4DC742");
+	}
+
+    var fees_type_check = $(".fees_type");
+	if (fees_type_check.hasClass('active')) {
+		$("#error3").hide();
+		$(".btn-group > .fees_type").addClass("success-style");
+	}
+	else {
+		$("#error3").empty().append("Please select how you want to pay your fees.");
+		$(".btn-group > .fees_type").addClass("error-style");
+		hasError  = true;
+		return false;
 	}
 	
 	if(hasError == false) {
