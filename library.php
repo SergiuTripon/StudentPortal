@@ -100,7 +100,7 @@ include 'includes/session.php';
 	$book_status = ucfirst($book_status);
 
 	if ($book_status = 'Reserved') {
-		$book_reserved_style = "<style> #book-hide-$bookid { display: none; !important } </style>";
+		$book_reserved_style = "<style> #book-hide-$bookid { display: none !important; } </style>";
 	}
 
 	echo '
