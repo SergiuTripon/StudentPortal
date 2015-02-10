@@ -509,7 +509,7 @@ form .form-control:-ms-input-placeholder {
 .btn-group > .btn:active, .btn-group > .active.btn {
     color: #FFFFFF;
     border-radius: 3px;
-    background-color: #5D5D5D;
+    background-color: #5D5D5D !important;
     border: 1px solid #5D5D5D;
     box-shadow: none;
 }
