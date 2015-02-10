@@ -66,8 +66,6 @@ class paypal_class {
 
 		$paypal_url = ($_GET['sandbox'] == 1) ? SSL_SAND_URL : SSL_P_URL;
 
-		include 'session.php';
-
 		echo "<html>\n";
 		echo "<head>";
 
@@ -91,8 +89,6 @@ class paypal_class {
 
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
 		echo "<div class=\"preloader\"></div>";
-
-		include 'menus/portal_menu.php';
 
 		echo "<div class=\"container\">\n";
 
@@ -118,8 +114,6 @@ class paypal_class {
 		echo "</form>\n";
 
 		echo "</div>\n";
-
-		include 'footers/footer.php';
 
 		echo "<script src=\"https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js\"></script>\n";
 		echo "<script src=\"https://student-portal.co.uk/assets/js/ladda/spin.min.js\"></script>\n";
