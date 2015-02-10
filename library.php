@@ -60,7 +60,7 @@ include 'includes/session.php';
 	<div id="books-content" class="panel panel-default">
 
 	<?php
-	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE book_status = 'available'");
+	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE NOT book_status = 'cancelled'");
 	while($row = $stmt2->fetch_assoc()) {
 
 	$bookid = $row["bookid"];
@@ -98,7 +98,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'available'");
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE NOT book_status = 'cancelled'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
