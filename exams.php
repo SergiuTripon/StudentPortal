@@ -52,7 +52,6 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Notes</th>
 	<th>Date</th>
     <th>Time</th>
     <th>Location</th>
@@ -63,12 +62,11 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_exams.exam_name, system_exams.exam_notes, system_exams.exam_date, system_exams.exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = '$userid'");
+	$stmt1 = $mysqli->query("SELECT system_exams.exam_name, system_exams.exam_date, system_exams.exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = '$userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
     $exam_name = $row["exam_name"];
-    $exam_notes = $row["exam_notes"];
     $exam_date = $row["exam_date"];
     $exam_time = $row["exam_time"];
     $exam_location = $row["exam_location"];
@@ -78,7 +76,6 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Name">'.$exam_name.'</td>
-			<td data-title="Notes">'.$exam_notes.'</td>
 			<td data-title="Date">'.$exam_date.'</td>
 			<td data-title="Time">'.$exam_time.'</td>
 			<td data-title="Location">'.$exam_location.'</td>
