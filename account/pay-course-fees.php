@@ -125,9 +125,15 @@ if ($fee_amount == "0.00") {
     </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
-    <div class="checkbox ml5">
-    <label><input type="checkbox" name="half-fees" id="half-fees" value="half-fees"> Pay half of the fee amount</label>
-    </div>
+	<label>Full or Half fees - select below</label>
+	<div class="btn-group btn-group-justified" data-toggle="buttons">
+	<label class="btn btn-default btn-lg fees_type">
+		<input type="radio" name="options" id="option1" autocomplete="off"> Full fees
+	</label>
+	<label class="btn btn-default btn-lg fees_type">
+		<input type="radio" name="options" id="option2" autocomplete="off"> Half fees
+	</label>
+	</div>
 
     <hr class="hr-custom">
 
@@ -213,16 +219,22 @@ if ($fee_amount == "0.00") {
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    //Toggles fee amount
-    $('#half-fees').click(function () {
-    if ($('#half-fees').is(':checked')) {
-        $('input[name=product_amount]').val('4500.00');
-        $('input[name=product_name]').val('Half Fees');
-    } else {
-        $('input[name=product_amount]').val('9000.00');
-        $('input[name=product_name]').val('Full Fees');
-    }
-    });
+    var fees_type;
+
+    //Setting variable value
+	$('.btn-group > .fees_type').click(function(){
+        fees_type = ($(this).text().replace(/^\s+|\s+$/g,''))
+
+		if(fees_type === 'Full fees') {
+            $('input[name=product_amount]').val('9000.00');
+            $('input[name=product_name]').val('Full Fees');
+		}
+		if(fees_type === 'Half fees') {
+            $('input[name=product_amount]').val('4500.00');
+            $('input[name=product_name]').val('Half Fees');
+		}
+
+	})
 
     //Checks for empty values
     var val;
