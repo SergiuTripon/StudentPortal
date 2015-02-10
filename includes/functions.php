@@ -1191,13 +1191,6 @@ function ReserveBook() {
 	$stmt1->execute();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("SELECT book_quantity FROM system_books WHERE bookid = ? LIMIT 1");
-	$stmt2->bind_param('i', $bookid);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($book_quantity);
-	$stmt2->fetch();
-
 	$book_status = 'reserved';
 
 	$stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=? WHERE bookid =?");
