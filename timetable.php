@@ -34,22 +34,19 @@ include 'includes/session.php';
 	<li class="active">Timetable</li>
     </ol>
 
-    <h3 class="feedback-custom">Lectures</h3>
-    <hr class="hr-thin">
-
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Monday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Lectures</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Monday -->
+	<!-- Lectures -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom lecture-table">
 
@@ -80,12 +77,12 @@ include 'includes/session.php';
 	$lecture_location = $row["lecture_location"];
 	$lecture_capacity = $row["lecture_capacity"];
 
-	$stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('i', $lecture_lecturer);
-	$stmt3->execute();
-	$stmt3->store_result();
-	$stmt3->bind_result($firstname, $surname);
-	$stmt3->fetch();
+	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $lecture_lecturer);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($firstname, $surname);
+	$stmt2->fetch();
 
 	echo '<tr>
 
@@ -110,24 +107,24 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div class="panel panel-default">
+	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Tuesday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Tutorials</a>
   	</h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Tuesday -->
+	<!-- Tutorials -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom tutorial-table">
 
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Notes</th>
+	<th>Day</th>
 	<th>From</th>
     <th>To</th>
     <th>Location</th>
@@ -138,72 +135,34 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Tuesday' LIMIT 1");
-
-	while($row = $stmt2->fetch_assoc()) {
-
-	echo '<tr>
-
-			<td data-title="Name">'.$row["lecture_name"].'</td>
-			<td data-title="Notes">'.$row["lecture_notes"].'</td>
-			<td data-title="From">'.$row["lecture_from_time"].'</td>
-			<td data-title="To">'.$row["lecture_to_time"].'</td>
-			<td data-title="Location">'.$row["lecture_location"].'</td>
-			<td data-title="Capacity">'.$row["lecture_capacity"].'</td>
-			</tr>';
-	}
-
-	$stmt2->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingThree">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Wednesday</a>
-  	</h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-  	<div class="panel-body">
-
-	<!-- Wednesday -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt3 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Wednesday' LIMIT 1");
+	$stmt3 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_assistant, system_tutorials.tutorial_day, system_tutorials.tutorial_from_time, system_tutorials.tutorial_to_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' LIMIT 1");
 
 	while($row = $stmt3->fetch_assoc()) {
 
+	$tutorial_name = $row["tutorial_name"];
+	$tutorial_assistant = $row["tutorial_assistant"];
+	$tutorial_day = $row["tutorial_day"];
+	$tutorial_from_time = $row["tutorial_from_time"];
+	$tutorial_to_time = $row["tutorial_to_time"];
+	$tutorial_location = $row["tutorial_location"];
+	$tutorial_capacity = $row["tutorial_capacity"];
+
+	$stmt4 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+	$stmt4->bind_param('i', $tutorial_assistant);
+	$stmt4->execute();
+	$stmt4->store_result();
+	$stmt4->bind_result($firstname, $surname);
+	$stmt4->fetch();
+
 	echo '<tr>
 
-			<td data-title="Name">'.$row["lecture_name"].'</td>
-			<td data-title="Notes">'.$row["lecture_notes"].'</td>
-			<td data-title="From">'.$row["lecture_from_time"].'</td>
-			<td data-title="To">'.$row["lecture_to_time"].'</td>
-			<td data-title="Location">'.$row["lecture_location"].'</td>
-			<td data-title="Capacity">'.$row["lecture_capacity"].'</td>
+			<td data-title="Name">'.$tutorial_name.'</td>
+			<td data-title="Notes">'.$tutorial_assistant.'</td>
+			<td data-title="Notes">'.$tutorial_day.'</td>
+			<td data-title="From">'.$tutorial_from_time.'</td>
+			<td data-title="To">'.$tutorial_to_time.'</td>
+			<td data-title="Location">'.$tutorial_location.'</td>
+			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>';
 	}
 
@@ -217,391 +176,6 @@ include 'includes/session.php';
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingFour">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Thursday</a>
-  	</h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headindFour">
-  	<div class="panel-body">
-
-	<!-- Thursday -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt4 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Thursday' LIMIT 1");
-
-	while($row = $stmt4->fetch_assoc()) {
-
-	echo '<tr>
-
-			<td data-title="Name">'.$row["lecture_name"].'</td>
-			<td data-title="Notes">'.$row["lecture_notes"].'</td>
-			<td data-title="From">'.$row["lecture_from_time"].'</td>
-			<td data-title="To">'.$row["lecture_to_time"].'</td>
-			<td data-title="Location">'.$row["lecture_location"].'</td>
-			<td data-title="Capacity">'.$row["lecture_capacity"].'</td>
-			</tr>';
-	}
-
-	$stmt4->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingFive">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">Friday</a>
-  	</h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-  	<div class="panel-body">
-
-	<!-- Friday -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt5 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' AND system_lectures.lecture_day = 'Friday' LIMIT 1");
-
-	while($row = $stmt5->fetch_assoc()) {
-
-	echo '<tr>
-
-			<td data-title="Name">'.$row["lecture_name"].'</td>
-			<td data-title="Notes">'.$row["lecture_notes"].'</td>
-			<td data-title="From">'.$row["lecture_from_time"].'</td>
-			<td data-title="To">'.$row["lecture_to_time"].'</td>
-			<td data-title="Location">'.$row["lecture_location"].'</td>
-			<td data-title="Capacity">'.$row["lecture_capacity"].'</td>
-			</tr>';
-	}
-
-	$stmt5->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	</div><!-- /panel-group -->
-
-    <h3 class="feedback-custom">Tutorials</h3>
-    <hr class="hr-thin">
-
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-	<div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingSix">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">Monday</a>
-  	</h4>
-    </div>
-    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-  	<div class="panel-body">
-
-	<!-- Monday -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt6 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_to_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Monday' LIMIT 1");
-
-	while($row = $stmt6->fetch_assoc()) {
-
-	echo '<tr>
-
-			<td data-title="Name">'.$row["tutorial_name"].'</td>
-			<td data-title="Notes">'.$row["tutorial_notes"].'</td>
-			<td data-title="From">'.$row["tutorial_from_time"].'</td>
-			<td data-title="To">'.$row["tutorial_to_time"].'</td>
-			<td data-title="Location">'.$row["tutorial_location"].'</td>
-			<td data-title="Capacity">'.$row["tutorial_capacity"].'</td>
-			</tr>';
-	}
-
-	$stmt6->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-   	<div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingSeven">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">Tuesday</a>
-  	</h4>
-    </div>
-    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-  	<div class="panel-body">
-
-	<!-- Tuesday -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt7 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_to_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Tuesday' LIMIT 1");
-
-	while($row = $stmt7->fetch_assoc()) {
-
-	echo '<tr>
-
-			<td data-title="Name">'.$row["tutorial_name"].'</td>
-			<td data-title="Notes">'.$row["tutorial_notes"].'</td>
-			<td data-title="From">'.$row["tutorial_from_time"].'</td>
-			<td data-title="To">'.$row["tutorial_to_time"].'</td>
-			<td data-title="Location">'.$row["tutorial_location"].'</td>
-			<td data-title="Capacity">'.$row["tutorial_capacity"].'</td>
-			</tr>';
-	}
-
-	$stmt7->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingEight">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight">Wednesday</a>
-  	</h4>
-    </div>
-    <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
-  	<div class="panel-body">
-
-	<!-- Wednesday -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt8 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_to_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Wednesday' LIMIT 1");
-
-	while($row = $stmt8->fetch_assoc()) {
-
-	echo '<tr>
-
-			<td data-title="Name">'.$row["tutorial_name"].'</td>
-			<td data-title="Notes">'.$row["tutorial_notes"].'</td>
-			<td data-title="From">'.$row["tutorial_from_time"].'</td>
-			<td data-title="To">'.$row["tutorial_to_time"].'</td>
-			<td data-title="Location">'.$row["tutorial_location"].'</td>
-			<td data-title="Capacity">'.$row["tutorial_capacity"].'</td>
-			</tr>';
-	}
-
-	$stmt8->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingNine">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine">Thursday</a>
-  	</h4>
-    </div>
-    <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headindNine">
-  	<div class="panel-body">
-
-	<!-- Thursday -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt9 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_to_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Thursday' LIMIT 1");
-
-	while($row = $stmt9->fetch_assoc()) {
-
-	echo '<tr>
-
-			<td data-title="Name">'.$row["tutorial_name"].'</td>
-			<td data-title="Notes">'.$row["tutorial_notes"].'</td>
-			<td data-title="From">'.$row["tutorial_from_time"].'</td>
-			<td data-title="To">'.$row["tutorial_to_time"].'</td>
-			<td data-title="Location">'.$row["tutorial_location"].'</td>
-			<td data-title="Capacity">'.$row["tutorial_capacity"].'</td>
-			</tr>';
-	}
-
-	$stmt9->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingTen">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="true" aria-controls="collapseTen">Friday</a>
-  	</h4>
-    </div>
-    <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
-  	<div class="panel-body">
-
-	<!-- Friday -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt10 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_notes, system_tutorials.tutorial_from_time, system_tutorials.tutorial_to_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$userid' AND system_tutorials.tutorial_day = 'Friday' LIMIT 1");
-
-	while($row = $stmt10->fetch_assoc()) {
-
-	echo '<tr>
-
-			<td data-title="Name">'.$row["tutorial_name"].'</td>
-			<td data-title="Notes">'.$row["tutorial_notes"].'</td>
-			<td data-title="From">'.$row["tutorial_from_time"].'</td>
-			<td data-title="To">'.$row["tutorial_to_time"].'</td>
-			<td data-title="Location">'.$row["tutorial_location"].'</td>
-			<td data-title="Capacity">'.$row["tutorial_capacity"].'</td>
-			</tr>';
-	}
-
-	$stmt10->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /.panel-body -->
-    </div><!-- /.panel-collapse -->
-	</div><!-- /.panel-default -->
 
 	</div><!-- /.panel-group -->
 
