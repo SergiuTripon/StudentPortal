@@ -981,7 +981,7 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Bootstrap calendar */
 
-/* Breadcrumb style */
+/* Breadcrumb */
 .breadcrumb {
     margin-bottom: 10px;
     background-color: #6B5204;
@@ -1002,7 +1002,16 @@ form .success-style:-ms-input-placeholder {
 .breadcrumb > li + li:before {
     color: #FFFFFF;
 }
-/* End of Breadcrumb style */
+/* End of Breadcrumb */
+
+/* Alerts */
+.alert {
+    margin-bottom: 10px;
+    background-color: #6B5204;
+    border-radius: 3px;
+    border: 1px solid #6B5204;
+}
+/* End of Alerts */
 
 /* Buttons */
 .btn, .btn:focus, .btn:hover {
