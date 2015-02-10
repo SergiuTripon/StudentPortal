@@ -1,5 +1,6 @@
 <?php
-include '../../session.php';
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/includes/session.php";
 ?>
 
 <!DOCTYPE html>
