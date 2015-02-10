@@ -5,12 +5,15 @@ DROP TABLE user_token;
 DROP TABLE user_tasks;
 DROP TABLE system_lectures;
 DROP TABLE system_tutorials;
+DROP TABLE system_exams;
 DROP TABLE user_timetable;
 DROP TABLE system_modules;
-DROP TABLE system_exams;
 DROP TABLE booked_events;
 DROP TABLE system_events;
-DROP TABLE user_signin; 
+DROP TABLE reserved_books;
+DROP TABLE system_books;
+DROP TABLE user_messages;
+DROP TABLE user_signin;
 
 CREATE TABLE `student_portal`.`user_signin` (
 	`userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -133,7 +136,7 @@ CREATE TABLE `student_portal`.`system_lectures` (
 	`moduleid` INT(11) NOT NULL,
 	`lectureid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`lecture_name` VARCHAR(300) NOT NULL,
-	`lecture_lecturer` VARCHAR(70) NOT NULL,
+	`lecture_lecturer` INT(11) NOT NULL,
 	`lecture_notes` VARCHAR(5000),
 	`lecture_day` VARCHAR(9) NOT NULL,
 	`lecture_from_time` TIME NOT NULL,
@@ -146,7 +149,9 @@ CREATE TABLE `student_portal`.`system_lectures` (
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
+REFERENCES system_modules(moduleid),
+FOREIGN KEY (lecture_lecturer)
+REFERENCES user_signin(userid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -155,7 +160,7 @@ CREATE TABLE `student_portal`.`system_tutorials` (
 	`moduleid` INT(11) NOT NULL,
 	`tutorialid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`tutorial_name` VARCHAR(300) NOT NULL,
-	`tutorial_assistant` VARCHAR(70) NOT NULL,
+	`tutorial_assistant` INT(11) NOT NULL,
 	`tutorial_notes` VARCHAR(5000),
 	`tutorial_day` VARCHAR(9) NOT NULL,
 	`tutorial_from_time` TIME NOT NULL,
@@ -168,7 +173,9 @@ CREATE TABLE `student_portal`.`system_tutorials` (
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
+REFERENCES system_modules(moduleid),
+FOREIGN KEY (tutorial_assistant)
+REFERENCES user_signin(userid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
