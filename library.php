@@ -109,6 +109,8 @@ include 'includes/session.php';
 	$book_copy_no = $row["book_copy_no"];
 	$book_status = $row["book_status"];
 
+	$book_status = ucfirst($book_status);
+
 	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
