@@ -1107,7 +1107,7 @@ form .success-style:-ms-input-placeholder {
 .table-custom tr:nth-child(even) {
     background: #CCC;
 }
-.table-customtr:nth-child(odd) {
+.table-custom tr:nth-child(odd) {
     background: #FFF;
 }
 /* End of Table Custom style */
