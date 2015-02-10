@@ -895,23 +895,6 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Calendar portal */
 
-/* Timetable portal */
-#exams-portal h3 {
-    color: #4582EC;
-}
-
-#exams-portal .breadcrumb {
-    margin-bottom: 20px;
-}
-
-#exams-portal hr {
-    margin-top: 0;
-    margin-bottom: 20px;
-    border-color: #4582EC;
-    background: #4582EC;
-}
-/* End of Timetable portal */
-
 /* Lock page style */
 #showdate {
     color: #333333;
