@@ -108,8 +108,11 @@ include 'includes/session.php';
 	$book_notes = $row["book_notes"];
 	$book_copy_no = $row["book_copy_no"];
 	$book_status = $row["book_status"];
-
 	$book_status = ucfirst($book_status);
+
+	if ($book_status = 'Reserved') {
+		$book_reserved_style = "<style> #reserve-$bookid { display: none !important; } </style>";
+	}
 
 	echo '<tr id="book-'.$bookid.'">
 
