@@ -1,5 +1,6 @@
 <?php
-include '../session.php';
+$root = $_SERVER['DOCUMENT_ROOT'];
+include($root."/includes/session.php");
 ?>
 
     <!-- Navigation -->
