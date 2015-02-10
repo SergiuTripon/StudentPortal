@@ -110,7 +110,6 @@ include 'includes/session.php';
 	$event_to = $row["event_to"];
 	$event_amount = $row["event_amount"];
 	$event_ticket_no = $row["event_ticket_no"];
-	$event_ticket_no1 = $row["event_ticket_no"];
 	$event_category = ucfirst($row["event_category"]);
 
 	echo '<tr id="task-'.$row["eventid"].'">
@@ -123,7 +122,7 @@ include 'includes/session.php';
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.$event_ticket_no.'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td data-title="Book"><a id="book-'.$eventid.'" class="book-button">'.($event_ticket_no = '0' ? "" : "<i class=\"fa fa-gbp\"></i>").'</a></td>
+			<td data-title="Book"><a id="book-'.$eventid.'" class="book-button">'.($row["event_ticket_no"] = '0' ? "" : "<i class=\"fa fa-gbp\"></i>").'</a></td>
 			</tr>';
 	}
 
