@@ -170,6 +170,11 @@ if (isset($_POST["recordToMessage"])) {
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
+    $("#success").hide();
+    $("#error").hide();
+    $("#error1").hide();
+    $("#error2").hide();
+
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
