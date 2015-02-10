@@ -102,10 +102,6 @@ include 'includes/session.php';
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	if ($row["book_status"] = 'Reserved') {
-		$book_reserved_style = "<style> #reserve-$bookid { display: none !important; } </style>";
-	}
-
 	$bookid = $row["bookid"];
 	$book_name = $row["book_name"];
 	$book_author = $row["book_author"];
