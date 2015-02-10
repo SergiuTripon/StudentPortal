@@ -21,41 +21,34 @@ include 'session.php';
 
 </head>
 
-	<style>
-    html, body {
-		height: 100% !important;
-	}
-    </style>
-
 <body>
 	<div class="preloader"></div>
 	
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-	
-	<!-- Header -->
-    <header class="intro">
-    <div class="intro-body">
+
+    <?php include '../includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
     
 	<form class="form-custom" name="paypal_success_form">
     
-    <div class="logo-custom animated fadeIn delay">
+    <div class="form-logo">
     <i class="fa fa-paypal"></i>
     </div>
     
-    <hr class="hr-custom">
-	
+    <hr>
     <p class="feedback-happy text-center">Payment completed successfully.</p>
-    
-    <hr class="hr-custom">
+    <hr>
     
     <div class="text-center">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="../../overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="../../overview/"><span class="ladda-label">Overview</span></a>
 	</div>
 	
     </form>
 	
 	</div>
-    </header>
+
+    <?php include '../includes/footer/footers.php'; ?>
 	
 	<?php else : ?>
 	
