@@ -111,6 +111,10 @@ include 'includes/session.php';
 
 	$book_status = ucfirst($book_status);
 
+	if ($book_status = 'Reserved') {
+		$book_reserved_style = "<style> #book-$bookid { display: none; } </style>";
+	}
+
 	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
@@ -132,6 +136,8 @@ include 'includes/session.php';
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
+
+	<?php echo $event_soldout_style; ?>
 
 	<div id="reservedbooks-content" class="panel panel-default">
 
