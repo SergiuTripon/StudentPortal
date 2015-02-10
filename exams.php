@@ -66,7 +66,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_exams.exam_name, exam_date.exam_notes, system_exams.exam_date, system_exams.exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = '$userid'");
+	$stmt1 = $mysqli->query("SELECT system_exams.exam_name, system_exams.exam_notes, system_exams.exam_date, system_exams.exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = '$userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
