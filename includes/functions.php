@@ -1265,7 +1265,7 @@ function MessageUser() {
 	$message_body = addslashes($message_body);
 
 	// subject
-	$subject = "New message on Student Portal:";
+	$subject = "$firstname $surname - New message on Student Portal:";
 
 	// message
 	$message = '<html>';
