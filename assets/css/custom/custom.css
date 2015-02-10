@@ -12,6 +12,7 @@ html {
 /* Font, background and some spacing */
 body {
     font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
     margin-bottom: 60px;
     background: #FFFFFF url(../../img/bg/background.png);
 }
