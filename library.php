@@ -119,8 +119,8 @@ include 'includes/session.php';
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
-			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Reserve"><a id="reserve-'.ucfirst($book_status).'" class="reserve-button"><i class="fa fa-book"></i></a></td>
+			<td data-title="Status">'.ucfirst($book_status).'</td>
+			<td data-title="Reserve"><a id="reserve-'.$bookid.'" class="reserve-button"><i class="fa fa-book"></i></a></td>
 			</tr>';
 	}
 
