@@ -102,20 +102,17 @@ include 'includes/session.php';
 
 	while($row = $stmt1->fetch_assoc()) {
 
+	if ($row["book_status"] = 'Reserved') {
+		$book_reserved_style = "<style> #reserve-$bookid { display: none !important; } </style>";
+	}
+
 	$bookid = $row["bookid"];
 	$book_name = $row["book_name"];
 	$book_author = $row["book_author"];
 	$book_notes = $row["book_notes"];
 	$book_copy_no = $row["book_copy_no"];
-	$book_status1 = $row["book_status"];
-	$book_status1 = ucfirst($book_status1);
-
 	$book_status = $row["book_status"];
 	$book_status = ucfirst($book_status);
-
-	if ($book_status1 = 'Reserved') {
-		$book_reserved_style = "<style> #reserve-$bookid { display: none !important; } </style>";
-	}
 
 	echo '<tr id="book-'.$bookid.'">
 
