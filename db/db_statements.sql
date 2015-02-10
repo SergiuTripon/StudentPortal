@@ -133,6 +133,7 @@ CREATE TABLE `student_portal`.`system_lectures` (
 	`moduleid` INT(11) NOT NULL,
 	`lectureid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`lecture_name` VARCHAR(300) NOT NULL,
+	`lecture_lecturer` VARCHAR(70) NOT NULL,
 	`lecture_notes` VARCHAR(5000),
 	`lecture_day` VARCHAR(9) NOT NULL,
 	`lecture_from_time` TIME NOT NULL,
@@ -154,6 +155,7 @@ CREATE TABLE `student_portal`.`system_tutorials` (
 	`moduleid` INT(11) NOT NULL,
 	`tutorialid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`tutorial_name` VARCHAR(300) NOT NULL,
+	`tutorial_assistant` VARCHAR(70) NOT NULL,
 	`tutorial_notes` VARCHAR(5000),
 	`tutorial_day` VARCHAR(9) NOT NULL,
 	`tutorial_from_time` TIME NOT NULL,
@@ -176,13 +178,17 @@ CREATE TABLE `student_portal`.`system_exams` (
 	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`exam_name` VARCHAR(300) NOT NULL,
 	`exam_notes` VARCHAR(5000),
-	`exam _date` DATETIME NOT NULL,
+	`exam_date` DATETIME NOT NULL,
 	`exam_time` TIME NOT NULL,
 	`exam_location` VARCHAR(300) NOT NULL,
 	`exam_capacity` INT(11) NOT NULL,
 	`exam_status` VARCHAR(9) NOT NULL,
 	`created_on` DATETIME NOT NULL,
-	`updated_on` DATETIME
+	`updated_on` DATETIME,
+FOREIGN KEY (moduleid)
+REFERENCES system_modules(moduleid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 CREATE TABLE `student_portal`.`user_timetable` (
