@@ -903,7 +903,6 @@ function CreateTask () {
     $task_category = strtolower($task_category);
 
     if ($task_category == 'university') { $task_class = 'event-important'; }
-    if ($task_category == 'work') { $task_class = 'event-info'; }
     if ($task_category == 'personal') { $task_class = 'event-warning'; }
     if ($task_category == 'other') { $task_class = 'event-success'; }
 
@@ -1184,10 +1183,11 @@ function ReserveBook() {
 	$bookreserved_from = filter_input(INPUT_POST, 'bookreserved_from', FILTER_SANITIZE_STRING);
 	$bookreserved_to = filter_input(INPUT_POST, 'bookreserved_to', FILTER_SANITIZE_STRING);
 
+	$book_class = 'event-info';
 	$isReturned = 0;
 
-	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?)");
-	$stmt1->bind_param('iissi', $userid, $bookid, $bookreserved_from, $bookreserved_to, $isReturned);
+	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, book_class, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt1->bind_param('iisssi', $userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned);
 	$stmt1->execute();
 	$stmt1->close();
 
