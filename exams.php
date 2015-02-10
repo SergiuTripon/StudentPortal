@@ -16,7 +16,7 @@ include 'includes/session.php';
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
-    <title>Student Portal | Timetable</title>
+    <title>Student Portal | Exams</title>
 
 </head>
 
@@ -31,7 +31,7 @@ include 'includes/session.php';
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-	<li class="active">Timetable</li>
+	<li class="active">Exams</li>
     </ol>
 
     <h3 class="feedback-custom">Lectures</h3>
@@ -43,7 +43,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Monday</a>
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Exams - click to minimize or maximize</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -51,14 +51,14 @@ include 'includes/session.php';
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom exam-table">
 
 	<thead>
 	<tr>
 	<th>Name</th>
 	<th>Notes</th>
-	<th>From</th>
-    <th>To</th>
+	<th>Date</th>
+    <th>Time</th>
     <th>Location</th>
     <th>Capacity</th>
 	</tr>
@@ -83,8 +83,8 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$exam_name.'</td>
 			<td data-title="Notes">'.$exam_notes.'</td>
-			<td data-title="From">'.$exam_date.'</td>
-			<td data-title="To">'.$exam_time.'</td>
+			<td data-title="Date">'.$exam_date.'</td>
+			<td data-title="Time">'.$exam_time.'</td>
 			<td data-title="Location">'.$exam_location.'</td>
 			<td data-title="Capacity">'.$exam_capacity.'</td>
 			</tr>';
