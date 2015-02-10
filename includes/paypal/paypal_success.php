@@ -1,5 +1,5 @@
 <?php
-include 'session.php';
+include '../../session.php';
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +74,7 @@ include 'session.php';
     </form>
 	</div>
 
-    <?php include '../../includes/footer/footers.php'; ?>
+    <?php include '../../includes/footers/footer.php'; ?>
 	
 	<?php endif; ?>
 
