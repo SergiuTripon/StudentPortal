@@ -1,6 +1,6 @@
 <?php
 require( '../../config.php' );
-include( DIR_BASE . 'includes/session.php' );
+include( DIR_INCLUDES . 'session.php' );
 ?>
 
     <!-- Navigation -->
