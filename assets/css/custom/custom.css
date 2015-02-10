@@ -169,31 +169,31 @@ hr {
 }
 
 /* Action buttons */
-.change-button {
+.change-button i {
     font-size: 20px;
 }
 
-.update-button {
+.update-button i {
     font-size: 20px;
 }
 
-.complete-button {
+.complete-button i {
     font-size: 20px;
 }
 
-.reserve-button {
+.reserve-button i {
     font-size: 20px;
 }
 
-.message-button {
+.message-button i {
     font-size: 20px;
 }
 
-.book-button {
+.book-button i {
     font-size: 20px;
 }
 
-.delete-button {
+.delete-button i {
     font-size: 20px;
 }
 /* End of Global */
