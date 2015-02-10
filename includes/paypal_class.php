@@ -76,7 +76,7 @@ class paypal_class {
     	echo "<meta name=\"description\" content=\"\">\n";
     	echo "<meta name=\"author\" content=\"\">\n";
 
-		echo "<title>Processing Payment...</title>\n";
+		echo "<title>Student Portal | Processing Payment...</title>\n";
 
 		echo "<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">\n";
 		echo "<link href=\"https://student-portal.co.uk/assets/css/bootstrap/bootstrap.min.css\" rel=\"stylesheet\">\n";
@@ -89,8 +89,7 @@ class paypal_class {
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
 		echo "<div class=\"preloader\"></div>";
 
-		echo "<header class=\"intro\">\n";
-		echo "<div class=\"intro-body\">\n";
+		echo "<div class=\"container\">\n";
 
 		echo "<form class=\"form-custom\" method=\"post\" name=\"paypal_form\" action=\"".$paypal_url."\">\n";
 		if (isset($this->paypal_mail))echo "<input type=\"hidden\" name=\"business\" value=\"$this->paypal_mail\"/>\n";
@@ -98,23 +97,22 @@ class paypal_class {
 			echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
 		}
 
-		echo "<div class=\"logo-custom\">\n";
+		echo "<div class=\"form-logo text-center\">\n";
 		echo "<i class=\"fa fa-paypal\"></i>\n";
 		echo "</div>\n";
 
-		echo "<hr class=\"hr-custom\">";
+		echo "<hr>";
 		echo "<p class=\"feedback-custom text-center\">Please wait, your order is being processed and you will be redirected to the PayPal website.</p>\n";
 		echo "<p class=\"feedback-custom text-center\">If you are not automatically redirected to PayPal within 5 seconds, click on the button below.</p>\n";
-		echo "<hr class=\"hr-custom\">\n";
+		echo "<hr>\n";
 
 		echo "<div class=\"text-center\">\n";
-		echo "<button type=\"submit\" class=\"btn btn-custom btn-lg ladda-button\" data-style=\"slide-up\" data-spinner-color=\"#FFA500\"><span class=\"ladda-label\">Click here</span></button>\n";
+		echo "<button type=\"submit\" class=\"btn btn-primary btn-lg ladda-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Click here</span></button>\n";
 		echo "</div>\n";
 
 		echo "</form>\n";
 
 		echo "</div>\n";
-		echo "</header>\n";
 
 		echo "<script src=\"https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js\"></script>\n";
 		echo "<script src=\"https://student-portal.co.uk/assets/js/ladda/spin.min.js\"></script>\n";
