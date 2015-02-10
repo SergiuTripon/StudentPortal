@@ -89,6 +89,8 @@ class paypal_class {
 		echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
 		echo "<div class=\"preloader\"></div>";
 
+		include 'menus/portal_menu.php';
+
 		echo "<div class=\"container\">\n";
 
 		echo "<form class=\"form-custom\" method=\"post\" name=\"paypal_form\" action=\"".$paypal_url."\">\n";
@@ -113,6 +115,8 @@ class paypal_class {
 		echo "</form>\n";
 
 		echo "</div>\n";
+
+		include 'footers/footer.php';
 
 		echo "<script src=\"https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js\"></script>\n";
 		echo "<script src=\"https://student-portal.co.uk/assets/js/ladda/spin.min.js\"></script>\n";
