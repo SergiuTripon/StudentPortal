@@ -1105,10 +1105,10 @@ form .success-style:-ms-input-placeholder {
 }
 
 .table-custom tr:nth-child(even) {
-    background: #CCC;
+    background: #CCC !important;
 }
 .table-custom tr:nth-child(odd) {
-    background: #FFF;
+    background: #FFF !important;
 }
 /* End of Table Custom style */
 
