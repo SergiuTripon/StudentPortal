@@ -57,7 +57,7 @@ include 'includes/session.php';
 	<tr>
 	<th>Name</th>
 	<th>Lecturer</th>
-	<th>Notes</th>
+	<th>Day</th>
 	<th>From</th>
     <th>To</th>
     <th>Location</th>
@@ -68,13 +68,13 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_lecturer, system_lectures.lecture_notes, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' LIMIT 1");
+	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_lecturer, system_lectures.lecture_notes, system_lectures.lecture_day, system_lectures.lecture_from_time, system_lectures.lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = '$userid' LIMIT 1");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$lecture_name = $row["lecture_name"];
 	$lecture_lecturer = $row["lecture_lecturer"];
-	$lecture_notes = $row["lecture_notes"];
+	$lecture_day = $row["lecture_day"];
 	$lecture_from_time = $row["lecture_from_time"];
 	$lecture_to_time = $row["lecture_to_time"];
 	$lecture_location = $row["lecture_location"];
@@ -91,7 +91,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$lecture_name.'</td>
 			<td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
-			<td data-title="Notes">'.$lecture_notes.'</td>
+			<td data-title="From">'.lecture_day.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
