@@ -158,7 +158,7 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Name">'.$tutorial_name.'</td>
-			<td data-title="Notes">'.$tutorial_assistant.'</td>
+			<td data-title="Notes">'.$firstname.' '.$surname.'</td>
 			<td data-title="Notes">'.$tutorial_day.'</td>
 			<td data-title="From">'.$tutorial_from_time.'</td>
 			<td data-title="To">'.$tutorial_to_time.'</td>
