@@ -112,11 +112,6 @@ include 'includes/session.php';
 	$event_ticket_no = $row["event_ticket_no"];
 	$event_category = ucfirst($row["event_category"]);
 
-	if (empty($event_ticket_no)) {
-		$event_ticket_no = "Sold Out";
-		$event_soldout_style = "<style> #book-$eventid { display: none; } </style>";
-	}
-
 	if (!empty($event_url)) {
 		$event_url = "<a target=\"_blank\" href=\"//$url\">Link</a>";
 	} else {
