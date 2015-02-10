@@ -1,4 +1,6 @@
 <?php
+include 'session.php';
+
 /**
  * PHP Paypal IPN Integration Class
  * 6.25.2008 - Eric Wang, http://code.google.com/p/paypal-ipn-class-php/
