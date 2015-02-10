@@ -91,7 +91,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$lecture_name.'</td>
 			<td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
-			<td data-title="From">'.lecture_day.'</td>
+			<td data-title="From">'.$lecture_day.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
