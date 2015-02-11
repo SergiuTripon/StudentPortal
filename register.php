@@ -6,8 +6,6 @@ include 'includes/session.php';
 
 <head>
 
-    <?php include 'assets/js-paths/pacejs-js-path.php'; ?>
-
     <?php include 'assets/meta-tags.php'; ?>
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>

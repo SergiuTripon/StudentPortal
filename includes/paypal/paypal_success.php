@@ -3,13 +3,7 @@
 
 <head>
 
-    <?php include '../../assets/js-paths/pacejs-js-path.php'; ?>
-	
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <?php include '../../assets/meta-tags.php'; ?>
 
     <?php include '../../assets/css-paths/common-css-paths.php'; ?>
 

@@ -30,8 +30,6 @@ if ($fee_amount == "0.00") {
 
 <head>
 
-    <?php include '../assets/js-paths/pacejs-js-path.php'; ?>
-
     <?php include '../assets/meta-tags.php'; ?>
 
     <title>Student Portal | Pay Course Fees</title>

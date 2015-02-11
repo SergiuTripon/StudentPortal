@@ -12,8 +12,6 @@ $cycle_hire = new SimpleXMLElement($result);
 
 <head>
 
-	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
-
 	<?php include '../assets/meta-tags.php'; ?>
 
 	<?php include '../assets/css-paths/datatables-css-path.php'; ?>

@@ -1,4 +1,4 @@
-    <?php
+<?php
 include 'includes/session.php';
 ?>
 
@@ -6,8 +6,6 @@ include 'includes/session.php';
 <html lang="en">
 
 <head>
-
-    <?php include 'assets/js-paths/pacejs-js-path.php'; ?>
 
     <?php include 'assets/meta-tags.php'; ?>
 

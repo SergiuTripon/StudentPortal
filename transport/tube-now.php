@@ -16,14 +16,7 @@ $xml_station_status = new SimpleXMLElement($result2);
 
 <head>
 
-	<?php include '../assets/js-paths/pacejs-js-path.php'; ?>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../assets/img/favicon/favicon.ico">
+	<?php include '../assets/meta-tags.php'; ?>
 
     <title>Student Portal | Tube - Now</title>
 

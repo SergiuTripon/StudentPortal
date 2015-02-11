@@ -27,11 +27,9 @@ if (isset($_POST["recordToMessage"])) {
 
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 
 <head>
-
-    <?php include '../assets/js-paths/pacejs-js-path.php'; ?>
 
     <?php include '../assets/meta-tags.php'; ?>
 

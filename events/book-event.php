@@ -32,8 +32,6 @@ if (isset($_POST["recordToBook"])) {
 
 <head>
 
-    <?php include '../assets/js-paths/pacejs-js-path.php'; ?>
-
     <?php include '../assets/meta-tags.php'; ?>
 
     <title>Student Portal | Book event</title>
