@@ -40,6 +40,7 @@ include 'includes/session.php';
     <div class="tile large-tile">
     <i class="fa fa-table"></i>
 	<p class="large-tile-text">Timetable</p>
+    <span class="badge">4</span>
     </div>
     </a>
 	</div>
