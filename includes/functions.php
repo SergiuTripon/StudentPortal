@@ -300,6 +300,8 @@ function GetDashboardData() {
 	global $userid;
 	global $timetable_count;
 	global $exams_count;
+	global $library_count;
+	global $calendar_count;
 
 	$stmt1 = $mysqli->prepare("SELECT system_lectures.lectureid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userid);
@@ -329,13 +331,33 @@ function GetDashboardData() {
 	$stmt4->bind_result($bookid);
 	$stmt4->fetch();
 
+	$task_status = 'active';
+	$stmt5 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE userid = ? AND task_status = ?");
+	$stmt5->bind_param('is', $userid, $task_status);
+	$stmt5->execute();
+	$stmt5->store_result();
+	$stmt5->bind_result($taskid);
+	$stmt5->fetch();
+
+	$event_status = 'active';
+	$stmt6 = $mysqli->prepare("SELECT eventid FROM system_events WHERE event_status = ?");
+	$stmt6->bind_param('i', $event_status);
+	$stmt6->execute();
+	$stmt6->store_result();
+	$stmt6->bind_result($eventid);
+	$stmt6->fetch();
+
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
 	$timetable_count = $lectures_count + $tutorials_count;
 
 	$exams_count = $stmt3->num_rows;
 
-	$reservedbooks_count = $stmt4->num_rows;
+	$library_count = $stmt4->num_rows;
+
+	$calendar_count = $stmt5->num_rows;
+
+	$events_count = $stmt6->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();

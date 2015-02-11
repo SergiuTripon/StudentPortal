@@ -61,7 +61,7 @@ include 'includes/functions.php';
 	<a href="../library/">
 	<div class="tile">
     <i class="fa fa-book"></i>
-	<p class="tile-text">Library<span class="badge"><?php echo $reservedbooks_count; ?></span></p>
+	<p class="tile-text">Library<span class="badge"><?php echo $library_count; ?></span></p>
     </div>
     </a>
 	</div>
@@ -79,7 +79,7 @@ include 'includes/functions.php';
 	<a href="../calendar/">
 	<div class="tile">
     <i class="fa fa-calendar"></i>
-	<p class="tile-text">Calendar</p>
+	<p class="tile-text">Calendar<span class="badge"><?php echo $calendar_count; ?></span></p>
     </div>
     </a>
 	</div>
@@ -88,7 +88,7 @@ include 'includes/functions.php';
 	<a href="../events/">
     <div class="tile">
 	<i class="fa fa-beer"></i>
-	<p class="tile-text">Events</p>
+	<p class="tile-text">Events<span class="badge"><?php echo $events_count; ?></span></p>
     </div>
     </a>
 	</div>
