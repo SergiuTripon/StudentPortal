@@ -868,11 +868,11 @@ form .success-style:-ms-input-placeholder {
     border-color: #3FAD46;
     background: #3FAD46;
 }
-#overview-portal .panel-group {
+#account-admin-portal .panel-group {
     margin-bottom: 0px;
 }
 
-#overview-portal .panel-group .panel {
+#account-admin-portal .panel-group .panel {
     margin-bottom: 10px;
 }
 /* End of Account admin portal */
