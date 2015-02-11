@@ -294,19 +294,19 @@ footer p {
 
 /* Features showcase */
 #features-showcase h1 {
-    color: #5CB85C;
+    color: #449D44;
 }
 
 #features-showcase hr {
     max-width: 300px;
     margin-top: 0px;
     margin-bottom: 0px;
-    border-color: #5CB85C;
-    background: #5CB85C;
+    border-color: #449D44;
+    background: #449D44;
 }
 
 #features-showcase .text-left {
-    color: #5CB85C;
+    color: #449D44;
     font-weight: 600;
     margin-bottom: 0px;
 }
