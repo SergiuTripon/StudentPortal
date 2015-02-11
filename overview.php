@@ -10,6 +10,8 @@ include 'includes/session.php';
 
     $lectures_count = $stmt1->num_rows;
 
+    $stmt1->close();
+
 ?>
 
 
