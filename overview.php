@@ -43,7 +43,7 @@ include 'includes/functions.php';
 	<a href="../timetable/">
     <div class="tile large-tile">
     <i class="fa fa-table"></i>
-	<p class="large-tile-text">Timetable<span class="badge"><?php echo $timetable_count; ?></span></p>
+	<p class="large-tile-text">Timetable<span class="badge"><?php echo ($timetable_count == '0' ? "" : "$timetable_count"); ?></span></p>
     </div>
     </a>
 	</div>
@@ -52,7 +52,7 @@ include 'includes/functions.php';
 	<a href="../exams/">
     <div class="tile">
 	<i class="fa fa-pencil"></i>
-	<p class="tile-text">Exams<span class="badge"><?php echo $exams_count; ?></span></p>
+	<p class="tile-text">Exams<span class="badge"><?php echo ($exams_count == '0' ? "" : "$exams_count"); ?></span></p>
     </div>
     </a>
 	</div>
@@ -61,7 +61,7 @@ include 'includes/functions.php';
 	<a href="../library/">
 	<div class="tile">
     <i class="fa fa-book"></i>
-	<p class="tile-text">Library<span class="badge"><?php echo $library_count; ?></span></p>
+	<p class="tile-text">Library<span class="badge"><?php echo ($library_count == '0' ? "" : "$library_count"); ?></span></p>
     </div>
     </a>
 	</div>
@@ -88,7 +88,7 @@ include 'includes/functions.php';
 	<a href="../events/">
     <div class="tile">
 	<i class="fa fa-beer"></i>
-	<p class="tile-text">Events<span class="badge"><?php echo $events_count; ?></span></p>
+	<p class="tile-text">Events<span class="badge"><?php echo ($events_count == '0' ? "" : "$events_count"); ?></span></p>
     </div>
     </a>
 	</div>
@@ -106,7 +106,7 @@ include 'includes/functions.php';
 	<a href="../feedback/">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
-	<p class="tile-text">Feeback</p>
+	<p class="tile-text">Feedback</p>
     </div>
     </a>
 	</div>
@@ -115,7 +115,7 @@ include 'includes/functions.php';
 	<a href="../messenger/">
     <div class="tile">
     <i class="fa fa-comments"></i>
-	<p class="tile-text">Messenger</p>
+	<p class="tile-text">Messenger<?php echo ($messenger_count == '0' ? "" : "$messenger_count"); ?></p>
     </div>
     </a>
 	</div>
@@ -196,7 +196,7 @@ include 'includes/functions.php';
 	<a href="../feedback/">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
-	<p class="tile-text">Feeback</p>
+	<p class="tile-text">Feedback</p>
     </div>
     </a>
 	</div>
@@ -338,7 +338,7 @@ include 'includes/functions.php';
 	<a href="../feedback/">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
-	<p class="tile-text">Feeback</p>
+	<p class="tile-text">Feedback</p>
     </div>
     </a>
 	</div>

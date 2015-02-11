@@ -303,6 +303,7 @@ function GetDashboardData() {
 	global $library_count;
 	global $calendar_count;
 	global $events_count;
+	global $messenger_count;
 
 	$stmt1 = $mysqli->prepare("SELECT system_lectures.lectureid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userid);
@@ -348,6 +349,13 @@ function GetDashboardData() {
 	$stmt6->bind_result($eventid);
 	$stmt6->fetch();
 
+	$stmt7 = $mysqli->prepare("	SELECT user_messages.userid FROM user_messages WHERE user_messages.message_to = ?");
+	$stmt7->bind_param('i', $userid);
+	$stmt7->execute();
+	$stmt7->store_result();
+	$stmt7->bind_result($messenger_userid);
+	$stmt7->fetch();
+
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
 	$timetable_count = $lectures_count + $tutorials_count;
@@ -359,6 +367,8 @@ function GetDashboardData() {
 	$calendar_count = $stmt5->num_rows;
 
 	$events_count = $stmt6->num_rows;
+
+	$messenger_count = $stmt7->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();
