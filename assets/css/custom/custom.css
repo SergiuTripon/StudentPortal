@@ -294,6 +294,12 @@ footer p {
     font-weight: 600;
     margin-top: 20px;
 }
+
+@media (max-width: 320px) {
+.footer {
+    margin-top: 10px;
+}
+}
 /* End of Footer */
 
 /* Features showcase */
