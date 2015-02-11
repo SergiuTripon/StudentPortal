@@ -39,8 +39,7 @@ include 'includes/session.php';
 	<a href="../timetable/">
     <div class="tile large-tile">
     <i class="fa fa-table"></i>
-    <span class="badge">4</span>
-	<p class="large-tile-text">Timetable</p>
+	<div><p class="large-tile-text">Timetable</p><span class="badge">4</span></div>
     </div>
     </a>
 	</div>
