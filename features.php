@@ -120,8 +120,8 @@ include 'includes/session.php';
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div id="events">
 	<div class="tile">
-	<i class="fa fa-beer"></i>
-	<p>Events</p>
+	<i class="fa fa-calendar"></i>
+	<p>Calendar</p>
 	</div>
 	</div>
 	</div>
