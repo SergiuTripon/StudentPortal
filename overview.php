@@ -115,7 +115,7 @@ include 'includes/functions.php';
 	<a href="../messenger/">
     <div class="tile">
     <i class="fa fa-comments"></i>
-	<p class="tile-text">Messenger<?php echo ($messenger_count == '0' ? "" : "$messenger_count"); ?></p>
+	<p class="tile-text">Messenger<span class="badge"><?php echo ($messenger_count == '0' ? "" : "$messenger_count"); ?></span></p>
     </div>
     </a>
 	</div>
