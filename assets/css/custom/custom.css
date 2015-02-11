@@ -294,11 +294,11 @@ footer p {
 
 /* Features showcase */
 #features-showcase h1 {
-    color: #3FAD46;
+    color: #00BC8C;
 }
 
 #features-showcase .text-left {
-    color: #318837;
+    color: #00BC8C;
     font-weight: 600;
     margin-bottom: 0px;
 }
@@ -307,8 +307,8 @@ footer p {
     max-width: 300px;
     margin-top: 0px;
     margin-bottom: 0px;
-    border-color: #3FAD46;
-    background: #3FAD46;
+    border-color: #00BC8C;
+    background: #00BC8C;
 }
 /* End of Features showcase */
 
@@ -610,8 +610,8 @@ form .success-style:-ms-input-placeholder {
     cursor: pointer;
     text-align: center;
     border-radius: 3px;
-    background-color: #3FAD46;
-    border: 1px solid #318837;
+    background-color: #00BC8C;
+    border: 1px solid #008966;
 }
 
 .tile i {
