@@ -798,16 +798,6 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Accordion style */
 
-/* Overview portal */
-#overview-portal .panel-group {
-    margin-bottom: 0px;
-}
-
-#overview-portal .panel-group .panel {
-    margin-bottom: 10px;
-}
-/* End of Overview portal */
-
 /* Timetable portal */
 #timetable-portal h3 {
     color: #4582EC;

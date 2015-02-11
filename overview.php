@@ -151,7 +151,7 @@ include 'includes/functions.php';
 	<a href="../library/">
 	<div class="tile">
     <i class="fa fa-book"></i>
-	<p class="tile-text">Library</p>
+	<p class="tile-text">Library<span class="badge"><?php echo ($library_count == '0' ? "" : "$library_count"); ?></p>
     </div>
     </a>
 	</div>
@@ -169,7 +169,7 @@ include 'includes/functions.php';
 	<a href="../calendar/">
 	<div class="tile">
     <i class="fa fa-calendar"></i>
-	<p class="tile-text">Calendar</p>
+	<p class="tile-text">Calendar<span class="badge"><?php echo ($calendar_count == '0' ? "" : "$calendar_count"); ?></span></p>
     </div>
     </a>
 	</div>
@@ -178,7 +178,7 @@ include 'includes/functions.php';
 	<a href="../events/">
     <div class="tile">
 	<i class="fa fa-beer"></i>
-	<p class="tile-text">Events</p>
+	<p class="tile-text">Events<span class="badge"><?php echo ($events_count == '0' ? "" : "$events_count"); ?></span></p>
     </div>
     </a>
 	</div>
@@ -205,7 +205,7 @@ include 'includes/functions.php';
 	<a href="../messenger/">
     <div class="tile">
     <i class="fa fa-comments"></i>
-	<p class="tile-text">Messenger</p>
+	<p class="tile-text">Messenger<span class="badge"><?php echo ($messenger_count == '0' ? "" : "$messenger_count"); ?></span></p>
     </div>
     </a>
 	</div>
@@ -235,39 +235,6 @@ include 'includes/functions.php';
     <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div id="overview-portal" class="container">
-
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-	<div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Dashboard - click to minimize or maximize</a>
-  	</h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-  	<div class="panel-body">
-
-    <div class="dashboard">
-    <button class="btn btn-primary" type="button">
-        Messages <span class="badge">4</span>
-    </button>
-    <button class="btn btn-primary" type="button">
-        Messages <span class="badge">4</span>
-    </button>
-    <button class="btn btn-primary" type="button">
-        Messages <span class="badge">4</span>
-    </button>
-    <button class="btn btn-primary" type="button">
-        Messages <span class="badge">4</span>
-    </button>
-    </div>
-
-    </div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	</div><!-- /.panel-group -->
 
     <div class="row">
 
