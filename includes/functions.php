@@ -1335,6 +1335,8 @@ function ReserveBook() {
 	mail($email, $subject, $message, $headers);
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 //MessageUser function
 function MessageUser() {
 
@@ -1394,5 +1396,18 @@ function MessageUser() {
 
 	// Mail it
 	mail($email, $subject, $message, $headers);
+
+}
+
+function SetMessageRead () {
+
+	global $mysqli;
+	global $userid;
+
+	$isRead = '1';
+	$stmt1 = $mysqli->prepare("UPDATE user_messages SET isRead=? WHERE message_to=?");
+	$stmt1->bind_param('ii', $isRead, $userid);
+	$stmt1->execute();
+	$stmt1->close();
 
 }

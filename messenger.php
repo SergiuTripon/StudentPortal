@@ -172,7 +172,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Sent messages - click to minimize or maximize</a>
+	<a id="MessageRead" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Sent messages - click to minimize or maximize</a>
   	</h4>
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -293,6 +293,23 @@ include 'includes/session.php';
 		"language": {
 			"emptyTable": "There are no messages to display."
 		}
+	});
+
+	var message_read;
+
+	$("#MessageRead").click(function (e) {
+	e.preventDefault();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'message_read=' + message_read,
+    success:function() {
+    },
+    error:function (xhr, ajaxOptions, thrownError) {
+    }
+	});
+
 	});
 
 	//Book event form submit

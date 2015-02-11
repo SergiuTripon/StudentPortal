@@ -114,3 +114,8 @@ elseif (isset($_POST["firstname4"], $_POST["surname4"], $_POST["email7"], $_POST
 elseif (isset($_POST["userid2"], $_POST["firstname5"], $_POST["surname5"], $_POST["email8"], $_POST["subject"], $_POST["message1"])) {
 	MessageUser();
 }
+
+//Call SetMessageRead function
+elseif (isset($_POST["message_read"])) {
+	SetMessageRead();
+}
