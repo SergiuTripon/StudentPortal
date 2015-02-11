@@ -172,7 +172,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
-	<a id="MessageRead" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Sent messages - click to minimize or maximize</a>
+	<a id="message-read-trigger" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Sent messages - click to minimize or maximize</a>
   	</h4>
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -297,7 +297,9 @@ include 'includes/session.php';
 
 	var message_read;
 
-	$("#MessageRead").click(function (e) {
+	message_read = '1';
+
+	$("#message-read-trigger").click(function (e) {
 	e.preventDefault();
 
 	jQuery.ajax({

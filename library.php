@@ -132,8 +132,6 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-	<?php echo $book_reserved_style; ?>
-
 	<div id="reservedbooks-content" class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingTwo">
