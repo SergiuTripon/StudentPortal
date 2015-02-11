@@ -299,6 +299,7 @@ function GetDashboardData() {
 	global $mysqli;
 	global $userid;
 	global $timetable_count;
+	global $exam_count;
 
 	$stmt1 = $mysqli->prepare("SELECT system_lectures.lectureid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userid);
@@ -314,13 +315,22 @@ function GetDashboardData() {
 	$stmt2->bind_result($lectureid);
 	$stmt2->fetch();
 
+	$stmt3 = $mysqli->prepare("SELECT system_exams.examid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = ? LIMIT 1");
+	$stmt3->bind_param('i', $userid);
+	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($lectureid);
+	$stmt3->fetch();
+
 	$lectures_count = $stmt1->num_rows;
 	$tutorial_count = $stmt2->num_rows;
+	$exam_count = $stmt3->num_rows;
 
 	$timetable_count = $lectures_count + $tutorial_count;
 
 	$stmt1->close();
 	$stmt2->close();
+	$stmt3->close();
 
 }
 
