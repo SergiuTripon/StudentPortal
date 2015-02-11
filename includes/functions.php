@@ -322,11 +322,20 @@ function GetDashboardData() {
 	$stmt3->bind_result($examid);
 	$stmt3->fetch();
 
+	$stmt4 = $mysqli->prepare("	SELECT reserved_books.bookid FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = ? AND system_books.book_status = 'reserved' AND isReturned = '0'");
+	$stmt4->bind_param('i', $userid);
+	$stmt4->execute();
+	$stmt4->store_result();
+	$stmt4->bind_result($bookid);
+	$stmt4->fetch();
+
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
 	$timetable_count = $lectures_count + $tutorials_count;
 
 	$exams_count = $stmt3->num_rows;
+
+	$reservedbooks_count = $stmt4->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();

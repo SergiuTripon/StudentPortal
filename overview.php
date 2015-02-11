@@ -61,7 +61,7 @@ include 'includes/functions.php';
 	<a href="../library/">
 	<div class="tile">
     <i class="fa fa-book"></i>
-	<p class="tile-text">Library</p>
+	<p class="tile-text">Library<span class="badge"><?php echo $reservedbooks_count; ?></span></p>
     </div>
     </a>
 	</div>
