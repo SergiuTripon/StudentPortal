@@ -110,7 +110,7 @@ include 'includes/session.php';
 
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
     <div id="transport">
-	<div class="tile" id="transport">
+	<div class="tile">
     <i class="fa fa-bus"></i>
 	<p>Transport</p>
     </div>
@@ -118,7 +118,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div id="events">
+    <div id="calendar">
 	<div class="tile">
 	<i class="fa fa-calendar"></i>
 	<p>Calendar</p>
