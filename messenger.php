@@ -187,6 +187,7 @@ include 'includes/session.php';
 	<th>To</th>
 	<th>Subject</th>
 	<th>Message</th>
+	<th>Read</th>
 	<th>Sent on</th>
 	</tr>
 	</thead>
@@ -194,13 +195,14 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT user_messages.message_to, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.userid = '$userid'");
+	$stmt4 = $mysqli->query("SELECT user_messages.message_to, user_messages.message_subject, user_messages.message_body, user_messages.isRead, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.userid = '$userid'");
 
 	while($row = $stmt4->fetch_assoc()) {
 
     $message_to = $row["message_to"];
 	$message_subject = $row["message_subject"];
 	$message_body = $row["message_body"];
+	$message_isread = $row["isRead"];
 	$message_sent_on = $row["created_on"];
 
 	$stmt5 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
@@ -215,6 +217,7 @@ include 'includes/session.php';
 			<td data-title="To">'.$firstname.' '.$surname.'</td>
 			<td data-title="Subject">'.$message_subject.'</td>
 			<td data-title="Message">'.$message_body.'</td>
+			<td data-title="Message">'.($event_ticket_no === '' ? "No" : "Yes").'</td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
 			</tr>';
 	}
