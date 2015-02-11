@@ -16,15 +16,15 @@ include 'includes/session.php';
     <title>Student Portal | Contact</title>
 
     <style>
+    #find-out-more {
+        color: #FFFFFF;
+        background-color: #C9302C;
+    }
     #contact a {
         color: #FFFFFF;
         background-color: #C9302C;
     }
     #contact a:focus, #contact a:hover {
-        color: #FFFFFF;
-        background-color: #C9302C;
-    }
-    #find-out-more a {
         color: #FFFFFF;
         background-color: #C9302C;
     }
