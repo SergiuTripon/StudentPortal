@@ -217,7 +217,7 @@ include 'includes/session.php';
 			<td data-title="To">'.$firstname.' '.$surname.'</td>
 			<td data-title="Subject">'.$message_subject.'</td>
 			<td data-title="Message">'.$message_body.'</td>
-			<td data-title="Message">'.($message_isread === '' ? "No" : "Yes").'</td>
+			<td data-title="Message">'.($message_isread === '0' ? "No" : "Yes").'</td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
 			</tr>';
 	}
