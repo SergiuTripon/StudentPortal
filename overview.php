@@ -52,7 +52,7 @@ include 'includes/functions.php';
 	<a href="../exams/">
     <div class="tile">
 	<i class="fa fa-pencil"></i>
-	<p class="tile-text">Exams</p>
+	<p class="tile-text">Exams<span class="badge"><?php echo $exams_count; ?></span></p>
     </div>
     </a>
 	</div>
