@@ -1015,6 +1015,8 @@ form .success-style:-ms-input-placeholder {
 /* Badge */
 .badge {
     color: #5CB85C;
+    font-size: 14px;
+    line-height: 0.9;
     float: right;
     margin-right: 5px;
     border-radius: 3px;
