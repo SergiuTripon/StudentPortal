@@ -302,6 +302,7 @@ function GetDashboardData() {
 	global $exams_count;
 	global $library_count;
 	global $calendar_count;
+	global $events_count;
 
 	$stmt1 = $mysqli->prepare("SELECT system_lectures.lectureid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userid);
