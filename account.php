@@ -248,7 +248,7 @@ include 'includes/session.php';
 
     <div class="row">
 
-	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
     <a href="/admin/create-an-account/">
     <div class="tile">
     <i class="fa fa-user-plus"></i>
@@ -266,7 +266,7 @@ include 'includes/session.php';
     </a>
     </div>-->
 	
-    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-6">
 	<a href="/admin/update-delete-an-account/">
     <div class="tile">
     <i class="fa fa-wrench"></i>
