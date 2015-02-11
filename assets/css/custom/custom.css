@@ -529,8 +529,8 @@ form .form-control:-ms-input-placeholder {
 /* Error messages */
 .error-style {
     color: #FFFFFF !important;
-    border-color: #D32A0E !important;
-    background-color: #F04124 !important;
+    border-color: #C9302C !important;
+    background-color: #D9534F !important;
 }
 
 .error-style:focus {
@@ -561,15 +561,15 @@ form .error-style:-ms-input-placeholder {
 }
 
 .feedback-sad {
-    color: #F04124 !important;
+    color: #D9534F !important;
     font-size: 16px !important;
     font-weight: 600 !important;
 }
 
 .success-style {
     color: #FFFFFF !important;
-    border-color: #358753 !important;
-    background-color: #43AC6A !important;
+    border-color: #318837 !important;
+    background-color: #3FAD46 !important;
 }
 
 .success-style:focus {
@@ -596,7 +596,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 .feedback-happy {
-    color: #43AC6A !important;
+    color: #3FAD46 !important;
     font-size: 16px !important;
     font-weight: 600 !important;
 }
