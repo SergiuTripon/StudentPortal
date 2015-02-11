@@ -875,6 +875,11 @@ form .success-style:-ms-input-placeholder {
 #account-admin-portal .panel-group .panel {
     margin-bottom: 10px;
 }
+
+#account-admin-portal .panel-title {
+    color: #FFFFFF;
+    margin-top: 20px;
+}
 /* End of Account admin portal */
 
 /* Messenger portal */
