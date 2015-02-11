@@ -612,6 +612,10 @@ form .success-style:-ms-input-placeholder {
     border-radius: 3px;
     background-color: #22b24c;
     border: 1px solid #1A873A;
+    -webkit-transition: background-color ease-out 1s;
+    -moz-transition: background-color ease-out 1s;
+    -o-transition: background-color ease-out 1s;
+    transition: background-color ease-out 1s;
 }
 
 .tile:hover {
