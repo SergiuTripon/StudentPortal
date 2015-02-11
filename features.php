@@ -84,7 +84,7 @@ include 'includes/session.php';
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div id="timetable">
 	<div class="tile large-tile">
-    <i class="fa fa-table"></i>
+    <i class="fa fa-clock"></i>
 	<p>Timetable</p>
     </div>
 	</div>
@@ -129,7 +129,7 @@ include 'includes/session.php';
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div id="events">
 	<div class="tile">
-	<i class="fa fa-beer"></i>
+	<i class="fa fa-ticket"></i>
 	<p>Events</p>
 	</div>
 	</div>
