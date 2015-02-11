@@ -294,21 +294,21 @@ footer p {
 
 /* Features showcase */
 #features-showcase h1 {
-    color: #1A873A;
-}
-
-#features-showcase .text-left {
-    color: #1A873A;
-    font-weight: 600;
-    margin-bottom: 0px;
+    color: #43AC6A;
 }
 
 #features-showcase hr {
     max-width: 300px;
     margin-top: 0px;
     margin-bottom: 0px;
-    border-color: #1A873A;
-    background: #1A873A;
+    border-color: #43AC6A;
+    background: #43AC6A;
+}
+
+#features-showcase .text-left {
+    color: #358353;
+    font-weight: 600;
+    margin-bottom: 0px;
 }
 /* End of Features showcase */
 
