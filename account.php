@@ -16,6 +16,7 @@ include 'includes/session.php';
     <meta name="author" content="">
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/datatables-css-path.php'; ?>
 
     <title>Student Portal | Account</title>
 
@@ -148,6 +149,70 @@ include 'includes/session.php';
     <li><a href="../overview/">Overview</a></li>
 	<li class="active">Account</li>
     </ol>
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+	<div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Update an account</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Update an account -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>User ID</th>
+	<th>First name</th>
+	<th>Surname</th>
+	<th>Email address</th>
+	<th>Account type</th>
+	<th>Created on</th>
+	<th>Updated on</th>
+	<th>Update</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid' AND user_signin.isSignedIn = '1'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$account_type = ucfirst($row["account_type"]);
+
+	echo '<tr>
+
+			<td data-title="User ID">'.$row["userid"].'</td>
+			<td data-title="First name">'.$row["firstname"].'</td>
+			<td data-title="Surname">'.$row["surname"].'</td>
+			<td data-title="Email address">'.$row["email"].'</td>
+			<td data-title="Account type">'.$account_type.'</td>
+			<td data-title="Created on">'.$row["created_on"].'</td>
+			<td data-title="Updated on">'.$row["updated_on"].'</td>
+			<td data-title="Update"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    </div><!-- /panel-group -->
 			
     <div class="row">
 
@@ -214,70 +279,6 @@ include 'includes/session.php';
 
     </div><!-- /row -->
 
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-	<div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Update an account</a>
-  	</h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-  	<div class="panel-body">
-
-	<!-- Update an account -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>User ID</th>
-	<th>First name</th>
-	<th>Surname</th>
-	<th>Email address</th>
-	<th>Account type</th>
-	<th>Created on</th>
-	<th>Updated on</th>
-	<th>Update</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid' AND user_signin.isSignedIn = '1'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-	$account_type = ucfirst($row["account_type"]);
-
-	echo '<tr>
-
-			<td data-title="User ID">'.$row["userid"].'</td>
-			<td data-title="First name">'.$row["firstname"].'</td>
-			<td data-title="Surname">'.$row["surname"].'</td>
-			<td data-title="Email address">'.$row["email"].'</td>
-			<td data-title="Account type">'.$account_type.'</td>
-			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Updated on">'.$row["updated_on"].'</td>
-			<td data-title="Update"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
-			</tr>';
-	}
-
-	$stmt1->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-    </div><!-- /panel-group -->
-
     </div><!-- /container -->
 	
 	<?php include 'includes/footers/footer.php'; ?>
@@ -319,6 +320,7 @@ include 'includes/session.php';
 
 	<?php include 'assets/js-paths/common-js-paths.php'; ?>
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
 	$(document).ready(function () {
