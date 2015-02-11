@@ -16,7 +16,7 @@ include 'includes/session.php';
     <meta name="author" content="">
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
-    <?php include '../assets/css-paths/datatables-css-path.php'; ?>
+    <?php include 'assets/css-paths/datatables-css-path.php'; ?>
 
     <title>Student Portal | Account</title>
 
@@ -149,8 +149,42 @@ include 'includes/session.php';
     <li><a href="../overview/">Overview</a></li>
 	<li class="active">Account</li>
     </ol>
+			
+    <div class="row">
 
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <a href="/account/update-account/">
+    <div class="tile">
+    <i class="fa fa-refresh"></i>
+	<p class="tile-text">Update account</p>
+    </div>
+    </a>
+	</div>
+
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+	<a href="/account/change-password/">
+    <div class="tile">
+    <i class="fa fa-key"></i>
+	<p class="tile-text">Change password</p>
+	</div>
+    </a>
+	</div>
+
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+	<a href="/account/delete-account/">
+    <div class="tile">
+    <i class="fa fa-trash"></i>
+	<p class="tile-text">Delete account</p>
+	</div>
+    </a>
+	</div>
+
+    </div><!-- /row -->
+
+    <h4>Perform actions against other accounts</h4>
+    <hr>
+
+   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 
@@ -213,40 +247,6 @@ include 'includes/session.php';
 	</div><!-- /panel-default -->
 
     </div><!-- /panel-group -->
-			
-    <div class="row">
-
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-    <a href="/account/update-account/">
-    <div class="tile">
-    <i class="fa fa-refresh"></i>
-	<p class="tile-text">Update account</p>
-    </div>
-    </a>
-	</div>
-
-	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a href="/account/change-password/">
-    <div class="tile">
-    <i class="fa fa-key"></i>
-	<p class="tile-text">Change password</p>
-	</div>
-    </a>
-	</div>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a href="/account/delete-account/">
-    <div class="tile">
-    <i class="fa fa-trash"></i>
-	<p class="tile-text">Delete account</p>
-	</div>
-    </a>
-	</div>
-
-    </div><!-- /row -->
-
-    <h4>Perform actions against other accounts</h4>
-    <hr>
 
     <div class="row">
 
@@ -320,7 +320,7 @@ include 'includes/session.php';
 
 	<?php include 'assets/js-paths/common-js-paths.php'; ?>
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-    <?php include '../assets/js-paths/datatables-js-path.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
 	$(document).ready(function () {
