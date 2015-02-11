@@ -209,7 +209,6 @@ include 'includes/session.php';
 	<th>Account type</th>
 	<th>Created on</th>
 	<th>Updated on</th>
-	<th>Update</th>
 	</tr>
 	</thead>
 
@@ -231,7 +230,6 @@ include 'includes/session.php';
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
 			<td data-title="Updated on">'.$row["updated_on"].'</td>
-			<td data-title="Update"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
 			</tr>';
 	}
 
@@ -335,6 +333,8 @@ include 'includes/session.php';
 			"emptyTable": "There are no users to display."
 		}
 	});
+
+    });
 
     </script>
 
