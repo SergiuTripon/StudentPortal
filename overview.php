@@ -79,7 +79,7 @@ include 'includes/functions.php';
 	<a href="../calendar/">
 	<div class="tile">
     <i class="fa fa-calendar"></i>
-	<p class="tile-text">Calendar<span class="badge"><?php echo ($calendar_count === '0' ? "" : "$calendar_count") ?></span></p>
+	<p class="tile-text">Calendar<span class="badge"><?php echo ($calendar_count === '0' ? "" : "$calendar_count"); ?></span></p>
     </div>
     </a>
 	</div>
