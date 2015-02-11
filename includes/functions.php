@@ -36,6 +36,13 @@ function SignIn() {
 
 	if (password_verify($password, $db_password)) {
 
+	$isSignedIn = 1;
+
+	$stmt3 = $mysqli->prepare("UPDATE user_signin SET isSignedIn = ? WHERE userid = ? LIMIT 1");
+	$stmt3->bind_param('ii', $isSignedIn, $userid);
+	$stmt3->execute();
+	$stmt3->close();
+
 	// Setting a session variable
 	$_SESSION['loggedin'] = true;
 
