@@ -349,8 +349,9 @@ function GetDashboardData() {
 	$stmt6->bind_result($eventid);
 	$stmt6->fetch();
 
-	$stmt7 = $mysqli->prepare("	SELECT user_messages.userid FROM user_messages WHERE user_messages.message_to = ?");
-	$stmt7->bind_param('i', $userid);
+	$isRead = '0';
+	$stmt7 = $mysqli->prepare("	SELECT user_messages.userid FROM user_messages WHERE user_messages.message_to = ? AND isRead = ?");
+	$stmt7->bind_param('ii', $userid, $isRead);
 	$stmt7->execute();
 	$stmt7->store_result();
 	$stmt7->bind_result($messenger_userid);
