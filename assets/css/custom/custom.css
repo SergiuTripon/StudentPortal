@@ -294,7 +294,7 @@ footer p {
 
 /* Features showcase */
 #features-showcase h1 {
-    color: #00BC8C;
+    color: #008966;
 }
 
 #features-showcase .text-left {
@@ -307,8 +307,8 @@ footer p {
     max-width: 300px;
     margin-top: 0px;
     margin-bottom: 0px;
-    border-color: #00BC8C;
-    background: #00BC8C;
+    border-color: #008966;
+    background: #008966;
 }
 /* End of Features showcase */
 
