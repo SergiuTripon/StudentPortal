@@ -1012,6 +1012,16 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Breadcrumb style */
 
+/* Badge */
+.badge {
+    color: #5CB85C;
+    float: right;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+}
+/* End of Badge */
+
 /* Buttons */
 .btn, .btn:focus, .btn:hover {
     outline: none !important;
