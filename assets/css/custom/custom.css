@@ -287,6 +287,8 @@ footer {
     height: 60px;
     background-color: #F0AD4E;
     border-top: 1px solid #BF8B41;
+    display: table-cell;
+    vertical-align:middle;
 }
 
 footer p {
