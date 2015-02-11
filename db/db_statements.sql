@@ -20,6 +20,7 @@ CREATE TABLE `student_portal`.`user_signin` (
 	`account_type` VARCHAR(8) NOT NULL,
 	`email` VARCHAR(300) NOT NULL UNIQUE,
 	`password` CHAR(70) NOT NULL UNIQUE,
+	`isSignedIn` TINYINT(1) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME
 ) ENGINE = InnoDB;
