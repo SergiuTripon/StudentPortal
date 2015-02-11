@@ -614,6 +614,10 @@ form .success-style:-ms-input-placeholder {
     border: 1px solid #1A873A;
 }
 
+.tile:hover {
+    background-color: #1A873A;
+}
+
 .tile i {
     color: #FFFFFF;
     font-size: 80px;
