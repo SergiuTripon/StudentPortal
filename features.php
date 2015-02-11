@@ -118,7 +118,7 @@ include 'includes/session.php';
 	</div>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div id="calendar">
+    <div id="calendar1">
 	<div class="tile">
 	<i class="fa fa-calendar"></i>
 	<p>Calendar</p>
@@ -232,7 +232,7 @@ include 'includes/session.php';
         $('.close').empty().append("<i class=\"fa fa-subway\"></i>");
         $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">So you get to the tube station and your line is delayed. We've all been there. Now you can check transport updates from our web app without the hassle of going on the TfL website‏.</p>");
     });
-    $( "#calendar" ).click(function() {
+    $( "#calendar1" ).click(function() {
         $('#modal-features').modal('show');
         $('#modal-custom-label').empty().append("Calendar");
         $('.close').empty().append("<i class=\"fa fa-calendar\"></i>");
