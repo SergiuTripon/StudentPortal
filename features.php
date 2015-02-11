@@ -84,7 +84,7 @@ include 'includes/session.php';
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div id="timetable">
 	<div class="tile large-tile">
-    <i class="fa fa-clock"></i>
+    <i class="fa fa-clock-o"></i>
 	<p>Timetable</p>
     </div>
 	</div>
