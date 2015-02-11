@@ -7,10 +7,9 @@ include 'includes/session.php';
     $stmt1->store_result();
     $stmt1->bind_result($lectureid);
     $stmt1->fetch();
+    $stmt1->close();
 
     $lectures_count = $stmt1->num_rows;
-
-    $stmt1->close();
 
 ?>
 
