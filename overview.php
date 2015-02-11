@@ -43,7 +43,7 @@ include 'includes/functions.php';
 	<a href="../timetable/">
     <div class="tile large-tile">
     <i class="fa fa-table"></i>
-	<p class="large-tile-text">Timetable<span class="badge"><?php echo $lectures_count; ?></span></p>
+	<p class="large-tile-text">Timetable<span class="badge"><?php echo $timetable_count; ?></span></p>
     </div>
     </a>
 	</div>
