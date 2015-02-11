@@ -292,13 +292,7 @@ footer {
 footer p {
     color: #735326;
     font-weight: 600;
-    margin-top: 20px;
-}
-
-@media (max-width: 240px) {
-footer {
-    margin-top: 10px;
-}
+    padding-top: 10px;
 }
 /* End of Footer */
 
