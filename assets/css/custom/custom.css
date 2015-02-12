@@ -832,7 +832,7 @@ form .success-style:-ms-input-placeholder {
 /* End of Calendar portal */
 
 /* University map */
-.map-search-controls {
+#map-search-controls {
     text-align: right;
 }
 /* End of University map */
