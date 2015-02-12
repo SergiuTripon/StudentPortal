@@ -836,7 +836,7 @@ form .success-style:-ms-input-placeholder {
     text-align: right;
 }
 #map-search-controls .form-control {
-    width: 60% !important:
+    width: 60% !important;
     display: inline !important;
 }
 /* End of University map */
