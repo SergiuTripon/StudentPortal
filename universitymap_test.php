@@ -161,14 +161,14 @@ include 'includes/session.php';
       <li class="active">University map</li>
     </ol>
 
-    <div>
-    <input type="text" id="addressInput" size="10"/>
+    <div id="map-search-controls">
+    <input class="form-control" type="text" id="addressInput" size="10"/>
     <select id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
     <option value="200">200mi</option>
     </select>
-    <input type="button" onclick="searchLocations()" value="Search"/>
+    <input class="btn btn-primary btn-lg" type="button" onclick="searchLocations()" value="Search"/>
     </div>
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
     <div id="map" style="width: 100%; height: 65%"></div>

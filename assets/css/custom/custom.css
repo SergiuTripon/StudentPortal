@@ -832,9 +832,8 @@ form .success-style:-ms-input-placeholder {
 /* End of Calendar portal */
 
 /* University map */
-#map {
-    height: 100%;
-    width: 100%;
+.map-search-controls {
+    text-align: right;
 }
 /* End of University map */
 
