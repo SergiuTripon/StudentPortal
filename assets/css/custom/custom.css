@@ -254,6 +254,13 @@ footer ul {
 }
 
 @media(max-width:767px) {
+body > .container {
+    padding-bottom: 30px !important;
+}
+footer {
+    height: auto !important;
+}
+
 footer .pull-left {
     float: none !important;
     text-align: center !important;
