@@ -253,24 +253,7 @@ footer ul {
     margin-top: 5px;
 }
 
-@media(max-width:1199px) {
-ul.external-pages-links {
-    float: left;
-    margin-top: 15px;
-}
-}
 
-@media(max-width:767px) {
-        ul.external-pages-links > li {
-    display: block;
-    margin-bottom: 20px;
-    padding: 0;
-}
-
-ul.external-pages-links > li:last-child {
-    margin-bottom: 0;
-}
-}
 /* End of Footer */
 
 /* Features showcase */
