@@ -2,9 +2,7 @@
 include 'includes/session.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -27,7 +25,7 @@ include 'includes/session.php';
         center: new google.maps.LatLng(40, -100),
         zoom: 4,
         mapTypeId: 'roadmap',
-      mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
+        mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
       });
       infoWindow = new google.maps.InfoWindow();
 
@@ -172,7 +170,7 @@ include 'includes/session.php';
     <input type="button" onclick="searchLocations()" value="Search"/>
     </div>
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
-    <div id="map"></div>
+    <div id="map" style="width: 100%; height: 80%"></div>
 
     </div>
 
