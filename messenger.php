@@ -56,7 +56,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Books -->
+	<!-- Send a message -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom user-table">
 
@@ -104,6 +104,10 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+	</div><!-- /panel-group -->
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
 	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingTwo">
@@ -114,7 +118,7 @@ include 'includes/session.php';
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Reserved books -->
+	<!-- Received messages -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom message-table">
 
