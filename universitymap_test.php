@@ -163,9 +163,8 @@ include 'includes/session.php';
 
     <div id="map-search-controls">
 
-    <form>
-    <input type="text" id="addressInput" size="10"/>
-    </form>
+    <form >
+    <input class="form-control" type="text" id="addressInput" size="10"/>
     <select id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
@@ -173,6 +172,7 @@ include 'includes/session.php';
     </select>
     <input class="btn btn-primary btn-lg" type="button" onclick="searchLocations()" value="Search"/>
     </div>
+    </form>
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
     <div id="map" style="width: 100%; height: 65%"></div>
 
