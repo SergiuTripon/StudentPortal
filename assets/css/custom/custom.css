@@ -1113,6 +1113,7 @@ table.dataTable tfoot th {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
     color: #5D5D5D !important;
+    border: none !important;
     background: none !important;
 }
 
