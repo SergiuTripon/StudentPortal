@@ -13,8 +13,7 @@ include 'includes/session.php';
 
     <title>Student Portal | University map</title>
 
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
-
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
