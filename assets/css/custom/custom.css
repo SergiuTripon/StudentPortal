@@ -487,10 +487,10 @@ form .form-control:-ms-input-placeholder {
 }
 
 .error-style:focus {
-    box-shadow:         inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, .6) !important;
-    -moz-box-shadow:    inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, .6) !important;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, .6) !important;
-    -o-box-shadow:      inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, .6) !important;
+    box-shadow:         inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, 1) !important;
+    -moz-box-shadow:    inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, 1) !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, 1) !important;
+    -o-box-shadow:      inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, 1) !important;
 }
 
 .error-style.btn-default {
@@ -526,10 +526,10 @@ form .error-style:-ms-input-placeholder {
 }
 
 .success-style:focus {
-    box-shadow:         inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, .6) !important;
-    -moz-box-shadow:    inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, .6) !important;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, .6) !important;
-    -o-box-shadow:      inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, .6) !important;
+    box-shadow:         inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, 1) !important;
+    -moz-box-shadow:    inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, 1) !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, 1) !important;
+    -o-box-shadow:      inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, 1) !important;
 }
 
 form .success-style::-webkit-input-placeholder {
