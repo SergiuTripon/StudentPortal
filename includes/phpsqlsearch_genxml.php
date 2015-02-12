@@ -22,7 +22,7 @@ $result = $mysqli->query($query);
 header("Content-type: text/xml");
 
 // Iterate through the rows, adding XML nodes for each
-while ($row = @mysqli_fetch_assoc($result)){
+while ($row = $result->fetch_assoc()){
   $node = $dom->createElement("marker");
   $newnode = $parnode->appendChild($node);
   $newnode->setAttribute("name", $row['name']);
