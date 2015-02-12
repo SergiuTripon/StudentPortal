@@ -13,6 +13,8 @@ include 'includes/session.php';
 
     <title>Student Portal | University map</title>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+
     <script src="https://maps.googleapis.com/maps/api/js" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
@@ -212,8 +214,6 @@ include 'includes/session.php';
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 </body>
 </html>
