@@ -254,7 +254,7 @@ footer ul {
 }
 
 @media(max-width:767px) {
-footer {
+footer p {
     float: none !important;
     text-align: center !important;
 }
