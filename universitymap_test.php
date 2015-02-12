@@ -146,7 +146,7 @@ include 'includes/session.php';
     </script>
 </head>
 
-<body style="margin:0px; padding:0px;" onload="load()">
+<body style="margin:0; padding:0;" onload="load()">
 
     <div class="preloader"></div>
 
