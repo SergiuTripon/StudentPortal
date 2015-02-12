@@ -27,7 +27,9 @@ include 'includes/session.php';
         center: new google.maps.LatLng(40, -100),
         zoom: 4,
         mapTypeId: 'roadmap',
-        mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
+        map.style.width=mapOptions['width']+'px';
+        map.style.height=mapOptions['height']+'px';
+      mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
       });
       infoWindow = new google.maps.InfoWindow();
 
