@@ -831,6 +831,13 @@ form .success-style:-ms-input-placeholder {
 }
 /* End of Calendar portal */
 
+/* University map */
+#map {
+    height: 100%;
+    width: 100%;
+}
+/* End of University map */
+
 /* Lock page style */
 #showdate {
     color: #333333;
