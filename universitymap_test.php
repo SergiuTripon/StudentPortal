@@ -152,6 +152,8 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
+    <?php include 'includes/menus/menu.php'; ?>
+
     <div class="container">
 
     <div>
