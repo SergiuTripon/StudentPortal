@@ -381,10 +381,10 @@ form textarea {
 /* Overwrites box shadow effect */
 form .form-control:focus {
     border-color: #8A8A8A;
-    box-shadow:         inset 0 0 8px rgba(93, 93, 93, .6);
-    -moz-box-shadow:    inset 0 0 8px rgba(93, 93, 93, .6);
-    -webkit-box-shadow: inset 0 0 8px rgba(93, 93, 93, .6);
-    -o-box-shadow:      inset 0 0 8px rgba(93, 93, 93, .6);
+    box-shadow:         inset 0 0 8px rgba(93, 93, 93, 1);
+    -moz-box-shadow:    inset 0 0 8px rgba(93, 93, 93, 1);
+    -webkit-box-shadow: inset 0 0 8px rgba(93, 93, 93, 1);
+    -o-box-shadow:      inset 0 0 8px rgba(93, 93, 93, 1);
 }
 
 /* Remember Password hack (Chrome) */
@@ -487,10 +487,10 @@ form .form-control:-ms-input-placeholder {
 }
 
 .error-style:focus {
-    box-shadow:         inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1) !important;
-    -moz-box-shadow:    inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1) !important;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1) !important;
-    -o-box-shadow:      inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1) !important;
+    box-shadow:         inset 0 0 8px rgba(255, 255, 255, 1);
+    -moz-box-shadow:    inset 0 0 8px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: inset 0 0 8px rgba(255, 255, 255, 1);
+    -o-box-shadow:      inset 0 0 8px rgba(255, 255, 255, 1);
 }
 
 .error-style.btn-default {
@@ -526,10 +526,10 @@ form .error-style:-ms-input-placeholder {
 }
 
 .success-style:focus {
-    box-shadow:         inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1) !important;
-    -moz-box-shadow:    inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1) !important;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1) !important;
-    -o-box-shadow:      inset 0 1px 1px rgba(0, 0, 0, 0.075), inset -20px 0 10px -10px rgba(255, 255, 255, 1) !important;
+    box-shadow:         inset 0 0 8px rgba(255, 255, 255, 1);
+    -moz-box-shadow:    inset 0 0 8px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: inset 0 0 8px rgba(255, 255, 255, 1);
+    -o-box-shadow:      inset 0 0 8px rgba(255, 255, 255, 1);
 }
 
 form .success-style::-webkit-input-placeholder {
@@ -1062,10 +1062,10 @@ form .success-style:-ms-input-placeholder {
 }
 
 .dataTables_wrapper .dataTables_filter input:focus {
-    box-shadow:         inset 0 10px 5px rgba(0,0,0,0.6);
-    -moz-box-shadow:    inset 0 10px 5px rgba(0,0,0,0.6);
-    -webkit-box-shadow: inset 0 10px 5px rgba(0,0,0,0.6);
-    -o-box-shadow:      inset 0 10px 5px rgba(0,0,0,0.6);
+    box-shadow:         inset 0 0 8px rgba(93, 93, 93, 1);
+    -moz-box-shadow:    inset 0 0 8px rgba(93, 93, 93, 1);
+    -webkit-box-shadow: inset 0 0 8px rgba(93, 93, 93, 1);
+    -o-box-shadow:      inset 0 0 8px rgba(93, 93, 93, 1);
 }
 
 .dataTables_wrapper .dataTables_filter label {
