@@ -12,17 +12,17 @@ $node = $dom->createElement("markers");
 $parnode = $dom->appendChild($node);
 
 // Search the rows in the markers table
-$query = sprintf("SELECT address, name, lat, lng, ( 3959 * acos( cos( radians('%s') ) * cos( radians( lat ) ) * cos( radians( lng ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( lat ) ) ) ) AS distance FROM markers HAVING distance < '%s' ORDER BY distance LIMIT 0 , 20",
-  mysql_real_escape_string($center_lat),
-  mysql_real_escape_string($center_lng),
-  mysql_real_escape_string($center_lat),
-  mysql_real_escape_string($radius));
-$result = mysql_query($query);
+$query = sprintf("SELECT address, name, lat, lng, ( 3959 * acos( cos( radians('%s') ) * cos( radians( lat ) ) * cos( radians( lng ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( lat ) ) ) ) AS distance FROM universitymap_markers HAVING distance < '%s' ORDER BY distance LIMIT 0 , 20",
+    $mysqli->mysqli_real_escape_string($center_lat),
+    $mysqli->mysqli_real_escape_string($center_lng),
+    $mysqli->mysqli_real_escape_string($center_lat),
+    $mysqli->mysqli_real_escape_string($radius));
+$result = $mysqli->mysqli_query($query);
 
 header("Content-type: text/xml");
 
 // Iterate through the rows, adding XML nodes for each
-while ($row = @mysql_fetch_assoc($result)){
+while ($row = @mysqli_fetch_assoc($result)){
   $node = $dom->createElement("marker");
   $newnode = $parnode->appendChild($node);
   $newnode->setAttribute("name", $row['name']);
