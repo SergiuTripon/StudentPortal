@@ -2,9 +2,8 @@
 include 'includes/session.php';
 ?>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+<head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
@@ -144,19 +143,75 @@ include 'includes/session.php';
     function doNothing() {}
 
     //]]>
-  </script>
-  </head>
-  <body style="margin:0px; padding:0px;" onload="load()"> 
+    </script>
+</head>
+
+<body style="margin:0px; padding:0px;" onload="load()">
+
+    <div class="preloader"></div>
+
+	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
+
+    <?php include 'includes/menus/portal_menu.php'; ?>
+
+	<div id="timetable-portal" class="container">
+
+	<ol class="breadcrumb">
+    <li><a href="../overview/">Overview</a></li>
+	<li class="active">University map</li>
+    </ol>
+
     <div>
-     <input type="text" id="addressInput" size="10"/>
+    <input type="text" id="addressInput" size="10"/>
     <select id="radiusSelect">
-      <option value="25" selected>25mi</option>
-      <option value="100">100mi</option>
-      <option value="200">200mi</option>
+    <option value="25" selected>25mi</option>
+    <option value="100">100mi</option>
+    <option value="200">200mi</option>
     </select>
+
     <input type="button" onclick="searchLocations()" value="Search"/>
     </div>
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
     <div id="map" style="width: 100%; height: 80%"></div>
-  </body>
+
+    </div><!-- /container -->
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<!-- Sign Out (Inactive) JS -->
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+
+	<?php else : ?>
+
+	<?php include 'includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+	<form class="form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
+
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    </div>
+
+    </form>
+
+	</div>
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<?php endif; ?>
+
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+
+</body>
 </html>
