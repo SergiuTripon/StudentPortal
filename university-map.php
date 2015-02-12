@@ -11,8 +11,7 @@ include 'includes/session.php';
 
     <title>Student Portal | University map</title>
 
-    <script src="https://maps.google.com/maps/api/js?sensor=false"
-            type="text/javascript"></script>
+    <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
     var map;
@@ -68,7 +67,7 @@ include 'includes/session.php';
         clearLocations();
 
         var radius = document.getElementById('radiusSelect').value;
-        var searchUrl = 'universitymap_source.php?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
+        var searchUrl = 'includes/universitymap_source.php?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
         downloadUrl(searchUrl, function(data) {
         var xml = parseXml(data);
         var markerNodes = xml.documentElement.getElementsByTagName("marker");
