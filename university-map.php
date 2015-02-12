@@ -92,7 +92,7 @@ include 'includes/session.php';
         };
         });
     }
-  
+
     function createMarker(latlng, name, address) {
         var html = "<b>" + name + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
