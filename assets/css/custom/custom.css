@@ -1118,13 +1118,13 @@ table.dataTable tfoot th {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     color: #5D5D5D !important;
-    border-color: #5D5D5D !important;
+    border: none !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     color: #5D5D5D !important;
-    border: none !important;
+    border: #5D5D5D !important;
 }
 
 table.dataTable tr.odd {
