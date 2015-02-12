@@ -1166,6 +1166,36 @@ table.dataTable thead th.sorting_desc:after {
 }
 /* End of DataTables style */
 
+/* Table Custom style */
+.table-custom {
+    border-collapse: collapse !important;
+    border: 1px solid #FFA500 !important;
+}
+
+.table-custom th {
+    color: #FFA500;
+    text-align: center;
+    border: 1px solid #FFA500 !important;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.table-custom tr {
+    color: #FFA500;
+    border: 1px solid #FFA500;
+}
+
+.table-custom td {
+    color: #FFA500;
+    text-align: center;
+    padding: 7px;
+    border: 1px solid #FFA500;
+}
+
+.table-custom td a, .calendar-table td a:hover {
+    color: #FFA500;
+}
+/* End of Table Custom style */
+
 /* No More Responsive Table */
 @media only screen and (max-width: 800px) {
 
