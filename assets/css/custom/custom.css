@@ -1121,6 +1121,14 @@ table.dataTable tfoot th {
     border: none;
 }
 
+.dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    outline: none !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+    outline: none !important;
+}
+
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     color: #5D5D5D !important;
