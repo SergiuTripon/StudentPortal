@@ -7,8 +7,10 @@ include 'includes/session.php';
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <title>Google Maps AJAX + mySQL/PHP Example</title>
 
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+
+    <title>Google Maps AJAX + mySQL/PHP Example</title>
 
     <script src="https://maps.google.com/maps/api/js?sensor=false"
             type="text/javascript"></script>
