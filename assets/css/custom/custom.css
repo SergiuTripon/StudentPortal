@@ -288,13 +288,13 @@ ul.external-pages-links {
 footer a {
     font-size: 14px !important;
 }
-    ul.banner-social-buttons > li {
+    ul.external-pages-links > li {
         display: block;
         margin-bottom: 20px;
         padding: 0;
     }
 
-    ul.banner-social-buttons > li:last-child {
+    ul.external-pages-links > li:last-child {
         margin-bottom: 0;
     }
 }
