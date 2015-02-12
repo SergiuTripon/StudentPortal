@@ -7,7 +7,7 @@ include 'includes/session.php';
 
 <head>
 
-    <?php include 'assets/meta-tags.php'; ?>
+
 
 
 
