@@ -1118,7 +1118,7 @@ table.dataTable tfoot th {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     color: #5D5D5D !important;
-    border: none !important;
+    border: none;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
