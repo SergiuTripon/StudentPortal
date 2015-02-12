@@ -1120,14 +1120,17 @@ table.dataTable tfoot th {
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     color: #5D5D5D !important;
     border: none;
+    box-shadow: none !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
     outline: none !important;
+    box-shadow: none !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
     outline: none !important;
+    box-shadow: none !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
