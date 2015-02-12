@@ -1,5 +1,5 @@
 <?php
-require("phpsqlsearch_dbinfo.php");
+require("session");
 
 // Get parameters from URL
 $center_lat = $_GET["lat"];
