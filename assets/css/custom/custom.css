@@ -253,7 +253,16 @@ footer ul {
     margin-top: 5px;
 }
 
+@media(max-width:767px) {
+footer {
+    float: none;
+    text-align: center;
+}
 
+ul.external-pages-links > li {
+    text-align: center;
+}
+}
 /* End of Footer */
 
 /* Features showcase */
