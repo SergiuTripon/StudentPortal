@@ -152,6 +152,8 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
+    <div class="container">
+
     <div>
     <input type="text" id="addressInput" size="10"/>
     <select id="radiusSelect">
@@ -163,6 +165,8 @@ include 'includes/session.php';
     </div>
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
     <div id="map" style="width: 100%; height: 80%"></div>
+
+    </div>
 
     <?php else : ?>
 
