@@ -3,7 +3,7 @@ include 'includes/session.php';
 ?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
 
@@ -22,7 +22,7 @@ include 'includes/session.php';
     var locationSelect;
 
     function load() {
-      map = new google.maps.Map(document.getElementById("map-canvas"), {
+      map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(40, -100),
         zoom: 4,
         mapTypeId: 'roadmap',
@@ -174,7 +174,7 @@ include 'includes/session.php';
     <input type="button" onclick="searchLocations()" value="Search"/>
     </div>
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
-    <div id="map-canvas" style="width: 100%; height: 80%"></div>
+    <div id="map" style="width: 100%; height: 80%"></div>
 
     </div><!-- /container -->
 
@@ -212,6 +212,8 @@ include 'includes/session.php';
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
+
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 </body>
 </html>
