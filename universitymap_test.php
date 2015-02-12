@@ -2,9 +2,10 @@
 include 'includes/session.php';
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+<head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
@@ -155,6 +156,11 @@ include 'includes/session.php';
     <?php include 'includes/menus/menu.php'; ?>
 
     <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="../overview/">Overview</a></li>
+      <li class="active">University map</li>
+    </ol>
 
     <div>
     <input type="text" id="addressInput" size="10"/>
