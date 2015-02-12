@@ -17,6 +17,12 @@ body {
     background: #E9DDC6 url(../../img/bg/background.png);
 }
 
+@media(max-width:767px) {
+body {
+    font-size: 14px;
+}
+}
+
 /* Some more spacing */
 body > .container {
     padding-top: 70px;
@@ -249,6 +255,11 @@ footer a {
     text-decoration: underline;
 }
 
+footer a:focus, footer a:hover {
+    color: #735326;
+    text-decoration: underline;
+}
+
 footer ul {
     margin-top: 5px;
 }
@@ -261,13 +272,21 @@ footer {
     height: auto !important;
 }
 
+footer p {
+    font-size: 14px !important;
+}
+
 footer .pull-left {
     float: none !important;
     text-align: center !important;
 }
 
-ul.external-pages-links {
-    text-align: center !important;
+footer a {
+    font-size: 14px !important;
+}
+
+ul.external-pages-links > li a {
+    font-size: 15px !important;
 }
 }
 /* End of Footer */
