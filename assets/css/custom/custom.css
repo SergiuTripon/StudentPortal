@@ -244,6 +244,11 @@ footer p {
     padding-top: 5px;
 }
 
+footer a {
+    color: #735326;
+    text-decoration: underline;
+}
+
 footer ul {
     margin-top: 5px;
 }
