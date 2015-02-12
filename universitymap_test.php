@@ -2,15 +2,9 @@
 include 'includes/session.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-  <?php include 'assets/meta-tags.php'; ?>
-
-  <?php include 'assets/css-paths/common-css-paths.php'; ?>
-
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <title>Google Maps AJAX + mySQL/PHP Example</title>
