@@ -1185,7 +1185,7 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 .table-custom tr:nth-child(even) {
-    background: #E3E3E3 !important;
+    background: #E8E8E8 !important;
 }
 .table-custom tr:nth-child(odd) {
     background: #FFFFFF !important;
