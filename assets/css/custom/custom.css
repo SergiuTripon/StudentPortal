@@ -243,6 +243,10 @@ footer p {
     font-weight: 600;
     padding-top: 5px;
 }
+
+footer ul {
+    margin-top: 5px;
+}
 /* End of Footer */
 
 /* Features showcase */
