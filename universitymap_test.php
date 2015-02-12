@@ -163,7 +163,7 @@ include 'includes/session.php';
 
     <div id="map-search-controls">
 
-    <input class="form-control" type="text" id="addressInput" size="10"/>
+    <input type="text" id="addressInput" size="10"/>
     <select id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
