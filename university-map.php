@@ -151,7 +151,6 @@ include 'includes/session.php';
 
 <body onload="load()">
 
-    <div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
