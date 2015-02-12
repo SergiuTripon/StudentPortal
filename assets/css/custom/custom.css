@@ -1173,26 +1173,26 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 .table-custom th {
-    color: #FFFFFF;
+    color: #5D5D5D;
     text-align: center;
     border: 1px solid #5D5D5D !important;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 .table-custom tr {
-    color: #FFFFFF;
+    color: #5D5D5D;
     border: 1px solid #5D5D5D;
 }
 
 .table-custom td {
-    color: #FFFFFF;
+    color: #5D5D5D;
     text-align: center;
     padding: 7px;
     border: 1px solid #5D5D5D;
 }
 
 .table-custom td a, .calendar-table td a:hover {
-    color: #FFA500;
+    color: #5D5D5D;
 }
 /* End of Table Custom style */
 
