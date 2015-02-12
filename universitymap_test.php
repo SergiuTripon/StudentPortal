@@ -170,6 +170,8 @@ include 'includes/session.php';
 
     </div>
 
+    <?php include 'includes/footers/footer.php'; ?>
+
     <?php else : ?>
 
     <div class="container">
