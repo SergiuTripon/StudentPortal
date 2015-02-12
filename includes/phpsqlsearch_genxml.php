@@ -1,5 +1,5 @@
 <?php
-require("session");
+require("session.php");
 
 // Get parameters from URL
 $center_lat = $_GET["lat"];
