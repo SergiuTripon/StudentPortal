@@ -835,6 +835,10 @@ form .success-style:-ms-input-placeholder {
 .map-search-controls {
     text-align: right;
 }
+
+.map-search-controls .form-control {
+    width: auto;
+}
 /* End of University map */
 
 /* Lock page style */

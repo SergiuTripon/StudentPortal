@@ -162,6 +162,7 @@ include 'includes/session.php';
     </ol>
 
     <div id="map-search-controls">
+
     <input class="form-control" type="text" id="addressInput" size="10"/>
     <select id="radiusSelect">
     <option value="25" selected>25mi</option>
