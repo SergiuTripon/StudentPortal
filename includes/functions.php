@@ -1366,7 +1366,7 @@ function MessageUser() {
 	$stmt2->close();
 
 	// subject
-	$subject = "$firstname $surname - New message on Student Portal";
+	$subject = "$firstname1 $surname1 - New message on Student Portal";
 
 	// message
 	$message = '<html>';
