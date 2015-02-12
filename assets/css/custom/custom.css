@@ -255,12 +255,12 @@ footer ul {
 
 @media(max-width:767px) {
 footer {
-    float: none;
-    text-align: center;
+    float: none !important;
+    text-align: center !important;
 }
 
 ul.external-pages-links > li {
-    text-align: center;
+    text-align: center !important;
 }
 }
 /* End of Footer */
