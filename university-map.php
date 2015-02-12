@@ -9,8 +9,6 @@ include 'includes/session.php';
 
 	<?php include 'assets/meta-tags.php'; ?>
 
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | University map</title>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
@@ -179,9 +177,6 @@ include 'includes/session.php';
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
-
-	<!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
