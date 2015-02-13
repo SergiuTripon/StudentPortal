@@ -258,6 +258,11 @@ hr {
     outline: none !important;
 }
 
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-bottom .navbar-form {
+    border-color: #735326;
+}
+
+/* Styles the toggle */
 .navbar-fixed-bottom .navbar-toggle {
     border: none;
 }
@@ -267,7 +272,6 @@ hr {
     background: none;
 }
 
-/* Styles the toggle */
 .navbar-fixed-bottom .navbar-toggle .icon-bar {
     background-color: #735326;
 }
