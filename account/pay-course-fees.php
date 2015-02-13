@@ -57,7 +57,7 @@ if ($fee_amount == "0.00") {
     </ol>
 	
 	<!-- Pay course fees -->
-    <form class="form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/fees_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+    <form class="form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/paypal/fees_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
     <?php
     if (!empty($conditional_style)) {

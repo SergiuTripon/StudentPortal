@@ -1,7 +1,7 @@
 <?php
-include 'session.php';
-include 'functions.php';
-require "paypal_class.php";
+include '../session.php';
+include '../functions.php';
+require '../paypal_class.php';
 
 define('EMAIL_ADD', 'admin@student-portal.co.uk'); // define any notification email
 define('PAYPAL_EMAIL_ADD', 'admin-facilitator@student-portal.co.uk'); // facilitator email which will receive payments change this email to a live paypal account id when the site goes live
@@ -30,24 +30,24 @@ $payer_city = filter_input(INPUT_POST, 'payer_city', FILTER_SANITIZE_STRING);
 $payer_country = filter_input(INPUT_POST, 'payer_country', FILTER_SANITIZE_STRING);
 $payer_postcode = filter_input(INPUT_POST, 'payer_postcode', FILTER_SANITIZE_STRING);
 
-$payment_type = 'event';
+$payment_type = 'fee';
 $payment_status = 'pending';
 
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt1 = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt1->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $userid);
-		$stmt1->execute();
-		$stmt1->close();
+		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $userid);
+		$stmt->execute();
+		$stmt->close();
 
-		$stmt2 = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt2->bind_param('iiisiisssssssssssss', $userid, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
-		$stmt2->execute();
-		$stmt2->close();
-
+		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param('iiisiisssssssssssss', $userid, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
+		$stmt->execute();
+		$stmt->close();
+		
 		$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-
+		
 		$p->add_field('business', PAYPAL_EMAIL_ADD); // Call the facilitator eaccount
 		$p->add_field('cmd', $cmd); // cmd should be _cart for cart checkout
 		$p->add_field('upload', '1');
@@ -71,26 +71,26 @@ switch($payment){
 		$p->submit_paypal_post(); // POST it to paypal
 		//$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
 	break;
-
+	
 	case "success": // success case to show the user payment got success
 
 		include_once '../includes/paypal/paypal_success.php';
 
 	break;
-
+	
 	case "cancel": // case cancel to show user the transaction was cancelled
 
 		PaypalPaymentCancel();
 
 		include_once '../includes/paypal/paypal_cancel.php';
-
+	
 	break;
-
+	
 	case "ipn": // IPN case to receive payment information. this case will not displayed in browser. This is server to server communication. PayPal will send the transactions each and every details to this case in secured POST menthod by server to server.
 
 	if ($p->validate_ipn()){ // validate the IPN, do the others stuffs here as per your app logic
 
-		EventsPaypalPaymentSuccess();
+		FeesPaypalPaymentSuccess();
 
 		$subject = 'Instant Payment Notification - Received Payment';
 		$p->send_report($subject); // Send the notification about the transaction

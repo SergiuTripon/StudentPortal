@@ -291,7 +291,7 @@ include 'includes/session.php';
 	"use strict";
 
 	var options = {
-		events_source: '../../includes/reservedbooks_json.php',
+		events_source: '../../includes/calendar-source/reservedbooks_json.php',
 		view: 'month',
 		tmpl_path: '../assets/tmpls/',
 		tmpl_cache: false,

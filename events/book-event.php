@@ -59,7 +59,7 @@ if (isset($_POST["recordToBook"])) {
     </ol>
 
 	<!-- Book event -->
-    <form class="form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/events_paypal_process.php?sandbox=1" method="post" name="bookevent_form" id="bookevent_form" novalidate>
+    <form class="form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/paypal/events_paypal_process.php?sandbox=1" method="post" name="bookevent_form" id="bookevent_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 
