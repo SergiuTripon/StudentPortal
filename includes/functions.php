@@ -1456,9 +1456,22 @@ function DeleteAnAccount() {
 //GetLiveTubeStatus function
 function GetUniversityMapLocations () {
 
+	global $mysqli;
 	global $universitymap_locations;
 
 	$url = 'https://student-portal.co.uk/includes/locations.xml';
 	$result = file_get_contents($url);
 	$universitymap_locations = new SimpleXMLElement($result);
+
+	foreach ($universitymap_locations->item as $xml_var) {
+
+	$title = $xml_var->title;
+
+	$stmt1 = $mysqli->prepare("INSERT INTO universitymap_markers (title) VALUES (?)");
+	$stmt1->bind_param('s', $title);
+	$stmt1->execute();
+	$stmt1->close();
+
+	}
+
 }
