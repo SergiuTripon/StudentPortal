@@ -1472,8 +1472,8 @@ function GetUniversityMapLocations () {
 	$icon = $xml_var->icon;
 	$category = $xml_var->category;
 
-	$stmt1 = $mysqli->prepare("INSERT INTO universitymap_markers (marker_title, marker_description, marker_link) VALUES (?, ?, ?)");
-	$stmt1->bind_param('sss', $title, $description, $link);
+	$stmt1 = $mysqli->prepare("INSERT INTO universitymap_markers (marker_title, marker_description, marker_link, marker_lat, marker_long, marker_icon, marker_category) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt1->bind_param('sssssss', $title, $description, $link, $lat, $long, $icon, $category);
 	$stmt1->execute();
 	$stmt1->close();
 	}
