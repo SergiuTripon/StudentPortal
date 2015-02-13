@@ -16,11 +16,11 @@ include 'includes/session.php';
     <style>
     #signin a {
         color: #FFFFFF;
-        background-color: #C9302C;
+        background-color: #992320;
     }
     #signin a:focus, #signin a:hover {
         color: #FFFFFF;
-        background-color: #C9302C;
+        background-color: #992320;
     }
     </style>
 

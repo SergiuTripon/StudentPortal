@@ -15,11 +15,11 @@ include 'includes/session.php';
     <style>
     #register a {
         color: #FFFFFF;
-        background-color: #C9302C;
+        background-color: #992320;
     }
     #register a:focus, #register a:hover {
         color: #FFFFFF;
-        background-color: #C9302C;
+        background-color: #992320;
     }
     </style>
 
