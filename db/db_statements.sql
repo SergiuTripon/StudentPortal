@@ -281,6 +281,12 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 CREATE TABLE `universitymap_markers` (
-	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`name` VARCHAR (60) NOT NULL
+	`markerid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`marker_title` VARCHAR (70) NOT NULL,
+	`marker_description` VARCHAR (300) NOT NULL,
+	`marker_link` VARCHAR (70) NOT NULL,
+	`marker_lat` FLOAT(10,6) NOT NULL,
+	`marker_long` FLOAT(10,6) NOT NULL,
+	`marker_icon` VARCHAR (70) NOT NULL,
+	`marker_category` VARCHAR (70) NOT NULL
 ) ENGINE = InnoDB;

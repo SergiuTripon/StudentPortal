@@ -1465,12 +1465,17 @@ function GetUniversityMapLocations () {
 	foreach ($universitymap_locations->channel->item as $xml_var) {
 
 	$title = $xml_var->title;
+	$description = $xml_var->description;
+	$link = $xml_var->link;
+	$lat = $xml_var->lat;
+	$long = $xml_var->long;
+	$icon = $xml_var->icon;
+	$category = $xml_var->category;
 
-	$stmt1 = $mysqli->prepare("INSERT INTO universitymap_markers (name) VALUES (?)");
-	$stmt1->bind_param('s', $title);
+	$stmt1 = $mysqli->prepare("INSERT INTO universitymap_markers (title, description, link, lat, long, icon, category) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt1->bind_param('sssssss', $title, $description, $link, $lat, $long, $icon, $category);
 	$stmt1->execute();
 	$stmt1->close();
-
 	}
 
 }
