@@ -1,6 +1,7 @@
 <?php
 include 'session.php';
 
+//External pages functions
 function SignIn() {
 
 	global $mysqli;
@@ -65,6 +66,7 @@ function SignIn() {
 
 	}
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //RegisterUser function
 function RegisterUser() {
@@ -131,7 +133,6 @@ function RegisterUser() {
 	}
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 //SendPasswordToken function
 function SendPasswordToken() {
@@ -210,6 +211,7 @@ function SendPasswordToken() {
 		header('HTTP/1.0 550 The email address you entered is incorrect.');
 	exit();
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //ResetPassword function
 function ResetPassword() {
@@ -292,6 +294,51 @@ function ResetPassword() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
+
+//ContactUs function
+function ContactUs() {
+
+	$firstname = filter_input(INPUT_POST, 'firstname4', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'surname4', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'email7', FILTER_SANITIZE_EMAIL);
+	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$message1 = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
+
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		header('HTTP/1.0 550 The email address you entered is invalid.');
+		exit();
+	}
+
+	// subject
+	$subject = 'New Message';
+
+	$to = 'contact@student-portal.co.uk';
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>The following person contacted Student Portal:</p>';
+	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message1</td></tr>";
+	$message .= '</table>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= 'From: Student Portal '.$email.'' . "\r\n";
+	$headers .= 'Reply-To: Student Portal '.$email.'' . "\r\n";
+
+	// Mail it
+	mail($to, $subject, $message, $headers);
+
+}
 
 //Overview functions
 function GetDashboardData() {
@@ -379,6 +426,78 @@ function GetDashboardData() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+//Library functions
+//ReserveBook function
+function ReserveBook() {
+
+	global $mysqli;
+	global $userid;
+
+	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
+	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
+	$book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
+	$bookreserved_from = filter_input(INPUT_POST, 'bookreserved_from', FILTER_SANITIZE_STRING);
+	$bookreserved_to = filter_input(INPUT_POST, 'bookreserved_to', FILTER_SANITIZE_STRING);
+
+	$book_class = 'event-info';
+	$isReturned = 0;
+
+	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, book_class, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt1->bind_param('iisssi', $userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned);
+	$stmt1->execute();
+	$stmt1->close();
+
+	$book_status = 'reserved';
+
+	$stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=? WHERE bookid =?");
+	$stmt3->bind_param('si', $book_status, $bookid);
+	$stmt3->execute();
+	$stmt3->close();
+
+	$stmt4 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt4->bind_param('i', $userid);
+	$stmt4->execute();
+	$stmt4->store_result();
+	$stmt4->bind_result($email, $firstname, $surname, $studentno);
+	$stmt4->fetch();
+	$stmt4->close();
+
+	$reservation_status = 'Completed';
+
+	// subject
+	$subject = 'Reservation confirmation';
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>Thank you for your recent book reservation! Below, you can find the reservation summary:</p>';
+	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $studentno</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_name</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_author</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_from</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_to</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Reservation status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservation_status</td></tr>";
+	$message .= '</table>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+	// Mail it
+	mail($email, $subject, $message, $headers);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 //Transport functions
 //GetCycleHireStatus function
 function GetCycleHireStatus () {
@@ -414,6 +533,325 @@ function GetThisWeekendTubeStatus () {
 	$result = file_get_contents($url);
 	$xml_this_weekend = new SimpleXMLElement($result);
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Calendar functions
+//CreateTask function
+function CreateTask () {
+
+	global $mysqli;
+	global $userid;
+	global $created_on;
+
+	$task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
+    $task_notes = filter_input(INPUT_POST, 'task_notes', FILTER_SANITIZE_STRING);
+    $task_url = filter_input(INPUT_POST, 'task_url', FILTER_SANITIZE_STRING);
+    $task_startdate = filter_input(INPUT_POST, 'task_startdate', FILTER_SANITIZE_STRING);
+    $task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
+    $task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
+
+    $task_category = strtolower($task_category);
+
+    if ($task_category == 'university') { $task_class = 'event-important'; }
+    if ($task_category == 'personal') { $task_class = 'event-warning'; }
+    if ($task_category == 'other') { $task_class = 'event-success'; }
+
+    // Check if task exists
+    $stmt1 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE task_name = ? AND userid = ? LIMIT 1");
+    $stmt1->bind_param('si', $task_name, $userid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_taskid);
+    $stmt1->fetch();
+
+    if ($stmt1->num_rows == 1) {
+	header('HTTP/1.0 550 A task with the task name entered already exists.');
+	exit();
+	$stmt1->close();
+
+	} else {
+	$task_status = 'active';
+
+	$stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt2->bind_param('isssssssss', $userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
+	$stmt2->execute();
+	$stmt2->close();
+
+	$stmt1->close();
+    }
+}
+
+//UpdateTask function
+function UpdateTask() {
+
+	global $mysqli;
+	global $updated_on;
+
+	$taskid = filter_input(INPUT_POST, 'taskid', FILTER_SANITIZE_NUMBER_INT);
+	$task_name = filter_input(INPUT_POST, 'task_name1', FILTER_SANITIZE_STRING);
+    $task_notes = filter_input(INPUT_POST, 'task_notes1', FILTER_SANITIZE_STRING);
+	$task_url = filter_input(INPUT_POST, 'task_url1', FILTER_SANITIZE_STRING);
+	$task_startdate = filter_input(INPUT_POST, 'task_startdate1', FILTER_SANITIZE_STRING);
+	$task_duedate = filter_input(INPUT_POST, 'task_duedate1', FILTER_SANITIZE_STRING);
+	$task_category = filter_input(INPUT_POST, 'task_category1', FILTER_SANITIZE_STRING);
+
+	$task_category = strtolower($task_category);
+
+	if ($task_category == 'university') { $task_class = 'event-important'; }
+	if ($task_category == 'work') { $task_class = 'event-info'; }
+	if ($task_category == 'personal') { $task_class = 'event-warning'; }
+	if ($task_category == 'other') { $task_class = 'event-success'; }
+
+	$stmt1 = $mysqli->prepare("SELECT task_name from user_tasks where taskid = ?");
+	$stmt1->bind_param('i', $taskid);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($db_taskname);
+	$stmt1->fetch();
+
+	if ($db_taskname == $task_name) {
+
+	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	$stmt2->bind_param('sssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
+	$stmt2->execute();
+	$stmt2->close();
+
+	}
+
+	else {
+
+	$stmt3 = $mysqli->prepare("SELECT taskid from user_tasks where task_name = ? AND userid = ? LIMIT 1");
+	$stmt3->bind_param('si', $task_name, $userid);
+	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($db_taskid);
+	$stmt3->fetch();
+
+	if ($stmt3->num_rows == 1) {
+	header('HTTP/1.0 550 A task with the name entered already exists.');
+	exit();
+	$stmt3->close();
+	}
+	else {
+
+	$stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	$stmt4->bind_param('ssssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
+	$stmt4->execute();
+	$stmt4->close();
+
+	}
+	}
+}
+
+//CompleteTask function
+function CompleteTask() {
+
+	global $mysqli;
+
+	$idToComplete = filter_input(INPUT_POST, 'recordToComplete', FILTER_SANITIZE_NUMBER_INT);
+	$task_status = 'completed';
+
+	$stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, completed_on = ? WHERE taskid = ? LIMIT 1");
+	$stmt1->bind_param('ssi', $task_status, $completed_on, $idToComplete);
+	$stmt1->execute();
+	$stmt1->close();
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Events functions
+//EventsPaypalPaymentSuccess function
+function EventsPaypalPaymentSuccess() {
+
+	global $mysqli;
+	global $newquantity;
+	global $updated_on;
+	global $created_on;
+	global $completed_on;
+
+	$item_number1 = $_POST["item_number1"];
+	$quantity1 = $_POST["quantity1"];
+	$product_name = $_POST["item_name1"];
+	$product_amount = $_POST["mc_gross"];
+
+	$invoice_id = $_POST["invoice"];
+	$transaction_id  = $_POST["txn_id"];
+
+	$payment_status = strtolower($_POST["payment_status"]);
+	$payment_status1 = ($_POST["payment_status"]);
+	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
+
+	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
+	$stmt1->bind_param('i', $invoice_id);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($userid);
+	$stmt1->fetch();
+	$stmt1->close();
+
+	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $userid);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($email, $firstname, $surname);
+	$stmt2->fetch();
+	$stmt2->close();
+
+	$stmt3 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, tickets_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt3->bind_param('iisiis', $userid, $item_number1, $product_name, $product_amount, $quantity1, $created_on);
+	$stmt3->execute();
+	$stmt3->close();
+
+	$stmt4 = $mysqli->prepare("SELECT event_ticket_no from system_events where eventid = ?");
+	$stmt4->bind_param('i', $item_number1);
+	$stmt4->execute();
+	$stmt4->store_result();
+	$stmt4->bind_result($event_ticket_no);
+	$stmt4->fetch();
+	$stmt4->close();
+
+	$newquantity = $event_ticket_no - $quantity1;
+
+	$stmt5 = $mysqli->prepare("UPDATE system_events SET event_ticket_no=? WHERE eventid=?");
+	$stmt5->bind_param('ii', $newquantity, $item_number1);
+	$stmt5->execute();
+	$stmt5->close();
+
+	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
+	$stmt5->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
+	$stmt5->execute();
+	$stmt5->close();
+
+	// subject
+	$subject = 'Payment confirmation';
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
+	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $invoice_id</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Transaction ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $transaction_id</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $product_name</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Amount paid (&pound;):</strong> </td><td style=\"border: 1px solid #FFA500;\"> &pound;$product_amount</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment time and date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $payment_date</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $payment_status1</td></tr>";
+	$message .= '</table>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+	// Mail it
+	mail($email, $subject, $message, $headers);
+}
+
+//EventsQuantityCheck function
+function EventsQuantityCheck () {
+
+	global $mysqli;
+
+	$eventid = filter_input(INPUT_POST, 'eventid', FILTER_SANITIZE_STRING);
+	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
+
+	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
+	$stmt1->bind_param('i', $eventid);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($event_ticket_no);
+	$stmt1->fetch();
+
+	if ($product_quantity > $event_ticket_no) {
+		echo 'error';
+		$stmt1->close();
+	}
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Messenger functions
+//MessageUser function
+function MessageUser() {
+
+	global $mysqli;
+	global $userid;
+	global $created_on;
+
+	$message_to = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
+	$firstname = filter_input(INPUT_POST, 'firstname5', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'surname5', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'email8', FILTER_SANITIZE_EMAIL);
+	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$message_subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
+	$message_body = filter_input(INPUT_POST, 'message1', FILTER_SANITIZE_STRING);
+
+	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (userid, message_subject, message_body, message_to, created_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt1->bind_param('issis', $userid, $message_subject, $message_body, $message_to, $created_on);
+	$stmt1->execute();
+	$stmt1->close();
+
+	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt2->bind_param('i', $userid);
+	$stmt2->execute();
+	$stmt2->store_result();
+	$stmt2->bind_result($email1, $firstname1, $surname1);
+	$stmt2->fetch();
+	$stmt2->close();
+
+	// subject
+	$subject = "$firstname1 $surname1 - New message on Student Portal";
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>The following person sent you a message:</p>';
+	$message .= '<table rules="all" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname1</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname1</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email1</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_subject</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_body</td></tr>";
+	$message .= '</table><br>';
+	$message .= '<a href="https://student-portal.co.uk/messenger">View message on Student Portal</a><br>';
+	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+	$message .= '</body>';
+	$message .= '</html>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= "From: $firstname1 $surname1 <$email1>" . "\r\n";
+	$headers .= "Reply-To: $firstname1 $surname1 <$email1>" . "\r\n";
+
+	// Mail it
+	mail($email, $subject, $message, $headers);
+
+}
+
+function SetMessageRead () {
+
+	global $mysqli;
+	global $userid;
+
+	$isRead = '1';
+	$stmt1 = $mysqli->prepare("UPDATE user_messages SET isRead=? WHERE message_to=?");
+	$stmt1->bind_param('ii', $isRead, $userid);
+	$stmt1->execute();
+	$stmt1->close();
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Account functions
 //UpdateAccount function
@@ -1013,437 +1451,14 @@ function DeleteAnAccount() {
     $stmt1->close();
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////
-
-//Calendar functions
-//CreateTask function
-function CreateTask () {
-
-	global $mysqli;
-	global $userid;
-	global $created_on;
-
-	$task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
-    $task_notes = filter_input(INPUT_POST, 'task_notes', FILTER_SANITIZE_STRING);
-    $task_url = filter_input(INPUT_POST, 'task_url', FILTER_SANITIZE_STRING);
-    $task_startdate = filter_input(INPUT_POST, 'task_startdate', FILTER_SANITIZE_STRING);
-    $task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
-    $task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
-
-    $task_category = strtolower($task_category);
-
-    if ($task_category == 'university') { $task_class = 'event-important'; }
-    if ($task_category == 'personal') { $task_class = 'event-warning'; }
-    if ($task_category == 'other') { $task_class = 'event-success'; }
-
-    // Check if task exists
-    $stmt1 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE task_name = ? AND userid = ? LIMIT 1");
-    $stmt1->bind_param('si', $task_name, $userid);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_taskid);
-    $stmt1->fetch();
-
-    if ($stmt1->num_rows == 1) {
-	header('HTTP/1.0 550 A task with the task name entered already exists.');
-	exit();
-	$stmt1->close();
-
-	} else {
-	$task_status = 'active';
-
-	$stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('isssssssss', $userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
-	$stmt2->execute();
-	$stmt2->close();
-
-	$stmt1->close();
-    }
-}
-
-//UpdateTask function
-function UpdateTask() {
-
-	global $mysqli;
-	global $updated_on;
-
-	$taskid = filter_input(INPUT_POST, 'taskid', FILTER_SANITIZE_NUMBER_INT);
-	$task_name = filter_input(INPUT_POST, 'task_name1', FILTER_SANITIZE_STRING);
-    $task_notes = filter_input(INPUT_POST, 'task_notes1', FILTER_SANITIZE_STRING);
-	$task_url = filter_input(INPUT_POST, 'task_url1', FILTER_SANITIZE_STRING);
-	$task_startdate = filter_input(INPUT_POST, 'task_startdate1', FILTER_SANITIZE_STRING);
-	$task_duedate = filter_input(INPUT_POST, 'task_duedate1', FILTER_SANITIZE_STRING);
-	$task_category = filter_input(INPUT_POST, 'task_category1', FILTER_SANITIZE_STRING);
-
-	$task_category = strtolower($task_category);
-
-	if ($task_category == 'university') { $task_class = 'event-important'; }
-	if ($task_category == 'work') { $task_class = 'event-info'; }
-	if ($task_category == 'personal') { $task_class = 'event-warning'; }
-	if ($task_category == 'other') { $task_class = 'event-success'; }
-
-	$stmt1 = $mysqli->prepare("SELECT task_name from user_tasks where taskid = ?");
-	$stmt1->bind_param('i', $taskid);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($db_taskname);
-	$stmt1->fetch();
-
-	if ($db_taskname == $task_name) {
-
-	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-	$stmt2->bind_param('sssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
-	$stmt2->execute();
-	$stmt2->close();
-
-	}
-
-	else {
-
-	$stmt3 = $mysqli->prepare("SELECT taskid from user_tasks where task_name = ? AND userid = ? LIMIT 1");
-	$stmt3->bind_param('si', $task_name, $userid);
-	$stmt3->execute();
-	$stmt3->store_result();
-	$stmt3->bind_result($db_taskid);
-	$stmt3->fetch();
-
-	if ($stmt3->num_rows == 1) {
-	header('HTTP/1.0 550 A task with the name entered already exists.');
-	exit();
-	$stmt3->close();
-	}
-	else {
-
-	$stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-	$stmt4->bind_param('ssssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
-	$stmt4->execute();
-	$stmt4->close();
-
-	}
-	}
-}
-
-//CompleteTask function
-function CompleteTask() {
-
-	global $mysqli;
-
-	$idToComplete = filter_input(INPUT_POST, 'recordToComplete', FILTER_SANITIZE_NUMBER_INT);
-	$task_status = 'completed';
-
-	$stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, completed_on = ? WHERE taskid = ? LIMIT 1");
-	$stmt1->bind_param('ssi', $task_status, $completed_on, $idToComplete);
-	$stmt1->execute();
-	$stmt1->close();
-}
-
-//EventsPaypalPaymentSuccess function
-
-//PaypalPaymentSuccess function
-function EventsPaypalPaymentSuccess() {
-
-	global $mysqli;
-	global $newquantity;
-	global $updated_on;
-	global $created_on;
-	global $completed_on;
-
-	$item_number1 = $_POST["item_number1"];
-	$quantity1 = $_POST["quantity1"];
-	$product_name = $_POST["item_name1"];
-	$product_amount = $_POST["mc_gross"];
-
-	$invoice_id = $_POST["invoice"];
-	$transaction_id  = $_POST["txn_id"];
-
-	$payment_status = strtolower($_POST["payment_status"]);
-	$payment_status1 = ($_POST["payment_status"]);
-	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
-
-	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
-	$stmt1->bind_param('i', $invoice_id);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($userid);
-	$stmt1->fetch();
-	$stmt1->close();
-
-	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $userid);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($email, $firstname, $surname);
-	$stmt2->fetch();
-	$stmt2->close();
-
-	$stmt3 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, tickets_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt3->bind_param('iisiis', $userid, $item_number1, $product_name, $product_amount, $quantity1, $created_on);
-	$stmt3->execute();
-	$stmt3->close();
-
-	$stmt4 = $mysqli->prepare("SELECT event_ticket_no from system_events where eventid = ?");
-	$stmt4->bind_param('i', $item_number1);
-	$stmt4->execute();
-	$stmt4->store_result();
-	$stmt4->bind_result($event_ticket_no);
-	$stmt4->fetch();
-	$stmt4->close();
-
-	$newquantity = $event_ticket_no - $quantity1;
-
-	$stmt5 = $mysqli->prepare("UPDATE system_events SET event_ticket_no=? WHERE eventid=?");
-	$stmt5->bind_param('ii', $newquantity, $item_number1);
-	$stmt5->execute();
-	$stmt5->close();
-
-	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
-	$stmt5->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
-	$stmt5->execute();
-	$stmt5->close();
-
-	// subject
-	$subject = 'Payment confirmation';
-
-	// message
-	$message = '<html>';
-	$message .= '<body>';
-	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
-	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $invoice_id</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Transaction ID:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $transaction_id</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $product_name</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Amount paid (&pound;):</strong> </td><td style=\"border: 1px solid #FFA500;\"> &pound;$product_amount</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment time and date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $payment_date</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Payment status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $payment_status1</td></tr>";
-	$message .= '</table>';
-	$message .= '</body>';
-	$message .= '</html>';
-
-	// To send HTML mail, the Content-type header must be set
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	// Additional headers
-	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-
-	// Mail it
-	mail($email, $subject, $message, $headers);
-}
-
-//EventsQuantityCheck function
-function EventsQuantityCheck () {
-
-	global $mysqli;
-
-	$eventid = filter_input(INPUT_POST, 'eventid', FILTER_SANITIZE_STRING);
-	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
-
-	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
-	$stmt1->bind_param('i', $eventid);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($event_ticket_no);
-	$stmt1->fetch();
-
-	if ($product_quantity > $event_ticket_no) {
-		echo 'error';
-		$stmt1->close();
-	}
-
-}
-
-//ContactUs function
-function ContactUs() {
-
-	$firstname = filter_input(INPUT_POST, 'firstname4', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname4', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email7', FILTER_SANITIZE_EMAIL);
-	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$message1 = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
-
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		header('HTTP/1.0 550 The email address you entered is invalid.');
-		exit();
-	}
-
-	// subject
-	$subject = 'New Message';
-
-	$to = 'contact@student-portal.co.uk';
-
-	// message
-	$message = '<html>';
-	$message .= '<body>';
-	$message .= '<p>The following person contacted Student Portal:</p>';
-	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message1</td></tr>";
-	$message .= '</table>';
-	$message .= '</body>';
-	$message .= '</html>';
-
-	// To send HTML mail, the Content-type header must be set
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	// Additional headers
-	$headers .= 'From: Student Portal '.$email.'' . "\r\n";
-	$headers .= 'Reply-To: Student Portal '.$email.'' . "\r\n";
-
-	// Mail it
-	mail($to, $subject, $message, $headers);
-
-}
-
-//ReserveBook function
-function ReserveBook() {
-
-	global $mysqli;
-	global $userid;
-
-	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
-	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
-	$book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
-	$bookreserved_from = filter_input(INPUT_POST, 'bookreserved_from', FILTER_SANITIZE_STRING);
-	$bookreserved_to = filter_input(INPUT_POST, 'bookreserved_to', FILTER_SANITIZE_STRING);
-
-	$book_class = 'event-info';
-	$isReturned = 0;
-
-	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, book_class, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt1->bind_param('iisssi', $userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned);
-	$stmt1->execute();
-	$stmt1->close();
-
-	$book_status = 'reserved';
-
-	$stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=? WHERE bookid =?");
-	$stmt3->bind_param('si', $book_status, $bookid);
-	$stmt3->execute();
-	$stmt3->close();
-
-	$stmt4 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-	$stmt4->bind_param('i', $userid);
-	$stmt4->execute();
-	$stmt4->store_result();
-	$stmt4->bind_result($email, $firstname, $surname, $studentno);
-	$stmt4->fetch();
-	$stmt4->close();
-
-	$reservation_status = 'Completed';
-
-	// subject
-	$subject = 'Reservation confirmation';
-
-	// message
-	$message = '<html>';
-	$message .= '<body>';
-	$message .= '<p>Thank you for your recent book reservation! Below, you can find the reservation summary:</p>';
-	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $studentno</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_name</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_author</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_from</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_to</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Reservation status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservation_status</td></tr>";
-	$message .= '</table>';
-	$message .= '</body>';
-	$message .= '</html>';
-
-	// To send HTML mail, the Content-type header must be set
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	// Additional headers
-	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-
-	// Mail it
-	mail($email, $subject, $message, $headers);
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-//MessageUser function
-function MessageUser() {
+//GetLiveTubeStatus function
+function GetUniversityMapLocations () {
 
-	global $mysqli;
-	global $userid;
-	global $created_on;
+	global $universitymap_locations;
 
-	$message_to = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
-	$firstname = filter_input(INPUT_POST, 'firstname5', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname5', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email8', FILTER_SANITIZE_EMAIL);
-	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$message_subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
-	$message_body = filter_input(INPUT_POST, 'message1', FILTER_SANITIZE_STRING);
-
-	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (userid, message_subject, message_body, message_to, created_on) VALUES (?, ?, ?, ?, ?)");
-	$stmt1->bind_param('issis', $userid, $message_subject, $message_body, $message_to, $created_on);
-	$stmt1->execute();
-	$stmt1->close();
-
-	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $userid);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($email1, $firstname1, $surname1);
-	$stmt2->fetch();
-	$stmt2->close();
-
-	// subject
-	$subject = "$firstname1 $surname1 - New message on Student Portal";
-
-	// message
-	$message = '<html>';
-	$message .= '<body>';
-	$message .= '<p>The following person sent you a message:</p>';
-	$message .= '<table rules="all" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname1</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname1</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email1</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_subject</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_body</td></tr>";
-	$message .= '</table><br>';
-	$message .= '<a href="https://student-portal.co.uk/messenger">View message on Student Portal</a><br>';
-	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-	$message .= '</body>';
-	$message .= '</html>';
-	$message .= '</body>';
-	$message .= '</html>';
-
-	// To send HTML mail, the Content-type header must be set
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	// Additional headers
-	$headers .= "From: $firstname1 $surname1 <$email1>" . "\r\n";
-	$headers .= "Reply-To: $firstname1 $surname1 <$email1>" . "\r\n";
-
-	// Mail it
-	mail($email, $subject, $message, $headers);
-
-}
-
-function SetMessageRead () {
-
-	global $mysqli;
-	global $userid;
-
-	$isRead = '1';
-	$stmt1 = $mysqli->prepare("UPDATE user_messages SET isRead=? WHERE message_to=?");
-	$stmt1->bind_param('ii', $isRead, $userid);
-	$stmt1->execute();
-	$stmt1->close();
-
+	$url = 'https://student-portal.co.uk/includes/locations.xml';
+	$result = file_get_contents($url);
+	$universitymap_locations = new SimpleXMLElement($result);
 }
