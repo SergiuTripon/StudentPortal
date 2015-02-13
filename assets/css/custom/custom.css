@@ -250,6 +250,7 @@ hr {
 
 .navbar-fixed-bottom .navbar-nav>li>a {
     color: #735326;
+    font-weight: 600;
     outline: none !important;
 }
 
