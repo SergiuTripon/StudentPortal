@@ -1,5 +1,5 @@
 <?php
-include 'session.php';
+include '../session.php';
 
 header("Cache-Control: no-cache, must-revalidate");
 
