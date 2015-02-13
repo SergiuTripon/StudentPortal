@@ -262,6 +262,10 @@ footer ul {
 body > .container {
     padding-bottom: 30px !important;
 }
+
+footer > .container {
+    padding-top: 15px;
+}
 footer {
     height: auto !important;
 }
