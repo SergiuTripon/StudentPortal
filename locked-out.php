@@ -68,6 +68,10 @@ include 'includes/session.php';
     </ul>
     </div>
 
+    <div class="form-logo text-center">
+        <i class="fa fa-unlock"></i>
+    </div>
+
     <hr>
     <p class="text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons.</p>
     <hr>
