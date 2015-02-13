@@ -1467,7 +1467,7 @@ function GetUniversityMapLocations () {
 
 	$title = $xml_var->title;
 
-	$stmt1 = $mysqli->prepare("INSERT INTO universitymap_markers (title) VALUES (?)");
+	$stmt1 = $mysqli->prepare("INSERT INTO universitymap_markers (name) VALUES (?)");
 	$stmt1->bind_param('s', $title);
 	$stmt1->execute();
 	$stmt1->close();
