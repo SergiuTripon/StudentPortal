@@ -57,6 +57,10 @@ include 'includes/session.php';
 
 	<form class="form-custom" name="signin_form" id="signin_form">
 
+    <div class="form-logo text-center">
+        <i class="fa fa-lock"></i>
+    </div>
+
     <div id="showtime">
     <div id="showdate"></div>
     <ul>
@@ -66,10 +70,6 @@ include 'includes/session.php';
       <li id="point">:</li>
       <li id="sec"></li>
     </ul>
-    </div>
-
-    <div class="form-logo text-center">
-        <i class="fa fa-unlock"></i>
     </div>
 
     <hr>
