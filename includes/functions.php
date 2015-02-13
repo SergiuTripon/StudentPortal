@@ -1,6 +1,16 @@
 <?php
 include 'session.php';
 
+function GetCycleHireStatus () {
+
+	global $cycle_hire;
+
+	$url = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
+	$result = file_get_contents($url);
+	$cycle_hire = new SimpleXMLElement($result);
+}
+
+
 function SignIn() {
 
 	global $mysqli;
