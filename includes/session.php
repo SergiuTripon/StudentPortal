@@ -28,3 +28,4 @@ $created_on = date("Y-m-d G:i:s");
 $updated_on = date("Y-m-d G:i:s");
 $completed_on = date("Y-m-d G:i:s");
 $cancelled_on = date("Y-m-d G:i:s");
+$now = date('H:i');
