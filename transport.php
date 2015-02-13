@@ -1,9 +1,7 @@
 <?php
 include 'includes/session.php';
-include 'includes/tube/tube_brief.php';
+include 'includes/functions.php';
 
-date_default_timezone_set('Europe/London');
-$now = date('H:i');
 ?>
 
 
