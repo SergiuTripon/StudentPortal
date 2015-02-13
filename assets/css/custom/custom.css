@@ -17,12 +17,6 @@ body {
     background: #E9DDC6 url(../../img/bg/background.png);
 }
 
-@media(max-width:767px) {
-body {
-    font-size: 14px;
-}
-}
-
 /* Some more spacing */
 body > .container {
     padding-top: 70px;
@@ -284,19 +278,6 @@ footer .pull-left {
 ul.external-pages-links {
     text-align: center !important;
 }
-
-footer a {
-    font-size: 14px !important;
-}
-    ul.external-pages-links > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
-
-    ul.external-pages-links > li:last-child {
-        margin-bottom: 0;
-    }
 }
 /* End of Footer */
 
@@ -307,8 +288,8 @@ footer a {
 
 #features-showcase hr {
     max-width: 300px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
     border-color: #449D44;
     background: #449D44;
 }
