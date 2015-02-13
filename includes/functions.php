@@ -1457,7 +1457,6 @@ function DeleteAnAccount() {
 function GetUniversityMapLocations () {
 
 	global $mysqli;
-	global $universitymap_locations;
 
 	$url = 'https://student-portal.co.uk/includes/locations.xml';
 	$result = file_get_contents($url);
