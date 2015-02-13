@@ -228,6 +228,10 @@ hr {
 }
 /* End of Navbar */
 
+.navbar-fixed-bottom {
+    position: absolute;
+}
+
 /* Footer */
 footer {
     position: absolute;
