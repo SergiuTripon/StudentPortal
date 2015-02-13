@@ -270,6 +270,10 @@ footer p {
     font-size: 14px !important;
 }
 
+footer a {
+    font-size: 14px !important;
+}
+
 footer .pull-left {
     float: none !important;
     text-align: center !important;
