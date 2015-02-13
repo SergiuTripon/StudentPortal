@@ -238,6 +238,10 @@ footer {
     border-top: 1px solid #BF8B41;
 }
 
+footer > .container {
+    padding-top: 15px;
+}
+
 footer p {
     color: #735326;
     font-weight: 600;
@@ -263,9 +267,6 @@ body > .container {
     padding-bottom: 30px !important;
 }
 
-footer > .container {
-    padding-top: 15px;
-}
 footer {
     height: auto !important;
 }
