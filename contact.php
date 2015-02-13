@@ -28,7 +28,7 @@ include 'includes/session.php';
 
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body>
 
 	<div class="preloader"></div>
 
@@ -36,31 +36,67 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div class="container">
+    <!-- Contact -->
+    <div id="contact-showcase" class="container"><!-- container -->
 
-    <form class="form-custom">
+    <h1 class="text-center">Contact</h1>
+    <hr class="hr-small">
 
-    <div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
+	<form class="form-custom" style="max-width: 700px;">
+
+    <p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-sad text-center"></p>
+
+    <div id="hide">
+
+	<div class="form-group">
+	<div class="col-xs-4 col-sm-4 full-width pl0">
+	<input class="form-control" type="text" name="firstname" id="firstname" placeholder="First name">
     </div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-4 col-sm-4 full-width">
+    <input class="form-control" type="text" name="surname" id="surname" placeholder="Surname">
+	</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-4 col-sm-4 full-width pr0">
+    <input class="form-control" type="email" name="email" id="email" placeholder="E-mail address">
+	</div>
+	</div>
+    <p id="error1" class="feedback-sad text-center"></p>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<textarea class="form-control" rows="8" name="message" id="message" placeholder="Message"></textarea>
+	</div>
+	</div>
+    <p id="error2" class="feedback-sad text-center"></p>
 
     <hr>
 
-    <p class="feedback-sad text-center">You are already logged in. You don't have to log in again.</p>
+    <div class="text-center">
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Contact us</span></button>
+	</div>
 
-    <hr>
-
-	<div class="pull-left">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="overview/"><span class="ladda-label">Overview</span></a>
-    </div>
-
-    <div class="text-right">
-    <a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="sign-out/"><span class="ladda-label">Sign Out</span></a>
     </div>
 
     </form>
 
-    </div>
+    </div><!-- /.container -->
+
+	<!-- Social -->
+	<div id="social-showcase" class="container text-center"><!-- container -->
+
+    <hr>
+
+    <a href="https://facebook.com/triponsergiu" target="_blank"><i class="fa fa-facebook-square"></i></a>
+    <a href="https://twitter.com/SergiuTripon" target="_blank"><i class="fa fa-twitter-square"></i></a>
+    <a href="https://www.linkedin.com/in/triponsergiu"><i class="fa fa-linkedin-square" target="_blank"></i></a>
+
+	</div><!-- /.container -->
 
     <?php include 'includes/footers/footer.php'; ?>
 
