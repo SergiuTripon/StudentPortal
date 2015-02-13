@@ -239,6 +239,7 @@ hr {
 }
 .navbar-fixed-bottom .navbar-brand {
     color: #735326;
+    font-weight: 600;
     font-size: 15px;
 }
 
