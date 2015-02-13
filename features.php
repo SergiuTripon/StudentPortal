@@ -14,15 +14,15 @@ include 'includes/session.php';
     <title>Student Portal | Features</title>
 
     <style>
+    #features {
+        border-radius: 3px;
+        background-color: #735326;
+    }
     #features a {
         color: #FFFFFF;
-        background-color: #735326;
-        border-radius: 3px;
     }
     #features a:focus, #features a:hover {
         color: #FFFFFF;
-        background-color: #735326;
-        border-radius: 3px;
     }
     </style>
 
