@@ -239,6 +239,7 @@ hr {
 }
 .navbar-fixed-bottom .navbar-brand {
     color: #FFFFFF;
+    font-size: 15px;
 }
 
 .navbar-fixed-bottom .navbar-brand:hover,
@@ -247,13 +248,13 @@ hr {
 }
 
 .navbar-fixed-bottom .navbar-nav>li>a {
-    color: #FFFFFF;
+    color: #735326;
     outline: none !important;
 }
 
 .navbar-fixed-bottom .navbar-nav > li > a:hover,
 .navbar-fixed-bottom .navbar-nav > li > a:focus {
-    color: #FFFFFF;
+    color: #735326;
     outline: none !important;
 }
 
