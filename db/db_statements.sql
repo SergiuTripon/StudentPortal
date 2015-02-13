@@ -13,6 +13,7 @@ DROP TABLE system_events;
 DROP TABLE reserved_books;
 DROP TABLE system_books;
 DROP TABLE user_messages;
+DROP TABLE system_map_markers;
 DROP TABLE user_signin;
 
 CREATE TABLE `student_portal`.`user_signin` (
@@ -280,10 +281,10 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
-CREATE TABLE `universitymap_markers` (
+CREATE TABLE `system_map_markers` (
 	`markerid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`marker_title` VARCHAR (70) NOT NULL,
-	`marker_description` VARCHAR (300) NOT NULL,
+	`marker_description` VARCHAR (5000) NOT NULL,
 	`marker_link` VARCHAR (70) NOT NULL,
 	`marker_lat` FLOAT(10,6) NOT NULL,
 	`marker_long` FLOAT(10,6) NOT NULL,
