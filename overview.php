@@ -30,7 +30,7 @@ include 'includes/functions.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div class="container">
+    <div id="overview-portal" class="container">
     <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
@@ -138,7 +138,7 @@ include 'includes/functions.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div class="container">
+    <div id="overview-portal" class="container">
     <div class="row">
 
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">

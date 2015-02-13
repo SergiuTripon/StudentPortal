@@ -1065,7 +1065,7 @@ form .success-style:-ms-input-placeholder {
 /* End of Breadcrumb style */
 
 /* Badge */
-.badge {
+#overview-portal .badge {
     color: #5CB85C;
     font-size: 14px;
     line-height: 0.9;
