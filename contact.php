@@ -15,7 +15,6 @@ include 'includes/session.php';
 
     <style>
     #contact {
-        border-radius: 3px;
         background-color: #735326;
     }
     #contact a {

@@ -15,7 +15,6 @@ include 'includes/session.php';
 
     <style>
     #user-manual {
-        border-radius: 3px;
         background-color: #735326;
     }
     #user-manual a {
