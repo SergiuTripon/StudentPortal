@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
+include '../includes/functions';
 
-$url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
-$result = file_get_contents($url);
-$xml_weekend = new SimpleXMLElement($result);
+GetThisWeekendTubeStatus();
+
 ?>
 
 
@@ -60,7 +60,7 @@ $xml_weekend = new SimpleXMLElement($result);
 	</thead>
 
 	<tbody>
-	<?php foreach ($xml_weekend->Lines->Line as $xml_var) : ?>
+	<?php foreach ($xml_this_weekend->Lines->Line as $xml_var) : ?>
 	<tr>
 	<td data-title="Line"><?php echo $xml_var->Name ?></td>
 	<td data-title="Status"><?php echo $xml_var->Status->Text ?></td>
@@ -99,7 +99,7 @@ $xml_weekend = new SimpleXMLElement($result);
 	</thead>
 
 	<tbody>
-	<?php foreach ($xml_weekend->Stations->Station as $xml_var) : ?>
+	<?php foreach ($xml_this_weekend->Stations->Station as $xml_var) : ?>
 	<tr>
 	<td data-title="Station"><?php echo $xml_var->Name ?></td>
 	<td data-title="Status"><?php echo $xml_var->Status->Text ?></td>
@@ -122,7 +122,7 @@ $xml_weekend = new SimpleXMLElement($result);
 	
 	<?php include '../includes/footers/footer.php'; ?>
 
-           <!-- Sign Out (Inactive) JS -->
+   	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>

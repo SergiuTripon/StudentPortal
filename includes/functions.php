@@ -10,6 +10,29 @@ function GetCycleHireStatus () {
 	$cycle_hire = new SimpleXMLElement($result);
 }
 
+function GetLiveTubeStatus () {
+
+	global $xml_line_status;
+	global $xml_station_status;
+
+	$url1 = 'http://cloud.tfl.gov.uk/TrackerNet/LineStatus';
+	$result1 = file_get_contents($url1);
+	$xml_line_status = new SimpleXMLElement($result1);
+
+	$url2 = 'http://cloud.tfl.gov.uk/TrackerNet/StationStatus';
+	$result2 = file_get_contents($url2);
+	$xml_station_status = new SimpleXMLElement($result2);
+}
+
+function GetThisWeekendTubeStatus () {
+
+	global $xml_this_weekend;
+
+	$url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
+	$result = file_get_contents($url);
+	$xml_this_weekend = new SimpleXMLElement($result);
+}
+
 
 function SignIn() {
 

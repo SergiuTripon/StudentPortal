@@ -1,13 +1,9 @@
 <?php
 include '../includes/session.php';
+include '../includes/functions.php';
 
-$url1 = 'http://cloud.tfl.gov.uk/TrackerNet/LineStatus';
-$result1 = file_get_contents($url1);
-$xml_line_status = new SimpleXMLElement($result1);
+GetLiveTubeStatus();
 
-$url2 = 'http://cloud.tfl.gov.uk/TrackerNet/StationStatus';
-$result2 = file_get_contents($url2);
-$xml_station_status = new SimpleXMLElement($result2);
 ?>
 
 
