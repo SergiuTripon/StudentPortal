@@ -551,16 +551,6 @@ function GetTubeStatusNow() {
 	$dlr1 = $xml->LineStatus[12]->Status->attributes()->Description;
 }
 
-//GetCycleHireStatus function
-function GetCycleHireStatus () {
-
-	global $cycle_hire;
-
-	$url = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
-	$result = file_get_contents($url);
-	$cycle_hire = new SimpleXMLElement($result);
-}
-
 //GetLiveTubeStatus function
 function GetLiveTubeStatus () {
 
@@ -584,6 +574,16 @@ function GetThisWeekendTubeStatus () {
 	$url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
 	$result = file_get_contents($url);
 	$xml_this_weekend = new SimpleXMLElement($result);
+}
+
+//GetCycleHireStatus function
+function GetCycleHireStatus () {
+
+	global $cycle_hire;
+
+	$url = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
+	$result = file_get_contents($url);
+	$cycle_hire = new SimpleXMLElement($result);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
