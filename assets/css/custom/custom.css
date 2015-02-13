@@ -239,7 +239,7 @@ footer {
 }
 
 footer > .container {
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 footer p {
@@ -260,6 +260,10 @@ footer a:focus, footer a:hover {
 @media(max-width:767px) {
 body > .container {
     padding-bottom: 30px !important;
+}
+
+footer > .container {
+    padding-top: 10px !important;
 }
 
 footer {
