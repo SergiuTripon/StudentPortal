@@ -1467,9 +1467,16 @@ function GetUniversityMapLocations () {
 	$title = $xml_var->title;
 	$description = $xml_var->description;
 	$link = $xml_var->link;
-	$lat = $xml_var->{'geo:lat'};
-	$long = $xml_var->{'geo:long'};
-	$icon = $xml_var->{'CUL:icon'};
+
+	$namespaces = $xml_var->getNameSpaces(true);
+
+	$latlong_selector = $xml_var->children($namespaces['geo']);
+	$icon_selector = $xml_var->children($namespaces['CUL']);
+
+	$lat = $latlong_selector->lat;
+	$long = $latlong_selector->long;
+	$icon = $icon_selector->icon;
+
 	$category = $xml_var->category;
 
 	$stmt1 = $mysqli->prepare("INSERT INTO universitymap_markers (marker_title, marker_description, marker_link, marker_lat, marker_long, marker_icon, marker_category) VALUES (?, ?, ?, ?, ?, ?, ?)");
