@@ -23,7 +23,6 @@ function GetUniversityMapLocations () {
 	$link = $xml_var->link;
 
 	$namespaces = $xml_var->getNameSpaces(true);
-
 	$latlong_selector = $xml_var->children($namespaces['geo']);
 	$icon_selector = $xml_var->children($namespaces['CUL']);
 
