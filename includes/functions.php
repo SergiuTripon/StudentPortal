@@ -1462,7 +1462,7 @@ function GetUniversityMapLocations () {
 	$result = file_get_contents($url);
 	$universitymap_locations = new SimpleXMLElement($result);
 
-	foreach ($universitymap_locations->item as $xml_var) {
+	foreach ($universitymap_locations as $xml_var) {
 
 	$title = $xml_var->title;
 
