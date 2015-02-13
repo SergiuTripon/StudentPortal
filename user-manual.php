@@ -14,17 +14,15 @@ include 'includes/session.php';
     <title>Student Portal | User Manual</title>
 
     <style>
-    #find-out-more {
-        color: #FFFFFF;
-        background-color: #C9302C;
-    }
     #user-manual a {
         color: #FFFFFF;
-        background-color: #C9302C;
+        background-color: #735326;
+        border-radius: 3px;
     }
     #user-manual a:focus, #user-manual a:hover {
-        color: #FFFFFF !important;
-        background-color: #C9302C !important;
+        color: #FFFFFF;
+        background-color: #735326;
+        border-radius: 3px;
     }
     </style>
 

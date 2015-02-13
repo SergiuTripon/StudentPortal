@@ -17,15 +17,6 @@
     <ul class="nav navbar-nav navbar-right">
         <li id="signin"><a href="/">Sign In</a></li>
         <li id="register"><a href="/register/">Register</a></li>
-        <li class="dropdown">
-            <a id="find-out-more" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find out more <span class="fa fa-caret-down"></span></a>
-            <ul class="dropdown-menu" role="menu">
-            <li id="about"><a href="/about/">About</a></li>
-            <li id="features"><a href="/features/">Features</a></li>
-            <li id="user-manual"><a href="/user-manual/">User manual</a></li>
-            <li id="contact"><a href="/contact/">Contact</a></li>
-          </ul>
-        </li>
     </ul>
     </div><!--/.nav-collapse -->
     </div><!--/.container -->
