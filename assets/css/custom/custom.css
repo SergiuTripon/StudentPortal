@@ -243,23 +243,18 @@ footer > .container {
 }
 
 footer p {
-    color: #735326;
+    color: #FFFFFF;
     font-weight: 600;
-    padding-top: 5px;
 }
 
 footer a {
     color: #735326;
-    text-decoration: underline;
+    font-weight: 600;
 }
 
-footer a:focus, footer a:hover  {
+footer a:focus, footer a:hover {
     color: #735326;
-    text-decoration: underline;
-}
-
-footer ul {
-    margin-top: 5px;
+    font-weight: 600;
 }
 
 @media(max-width:767px) {
