@@ -1,6 +1,6 @@
 <?php
 include '../includes/session.php';
-include '../includes/functions';
+include '../includes/functions.php';
 
 GetThisWeekendTubeStatus();
 
