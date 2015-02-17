@@ -126,8 +126,8 @@ include 'includes/session.php';
 			<td data-title="Start date">'.$task_startdate.'</td>
 			<td data-title="Due date">'.$task_duedate.'</td>
 			<td data-title="Category">'.$task_category.'</td>
-			<td data-title="Action"><a id="complete-'.$taskid.'" class="btn btn-default btn-md complete-button">Complete</a></td>
-			<td data-title="Action"><a id="update-'.$taskid.'" class="btn btn-default btn-md update-button">Update</a></td>
+			<td data-title="Action"><a id="complete-'.$taskid.'" class="btn btn-primary btn-md complete-button">Complete</a></td>
+			<td data-title="Action"><a id="update-'.$taskid.'" class="btn btn-primary btn-md update-button">Update</a></td>
 			</tr>';
 	}
 
