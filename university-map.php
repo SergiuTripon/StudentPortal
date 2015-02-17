@@ -25,7 +25,7 @@
       var infoWindow = new google.maps.InfoWindow;
 
       // Change this depending on the name of your PHP file
-      downloadUrl("phpsqlajax_genxml.php", function(data) {
+      downloadUrl("../includes/university-map/map_source.php", function(data) {
         var xml = data.responseXML;
         var markers = xml.documentElement.getElementsByTagName("marker");
         for (var i = 0; i < markers.length; i++) {
