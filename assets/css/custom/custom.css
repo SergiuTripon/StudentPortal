@@ -1093,7 +1093,7 @@ form .success-style:-ms-input-placeholder {
     border-color: #BEBEBE;
 }
 .btn-primary {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     background-color: #4582EC;
     border-color: #4582EC;
 }
