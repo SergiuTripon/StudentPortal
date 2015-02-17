@@ -23,7 +23,7 @@ while ($row = $stmt1->fetch_assoc()){
     $newnode->setAttribute("name",$row['marker_title']);
     $newnode->setAttribute("lat", $row['marker_lat']);
     $newnode->setAttribute("lng", $row['marker_long']);
-    $newnode->setAttribute("type", $row['market_category']);
+    $newnode->setAttribute("type", $row['marker_category']);
 }
 
 echo $dom->saveXML();
