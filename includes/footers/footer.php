@@ -9,7 +9,7 @@
     <span class="icon-bar"></span>
     </button>
 
-    <a class="navbar-brand" href=""><i clas="fa-copyright"></i> 2015 Student Portal</a>
+    <a class="navbar-brand" href=""><i class="fa fa-copyright"></i> 2015 Student Portal</a>
     </div>
     <div id="navbar1" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
