@@ -10,7 +10,7 @@ $parnode = $dom->appendChild($node);
 
 // Select all the rows in the markers table
 
-$stmt1 = $mysqli->query("SELECT * FROM markers WHERE 1");
+$stmt1 = $mysqli->query("SELECT * FROM system_map_markers WHERE 1");
 
 header("Content-type: text/xml");
 
@@ -20,11 +20,10 @@ while ($row = $stmt1->fetch_assoc()){
     // ADD TO XML DOCUMENT NODE
     $node = $dom->createElement("marker");
     $newnode = $parnode->appendChild($node);
-    $newnode->setAttribute("name",$row['name']);
-    $newnode->setAttribute("address", $row['address']);
-    $newnode->setAttribute("lat", $row['lat']);
-    $newnode->setAttribute("lng", $row['lng']);
-    $newnode->setAttribute("type", $row['type']);
+    $newnode->setAttribute("name",$row['marker_title']);
+    $newnode->setAttribute("lat", $row['marker_lat']);
+    $newnode->setAttribute("lng", $row['marker_long']);
+    $newnode->setAttribute("type", $row['market_category']);
 }
 
 echo $dom->saveXML();
