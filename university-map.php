@@ -11,19 +11,19 @@
     //<![CDATA[
     var customIcons = {
     buildings: {
-        icon: 'https://labs.google.com/ridefinder/images/mm_20_blue.png'
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
     },
     studentCentre: {
-        icon: 'https://labs.google.com/ridefinder/images/mm_20_red.png'
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
     },
     lectureTheatres: {
-        icon: 'https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
+        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
     },
     computerLabs: {
-        icon: 'https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
+        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
     },
     libraries: {
-        icon: 'https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
+        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
     }
     };
 
@@ -90,7 +90,7 @@
 </head>
 <body onload="load()">
 
-    <div id="map" style="width: 100%; height: 80%"></div>
+    <div id="map" style="width: 100%; height: 700px"></div>
 
 </body>
 </html>
