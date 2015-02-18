@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
-<head>
-
+  <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>PHP/MySQL & Google Maps Example</title>
@@ -32,13 +30,12 @@
         var markers = xml.documentElement.getElementsByTagName("marker");
         for (var i = 0; i < markers.length; i++) {
           var name = markers[i].getAttribute("name");
-          var description = markers[i].getAttribute("description");
           var address = markers[i].getAttribute("address");
           var type = markers[i].getAttribute("type");
           var point = new google.maps.LatLng(
               parseFloat(markers[i].getAttribute("lat")),
               parseFloat(markers[i].getAttribute("lng")));
-          var html = "<b>" + name + "</b> <br/>" + address "</b> <br/>" + description;
+          var html = "<b>" + name + "</b> <br/>" + address;
           var icon = customIcons[type] || {};
           var marker = new google.maps.Marker({
             map: map,
@@ -77,14 +74,12 @@
 
     //]]>
 
-    </script>
+  </script>
 
-</head>
+  </head>
 
-<body onload="load()">
-
-<div id="map" style="width: 500px; height: 300px"></div>
-
-</body>
+  <body onload="load()">
+    <div id="map" style="width: 500px; height: 300px"></div>
+  </body>
 
 </html>
