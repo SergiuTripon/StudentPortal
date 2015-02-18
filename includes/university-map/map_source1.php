@@ -13,7 +13,7 @@ $node = $dom->createElement("markers");
 $parnode = $dom->appendChild($node);
 
 // Search the rows in the markers table
-$query = sprintf("SELECT address, name, lat, lng, type, ( 3959 * acos( cos( radians('%s') ) * cos( radians( lat ) ) * cos( radians( lng ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( lat ) ) ) ) AS distance FROM markers HAVING distance < '%s' ORDER BY distance LIMIT 0 , 20",
+$query = sprintf("SELECT marker_name, marker_description, marker_lat, marker_long, marker_category, (3959 * acos(cos(radians('%s')) * cos(radians(marker_lat)) * cos(radians(marker_long) - radians('%s')) + sin( radians('%s') ) * sin(radians(marker_lat)))) AS distance FROM system_map_markers HAVING distance < '%s' ORDER BY distance LIMIT 0 , 20",
     $mysqli->real_escape_string($center_lat),
     $mysqli->real_escape_string($center_lng),
     $mysqli->real_escape_string($center_lat),
@@ -26,11 +26,11 @@ header("Content-type: text/xml");
 while ($row = $result->fetch_assoc()){
       $node = $dom->createElement("marker");
       $newnode = $parnode->appendChild($node);
-      $newnode->setAttribute("name", $row['name']);
-      $newnode->setAttribute("address", $row['address']);
-      $newnode->setAttribute("type", $row['type']);
-      $newnode->setAttribute("lat", $row['lat']);
-      $newnode->setAttribute("lng", $row['lng']);
+      $newnode->setAttribute("name", $row['marker_name']);
+      $newnode->setAttribute("description", $row['marker_description']);
+      $newnode->setAttribute("lat", $row['marker_lat']);
+      $newnode->setAttribute("lng", $row['marker_long']);
+      $newnode->setAttribute("category", $row['marker_category']);
       $newnode->setAttribute("distance", $row['distance']);
     }
 
