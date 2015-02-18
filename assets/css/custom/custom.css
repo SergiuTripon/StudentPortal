@@ -1,8 +1,4 @@
 /* Global */
-html {
-    position: relative;
-    min-height: 100%;
-}
 
 /* IE Responsiveness */
 @-ms-viewport{

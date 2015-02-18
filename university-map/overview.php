@@ -6,6 +6,12 @@
 
     <title>University Map | Overview</title>
 
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
+
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript">
     //<![CDATA[
@@ -90,9 +96,7 @@
 </head>
 <body onload="load()">
 
-    <div style="width: 100%; height: 100%;">
-    <div id="map"></div>
-    </div>
+    <div id="map" style="width: 100%; height: 100%;"></div>
 
 </body>
 </html>
