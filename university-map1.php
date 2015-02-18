@@ -86,7 +86,7 @@
                 var bounds = new google.maps.LatLngBounds();
                 for (var i = 0; i < markerNodes.length; i++) {
                     var name = markerNodes[i].getAttribute("name");
-                    var address = markerNodes[i].getAttribute("address");
+                    var address = markerNodes[i].getAttribute("description");
                     var type = markerNodes[i].getAttribute("type");
                     var distance = parseFloat(markerNodes[i].getAttribute("distance"));
                     var latlng = new google.maps.LatLng(
