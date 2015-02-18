@@ -11,6 +11,7 @@
         var markers = [];
         var infoWindow;
         var locationSelect;
+        var type;
 
         function load() {
             map = new google.maps.Map(document.getElementById("map"), {
@@ -68,6 +69,7 @@
                 for (var i = 0; i < markerNodes.length; i++) {
                     var name = markerNodes[i].getAttribute("name");
                     var address = markerNodes[i].getAttribute("address");
+                    var type = markerNodes[i].getAttribute("type");
                     var distance = parseFloat(markerNodes[i].getAttribute("distance"));
                     var latlng = new google.maps.LatLng(
                         parseFloat(markerNodes[i].getAttribute("lat")),
@@ -88,9 +90,11 @@
 
         function createMarker(latlng, name, address) {
             var html = "<b>" + name + "</b> <br/>" + address;
+            var type = markerNodes[i].getAttribute("type");
             var marker = new google.maps.Marker({
                 map: map,
-                position: latlng
+                position: latlng,
+                icon: icon.icon
             });
             google.maps.event.addListener(marker, 'click', function() {
                 infoWindow.setContent(html);
