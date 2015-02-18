@@ -33,7 +33,9 @@
         zoom: 15,
         mapTypeId: 'roadmap'
         });
-        var infoWindow = new google.maps.InfoWindow;
+        var infoWindow = new google.maps.InfoWindow({
+            maxWidth: 400
+        });
 
     // Change this depending on the name of your PHP file
     downloadUrl("../../includes/university-map/map_source.php", function(data) {

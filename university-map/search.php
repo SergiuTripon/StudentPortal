@@ -22,7 +22,9 @@
         mapTypeId: 'roadmap',
         mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
         });
-        infoWindow = new google.maps.InfoWindow();
+        infoWindow = new google.maps.InfoWindow({
+            maxWidth: 400
+        });
 
         locationSelect = document.getElementById("locationSelect");
         locationSelect.onchange = function() {
