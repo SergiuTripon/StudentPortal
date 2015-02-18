@@ -13,7 +13,7 @@ $node = $dom->createElement("markers");
 $parnode = $dom->appendChild($node);
 
 // Search the rows in the markers table
-$query = sprintf("SELECT address, name, lat, lng, ( 3959 * acos( cos( radians('%s') ) * cos( radians( lat ) ) * cos( radians( lng ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( lat ) ) ) ) AS distance FROM universitymap_markers HAVING distance < '%s' ORDER BY distance LIMIT 0 , 20",
+$query = sprintf("SELECT address, name, lat, lng, ( 3959 * acos( cos( radians('%s') ) * cos( radians( lat ) ) * cos( radians( lng ) - radians('%s') ) + sin( radians('%s') ) * sin( radians( lat ) ) ) ) AS distance FROM markers HAVING distance < '%s' ORDER BY distance LIMIT 0 , 20",
     -  $mysqli->real_escape_string($center_lat),
     -  $mysqli->real_escape_string($center_lng),
     -  $mysqli->real_escape_string($center_lat),
