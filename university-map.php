@@ -80,7 +80,7 @@
   </head>
 
   <body onload="load()">
-    <div id="map" style="width: 500px; height: 300px"></div>
+    <div id="map"></div>
   </body>
 
 </html>
