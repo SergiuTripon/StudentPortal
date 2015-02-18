@@ -1237,7 +1237,7 @@ University Building]]></description>
 <geo:long>-0.10312557220458984</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category></category>
+<category>studentCentre</category>
 </item><item>
 <!-- 60 -->
 <guid isPermaLink="false">38975</guid>
