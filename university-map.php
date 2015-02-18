@@ -40,7 +40,8 @@
           var marker = new google.maps.Marker({
             map: map,
             position: point,
-            icon: icon.icon
+            icon: icon.icon,
+            animation: google.maps.Animation.DROP
           });
           bindInfoWindow(marker, map, infoWindow, html);
         }
