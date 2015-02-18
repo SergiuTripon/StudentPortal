@@ -73,7 +73,7 @@
 	
 	<?php endif; ?>
 
-    <?php include '../../../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
     Ladda.bind( '.ladda-button', { timeout: 2000 } );
