@@ -9,8 +9,6 @@
 
     <title>Student Portal | Payment Cancelled</title>
 
-
-
 </head>
 
 	<style>
