@@ -31,13 +31,13 @@
         }
 
         function searchLocations() {
-            var address = document.getElementById("addressInput").value;
+            var name = document.getElementById("addressInput").value;
             var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({address: address}, function(results, status) {
+            geocoder.geocode({address: name}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     searchLocationsNear(results[0].geometry.location);
                 } else {
-                    alert(address + ' not found');
+                    alert(name + ' not found');
                 }
             });
         }
