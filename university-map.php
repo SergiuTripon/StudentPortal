@@ -8,12 +8,21 @@
     //<![CDATA[
 
     var customIcons = {
-      studentCentre: {
+    buildings: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
-      },
-      bar: {
+    },
+    studentCentre: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
-      }
+    },
+    lectureTheatres: {
+        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
+    },
+    computerLabs: {
+        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
+    }
+    libraries: {
+        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
+    }
     };
 
     function load() {
