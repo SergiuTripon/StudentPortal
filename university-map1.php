@@ -3,7 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <title>Google Maps AJAX + mySQL/PHP Example</title>
-    <script src="https://maps.googleapis.com/maps/api/js"
+    <script src="http://maps.google.com/maps/api/js?sensor=false"
             type="text/javascript"></script>
     <script type="text/javascript">
         //<![CDATA[
@@ -14,8 +14,8 @@
 
         function load() {
             map = new google.maps.Map(document.getElementById("map"), {
-                center: new google.maps.LatLng(51.5278, 0.1023),
-                zoom: 15,
+                center: new google.maps.LatLng(40, -100),
+                zoom: 4,
                 mapTypeId: 'roadmap',
                 mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
             });
@@ -31,13 +31,13 @@
         }
 
         function searchLocations() {
-            var name = document.getElementById("addressInput").value;
+            var address = document.getElementById("addressInput").value;
             var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({name: name}, function(results, status) {
+            geocoder.geocode({address: address}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     searchLocationsNear(results[0].geometry.location);
                 } else {
-                    alert(name + ' not found');
+                    alert(address + ' not found');
                 }
             });
         }
@@ -60,13 +60,14 @@
             clearLocations();
 
             var radius = document.getElementById('radiusSelect').value;
-            var searchUrl = 'includes/university-map/map-source1.php?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
+            var searchUrl = 'includes/university-map/map_source1.php?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
             downloadUrl(searchUrl, function(data) {
                 var xml = parseXml(data);
                 var markerNodes = xml.documentElement.getElementsByTagName("marker");
                 var bounds = new google.maps.LatLngBounds();
                 for (var i = 0; i < markerNodes.length; i++) {
                     var name = markerNodes[i].getAttribute("name");
+                    var address = markerNodes[i].getAttribute("address");
                     var distance = parseFloat(markerNodes[i].getAttribute("distance"));
                     var latlng = new google.maps.LatLng(
                         parseFloat(markerNodes[i].getAttribute("lat")),
@@ -136,7 +137,6 @@
         //]]>
     </script>
 </head>
-
 <body style="margin:0px; padding:0px;" onload="load()">
 <div>
     <input type="text" id="addressInput" size="10"/>
@@ -145,7 +145,6 @@
         <option value="100">100mi</option>
         <option value="200">200mi</option>
     </select>
-
     <input type="button" onclick="searchLocations()" value="Search"/>
 </div>
 <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
