@@ -124,7 +124,7 @@
         function createOption(name, distance, num) {
             var option = document.createElement("option");
             option.value = num;
-            option.innerHTML = name + "(" + distance.toFixed(1) + ")";
+            option.innerHTML = name + " " + "(" + distance.toFixed(1) + ")";
             locationSelect.appendChild(option);
         }
 
