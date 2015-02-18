@@ -8,7 +8,7 @@
     //<![CDATA[
 
     var customIcons = {
-      restaurant: {
+      studentCentre: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
       },
       bar: {
