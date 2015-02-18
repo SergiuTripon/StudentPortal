@@ -21,6 +21,7 @@ while ($row = $stmt1->fetch_assoc()){
     $node = $dom->createElement("marker");
     $newnode = $parnode->appendChild($node);
     $newnode->setAttribute("name",$row['marker_title']);
+    $newnode->setAttribute("description", $row['marker_description']);
     $newnode->setAttribute("lat", $row['marker_lat']);
     $newnode->setAttribute("lng", $row['marker_long']);
     $newnode->setAttribute("type", $row['marker_category']);
