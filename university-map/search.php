@@ -1,10 +1,11 @@
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
-    <title>Google Maps AJAX + mySQL/PHP Example</title>
+    <title>University map | Search</title>
+
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
@@ -62,7 +63,7 @@
         clearLocations();
 
         var radius = document.getElementById('radiusSelect').value;
-        var searchUrl = '../includes/university-map/map_source1.php?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
+        var searchUrl = '../../includes/university-map/map_source1.php?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
         downloadUrl(searchUrl, function(data) {
         var xml = parseXml(data);
         var markerNodes = xml.documentElement.getElementsByTagName("marker");
@@ -156,7 +157,7 @@
 
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
 
-    <div id="map" style="width: 100%; height: 80%"></div>
+    <div id="map" style="width: 100%; height: 100%"></div>
 
 </body>
 </html>

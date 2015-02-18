@@ -1,10 +1,16 @@
-
 <!DOCTYPE html>
 <head>
 
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>PHP/MySQL & Google Maps Example</title>
+
+    <title>University Map | Overview</title>
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript">
@@ -36,7 +42,7 @@
         var infoWindow = new google.maps.InfoWindow;
 
     // Change this depending on the name of your PHP file
-    downloadUrl("../includes/university-map/map_source.php", function(data) {
+    downloadUrl("../../includes/university-map/map_source.php", function(data) {
         var xml = data.responseXML;
         var markers = xml.documentElement.getElementsByTagName("marker");
         for (var i = 0; i < markers.length; i++) {
@@ -90,7 +96,7 @@
 </head>
 <body onload="load()">
 
-    <div id="map" style="width: 100%; height: 700px"></div>
+    <div id="map" style="width: 100%; height: 100%;"></div>
 
 </body>
 </html>
