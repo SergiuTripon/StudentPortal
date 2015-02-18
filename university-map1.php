@@ -1,175 +1,162 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <title>Google Maps AJAX + mySQL/PHP Example</title>
-    <script src="https://maps.google.com/maps/api/js?sensor=false"
-            type="text/javascript"></script>
-    <script type="text/javascript">
-        //<![CDATA[
-        var map;
-        var markers = [];
-        var infoWindow;
-        var locationSelect;
-        var type;
 
-        var customIcons = {
-            buildings: {
-                icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
-            },
-            studentCentre: {
-                icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
-            },
-            lectureTheatres: {
-                icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
-            },
-            computerLabs: {
-                icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
-            },
-            libraries: {
-                icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
-            }
+    <title>Google Maps AJAX + mySQL/PHP Example</title>
+    <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+    var map;
+    var markers = [];
+    var infoWindow;
+    var locationSelect;
+    var type;
+
+    function load() {
+        map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(51.527287, -0.103842),
+        zoom: 15,
+        mapTypeId: 'roadmap',
+        mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
+        });
+        infoWindow = new google.maps.InfoWindow();
+
+        locationSelect = document.getElementById("locationSelect");
+        locationSelect.onchange = function() {
+        var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
+        if (markerNum != "none"){
+            google.maps.event.trigger(markers[markerNum], 'click');
+        }
+        };
+    }
+
+    function searchLocations() {
+        var address = document.getElementById("addressInput").value;
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({address: address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            searchLocationsNear(results[0].geometry.location);
+        } else {
+            alert(address + ' not found');
+        }
+        });
+    }
+
+    function clearLocations() {
+        infoWindow.close();
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+        markers.length = 0;
+
+        locationSelect.innerHTML = "";
+        var option = document.createElement("option");
+        option.value = "none";
+        option.innerHTML = "See all results:";
+        locationSelect.appendChild(option);
+    }
+
+    function searchLocationsNear(center) {
+        clearLocations();
+
+        var radius = document.getElementById('radiusSelect').value;
+        var searchUrl = '../includes/university-map/map_source1.php?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
+        downloadUrl(searchUrl, function(data) {
+        var xml = parseXml(data);
+        var markerNodes = xml.documentElement.getElementsByTagName("marker");
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < markerNodes.length; i++) {
+        var name = markerNodes[i].getAttribute("name");
+        var description = markerNodes[i].getAttribute("description");
+        var distance = parseFloat(markerNodes[i].getAttribute("distance"));
+        var latlng = new google.maps.LatLng(
+        parseFloat(markerNodes[i].getAttribute("lat")),
+        parseFloat(markerNodes[i].getAttribute("lng")));
+
+        createOption(name, distance, i);
+        createMarker(latlng, name, description);
+        bounds.extend(latlng);
+        }
+        map.fitBounds(bounds);
+        locationSelect.style.visibility = "visible";
+        locationSelect.onchange = function() {
+        var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
+        google.maps.event.trigger(markers[markerNum], 'click');
+        };
+        });
+    }
+
+    function createMarker(latlng, name, address) {
+        var html = "<b>" + name + "</b> <br/>" + address;
+        var marker = new google.maps.Marker({
+        map: map,
+        position: latlng
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.setContent(html);
+        infoWindow.open(map, marker);
+        });
+        markers.push(marker);
+    }
+
+    function createOption(name, distance, num) {
+        var option = document.createElement("option");
+        option.value = num;
+        option.innerHTML = name + " " + "(" + distance.toFixed(1) + ")";
+        locationSelect.appendChild(option);
+    }
+
+    function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+        new ActiveXObject('Microsoft.XMLHTTP') :
+        new XMLHttpRequest;
+
+        request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+        request.onreadystatechange = doNothing;
+        callback(request.responseText, request.status);
+        }
         };
 
-        function load() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: new google.maps.LatLng(51.527287, -0.103842),
-                zoom: 15,
-                mapTypeId: 'roadmap',
-                mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
-            });
-            infoWindow = new google.maps.InfoWindow();
+    request.open('GET', url, true);
+    request.send(null);
+    }
 
-            locationSelect = document.getElementById("locationSelect");
-            locationSelect.onchange = function() {
-                var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
-                if (markerNum != "none"){
-                    google.maps.event.trigger(markers[markerNum], 'click');
-                }
-            };
+    function parseXml(str) {
+        if (window.ActiveXObject) {
+        var doc = new ActiveXObject('Microsoft.XMLDOM');
+        doc.loadXML(str);
+        return doc;
+        } else if (window.DOMParser) {
+        return (new DOMParser).parseFromString(str, 'text/xml');
         }
+    }
 
-        function searchLocations() {
-            var address = document.getElementById("addressInput").value;
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({address: address}, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    searchLocationsNear(results[0].geometry.location);
-                } else {
-                    alert(address + ' not found');
-                }
-            });
-        }
+    function doNothing() {}
 
-        function clearLocations() {
-            infoWindow.close();
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].setMap(null);
-            }
-            markers.length = 0;
-
-            locationSelect.innerHTML = "";
-            var option = document.createElement("option");
-            option.value = "none";
-            option.innerHTML = "See all results:";
-            locationSelect.appendChild(option);
-        }
-
-        function searchLocationsNear(center) {
-            clearLocations();
-
-            var radius = document.getElementById('radiusSelect').value;
-            var searchUrl = '../includes/university-map/map_source1.php?lat=' + center.lat() + '&lng=' + center.lng() + '&radius=' + radius;
-            downloadUrl(searchUrl, function(data) {
-                var xml = parseXml(data);
-                var markerNodes = xml.documentElement.getElementsByTagName("marker");
-                var bounds = new google.maps.LatLngBounds();
-                for (var i = 0; i < markerNodes.length; i++) {
-                    var name = markerNodes[i].getAttribute("name");
-                    var description = markerNodes[i].getAttribute("description");
-                    var type = markerNodes[i].getAttribute("type");
-                    var distance = parseFloat(markerNodes[i].getAttribute("distance"));
-                    var latlng = new google.maps.LatLng(
-                        parseFloat(markerNodes[i].getAttribute("lat")),
-                        parseFloat(markerNodes[i].getAttribute("lng")));
-
-                    createOption(name, distance, i);
-                    createMarker(latlng, name, description);
-                    bounds.extend(latlng);
-                }
-                map.fitBounds(bounds);
-                locationSelect.style.visibility = "visible";
-                locationSelect.onchange = function() {
-                    var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
-                    google.maps.event.trigger(markers[markerNum], 'click');
-                };
-            });
-        }
-
-        function createMarker(latlng, name, address) {
-            var html = "<b>" + name + "</b> <br/>" + address;
-            var icon = customIcons[type] || {};
-            var marker = new google.maps.Marker({
-                map: map,
-                position: latlng,
-                icon: icon.icon
-            });
-            google.maps.event.addListener(marker, 'click', function() {
-                infoWindow.setContent(html);
-                infoWindow.open(map, marker);
-            });
-            markers.push(marker);
-        }
-
-        function createOption(name, distance, num) {
-            var option = document.createElement("option");
-            option.value = num;
-            option.innerHTML = name + " " + "(" + distance.toFixed(1) + ")";
-            locationSelect.appendChild(option);
-        }
-
-        function downloadUrl(url, callback) {
-            var request = window.ActiveXObject ?
-                new ActiveXObject('Microsoft.XMLHTTP') :
-                new XMLHttpRequest;
-
-            request.onreadystatechange = function() {
-                if (request.readyState == 4) {
-                    request.onreadystatechange = doNothing;
-                    callback(request.responseText, request.status);
-                }
-            };
-
-            request.open('GET', url, true);
-            request.send(null);
-        }
-
-        function parseXml(str) {
-            if (window.ActiveXObject) {
-                var doc = new ActiveXObject('Microsoft.XMLDOM');
-                doc.loadXML(str);
-                return doc;
-            } else if (window.DOMParser) {
-                return (new DOMParser).parseFromString(str, 'text/xml');
-            }
-        }
-
-        function doNothing() {}
-
-        //]]>
+    //]]>
     </script>
+
 </head>
 <body style="margin:0px; padding:0px;" onload="load()">
-<div>
+
+    <div>
     <input type="text" id="addressInput" size="10"/>
+
     <select id="radiusSelect">
-        <option value="25" selected>25mi</option>
-        <option value="100">100mi</option>
-        <option value="200">200mi</option>
+    <option value="25" selected>25mi</option>
+    <option value="100">100mi</option>
+    <option value="200">200mi</option>
     </select>
+
     <input type="button" onclick="searchLocations()" value="Search"/>
-</div>
-<div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
-<div id="map" style="width: 100%; height: 80%"></div>
+    </div>
+
+    <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
+
+    <div id="map" style="width: 100%; height: 80%"></div>
+
 </body>
 </html>
