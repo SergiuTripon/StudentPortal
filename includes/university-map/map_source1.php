@@ -18,7 +18,7 @@ $stmt1 = $mysqli->query("SELECT address, name, lat, lng, ( 3959 * acos( cos( rad
 header("Content-type: text/xml");
 
 // Iterate through the rows, adding XML nodes for each
-while ($row = $mysqli->fetch_assoc()){
+while ($row = $stmt1->fetch_assoc()){
     $node = $dom->createElement("marker");
     $newnode = $parnode->appendChild($node);
     $newnode->setAttribute("name", $row['name']);
