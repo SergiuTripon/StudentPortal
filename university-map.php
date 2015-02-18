@@ -19,7 +19,7 @@
     },
     computerLabs: {
         icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
-    }
+    },
     libraries: {
         icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
     }
