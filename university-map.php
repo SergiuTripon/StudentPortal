@@ -7,24 +7,6 @@
     <script type="text/javascript">
     //<![CDATA[
 
-    var customIcons = {
-    buildings: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
-    },
-    studentCentre: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
-    },
-    lectureTheatres: {
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
-    },
-    computerLabs: {
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
-    },
-    libraries: {
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
-    }
-    };
-
     function load() {
       var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(51.527287, -0.103842),
@@ -45,7 +27,7 @@
               parseFloat(markers[i].getAttribute("lat")),
               parseFloat(markers[i].getAttribute("lng")));
           var html = "<b>" + name + "</b> <br/>" + description;
-          var icon = customIcons[type] || {};
+          var icon = markers[i].getAttribute("icon");
           var marker = new google.maps.Marker({
             map: map,
             position: point,
