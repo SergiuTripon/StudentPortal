@@ -7,6 +7,25 @@
             type="text/javascript"></script>
     <script type="text/javascript">
         //<![CDATA[
+
+        var customIcons = {
+            buildings: {
+                icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
+            },
+            studentCentre: {
+                icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+            },
+            lectureTheatres: {
+                icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
+            },
+            computerLabs: {
+                icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
+            },
+            libraries: {
+                icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
+            }
+        };
+
         var map;
         var markers = [];
         var infoWindow;
@@ -68,6 +87,7 @@
                 for (var i = 0; i < markerNodes.length; i++) {
                     var name = markerNodes[i].getAttribute("name");
                     var address = markerNodes[i].getAttribute("address");
+                    var type = markers[i].getAttribute("type");
                     var distance = parseFloat(markerNodes[i].getAttribute("distance"));
                     var latlng = new google.maps.LatLng(
                         parseFloat(markerNodes[i].getAttribute("lat")),
@@ -88,9 +108,11 @@
 
         function createMarker(latlng, name, address) {
             var html = "<b>" + name + "</b> <br/>" + address;
+            var icon = customIcons[type] || {};
             var marker = new google.maps.Marker({
                 map: map,
-                position: latlng
+                position: latlng,
+                icon: icon.icon
             });
             google.maps.event.addListener(marker, 'click', function() {
                 infoWindow.setContent(html);
