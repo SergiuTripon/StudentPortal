@@ -30,6 +30,7 @@
         var markers = [];
         var infoWindow;
         var locationSelect;
+        var type;
 
         function load() {
             map = new google.maps.Map(document.getElementById("map"), {
