@@ -74,7 +74,7 @@ switch($payment){
 
 	case "success": // success case to show the user payment got success
 
-		include_once '../includes/paypal/paypal_success.php';
+		include_once 'paypal_success.php';
 
 	break;
 
@@ -82,7 +82,7 @@ switch($payment){
 
 		PaypalPaymentCancel();
 
-		include_once '../includes/paypal/paypal_cancel.php';
+		include_once 'paypal_cancel.php';
 
 	break;
 
