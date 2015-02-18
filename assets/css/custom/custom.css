@@ -1,4 +1,7 @@
 /* Global */
+html {
+    min-height: 100%;
+}
 
 /* IE Responsiveness */
 @-ms-viewport{
