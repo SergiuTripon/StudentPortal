@@ -33,7 +33,7 @@
         function searchLocations() {
             var name = document.getElementById("addressInput").value;
             var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({name: name}, function(results, status) {
+            geocoder.geocode({address: name}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     searchLocationsNear(results[0].geometry.location);
                 } else {
