@@ -293,6 +293,7 @@ include 'includes/session.php';
         $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
 		hasError  = true;
+        return false;
     } else {
         $("#error").hide();
 		$("#error4").hide();
