@@ -2,7 +2,7 @@
 include '../includes/session.php';
 ?>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
 
     <?php include '../assets/meta-tags.php'; ?>
@@ -31,6 +31,7 @@ include '../includes/session.php';
         <li class="active">Overview</li>
     </ol>
 
+    <div id="map"></div>
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
