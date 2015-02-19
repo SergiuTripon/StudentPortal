@@ -138,7 +138,6 @@ include 'includes/session.php';
         $("#error1").empty().append("Please enter an email address.");
 		$("#email").addClass("error-style");
 		hasError  = true;
-		return false;
 	} else {
 		$("#error1").hide();
         $("#email").removeClass("error-style");
@@ -151,7 +150,6 @@ include 'includes/session.php';
         $("#error2").empty().append("Please enter a password.");
 		$("#password").addClass("error-style");
 		hasError  = true;
-		return false;
     } else {
 		$("#error2").hide();
         $("#password").removeClass("error-style");
