@@ -13,7 +13,7 @@ include '../includes/session.php';
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
-    <script src="https://student-portal.co.uk/assets/js/google-maps/overview.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/google-maps/search.js"></script>
 
 </head>
 <body>

@@ -2,18 +2,24 @@
 include '../includes/session.php';
 ?>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
 
     <?php include '../assets/meta-tags.php'; ?>
 
-    <title>University map | Overview</title>
+    <title>University Map | Overview</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
-    <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
 
     <script src="https://student-portal.co.uk/assets/js/google-maps/overview.js"></script>
+
+    <style>
+        html, body {
+            height: 100% !important;
+        }
+    </style>
 
 </head>
 <body>
@@ -31,38 +37,7 @@ include '../includes/session.php';
         <li class="active">Overview</li>
     </ol>
 
-    <form class="form-custom">
-
-    <p id="error" class="feedback-sad text-center"></p>
-
-    <div id="map-search">
-
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
-    <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
-    </div>
-
-    <div class="col-xs-3 col-sm-2 full-width">
-    <select class="form-control" id="radiusSelect">
-    <option value="25" selected>25mi</option>
-    <option value="100">100mi</option>
-    <option value="200">200mi</option>
-    </select>
-    </div>
-    </div>
-
-    <div id="map-search-button">
-    <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up"><span class="ladda-label">Search</span></a>
-    </div>
-
-    <div><select class="form-control" id="locationSelect" style="width:100%; display: none;"></select></div>
-
-    </div>
-
     <div id="map"></div>
-
-    </form>
-
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
