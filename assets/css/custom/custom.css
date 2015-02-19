@@ -761,7 +761,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 .modal-custom .modal-header .close {
-    margin-top: -3px;
+    margin-top: -4px;
 }
 
 .modal-custom .close, .close:hover, .close:focus {
