@@ -162,7 +162,6 @@ include '../includes/session.php';
     </ol>
 
     <div>
-    <input class="form-control" type="text" id="addressInput" size="10"/>
 
     <select id="radiusSelect">
     <option value="25" selected>25mi</option>
@@ -175,7 +174,9 @@ include '../includes/session.php';
 
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
 
+    <div id="map-wrapper">
     <div id="map"></div>
+    </div>
 
     </div>
 
