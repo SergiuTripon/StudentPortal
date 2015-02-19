@@ -171,7 +171,7 @@ include '../includes/session.php';
 
     <input type="button" onclick="searchLocations()" value="Search"/>
 
-    <div><select id="locationSelect" style="width:100%; display: noen;"></select></div>
+    <div><select id="locationSelect" style="width:100%; display: none;"></select></div>
 
     <div id="map-wrapper">
     <div id="map"></div>
