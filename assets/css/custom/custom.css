@@ -964,6 +964,10 @@ form .success-style:-ms-input-placeholder {
     margin-bottom: 60px;
 }
 
+#university-map-portal .form-group {
+    margin-bottom: 0px;
+}
+
 #university-map-portal #map-wrapper {
     padding: 1px;
     border-radius: 3px;
