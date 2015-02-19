@@ -583,7 +583,7 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Button group */
 
-/* Error messages */
+/* Feedback messages */
 .error-style {
     color: #FFFFFF !important;
     border-color: #C9302C !important;
