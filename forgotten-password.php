@@ -21,7 +21,7 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <?php include '../includes/menus/portal_menu.php'; ?>
+    <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div class="container">
 
@@ -47,10 +47,10 @@ include 'includes/session.php';
 
     </div>
 
-    <?php include '../includes/footers/footer.php'; ?>
+    <?php include 'includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
+    <script src="assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
@@ -66,12 +66,12 @@ include 'includes/session.php';
 
     <hr>
 
-    <p id="hide" class="feedback-custom text-justify">Please enter the email you used to register to the <b>Student Portal</b> and we will email you a link to reset your password.</p>
+    <p id="hide1">Please enter the email you used to register to the <b>Student Portal</b> and we will email you a link to reset your password.</p>
 
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
-    <div id="hide">
+    <div id="hide2">
 
 	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Email address">
@@ -142,9 +142,13 @@ include 'includes/session.php';
     success:function(){
         $("#error").hide();
         $("#error1").hide();
-		$("#hide").hide();
-		$("#extra-button").hide();
-		$("#FormSubmit").hide();
+		$("#hide1").hide();
+        $("#hide2").hide();
+        $("#extra-button").hide();
+        $("#FormSubmit").hide();
+        $(".fa").removeClass("fa-lock");
+        $(".fa").addClass("fa-envelope");
+        $("#success").show();
 		$("#success").append('Please check your email account for instructions to reset your password.');
 		$("#success-button").show();
     },
