@@ -113,18 +113,23 @@ include 'includes/session.php';
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-	var hasError = false;
+	var hasError;
 
 	var email2 = $("#email").val();
 	if(email2 === '') {
+        $("#error").hide();
 		$("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
+        $("#email").removeClass("success-style");
 		$("#email").addClass("error-style");
-		hasError  = true;
+		hasError = true;
 		return false;
 	} else {
+        $("#error").hide();
         $("#error1").hide();
+        $("#email").removeClass("error-style");
         $("#email").addClass("success-style");
+        hasError = true;
     }
 
 	if(hasError == false){
