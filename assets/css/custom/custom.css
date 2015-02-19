@@ -969,7 +969,8 @@ form .success-style:-ms-input-placeholder {
 }
 
 #university-map-portal #map-search {
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #university-map-portal #map-wrapper {
