@@ -69,7 +69,11 @@ class paypal_class {
 		echo "<html>\n";
 		echo "<head>";
 
-		echo "<script src=\"https://student-portal.co.uk/assets/meta-tags.php\"></script>";
+        echo "<meta charset=\"utf-8\">";
+        echo "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">";
+        echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no\">";
+        echo "<meta name=\"description\" content=\"\">";
+        echo "<meta name=\"author\" content=\"\">";
 
 		echo "<title>Student Portal | Processing Payment...</title>\n";
 
@@ -112,6 +116,7 @@ class paypal_class {
 		echo "<script src=\"https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js\"></script>\n";
 		echo "<script src=\"https://student-portal.co.uk/assets/js/ladda/spin.min.js\"></script>\n";
 		echo "<script src=\"https://student-portal.co.uk/assets/js/ladda/ladda.min.js\"></script>\n";
+        echo "<script src=\"https://student-portal.co.uk/assets/js/custom/custom.js\"></script>\n";
 
 		echo "<script>Ladda.bind('.ladda-button', {timeout: 20000});</script>\n";
 
