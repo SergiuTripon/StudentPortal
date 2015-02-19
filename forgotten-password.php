@@ -141,6 +141,7 @@ include 'includes/session.php';
     data:'email2=' + email2,
     success:function(){
         $("#error").hide();
+        $("#error1").hide();
 		$("#hide").hide();
 		$("#extra-button").hide();
 		$("#FormSubmit").hide();
