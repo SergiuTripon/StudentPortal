@@ -167,12 +167,10 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Address</label>
     <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
     </div>
 
     <div class="col-xs-2 col-sm-2 full-width pl0">
-    <label>Select radius</label>
     <select class="form-control" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
