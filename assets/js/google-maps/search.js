@@ -101,10 +101,7 @@ function createMarker(latlng, name, address) {
 }
 
 function createOption(name, distance, num) {
-    var option = document.createElement("option");
-    option.value = num;
-    option.innerHTML = name + " " + "(" + distance.toFixed(1) + ")";
-    locationSelect.append(option);
+    locationSelect.append(name + " " + "(" + distance.toFixed(1) + ")");
 }
 
 function downloadUrl(url, callback) {
