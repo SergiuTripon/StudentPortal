@@ -9,7 +9,6 @@ function load() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(51.527287, -0.103842),
         zoom: 15,
-        scrollwheel: false,
         navigationControl: false,
         mapTypeControl: false,
         scaleControl: false,
