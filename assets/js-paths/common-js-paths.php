@@ -1,5 +1,5 @@
     <!-- js library -->
-    <script src="https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 
     <!-- bootstrap -->
     <script src="https://student-portal.co.uk/assets/js/bootstrap/bootstrap.min.js"></script>
