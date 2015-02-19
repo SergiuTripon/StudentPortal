@@ -130,9 +130,9 @@ include 'includes/session.php';
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
-	var hasError = false;
-	
+
+    var hasError;
+
 	var email = $('#email').val();
 	if (email === '') {
         $("#error").hide();
@@ -141,11 +141,13 @@ include 'includes/session.php';
         $("#email").removeClass("success-style");
         $("#email").addClass("error-style");
 		hasError  = true;
+        return false;
 	} else {
         $("#error").hide();
 		$("#error1").hide();
         $("#email").removeClass("error-style");
 		$("#email").addClass("success-style");
+        hasError = false;
 	}
 	
 	var password = $("#password").val();
@@ -156,11 +158,13 @@ include 'includes/session.php';
         $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
 		hasError  = true;
+        return false;
     } else {
         $("#error").hide();
 		$("#error2").hide();
         $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
+        hasError = false;
 	}
 	
 	if(hasError == false){
