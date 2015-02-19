@@ -38,9 +38,9 @@
             if (status == google.maps.GeocoderStatus.OK) {
                 searchLocationsNear(results[0].geometry.location);
             } else {
-            var error = document.getElementById("error").value;
-                error.append(address + ' not found');
-            }
+            var error = document.createTextNode(address + ' not found');
+            document.getElementById("error").appendChild(error);
+         }
         });
     }
 
