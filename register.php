@@ -285,8 +285,8 @@ include 'includes/session.php';
 		$("#email").addClass("success-style");
 	}
 
-	var password = $("#password").val();
-    if (password.length === 0) {
+	var password = $("#password");
+    if (password.val().length === 0) {
         $("#error").hide();
 		$("#error4").show();
         $("#error4").empty().append("Please enter a password.");
