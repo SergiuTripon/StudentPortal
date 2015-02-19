@@ -175,7 +175,7 @@ include '../includes/session.php';
 
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
 
-    <div id="map" style="width: 100%; height: 80%"></div>
+    <div id="map" style="width: 100%; height: 80%; margin-bottom: 60px;"></div>
 
     </div>
 
