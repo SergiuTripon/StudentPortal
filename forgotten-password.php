@@ -79,11 +79,11 @@ include 'includes/session.php';
 
     <hr>
 
-    <div id="register-button" class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <div id="extra-button" class="pull-left">
+    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
-    <div id="register-button" class="text-right">
+    <div id="extra-button" class="text-right">
     <button id="FormSubmit" class="btn btn-lg btn-primary ladda-button" data-style="slide-up"><span class="ladda-label">Continue</span></button>
     </div>
 
@@ -142,7 +142,7 @@ include 'includes/session.php';
 		$("#hide").hide();
         $("label").hide();
         $("#email").hide();
-		$("#register-button").hide();
+		$("#extra-button").hide();
 		$("#FormSubmit").hide();
 		$("#success").append('Please check your email account for instructions to reset your password.');
 		$("#success-button").show();
