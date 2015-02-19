@@ -265,7 +265,6 @@ include 'includes/session.php';
         $(".btn-group > .btn-default").removeClass("error-style");
 		$(".btn-group > .btn-default").addClass("success-style");
         hasError = false;
-        return true;
 	}
 	else {
         $("#error").hide();
@@ -292,7 +291,6 @@ include 'includes/session.php';
         $("#email").removeClass("error-style");
 		$("#email").addClass("success-style");
         hasError = false;
-        return true;
 	}
 
 	var password = $("#password").val();
@@ -310,7 +308,6 @@ include 'includes/session.php';
         $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
         hasError = false;
-        return true;
 	}
 
     password = $("#password").val();
@@ -328,7 +325,6 @@ include 'includes/session.php';
         $("#password").removeClass("error-style");
         $("#password").addClass("success-style");
         hasError = false;
-        return true;
 	}
 	
 	var upperCase= new RegExp('[A-Z]');
@@ -342,7 +338,6 @@ include 'includes/session.php';
         $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
         hasError = false;
-        return true;
 	} else {
         $("#error").hide();
 		$("#error4").show();
@@ -368,7 +363,6 @@ include 'includes/session.php';
         $("#confirmpwd").removeClass("error-style");
         $("#confirmpwd").addClass("success-style");
         hasError = false;
-        return true;
 	}
 	
 	if(password != confirmpwd) {
@@ -389,7 +383,6 @@ include 'includes/session.php';
 		$("#password").addClass("success-style");
 		$("#confirmpwd").addClass("success-style");
         hasError = false;
-        return true;
 	}
 	
 	if(hasError == false){
