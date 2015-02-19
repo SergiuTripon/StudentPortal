@@ -153,7 +153,7 @@ include '../includes/session.php';
 
     <?php include '../includes/menus/portal_menu.php'; ?>
 
-    <div class="container">
+    <div id="university-map-search" class="container">
 
     <ol class="breadcrumb">
         <li><a href="../overview/">Overview</a></li>
@@ -175,7 +175,7 @@ include '../includes/session.php';
 
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
 
-    <div id="map" style="width: 100%; height: 80%; margin-bottom: 60px;"></div>
+    <div id="map"></div>
 
     </div>
 

@@ -958,12 +958,10 @@ form .success-style:-ms-input-placeholder {
 /* End of Calendar portal */
 
 /* University map */
-#map-search-controls {
-    text-align: right;
-}
-#map-search-controls .form-control {
-    width: 60% !important;
-    display: inline !important;
+#map {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 60px;
 }
 /* End of University map */
 
