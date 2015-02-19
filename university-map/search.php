@@ -21,6 +21,8 @@ include '../includes/session.php';
     var locationSelect;
     var type;
 
+    $("#locationSelect").hide();
+
     function load() {
         map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(51.527287, -0.103842),
@@ -32,7 +34,7 @@ include '../includes/session.php';
             maxWidth: 400
         });
 
-        locationSelect = document.getElementById("locationSelect");
+        locationSelect = $("#locationSelect");
         locationSelect.onchange = function() {
         var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
         if (markerNum != "none"){
