@@ -22,11 +22,13 @@
 	
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
+    <?php include '../../includes/menus/portal_menu.php'; ?>
+
     <div class="container">
     
 	<form class="form-custom" name="paypal_success_form">
     
-    <div class="form-logo">
+    <div class="form-logo text-center">
     <i class="fa fa-paypal"></i>
     </div>
     
@@ -43,14 +45,21 @@
     </form>
 	
 	</div>
+
+    <?php include '../../includes/footers/footer.php'; ?>
+
+    <!-- Sign Out (Inactive) JS -->
+    <script src="../../assets/js/sign-out-inactive.js"></script>
 	
 	<?php else : ?>
+
+    <?php include '../../includes/menus/menu.php'; ?>
 
     <div class="container">
 
     <form class="form-custom">
     
-    <div class="form-logo">
+    <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
     </div>
     
@@ -65,7 +74,9 @@
     </form>
 	</div>
 
-	<?php endif; ?>
+    <?php include '../../includes/footers/footer.php'; ?>
+
+    <?php endif; ?>
 
     <?php include '../../assets/js-paths/common-js-paths.php'; ?>
 
