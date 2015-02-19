@@ -284,12 +284,12 @@ include 'includes/session.php';
         $("#email").removeClass("error-style");
 		$("#email").addClass("success-style");
 	}
-	
+
 	var password = $("#password").val();
 	if(password === '') {
         $("#error").hide();
 		$("#error4").show();
-        $("#error4").empty().append("Please enter a password.");
+        $("#error4").empty().append("Please enter an email address.");
         $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
 		hasError  = true;
