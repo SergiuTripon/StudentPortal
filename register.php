@@ -239,7 +239,6 @@ include 'includes/session.php';
         $("#firstname").removeClass("error-style");
 		$("#firstname").addClass("success-style");
         hasError = false;
-        return true;
 	}
 	
 	var surname = $("#surname").val();
@@ -257,7 +256,6 @@ include 'includes/session.php';
         $("#surname").removeClass("error-style");
 		$("#surname").addClass("success-style");
         hasError = false;
-        return true;
 	}
 
     var gender_check = $(".gender");
