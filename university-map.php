@@ -26,7 +26,7 @@ include 'includes/session.php';
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-	<li class="active">Calendar</li>
+	<li class="active">University Map</li>
     </ol>
 
 	<div class="row mb10">
