@@ -584,19 +584,19 @@ form .form-control:-ms-input-placeholder {
 /* End of Button group */
 
 /* Error message */
-.feedback-sad {
+form .feedback-sad {
     color: #D9534F !important;
     font-size: 16px !important;
     font-weight: 600 !important;
 }
 
-.error-style {
+form .error-style {
     color: #FFFFFF !important;
     border-color: #C9302C !important;
     background: #D9534F !important;
 }
 
-.error-style:focus {
+form .error-style:focus {
     box-shadow:         inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, 1) !important;
     -moz-box-shadow:    inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, 1) !important;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(217, 83, 79, 1) !important;
@@ -633,13 +633,19 @@ form .error-style:-ms-input-placeholder {
 /* End of Error message */
 
 /* Success message */
-.success-style {
+form .feedback-happy {
+    color: #3FAD46 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+form .success-style {
     color: #FFFFFF !important;
     border-color: #318837 !important;
     background: #3FAD46 !important;
 }
 
-.success-style:focus {
+form .success-style:focus {
     box-shadow:         inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, 1) !important;
     -moz-box-shadow:    inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, 1) !important;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 173, 70, 1) !important;
@@ -672,12 +678,6 @@ form .success-style::-moz-placeholder {
 
 form .success-style:-ms-input-placeholder {
     color: #FFFFFF;
-}
-
-.feedback-happy {
-    color: #3FAD46 !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
 }
 /* End of Success message */
 
