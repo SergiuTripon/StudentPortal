@@ -166,7 +166,7 @@ include '../includes/session.php';
     <div id="map-search">
 
     <div class="form-group">
-    <div class="col-xs-9 col-sm-9 col-md-9 full-width pl0">
+    <div class="col-xs-6 col-sm-6 col-md-9 full-width pl0">
     <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
     </div>
 
