@@ -286,7 +286,7 @@ include 'includes/session.php';
 	}
 
 	var password = $("#password").val();
-    if (password.val().length === 0) {
+    if (password.length === 0) {
         $("#error").hide();
 		$("#error4").show();
         $("#error4").empty().append("Please enter a password.");
