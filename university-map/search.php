@@ -89,7 +89,7 @@ include '../includes/session.php';
         bounds.extend(latlng);
         }
         map.fitBounds(bounds);
-        locationSelect.style.visibility = "visible";
+        locationSelect.show();
         locationSelect.onchange = function() {
         var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
         google.maps.event.trigger(markers[markerNum], 'click');
