@@ -981,6 +981,10 @@ form .success-style:-ms-input-placeholder {
 #university-map-portal #map-search-button {
     text-align: center !important;
 }
+#university-map-portal .col-xs-2 {
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+}
 }
 
 #university-map-portal #map {
