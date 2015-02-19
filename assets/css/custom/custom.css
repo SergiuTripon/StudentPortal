@@ -82,25 +82,33 @@ hr {
 
 /* Sets the padding for widths within form groups on smaller screens */
 @media (max-width: 480px) {
+.form-group > .col-xs-2 {
+    padding-right: 0;
+    padding-left: 0;
+}
+.form-group > .col-sm-2 {
+    padding-right: 0;
+    padding-left: 0;
+}
 .form-group > .col-xs-4 {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0;
+    padding-left: 0;
 }
 .form-group > .col-sm-4 {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0;
+    padding-left: 0;
 }
 .form-group > .col-xs-6 {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0;
+    padding-left: 0;
 }
 .form-group > .col-sm-6 {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0;
+    padding-left: 0;
 }
 .form-group > .col-xs-12 {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0;
+    padding-left: 0;
 }
 .form-group > .col-sm-12 {
     padding-right: 0px;
