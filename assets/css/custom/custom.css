@@ -701,7 +701,6 @@ form .success-style:-ms-input-placeholder {
     text-align: center;
     border-radius: 3px;
     background-color: #5CB85C;
-    border: 1px solid #449D44;
 }
 
 .tile i {
@@ -754,7 +753,6 @@ form .success-style:-ms-input-placeholder {
 
 /* Tile selected */
 .tile-selected {
-    border: 1px solid #3FAD46 !important;
     background-color: #256B2A !important;
 }
 
