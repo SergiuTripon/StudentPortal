@@ -6,11 +6,11 @@ include '../includes/session.php';
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-    <?php include 'assets/meta-tags.php'; ?>
+    <?php include '../assets/meta-tags.php'; ?>
 
     <title>University map | Search</title>
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script type="text/javascript">
