@@ -985,13 +985,13 @@ form .success-style:-ms-input-placeholder {
     border-bottom: 1px solid #333333;
 }
 
+#university-map-portal .col-xs-2 {
+    margin-right: 10px;
+}
+
 @media (max-width: 480px) {
 #university-map-portal #map-search-button {
     text-align: center !important;
-}
-#university-map-portal .col-xs-2 {
-    margin-right: 5px !important;
-    margin-left: 0px !important;
 }
 }
 
