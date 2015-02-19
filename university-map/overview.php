@@ -33,32 +33,6 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
-    <p id="error" class="feedback-sad text-center"></p>
-
-    <div id="map-search">
-
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
-    <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
-    </div>
-
-    <div class="col-xs-3 col-sm-2 full-width">
-    <select class="form-control" id="radiusSelect">
-    <option value="25" selected>25mi</option>
-    <option value="100">100mi</option>
-    <option value="200">200mi</option>
-    </select>
-    </div>
-    </div>
-
-    <div id="map-search-button">
-    <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up"><span class="ladda-label">Search</span></a>
-    </div>
-
-    <div><select class="form-control" id="locationSelect" style="width:100%; display: none;"></select></div>
-
-    </div>
-
     <div id="map"></div>
 
     </form>
