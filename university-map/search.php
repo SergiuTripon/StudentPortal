@@ -53,7 +53,7 @@ include '../includes/session.php';
     </div>
 
     <div id="map-search-button">
-    <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up" href="/"><span class="ladda-label">Search</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up"><span class="ladda-label">Search</span></a>
     </div>
 
     <div><select class="form-control" id="locationSelect" style="width:100%; display: none;"></select></div>
