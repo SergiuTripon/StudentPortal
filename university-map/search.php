@@ -181,7 +181,7 @@ include '../includes/session.php';
 
     <input class="btn btn-primary btn-lg" type="button" onclick="searchLocations()" value="Search"/>
 
-    <div><select id="locationSelect" style="width:100%; display: none;"></select></div>
+    <div><select class="form-control" id="locationSelect" style="width:100%; display: none;"></select></div>
 
     </div>
 
