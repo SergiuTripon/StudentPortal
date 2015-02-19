@@ -36,7 +36,7 @@ include 'includes/session.php';
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
 	<a id="task-button">
     <div class="tile task-tile">
-	<i class="fa fa-beer"></i>
+	<i class="fa fa-ticket"></i>
 	<p class="tile-text">Event view</p>
     </div>
     </a>

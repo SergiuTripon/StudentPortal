@@ -34,8 +34,8 @@ include 'includes/session.php';
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
 	<a id="task-button">
     <div class="tile task-tile">
-	<i class="fa fa-beer"></i>
-	<p class="tile-text">See everything</p>
+	<i class="fa fa-university"></i>
+	<p class="tile-text">See all locations</p>
     </div>
     </a>
 	</div>
@@ -43,8 +43,8 @@ include 'includes/session.php';
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
 	<a id="calendar-button">
 	<div class="tile calendar-tile">
-    <i class="fa fa-calendar"></i>
-	<p class="tile-text">Search</p>
+    <i class="fa fa-search"></i>
+	<p class="tile-text">Search for a location</p>
     </div>
     </a>
 	</div>
