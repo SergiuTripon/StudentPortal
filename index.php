@@ -135,6 +135,7 @@ include 'includes/session.php';
 	
 	var email = $('#email').val();
 	if (email === '') {
+        $("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
         $("#email").removeClass("success-style");
         $("#email").addClass("error-style");
