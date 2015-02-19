@@ -14,16 +14,12 @@ include '../includes/session.php';
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script type="text/javascript">
-    $(document).ready(function () {
-
     //<![CDATA[
     var map;
     var markers = [];
     var infoWindow;
     var locationSelect;
     var type;
-
-    $("#locationSelect").hide();
 
     function load() {
         map = new google.maps.Map(document.getElementById("map"), {
@@ -36,7 +32,7 @@ include '../includes/session.php';
             maxWidth: 400
         });
 
-        locationSelect = $("#locationSelect");
+        locationSelect = document.getElementById("locationSelect");
         locationSelect.onchange = function() {
         var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
         if (markerNum != "none"){
@@ -93,7 +89,7 @@ include '../includes/session.php';
         bounds.extend(latlng);
         }
         map.fitBounds(bounds);
-        locationSelect.show();
+        locationSelect.style.display = "block";
         locationSelect.onchange = function() {
         var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
         google.maps.event.trigger(markers[markerNum], 'click');
@@ -150,7 +146,6 @@ include '../includes/session.php';
     function doNothing() {}
 
     //]]>
-    });
     </script>
 
 </head>
@@ -176,7 +171,7 @@ include '../includes/session.php';
 
     <input type="button" onclick="searchLocations()" value="Search"/>
 
-    <div><select id="locationSelect" style="width:100%;"></select></div>
+    <div><select id="locationSelect" style="width:100%; display: noen;"></select></div>
 
     <div id="map-wrapper">
     <div id="map"></div>
