@@ -277,8 +277,6 @@ include 'includes/session.php';
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-
 
 
 </body>
