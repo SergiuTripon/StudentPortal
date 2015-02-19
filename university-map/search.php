@@ -43,7 +43,7 @@ include '../includes/session.php';
     <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
     </div>
 
-    <div class="col-xs-3 col-sm-3 full-width">
+    <div class="col-xs-4 col-sm-4 full-width">
     <select class="form-control" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
