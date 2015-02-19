@@ -185,9 +185,7 @@ include '../includes/session.php';
 
     </div>
 
-    <div id="map-wrapper">
-        <div id="map"></div>
-    </div>
+    <div id="map"></div>
 
     </form>
 
