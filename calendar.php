@@ -293,15 +293,7 @@ include 'includes/session.php';
 
 
 	
-	$("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-	
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-	
-	$("#update-task-form-" + DbNumberID).submit();
-	
-	});
+
 	
 	$("#calendar-toggle").hide();
 	$(".task-tile").addClass("tile-selected");
