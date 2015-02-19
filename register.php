@@ -134,7 +134,7 @@ include 'includes/session.php';
     <hr>
 
 	<div id="register-button" class="pull-left">
-    <a class="btn btn-warning btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 	
     <div id="register-button" class="text-right">
