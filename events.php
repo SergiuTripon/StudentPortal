@@ -53,7 +53,7 @@ include 'includes/session.php';
 
 	</div><!-- /row -->
 
-	<div class="panel-group" id="accordion event-view" role="tablist" aria-multiselectable="true">
+	<div class="panel-group event-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="events-toggle" class="panel panel-default">
 
@@ -187,7 +187,7 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
-	<div class="panel-group" id="accordion calendar-view" role="tablist" aria-multiselectable="true">
+	<div class="panel-group calendar-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="calendar-toggle" class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingThree">
@@ -357,7 +357,7 @@ include 'includes/session.php';
 	$("#task-button").click(function (e) {
     e.preventDefault();
 		$("#calendar-toggle").hide();
-        $("#calendar-view").hide();
+        $(".calendar-view").hide();
 		$("#events-toggle").show();
 		$("#bookedevents-toggle").show();
 		$(".calendar-tile").removeClass("tile-selected");
@@ -372,7 +372,7 @@ include 'includes/session.php';
     e.preventDefault();
 		$("#events-toggle").hide();
 		$("#bookedevents-toggle").hide();
-        $("#event-view").hide();
+        $(".event-view").hide();
 		$("#calendar-toggle").show();
 		$(".task-tile").removeClass("tile-selected");
 		$(".task-tile p").removeClass("tile-text-selected");
