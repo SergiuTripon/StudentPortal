@@ -105,7 +105,7 @@ include 'includes/session.php';
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
     </form>
