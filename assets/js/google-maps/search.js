@@ -21,7 +21,7 @@
             maxWidth: 400
         });
 
-        locationSelect = document.getElementById("locationSelect");
+        locationSelect = $("#locationSelect");
         locationSelect.onchange = function() {
             var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
             if (markerNum != "none") {
@@ -43,19 +43,19 @@
         });
     }
 
-function clearLocations() {
-    infoWindow.close();
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(null);
-    }
-    markers.length = 0;
+    function clearLocations() {
+        infoWindow.close();
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+        markers.length = 0;
 
-    locationSelect.innerHTML = "";
-    var option = document.createElement("option");
-    option.value = "none";
-    option.innerHTML = "See all results:";
-    locationSelect.appendChild(option);
-}
+        locationSelect.innerHTML = "";
+        var option = document.createElement("option");
+        option.value = "none";
+        option.innerHTML = "See all results:";
+        locationSelect.appendChild(option);
+    }
 
 function searchLocationsNear(center) {
     clearLocations();
@@ -79,7 +79,7 @@ function searchLocationsNear(center) {
             bounds.extend(latlng);
         }
         map.fitBounds(bounds);
-        locationSelect.style.display = "block";
+        locationSelect.show();
         locationSelect.onchange = function() {
             var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
             google.maps.event.trigger(markers[markerNum], 'click');
