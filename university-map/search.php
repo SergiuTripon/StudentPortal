@@ -170,7 +170,7 @@ include '../includes/session.php';
     <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
     </div>
 
-    <div class="col-xs-2 col-sm-2 full-width">
+    <div class="col-xs-2 col-sm-2 full-width pr0">
     <select class="form-control" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
