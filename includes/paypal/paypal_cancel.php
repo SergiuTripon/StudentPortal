@@ -62,7 +62,7 @@
     </div>
     
     <hr>
-	<p class="sad-feedback text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
+	<p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
     <hr>
     
     <div class="text-center">
