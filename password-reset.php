@@ -81,9 +81,10 @@ include 'includes/session.php';
 
     <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your new password">
+    <p id="error2" class="feedback-sad text-center"></p>
     <label>Confirm new password</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your new password confirmation">
-    <p id="error2" class="feedback-sad text-center"></p>
+    <p id="error3" class="feedback-sad text-center"></p>
 
     <input class="form-control" type="hidden" name="token" id="token" value="<?php echo $token; ?>">
 
@@ -95,11 +96,11 @@ include 'includes/session.php';
     echo $success_footer;
     } ?>
 
-    <div id="signin-button" class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <div id="extra-button" class="pull-left">
+    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>
 
-    <div id="register-button" class="text-right">
+    <div class="text-right">
 	<button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500"><span class="ladda-label">Continue</span></button>
     </div>
 
@@ -206,15 +207,15 @@ include 'includes/session.php';
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("#error").hide();
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a password confirmation.");
+		$("#error3").show();
+        $("#error3").empty().append("Please enter a password confirmation.");
 		$("#confirmpwd").removeClass("success-style");
         $("#confirmpwd").addClass("error-style");
 		hasError = true;
 		return false;
     } else {
         $("#error").hide();
-		$("#error2").hide();
+		$("#error3").hide();
         $("#confirmpwd").removeClass("error-style");
         $("#confirmpwd").addClass("success-style");
         hasError = false;
@@ -222,8 +223,8 @@ include 'includes/session.php';
 
 	if(password != confirmpwd) {
         $("#error").hide();
-		$("#error2").show();
-		$("#error2").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#error3").show();
+		$("#error3").empty().append("Your password and confirmation do not match. Please try again.");
         $("#password").removeClass("success-style");
         $("#confirmpwd").removeClass("success-style");
         $("#password").addClass("error-style");
@@ -232,7 +233,7 @@ include 'includes/session.php';
 		return false;
 	} else {
         $("#error").hide();
-		$("#error2").hide();
+		$("#error3").hide();
         $("#password").removeClass("error-style");
         $("#confirmpwd").removeClass("error-style");
 		$("#password").addClass("success-style");
@@ -247,7 +248,7 @@ include 'includes/session.php';
     data:'token=' + token + '&email3=' + email + '&password2=' + password,
     success:function(){
 		$("#hide").hide();
-		$("#signin-button").hide();
+		$("#extra-button").hide();
 		$("#FormSubmit").hide();
 		$("#email").hide();
 		$("#error").hide();
