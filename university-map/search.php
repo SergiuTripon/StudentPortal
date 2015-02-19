@@ -161,7 +161,7 @@ include '../includes/session.php';
         <li class="active">Search</li>
     </ol>
 
-    <div>
+    <input class="form-control" type="text" id="addressInput"/>
 
     <select id="radiusSelect">
     <option value="25" selected>25mi</option>
@@ -170,7 +170,6 @@ include '../includes/session.php';
     </select>
 
     <input type="button" onclick="searchLocations()" value="Search"/>
-    </div>
 
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
 
