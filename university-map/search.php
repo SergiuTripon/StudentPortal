@@ -166,13 +166,13 @@ include '../includes/session.php';
     <div id="map-search">
 
     <div class="form-group">
-    <div class="col-xs-8 col-sm-8 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-4 col-sm-4 full-width pr0">
+    <div class="col-xs-2 col-sm-2 full-width pr0">
     <select class="form-control" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
