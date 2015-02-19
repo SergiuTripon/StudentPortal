@@ -69,13 +69,7 @@ class paypal_class {
 		echo "<html>\n";
 		echo "<head>";
 
-		echo "<script src=\"https://student-portal.co.uk/assets/js/pace-js/pace.min.js\"></script>";
-
-		echo "<meta charset=\"utf-8\">\n";
-    	echo "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n";
-    	echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
-    	echo "<meta name=\"description\" content=\"\">\n";
-    	echo "<meta name=\"author\" content=\"\">\n";
+		echo "<script src=\"https://student-portal.co.uk/assets/meta-tags.php\"></script>";
 
 		echo "<title>Student Portal | Processing Payment...</title>\n";
 
