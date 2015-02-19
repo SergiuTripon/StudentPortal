@@ -960,6 +960,7 @@ form .success-style:-ms-input-placeholder {
 /* University map */
 #university-map-portal form {
     max-width: 100%;
+    padding: 5px;
     margin-bottom: 60px;
 }
 
