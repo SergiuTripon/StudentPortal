@@ -31,7 +31,6 @@ include '../includes/session.php';
         <li class="active">Overview</li>
     </ol>
 
-    <div id="map" style="width: 100%; height: 800px;"></div>
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
@@ -41,7 +40,7 @@ include '../includes/session.php';
 
     <?php else : ?>
 
-<?php include '../includes/menus/menu.php'; ?>
+    <?php include '../includes/menus/menu.php'; ?>
 
     <div class="container">
 
