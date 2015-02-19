@@ -155,6 +155,12 @@ include '../includes/session.php';
 
     <div class="container">
 
+    <ol class="breadcrumb">
+        <li><a href="../overview/">Overview</a></li>
+        <li><a href="../university-map/">University Map</a></li>
+        <li class="active">Search</li>
+    </ol>
+
     <div>
     <input type="text" id="addressInput" size="10"/>
 
