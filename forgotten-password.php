@@ -131,7 +131,7 @@ include 'includes/session.php';
         $("#error1").hide();
         $("#email").removeClass("error-style");
         $("#email").addClass("success-style");
-        hasError = true;
+        hasError = false;
     }
 
 	if(hasError == false){
