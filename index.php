@@ -102,7 +102,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="register/"><span class="ladda-label">Register</span></a>
+    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="register/"><span class="ladda-label">Register</span></a>
     </div>
 
     <div class="text-right">
