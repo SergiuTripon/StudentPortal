@@ -222,7 +222,7 @@ include 'includes/session.php';
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
-	var hasError = false;
+	var hasError;
 
     var firstname = $("#firstname").val();
 	if(firstname === '') {
@@ -238,6 +238,8 @@ include 'includes/session.php';
 		$("#error1").hide();
         $("#firstname").removeClass("error-style");
 		$("#firstname").addClass("success-style");
+        hasError = false;
+        return true;
 	}
 	
 	var surname = $("#surname").val();
@@ -254,6 +256,8 @@ include 'includes/session.php';
 		$("#error1").hide();
         $("#surname").removeClass("error-style");
 		$("#surname").addClass("success-style");
+        hasError = false;
+        return true;
 	}
 
     var gender_check = $(".gender");
@@ -262,6 +266,8 @@ include 'includes/session.php';
 		$("#error2").hide();
         $(".btn-group > .btn-default").removeClass("error-style");
 		$(".btn-group > .btn-default").addClass("success-style");
+        hasError = false;
+        return true;
 	}
 	else {
         $("#error").hide();
@@ -287,6 +293,8 @@ include 'includes/session.php';
 		$("#error3").hide();
         $("#email").removeClass("error-style");
 		$("#email").addClass("success-style");
+        hasError = false;
+        return true;
 	}
 
 	var password = $("#password").val();
@@ -297,11 +305,14 @@ include 'includes/session.php';
         $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
 		hasError = true;
+        return false;
     } else {
         $("#error").hide();
 		$("#error4").hide();
         $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
+        hasError = false;
+        return true;
 	}
 
     password = $("#password").val();
@@ -318,6 +329,8 @@ include 'includes/session.php';
 		$("#error4").hide();
         $("#password").removeClass("error-style");
         $("#password").addClass("success-style");
+        hasError = false;
+        return true;
 	}
 	
 	var upperCase= new RegExp('[A-Z]');
@@ -330,6 +343,8 @@ include 'includes/session.php';
 		$("#error4").hide();
         $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
+        hasError = false;
+        return true;
 	} else {
         $("#error").hide();
 		$("#error4").show();
@@ -354,6 +369,8 @@ include 'includes/session.php';
         $("#error4").hide();
         $("#confirmpwd").removeClass("error-style");
         $("#confirmpwd").addClass("success-style");
+        hasError = false;
+        return true;
 	}
 	
 	if(password != confirmpwd) {
@@ -373,6 +390,8 @@ include 'includes/session.php';
         $("#confirmpwd").removeClass("error-style");
 		$("#password").addClass("success-style");
 		$("#confirmpwd").addClass("success-style");
+        hasError = false;
+        return true;
 	}
 	
 	if(hasError == false){
