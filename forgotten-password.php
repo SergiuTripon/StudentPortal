@@ -71,9 +71,13 @@ include 'includes/session.php';
 	<p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
+    <div id="hide">
+
 	<label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Email address">
     <p id="error1" class="feedback-sad text-center"></p>
+
+    </div>
 
     <hr>
 
@@ -138,8 +142,6 @@ include 'includes/session.php';
     success:function(){
         $("#error").hide();
 		$("#hide").hide();
-        $("label").hide();
-        $("#email").hide();
 		$("#extra-button").hide();
 		$("#FormSubmit").hide();
 		$("#success").append('Please check your email account for instructions to reset your password.');
