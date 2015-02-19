@@ -766,7 +766,7 @@ form .success-style:-ms-input-placeholder {
 
 .modal-custom .close, .close:hover, .close:focus {
     font-size: 30px;
-    cursor: default;
+    cursor: pointer;
     outline: none !important;
     opacity: 1;
     text-shadow: none;
