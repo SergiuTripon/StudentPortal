@@ -958,6 +958,12 @@ form .success-style:-ms-input-placeholder {
 /* End of Calendar portal */
 
 /* University map */
+#map-wrapper {
+    padding: 1px;
+    border: 1px solid #333;
+    border-radius: 3px;
+}
+
 #map {
     height: 100%;
     width: 100%;
