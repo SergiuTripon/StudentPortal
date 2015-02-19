@@ -166,7 +166,7 @@ include '../includes/session.php';
     <div id="map-search">
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-7 col-sm-7 full-width pl0">
     <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
     </div>
 
@@ -177,12 +177,9 @@ include '../includes/session.php';
     <option value="200">200mi</option>
     </select>
     </div>
+    </div>
 
-    <div class="col-xs-2 col-sm-2 full-width">
     <input class="btn btn-primary btn-lg" type="button" onclick="searchLocations()" value="Search"/>
-    </div>
-
-    </div>
 
     <div><select class="form-control" id="locationSelect" style="width:100%; display: none;"></select></div>
 
