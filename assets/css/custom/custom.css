@@ -970,7 +970,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 #university-map-portal #map-search {
-    margin: 10px 0 0 10px;
+    margin: 10px 0 10px 0;
     padding-bottom: 10px;
     border-bottom: 1px solid #333333;
 }
