@@ -117,8 +117,8 @@ include 'includes/session.php';
 
 	var hasError;
 
-	var email2 = $("#email").val();
-	if(email2 === '') {
+	var email = $("#email").val();
+	if(email === '') {
         $("#error").hide();
 		$("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
@@ -138,7 +138,7 @@ include 'includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'email2=' + email2,
+    data:'email2=' + email,
     success:function(){
         $("#error").hide();
         $("#error1").hide();
