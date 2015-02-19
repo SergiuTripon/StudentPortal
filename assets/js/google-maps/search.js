@@ -38,7 +38,7 @@
             if (status == google.maps.GeocoderStatus.OK) {
                 searchLocationsNear(results[0].geometry.location);
             } else {
-            $("#error").empty().append("Please enter a first name.");
+            $("#error").empty().append(address + ' was not found. Please try again.');
          }
         });
     }
