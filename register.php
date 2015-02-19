@@ -357,7 +357,6 @@ include 'includes/session.php';
         $("#password").addClass("error-style");
 		$("#confirmpwd").addClass("error-style");
         hasError  = true;
-		return false;
 	} else {
         $("#error").hide();
 		$("#error4").hide();
