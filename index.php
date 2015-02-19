@@ -141,6 +141,7 @@ include 'includes/session.php';
 		return false;
 	} else {
 		$("#error1").hide();
+        $("#email").removeClass("error-style");
 		$("#email").addClass("success-style");
 	}
 	
@@ -153,6 +154,7 @@ include 'includes/session.php';
 		return false;
     } else {
 		$("#error2").hide();
+        $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
 	}
 	
