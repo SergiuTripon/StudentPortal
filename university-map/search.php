@@ -153,6 +153,8 @@ include '../includes/session.php';
 
     <?php include '../includes/menus/portal_menu.php'; ?>
 
+    <div class="container">
+
     <div>
     <input type="text" id="addressInput" size="10"/>
 
@@ -168,6 +170,8 @@ include '../includes/session.php';
     <div><select id="locationSelect" style="width:100%;visibility:hidden"></select></div>
 
     <div id="map" style="width: 100%; height: 100%"></div>
+
+    </div>
 
     <?php include '../includes/footers/footer.php'; ?>
 
