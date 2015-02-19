@@ -148,6 +148,8 @@ include 'includes/session.php';
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
+        $("#success").hide();
+        $("#error1").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
