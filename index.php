@@ -135,13 +135,14 @@ include 'includes/session.php';
 	
 	var email = $('#email').val();
 	if (email === '') {
-        $("#error1").show();
         $("#error").hide();
+        $("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
         $("#email").removeClass("success-style");
         $("#email").addClass("error-style");
 		hasError  = true;
 	} else {
+        $("#error").hide();
 		$("#error1").hide();
         $("#email").removeClass("error-style");
 		$("#email").addClass("success-style");
@@ -149,13 +150,14 @@ include 'includes/session.php';
 	
 	var password = $("#password").val();
 	if(password === '') {
-		$("#error2").show();
         $("#error").hide();
+		$("#error2").show();
         $("#error2").empty().append("Please enter a password.");
         $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
 		hasError  = true;
     } else {
+        $("#error").hide();
 		$("#error2").hide();
         $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");

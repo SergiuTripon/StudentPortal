@@ -226,74 +226,93 @@ include 'includes/session.php';
 
     var firstname = $("#firstname").val();
 	if(firstname === '') {
+        $("#error").hide();
 		$("#error1").show();
         $("#error1").empty().append("Please enter a first name.");
-		$("#firstname").addClass("error-style");
+        $("#firstname").removeClass("success-style");
+        $("#firstname").addClass("error-style");
 		hasError  = true;
-		return false;
     } else {
+        $("#error").hide();
 		$("#error1").hide();
+        $("#firstname").removeClass("error-style");
 		$("#firstname").addClass("success-style");
 	}
 	
 	var surname = $("#surname").val();
 	if(surname === '') {
+        $("#error").hide();
 		$("#error1").show();
         $("#error1").empty().append("Please enter a surname.");
+        $("#surname").removeClass("success-style");
 		$("#surname").addClass("error-style");
 		hasError  = true;
-		return false;
     } else {
+        $("#error").hide();
 		$("#error1").hide();
+        $("#surname").removeClass("error-style");
 		$("#surname").addClass("success-style");
 	}
 
     var gender_check = $(".gender");
 	if (gender_check.hasClass('active')) {
+        $("#error").hide();
 		$("#error2").hide();
+        $(".btn-group > .btn-default").removeClass("error-style");
 		$(".btn-group > .btn-default").addClass("success-style");
 	}
 	else {
+        $("#error").hide();
+        $("#error2").show();
 		$("#error2").empty().append("Please select a gender.");
+        $(".btn-group > .btn-default").removeClass("success-style");
 		$(".btn-group > .btn-default").addClass("error-style");
 		hasError  = true;
-		return false;
 	}
 	
 	var email1 = $("#email").val();
 	if(email1 === '') {
+        $("#error").hide();
 		$("#error3").show();
         $("#error3").empty().append("Please enter an email address.");
+        $("#email").removeClass("success-style");
 		$("#email").addClass("error-style");
 		hasError  = true;
-		return false;
     } else {
+        $("#error").hide();
 		$("#error3").hide();
+        $("#email").removeClass("error-style");
 		$("#email").addClass("success-style");
 	}
 	
 	var password1 = $("#password").val();
 	if(password1 === '') {
+        $("#error").hide();
 		$("#error4").show();
         $("#error4").empty().append("Please enter a password.");
+        $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
 		hasError  = true;
-		return false;
     } else {
+        $("#error").hide();
 		$("#error4").hide();
+        $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
 	}
 
     password1 = $("#password").val();
 	if (password1.length < 6) {
+        $("#error").hide();
 		$("#error4").show();
 		$("#error4").empty().append("Passwords must be at least 6 characters long. Please try again.");
-		$("#password").addClass("success-style");
+		$("#password").removeClass("success-style");
+        $("#password").addClass("error-style");
 		hasError  = true;
-		return false;
 	} else {
+        $("#error").hide();
 		$("#error4").hide();
-		$("#password").addClass("error-style");
+        $("#password").removeClass("error-style");
+        $("#password").addClass("success-style");
 	}
 	
 	var upperCase= new RegExp('[A-Z]');
@@ -302,37 +321,48 @@ include 'includes/session.php';
 
     password1 = $("#password").val();
 	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
+        $("#error").hide();
 		$("#error4").hide();
+        $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
 	} else {
+        $("#error").hide();
 		$("#error4").show();
 		$("#error4").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
-		$("#password").addClass("error-style");
-		hasError  = true;
-		return false;
+        $("#password").removeClass("success-style");
+        $("#password").addClass("error-style");
 	}
 	
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
+        $("#error").hide();
 		$("#error4").show();
         $("#error4").empty().append("Please enter a password confirmation.");
+        $("#confirmpwd").removeClass("success-style");
 		$("#confirmpwd").addClass("error-style");
 		hasError  = true;
-		return false;
     } else {
 		$("#error").hide();
-		$("#confirmpwd").addClass("success-style");
+        $("#error4").hide();
+        $("#confirmpwd").removeClass("error-style");
+        $("#confirmpwd").addClass("success-style");
 	}
 	
 	if(password1 != confirmpwd) {
+        $("#error").hide();
 		$("#error4").show();
 		$("#error4").empty().append("Your password and confirmation do not match. Please try again.");
-		$("#password").addClass("error-style");
+        $("#password").removeClass("success-style");
+        $("#confirmpwd").removeClass("success-style");
+        $("#password").addClass("error-style");
 		$("#confirmpwd").addClass("error-style");
         hasError  = true;
 		return false;
 	} else {
+        $("#error").hide();
 		$("#error4").hide();
+        $("#password").removeClass("error-style");
+        $("#confirmpwd").removeClass("error-style");
 		$("#password").addClass("success-style");
 		$("#confirmpwd").addClass("success-style");
 	}
@@ -353,6 +383,10 @@ include 'includes/session.php';
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#success").hide();
+        $("#error1").hide();
+        $("#error2").hide();
+        $("#error3").hide();
+        $("#error4").hide();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
@@ -363,69 +397,6 @@ include 'includes/session.php';
 	
 	});
 	});
-	</script>
-
-	<script>
-    $( "#timetable" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("Timetable");
-        $('.close').empty().append("<i class=\"fa fa-table\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
-    $( "#exams" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("Exams");
-        $('.close').empty().append("<i class=\"fa fa-pencil\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
-    $( "#library" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("Library");
-        $('.close').empty().append("<i class=\"fa fa-book\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
-    $( "#transport" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("Transport");
-        $('.close').empty().append("<i class=\"fa fa-bus\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
-    $( "#calendar" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("Calendar");
-        $('.close').empty().append("<i class=\"fa fa-calendar\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
-    $( "#events" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("Events");
-        $('.close').empty().append("<i class=\"fa fa-beer\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
-    $( "#universitymap" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("University Map");
-        $('.close').empty().append("<i class=\"fa fa-map-marker\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
-    $( "#feedback" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("Feedback");
-        $('.close').empty().append("<i class=\"fa fa-check-square-o\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
-    $( "#messenger" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("Messenger");
-        $('.close').empty().append("<i class=\"fa fa-comments\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
-    $( "#account" ).click(function() {
-        $('#modal-custom').modal('show');
-        $('#modal-custom-label').empty().append("Account");
-        $('.close').empty().append("<i class=\"fa fa-user\"></i>");
-        $('.modal-body').empty().append("<p class=\"feedback-custom text-justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis non ante at sollicitudin. Curabitur lorem massa, malesuada sed dapibus at, euismod nec turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur metus arcu, varius eu facilisis sit amet, rutrum eget ligula. Cras tempor sapien at massa pellentesque, fermentum placerat arcu iaculis. Nullam iaculis elit felis, ut vestibulum nisl ornare in. Nam eu orci vitae justo ullamcorper mollis at eget nisi. Pellentesque eleifend massa eget nunc sagittis porta. Nulla a feugiat nisl. Donec turpis ante, mollis a urna nec, mollis bibendum neque. Phasellus in varius metus. Suspendisse nec maximus magna. Sed rhoncus tincidunt turpis at condimentum. Donec a facilisis nisl.</p>");
-    });
 	</script>
 
 </body>
