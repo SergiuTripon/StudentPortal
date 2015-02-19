@@ -10,6 +10,9 @@ include 'includes/session.php';
 
 	<?php include 'assets/meta-tags.php'; ?>
 
+	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
     <title>Student Portal | Calendar</title>
 
@@ -245,7 +248,8 @@ include 'includes/session.php';
 	
 	<?php include 'includes/footers/footer.php'; ?>
 		
-
+	<!-- Sign Out (Inactive) JS -->
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
@@ -277,7 +281,133 @@ include 'includes/session.php';
 
 	<?php endif; ?>
 
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
+	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
+	<script>
+    $(document).ready(function () {
+
+	(function($) {
+
+	"use strict";
+
+	var options = {
+		events_source: '../../includes/calendar-source/tasks_json.php',
+		view: 'month',
+		tmpl_path: '../assets/tmpls/',
+		tmpl_cache: false,
+		onAfterViewLoad: function(view) {
+			$('.page-header h3').text(this.getTitle());
+			$('.btn-group button').removeClass('active');
+			$('button[data-calendar-view="' + view + '"]').addClass('active');
+		},
+		classes: {
+			months: {
+				general: 'label'
+			}
+		}
+	};
+
+	var calendar = $('#calendar').calendar(options);
+
+	$('.btn-group button[data-calendar-nav]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.navigate($this.data('calendar-nav'));
+		});
+	});
+
+	$('.btn-group button[data-calendar-view]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.view($this.data('calendar-view'));
+		});
+	});
+	}(jQuery));
+
+    $('.table-custom').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no tasks at the moment."
+		}
+	});
+
+	$("body").on("click", ".complete-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+    var myData = 'recordToComplete='+ DbNumberID;
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:myData,
+	success:function(response){
+		$('#task-'+DbNumberID).fadeOut();
+		setTimeout(function(){
+			location.reload();
+		}, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
+	$("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#update-task-form-" + DbNumberID).submit();
+
+	});
+
+	$("#calendar-toggle").hide();
+	$(".task-tile").addClass("tile-selected");
+	$(".task-tile p").addClass("tile-text-selected");
+	$(".task-tile i").addClass("tile-text-selected");
+
+	$("#task-button").click(function (e) {
+    e.preventDefault();
+		$("#calendar-toggle").hide();
+		$("#duetasks-toggle").show();
+		$("#completedtasks-toggle").show();
+		$(".calendar-tile").removeClass("tile-selected");
+		$(".calendar-tile p").removeClass("tile-text-selected");
+		$(".calendar-tile i").removeClass("tile-text-selected");
+		$(".task-tile").addClass("tile-selected");
+		$(".task-tile p").addClass("tile-text-selected");
+		$(".task-tile i").addClass("tile-text-selected");
+	});
+
+	$("#calendar-button").click(function (e) {
+    e.preventDefault();
+		$("#duetasks-toggle").hide();
+		$("#completedtasks-toggle").hide();
+		$("#calendar-toggle").show();
+		$(".task-tile").removeClass("tile-selected");
+		$(".task-tile p").removeClass("tile-text-selected");
+		$(".task-tile i").removeClass("tile-text-selected");
+		$(".calendar-tile").addClass("tile-selected");
+		$(".calendar-tile p").addClass("tile-text-selected");
+		$(".calendar-tile i").addClass("tile-text-selected");
+	});
+
+	});
+	</script>
 
 </body>
 </html>
