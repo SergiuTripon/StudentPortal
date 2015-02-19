@@ -95,7 +95,8 @@
 
         var marker = new google.maps.Marker({
             map: map,
-            position: latlng
+            position: latlng,
+            animation: google.maps.Animation.DROP
         });
 
         google.maps.event.addListener(marker, 'click', function() {
