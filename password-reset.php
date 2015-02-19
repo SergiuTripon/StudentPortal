@@ -61,7 +61,7 @@ include 'includes/session.php';
     <form class="form-custom" name="signin_form" id="signin_form">
 
     <div class="form-logo text-center">
-	<i class="fa fa-key"></i>
+	<i class="fa fa-lock"></i>
     </div>
 
     <hr class="hr-custom">
@@ -247,11 +247,15 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'token=' + token + '&email3=' + email + '&password2=' + password,
     success:function(){
-		$("#hide").hide();
+        $("#error").hide();
+        $("#error1").hide();
+        $("#error2").hide();
+        $("#error3").hide();
+        $("#hide").hide();
 		$("#extra-button").hide();
 		$("#FormSubmit").hide();
-		$("#email").hide();
-		$("#error").hide();
+        $(".fa").removeClass("fa-lock");
+        $(".fa").addClass("fa-key");
 		$("#success").append('Your password has been reset successfully. You can now sign in with your new password.');
 		$("#success-button").show();
     },
