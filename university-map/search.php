@@ -69,7 +69,7 @@ include '../includes/session.php';
     <?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php else : ?>
 
@@ -104,10 +104,8 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-    $(document).ready(function() {
         //Ladda
         Ladda.bind('.ladda-button', {timeout: 2000});
-    });
     </script>
 
 </body>
