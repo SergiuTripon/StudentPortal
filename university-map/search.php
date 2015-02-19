@@ -175,6 +175,10 @@ include '../includes/session.php';
 
     <div><select id="locationSelect" style="width:100%; display: none;"></select></div>
 
+    <div id="map-wrapper">
+        <div id="map"></div>
+    </div>
+
     </form>
 
     </div>
