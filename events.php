@@ -356,8 +356,9 @@ include 'includes/session.php';
 
 	$("#task-button").click(function (e) {
     e.preventDefault();
-		$("#calendar-toggle").hide();
         $(".calendar-view").hide();
+		$("#calendar-toggle").hide();
+        $(".event-view").show();
 		$("#events-toggle").show();
 		$("#bookedevents-toggle").show();
 		$(".calendar-tile").removeClass("tile-selected");
@@ -373,6 +374,7 @@ include 'includes/session.php';
 		$("#events-toggle").hide();
 		$("#bookedevents-toggle").hide();
         $(".event-view").hide();
+        $(".calendar-view").show();
 		$("#calendar-toggle").show();
 		$(".task-tile").removeClass("tile-selected");
 		$(".task-tile p").removeClass("tile-text-selected");
