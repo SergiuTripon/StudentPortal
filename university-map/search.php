@@ -161,6 +161,8 @@ include '../includes/session.php';
         <li class="active">Search</li>
     </ol>
 
+    <form class="form-custom">
+
     <input class="form-control" type="text" id="addressInput"/>
 
     <select id="radiusSelect">
@@ -176,6 +178,8 @@ include '../includes/session.php';
     <div id="map-wrapper">
     <div id="map"></div>
     </div>
+
+    </form>
 
     </div>
 
