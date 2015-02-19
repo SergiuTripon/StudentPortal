@@ -270,8 +270,8 @@ include 'includes/session.php';
 		hasError  = true;
 	}
 	
-	var email1 = $("#email").val();
-	if(email1 === '') {
+	var email = $("#email").val();
+	if(email === '') {
         $("#error").hide();
 		$("#error3").show();
         $("#error3").empty().append("Please enter an email address.");
@@ -285,8 +285,8 @@ include 'includes/session.php';
 		$("#email").addClass("success-style");
 	}
 	
-	var password1 = $("#password").val();
-	if(password1 === '') {
+	var password = $("#password").val();
+	if(password === '') {
         $("#error").hide();
 		$("#error4").show();
         $("#error4").empty().append("Please enter a password.");
@@ -300,8 +300,8 @@ include 'includes/session.php';
 		$("#password").addClass("success-style");
 	}
 
-    password1 = $("#password").val();
-	if (password1.length < 6) {
+    password = $("#password").val();
+	if (password.length < 6) {
         $("#error").hide();
 		$("#error4").show();
 		$("#error4").empty().append("Passwords must be at least 6 characters long. Please try again.");
@@ -319,8 +319,8 @@ include 'includes/session.php';
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
-    password1 = $("#password").val();
-	if(password1.match(upperCase) && password1.match(lowerCase) && password1.match(numbers)) {
+    password = $("#password").val();
+	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
         $("#error").hide();
 		$("#error4").hide();
         $("#password").removeClass("error-style");
@@ -348,7 +348,7 @@ include 'includes/session.php';
         $("#confirmpwd").addClass("success-style");
 	}
 	
-	if(password1 != confirmpwd) {
+	if(password != confirmpwd) {
         $("#error").hide();
 		$("#error4").show();
 		$("#error4").empty().append("Your password and confirmation do not match. Please try again.");
@@ -370,7 +370,7 @@ include 'includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'firstname=' + firstname + '&surname=' + surname + '&gender=' + gender + '&email1=' + email1 + '&password1=' + password1,
+    data:'firstname=' + firstname + '&surname=' + surname + '&gender=' + gender + '&email1=' + email + '&password1=' + password,
     success:function(){
         $("#error").hide();
 		$("#hide").hide();
