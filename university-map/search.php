@@ -163,6 +163,8 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
+    <div id="map-search">
+
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
     <input class="form-control" type="text" id="addressInput"/>
@@ -176,8 +178,9 @@ include '../includes/session.php';
     </select>
 
     <input class="btn btn-primary btn-lg" type="button" onclick="searchLocations()" value="Search"/>
-
     <div><select id="locationSelect" style="width:100%; display: none;"></select></div>
+
+    </div>
 
     <div id="map-wrapper">
         <div id="map"></div>

@@ -965,7 +965,11 @@ form .success-style:-ms-input-placeholder {
 }
 
 #university-map-portal .form-group {
-    margin-bottom: 0px;
+    margin-bottom: 0;
+}
+
+#university-map-portal #map-search {
+    margin-bottom: 20px;
 }
 
 #university-map-portal #map-wrapper {
