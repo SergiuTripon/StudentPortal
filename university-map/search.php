@@ -171,7 +171,7 @@ include '../includes/session.php';
     <option value="200">200mi</option>
     </select>
 
-    <input type="button" onclick="searchLocations()" value="Search"/>
+    <input class="btn btn-primary btn-lg" type="button" onclick="searchLocations()" value="Search"/>
 
     <div><select id="locationSelect" style="width:100%; display: none;"></select></div>
 
