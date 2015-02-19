@@ -151,6 +151,8 @@ include '../includes/session.php';
 </head>
 <body style="margin:0px; padding:0px;" onload="load()">
 
+    <?php include 'includes/menus/portal_menu.php'; ?>
+
     <div>
     <input type="text" id="addressInput" size="10"/>
 
