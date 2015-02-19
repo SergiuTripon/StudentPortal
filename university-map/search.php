@@ -177,12 +177,9 @@ include '../includes/session.php';
     <option value="200">200mi</option>
     </select>
     </div>
+    </div>
 
-    <div class="col-xs-4 col-sm-4 full-width pl0">
     <input class="btn btn-primary btn-lg" type="button" onclick="searchLocations()" value="Search"/>
-    </div>
-
-    </div>
 
     <div><select id="locationSelect" style="width:100%; display: none;"></select></div>
 
