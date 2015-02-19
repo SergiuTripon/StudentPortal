@@ -1,98 +1,85 @@
+<?php
+include '../includes/session.php';
+?>
+
 <!DOCTYPE html>
 <head>
 
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <?php include '../assets/meta-tags.php'; ?>
 
     <title>University Map | Overview</title>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript">
-    //<![CDATA[
-    var customIcons = {
-    buildings: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
-    },
-    studentCentre: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
-    },
-    lectureTheatres: {
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
-    },
-    computerLabs: {
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
-    },
-    libraries: {
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
-    }
-    };
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
-    function load() {
-        var map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(51.527287, -0.103842),
-        zoom: 15,
-        mapTypeId: 'roadmap'
-        });
-        var infoWindow = new google.maps.InfoWindow({
-            maxWidth: 400
-        });
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
 
-    // Change this depending on the name of your PHP file
-    downloadUrl("../../includes/university-map/map_source.php", function(data) {
-        var xml = data.responseXML;
-        var markers = xml.documentElement.getElementsByTagName("marker");
-        for (var i = 0; i < markers.length; i++) {
-        var name = markers[i].getAttribute("name");
-        var description = markers[i].getAttribute("description");
-        var type = markers[i].getAttribute("type");
-        var point = new google.maps.LatLng(
-            parseFloat(markers[i].getAttribute("lat")),
-            parseFloat(markers[i].getAttribute("lng")));
-        var html = "<b>" + name + "</b> <br/>" + description;
-        var icon = customIcons[type] || {};
-        var marker = new google.maps.Marker({
-            map: map,
-            position: point,
-            icon: icon.icon,
-            animation: google.maps.Animation.DROP
-        });
-        bindInfoWindow(marker, map, infoWindow, html);
-        }
-    });
-    }
-
-    function bindInfoWindow(marker, map, infoWindow, html) {
-        google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent(html);
-        infoWindow.open(map, marker);
-        });
-    }
-
-    function downloadUrl(url, callback) {
-        var request = window.ActiveXObject ?
-        new ActiveXObject('Microsoft.XMLHTTP') :
-        new XMLHttpRequest;
-
-    request.onreadystatechange = function() {
-        if (request.readyState == 4) {
-        request.onreadystatechange = doNothing;
-        callback(request, request.status);
-        }
-    };
-
-    request.open('GET', url, true);
-    request.send(null);
-    }
-
-    function doNothing() {}
-
-    //]]>
-    </script>
+    <script src="https://student-portal.co.uk/assets/js/google-maps/overview.js"></script>
 
 </head>
-<body onload="load()">
+<body>
+<div class="preloader"></div>
+
+    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
+
+    <?php include '../includes/menus/portal_menu.php'; ?>
+
+    <div id="university-map-portal" class="container">
+
+    <ol class="breadcrumb">
+        <li><a href="../../overview/">Overview</a></li>
+        <li><a href="../university-map/">University Map</a></li>
+        <li class="active">Overview</li>
+    </ol>
 
     <div id="map" style="width: 100%; height: 800px;"></div>
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
+
+    <!-- Sign Out (Inactive) JS -->
+    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
+
+    <?php else : ?>
+
+<?php include '../includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+	<form class="form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
+
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    </div>
+
+    </form>
+
+	</div>
+
+	<?php include '../includes/footers/footer.php'; ?>
+
+	<?php endif; ?>
+
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+    <script>
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //Loading map
+    window.onload = function () {
+        loadMap();
+    }
+    </script>
 
 </body>
 </html>

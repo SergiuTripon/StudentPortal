@@ -2,7 +2,6 @@
 include '../includes/session.php';
 ?>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -14,7 +13,7 @@ include '../includes/session.php';
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
-    <?php include '../assets/js-paths/google-maps-js-path.php'; ?>
+    <script src="https://student-portal.co.uk/assets/js/google-maps/search.js"></script>
 
 </head>
 <body>

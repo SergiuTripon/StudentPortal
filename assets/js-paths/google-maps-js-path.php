@@ -1,1 +1,0 @@
-    <script src="https://student-portal.co.uk/assets/js/google-maps/search.js"></script>
