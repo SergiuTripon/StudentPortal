@@ -63,7 +63,7 @@
     <i class="fa fa-graduation-cap"></i>
     </div>
     
-    <hr
+    <hr>
 	<p class="sad-feedback text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
     <hr>
     
