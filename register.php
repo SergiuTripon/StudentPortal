@@ -231,7 +231,8 @@ include 'includes/session.php';
         $("#error1").empty().append("Please enter a first name.");
         $("#firstname").removeClass("success-style");
         $("#firstname").addClass("error-style");
-		hasError  = true;
+		hasError = true;
+        return false;
     } else {
         $("#error").hide();
 		$("#error1").hide();
@@ -246,7 +247,8 @@ include 'includes/session.php';
         $("#error1").empty().append("Please enter a surname.");
         $("#surname").removeClass("success-style");
 		$("#surname").addClass("error-style");
-		hasError  = true;
+		hasError = true;
+        return false;
     } else {
         $("#error").hide();
 		$("#error1").hide();
@@ -267,7 +269,8 @@ include 'includes/session.php';
 		$("#error2").empty().append("Please select a gender.");
         $(".btn-group > .btn-default").removeClass("success-style");
 		$(".btn-group > .btn-default").addClass("error-style");
-		hasError  = true;
+		hasError = true;
+        return false;
 	}
 	
 	var email = $("#email").val();
@@ -277,7 +280,8 @@ include 'includes/session.php';
         $("#error3").empty().append("Please enter an email address.");
         $("#email").removeClass("success-style");
 		$("#email").addClass("error-style");
-		hasError  = true;
+		hasError = true;
+        return false;
     } else {
         $("#error").hide();
 		$("#error3").hide();
@@ -285,14 +289,14 @@ include 'includes/session.php';
 		$("#email").addClass("success-style");
 	}
 
-	var password = $("#password");
-    if (password.val().length === 0) {
+	var password = $("#password").val();
+	if(password === '') {
         $("#error").hide();
 		$("#error4").show();
         $("#error4").empty().append("Please enter a password.");
         $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
-		hasError  = true;
+		hasError = true;
         return false;
     } else {
         $("#error").hide();
@@ -308,7 +312,8 @@ include 'includes/session.php';
 		$("#error4").empty().append("Passwords must be at least 6 characters long. Please try again.");
 		$("#password").removeClass("success-style");
         $("#password").addClass("error-style");
-		hasError  = true;
+		hasError = true;
+        return false;
 	} else {
         $("#error").hide();
 		$("#error4").hide();
@@ -332,6 +337,8 @@ include 'includes/session.php';
 		$("#error4").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
         $("#password").removeClass("success-style");
         $("#password").addClass("error-style");
+        hasError = true;
+        return false;
 	}
 	
 	var confirmpwd = $("#confirmpwd").val();
@@ -341,7 +348,8 @@ include 'includes/session.php';
         $("#error4").empty().append("Please enter a password confirmation.");
         $("#confirmpwd").removeClass("success-style");
 		$("#confirmpwd").addClass("error-style");
-		hasError  = true;
+		hasError = true;
+        return false;
     } else {
 		$("#error").hide();
         $("#error4").hide();
@@ -358,6 +366,7 @@ include 'includes/session.php';
         $("#password").addClass("error-style");
 		$("#confirmpwd").addClass("error-style");
         hasError  = true;
+        return false;
 	} else {
         $("#error").hide();
 		$("#error4").hide();
