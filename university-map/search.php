@@ -172,7 +172,7 @@ include '../includes/session.php';
     </div>
 
     <div class="form-group">
-    <div class="col-xs-2 col-sm-2 full-width pr0">
+    <div class="col-xs-2 col-sm-2 full-width">
     <select class="form-control" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
