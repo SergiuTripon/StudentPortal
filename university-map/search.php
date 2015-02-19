@@ -14,7 +14,7 @@ include '../includes/session.php';
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/js-paths/google-maps-js-path.php'; ?>
 
 </head>
 <body onload="load()">
