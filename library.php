@@ -53,7 +53,7 @@ include 'includes/session.php';
 
 	</div><!-- /row -->
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="books-content" class="panel panel-default">
 
@@ -195,7 +195,7 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group calendar-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="calendar-content" class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingThree">
@@ -364,7 +364,9 @@ include 'includes/session.php';
 
 	$("#books-toggle").click(function (e) {
     e.preventDefault();
+        $(".calendar-view").hide();
 		$("#calendar-content").hide();
+        $(".book-view").show();
 		$("#books-content").show();
 		$("#reservedbooks-content").show();
 		$(".calendar-tile").removeClass("tile-selected");
@@ -377,8 +379,10 @@ include 'includes/session.php';
 
 	$("#calendar-toggle").click(function (e) {
     e.preventDefault();
+        $(".book-view").hide();
 		$("#books-content").hide();
 		$("#reservedbooks-content").hide();
+        $(".calendar-view").show();
 		$("#calendar-content").show();
 		$(".book-tile").removeClass("tile-selected");
 		$(".book-tile p").removeClass("tile-text-selected");
