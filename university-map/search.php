@@ -14,6 +14,8 @@ include '../includes/session.php';
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script type="text/javascript">
+    $(document).ready(function () {
+
     //<![CDATA[
     var map;
     var markers = [];
@@ -148,6 +150,7 @@ include '../includes/session.php';
     function doNothing() {}
 
     //]]>
+    });
     </script>
 
 </head>
