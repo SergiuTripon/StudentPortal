@@ -11,7 +11,7 @@ include 'includes/session.php';
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal</title>
+    <title>Student Portal | Password Reset</title>
 
 </head>
 
