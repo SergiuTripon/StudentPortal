@@ -171,7 +171,7 @@ include '../includes/session.php';
     </div>
     </div>
 
-    <select id="radiusSelect">
+    <select class="form-control" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
     <option value="200">200mi</option>
