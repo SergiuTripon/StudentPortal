@@ -31,6 +31,8 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
+    <p id="error" class="feedback-sad text-center"></p>
+
     <div id="map-search">
 
     <div class="form-group">
