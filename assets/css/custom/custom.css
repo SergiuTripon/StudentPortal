@@ -958,14 +958,18 @@ form .success-style:-ms-input-placeholder {
 /* End of Calendar portal */
 
 /* University map */
-#map-wrapper {
-    padding: 1px;
+#university-map-portal form {
+    max-width: 100%;
     margin-bottom: 60px;
+}
+
+#university-map-portal #map-wrapper {
+    padding: 1px;
     border-radius: 3px;
     border: 1px solid #333333;
 }
 
-#map {
+#university-map-portal #map {
     height: 100%;
     width: 100%;
 }

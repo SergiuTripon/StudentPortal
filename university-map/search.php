@@ -153,7 +153,7 @@ include '../includes/session.php';
 
     <?php include '../includes/menus/portal_menu.php'; ?>
 
-    <div id="university-map-search" class="container">
+    <div id="university-map-portal" class="container">
 
     <ol class="breadcrumb">
         <li><a href="../overview/">Overview</a></li>
@@ -161,7 +161,7 @@ include '../includes/session.php';
         <li class="active">Search</li>
     </ol>
 
-    <form class="form-custom" style="max-width: 100%;">
+    <form class="form-custom">
 
     <input class="form-control" type="text" id="addressInput"/>
 
