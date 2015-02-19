@@ -791,16 +791,16 @@ form .success-style:-ms-input-placeholder {
 
 /* Modal help */
 #modal-help .modal-content {
-    border-color: #CCCCCC;
-    background-color: #FFFFFF;
+    border-color: #333333;
+    background-color: #E9DDC6;
 }
 
 #modal-help .modal-header {
-    border-color: #CCCCCC;
+    border-color: #333333;
 }
 
 #modal-help .modal-footer {
-    border-color: #CCCCCC;
+    border-color: #333333;
 }
 
 #modal-help .modal-title {
