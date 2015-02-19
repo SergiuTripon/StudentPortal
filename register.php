@@ -289,11 +289,10 @@ include 'includes/session.php';
 	if(password === '') {
         $("#error").hide();
 		$("#error4").show();
-        $("#error4").empty().append("Please enter an email address.");
+        $("#error4").empty().append("Please enter a password.");
         $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
 		hasError  = true;
-        return false;
     } else {
         $("#error").hide();
 		$("#error4").hide();
