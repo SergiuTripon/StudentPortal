@@ -170,6 +170,8 @@ include 'includes/session.php';
 		window.location = '../overview/';
     },
     error:function (xhr, ajaxOptions, thrownError){
+        $("#error1").hide();
+        $("#error2").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
