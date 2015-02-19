@@ -15,6 +15,12 @@ include '../includes/session.php';
 
     <script src="https://student-portal.co.uk/assets/js/google-maps/overview.js"></script>
 
+    <style>
+        html, body {
+            height: 100% !important;
+        }
+    </style>
+
 </head>
 <body>
 <div class="preloader"></div>
