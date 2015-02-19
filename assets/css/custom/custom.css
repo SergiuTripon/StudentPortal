@@ -587,7 +587,7 @@ form .form-control:-ms-input-placeholder {
 .error-style {
     color: #FFFFFF !important;
     border-color: #C9302C !important;
-    background-color: #D9534F !important;
+    background: #D9534F !important;
 }
 
 .error-style:focus {
@@ -626,7 +626,7 @@ form .error-style:-ms-input-placeholder {
 .success-style {
     color: #FFFFFF !important;
     border-color: #318837 !important;
-    background-color: #3FAD46 !important;
+    background: #3FAD46 !important;
 }
 
 .success-style:focus {
