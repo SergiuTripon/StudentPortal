@@ -978,7 +978,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 @media (max-width: 480px) {
-#university-map-portal #search-button {
+#university-map-portal #map-search-button {
     text-align: center !important;
 }
 }

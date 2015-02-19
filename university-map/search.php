@@ -52,8 +52,8 @@ include '../includes/session.php';
     </div>
     </div>
 
-    <div id="search-button">
-    <input class="btn btn-primary btn-lg" type="button" onclick="searchLocations()" value="Search"/>
+    <div id="map-search-button">
+    <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up" href="/"><span class="ladda-label">Search</span></a>
     </div>
 
     <div><select class="form-control" id="locationSelect" style="width:100%; display: none;"></select></div>
