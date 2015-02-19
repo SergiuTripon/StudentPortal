@@ -39,7 +39,7 @@ include '../includes/session.php';
     <div id="map-search">
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
     </div>
 
