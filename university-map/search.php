@@ -17,7 +17,7 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/google-maps-js-path.php'; ?>
 
 </head>
-<body onload="load()">
+<body>
 <div class="preloader"></div>
 
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
