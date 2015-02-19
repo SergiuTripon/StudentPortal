@@ -291,16 +291,6 @@ include 'includes/session.php';
 
 
 
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no tasks at the moment."
-		}
-	});
-
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
 		 
