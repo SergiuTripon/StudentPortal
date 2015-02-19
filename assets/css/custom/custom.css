@@ -649,12 +649,12 @@ form .error-style:-ms-input-placeholder {
 /* Remember Password hack (Chrome) */
 form .success-style:-webkit-autofill {
     -webkit-text-fill-color: #FFFFFF;
-    -webkit-box-shadow: 0 0 0 1000px #3FAD46 inset;
+    -webkit-box-shadow: 0 0 0 1000px #3FAD46 inset !important;
 }
 
 form .success-style:-webkit-autofill:focus {
     -webkit-text-fill-color: #FFFFFF;
-    -webkit-box-shadow: 0 0 0 1000px #3FAD46 inset;
+    -webkit-box-shadow: 0 0 0 1000px #3FAD46 inset !important;
 }
 /* End of Remember Password hack (Chrome) */
 
