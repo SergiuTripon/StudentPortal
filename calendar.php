@@ -287,6 +287,8 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
 	<script>
+    $(document).ready(function () {
+
 	(function($) {
 
 	"use strict";
@@ -324,10 +326,7 @@ include 'includes/session.php';
 		});
 	});
 	}(jQuery));
-	</script>
 
-	<script type="text/javascript" class="init">
-    $(document).ready(function () {
     $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
