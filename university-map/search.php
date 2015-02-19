@@ -161,7 +161,7 @@ include '../includes/session.php';
         <li class="active">Search</li>
     </ol>
 
-    <form class="form-custom" style="width: 100%;">
+    <form class="form-custom" style="max-width: 100%;">
 
     <input class="form-control" type="text" id="addressInput"/>
 
