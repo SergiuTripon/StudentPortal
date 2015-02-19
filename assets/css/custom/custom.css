@@ -982,22 +982,22 @@ form .success-style:-ms-input-placeholder {
 #university-map-portal #map-search {
     margin: 10px 0 10px 0;
     padding-bottom: 10px;
-    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid #8A8A8A;
 }
 
 #university-map-portal .col-xs-3 {
     margin-right: 5px;
 }
 
-@media (max-width: 480px) {
-#university-map-portal #map-search-button {
-    text-align: center !important;
-}
-}
-
 #university-map-portal #map {
     height: 100%;
     width: 100%;
+}
+
+@media (max-width: 480px) {
+    #university-map-portal #map-search-button {
+        text-align: center !important;
+    }
 }
 /* End of University map */
 
