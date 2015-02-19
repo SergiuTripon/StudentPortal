@@ -27,7 +27,7 @@ include '../includes/session.php';
     <div id="university-map-portal" class="container">
 
     <ol class="breadcrumb">
-        <li><a href="../overview/">Overview</a></li>
+        <li><a href="../../overview/">Overview</a></li>
         <li><a href="../university-map/">University Map</a></li>
         <li class="active">Search</li>
     </ol>
