@@ -50,7 +50,7 @@ include 'includes/session.php';
 	<?php include 'includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/sign-out-inactive.js"></script>
+    <script src="assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
@@ -129,90 +129,122 @@ include 'includes/session.php';
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-	var hasError = false;
+	var hasError;
 
 	var token = $("#token").val();
 
-	var email3 = $("#email").val();
-	if(email3 === '') {
+	var email = $("#email").val();
+	if(email === '') {
+        $("#error").hide();
 		$("#error1").show();
         $("#error1").empty().append("Please enter an email address.");
+        $("#email").removeClass("success-style");
 		$("#email").addClass("error-style");
-		hasError  = true;
+		hasError = true;
 		return false;
 	} else {
+        $("#error").hide();
 		$("#error1").hide();
+        $("#email").removeClass("error-style");
 		$("#email").addClass("success-style");
+        hasError = false;
 	}
 
-	var password2 = $("#password").val();
-	if(password2 === '') {
+	var password = $("#password").val();
+	if(password === '') {
+        $("#error").hide();
 		$("#error2").show();
         $("#error2").empty().append("Please enter a password.");
+        $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
-		hasError  = true;
+		hasError = true;
 		return false;
     } else {
+        $("#error").hide();
 		$("#error2").hide();
+        $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
+        hasError  = false;
 	}
 
-	if (password2.length < 6) {
+	if (password.length < 6) {
+        $("#error").hide();
 		$("#error2").show();
 		$("#error2").empty().append("Passwords must be at least 6 characters long. Please try again.");
+        $("#password").removeClass("success-style");
 		$("#password").addClass("error-style");
-		hasError  = true;
+		hasError = true;
 		return false;
 	} else {
+        $("#error").hide();
 		$("#error2").hide();
+        $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
+        hasError = false;
 	}
 
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
-	if(password2.match(upperCase) && password2.match(lowerCase) && password2.match(numbers)) {
+	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+        $("#error").hide();
 		$("#error2").hide();
+        $("#password").removeClass("error-style");
 		$("#password").addClass("success-style");
+        hasError = false;
 	} else {
+        $("#error").hide();
 		$("#error2").show();
 		$("#error2").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
-		$("#password").addClass("error-style");
-		hasError  = true;
+        $("#password").removeClass("success-style");
+        $("#password").addClass("error-style");
+		hasError = true;
 		return false;
 	}
 
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
+        $("#error").hide();
 		$("#error2").show();
         $("#error2").empty().append("Please enter a password confirmation.");
-		$("#confirmpwd").addClass("error-style");
-		hasError  = true;
+		$("#confirmpwd").removeClass("success-style");
+        $("#confirmpwd").addClass("error-style");
+		hasError = true;
 		return false;
     } else {
+        $("#error").hide();
 		$("#error2").hide();
-		$("#confirmpwd").addClass("success-style");
+        $("#confirmpwd").removeClass("error-style");
+        $("#confirmpwd").addClass("success-style");
+        hasError = false;
 	}
 
-	if(password2 != confirmpwd) {
+	if(password != confirmpwd) {
+        $("#error").hide();
 		$("#error2").show();
 		$("#error2").empty().append("Your password and confirmation do not match. Please try again.");
-		$("#password").addClass("error-style");
+        $("#password").removeClass("success-style");
+        $("#confirmpwd").removeClass("success-style");
+        $("#password").addClass("error-style");
 		$("#confirmpwd").addClass("error-style");
         hasError  = true;
 		return false;
 	} else {
+        $("#error").hide();
 		$("#error2").hide();
+        $("#password").removeClass("error-style");
+        $("#confirmpwd").removeClass("error-style");
 		$("#password").addClass("success-style");
 		$("#confirmpwd").addClass("success-style");
+        hasError = false;
 	}
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'token=' + token + '&email3=' + email3 + '&password2=' + password2,
+    data:'token=' + token + '&email3=' + email + '&password2=' + password,
     success:function(){
 		$("#hide").hide();
 		$("#signin-button").hide();
