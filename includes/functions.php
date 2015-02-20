@@ -846,7 +846,7 @@ function ImportLocations () {
     //Locations
 	foreach ($universitymap_locations->Document->Placemarl as $xml_var) {
 
-	$title = $xml_var->title;
+	$title = $xml_var->name;
 	$description = $xml_var->description;
     $latlong = $xml_var->Point->coordinates;
 
