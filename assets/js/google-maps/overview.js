@@ -28,7 +28,7 @@
         });
 
     // Change this depending on the name of your PHP file
-    downloadUrl("../../includes/university-map/overview_source.php", function(data) {
+    downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
         var xml = data.responseXML;
         var markers = xml.documentElement.getElementsByTagName("marker");
         for (var i = 0; i < markers.length; i++) {
