@@ -2,5 +2,5 @@
 
 $latlng = "-0.10267093777656555,51.527640252365465";
 
-list($lat, $lng) = explode(',', $latlng));
+list($lat, $lng) = explode(',', $latlng);
 print($lat);
