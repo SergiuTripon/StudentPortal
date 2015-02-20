@@ -1,6 +1,6 @@
 <?php
 
-require '../session.php';
+require '../../session.php';
 
 // Start XML file, create parent node
 
