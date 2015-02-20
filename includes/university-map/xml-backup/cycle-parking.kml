@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<name>Bike parking at City University</name>
+		<open>0</open>
+		<description><![CDATA[Bike parking at City University]]></description>
+		<Style id="onStreet">
+			<IconStyle>
+				<Icon>
+					<href>http://www.city.ac.uk/global/images/map-icons/bicycleparking.png</href>
+				</Icon>
+			</IconStyle>
+		</Style>
+		<Style id="secure">
+			<IconStyle>
+				<Icon>
+					<href>http://www.city.ac.uk/global/images/map-icons/bicycleparking.png</href>
+				</Icon>
+			</IconStyle>
+		</Style>
+		<Placemark>
+			<name>Northampton Square Bike Shed</name>
+			<description><![CDATA[<p>40-space secured covered shelter located on the ground level of University Building.  Access is from Northampton Square, through the solid metal door located to the right of the disabled entrance and to the left of Waterstones.</p><p><a href="http://www.city.ac.uk/about/city-the-community-and-environment/city-and-the-environment/travel">City Green Travel Plan</a></p>]]></description>
+			<Point>
+				<coordinates>-0.10267093777656555,51.527640252365465,0</coordinates>
+			</Point>
+			<styleUrl>#secure</styleUrl>
+		</Placemark>
+		<Placemark>
+			<name>Drysdale Building</name>
+			<description><![CDATA[
+<p>100-space secured covered shelter located behind the Drysdale Building. Access is via the Spencer Street car park located behind the Student Union.</p><p><a href="http://www.city.ac.uk/about/city-the-community-and-environment/city-and-the-environment/travel">City Green Travel Plan</a></p>]]></description>
+			<Point>
+				<coordinates>-0.10267093777656555,51.52796356213957,0</coordinates>
+			</Point>
+			<styleUrl>#secure</styleUrl>
+		</Placemark>
+		<Placemark>
+			<name>Northampton Square Bike Rack (West)</name>
+			<description><![CDATA[<p>On street bike rack.</p><p><a href="http://www.city.ac.uk/about/city-the-community-and-environment/city-and-the-environment/travel">City Green Travel Plan</a></p>
+			]]></description>
+			<Point>
+				<coordinates>-0.10287545621395111,51.527217234561725,0</coordinates>
+			</Point>
+			<styleUrl>#secure</styleUrl>
+		</Placemark>
+		<Placemark>
+			<name>Northampton Square Bike Rack (East)</name>
+			<description><![CDATA[<p>On street bike rack.</p><p><a href="http://www.city.ac.uk/about/city-the-community-and-environment/city-and-the-environment/travel">City Green Travel Plan</a></p>
+			]]></description>
+			<Point>
+				<coordinates>-0.101948082447052,51.527584768005674,0</coordinates>
+			</Point>
+			<styleUrl>#secure</styleUrl>
+		</Placemark>
+		<Placemark>
+			<name>Social Sciences Building Bike Rack</name>
+			<description><![CDATA[<p>On street bike rack.</p><p><a href="http://www.city.ac.uk/about/city-the-community-and-environment/city-and-the-environment/travel">City Green Travel Plan</a></p><img class="right" src="http://www.city.ac.uk/marcoms_media/images/maps/bike-racks/social-sciences-rack-thumb.jpg" "bike rack"/>]]></description>
+			<Point>
+				<coordinates>-0.10480329394340515,51.52733362742628,0</coordinates>
+			</Point>
+			<styleUrl>#secure</styleUrl>
+		</Placemark>
+	</Document>
+</kml>

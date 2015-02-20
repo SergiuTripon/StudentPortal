@@ -1,0 +1,1429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0" xmlns:CUL="http://www.city.ac.uk/schema" xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title><![CDATA[City University Buildings and Services]]></title>
+  <link>http://www.city.ac.uk/visit/feeds/locations</link>
+  <atom:link href="http://www.city.ac.uk/visit/feeds/locations" rel="self" type="application/rss+xml" />
+  <description><![CDATA[City University London buildings and student services locations]]></description>
+  <language>en-gb</language>
+  <copyright>Copyright, City University London</copyright>
+  <pubDate>Wed, 18 Jan 2012 14:46:51 +0000</pubDate>
+  <lastBuildDate>Mon, 16 Jun 2014 16:08:25 +0100</lastBuildDate>
+  <item>
+<!-- 1 -->
+<guid isPermaLink="false">155747</guid>
+<title>200 Aldersgate</title>
+<link>http://www.city.ac.uk/visit/campuses/cass/200-aldersgate</link>
+<description><![CDATA[ <p>Cass Executive Education is housed at 200 Aldersgate Street, London, EC1A 4HD.</p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.517876 -0.097722</georss:point>
+<geo:lat>51.517876</geo:lat>
+<geo:long>-0.097722</geo:long>
+<georss:polygon>51.51788481263086 -0.09731858968734741 51.51783307177088 -0.09740442037582397 51.51746086965877 -0.09744465351104736 51.5178347408318 -0.0979354977607727 51.518053387283075 -0.09753584861755371</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 2 -->
+<guid isPermaLink="false">38284</guid>
+<title>24 Chiswell Street</title>
+<link>http://www.city.ac.uk/visit/campuses/cass/whitechapel</link>
+<description><![CDATA[ The Cass Development Office is housed at 24 Chiswell Street near the main Cass Business School site on Bunhill Row.<br />]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.520714 -0.089425</georss:point>
+<geo:lat>51.520714</geo:lat>
+<geo:long>-0.089425</geo:long>
+<georss:polygon>51.520762 -0.089928 51.52106 -0.089782 51.520916 -0.088711 51.520635 -0.088745</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 3 -->
+<guid isPermaLink="false">243403</guid>
+<title>Abacus House</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/abacus-house</link>
+<description><![CDATA[ <p>An entrance on Whiskin Street and an accessible entrance via Meredith Street.</p>
+
+<p>It houses - Information Services.<br /></p>]]></description>
+<CUL:buildingPrefix><![CDATA[S]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.526817 -0.105680</georss:point>
+<geo:lat>51.526817</geo:lat>
+<geo:long>-0.105680</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/cacaca/letter_s.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 4 -->
+<guid isPermaLink="false">38953</guid>
+<title>Accommodation Team</title>
+<link>http://www.city.ac.uk/visit/student-services/housing</link>
+<description><![CDATA[ Student Centre<br />
+2nd floor<br />
+University Building]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52763065733065 -0.10312557220458984</georss:point>
+<geo:lat>51.52763065733065</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 5 -->
+<guid isPermaLink="false">15792</guid>
+<title>Atkin Building</title>
+<link>http://www.city.ac.uk/visit/campuses/grays-inn/atkin-building</link>
+<description><![CDATA[ 4 Gray&#39;s Inn Place, London WC1R 5DX<br />
+
+<p><strong>How do I get to The City Law School?</strong></p>
+
+<ul>
+  <li><strong>Tube:</strong> The nearest underground stations are Holborn on the Piccadilly and Central lines and Chancery Lane on the Central Line.</li>
+
+  <li><strong>Bus:</strong> Routes 8, 17, 19, 25, 38, 45, 46, 55, 59, 68, 91, 98, 168, 171, 188, 242, 243, 341, 501, 521.</li>
+
+  <li><strong>Car:</strong> Parking in the roads surrounding&nbsp;The City Law School&nbsp;is at parking meters. The nearest National Car Parks to The City Law School are Selkirk House, Museum Street or International Press Centre, Shoe Lane. Please note that&nbsp;The City Law School&nbsp;is within the Congestion Charging Zone.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.520168 -0.114943</georss:point>
+<geo:lat>51.520168</geo:lat>
+<geo:long>-0.114943</geo:long>
+<georss:polygon>51.519943 -0.114754 51.519905 -0.114932 51.520143 -0.115068 51.520183 -0.114893 51.519943 -0.114754 51.519943 -0.114754</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 6 -->
+<guid isPermaLink="false">131304</guid>
+<title>Atkin Building Lecture Theatre</title>
+<link>http://www.city.ac.uk/visit/lecture-theatres/atkin-building-lecture-theatre</link>
+<description><![CDATA[ <p>Atkin Building, 4 Gray&#39;s Inn Place, London WC1R 5DX</p>
+
+<p><strong>How do I get to The City Law School?</strong></p>
+
+<ul>
+  <li><strong>Tube:</strong> The nearest underground stations are Holborn on the Piccadilly and Central lines and Chancery Lane on the Central Line.</li>
+
+  <li class="c1">&nbsp;</li>
+
+  <li><strong>Bus:</strong> Routes 8, 17, 19, 25, 38, 45, 46, 55, 59, 68, 91, 98, 168, 171, 188, 242, 243, 341, 501, 521.</li>
+
+  <li class="c1">&nbsp;</li>
+
+  <li><strong>Car:</strong> Parking in the roads surrounding&nbsp;The City Law School&nbsp;is at parking meters. The nearest National Car Parks to The City Law School are Selkirk House, Museum Street or International Press Centre, Shoe Lane. Please note that&nbsp;The City Law School&nbsp;is within the Congestion Charging Zone.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.520168 -0.114943</georss:point>
+<geo:lat>51.520168</geo:lat>
+<geo:long>-0.114943</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>lectureTheatres</category>
+</item><item>
+<!-- 7 -->
+<guid isPermaLink="false">113179</guid>
+<title>B307A (Level 3A)</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/level-3-refectory</link>
+<description><![CDATA[ <p>B307A (Level 3A)<br />
+University Building<br />
+City University London<br />
+Northampton Square, EC1V 0HB</p>
+
+<p class="hours">Opening Hours: Mon to Fri: 09:00 - 20:30</p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527701 -0.102509</georss:point>
+<geo:lat>51.527701</geo:lat>
+<geo:long>-0.102509</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 8 -->
+<guid isPermaLink="false">9516</guid>
+<title>Bartholomew Close</title>
+<link>http://www.city.ac.uk/visit/campuses/west-smithfield/bartholomew-close</link>
+<description><![CDATA[ <p>20 Bartholomew Close, EC1A 7QN</p>
+
+<p><a href="http://www.city.ac.uk/health" target="_self" title="School of Health Sciences Homepage">School of Health Sciences</a></p>
+
+<p><strong>Travel</strong></p>
+
+<ul>
+  <li>Tube: The nearest underground stations are Barbican and Farringdon on the Metropolitan and Circle lines, and St Pauls on the Central Line</li>
+
+  <li>Routes 8, 17, 25, 45, 46, 55, 56, 63, 100, 153, 172, 242, 243, 341, 501, 521</li>
+
+  <li>Car: Parking in the roads surrounding West Smithfield is at parking meters. The nearest National Car Parks to West Smithfield are at Smithfield Central Market, Snowhill or Cowcross Street. Please note that the West Smithfield area is within the Congestion Charging Zone.</li>
+</ul>
+
+<p>St. Barts Hospital is located at West Smithfield, London EC1A 7BE</p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.517862 -0.098517</georss:point>
+<geo:lat>51.517862</geo:lat>
+<geo:long>-0.098517</geo:long>
+<georss:polygon>51.517737 -0.098788 51.51791 -0.098418 51.518122 -0.098708 51.518172 -0.098585 51.517907 -0.098201 51.517712 -0.098574 51.517473 -0.09826 51.517413 -0.098375 51.517737 -0.098788</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 9 -->
+<guid isPermaLink="false">42461</guid>
+<title>Birley Lecture Theatre</title>
+<link>http://www.city.ac.uk/visit/lecture-theatres/birley-lecture-theatre</link>
+<description><![CDATA[ <p>Centenary Building,<br />
+City University London,<br />
+Spencer Street,<br />
+London,<br />
+EC1V 0HB.<br /></p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52771 -0.103965</georss:point>
+<geo:lat>51.52771</geo:lat>
+<geo:long>-0.103965</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>lectureTheatres</category>
+</item><item>
+<!-- 10 -->
+<guid isPermaLink="false">131166</guid>
+<title>Bunhill Row (Cass Business School)</title>
+<link>http://www.city.ac.uk/visit/campuses/cass/bunhill-row</link>
+<description><![CDATA[ <p><a href="http://www.cass.city.ac.uk" title="Cass Business School">Cass Business School</a> resides at:</p>
+
+<p>106 Bunhill Row,<br />
+<span class="locality">London</span>, <span class="postal-code">EC1Y 8TZ</span><br />
+<span class="country-name">UK</span></p>
+
+<p>It houses:</p>
+
+<ul type="disc">
+  <li><a href="http://www.cass.city.ac.uk/research-and-faculty/faculties/faculty-of-actuarial-science-and-insurance">Faculty of Actuarial Science and Statistics</a><br /></li>
+
+  <li><a href="http://www.cass.city.ac.uk/research-and-faculty/faculties/faculty-of-finance">Faculty of Finance</a></li>
+
+  <li><a href="http://www.cass.city.ac.uk/research-and-faculty/faculties/faculty-of-management">Faculty of Management</a></li>
+
+  <li><a href="http://www.cass.city.ac.uk/more-about-cass/careers-services">Career Resource Centre</a></li>
+
+  <li>Cyril Kleinwort Library</li>
+
+  <li><a href="http://www.cass.city.ac.uk/courses">Specialist Master&#39;s Programme</a></li>
+
+  <li><a href="./?a=11158">MBA courses</a></li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.521870 -0.090356</georss:point>
+<geo:lat>51.521870</geo:lat>
+<geo:long>-0.090356</geo:long>
+<georss:polygon>51.522178 -0.090806 51.521912 -0.090849 51.521884 -0.090565 51.521967 -0.090554 51.521949 -0.090208 51.521864 -0.090216 51.521851 -0.089972 51.521874 -0.089967 51.521871 -0.089934 51.521924 -0.089929 51.522221 -0.089945 51.522266 -0.090216 51.522178 -0.090806</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 11 -->
+<guid isPermaLink="false">38851</guid>
+<title>Career and Skills Development Service</title>
+<link>http://www.city.ac.uk/visit/student-services/careers-and-skills-development</link>
+<description><![CDATA[ <p>The Career and Skills Development Service provides a professional, high quality Career and Information Service for students and recent graduates of City, in collaboration with employers and other university academic and service departments. Our aim is to support and develop our students by providing the tools to enhance employability skills.</p>
+
+<h4>Careers Centre Opening Times</h4>
+
+<table class="c1">
+  <tbody>
+    <tr>
+      <th><strong>Day</strong></th>
+
+      <th><strong>Opening Times</strong></th>
+    </tr>
+
+    <tr>
+      <td>Monday</td>
+
+      <td>09:00 to 17:00<br /></td>
+    </tr>
+
+    <tr>
+      <td>Tuesday</td>
+
+      <td>09:00 to 17:00<br /></td>
+    </tr>
+
+    <tr>
+      <td>Wednesday</td>
+
+      <td>09:00 to 17:00<br /></td>
+    </tr>
+
+    <tr>
+      <td>Thursday</td>
+
+      <td>10:30 to 17:00<br /></td>
+    </tr>
+
+    <tr>
+      <td>Friday</td>
+
+      <td>09:00 to 17:00<br /></td>
+    </tr>
+  </tbody>
+</table>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52791 -0.103346</georss:point>
+<geo:lat>51.52791</geo:lat>
+<geo:long>-0.103346</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 12 -->
+<guid isPermaLink="false">78546</guid>
+<title>Cass Learning Resource Centre</title>
+<link>http://www.city.ac.uk/visit/university-libraries/cass-learning-resource-centre</link>
+<description><![CDATA[ <p>Specialist business collections and library services dedicated to students of Cass Business School.</p>
+
+<p>Cass Learning Resource Centre is based on the first floor of Bunhill Row. The library&nbsp;primarily supports Postgraduate students whilst Undergraduate collections are based at&nbsp;the <a target="_self" href="http://www.city.ac.uk/library/our-services/libraries/university-library.html" title="">University Library, Northampton Square</a>.</p>
+
+<p>A dedicated team of professional staff are available to assist you with using our comprehensive portfolio of electronic resources and with finding books&nbsp;for your course.</p>
+
+<p>For more information about our facilities and services, please contact us or visit <a target="_self" href="http://www.cass.city.ac.uk/intranet/student/learning-resource-centre" title="">our website</a>.</p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.521752 -0.089977</georss:point>
+<geo:lat>51.521752</geo:lat>
+<geo:long>-0.089977</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/library.png</CUL:icon>
+<category>libraries</category>
+</item><item>
+<!-- 13 -->
+<guid isPermaLink="false">158752</guid>
+<title>Cass School Computer Rooms</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/cass-rooms</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52718636328608 -0.10426416993141174</georss:point>
+<geo:lat>51.52718636328608</geo:lat>
+<geo:long>-0.10426416993141174</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 14 -->
+<guid isPermaLink="false">9537</guid>
+<title>Centenary Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/centenary-building</link>
+<description><![CDATA[ <p>Entrance on Spencer Street, also accessible through the main University Building in Northampton Square.</p>
+
+<p>It houses:</p>
+
+<ul>
+  <li>Birley lecture theatre</li>
+
+  <li>Oakden lecture theatre</li>
+
+  <li>Poynton lecture theatre</li>
+
+  <li>Geary lecture theatre.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[H]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527755 -0.103982</georss:point>
+<geo:lat>51.527755</geo:lat>
+<geo:long>-0.103982</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/c9282d/letter_h.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 15 -->
+<guid isPermaLink="false">41698</guid>
+<title>City Law School (Gray's Inn Place)</title>
+<link>http://www.city.ac.uk/visit/university-libraries/the-city-law-school-library-grays-inn</link>
+<description><![CDATA[ <p>Specialist legal collections and library services dedicated to law students on professional programmes based at Gray&#39;s Inn Place.</p>
+
+<p>The City Law School has <a href="http://www.city.ac.uk/library/our-services/libraries/the-city-law-school.html">two dedicated law libraries</a>. The library at Gray&#39;s Inn Place primarily supports students on professional programmes while law students based at Northampton Square have the use of a law collection on level 4 of the <a target="_self" href="http://www.city.ac.uk/library/our-services/libraries/university-library.html" title="">University library, Northampton Square</a>.</p>
+
+<p>A dedicated team of professional staff, qualified in law librarianship and trained in legal research are available to assist you with sourcing legal materials, researching the law and answering your queries.</p>
+
+<p>For more information about our law libraries, our facilities and services, please:</p>
+
+<ul>
+  <li>contact our Enquiry Desk on +44 (0) 20 7400 3605</li>
+
+  <li>read our <a target="_self" href="http://www.city.ac.uk/library/find-resources/law-for-llb-gdl-and-ge-llb.html" title="">guide to resources for Law</a></li>
+
+  <li>or take a look at our legal resource portals, <a target="_self" href="http://www.lawbore.net/" title="">Lawbore</a> and <a target="_self" href="http://www.lawborepro.net/" title="">Lawbore Professional</a></li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.51893 -0.114227</georss:point>
+<geo:lat>51.51893</geo:lat>
+<geo:long>-0.114227</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/library.png</CUL:icon>
+<category>libraries</category>
+</item><item>
+<!-- 16 -->
+<guid isPermaLink="false">245354</guid>
+<title>CityBar </title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/city-bar</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.528037 -0.101527</georss:point>
+<geo:lat>51.528037</geo:lat>
+<geo:long>-0.101527</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category></category>
+</item><item>
+<!-- 17 -->
+<guid isPermaLink="false">9541</guid>
+<title>College Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/college-building</link>
+<description><![CDATA[ <p>College Building lies on St John Street, adjacent to City&#39;s main Northampton Square site.</p>
+
+<p>It houses:</p>
+
+<ul>
+  <li><a href="./?a=13148">School of Arts</a> (<a href="./?a=3258">Department of Journalism</a>, <a href="./?a=57233">Department of Creative Practice and Enterprise</a>)</li>
+
+  <li><a href="./?a=3339">School of Informatics</a> (<a href="./?a=28877">Department of Computing</a>, <a href="http://www.city.ac.uk/department-library-information-science/department-of-information-science">Department of Information Science</a>, <a href="http://www.city.ac.uk/department-computer-science/software-and-systems-engineering/centre-for-software-reliability">Centre for Software Reliability</a>, <a href="http://www.city.ac.uk/department-computer-science/human-centric-systems/centre-for-human-computer-interaction-design">Centre for Human Computer Interaction Design</a>, <a href="http://www.city.ac.uk/department-computer-science/human-centric-systems/centre-for-health-informatics">Centre for Health Informatics</a>)</li>
+
+  <li>College common room.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[A]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527287 -0.103842</georss:point>
+<geo:lat>51.527287</geo:lat>
+<geo:long>-0.103842</geo:long>
+<georss:polygon>51.526917 -0.10416 51.527668 -0.104617 51.52769 -0.104583 51.527365 -0.102974 51.527234 -0.10305 51.527247 -0.103142 51.527192 -0.103162 51.526917 -0.10416</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/394a59/letter_a.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 18 -->
+<guid isPermaLink="false">18247</guid>
+<title>College Building A220</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/a220</link>
+<description><![CDATA[ <h2>Capacity</h2>
+
+<p>35 PCs</p>
+
+<h2>Facilities<br /></h2>
+
+<ul>
+  <li>Date projector linked to class PC</li>
+
+  <li>Whiteboard</li>
+
+  <li>Air conditioning</li>
+
+  <li>Disabled access</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527287 -0.103842</georss:point>
+<geo:lat>51.527287</geo:lat>
+<geo:long>-0.103842</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 19 -->
+<guid isPermaLink="false">18251</guid>
+<title>College Building A307</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/a307</link>
+<description><![CDATA[ <h2>Type</h2>
+
+<p>Centrally managed computer room</p>
+
+<h2>Capacity</h2>
+
+<p>16 computers</p>
+
+<p>A307 and A308 are joined by a moveable partition, to allow for a computer room of 48. Please ask timetabling if you require both rooms&nbsp;at the time of&nbsp;booking.</p>
+
+<h2>Facilities</h2>
+
+<ul>
+  <li>Teaching Pod (including PC, DVD/VHS/CD/cassette player and visualiser)</li>
+
+  <li>Whiteboard</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527287 -0.103842</georss:point>
+<geo:lat>51.527287</geo:lat>
+<geo:long>-0.103842</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 20 -->
+<guid isPermaLink="false">18255</guid>
+<title>College Building A308</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/a308</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527287 -0.103842</georss:point>
+<geo:lat>51.527287</geo:lat>
+<geo:long>-0.103842</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 21 -->
+<guid isPermaLink="false">9545</guid>
+<title>Drysdale Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/drysdale-building</link>
+<description><![CDATA[ <p>Drysdale Building lies on Spencer Street, behind City&#39;s main Northampton Square site and next to <a href="http://www.city.ac.uk/visit/campuses/northampton-square/centenary-building">Centenary Building</a>. It is directly accessible only though the main <a href="http://www.city.ac.uk/visit/campuses/northampton-square/university-building">University Building</a> in Northampton Square.</p>
+
+<p>It houses:</p>
+
+<ul>
+  <li><a href="http://www.cass.city.ac.uk">Cass Business School</a> (Undergraduate)</li>
+
+  <li><a href="http://www.city.ac.uk/careers">Career &amp; Skills Development Centre</a></li>
+
+  <li>Cash Office</li>
+
+  <li>Health Centre</li>
+
+  <li>Student Counselling</li>
+
+  <li>IT Service Centre</li>
+
+  <li>PC Labs</li>
+
+  <li>Drysdale Lecture Theatre<br /></li>
+
+  <li>CRIDO</li>
+
+  <li><a href="./?a=36317">Saad Centre</a></li>
+
+  <li>Drysdale Garden.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[E]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527871 -0.103279</georss:point>
+<geo:lat>51.527871</geo:lat>
+<geo:long>-0.103279</geo:long>
+<georss:polygon>51.527856 -0.103799 51.52803 -0.102839 51.52788 -0.102766 51.527699 -0.103729</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/00759b/letter_e.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 22 -->
+<guid isPermaLink="false">93339</guid>
+<title>Drysdale Building EG03</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/eg03</link>
+<description><![CDATA[ <h2>Type</h2>
+
+<p>Centrally managed computer room</p>
+
+<h2>Capacity</h2>
+
+<p>10 PCs</p>
+
+<h2>Facilities</h2>
+
+<ul>
+  <li>Whiteboard</li>
+
+  <li>Overhead projector</li>
+
+  <li>Air conditioning</li>
+
+  <li>Disabled access</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527871 -0.103279</georss:point>
+<geo:lat>51.527871</geo:lat>
+<geo:long>-0.103279</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 23 -->
+<guid isPermaLink="false">93303</guid>
+<title>Drysdale Building EG04</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/eg04</link>
+<description><![CDATA[ <h2>Type</h2>
+
+<p>Centrally managed computer room</p>
+
+<h2>Capacity</h2>
+
+<p>20 PCs</p>
+
+<h2>Facilities</h2>
+
+<ul>
+  <li>Whiteboard</li>
+
+  <li>Overhead projector</li>
+
+  <li>Air conditioning</li>
+
+  <li>Disabled access</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527871 -0.103279</georss:point>
+<geo:lat>51.527871</geo:lat>
+<geo:long>-0.103279</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 24 -->
+<guid isPermaLink="false">113162</guid>
+<title>Drysdale Building EG05</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/eg05</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527871 -0.103279</georss:point>
+<geo:lat>51.527871</geo:lat>
+<geo:long>-0.103279</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 25 -->
+<guid isPermaLink="false">113058</guid>
+<title>Drysdale Building EG07</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/eg07</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527871 -0.103279</georss:point>
+<geo:lat>51.527871</geo:lat>
+<geo:long>-0.103279</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 26 -->
+<guid isPermaLink="false">113054</guid>
+<title>Drysdale Building EG12</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/eg12</link>
+<description><![CDATA[ <h2>Type</h2>
+
+<p>Centrally managed computer room</p>
+
+<h2>Capacity</h2>
+
+<p>20 PCs</p>
+
+<h2>Facilities</h2>
+
+<ul>
+  <li>Teaching Pod (including PC, DVD/VHS/CD/cassette player and visualiser)<br /></li>
+
+  <li>Whiteboard</li>
+
+  <li>Overhead projector</li>
+
+  <li>Air conditioning</li>
+
+  <li>Disabled access</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527871 -0.103279</georss:point>
+<geo:lat>51.527871</geo:lat>
+<geo:long>-0.103279</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 27 -->
+<guid isPermaLink="false">93299</guid>
+<title>Drysdale Building EG13</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/e313</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527871 -0.103279</georss:point>
+<geo:lat>51.527871</geo:lat>
+<geo:long>-0.103279</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 28 -->
+<guid isPermaLink="false">113139</guid>
+<title>Drysdale Building EG14</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/eg14</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527871 -0.103279</georss:point>
+<geo:lat>51.527871</geo:lat>
+<geo:long>-0.103279</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 29 -->
+<guid isPermaLink="false">18858</guid>
+<title>Fight for Sight Optometry Clinic</title>
+<link>http://www.city.ac.uk/visit/student-services/fight-for-sight-optometry-clinic</link>
+<description><![CDATA[ <p><a href="http://www.city.ac.uk/eyeclinic/">Fight for Sight Optometry Clinic</a></p>
+
+<p>7-9 Bath Street, London EC1V 9LF</p>
+
+<p><strong>Travel</strong></p>
+
+<ul>
+  <li><strong>Tube:</strong> The nearest underground stations is Old Street on the Northern Line (City branch</li>
+
+  <li><strong>Bus:</strong> Routes 43, 55, 76, 141, 205, 214, 243, 271</li>
+
+  <li><strong>Car:</strong> Parking in the roads surrounding Bath Street is at parking meters. The nearest National Car Park to Bath Street is at Pear Tree Street. Please note that Fight for Sight Eye Clinic is within the Congestion Charging Zone zone</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527705 -0.0914</georss:point>
+<geo:lat>51.527705</geo:lat>
+<geo:long>-0.0914</geo:long>
+<georss:polygon>51.527705 -0.0914 51.527675 -0.091392 51.527675 -0.091393 51.527684 -0.091276 51.52767 -0.09127 51.527677 -0.0912 51.527725 -0.091221 51.527705 -0.0914</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 30 -->
+<guid isPermaLink="false">39012</guid>
+<title>Financial Support</title>
+<link>http://www.city.ac.uk/visit/student-services/financial-support</link>
+<description><![CDATA[ Student Centre<br />
+2nd floor<br />
+University Building]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52763065733065 -0.10312557220458984</georss:point>
+<geo:lat>51.52763065733065</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 31 -->
+<guid isPermaLink="false">42507</guid>
+<title>Geary Lecture Theatre</title>
+<link>http://www.city.ac.uk/visit/lecture-theatres/geary-lecture-theatre</link>
+<description><![CDATA[ <p>Centenary Building,<br />
+City University London,<br />
+Spencer Street,<br />
+London,<br />
+EC1V 0HB.<br /></p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527786 -0.104102</georss:point>
+<geo:lat>51.527786</geo:lat>
+<geo:long>-0.104102</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>lectureTheatres</category>
+</item><item>
+<!-- 32 -->
+<guid isPermaLink="false">9549</guid>
+<title>Gloucester Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/gloucester-building</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[G]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[005058]]></CUL:hexColour>
+<georss:point>51.527131 -0.105727</georss:point>
+<geo:lat>51.527131</geo:lat>
+<geo:long>-0.105727</geo:long>
+<georss:polygon>51.52728523473021 -0.10564550757408142 51.52716800738252 -0.1054825633764267 51.52704493920168 -0.10574676096439362 51.52704702510582 -0.10581515729427338 51.52712086605088 -0.10590970516204834 51.52717343071844 -0.10582186281681061 51.527156743528984 -0.1057983934879303 51.52723058429608 -0.10566763579845428 51.52725060889024 -0.10570116341114044</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/005058/letter_g.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 33 -->
+<guid isPermaLink="false">9553</guid>
+<title>Goswell Place</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/goswell-place</link>
+<description><![CDATA[ <p>For Goswell Place, follow signs from Goswell Road.</p><br />]]></description>
+<CUL:buildingPrefix><![CDATA[L]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527406 -0.101154</georss:point>
+<geo:lat>51.527406</geo:lat>
+<geo:long>-0.101154</geo:long>
+<georss:polygon>51.527433 -0.10104 51.527363 -0.101005 51.527356 -0.101342 51.527426 -0.101367 51.527433 -0.10104</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/cacaca/letter_l.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 34 -->
+<guid isPermaLink="false">9565</guid>
+<title>Gray's Inn Place</title>
+<link>http://www.city.ac.uk/visit/campuses/grays-inn/grays-inn-place</link>
+<description><![CDATA[ <p>4 Gray&#39;s Inn Place, Gray&#39;s Inn, London WC1R 5DX</p>
+
+<p>Gray&#39;s Inn Place is home to <a href="http://www.city.ac.uk/law/"></a><a href="http://www.city.ac.uk/law">The City Law School</a>.</p>
+
+<p><strong>How do I get to The City Law School?</strong></p>
+
+<ul>
+  <li><strong>Tube:</strong> The nearest underground stations are Holborn on the Piccadilly and Central lines and Chancery Lane on the Central Line.</li>
+
+  <li><strong>Bus:</strong> Routes 8, 17, 19, 25, 38, 45, 46, 55, 59, 68, 91, 98, 168, 171, 188, 242, 243, 341, 501, 521.</li>
+
+  <li><strong>Car:</strong> Parking in the roads surrounding&nbsp;The City Law School&nbsp;is at parking meters. The nearest National Car Parks to The City Law School are Selkirk House, Museum Street or International Press Centre, Shoe Lane. Please note that&nbsp;The City Law School&nbsp;is within the Congestion Charging Zone.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.5189875 -0.1141219</georss:point>
+<geo:lat>51.5189875</geo:lat>
+<geo:long>-0.1141219</geo:long>
+<georss:polygon>51.519078 -0.11399 51.518999 -0.114455 51.518865 -0.114376 51.518868 -0.114335 51.518923 -0.114361 51.518948 -0.114274 51.518901 -0.114243 51.518936 -0.114107 51.518956 -0.114111 51.518987 -0.113934 51.519078 -0.11399</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 35 -->
+<guid isPermaLink="false">42527</guid>
+<title>Great Hall</title>
+<link>http://www.city.ac.uk/visit/lecture-theatres/great-hall</link>
+<description><![CDATA[ <p>College Building,<br />
+City University London,<br />
+10 Northampton Square,<br />
+London,<br />
+EC1V 0HB,<br /></p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527387 -0.104307</georss:point>
+<geo:lat>51.527387</geo:lat>
+<geo:long>-0.104307</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>lectureTheatres</category>
+</item><item>
+<!-- 36 -->
+<guid isPermaLink="false">172183</guid>
+<title>Health School Computer Rooms</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/health-rooms</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52718636328608 -0.10426416993141174</georss:point>
+<geo:lat>51.52718636328608</geo:lat>
+<geo:long>-0.10426416993141174</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 37 -->
+<guid isPermaLink="false">9569</guid>
+<title>Innovation Centre</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/innovation-centre</link>
+<description><![CDATA[ <p>Located on Whiskin Street, the Innovation Centre is also accessible through the Social Sciences Building.</p>
+
+<p>It houses:</p>
+
+<ul>
+  <li><a href="http://www.city.ac.uk/law">The City Law School</a><br /></li>
+
+  <li><a href="http://www.city.ac.uk/student-administration/exams">Exams Office</a></li>
+
+  <li><a href="http://www.city.ac.uk/about/education/academic-services">Academic Services</a></li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[F]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527317 -0.105371</georss:point>
+<geo:lat>51.527317</geo:lat>
+<geo:long>-0.105371</geo:long>
+<georss:polygon>51.527274 -0.105599 51.527257 -0.105569 51.527408 -0.105285 51.527292 -0.105141 51.527108 -0.105491 51.527229 -0.105679 51.527274 -0.105599</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/003050/letter_f.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 38 -->
+<guid isPermaLink="false">38949</guid>
+<title>International Student Support</title>
+<link>http://www.city.ac.uk/visit/student-services/international-student-support</link>
+<description><![CDATA[ Student Centre<br />
+2nd floor<br />
+University Building]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52763065733065 -0.10312557220458984</georss:point>
+<geo:lat>51.52763065733065</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 39 -->
+<guid isPermaLink="false">41359</guid>
+<title>IT Services for Students</title>
+<link>http://www.city.ac.uk/visit/student-services/it-services-for-students</link>
+<description><![CDATA[ Access IT and Audio Visual facilities, expertise and support across the University. We operate full support between the hours of 08:00 and 20:00, face-to-face via the Service Centre (Northampton Square, Room E101) over the telephone via ext 8181 or via email using response-centre@city.ac.uk.]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52763065733065 -0.10312557220458984</georss:point>
+<geo:lat>51.52763065733065</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 40 -->
+<guid isPermaLink="false">158733</guid>
+<title>Law School Computer Rooms</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/law-rooms</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52718636328608 -0.10426416993141174</georss:point>
+<geo:lat>51.52718636328608</geo:lat>
+<geo:long>-0.10426416993141174</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 41 -->
+<guid isPermaLink="false">41265</guid>
+<title>Learning Success - Academic Learning Support</title>
+<link>http://www.city.ac.uk/visit/student-services/academic-learning-support-disability-services</link>
+<description><![CDATA[ Student Centre<br />
+2nd floor<br />
+University Building]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52763065733065 -0.10312557220458984</georss:point>
+<geo:lat>51.52763065733065</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 42 -->
+<guid isPermaLink="false">41338</guid>
+<title>Learning Success - Disability Support</title>
+<link>http://www.city.ac.uk/visit/student-services/learning-success-disability-services</link>
+<description><![CDATA[ <p>Student Centre<br />
+2nd floor<br />
+University Building</p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52763065733065 -0.10312557220458984</georss:point>
+<geo:lat>51.52763065733065</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 43 -->
+<guid isPermaLink="false">41334</guid>
+<title>Learning Success - Dyslexia Support</title>
+<link>http://www.city.ac.uk/visit/student-services/learning-success-dyslexia-support</link>
+<description><![CDATA[ Student Centre<br />
+2nd floor<br />
+University Building]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52763065733065 -0.10312557220458984</georss:point>
+<geo:lat>51.52763065733065</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 44 -->
+<guid isPermaLink="false">113125</guid>
+<title>Library Northampton Square Level  3 U301</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/level-3</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527701 -0.102509</georss:point>
+<geo:lat>51.527701</geo:lat>
+<geo:long>-0.102509</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 45 -->
+<guid isPermaLink="false">112831</guid>
+<title>Library Northampton Square Level 2 U201</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/level-2</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527701 -0.102509</georss:point>
+<geo:lat>51.527701</geo:lat>
+<geo:long>-0.102509</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 46 -->
+<guid isPermaLink="false">211460</guid>
+<title>Library Northampton Square Level 4 U201</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/level-4</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527701 -0.102509</georss:point>
+<geo:lat>51.527701</geo:lat>
+<geo:long>-0.102509</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 47 -->
+<guid isPermaLink="false">9573</guid>
+<title>Myddelton Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/myddelton-building</link>
+<description><![CDATA[ <p>The Myddleton Building is located on Goswell Road, close to the University&#39;s main Northampton Square buildings.</p>
+
+<p><br /></p>]]></description>
+<CUL:buildingPrefix><![CDATA[K]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527381 -0.100763</georss:point>
+<geo:lat>51.527381</geo:lat>
+<geo:long>-0.100763</geo:long>
+<georss:polygon>51.527474 -0.100712 51.527282 -0.100619 51.52725 -0.100814 51.527324 -0.100855 51.527319 -0.100885 51.527348 -0.100905 51.527339 -0.100953 51.527356 -0.10096 51.527354 -0.101001 51.527436 -0.101043 51.527433 -0.100933 51.527474 -0.100712</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/cacaca/letter_k.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 48 -->
+<guid isPermaLink="false">131144</guid>
+<title>Myddelton Street Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/myddelton-street-building</link>
+<description><![CDATA[ <p>Departments (as of end of August 2012):</p>
+
+<ul>
+  <li>School of Health Sciences Student Help Desk&nbsp;</li>
+
+  <li>School of Health Sciences Academic Planning and Performance</li>
+
+  <li>School of Health Sciences Administration</li>
+
+  <li><a href="./?a=128549">Applied Biological Diagnostic and Therapeutic Sciences</a> (formerly Radiography)<br /></li>
+
+  <li>Adult Nursing<br /></li>
+
+  <li>IS</li>
+
+  <li><a href="http://www.city.ac.uk/about/working-at-city">Human Resources</a><br /></li>
+
+  <li>Payroll (Finance)</li>
+
+  <li>Finance</li>
+
+  <li>Property and Facilities<br /></li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[M]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527162 -0.107283</georss:point>
+<geo:lat>51.527162</geo:lat>
+<geo:long>-0.107283</geo:long>
+<georss:polygon>51.527469 -0.107487 51.527523 -0.107369 51.527119 -0.106875 51.526785 -0.107567 51.526805 -0.107653 51.527469 -0.107487</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/005058/letter_m.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 49 -->
+<guid isPermaLink="false">42479</guid>
+<title>Oakden Lecture Theatre</title>
+<link>http://www.city.ac.uk/visit/lecture-theatres/oakden-lecture-theatre</link>
+<description><![CDATA[ <p>Centenary Building,<br />
+City University London,<br />
+Spencer Street,<br />
+London,<br />
+EC1V 0HB.<br /></p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527798 -0.103999</georss:point>
+<geo:lat>51.527798</geo:lat>
+<geo:long>-0.103999</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>lectureTheatres</category>
+</item><item>
+<!-- 50 -->
+<guid isPermaLink="false">176683</guid>
+<title>Old Health Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/health-building</link>
+<description><![CDATA[ <p>The Old Health Building is located on Sebastian Street and houses the <a href="http://www.city.ac.uk/sport-and-leisure">Sport and Leisure Service</a>.<br /></p>
+
+<ul>
+  <li>Sport and Leisure Office</li>
+
+  <li>Studio 1 (Fitness classes)</li>
+
+  <li>Studio 2 (Wellbeing classes).<br /></li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52719 -0.10078</georss:point>
+<geo:lat>51.52719</geo:lat>
+<geo:long>-0.10078</geo:long>
+<georss:polygon>51.52710209294061 -0.1004299521446228 51.52702700042212 -0.10058015584945679 51.52719887867064 -0.10150015354156494 51.52737576240425 -0.10141700506210327 51.527474216260195 -0.10143578052520752 51.52756766379092 -0.10102808475494385 51.52748589721201 -0.10097980499267578 51.52754763933619 -0.10062843561172485</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category></category>
+</item><item>
+<!-- 51 -->
+<guid isPermaLink="false">42531</guid>
+<title>Oliver Thompson Lecture Theatre</title>
+<link>http://www.city.ac.uk/visit/lecture-theatres/oliver-thompson-lecture-theatre</link>
+<description><![CDATA[ <p>Tait Building,<br />
+City University London,<br />
+10 Northampton Square,<br />
+London,<br />
+EC1V 0HB.<br /></p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.528003 -0.101602</georss:point>
+<geo:lat>51.528003</geo:lat>
+<geo:long>-0.101602</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>lectureTheatres</category>
+</item><item>
+<!-- 52 -->
+<guid isPermaLink="false">133585</guid>
+<title>Parkes Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/parkes-building</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[I]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527219 -0.101098</georss:point>
+<geo:lat>51.527219</geo:lat>
+<geo:long>-0.101098</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/cacaca/letter_i.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 53 -->
+<guid isPermaLink="false">42483</guid>
+<title>Poynton Lecture Theatre</title>
+<link>http://www.city.ac.uk/visit/lecture-theatres/poynton-lecture-theatre</link>
+<description><![CDATA[ <p>Centenary Building,<br />
+City University London,<br />
+Spencer Street,<br />
+London,<br />
+EC1V 0HB.<br /></p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527691 -0.10407</georss:point>
+<geo:lat>51.527691</geo:lat>
+<geo:long>-0.10407</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>lectureTheatres</category>
+</item><item>
+<!-- 54 -->
+<guid isPermaLink="false">9589</guid>
+<title>Princeton Street</title>
+<link>http://www.city.ac.uk/visit/campuses/grays-inn/princeton-street</link>
+<description><![CDATA[ <p>The City Law School has offices at 2-10 Princeton Street, London, WC1R 4BH</p>
+
+<p><strong>How do I get to The City Law School?</strong></p>
+
+<ul>
+  <li><strong>Tube:</strong> The nearest underground stations are Holborn on the Piccadilly and Central lines and Chancery Lane on the Central Line.</li>
+
+  <li><strong>Bus:</strong> Routes 8, 17, 19, 25, 38, 45, 46, 55, 59, 68, 91, 98, 168, 171, 188, 242, 243, 341, 501, 521.</li>
+
+  <li><strong>Car:</strong> Parking in the roads surrounding&nbsp;The City Law School&nbsp;is at parking meters. The nearest National Car Parks to The City Law School are Selkirk House, Museum Street or International Press Centre, Shoe Lane. Please note that&nbsp;The City Law School&nbsp;is within the Congestion Charging Zone.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.519944 -0.116713</georss:point>
+<geo:lat>51.519944</geo:lat>
+<geo:long>-0.116713</geo:long>
+<georss:polygon>51.519822 -0.116867 51.519872 -0.116896 51.519874 -0.116885 51.519937 -0.116905 51.520026 -0.116958 51.520068 -0.116795 51.519982 -0.116738 51.520006 -0.116627 51.519986 -0.116614 51.520001 -0.116552 51.519924 -0.116504 51.519914 -0.116545 51.519903 -0.116537 51.519822 -0.116867</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 55 -->
+<guid isPermaLink="false">9601</guid>
+<title>Rhind Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/social-sciences-building</link>
+<description><![CDATA[ <p>This modern glass building is located just off St John Street, opposite the College Building.</p>
+
+<p>It houses:</p>
+
+<ul>
+  <li><a href="./?a=30921">School of Arts &amp; Social Sciences</a> (<a href="./?a=4010">Department of Economics</a>, <a href="./?a=64753">Department of International Politics</a>, <a href="./?a=67464">Department of Psychology</a>, <a href="./?a=3986">Department of Sociology</a>)</li>
+
+  <li><a href="./?a=30917">Department of Language and Communication Science</a></li>
+
+  <li><a href="http://www.city.ac.uk/health/public-clinics/compass-centre">Compass Centre</a>.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[D]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527564 -0.105081</georss:point>
+<geo:lat>51.527564</geo:lat>
+<geo:long>-0.105081</geo:long>
+<georss:polygon>51.527461 -0.105388 51.527518 -0.105451 51.527653 -0.105168 51.527606 -0.105104 51.527668 -0.104968 51.527595 -0.10487 51.527562 -0.104936 51.527444 -0.104797 51.527283 -0.105131 51.527461 -0.105388</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/e2cc00/letter_d.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 56 -->
+<guid isPermaLink="false">67694</guid>
+<title>Saddlers Bar</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/ten-squared</link>
+<description><![CDATA[ <p>Saddlers Bar is a multi-functional social space designed to cater for the needs of today&#39;s students and University visitors.</p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.528052 -0.102438</georss:point>
+<geo:lat>51.528052</geo:lat>
+<geo:long>-0.102438</geo:long>
+<georss:polygon>51.528098 -0.10269 51.527853 -0.102574 51.527849 -0.10257 51.527912 -0.102218 51.528166 -0.102337 51.528098 -0.10269</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 57 -->
+<guid isPermaLink="false">9585</guid>
+<title>Alexandra Building (School of Health Sciences)</title>
+<link>http://www.city.ac.uk/visit/campuses/whitechapel/philpot-street</link>
+<description><![CDATA[ <p>CLOSURE OF WHITECHAPEL BUILDING<br />
+Just a reminder to all students that the School&#39;s Whitechapel Building is no longer open. Library facilities are available at West Smithfield and Northampton Square.<br />
+<br />
+Full information can be found on <a href="http://moodle.city.ac.uk/mod/book/view.php?id=614489">Moodle</a></p>
+
+<p>Alexandra Building, Philpot Street, London E1 2EA</p>
+
+<p><strong>Travel</strong></p>
+
+<ul>
+  <li>Tube: The nearest underground station is Whitechapel on the District, Hammersmith and City and East London lines</li>
+
+  <li>Bus: Routes 25, 106, 205, 253</li>
+
+  <li>Car: Parking in the roads surrounding the Whitechapel site is at parking meters only. The Whitechapel site for School of Health Sciences is outside the Congestion Charging Zone.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.516586 -0.058718</georss:point>
+<geo:lat>51.516586</geo:lat>
+<geo:long>-0.058718</geo:long>
+<georss:polygon>51.516594 -0.058936 51.516583 -0.058938 51.516573 -0.058942 51.516563 -0.058949 51.516555 -0.058959 51.516547 -0.058971 51.516541 -0.058985 51.516537 -0.059001 51.516534 -0.059017 51.516533 -0.059034 51.516534 -0.059051 51.516537 -0.059068 51.516541 -0.059083 51.516547 -0.059097 51.516555 -0.059109 51.516563 -0.059119 51.516573 -0.059126 51.516583 -0.05913 51.516594 -0.059132 51.516604 -0.05913 51.516615 -0.059126 51.516624 -0.059119 51.516633 -0.059109 51.51664 -0.059097 51.516647 -0.059083 51.516651 -0.059068 51.516654 -0.059051 51.516655 -0.059034 51.516654 -0.059017 51.516651 -0.059001 51.516647 -0.058985 51.51664 -0.058971 51.516633 -0.058959 51.516624 -0.058949 51.516615 -0.058942 51.516604 -0.058938 51.51664 -0.058962 51.516646 -0.058899 51.516661 -0.058899 51.516671 -0.05868 51.516409 -0.058612 51.51639 -0.058836 51.516571 -0.058873 51.516571 -0.058932 51.516573 -0.058942 51.516594 -0.058936 51.516575 -0.05895</georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 58 -->
+<guid isPermaLink="false">113131</guid>
+<title>Social Sciences Building D518</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/d518</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527416 -0.104818</georss:point>
+<geo:lat>51.527416</geo:lat>
+<geo:long>-0.104818</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 59 -->
+<guid isPermaLink="false">38957</guid>
+<title>Student Appeals and Complaints</title>
+<link>http://www.city.ac.uk/visit/student-services/student-appeals-and-complaints</link>
+<description><![CDATA[ Student Centre<br />
+2nd floor<br />
+University Building]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52763065733065 -0.10312557220458984</georss:point>
+<geo:lat>51.52763065733065</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category></category>
+</item><item>
+<!-- 60 -->
+<guid isPermaLink="false">38975</guid>
+<title>Student Centre General Enquiries</title>
+<link>http://www.city.ac.uk/visit/student-services/student-centre-general-enquiries</link>
+<description><![CDATA[ Student Centre<br />
+2nd floor<br />
+University Building]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52763065733065 -0.10312557220458984</georss:point>
+<geo:lat>51.52763065733065</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 61 -->
+<guid isPermaLink="false">38847</guid>
+<title>Student Counselling Service</title>
+<link>http://www.city.ac.uk/visit/student-services/student-counselling-service</link>
+<description><![CDATA[ 1st floor<br />
+Drysdale Building]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52791 -0.103346</georss:point>
+<geo:lat>51.52791</geo:lat>
+<geo:long>-0.103346</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 62 -->
+<guid isPermaLink="false">41633</guid>
+<title>Student Health Service</title>
+<link>http://www.city.ac.uk/visit/student-services/student-health-service</link>
+<description><![CDATA[ <p><br /></p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52791 -0.103346</georss:point>
+<geo:lat>51.52791</geo:lat>
+<geo:long>-0.103346</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 63 -->
+<guid isPermaLink="false">38763</guid>
+<title>Students' Union</title>
+<link>http://www.city.ac.uk/visit/student-services/students-union</link>
+<description><![CDATA[ <p>The Students&#39; Union is located next to the University&#39;s main entrance at Northampton Square. You will be able to access the Union Support Service (to book an appointment about academic issues with a student adviser) and speak to staff about any queries you may have about sports, clubs and societies. You will also be able to purchase NUS Extra cards.</p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527774 -0.102143</georss:point>
+<geo:lat>51.527774</geo:lat>
+<geo:long>-0.102143</geo:long>
+<georss:polygon>51.528098 -0.10269 51.527853 -0.102574 51.527849 -0.10257 51.527912 -0.102218 51.528166 -0.102337 51.528098 -0.10269</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 64 -->
+<guid isPermaLink="false">9605</guid>
+<title>Tait Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/tait-building</link>
+<description><![CDATA[ <p>The Tait Building is located in Northampton Square and is bordered by Spencer Street and Goswell Street. It sits next to University Building as part of City&#39;s main Northampton Square site. It is directly accessible through the <a href="http://www.city.ac.uk/visit/campuses/northampton-square/university-building">University Building</a>.</p>
+
+<p>It houses:</p>
+
+<ul>
+  <li><a href="./?a=3312">School of Engineering &amp; Mathematical Sciences</a></li>
+
+  <li><a href="http://www.city.ac.uk/health">School of Health Sciences</a></li>
+
+  <li><a href="http://www.city.ac.uk/visit/campuses/northampton-square/tait-building/oliver-thompson-lecture-theatre">Oliver Thompson lecture theatre</a>.</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[C]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[6c953c]]></CUL:hexColour>
+<georss:point>51.528042 -0.101535</georss:point>
+<geo:lat>51.528042</geo:lat>
+<geo:long>-0.101535</geo:long>
+<georss:polygon>51.528197 -0.102133 51.527674 -0.101876 51.527846 -0.100937 51.528364 -0.101181</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/6c953c/letter_c.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 65 -->
+<guid isPermaLink="false">113166</guid>
+<title>Tait Building C301</title>
+<link>http://www.city.ac.uk/visit/computer-rooms/c301</link>
+<description><![CDATA[ ]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527416 -0.101605</georss:point>
+<geo:lat>51.527416</geo:lat>
+<geo:long>-0.101605</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/computer.png</CUL:icon>
+<category>computerLabs</category>
+</item><item>
+<!-- 66 -->
+<guid isPermaLink="false">9609</guid>
+<title>University Building</title>
+<link>http://www.city.ac.uk/visit/campuses/northampton-square/university-building</link>
+<description><![CDATA[ <p>Northampton Square, London EC1V 0HB, United Kingdom | +44 (0)20 7040 5060<br /></p>
+
+<p>University Building sits at the centre of the main Northampton Square site. It provides the main entrance to the University.</p>
+
+<p>It houses:</p>
+
+<ul>
+  <li>Library Services</li>
+
+  <li><a href="./?a=25044">Student Centre</a></li>
+
+  <li>Main Reception</li>
+
+  <li>Security Office</li>
+
+  <li>Student Refectory</li>
+</ul>]]></description>
+<CUL:buildingPrefix><![CDATA[B]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527701 -0.102509</georss:point>
+<geo:lat>51.527701</geo:lat>
+<geo:long>-0.102509</geo:long>
+<georss:polygon>51.527488 -0.102932 51.527449 -0.103147 51.527496 -0.103174 51.527483 -0.103244 51.527524 -0.10327 51.527543 -0.10319 51.52773 -0.103276 51.527768 -0.103072 51.527801 -0.103077 51.5279 -0.102573 51.528087 -0.102656 51.52815 -0.10231 51.527963 -0.102216 51.527976 -0.10213 51.527833 -0.102058 51.527846 -0.101967 51.527796 -0.101945 51.527601 -0.102994</georss:polygon>
+<CUL:icon>//s1.city.ac.uk/i/skin/map-icons/43165e/letter_b.png</CUL:icon>
+<category>buildings</category>
+</item><item>
+<!-- 67 -->
+<guid isPermaLink="false">38981</guid>
+<title>University ID Cards</title>
+<link>http://www.city.ac.uk/visit/student-services/university-id-cards</link>
+<description><![CDATA[ Student Centre<br />
+2nd floor<br />
+University Building]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.52467612478651 -0.10312557220458984</georss:point>
+<geo:lat>51.52467612478651</geo:lat>
+<geo:long>-0.10312557220458984</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
+<category>studentCentre</category>
+</item><item>
+<!-- 68 -->
+<guid isPermaLink="false">41739</guid>
+<title>University Library</title>
+<link>http://www.city.ac.uk/visit/university-libraries/university-library</link>
+<description><![CDATA[ <p>The main University Library at Northampton Square provides printed resources, study spaces, networked PCs and wireless internet access across five floors.</p>
+
+<h2>Study spaces</h2>
+
+<p>The library offers a range of innovative study spaces for students wishing to study individually or work collaboratively with colleagues.</p>
+
+<p>Our study floors are clearly identified as either Group Study or Silent Study areas.&nbsp; Please familiarise yourself with the Information Services Code of Conduct and the local guidelines displayed around the study floors.</p>
+
+<h2>Services</h2>
+
+<p>Books can be borrowed and returned at our self-service counter on level 2.&nbsp; This floor also houses our 24 hour loan collection in a dedicated space adjacent to the main service desk. In addition, we have self-service machines located on level 5, in close proximity to the main book collection.</p>
+
+<p>Vending machines to purchase and top up Copycards, for our photocopying machines, and add credit to your print account are located on level 2.</p>
+
+<p>Assistance with library access and registration is offered at the Service Desk on level 2 during staffed hours.&nbsp; Our staff will also be happy to assist if you need to collect a reserved item, pick up and InterLibrary loan or store request or pay a library fine.</p>
+
+<h2>Computers</h2>
+
+<p>&nbsp;There are over 100 networked computers in the library. Approximately 50 are located on level 2 and 3 with additional computers in the Law Library computer lab.</p>
+
+<h2>Photocopying and printing</h2>
+
+<p><a target="_self" href="http://www.city.ac.uk/library/our-services/photocopiers.html" title="information about photocopiers">Photocopiers</a> are located on&nbsp;levels 2, 3, 4 and 5 of the library within easy reach of stock.<br />
+To use the photocopiers, you should obtain a copycard.</p>
+
+<p>A Copycard dispenser and recharging machines are located on level 2 of the library.</p>
+
+<p>Your printing account is linked to your IT user account.</p>
+
+<p>Printers are located on levels 2, 3 and in the Law Library computer lab.&nbsp;Kiosks to add&nbsp;credit to your printing account&nbsp;are located on level 2 of the library and in the IT Service Centre (room E101, Drysdale Building).&nbsp; The kiosks accept cash and card payments.</p>]]></description>
+<CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
+<CUL:hexColour><![CDATA[]]></CUL:hexColour>
+<georss:point>51.527701 -0.102509</georss:point>
+<geo:lat>51.527701</geo:lat>
+<geo:long>-0.102509</geo:long>
+<georss:polygon></georss:polygon>
+<CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/library.png</CUL:icon>
+<category>libraries</category>
+</item>
+</channel>
+</rss>
