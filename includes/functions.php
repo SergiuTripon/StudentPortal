@@ -839,15 +839,63 @@ function ImportLocations () {
 	$stmt1->execute();
 	$stmt1->close();
 
-	$url = 'https://student-portal.co.uk/includes/university-map/xml/locations.xml';
-	$result = file_get_contents($url);
-	$universitymap_locations = new SimpleXMLElement($result);
+	$url1 = 'https://student-portal.co.uk/includes/university-map/xml/locations.xml';
+	$result1 = file_get_contents($url1);
+	$universitymap_locations = new SimpleXMLElement($result1);
 
-    $url1 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml';
-    $result1 = file_get_contents($url1);
-    $universitymap_cycle_parking = new SimpleXMLElement($result1);
+    $url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml';
+    $result2 = file_get_contents($url1);
+    $universitymap_cycle_parking = new SimpleXMLElement($result2);
+
+    $url3 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml';
+    $result3 = file_get_contents($url3);
+    $universitymap_atms = new SimpleXMLElement($result3);
 
 	foreach ($universitymap_locations->channel->item as $xml_var) {
+
+	$title = $xml_var->title;
+	$description = $xml_var->description;
+	$link = $xml_var->link;
+
+	$namespaces = $xml_var->getNameSpaces(true);
+	$latlong_selector = $xml_var->children($namespaces['geo']);
+	$icon_selector = $xml_var->children($namespaces['CUL']);
+
+	$lat = $latlong_selector->lat;
+	$long = $latlong_selector->long;
+	$icon = $icon_selector->icon;
+
+	$category = $xml_var->category;
+
+	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_link, marker_lat, marker_long, marker_icon, marker_category) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt2->bind_param('sssssss', $title, $description, $link, $lat, $long, $icon, $category);
+	$stmt2->execute();
+	$stmt2->close();
+	}
+
+    foreach ($universitymap_cycle_parking->channel->item as $xml_var) {
+
+	$title = $xml_var->title;
+	$description = $xml_var->description;
+	$link = $xml_var->link;
+
+	$namespaces = $xml_var->getNameSpaces(true);
+	$latlong_selector = $xml_var->children($namespaces['geo']);
+	$icon_selector = $xml_var->children($namespaces['CUL']);
+
+	$lat = $latlong_selector->lat;
+	$long = $latlong_selector->long;
+	$icon = $icon_selector->icon;
+
+	$category = $xml_var->category;
+
+	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_link, marker_lat, marker_long, marker_icon, marker_category) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt2->bind_param('sssssss', $title, $description, $link, $lat, $long, $icon, $category);
+	$stmt2->execute();
+	$stmt2->close();
+	}
+
+    foreach ($universitymap_atms->channel->item as $xml_var) {
 
 	$title = $xml_var->title;
 	$description = $xml_var->description;
