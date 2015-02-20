@@ -205,7 +205,7 @@
 
 /* Component containers
 ----------------------------------*/
-.ui-widget {   font-family: 'Open Sans', sans-serif; font-size:13px; z-index: 1050 !important; }
+.ui-widget {   font-family: 'Open Sans', sans-serif; font-size:13px; z-index: 1031 !important; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget-content { border: 1px solid #aaaaaa; background: #ffffff url(../../img/date-time-picker/ui-bg_glass_75_ffffff_1x400.png) 50% 50% repeat-x; color: #404040; }
 .ui-widget-content a { color: #404040; }
