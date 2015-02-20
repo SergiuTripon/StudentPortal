@@ -211,13 +211,13 @@ if(!String.prototype.formatNum) {
 		ms10: 'Nov',
 		ms11: 'Dec',
 
-		d0: 'Sun',
-		d1: 'Mon',
-		d2: 'Tue',
-		d3: 'Wed',
-		d4: 'Thu',
-		d5: 'Fri',
-		d6: 'Sat'
+		d0: 'Su',
+		d1: 'Mo',
+		d2: 'Tu',
+		d3: 'We',
+		d4: 'Th',
+		d5: 'Fr',
+		d6: 'Sa'
 	};
 
 	var browser_timezone = '';
