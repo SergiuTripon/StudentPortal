@@ -839,37 +839,9 @@ function ImportLocations () {
 	$stmt1->execute();
 	$stmt1->close();
 
-	$url1 = 'https://student-portal.co.uk/includes/university-map/xml/locations.xml';
-	$result1 = file_get_contents($url1);
-	$universitymap_locations = new SimpleXMLElement($result1);
-
     $url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml.xml';
     $result2 = file_get_contents($url2);
     $universitymap_cycle_parking = new SimpleXMLElement($result2);
-
-    $url3 = 'https://student-portal.co.uk/includes/university-map/xml/atms.kml.xml';
-    $result3 = file_get_contents($url3);
-    $universitymap_atms = new SimpleXMLElement($result3);
-
-    //Locations
-	foreach ($universitymap_locations->channel->item as $xml_var1) {
-
-	$title = $xml_var1->title;
-	$description = $xml_var1->description;
-
-	$namespaces = $xml_var1->getNameSpaces(true);
-	$latlong_selector = $xml_var1->children($namespaces['geo']);
-
-	$lat = $latlong_selector->lat;
-	$long = $latlong_selector->long;
-
-	$category = $xml_var1->category;
-
-	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_lng, marker_category) VALUES (?, ?, ?, ?, ?)");
-	$stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);
-	$stmt2->execute();
-	$stmt2->close();
-	}
 
     //Cycle parking
     foreach ($universitymap_cycle_parking->document->placemark as $xml_var2) {
@@ -887,24 +859,6 @@ function ImportLocations () {
 	$stmt3->execute();
 	$stmt3->close();
 	}
-
-    //ATMs
-    foreach ($universitymap_atms->document->folder->placemark as $xml_var3) {
-
-	$title = $xml_var3->name;
-	$description = $xml_var3->description;
-    $coordinates = $xml_var3->point->coordinates;
-
-    list($lat, $lng) = explode(',', $coordinates);
-
-	$category = 'ATM';
-
-	$stmt4 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_lng, marker_category) VALUES (?, ?, ?, ?, ?)");
-	$stmt4->bind_param('sssss', $title, $description, $lat, $lng, $category);
-	$stmt4->execute();
-	$stmt4->close();
-	}
-
 }
 
 //Messenger functions
