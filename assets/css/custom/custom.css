@@ -890,8 +890,9 @@ form .success-style:-ms-input-placeholder {
     content: "\f078";
     color: #FFFFFF;
 }
-.panel-heading .accordion-toggle.collapsed:after {
+.panel-heading .accordion-toggle.collapsed:before {
     color: #FFFFFF;
+    content: "\f054";
 }
 /* End of Accordion style */
 
