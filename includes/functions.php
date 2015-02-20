@@ -839,26 +839,30 @@ function ImportLocations () {
 	$stmt1->execute();
 	$stmt1->close();
 
-    $url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml.xml';
-    $result2 = file_get_contents($url2);
-    $universitymap_cycle_parking = new SimpleXMLElement($result2);
+	$url = 'https://student-portal.co.uk/includes/university-map/locations.xml';
+	$result = file_get_contents($url);
+	$universitymap_locations = new SimpleXMLElement($result);
 
-    //Cycle parking
-    foreach ($universitymap_cycle_parking->document->placemark as $xml_var2) {
+	foreach ($universitymap_locations->channel->item as $xml_var) {
 
-	$title = $xml_var2->name;
-	$description = $xml_var2->description;
-    $coordinates = $xml_var2->point->coordinates;
+	$title = $xml_var->title;
+	$description = $xml_var->description;
 
-    list($lat, $lng) = explode(',', $coordinates);
+	$namespaces = $xml_var->getNameSpaces(true);
+	$latlong_selector = $xml_var->children($namespaces['geo']);
+	$icon_selector = $xml_var->children($namespaces['CUL']);
 
-    $category = 'Cycle Park';
+	$lat = $latlong_selector->lat;
+	$long = $latlong_selector->long;
 
-	$stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_lng, marker_category) VALUES (?, ?, ?, ?, ?)");
-	$stmt3->bind_param('sssss', $title, $description, $lat, $lng, $category);
-	$stmt3->execute();
-	$stmt3->close();
+	$category = $xml_var->category;
+
+	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
+	$stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);
+	$stmt2->execute();
+	$stmt2->close();
 	}
+
 }
 
 //Messenger functions
