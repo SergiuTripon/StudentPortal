@@ -839,23 +839,20 @@ function ImportLocations () {
 	$stmt1->execute();
 	$stmt1->close();
 
-	$url = 'https://student-portal.co.uk/includes/university-map/locations.xml';
+	$url = 'https://student-portal.co.uk/includes/university-map/xml/locations.xml';
 	$result = file_get_contents($url);
 	$universitymap_locations = new SimpleXMLElement($result);
 
-	foreach ($universitymap_locations->channel->item as $xml_var) {
+    //Locations
+	foreach ($universitymap_locations->Document->Placemarl as $xml_var) {
 
 	$title = $xml_var->title;
 	$description = $xml_var->description;
+    $latlong = $xml_var->Point->coordinates;
 
-	$namespaces = $xml_var->getNameSpaces(true);
-	$latlong_selector = $xml_var->children($namespaces['geo']);
-	$icon_selector = $xml_var->children($namespaces['CUL']);
+    list($lat, $long) = explode(',', $latlong);
 
-	$lat = $latlong_selector->lat;
-	$long = $latlong_selector->long;
-
-	$category = $xml_var->category;
+	$category = 'cycle_park';
 
 	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
 	$stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);

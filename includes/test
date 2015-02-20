@@ -1,0 +1,19 @@
+//Locations
+foreach ($universitymap_locations->channel->item as $xml_var) {
+
+$title = $xml_var->title;
+$description = $xml_var->description;
+
+$namespaces = $xml_var->getNameSpaces(true);
+$latlong_selector = $xml_var->children($namespaces['geo']);
+
+$lat = $latlong_selector->lat;
+$long = $latlong_selector->long;
+
+$category = $xml_var->category;
+
+$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
+$stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);
+$stmt2->execute();
+$stmt2->close();
+}
