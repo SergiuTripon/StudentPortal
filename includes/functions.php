@@ -843,11 +843,11 @@ function ImportLocations () {
 	$result1 = file_get_contents($url1);
 	$universitymap_locations = new SimpleXMLElement($result1);
 
-    $url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml';
+    $url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml.xml';
     $result2 = file_get_contents($url2);
     $universitymap_cycle_parking = new SimpleXMLElement($result2);
 
-    $url3 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml';
+    $url3 = 'https://student-portal.co.uk/includes/university-map/xml/atms.kml.xml';
     $result3 = file_get_contents($url3);
     $universitymap_atms = new SimpleXMLElement($result3);
 
