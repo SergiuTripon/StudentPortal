@@ -845,9 +845,13 @@ function ImportLocations () {
     $result1 = file_get_contents($url1);
     $universitymap_locations = new SimpleXMLElement($result1);
 
-	$url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.xml';
+	$url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle_parking.xml';
 	$result2 = file_get_contents($url2);
 	$universitymap_cycle_parking = new SimpleXMLElement($result2);
+
+    $url3 = 'https://student-portal.co.uk/includes/university-map/xml/atms.xml';
+    $result3 = file_get_contents($url3);
+    $universitymap_atms = new SimpleXMLElement($result3);
 
     //Locations
     foreach ($universitymap_locations->channel->item as $xml_var) {
@@ -879,6 +883,23 @@ function ImportLocations () {
     list($lat, $long) = explode(',', $latlong);
 
 	$category = 'cycle_parking';
+
+	$stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
+	$stmt3->bind_param('sssss', $title, $description, $lat, $long, $category);
+	$stmt3->execute();
+	$stmt3->close();
+	}
+
+    //Cycle Parking
+	foreach ($universitymap_atms->Folder->Placemark as $xml_var) {
+
+	$title = $xml_var->name;
+	$description = $xml_var->description;
+    $latlong = $xml_var->Point->coordinates;
+
+    list($lat, $long) = explode(',', $latlong);
+
+	$category = 'ATM';
 
 	$stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
 	$stmt3->bind_param('sssss', $title, $description, $lat, $long, $category);
