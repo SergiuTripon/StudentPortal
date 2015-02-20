@@ -885,7 +885,7 @@ form .success-style:-ms-input-placeholder {
     border-color: #1863E6;
 }
 
-.panel-heading .accordion-toggle:after {
+.panel-heading .accordion-toggle:before {
     font-family: FontAwesome;
     content: "\f078";
     color: #FFFFFF;
