@@ -31,5 +31,12 @@
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
     <?php include 'assets/js-paths/datetimepicker-js-path.php'; ?>
 
+    <script>
+    // Datepicker
+    $('#datepicker').datepicker({
+        inline: true
+    });
+    </script>
+
 </body>
 </html>
