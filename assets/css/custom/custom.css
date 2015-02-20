@@ -887,7 +887,7 @@ form .success-style:-ms-input-placeholder {
 
 .panel-heading .accordion-toggle:after {
     /* symbol for "opening" panels */
-    font-family: 'FontAwesome';
+    font-family: FontAwesome;
     content: "&#xf078";
     float: right;
     color: grey;
