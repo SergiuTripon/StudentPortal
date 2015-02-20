@@ -844,7 +844,7 @@ function ImportLocations () {
 	$universitymap_locations = new SimpleXMLElement($result);
 
     //Locations
-	foreach ($universitymap_locations->Document->Placemarl as $xml_var) {
+	foreach ($universitymap_locations->Document->Placemark as $xml_var) {
 
 	$title = $xml_var->name;
 	$description = $xml_var->description;
