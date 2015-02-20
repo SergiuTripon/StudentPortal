@@ -887,12 +887,12 @@ form .success-style:-ms-input-placeholder {
 
 .panel-heading .accordion-toggle:after {
     font-family: FontAwesome;
-    content: "\f0dc";
+    content: "\f078";
     float: right;
     color: grey;
 }
 .panel-heading .accordion-toggle.collapsed:after {
-    content: "&#xf054";
+    content: "\f054";
 }
 /* End of Accordion style */
 
