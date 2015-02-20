@@ -862,14 +862,14 @@ function ImportLocations () {
 
     $category = $xml_var->category;
 
-    if ($category = 'studentCentre') { $category = 'student_centre'; }
+    if ($category = 'studentCentre') { $category1 = 'student_centre'; }
 
-    elseif ($category = 'lectureTheatres') { $category = 'lecture_theatres'; }
+    elseif ($category1 = 'lectureTheatres') { $category2 = 'lecture_theatres'; }
 
-    elseif ($category = 'computerLabs') { $category = 'computer_labs'; }
+    elseif ($category2 = 'computerLabs') { $category3 = 'computer_labs'; }
 
     $stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
-    $stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);
+    $stmt2->bind_param('sssss', $title, $description, $lat, $long, $category3);
     $stmt2->execute();
     $stmt2->close();
     }
