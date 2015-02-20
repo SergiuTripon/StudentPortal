@@ -384,16 +384,6 @@ include 'includes/session.php';
 		$(".calendar-tile i").addClass("tile-text-selected");
 	});
 
-    $('#collapseOne').on('shown.bs.collapse', function () {
-        $('#headingOne .fa').removeClass(".fa-chevron-right);
-        $('#headingOne .fa').addClass(".fa-chevron-down);
-    })
-
-    $('#collapseOne').on('hidden.bs.collapse', function () {
-        $('#headingOne .fa').removeClass(".fa-chevron-down);
-        $('#headingOne .fa').addClass(".fa-chevron-right);
-    })
-
 	});
 	</script>
 
