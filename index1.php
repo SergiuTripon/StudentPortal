@@ -33,7 +33,7 @@
 
     <script>
     // Datepicker
-    $('#datepicker').datepicker({
+    $('#datepicker').datetimepicker({
         inline: true
     });
     </script>
