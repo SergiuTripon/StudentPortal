@@ -864,7 +864,7 @@ function ImportLocations () {
     $category = $xml_var->category;
 
     $stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
-    $stmt2->bind_param('sssss', $title, $description, $lat, $long, $category1);
+    $stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);
     $stmt2->execute();
     $stmt2->close();
     }
