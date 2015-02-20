@@ -9,9 +9,9 @@ include 'includes/session.php';
 
     <?php include 'assets/meta-tags.php'; ?>
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal</title>
+
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <style>
     #signin a {
