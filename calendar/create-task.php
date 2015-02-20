@@ -140,10 +140,24 @@ include '../includes/session.php';
 	//Date Time Picker
 	$(function () {
 	$('#task_startdate').datetimepicker({
-		dateFormat: "yy-mm-dd", controlType: 'select'
+		dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+            $( "#rangeBb" ).datepicker( "option", "minDate", selectedDate );
+        }
 	});
 	$('#task_duedate').datetimepicker({
-		dateFormat: "yy-mm-dd", controlType: 'select'
+		dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+            $( "#rangeBb" ).datepicker( "option", "minDate", selectedDate );
+        }
 	});
 	});
 
