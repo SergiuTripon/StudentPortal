@@ -291,7 +291,7 @@ include 'includes/session.php';
 	"use strict";
 
 	var options = {
-		events_source: 'https://student-portal.co.uk/includes/calendar/reservedbooks_json.php',
+		events_source: 'https://student-portal.co.uk/includes/calendar/source/reservedbooks_json.php',
 		view: 'month',
 		tmpl_path: '../assets/tmpls/',
 		tmpl_cache: false,

@@ -283,7 +283,7 @@ include 'includes/session.php';
 	"use strict";
 
 	var options = {
-		events_source: '../../includes/calendar/events_json.php',
+		events_source: '../../includes/calendar/source/events_json.php',
 		view: 'month',
 		tmpl_path: '../assets/tmpls/',
 		tmpl_cache: false,
