@@ -286,6 +286,6 @@ CREATE TABLE `system_map_markers` (
 	`marker_title` VARCHAR (70) NOT NULL,
 	`marker_description` VARCHAR (5000) NOT NULL,
 	`marker_lat` FLOAT(10,6) NOT NULL,
-	`marker_lng` FLOAT(10,6) NOT NULL,
+	`marker_long` FLOAT(10,6) NOT NULL,
 	`marker_category` VARCHAR (70) NOT NULL
 ) ENGINE = InnoDB;
