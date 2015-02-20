@@ -834,6 +834,7 @@ function EventsQuantityCheck () {
 function ImportLocations () {
 
 	global $mysqli;
+    global $category;
 
 	$stmt1 = $mysqli->prepare("DELETE FROM system_map_markers");
 	$stmt1->execute();
@@ -860,6 +861,12 @@ function ImportLocations () {
     $long = $latlong_selector->long;
 
     $category = $xml_var->category;
+
+    if ($category = 'studentCentre') { $category = 'student_centre'; }
+
+    if ($category = 'lectureTheatres') { $category = 'lecture_theatres'; }
+
+    if ($category = 'computerLabs') { $category = 'computer_labs'; }
 
     $stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
     $stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);
