@@ -843,9 +843,9 @@ function ImportLocations () {
 	$result = file_get_contents($url);
 	$universitymap_locations = new SimpleXMLElement($result);
 
-    $url = 'https://student-portal.co.uk/includes/university-map/xml/locations.xml';
-    $result = file_get_contents($url);
-    $universitymap_locations = new SimpleXMLElement($result);
+    $url1 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml';
+    $result1 = file_get_contents($url1);
+    $universitymap_cycle_parking = new SimpleXMLElement($result1);
 
 	foreach ($universitymap_locations->channel->item as $xml_var) {
 
