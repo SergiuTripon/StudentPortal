@@ -213,7 +213,7 @@ EC1V 0HB.<br /></p>]]></description>
 
   <li><a href="http://www.cass.city.ac.uk/courses">Specialist Master&#39;s Programme</a></li>
 
-  <li><a href="http://www.cass.city.ac.uk/courses/mba">MBA courses</a></li>
+  <li><a href="./?a=11158">MBA courses</a></li>
 </ul>]]></description>
 <CUL:buildingPrefix><![CDATA[]]></CUL:buildingPrefix>
 <CUL:hexColour><![CDATA[]]></CUL:hexColour>
@@ -380,7 +380,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.101527</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>bars</category>
+<category></category>
 </item><item>
 <!-- 17 -->
 <guid isPermaLink="false">9541</guid>
@@ -1005,7 +1005,7 @@ University Building]]></description>
 
   <li>School of Health Sciences Administration</li>
 
-  <li><a href="http://www.city.ac.uk/health/about-the-school/applied-biological-diagnostic-and-therapeutic-sciences-division">Applied Biological Diagnostic and Therapeutic Sciences</a> (formerly Radiography)<br /></li>
+  <li><a href="./?a=128549">Applied Biological Diagnostic and Therapeutic Sciences</a> (formerly Radiography)<br /></li>
 
   <li>Adult Nursing<br /></li>
 
@@ -1066,7 +1066,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.10078</geo:long>
 <georss:polygon>51.52710209294061 -0.1004299521446228 51.52702700042212 -0.10058015584945679 51.52719887867064 -0.10150015354156494 51.52737576240425 -0.10141700506210327 51.527474216260195 -0.10143578052520752 51.52756766379092 -0.10102808475494385 51.52748589721201 -0.10097980499267578 51.52754763933619 -0.10062843561172485</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category></category>
 </item><item>
 <!-- 51 -->
 <guid isPermaLink="false">42531</guid>
@@ -1237,7 +1237,7 @@ University Building]]></description>
 <geo:long>-0.10312557220458984</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>studentCentre</category>
+<category></category>
 </item><item>
 <!-- 60 -->
 <guid isPermaLink="false">38975</guid>

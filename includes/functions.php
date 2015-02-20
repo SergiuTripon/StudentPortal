@@ -843,6 +843,10 @@ function ImportLocations () {
 	$result = file_get_contents($url);
 	$universitymap_locations = new SimpleXMLElement($result);
 
+    $url = 'https://student-portal.co.uk/includes/university-map/xml/locations.xml';
+    $result = file_get_contents($url);
+    $universitymap_locations = new SimpleXMLElement($result);
+
 	foreach ($universitymap_locations->channel->item as $xml_var) {
 
 	$title = $xml_var->title;
