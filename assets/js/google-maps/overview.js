@@ -1,18 +1,18 @@
     //<![CDATA[
     var customIcons = {
-    buildings: {
+    building: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
     },
-    studentCentre: {
+    student_centre: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
     },
-    lectureTheatres: {
+    lecture_theatres: {
         icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
     },
-    computerLabs: {
+    computer_labs: {
         icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
     },
-    libraries: {
+    library: {
         icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
     }
     };
