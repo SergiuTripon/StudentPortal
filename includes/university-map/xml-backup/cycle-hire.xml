@@ -1,0 +1,1574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+<name>TfL Cycle Hire Locations</name>
+<open>0</open>
+<description>TfL Cycle Hire Locations</description>
+<Style id='cycle'>
+<IconStyle>
+<Icon>
+<href>http://www.city.ac.uk/global/images/map-icons/cycle-hire.png</href>
+</Icon>
+</IconStyle>
+</Style><Placemark><name>Prince Albert Road, NW8</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.160854428,51.53589283,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Montpelier Street, SW7</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.165471605,51.49888404,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Norton Folgate, E1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.078869751,51.52111369,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Lower Thames Street, EC3</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.084985356,51.50930161,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>West Smithfield Rotunda, EC1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.100791005,51.51821864,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bouverie Street, EC4Y</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.107927706,51.51382102,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Godliman Street, EC4</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.099141408,51.51248445,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Stonecutter Street, EC4</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.105270275,51.51580998,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Ave Maria Lane, EC4</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.100811954,51.51415653,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Newgate Street , EC4</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.098850915,51.5154186,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Fortune Street Park, EC1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.094475072,51.52174785,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Museum of London, EC2</name><description>Capacity: 53 bikes</description><Point>
+<coordinates>-0.096496865,51.51782144,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Moorfields, EC2</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.088285377,51.51906932,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Finsbury Circus, EC2</name><description>Capacity: 34 bikes</description><Point>
+<coordinates>-0.086685542,51.51707521,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Queen Victoria Street, EC4</name><description>Capacity: 39 bikes</description><Point>
+<coordinates>-0.097441687,51.51196176,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Queen Street, EC4</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.0929401,51.51155322,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Cheapside, EC2</name><description>Capacity: 28 bikes</description><Point>
+<coordinates>-0.093117578,51.51389139,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>The Guildhall, EC2</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.093080779,51.51573534,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wood Street, EC2</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.09388536,51.51700801,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Aldersgate Street, EC1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.097340162,51.5208417,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Devonshire Square, EC2</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.079684557,51.51646835,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Great Tower Street, EC3</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.082989638,51.51048489,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Crosswall, EC3</name><description>Capacity: 44 bikes</description><Point>
+<coordinates>-0.077121322,51.51159481,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wormwood Street, EC2</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.082422399,51.51615461,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Chancery Lane, WC2A</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.111778348,51.51593725,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Appold Street, EC3</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.0811189,51.52174384,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bank of England Museum, EC2N</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.087587447,51.51444134,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. Mary Axe, EC3R</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.080660083,51.51422502,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Jewry Street, EC3N</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.076793375,51.51340693,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Southampton Buildings, WC2</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.112381322,51.51750059,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Silk Street, EC2</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.092176447,51.52004497,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Victoria Embankment, EC4</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.107457888,51.51115686,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Snow Hill, EC1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.103604248,51.51733427,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Fore Street Avenue, EC2</name><description>Capacity: 28 bikes</description><Point>
+<coordinates>-0.090425216,51.51791977,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Embankment (Savoy), WC2</name><description>Capacity: 45 bikes</description><Point>
+<coordinates>-0.119047563,51.50963123,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Embankment (Horse Guards), SW1</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.123247648,51.50494561,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Millbank House, SW1</name><description>Capacity: 28 bikes</description><Point>
+<coordinates>-0.125674815,51.49188409,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Vauxhall Bridge , SW1</name><description>Capacity: 35 bikes</description><Point>
+<coordinates>-0.129361842,51.48836528,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Queen Mother Sports Centre, SW1</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.139956043,51.49357351,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Royal Mews, SW1</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.143822338,51.49796594,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wellington Arch, SW1</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.149569201,51.50274025,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Knightsbridge, SW1</name><description>Capacity: 41 bikes</description><Point>
+<coordinates>-0.155349725,51.50275704,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Park Lane, W1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.157275636,51.5100172,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Frampton Street, W2</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.175116099,51.5233534,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. John's Wood Road, NW8</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.174653609,51.5272947,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Lord's Cricket Ground, NW8</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.171369672,51.52901875,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Westminster University, NW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.154907218,51.52248185,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Chelsea Bridge, SW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.149031809,51.48584965,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Grosvenor Road (West), SW1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.142207481,51.4853572,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Grosvenor Road (Central), SW1</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.138089062,51.48483991,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Triangle Car Park, W2</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.170279555,51.50645179,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Serpentine Car Park, W2</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.172729559,51.50501351,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Queen's Gate, SW7</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.179787712,51.50172988,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Albert Gate, SW1</name><description>Capacity: 28 bikes</description><Point>
+<coordinates>-0.158456089,51.50295379,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Cumberland Gate, W2</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.16209757,51.51211869,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Speaker's Corner, W2</name><description>Capacity: 48 bikes</description><Point>
+<coordinates>-0.160667395,51.51220724,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Hyde Park Corner, SW1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.153520935,51.50311799,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Monkey Gate, NW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.158728259,51.53500114,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>The Tennis Courts, NW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.153463612,51.52536703,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Paddington Green Police Sta, W2</name><description>Capacity: 40 bikes</description><Point>
+<coordinates>-0.170704337,51.51994326,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Warwick Avenue LU, W9</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.183846408,51.52334476,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Warwick Crescent, W2</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.182680704,51.5209465,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Clifton Road, W9</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.179592915,51.52557531,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Grove End Road, NW8</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.176770502,51.53088935,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wellington Road, NW8</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.172528678,51.53304322,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bell Street, NW1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.165842551,51.52202903,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Lodge Road, NW8</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.170134484,51.52834133,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Charlbert Street, NW8</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.1680743,51.53430039,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Park Road / Baker Street, NW1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.158963647,51.52451738,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Dorset Square, NW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.161113413,51.5225965,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Broadcasting House, W1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.144228881,51.51811784,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Old Quebec Street, W1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.158264483,51.51457763,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Marylebone Lane, W1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.148105415,51.51475963,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Hinde Street, W1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.151926305,51.51681444,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Chapel Place, W1</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.147203711,51.51530805,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wells Street, W1</name><description>Capacity: 40 bikes</description><Point>
+<coordinates>-0.138072691,51.51734403,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Foley Street, W1</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.140485596,51.51918144,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Rathbone Street, W1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.135025698,51.51816295,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Portland Place, W1</name><description>Capacity: 33 bikes</description><Point>
+<coordinates>-0.14521173,51.52071513,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Great Portland Street LU, W1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.143613641,51.52351808,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Beaumont Street, W1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.151359288,51.52200801,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Baker Street, W1</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.156166631,51.51891348,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Seymour Place, W1</name><description>Capacity: 35 bikes</description><Point>
+<coordinates>-0.163642582,51.52033378,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Crawford Street, W1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.157183945,51.52026,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Paddington Street, W1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.154701411,51.52058381,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. James's Square, SW1</name><description>Capacity: 42 bikes</description><Point>
+<coordinates>-0.134621209,51.50742485,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Grosvenor Square, W1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.150481272,51.51217033,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>South Audley Street, W1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.151296092,51.50923022,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Upper Grosvenor Street, W1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.155757901,51.51013066,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Curzon Street, W1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.145904427,51.50706909,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. George Street, W1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.142783033,51.51196,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Clifford Street, W1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.142345694,51.51066202,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>North Audley Street, W1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.153645496,51.5129118,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Green Street, W1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.157436972,51.51227622,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Pall Mall , SW1</name><description>Capacity: 30 bikes</description><Point>
+<coordinates>-0.136707453,51.50573451,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Grafton Street, W1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.143495266,51.5099923,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bruton Street, W1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.144165239,51.51073687,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Woodstock Street, W1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.147301667,51.51410514,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Farm Street, W1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.14744969,51.50935171,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Stanhope Gate, W1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.150666888,51.50686435,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Milford Lane, WC2</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.112988179,51.51201016,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Strand, WC2</name><description>Capacity: 40 bikes</description><Point>
+<coordinates>-0.115140555,51.51253415,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Carey Street, WC2</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.112753217,51.51501025,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kingsway, WC2</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.118478757,51.51440928,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wellington Street , WC2</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.119643424,51.51175646,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>William IV Street, WC2</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.124749274,51.50946212,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Southampton Street, WC2</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.121723604,51.51070161,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Craven Street, WC2</name><description>Capacity: 30 bikes</description><Point>
+<coordinates>-0.12602103,51.50810309,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Northumberland Avenue, WC2</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.124065447,51.50689829,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Pall Mall East, SW1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.130699733,51.50777049,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. Martin's Street, WC2</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.129697889,51.50908747,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Waterloo Place, SW1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.131773845,51.50663341,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Charles II Street, SW1</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.131961389,51.50844614,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Moor Street, W1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.130110822,51.51352755,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Soho Square , W1</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.132328837,51.51563144,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Golden Square, W1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.137043852,51.5118973,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Broadwick Street, W1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.135580879,51.5136846,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Great Marlborough Street, W1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.137841333,51.51461995,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Frith Street, W1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.13121385,51.51310333,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wardour Street, W1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.133201961,51.51251523,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. Martin's Lane, WC2</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.127083998,51.51160161,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Whitehall Place, WC2</name><description>Capacity: 47 bikes</description><Point>
+<coordinates>-0.123179697,51.50654321,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Little Newport Street, WC2</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.128710646,51.51167857,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Panton Street, SW1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.131510949,51.50963938,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Tavistock Street, WC2</name><description>Capacity: 46 bikes</description><Point>
+<coordinates>-0.120718759,51.51196803,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Houghton Street, WC2</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.116764211,51.51362054,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Smith Square, SW1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.127575233,51.49580589,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Horseferry Road , SW1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.13045856,51.49481649,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Regency Street, SW1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.132224622,51.49206037,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Rochester Row, SW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.13547809,51.49582705,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Vincent Square, SW1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.136928582,51.49398524,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Howick Place, SW1</name><description>Capacity: 28 bikes</description><Point>
+<coordinates>-0.138733562,51.49675303,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Ashley Place, SW1</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.140947636,51.49616092,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Spenser Street, SW1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.137022008,51.49741782,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Buckingham Gate, SW1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.137414605,51.49886664,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Butler Place, SW1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.135336502,51.49793031,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Tachbrook Street, SW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.138364847,51.49211134,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Guildhouse Street, SW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.141334487,51.49234577,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Gloucester Street, SW1</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.139625122,51.49096258,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Rampayne Street, SW1</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.132845681,51.48997562,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. George's Square, SW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.135635511,51.488226,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Elizabeth Bridge, SW1</name><description>Capacity: 34 bikes</description><Point>
+<coordinates>-0.147478734,51.49236962,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Warwick Square, SW1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.141923621,51.48985626,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Belgrave Road, SW1</name><description>Capacity: 30 bikes</description><Point>
+<coordinates>-0.144132875,51.49320445,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Belgrave Square, SW1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.152317537,51.49941247,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Eaton Gate, SW1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.15460608,51.4941646,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Eaton Square, SW1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.150905245,51.49654462,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Grosvenor Crescent, SW1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.153194766,51.50135267,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Storey's Gate, SW1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.129685017,51.50070623,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Winsland Street, W2</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.175488803,51.51678023,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>South Wharf Road, W2</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.175810943,51.51733558,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>North Wharf Road, W2</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.176645823,51.51862243,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Porchester Place, W2</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.165164288,51.51474612,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Southwick Street, W2</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.169249375,51.51595344,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Cleveland Square, W2</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.182017881,51.51446112,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Princes Square, W2</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.191351186,51.5134891,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Whiteley's, W2</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.188129731,51.51476963,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bayswater Road, W2</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.174292825,51.51183419,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kensington Gore, SW7</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.178656971,51.50143293,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Prince Consort Road, SW7</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.176415994,51.49980661,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Imperial College, SW7</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.179702476,51.49942855,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Harewood Avenue, NW1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.163849118,51.52231968,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Edgware Road LU, NW1</name><description>Capacity: 66 bikes</description><Point>
+<coordinates>-0.169644824,51.51997753,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Lisson Grove, NW8</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.172190727,51.52644828,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Mallory Street, NW8</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.166304359,51.52505151,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Nutford Place, W1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.164393768,51.5165179,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Eccleston Place, SW1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.147624377,51.49395092,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Little Argyll Street, W1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.141423695,51.51449962,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Cardinal Place, SW1 </name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.141943703,51.49768448,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bourne Street, SW1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.153319609,51.49087475,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>George Street, W1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.158249929,51.51689296,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Prince Albert Road, NW1</name><description>Capacity: 50 bikes</description><Point>
+<coordinates>-0.167547958,51.53053557,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Abbey Orchard Street, SW1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.132102166,51.49812559,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Craven Road, W2</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.179073836,51.51373193,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Eastbourne Mews, W2</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.179135079,51.51641749,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Orsett Terrace, W2</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.183716959,51.517932,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Gloucester Terrace, W2</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.188098863,51.51791921,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Westbourne Grove, W2</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.190240716,51.51552971,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Portugal Street, WC2</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.11614642,51.51494305,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Great Titchfield Street, W1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.141327271,51.52025302,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Alderney Street, SW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.140741432,51.48805753,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Greycoat Street , SW1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.134234258,51.49459148,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Cleveland Gardens, W2</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.183118788,51.515607,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Penfold Street, NW8</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.171681991,51.52289229,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Sackville Street, W1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.138846453,51.51004801,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Hampstead Rd / Euston Rd, NW1</name><description>Capacity: 54 bikes</description><Point>
+<coordinates>-0.138231303,51.52554222,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Euston Road (Wellcome Trust), NW1</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.134407652,51.5262363,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Harrington Square, NW1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.139174593,51.53301907,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Hampstead Road (Cartmel), NW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.13884627,51.53007835,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. Chad's Street, WC1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.120973687,51.53005939,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Cartwright Gardens , WC1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.125979294,51.52635795,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Brunswick Square, WC1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.122502346,51.52395143,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Guilford Street , WC1</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.120202614,51.52334672,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Malet Street, WC1</name><description>Capacity: 40 bikes</description><Point>
+<coordinates>-0.130431727,51.52168078,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bayley Street , W1</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.132053392,51.51858757,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Charlotte Street, W1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.13577731,51.51953043,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Scala Street, W1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.136039674,51.51991453,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Northington Street , WC1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.114079481,51.5222641,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Hatton Wall, EC1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.109006325,51.5216612,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Holborn Circus, EC1</name><description>Capacity: 40 bikes</description><Point>
+<coordinates>-0.108657431,51.51795029,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Red Lion Square, WC1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.119123345,51.51943538,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Theobalds Road , WC1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.116688468,51.52059681,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Drury Lane, WC2</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.12221963,51.51477076,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>High Holborn , WC1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.124332175,51.51643491,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Earnshaw Street , WC2</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.128585022,51.51611887,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Gower Place , WC1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.13518856,51.52522753,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Howland Street , W1</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.138996371,51.52099841,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Longford Street, NW1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.144083893,51.52559505,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Drummond Street , NW1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.135273468,51.52773634,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Endsleigh Gardens, WC1</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.130504336,51.52683806,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bedford Way, WC1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.128377673,51.52367314,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Taviton Street, WC1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.131161087,51.52505093,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Russell Square LU, WC1</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.124121774,51.52341837,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>British Museum, WC1</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.124678402,51.51908011,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Hatton Garden, EC1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.108028472,51.51882555,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Ampton Street , WC1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.11829517,51.52728093,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Tavistock Place, WC1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.123509611,51.5262503,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Pancras Road, NW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.129386874,51.5341235,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Doric Way , NW1</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.132250369,51.5288338,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Eversholt Street , NW1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.136792671,51.53300545,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Belgrove Street , NW1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.123616824,51.52994371,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Warren Street LU, W1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.138019439,51.52443845,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>London Zoo Car Park, NW1</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.150181444,51.53692216,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Southampton Place, WC1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.121328408,51.51760685,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Great Russell Street, WC1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.127854211,51.51772703,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Calshot Street , N1</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.117069978,51.53136059,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Rodney Street, N1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.114329032,51.53176825,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Chapel Market, N1</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.111699461,51.53333678,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>River Street , EC2</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.109970527,51.52916347,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Old Street LU NR, EC1</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.088486188,51.52572618,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Finsbury Library , EC1</name><description>Capacity: 30 bikes</description><Point>
+<coordinates>-0.104298194,51.52671796,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Goswell Road Sports Centre, EC1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.099489485,51.52486887,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Goswell Road City University, EC1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.10102611,51.528246,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Farringdon Lane, EC1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.108340165,51.52352001,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Chiswell Street, EC1</name><description>Capacity: 33 bikes</description><Point>
+<coordinates>-0.089887855,51.52085887,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Finsbury Square , EC2A</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.085634242,51.52096262,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Clerkenwell Green, EC1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.104708922,51.52326004,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Finsbury Leisure Centre, EC1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.096317627,51.52600832,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Macclesfield Road, EC1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.097120283,51.52944957,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>King's Cross Road, WC1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.115480888,51.52891573,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Rosebery Avenue, EC1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.109256828,51.52644342,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Clerkenwell Road, EC1</name><description>Capacity: 41 bikes</description><Point>
+<coordinates>-0.099994052,51.52285301,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Hardwick Street, EC1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.108068155,51.52784273,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bath Street, EC1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.090847761,51.52589324,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Baldwin Street, EC1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.088542771,51.52702563,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Margery Street , WC1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.112432615,51.52659961,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. John Street, EC1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.104724625,51.52836014,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Claremont Square, N1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.109914711,51.53166681,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Chadwell Street, EC1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.106408455,51.53051587,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Torrens Street, EC1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.105480698,51.53219984,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Graham Street, N1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.099981142,51.53266186,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Liverpool Road (N1 Centre), N1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.106992706,51.53450449,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Cloudesley Road JW Tolpuddle Street, EC1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.109025404,51.53440868,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Golden Lane / Roscoe Street, EC1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.094934859,51.52295439,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Old Street Fire Station, EC1</name><description>Capacity: 43 bikes</description><Point>
+<coordinates>-0.084752173,51.52654977,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Shoreditch Church, E1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.078130921,51.5263778,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Shoreditch Park, N1</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.086379717,51.53404294,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Windsor Terrace, N1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.093421615,51.52915444,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Murray Grove , N1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.089782579,51.53089041,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bunhill Row, N1</name><description>Capacity: 47 bikes</description><Point>
+<coordinates>-0.090360055,51.52303016,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>East Road, N1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.087459376,51.52867339,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>New Inn Yard, EC2</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.079248081,51.52452699,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Falkirk Street, N1</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.078505384,51.53095071,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Pitfield Street, N1</name><description>Capacity: 35 bikes</description><Point>
+<coordinates>-0.083353323,51.52953709,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Leonard Street , EC2</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.084439283,51.52469624,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Christopher Street , EC2</name><description>Capacity: 33 bikes</description><Point>
+<coordinates>-0.084605692,51.52128377,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Sun Street, EC2</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.083911168,51.52001715,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wenlock Road , N1</name><description>Capacity: 33 bikes</description><Point>
+<coordinates>-0.093903825,51.53099181,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Braham Street, E1</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.073537654,51.51423368,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>LMU Commercial Road, E1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.066078037,51.51492456,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Thomas More Square, E1</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.067176443,51.5084448,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Commercial Street, E1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.0755789,51.52127071,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Shoreditch High Street LO, E1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.074754872,51.52364804,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wapping High Street, E1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.067820689,51.50482186,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Leman Street, E1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.06954201,51.51236389,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Whitechapel Road, E1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.067827542,51.51681603,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Whitechapel Market, E1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.063782077,51.51830997,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Brick Lane Market , E1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.071653961,51.52261762,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Royal London Hospital, E1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.059642081,51.51906446,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>New Road , E1</name><description>Capacity: 72 bikes</description><Point>
+<coordinates>-0.062650328,51.51814983,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Tower Gardens , EC3</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.075459482,51.50950627,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Fashion Street, E1</name><description>Capacity: 33 bikes</description><Point>
+<coordinates>-0.073438925,51.51838043,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Tower Bridge, E1</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.07448954,51.50667819,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Brushfield Street, E1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.078992536,51.51898375,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Southwark Street Rail Bridge, SE1</name><description>Capacity: 40 bikes</description><Point>
+<coordinates>-0.103137426,51.50669284,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Emerson Street, SE1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.096440751,51.5073853,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Park Street, SE1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.092754157,51.50597426,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Southwark Street, SE1</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.091773776,51.50462759,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Union Street, SE1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.098497684,51.50368837,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Tooley Street, SE1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.07962099,51.5034938,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Tanner Street, SE1</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.078600401,51.50064702,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Empire Square, SE1</name><description>Capacity: 49 bikes</description><Point>
+<coordinates>-0.089740764,51.50082346,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Borough High Street, SE1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.094524319,51.50069491,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Webber Street , SE1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.102091246,51.50069361,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Milroy Walk, SE1</name><description>Capacity: 33 bikes</description><Point>
+<coordinates>-0.106237501,51.50724437,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Southwark Street (Bankside 1), SE1</name><description>Capacity: 34 bikes</description><Point>
+<coordinates>-0.100186337,51.50581776,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>LSBU (Borough Road), SE1</name><description>Capacity: 39 bikes</description><Point>
+<coordinates>-0.103132904,51.49874469,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>New Kent Road, SE1</name><description>Capacity: 33 bikes</description><Point>
+<coordinates>-0.092921165,51.49443626,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Great Dover Street, SE1</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.089446947,51.49738251,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Long Lane , SE1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.085666316,51.49907558,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bricklayers Arms, SE1</name><description>Capacity: 28 bikes</description><Point>
+<coordinates>-0.085814489,51.49506109,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Dickens Square, SE1</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.093913472,51.49679128,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Tyers Gate, SE1</name><description>Capacity: 36 bikes</description><Point>
+<coordinates>-0.083159352,51.50088934,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Curlew Street, SE1</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.074189225,51.50227992,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Purbrook Street, SE1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.078855213,51.4985347,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Colombo Street, SE1</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.10569204,51.50545935,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Ontario Street, SE1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.101384068,51.49652013,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bermondsey Street, SE1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.081608045,51.49785559,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Chatham Street, SE17</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.086498251,51.49298588,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Hampton Street, SE1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.101536865,51.49217002,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Geraldine Street, SE11</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.106000855,51.49612799,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wansey Street, SE17</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.097146479,51.49118143,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Swan Street, SE1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.092762704,51.50029631,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Borough Road, SE1</name><description>Capacity: 41 bikes</description><Point>
+<coordinates>-0.100440521,51.49889832,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kennington Road  , SE1</name><description>Capacity: 38 bikes</description><Point>
+<coordinates>-0.110889274,51.49571828,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Harper Road, SE1</name><description>Capacity: 44 bikes</description><Point>
+<coordinates>-0.096191134,51.49859784,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Hopton Street , SE1</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.102625428,51.50810485,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Rodney Road , SE11</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.090220911,51.49148474,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Belvedere Road, SE1</name><description>Capacity: 39 bikes</description><Point>
+<coordinates>-0.114686385,51.50613324,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Baylis Road, SE1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.110699309,51.50144456,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kennington Lane Rail Bridge, SE11</name><description>Capacity: 28 bikes</description><Point>
+<coordinates>-0.122492418,51.4863434,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Vauxhall Cross, SW8</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.124469948,51.48591714,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kennington Road Post Office, SE11</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.110683213,51.48478899,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kennington Cross, SE11</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.111435796,51.48894022,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Walnut Tree Walk, SE11</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.111014912,51.49368637,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Lambeth North LU, SE1</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.112031483,51.49914063,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kennington Lane Tesco, SE11</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.115853961,51.48677988,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Black Prince Road, SE11</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.116911864,51.4908679,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Stamford Street, SE1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.111606696,51.50556905,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Fire Brigade Pier, SE1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.121394101,51.49369988,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Albert Embankment, SE1</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.122806861,51.49043573,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Cotton Garden Estate, SE11</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.106323685,51.4907579,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Lambeth Road, SE1</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.117974901,51.49488108,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. Thomas' Hospital, SE1</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.117987658,51.5006081,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Lower Marsh, SE1</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.113936001,51.50013942,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Lollard Street, SE11</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.114934001,51.49288067,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Sancroft Street, SE11</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.115156562,51.48947903,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Concert Hall Approach, SE1</name><description>Capacity: 33 bikes</description><Point>
+<coordinates>-0.115820307,51.50505707,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Jubilee Gardens, SE1</name><description>Capacity: 30 bikes</description><Point>
+<coordinates>-0.116542278,51.5046364,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Waterloo Bridge, SE1</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.113656543,51.50535447,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>West Cromwell Road, SW5</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.198286569,51.49372451,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Turquoise Island, W11</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.200838199,51.51431171,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Chepstow Villas, W11</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.201554966,51.51213691,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Pembridge Road, W11</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.197524944,51.51108452,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Notting Hill Gate LU, W2</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.196396821,51.50935879,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Palace Gardens Terrace, W8</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.193764092,51.50860544,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Campden Hill Road, W8</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.199004026,51.50658458,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Vicarage Gate, W8</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.192538767,51.50472376,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kensington Town Hall, W8</name><description>Capacity: 21 bikes</description><Point>
+<coordinates>-0.194392952,51.50194596,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Phillimore Gardens, W8</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.197574246,51.49960695,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Argyll Road, W8</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.195455928,51.50040123,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Abingdon Villas, W8</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.197245586,51.4973875,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Lexham Gardens, W8</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.191933711,51.49586666,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Nevern Place, SW5</name><description>Capacity: 23 bikes</description><Point>
+<coordinates>-0.194757949,51.49334336,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Trebovir Road, SW5</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.196170309,51.49085368,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Penywern Road, SW5</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.192369256,51.49159394,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Wright's Lane, W8</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.193068385,51.50039792,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Derry Street, W8</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.191462381,51.50136494,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Queen's Gate (North), SW7</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.180246101,51.50102668,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Gloucester Road LU, SW7</name><description>Capacity: 17 bikes</description><Point>
+<coordinates>-0.18267094,51.49418566,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Queen's Gate (Central), SW7</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.17873226,51.49396755,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Old Brompton Road, SW7</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.181190899,51.49094565,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Seville Street, SW1</name><description>Capacity: 29 bikes</description><Point>
+<coordinates>-0.159237081,51.50185512,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Natural History Museum, SW7</name><description>Capacity: 44 bikes</description><Point>
+<coordinates>-0.179077626,51.49559291,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Pont Street, SW1</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.161203828,51.4968865,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Sloane Avenue, SW3</name><description>Capacity: 31 bikes</description><Point>
+<coordinates>-0.167894973,51.4931848,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Denyer Street, SW3</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.165101392,51.49358391,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Cadogan Place, SW1</name><description>Capacity: 34 bikes</description><Point>
+<coordinates>-0.158105512,51.49464523,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Chelsea Green, SW3</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.166485083,51.49066456,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Royal Avenue, SW3</name><description>Capacity: 22 bikes</description><Point>
+<coordinates>-0.162711959,51.48989563,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>St. Luke's Church, SW3</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.170194408,51.48971651,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Gloucester Road (North), SW7</name><description>Capacity: 19 bikes</description><Point>
+<coordinates>-0.183834706,51.49792478,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Queen's Gate (South), SW7</name><description>Capacity: 26 bikes</description><Point>
+<coordinates>-0.178433004,51.49247977,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Black Lion Gate, W2</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.187842717,51.50990837,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Palace Gate, W8</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.184400221,51.50204238,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Harriet Street, SW1</name><description>Capacity: 27 bikes</description><Point>
+<coordinates>-0.159264778,51.50028807,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Emperor's Gate, SW7</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.185296516,51.49536226,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>De Vere Gardens, W8</name><description>Capacity: 32 bikes</description><Point>
+<coordinates>-0.184980612,51.50173726,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Holy Trinity Brompton, SW3</name><description>Capacity: 28 bikes</description><Point>
+<coordinates>-0.168917077,51.49705603,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Sumner Place, SW7</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.173715911,51.49121192,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Gloucester Road (Central), SW7</name><description>Capacity: 20 bikes</description><Point>
+<coordinates>-0.183289032,51.49646288,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kensington Church Street, W8</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.191496313,51.50315739,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>South Kensington LU, SW7</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.173806482,51.49441745,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Flood Street, SW3</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.166878535,51.48802358,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Warwick Road, W14</name><description>Capacity: 37 bikes</description><Point>
+<coordinates>-0.20528437,51.49671237,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Ilchester Place, W14</name><description>Capacity: 24 bikes</description><Point>
+<coordinates>-0.202759212,51.50074359,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Bramham Gardens, SW5</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.19039362,51.49016361,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Collingham Gardens, SW5</name><description>Capacity: 16 bikes</description><Point>
+<coordinates>-0.186753859,51.4916156,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Kensington Olympia LU LO NR, W14</name><description>Capacity: 25 bikes</description><Point>
+<coordinates>-0.209494128,51.49815779,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+<Placemark><name>Knaresborough Place, SW5</name><description>Capacity: 18 bikes</description><Point>
+<coordinates>-0.190603326,51.49363156,0</coordinates>
+</Point>
+<styleUrl>#cycle</styleUrl></Placemark>
+</Document>
+</kml>

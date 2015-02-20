@@ -23,7 +23,7 @@
 <geo:long>-0.097722</geo:long>
 <georss:polygon>51.51788481263086 -0.09731858968734741 51.51783307177088 -0.09740442037582397 51.51746086965877 -0.09744465351104736 51.5178347408318 -0.0979354977607727 51.518053387283075 -0.09753584861755371</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 2 -->
 <guid isPermaLink="false">38284</guid>
@@ -37,7 +37,7 @@
 <geo:long>-0.089425</geo:long>
 <georss:polygon>51.520762 -0.089928 51.52106 -0.089782 51.520916 -0.088711 51.520635 -0.088745</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 3 -->
 <guid isPermaLink="false">243403</guid>
@@ -53,7 +53,7 @@
 <geo:long>-0.105680</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/cacaca/letter_s.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 4 -->
 <guid isPermaLink="false">38953</guid>
@@ -93,7 +93,7 @@ University Building]]></description>
 <geo:long>-0.114943</geo:long>
 <georss:polygon>51.519943 -0.114754 51.519905 -0.114932 51.520143 -0.115068 51.520183 -0.114893 51.519943 -0.114754 51.519943 -0.114754</georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 6 -->
 <guid isPermaLink="false">131304</guid>
@@ -168,7 +168,7 @@ Northampton Square, EC1V 0HB</p>
 <geo:long>-0.098517</geo:long>
 <georss:polygon>51.517737 -0.098788 51.51791 -0.098418 51.518122 -0.098708 51.518172 -0.098585 51.517907 -0.098201 51.517712 -0.098574 51.517473 -0.09826 51.517413 -0.098375 51.517737 -0.098788</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 9 -->
 <guid isPermaLink="false">42461</guid>
@@ -222,7 +222,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.090356</geo:long>
 <georss:polygon>51.522178 -0.090806 51.521912 -0.090849 51.521884 -0.090565 51.521967 -0.090554 51.521949 -0.090208 51.521864 -0.090216 51.521851 -0.089972 51.521874 -0.089967 51.521871 -0.089934 51.521924 -0.089929 51.522221 -0.089945 51.522266 -0.090216 51.522178 -0.090806</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 11 -->
 <guid isPermaLink="false">38851</guid>
@@ -298,7 +298,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.089977</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/library.png</CUL:icon>
-<category>libraries</category>
+<category>library</category>
 </item><item>
 <!-- 13 -->
 <guid isPermaLink="false">158752</guid>
@@ -338,7 +338,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.103982</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/c9282d/letter_h.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 15 -->
 <guid isPermaLink="false">41698</guid>
@@ -366,7 +366,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.114227</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/library.png</CUL:icon>
-<category>libraries</category>
+<category>library</category>
 </item><item>
 <!-- 16 -->
 <guid isPermaLink="false">245354</guid>
@@ -380,7 +380,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.101527</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>student_centre</category>
+<category></category>
 </item><item>
 <!-- 17 -->
 <guid isPermaLink="false">9541</guid>
@@ -404,7 +404,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.103842</geo:long>
 <georss:polygon>51.526917 -0.10416 51.527668 -0.104617 51.52769 -0.104583 51.527365 -0.102974 51.527234 -0.10305 51.527247 -0.103142 51.527192 -0.103162 51.526917 -0.10416</georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/394a59/letter_a.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 18 -->
 <guid isPermaLink="false">18247</guid>
@@ -516,7 +516,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.103279</geo:long>
 <georss:polygon>51.527856 -0.103799 51.52803 -0.102839 51.52788 -0.102766 51.527699 -0.103729</georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/00759b/letter_e.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 22 -->
 <guid isPermaLink="false">93339</guid>
@@ -744,7 +744,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.105727</geo:long>
 <georss:polygon>51.52728523473021 -0.10564550757408142 51.52716800738252 -0.1054825633764267 51.52704493920168 -0.10574676096439362 51.52704702510582 -0.10581515729427338 51.52712086605088 -0.10590970516204834 51.52717343071844 -0.10582186281681061 51.527156743528984 -0.1057983934879303 51.52723058429608 -0.10566763579845428 51.52725060889024 -0.10570116341114044</georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/005058/letter_g.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 33 -->
 <guid isPermaLink="false">9553</guid>
@@ -758,7 +758,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.101154</geo:long>
 <georss:polygon>51.527433 -0.10104 51.527363 -0.101005 51.527356 -0.101342 51.527426 -0.101367 51.527433 -0.10104</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/cacaca/letter_l.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 34 -->
 <guid isPermaLink="false">9565</guid>
@@ -784,7 +784,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.1141219</geo:long>
 <georss:polygon>51.519078 -0.11399 51.518999 -0.114455 51.518865 -0.114376 51.518868 -0.114335 51.518923 -0.114361 51.518948 -0.114274 51.518901 -0.114243 51.518936 -0.114107 51.518956 -0.114111 51.518987 -0.113934 51.519078 -0.11399</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 35 -->
 <guid isPermaLink="false">42527</guid>
@@ -840,7 +840,7 @@ EC1V 0HB,<br /></p>]]></description>
 <geo:long>-0.105371</geo:long>
 <georss:polygon>51.527274 -0.105599 51.527257 -0.105569 51.527408 -0.105285 51.527292 -0.105141 51.527108 -0.105491 51.527229 -0.105679 51.527274 -0.105599</georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/003050/letter_f.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 38 -->
 <guid isPermaLink="false">38949</guid>
@@ -990,7 +990,7 @@ University Building]]></description>
 <geo:long>-0.100763</geo:long>
 <georss:polygon>51.527474 -0.100712 51.527282 -0.100619 51.52725 -0.100814 51.527324 -0.100855 51.527319 -0.100885 51.527348 -0.100905 51.527339 -0.100953 51.527356 -0.10096 51.527354 -0.101001 51.527436 -0.101043 51.527433 -0.100933 51.527474 -0.100712</georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/cacaca/letter_k.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 48 -->
 <guid isPermaLink="false">131144</guid>
@@ -1026,7 +1026,7 @@ University Building]]></description>
 <geo:long>-0.107283</geo:long>
 <georss:polygon>51.527469 -0.107487 51.527523 -0.107369 51.527119 -0.106875 51.526785 -0.107567 51.526805 -0.107653 51.527469 -0.107487</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/005058/letter_m.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 49 -->
 <guid isPermaLink="false">42479</guid>
@@ -1098,7 +1098,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.101098</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/cacaca/letter_i.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 53 -->
 <guid isPermaLink="false">42483</guid>
@@ -1140,7 +1140,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.116713</geo:long>
 <georss:polygon>51.519822 -0.116867 51.519872 -0.116896 51.519874 -0.116885 51.519937 -0.116905 51.520026 -0.116958 51.520068 -0.116795 51.519982 -0.116738 51.520006 -0.116627 51.519986 -0.116614 51.520001 -0.116552 51.519924 -0.116504 51.519914 -0.116545 51.519903 -0.116537 51.519822 -0.116867</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 55 -->
 <guid isPermaLink="false">9601</guid>
@@ -1164,7 +1164,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.105081</geo:long>
 <georss:polygon>51.527461 -0.105388 51.527518 -0.105451 51.527653 -0.105168 51.527606 -0.105104 51.527668 -0.104968 51.527595 -0.10487 51.527562 -0.104936 51.527444 -0.104797 51.527283 -0.105131 51.527461 -0.105388</georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/e2cc00/letter_d.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 56 -->
 <guid isPermaLink="false">67694</guid>
@@ -1178,7 +1178,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.102438</geo:long>
 <georss:polygon>51.528098 -0.10269 51.527853 -0.102574 51.527849 -0.10257 51.527912 -0.102218 51.528166 -0.102337 51.528098 -0.10269</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 57 -->
 <guid isPermaLink="false">9585</guid>
@@ -1207,7 +1207,7 @@ Full information can be found on <a href="http://moodle.city.ac.uk/mod/book/view
 <geo:long>-0.058718</geo:long>
 <georss:polygon>51.516594 -0.058936 51.516583 -0.058938 51.516573 -0.058942 51.516563 -0.058949 51.516555 -0.058959 51.516547 -0.058971 51.516541 -0.058985 51.516537 -0.059001 51.516534 -0.059017 51.516533 -0.059034 51.516534 -0.059051 51.516537 -0.059068 51.516541 -0.059083 51.516547 -0.059097 51.516555 -0.059109 51.516563 -0.059119 51.516573 -0.059126 51.516583 -0.05913 51.516594 -0.059132 51.516604 -0.05913 51.516615 -0.059126 51.516624 -0.059119 51.516633 -0.059109 51.51664 -0.059097 51.516647 -0.059083 51.516651 -0.059068 51.516654 -0.059051 51.516655 -0.059034 51.516654 -0.059017 51.516651 -0.059001 51.516647 -0.058985 51.51664 -0.058971 51.516633 -0.058959 51.516624 -0.058949 51.516615 -0.058942 51.516604 -0.058938 51.51664 -0.058962 51.516646 -0.058899 51.516661 -0.058899 51.516671 -0.05868 51.516409 -0.058612 51.51639 -0.058836 51.516571 -0.058873 51.516571 -0.058932 51.516573 -0.058942 51.516594 -0.058936 51.516575 -0.05895</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 58 -->
 <guid isPermaLink="false">113131</guid>
@@ -1320,7 +1320,7 @@ Drysdale Building]]></description>
 <geo:long>-0.101535</geo:long>
 <georss:polygon>51.528197 -0.102133 51.527674 -0.101876 51.527846 -0.100937 51.528364 -0.101181</georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/6c953c/letter_c.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 65 -->
 <guid isPermaLink="false">113166</guid>
@@ -1364,7 +1364,7 @@ Drysdale Building]]></description>
 <geo:long>-0.102509</geo:long>
 <georss:polygon>51.527488 -0.102932 51.527449 -0.103147 51.527496 -0.103174 51.527483 -0.103244 51.527524 -0.10327 51.527543 -0.10319 51.52773 -0.103276 51.527768 -0.103072 51.527801 -0.103077 51.5279 -0.102573 51.528087 -0.102656 51.52815 -0.10231 51.527963 -0.102216 51.527976 -0.10213 51.527833 -0.102058 51.527846 -0.101967 51.527796 -0.101945 51.527601 -0.102994</georss:polygon>
 <CUL:icon>//s1.city.ac.uk/i/skin/map-icons/43165e/letter_b.png</CUL:icon>
-<category>buildings</category>
+<category>building</category>
 </item><item>
 <!-- 67 -->
 <guid isPermaLink="false">38981</guid>
@@ -1423,7 +1423,7 @@ To use the photocopiers, you should obtain a copycard.</p>
 <geo:long>-0.102509</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/library.png</CUL:icon>
-<category>libraries</category>
+<category>library</category>
 </item>
 </channel>
 </rss>

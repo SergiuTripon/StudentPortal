@@ -891,7 +891,7 @@ function ImportLocations () {
 	}
 
     //Cycle Parking
-	foreach ($universitymap_atms->Folder->Placemark as $xml_var) {
+	foreach ($universitymap_atm->Folder->Placemark as $xml_var) {
 
 	$title = $xml_var->name;
 	$description = $xml_var->description;
