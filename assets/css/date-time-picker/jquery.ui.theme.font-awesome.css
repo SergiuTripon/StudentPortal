@@ -10,7 +10,7 @@
  */
 .ui-icon {
   display: inline-block;
-  line-height: 1em;
+  line-height: 1.4em;
   font-family: FontAwesome;
   font-weight: normal;
   font-style: normal;
@@ -19,7 +19,7 @@
   text-align: center;
   text-indent: 0;
   background-image: none !important;
-  background-position: 0% 0%;
+  background-position: 0 0;
   background-repeat: repeat;
   cursor: default;
 }
