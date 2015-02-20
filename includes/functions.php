@@ -839,12 +839,36 @@ function ImportLocations () {
 	$stmt1->execute();
 	$stmt1->close();
 
-	$url = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.xml';
-	$result = file_get_contents($url);
-	$universitymap_locations = new SimpleXMLElement($result);
+    $url1 = 'https://student-portal.co.uk/includes/university-map/xml/locations.xml';
+    $result1 = file_get_contents($url1);
+    $universitymap_locations = new SimpleXMLElement($result1);
+
+	$url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.xml';
+	$result2 = file_get_contents($url2);
+	$universitymap_cycle_parking = new SimpleXMLElement($result2);
 
     //Locations
-	foreach ($universitymap_locations->Document->Placemark as $xml_var) {
+    foreach ($universitymap_locations->channel->item as $xml_var) {
+
+    $title = $xml_var->title;
+    $description = $xml_var->description;
+
+    $namespaces = $xml_var->getNameSpaces(true);
+    $latlong_selector = $xml_var->children($namespaces['geo']);
+
+    $lat = $latlong_selector->lat;
+    $long = $latlong_selector->long;
+
+    $category = $xml_var->category;
+
+    $stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
+    $stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);
+    $stmt2->execute();
+    $stmt2->close();
+    }
+
+    //Cycle Parking
+	foreach ($universitymap_cycle_parking->Document->Placemark as $xml_var) {
 
 	$title = $xml_var->name;
 	$description = $xml_var->description;
@@ -854,10 +878,10 @@ function ImportLocations () {
 
 	$category = 'cycle_park';
 
-	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
-	$stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);
-	$stmt2->execute();
-	$stmt2->close();
+	$stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
+	$stmt3->bind_param('sssss', $title, $description, $lat, $long, $category);
+	$stmt3->execute();
+	$stmt3->close();
 	}
 
 }
