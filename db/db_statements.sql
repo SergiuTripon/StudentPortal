@@ -285,9 +285,7 @@ CREATE TABLE `system_map_markers` (
 	`markerid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`marker_title` VARCHAR (70) NOT NULL,
 	`marker_description` VARCHAR (5000) NOT NULL,
-	`marker_link` VARCHAR (70) NOT NULL,
 	`marker_lat` FLOAT(10,6) NOT NULL,
 	`marker_lng` FLOAT(10,6) NOT NULL,
-	`marker_icon` VARCHAR (70) NOT NULL,
 	`marker_category` VARCHAR (70) NOT NULL
 ) ENGINE = InnoDB;

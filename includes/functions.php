@@ -844,77 +844,65 @@ function ImportLocations () {
 	$universitymap_locations = new SimpleXMLElement($result1);
 
     $url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml';
-    $result2 = file_get_contents($url1);
+    $result2 = file_get_contents($url2);
     $universitymap_cycle_parking = new SimpleXMLElement($result2);
 
     $url3 = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml';
     $result3 = file_get_contents($url3);
     $universitymap_atms = new SimpleXMLElement($result3);
 
-	foreach ($universitymap_locations->channel->item as $xml_var) {
+    //Locations
+	foreach ($universitymap_locations->channel->item as $xml_var1) {
 
-	$title = $xml_var->title;
-	$description = $xml_var->description;
-	$link = $xml_var->link;
+	$title = $xml_var1->title;
+	$description = $xml_var1->description;
 
-	$namespaces = $xml_var->getNameSpaces(true);
-	$latlong_selector = $xml_var->children($namespaces['geo']);
-	$icon_selector = $xml_var->children($namespaces['CUL']);
+	$namespaces = $xml_var1->getNameSpaces(true);
+	$latlong_selector = $xml_var1->children($namespaces['geo']);
 
 	$lat = $latlong_selector->lat;
 	$long = $latlong_selector->long;
-	$icon = $icon_selector->icon;
 
-	$category = $xml_var->category;
+	$category = $xml_var1->category;
 
-	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_link, marker_lat, marker_long, marker_icon, marker_category) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('sssssss', $title, $description, $link, $lat, $long, $icon, $category);
+	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_lng, marker_category) VALUES (?, ?, ?, ?, ?)");
+	$stmt2->bind_param('sssss', $title, $description, $lat, $long, $category);
 	$stmt2->execute();
 	$stmt2->close();
 	}
 
-    foreach ($universitymap_cycle_parking->channel->item as $xml_var) {
+    //Cycle parking
+    foreach ($universitymap_cycle_parking->document->placemark as $xml_var2) {
 
-	$title = $xml_var->title;
-	$description = $xml_var->description;
-	$link = $xml_var->link;
+	$title = $xml_var2->name;
+	$description = $xml_var2->description;
+    $coordinates = $xml_var2->point->coordinates;
 
-	$namespaces = $xml_var->getNameSpaces(true);
-	$latlong_selector = $xml_var->children($namespaces['geo']);
-	$icon_selector = $xml_var->children($namespaces['CUL']);
+    list($lat, $lng) = explode(',', $coordinates);
 
-	$lat = $latlong_selector->lat;
-	$long = $latlong_selector->long;
-	$icon = $icon_selector->icon;
+    $category = 'Cycle Park';
 
-	$category = $xml_var->category;
-
-	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_link, marker_lat, marker_long, marker_icon, marker_category) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('sssssss', $title, $description, $link, $lat, $long, $icon, $category);
-	$stmt2->execute();
-	$stmt2->close();
+	$stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_lng, marker_category) VALUES (?, ?, ?, ?, ?)");
+	$stmt3->bind_param('sssss', $title, $description, $lat, $lng, $category);
+	$stmt3->execute();
+	$stmt3->close();
 	}
 
-    foreach ($universitymap_atms->channel->item as $xml_var) {
+    //ATMs
+    foreach ($universitymap_atms->document->folder->placemark as $xml_var3) {
 
-	$title = $xml_var->title;
-	$description = $xml_var->description;
-	$link = $xml_var->link;
+	$title = $xml_var3->name;
+	$description = $xml_var3->description;
+    $coordinates = $xml_var3->point->coordinates;
 
-	$namespaces = $xml_var->getNameSpaces(true);
-	$latlong_selector = $xml_var->children($namespaces['geo']);
-	$icon_selector = $xml_var->children($namespaces['CUL']);
+    list($lat, $lng) = explode(',', $coordinates);
 
-	$lat = $latlong_selector->lat;
-	$long = $latlong_selector->long;
-	$icon = $icon_selector->icon;
+	$category = 'ATM';
 
-	$category = $xml_var->category;
-
-	$stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_link, marker_lat, marker_long, marker_icon, marker_category) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('sssssss', $title, $description, $link, $lat, $long, $icon, $category);
-	$stmt2->execute();
-	$stmt2->close();
+	$stmt4 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_lng, marker_category) VALUES (?, ?, ?, ?, ?)");
+	$stmt4->bind_param('sssss', $title, $description, $lat, $lng, $category);
+	$stmt4->execute();
+	$stmt4->close();
 	}
 
 }
