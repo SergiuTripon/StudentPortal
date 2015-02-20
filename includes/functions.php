@@ -835,6 +835,7 @@ function ImportLocations () {
 
 	global $mysqli;
     global $category;
+    global $category1;
 
 	$stmt1 = $mysqli->prepare("DELETE FROM system_map_markers");
 	$stmt1->execute();
@@ -864,12 +865,12 @@ function ImportLocations () {
 
     if ($category = 'studentCentre') { $category1 = 'student_centre'; }
 
-    elseif ($category1 = 'lectureTheatres') { $category2 = 'lecture_theatres'; }
+    if ($category = 'lectureTheatres') { $category1 = 'lecture_theatres'; }
 
-    elseif ($category2 = 'computerLabs') { $category3 = 'computer_labs'; }
+    if ($category = 'computerLabs') { $category1 = 'computer_labs'; }
 
     $stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
-    $stmt2->bind_param('sssss', $title, $description, $lat, $long, $category3);
+    $stmt2->bind_param('sssss', $title, $description, $lat, $long, $category1);
     $stmt2->execute();
     $stmt2->close();
     }
