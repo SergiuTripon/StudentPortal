@@ -144,9 +144,9 @@ include '../includes/session.php';
         controlType: 'select',
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 3,
-        onClose: function( selectedDate ) {
-            $( "#rangeBb" ).datepicker( "option", "minDate", selectedDate );
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#task_duedate").datepicker( "option", "minDate", selectedDate);
         }
 	});
 	$('#task_duedate').datetimepicker({
@@ -154,9 +154,9 @@ include '../includes/session.php';
         controlType: 'select',
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 3,
-        onClose: function( selectedDate ) {
-            $( "#rangeBb" ).datepicker( "option", "minDate", selectedDate );
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#task_startdate").datepicker("option", "minDate", selectedDate);
         }
 	});
 	});
