@@ -839,7 +839,7 @@ function ImportLocations () {
 	$stmt1->execute();
 	$stmt1->close();
 
-	$url = 'https://student-portal.co.uk/includes/university-map/xml/locations.xml';
+	$url = 'https://student-portal.co.uk/includes/university-map/xml/cycle-parking.kml.xml';
 	$result = file_get_contents($url);
 	$universitymap_locations = new SimpleXMLElement($result);
 
