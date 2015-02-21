@@ -392,7 +392,7 @@ include '../includes/session.php';
 		$("#lecture_name").addClass("success-style");
 	}
     var lecturer = $('.selectpicker option:selected').val();
-    if(lecturer === 'Nothing selected') {
+    if(lecturer === '') {
         $("#error3").show();
         $("#error3").empty().append("Please select a lecturer.");
         $(".selectpicker").addClass("error-style");
