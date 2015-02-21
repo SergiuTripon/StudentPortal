@@ -73,7 +73,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture name</label>
-    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="" placeholder="Enter a lecture name">
+    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="" placeholder="Enter a module name">
 	</div>
 	</div>
 	<p id="error2" class="feedback-sad text-center"></p>
@@ -81,7 +81,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
-    <select class="selectpicker lecturers" name="lecturers" id="lecturers" title="Select a lecturer">
+    <select class="form-control" name="lecturers" id="lecturers">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -172,7 +172,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Tutorial assistant</label>
-    <select class="selectpicker tutorial_assistants" name="tutorial_assistants" id="tutorial_assistants" title="Select a tutorial assistant">
+    <select class="form-control" name="tutorial_assistants" id="tutorial_assistants">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -358,6 +358,17 @@ include '../includes/session.php';
     });
 	});
 
+    $(".filter-option").css("color", "gray");
+
+    $( ".selectpicker").click(function() {
+        var lecturer_style = $('.filter-option').text();
+        if (lecturer_style === 'Select a lecturer') {
+            $(".selectpicker").css("color", "gray");
+        } else {
+            $(".selectpicker").css("color", "#333333");
+        }
+    });
+
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
@@ -371,7 +382,7 @@ include '../includes/session.php';
 
     //Lectures
 	var lecture_name = $("#lecture_name").val();
-    var lecture_lecturer = $(".lecturers option:selected").val();
+    var lecture_lecturer = $("#lecturers:selected").val();
     var lecture_notes = $("#lecture_notes").val();
     var lecture_day = $("#lecture_day").val();
     var lecture_from_time = $("#lecture_from_time").val();
@@ -383,7 +394,7 @@ include '../includes/session.php';
 
     //Tutorials
 	var tutorial_name = $("#tutorial_name").val();
-    var tutorial_assistant = $(".tutorial_assistants option:selected").val();
+    var tutorial_ta = $("#tutorial_assistants:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
     var tutorial_day = $("#tutorial_day").val();
     var tutorial_from_time = $("#tutorial_from_time").val();
@@ -411,7 +422,7 @@ include '../includes/session.php';
          '&lecture_location='   + lecture_location +
          '&lecture_capacity='   + lecture_capacity +
          '&tutorial_name='      + tutorial_name +
-         '&tutorial_assistant=' + tutorial_assistant +
+         '&tutorial_ta='        + tutorial_ta +
          '&tutorial_notes='     + tutorial_notes +
          '&tutorial_day='       + tutorial_day +
          '&tutorial_from_time=' + tutorial_from_time +
