@@ -77,9 +77,9 @@ include '../includes/session.php';
 
     <select name="ward_list">
     <?php
-    $lecturers = mysql_query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
-    while ($row = mysql_fetch_array($lecturers)){
+    while ($row = $stmt1->fetch_assoc()){
 
     $lectureid = $row["userid"];
 
