@@ -391,16 +391,16 @@ include '../includes/session.php';
 		$("#error2").hide();
 		$("#lecture_name").addClass("success-style");
 	}
-    var lecturer = $('.selectpicker option:selected').val();
-    if(lecturer === '') {
-        $("#error3").show();
+
+    var lecturer_check = $(".bootstrap_select");
+    if (lecturer_check.hasClass('open')) {
+
+    }
+    else {
         $("#error3").empty().append("Please select a lecturer.");
         $(".selectpicker").addClass("error-style");
         hasError  = true;
         return false;
-    } else {
-        $("#error3").hide();
-        $(".selectpicker").addClass("success-style");
     }
 
     //Tutorials
