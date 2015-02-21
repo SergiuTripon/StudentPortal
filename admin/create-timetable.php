@@ -79,7 +79,7 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Lecture lecturer</label>
+    <label>Lecturer</label>
     <select class="form-control" name="lecturers">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
@@ -106,7 +106,48 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture notes</label>
-    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter module notes"></textarea>
+    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter lecture notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Lecture day</label>
+    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Select a lecture day"></textarea>
+    </div>
+    </div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Lecture from (time)</label>
+	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" placeholder="Select a time">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Lecture to (time)</label>
+	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" placeholder="Select a time">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Lecture from (date)</label>
+	<input type="text" class="form-control" name="lecture_from_date" id="lecture_from_date" placeholder="Select a date">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Lecture to (date)</label>
+	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" placeholder="Select a date">
+	</div>
+	</div>
+	<p id="error2" class="feedback-sad text-center"></p>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Lecture location</label>
+	<input type="text" class="form-control" name="lecture_location" id="lecture_location" placeholder="Enter a location">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Lecture capacity</label>
+	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
     <!-- End of Create lecture -->
