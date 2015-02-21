@@ -66,7 +66,7 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create module -->
 
-    <hr>
+    <hr class="hr-separator">
 
     <!-- Create lecture -->
 	<div class="form-group">
@@ -156,7 +156,7 @@ include '../includes/session.php';
     <p id="error7" class="feedback-sad text-center"></p>
     <!-- End of Create lecture -->
 
-    <hr>
+    <hr class="hr-separator">
 
     <!-- Create tutorial -->
 	<div class="form-group">
