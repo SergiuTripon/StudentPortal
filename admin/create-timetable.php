@@ -102,7 +102,7 @@ include '../includes/session.php';
     ?>
     </select>
 
-    <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox">
+    <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="#lecturers">
     <input type="text" class="form-control">
     <div class="input-group-btn">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -386,8 +386,8 @@ include '../includes/session.php';
     });
 	});
 
-    $('.lecturers').combobox();
-    $('.tutorial_assistants').combobox();
+    $('#lecturers').combobox();
+    $('#tutorial_assistants').combobox();
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
