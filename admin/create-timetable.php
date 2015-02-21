@@ -162,7 +162,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial name</label>
-    <input class="form-control" type="text" name="tutorial_name" id="lecture_name" value="" placeholder="Enter a module name">
+    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="" placeholder="Enter a tutorial name">
 	</div>
 	</div>
 	<p id="error8" class="feedback-sad text-center"></p>
@@ -196,7 +196,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial notes</label>
-    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter lecture notes"></textarea>
+    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter tutorial notes"></textarea>
 	</div>
 	</div>
 
