@@ -636,7 +636,7 @@ form .form-control:-ms-input-placeholder {
 .selectpicker:active,
 .selectpicker.active,
 .open >.dropdown-toggle.selectpicker {
-    border-color: #CCCCCC;
+    border-color: #8A8A8A;
     background-color: #FFFFFF;
 }
 
