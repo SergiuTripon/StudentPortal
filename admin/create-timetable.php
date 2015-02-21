@@ -75,6 +75,8 @@ include '../includes/session.php';
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
 
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <select class="form-control" name="lecturers">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
@@ -95,6 +97,8 @@ include '../includes/session.php';
 
     ?>
     </select>
+    </div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
