@@ -604,6 +604,10 @@ form .form-control:-ms-input-placeholder {
     padding: 11px;
 }
 
+.bootstrap-select.btn-group > .btn-default:focus, .bootstrap-select.btn-group > .btn-default:focus {
+    background-color: #CCCCCC;
+}
+
 /* End of Bootstrap select */
 
 /* Error message */
