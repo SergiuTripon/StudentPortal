@@ -152,6 +152,8 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create lecture -->
 
+    <hr>
+
     <!-- Create tutorial -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -226,11 +228,11 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Lecture location</label>
+	<label>Tutorial location</label>
 	<input type="text" class="form-control" name="tutorial_location" id="tutorial_location" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Lecture capacity</label>
+	<label>Tutorial capacity</label>
 	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
@@ -333,6 +335,15 @@ include '../includes/session.php';
         dateFormat: "yy-mm-dd"
     });
     $('#lecture_to_date').datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+
+    $('#tutorial_from_time').timepicker();
+    $('#tutorial_to_time').timepicker();
+    $('#tutorial_from_date').datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+    $('#tutorial_to_date').datepicker({
         dateFormat: "yy-mm-dd"
     });
 	});
