@@ -406,6 +406,7 @@ include '../includes/session.php';
         $(".selectpicker").addClass("success-style");
     }
 
+    var lecture_lecturer = $("#lecturers option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
     var lecture_day = $("#lecture_day").val();
     var lecture_from_time = $("#lecture_from_time").val();
@@ -441,6 +442,7 @@ include '../includes/session.php';
         $(".selectpicker").addClass("success-style");
     }
 
+    var tutorial_assistant = $("#tutorial_assistants option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
     var tutorial_day = $("#tutorial_day").val();
     var tutorial_from_time = $("#tutorial_from_time").val();
