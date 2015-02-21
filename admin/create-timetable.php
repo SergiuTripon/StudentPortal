@@ -360,6 +360,7 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
+
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
@@ -392,17 +393,17 @@ include '../includes/session.php';
 		$("#lecture_name").addClass("success-style");
 	}
 
-    var lecturer_check = $(".bootstrap_select");
-    if (lecturer_check.hasClass('open')) {
-        $("#error3").hide();
-        $(".selectpicker").addClass("success-style");
-    }
-    else {
+    var lecturer_check = $('.filter-option').text();
+    if (lecturer_check === 'Select a lecturer') {
         $("#error3").show();
         $("#error3").empty().append("Please select a lecturer.");
         $(".selectpicker").addClass("error-style");
         hasError  = true;
         return false;
+    }
+    else {
+        $("#error3").hide();
+        $(".selectpicker").addClass("success-style");
     }
 
     //Tutorials

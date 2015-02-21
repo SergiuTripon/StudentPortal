@@ -613,10 +613,6 @@ form .form-control:-ms-input-placeholder {
     color: #333333 !important;
     background-color: #CCCCCC !important;
 }
-
-.selectpicker [title] {
-    color: #CCC !IMPORTANT;
-}
 /* End of Bootstrap select */
 
 /* Error message */
