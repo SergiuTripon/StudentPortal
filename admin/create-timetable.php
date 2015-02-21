@@ -336,6 +336,8 @@ include '../includes/session.php';
 	<script>
 	$(document).ready(function () {
 
+    $('.filter-option').addClass("error-style");
+
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
@@ -364,16 +366,6 @@ include '../includes/session.php';
         $('#lecture_name').val($(this).val());
         $('#tutorial_name').val($(this).val());
     });
-
-    var lecturer_style = $('.filter-option');
-    var lecturer_style1 = $('.filter-option').text();
-    if (lecturer_style1 === 'Select a lecturer') {
-        lecturer_style.addClass("error-style");
-    }
-    else {
-        lecturer_style.addClass("success-style");
-    }
-
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
