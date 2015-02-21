@@ -81,7 +81,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
-    <select class="selectpicker" name="lecturers" id="lecturers" title="Select a lecturer">
+    <select class="selectpicker lecturers" name="lecturers" id="lecturers" title="Select a lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -172,7 +172,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Tutorial assistant</label>
-    <select class="form-control" name="tutorial_assistants" id="tutorial_assistants">
+    <select class="selectpicker tutorial_assistants" name="tutorial_assistants" id="tutorial_assistants" title="Select a tutorial assistant">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -371,7 +371,7 @@ include '../includes/session.php';
 
     //Lectures
 	var lecture_name = $("#lecture_name").val();
-    var lecture_lecturer = $(".selectpicker option:selected").val();
+    var lecture_lecturer = $(".lecturers option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
     var lecture_day = $("#lecture_day").val();
     var lecture_from_time = $("#lecture_from_time").val();
@@ -383,7 +383,7 @@ include '../includes/session.php';
 
     //Tutorials
 	var tutorial_name = $("#tutorial_name").val();
-    var tutorial_ta = $(".selectpicker option:selected").val();
+    var tutorial_assistant = $(".tutorial_assistants option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
     var tutorial_day = $("#tutorial_day").val();
     var tutorial_from_time = $("#tutorial_from_time").val();
@@ -411,7 +411,7 @@ include '../includes/session.php';
          '&lecture_location='   + lecture_location +
          '&lecture_capacity='   + lecture_capacity +
          '&tutorial_name='      + tutorial_name +
-         '&tutorial_ta='        + tutorial_ta +
+         '&tutorial_assistant=' + tutorial_assistant +
          '&tutorial_notes='     + tutorial_notes +
          '&tutorial_day='       + tutorial_day +
          '&tutorial_from_time=' + tutorial_from_time +
