@@ -594,39 +594,15 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Button group */
 
-/* Bootstrap select */
-.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+/* Select */
+.selectlist .btn {
     width: 100%;
-    margin-bottom: 10px;
 }
 
-.bootstrap-select.btn-group>.btn, .bootstrap-select.btn-group-vertical>.btn {
-    padding: 10px;
+.selectlist .dropdown-menu {
+    width: 100%;
 }
-
-.bootstrap-select.btn-group .btn .filter-option {
-    font-size: 15px;
-}
-
-.bootstrap-select.btn-group > .btn-default:focus, .bootstrap-select.btn-group > .btn-default:focus {
-    outline: none !important;
-    color: #333333 !important;
-    background-color: #CCCCCC !important;
-}
-
-.bootstrap-select .dropdown-menu {
-
-}
-
-.bootstrap-select .dropdown-menu {
-    background-color: #CCCCCC;
-}
-
-.bootstrap-select .dropdown-menu>li>a {
-    color: #333333;
-    font-size: 15px;
-}
-/* End of Bootstrap select */
+/* End of Select */
 
 /* Error message */
 form .feedback-sad {

@@ -80,8 +80,8 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Lecture name</label>
-    <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="#lecturers">
+    <label>Lecturer</label>
+    <div class="btn-group btn-group-justified btn-group-lg selectlist" data-resize="auto" data-initialize="selectlist" id="#lecturers">
     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
     <span class="selected-label"></span>
     <span class="fa fa-caret-down"></span>
