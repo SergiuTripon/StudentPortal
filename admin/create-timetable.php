@@ -130,7 +130,7 @@ include '../includes/session.php';
     </div>
     </div>
 
-    <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="mySelectlist">
+    <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="#lecturers">
     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
     <span class="selected-label"></span>
     <span class="caret"></span>
