@@ -599,8 +599,14 @@ form .form-control:-ms-input-placeholder {
     width: 100%;
 }
 
+.selectlist .btn:hover, .selectlist .btn:focus {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
 .selectlist .dropdown-menu {
     width: 100%;
+    background-color: #FFFFFF;
 }
 /* End of Select */
 
