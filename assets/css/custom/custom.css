@@ -228,6 +228,7 @@ hr {
 
 .dropdown-menu > li > a {
     color: #FFFFFF;
+    font-size: 15px;
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
@@ -597,6 +598,7 @@ form .form-control:-ms-input-placeholder {
 /* Select */
 .selectlist .btn {
     width: 100%;
+    text-align: left;
 }
 
 .selectlist .btn-default:hover, .selectlist .btn-default:focus {
@@ -617,7 +619,7 @@ form .form-control:-ms-input-placeholder {
 
 .selectlist .dropdown-menu > li > a:hover,
 .selectlist .dropdown-menu > li > a:focus  {
-    background-color: #CCCCCC;
+    background-color: #E3E3E3;
 }
 /* End of Select */
 
