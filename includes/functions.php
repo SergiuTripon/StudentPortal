@@ -466,8 +466,8 @@ function CreateTimetable() {
 
     $lecture_status = 'active';
 
-    $stmt2 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name) VALUES (?, ?)");
-    $stmt2->bind_param('is', $moduleid, $lecture_name);
+    $stmt2 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer) VALUES (?, ?, ?)");
+    $stmt2->bind_param('isi', $moduleid, $lecture_name, $lecture_lecturer);
     $stmt2->execute();
     $stmt2->close();
 
