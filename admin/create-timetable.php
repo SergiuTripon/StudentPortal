@@ -245,10 +245,10 @@ include '../includes/session.php';
 	$(function () {
 	$('#lecture_from_time').timepicker();
     $('#lecture_to_time').timepicker();
-    $('#lecture_from_date').datetimepicker({
+    $('#lecture_from_date').datepicker({
         dateFormat: "yy-mm-dd"
     });
-    $('#lecture_to_date').datetimepicker({
+    $('#lecture_to_date').datepicker({
         dateFormat: "yy-mm-dd"
     });
 	});
