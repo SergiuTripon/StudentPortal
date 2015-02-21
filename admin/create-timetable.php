@@ -365,12 +365,13 @@ include '../includes/session.php';
         $('#tutorial_name').val($(this).val());
     });
 
-    var lecturer_style = $('.filter-option').text();
-    if (lecturer_style === 'Select a lecturer') {
-        $('.filter-option').css("color", "gray");
+    var lecturer_style = $('.filter-option');
+    var lecturer_style1 = $('.filter-option').text();
+    if (lecturer_style1 === 'Select a lecturer') {
+        lecturer_style.css("color", "gray");
     }
     else {
-        $('.filter-option').css("color", "black");
+        lecturer_style.css("color", "black");
     }
 
 
