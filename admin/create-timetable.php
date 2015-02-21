@@ -217,11 +217,11 @@ include '../includes/session.php';
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Tutorial from (date)</label>
-	<input type="text" class="form-control" name="tutorial_from_date" id="lecture_from_date" placeholder="Select a date">
+	<input type="text" class="form-control" name="tutorial_from_date" id="tutorial_from_date" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Tutorial to (date)</label>
-	<input type="text" class="form-control" name="tutorial_to_date" id="lecture_to_date" placeholder="Select a date">
+	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" placeholder="Select a date">
 	</div>
 	</div>
 	<p id="error2" class="feedback-sad text-center"></p>
