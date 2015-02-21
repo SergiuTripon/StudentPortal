@@ -370,11 +370,6 @@ include '../includes/session.php';
     $('#lecturers').selectlist();
     $('#tutorial_assistants').selectlist();
 
-    $("#FormSubmit").click(function () {
-        var selected = $('#lecturers').selectlist('selectedItem');
-        alert (selected);
-    });
-
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
