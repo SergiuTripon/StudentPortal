@@ -9,10 +9,9 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-beta.3/css/select2.min.css" rel="stylesheet" />
+	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Create timetable</title>
 	
@@ -83,7 +82,6 @@ include '../includes/session.php';
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
     <select class="form-control" name="lecturers" id="lecturers">
-        <option class="disabled-select" value="null" selected="selected" disabled="disabled">Select a lecturer</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -340,7 +338,9 @@ include '../includes/session.php';
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     //Select2
-    $('#lecturers').select2();
+    $('#lecturers').select2({
+        placeholder: "Select a lecturer"
+    });
 
     // Date Time Picker
 	$(function () {
