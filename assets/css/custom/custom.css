@@ -564,7 +564,7 @@ form .form-control:-ms-input-placeholder {
     box-shadow: none;
 }
 
-.btn-group > .btn-default:focus, .btn-group > .btn-default:focus {
+.btn-group > .btn-default:hover, .btn-group > .btn-default:focus {
     color: #FFFFFF;
     background-color: #5D5D5D;
     border-color: #5D5D5D;
@@ -617,7 +617,7 @@ form .form-control:-ms-input-placeholder {
 
 .selectlist .dropdown-menu > li > a:hover,
 .selectlist .dropdown-menu > li > a:focus  {
-    backgroudn-color: #CCCCCC;
+    background-color: #CCCCCC;
 }
 /* End of Select */
 
