@@ -626,7 +626,6 @@ form .form-control:-ms-input-placeholder {
 .bootstrap-select > .btn-default:focus {
     outline: none !important;
     color: #333333;
-    box-shadow: none;
     border-color: #8A8A8A;
     background-color: #FFFFFF;
 }
@@ -638,6 +637,7 @@ form .form-control:-ms-input-placeholder {
 .selectpicker.active,
 .open >.dropdown-toggle.selectpicker {
     color: #333333 !important;
+    box-shadow: none !important;
     border-color: #8A8A8A !important;
     background-color: #FFFFFF !important;
 }
