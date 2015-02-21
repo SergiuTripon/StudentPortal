@@ -350,7 +350,7 @@
           '<div class="btn-group bootstrap-select' + multiple + inputGroup + '">' +
           '<button type="button" class="btn dropdown-toggle form-control selectpicker" data-toggle="dropdown"' + autofocus + '>' +
           '<span class="filter-option pull-left"></span>&nbsp;' +
-          '<span class="caret"></span>' +
+          '<span class="fa fa-chevron-down"></span>' +
           '</button>' +
           '<div class="dropdown-menu open">' +
           header +
