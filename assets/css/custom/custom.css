@@ -630,12 +630,12 @@ form .form-control:-ms-input-placeholder {
     background-color: #FFFFFF;
 }
 
-.selectpicker:hover,
-.selectpicker:focus,
-.selectpicker.focus,
-.selectpicker:active,
-.selectpicker.active,
-.open >.dropdown-toggle.selectpicker {
+.bootstrap-select .btn-default:hover,
+.bootstrap-select .btn-default:focus,
+.bootstrap-select .btn-default.focus,
+.bootstrap-select .btn-default:active,
+.bootstrap-select .btn-default.active,
+.bootstrap-select .open >.dropdown-toggle.btn-default {
     border-color: #8A8A8A;
     background-color: #FFFFFF;
 }
