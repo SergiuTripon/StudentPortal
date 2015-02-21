@@ -605,6 +605,7 @@ form .form-control:-ms-input-placeholder {
 }
 
 .bootstrap-select.btn-group > .btn-default:focus, .bootstrap-select.btn-group > .btn-default:focus {
+    color: #333333 !important;
     background-color: #CCCCCC !important;
 }
 
