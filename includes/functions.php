@@ -885,7 +885,7 @@ function ImportLocations () {
 	$category = 'cycle_parking';
 
 	$stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
-	$stmt3->bind_param('sssss', $title, $description, $lat, $long, $category);
+	$stmt3->bind_param('sssss', $title, $description, $long, $lat, $category);
 	$stmt3->execute();
 	$stmt3->close();
 	}
@@ -902,7 +902,7 @@ function ImportLocations () {
 	$category = 'ATM';
 
 	$stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
-	$stmt3->bind_param('sssss', $title, $description, $lat, $long, $category);
+	$stmt3->bind_param('sssss', $title, $description, $long, $lat, $category);
 	$stmt3->execute();
 	$stmt3->close();
 	}
