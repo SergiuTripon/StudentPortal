@@ -368,10 +368,10 @@ include '../includes/session.php';
     var lecturer_style = $('.filter-option');
     var lecturer_style1 = $('.filter-option').text();
     if (lecturer_style1 === 'Select a lecturer') {
-        lecturer_style.css("color", "gray");
+        lecturer_style.addClass("error-style");
     }
     else {
-        lecturer_style.css("color", "black");
+        lecturer_style.addClass("success-style");
     }
 
 
