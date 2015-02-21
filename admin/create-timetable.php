@@ -373,13 +373,7 @@ include '../includes/session.php';
     });
 	});
 
-
-    $('#lecturers').selectpicker();
     $('.selectpicker').selectpicker();
-
-        $('.dropdown-inverse li > a').click(function(e){
-            $('.status').text(this.innerHTML);
-        });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
