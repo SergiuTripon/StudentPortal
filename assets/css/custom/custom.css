@@ -645,7 +645,7 @@ form .form-control:-ms-input-placeholder {
 }
 
 .bootstrap-select .dropdown-menu > li > a {
-    color: #FFFFFF;
+    color: #333333;
 }
 
 .bootstrap-select .dropdown-menu > li > a:hover,
