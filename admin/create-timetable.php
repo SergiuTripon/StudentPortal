@@ -102,6 +102,21 @@ include '../includes/session.php';
     ?>
     </select>
 
+    <div class="btn-group">
+    <i class="dropdown-arrow dropdown-arrow-inverse"></i>
+    <button class="btn btn-primary status">status</button>
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-inverse">
+        <li><a href="#fakelink">pending</a>
+        </li>
+        <li><a href="#fakelink">active</a>
+        </li>
+        <li><a href="#fakelink">discontinued</a>
+        </li>
+    </ul>
+    </div>
+
     </div>
     </div>
     <p id="error3" class="feedback-sad text-center"></p>
