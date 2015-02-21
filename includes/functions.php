@@ -431,13 +431,16 @@ function GetDashboardData() {
 function CreateTimetable() {
 
     global $mysqli;
+    global $created_on;
 
     $module_name = filter_input(INPUT_POST, 'module_name', FILTER_SANITIZE_STRING);
     $module_notes = filter_input(INPUT_POST, 'module_notes', FILTER_SANITIZE_STRING);
     $module_url = filter_input(INPUT_POST, 'module_url', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url) VALUES (?, ?, ?)");
-    $stmt1->bind_param('sss', $module_name, $module_notes, $module_url);
+    $module_status = 'active';
+
+    $stmt1 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
+    $stmt1->bind_param('sss', $module_name, $module_notes, $module_url, $module_status, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
