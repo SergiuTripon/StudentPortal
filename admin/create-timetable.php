@@ -12,6 +12,8 @@ include '../includes/session.php';
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-beta.3/css/select2.min.css" rel="stylesheet" />
+
     <title>Student Portal | Create timetable</title>
 	
 </head>
@@ -329,11 +331,16 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-beta.3/js/select2.min.js"></script>
+
 	<script>
 	$(document).ready(function () {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //Select2
+    $('#lecturers').select2();
 
     // Date Time Picker
 	$(function () {
