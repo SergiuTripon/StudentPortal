@@ -66,6 +66,8 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create module -->
 
+    <hr>
+
     <!-- Create lecture -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
