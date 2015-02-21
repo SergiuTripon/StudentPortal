@@ -342,23 +342,57 @@ include '../includes/session.php';
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
+    var today = new Date();
 	$(function () {
 	$('#lecture_from_time').timepicker();
     $('#lecture_to_time').timepicker();
     $('#lecture_from_date').datepicker({
-        dateFormat: "yy-mm-dd"
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#lecture_to_date").datepicker( "option", "minDate", selectedDate);
+        }
     });
     $('#lecture_to_date').datepicker({
-        dateFormat: "yy-mm-dd"
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#lecture_from_date").datepicker( "option", "minDate", selectedDate);
+        }
     });
 
     $('#tutorial_from_time').timepicker();
     $('#tutorial_to_time').timepicker();
+
     $('#tutorial_from_date').datepicker({
-        dateFormat: "yy-mm-dd"
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
+        }
     });
     $('#tutorial_to_date').datepicker({
-        dateFormat: "yy-mm-dd"
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
+        }
     });
 	});
 
