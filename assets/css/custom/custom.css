@@ -1162,53 +1162,53 @@ form .success-style:-ms-input-placeholder {
 }
 .btn-primary {
     color: #FFFFFF !important;
-    background-color: #4582EC;
     border-color: #4582EC;
+    background-color: #4582EC;
 }
 .btn-primary:focus ,.btn-primary:hover {
     color: #FFFFFF;
+    border-color: #1863E6;
     background-color: #1863E6;
-    border-color: #175FDD;
 }
 .btn-success {
     color: #FFFFFF;
-    background-color: #3FAD46;
     border-color: #3FAD46;
+    background-color: #3FAD46;
 }
 .btn-success:focus, .btn-success:hover {
     color: #FFFFFF;
+    border-color: #318837;
     background-color: #318837;
-    border-color: #2F8034;
 }
 .btn-info {
     color: #FFFFFF;
-    background-color: #5BC0DE;
     border-color: #5BC0DE;
+    background-color: #5BC0DE;
 }
 .btn-info:focus, .btn-info:hover {
     color: #FFFFFF;
+    border-color: #31B0D5;
     background-color: #31B0D5;
-    border-color: #2AABD2;
 }
 .btn-warning {
     color: #FFFFFF;
-    background-color: #F0AD4E;
     border-color: #F0AD4E;
+    background-color: #F0AD4E;
 }
 .btn-warning:focus, .btn-warning:hover {
     color: #FFFFFF;
+    border-color: #EC971F;
     background-color: #EC971F;
-    border-color: #EB9316;
 }
 .btn-danger {
     color: #FFFFFF;
-    background-color: #D9534F;
     border-color: #D9534F;
+    background-color: #D9534F;
 }
 .btn-danger:focus, .btn-danger:hover {
     color: #FFFFFF;
+    border-color: #C9302C;
     background-color: #C9302C;
-    border-color: #C12E2A;
 }
 /* End of Buttons */
 
