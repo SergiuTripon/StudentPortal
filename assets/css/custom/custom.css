@@ -602,8 +602,8 @@ form .form-control:-ms-input-placeholder {
 .selectlist .btn-default:hover, .selectlist .btn-default:focus {
     width: 100%;
     color: #333333;
-    background-color: #E3E3E3;
     border-color: #CCCCCC;
+    background-color: #E3E3E3;
 }
 
 .selectlist .dropdown-menu {
