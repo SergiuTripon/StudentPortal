@@ -45,7 +45,7 @@ include '../includes/session.php';
     <!-- Create module -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="studentno">Module name</label>
+	<label>Module name</label>
     <input class="form-control" type="text" name="module_name" id="module_name" value="" placeholder="Enter a module name">
 	</div>
 	</div>
@@ -69,7 +69,7 @@ include '../includes/session.php';
     <!-- Create lecture -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="studentno">Lecture name</label>
+	<label>Lecture name</label>
     <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" value="" placeholder="Enter a module name">
 	</div>
 	</div>
@@ -77,6 +77,7 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Lecture lecturer</label>
     <select class="form-control" name="lecturers">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
