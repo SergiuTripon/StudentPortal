@@ -33,8 +33,8 @@ include '../includes/session.php';
 	<li><a href="../../account/">Account</a></li>
     <li class="active">Create an account</li>
     </ol>
-	
-	<!-- Create module -->
+
+    <!-- Create timetable -->
 	<form class="form-custom" style="max-width: 100%;" name="createtimetable_form" id="createtimetable_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
@@ -42,6 +42,7 @@ include '../includes/session.php';
 
 	<div id="hide">
 
+    <!-- Create module -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="studentno">Module name</label>
@@ -63,13 +64,52 @@ include '../includes/session.php';
     <input class="form-control" type="text" name="module_url" id="module_url" placeholder="Enter a module URL">
 	</div>
 	</div>
+    <!-- End of Create module -->
+
+    <!-- Create lecture -->
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="studentno">Lecture name</label>
+    <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" value="" placeholder="Enter a module name">
+	</div>
+	</div>
+	<p id="error1" class="feedback-sad text-center"></p>
+
+    <select name="ward_list">
+    <?php
+    $lecturers = mysql_query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+
+    while ($row = mysql_fetch_array($lecturers)){
+
+    $lectureid = $row["userid"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lectureid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($firstname, $surname);
+    $stmt2->fetch();
+
+        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+    }
+
+    ?>
+    </select>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Lecture notes</label>
+    <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" placeholder="Enter module notes">
+	</div>
+	</div>
+    <!-- End of Create lecture -->
 
 	</div>
 
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create account</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create timetable</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
@@ -77,7 +117,7 @@ include '../includes/session.php';
 	</div>
 	
     </form>
-    <!-- End of Create module -->
+    <!-- End of Create timetable -->
 
 	</div> <!-- /container -->
 	
