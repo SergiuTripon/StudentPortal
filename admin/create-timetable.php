@@ -75,7 +75,7 @@ include '../includes/session.php';
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
 
-    <select name="ward_list">
+    <select class="form-control" name="lecturers">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
