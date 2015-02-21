@@ -594,6 +594,17 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Button group */
 
+/* Bootstrap select */
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100%;
+}
+
+.bootstrap-select {
+
+}
+
+/* End of Bootstrap select */
+
 /* Error message */
 form .feedback-sad {
     color: #D9534F !important;
