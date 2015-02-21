@@ -641,6 +641,10 @@ form .form-control:-ms-input-placeholder {
     background-color: #FFFFFF;
 }
 
+.bootstrap-select .error-style {
+    box-shadow: none !important;
+}
+
 .bootstrap-select .dropdown-menu {
     background-color: #FFFFFF;
 }
@@ -665,12 +669,6 @@ form .feedback-sad {
 }
 
 form .error-style {
-    color: #FFFFFF !important;
-    border-color: #D9534F !important;
-    background: #D9534F !important;
-}
-
-form .error-style:hover {
     color: #FFFFFF !important;
     border-color: #D9534F !important;
     background: #D9534F !important;
@@ -720,12 +718,6 @@ form .feedback-happy {
 }
 
 form .success-style {
-    color: #FFFFFF !important;
-    border-color: #3FAD46 !important;
-    background: #3FAD46 !important;
-}
-
-form .success-style:hover {
     color: #FFFFFF !important;
     border-color: #3FAD46 !important;
     background: #3FAD46 !important;
