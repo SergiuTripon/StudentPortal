@@ -626,7 +626,12 @@ form .form-control:-ms-input-placeholder {
 .selectlist > .btn-default:hover,
 .selectlist > .btn-default:focus {
     background-color: #E3E3E3;
-    border-color: #E3E3E3;
+    border-color: #CCCCCC;
+}
+
+.selectlist > .btn:active, .selectlist > .active.btn {
+    border: 1px solid #CCCCCC;
+    background-color: #E3E3E3 !important;
 }
 /* End of Select */
 
