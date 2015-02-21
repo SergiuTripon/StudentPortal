@@ -596,7 +596,10 @@ form .form-control:-ms-input-placeholder {
 /* End of Button group */
 
 /* Bootstrap Select */
-
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100%;
+    margin-bottom: 10px;
+}
 /* End of Bootstrap Select */
 
 /* Error message */
