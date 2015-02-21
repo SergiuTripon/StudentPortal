@@ -358,6 +358,9 @@ include '../includes/session.php';
     });
 	});
 
+
+    $('#lecturers').selectpicker();
+
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
