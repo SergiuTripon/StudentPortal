@@ -73,7 +73,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture name</label>
-    <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" value="" placeholder="Enter a module name">
+    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="" placeholder="Enter a module name">
 	</div>
 	</div>
 	<p id="error2" class="feedback-sad text-center"></p>
@@ -116,7 +116,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecture day</label>
-    <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" placeholder="Select a lecture day">
+    <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Select a lecture day">
     </div>
     </div>
     <p id="error4" class="feedback-sad text-center"></p>
