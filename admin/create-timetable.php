@@ -358,7 +358,7 @@ include '../includes/session.php';
     });
 	});
 
-    $(".selectpicker").css("color", "gray");
+    $(".filter-option").css("color", "gray");
 
     $('.filter-option').text();
 
