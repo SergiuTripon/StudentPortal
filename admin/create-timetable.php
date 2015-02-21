@@ -81,6 +81,7 @@ include '../includes/session.php';
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
     <select class="form-control" name="lecturers">
+        <option value="null">Select a lecturer</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -361,6 +362,7 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
+    //Modules
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
 		$("#error1").show();
@@ -372,7 +374,8 @@ include '../includes/session.php';
 		$("#error2").hide();
 		$("#firstname").addClass("success-style");
 	}
-	
+
+    //Lectures
 	var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
 		$("#error2").show();
@@ -385,6 +388,7 @@ include '../includes/session.php';
 		$("#lecture_name").addClass("success-style");
 	}
 
+    //Tutorials
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
 		$("#error8").show();
