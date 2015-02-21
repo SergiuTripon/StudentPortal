@@ -358,19 +358,6 @@ include '../includes/session.php';
     });
 	});
 
-    $(".selectpicker").css("color", "gray");
-
-    $('.filter-option').text();
-
-    $( ".selectpicker").click(function() {
-        var lecturer_style = $('.filter-option').text();
-        if (lecturer_style === 'Select a lecturer') {
-            $(".selectpicker").css("color", "gray");
-        } else {
-            $(".selectpicker").css("color", "#333333");
-        }
-    }
-
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
