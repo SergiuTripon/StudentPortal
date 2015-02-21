@@ -243,10 +243,8 @@ include '../includes/session.php';
 
     // Date Time Picker
 	$(function () {
-	$('#dateofbirth').datepicker({
-		dateFormat: "yy-mm-dd",
-		defaultDate: new Date(1993, 00, 01)
-	});
+	$('#lecture_from_time').timepicker();
+    $('#lecture_to_time').timepicker();
 	});
 
 	//Responsiveness
