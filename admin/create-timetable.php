@@ -358,17 +358,6 @@ include '../includes/session.php';
     });
 	});
 
-    $(".filter-option").css("color", "gray");
-
-    $( ".selectpicker").click(function() {
-        var lecturer_style = $('.filter-option').text();
-        if (lecturer_style === 'Select a lecturer') {
-            $(".selectpicker").css("color", "gray");
-        } else {
-            $(".selectpicker").css("color", "#333333");
-        }
-    });
-
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
@@ -382,7 +371,7 @@ include '../includes/session.php';
 
     //Lectures
 	var lecture_name = $("#lecture_name").val();
-    var lecture_lecturer = $("#lecturers:selected").val();
+    var lecture_lecturer = $(".selectpicker option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
     var lecture_day = $("#lecture_day").val();
     var lecture_from_time = $("#lecture_from_time").val();
@@ -394,7 +383,7 @@ include '../includes/session.php';
 
     //Tutorials
 	var tutorial_name = $("#tutorial_name").val();
-    var tutorial_ta = $("#tutorial_assistants:selected").val();
+    var tutorial_ta = $(".selectpicker option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
     var tutorial_day = $("#tutorial_day").val();
     var tutorial_from_time = $("#tutorial_from_time").val();
