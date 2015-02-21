@@ -599,7 +599,7 @@ form .form-control:-ms-input-placeholder {
     width: 100%;
 }
 
-.selectlist .btn:hover, .selectlist .btn:focus {
+.selectlist .btn-default:hover, .selectlist .btn-default:focus {
     width: 100%;
     color: #333333;
     background-color: #E3E3E3;
