@@ -358,7 +358,9 @@ include '../includes/session.php';
     });
 	});
 
-    $('.selectpicker').selectpicker();
+    $(".selectpicker").css("color", "#CCCCCC");
+
+    $('.filter-option').text();
 
     $( ".selectpicker").click(function() {
         var lecturer_style = $('.filter-option').text();
