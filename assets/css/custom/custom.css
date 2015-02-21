@@ -629,6 +629,16 @@ form .form-control:-ms-input-placeholder {
     border-color: #8A8A8A;
     background-color: #FFFFFF;
 }
+
+.bootstrap-select .btn-default:hover,
+.bootstrap-select .btn-default:focus,
+.bootstrap-select .btn-default.focus,
+.bootstrap-select .btn-default:active,
+.bootstrap-select .btn-default.active,
+.bootstrap-select .open >.dropdown-toggle.btn-default {
+    border-color: #CCCCCC;
+    background-color: #FFFFFF;
+}
 /* End of Bootstrap Select */
 
 /* Error message */
