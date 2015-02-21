@@ -606,6 +606,12 @@ form .form-control:-ms-input-placeholder {
     border: 1px solid #CCCCCC;
     background-color: #E3E3E3 !important;
 }
+
+.bootstrap-select > .btn-default:hover, .bootstrap-select > .btn-default:focus {
+    color: #FFFFFF;
+    background-color: #CCCCCC;
+    border-color: #E3E3E3;
+}
 /* End of Bootstrap Select */
 
 /* Error message */
