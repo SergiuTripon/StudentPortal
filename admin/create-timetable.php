@@ -245,6 +245,12 @@ include '../includes/session.php';
 	$(function () {
 	$('#lecture_from_time').timepicker();
     $('#lecture_to_time').timepicker();
+    $('#lecture_from_date').datetimepicker({
+        dateFormat: "yy-mm-dd"
+    });
+    $('#lecture_to_date').datetimepicker({
+        dateFormat: "yy-mm-dd"
+    });
 	});
 
 	//Responsiveness
