@@ -81,7 +81,7 @@ include '../includes/session.php';
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
     <select class="form-control" name="lecturers" id="lecturers">
-        <option value="null" selected="selected" disabled="disabled">Select a lecturer</option>
+        <option id="disabled-select" value="null" selected="selected" disabled="disabled">Select a lecturer</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -355,8 +355,6 @@ include '../includes/session.php';
         dateFormat: "yy-mm-dd"
     });
 	});
-
-    jQuery('[disabled]').css({'color': 'gray'});
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
