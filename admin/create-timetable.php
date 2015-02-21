@@ -75,7 +75,7 @@ include '../includes/session.php';
     <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" value="" placeholder="Enter a module name">
 	</div>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
+	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -102,6 +102,7 @@ include '../includes/session.php';
     </select>
     </div>
     </div>
+    <p id="error3" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -116,6 +117,7 @@ include '../includes/session.php';
     <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" placeholder="Select a lecture day">
     </div>
     </div>
+    <p id="error4" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -127,6 +129,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" placeholder="Select a time">
 	</div>
 	</div>
+    <p id="error5" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -138,7 +141,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" placeholder="Select a date">
 	</div>
 	</div>
-	<p id="error2" class="feedback-sad text-center"></p>
+	<p id="error6" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -150,6 +153,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
+    <p id="error7" class="feedback-sad text-center"></p>
     <!-- End of Create lecture -->
 
     <hr>
@@ -161,7 +165,7 @@ include '../includes/session.php';
     <input class="form-control" type="text" name="tutorial_name" id="lecture_name" value="" placeholder="Enter a module name">
 	</div>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
+	<p id="error8" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -198,10 +202,11 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Lecture day</label>
+    <label>Tutorial day</label>
     <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" placeholder="Select a day">
     </div>
     </div>
+    <p id="error9" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -213,6 +218,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" placeholder="Select a time">
 	</div>
 	</div>
+    <p id="error10" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -224,7 +230,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" placeholder="Select a date">
 	</div>
 	</div>
-	<p id="error2" class="feedback-sad text-center"></p>
+	<p id="error11" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -236,6 +242,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
+    <p id="error12" class="feedback-sad text-center"></p>
     <!-- End of Create tutorial -->
 
 	</div>
@@ -348,75 +355,17 @@ include '../includes/session.php';
     });
 	});
 
-	//Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480){
-			$('.btn-group').removeClass('btn-group-justified');
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		} else {
-			$('.btn-group').addClass('btn-group-justified');
-		}
-	})
-	.resize();//trigger the resize event on page load.
-
-    //Global variable
-	var account_type;
-	var gender2;
-	var studentno;
-	var degree;
-
-	//Setting variable value
-	$('.btn-group > .account_type').click(function(){
-		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
-
-		if(account_type === 'Student') {
-			$('label[for="studentno"]').show();
-			$('#studentno').show();
-			$('label[for="degree"]').show();
-			$('#degree').show();
-		}
-		if(account_type === 'Lecturer') {
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-		if(account_type === 'Admin') {
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-
-	})
-	$('.btn-group > .gender').click(function(){
-		gender2 = ($(this).text().replace(/^\s+|\s+$/g,''))
-	})
-
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-	var account_type_check = $(".account_type");
-	if (account_type_check.hasClass('active')) {
-		$("#error1").hide();
-		$(".btn-group > .account_type").addClass("success-style");
-	}
-	else {
-		$("#error1").empty().append("Please select an account type.");
-		$(".btn-group > .account_type").addClass("error-style");
-		hasError  = true;
-		return false;
-	}
-
-	var firstname2 = $("#firstname").val();
-	if(firstname2 === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a first name.");
-		$("#firstname").addClass("error-style");
+	var module_name = $("#module_name").val();
+	if(module_name === '') {
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a module name.");
+		$("#module_name").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
@@ -424,152 +373,28 @@ include '../includes/session.php';
 		$("#firstname").addClass("success-style");
 	}
 	
-	var surname2 = $("#surname").val();
-	if(surname2 === '') {
+	var lecture_name = $("#lecture_name").val();
+	if(lecture_name === '') {
 		$("#error2").show();
-        $("#error2").empty().append("Please enter a surname.");
-		$("#surname").addClass("error-style");
+        $("#error2").empty().append("Please enter a lecture name.");
+		$("#lecture_name").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#surname").addClass("success-style");
+		$("#lecture_name").addClass("success-style");
 	}
 
-	var gender_check = $(".gender");
-	if (gender_check.hasClass('active')) {
-		$("#error3").hide();
-		$(".btn-group > .gender").addClass("success-style");
-	}
-	else {
-		$("#error3").empty().append("Please select a gender.");
-		$(".btn-group > .gender").addClass("error-style");
-		hasError  = true;
-		return false;
-	}
-
-	if (account_type === 'Student') {
-		studentno = $("#studentno").val();
-		degree = $("#degree").val();
-
-		if(studentno === '') {
-			$("#error4").show();
-			$("#error4").empty().append("Please enter a student number.");
-			$("#studentno").addClass("error-style");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error4").hide();
-			$("#studentno").addClass("success-style");
-		}
-		if ($.isNumeric(studentno)) {
-			$("#error4").hide();
-			$("#studentno").addClass("success-style");
-		} else {
-			$("#error4").show();
-			$("#error4").empty().append("The student number entered is invalid.<br>The student number must be numeric.");
-			$("#studentno").addClass("error-style");
-			hasError  = true;
-			return false;
-		}
-		if (studentno.length != 9) {
-			$("#error4").show();
-			$("#error4").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
-			$("#studentno").addClass("error-style");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error4").hide();
-			$("#studentno").addClass("success-style");
-		}
-		if(degree === '') {
-			$("#error4").show();
-			$("#error4").empty().append("Please enter a programme of study.");
-			$("#degree").addClass("error-style");
-			hasError  = true;
-			return false;
-		} else {
-			$("#error4").hide();
-			$("#degree").addClass("success-style");
-		}
-	} else {
-		studentno = $("#studentno").val();
-		degree = $("#degree").val();
-	}
-
-	var email5 = $("#email").val();
-	if(email5 === '') {
-		$("#error5").show();
-        $("#error5").empty().append("Please enter an email address.");
-		$("#email").addClass("error-style");
+	var tutorial_name = $("#tutorial_name").val();
+	if(tutorial_name === '') {
+		$("#error8").show();
+        $("#error8").empty().append("Please enter a tutorial name.");
+		$("#tutorial_name").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
-		$("#error5").hide();
-		$("#email").addClass("success-style");
-	}
-
-	var password4 = $("#password").val();
-	if(password4 === '') {
-		$("#error6").show();
-        $("#error6").empty().append("Please enter a password.");
-		$("#password").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error6").hide();
-		$("#password").addClass("error-style");
-	}
-
-	if (password4.length < 6) {
-		$("#error6").show();
-		$("#error6").empty().append("Passwords must be at least 6 characters long. Please try again.");
-		$("#password").addClass("error-style");
-		hasError  = true;
-		return false;
-	} else {
-		$("#error6").hide();
-		$("#password").addClass("success-style");
-	}
-
-	var upperCase= new RegExp('[A-Z]');
-	var lowerCase= new RegExp('[a-z]');
-	var numbers = new RegExp('[0-9]');
-
-	if(password4.match(upperCase) && password4.match(lowerCase) && password4.match(numbers)) {
-		$("#error6").hide();
-		$("#password").addClass("success-style");
-	} else {
-		$("#error6").show();
-		$("#error6").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
-		$("#password").addClass("error-style");
-		hasError  = true;
-		return false;
-	}
-
-	var confirmpwd = $("#confirmpwd").val();
-	if(confirmpwd === '') {
-		$("#error6").show();
-        $("#error6").empty().append("Please enter a password confirmation.");
-		$("#confirmpwd").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error6").hide();
-		$("#confirmpwd").addClass("success-style");
-	}
-
-	if(password4 != confirmpwd) {
-		$("#error6").show();
-		$("#error6").empty().append("Your password and confirmation do not match. Please try again.");
-		$("#password").addClass("error-style");
-		$("#confirmpwd").addClass("error-style");
-        hasError  = true;
-		return false;
-	} else {
-		$("#error6").hide();
-		$("#password").addClass("success-style");
-		$("#confirmpwd").addClass("success-style");
+		$("#error8").hide();
+		$("#tutorial_name").addClass("success-style");
 	}
 
 	var nationality1 = $("#nationality").val();
