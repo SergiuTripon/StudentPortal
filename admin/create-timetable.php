@@ -81,7 +81,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
-    <select class="form-control" name="lecturers" id="lecturers">
+    <select class="form-control" name="lecturers" id="lecturers" multiple data-max-options="2">
         <option class="disabled-select" value="null" selected="selected" disabled>Select a lecturer</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
