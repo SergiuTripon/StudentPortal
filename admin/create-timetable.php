@@ -173,7 +173,8 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Tutorial assistant</label>
-    <select class="selectpicker" name="tutorial_assistants" id="tutorial_assistants" title="Select a tutorial assistant" multiple data-max-options="1">
+    <select class="selectpicker" name="tutorial_assistants" id="tutorial_assistants" title="Select a tutorial assistant">
+        <option data-hidden="true">Select a tutorial assistant</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
