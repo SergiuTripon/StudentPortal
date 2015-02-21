@@ -615,6 +615,12 @@ form .form-control:-ms-input-placeholder {
     background-color: #FFFFFF !important;
 }
 
+.bootstrap-select > .btn-default:hover {
+    outline: none !important;
+    background-color: #FFFFFF;
+}
+
+
 .bootstrap-select > .btn-default:focus {
     outline: none !important;
     color: #333333;
