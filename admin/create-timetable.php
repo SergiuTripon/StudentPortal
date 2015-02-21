@@ -360,11 +360,13 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-    var lecturer_style = $('.filter-option').text();
-    if (lecturer_style === 'Select a lecturer') {
-        $(".selectpicker").css("color", "gray");
-    } else {
-        $(".selectpicker").css("color", "#CCCCCC");
+    $( ".selectpicker" ).click(function() {
+        var lecturer_style = $('.filter-option').text();
+        if (lecturer_style === 'Select a lecturer') {
+            $(".selectpicker").css("color", "gray");
+        } else {
+            $(".selectpicker").css("color", "#CCCCCC");
+        }
     }
 
     //Ajax call
