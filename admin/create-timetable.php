@@ -394,9 +394,11 @@ include '../includes/session.php';
 
     var lecturer_check = $(".bootstrap_select");
     if (lecturer_check.hasClass('open')) {
-
+        $("#error3").hide();
+        $(".selectpicker").addClass("success-style");
     }
     else {
+        $("#error3").show();
         $("#error3").empty().append("Please select a lecturer.");
         $(".selectpicker").addClass("error-style");
         hasError  = true;
