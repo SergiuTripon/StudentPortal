@@ -603,7 +603,7 @@ form .feedback-sad {
 
 form .error-style {
     color: #FFFFFF !important;
-    border-color: #C9302C !important;
+    border-color: #D9534F !important;
     background: #D9534F !important;
 }
 
@@ -652,7 +652,7 @@ form .feedback-happy {
 
 form .success-style {
     color: #FFFFFF !important;
-    border-color: #318837 !important;
+    border-color: #3FAD46 !important;
     background: #3FAD46 !important;
 }
 
