@@ -365,6 +365,15 @@ include '../includes/session.php';
         $('#tutorial_name').val($(this).val());
     });
 
+    var lecturer_style = $('.filter-option').text();
+    if (lecturer_style === 'Select a lecturer') {
+        $('.filter-option').css("color", "gray");
+    }
+    else {
+        $('.filter-option').css("color", "black");
+    }
+
+
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
