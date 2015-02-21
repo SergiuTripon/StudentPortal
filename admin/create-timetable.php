@@ -362,7 +362,7 @@ include '../includes/session.php';
 
     var lecturer_style = $('.filter-option').text();
     if (lecturer_style === 'Select a lecturer') {
-        $("#error3").css("color", "gray");
+        $(".selectpicker").css("color", "gray");
     }
 
     //Ajax call
