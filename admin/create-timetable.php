@@ -102,6 +102,13 @@ include '../includes/session.php';
 
     ?>
     </select>
+
+    <select class="selectpicker" multiple data-max-options="1">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Relish</option>
+    </select>
+
     </div>
     </div>
     <p id="error3" class="feedback-sad text-center"></p>
@@ -360,6 +367,7 @@ include '../includes/session.php';
 
 
     $('#lecturers').selectpicker();
+    $('.selectpicker').selectpicker();
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
