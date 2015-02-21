@@ -639,6 +639,19 @@ form .form-control:-ms-input-placeholder {
     border-color: #CCCCCC;
     background-color: #FFFFFF;
 }
+
+.bootstrap-select .dropdown-menu {
+    background-color: #FFFFFF;
+}
+
+.bootstrap-select .dropdown-menu > li > a {
+    color: #FFFFFF;
+}
+
+.bootstrap-select .dropdown-menu > li > a:hover,
+.bootstrap-select .dropdown-menu > li > a:focus {
+    background-color: #CCCCCC;
+}
 /* End of Bootstrap Select */
 
 /* Error message */
