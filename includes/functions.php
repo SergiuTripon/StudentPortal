@@ -457,7 +457,8 @@ function CreateTimetable() {
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC");
+    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE moduleid = ? LIMIT 1 ORDER BY DESC");
+    $stmt4->bind_param('i', $moduleid);
     $stmt4->execute();
     $stmt4->store_result();
     $stmt4->bind_result($moduleid);
@@ -465,9 +466,10 @@ function CreateTimetable() {
     $stmt4->close();
 
     $lecture_lecturer = '2';
+    $lecture_status = 'active';
 
-    $stmt2 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer) VALUES (?, ?, ?)");
-    $stmt2->bind_param('isi', $moduleid, $lecture_name, $lecture_lecturer);
+    $stmt2 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt2->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
     $stmt2->execute();
     $stmt2->close();
 
