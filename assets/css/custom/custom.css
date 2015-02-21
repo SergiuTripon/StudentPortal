@@ -596,8 +596,9 @@ form .form-control:-ms-input-placeholder {
 /* End of Button group */
 
 /* Select */
-.selectlist .btn {
+.selectlist .btn-default {
     width: 100%;
+    font-size: 15px;
     text-align: left;
 }
 
@@ -620,6 +621,12 @@ form .form-control:-ms-input-placeholder {
 .selectlist .dropdown-menu > li > a:hover,
 .selectlist .dropdown-menu > li > a:focus  {
     background-color: #E3E3E3;
+}
+
+.selectlist .btn-group > .btn-default:hover,
+.selectlist .btn-group > .btn-default:focus {
+    background-color: #E3E3E3;
+    border-color: #E3E3E3;
 }
 /* End of Select */
 
