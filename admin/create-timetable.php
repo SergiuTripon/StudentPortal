@@ -9,8 +9,7 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-beta.3/css/select2.min.css" rel="stylesheet" />
-	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
+    <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Create timetable</title>
