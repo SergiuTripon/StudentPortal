@@ -6,10 +6,10 @@
     student_centre: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
     },
-    lecture_theatres: {
+    lecture_theatre: {
         icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
     },
-    computer_labs: {
+    computer_lab: {
         icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
     },
     library: {
