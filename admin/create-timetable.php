@@ -356,12 +356,9 @@ include '../includes/session.php';
     });
 	});
 
-    var lecturers_default = $("#lecturers option:selected").val();
-    if (lecturers_default === 'null') {
-        $("#lecturers option:selected").css("color", "grey");
-    }
+    jQuery('[disabled]').css({'color': 'gray'});
 
-	//Ajax call
+    //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
