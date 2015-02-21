@@ -116,7 +116,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecture day</label>
-    <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" placeholder="Select a lecture day">
+    <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Select a lecture day">
     </div>
     </div>
     <p id="error4" class="feedback-sad text-center"></p>
@@ -172,7 +172,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Tutorial assistant</label>
-    <select class="form-control" name="tutorial_assistants">
+    <select class="form-control" name="tutorial_assistants" id="tutorial_assistants">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -377,67 +377,67 @@ include '../includes/session.php';
 
     //Modules
 	var module_name = $("#module_name").val();
-	if(module_name === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a module name.");
-		$("#module_name").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error2").hide();
-		$("#firstname").addClass("success-style");
-	}
+    var module_notes = $("#module_notes").val();
+    var module_url = $("#module_url").val();
 
     //Lectures
 	var lecture_name = $("#lecture_name").val();
-	if(lecture_name === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a lecture name.");
-		$("#lecture_name").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error2").hide();
-		$("#lecture_name").addClass("success-style");
-	}
-
-    var lecturer_check = $('.filter-option').text();
-    if (lecturer_check === 'Select a lecturer') {
-        $("#error3").show();
-        $("#error3").empty().append("Please select a lecturer.");
-        $(".selectpicker").addClass("error-style");
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("#error3").hide();
-        $(".selectpicker").addClass("success-style");
-    }
+    var lecture_lecturer = $("#lecturers:selected").val();
+    var lecture_notes = $("#lecture_notes").val();
+    var lecture_day = $("#lecture_day").val();
+    var lecture_from_time = $("#lecture_from_time").val();
+    var lecture_to_time = $("#lecture_to_time").val();
+    var lecture_from_date = $("#lecture_from_date").val();
+    var lecture_to_date = $("#lecture_to_date").val();
+    var lecture_location = $("#lecture_location").val();
+    var lecture_capacity = $("#lecture_capacity").val();
 
     //Tutorials
 	var tutorial_name = $("#tutorial_name").val();
-	if(tutorial_name === '') {
-		$("#error8").show();
-        $("#error8").empty().append("Please enter a tutorial name.");
-		$("#tutorial_name").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error8").hide();
-		$("#tutorial_name").addClass("success-style");
-	}
+    var tutorial_ta = $("#tutorial_assistants:selected").val();
+    var tutorial_notes = $("#tutorial_notes").val();
+    var tutorial_day = $("#tutorial_day").val();
+    var tutorial_from_time = $("#tutorial_from_time").val();
+    var tutorial_to_time = $("#tutorial_to_time").val();
+    var tutorial_from_date = $("#tutorial_from_date").val();
+    var tutorial_to_date = $("#tutorial_to_date").val();
+    var tutorial_location = $("#tutorial_location").val();
+    var tutorial_capacity = $("#tutorial_capacity").val();
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'account_type=' + account_type + '&firstname2=' + firstname2 + '&surname2=' + surname2 + '&gender2=' + gender2 + '&studentno=' + studentno + '&degree=' + degree + '&email5=' + email5 + '&password4=' + password4 + '&nationality1=' + nationality1 + '&dateofbirth1=' + dateofbirth1 + '&phonenumber1=' + phonenumber1 + '&address11=' + address11 + '&address21=' + address21 + '&town1=' + town1 + '&city1=' + city1 + '&country1=' + country1 + '&postcode1=' + postcode1,
+    data:'module_name='         + module_name +
+         '&module_notes='       + module_notes +
+         '&module_url='         + module_url +
+         '&lecture_name='       + lecture_name +
+         '&lecture_lecturer='   + lecture_lecturer +
+         '&lecture_notes='      + lecture_notes +
+         '&lecture_day='        + lecture_day +
+         '&lecture_from_time='  + lecture_from_time +
+         '&lecture_to_time='    + lecture_to_time +
+         '&lecture_from_date='  + lecture_from_date +
+         '&lecture_to_date='    + lecture_to_date +
+         '&lecture_location='   + lecture_location +
+         '&lecture_capacity='   + lecture_capacity +
+         '&tutorial_name='      + tutorial_name +
+         '&tutorial_ta='        + tutorial_ta +
+         '&tutorial_notes='     + tutorial_notes +
+         '&tutorial_day='       + tutorial_day +
+         '&tutorial_from_time=' + tutorial_from_time +
+         '&tutorial_to_time='   + tutorial_to_time +
+         '&tutorial_from_date=' + tutorial_from_date +
+         '&tutorial_to_date='   + tutorial_to_date +
+         '&tutorial_location='  + tutorial_location +
+         '&tutorial_capacity='  + tutorial_capacity,
+
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Account created successfully.');
+		$("#success").empty().append('Timetable created successfully.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
