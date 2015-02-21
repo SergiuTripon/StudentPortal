@@ -358,7 +358,7 @@ include '../includes/session.php';
     });
 	});
 
-    $(".selectpicker").css("color", "#CCCCCC");
+    $(".selectpicker").css("color", "gray");
 
     $('.filter-option').text();
 
@@ -367,7 +367,7 @@ include '../includes/session.php';
         if (lecturer_style === 'Select a lecturer') {
             $(".selectpicker").css("color", "gray");
         } else {
-            $(".selectpicker").css("color", "#CCCCCC");
+            $(".selectpicker").css("color", "#333333");
         }
     }
 
