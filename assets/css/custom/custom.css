@@ -603,11 +603,20 @@ form .form-control:-ms-input-placeholder {
     width: 100%;
     color: #333333;
     background-color: #E3E3E3;
+    border: none;
 }
 
 .selectlist .dropdown-menu {
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: #E3E3E3;
+}
+
+.selectlist .dropdown-menu > li > a {
+    color: #333333;
+}
+
+.selectlist .dropdown-menu > .open > a {
+    background-color: #E3E3E3;
 }
 /* End of Select */
 
