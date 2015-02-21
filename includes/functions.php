@@ -457,10 +457,17 @@ function CreateTimetable() {
     $stmt1->execute();
     $stmt1->close();
 
+    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY created_on ASC");
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($moduleid);
+    $stmt4->fetch();
+    $stmt4->close();
+
     $lecture_status = 'active';
 
-    $stmt2 = $mysqli->prepare("INSERT INTO system_lectures (lecture_name) VALUES (?)");
-    $stmt2->bind_param('s', $lecture_name);
+    $stmt2 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name) VALUES (?, ?)");
+    $stmt2->bind_param('is', $moduleid, $lecture_name);
     $stmt2->execute();
     $stmt2->close();
 
