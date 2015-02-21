@@ -630,13 +630,14 @@ form .form-control:-ms-input-placeholder {
     background-color: #FFFFFF;
 }
 
-.bootstrap-select .btn-default:hover,
-.bootstrap-select .btn-default:focus,
-.bootstrap-select .btn-default.focus,
-.bootstrap-select .btn-default:active,
-.bootstrap-select .btn-default.active,
-.bootstrap-select .open >.dropdown-toggle.btn-default {
-    border-color: #8A8A8A;
+.selectpicker:hover,
+.selectpicker:focus,
+.selectpicker.focus,
+.selectpicker:active,
+.selectpicker.active,
+.open >.dropdown-toggle.selectpicker {
+    color: #333333 !important;
+    border-color: #8A8A8A !important;
     background-color: #FFFFFF !important;
 }
 
