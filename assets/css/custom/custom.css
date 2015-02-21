@@ -758,8 +758,13 @@ form .success-style:-ms-input-placeholder {
 }
 
 .filter-option {
-    color: gray !important;
+    color: gray;
 }
+
+.bootstrap-select .dropdown-menu > li.selected a.text {
+    color: #333333 !important;
+}
+
 /* End of Bootstrap Select */
 
 /* Tiles style */
