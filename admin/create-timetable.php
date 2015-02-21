@@ -397,17 +397,6 @@ include '../includes/session.php';
 		$("#tutorial_name").addClass("success-style");
 	}
 
-	var nationality1 = $("#nationality").val();
-	var dateofbirth1 = $("#dateofbirth").val();
-	var phonenumber1 = $("#phonenumber").val();
- 	var address11 = $("#address1").val();
-	var address21 = $("#address2").val();
-	var town1 = $("#town").val();
-	var city1 = $("#city").val();
-	var country1 = $("#country").val();
-	var postcode1 = $("#postcode").val();
-
-	
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
