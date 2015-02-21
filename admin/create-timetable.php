@@ -81,7 +81,8 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
-    <select class="selectpicker" name="lecturers" id="lecturers" title="Select a lecturer">
+    <select class="selectpicker" name="lecturers" id="lecturers">
+        <option data-hidden="true">Select a lecturer</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
