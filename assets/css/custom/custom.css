@@ -595,45 +595,9 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Button group */
 
-/* Select */
-.selectlist .btn-default {
-    width: 100%;
-    font-size: 15px;
-    text-align: left;
-}
+/* Bootstrap Select */
 
-.selectlist .btn-default:hover, .selectlist .btn-default:focus {
-    width: 100%;
-    color: #333333;
-    border-color: #CCCCCC;
-    background-color: #E3E3E3;
-}
-
-.selectlist .dropdown-menu {
-    width: 100%;
-    background-color: #FFFFFF;
-}
-
-.selectlist .dropdown-menu > li > a {
-    color: #333333;
-}
-
-.selectlist .dropdown-menu > li > a:hover,
-.selectlist .dropdown-menu > li > a:focus  {
-    background-color: #E3E3E3;
-}
-
-.selectlist > .btn-default:hover,
-.selectlist > .btn-default:focus {
-    background-color: #E3E3E3;
-    border-color: #CCCCCC;
-}
-
-.selectlist > .btn:active, .selectlist > .active.btn {
-    border: 1px solid #CCCCCC;
-    background-color: #E3E3E3 !important;
-}
-/* End of Select */
+/* End of Bootstrap Select */
 
 /* Error message */
 form .feedback-sad {
