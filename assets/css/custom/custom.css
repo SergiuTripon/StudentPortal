@@ -739,7 +739,7 @@ form .success-style:-ms-input-placeholder {
     background-color: #FFFFFF !important;
 }
 
-.bootstrap-select .error-style {
+.bootstrap-select .error-style:focus {
     box-shadow: none !important;
 }
 
