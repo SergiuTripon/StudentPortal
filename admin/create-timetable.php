@@ -26,7 +26,7 @@ include '../includes/session.php';
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
 
-	<div id="create-timetable" class="container">
+	<div id="admin-timetable-portal" class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>

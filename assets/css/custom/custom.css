@@ -914,7 +914,7 @@ form .success-style:-ms-input-placeholder {
 /* End of Timetable portal */
 
 /* Admin Timetable portal */
-#timetable-portal .hr-separator {
+#admin-timetable-portal .hr-separator {
     margin-top: 0;
     margin-bottom: 20px;
     border-color: #6B5204;
