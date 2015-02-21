@@ -369,7 +369,7 @@ include '../includes/session.php';
         } else {
             $(".selectpicker").css("color", "#333333");
         }
-    }
+    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
