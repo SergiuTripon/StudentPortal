@@ -464,7 +464,7 @@ function CreateTimetable() {
     $stmt4->fetch();
     $stmt4->close();
 
-    $lecture_status = 'active';
+    $lecture_lecturer = '2';
 
     $stmt2 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer) VALUES (?, ?, ?)");
     $stmt2->bind_param('isi', $moduleid, $lecture_name, $lecture_lecturer);
