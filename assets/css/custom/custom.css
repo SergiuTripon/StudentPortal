@@ -486,7 +486,7 @@ form select {
     margin-bottom: 10px;
 }
 
-form select #disabled-select {
+form select.disabled-select {
     color: gray !important;
 }
 
