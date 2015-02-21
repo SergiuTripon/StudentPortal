@@ -457,7 +457,7 @@ function CreateTimetable() {
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY created_on ASC");
+    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC");
     $stmt4->execute();
     $stmt4->store_result();
     $stmt4->bind_result($moduleid);
