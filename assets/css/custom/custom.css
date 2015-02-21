@@ -622,8 +622,9 @@ form .form-control:-ms-input-placeholder {
     background-color: #CCCCCC;
 }
 
-.bootstrap-select .dropdown-menu > li > a {
+.bootstrap-select .dropdown-menu>li>a {
     color: #333333;
+    font-size: 15px;
 }
 /* End of Bootstrap select */
 
