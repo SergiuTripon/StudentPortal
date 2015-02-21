@@ -601,7 +601,11 @@ form .form-control:-ms-input-placeholder {
 }
 
 .bootstrap-select.btn-group>.btn, .bootstrap-select.btn-group-vertical>.btn {
-    padding: 11px;
+    padding: 10px;
+}
+
+.bootstrap-select.btn-group .btn .filter-option {
+    font-size: 15px;
 }
 
 .bootstrap-select.btn-group > .btn-default:focus, .bootstrap-select.btn-group > .btn-default:focus {
