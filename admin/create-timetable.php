@@ -336,7 +336,7 @@ include '../includes/session.php';
 	<script>
 	$(document).ready(function () {
 
-    $('.filter-option').addClass("error-style");
+    $(".selectpicker").addClass("error-style");
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
