@@ -9,7 +9,7 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <link href="https://www.fuelcdn.com/fuelux/3.5.0/css/fuelux.min.css" rel="stylesheet">
+    <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
@@ -101,34 +101,6 @@ include '../includes/session.php';
 
     ?>
     </select>
-
-    <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox">
-    <input type="text" class="form-control">
-    <div class="input-group-btn">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-    <ul class="dropdown-menu dropdown-menu-right">
-        <?php
-        $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
-
-        while ($row = $stmt1->fetch_assoc()){
-
-            $lectureid = $row["userid"];
-
-            $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-            $stmt2->bind_param('i', $lectureid);
-            $stmt2->execute();
-            $stmt2->store_result();
-            $stmt2->bind_result($firstname, $surname);
-            $stmt2->fetch();
-
-            echo '<li data-value="'.$lectureid.'"><a href="#">'.$firstname.' '.$surname.'</a></li>';
-
-        }
-
-        ?>
-    </ul>
-    </div>
-    </div>
 
     </div>
     </div>
@@ -356,8 +328,8 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <script src="https://www.fuelcdn.com/fuelux/3.5.0/js/fuelux.min.js"></script>
-    <?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
+    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
+	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
 	$(document).ready(function () {
@@ -385,9 +357,6 @@ include '../includes/session.php';
         dateFormat: "yy-mm-dd"
     });
 	});
-
-    $('.lecturers').combobox();
-    $('.tutorial_assistants').combobox();
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
