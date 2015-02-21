@@ -26,7 +26,7 @@ include '../includes/session.php';
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
 
-	<div class="container">
+	<div id="create-timetable" class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -113,7 +113,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecture day</label>
-    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Select a lecture day"></textarea>
+    <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" placeholder="Select a lecture day">
     </div>
     </div>
 
@@ -151,6 +151,90 @@ include '../includes/session.php';
 	</div>
 	</div>
     <!-- End of Create lecture -->
+
+    <!-- Create tutorial -->
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Tutorial name</label>
+    <input class="form-control" type="text" name="tutorial_name" id="lecture_name" value="" placeholder="Enter a module name">
+	</div>
+	</div>
+	<p id="error1" class="feedback-sad text-center"></p>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Tutorial assistant</label>
+    <select class="form-control" name="tutorial_assistants">
+    <?php
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+    $lectureid = $row["userid"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lectureid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($firstname, $surname);
+    $stmt2->fetch();
+
+        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+    }
+
+    ?>
+    </select>
+    </div>
+    </div>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Tutorial notes</label>
+    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter lecture notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Lecture day</label>
+    <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" placeholder="Select a day">
+    </div>
+    </div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Tutorial from (time)</label>
+	<input type="text" class="form-control" name="tutorial_from_time" id="tutorial_from_time" placeholder="Select a time">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Tutorial to (time)</label>
+	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" placeholder="Select a time">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Tutorial from (date)</label>
+	<input type="text" class="form-control" name="tutorial_from_date" id="lecture_from_date" placeholder="Select a date">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Tutorial to (date)</label>
+	<input type="text" class="form-control" name="tutorial_to_date" id="lecture_to_date" placeholder="Select a date">
+	</div>
+	</div>
+	<p id="error2" class="feedback-sad text-center"></p>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Lecture location</label>
+	<input type="text" class="form-control" name="tutorial_location" id="tutorial_location" placeholder="Enter a location">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Lecture capacity</label>
+	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
+	</div>
+	</div>
+    <!-- End of Create tutorial -->
 
 	</div>
 
