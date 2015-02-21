@@ -433,9 +433,22 @@ function CreateTimetable() {
     global $mysqli;
     global $created_on;
 
+    //Module
     $module_name = filter_input(INPUT_POST, 'module_name', FILTER_SANITIZE_STRING);
     $module_notes = filter_input(INPUT_POST, 'module_notes', FILTER_SANITIZE_STRING);
     $module_url = filter_input(INPUT_POST, 'module_url', FILTER_SANITIZE_STRING);
+
+    //Lecture
+    $lecture_name = filter_input(INPUT_POST, 'lecture_name', FILTER_SANITIZE_STRING);
+    $lecture_lecturer = filter_input(INPUT_POST, 'lecture_lecturer', FILTER_SANITIZE_STRING);
+    $lecture_notes = filter_input(INPUT_POST, 'lecture_notes', FILTER_SANITIZE_STRING);
+    $lecture_day = filter_input(INPUT_POST, 'lecture_day', FILTER_SANITIZE_STRING);
+    $lecture_from_time = filter_input(INPUT_POST, 'lecture_from_time', FILTER_SANITIZE_STRING);
+    $lecture_to_time = filter_input(INPUT_POST, 'lecture_to_time', FILTER_SANITIZE_STRING);
+    $lecture_from_date = filter_input(INPUT_POST, 'lecture_from_date', FILTER_SANITIZE_STRING);
+    $lecture_to_date = filter_input(INPUT_POST, 'lecture_to_date', FILTER_SANITIZE_STRING);
+    $lecture_location = filter_input(INPUT_POST, 'lecture_location', FILTER_SANITIZE_STRING);
+    $lecture_capacity = filter_input(INPUT_POST, 'lecture_capacity', FILTER_SANITIZE_STRING);
 
     $module_status = 'active';
 
@@ -443,6 +456,13 @@ function CreateTimetable() {
     $stmt1->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
     $stmt1->execute();
     $stmt1->close();
+
+    $lecture_status = 'active';
+
+    $stmt2 = $mysqli->prepare("INSERT INTO system_lectures (lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt2->bind_param('ssssssssssss', $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
+    $stmt2->execute();
+    $stmt2->close();
 
 }
 
