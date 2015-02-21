@@ -130,6 +130,36 @@ include '../includes/session.php';
     </div>
     </div>
 
+    <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="mySelectlist">
+    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+    <span class="selected-label"></span>
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <?php
+        $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+
+        while ($row = $stmt1->fetch_assoc()){
+
+            $lectureid = $row["userid"];
+
+            $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+            $stmt2->bind_param('i', $lectureid);
+            $stmt2->execute();
+            $stmt2->store_result();
+            $stmt2->bind_result($firstname, $surname);
+            $stmt2->fetch();
+
+            echo '<li data-value="'.$lectureid.'"><a href="#">'.$firstname.' '.$surname.'</a></li>';
+
+        }
+
+        ?>
+    </ul>
+    <input class="hidden hidden-field" name="mySelectlist" readonly="readonly" aria-hidden="true" type="text"/>
+    </div>
+
     </div>
     </div>
     <p id="error3" class="feedback-sad text-center"></p>
@@ -386,8 +416,8 @@ include '../includes/session.php';
     });
 	});
 
-    $('#lecturers').combobox();
-    $('#tutorial_assistants').combobox();
+    $('#lecturers').selectlist();
+    $('#tutorial_assistants').selectlist();
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
