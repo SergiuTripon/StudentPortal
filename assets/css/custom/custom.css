@@ -506,12 +506,12 @@ form .form-control:focus {
 /* Remember Password hack (Chrome) */
 form .form-control:-webkit-autofill {
     -webkit-text-fill-color: #333333;
-    -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+    -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset;
 }
 
 form .form-control:-webkit-autofill:focus {
     -webkit-text-fill-color: #333333;
-    -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+    -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset;
 }
 /* End of Remember Password hack (Chrome) */
 
@@ -611,15 +611,15 @@ form .form-control:-ms-input-placeholder {
 .bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
     outline: none !important;
     box-shadow: none !important;
-    border: 1px solid #CCCCCC;
-    background-color: #E3E3E3 !important;
+    border: 1px solid #8A8A8A;
+    background-color: #FFFFFF !important;
 }
 
 .bootstrap-select > .btn-default:hover, .bootstrap-select > .btn-default:focus {
     outline: none !important;
     color: #333333;
-    background-color: #E3E3E3;
-    border-color: #CCCCCC;
+    border-color: #8A8A8A;
+    background-color: #FFFFFF;
 }
 /* End of Bootstrap Select */
 
