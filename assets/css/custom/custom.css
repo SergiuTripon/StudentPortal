@@ -619,13 +619,12 @@ form .form-control:-ms-input-placeholder {
 }
 
 .bootstrap-select .dropdown-menu {
-    color: #CCCCCC;
+    background-color: #CCCCCC;
 }
 
 .bootstrap-select .dropdown-menu > li > a {
     color: #333333;
 }
-
 /* End of Bootstrap select */
 
 /* Error message */

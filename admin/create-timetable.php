@@ -360,6 +360,10 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
+    var lecturer_style = $('.filter-option').text();
+    if (lecturer_style === 'Select a lecturer') {
+        $("#error3").css("color", "gray");
+    }
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
