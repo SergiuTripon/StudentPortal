@@ -54,7 +54,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module notes</label>
-    <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter module notes">
+    <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter module notes"></textarea>
 	</div>
 	</div>
 
@@ -106,7 +106,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture notes</label>
-    <input class="form-control" type="text" name="lecture_notes" id="lecture_notes" placeholder="Enter module notes">
+    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter module notes"></textarea>
 	</div>
 	</div>
     <!-- End of Create lecture -->
