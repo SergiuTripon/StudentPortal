@@ -617,6 +617,8 @@ form .form-control:-ms-input-placeholder {
 
 .bootstrap-select > .btn-default:hover {
     outline: none !important;
+    color: #333333;
+    border-color: #CCCCCC;
     background-color: #FFFFFF;
 }
 
