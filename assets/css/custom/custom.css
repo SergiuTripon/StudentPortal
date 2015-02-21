@@ -614,8 +614,8 @@ form .form-control:-ms-input-placeholder {
     background-color: #CCCCCC !important;
 }
 
-.selectpicker [title="Select a lecturer"] {
-    color: #CCC;
+.selectpicker [title] {
+    color: #CCC !IMPORTANT;
 }
 /* End of Bootstrap select */
 
