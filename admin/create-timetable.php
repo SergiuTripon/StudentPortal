@@ -360,7 +360,7 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-    $( ".selectpicker" ).click(function() {
+    $( ".selectpicker").click(function() {
         var lecturer_style = $('.filter-option').text();
         if (lecturer_style === 'Select a lecturer') {
             $(".selectpicker").css("color", "gray");
