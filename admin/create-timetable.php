@@ -96,7 +96,7 @@ include '../includes/session.php';
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$lectureid.'" selected="selected">'.$firstname.' '.$surname.'</option>';
     }
 
     ?>
