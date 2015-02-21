@@ -391,6 +391,17 @@ include '../includes/session.php';
 		$("#error2").hide();
 		$("#lecture_name").addClass("success-style");
 	}
+    var lecturer = $('.selectpicker option:selected').val();
+    if(lecturer === 'Nothing selected') {
+        $("#error3").show();
+        $("#error3").empty().append("Please select a lecturer.");
+        $(".selectpicker").addClass("error-style");
+        hasError  = true;
+        return false;
+    } else {
+        $("#error3").hide();
+        $(".selectpicker").addClass("success-style");
+    }
 
     //Tutorials
 	var tutorial_name = $("#tutorial_name").val();
