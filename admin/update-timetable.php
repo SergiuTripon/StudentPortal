@@ -65,7 +65,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
-    <title>Student Portal | Create timetable</title>
+    <title>Student Portal | Update timetable</title>
 	
 </head>
 
@@ -84,11 +84,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../timetable/">Timetable</a></li>
-    <li class="active">Create timetable</li>
+    <li class="active">Update timetable</li>
     </ol>
 
     <!-- Create timetable -->
-	<form class="form-custom" style="max-width: 100%;" name="createtimetable_form" id="createtimetable_form" novalidate>
+	<form class="form-custom" style="max-width: 100%;" name="updatetimetable_form" id="updatetimetable_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
