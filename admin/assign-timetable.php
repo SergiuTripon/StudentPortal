@@ -3,7 +3,7 @@ include '../includes/session.php';
 
 if (isset($_POST["recordToAssign"])) {
 
-    $idToAssign = filter_input(INPUT_POST, 'recordToAssign', FILTER_SANITIZE_NUMBER_INT);
+    $moduleToAssign = filter_input(INPUT_POST, 'recordToAssign', FILTER_SANITIZE_NUMBER_INT);
 
 } else {
     header('Location: ../../timetable/');
@@ -41,7 +41,7 @@ if (isset($_POST["recordToAssign"])) {
 		<li class="active">Assign timetable</li>
 	</ol>
 
-    <div id="idToAssign" style="display: none !important;"><?php echo $idToAssign; ?></div>
+    <div id="moduleToAssign" style="display: none !important;"><?php echo $moduleToAssign; ?></div>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -159,17 +159,17 @@ if (isset($_POST["recordToAssign"])) {
 	$("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
 
-    var idToAssign = $("#idToAssign").html();
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
+    var clickedID = this.id.split('-');
+    var userToAssign = clickedID[1];
+    var moduleToAssign = $("#moduleToAssign").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'&idToAssign='+ idToAssign + '&recordToAssign='+ DbNumberID,
+	data:'userToAssign='+ userToAssign + '&moduleToAssign='+ moduleToAssign,
 	success:function(){
-		$('#assign-'+DbNumberID).fadeOut();
+		$('#assign-'+userToAssign).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
