@@ -505,19 +505,19 @@ function CreateTimetable() {
         exit();
     }
 
-    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC LIMIT 1");
-    $stmt4->execute();
-    $stmt4->store_result();
-    $stmt4->bind_result($moduleid);
-    $stmt4->fetch();
-    $stmt4->close();
-
     $module_status = 'active';
 
     $stmt5 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
     $stmt5->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
     $stmt5->execute();
     $stmt5->close();
+
+    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC LIMIT 1");
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($moduleid);
+    $stmt4->fetch();
+    $stmt4->close();
 
     $lecture_status = 'active';
     $lecture_lecturer = 2;
