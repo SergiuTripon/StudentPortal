@@ -418,7 +418,7 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
-    var lecturer_check = $('.selectpicker option:selected').val();
+    var lecturer_check = $('#lecturers option:selected').val();
     alert(lecturer_check);
 
     //Modules
