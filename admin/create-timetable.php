@@ -338,7 +338,7 @@ include '../includes/session.php';
 	<script>
 	$(document).ready(function () {
 
-    alert($(".test1999").attr('title'));
+    alert($(".bootstrap-select button.selectpicker").attr('title'));
 
 
 	//Ladda
