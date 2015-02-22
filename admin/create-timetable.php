@@ -348,14 +348,14 @@ include '../includes/session.php';
     $(".filter-option").css("color", "gray");
 
     $( ".bootstrap-select" ).click(function() {
-        var lecturer_check = $(".bootstrap-select button.selectpicker:first").attr('title');
-        var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
+        var lecturer_style = $("#lecturers option:selected").html();
+        var tutorial_assistant_style = $("#tutorial_assistants option:selected").html();
 
-        if (lecturer_check != 'Select a lecturer') {
+        if (lecturer_style != 'Select an option') {
             $(".filter-option:first").css("cssText", "color: #333333;");
         }
 
-        if (tutorial_assistant_check != 'Select a tutorial assistant') {
+        if (tutorial_assistant_style != 'Select an option') {
             $(".filter-option:eq(1)").css("cssText", "color: #333333;");
         }
     });
