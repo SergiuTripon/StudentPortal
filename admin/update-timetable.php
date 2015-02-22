@@ -137,8 +137,27 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Lecture from (time)</label>
-	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" value="<?php echo $lecture_from_time; ?>" placeholder="Select a time">
+	<label for="lecturer">Current lecturer</label>
+    <select class="selectpicker lecturer" name="lecturer" id="lecturer">
+    <?php
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+    $lecturer = $row["userid"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lecturer);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($firstname, $surname);
+    $stmt2->fetch();
+
+        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
+    }
+    ?>
+
+    </select>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Lecture to (time)</label>
