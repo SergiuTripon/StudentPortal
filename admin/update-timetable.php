@@ -499,7 +499,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	});
 
     $("#update_lecturer").change(function() {
-        var newlecturer = $("#lecturer option:selected").html();
+        var newlecturer = $("#update_lecturer option:selected").html();
         alert(newlecturer);
     });
 
