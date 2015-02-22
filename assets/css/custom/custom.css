@@ -728,12 +728,12 @@ form .success-style:-ms-input-placeholder {
     background-color: #FFFFFF;
 }
 
-.selectpicker:hover,
-.selectpicker:focus,
-.selectpicker.focus,
-.selectpicker:active,
-.selectpicker.active,
-.open >.dropdown-toggle.selectpicker {
+.bootstrap-select .selectpicker:hover,
+.bootstrap-select .selectpicker:focus,
+.bootstrap-select .selectpicker.focus,
+.bootstrap-select .selectpicker:active,
+.bootstrap-select .selectpicker.active,
+.bootstrap-select .open >.dropdown-toggle.selectpicker {
     color: #333333 !important;
     background-color: #FFFFFF !important;
 }
