@@ -503,7 +503,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $("#update_lecturer").change(function() {
         $('#lecturer').prop('disabled',true);
-        $('#lecturer').selectpicker('refresh');
+        new_lecturer = $('#update_lecturer option:selected').val();
     });
 
     //Ajax call
