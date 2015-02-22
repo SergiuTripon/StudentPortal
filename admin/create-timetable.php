@@ -355,7 +355,7 @@ include '../includes/session.php';
 
         if (tutorial_assistant_style != 'Select an option') {
             $("#tutorial_assistant option:selected").css("cssText", "color: #333333;");
-            $(".tutorial_assistant > .filter-option").css("cssText", "color: #333333;");
+            $(".tutorial_assistant .select-picker > .filter-option").css("cssText", "color: #333333;");
         }
     });
 
