@@ -764,6 +764,10 @@ form .success-style:-ms-input-placeholder {
 .error-style .filter-option:hover {
     color: #333333 !important;
 }
+
+.bootstrap-select .error-style {
+    border: none !important;
+}
 /* End of Bootstrap Select */
 
 /* Tiles style */
