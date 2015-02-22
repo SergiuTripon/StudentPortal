@@ -692,6 +692,15 @@ form .success-style:-ms-input-placeholder {
     border-left: 1px solid #CCCCCC;
 }
 
+.btn-default:hover,
+.btn-default:focus,
+.btn-default.focus,
+.btn-default:active,
+.btn-default.active,
+.open>.dropdown-toggle.btn-default {
+    border-color: #8A8A8A !important;
+}
+
 @media (max-width: 480px) {
 .btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
     border-top-right-radius: 3px;
