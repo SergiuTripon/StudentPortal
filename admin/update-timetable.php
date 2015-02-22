@@ -166,6 +166,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Lecturer</label>
     <select class="selectpicker" name="update-lecturer" id="update-lecturer">
+        <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
