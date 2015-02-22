@@ -124,7 +124,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <hr class="hr-separator">
 
     <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureid; ?>">
-    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $lecture_lecturer; ?>">
 
     <!-- Create lecture -->
 	<div class="form-group">
@@ -136,45 +135,19 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
-    <select class="selectpicker" name="lecturer" id="lecturer">
-    <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
-
-    while ($row = $stmt1->fetch_assoc()){
-
-    $lecturer = $row["userid"];
-
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lecturer);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
-
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
-    }
-    ?>
-
-    </select>
-
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Lecturer</label>
-    <select class="selectpicker" name="update-lecturer" id="update-lecturer">
+    <select class="selectpicker" name="lecturers" id="lecturers">
+        <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $lecturer = $row["userid"];
+    $lectureid = $row["userid"];
 
     $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lecturer);
+    $stmt2->bind_param('i', $lectureid);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($firstname, $surname);
@@ -497,13 +470,9 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
-    $('#update_lecturer').bind('click', function() {
-        $('#lecturer').val($(this).val());
-    });
-
-    $("#update_lecturer").change(function() {
-        var newlecturer = $('#update_lecturer').html();
-        $("#lecturer").html(newlecturer);
+    $('#module_name').bind('keypress keyup blur', function() {
+        $('#lecture_name').val($(this).val());
+        $('#tutorial_name').val($(this).val());
     });
 
     //Ajax call
