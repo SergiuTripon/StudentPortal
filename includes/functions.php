@@ -530,6 +530,14 @@ function CreateTimetable() {
         exit();
     } else {
 
+        $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC");
+        $stmt4->bind_param('i', $moduleid);
+        $stmt4->execute();
+        $stmt4->store_result();
+        $stmt4->bind_result($moduleid);
+        $stmt4->fetch();
+        $stmt4->close();
+
         $tutorial_status = 'active';
 
         $stmt7 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
