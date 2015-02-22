@@ -160,9 +160,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </select>
 
     </div>
-    </div>
 
-    <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label for="update_lecturer">Update lecturer</label>
     <select class="selectpicker update_lecturer" name="update_lecturer" id="update_lecturer">
@@ -281,9 +279,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </select>
 
     </div>
-    </div>
 
-    <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label for="update_tutorial_assistant">Update tutorial assistant</label>
     <select class="selectpicker update_tutorial_assistant" name="update_tutorial_assistant" id="update_tutorial_assistant">
@@ -540,8 +536,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
         var new_tutorial_assistant = $("#update_tutorial_assistant option:selected").text();
         var new_tutorial_assistant1 = $("#update_tutorial_assistant option:selected").val();
         $("label[for='lecturer']").empty().append("New lecturer");
-        $('#tutorial_assistant option:selected').text(new_lecturer);
-        $('#tutorial_assistant option:selected').val(new_lecturer1);
+        $('#tutorial_assistant option:selected').text(new_tutorial_assistant);
+        $('#tutorial_assistant option:selected').val(new_tutorial_assistant1);
         $('#tutorial_assistant').selectpicker('refresh');
     });
 
