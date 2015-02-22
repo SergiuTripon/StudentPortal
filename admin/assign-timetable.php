@@ -41,7 +41,7 @@ if (isset($_POST["recordToAssign"])) {
 		<li class="active">Assign timetable</li>
 	</ol>
 
-    <div id="idToAssign"><?php echo $idToAssign; ?></div>
+    <div id="idToAssign" style="display: none !important;"><?php echo $idToAssign; ?></div>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
