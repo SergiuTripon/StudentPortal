@@ -163,6 +163,9 @@ if (isset($_POST["recordToAssign"])) {
     var userToAssign = clickedID[1];
     var moduleToAssign = $("#moduleToAssign").html();
 
+    alert(userToAssign);
+    alert(moduleToAssign);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
