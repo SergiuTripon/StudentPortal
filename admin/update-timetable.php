@@ -153,7 +153,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
     }
     ?>
 
@@ -428,19 +428,18 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $('.selectpicker').selectpicker();
 
-    $("#update_lecturer option:selected").css("color", "gray");
-    $("#update_tutorial_assistant option:selected").css("color", "gray");
+    $(".filter-option").css("color", "gray");
 
     $( ".bootstrap-select" ).click(function() {
-        var lecturer_style = $("#update_lecturer option:selected").html();
-        var tutorial_assistant_style = $("#update_tutorial_assistant option:selected").html();
+        var lecturer_check = $(".bootstrap-select button.selectpicker:first").attr('title');
+        var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
 
-        if (lecturer_style != 'Select a lecturer') {
-            $("#update_lecturer option:selected").css("cssText", "color: #333333;");
+        if (lecturer_check != 'Select a lecturer') {
+            $(".filter-option:first").css("cssText", "color: #333333;");
         }
 
-        if (tutorial_assistant_style != 'Select a tutorial assistant') {
-            $("#update_tutorial_assistant option:selected").css("cssText", "color: #333333;");
+        if (tutorial_assistant_check != 'Select a tutorial assistant') {
+            $(".filter-option:eq(1)").css("cssText", "color: #333333;");
         }
     });
 
@@ -499,11 +498,9 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
-    var new_lecturer;
-
     $("#update_lecturer").change(function() {
-        $('#lecturer').prop('disabled',true);
-        new_lecturer = $('#update_lecturer option:selected').val();
+        var newlecturer = $("#update_lecturer option:selected").html();
+        $("#lecturer").text(newlecturer);
     });
 
     //Ajax call
@@ -545,12 +542,17 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#lecture_name").addClass("success-style");
 	}
 
-    var lecturer_check = $('#update_lecturer option:selected').html();
-    if (lecturer_check === 'Select an option') {
-        new_lecturer = $('#lecturer option:selected').html();
+    var lecturer_check = $('.filter-option:first').text();
+    if (lecturer_check === 'Select a lecturer') {
+        $("#error3").show();
+        $("#error3").empty().append("Please select a lecturer.");
+        $("#lecturers .selectpicker").addClass("error-style");
+        hasError  = true;
+        return false;
     }
     else {
-        new_lecturer = $('#update_lecturer option:selected').html();
+        $("#error3").hide();
+        $("#lecturers").addClass("success-style");
     }
 
     var lecture_day = $("#lecture_day").val();
