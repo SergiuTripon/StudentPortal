@@ -442,14 +442,12 @@ include '../includes/session.php';
     if (lecturer_check === 'Select an option') {
         $("#error3").show();
         $("#error3").empty().append("Please select a lecturer.");
-        $(".error-style span.filter-option").css("color", "white");
         $(".lecturer > .selectpicker").addClass("error-style");
         hasError  = true;
         return false;
     }
     else {
         $("#error3").hide();
-        $(".error-style span.filter-option").css("color", "white");
         $(".lecturer > .selectpicker").addClass("success-style");
     }
 
