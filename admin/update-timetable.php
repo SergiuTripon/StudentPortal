@@ -501,6 +501,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
         $('#lecturer').val($(this).val());
     });
 
+    $("#update_lecturer").change(function() {
+        var newlecturer = $('#update_lecturer').html();
+        $("#lecturer").html(newlecturer);
+    });
+
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
