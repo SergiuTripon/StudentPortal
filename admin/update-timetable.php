@@ -160,7 +160,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </select>
 
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Lecturer</label>
     <select class="selectpicker" name="lecturers" id="lecturers">
         <option data-hidden="true">Select an option</option>
