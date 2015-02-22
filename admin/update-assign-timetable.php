@@ -38,13 +38,13 @@ include '../includes/session.php';
 	<div class="panel panel-default">
 
     <?php
-	$stmt2 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
-	while($row = $stmt2->fetch_assoc()) {
+	$stmt1 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
+	while($row = $stmt1->fetch_assoc()) {
 	  echo '<form id="update-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/update-timetable/" method="POST">
 			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["moduleid"].'"/>
 			</form>';
 	}
-	$stmt2->close();
+	$stmt1->close();
 	?>
 
     <?php
@@ -83,9 +83,9 @@ include '../includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'active'");
+	$stmt3 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'active'");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt3->fetch_assoc()) {
 
     $moduleid = $row["moduleid"];
 	$module_name = $row["module_name"];
@@ -102,7 +102,7 @@ include '../includes/session.php';
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt3->close();
 	?>
 	</tbody>
 
