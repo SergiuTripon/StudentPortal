@@ -138,7 +138,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Lecturer</label>
-    <select class="selectpicker lecturer" name="lecturer" id="lecturer">
+    <select class="selectpicker" name="lecturer" id="lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
 
@@ -165,8 +165,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Lecturer</label>
-    <select class="selectpicker update_lecturer" name="update_lecturer" id="update_lecturer">
-        <option data-hidden="true">Select an option</option>
+    <select class="selectpicker" name="update-lecturer" id="update-lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -498,9 +497,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
-    $("#update_lecturer").change(function() {
-        var newlecturer = $("#update_lecturer option:selected").html();
-        $("#lecturer").text(newlecturer);
+    $('#update_lecturer').bind('click', function() {
+        $('#lecturer').val($(this).val());
     });
 
     //Ajax call
