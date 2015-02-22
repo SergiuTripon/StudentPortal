@@ -345,6 +345,8 @@ include '../includes/session.php';
     $("#lecturer option:selected").css("cssText", "color: gray;");
     $("#tutorial_assistant option:selected").css("cssText", "color: gray;");
 
+    $('.lecturer').selectpicker('refresh');
+
     $( ".lecturer" ).change(function() {
         var lecturer_style = $("#lecturer option:selected").html();
         var tutorial_assistant_style = $("#tutorial_assistant option:selected").html();
