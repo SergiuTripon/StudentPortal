@@ -360,17 +360,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <p id="error13" class="feedback-sad text-center"></p>
     <!-- End of Create tutorial -->
 
-	</div>
-
 	<hr>
 
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create timetable</span></button>
     </div>
 
-	<div id="success-button" class="text-center" style="display:none">
-	<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label">Create another</span></a>
-	</div>
+    </div>
 	
     </form>
     <!-- End of Create timetable -->
@@ -805,10 +801,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
 		$("#success").show();
 		$("#success").empty().append('Timetable updated successfully.');
-		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
