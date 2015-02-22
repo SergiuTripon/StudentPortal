@@ -160,8 +160,28 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </select>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Lecture to (time)</label>
-	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" value="<?php echo $lecture_to_time; ?>" placeholder="Select a time">
+	<label for="update_lecturer">Update lecturer</label>
+    <select class="selectpicker update_lecturer" name="update_lecturer" id="update_lecturer">
+        <option data-hidden="true">Select an option</option>
+    <?php
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$lecture_lecturer'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+    $lecturer = $row["userid"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lecturer);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($firstname, $surname);
+    $stmt2->fetch();
+
+        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
+    }
+    ?>
+
+    </select>
 	</div>
 	</div>
     <p id="error3" class="feedback-sad text-center"></p>
