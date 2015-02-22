@@ -65,7 +65,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
-    <title>Student Portal | Create timetable</title>
+    <title>Student Portal | Update timetable</title>
 	
 </head>
 
@@ -84,11 +84,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../timetable/">Timetable</a></li>
-    <li class="active">Create timetable</li>
+    <li class="active">Update timetable</li>
     </ol>
 
     <!-- Create timetable -->
-	<form class="form-custom" style="max-width: 100%;" name="createtimetable_form" id="createtimetable_form" novalidate>
+	<form class="form-custom" style="max-width: 100%;" name="updatetimetable_form" id="updatetimetable_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -101,7 +101,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module name</label>
-    <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a module name">
+    <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
@@ -109,14 +109,14 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module notes</label>
-    <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter module notes"><?php echo $module_notes; ?></textarea>
+    <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter notes"><?php echo $module_notes; ?></textarea>
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module URL</label>
-    <input class="form-control" type="text" name="module_url" id="module_url" value="<?php echo $module_url; ?>" placeholder="Enter a module URL">
+    <input class="form-control" type="text" name="module_url" id="module_url" value="<?php echo $module_url; ?>" placeholder="Enter a URL">
 	</div>
 	</div>
     <!-- End of Create module -->
@@ -129,7 +129,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture name</label>
-    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="" placeholder="Enter a module name">
+    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="<?php echo $lecture_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error2" class="feedback-sad text-center"></p>
@@ -138,7 +138,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
     <select class="selectpicker" name="lecturers" id="lecturers">
-        <option data-hidden="true">Select a lecturer</option>
+        <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -166,14 +166,14 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture notes</label>
-    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter lecture notes"><?php echo $lecture_notes; ?></textarea>
+    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter notes"><?php echo $lecture_notes; ?></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecture day</label>
-    <input class="form-control" type="text" name="lecture_day" id="lecture_day" value="<?php echo $lecture_day; ?>" placeholder="Select a lecture day">
+    <input class="form-control" type="text" name="lecture_day" id="lecture_day" value="<?php echo $lecture_day; ?>" placeholder="Select a day">
     </div>
     </div>
     <p id="error4" class="feedback-sad text-center"></p>
@@ -223,7 +223,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial name</label>
-    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="<?php echo $tutorial_name; ?>" placeholder="Enter a tutorial name">
+    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="<?php echo $tutorial_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error8" class="feedback-sad text-center"></p>
@@ -231,8 +231,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Tutorial assistant</label>
-    <select class="selectpicker" name="tutorial_assistants" id="tutorial_assistants" title="Select a tutorial assistant">
-        <option data-hidden="true">Select a tutorial assistant</option>
+    <select class="selectpicker" name="tutorial_assistants" id="tutorial_assistants">
+        <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -259,7 +259,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial notes</label>
-    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter tutorial notes"><?php echo $tutorial_notes; ?></textarea>
+    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter notes"><?php echo $tutorial_notes; ?></textarea>
 	</div>
 	</div>
 
@@ -482,6 +482,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	var hasError = false;
 
     //Modules
+    var moduleid = $("#moduleid").val();
+
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
 		$("#error1").show();
@@ -498,6 +500,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     var module_url = $("#module_url").val();
 
     //Lectures
+    var lectureid = $("#lectureid").val();
+
 	var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
 		$("#error2").show();
@@ -611,6 +615,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
+    var tutorialid = $("#tutorialid").val();
+
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
 		$("#error8").show();
@@ -727,9 +733,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'module_name='         + module_name +
+    data:'moduleid='            + moduleid +
+         '&module_name='         + module_name +
          '&module_notes='       + module_notes +
          '&module_url='         + module_url +
+         '&lectureid='          + lectureid +
          '&lecture_name='       + lecture_name +
          '&lecture_lecturer='   + lecture_lecturer +
          '&lecture_notes='      + lecture_notes +
@@ -740,6 +748,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
          '&lecture_to_date='    + lecture_to_date +
          '&lecture_location='   + lecture_location +
          '&lecture_capacity='   + lecture_capacity +
+         '&tutorialid='         + tutorialid +
          '&tutorial_name='      + tutorial_name +
          '&tutorial_assistant=' + tutorial_assistant +
          '&tutorial_notes='     + tutorial_notes +
