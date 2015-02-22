@@ -428,7 +428,7 @@ include '../includes/session.php';
 		return false;
     } else {
 		$("#error2").hide();
-		$("#firstname").addClass("success-style");
+		$("#module_name").addClass("success-style");
 	}
 
     var module_notes = $("#module_notes").val();

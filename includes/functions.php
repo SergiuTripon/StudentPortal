@@ -475,76 +475,64 @@ function CreateTimetable() {
         $stmt1->close();
         header('HTTP/1.0 550 A module with the name entered already exists.');
         exit();
-    } else {
-
-        $module_status = 'active';
-
-        $stmt2 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
-        $stmt2->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
-        $stmt2->execute();
-        $stmt2->close();
-
     }
 
     // Check existing lecture name
-    $stmt3 = $mysqli->prepare("SELECT lectureid FROM system_lectures WHERE lecture_name = ? LIMIT 1");
-    $stmt3->bind_param('s', $lecture_name);
+    $stmt2 = $mysqli->prepare("SELECT lectureid FROM system_lectures WHERE lecture_name = ? LIMIT 1");
+    $stmt2->bind_param('s', $lecture_name);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($db_lectureid);
+    $stmt2->fetch();
+
+    if ($stmt2->num_rows == 1) {
+        $stmt2->close();
+        header('HTTP/1.0 550 A lecture with the name entered already exists.');
+        exit();
+    }
+
+    // Check existing tutorial name
+    $stmt3 = $mysqli->prepare("SELECT tutorialid FROM system_tutorials WHERE tutorial_name = ? LIMIT 1");
+    $stmt3->bind_param('s', $tutorial_name);
     $stmt3->execute();
     $stmt3->store_result();
-    $stmt3->bind_result($db_lectureid);
+    $stmt3->bind_result($db_tutorialid);
     $stmt3->fetch();
 
     if ($stmt3->num_rows == 1) {
         $stmt3->close();
-        header('HTTP/1.0 550 A lecture with the name entered already exists.');
-        exit();
-    } else {
-
-        $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid ASC");
-        $stmt4->execute();
-        $stmt4->store_result();
-        $stmt4->bind_result($moduleid);
-        $stmt4->fetch();
-        $stmt4->close();
-
-        $lecture_status = 'active';
-
-        $stmt5 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt5->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
-        $stmt5->execute();
-        $stmt5->close();
-
-    }
-
-    // Check existing tutorial name
-    $stmt6 = $mysqli->prepare("SELECT tutorialid FROM system_tutorials WHERE tutorial_name = ? LIMIT 1");
-    $stmt6->bind_param('s', $tutorial_name);
-    $stmt6->execute();
-    $stmt6->store_result();
-    $stmt6->bind_result($db_tutorialid);
-    $stmt6->fetch();
-
-    if ($stmt6->num_rows == 1) {
-        $stmt6->close();
         header('HTTP/1.0 550 A tutorial with the name entered already exists.');
         exit();
-    } else {
-
-        $stmt7 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid ASC");
-        $stmt7->execute();
-        $stmt7->store_result();
-        $stmt7->bind_result($moduleid);
-        $stmt7->fetch();
-        $stmt7->close();
-
-        $tutorial_status = 'active';
-
-        $stmt8 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt8->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
-        $stmt8->execute();
-        $stmt8->close();
-
     }
+
+    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid ASC");
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($moduleid);
+    $stmt4->fetch();
+    $stmt4->close();
+
+    $module_status = 'active';
+
+    $stmt5 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
+    $stmt5->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
+    $stmt5->execute();
+    $stmt5->close();
+
+    $lecture_status = 'active';
+
+    $stmt6 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt6->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
+    $stmt6->execute();
+    $stmt6->close();
+
+    $tutorial_status = 'active';
+
+    $stmt7 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt7->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
+    $stmt7->execute();
+    $stmt7->close();
+
 
 }
 
