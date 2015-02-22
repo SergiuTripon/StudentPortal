@@ -95,7 +95,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div id="hide">
 
-    <input class="form-control" type="hidden" name="moduleid" id="moduleid" value="<?php echo $moduleid; ?>">
+    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $moduleid; ?>">
 
     <!-- Create module -->
 	<div class="form-group">
@@ -123,7 +123,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <hr class="hr-separator">
 
-    <input class="form-control" type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureid; ?>">
+    <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureid; ?>">
 
     <!-- Create lecture -->
 	<div class="form-group">
@@ -166,14 +166,14 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture notes</label>
-    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter lecture notes"></textarea>
+    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter lecture notes"><?php echo $lecture_notes; ?></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecture day</label>
-    <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Select a lecture day">
+    <input class="form-control" type="text" name="lecture_day" id="lecture_day" value="<?php echo $lecture_day; ?>" placeholder="Select a lecture day">
     </div>
     </div>
     <p id="error4" class="feedback-sad text-center"></p>
@@ -181,11 +181,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Lecture from (time)</label>
-	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" placeholder="Select a time">
+	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" value="<?php echo $lecture_from_time; ?>" placeholder="Select a time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Lecture to (time)</label>
-	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" placeholder="Select a time">
+	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" value="<?php echo $lecture_to_time; ?>" placeholder="Select a time">
 	</div>
 	</div>
     <p id="error5" class="feedback-sad text-center"></p>
@@ -193,11 +193,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Lecture from (date)</label>
-	<input type="text" class="form-control" name="lecture_from_date" id="lecture_from_date" placeholder="Select a date">
+	<input type="text" class="form-control" name="lecture_from_date" id="lecture_from_date" value="<?php echo $lecture_from_date; ?>" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Lecture to (date)</label>
-	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" placeholder="Select a date">
+	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" value="<?php echo $lecture_to_date; ?>" placeholder="Select a date">
 	</div>
 	</div>
 	<p id="error6" class="feedback-sad text-center"></p>
@@ -205,11 +205,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Lecture location</label>
-	<input type="text" class="form-control" name="lecture_location" id="lecture_location" placeholder="Enter a location">
+	<input type="text" class="form-control" name="lecture_location" id="lecture_location" value="<?php echo $lecture_location; ?>" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Lecture capacity</label>
-	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" placeholder="Enter a capacity">
+	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" value="<?php echo $lecture_capacity; ?>" placeholder="Enter a capacity">
 	</div>
 	</div>
     <p id="error7" class="feedback-sad text-center"></p>
@@ -217,11 +217,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <hr class="hr-separator">
 
+    <input type="hidden" name="tutorialid" id="tutorialid" value="<?php echo $tutorialid; ?>">
+
     <!-- Create tutorial -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial name</label>
-    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="" placeholder="Enter a tutorial name">
+    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="<?php echo $tutorial_name; ?>" placeholder="Enter a tutorial name">
 	</div>
 	</div>
 	<p id="error8" class="feedback-sad text-center"></p>
@@ -257,14 +259,14 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial notes</label>
-    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter tutorial notes"></textarea>
+    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter tutorial notes"><?php echo $tutorial_notes; ?></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Tutorial day</label>
-    <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" placeholder="Select a day">
+    <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" value="<?php echo $tutorial_day; ?>" placeholder="Select a day">
     </div>
     </div>
     <p id="error10" class="feedback-sad text-center"></p>
@@ -272,11 +274,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Tutorial from (time)</label>
-	<input type="text" class="form-control" name="tutorial_from_time" id="tutorial_from_time" placeholder="Select a time">
+	<input type="text" class="form-control" name="tutorial_from_time" id="tutorial_from_time" value="<?php echo $tutorial_from_time; ?>" placeholder="Select a time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Tutorial to (time)</label>
-	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" placeholder="Select a time">
+	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" value="<?php echo $tutorial_to_time; ?>" placeholder="Select a time">
 	</div>
 	</div>
     <p id="error11" class="feedback-sad text-center"></p>
@@ -284,11 +286,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Tutorial from (date)</label>
-	<input type="text" class="form-control" name="tutorial_from_date" id="tutorial_from_date" placeholder="Select a date">
+	<input type="text" class="form-control" name="tutorial_from_date" id="tutorial_from_date" value="<?php echo $tutorial_from_date; ?>" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Tutorial to (date)</label>
-	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" placeholder="Select a date">
+	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" value="<?php echo $tutorial_to_date; ?>" placeholder="Select a date">
 	</div>
 	</div>
 	<p id="error12" class="feedback-sad text-center"></p>
@@ -296,11 +298,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Tutorial location</label>
-	<input type="text" class="form-control" name="tutorial_location" id="tutorial_location" placeholder="Enter a location">
+	<input type="text" class="form-control" name="tutorial_location" id="tutorial_location" value="<?php echo $tutorial_location; ?>" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Tutorial capacity</label>
-	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
+	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" value="<?php echo $tutorial_capacity; ?>" placeholder="Enter a capacity">
 	</div>
 	</div>
     <p id="error13" class="feedback-sad text-center"></p>
