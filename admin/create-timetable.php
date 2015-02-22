@@ -345,20 +345,17 @@ include '../includes/session.php';
     $(".filter-option").css("color", "gray");
 
     $( ".bootstrap-select" ).click(function() {
-        var lecturer_check = $(".bootstrap-select button.selectpicker").attr('title');
+        var lecturer_check = $(".bootstrap-select button.selectpicker:first").attr('title');
         var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
 
         if (lecturer_check != 'Select a lecturer') {
-            $(".filter-option").css("cssText", "color: #333333;");
+            $(".filter-option:first").css("cssText", "color: #333333;");
         }
 
         if (tutorial_assistant_check != 'Select a tutorial assistant') {
-            $(".filter-option").css("cssText", "color: #333333;");
+            $(".filter-option:eq(1)").css("cssText", "color: #333333;");
         }
     });
-
-    var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:first").attr('title');
-    alert (tutorial_assistant_check);
 
     // Date Time Picker
     var today = new Date();
