@@ -427,7 +427,7 @@ include '../includes/session.php';
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
+		$("#error1").hide();
 		$("#module_name").addClass("success-style");
 	}
 
