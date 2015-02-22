@@ -400,14 +400,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $('.selectpicker').selectpicker();
 
-    var tutorial_assistant_check = $("#tutorial_assistants option:selected").html();
-    alert(tutorial_assistant_check);
-
     $(".filter-option").css("color", "gray");
 
     $( ".bootstrap-select" ).click(function() {
-        var lecturer_check = $("#lecturers option:selected").text();
-        var tutorial_assistant_check = $("#tutorial_assistants option:selected").text();
+        var lecturer_check = $(".bootstrap-select button.selectpicker:first").attr('title');
+        var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
 
         if (lecturer_check != 'Select a lecturer') {
             $(".filter-option:first").css("cssText", "color: #333333;");
