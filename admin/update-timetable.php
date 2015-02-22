@@ -502,6 +502,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $("#update_lecturer").change(function() {
         var new_lecturer = $("#update_lecturer").text();
         var new_lecturer1 = $("#update_lecturer").val();
+        alert (new_lecturer);
+        alert (new_lecturer1);
         $('#lecturer').text(new_lecturer);
         $('#lecturer').val(new_lecturer1);
         $('#lecturer').selectpicker('refresh');
