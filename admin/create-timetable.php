@@ -351,7 +351,7 @@ include '../includes/session.php';
         }
     });
 
-    var lecturer_check = $('.filter-option').text();
+    var lecturer_check = $('.filter-option:first').text();
 
     alert (lecturer_check);
 
