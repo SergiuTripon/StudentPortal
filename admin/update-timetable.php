@@ -138,7 +138,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Lecturer</label>
-    <select class="selectpicker" name="lecturers" id="lecturers" disabled>
+    <select class="selectpicker" name="lecturer" id="lecturer" disabled>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
 
@@ -165,7 +165,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Lecturer</label>
-    <select class="selectpicker" name="lecturers" id="lecturers">
+    <select class="selectpicker" name="update-lecturer" id="update-lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -497,9 +497,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
-    $('#module_name').bind('keypress keyup blur', function() {
-        $('#lecture_name').val($(this).val());
-        $('#tutorial_name').val($(this).val());
+    $('#update_lecturer').bind('keypress keyup blur', function() {
+        $('#lecturer').val($(this).val());
     });
 
     //Ajax call
