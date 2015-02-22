@@ -279,7 +279,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </select>
 
     </div>
-
+    </div>
+    <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label for="update_tutorial_assistant">Update tutorial assistant</label>
     <select class="selectpicker update_tutorial_assistant" name="update_tutorial_assistant" id="update_tutorial_assistant">
