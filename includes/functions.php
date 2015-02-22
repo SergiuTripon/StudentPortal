@@ -574,18 +574,18 @@ function UpdateTimetable() {
     $tutorial_location = filter_input(INPUT_POST, 'tutorial_location1', FILTER_SANITIZE_STRING);
     $tutorial_capacity = filter_input(INPUT_POST, 'tutorial_capacity1', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_name=?, module_notes=?, module_url=?, module_status=?, updated_on=? WHERE moduleid=?");
-    $stmt1->bind_param('sssssi', $module_name, $module_notes, $module_url, $module_status, $updated_on, $moduleid);
+    $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_name=?, module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
+    $stmt1->bind_param('ssssi', $module_name, $module_notes, $module_url, $updated_on, $moduleid);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt3 = $mysqli->prepare("UPDATE system_lectures SET lecture_name=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, lecture_status=?, updated_on=? WHERE lectureid=?");
-    $stmt3->bind_param('sisssssssissi', $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $updated_on, $lectureid);
+    $stmt3 = $mysqli->prepare("UPDATE system_lectures SET lecture_name=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
+    $stmt3->bind_param('sisssssssisi', $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $updated_on, $lectureid);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, tutorial_status=?, updated_on=? WHERE tutorialid=?");
-    $stmt4->bind_param('sisssssssissi', $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $updated_on, $tutorialid);
+    $stmt4 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
+    $stmt4->bind_param('sisssssssisi', $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
     $stmt4->execute();
     $stmt4->close();
 
