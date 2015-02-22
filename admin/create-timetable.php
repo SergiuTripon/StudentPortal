@@ -8,9 +8,8 @@ include '../includes/session.php';
 <head>
 
 	<?php include '../assets/meta-tags.php'; ?>
-    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
     <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
-    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
@@ -331,7 +330,8 @@ include '../includes/session.php';
 
 	<?php endif; ?>
 
-
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
@@ -341,8 +341,6 @@ include '../includes/session.php';
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     $('.selectpicker').selectpicker();
-
-    $(".filter-option").css("color", "gray");
 
     $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
         $(".filter-option").css("cssText", "color: #333333;");
