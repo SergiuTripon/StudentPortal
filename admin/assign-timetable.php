@@ -78,12 +78,12 @@ if (isset($_POST["recordToAssign"])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-	echo '<tr id="task-'.$db_userid.'">
+	echo '<tr id="assign-'.$db_userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="complete-'.$db_userid.'" class="btn btn-primary btn-md complete-button">Assign</a></td>
+			<td data-title="Action"><a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
 			</tr>';
 	}
 
@@ -154,23 +154,20 @@ if (isset($_POST["recordToAssign"])) {
 		}
 	});
 
-	$("body").on("click", ".complete-button", function(e) {
+	$("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
     var DbNumberID = clickedID[1];
-    var myData = 'recordToComplete='+ DbNumberID;
+    var idToAssign = $("#idToAssign").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:myData,
-	success:function(response){
-		$('#task-'+DbNumberID).fadeOut();
-		setTimeout(function(){
-			location.reload();
-		}, 1000);
+	data:'recordToAssign='+ DbNumberID + '&idToAssign='+ DbNumberID ,
+	success:function(){
+		$('#assign-'+DbNumberID).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
