@@ -411,10 +411,10 @@ include '../includes/session.php';
         $('#tutorial_name').val($(this).val());
     });
 
-    var lecture_lecturer = $(".filter-option:first").text();
+    var lecture_lecturer = $(".filter-option:eq()").text();
     alert(lecture_lecturer);
 
-    var tutorial_assistant = $(".filter-option:nth-child(1)").eq().text();
+    var tutorial_assistant = $(".filter-option:eq(1))").eq().text();
     alert(tutorial_assistant);
 
     //Ajax call
