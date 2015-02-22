@@ -340,7 +340,25 @@ include '../includes/session.php';
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $('.selectpicker').selectmenu();
+    var lecturer_check = $('.filter-option:first').text();
+    alert(lecturer_check);
+
+    $('.selectpicker').selectpicker();
+
+    $(".filter-option").css("color", "gray");
+
+    $( ".bootstrap-select" ).click(function() {
+        var lecturer_check = $(".bootstrap-select button.selectpicker:first").attr('title');
+        var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
+
+        if (lecturer_check != 'Select a lecturer') {
+            $(".filter-option:first").css("cssText", "color: #333333;");
+        }
+
+        if (tutorial_assistant_check != 'Select a tutorial assistant') {
+            $(".filter-option:eq(1)").css("cssText", "color: #333333;");
+        }
+    });
 
     // Date Time Picker
     var today = new Date();
