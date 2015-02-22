@@ -122,7 +122,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$task_name.'</td>
 			<td data-title="Notes">'.$task_notes.'</td>
-			<td data-title="External URL">'.($task_url === '' ? "" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
+			<td data-title="External URL">'.($task_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
 			<td data-title="Start date">'.$task_startdate.'</td>
 			<td data-title="Due date">'.$task_duedate.'</td>
 			<td data-title="Category">'.$task_category.'</td>
@@ -186,7 +186,7 @@ include 'includes/session.php';
 
 	<td data-title="Name">'.$task_name.'</td>
 	<td class="notes-hide" data-title="Notes">'.$task_notes.'</td>
-    <td data-title="External URL">'.($task_url === '' ? "" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
+    <td data-title="External URL">'.($task_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
 	<td data-title="Start date">'.$task_startdate.'</td>
 	<td data-title="Due date">'.$task_duedate.'</td>
 	<td data-title="Category">'.$task_category.'</td>
