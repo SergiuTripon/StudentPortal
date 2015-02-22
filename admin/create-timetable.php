@@ -81,7 +81,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
-    <select class="selectpicker lecturers" name="lecturers" id="lecturers">
+    <select class="selectpicker lecturer" name="lecturer" id="lecturer">
         <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
@@ -173,7 +173,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Tutorial assistant</label>
-    <select class="selectpicker" name="tutorial_assistants" id="tutorial_assistants">
+    <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
         <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
@@ -344,16 +344,16 @@ include '../includes/session.php';
 
     $(".filter-option").css("color", "gray");
 
-    $( ".bootstrap-select" ).click(function() {
-        var lecturer_style = $("#lecturers option:selected").html();
-        var tutorial_assistant_style = $("#tutorial_assistants option:selected").html();
+    $( ".lecturer" ).change(function() {
+        var lecturer_style = $("#lecturer option:selected").html();
+        var tutorial_assistant_style = $("#tutorial_assistant option:selected").html();
 
         if (lecturer_style != 'Select an option') {
-            $(".filter-option:first").css("cssText", "color: #333333;");
+            $("#lecturer option:selected").css("cssText", "color: #333333;");
         }
 
         if (tutorial_assistant_style != 'Select an option') {
-            $(".filter-option:eq(1)").css("cssText", "color: #333333;");
+            $("#tutorial_assistant option:selected").css("cssText", "color: #333333;");
         }
     });
 

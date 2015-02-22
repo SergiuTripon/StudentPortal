@@ -428,18 +428,19 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $('.selectpicker').selectpicker();
 
-    $(".filter-option").css("color", "gray");
+    $("#update_lecturer option:selected").css("color", "gray");
+    $("#update_tutorial_assistant option:selected").css("color", "gray");
 
     $( ".bootstrap-select" ).click(function() {
-        var lecturer_check = $(".bootstrap-select button.selectpicker:first").attr('title');
-        var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
+        var lecturer_style = $("#update_lecturer option:selected").html();
+        var tutorial_assistant_style = $("#update_tutorial_assistant option:selected").html();
 
-        if (lecturer_check != 'Select a lecturer') {
-            $(".filter-option:first").css("cssText", "color: #333333;");
+        if (lecturer_style != 'Select a lecturer') {
+            $("#update_lecturer option:selected").css("cssText", "color: #333333;");
         }
 
-        if (tutorial_assistant_check != 'Select a tutorial assistant') {
-            $(".filter-option:eq(1)").css("cssText", "color: #333333;");
+        if (tutorial_assistant_style != 'Select a tutorial assistant') {
+            $("#update_tutorial_assistant option:selected").css("cssText", "color: #333333;");
         }
     });
 
