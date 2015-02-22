@@ -338,11 +338,12 @@ include '../includes/session.php';
 	<script>
 	$(document).ready(function () {
 
-    alert($(".bootstrap-select button.selectpicker").attr('title'));
-
-
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
+
+    $('.selectpicker').selectpicker();
+
+    alert($(".bootstrap-select button.selectpicker").attr('title'));
 
     // Date Time Picker
     var today = new Date();
