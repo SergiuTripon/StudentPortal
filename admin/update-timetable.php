@@ -9,6 +9,7 @@ if (isset($_POST["recordToUpdate"])) {
 
 system_modules.moduleid,
 system_modules.module_name,
+system_modules.module_notes,
 system_modules.module_url,
 
 system_lectures.lectureid,
@@ -45,7 +46,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $stmt1->bind_param('i', $moduleToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($moduleid, $module_name, $module_url, $lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $tutorialid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity);
+    $stmt1->bind_result($moduleid, $module_name, $module_notes, $module_url, $lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $tutorialid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity);
     $stmt1->fetch();
     $stmt1->close();
 
