@@ -412,11 +412,6 @@ include '../includes/session.php';
     });
 	});
 
-    $('#module_name').bind('keypress keyup blur', function() {
-        $('#lecture_name').val($(this).val());
-        $('#tutorial_name').val($(this).val());
-    });
-
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();

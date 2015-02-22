@@ -472,7 +472,7 @@ function CreateTimetable() {
 
     if ($stmt1->num_rows == 1) {
         $stmt1->close();
-        header('HTTP/1.0 550 A module with the module name entered already exists.');
+        header('HTTP/1.0 550 A module with the name entered already exists.');
         exit();
     } else {
 
@@ -495,7 +495,7 @@ function CreateTimetable() {
 
     if ($stmt3->num_rows == 1) {
         $stmt3->close();
-        header('HTTP/1.0 550 A lecture with the lecture name entered already exists.');
+        header('HTTP/1.0 550 A lecture with the name entered already exists.');
         exit();
     } else {
 
@@ -526,7 +526,7 @@ function CreateTimetable() {
 
     if ($stmt6->num_rows == 1) {
         $stmt6->close();
-        header('HTTP/1.0 550 A tutorial with the tutorial name entered already exists.');
+        header('HTTP/1.0 550 A tutorial with the name entered already exists.');
         exit();
     } else {
 
