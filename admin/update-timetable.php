@@ -137,7 +137,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Current lecturer</label>
+    <label for="lecturer">Current lecturer</label>
     <select class="selectpicker lecturer" name="lecturer" id="lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
@@ -164,7 +164,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Update lecturer</label>
+    <label for="update_lecturer">Update lecturer</label>
     <select class="selectpicker update_lecturer" name="update_lecturer" id="update_lecturer">
         <option data-hidden="true">Select an option</option>
     <?php
@@ -504,6 +504,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
         var new_lecturer1 = $("#update_lecturer option:selected").val();
         alert (new_lecturer);
         alert (new_lecturer1);
+        $("label[for='lecturer']").empty().append("New lecturer");
         $('#lecturer option:selected').text(new_lecturer);
         $('#lecturer option:selected').val(new_lecturer1);
         $('#lecturer').selectpicker('refresh');
