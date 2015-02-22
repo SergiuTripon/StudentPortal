@@ -500,12 +500,12 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	});
 
     $("#update_lecturer").change(function() {
-        var new_lecturer = $("#update_lecturer").text();
-        var new_lecturer1 = $("#update_lecturer").val();
+        var new_lecturer = $("#update_lecturer option:selected").text();
+        var new_lecturer1 = $("#update_lecturer option:selected").val();
         alert (new_lecturer);
         alert (new_lecturer1);
-        $('#lecturer').text(new_lecturer);
-        $('#lecturer').val(new_lecturer1);
+        $('#lecturer option:selected').text(new_lecturer);
+        $('#lecturer option:selected').val(new_lecturer1);
         $('#lecturer').selectpicker('refresh');
     });
 
