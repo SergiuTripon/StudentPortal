@@ -805,7 +805,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Timetable created successfully.');
+		$("#success").empty().append('Timetable updated successfully.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
