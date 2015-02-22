@@ -684,6 +684,10 @@ form .success-style:-ms-input-placeholder {
     -o-box-shadow:      inset 0 0 8px rgba(93, 93, 93, 1);
 }
 
+.btn-group>.btn:first-child {
+    margin-left: auto;
+}
+
 .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border-right: 1px solid #CCCCCC;
 }
@@ -752,6 +756,8 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
     background-color: #CCCCCC;
 }
+
+
 /* End of Bootstrap Select */
 
 /* Tiles style */
