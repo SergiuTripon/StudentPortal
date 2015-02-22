@@ -352,8 +352,8 @@ include '../includes/session.php';
         }
     });
 
-    var tutorial_assistant_check = $(".filter-option:nth-child(2)").val();
-    alert(tutorial_assistant_check);
+    var tutorial_assistant = $(".filter-option:eq(1)").text();
+    alert(tutorial_assistant);
 
     // Date Time Picker
     var today = new Date();
