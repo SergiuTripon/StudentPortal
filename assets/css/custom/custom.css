@@ -768,6 +768,10 @@ form .success-style:-ms-input-placeholder {
 .bootstrap-select .error-style:hover .filter-option {
     color: #333333 !important;
 }
+
+.bootstrap-select .error-style:focus .filter-option {
+    color: #333333 !important;
+}
 /* End of Bootstrap Select */
 
 /* Tiles style */
