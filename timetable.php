@@ -194,13 +194,13 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
-            <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-    <li class="active">Account</li>
+    <li class="active">Timetable</li>
     </ol>
 
     <div class="row">
@@ -208,7 +208,7 @@ include 'includes/session.php';
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     <a href="/admin/create-timetable/">
     <div class="tile">
-    <i class="fa fa-pencil"></i>
+    <i class="fa fa-clock-o"></i>
 	<p class="tile-text">Create timetable</p>
     </div>
     </a>
@@ -218,7 +218,7 @@ include 'includes/session.php';
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	<a href="/admin/update-assign-timetable/">
     <div class="tile">
-    <i class="fa fa-gbp"></i>
+    <i class="fa fa-refresh"></i>
 	<p class="tile-text">Update/Assign timetable</p>
     </div>
 	</a>
