@@ -340,10 +340,10 @@ include '../includes/session.php';
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    var lecturer_check = $('.filter-option:first').text();
-    alert(lecturer_check);
-
     $('.selectpicker').selectpicker();
+
+        var lecturer_check = $('.filter-option:first').text();
+        alert(lecturer_check);
 
     $(".filter-option").css("color", "gray");
 
