@@ -497,7 +497,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
-    $('#update_lecturer').bind('keypress keyup blur', function() {
+    $('#update_lecturer').bind('click', function() {
         $('#lecturer').val($(this).val());
     });
 
