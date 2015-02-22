@@ -498,8 +498,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
+    var new_lecturer;
+
     $("#update_lecturer").change(function() {
         $('#lecturer').prop('disabled',true);
+        new_lecturer = $('#update_lecturer option:selected').val();
     });
 
     //Ajax call
@@ -541,17 +544,12 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#lecture_name").addClass("success-style");
 	}
 
-    var lecturer_check = $('.filter-option:first').text();
-    if (lecturer_check === 'Select a lecturer') {
-        $("#error3").show();
-        $("#error3").empty().append("Please select a lecturer.");
-        $("#lecturers .selectpicker").addClass("error-style");
-        hasError  = true;
-        return false;
+    var lecturer_check = $('#update_lecturer option:selected').html();
+    if (lecturer_check === 'Select an option') {
+        new_lecturer = $('#lecturer option:selected').html();
     }
     else {
-        $("#error3").hide();
-        $("#lecturers").addClass("success-style");
+        new_lecturer = $('#update_lecturer option:selected').html();
     }
 
     var lecture_day = $("#lecture_day").val();
