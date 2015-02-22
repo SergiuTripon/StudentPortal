@@ -560,7 +560,7 @@ include '../includes/session.php';
 		$("#tutorial_name").addClass("success-style");
 	}
 
-    var tutorial_assistant_check = $("#tutorial_name:nth-child(2)").val();
+    var tutorial_assistant_check = $(".filter-option:nth-child(2)").val();
     if (tutorial_assistant_check === 'Select a tutorial assistant') {
         $("#error9").show();
         $("#error9").empty().append("Please select a tutorial assistant.");
