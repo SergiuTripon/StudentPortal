@@ -196,6 +196,7 @@ include '../includes/session.php';
     </select>
     </div>
     </div>
+    <p id="error9" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -210,7 +211,7 @@ include '../includes/session.php';
     <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" placeholder="Select a day">
     </div>
     </div>
-    <p id="error9" class="feedback-sad text-center"></p>
+    <p id="error10" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -222,7 +223,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" placeholder="Select a time">
 	</div>
 	</div>
-    <p id="error10" class="feedback-sad text-center"></p>
+    <p id="error11" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -234,7 +235,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" placeholder="Select a date">
 	</div>
 	</div>
-	<p id="error11" class="feedback-sad text-center"></p>
+	<p id="error12" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -246,7 +247,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
-    <p id="error12" class="feedback-sad text-center"></p>
+    <p id="error13" class="feedback-sad text-center"></p>
     <!-- End of Create tutorial -->
 
 	</div>
@@ -547,7 +548,7 @@ include '../includes/session.php';
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
-	var tutorial_name = $("#tutorial_name:nth-child(2)").val();
+	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
 		$("#error8").show();
         $("#error8").empty().append("Please enter a tutorial name.");
@@ -559,7 +560,7 @@ include '../includes/session.php';
 		$("#tutorial_name").addClass("success-style");
 	}
 
-    var tutorial_assistant_check = $(".filter-option:first").text();
+    var tutorial_assistant_check = $("#tutorial_name:nth-child(2)").val();
     if (tutorial_assistant_check === 'Select a tutorial assistant') {
         $("#error9").show();
         $("#error9").empty().append("Please select a tutorial assistant.");
