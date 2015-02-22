@@ -103,6 +103,8 @@ include '../includes/session.php';
     ?>
     </select>
 
+    <button class="test1999" title="testtesttest"></button>
+
     </div>
     </div>
     <p id="error3" class="feedback-sad text-center"></p>
@@ -336,7 +338,7 @@ include '../includes/session.php';
 	<script>
 	$(document).ready(function () {
 
-    alert($("button").attr('title'));
+    alert($(".test1999").attr('title'));
 
 
 	//Ladda
