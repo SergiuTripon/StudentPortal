@@ -34,29 +34,62 @@ elseif (isset($_POST["token"], $_POST["email3"], $_POST["password2"])) {
 
 //Call Timetable functions
 //Call CreateTimetable function
-elseif (isset($_POST['module_name'],
-              $_POST['module_notes'],
-              $_POST['module_url'],
-              $_POST['lecture_lecturer'],
-              $_POST['lecture_notes'],
-              $_POST['lecture_day'],
-              $_POST['lecture_from_time'],
-              $_POST['lecture_to_time'],
-              $_POST['lecture_from_date'],
-              $_POST['lecture_to_date'],
-              $_POST['lecture_location'],
-              $_POST['lecture_capacity'],
-              $_POST['tutorial_name'],
-              $_POST['tutorial_assistant'],
-              $_POST['tutorial_notes'],
-              $_POST['tutorial_day'],
-              $_POST['tutorial_from_time'],
-              $_POST['tutorial_to_time'],
-              $_POST['tutorial_from_date'],
-              $_POST['tutorial_to_date'],
-              $_POST['tutorial_location'],
-              $_POST['tutorial_capacity'])) {
+elseif (isset(
+    $_POST['module_name'],
+    $_POST['module_notes'],
+    $_POST['module_url'],
+    $_POST['lecture_name'],
+    $_POST['lecture_lecturer'],
+    $_POST['lecture_notes'],
+    $_POST['lecture_day'],
+    $_POST['lecture_from_time'],
+    $_POST['lecture_to_time'],
+    $_POST['lecture_from_date'],
+    $_POST['lecture_to_date'],
+    $_POST['lecture_location'],
+    $_POST['lecture_capacity'],
+    $_POST['tutorial_name'],
+    $_POST['tutorial_assistant'],
+    $_POST['tutorial_notes'],
+    $_POST['tutorial_day'],
+    $_POST['tutorial_from_time'],
+    $_POST['tutorial_to_time'],
+    $_POST['tutorial_from_date'],
+    $_POST['tutorial_to_date'],
+    $_POST['tutorial_location'],
+    $_POST['tutorial_capacity'])) {
     CreateTimetable();
+}
+
+//Call CreateTimetable function
+elseif (isset(
+    $_POST['moduleid'],
+    $_POST['module_name'],
+    $_POST['module_notes'],
+    $_POST['module_url'],
+    $_POST['lectureid'],
+    $_POST['lecture_name'],
+    $_POST['lecture_lecturer'],
+    $_POST['lecture_notes'],
+    $_POST['lecture_day'],
+    $_POST['lecture_from_time'],
+    $_POST['lecture_to_time'],
+    $_POST['lecture_from_date'],
+    $_POST['lecture_to_date'],
+    $_POST['lecture_location'],
+    $_POST['lecture_capacity'],
+    $_POST['tutorialid'],
+    $_POST['tutorial_name'],
+    $_POST['tutorial_assistant'],
+    $_POST['tutorial_notes'],
+    $_POST['tutorial_day'],
+    $_POST['tutorial_from_time'],
+    $_POST['tutorial_to_time'],
+    $_POST['tutorial_from_date'],
+    $_POST['tutorial_to_date'],
+    $_POST['tutorial_location'],
+    $_POST['tutorial_capacity'])) {
+    UpdateTimetable();
 }
 
 //Call AssignTimetable function

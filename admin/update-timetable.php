@@ -482,6 +482,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	var hasError = false;
 
     //Modules
+    var moduleid = $("#moduleid").val();
+
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
 		$("#error1").show();
@@ -498,6 +500,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     var module_url = $("#module_url").val();
 
     //Lectures
+    var lectureid = $("#lectureid").val();
+
 	var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
 		$("#error2").show();
@@ -611,6 +615,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
+    var tutorialid = $("#tutorialid").val();
+
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
 		$("#error8").show();
@@ -727,9 +733,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'module_name='         + module_name +
+    data:'moduleid='            + moduleid +
+         '&module_name='         + module_name +
          '&module_notes='       + module_notes +
          '&module_url='         + module_url +
+         '&lectureid='          + lectureid +
          '&lecture_name='       + lecture_name +
          '&lecture_lecturer='   + lecture_lecturer +
          '&lecture_notes='      + lecture_notes +
@@ -740,6 +748,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
          '&lecture_to_date='    + lecture_to_date +
          '&lecture_location='   + lecture_location +
          '&lecture_capacity='   + lecture_capacity +
+         '&tutorialid='         + tutorialid +
          '&tutorial_name='      + tutorial_name +
          '&tutorial_assistant=' + tutorial_assistant +
          '&tutorial_notes='     + tutorial_notes +
