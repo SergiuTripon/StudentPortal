@@ -40,14 +40,25 @@ include '../includes/session.php';
     <?php
 	$stmt2 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="assign-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/assign-timetable/" method="POST">
-			<input type="hidden" name="recordToAssign" id="recordToAssign" value="'.$row["moduleid"].'"/>
+	  echo '<form id="update-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/update-timetable/" method="POST">
+			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["moduleid"].'"/>
 			</form>';
 	}
 	$stmt2->close();
 	?>
 
-    <div class="panel-heading" role="tab" id="headingOne">
+    <?php
+    $stmt2 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
+    while($row = $stmt2->fetch_assoc()) {
+        echo '<form id="assign-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/assign-timetable/" method="POST">
+        <input type="hidden" name="recordToAssign" id="recordToAssign" value="'.$row["moduleid"].'"/>
+        </form>';
+    }
+    $stmt2->close();
+    ?>
+
+
+        <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Modules</a>
   	</h4>
@@ -164,6 +175,16 @@ include '../includes/session.php';
 		"language": {
 			"emptyTable": "You have no lectures on this day."
 		}
+	});
+
+    $("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#update-timetable-form-" + DbNumberID).submit();
+
 	});
 
 	$("body").on("click", ".assign-button", function(e) {
