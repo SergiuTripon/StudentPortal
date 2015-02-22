@@ -363,7 +363,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create timetable</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Update timetable</span></button>
     </div>
 
     </div>
