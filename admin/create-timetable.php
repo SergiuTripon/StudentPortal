@@ -351,10 +351,6 @@ include '../includes/session.php';
         }
     });
 
-    var lecturer_check = $('.filter-option:first').text();
-
-    alert (lecturer_check);
-
     // Date Time Picker
     var today = new Date();
 	$(function () {
@@ -410,6 +406,14 @@ include '../includes/session.php';
     });
 	});
 
+    $('#module_name').bind('keypress keyup blur', function() {
+        $('#lecture_name').val($(this).val());
+        $('#tutorial_name').val($(this).val());
+    });
+
+    var tutorial_name = $("#tutorial_name:nth-child(2)").text();
+    alert(tutorial_name);
+
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
@@ -445,6 +449,19 @@ include '../includes/session.php';
 		$("#lecture_name").addClass("success-style");
 	}
 
+    var lecturer_check = $('.filter-option:first').text();
+    if (lecturer_check === 'Select a lecturer') {
+        $("#error3").show();
+        $("#error3").empty().append("Please select a lecturer.");
+        $(".selectpicker").addClass("error-style");
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("#error3").hide();
+        $(".selectpicker").addClass("success-style");
+    }
+
     var lecture_lecturer = $("#lecturers option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
     var lecture_day = $("#lecture_day").val();
@@ -456,7 +473,7 @@ include '../includes/session.php';
     var lecture_capacity = $("#lecture_capacity").val();
 
     //Tutorials
-	var tutorial_name = $("#tutorial_name").val();
+	var tutorial_name = $("#tutorial_name:nth-child(2)").val();
 	if(tutorial_name === '') {
 		$("#error8").show();
         $("#error8").empty().append("Please enter a tutorial name.");
@@ -467,6 +484,19 @@ include '../includes/session.php';
 		$("#error8").hide();
 		$("#tutorial_name").addClass("success-style");
 	}
+
+    var tutorial_assistant_check = $('.filter-option').text();
+    if (tutorial_assistant_check === 'Select a tutorial assistant') {
+        $("#error9").show();
+        $("#error9").empty().append("Please select a tutorial assistant.");
+        $(".selectpicker").addClass("error-style");
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("#error3").hide();
+        $(".selectpicker").addClass("success-style");
+    }
 
     var tutorial_assistant = $("#tutorial_assistants option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
