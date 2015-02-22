@@ -357,7 +357,7 @@ include '../includes/session.php';
         }
     });
 
-    var tutorial_assistant_check = $(".bootstrap-select button.selectpicker").attr('title');
+    var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
     alert (tutorial_assistant_check);
 
     // Date Time Picker
