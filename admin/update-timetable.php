@@ -497,9 +497,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
-    $('#update_lecturer').bind('click', function() {
-        $('#lecturer').val($(this).val());
-    });
+    var newlecturer = $('#update_lecturer').html();
+    alert(newlecturer);
 
     $("#update_lecturer").change(function() {
         var newlecturer = $('#update_lecturer').html();
