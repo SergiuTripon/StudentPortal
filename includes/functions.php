@@ -544,35 +544,35 @@ function UpdateTimetable() {
 
     //Module
     $moduleid = filter_input(INPUT_POST, 'moduleid', FILTER_SANITIZE_STRING);
-    $module_name = filter_input(INPUT_POST, 'module_name', FILTER_SANITIZE_STRING);
-    $module_notes = filter_input(INPUT_POST, 'module_notes', FILTER_SANITIZE_STRING);
-    $module_url = filter_input(INPUT_POST, 'module_url', FILTER_SANITIZE_STRING);
+    $module_name = filter_input(INPUT_POST, 'module_name1', FILTER_SANITIZE_STRING);
+    $module_notes = filter_input(INPUT_POST, 'module_notes1', FILTER_SANITIZE_STRING);
+    $module_url = filter_input(INPUT_POST, 'module_url1', FILTER_SANITIZE_STRING);
 
     //Lecture
     $lectureid = filter_input(INPUT_POST, 'lectureid', FILTER_SANITIZE_STRING);
-    $lecture_name = filter_input(INPUT_POST, 'lecture_name', FILTER_SANITIZE_STRING);
-    $lecture_lecturer = filter_input(INPUT_POST, 'lecture_lecturer', FILTER_SANITIZE_STRING);
-    $lecture_notes = filter_input(INPUT_POST, 'lecture_notes', FILTER_SANITIZE_STRING);
-    $lecture_day = filter_input(INPUT_POST, 'lecture_day', FILTER_SANITIZE_STRING);
-    $lecture_from_time = filter_input(INPUT_POST, 'lecture_from_time', FILTER_SANITIZE_STRING);
-    $lecture_to_time = filter_input(INPUT_POST, 'lecture_to_time', FILTER_SANITIZE_STRING);
-    $lecture_from_date = filter_input(INPUT_POST, 'lecture_from_date', FILTER_SANITIZE_STRING);
-    $lecture_to_date = filter_input(INPUT_POST, 'lecture_to_date', FILTER_SANITIZE_STRING);
-    $lecture_location = filter_input(INPUT_POST, 'lecture_location', FILTER_SANITIZE_STRING);
-    $lecture_capacity = filter_input(INPUT_POST, 'lecture_capacity', FILTER_SANITIZE_STRING);
+    $lecture_name = filter_input(INPUT_POST, 'lecture_name1', FILTER_SANITIZE_STRING);
+    $lecture_lecturer = filter_input(INPUT_POST, 'lecture_lecturer1', FILTER_SANITIZE_STRING);
+    $lecture_notes = filter_input(INPUT_POST, 'lecture_notes1', FILTER_SANITIZE_STRING);
+    $lecture_day = filter_input(INPUT_POST, 'lecture_day1', FILTER_SANITIZE_STRING);
+    $lecture_from_time = filter_input(INPUT_POST, 'lecture_from_time1', FILTER_SANITIZE_STRING);
+    $lecture_to_time = filter_input(INPUT_POST, 'lecture_to_time1', FILTER_SANITIZE_STRING);
+    $lecture_from_date = filter_input(INPUT_POST, 'lecture_from_date1', FILTER_SANITIZE_STRING);
+    $lecture_to_date = filter_input(INPUT_POST, 'lecture_to_date1', FILTER_SANITIZE_STRING);
+    $lecture_location = filter_input(INPUT_POST, 'lecture_location1', FILTER_SANITIZE_STRING);
+    $lecture_capacity = filter_input(INPUT_POST, 'lecture_capacity1', FILTER_SANITIZE_STRING);
 
     //Tutorial
     $tutorialid = filter_input(INPUT_POST, 'tutorialid', FILTER_SANITIZE_STRING);
-    $tutorial_name = filter_input(INPUT_POST, 'tutorial_name', FILTER_SANITIZE_STRING);
-    $tutorial_assistant = filter_input(INPUT_POST, 'tutorial_assistant', FILTER_SANITIZE_STRING);
-    $tutorial_notes = filter_input(INPUT_POST, 'tutorial_notes', FILTER_SANITIZE_STRING);
-    $tutorial_day = filter_input(INPUT_POST, 'tutorial_day', FILTER_SANITIZE_STRING);
-    $tutorial_from_time = filter_input(INPUT_POST, 'tutorial_from_time', FILTER_SANITIZE_STRING);
-    $tutorial_to_time = filter_input(INPUT_POST, 'tutorial_to_time', FILTER_SANITIZE_STRING);
-    $tutorial_from_date = filter_input(INPUT_POST, 'tutorial_from_date', FILTER_SANITIZE_STRING);
-    $tutorial_to_date = filter_input(INPUT_POST, 'tutorial_to_date', FILTER_SANITIZE_STRING);
-    $tutorial_location = filter_input(INPUT_POST, 'tutorial_location', FILTER_SANITIZE_STRING);
-    $tutorial_capacity = filter_input(INPUT_POST, 'tutorial_capacity', FILTER_SANITIZE_STRING);
+    $tutorial_name = filter_input(INPUT_POST, 'tutorial_name1', FILTER_SANITIZE_STRING);
+    $tutorial_assistant = filter_input(INPUT_POST, 'tutorial_assistant1', FILTER_SANITIZE_STRING);
+    $tutorial_notes = filter_input(INPUT_POST, 'tutorial_notes1', FILTER_SANITIZE_STRING);
+    $tutorial_day = filter_input(INPUT_POST, 'tutorial_day1', FILTER_SANITIZE_STRING);
+    $tutorial_from_time = filter_input(INPUT_POST, 'tutorial_from_time1', FILTER_SANITIZE_STRING);
+    $tutorial_to_time = filter_input(INPUT_POST, 'tutorial_to_time1', FILTER_SANITIZE_STRING);
+    $tutorial_from_date = filter_input(INPUT_POST, 'tutorial_from_date1', FILTER_SANITIZE_STRING);
+    $tutorial_to_date = filter_input(INPUT_POST, 'tutorial_to_date1', FILTER_SANITIZE_STRING);
+    $tutorial_location = filter_input(INPUT_POST, 'tutorial_location1', FILTER_SANITIZE_STRING);
+    $tutorial_capacity = filter_input(INPUT_POST, 'tutorial_capacity1', FILTER_SANITIZE_STRING);
 
     $module_status = 'active';
 

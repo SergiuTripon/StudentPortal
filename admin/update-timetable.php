@@ -559,7 +559,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		return false;
     } else {
 		$("#error2").hide();
-		$("#firstname").addClass("success-style");
+		$("#module_name").addClass("success-style");
 	}
 
     var module_notes = $("#module_notes").val();
@@ -774,31 +774,31 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'moduleid='            + moduleid +
-         '&module_name='         + module_name +
-         '&module_notes='       + module_notes +
-         '&module_url='         + module_url +
+         '&module_name1='         + module_name +
+         '&module_notes1='       + module_notes +
+         '&module_url1='         + module_url +
          '&lectureid='          + lectureid +
-         '&lecture_name='       + lecture_name +
+         '&lecture_name1='       + lecture_name +
          '&lecture_lecturer='   + lecture_lecturer +
-         '&lecture_notes='      + lecture_notes +
-         '&lecture_day='        + lecture_day +
-         '&lecture_from_time='  + lecture_from_time +
-         '&lecture_to_time='    + lecture_to_time +
-         '&lecture_from_date='  + lecture_from_date +
-         '&lecture_to_date='    + lecture_to_date +
-         '&lecture_location='   + lecture_location +
-         '&lecture_capacity='   + lecture_capacity +
+         '&lecture_notes1='      + lecture_notes +
+         '&lecture_day1='        + lecture_day +
+         '&lecture_from_time1='  + lecture_from_time +
+         '&lecture_to_time1='    + lecture_to_time +
+         '&lecture_from_date1='  + lecture_from_date +
+         '&lecture_to_date1='    + lecture_to_date +
+         '&lecture_location1='   + lecture_location +
+         '&lecture_capacity1='   + lecture_capacity +
          '&tutorialid='         + tutorialid +
-         '&tutorial_name='      + tutorial_name +
-         '&tutorial_assistant=' + tutorial_assistant +
-         '&tutorial_notes='     + tutorial_notes +
-         '&tutorial_day='       + tutorial_day +
-         '&tutorial_from_time=' + tutorial_from_time +
-         '&tutorial_to_time='   + tutorial_to_time +
-         '&tutorial_from_date=' + tutorial_from_date +
-         '&tutorial_to_date='   + tutorial_to_date +
-         '&tutorial_location='  + tutorial_location +
-         '&tutorial_capacity='  + tutorial_capacity,
+         '&tutorial_name1='      + tutorial_name +
+         '&tutorial_assistant1=' + tutorial_assistant +
+         '&tutorial_notes1='     + tutorial_notes +
+         '&tutorial_day1='       + tutorial_day +
+         '&tutorial_from_time1=' + tutorial_from_time +
+         '&tutorial_to_time1='   + tutorial_to_time +
+         '&tutorial_from_date1=' + tutorial_from_date +
+         '&tutorial_to_date1='   + tutorial_to_date +
+         '&tutorial_location1='  + tutorial_location +
+         '&tutorial_capacity1='  + tutorial_capacity,
 
     success:function(){
 		$("#error").hide();
