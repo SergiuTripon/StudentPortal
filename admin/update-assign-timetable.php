@@ -22,9 +22,9 @@ include '../includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
-    <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include '../includes/menus/portal_menu.php'; ?>
 
 	<div id="timetable-portal" class="container">
 
@@ -189,49 +189,6 @@ include '../includes/session.php';
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
-
-    <?php endif; ?>
-
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
-
-            <?php include '../includes/menus/portal_menu.php'; ?>
-
-    <div class="container">
-
-	<ol class="breadcrumb">
-    <li><a href="../overview/">Overview</a></li>
-    <li class="active">Account</li>
-    </ol>
-
-    <div class="row">
-
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <a href="/admin/create-timetable/">
-    <div class="tile">
-    <i class="fa fa-pencil"></i>
-	<p class="tile-text">Create timetable</p>
-    </div>
-    </a>
-	</div>
-
-
-	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-	<a href="/admin/update-assign-timetable/">
-    <div class="tile">
-    <i class="fa fa-gbp"></i>
-	<p class="tile-text">Update/Assign timetable</p>
-    </div>
-	</a>
-	</div>
-
-    </div><!-- /row -->
-
-    </div><!-- /container -->
-
-	<?php include '../includes/footers/footer.php'; ?>
-
-	<!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
 
