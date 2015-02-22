@@ -358,6 +358,7 @@ include '../includes/session.php';
     });
 
     var tutorial_assistant_check = $(".bootstrap-select button.selectpicker").attr('title');
+    alert (tutorial_assistant_check);
 
     // Date Time Picker
     var today = new Date();
