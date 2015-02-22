@@ -411,7 +411,10 @@ include '../includes/session.php';
         $('#tutorial_name').val($(this).val());
     });
 
-    var tutorial_name = $(".filter-option").eq().text();
+    var tutorial_name = $(".filter-option:first").text();
+    alert(tutorial_name);
+
+    var tutorial_name = $(".filter-option:nth-child(1)").eq().text();
     alert(tutorial_name);
 
     //Ajax call
