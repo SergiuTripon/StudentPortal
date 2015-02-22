@@ -340,16 +340,12 @@ include '../includes/session.php';
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
+    $('.selectpicker').selectpicker();
+
     $(".filter-option").css("color", "gray");
 
-    $( ".bootstrap-select" ).click(function() {
-        var lecturer_check = $(".bootstrap-select button.selectpicker").attr('title');
-
-        if (lecturer_check === 'Select a lecturer') {
-            $(".filter-option").css("color", "gray");
-        } else {
-            $(".filter-option").css("cssText", "color: #333333;");
-        }
+    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
+        $(".filter-option").css("cssText", "color: #333333;");
     });
 
     // Date Time Picker
