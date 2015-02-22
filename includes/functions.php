@@ -431,6 +431,7 @@ function GetDashboardData() {
 function CreateTimetable() {
 
     global $mysqli;
+    global $moduleid;
     global $created_on;
 
     //Module
@@ -499,8 +500,7 @@ function CreateTimetable() {
         exit();
     } else {
 
-        $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC");
-        $stmt4->bind_param('i', $moduleid);
+        $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid ASC");
         $stmt4->execute();
         $stmt4->store_result();
         $stmt4->bind_result($moduleid);
@@ -530,20 +530,19 @@ function CreateTimetable() {
         exit();
     } else {
 
-        $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC");
-        $stmt4->bind_param('i', $moduleid);
-        $stmt4->execute();
-        $stmt4->store_result();
-        $stmt4->bind_result($moduleid);
-        $stmt4->fetch();
-        $stmt4->close();
+        $stmt7 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid ASC");
+        $stmt7->execute();
+        $stmt7->store_result();
+        $stmt7->bind_result($moduleid);
+        $stmt7->fetch();
+        $stmt7->close();
 
         $tutorial_status = 'active';
 
-        $stmt7 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt7->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
-        $stmt7->execute();
-        $stmt7->close();
+        $stmt8 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt8->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
+        $stmt8->execute();
+        $stmt8->close();
 
     }
 
