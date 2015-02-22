@@ -19,9 +19,8 @@ if (isset($_POST["recordToAssign"])) {
 
 	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-	<?php include '../assets/css-paths/calendar-css-path.php'; ?>
 
-    <title>Student Portal | Calendar</title>
+    <title>Student Portal | Assign timetable</title>
 
 </head>
 
