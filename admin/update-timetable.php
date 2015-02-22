@@ -153,7 +153,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
     }
     ?>
 
