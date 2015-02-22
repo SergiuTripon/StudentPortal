@@ -666,7 +666,6 @@ form .success-style:-ms-input-placeholder {
 
 .btn-group > .btn-default:hover, .btn-group > .btn-default:focus {
     color: #FFFFFF;
-    background-color: #5D5D5D;
     border-color: #5D5D5D;
 }
 
