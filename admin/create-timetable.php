@@ -336,13 +336,8 @@ include '../includes/session.php';
 	<script>
 	$(document).ready(function () {
 
-    var lecturer_check = $(".bootstrap-select > .btn-default").attr('title');
+    alert($(".bootstrap-select > .btn-default").attr('title'));
 
-    if (lecturer_check === 'Select a lecturer') {
-        alert ("This is good");
-    } else {
-        alert ("This is bad");
-    }
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
