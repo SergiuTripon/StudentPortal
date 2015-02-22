@@ -255,58 +255,15 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<p id="error8" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="tutorial_assistant">Current tutorial assistant</label>
-    <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
-    <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$tutorial_assistant'");
-
-    while ($row = $stmt1->fetch_assoc()){
-
-    $tutorial_assistant = $row["userid"];
-
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $tutorial_assistant);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
-
-        echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
-    }
-    ?>
-
-    </select>
-
-    </div>
-    </div>
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="update_tutorial_assistant">Update tutorial assistant</label>
-    <select class="selectpicker update_tutorial_assistant" name="update_tutorial_assistant" id="update_tutorial_assistant">
-        <option data-hidden="true">Select an option</option>
-    <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$tutorial_assistant'");
-
-    while ($row = $stmt1->fetch_assoc()){
-
-    $tutorial_assistant = $row["userid"];
-
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $tutorial_assistant);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
-
-        echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
-    }
-    ?>
-
-    </select>
-
-    </div>
-    </div>
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Tutorial from (time)</label>
+	<input type="text" class="form-control" name="tutorial_from_time" id="tutorial_from_time" value="<?php echo $tutorial_from_time; ?>" placeholder="Select a time">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Tutorial to (time)</label>
+	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" value="<?php echo $tutorial_to_time; ?>" placeholder="Select a time">
+	</div>
+	</div>
     <p id="error9" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
