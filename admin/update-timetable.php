@@ -665,6 +665,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	}
 
     var lecture_lecturer = $("#lecturer option:selected").val();
+    alert(lecture_lecturer);
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
@@ -767,6 +768,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	}
 
     var tutorial_assistant = $("#tutorial_assistant option:selected").val();
+    alert(tutorial_assistant);
     var tutorial_notes = $("#tutorial_notes").val();
 
 	if(hasError == false){
