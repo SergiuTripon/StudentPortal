@@ -160,9 +160,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </select>
 
     </div>
-    </div>
-
-    <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Lecturer</label>
     <select class="selectpicker update_lecturer" name="update_lecturer" id="update_lecturer">
