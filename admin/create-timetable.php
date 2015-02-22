@@ -443,12 +443,14 @@ include '../includes/session.php';
         $("#error3").show();
         $("#error3").empty().append("Please select a lecturer.");
         $(".lecturer > .selectpicker").addClass("error-style");
+        $(".lecturer > .error-style > .filter-option").css("cssText", "color: #FFFFFF; !important");
         hasError  = true;
         return false;
     }
     else {
         $("#error3").hide();
         $(".lecturer > .selectpicker").addClass("success-style");
+        $(".lecturer > .error-style > .filter-option").css("cssText", "color: #FFFFFF; !important");
     }
 
     var lecture_day = $("#lecture_day").val();
