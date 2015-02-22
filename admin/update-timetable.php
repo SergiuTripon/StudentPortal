@@ -137,7 +137,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
-    <select class="selectpicker" name="lecturers" id="lecturers">
+    <select class="selectpicker" name="lecturers" id="lecturers" disabled>
         <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lectureid'");
