@@ -1,13 +1,6 @@
 <?php
-include '../includes/session.php';
+include 'includes/session.php';
 
-if (isset($_POST["recordToAssign"])) {
-
-    $idToAssign = filter_input(INPUT_POST, 'recordToAssign', FILTER_SANITIZE_NUMBER_INT);
-
-} else {
-    header('Location: ../../timetable/');
-}
 ?>
 
 <!DOCTYPE html>
@@ -15,12 +8,13 @@ if (isset($_POST["recordToAssign"])) {
 
 <head>
 
-	<?php include '../assets/meta-tags.php'; ?>
+	<?php include 'assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
+	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
-    <title>Student Portal | Timetable</title>
+    <title>Student Portal | Calendar</title>
 
 </head>
 
@@ -29,20 +23,14 @@ if (isset($_POST["recordToAssign"])) {
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
+	<?php include 'includes/menus/portal_menu.php'; ?>
 
-    <?php include '../includes/menus/portal_menu.php'; ?>
-
-	<div id="timetable-portal" class="container">
+	<div id="calendar-portal" class="container">
 
 	<ol class="breadcrumb">
-    <li><a href="../../overview/">Overview</a></li>
-    <li><a href="../../timetable/">Timetable</a></li>
-    <li><a href="../update-assign-timetable/">Update/Assign timetable</a></li>
-	<li class="active">Assign timetable</li>
-    </ol>
-
-    <div id="idToAssign" style="display: none !important;"><?php echo $idToAssign; ?></div>
+		<li><a href="../overview/">Overview</a></li>
+		<li class="active">Calendar</li>
+	</ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -50,22 +38,22 @@ if (isset($_POST["recordToAssign"])) {
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Users</a>
+	<a id="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Users</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Users -->
+	<!-- Due tasks -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom user-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
-	<th>First name</th>
+	<th>First Name</th>
 	<th>Surname</th>
 	<th>Email address</th>
-    <th>Action</th>
+	<th>Action</th>
 	</tr>
 	</thead>
 
@@ -76,17 +64,17 @@ if (isset($_POST["recordToAssign"])) {
 
 	while($row = $stmt1->fetch_assoc()) {
 
-    $db_userid = $row["userid"];
+	$db_userid = $row["userid"];
 	$email = $row["email"];
-	$firstname = $row["firstname"];
-	$surname = $row["surname"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
 
-	echo '<tr>
+	echo '<tr id="task-'.$db_userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Complete</a></td>
+			<td data-title="Action"><a id="complete-'.$db_userid.'" class="btn btn-primary btn-md complete-button">Assign</a></td>
 			</tr>';
 	}
 
@@ -101,7 +89,7 @@ if (isset($_POST["recordToAssign"])) {
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-	</div><!-- /.panel-group -->
+	</div><!-- /panel-group -->
 
     </div><!-- /container -->
 
@@ -110,13 +98,7 @@ if (isset($_POST["recordToAssign"])) {
 	<!-- Sign Out (Inactive) JS -->
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php endif; ?>
-
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
-
-    <?php endif; ?>
-
-    <?php else : ?>
+	<?php else : ?>
 
 	<?php include '../includes/menus/menu.php'; ?>
 
@@ -147,36 +129,39 @@ if (isset($_POST["recordToAssign"])) {
 	<?php endif; ?>
 
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
+	<?php include '../assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
-	<script type="text/javascript" class="init">
+	<script>
     $(document).ready(function () {
 
-	//DataTables
-    $('.user-table').dataTable({
+    $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You have no lectures on this day."
+			"emptyTable": "There are no users to display."
 		}
 	});
 
-	$("body").on("click", ".assign-button", function(e) {
+	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var user = clickedID[1];
-    var module = $("#module").html();
+    var DbNumberID = clickedID[1];
+    var myData = 'recordToComplete='+ DbNumberID;
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'user='+ user + '&module=' + module,
-	success:function(){
-		$('#assign-'+user).fadeOut();
+	data:myData,
+	success:function(response){
+		$('#task-'+DbNumberID).fadeOut();
+		setTimeout(function(){
+			location.reload();
+		}, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
@@ -189,7 +174,6 @@ if (isset($_POST["recordToAssign"])) {
     });
 
 	});
-
 	</script>
 
 </body>
