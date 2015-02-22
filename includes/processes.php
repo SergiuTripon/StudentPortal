@@ -98,7 +98,7 @@ elseif (isset($_POST["userToAssign"], $_POST["moduleToAssign"])) {
 }
 
 //Call AssignTimetable function
-elseif (isset($_POST["moduleToDelete"], $_POST["moduleToDelete"])) {
+elseif (isset($_POST["moduleToCancel"], $_POST["moduleToCancel"])) {
     DeleteTimetable();
 }
 

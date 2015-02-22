@@ -93,14 +93,14 @@ include '../includes/session.php';
 	$module_notes = $row["module_notes"];
 	$module_url = $row["module_url"];
 
-	echo '<tr id="delete-'.$moduleid.'">
+	echo '<tr id="cancel-'.$moduleid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
 			<td data-title="Action"><a id="update-'.$moduleid.'" class="btn btn-primary btn-md update-button">Update</a></td>
-            <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md delete-button">Delete</a></td>
+            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md cancel-button">Delete</a></td>
 			</tr>';
 	}
 
@@ -199,19 +199,19 @@ include '../includes/session.php';
 
 	});
 
-    $("body").on("click", ".delete-button", function(e) {
+    $("body").on("click", ".cancel-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var moduleToDelete = clickedID[1];
+    var moduleToCancel = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'moduleToDelete='+ moduleToDelete,
+	data:'moduleToCancel='+ moduleToCancel,
 	success:function(){
-		$('#delete-'+moduleToDelete).fadeOut();
+		$('#cancel-'+moduleToCancel).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){

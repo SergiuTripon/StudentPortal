@@ -610,12 +610,28 @@ function DeleteTimetable() {
 
     global $mysqli;
 
-    $moduleToDelete = filter_input(INPUT_POST, 'moduleToDelete', FILTER_SANITIZE_NUMBER_INT);
+    $moduleToDelete = filter_input(INPUT_POST, 'moduleToCancel', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_modules WHERE moduleid=?");
-    $stmt1->bind_param('i', $moduleToDelete);
+    $module_status = 'cancelled';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_status=? WHERE moduleid=?");
+    $stmt1->bind_param('si', $module_status, $moduleToDelete);
     $stmt1->execute();
     $stmt1->close();
+
+    $lecture_status = 'cancelled';
+
+    $stmt2 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=? WHERE moduleid=?");
+    $stmt2->bind_param('si', $lecture_status, $moduleToDelete);
+    $stmt2->execute();
+    $stmt2->close();
+
+    $tutorial_status = 'cancelled';
+
+    $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=? WHERE moduleid=?");
+    $stmt3->bind_param('si', $tutorial_status, $moduleToDelete);
+    $stmt3->execute();
+    $stmt3->close();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
