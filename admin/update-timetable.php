@@ -66,7 +66,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Update timetable</title>
-	
+
 </head>
 
 <body>
@@ -74,7 +74,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-	
+
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
@@ -138,7 +138,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Lecturer</label>
-    <select class="selectpicker" name="lecturer" id="lecturer">
+    <select class="selectpicker lecturer" name="lecturer" id="lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
 
@@ -153,7 +153,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
     }
     ?>
 
@@ -165,9 +165,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Lecturer</label>
-    <select class="selectpicker" name="update-lecturer" id="update-lecturer">
+    <select class="selectpicker update_lecturer" name="update_lecturer" id="update_lecturer">
+        <option data-hidden="true">Select an option</option>
     <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$lecture_lecturer'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -346,12 +347,12 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div id="success-button" class="text-center" style="display:none">
 	<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label">Create another</span></a>
 	</div>
-	
+
     </form>
     <!-- End of Create timetable -->
 
 	</div> <!-- /container -->
-	
+
 	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
@@ -378,7 +379,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </div>
 
     </form>
-    
+
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
@@ -392,7 +393,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<?php include '../includes/menus/menu.php'; ?>
 
     <div class="container">
-	
+
     <form class="form-custom">
 
 	<div class="form-logo text-center">
@@ -406,7 +407,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="text-center">
     <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
-	
+
     </form>
 
     </div>
@@ -427,18 +428,19 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $('.selectpicker').selectpicker();
 
-    $(".filter-option").css("color", "gray");
+    $("#update_lecturer option:selected").css("color", "gray");
+    $("#update_tutorial_assistant option:selected").css("color", "gray");
 
     $( ".bootstrap-select" ).click(function() {
-        var lecturer_check = $(".bootstrap-select button.selectpicker:first").attr('title');
-        var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
+        var lecturer_style = $("#update_lecturer option:selected").html();
+        var tutorial_assistant_style = $("#update_tutorial_assistant option:selected").html();
 
-        if (lecturer_check != 'Select a lecturer') {
-            $(".filter-option:first").css("cssText", "color: #333333;");
+        if (lecturer_style != 'Select a lecturer') {
+            $("#update_lecturer option:selected").css("cssText", "color: #333333;");
         }
 
-        if (tutorial_assistant_check != 'Select a tutorial assistant') {
-            $(".filter-option:eq(1)").css("cssText", "color: #333333;");
+        if (tutorial_assistant_style != 'Select a tutorial assistant') {
+            $("#update_tutorial_assistant option:selected").css("cssText", "color: #333333;");
         }
     });
 
@@ -497,14 +499,17 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
-    $('#update_lecturer').bind('click', function() {
-        $('#lecturer').val($(this).val());
+    var new_lecturer;
+
+    $("#update_lecturer").change(function() {
+        $('#lecturer').prop('disabled',true);
+        $('#lecturer').selectpicker('refresh');
     });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
 	var hasError = false;
 
     //Modules
@@ -540,17 +545,12 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#lecture_name").addClass("success-style");
 	}
 
-    var lecturer_check = $('.filter-option:first').text();
-    if (lecturer_check === 'Select a lecturer') {
-        $("#error3").show();
-        $("#error3").empty().append("Please select a lecturer.");
-        $("#lecturers .selectpicker").addClass("error-style");
-        hasError  = true;
-        return false;
+    var lecturer_check = $('#update_lecturer option:selected').html();
+    if (lecturer_check === 'Select an option') {
+        new_lecturer = $('#lecturer option:selected').html();
     }
     else {
-        $("#error3").hide();
-        $("#lecturers").addClass("success-style");
+        new_lecturer = $('#update_lecturer option:selected').html();
     }
 
     var lecture_day = $("#lecture_day").val();
