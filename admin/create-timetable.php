@@ -447,11 +447,11 @@ include '../includes/session.php';
 		$("#lecture_name").addClass("success-style");
 	}
 
-    var lecturer_check = $('.filter-option:first').text();
-    if (lecturer_check === 'Select a lecturer') {
+    var lecturer_check = $("#lecturers option:selected").html();
+    if (lecturer_check === 'Select an option') {
         $("#error3").show();
         $("#error3").empty().append("Please select a lecturer.");
-        $("#lecturers .selectpicker").addClass("error-style");
+        $("#lecturers").addClass("error-style");
         hasError  = true;
         return false;
     }
@@ -560,11 +560,11 @@ include '../includes/session.php';
 		$("#tutorial_name").addClass("success-style");
 	}
 
-    var tutorial_assistant_check = $(".filter-option:eq(1)").text();
-    if (tutorial_assistant_check === 'Select a tutorial assistant') {
+    var tutorial_assistant_check = $("#tutorial_assistants option:selected").html();
+    if (tutorial_assistant_check === 'Select an option') {
         $("#error9").show();
         $("#error9").empty().append("Please select a tutorial assistant.");
-        $("#tutorial_assistants .selectpicker").addClass("error-style");
+        $("#tutorial_assistants").addClass("error-style");
         hasError  = true;
         return false;
     }
