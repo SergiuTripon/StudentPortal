@@ -761,10 +761,6 @@ form .success-style:-ms-input-placeholder {
     color: #FFFFFF !important;
 }
 
-.bootstrap-select .filter-option:hover {
-    color: #333333 !important;
-}
-
 .bootstrap-select .filter-option:focus {
     color: #333333 !important;
 }
