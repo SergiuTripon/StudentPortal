@@ -496,7 +496,7 @@ include '../includes/session.php';
 	}
 
     var lecture_from_date = $("#lecture_from_date").val();
-	if(lecture_from_time === '') {
+	if(lecture_from_date === '') {
 		$("#error6").show();
 		$("#error6").empty().append("Please select a time.");
 		$("#lecture_from_date").addClass("error-style");
@@ -508,7 +508,7 @@ include '../includes/session.php';
 	}
 
     var lecture_to_date = $("#lecture_to_date").val();
-	if(lecture_to_time === '') {
+	if(lecture_to_date === '') {
 		$("#error6").show();
 		$("#error6").empty().append("Please select a date.");
 		$("#lecture_to_date").addClass("error-style");
@@ -520,7 +520,7 @@ include '../includes/session.php';
 	}
 
     var lecture_location = $("#lecture_location").val();
-	if(lecture_from_time === '') {
+	if(lecture_location === '') {
 		$("#error7").show();
 		$("#error7").empty().append("Please enter a location.");
 		$("#lecture_location").addClass("error-style");
@@ -532,7 +532,7 @@ include '../includes/session.php';
 	}
 
     var lecture_capacity = $("#lecture_capacity").val();
-	if(lecture_to_time === '') {
+	if(lecture_capacity === '') {
 		$("#error7").show();
 		$("#error7").empty().append("Please enter a capacity.");
 		$("#lecture_capacity").addClass("error-style");
@@ -572,99 +572,92 @@ include '../includes/session.php';
         $("#tutorial_assistants").addClass("success-style");
     }
 
-    var lecture_day = $("#lecture_day").val();
-	if(lecture_day === '') {
+    var tutorial_day = $("#tutorial_day").val();
+	if(tutorial_day === '') {
 		$("#error10").show();
 		$("#error10").empty().append("Please enter a day.");
-		$("#lecture_day").addClass("error-style");
+		$("#tutorial_day").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
 		$("#error10").hide();
-		$("#lecture_day").addClass("success-style");
+		$("#tutorial_day").addClass("success-style");
 	}
 
-    var lecture_from_time = $("#lecture_from_time").val();
-	if(lecture_from_time === '') {
+    var tutorial_from_time = $("#tutorial_from_time").val();
+	if(tutorial_from_time === '') {
 		$("#error11").show();
 		$("#error11").empty().append("Please select a time.");
-		$("#lecture_from_time").addClass("error-style");
+		$("#tutorial_from_time").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
 		$("#error11").hide();
-		$("#lecture_from_time").addClass("success-style");
+		$("#tutorial_from_time").addClass("success-style");
 	}
 
-    var lecture_to_time = $("#lecture_to_time").val();
-	if(lecture_to_time === '') {
+    var tutorial_to_time = $("#tutorial_to_time").val();
+	if(tutorial_to_time === '') {
 		$("#error12").show();
 		$("#error12").empty().append("Please select a time.");
-		$("#lecture_to_time").addClass("error-style");
+		$("#tutorial_to_time").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
 		$("#error12").hide();
-		$("#lecture_to_time").addClass("success-style");
+		$("#tutorial_to_time").addClass("success-style");
 	}
 
-    var lecture_from_date = $("#lecture_from_date").val();
-	if(lecture_from_time === '') {
+    var tutorial_from_date = $("#tutorial_from_date").val();
+	if(tutorial_from_date === '') {
 		$("#error13").show();
 		$("#error13").empty().append("Please select a time.");
-		$("#lecture_from_date").addClass("error-style");
+		$("#tutorial_from_date").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
 		$("#error13").hide();
-		$("#lecture_from_date").addClass("success-style");
+		$("#tutorial_from_date").addClass("success-style");
 	}
 
-    var lecture_to_date = $("#lecture_to_date").val();
-	if(lecture_to_time === '') {
+    var tutorial_to_date = $("#tutorial_to_date").val();
+	if(tutorial_to_date === '') {
 		$("#error13").show();
 		$("#error13").empty().append("Please select a date.");
-		$("#lecture_to_date").addClass("error-style");
+		$("#tutorial_to_date").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
 		$("#error13").hide();
-		$("#lecture_to_date").addClass("success-style");
+		$("#tutorial_to_date").addClass("success-style");
 	}
 
-    var lecture_location = $("#lecture_location").val();
-	if(lecture_from_time === '') {
+    var tutorial_location = $("#tutorial_location").val();
+	if(tutorial_location === '') {
 		$("#error14").show();
 		$("#error14").empty().append("Please enter a location.");
-		$("#lecture_location").addClass("error-style");
+		$("#tutorial_location").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
 		$("#error14").hide();
-		$("#lecture_location").addClass("success-style");
+		$("#tutorial_location").addClass("success-style");
 	}
 
-    var lecture_capacity = $("#lecture_capacity").val();
-	if(lecture_to_time === '') {
+    var tutorial_capacity = $("#tutorial_capacity").val();
+	if(tutorial_capacity === '') {
 		$("#error14").show();
 		$("#error14").empty().append("Please enter a capacity.");
-		$("#lecture_capacity").addClass("error-style");
+		$("#tutorial_capacity").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
 		$("#error14").hide();
-		$("#lecture_capacity").addClass("success-style");
+		$("#tutorial_capacity").addClass("success-style");
 	}
 
     var tutorial_assistant = $("#tutorial_assistants option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
-    var tutorial_day = $("#tutorial_day").val();
-    var tutorial_from_time = $("#tutorial_from_time").val();
-    var tutorial_to_time = $("#tutorial_to_time").val();
-    var tutorial_from_date = $("#tutorial_from_date").val();
-    var tutorial_to_date = $("#tutorial_to_date").val();
-    var tutorial_location = $("#tutorial_location").val();
-    var tutorial_capacity = $("#tutorial_capacity").val();
 
 	if(hasError == false){
     jQuery.ajax({
