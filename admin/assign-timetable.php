@@ -176,7 +176,7 @@ if (isset($_POST["recordToAssign"])) {
 	dataType:"text",
 	data:'recordToAssign='+ recordToAssign + '&idToAssign=' + idToAssign,
 	success:function(){
-		$('#assign-'+DbNumberID).fadeOut();
+		$('#assign-'+recordToAssign).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
