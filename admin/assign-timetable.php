@@ -174,7 +174,7 @@ if (isset($_POST["recordToAssign"])) {
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'recordToAssign='+ recordToAssign + '&idToAssign=' + task_notes +,
+	data:'recordToAssign='+ recordToAssign + '&idToAssign=' + idToAssign,
 	success:function(){
 		$('#assign-'+DbNumberID).fadeOut();
 	},
