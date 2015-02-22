@@ -8,11 +8,11 @@ include 'includes/session.php';
 
 <head>
 
-	<?php include 'assets/meta-tags.php'; ?>
+	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
+	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
+	<?php include '../assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../assets/css-paths/calendar-css-path.php'; ?>
 
     <title>Student Portal | Calendar</title>
 
@@ -23,7 +23,7 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-	<?php include 'includes/menus/portal_menu.php'; ?>
+	<?php include '../includes/menus/portal_menu.php'; ?>
 
 	<div id="calendar-portal" class="container">
 
