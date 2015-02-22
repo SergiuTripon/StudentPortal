@@ -31,7 +31,7 @@ if (isset($_POST["recordToAssign"])) {
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
 
-	<div id="calendar-portal" class="container">
+	<div class="container">
 
 	<ol class="breadcrumb">
 		<li><a href="../../overview/">Overview</a></li>
