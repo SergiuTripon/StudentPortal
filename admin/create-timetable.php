@@ -468,7 +468,7 @@ include '../includes/session.php';
     var lecture_day = $("#lecture_day").val();
 	if(lecture_day === '') {
 		$("#error4").show();
-		$("#error4").empty().append("Please enter a time.");
+		$("#error4").empty().append("Please enter a day.");
 		$("#lecture_day").addClass("error-style");
 		hasError  = true;
         return false;
@@ -504,7 +504,7 @@ include '../includes/session.php';
     var lecture_from_date = $("#lecture_from_date").val();
 	if(lecture_from_date === '') {
 		$("#error6").show();
-		$("#error6").empty().append("Please select a time.");
+		$("#error6").empty().append("Please select a date.");
 		$("#lecture_from_date").addClass("error-style");
         hasError  = true;
         return false;
@@ -604,20 +604,20 @@ include '../includes/session.php';
 
     var tutorial_to_time = $("#tutorial_to_time").val();
 	if(tutorial_to_time === '') {
-		$("#error12").show();
-		$("#error12").empty().append("Please select a time.");
+		$("#error11").show();
+		$("#error11").empty().append("Please select a time.");
 		$("#tutorial_to_time").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
-		$("#error12").hide();
+		$("#error11").hide();
 		$("#tutorial_to_time").addClass("success-style");
 	}
 
     var tutorial_from_date = $("#tutorial_from_date").val();
 	if(tutorial_from_date === '') {
-		$("#error13").show();
-		$("#error13").empty().append("Please select a time.");
+		$("#error12").show();
+		$("#error12").empty().append("Please select a time.");
 		$("#tutorial_from_date").addClass("error-style");
 		hasError  = true;
         return false;
@@ -658,7 +658,7 @@ include '../includes/session.php';
 		hasError  = true;
         return false;
 	} else {
-		$("#error14").hide();
+		$("#error13").hide();
 		$("#tutorial_capacity").addClass("success-style");
 	}
 
