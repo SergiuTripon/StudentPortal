@@ -346,18 +346,18 @@ include '../includes/session.php';
 
     $( ".bootstrap-select" ).click(function() {
         var lecturer_check = $(".bootstrap-select button.selectpicker").attr('title');
-        var tutorial_assistant_check = $(".bootstrap-select button.selectpicker").attr('title');
+        var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
 
         if (lecturer_check != 'Select a lecturer') {
             $(".filter-option").css("cssText", "color: #333333;");
         }
 
-        if (lecturer_check != 'Select a tutorial assistant') {
+        if (tutorial_assistant_check != 'Select a tutorial assistant') {
             $(".filter-option").css("cssText", "color: #333333;");
         }
     });
 
-    var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:eq(1)").attr('title');
+    var tutorial_assistant_check = $(".bootstrap-select button.selectpicker:first").attr('title');
     alert (tutorial_assistant_check);
 
     // Date Time Picker
