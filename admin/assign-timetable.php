@@ -157,15 +157,15 @@ if (isset($_POST["recordToAssign"])) {
 	$("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
 
+    var idToAssign = $("#idToAssign").html();
 	var clickedID = this.id.split('-');
     var DbNumberID = clickedID[1];
-    var idToAssign = $("#idToAssign").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'recordToAssign='+ DbNumberID + '&idToAssign='+ DbNumberID ,
+	data:'&idToAssign='+ idToAssign + '&recordToAssign='+ DbNumberID,
 	success:function(){
 		$('#assign-'+DbNumberID).fadeOut();
 	},
