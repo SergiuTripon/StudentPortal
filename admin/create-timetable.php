@@ -450,13 +450,13 @@ include '../includes/session.php';
     if (lecturer_check === 'Select a lecturer') {
         $("#error3").show();
         $("#error3").empty().append("Please select a lecturer.");
-        $(".selectpicker").addClass("error-style");
+        $("#lecturers").addClass("error-style");
         hasError  = true;
         return false;
     }
     else {
         $("#error3").hide();
-        $(".selectpicker").addClass("success-style");
+        $(".lecturers").addClass("success-style");
     }
 
     var lecture_lecturer = $("#lecturers option:selected").val();
@@ -486,13 +486,13 @@ include '../includes/session.php';
     if (tutorial_assistant_check === 'Select a tutorial assistant') {
         $("#error9").show();
         $("#error9").empty().append("Please select a tutorial assistant.");
-        $(".selectpicker").addClass("error-style");
+        $("#tutorial_assistants").addClass("error-style");
         hasError  = true;
         return false;
     }
     else {
         $("#error3").hide();
-        $(".selectpicker").addClass("success-style");
+        $(".tutorial_assistants").addClass("success-style");
     }
 
     var tutorial_assistant = $("#tutorial_assistants option:selected").val();
