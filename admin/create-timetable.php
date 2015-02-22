@@ -342,7 +342,8 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-        $('.selectpicker option:selected').val();
+        var lecturer_check = $('.selectpicker option:selected').val();
+        alert(lecturer_check);
 
     $(".filter-option").css("color", "gray");
 
