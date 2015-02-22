@@ -341,6 +341,8 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
+    $(".filter-option").css("color", "gray");
+
     $( ".bootstrap-select" ).click(function() {
         var lecturer_check = $(".bootstrap-select button.selectpicker").attr('title');
 
