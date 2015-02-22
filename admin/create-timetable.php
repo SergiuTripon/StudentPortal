@@ -47,7 +47,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module name</label>
-    <input class="form-control" type="text" name="module_name" id="module_name" value="" placeholder="Enter a module name">
+    <input class="form-control" type="text" name="module_name" id="module_name" value="" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
@@ -55,14 +55,14 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module notes</label>
-    <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter module notes"></textarea>
+    <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module URL</label>
-    <input class="form-control" type="text" name="module_url" id="module_url" placeholder="Enter a module URL">
+    <input class="form-control" type="text" name="module_url" id="module_url" placeholder="Enter a URL">
 	</div>
 	</div>
     <!-- End of Create module -->
@@ -73,7 +73,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture name</label>
-    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="" placeholder="Enter a module name">
+    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error2" class="feedback-sad text-center"></p>
@@ -82,7 +82,7 @@ include '../includes/session.php';
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
     <select class="selectpicker" name="lecturers" id="lecturers">
-        <option data-hidden="true">Select a lecturer</option>
+        <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -110,14 +110,14 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture notes</label>
-    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter lecture notes"></textarea>
+    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecture day</label>
-    <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Select a lecture day">
+    <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Select a day">
     </div>
     </div>
     <p id="error4" class="feedback-sad text-center"></p>
@@ -165,7 +165,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial name</label>
-    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="" placeholder="Enter a tutorial name">
+    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error8" class="feedback-sad text-center"></p>
@@ -173,8 +173,8 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Tutorial assistant</label>
-    <select class="selectpicker" name="tutorial_assistants" id="tutorial_assistants" title="Select a tutorial assistant">
-        <option data-hidden="true">Select a tutorial assistant</option>
+    <select class="selectpicker" name="tutorial_assistants" id="tutorial_assistants">
+        <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -201,7 +201,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial notes</label>
-    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter tutorial notes"></textarea>
+    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
