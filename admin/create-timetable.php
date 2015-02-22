@@ -344,6 +344,16 @@ include '../includes/session.php';
 
     $(".filter-option").css("color", "gray");
 
+    $( ".bootstrap-select" ).click(function() {
+        var lecturer_check = $(".bootstrap-select button.selectpicker").attr('title');
+
+        if (lecturer_check === 'Select a lecturer') {
+            $(".filter-option").css("color", "gray");
+        } else {
+            $(".filter-option").css("cssText", "color: #333333;");
+        }
+    });
+
     // Date Time Picker
     var today = new Date();
 	$(function () {
