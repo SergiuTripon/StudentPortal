@@ -418,8 +418,11 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
-    var lecturer_check = $('#lecturers option:selected').val();
-    alert(lecturer_check);
+    var lecture_lecturer = $("#lecturers option:selected").val();
+    alert(lecture_lecturer);
+
+    var tutorial_assistant = $("#tutorial_assistants option:selected").val();
+    alert(tutorial_assistant);
 
     //Modules
 	var module_name = $("#module_name").val();
