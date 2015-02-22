@@ -19,7 +19,6 @@ if (isset($_POST["recordToAssign"])) {
 
 	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-	<?php include '../assets/css-paths/calendar-css-path.php'; ?>
 
     <title>Student Portal | Timetable</title>
 
@@ -39,7 +38,7 @@ if (isset($_POST["recordToAssign"])) {
 	<ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
     <li><a href="../../timetable/">Timetable</a></li>
-    <li><a href="../updated-assign-timetable/">Update/Assign timetable</a></li>
+    <li><a href="../update-assign-timetable/">Update/Assign timetable</a></li>
 	<li class="active">Assign timetable</li>
     </ol>
 
@@ -59,7 +58,7 @@ if (isset($_POST["recordToAssign"])) {
 
 	<!-- Users -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom user-table">
 
 	<thead>
 	<tr>
@@ -148,15 +147,13 @@ if (isset($_POST["recordToAssign"])) {
 	<?php endif; ?>
 
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-	<?php include '../assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
-	<?php include '../assets/js-paths/calendar-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
 
 	//DataTables
-    $('.module-table').dataTable({
+    $('.user-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
