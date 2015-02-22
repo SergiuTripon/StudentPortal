@@ -258,23 +258,23 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="lecturer">Current lecturer</label>
+    <label for="lecturer">Current tutorial assistant</label>
     <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$tutorial_assistant'");
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $lecturer = $row["userid"];
+    $tutorial_assistant = $row["userid"];
 
     $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lecturer);
+    $stmt2->bind_param('i', $tutorial_assistant);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
     }
     ?>
 
@@ -293,16 +293,16 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $lecturer = $row["userid"];
+    $tutorial_assistant = $row["userid"];
 
     $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lecturer);
+    $stmt2->bind_param('i', $tutorial_assistant);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
     }
     ?>
 
