@@ -463,6 +463,34 @@ function CreateTimetable() {
     $tutorial_location = filter_input(INPUT_POST, 'tutorial_location', FILTER_SANITIZE_STRING);
     $tutorial_capacity = filter_input(INPUT_POST, 'tutorial_capacity', FILTER_SANITIZE_STRING);
 
+        // Check existing module name
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE module_name = ? LIMIT 1");
+    $stmt1->bind_param('s', $module_name);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_moduleid);
+    $stmt1->fetch();
+
+    if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+        header('HTTP/1.0 550 A module with the name entered already exists.');
+        exit();
+    }
+
+    // Check existing lecture name
+    $stmt2 = $mysqli->prepare("SELECT lectureid FROM system_lectures WHERE lecture_name = ? LIMIT 1");
+    $stmt2->bind_param('s', $lecture_name);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($db_lectureid);
+    $stmt2->fetch();
+
+    if ($stmt2->num_rows == 1) {
+        $stmt2->close();
+        header('HTTP/1.0 550 A lecture with the name entered already exists.');
+        exit();
+    }
+
     // Check existing tutorial name
     $stmt3 = $mysqli->prepare("SELECT tutorialid FROM system_tutorials WHERE tutorial_name = ? LIMIT 1");
     $stmt3->bind_param('s', $tutorial_name);
