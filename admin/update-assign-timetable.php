@@ -167,42 +167,13 @@ include '../includes/session.php';
 		}
 	});
 
-	//Ajax call
-	$("body").on("click", ".complete-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-    var myData = 'recordToComplete='+ DbNumberID;
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:myData,
-	success:function(){
-		$('#task-'+DbNumberID).fadeOut();
-		setTimeout(function(){
-			location.reload();
-		}, 1000);
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-
-    });
-
-	$("body").on("click", ".update-button", function(e) {
+	$("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
     var DbNumberID = clickedID[1];
 
-	$("#update-task-form-" + DbNumberID).submit();
+	$("#assign-timetable-form-" + DbNumberID).submit();
 
 	});
 
