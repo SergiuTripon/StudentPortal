@@ -81,7 +81,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
-    <select class="selectpicker" name="lecturers" id="lecturers">
+    <select class="selectpicker lecturers" name="lecturers" id="lecturers">
         <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
@@ -451,13 +451,13 @@ include '../includes/session.php';
     if (lecturer_check === 'Select an option') {
         $("#error3").show();
         $("#error3").empty().append("Please select a lecturer.");
-        $("#lecturers").addClass("error-style");
+        $(".lecturers").addClass("error-style");
         hasError  = true;
         return false;
     }
     else {
         $("#error3").hide();
-        $("#lecturers").addClass("success-style");
+        $(".lecturers").addClass("success-style");
     }
 
     var lecture_day = $("#lecture_day").val();
