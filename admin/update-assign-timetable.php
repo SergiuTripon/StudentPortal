@@ -29,8 +29,8 @@ include '../includes/session.php';
 	<div id="timetable-portal" class="container">
 
 	<ol class="breadcrumb">
-    <li><a href="../overview/">Overview</a></li>
-    <li><a href="../overview/">Timetable</a></li>
+    <li><a href="../../overview/">Overview</a></li>
+    <li><a href="../../timetable/">Timetable</a></li>
 	<li class="active">Update/Assign timetable</li>
     </ol>
 
