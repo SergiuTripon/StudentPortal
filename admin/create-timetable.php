@@ -346,9 +346,7 @@ include '../includes/session.php';
     $( ".bootstrap-select" ).click(function() {
         var lecturer_check = $(".bootstrap-select button.selectpicker").attr('title');
 
-        if (lecturer_check === 'Select a lecturer') {
-            $(".filter-option").css("color", "gray");
-        } else {
+        if (lecturer_check != 'Select a lecturer') {
             $(".filter-option").css("cssText", "color: #333333;");
         }
     });
