@@ -1511,7 +1511,6 @@ function PaypalPaymentCancel() {
 	global $mysqli;
 	global $userid;
 	global $updated_on;
-	global $cancelled_on;
 
 	$payment_status = 'cancelled';
 
