@@ -752,27 +752,6 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
     background-color: #CCCCCC;
 }
-
-.error-style .filter-option {
-    color: #FFFFFF !important;
-}
-
-.bootstrap-select .filter-option:focus {
-    color: #333333 !important;
-}
-
-.bootstrap-select .error-style:hover,
-.bootstrap-select .error-style:focus {
-    border-color: #CCCCCC !important;
-}
-
-.bootstrap-select .error-style:hover .filter-option {
-    color: #333333 !important;
-}
-
-.bootstrap-select .error-style:focus .filter-option {
-    color: #333333 !important;
-}
 /* End of Bootstrap Select */
 
 /* Tiles style */
