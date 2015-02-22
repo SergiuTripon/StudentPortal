@@ -535,7 +535,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $("#update_tutorial_assistant").change(function() {
         var new_tutorial_assistant = $("#update_tutorial_assistant option:selected").text();
         var new_tutorial_assistant1 = $("#update_tutorial_assistant option:selected").val();
-        $("label[for='lecturer']").empty().append("New lecturer");
+        $("label[for='tutorial_assistant']").empty().append("New lecturer");
         $('#tutorial_assistant option:selected').text(new_tutorial_assistant);
         $('#tutorial_assistant option:selected').val(new_tutorial_assistant1);
         $('#tutorial_assistant').selectpicker('refresh');
