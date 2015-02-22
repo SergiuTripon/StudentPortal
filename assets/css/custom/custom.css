@@ -440,6 +440,10 @@ ul.external-pages-links {
 }
 /* End of Social showcase */
 
+.filter-option {
+    color: gray;
+}
+
 /* Form */
 form {
     max-width: 500px;
@@ -752,10 +756,6 @@ form .success-style:-ms-input-placeholder {
 .bootstrap-select .dropdown-menu > li > a:focus {
     color: #333333;
     background-color: #CCCCCC;
-}
-
-.filter-option {
-    color: gray;
 }
 /* End of Bootstrap Select */
 
