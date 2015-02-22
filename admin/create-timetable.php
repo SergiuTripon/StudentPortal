@@ -624,38 +624,38 @@ include '../includes/session.php';
 		hasError  = true;
         return false;
 	} else {
-		$("#error13").hide();
+		$("#error12").hide();
 		$("#tutorial_from_date").addClass("success-style");
 	}
 
     var tutorial_to_date = $("#tutorial_to_date").val();
 	if(tutorial_to_date === '') {
-		$("#error13").show();
-		$("#error13").empty().append("Please select a date.");
+		$("#error12").show();
+		$("#error12").empty().append("Please select a date.");
 		$("#tutorial_to_date").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
-		$("#error13").hide();
+		$("#error12").hide();
 		$("#tutorial_to_date").addClass("success-style");
 	}
 
     var tutorial_location = $("#tutorial_location").val();
 	if(tutorial_location === '') {
-		$("#error14").show();
-		$("#error14").empty().append("Please enter a location.");
+		$("#error13").show();
+		$("#error13").empty().append("Please enter a location.");
 		$("#tutorial_location").addClass("error-style");
 		hasError  = true;
         return false;
 	} else {
-		$("#error14").hide();
+		$("#error13").hide();
 		$("#tutorial_location").addClass("success-style");
 	}
 
     var tutorial_capacity = $("#tutorial_capacity").val();
 	if(tutorial_capacity === '') {
-		$("#error14").show();
-		$("#error14").empty().append("Please enter a capacity.");
+		$("#error13").show();
+		$("#error13").empty().append("Please enter a capacity.");
 		$("#tutorial_capacity").addClass("error-style");
 		hasError  = true;
         return false;
