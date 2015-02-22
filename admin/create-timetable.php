@@ -341,13 +341,15 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-    var lecturer_check = $(".bootstrap-select button.selectpicker").attr('title');
+    $( ".bootstrap-select" ).click(function() {
+        var lecturer_check = $(".bootstrap-select button.selectpicker").attr('title');
 
-    if (lecturer_check === 'Select a lecturer') {
-        $(".filter-option").css("color", "gray");
-    } else {
-        $(".filter-option").css("color", "black");
-    }
+        if (lecturer_check === 'Select a lecturer') {
+            $(".filter-option").css("color", "gray");
+        } else {
+            $(".filter-option").css("color", "black");
+        }
+    });
 
     // Date Time Picker
     var today = new Date();
