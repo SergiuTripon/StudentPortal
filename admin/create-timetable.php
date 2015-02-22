@@ -349,7 +349,7 @@ include '../includes/session.php';
         if (lecturer_check === 'Select a lecturer') {
             $(".filter-option").css("color", "gray");
         } else {
-            $(".filter-option").css("color", "black");
+            $(".filter-option").css("color", "#333333");
         }
     });
 
