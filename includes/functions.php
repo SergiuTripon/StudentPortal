@@ -1511,11 +1511,12 @@ function PaypalPaymentCancel() {
 	global $mysqli;
 	global $userid;
 	global $updated_on;
+	global $cancelled_on;
 
 	$payment_status = 'cancelled';
 
-	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, updated_on=? WHERE userid = ? ORDER BY payment_id DESC LIMIT 1");
-	$stmt5->bind_param('ssi', $payment_status, $updated_on, $userid);
+	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, updated_on=?, cancelled_on=? WHERE userid = ? ORDER BY payment_id DESC LIMIT 1");
+	$stmt5->bind_param('sssi', $payment_status, $updated_on, $cancelled_on, $userid);
 	$stmt5->execute();
 	$stmt5->close();
 }
