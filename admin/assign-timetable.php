@@ -1,6 +1,13 @@
 <?php
 include '../includes/session.php';
 
+if (isset($_POST["recordToAssign"])) {
+
+    $idToAssign = filter_input(INPUT_POST, 'recordToAssign', FILTER_SANITIZE_NUMBER_INT);
+
+} else {
+    header('Location: ../../timetable/');
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +38,8 @@ include '../includes/session.php';
 		<li><a href="../overview/">Overview</a></li>
 		<li class="active">Calendar</li>
 	</ol>
+
+    <div id="idToAssign"><?php echo $idToAssign; ?></div>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
