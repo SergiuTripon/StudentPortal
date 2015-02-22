@@ -35,8 +35,10 @@ if (isset($_POST["recordToAssign"])) {
 	<div id="calendar-portal" class="container">
 
 	<ol class="breadcrumb">
-		<li><a href="../overview/">Overview</a></li>
-		<li class="active">Calendar</li>
+		<li><a href="../../overview/">Overview</a></li>
+        <li><a href="../../timetable/">Timetable</a></li>
+        <li><a href="../admin/update-assign-timetable/">Update/Assign timetable</a></li>
+		<li class="active">Assign timetable</li>
 	</ol>
 
     <div id="idToAssign"><?php echo $idToAssign; ?></div>
