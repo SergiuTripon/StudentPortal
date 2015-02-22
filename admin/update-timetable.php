@@ -136,7 +136,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Lecturer</label>
     <select class="selectpicker" name="lecturers" id="lecturers" disabled>
     <?php
@@ -163,7 +163,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Lecturer</label>
     <select class="selectpicker" name="lecturers" id="lecturers">
     <?php
