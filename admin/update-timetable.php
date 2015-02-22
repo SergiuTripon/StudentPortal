@@ -66,7 +66,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Update timetable</title>
-	
+
 </head>
 
 <body>
@@ -74,7 +74,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-	
+
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
@@ -137,7 +137,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Lecturer</label>
+    <label for="lecturer">Current lecturer</label>
     <select class="selectpicker lecturer" name="lecturer" id="lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
@@ -160,12 +160,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </select>
 
     </div>
+
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Lecturer</label>
+    <label for="update_lecturer">Update lecturer</label>
     <select class="selectpicker update_lecturer" name="update_lecturer" id="update_lecturer">
         <option data-hidden="true">Select an option</option>
     <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$lecture_lecturer'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -178,7 +179,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
     }
     ?>
 
@@ -254,29 +255,55 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<p id="error8" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Tutorial assistant</label>
-    <select class="selectpicker" name="tutorial_assistants" id="tutorial_assistants">
-        <option data-hidden="true">Select an option</option>
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label for="tutorial_assistant">Current tutorial assistant</label>
+    <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$tutorial_assistant'");
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $lectureid = $row["userid"];
+    $tutorial_assistant = $row["userid"];
 
     $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lectureid);
+    $stmt2->bind_param('i', $tutorial_assistant);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
     }
-
     ?>
+
     </select>
+
+    </div>
+
+    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <label for="update_tutorial_assistant">Update tutorial assistant</label>
+    <select class="selectpicker update_tutorial_assistant" name="update_tutorial_assistant" id="update_tutorial_assistant">
+        <option data-hidden="true">Select an option</option>
+    <?php
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$tutorial_assistant'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+    $tutorial_assistant = $row["userid"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $tutorial_assistant);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($firstname, $surname);
+    $stmt2->fetch();
+
+        echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
+    }
+    ?>
+
+    </select>
+
     </div>
     </div>
     <p id="error9" class="feedback-sad text-center"></p>
@@ -344,12 +371,12 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div id="success-button" class="text-center" style="display:none">
 	<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label">Create another</span></a>
 	</div>
-	
+
     </form>
     <!-- End of Create timetable -->
 
 	</div> <!-- /container -->
-	
+
 	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
@@ -376,7 +403,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </div>
 
     </form>
-    
+
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
@@ -390,7 +417,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<?php include '../includes/menus/menu.php'; ?>
 
     <div class="container">
-	
+
     <form class="form-custom">
 
 	<div class="form-logo text-center">
@@ -404,7 +431,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="text-center">
     <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
-	
+
     </form>
 
     </div>
@@ -496,17 +523,28 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
-    var new_lecturer;
-
     $("#update_lecturer").change(function() {
-        $('#lecturer').prop('disabled',true);
-        new_lecturer = $('#update_lecturer option:selected').val();
+        var new_lecturer = $("#update_lecturer option:selected").text();
+        var new_lecturer1 = $("#update_lecturer option:selected").val();
+        $("label[for='lecturer']").empty().append("New lecturer");
+        $('#lecturer option:selected').text(new_lecturer);
+        $('#lecturer option:selected').val(new_lecturer1);
+        $('#lecturer').selectpicker('refresh');
+    });
+
+    $("#update_tutorial_assistant").change(function() {
+        var new_tutorial_assistant = $("#update_tutorial_assistant option:selected").text();
+        var new_tutorial_assistant1 = $("#update_tutorial_assistant option:selected").val();
+        $("label[for='lecturer']").empty().append("New lecturer");
+        $('#tutorial_assistant option:selected').text(new_tutorial_assistant);
+        $('#tutorial_assistant option:selected').val(new_tutorial_assistant1);
+        $('#tutorial_assistant').selectpicker('refresh');
     });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
 	var hasError = false;
 
     //Modules
@@ -541,14 +579,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#error2").hide();
 		$("#lecture_name").addClass("success-style");
 	}
-
-    var lecturer_check = $('#update_lecturer option:selected').html();
-    if (lecturer_check === 'Select an option') {
-        new_lecturer = $('#lecturer option:selected').html();
-    }
-    else {
-        new_lecturer = $('#update_lecturer option:selected').html();
-    }
 
     var lecture_day = $("#lecture_day").val();
 	if(lecture_day === '') {
@@ -634,7 +664,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#lecture_capacity").addClass("success-style");
 	}
 
-    var lecture_lecturer = $("#lecturers option:selected").val();
+    var lecture_lecturer = $("#lecturer option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
@@ -651,19 +681,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#error8").hide();
 		$("#tutorial_name").addClass("success-style");
 	}
-
-    var tutorial_assistant_check = $(".filter-option:eq(1)").text();
-    if (tutorial_assistant_check === 'Select a tutorial assistant') {
-        $("#error9").show();
-        $("#error9").empty().append("Please select a tutorial assistant.");
-        $("#tutorial_assistants .selectpicker").addClass("error-style");
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("#error9").hide();
-        $("#tutorial_assistants").addClass("success-style");
-    }
 
     var tutorial_day = $("#tutorial_day").val();
 	if(tutorial_day === '') {
@@ -749,7 +766,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#tutorial_capacity").addClass("success-style");
 	}
 
-    var tutorial_assistant = $("#tutorial_assistants option:selected").val();
+    var tutorial_assistant = $("#tutorial_assistant option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
 
 	if(hasError == false){
