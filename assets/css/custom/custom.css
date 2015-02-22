@@ -685,7 +685,7 @@ form .success-style:-ms-input-placeholder {
 }
 
 .btn-group>.btn:first-child {
-    margin-left: auto;
+    margin-left: initial;
 }
 
 .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
