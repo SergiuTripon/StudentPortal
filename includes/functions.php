@@ -493,6 +493,73 @@ function CreateTimetable() {
 
 }
 
+//UpdateTimetable function
+function UpdateTimetable() {
+
+    global $mysqli;
+    global $created_on;
+
+    //Module
+    $module_name = filter_input(INPUT_POST, 'module_name', FILTER_SANITIZE_STRING);
+    $module_notes = filter_input(INPUT_POST, 'module_notes', FILTER_SANITIZE_STRING);
+    $module_url = filter_input(INPUT_POST, 'module_url', FILTER_SANITIZE_STRING);
+
+    //Lecture
+    $lecture_name = filter_input(INPUT_POST, 'lecture_name', FILTER_SANITIZE_STRING);
+    $lecture_lecturer = filter_input(INPUT_POST, 'lecture_lecturer', FILTER_SANITIZE_STRING);
+    $lecture_notes = filter_input(INPUT_POST, 'lecture_notes', FILTER_SANITIZE_STRING);
+    $lecture_day = filter_input(INPUT_POST, 'lecture_day', FILTER_SANITIZE_STRING);
+    $lecture_from_time = filter_input(INPUT_POST, 'lecture_from_time', FILTER_SANITIZE_STRING);
+    $lecture_to_time = filter_input(INPUT_POST, 'lecture_to_time', FILTER_SANITIZE_STRING);
+    $lecture_from_date = filter_input(INPUT_POST, 'lecture_from_date', FILTER_SANITIZE_STRING);
+    $lecture_to_date = filter_input(INPUT_POST, 'lecture_to_date', FILTER_SANITIZE_STRING);
+    $lecture_location = filter_input(INPUT_POST, 'lecture_location', FILTER_SANITIZE_STRING);
+    $lecture_capacity = filter_input(INPUT_POST, 'lecture_capacity', FILTER_SANITIZE_STRING);
+
+    //Tutorial
+    $tutorial_name = filter_input(INPUT_POST, 'tutorial_name', FILTER_SANITIZE_STRING);
+    $tutorial_assistant = filter_input(INPUT_POST, 'tutorial_assistant', FILTER_SANITIZE_STRING);
+    $tutorial_notes = filter_input(INPUT_POST, 'tutorial_notes', FILTER_SANITIZE_STRING);
+    $tutorial_day = filter_input(INPUT_POST, 'tutorial_day', FILTER_SANITIZE_STRING);
+    $tutorial_from_time = filter_input(INPUT_POST, 'tutorial_from_time', FILTER_SANITIZE_STRING);
+    $tutorial_to_time = filter_input(INPUT_POST, 'tutorial_to_time', FILTER_SANITIZE_STRING);
+    $tutorial_from_date = filter_input(INPUT_POST, 'tutorial_from_date', FILTER_SANITIZE_STRING);
+    $tutorial_to_date = filter_input(INPUT_POST, 'tutorial_to_date', FILTER_SANITIZE_STRING);
+    $tutorial_location = filter_input(INPUT_POST, 'tutorial_location', FILTER_SANITIZE_STRING);
+    $tutorial_capacity = filter_input(INPUT_POST, 'tutorial_capacity', FILTER_SANITIZE_STRING);
+
+    $module_status = 'active';
+
+    $stmt1 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
+    $stmt1->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC");
+    $stmt2->bind_param('i', $moduleid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($moduleid);
+    $stmt2->fetch();
+    $stmt2->close();
+
+    $lecture_status = 'active';
+
+    $stmt3 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt3->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
+    $stmt3->execute();
+    $stmt3->close();
+
+    $tutorial_status = 'active';
+
+    $stmt4 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt4->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
+    $stmt4->execute();
+    $stmt4->close();
+
+}
+
+
 function AssignTimetable() {
 
     global $mysqli;

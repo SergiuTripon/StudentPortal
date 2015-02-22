@@ -61,7 +61,7 @@ elseif (isset(
     CreateTimetable();
 }
 
-//Call CreateTimetable function
+//Call UpdateTimetable function
 elseif (isset(
     $_POST['moduleid'],
     $_POST['module_name'],
