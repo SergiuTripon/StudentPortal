@@ -258,7 +258,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="lecturer">Current tutorial assistant</label>
+    <label for="tutorial_assistant">Current tutorial assistant</label>
     <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$tutorial_assistant'");
@@ -285,11 +285,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="update_lecturer">Update tutorial assistant</label>
+    <label for="update_tutorial_assistant">Update tutorial assistant</label>
     <select class="selectpicker update_tutorial_assistant" name="update_tutorial_assistant" id="update_tutorial_assistant">
         <option data-hidden="true">Select an option</option>
     <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$lecture_lecturer'");
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$tutorial_assistant'");
 
     while ($row = $stmt1->fetch_assoc()){
 
