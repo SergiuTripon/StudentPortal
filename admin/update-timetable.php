@@ -502,8 +502,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $("#update_lecturer").change(function() {
         var new_lecturer = $("#update_lecturer option:selected").text();
         var new_lecturer1 = $("#update_lecturer option:selected").val();
-        alert (new_lecturer);
-        alert (new_lecturer1);
         $("label[for='lecturer']").empty().append("New lecturer");
         $('#lecturer option:selected').text(new_lecturer);
         $('#lecturer option:selected').val(new_lecturer1);
@@ -548,14 +546,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#error2").hide();
 		$("#lecture_name").addClass("success-style");
 	}
-
-    var lecturer_check = $('#update_lecturer option:selected').html();
-    if (lecturer_check === 'Select an option') {
-        new_lecturer = $('#lecturer option:selected').html();
-    }
-    else {
-        new_lecturer = $('#update_lecturer option:selected').html();
-    }
 
     var lecture_day = $("#lecture_day").val();
 	if(lecture_day === '') {
@@ -641,7 +631,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#lecture_capacity").addClass("success-style");
 	}
 
-    var lecture_lecturer = $("#lecturers option:selected").val();
+    var lecture_lecturer = $("#lecturer option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
@@ -658,19 +648,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#error8").hide();
 		$("#tutorial_name").addClass("success-style");
 	}
-
-    var tutorial_assistant_check = $(".filter-option:eq(1)").text();
-    if (tutorial_assistant_check === 'Select a tutorial assistant') {
-        $("#error9").show();
-        $("#error9").empty().append("Please select a tutorial assistant.");
-        $("#tutorial_assistants .selectpicker").addClass("error-style");
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("#error9").hide();
-        $("#tutorial_assistants").addClass("success-style");
-    }
 
     var tutorial_day = $("#tutorial_day").val();
 	if(tutorial_day === '') {
@@ -756,7 +733,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 		$("#tutorial_capacity").addClass("success-style");
 	}
 
-    var tutorial_assistant = $("#tutorial_assistants option:selected").val();
+    var tutorial_assistant = $("#tutorial_assistant option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
 
 	if(hasError == false){
