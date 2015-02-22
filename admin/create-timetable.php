@@ -344,10 +344,6 @@ include '../includes/session.php';
 
     $(".filter-option").css("color", "gray");
 
-    $( ".bootstrap-select" ).click(function() {
-        $(".filter-option").css("cssText", "color: gray;");
-    });
-
     $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
         $(".filter-option").css("cssText", "color: #333333;");
     });
@@ -447,7 +443,6 @@ include '../includes/session.php';
         $("#error3").show();
         $("#error3").empty().append("Please select a lecturer.");
         $(".lecturer > .selectpicker").addClass("error-style");
-        $(".lecturer > .error-style > .filter-option").css("cssText", "color: #FFFFFF; !important");
         hasError  = true;
         return false;
     }
