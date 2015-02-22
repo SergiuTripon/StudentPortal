@@ -60,7 +60,7 @@ elseif (isset($_POST['module_name'],
 }
 
 //Call AssignTimetable function
-elseif (isset($_POST["recordToAssign"], $_POST["idToAssign"])) {
+elseif (isset($_POST["idToAssign"], $_POST["recordToAssign"])) {
     AssignTimetable();
 }
 
