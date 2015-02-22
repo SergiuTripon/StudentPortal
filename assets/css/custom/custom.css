@@ -756,6 +756,10 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
     background-color: #CCCCCC;
 }
+
+.error-style .filter-option {
+    color: #FFFFFF;
+}
 /* End of Bootstrap Select */
 
 /* Tiles style */
