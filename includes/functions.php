@@ -591,7 +591,7 @@ function UpdateTimetable() {
 
 }
 
-
+//AssignTimetable function
 function AssignTimetable() {
 
     global $mysqli;
@@ -601,6 +601,19 @@ function AssignTimetable() {
 
     $stmt1 = $mysqli->prepare("INSERT INTO user_timetable (userid, moduleid) VALUES (?, ?)");
     $stmt1->bind_param('ii', $userToAssign, $moduleToAssign);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeleteTimetable function
+function DeleteTimetable() {
+
+    global $mysqli;
+
+    $moduleToDelete = filter_input(INPUT_POST, 'moduleToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM system_modules WHERE moduleid=?");
+    $stmt1->bind_param('i', $moduleToDelete);
     $stmt1->execute();
     $stmt1->close();
 }
