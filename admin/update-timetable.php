@@ -140,7 +140,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <select class="selectpicker" name="lecturers" id="lecturers">
         <option data-hidden="true">Select an option</option>
     <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lectureid'");
 
     while ($row = $stmt1->fetch_assoc()){
 
