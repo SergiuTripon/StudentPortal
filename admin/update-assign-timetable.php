@@ -146,23 +146,13 @@ include '../includes/session.php';
     $(document).ready(function () {
 
 	//DataTables
-    $('.lecture-table').dataTable({
+    $('.module-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
 			"emptyTable": "You have no lectures on this day."
-		}
-	});
-
-    $('.tutorial-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "You have no tutorials on this day."
 		}
 	});
 
