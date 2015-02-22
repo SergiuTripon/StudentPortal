@@ -350,10 +350,12 @@ include '../includes/session.php';
 
         if (lecturer_style != 'Select an option') {
             $("#lecturer option:selected").css("cssText", "color: #333333;");
+            $('#lecturer').selectpicker('refresh');
         }
 
         if (tutorial_assistant_style != 'Select an option') {
             $("#tutorial_assistant option:selected").css("cssText", "color: #333333;");
+            $('#tutorial_assistant').selectpicker('refresh');
         }
     });
 
