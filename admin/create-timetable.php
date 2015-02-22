@@ -342,9 +342,6 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-    var tutorial_assistant_check = $("#tutorial_assistants option:selected").html();
-    alert(tutorial_assistant_check);
-
     $(".filter-option").css("color", "gray");
 
     $( ".bootstrap-select" ).click(function() {
