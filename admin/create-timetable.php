@@ -351,6 +351,10 @@ include '../includes/session.php';
         }
     });
 
+    var lecturer_check = $('.filter-option').text();
+
+    alert (lecturer_check);
+
     // Date Time Picker
     var today = new Date();
 	$(function () {
@@ -440,19 +444,6 @@ include '../includes/session.php';
 		$("#error2").hide();
 		$("#lecture_name").addClass("success-style");
 	}
-
-    var lecturer_check = $('.filter-option').text();
-    if (lecturer_check === 'Select a lecturer') {
-        $("#error3").show();
-        $("#error3").empty().append("Please select a lecturer.");
-        $(".selectpicker").addClass("error-style");
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("#error3").hide();
-        $(".selectpicker").addClass("success-style");
-    }
 
     var lecture_lecturer = $("#lecturers option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
