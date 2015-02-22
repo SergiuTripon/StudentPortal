@@ -440,10 +440,6 @@ ul.external-pages-links {
 }
 /* End of Social showcase */
 
-.filter-option {
-    color: gray;
-}
-
 /* Form */
 form {
     max-width: 500px;
@@ -757,6 +753,7 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
     background-color: #CCCCCC;
 }
+
 /* End of Bootstrap Select */
 
 /* Tiles style */
