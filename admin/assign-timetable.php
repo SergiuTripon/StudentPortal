@@ -39,7 +39,7 @@ if (isset($_POST["recordToAssign"])) {
 	<ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
     <li><a href="../../timetable/">Timetable</a></li>
-    <li><a href="../../updated-assign-timetable/">Update/Assign timetable</a></li>
+    <li><a href="../admin/updated-assign-timetable/">Update/Assign timetable</a></li>
 	<li class="active">Assign timetable</li>
     </ol>
 
