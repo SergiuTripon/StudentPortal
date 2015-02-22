@@ -342,23 +342,15 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-    $("#lecturer option:selected").css("cssText", "color: gray;");
-    $("#tutorial_assistant option:selected").css("cssText", "color: gray;");
+    $(".filter-option").css("color", "gray");
 
-    $('.lecturer').selectpicker('refresh');
+    $( ".bootstrap-select" ).click(function() {
+        var lecturer_check = $(".bootstrap-select button.selectpicker").attr('title');
 
-    $( ".lecturer" ).change(function() {
-        var lecturer_style = $("#lecturer option:selected").html();
-        var tutorial_assistant_style = $("#tutorial_assistant option:selected").html();
-
-        if (lecturer_style != 'Select an option') {
-            $("#lecturer option:selected").css("cssText", "color: #333333;");
-            $(".lecturer > .filter-option").css("cssText", "color: #333333;");
-        }
-
-        if (tutorial_assistant_style != 'Select an option') {
-            $("#tutorial_assistant option:selected").css("cssText", "color: #333333;");
-            $(".tutorial_assistant .select-picker > .filter-option").css("cssText", "color: #333333;");
+        if (lecturer_check === 'Select a lecturer') {
+            $(".filter-option").css("color", "gray");
+        } else {
+            $(".filter-option").css("cssText", "color: #333333;");
         }
     });
 
