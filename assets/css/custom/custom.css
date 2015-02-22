@@ -738,10 +738,6 @@ form .success-style:-ms-input-placeholder {
     background-color: #FFFFFF !important;
 }
 
-.bootstrap-select .error-style:focus {
-    box-shadow: none !important;
-}
-
 .bootstrap-select .dropdown-menu {
     background-color: #FFFFFF;
 }
