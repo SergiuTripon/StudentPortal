@@ -216,7 +216,7 @@ include 'includes/session.php';
 
 
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-	<a href="/admin/update-assign-timetable/">
+	<a href="/admin/assign-update-delete-timetable/">
     <div class="tile">
     <i class="fa fa-refresh"></i>
 	<p class="tile-text">Update/Assign timetable</p>
