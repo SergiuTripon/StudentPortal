@@ -135,7 +135,32 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label>Lecturer</label>
+    <select class="selectpicker" name="lecturers" id="lecturers">
+        <option data-hidden="true">Select an option</option>
+    <?php
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+    $lectureid = $row["userid"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lectureid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($firstname, $surname);
+    $stmt2->fetch();
+
+        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+    }
+    ?>
+
+    </select>
+
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Lecturer</label>
     <select class="selectpicker" name="lecturers" id="lecturers">
         <option data-hidden="true">Select an option</option>
