@@ -136,7 +136,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pr0 pl0">
     <label>Lecturer</label>
     <select class="selectpicker" name="lecturers" id="lecturers">
     <?php
@@ -144,10 +144,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $lectureid1 = $row["userid"];
+    $lecturer = $row["userid"];
 
     $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lectureid1);
+    $stmt2->bind_param('i', $lecturer);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($firstname, $surname);
@@ -163,7 +163,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pr0 pl0">
     <label>Lecturer</label>
     <select class="selectpicker" name="lecturers" id="lecturers">
     <?php
