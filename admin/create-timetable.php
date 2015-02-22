@@ -414,7 +414,7 @@ include '../includes/session.php';
     var lecture_lecturer = $(".filter-option:first").text();
     alert(lecture_lecturer);
 
-    var tutorial_assistant = $(".filter-option:eq()").text();
+    var tutorial_assistant = $(".filter-option:eq(1)").text();
     alert(tutorial_assistant);
 
     //Ajax call
