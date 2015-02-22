@@ -170,11 +170,26 @@ if (isset($_POST["recordToAssign"])) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
+    var recordToAssign = clickedID[1];
+    var idToAssign = $("#idToAssign").html();
 
-	$("#assign-timetable-form-" + DbNumberID).submit();
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'recordToAssign='+ recordToAssign + '&idToAssign=' + task_notes +,
+	success:function(){
+		$('#assign-'+DbNumberID).fadeOut();
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
 
 	});
+
+    });
 
 	});
 

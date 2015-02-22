@@ -32,8 +32,8 @@ elseif (isset($_POST["token"], $_POST["email3"], $_POST["password2"])) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Call Account functions
-//Call UpdateAccount function
+//Call Timetable functions
+//Call CreateTimetable function
 elseif (isset($_POST['module_name'],
               $_POST['module_notes'],
               $_POST['module_url'],
@@ -57,6 +57,11 @@ elseif (isset($_POST['module_name'],
               $_POST['tutorial_location'],
               $_POST['tutorial_capacity'])) {
     CreateTimetable();
+}
+
+//Call AssignTimetable function
+elseif (isset($_POST["recordToAssign"], $_POST["idToAssign"])) {
+    AssignTimetable();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
