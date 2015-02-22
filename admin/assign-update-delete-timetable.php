@@ -199,7 +199,7 @@ include '../includes/session.php';
 
 	});
 
-    $("body").on("click", ".assign-button", function(e) {
+    $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
