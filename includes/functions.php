@@ -495,6 +495,15 @@ function CreateTimetable() {
 
 function AssignTimetable() {
 
+    global $mysqli;
+
+    $RecordToAssign = filter_input(INPUT_POST, 'RecordToAssign', FILTER_SANITIZE_NUMBER_INT);
+    $IdToAssign = filter_input(INPUT_POST, 'IdToAssign', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_timetable (userid, moduleid) VALUES (?, ?)");
+    $stmt1->bind_param('ii', $IdToAssign, $RecordToAssign);
+    $stmt1->execute();
+    $stmt1->close();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
