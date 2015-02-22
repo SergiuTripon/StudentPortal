@@ -536,6 +536,15 @@ WHERE system_modules.moduleid = ? LIMIT 1
         $('#lecturer').selectpicker('refresh');
     });
 
+    $("#update_tutorial_assistant").change(function() {
+        var new_tutorial_assistant = $("#update_tutorial_assistant option:selected").text();
+        var new_tutorial_assistant1 = $("#update_tutorial_assistant option:selected").val();
+        $("label[for='lecturer']").empty().append("New lecturer");
+        $('#tutorial_assistant option:selected').text(new_lecturer);
+        $('#tutorial_assistant option:selected').val(new_lecturer1);
+        $('#tutorial_assistant').selectpicker('refresh');
+    });
+
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
