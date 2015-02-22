@@ -477,7 +477,30 @@ function CreateTimetable() {
         exit();
     }
 
+    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid ASC");
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($moduleid);
+    $stmt4->fetch();
+    $stmt4->close();
+
+    $module_status = 'active';
+
+    $stmt5 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
+    $stmt5->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
+    $stmt5->execute();
+    $stmt5->close();
+
+    $lecture_status = 'active';
+    $lecture_lecturer = 'Jacob Lowe';
+
+    $stmt6 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt6->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
+    $stmt6->execute();
+    $stmt6->close();
+
     $tutorial_status = 'active';
+    $tutorial_assistant = 'Olga Herrero';
 
     $stmt7 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt7->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
