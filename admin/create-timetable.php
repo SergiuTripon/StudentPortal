@@ -344,7 +344,7 @@ include '../includes/session.php';
 
     $(".filter-option").css("color", "gray");
 
-    $( ".bootstrap-select" ).click(function() {
+    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
         $(".filter-option").css("cssText", "color: #333333;");
     });
 
