@@ -86,7 +86,7 @@ if (isset($_POST["recordToAssign"])) {
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
+			<td data-title="Action"><a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Complete</a></td>
 			</tr>';
 	}
 
@@ -167,16 +167,16 @@ if (isset($_POST["recordToAssign"])) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var recordToAssign = clickedID[1];
-    var idToAssign = $("#idToAssign").html();
+    var user = clickedID[1];
+    var module = $("#module").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'recordToAssign='+ recordToAssign + '&idToAssign=' + idToAssign,
+	data:'user='+ user + '&module=' + module,
 	success:function(){
-		$('#assign-'+recordToAssign).fadeOut();
+		$('#assign-'+user).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
