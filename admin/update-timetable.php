@@ -66,7 +66,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Update timetable</title>
-	
+
 </head>
 
 <body>
@@ -74,7 +74,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-	
+
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
@@ -124,6 +124,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <hr class="hr-separator">
 
     <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureid; ?>">
+    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $lecture_lecturer; ?>">
 
     <!-- Create lecture -->
 	<div class="form-group">
@@ -135,57 +136,15 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Lecturer</label>
-    <select class="selectpicker" name="lecturers" id="lecturers">
-        <option data-hidden="true">Select an option</option>
-    <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
-
-    while ($row = $stmt1->fetch_assoc()){
-
-    $lectureid = $row["userid"];
-
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lectureid);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
-
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
-    }
-    ?>
-
-    </select>
-
-    </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Lecturer</label>
-    <select class="selectpicker" name="lecturers" id="lecturers">
-        <option data-hidden="true">Select an option</option>
-    <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
-
-    while ($row = $stmt1->fetch_assoc()){
-
-    $lectureid = $row["userid"];
-
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lectureid);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
-
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
-    }
-    ?>
-
-    </select>
-
-    </div>
-    </div>
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Lecture from (time)</label>
+	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" value="<?php echo $lecture_from_time; ?>" placeholder="Select a time">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Lecture to (time)</label>
+	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" value="<?php echo $lecture_to_time; ?>" placeholder="Select a time">
+	</div>
+	</div>
     <p id="error3" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
@@ -344,12 +303,12 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div id="success-button" class="text-center" style="display:none">
 	<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label">Create another</span></a>
 	</div>
-	
+
     </form>
     <!-- End of Create timetable -->
 
 	</div> <!-- /container -->
-	
+
 	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
@@ -376,7 +335,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </div>
 
     </form>
-    
+
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
@@ -390,7 +349,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<?php include '../includes/menus/menu.php'; ?>
 
     <div class="container">
-	
+
     <form class="form-custom">
 
 	<div class="form-logo text-center">
@@ -404,7 +363,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="text-center">
     <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
 	</div>
-	
+
     </form>
 
     </div>
@@ -495,15 +454,19 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 	});
 
-    $('#module_name').bind('keypress keyup blur', function() {
-        $('#lecture_name').val($(this).val());
-        $('#tutorial_name').val($(this).val());
+    $('#update_lecturer').bind('click', function() {
+        $('#lecturer').val($(this).val());
+    });
+
+    $("#update_lecturer").change(function() {
+        var newlecturer = $('#update_lecturer').html();
+        $("#lecturer").html(newlecturer);
     });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
 	var hasError = false;
 
     //Modules
