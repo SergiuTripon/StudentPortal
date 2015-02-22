@@ -123,8 +123,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <hr class="hr-separator">
 
-    <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureid; ?>">
-    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $lecture_lecturer; ?>">
+    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $lectureid; ?>">
 
     <!-- Create lecture -->
 	<div class="form-group">
