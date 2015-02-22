@@ -336,7 +336,7 @@ include '../includes/session.php';
 	<script>
 	$(document).ready(function () {
 
-    var lecturer_check = $(".btn-default.selectpicker").attr('title');
+    var lecturer_check = $(".bootstrap-select > .btn-default").attr('title');
 
     if (lecturer_check === 'Select a lecturer') {
         alert ("This is good");
