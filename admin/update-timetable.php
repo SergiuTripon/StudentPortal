@@ -500,7 +500,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $("#update_lecturer").change(function() {
         var newlecturer = $("#update_lecturer option:selected").html();
-        $("#lecturer").text(newlecturer);
+        $("#lecturer option:selected").text(newlecturer);
     });
 
     //Ajax call
