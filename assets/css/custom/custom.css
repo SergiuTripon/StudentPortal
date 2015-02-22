@@ -549,8 +549,6 @@ form .error-style {
 
 .error-style .filter-option {
     color: #FFFFFF !important;
-    border-color: #D9534F !important;
-    background: #D9534F !important;
 }
 
 form .error-style:focus {
