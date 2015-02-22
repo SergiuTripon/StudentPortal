@@ -342,9 +342,6 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-        var lecturer_check = $('.selectpicker option:selected').val();
-        alert(lecturer_check);
-
     $(".filter-option").css("color", "gray");
 
     $( ".bootstrap-select" ).click(function() {
@@ -420,6 +417,9 @@ include '../includes/session.php';
     e.preventDefault();
 	
 	var hasError = false;
+
+    var lecturer_check = $('.selectpicker option:selected').val();
+    alert(lecturer_check);
 
     //Modules
 	var module_name = $("#module_name").val();
