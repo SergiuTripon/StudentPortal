@@ -516,7 +516,7 @@ function CreateTimetable() {
 
     }
 
-    // Check existing lecture name
+    // Check existing tutorial name
     $stmt6 = $mysqli->prepare("SELECT tutorialid FROM system_tutorials WHERE tutorial_name = ? LIMIT 1");
     $stmt6->bind_param('s', $tutorial_name);
     $stmt6->execute();
