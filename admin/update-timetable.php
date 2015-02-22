@@ -773,13 +773,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'moduleid='            + moduleid +
-         '&module_name1='         + module_name +
+    data:'moduleid='             + moduleid +
+         '&module_name1='        + module_name +
          '&module_notes1='       + module_notes +
          '&module_url1='         + module_url +
-         '&lectureid='          + lectureid +
+         '&lectureid='           + lectureid +
          '&lecture_name1='       + lecture_name +
-         '&lecture_lecturer='   + lecture_lecturer +
+         '&lecture_lecturer='    + lecture_lecturer +
          '&lecture_notes1='      + lecture_notes +
          '&lecture_day1='        + lecture_day +
          '&lecture_from_time1='  + lecture_from_time +
@@ -788,7 +788,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
          '&lecture_to_date1='    + lecture_to_date +
          '&lecture_location1='   + lecture_location +
          '&lecture_capacity1='   + lecture_capacity +
-         '&tutorialid='         + tutorialid +
+         '&tutorialid='          + tutorialid +
          '&tutorial_name1='      + tutorial_name +
          '&tutorial_assistant1=' + tutorial_assistant +
          '&tutorial_notes1='     + tutorial_notes +
