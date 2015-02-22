@@ -572,10 +572,10 @@ include '../includes/session.php';
         $("#tutorial_assistants").addClass("success-style");
     }
 
-        var lecture_day = $("#lecture_day").val();
+    var lecture_day = $("#lecture_day").val();
 	if(lecture_day === '') {
 		$("#error10").show();
-		$("#error10").empty().append("Please enter a time.");
+		$("#error10").empty().append("Please enter a day.");
 		$("#lecture_day").addClass("error-style");
 		hasError  = true;
         return false;
