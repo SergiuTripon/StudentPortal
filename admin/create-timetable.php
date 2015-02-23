@@ -797,7 +797,13 @@ include '../includes/session.php';
          '&tutorial_from_date=' + tutorial_from_date +
          '&tutorial_to_date='   + tutorial_to_date +
          '&tutorial_location='  + tutorial_location +
-         '&tutorial_capacity='  + tutorial_capacity,
+         '&tutorial_capacity='  + tutorial_capacity +
+         '&exam_name='          + exam_name +
+         '&exam_notes='         + exam_notes +
+         '&exam_date='          + exam_date +
+         '&exam_time='          + exam_time +
+         '&exam_location='      + exam_location +
+         '&exam_capacity='      + exam_capacity,
 
     success:function(){
 		$("#error").hide();

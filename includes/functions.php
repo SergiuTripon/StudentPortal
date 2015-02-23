@@ -463,7 +463,15 @@ function CreateTimetable() {
     $tutorial_location = filter_input(INPUT_POST, 'tutorial_location', FILTER_SANITIZE_STRING);
     $tutorial_capacity = filter_input(INPUT_POST, 'tutorial_capacity', FILTER_SANITIZE_STRING);
 
-        // Check existing module name
+    //Tutorial
+    $exam_name = filter_input(INPUT_POST, 'exam_name', FILTER_SANITIZE_STRING);
+    $exam_notes = filter_input(INPUT_POST, 'exam_notes', FILTER_SANITIZE_STRING);
+    $exam_date = filter_input(INPUT_POST, 'exam_date', FILTER_SANITIZE_STRING);
+    $exam_time = filter_input(INPUT_POST, 'exam_time', FILTER_SANITIZE_STRING);
+    $exam_location = filter_input(INPUT_POST, 'exam_location', FILTER_SANITIZE_STRING);
+    $exam_capacity = filter_input(INPUT_POST, 'exam_capacity', FILTER_SANITIZE_STRING);
+
+    // Check existing module name
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE module_name = ? LIMIT 1");
     $stmt1->bind_param('s', $module_name);
     $stmt1->execute();
@@ -505,6 +513,20 @@ function CreateTimetable() {
         exit();
     }
 
+    // Check existing exam name
+    $stmt4 = $mysqli->prepare("SELECT examid FROM system_exams WHERE exam_name = ? LIMIT 1");
+    $stmt4->bind_param('s', $exam_name);
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($db_examid);
+    $stmt4->fetch();
+
+    if ($stmt4->num_rows == 1) {
+        $stmt4->close();
+        header('HTTP/1.0 550 An exam with the name entered already exists.');
+        exit();
+    }
+
     $module_status = 'active';
 
     $stmt5 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
@@ -530,6 +552,13 @@ function CreateTimetable() {
 
     $stmt7 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt7->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
+    $stmt7->execute();
+    $stmt7->close();
+
+    $exam_status = 'active';
+
+    $stmt7 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt7->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
     $stmt7->execute();
     $stmt7->close();
 
