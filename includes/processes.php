@@ -186,6 +186,11 @@ elseif (isset(
     UpdateEvent();
 }
 
+//Call CancelEvent function
+elseif (isset($_POST["eventToCancel"])) {
+    CancelEvent();
+}
+
 /////////////////////////////////////////////////////////////
 
 //Call Library functions
@@ -214,7 +219,7 @@ elseif (isset(
     UpdateBook();
 }
 
-//Call CompleteTask function
+//Call CancelBook function
 elseif (isset($_POST["bookToCancel"])) {
     CancelBook();
 }

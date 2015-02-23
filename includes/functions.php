@@ -922,7 +922,7 @@ function UpdateBook()
     $stmt5->close();
 }
 
-//CreateBook function
+//CancelBook function
 function CancelBook()
 {
 
@@ -1378,6 +1378,24 @@ function UpdateEvent() {
             $stmt4->close();
         }
     }
+}
+
+//CancelEvent function
+function CancelEvent()
+{
+
+    global $mysqli;
+    global $updated_on;
+
+    //Book
+    $eventToCancel = filter_input(INPUT_POST, 'eventToCancel', FILTER_SANITIZE_STRING);
+
+    $event_status = 'cancelled';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_events SET event_status=?, updated_on=? WHERE eventid=?");
+    $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToCancel);
+    $stmt1->execute();
+    $stmt1->close();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
