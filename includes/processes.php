@@ -57,7 +57,13 @@ elseif (isset(
     $_POST['tutorial_from_date'],
     $_POST['tutorial_to_date'],
     $_POST['tutorial_location'],
-    $_POST['tutorial_capacity'])) {
+    $_POST['tutorial_capacity'],
+    $_POST['exam_name'],
+    $_POST['exam_notes'],
+    $_POST['exam_date'],
+    $_POST['exam_time'],
+    $_POST['exam_location'],
+    $_POST['exam_capacity'])) {
     CreateTimetable();
 }
 
@@ -88,7 +94,14 @@ elseif (isset(
     $_POST['tutorial_from_date1'],
     $_POST['tutorial_to_date1'],
     $_POST['tutorial_location1'],
-    $_POST['tutorial_capacity1'])) {
+    $_POST['tutorial_capacity1'],
+    $_POST['examid'],
+    $_POST['exam_name1'],
+    $_POST['exam_notes1'],
+    $_POST['exam_date1'],
+    $_POST['exam_time1'],
+    $_POST['exam_location1'],
+    $_POST['exam_capacity1'])) {
     UpdateTimetable();
 }
 
