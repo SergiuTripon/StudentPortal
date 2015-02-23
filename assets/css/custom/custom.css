@@ -693,6 +693,10 @@ form .success-style:-ms-input-placeholder {
 .btn-group-vertical > :last-child:not(:first-child).btn {
     border-top-right-radius: 0px;
 }
+.btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
 }
 
 @media(min-width:480px) {
