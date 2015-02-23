@@ -310,7 +310,6 @@ include '../includes/session.php';
     else {
         $("#error4").hide();
         $(".event_category > .selectpicker").addClass("success-style");
-        $(".event_category > .error-style > .filter-option").css("cssText", "color: #FFFFFF; !important");
     }
 
     var event_category = $("#event_category option:selected").val();
