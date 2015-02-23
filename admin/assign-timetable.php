@@ -85,12 +85,14 @@ if (isset($_POST["recordToAssign"])) {
     $stmt3->bind_result($assignment_check);
     $stmt3->fetch();
 
+    $action = $stmt3->num_rows ? 'hello' : 'bye';
+
 	echo '<tr id="assign-'.$db_userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action">'.($stmt3->num_rows === "$stmt3->num_rows" ? "It's not assigned" : "It is assigned").'</td>
+			<td data-title="Action">'.$action.'</td>
 			</tr>';
 	}
 
