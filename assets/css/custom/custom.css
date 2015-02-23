@@ -605,16 +605,32 @@ form .success-style::-webkit-input-placeholder {
     color: #3FAD46;
 }
 
+form .success-style:focus::-webkit-input-placeholder {
+    color: #333333;
+}
+
 form .success-style:-moz-placeholder {
     color: #3FAD46;
+}
+
+form .success-style:focus:-moz-placeholder {
+    color: #333333;
 }
 
 form .success-style::-moz-placeholder {
     color: #3FAD46;
 }
 
+form .success-style:focus::-moz-placeholder {
+    color: #333333;
+}
+
 form .success-style:-ms-input-placeholder {
     color: #3FAD46;
+}
+
+form .success-style:focus:-ms-input-placeholder {
+    color: #333333;
 }
 /* End of Success message */
 
