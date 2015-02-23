@@ -223,7 +223,7 @@ if (isset($_POST["bookToUpdate"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'bookid1='        + moduleid +
+    data:'bookid1='        + bookid +
          '&book_name1='    + book_name +
          '&book_author1='  + book_author +
          '&book_notes1='   + book_notes +
