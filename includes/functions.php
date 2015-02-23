@@ -1293,7 +1293,7 @@ function CreateEvent() {
     if ($event_category == 'careers') { $event_class = 'event-important'; }
     if ($event_category == 'social') { $event_class = 'event-warning'; }
 
-    // Check existing book name
+    // Check existing event name
     $stmt1 = $mysqli->prepare("SELECT eventid FROM system_events WHERE event_name=? LIMIT 1");
     $stmt1->bind_param('s', $event_name);
     $stmt1->execute();
@@ -1320,6 +1320,66 @@ function CreateEvent() {
 
     }
 }
+
+//CreateBook function
+function UpdateEvent() {
+
+    global $mysqli;
+    global $updated_on;
+
+    //Event
+    $eventid = filter_input(INPUT_POST, 'eventid1', FILTER_SANITIZE_STRING);
+    $event_name = filter_input(INPUT_POST, 'event_name1', FILTER_SANITIZE_STRING);
+    $event_notes = filter_input(INPUT_POST, 'event_notes1', FILTER_SANITIZE_STRING);
+    $event_url = filter_input(INPUT_POST, 'event_url1', FILTER_SANITIZE_STRING);
+    $event_from = filter_input(INPUT_POST, 'event_from1', FILTER_SANITIZE_STRING);
+    $event_to = filter_input(INPUT_POST, 'event_to1', FILTER_SANITIZE_STRING);
+    $event_amount = filter_input(INPUT_POST, 'event_amount1', FILTER_SANITIZE_STRING);
+    $event_ticket_no = filter_input(INPUT_POST, 'event_ticket_no1', FILTER_SANITIZE_STRING);
+    $event_category = filter_input(INPUT_POST, 'event_category1', FILTER_SANITIZE_STRING);
+
+    $event_category = strtolower($event_category);
+
+    if ($event_category == 'careers') { $event_class = 'event-important'; }
+    if ($event_category == 'social') { $event_class = 'event-warning'; }
+
+    //Module
+    $stmt1 = $mysqli->prepare("SELECT event_name FROM system_events WHERE eventid = ?");
+    $stmt1->bind_param('i', $eventid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_event_name);
+    $stmt1->fetch();
+
+    if ($db_event_name === $event_name) {
+
+        $stmt2 = $mysqli->prepare("UPDATE system_events SET event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category, updated_on=? WHERE eventid=?");
+        $stmt2->bind_param('ssssiissi', $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
+        $stmt2->execute();
+        $stmt2->close();
+
+    } else {
+
+        $stmt3 = $mysqli->prepare("SELECT eventid FROM system_events WHERE events_name = ?");
+        $stmt3->bind_param('s', $events_name);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($db_eventid);
+        $stmt3->fetch();
+
+        if ($stmt3->num_rows == 1) {
+            $stmt3->close();
+            header('HTTP/1.0 550 An event with the name entered already exists.');
+            exit();
+        } else {
+            $stmt4 = $mysqli->prepare("UPDATE system_events SET event_name=?, event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category, updated_on=? WHERE eventid=?");
+            $stmt4->bind_param('sssssiissi', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
+            $stmt4->execute();
+            $stmt4->close();
+        }
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //University map functions

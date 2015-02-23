@@ -172,6 +172,20 @@ elseif (isset(
     CreateEvent();
 }
 
+//Call UpdateEvent function
+elseif (isset(
+    $_POST['eventid1'],
+    $_POST['event_name1'],
+    $_POST['event_notes1'],
+    $_POST['event_url1'],
+    $_POST['event_from1'],
+    $_POST['event_to1'],
+    $_POST['event_amount1'],
+    $_POST['event_ticket_no1'],
+    $_POST['event_category1'])) {
+    UpdateEvent();
+}
+
 /////////////////////////////////////////////////////////////
 
 //Call Library functions
