@@ -2,8 +2,16 @@
 include 'session.php';
 include 'functions.php';
 
+//Call External functions
+//Call ContactUs function
+if (isset($_POST["firstname4"], $_POST["surname4"], $_POST["email7"], $_POST["message"])) {
+    ContactUs();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //Call SignIn function
-if (isset($_POST['email'], $_POST['password'])) {
+elseif (isset($_POST['email'], $_POST['password'])) {
 	SignIn();
 }
 
@@ -30,7 +38,15 @@ elseif (isset($_POST["token"], $_POST["email3"], $_POST["password2"])) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
+//Call AssignTimetable function
+elseif (isset($_POST["userToAssign"], $_POST["moduleToAssign"])) {
+    AssignTimetable();
+}
+
+//Call UnassignTimetable function
+elseif (isset($_POST["userToUnassign"], $_POST["moduleToUnassign"])) {
+    UnassignTimetable();
+}
 
 //Call Timetable functions
 //Call CreateTimetable function
@@ -67,14 +83,9 @@ elseif (isset(
     CreateTimetable();
 }
 
-//Call AssignTimetable function
-elseif (isset($_POST["userToAssign"], $_POST["moduleToAssign"])) {
-    AssignTimetable();
-}
-
-//Call UnassignTimetable function
-elseif (isset($_POST["userToUnassign"], $_POST["moduleToUnassign"])) {
-    UnassignTimetable();
+//Call ActivateTimetable function
+elseif (isset($_POST['timetableToActivate'])) {
+    ActivateTimetable();
 }
 
 //Call UpdateTimetable function
@@ -120,54 +131,67 @@ elseif (isset($_POST['timetableToCancel'])) {
     CancelTimetable();
 }
 
-//Call ActivateTimetable function
-elseif (isset($_POST['timetableToActivate'])) {
-    ActivateTimetable();
-}
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Call Account functions
-//Call UpdateAccount function
-elseif (isset($_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['email4'], $_POST['nationality'], $_POST['dateofbirth'], $_POST['phonenumber'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'])) {
-	UpdateAccount();
+//Call Library functions
+//Call ReserveBook function
+elseif (isset($_POST["bookid"], $_POST["book_name"], $_POST["book_author"], $_POST["book_notes"], $_POST["bookreserved_from"], $_POST["bookreserved_to"])) {
+    ReserveBook();
 }
 
-//Call ChangePassword function
-elseif (isset($_POST["password3"])) {
-	ChangePassword();
+//Call CreateBook function
+elseif (isset(
+    $_POST['book_name'],
+    $_POST['book_author'],
+    $_POST['book_notes'],
+    $_POST['book_copy_no'])) {
+    CreateBook();
 }
 
-//Call DeleteAccount function
-elseif (isset($_POST['deleteaccount_button'])) {
-	DeleteAccount();
+//Call UpdateBook function
+elseif (isset(
+    $_POST['bookid1'],
+    $_POST['book_name1'],
+    $_POST['book_author1'],
+    $_POST['book_notes1'],
+    $_POST['book_copy_no1'])) {
+    UpdateBook();
 }
 
-///////////////////////////////////////////////////////////
+//Call CancelBook function
+elseif (isset($_POST["bookToCancel"])) {
+    CancelBook();
+}
+
+//Call ActivateBook function
+elseif (isset($_POST["bookToActivate"])) {
+    ActivateBook();
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Calendar functions
 //Call CreateTask function
 elseif (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
-	CreateTask();
+    CreateTask();
 }
 
 //Call UpdateTask function
 elseif (isset($_POST['taskid'], $_POST['task_name1'], $_POST['task_notes1'], $_POST['task_url1'], $_POST['task_startdate1'], $_POST['task_duedate1'], $_POST['task_category1'])) {
-	UpdateTask();
+    UpdateTask();
 }
 
 //Call CompleteTask function
 elseif (isset($_POST["recordToComplete"])) {
-	CompleteTask();
+    CompleteTask();
 }
 
 /////////////////////////////////////////////////////////////
 
-//Events functions
+//Call Events functions
 //Call EventsQuantityCheck function
 elseif (isset($_POST["eventid"], $_POST["product_quantity"])) {
-	EventsQuantityCheck();
+    EventsQuantityCheck();
 }
 
 //Call CreateEvent function
@@ -202,44 +226,39 @@ elseif (isset($_POST["eventToCancel"])) {
     CancelEvent();
 }
 
-/////////////////////////////////////////////////////////////
-
-//Call Library functions
-//Call ReserveBook function
-elseif (isset($_POST["bookid"], $_POST["book_name"], $_POST["book_author"], $_POST["book_notes"], $_POST["bookreserved_from"], $_POST["bookreserved_to"])) {
-	ReserveBook();
+//Call CancelEvent function
+elseif (isset($_POST["eventToActivate"])) {
+    ActivateEvent();
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Call CreateBook function
-elseif (isset(
-    $_POST['book_name'],
-    $_POST['book_author'],
-    $_POST['book_notes'],
-    $_POST['book_copy_no'])) {
-    CreateBook();
+//Call MessageUser functions
+elseif (isset($_POST["userid2"], $_POST["firstname5"], $_POST["surname5"], $_POST["email8"], $_POST["subject"], $_POST["message1"])) {
+    MessageUser();
 }
 
-//Call UpdateBook function
-elseif (isset(
-    $_POST['bookid1'],
-    $_POST['book_name1'],
-    $_POST['book_author1'],
-    $_POST['book_notes1'],
-    $_POST['book_copy_no1'])) {
-    UpdateBook();
+//Call SetMessageRead function
+elseif (isset($_POST["message_read"])) {
+    SetMessageRead();
 }
 
-//Call CancelBook function
-elseif (isset($_POST["bookToCancel"])) {
-    CancelBook();
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Call Account functions
+//Call UpdateAccount function
+elseif (isset($_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['email4'], $_POST['nationality'], $_POST['dateofbirth'], $_POST['phonenumber'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'])) {
+	UpdateAccount();
 }
 
-//////////////////////////////////////////////////////////////
+//Call ChangePassword function
+elseif (isset($_POST["password3"])) {
+	ChangePassword();
+}
 
-//Call ContactUs function
-elseif (isset($_POST["firstname4"], $_POST["surname4"], $_POST["email7"], $_POST["message"])) {
-	ContactUs();
+//Call DeleteAccount function
+elseif (isset($_POST['deleteaccount_button'])) {
+	DeleteAccount();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -266,14 +285,4 @@ elseif (isset($_POST["recordToDelete"])) {
 }
 
 ////////////////////////////////////////////////////////////
-
-//Call MessageUser function
-elseif (isset($_POST["userid2"], $_POST["firstname5"], $_POST["surname5"], $_POST["email8"], $_POST["subject"], $_POST["message1"])) {
-	MessageUser();
-}
-
-//Call SetMessageRead function
-elseif (isset($_POST["message_read"])) {
-	SetMessageRead();
-}
 
