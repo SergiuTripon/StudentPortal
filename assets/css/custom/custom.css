@@ -802,7 +802,13 @@ form .success-style:-ms-input-placeholder {
 }
 
 .tile-button {
-    height: 30px;
+    height: 40px;
+}
+
+.tile-button i {
+    margin-top: 2px;
+    font-size: 35px;
+    margin-bottom: 0;
 }
 
 .large-tile p {
