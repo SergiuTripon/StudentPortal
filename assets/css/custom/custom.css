@@ -690,6 +690,15 @@ form .success-style:-ms-input-placeholder {
 .btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
     border-top-right-radius: 3px;
 }
+.btn-group-vertical > :last-child:not(:first-child).btn {
+    border-top-right-radius: 3px;
+}
+}
+
+@media(min-width:480px) {
+.btn-group-vertical > :last-child:not(:first-child).btn {
+    border-top-right-radius: 3px;
+}
 }
 /* End of Button group */
 
