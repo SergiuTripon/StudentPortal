@@ -255,19 +255,7 @@ include 'includes/session.php';
     <li class="active">Library</li>
     </ol>
 
-    <div class="row">
-
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <a href="/admin/create-book/">
-    <div class="tile tile-button">
-	<p class="tile-text"><i class="fa fa-plus"></i> Create book</p>
-    </div>
-    </a>
-	</div>
-
-
-
-    </div><!-- /row -->
+    <a class="btn btn-primary btn-lg">Create book</a>
 
     </div><!-- /container -->
 
