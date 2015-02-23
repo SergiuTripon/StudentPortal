@@ -319,7 +319,7 @@ include 'includes/session.php';
 
 	<!-- Completed tasks -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom module-table">
 
 	<thead>
 	<tr>
@@ -327,8 +327,6 @@ include 'includes/session.php';
 	<th>Notes</th>
 	<th>URL</th>
 	<th>Action</th>
-    <th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
