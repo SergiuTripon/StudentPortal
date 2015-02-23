@@ -57,7 +57,7 @@ if (isset($_POST["bookToUpdate"])) {
 
 	<div id="hide">
 
-    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $bookid; ?>">
+    <input type="hidden" name="bookid" id="bookid" value="<?php echo $bookid; ?>">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
