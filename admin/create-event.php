@@ -208,7 +208,6 @@ include '../includes/session.php';
         dateFormat: "yy-mm-dd",
         controlType: 'select',
         minDate: today,
-        defaultDate: "+1w",
         changeMonth: true,
         numberOfMonths: 2,
         onClose: function(selectedDate) {
@@ -219,7 +218,6 @@ include '../includes/session.php';
         dateFormat: "yy-mm-dd",
         controlType: 'select',
         minDate: today,
-        defaultDate: "+1w",
         changeMonth: true,
         numberOfMonths: 2,
         onClose: function(selectedDate) {
