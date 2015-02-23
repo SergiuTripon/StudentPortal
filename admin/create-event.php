@@ -238,12 +238,10 @@ include '../includes/session.php';
 	if(event_name === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a name.");
-		$("#event_name").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error1").hide();
-		$("#event_name").addClass("success-style");
 	}
 
     var event_notes = $("#event_notes").val();
@@ -253,61 +251,51 @@ include '../includes/session.php';
 	if(event_from === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please select a date and time.");
-		$("#event_from").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#event_from").addClass("success-style");
 	}
 
     var event_to = $("#event_to").val();
 	if(event_to === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please select a date and time.");
-		$("#event_to").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#event_to").addClass("success-style");
 	}
 
     var event_amount = $("#event_amount").val();
 	if(event_amount === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a price.");
-		$("#event_amount").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#event_amount").addClass("success-style");
 	}
 
     var event_ticket_no = $("#event_ticket_no").val();
 	if(event_ticket_no === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a number.");
-		$("#event_ticket_no").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#event_ticket_no").addClass("success-style");
 	}
 
     var event_category_check = $("#event_category option:selected").html();
     if (event_category_check === 'Select an option') {
         $("#error4").show();
         $("#error4").empty().append("Please select an option.");
-        $(".event_category > .selectpicker").addClass("error-style");
         hasError  = true;
         return false;
     }
     else {
         $("#error4").hide();
-        $(".event_category > .selectpicker").addClass("success-style");
     }
 
     var event_category = $("#event_category option:selected").val();
