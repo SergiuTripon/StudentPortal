@@ -59,7 +59,7 @@ if (isset($_POST["eventToUpdate"])) {
 
 	<div id="hide">
 
-    <input type="hidden" name="bookid" id="bookid" value="<?php echo $eventid; ?>">
+    <input type="hidden" name="eventid" id="eventid" value="<?php echo $eventid; ?>">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -343,7 +343,8 @@ if (isset($_POST["eventToUpdate"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'event_name='       + event_name +
+    data:'eventid='          + eventid +
+         'event_name='       + event_name +
          '&event_notes='     + event_notes +
          '&event_url='       + event_url +
          '&event_from='      + event_from +
@@ -355,10 +356,8 @@ if (isset($_POST["eventToUpdate"])) {
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Event created successfully.');
-		$("#success-button").show();
+		$("#success").empty().append('Event updated successfully.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
