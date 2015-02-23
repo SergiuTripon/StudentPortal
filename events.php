@@ -232,6 +232,8 @@ include 'includes/session.php';
 	<!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
+	<?php else : ?>
+
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
     <?php include 'includes/menus/portal_menu.php'; ?>
@@ -340,8 +342,6 @@ include 'includes/session.php';
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
-
-	<?php else : ?>
 
 	<?php include 'includes/menus/menu.php'; ?>
 
