@@ -459,6 +459,30 @@ include 'includes/session.php';
 
 	});
 
+    $("body").on("click", ".cancel-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var eventToCancel = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'eventToCancel='+ eventToCancel,
+	success:function(){
+		$('#cancel-'+eventToCancel).fadeOut();
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
 	//Event view/Calendar view toggle
 	$("#calendar-toggle").hide();
 	$(".task-tile").addClass("tile-selected");
