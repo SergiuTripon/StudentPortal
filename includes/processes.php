@@ -115,7 +115,7 @@ elseif (isset(
     UpdateTimetable();
 }
 
-//Call AssignTimetable function
+//Call CancelTimetable function
 elseif (isset($_POST["moduleToCancel"], $_POST["moduleToCancel"])) {
     CancelTimetable();
 }
