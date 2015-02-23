@@ -706,6 +706,10 @@ form .success-style:-ms-input-placeholder {
     border-left: 0;
 }
 }
+
+.btn-group-vertical > :last-child:not(:first-child).btn {
+    border-bottom-left-radius: 3px;
+}
 /* End of Button group */
 
 /* Bootstrap Select */
