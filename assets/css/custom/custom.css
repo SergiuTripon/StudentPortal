@@ -690,15 +690,17 @@ form .success-style:-ms-input-placeholder {
     border-right: 1px solid #CCCCCC;
 }
 
-.btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
-    border-right: 0;
-    border-left: 0;
-}
-
 @media (max-width: 480px) {
 .btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+}
+}
+
+@media (min-width: 480px) {
+.btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
+    border-right: 0;
+    border-left: 0;
 }
 }
 /* End of Button group */
