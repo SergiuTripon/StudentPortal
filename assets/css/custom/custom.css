@@ -514,7 +514,7 @@ form .feedback-sad {
 }
 
 form .error-style {
-    color: #D9534F !important;
+    color: #333333 !important;
     border-color: #D9534F !important;
     background: #FFFFFF !important;
     box-shadow:         inset 0 1px 1px rgba(0,0,0,.075), 0 0 5px rgba(217, 83, 79, 1) !important;
