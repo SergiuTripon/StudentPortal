@@ -152,92 +152,12 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
-	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
 	$(document).ready(function () {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
-
-    $('.selectpicker').selectpicker();
-
-    $(".filter-option").css("color", "gray");
-
-    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
-        $(".filter-option").css("cssText", "color: #333333;");
-    });
-
-    // Date Time Picker
-    var today = new Date();
-	$(function () {
-	$('#lecture_from_time').timepicker();
-    $('#lecture_to_time').timepicker();
-    $('#lecture_from_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today,
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#lecture_to_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
-    $('#lecture_to_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today,
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#lecture_from_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
-
-    $('#tutorial_from_time').timepicker();
-    $('#tutorial_to_time').timepicker();
-
-    $('#tutorial_from_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today,
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
-    $('#tutorial_to_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today,
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
-
-    $('#exam_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today,
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
-
-    $('#exam_time').timepicker();
-
-	});
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
