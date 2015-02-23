@@ -112,7 +112,7 @@ if (isset($_POST["eventToUpdate"])) {
     <label>Category</label>
     <select class="selectpicker event_category" name="event_category" id="event_category">
         <?php
-        $stmt1 = $mysqli->query("SELECT event_category FROM system_events WHERE event_category = '$event_category'");
+        $stmt1 = $mysqli->query("SELECT event_category FROM system_events WHERE eventid = '$eventid' AND event_category = '$event_category'");
 
         while ($row = $stmt1->fetch_assoc()){
 
