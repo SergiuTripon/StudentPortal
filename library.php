@@ -255,7 +255,7 @@ include 'includes/session.php';
     <li class="active">Library</li>
     </ol>
 
-    <a class="btn btn-primary btn-lg">Create book</a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Sign In</span></a>
 
     </div><!-- /container -->
 
