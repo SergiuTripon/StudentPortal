@@ -267,8 +267,8 @@ include 'includes/session.php';
 
 	$bookid = $row["bookid"];
 
- 	echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/library/reserve-book/" method="POST">
-		<input type="hidden" name="recordToReserve" id="recordToReserve" value="'.$bookid.'"/>
+ 	echo '<form id="update-book-form-'.$bookid.'" style="display: none;" action="/admin/update-book/" method="POST">
+		<input type="hidden" name="bookToUpdate" id="bookToUpdate" value="'.$bookid.'"/>
 		</form>';
 	}
 	$stmt2->close();
@@ -313,7 +313,7 @@ include 'includes/session.php';
 	$book_status = $row["book_status"];
 	$book_status = ucfirst($book_status);
 
-	echo '<tr id="book-'.$bookid.'">
+	echo '<tr id="cancel-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
@@ -386,15 +386,6 @@ include 'includes/session.php';
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-	//Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480) {
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		}
-	})
-	.resize();
-
 	//Sets calendar options
 	(function($) {
 
@@ -455,7 +446,7 @@ include 'includes/session.php';
 		}
 	});
 
-	//Book event form submit
+	//Reserved book form submit
 	$("body").on("click", ".reserve-button", function(e) {
     e.preventDefault();
 
@@ -465,6 +456,41 @@ include 'includes/session.php';
 	$("#reserve-book-form-" + DbNumberID).submit();
 
 	});
+
+    //Update book form submit
+	$("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#update-book-form-" + DbNumberID).submit();
+
+	});
+
+    $("body").on("click", ".cancel-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var bookToCancel = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'bookToCancel='+ bookToCancel,
+	success:function(){
+		$('#cancel-'+bookToCancel).fadeOut();
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
 
 	//Event view/Calendar view toggle
 	$("#calendar-content").hide();
