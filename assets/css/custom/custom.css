@@ -768,8 +768,9 @@ form .success-style:-ms-input-placeholder {
 
 .bootstrap-select > .error-style:focus {
     color: #333333 !important;
-    background-color: #FFFFFF !important;
+    box-shadow: none !important;
     border-color: #CCCCCC !important;
+    background-color: #FFFFFF !important;
 }
 
 .bootstrap-select > .error-style:focus > .filter-option {
