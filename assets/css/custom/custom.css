@@ -525,7 +525,7 @@ form .error-style {
 
 form .error-style:focus,
 form .error-style.focus{
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 /* Remember Password hack (Chrome) */
