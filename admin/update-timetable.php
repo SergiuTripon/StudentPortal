@@ -34,19 +34,28 @@ system_tutorials.tutorial_to_time,
 system_tutorials.tutorial_from_date,
 system_tutorials.tutorial_to_date,
 system_tutorials.tutorial_location,
-system_tutorials.tutorial_capacity
+system_tutorials.tutorial_capacity,
+
+system_exams.examid,
+system_exams.exam_name,
+system_exams.exam_notes,
+system_exams.exam_date,
+system_exams.exam_time,
+system_exams.exam_location,
+system_exams.exam_capacity
 
 FROM system_modules
 
-LEFT JOIN system_lectures ON system_modules.moduleid=system_lectures.moduleid
+LEFT JOIN system_lectures  ON system_modules.moduleid=system_lectures.moduleid
 LEFT JOIN system_tutorials ON system_modules.moduleid=system_tutorials.moduleid
+LEFT JOIN system_exams     ON system_modules.moduleid=system_exams.moduleid
 
 WHERE system_modules.moduleid = ? LIMIT 1
 ");
     $stmt1->bind_param('i', $moduleToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($moduleid, $module_name, $module_notes, $module_url, $lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $tutorialid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity);
+    $stmt1->bind_result($moduleid, $module_name, $module_notes, $module_url, $lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $tutorialid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $examid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -96,9 +105,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div id="hide">
 
+    <!-- Update module -->
+
     <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $moduleid; ?>">
 
-    <!-- Update module -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module name</label>
@@ -124,9 +134,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <hr class="hr-separator">
 
+    <!-- Update lecture -->
+
     <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureid; ?>">
 
-    <!-- Update lecture -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture name</label>
@@ -243,9 +254,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <hr class="hr-separator">
 
+    <!-- Update tutorial -->
+
     <input type="hidden" name="tutorialid" id="tutorialid" value="<?php echo $tutorialid; ?>">
 
-    <!-- Update tutorial -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial name</label>
@@ -361,6 +373,9 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <!-- End of Update tutorial -->
 
     <!-- Update exam -->
+
+    <input type="hidden" name="examid" id="examid" value="<?php echo $examid; ?>">
+
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Exam name</label>
@@ -707,7 +722,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	}
 
     var lecture_lecturer = $("#lecturer option:selected").val();
-    alert(lecture_lecturer);
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
@@ -810,8 +824,70 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	}
 
     var tutorial_assistant = $("#tutorial_assistant option:selected").val();
-    alert(tutorial_assistant);
     var tutorial_notes = $("#tutorial_notes").val();
+
+    //Exams
+	var exam_name = $("#exam_name").val();
+	if(exam_name === '') {
+		$("#error14").show();
+        $("#error14").empty().append("Please enter a tutorial name.");
+		$("#exam_name").addClass("error-style");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error14").hide();
+		$("#exam_name").addClass("success-style");
+	}
+
+    var exam_date = $("#exam_date").val();
+	if(exam_date === '') {
+		$("#error15").show();
+		$("#error15").empty().append("Please select a date.");
+		$("#exam_date").addClass("error-style");
+		hasError  = true;
+        return false;
+	} else {
+		$("#error15").hide();
+		$("#exam_date").addClass("success-style");
+	}
+
+    var exam_time = $("#exam_time").val();
+	if(exam_time === '') {
+		$("#error15").show();
+		$("#error15").empty().append("Please select a time.");
+		$("#exam_time").addClass("error-style");
+		hasError  = true;
+        return false;
+	} else {
+		$("#error15").hide();
+		$("#exam_time").addClass("success-style");
+	}
+
+    var exam_location = $("#exam_location").val();
+	if(exam_location === '') {
+		$("#error16").show();
+		$("#error16").empty().append("Please enter a location.");
+		$("#exam_location").addClass("error-style");
+		hasError  = true;
+        return false;
+	} else {
+		$("#error16").hide();
+		$("#exam_location").addClass("success-style");
+	}
+
+    var exam_capacity = $("#exam_capacity").val();
+	if(exam_capacity === '') {
+		$("#error16").show();
+		$("#error16").empty().append("Please enter a capacity.");
+		$("#exam_capacity").addClass("error-style");
+		hasError  = true;
+        return false;
+	} else {
+		$("#error16").hide();
+		$("#exam_capacity").addClass("success-style");
+	}
+
+    var exam_notes = $("#exam_notes").val();
 
 	if(hasError == false){
     jQuery.ajax({
@@ -842,7 +918,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
          '&tutorial_from_date1=' + tutorial_from_date +
          '&tutorial_to_date1='   + tutorial_to_date +
          '&tutorial_location1='  + tutorial_location +
-         '&tutorial_capacity1='  + tutorial_capacity,
+         '&tutorial_capacity1='  + tutorial_capacity +
+         '&exam_name='           + exam_name +
+         '&exam_notes='          + exam_notes +
+         '&exam_date='           + exam_date +
+         '&exam_time='           + exam_time +
+         '&exam_location='       + exam_location +
+         '&exam_capacity='       + exam_capacity,
 
     success:function(){
 		$("#error").hide();
