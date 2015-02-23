@@ -180,6 +180,16 @@ elseif (isset(
     CreateBook();
 }
 
+//Call UpdateBook function
+elseif (isset(
+    $_POST['bookid1'],
+    $_POST['book_name1'],
+    $_POST['book_author1'],
+    $_POST['book_notes1'],
+    $_POST['book_copy_no1'])) {
+    UpdateBook();
+}
+
 //////////////////////////////////////////////////////////////
 
 //Call ContactUs function
