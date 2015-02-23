@@ -67,6 +67,11 @@ elseif (isset(
     CreateTimetable();
 }
 
+//Call AssignTimetable function
+elseif (isset($_POST["userToAssign"], $_POST["moduleToAssign"])) {
+    AssignTimetable();
+}
+
 //Call UpdateTimetable function
 elseif (isset(
     $_POST['moduleid'],
@@ -106,13 +111,8 @@ elseif (isset(
 }
 
 //Call AssignTimetable function
-elseif (isset($_POST["userToAssign"], $_POST["moduleToAssign"])) {
-    AssignTimetable();
-}
-
-//Call AssignTimetable function
 elseif (isset($_POST["moduleToCancel"], $_POST["moduleToCancel"])) {
-    DeleteTimetable();
+    CancelTimetable();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
