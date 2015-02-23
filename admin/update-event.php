@@ -260,7 +260,7 @@ if (isset($_POST["eventToUpdate"])) {
     $("#update_event_category").change(function() {
         var new_event_category = $("#update_event_category option:selected").text();
         var new_event_category1 = $("#update_event_category option:selected").val();
-        $("label[for='event_category']").empty().append("New lecturer");
+        $("label[for='event_category']").empty().append("New category");
         $('#event_category option:selected').text(new_event_category);
         $('#event_category option:selected').val(new_event_category1);
         $('#event_category').selectpicker('refresh');
