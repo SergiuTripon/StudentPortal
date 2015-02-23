@@ -236,49 +236,89 @@ include '../includes/session.php';
 	var hasError = false;
 
     //Modules
-	var book_name = $("#book_name").val();
-	if(book_name === '') {
+	var event_name = $("#event_name").val();
+	if(event_name === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a name.");
-		$("#book_name").addClass("error-style");
+		$("#event_name").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error1").hide();
-		$("#book_name").addClass("success-style");
+		$("#event_name").addClass("success-style");
 	}
 
-    var book_author = $("#book_author").val();
-	if(book_author === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter an author.");
-		$("#book_author").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error1").hide();
-		$("#book_author").addClass("success-style");
-	}
+    var event_notes = $("#event_notes").val();
+    var event_url = $("#event_url").val();
 
-    var book_notes = $("#book_notes").val();
-
-    var book_copy_no = $("#book_copy_no").val();
-	if(book_copy_no === '') {
+    var event_from = $("#event_from").val();
+	if(event_from === '') {
 		$("#error2").show();
-        $("#error2").empty().append("Please enter a copy number.");
-		$("#book_copy_no").addClass("error-style");
+        $("#error2").empty().append("Please select a date and time.");
+		$("#event_from").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#book_copy_no").addClass("success-style");
+		$("#event_from").addClass("success-style");
 	}
+
+    var event_to = $("#event_to").val();
+	if(event_to === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please select a date and time.");
+		$("#event_to").addClass("error-style");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+		$("#event_to").addClass("success-style");
+	}
+
+    var event_amount = $("#event_amount").val();
+	if(event_amount === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a price.");
+		$("#event_amount").addClass("error-style");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+		$("#event_amount").addClass("success-style");
+	}
+
+    var event_ticket_no = $("#event_ticket_no").val();
+	if(event_ticket_no === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a number.");
+		$("#event_ticket_no").addClass("error-style");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+		$("#event_ticket_no").addClass("success-style");
+	}
+
+    var event_category_check = $("#event_category option:selected").html();
+    if (event_category_check === 'Select an option') {
+        $("#error4").show();
+        $("#error4").empty().append("Please select an option.");
+        $("#event_category").addClass("error-style");
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("#error4").hide();
+        $("#event_category").addClass("success-style");
+    }
+
+    var event_category = $("#event_category option:selected").val();
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'book_name='     + book_name +
+    data:'event_name='     + book_name +
          '&book_author='  + book_author +
          '&book_notes='   + book_notes +
          '&book_copy_no=' + book_copy_no,
