@@ -338,6 +338,7 @@ if (isset($_POST["eventToUpdate"])) {
     }
 
     var event_category = $("#event_category option:selected").val();
+    alert(event_category);
 
 	if(hasError == false){
     jQuery.ajax({
