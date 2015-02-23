@@ -162,8 +162,6 @@ if (isset($_POST["bookToUpdate"])) {
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
-	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
 	$(document).ready(function () {

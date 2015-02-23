@@ -25,9 +25,11 @@ if (isset($_POST["bookToUpdate"])) {
 
 	<?php include '../assets/meta-tags.php'; ?>
 
+    <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
-    <title>Student Portal | Update book</title>
+    <title>Student Portal | Update event</title>
 	
 </head>
 
@@ -45,8 +47,8 @@ if (isset($_POST["bookToUpdate"])) {
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../library/">Library</a></li>
-    <li class="active">Update book</li>
+	<li><a href="../../event/">Events</a></li>
+    <li class="active">Update event</li>
     </ol>
 
     <!-- Update book -->
@@ -121,7 +123,7 @@ if (isset($_POST["bookToUpdate"])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Update book</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Update event</span></button>
     </div>
 
     </div>
@@ -204,69 +206,134 @@ if (isset($_POST["bookToUpdate"])) {
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
+    $('.selectpicker').selectpicker();
+
+    $(".filter-option").css("color", "gray");
+
+    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
+        $(".filter-option").css("cssText", "color: #333333 !important;");
+    });
+
+    // Date Time Picker
+    var today = new Date();
+	$(function () {
+
+    $('#event_from').datepicker({
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
+        }
+    });
+    $('#event_to').datepicker({
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
+        }
+    });
+
+	});
+
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
 	var hasError = false;
 
     //Modules
-    var bookid = $("#bookid").val();
-
-	var book_name = $("#book_name").val();
-	if(book_name === '') {
+	var event_name = $("#event_name").val();
+	if(event_name === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a name.");
-		$("#book_name").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error1").hide();
-		$("#book_name").addClass("success-style");
 	}
 
-    var book_author = $("#book_author").val();
-	if(book_author === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter an author.");
-		$("#book_author").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error1").hide();
-		$("#book_author").addClass("success-style");
-	}
+    var event_notes = $("#event_notes").val();
+    var event_url = $("#event_url").val();
 
-    var book_copy_no = $("#book_copy_no").val();
-	if(book_copy_no === '') {
+    var event_from = $("#event_from").val();
+	if(event_from === '') {
 		$("#error2").show();
-        $("#error2").empty().append("Please enter a copy number.");
-		$("#book_copy_no").addClass("error-style");
+        $("#error2").empty().append("Please select a date and time.");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#book_copy_no").addClass("success-style");
 	}
 
-    var book_notes = $("#book_notes").val();
+    var event_to = $("#event_to").val();
+	if(event_to === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please select a date and time.");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+	}
 
+    var event_amount = $("#event_amount").val();
+	if(event_amount === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a price.");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+	}
+
+    var event_ticket_no = $("#event_ticket_no").val();
+	if(event_ticket_no === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a number.");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+	}
+
+    var event_category_check = $("#event_category option:selected").html();
+    if (event_category_check === 'Select an option') {
+        $("#error4").show();
+        $("#error4").empty().append("Please select an option.");
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("#error4").hide();
+    }
+
+    var event_category = $("#event_category option:selected").val();
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'bookid1='        + bookid +
-         '&book_name1='    + book_name +
-         '&book_author1='  + book_author +
-         '&book_notes1='   + book_notes +
-         '&book_copy_no1=' + book_copy_no,
+    data:'event_name='       + event_name +
+         '&event_notes='     + event_notes +
+         '&event_url='       + event_url +
+         '&event_from='      + event_from +
+         '&event_to='        + event_to +
+         '&event_amount='    + event_amount +
+         '&event_ticket_no=' + event_ticket_no +
+         '&event_category='  + event_category,
 
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
+		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Book updated successfully.');
+		$("#success").empty().append('Event created successfully.');
+		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
