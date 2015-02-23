@@ -198,6 +198,7 @@ include '../includes/session.php';
 
     $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
         $(".filter-option").css("cssText", "color: #333333 !important;");
+        $(".bootstrap-select > .error-style > .filter-option").css("cssText", "color: #333333 !important;");
     });
 
     // Date Time Picker
