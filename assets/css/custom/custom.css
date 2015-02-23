@@ -541,19 +541,19 @@ form .error-style:-webkit-autofill:focus {
 /* End of Remember Password hack (Chrome) */
 
 form .error-style::-webkit-input-placeholder {
-    color: #FFFFFF;
+    color: #D9534F;
 }
 
 form .error-style:-moz-placeholder {
-    color: #FFFFFF;
+    color: #D9534F;
 }
 
 form .error-style::-moz-placeholder {
-    color: #FFFFFF;
+    color: #D9534F;
 }
 
 form .error-style:-ms-input-placeholder {
-    color: #FFFFFF;
+    color: #D9534F;
 }
 /* End of Error message */
 
