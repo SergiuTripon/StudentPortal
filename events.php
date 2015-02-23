@@ -232,6 +232,115 @@ include 'includes/session.php';
 	<!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
+
+    <?php include 'includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
+
+	<ol class="breadcrumb">
+    <li><a href="../overview/">Overview</a></li>
+    <li class="active">Library</li>
+    </ol>
+
+    <a class="btn btn-success btn-lg ladda-button" style="margin-bottom: 5px;" data-style="slide-up" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
+
+    <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
+
+	<div class="panel panel-default">
+
+	<?php
+	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE NOT book_status = 'cancelled'");
+	while($row = $stmt2->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+
+ 	echo '<form id="update-book-form-'.$bookid.'" style="display: none;" action="/admin/update-book/" method="POST">
+		<input type="hidden" name="bookToUpdate" id="bookToUpdate" value="'.$bookid.'"/>
+		</form>';
+	}
+	$stmt2->close();
+	?>
+
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Books</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Books -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom books-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Notes</th>
+	<th>External URL</th>
+	<th>From</th>
+	<th>To</th>
+	<th>Price</th>
+	<th>Tickets</th>
+	<th>Category</th>
+	<th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'active'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$eventid = $row["eventid"];
+	$event_name = $row["event_name"];
+	$event_notes = $row["event_notes"];
+	$event_url = $row["event_url"];
+	$event_from = $row["event_from"];
+	$event_to = $row["event_to"];
+	$event_amount = $row["event_amount"];
+	$event_ticket_no = $row["event_ticket_no"];
+	$event_category = ucfirst($row["event_category"]);
+
+	echo '<tr id="task-'.$row["eventid"].'">
+
+			<td data-title="Name">'.$event_name.'</td>
+			<td class="notes-hide" data-title="Notes">'.$event_notes.'</td>
+			<td class="url-hide" data-title="External URL">'.($event_url === '' ? "" : "<a target=\"_blank\" href=\"//$url\">Link</a>").'</td>
+			<td data-title="From">'.$event_from.'</td>
+			<td data-title="To">'.$event_to.'</td>
+			<td data-title="Price">'.$event_amount.'</td>
+			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
+			<td data-title="Category">'.$event_category.'</td>
+			<td data-title="Action">'.($event_ticket_no === '0' ? "Sold Out" : "<a id=\"book-$eventid\" class=\"btn btn-primary btn-md book-button\">Book</a>").'</td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+	</div><!-- /panel-group -->
+
+    </div><!-- /container -->
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<!-- Sign Out (Inactive) JS -->
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+
+    <?php endif; ?>
+
 	<?php else : ?>
 
 	<?php include 'includes/menus/menu.php'; ?>
