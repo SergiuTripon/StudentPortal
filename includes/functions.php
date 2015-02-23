@@ -679,15 +679,71 @@ function UpdateTimetable() {
         }
     }
 
-    $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
-    $stmt3->bind_param('sisssssssisi', $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
-    $stmt3->execute();
-    $stmt3->close();
+    //Tutorial
+    $stmt9 = $mysqli->prepare("SELECT tutorial_name FROM system_tutorials WHERE tutorialid = ?");
+    $stmt9->bind_param('i', $tutorialid);
+    $stmt9->execute();
+    $stmt9->store_result();
+    $stmt9->bind_result($db_tutorial_name);
+    $stmt9->fetch();
 
-    $stmt4 = $mysqli->prepare("UPDATE system_exams SET exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
-    $stmt4->bind_param('sssssssi', $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
-    $stmt4->execute();
-    $stmt4->close();
+    if ($db_tutorial_name === $tutorial_name) {
+        $stmt10 = $mysqli->prepare("UPDATE system_tutorials tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
+        $stmt10->bind_param('isssssssisi', $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
+        $stmt10->execute();
+        $stmt10->close();
+    } else {
+        $stmt11 = $mysqli->prepare("SELECT tutorialid FROM system_tutorials WHERE tutorial_name = ?");
+        $stmt11->bind_param('s', $tutorial_name);
+        $stmt11->execute();
+        $stmt11->store_result();
+        $stmt11->bind_result($db_tutorialid);
+        $stmt11->fetch();
+
+        if ($stmt11->num_rows == 1) {
+            $stmt11->close();
+            header('HTTP/1.0 550 A tutorial with the name entered already exists.');
+            exit();
+        } else {
+            $stmt12 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
+            $stmt12->bind_param('sisssssssisi', $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
+            $stmt12->execute();
+            $stmt12->close();
+        }
+    }
+
+    //Exam
+    $stmt13 = $mysqli->prepare("SELECT exam_name FROM system_exams WHERE examid = ?");
+    $stmt13->bind_param('i', $examid);
+    $stmt13->execute();
+    $stmt13->store_result();
+    $stmt13->bind_result($db_exam_name);
+    $stmt13->fetch();
+
+    if ($db_tutorial_name === $tutorial_name) {
+        $stmt14 = $mysqli->prepare("UPDATE system_exams SET exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+        $stmt14->bind_param('ssssssi', $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
+        $stmt14->execute();
+        $stmt14->close();
+    } else {
+        $stmt15 = $mysqli->prepare("SELECT examid FROM system_exams WHERE exam_name = ?");
+        $stmt15->bind_param('s', $exam_name);
+        $stmt15->execute();
+        $stmt15->store_result();
+        $stmt15->bind_result($db_examid);
+        $stmt15->fetch();
+
+        if ($stmt15->num_rows == 1) {
+            $stmt15->close();
+            header('HTTP/1.0 550 An exam with the name entered already exists.');
+            exit();
+        } else {
+            $stmt16 = $mysqli->prepare("UPDATE system_exams SET exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+            $stmt16->bind_param('sssssssi', $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
+            $stmt16->execute();
+            $stmt16->close();
+        }
+    }
 
 }
 
