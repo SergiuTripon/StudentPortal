@@ -252,7 +252,7 @@ include 'includes/session.php';
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-    <li class="active">Timetable</li>
+    <li class="active">Library</li>
     </ol>
 
     <div class="row">
