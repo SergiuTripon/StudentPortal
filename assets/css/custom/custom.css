@@ -765,6 +765,10 @@ form .success-style:-ms-input-placeholder {
 .bootstrap-select > .error-style > .filter-option {
     color: #FFFFFF !important;
 }
+
+.bootstrap-select > .btn-group.open .dropdown-toggle {
+    box-shadow: none !important;
+}
 /* End of Bootstrap Select */
 
 /* Tiles style */
