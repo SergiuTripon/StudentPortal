@@ -272,7 +272,9 @@ if (isset($_POST["eventToUpdate"])) {
 
 	var hasError = false;
 
-    //Modules
+    //Events
+    var eventid = $("#eventid").val();
+
 	var event_name = $("#event_name").val();
 	if(event_name === '') {
 		$("#error1").show();
