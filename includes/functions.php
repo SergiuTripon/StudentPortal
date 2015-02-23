@@ -874,17 +874,22 @@ function CreateBook() {
     $book_copy_no = filter_input(INPUT_POST, 'book_copy_no', FILTER_SANITIZE_STRING);
 
     // Check existing book name
-    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_books WHERE book_name = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT bookid, book_copy_no FROM system_books WHERE book_name = ? LIMIT 1");
     $stmt1->bind_param('s', $book_name);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($db_bookid);
+    $stmt1->bind_result($db_bookid, $db_book_copy_no);
     $stmt1->fetch();
 
     if ($stmt1->num_rows == 1) {
-        $stmt1->close();
-        header('HTTP/1.0 550 A book with the name entered already exists.');
-        exit();
+
+        $book_status = 'active';
+        $book_copy_no = $db_book_copy_no + 1;
+
+        $stmt5 = $mysqli->prepare("INSERT INTO system_books (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
+        $stmt5->execute();
+        $stmt5->close();
     }
 
     $book_status = 'active';
