@@ -698,6 +698,7 @@ form .success-style:-ms-input-placeholder {
 @media(min-width:480px) {
 .btn-group-vertical > :last-child:not(:first-child).btn {
     border-top-right-radius: 3px;
+    border-bottom-left-radius: 0;
 }
 }
 /* End of Button group */
