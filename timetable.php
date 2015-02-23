@@ -470,30 +470,11 @@ include 'includes/session.php';
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var timetableToCancel = clickedID[1];
+    var DbNumberID = clickedID[1];
 
-    alert(timetableToCancel);
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'timetableToCancel='+ timetableToCancel,
-	success:function(){
-		$('#cancel-'+moduleToCancel).fadeOut();
-		setTimeout(function(){
-			location.reload();
-		}, 1000);
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
+	$("#update-timetable-form-" + DbNumberID).submit();
 
 	});
-
-    });
 
 	});
 
