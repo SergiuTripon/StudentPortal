@@ -47,7 +47,7 @@ if (isset($_POST["eventToUpdate"])) {
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../event/">Events</a></li>
+	<li><a href="../../events/">Events</a></li>
     <li class="active">Update event</li>
     </ol>
 
