@@ -86,6 +86,7 @@ if (isset($_POST["recordToAssign"])) {
     $stmt3->fetch();
 
     $assignment_check = $stmt3->num_rows ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
+    $assignment_check1 = $stmt3->num_rows ? '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>' : 'Already assigned';
 
 	echo '<tr id="assign-'.$db_userid.'">
 
@@ -93,6 +94,7 @@ if (isset($_POST["recordToAssign"])) {
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
 			<td data-title="Action">'.$assignment_check.'</td>
+			<td data-title="Action">'.$assignment_check1.'</td>
 			</tr>';
 	}
 
