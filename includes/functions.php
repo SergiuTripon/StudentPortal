@@ -1343,7 +1343,7 @@ function UpdateEvent() {
     if ($event_category == 'careers') { $event_class = 'event-important'; }
     if ($event_category == 'social') { $event_class = 'event-warning'; }
 
-    //Module
+    //Event
     $stmt1 = $mysqli->prepare("SELECT event_name FROM system_events WHERE eventid = ?");
     $stmt1->bind_param('i', $eventid);
     $stmt1->execute();
@@ -1353,8 +1353,8 @@ function UpdateEvent() {
 
     if ($db_event_name === $event_name) {
 
-        $stmt2 = $mysqli->prepare("UPDATE system_events SET event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category, updated_on=? WHERE eventid=?");
-        $stmt2->bind_param('ssssiissi', $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
+        $stmt2 = $mysqli->prepare("UPDATE system_events SET event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category, updated_on=? WHERE eventid=?");
+        $stmt2->bind_param('sssssiissi', $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
         $stmt2->execute();
         $stmt2->close();
 
