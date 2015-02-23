@@ -805,9 +805,14 @@ form .success-style:-ms-input-placeholder {
     height: 40px;
 }
 
+.tile-button p {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
 .tile-button p i {
     margin-top: 2px;
-    font-size: 35px;
+    font-size: 15px;
     margin-bottom: 0;
 }
 
