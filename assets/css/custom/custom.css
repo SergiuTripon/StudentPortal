@@ -704,6 +704,8 @@ form .success-style:-ms-input-placeholder {
 
 @media (min-width: 480px) {
 .btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
+    border-right: 0;
+    border-left: 0;
 }
 }
 
