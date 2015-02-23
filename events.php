@@ -256,8 +256,8 @@ include 'includes/session.php';
 	<?php
 	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="book-event-form-'.$row["eventid"].'" style="display: none;" action="/events/book-event/" method="POST">
-			<input type="hidden" name="recordToBook" id="recordToBook" value="'.$row["eventid"].'"/>
+	  echo '<form id="update-event-form-'.$row["eventid"].'" style="display: none;" action="/admin/update-event/" method="POST">
+			<input type="hidden" name="eventToUpdate" id="eventToUpdate" value="'.$row["eventid"].'"/>
 			</form>';
 	}
 	$stmt2->close();
@@ -291,14 +291,12 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$eventid = $row["eventid"];
 	$event_name = $row["event_name"];
-	$event_notes = $row["event_notes"];
-	$event_url = $row["event_url"];
 	$event_from = $row["event_from"];
 	$event_to = $row["event_to"];
 	$event_amount = $row["event_amount"];
@@ -308,14 +306,13 @@ include 'includes/session.php';
 	echo '<tr id="task-'.$row["eventid"].'">
 
 			<td data-title="Name">'.$event_name.'</td>
-			<td class="notes-hide" data-title="Notes">'.$event_notes.'</td>
-			<td class="url-hide" data-title="External URL">'.($event_url === '' ? "" : "<a target=\"_blank\" href=\"//$url\">Link</a>").'</td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td data-title="Action">'.($event_ticket_no === '0' ? "Sold Out" : "<a id=\"book-$eventid\" class=\"btn btn-primary btn-md book-button\">Book</a>").'</td>
+			<td data-title="Action"><a id="book-'.$eventid.'" class="btn btn-primary btn-md ladda-button update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+            <td data-title="Action"><a id="book-'.$eventid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
 			</tr>';
 	}
 
@@ -376,15 +373,6 @@ include 'includes/session.php';
 
 	<script>
 	$(document).ready(function () {
-
-	//Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480) {
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		}
-	})
-	.resize();
 
 	//Sets calendar options
 	(function($) {
@@ -454,6 +442,17 @@ include 'includes/session.php';
     var DbNumberID = clickedID[1];
 
 	$("#book-event-form-" + DbNumberID).submit();
+
+	});
+
+    //Book event form submit
+	$("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#update-event-form-" + DbNumberID).submit();
 
 	});
 
