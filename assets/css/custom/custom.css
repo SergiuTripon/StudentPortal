@@ -761,21 +761,6 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
     background-color: #CCCCCC;
 }
-
-.bootstrap-select > .error-style > .filter-option {
-    color: #FFFFFF !important;
-}
-
-.bootstrap-select > .error-style:focus {
-    color: #333333 !important;
-    box-shadow: none !important;
-    border-color: #CCCCCC !important;
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select > .error-style:focus > .filter-option {
-    color: #333333 !important;
-}
 /* End of Bootstrap Select */
 
 /* Tiles style */
