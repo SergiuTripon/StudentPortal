@@ -190,6 +190,11 @@ elseif (isset(
     UpdateBook();
 }
 
+//Call CompleteTask function
+elseif (isset($_POST["bookToCancel"])) {
+    CancelBook();
+}
+
 //////////////////////////////////////////////////////////////
 
 //Call ContactUs function
