@@ -320,7 +320,7 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Action"><a id=update-'.$bookid.' class="btn btn-primary btn-md update-button">Update</a></td>
+			<td data-title="Action"><a id=update-'.$bookid.' class="btn btn-primary btn-md update-button ladda-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
 			<td data-title="Action"><a id=cancel-'.$bookid.' class="btn btn-primary btn-md cancel-button ladda-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
 			</tr>';
 	}
