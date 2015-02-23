@@ -1372,7 +1372,7 @@ function UpdateEvent() {
             header('HTTP/1.0 550 An event with the name entered already exists.');
             exit();
         } else {
-            $stmt4 = $mysqli->prepare("UPDATE system_events SET event_name=?, event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category, updated_on=? WHERE eventid=?");
+            $stmt4 = $mysqli->prepare("UPDATE system_events SET event_name=?, event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
             $stmt4->bind_param('ssssssiissi', $event_name, $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
             $stmt4->execute();
             $stmt4->close();
