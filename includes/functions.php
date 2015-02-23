@@ -871,7 +871,7 @@ function CreateBook() {
     $book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
     $book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
     $book_notes = filter_input(INPUT_POST, 'book_notes', FILTER_SANITIZE_STRING);
-    $book_copyno = filter_input(INPUT_POST, 'book_copyno', FILTER_SANITIZE_STRING);
+    $book_copy_no = filter_input(INPUT_POST, 'book_copy_no', FILTER_SANITIZE_STRING);
 
     // Check existing book name
     $stmt1 = $mysqli->prepare("SELECT bookid FROM system_books WHERE book_name = ? LIMIT 1");
@@ -889,8 +889,8 @@ function CreateBook() {
 
     $book_status = 'active';
 
-    $stmt5 = $mysqli->prepare("INSERT INTO system_books (book_name, book_author, book_notes, book_copyno, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copyno, $book_status, $created_on);
+    $stmt5 = $mysqli->prepare("INSERT INTO system_books (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
     $stmt5->execute();
     $stmt5->close();
 }

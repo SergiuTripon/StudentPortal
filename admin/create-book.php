@@ -67,7 +67,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Book copy number</label>
-    <input class="form-control" type="text" name="book_copyno" id="book_copyno" placeholder="Enter a copy number">
+    <input class="form-control" type="text" name="book_copy_no" id="book_copy_no" placeholder="Enter a copy number">
 	</div>
 	</div>
 
@@ -192,16 +192,16 @@ include '../includes/session.php';
 
     var book_notes = $("#book_notes").val();
 
-    var book_copyno = $("#book_copyno").val();
-	if(book_copyno === '') {
+    var book_copy_no = $("#book_copy_no").val();
+	if(book_copy_no === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a copy number.");
-		$("#book_copyno").addClass("error-style");
+		$("#book_copy_no").addClass("error-style");
 		hasError  = true;
 		return false;
     } else {
 		$("#error2").hide();
-		$("#book_copyno").addClass("success-style");
+		$("#book_copy_no").addClass("success-style");
 	}
 
 	if(hasError == false){

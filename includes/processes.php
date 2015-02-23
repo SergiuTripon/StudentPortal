@@ -176,7 +176,7 @@ elseif (isset(
     $_POST['book_name'],
     $_POST['book_author'],
     $_POST['book_notes'],
-    $_POST['book_copyno'])) {
+    $_POST['book_copy_no'])) {
     CreateBook();
 }
 
