@@ -688,7 +688,7 @@ function UpdateTimetable() {
     $stmt9->fetch();
 
     if ($db_tutorial_name === $tutorial_name) {
-        $stmt10 = $mysqli->prepare("UPDATE system_tutorials tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
+        $stmt10 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
         $stmt10->bind_param('isssssssisi', $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
         $stmt10->execute();
         $stmt10->close();
