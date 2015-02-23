@@ -691,9 +691,6 @@ form .success-style:-ms-input-placeholder {
 }
 
 @media (max-width: 480px) {
-.btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
-    border-top-right-radius: 3px;
-}
 .btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
     border-top: 0;
     border-bottom: 0;
