@@ -469,7 +469,7 @@ include 'includes/session.php';
     $("body").on("click", ".cancel-button", function(e) {
     e.preventDefault();
 
-    var clickedID = this.id.split('-');
+	var clickedID = this.id.split('-');
     var moduleToCancel = clickedID[1];
 
 	jQuery.ajax({
@@ -479,9 +479,9 @@ include 'includes/session.php';
 	data:'moduleToCancel='+ moduleToCancel,
 	success:function(){
 		$('#cancel-'+moduleToCancel).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+		setTimeout(function(){
+			location.reload();
+		}, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
