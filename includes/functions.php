@@ -1353,7 +1353,7 @@ function UpdateEvent() {
 
     if ($db_event_name === $event_name) {
 
-        $stmt2 = $mysqli->prepare("UPDATE system_events SET event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category, updated_on=? WHERE eventid=?");
+        $stmt2 = $mysqli->prepare("UPDATE system_events SET event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category, updated_on=? WHERE eventid='1'");
         $stmt2->bind_param('sssssiissi', $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
         $stmt2->execute();
         $stmt2->close();
