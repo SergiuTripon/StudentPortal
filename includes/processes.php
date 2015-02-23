@@ -116,9 +116,10 @@ elseif (isset(
 }
 
 //Call CancelTimetable function
-elseif (isset($_POST["moduleToCancel"], $_POST["moduleToCancel"])) {
+elseif (isset($_POST['moduleToCancel'])) {
     CancelTimetable();
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
