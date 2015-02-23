@@ -479,6 +479,9 @@ include 'includes/session.php';
 	data:'moduleToCancel='+ moduleToCancel,
 	success:function(){
 		$('#cancel-'+moduleToCancel).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
