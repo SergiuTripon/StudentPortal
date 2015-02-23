@@ -378,6 +378,60 @@ include 'includes/session.php';
 		}
 	});
 
+    $('.module-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "You have no lectures on this day."
+		}
+	});
+
+        $("body").on("click", ".assign-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#assign-timetable-form-" + DbNumberID).submit();
+
+	});
+
+    $("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#update-timetable-form-" + DbNumberID).submit();
+
+	});
+
+    $("body").on("click", ".cancel-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var moduleToCancel = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'moduleToCancel='+ moduleToCancel,
+	success:function(){
+		$('#cancel-'+moduleToCancel).fadeOut();
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
 	});
 
 	</script>
