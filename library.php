@@ -255,7 +255,7 @@ include 'includes/session.php';
     <li class="active">Library</li>
     </ol>
 
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label"><i class="fa fa-plus"></i>Create book</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label"><i class="fa fa-plus"></i> Create book</span></a>
 
     </div><!-- /container -->
 
@@ -301,6 +301,9 @@ include 'includes/session.php';
 
 	<script>
 	$(document).ready(function () {
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
 
 	//Responsiveness
 	$(window).resize(function(){
