@@ -5,7 +5,7 @@ if (isset($_POST["bookToUpdate"])) {
 
     $bookToUpdate = filter_input(INPUT_POST, 'bookToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no FROM system_books WHERE system_modules.moduleid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no FROM system_books WHERE bookid = ? LIMIT 1");
     $stmt1->bind_param('i', $bookToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
