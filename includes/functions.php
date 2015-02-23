@@ -934,10 +934,10 @@ function CancelBook()
 
     $book_status = 'cancelled';
 
-    $stmt5 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
-    $stmt5->bind_param('ssi', $book_status, $updated_on, $bookToCancel);
-    $stmt5->execute();
-    $stmt5->close();
+    $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToCancel);
+    $stmt1->execute();
+    $stmt1->close();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
