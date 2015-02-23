@@ -9,7 +9,9 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
+    <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Create event</title>
 	
@@ -181,6 +183,8 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
+    <?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
 	$(document).ready(function () {
