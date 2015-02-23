@@ -827,6 +827,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     var tutorial_notes = $("#tutorial_notes").val();
 
     //Exams
+    var examid = $("#examid").val();
+
 	var exam_name = $("#exam_name").val();
 	if(exam_name === '') {
 		$("#error14").show();
@@ -919,12 +921,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
          '&tutorial_to_date1='   + tutorial_to_date +
          '&tutorial_location1='  + tutorial_location +
          '&tutorial_capacity1='  + tutorial_capacity +
-         '&exam_name='           + exam_name +
-         '&exam_notes='          + exam_notes +
-         '&exam_date='           + exam_date +
-         '&exam_time='           + exam_time +
-         '&exam_location='       + exam_location +
-         '&exam_capacity='       + exam_capacity,
+         '&examid='           + examid +
+         '&exam_name1='           + exam_name +
+         '&exam_notes1='          + exam_notes +
+         '&exam_date1='           + exam_date +
+         '&exam_time1='           + exam_time +
+         '&exam_location1='       + exam_location +
+         '&exam_capacity1='       + exam_capacity,
 
     success:function(){
 		$("#error").hide();

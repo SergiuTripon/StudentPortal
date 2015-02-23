@@ -534,33 +534,33 @@ function CreateTimetable() {
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt4 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC LIMIT 1");
-    $stmt4->execute();
-    $stmt4->store_result();
-    $stmt4->bind_result($moduleid);
-    $stmt4->fetch();
-    $stmt4->close();
+    $stmt6 = $mysqli->prepare("SELECT moduleid FROM system_modules ORDER BY moduleid DESC LIMIT 1");
+    $stmt6->execute();
+    $stmt6->store_result();
+    $stmt6->bind_result($moduleid);
+    $stmt6->fetch();
+    $stmt6->close();
 
     $lecture_status = 'active';
 
-    $stmt6 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt6->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
-    $stmt6->execute();
-    $stmt6->close();
+    $stmt7 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt7->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
+    $stmt7->execute();
+    $stmt7->close();
 
     $tutorial_status = 'active';
 
-    $stmt7 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt7->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
-    $stmt7->execute();
-    $stmt7->close();
+    $stmt8 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt8->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
+    $stmt8->execute();
+    $stmt8->close();
 
     $exam_status = 'active';
 
-    $stmt7 = $mysqli->prepare("INSERT INTO system_exams (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt7->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
-    $stmt7->execute();
-    $stmt7->close();
+    $stmt9 = $mysqli->prepare("INSERT INTO system_exams (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt9->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
+    $stmt9->execute();
+    $stmt9->close();
 
 
 }
@@ -603,6 +603,15 @@ function UpdateTimetable() {
     $tutorial_location = filter_input(INPUT_POST, 'tutorial_location1', FILTER_SANITIZE_STRING);
     $tutorial_capacity = filter_input(INPUT_POST, 'tutorial_capacity1', FILTER_SANITIZE_STRING);
 
+    //Exam
+    $examid = filter_input(INPUT_POST, 'examid', FILTER_SANITIZE_STRING);
+    $exam_name = filter_input(INPUT_POST, 'exam_name1', FILTER_SANITIZE_STRING);
+    $exam_notes = filter_input(INPUT_POST, 'exam_notes1', FILTER_SANITIZE_STRING);
+    $exam_date = filter_input(INPUT_POST, 'exam_date1', FILTER_SANITIZE_STRING);
+    $exam_time = filter_input(INPUT_POST, 'exam_time1', FILTER_SANITIZE_STRING);
+    $exam_location = filter_input(INPUT_POST, 'exam_location1', FILTER_SANITIZE_STRING);
+    $exam_capacity = filter_input(INPUT_POST, 'exam_capacity1', FILTER_SANITIZE_STRING);
+
     $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_name=?, module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
     $stmt1->bind_param('ssssi', $module_name, $module_notes, $module_url, $updated_on, $moduleid);
     $stmt1->execute();
@@ -617,6 +626,11 @@ function UpdateTimetable() {
     $stmt4->bind_param('sisssssssisi', $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
     $stmt4->execute();
     $stmt4->close();
+
+    $stmt9 = $mysqli->prepare("UPDATE system_exams SET exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+    $stmt9->bind_param('sssssssi', $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
+    $stmt9->execute();
+    $stmt9->close();
 
 }
 
