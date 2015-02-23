@@ -612,25 +612,82 @@ function UpdateTimetable() {
     $exam_location = filter_input(INPUT_POST, 'exam_location1', FILTER_SANITIZE_STRING);
     $exam_capacity = filter_input(INPUT_POST, 'exam_capacity1', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_name=?, module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
-    $stmt1->bind_param('ssssi', $module_name, $module_notes, $module_url, $updated_on, $moduleid);
+    //Module
+    $stmt1 = $mysqli->prepare("SELECT module_name FROM system_modules WHERE moduleid = ?");
+    $stmt1->bind_param('i', $moduleid);
     $stmt1->execute();
-    $stmt1->close();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_module_name);
+    $stmt1->fetch();
 
-    $stmt3 = $mysqli->prepare("UPDATE system_lectures SET lecture_name=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
-    $stmt3->bind_param('sisssssssisi', $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $updated_on, $lectureid);
+    if ($db_module_name === $module_name) {
+        $stmt2 = $mysqli->prepare("UPDATE system_modules SET module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
+        $stmt2->bind_param('sssi', $module_notes, $module_url, $updated_on, $moduleid);
+        $stmt2->execute();
+        $stmt2->close();
+    } else {
+
+        $stmt3 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE module_name = ?");
+        $stmt3->bind_param('s', $module_name);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($db_moduleid);
+        $stmt3->fetch();
+
+        if ($stmt3->num_rows == 1) {
+            $stmt3->close();
+            header('HTTP/1.0 550 A module with the name entered already exists.');
+            exit();
+        } else {
+            $stmt4 = $mysqli->prepare("UPDATE system_modules SET module_name=?, module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
+            $stmt4->bind_param('ssssi', $module_name, $module_notes, $module_url, $updated_on, $moduleid);
+            $stmt4->execute();
+            $stmt4->close();
+        }
+    }
+
+    //Lecture
+    $stmt5 = $mysqli->prepare("SELECT lecture_name FROM system_lectures WHERE lectureid = ?");
+    $stmt5->bind_param('i', $lectureid);
+    $stmt5->execute();
+    $stmt5->store_result();
+    $stmt5->bind_result($db_lecture_name);
+    $stmt5->fetch();
+
+    if ($db_lecture_name === $lecture_name) {
+        $stmt6 = $mysqli->prepare("UPDATE system_lectures SET lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
+        $stmt6->bind_param('isssssssisi', $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $updated_on, $lectureid);
+        $stmt6->execute();
+        $stmt6->close();
+    } else {
+        $stmt7 = $mysqli->prepare("SELECT lectureid FROM system_lectures WHERE lecture_name = ?");
+        $stmt7->bind_param('s', $lecture_name);
+        $stmt7->execute();
+        $stmt7->store_result();
+        $stmt7->bind_result($db_lectureid);
+        $stmt7->fetch();
+
+        if ($stmt7->num_rows == 1) {
+            $stmt7->close();
+            header('HTTP/1.0 550 A lecture with the name entered already exists.');
+            exit();
+        } else {
+            $stmt8 = $mysqli->prepare("UPDATE system_lectures SET lecture_name=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
+            $stmt8->bind_param('sisssssssisi', $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $updated_on, $lectureid);
+            $stmt8->execute();
+            $stmt8->close();
+        }
+    }
+
+    $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
+    $stmt3->bind_param('sisssssssisi', $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
-    $stmt4->bind_param('sisssssssisi', $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
+    $stmt4 = $mysqli->prepare("UPDATE system_exams SET exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+    $stmt4->bind_param('sssssssi', $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
     $stmt4->execute();
     $stmt4->close();
-
-    $stmt9 = $mysqli->prepare("UPDATE system_exams SET exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
-    $stmt9->bind_param('sssssssi', $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
-    $stmt9->execute();
-    $stmt9->close();
 
 }
 
