@@ -651,7 +651,6 @@ form .success-style:-ms-input-placeholder {
 .btn-lg, .btn-group-lg > .btn {
     border-radius: 3px;
     line-height: 1.2;
-    border: 1px solid #CCCCCC;
 }
 
 .btn-default:active,
@@ -700,10 +699,6 @@ form .success-style:-ms-input-placeholder {
 .btn-group-vertical > :last-child:not(:first-child).btn {
     border-top-right-radius: 3px;
     border-bottom-left-radius: 0;
-}
-.btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
-    border-right: 0;
-    border-left: 0;
 }
 }
 /* End of Button group */
