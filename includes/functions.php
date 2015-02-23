@@ -874,7 +874,7 @@ function CreateBook() {
     $book_copy_no = filter_input(INPUT_POST, 'book_copy_no', FILTER_SANITIZE_STRING);
 
     // Check existing book name
-    $stmt1 = $mysqli->prepare("SELECT bookid, book_copy_no FROM system_books WHERE book_name = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT bookid, book_copy_no FROM system_books WHERE book_name = ? ORDER BY bookid DESC LIMIT 1");
     $stmt1->bind_param('s', $book_name);
     $stmt1->execute();
     $stmt1->store_result();
