@@ -78,12 +78,19 @@ if (isset($_POST["recordToAssign"])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
+    $stmt3 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid = ?");
+    $stmt3->bind_param('ii', $db_userid, $moduleToAssign);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($assignment_check);
+    $stmt3->fetch();
+
 	echo '<tr id="assign-'.$db_userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
+			<td data-title="Action"><a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign'.$assignment_check.'</a></td>
 			</tr>';
 	}
 
