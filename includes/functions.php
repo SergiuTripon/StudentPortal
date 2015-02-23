@@ -557,7 +557,7 @@ function CreateTimetable() {
 
     $exam_status = 'active';
 
-    $stmt7 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt7 = $mysqli->prepare("INSERT INTO system_exams (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt7->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
     $stmt7->execute();
     $stmt7->close();
