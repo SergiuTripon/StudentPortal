@@ -308,6 +308,102 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+    <div id="completedtasks-toggle" class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Completed tasks</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Completed tasks -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Notes</th>
+	<th>External URL</th>
+	<th>Start</th>
+	<th>Due</th>
+	<th>Category</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt2 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'cancelled'");
+
+	while($row = $stmt3->fetch_assoc()) {
+
+    $moduleid = $row["moduleid"];
+	$module_name = $row["module_name"];
+	$module_notes = $row["module_notes"];
+	$module_url = $row["module_url"];
+
+	echo '<tr id="cancel-'.$moduleid.'">
+
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
+            <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
+            <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
+			<td data-title="Action"><a id="update-'.$moduleid.'" class="btn btn-primary btn-md update-button">Update</a></td>
+            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md cancel-button">Cancel</a></td>
+			</tr>';
+	}
+
+	$stmt3->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+  	</div><!-- /panel-default -->
+
+	</div><!-- /panel-group -->
+
+	<div class="panel-group calendar-view" id="accordion" role="tablist" aria-multiselectable="true">
+
+	<div id="calendar-toggle" class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingThree">
+	<h4 class="panel-title">
+	<a data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
+	</h4>
+	</div>
+	<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+	<div class="panel-body">
+
+	<div class="calendar-buttons text-right">
+	<div id="calendar-buttons1" class="btn-group">
+		<button class="btn btn-default" data-calendar-nav="prev"><< Prev</button>
+		<button class="btn btn-default" data-calendar-nav="today">Today</button>
+		<button class="btn btn-default" data-calendar-nav="next">Next >></button>
+	</div>
+	<div id="calendar-buttons2" class="btn-group">
+		<button class="btn btn-default" data-calendar-view="year">Year</button>
+		<button class="btn btn-default active" data-calendar-view="month">Month</button>
+		<button class="btn btn-default" data-calendar-view="week">Week</button>
+		<button class="btn btn-default" data-calendar-view="day">Day</button>
+	</div>
+	</div>
+
+	<div class="page-header">
+	<h3></h3>
+	<hr>
+	</div>
+
+	<div id="calendar"></div>
+
+	</div><!-- /panel-body -->
+	</div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
 	</div><!-- /.panel-group -->
 
     </div><!-- /container -->
