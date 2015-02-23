@@ -388,6 +388,17 @@ include 'includes/session.php';
 		}
 	});
 
+	//DataTables
+    $('.module-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "You have no lectures on this day."
+		}
+	});
+
     $("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
 
@@ -411,21 +422,16 @@ include 'includes/session.php';
     $("body").on("click", ".cancel-button", function(e) {
     e.preventDefault();
 
-	var clickedID = this.id.split('-');
-    var timetableToCancel = clickedID[1];
-
-    alert(timetableToCancel);
+    var clickedID = this.id.split('-');
+    var moduleToCancel = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'timetableToCancel='+ timetableToCancel,
+	data:'moduleToCancel='+ moduleToCancel,
 	success:function(){
 		$('#cancel-'+moduleToCancel).fadeOut();
-		setTimeout(function(){
-			location.reload();
-		}, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
