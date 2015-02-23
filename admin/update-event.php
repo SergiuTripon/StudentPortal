@@ -3,13 +3,13 @@ include '../includes/session.php';
 
 if (isset($_POST["bookToUpdate"])) {
 
-    $bookToUpdate = filter_input(INPUT_POST, 'eventToUpdate', FILTER_SANITIZE_NUMBER_INT);
+    $eventToUpdate = filter_input(INPUT_POST, 'eventToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, event_from, event_to, event_amound, event_ticket_no, event_category FROM system_books WHERE bookid = ? LIMIT 1");
-    $stmt1->bind_param('i', $bookToUpdate);
+    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE eventid = ? LIMIT 1");
+    $stmt1->bind_param('i', $eventToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no);
+    $stmt1->bind_result($eventid, $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -57,33 +57,66 @@ if (isset($_POST["bookToUpdate"])) {
 
 	<div id="hide">
 
-    <input type="hidden" name="bookid" id="bookid" value="<?php echo $bookid; ?>">
+    <input type="hidden" name="bookid" id="bookid" value="<?php echo $eventid; ?>">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book name</label>
-    <input class="form-control" type="text" name="book_name" id="book_name" value="<?php echo $book_name; ?>" placeholder="Enter a name">
+	<label>Name</label>
+    <input class="form-control" type="text" name="event_name" id="event_name" value="<?php echo $event_name; ?>" placeholder="Enter a name">
 	</div>
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book name</label>
-    <input class="form-control" type="text" name="book_author" id="book_author" value="<?php echo $book_author; ?>" placeholder="Enter an author">
-	</div>
-	</div>
+    </div>
 	<p id="error1" class="feedback-sad text-center"></p>
 
-	<div class="form-group">
+    <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book notes</label>
-    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" placeholder="Enter notes"><?php echo $book_notes; ?></textarea>
+	<label>Notes</label>
+    <textarea class="form-control" rows="5" name="event_notes" id="event_notes" placeholder="Enter notes"><?php echo $event_notes; ?></textarea>
 	</div>
-	</div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book copy number</label>
-    <input class="form-control" type="text" name="book_copy_no" id="book_copy_no" value="<?php echo $book_copy_no; ?>" placeholder="Enter a copy number">
+	<label>URL</label>
+    <input class="form-control" type="text" name="event_url" id="event_url" value="<?php echo $event_url; ?>" placeholder="Enter a URL">
+	</div>
+    </div>
+
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>From</label>
+	<input type="text" class="form-control" name="event_from" id="event_from" placeholder="Select a date and time">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>To</label>
+	<input type="text" class="form-control" name="event_to" id="event_to" placeholder="Select a date and time">
 	</div>
 	</div>
+    <p id="error2" class="feedback-sad text-center"></p>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Price</label>
+	<input type="text" class="form-control" name="event_amount" id="event_amount" placeholder="Enter an amount">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Ticket amount</label>
+	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" placeholder="Enter a number">
+	</div>
+	</div>
+    <p id="error3" class="feedback-sad text-center"></p>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Category</label>
+    <select class="selectpicker event_category" name="event_category" id="event_category">
+        <option data-hidden="true">Select an option</option>
+        <option>Social</option>
+        <option>Careers</option>
+    </select>
+
+    </div>
+    </div>
+    <p id="error4" class="feedback-sad text-center"></p>
 
 	<hr>
 
