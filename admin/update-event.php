@@ -86,11 +86,11 @@ if (isset($_POST["bookToUpdate"])) {
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>From</label>
-	<input type="text" class="form-control" name="event_from" id="event_from" placeholder="Select a date and time">
+	<input type="text" class="form-control" name="event_from" id="event_from" value="<?php echo $event_from; ?>" placeholder="Select a date and time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>To</label>
-	<input type="text" class="form-control" name="event_to" id="event_to" placeholder="Select a date and time">
+	<input type="text" class="form-control" name="event_to" id="event_to" value="<?php echo $event_to; ?>" placeholder="Select a date and time">
 	</div>
 	</div>
     <p id="error2" class="feedback-sad text-center"></p>
@@ -98,11 +98,11 @@ if (isset($_POST["bookToUpdate"])) {
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Price</label>
-	<input type="text" class="form-control" name="event_amount" id="event_amount" placeholder="Enter an amount">
+	<input type="text" class="form-control" name="event_amount" id="event_amount" value="<?php echo $event_amount; ?>" placeholder="Enter an amount">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Ticket amount</label>
-	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" placeholder="Enter a number">
+	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" <?php echo $event_ticket_no; ?> placeholder="Enter a number">
 	</div>
 	</div>
     <p id="error3" class="feedback-sad text-center"></p>
