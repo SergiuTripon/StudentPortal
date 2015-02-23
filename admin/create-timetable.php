@@ -269,7 +269,7 @@ include '../includes/session.php';
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Exam date</label>
-	<input type="text" class="form-control" name="exam_date" id="exam_date" placeholder="Select a time">
+	<input type="text" class="form-control" name="exam_date" id="exam_date" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Exam time</label>
