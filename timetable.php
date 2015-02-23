@@ -291,9 +291,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
-			<td data-title="Action"><a id="update-'.$moduleid.'" class="btn btn-primary btn-md update-button">Update</a></td>
-            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md cancel-button">Cancel</a></td>
+
 			</tr>';
 	}
 
@@ -349,6 +347,9 @@ include 'includes/session.php';
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
+            <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
+			<td data-title="Action"><a id="update-'.$moduleid.'" class="btn btn-primary btn-md update-button">Update</a></td>
+            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md cancel-button">Cancel</a></td>
 			</tr>';
 	}
 
@@ -467,11 +468,30 @@ include 'includes/session.php';
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
+    var timetableToCancel = clickedID[1];
 
-	$("#update-timetable-form-" + DbNumberID).submit();
+    alert(timetableToCancel);
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'timetableToCancel='+ timetableToCancel,
+	success:function(){
+		$('#cancel-'+moduleToCancel).fadeOut();
+		setTimeout(function(){
+			location.reload();
+		}, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
 
 	});
+
+    });
 
 	});
 
