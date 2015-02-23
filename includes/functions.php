@@ -1288,6 +1288,11 @@ function CreateEvent() {
     $event_ticket_no = filter_input(INPUT_POST, 'event_ticket_no', FILTER_SANITIZE_STRING);
     $event_category = filter_input(INPUT_POST, 'event_category', FILTER_SANITIZE_STRING);
 
+    $event_category = strtolower($event_category);
+
+    if ($event_category == 'careers') { $event_class = 'event-important'; }
+    if ($event_category == 'social') { $event_class = 'event-warning'; }
+
     // Check existing book name
     $stmt1 = $mysqli->prepare("SELECT eventid FROM system_events WHERE event_name=? LIMIT 1");
     $stmt1->bind_param('s', $event_name);
@@ -1300,16 +1305,16 @@ function CreateEvent() {
 
         $event_status = 'active';
 
-        $stmt2 = $mysqli->prepare("INSERT INTO system_events (event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt2->bind_param('ssssiisss', $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
+        $stmt2 = $mysqli->prepare("INSERT INTO system_events (event_notes, event_url, event_class, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('sssssiisss', $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
         $stmt2->execute();
         $stmt2->close();
     } else {
 
         $event_status = 'active';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_events (event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssssiisss', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_events (event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('ssssssiisss', $event_name, $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
 
