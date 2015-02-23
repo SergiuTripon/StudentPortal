@@ -734,7 +734,7 @@ include '../includes/session.php';
 	}
 
     var exam_time = $("#exam_time").val();
-	if(tutorial_from_time === '') {
+	if(exam_time === '') {
 		$("#error15").show();
 		$("#error15").empty().append("Please select a time.");
 		$("#exam_time").addClass("error-style");
