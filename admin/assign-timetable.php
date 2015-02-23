@@ -90,7 +90,7 @@ if (isset($_POST["recordToAssign"])) {
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action">'.($stmt3->num_rows === '0' ? "It's not assigned" : "It is assigned").'</td>
+			<td data-title="Action">'.($stmt3->num_rows === "$stmt3->num_rows" ? "It's not assigned" : "It is assigned").'</td>
 			</tr>';
 	}
 
