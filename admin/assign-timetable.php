@@ -87,7 +87,7 @@ if (isset($_POST["recordToAssign"])) {
     $stmt3->fetch();
 
     $assignment_check = $stmt3->num_rows ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
-    $assignment_check1 = $stmt3->num_rows ? '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Unassign</a>' : 'Not assigned yet';
+    $assignment_check1 = $stmt3->num_rows ? '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
 
 	echo '<tr id="assign-'.$db_userid.'">
 
@@ -180,6 +180,31 @@ if (isset($_POST["recordToAssign"])) {
 	data:'userToAssign='+ userToAssign + '&moduleToAssign='+ moduleToAssign,
 	success:function(){
 		$('#assign-'+userToAssign).fadeOut();
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
+    $("body").on("click", ".unassign-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var userToUnassign = clickedID[1];
+    var moduleToUnassign = $("#moduleToUnassign").html();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'userToUnassign='+ userToUnassign + '&moduleToUnassign='+ moduleToUnassign,
+	success:function(){
+		$('#assign-'+userToUnassign).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){

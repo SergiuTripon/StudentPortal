@@ -577,6 +577,20 @@ function AssignTimetable() {
     $stmt1->close();
 }
 
+//AssignTimetable function
+function UnassignTimetable() {
+
+    global $mysqli;
+
+    $userToUnassign = filter_input(INPUT_POST, 'userToUnassign', FILTER_SANITIZE_NUMBER_INT);
+    $moduleToUnassign = filter_input(INPUT_POST, 'moduleToUnassign', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
+    $stmt1->bind_param('ii', $userToUnassign, $moduleToUnassign);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //UpdateTimetable function
 function UpdateTimetable() {
 

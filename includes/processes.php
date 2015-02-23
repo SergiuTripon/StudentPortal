@@ -72,6 +72,11 @@ elseif (isset($_POST["userToAssign"], $_POST["moduleToAssign"])) {
     AssignTimetable();
 }
 
+//Call UnassignTimetable function
+elseif (isset($_POST["userToUnassign"], $_POST["moduleToUnassign"])) {
+    UnassignTimetable();
+}
+
 //Call UpdateTimetable function
 elseif (isset(
     $_POST['moduleid'],
