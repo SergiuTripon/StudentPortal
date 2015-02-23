@@ -234,7 +234,7 @@ if (isset($_POST["eventToUpdate"])) {
     var today = new Date();
 	$(function () {
 
-    $('#event_from').datepicker({
+    $('#event_from').datetimepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
         minDate: today,
@@ -244,7 +244,7 @@ if (isset($_POST["eventToUpdate"])) {
             $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
         }
     });
-    $('#event_to').datepicker({
+    $('#event_to').datetimepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
         minDate: today,
