@@ -157,9 +157,23 @@ elseif (isset($_POST["recordToComplete"])) {
 
 /////////////////////////////////////////////////////////////
 
+//Events functions
 //Call EventsQuantityCheck function
 elseif (isset($_POST["eventid"], $_POST["product_quantity"])) {
 	EventsQuantityCheck();
+}
+
+//Call CreateEvent function
+elseif (isset(
+    $_POST['event_name'],
+    $_POST['event_notes'],
+    $_POST['event_url'],
+    $_POST['event_from'],
+    $_POST['event_to'],
+    $_POST['event_amount'],
+    $_POST['event_ticket_no'],
+    $_POST['event_category'])) {
+    CreateEvent();
 }
 
 /////////////////////////////////////////////////////////////

@@ -319,10 +319,14 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'event_name='     + book_name +
-         '&book_author='  + book_author +
-         '&book_notes='   + book_notes +
-         '&book_copy_no=' + book_copy_no,
+    data:'event_name='       + event_name +
+         '&event_notes='     + event_notes +
+         '&event_url='       + event_url +
+         '&event_from='      + event_from +
+         '&event_to='        + event_to +
+         '&event_amount='    + event_amount +
+         '&event_ticket_no=' + event_ticket_no +
+         '&event_category='  + event_category,
 
     success:function(){
 		$("#error").hide();

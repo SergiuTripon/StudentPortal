@@ -1271,6 +1271,50 @@ function EventsQuantityCheck () {
 	}
 
 }
+
+//CreateBook function
+function CreateEvent() {
+
+    global $mysqli;
+    global $created_on;
+
+    //Module
+    $event_name = filter_input(INPUT_POST, 'event_name', FILTER_SANITIZE_STRING);
+    $event_notes = filter_input(INPUT_POST, 'event_notes', FILTER_SANITIZE_STRING);
+    $event_url = filter_input(INPUT_POST, 'event_url', FILTER_SANITIZE_STRING);
+    $event_from = filter_input(INPUT_POST, 'event_from', FILTER_SANITIZE_STRING);
+    $event_to = filter_input(INPUT_POST, 'event_to', FILTER_SANITIZE_STRING);
+    $event_amount = filter_input(INPUT_POST, 'event_amount', FILTER_SANITIZE_STRING);
+    $event_ticket_no = filter_input(INPUT_POST, 'event_ticket_no', FILTER_SANITIZE_STRING);
+    $event_category = filter_input(INPUT_POST, 'event_category', FILTER_SANITIZE_STRING);
+
+    // Check existing book name
+    $stmt1 = $mysqli->prepare("SELECT eventid FROM system_events WHERE event_name=? LIMIT 1");
+    $stmt1->bind_param('s', $event_name);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_eventid);
+    $stmt1->fetch();
+
+    if ($stmt1->num_rows == 1) {
+
+        $event_status = 'active';
+
+        $stmt2 = $mysqli->prepare("INSERT INTO system_events (event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('ssssiisss', $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
+        $stmt2->execute();
+        $stmt2->close();
+    } else {
+
+        $event_status = 'active';
+
+        $stmt3 = $mysqli->prepare("INSERT INTO system_events (event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('sssssiisss', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
+        $stmt3->execute();
+        $stmt3->close();
+
+    }
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //University map functions
