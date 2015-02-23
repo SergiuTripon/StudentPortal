@@ -79,7 +79,7 @@ include '../includes/session.php';
 	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0" disabled>
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Lecturer</label>
     <select class="selectpicker lecturer" name="lecturer" id="lecturer">
         <option data-hidden="true">Select an option</option>

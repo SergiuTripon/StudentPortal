@@ -29,8 +29,8 @@ include '../includes/session.php';
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../library/">Library</a></li>
-    <li class="active">Create book</li>
+	<li><a href="../../library/">Events</a></li>
+    <li class="active">Create event</li>
     </ol>
 
     <!-- Create event -->
@@ -43,33 +43,62 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book name</label>
-    <input class="form-control" type="text" name="book_name" id="book_name" placeholder="Enter a name">
+	<label>Event name</label>
+    <input class="form-control" type="text" name="event_name" id="event_name" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
 
-	<div class="form-group">
+    <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book author</label>
-    <input class="form-control" type="text" name="book_author" id="book_author" placeholder="Enter an author">
+	<label>Event notes</label>
+    <textarea class="form-control" rows="5" name="event_notes" id="event_notes" placeholder="Enter notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Event URL</label>
+    <input class="form-control" type="text" name="event_url" id="event_url" placeholder="Enter a URL">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Event from</label>
+	<input type="text" class="form-control" name="event_from" id="event_from" placeholder="Select a date and time">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Lecture to (time)</label>
+	<input type="text" class="form-control" name="event_to" id="event_to" placeholder="Select a date and time">
 	</div>
 	</div>
     <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book notes</label>
-    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" placeholder="Enter notes"></textarea>
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Event price</label>
+	<input type="text" class="form-control" name="event_amount" id="event_amount" placeholder="Enter an amount">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Ticket amount</label>
+	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" placeholder="Enter a number">
 	</div>
 	</div>
+    <p id="error3" class="feedback-sad text-center"></p>
 
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book copy number</label>
-    <input class="form-control" type="text" name="book_copy_no" id="book_copy_no" placeholder="Enter a copy number">
-	</div>
-	</div>
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Lecturer</label>
+    <select class="selectpicker category" name="category" id="category">
+        <option data-hidden="true">Select an option</option>
+        <option data-hidden="true">Social</option>
+        <option data-hidden="true">Careers</option>
+    </select>
+
+    </div>
+    </div>
+    <p id="error3" class="feedback-sad text-center"></p>
 
 	</div>
 
