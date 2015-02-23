@@ -255,7 +255,7 @@ include 'includes/session.php';
     <li class="active">Library</li>
     </ol>
 
-    <a class="btn btn-success btn-lg ladda-button mt10" data-style="slide-up" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
+    <a class="btn btn-success btn-lg ladda-button" style="margin-bottom: 5px;" data-style="slide-up" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
 
     <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
