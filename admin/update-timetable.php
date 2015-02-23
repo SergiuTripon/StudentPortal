@@ -489,6 +489,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $('.selectpicker').selectpicker();
 
+    $(".filter-option").css("color", "gray");
+
     $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
         $(".filter-option").css("cssText", "color: #333333;");
     });
@@ -562,6 +564,24 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $('#exam_time').timepicker();
 
 	});
+
+    $("#update_lecturer").change(function() {
+        var new_lecturer = $("#update_lecturer option:selected").text();
+        var new_lecturer1 = $("#update_lecturer option:selected").val();
+        $("label[for='lecturer']").empty().append("New lecturer");
+        $('#lecturer option:selected').text(new_lecturer);
+        $('#lecturer option:selected').val(new_lecturer1);
+        $('#lecturer').selectpicker('refresh');
+    });
+
+    $("#update_tutorial_assistant").change(function() {
+        var new_tutorial_assistant = $("#update_tutorial_assistant option:selected").text();
+        var new_tutorial_assistant1 = $("#update_tutorial_assistant option:selected").val();
+        $("label[for='tutorial_assistant']").empty().append("New tutorial assistant");
+        $('#tutorial_assistant option:selected').text(new_tutorial_assistant);
+        $('#tutorial_assistant option:selected').val(new_tutorial_assistant1);
+        $('#tutorial_assistant').selectpicker('refresh');
+    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
