@@ -120,6 +120,11 @@ elseif (isset($_POST['timetableToCancel'])) {
     CancelTimetable();
 }
 
+//Call ActivateTimetable function
+elseif (isset($_POST['timetableToActivate'])) {
+    ActivateTimetable();
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

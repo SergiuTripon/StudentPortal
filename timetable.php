@@ -253,7 +253,7 @@ include 'includes/session.php';
 
         <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Modules</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Timetables</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -286,7 +286,7 @@ include 'includes/session.php';
 	$module_notes = $row["module_notes"];
 	$module_url = $row["module_url"];
 
-	echo '<tr id="cancel-'.$moduleid.'">
+	echo '<tr id="activate-'.$moduleid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
@@ -311,7 +311,7 @@ include 'includes/session.php';
     <div id="completedtasks-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Completed tasks</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">  Cancelled timetables</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -347,7 +347,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
+            <td data-title="Action"><a id="activate-'.$moduleid.'" class="btn btn-primary btn-md activate-button">Activate</a></td>
 			</tr>';
 	}
 
@@ -475,6 +475,36 @@ include 'includes/session.php';
 	data:'timetableToCancel='+ timetableToCancel,
 	success:function(){
 		$('#cancel-'+timetableToCancel).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
+    $("body").on("click", ".activate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var timetableToActivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'timetableToActivate='+ timetableToActivate,
+	success:function(){
+		$('#activate-'+timetableToActivate).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
