@@ -690,7 +690,7 @@ form .success-style:-ms-input-placeholder {
     border-right: 1px solid #CCCCCC;
 }
 
-.btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
+.btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
     border-right: 0;
     border-left: 0;
 }
