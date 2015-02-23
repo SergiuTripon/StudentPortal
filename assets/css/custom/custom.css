@@ -543,16 +543,9 @@ form .feedback-sad {
 }
 
 form .error-style {
-    color: #FFFFFF !important;
+    color: #D9534F !important;
     border-color: #D9534F !important;
-    background: #D9534F !important;
-}
-
-form .error-style:active,
-form .error-style.active{
-    color: #FFFFFF !important;
-    border-color: #D9534F !important;
-    background: #D9534F !important;
+    background: #FFFFFF !important;
 }
 
 form .error-style:focus,
@@ -600,9 +593,9 @@ form .feedback-happy {
 }
 
 form .success-style {
-    color: #FFFFFF !important;
+    color: #3FAD46 !important;
     border-color: #3FAD46 !important;
-    background: #3FAD46 !important;
+    background: #FFFFFF !important;
 }
 
 form .success-style:focus {
