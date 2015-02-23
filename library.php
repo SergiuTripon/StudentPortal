@@ -334,69 +334,6 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-	<div id="reservedbooks-content" class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Reserved books - click to minimize or maximize</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<!-- Reserved books -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom reservedbooks-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Author</th>
-	<th>Notes</th>
-	<th>Booked on</th>
-	<th>Return on</th>
-	<th>Status</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y') as toreturn_on, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_status FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$userid' AND system_books.book_status = 'reserved' AND isReturned = '0'");
-
-	while($row = $stmt2->fetch_assoc()) {
-
-    $book_name = $row["book_name"];
-    $book_author = $row["book_author"];
-    $book_notes = $row["book_notes"];
-    $reserved_on = $row["reserved_on"];
-    $toreturn_on = $row["toreturn_on"];
-	$book_status = $row["book_status"];
-
-	$book_status = ucfirst($book_status);
-
-	echo '<tr>
-
-			<td data-title="Name">'.$book_name.'</td>
-			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.$book_notes.'</td>
-			<td data-title="Booken on">'.$reserved_on.'</td>
-			<td data-title="Return on">'.$toreturn_on.'</td>
-			<td data-title="Status">'.$book_status.'</td>
-			</tr>';
-	}
-
-	$stmt2->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
 	</div><!-- /panel-group -->
 
     </div><!-- /container -->
