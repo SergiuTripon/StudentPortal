@@ -463,7 +463,7 @@ function CreateTimetable() {
     $tutorial_location = filter_input(INPUT_POST, 'tutorial_location', FILTER_SANITIZE_STRING);
     $tutorial_capacity = filter_input(INPUT_POST, 'tutorial_capacity', FILTER_SANITIZE_STRING);
 
-    //Tutorial
+    //Exam
     $exam_name = filter_input(INPUT_POST, 'exam_name', FILTER_SANITIZE_STRING);
     $exam_notes = filter_input(INPUT_POST, 'exam_notes', FILTER_SANITIZE_STRING);
     $exam_date = filter_input(INPUT_POST, 'exam_date', FILTER_SANITIZE_STRING);
