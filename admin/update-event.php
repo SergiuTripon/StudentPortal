@@ -326,19 +326,7 @@ if (isset($_POST["eventToUpdate"])) {
 		$("#error2").hide();
 	}
 
-    var event_category_check = $("#event_category option:selected").html();
-    if (event_category_check === 'Select an option') {
-        $("#error4").show();
-        $("#error4").empty().append("Please select an option.");
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("#error4").hide();
-    }
-
     var event_category = $("#event_category option:selected").val();
-    alert(event_category);
 
 	if(hasError == false){
     jQuery.ajax({
