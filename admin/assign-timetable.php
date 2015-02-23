@@ -82,17 +82,17 @@ if (isset($_POST["recordToAssign"])) {
     $stmt3->bind_param('ii', $db_userid, $moduleToAssign);
     $stmt3->execute();
     $stmt3->store_result();
-    $stmt3->bind_result($assignment_check);
+    $stmt3->bind_result($db_userid1);
     $stmt3->fetch();
 
-    $action = $stmt3->num_rows ? 'hello' : 'bye';
+    $assignment_check = $stmt3->num_rows === '0' ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
 
 	echo '<tr id="assign-'.$db_userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action">'.$action.'</td>
+			<td data-title="Action">'.$assignment_check.'</td>
 			</tr>';
 	}
 
