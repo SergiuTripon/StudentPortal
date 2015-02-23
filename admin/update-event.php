@@ -124,6 +124,15 @@ if (isset($_POST["eventToUpdate"])) {
     </select>
 
     </div>
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Category</label>
+    <select class="selectpicker event_category" name="update_event_category" id="update_event_category">
+        <option data-hidden="true">Select an option</option>
+        <option>Social</option>
+        <option>Careers</option>
+    </select>
+
+    </div>
     </div>
     <p id="error4" class="feedback-sad text-center"></p>
 
