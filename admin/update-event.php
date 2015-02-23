@@ -102,7 +102,7 @@ if (isset($_POST["eventToUpdate"])) {
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Ticket amount</label>
-	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" <?php echo $event_ticket_no; ?> placeholder="Enter a number">
+	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" value="<?php echo $event_ticket_no; ?>" placeholder="Enter a number">
 	</div>
 	</div>
     <p id="error3" class="feedback-sad text-center"></p>
@@ -112,6 +112,19 @@ if (isset($_POST["eventToUpdate"])) {
     <label>Category</label>
     <select class="selectpicker event_category" name="event_category" id="event_category">
         <option data-hidden="true">Select an option</option>
+        <select class="selectpicker lecturer" name="lecturer" id="lecturer">
+        <?php
+        $stmt1 = $mysqli->query("SELECT event_category FROM system_events WHERE event_category = '$event_category'");
+
+        while ($row = $stmt1->fetch_assoc()){
+
+        $event_category = $row["event_category"];
+
+            echo '<option>'.$event_category.'</option>';
+        }
+        ?>
+
+        </select>
         <option>Social</option>
         <option>Careers</option>
     </select>
