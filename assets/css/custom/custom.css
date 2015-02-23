@@ -766,13 +766,13 @@ form .success-style:-ms-input-placeholder {
     color: #FFFFFF !important;
 }
 
-.bootstrap-select > .error-style:focus > .filter-option {
+.bootstrap-select > .error-style:focus {
     color: #333333 !important;
     background-color: #FFFFFF !important;
     border-color: #CCCCCC !important;
 }
 
-.bootstrap-select > .error-style:focus {
+.bootstrap-select > .error-style:focus > .filter-option {
     color: #333333 !important;
 }
 /* End of Bootstrap Select */
