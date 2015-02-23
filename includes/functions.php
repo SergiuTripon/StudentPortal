@@ -585,7 +585,7 @@ function UnassignTimetable() {
     $userToUnassign = filter_input(INPUT_POST, 'userToUnassign', FILTER_SANITIZE_NUMBER_INT);
     $moduleToUnassign = filter_input(INPUT_POST, 'moduleToUnassign', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = '4' AND moduleid = '49'");
     $stmt1->bind_param('ii', $userToUnassign, $moduleToUnassign);
     $stmt1->execute();
     $stmt1->close();
