@@ -902,7 +902,7 @@ function CreateBook() {
     }
 }
 
-//CreateBook function
+//UpdateBook function
 function UpdateBook()
 {
 
@@ -918,6 +918,24 @@ function UpdateBook()
 
     $stmt5 = $mysqli->prepare("UPDATE system_books SET book_name=?, book_author=?, book_notes=?, book_copy_no=?, updated_on=? WHERE bookid=?");
     $stmt5->bind_param('sssisi', $book_name, $book_author, $book_notes, $book_copy_no, $updated_on, $bookid);
+    $stmt5->execute();
+    $stmt5->close();
+}
+
+//CreateBook function
+function CancelBook()
+{
+
+    global $mysqli;
+    global $updated_on;
+
+    //Book
+    $bookToCancel = filter_input(INPUT_POST, 'bookToCancel', FILTER_SANITIZE_STRING);
+
+    $book_status = 'cancelled';
+
+    $stmt5 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt5->bind_param('ssi', $book_status, $updated_on, $bookToCancel);
     $stmt5->execute();
     $stmt5->close();
 }
