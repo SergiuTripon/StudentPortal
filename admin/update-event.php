@@ -112,7 +112,6 @@ if (isset($_POST["eventToUpdate"])) {
     <label>Category</label>
     <select class="selectpicker event_category" name="event_category" id="event_category">
         <option data-hidden="true">Select an option</option>
-        <select class="selectpicker lecturer" name="lecturer" id="lecturer">
         <?php
         $stmt1 = $mysqli->query("SELECT event_category FROM system_events WHERE event_category = '$event_category'");
 
@@ -123,10 +122,6 @@ if (isset($_POST["eventToUpdate"])) {
             echo '<option>'.$event_category.'</option>';
         }
         ?>
-
-        </select>
-        <option>Social</option>
-        <option>Careers</option>
     </select>
 
     </div>
