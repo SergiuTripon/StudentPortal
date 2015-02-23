@@ -198,6 +198,9 @@ if (isset($_POST["recordToAssign"])) {
     var userToUnassign = clickedID[1];
     var moduleToUnassign = $("#moduleToUnassign").html();
 
+    alert(userToUnassign);
+    alert(moduleToUnassign);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
