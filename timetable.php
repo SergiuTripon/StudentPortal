@@ -342,7 +342,7 @@ include 'includes/session.php';
 	$module_notes = $row["module_notes"];
 	$module_url = $row["module_url"];
 
-	echo '<tr id="cancel-'.$moduleid.'">
+	echo '<tr id="activate-'.$moduleid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
