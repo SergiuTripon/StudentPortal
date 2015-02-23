@@ -801,6 +801,10 @@ form .success-style:-ms-input-placeholder {
     padding-left: 5px;
 }
 
+.tile-button {
+    height: 30px;
+}
+
 .large-tile p {
     color: #FFFFFF;
     font-weight: 600;

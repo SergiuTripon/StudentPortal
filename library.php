@@ -259,7 +259,7 @@ include 'includes/session.php';
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     <a href="/admin/create-book/">
-    <div class="tile">
+    <div class="tile tile-button">
     <i class="fa fa-plus"></i>
 	<p class="tile-text">Create book</p>
     </div>
