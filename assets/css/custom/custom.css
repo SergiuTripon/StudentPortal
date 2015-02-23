@@ -700,6 +700,10 @@ form .success-style:-ms-input-placeholder {
     border-top-right-radius: 3px;
     border-bottom-left-radius: 0;
 }
+.btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
+    border-right: 0;
+    border-left: 0;
+}
 }
 /* End of Button group */
 
