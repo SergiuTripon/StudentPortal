@@ -219,7 +219,7 @@ include 'includes/session.php';
 	<a href="/admin/assign-update-cancel-timetable/">
     <div class="tile">
     <i class="fa fa-refresh"></i>
-	<p class="tile-text">Assign/Update/Cancel timetable</p>
+	<p class="tile-text">Assign timetable</p>
     </div>
 	</a>
 	</div>
