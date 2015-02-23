@@ -303,13 +303,14 @@ include '../includes/session.php';
     if (event_category_check === 'Select an option') {
         $("#error4").show();
         $("#error4").empty().append("Please select an option.");
-        $("#event_category").addClass("error-style");
+        $(".event_category > .selectpicker").addClass("error-style");
         hasError  = true;
         return false;
     }
     else {
         $("#error4").hide();
-        $("#event_category").addClass("success-style");
+        $(".event_category > .selectpicker").addClass("success-style");
+        $(".event_category > .error-style > .filter-option").css("cssText", "color: #FFFFFF; !important");
     }
 
     var event_category = $("#event_category option:selected").val();
