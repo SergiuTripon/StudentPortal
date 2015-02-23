@@ -16,5 +16,6 @@ if (isset(
     $_POST['event_category1'])) {
     UpdateEvent();
 } else {
-    header("/hello/");
+    header('HTTP/1.0 550 An event with the name entered already exists.');
+    exit();
 }
