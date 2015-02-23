@@ -472,7 +472,7 @@ include 'includes/session.php';
 	var clickedID = this.id.split('-');
     var timetableToCancel = clickedID[1];
 
-    alert
+    alert(timetableToCancel);
 
 	jQuery.ajax({
 	type: "POST",
