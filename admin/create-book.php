@@ -208,10 +208,10 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'book_name='           + book_name +
-         '&book_author='        + book_author +
-         '&book_notes='         + book_notes +
-         '&book_copyno='        + book_copyno,
+    data:'book_name='     + book_name +
+         '&book_author='  + book_author +
+         '&book_notes='   + book_notes +
+         '&book_copy_no=' + book_copy_no,
 
     success:function(){
 		$("#error").hide();
