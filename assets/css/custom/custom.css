@@ -651,6 +651,7 @@ form .success-style:-ms-input-placeholder {
 .btn-lg, .btn-group-lg > .btn {
     border-radius: 3px;
     line-height: 1.2;
+    border: 1px solid #CCCCCC;
 }
 
 .btn-default:active,
