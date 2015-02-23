@@ -890,14 +890,16 @@ function CreateBook() {
         $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
         $stmt5->execute();
         $stmt5->close();
+    } else {
+
+        $book_status = 'active';
+
+        $stmt5 = $mysqli->prepare("INSERT INTO system_books (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
+        $stmt5->execute();
+        $stmt5->close();
+
     }
-
-    $book_status = 'active';
-
-    $stmt5 = $mysqli->prepare("INSERT INTO system_books (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
-    $stmt5->execute();
-    $stmt5->close();
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
