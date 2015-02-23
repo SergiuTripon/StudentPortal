@@ -223,17 +223,17 @@ if (isset($_POST["bookToUpdate"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'bookid='        + moduleid +
-         '&book_name='    + book_name +
-         '&book_author='  + book_author +
-         '&book_notes='   + book_notes +
-         '&book_copy_no=' + book_copy_no,
+    data:'bookid1='        + moduleid +
+         '&book_name1='    + book_name +
+         '&book_author1='  + book_author +
+         '&book_notes1='   + book_notes +
+         '&book_copy_no1=' + book_copy_no,
 
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
-		$("#success").empty().append('Timetable updated successfully.');
+		$("#success").empty().append('Book updated successfully.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
