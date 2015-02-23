@@ -98,7 +98,7 @@ include '../includes/session.php';
 
     </div>
     </div>
-    <p id="error3" class="feedback-sad text-center"></p>
+    <p id="error4" class="feedback-sad text-center"></p>
 
 	</div>
 
@@ -187,6 +187,43 @@ include '../includes/session.php';
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
+
+    $('.selectpicker').selectpicker();
+
+    $(".filter-option").css("color", "gray");
+
+    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
+        $(".filter-option").css("cssText", "color: #333333;");
+    });
+
+    // Date Time Picker
+    var today = new Date();
+	$(function () {
+
+    $('#event_from').datepicker({
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
+        }
+    });
+    $('#event_to').datepicker({
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
+        }
+    });
+
+	});
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
