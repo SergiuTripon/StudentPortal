@@ -675,7 +675,7 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
     box-shadow: none;
     border-radius: 3px;
-    border: none !important;
+
     background-color: #CCCCCC !important;
 }
 
