@@ -1,7 +1,55 @@
 <?php
 include 'session.php';
 
-//External pages functions
+//External functions
+//ContactUs function
+function ContactUs() {
+
+	$firstname = filter_input(INPUT_POST, 'firstname4', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'surname4', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'email7', FILTER_SANITIZE_EMAIL);
+	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+	$message1 = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
+
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		header('HTTP/1.0 550 The email address you entered is invalid.');
+		exit();
+	}
+
+	// subject
+	$subject = 'New Message';
+
+	$to = 'contact@student-portal.co.uk';
+
+	// message
+	$message = '<html>';
+	$message .= '<body>';
+	$message .= '<p>The following person contacted Student Portal:</p>';
+	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message1</td></tr>";
+	$message .= '</table>';
+	$message .= '</body>';
+	$message .= '</html>';
+
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Additional headers
+	$headers .= 'From: Student Portal '.$email.'' . "\r\n";
+	$headers .= 'Reply-To: Student Portal '.$email.'' . "\r\n";
+
+	// Mail it
+	mail($to, $subject, $message, $headers);
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+//SignIn function
 function SignIn() {
 
 	global $mysqli;
@@ -53,15 +101,15 @@ function SignIn() {
 	$_SESSION['account_type'] = $session_account_type;
 
 	} else {
+    $stmt1->close();
 	header('HTTP/1.0 550 The password you entered is incorrect.');
-	exit();
-	$stmt1->close();
+    exit();
 	}
 
 	} else {
+    $stmt1->close();
 	header('HTTP/1.0 550 The email address you entered is incorrect.');
 	exit();
-	$stmt1->close();
 	}
 
 	}
@@ -295,52 +343,9 @@ function ResetPassword() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-//ContactUs function
-function ContactUs() {
-
-	$firstname = filter_input(INPUT_POST, 'firstname4', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname4', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email7', FILTER_SANITIZE_EMAIL);
-	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$message1 = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
-
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		header('HTTP/1.0 550 The email address you entered is invalid.');
-		exit();
-	}
-
-	// subject
-	$subject = 'New Message';
-
-	$to = 'contact@student-portal.co.uk';
-
-	// message
-	$message = '<html>';
-	$message .= '<body>';
-	$message .= '<p>The following person contacted Student Portal:</p>';
-	$message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message1</td></tr>";
-	$message .= '</table>';
-	$message .= '</body>';
-	$message .= '</html>';
-
-	// To send HTML mail, the Content-type header must be set
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	// Additional headers
-	$headers .= 'From: Student Portal '.$email.'' . "\r\n";
-	$headers .= 'Reply-To: Student Portal '.$email.'' . "\r\n";
-
-	// Mail it
-	mail($to, $subject, $message, $headers);
-
-}
 
 //Overview functions
+//GetDashboardData function
 function GetDashboardData() {
 
 	global $mysqli;
@@ -427,6 +432,35 @@ function GetDashboardData() {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 //Timetable functions
+
+//AssignTimetable function
+function AssignTimetable() {
+
+    global $mysqli;
+
+    $userToAssign = filter_input(INPUT_POST, 'userToAssign', FILTER_SANITIZE_NUMBER_INT);
+    $moduleToAssign = filter_input(INPUT_POST, 'moduleToAssign', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_timetable (userid, moduleid) VALUES (?, ?)");
+    $stmt1->bind_param('ii', $userToAssign, $moduleToAssign);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//UnassignTimetable function
+function UnassignTimetable() {
+
+    global $mysqli;
+
+    $userToUnassign = filter_input(INPUT_POST, 'userToUnassign', FILTER_SANITIZE_NUMBER_INT);
+    $moduleToUnassign = filter_input(INPUT_POST, 'moduleToUnassign', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
+    $stmt1->bind_param('ii', $userToUnassign, $moduleToUnassign);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //CreateTimetable function
 function CreateTimetable() {
 
@@ -561,34 +595,6 @@ function CreateTimetable() {
     $stmt9->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
     $stmt9->execute();
     $stmt9->close();
-}
-
-//AssignTimetable function
-function AssignTimetable() {
-
-    global $mysqli;
-
-    $userToAssign = filter_input(INPUT_POST, 'userToAssign', FILTER_SANITIZE_NUMBER_INT);
-    $moduleToAssign = filter_input(INPUT_POST, 'moduleToAssign', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("INSERT INTO user_timetable (userid, moduleid) VALUES (?, ?)");
-    $stmt1->bind_param('ii', $userToAssign, $moduleToAssign);
-    $stmt1->execute();
-    $stmt1->close();
-}
-
-//AssignTimetable function
-function UnassignTimetable() {
-
-    global $mysqli;
-
-    $userToUnassign = filter_input(INPUT_POST, 'userToUnassign', FILTER_SANITIZE_NUMBER_INT);
-    $moduleToUnassign = filter_input(INPUT_POST, 'moduleToUnassign', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
-    $stmt1->bind_param('ii', $userToUnassign, $moduleToUnassign);
-    $stmt1->execute();
-    $stmt1->close();
 }
 
 //UpdateTimetable function
@@ -1331,13 +1337,12 @@ function EventsQuantityCheck () {
 
 }
 
-//CreateBook function
+//CreateEvent function
 function CreateEvent() {
 
     global $mysqli;
     global $created_on;
 
-    //Module
     $event_name = filter_input(INPUT_POST, 'event_name', FILTER_SANITIZE_STRING);
     $event_notes = filter_input(INPUT_POST, 'event_notes', FILTER_SANITIZE_STRING);
     $event_url = filter_input(INPUT_POST, 'event_url', FILTER_SANITIZE_STRING);
@@ -1380,13 +1385,12 @@ function CreateEvent() {
     }
 }
 
-//CreateBook function
+//UpdateEvent function
 function UpdateEvent() {
 
     global $mysqli;
     global $updated_on;
 
-    //Event
     $eventid = filter_input(INPUT_POST, 'eventid1', FILTER_SANITIZE_STRING);
     $event_name = filter_input(INPUT_POST, 'event_name1', FILTER_SANITIZE_STRING);
     $event_notes = filter_input(INPUT_POST, 'event_notes1', FILTER_SANITIZE_STRING);
@@ -1402,7 +1406,7 @@ function UpdateEvent() {
     if ($event_category == 'careers') { $event_class = 'event-important'; }
     if ($event_category == 'social') { $event_class = 'event-warning'; }
 
-    //Event
+    // Check if event name is different
     $stmt1 = $mysqli->prepare("SELECT event_name FROM system_events WHERE eventid = ?");
     $stmt1->bind_param('i', $eventid);
     $stmt1->execute();
@@ -1419,6 +1423,7 @@ function UpdateEvent() {
 
     } else {
 
+        // Check existing event name
         $stmt3 = $mysqli->prepare("SELECT eventid FROM system_events WHERE event_name = ?");
         $stmt3->bind_param('s', $event_name);
         $stmt3->execute();
@@ -1446,7 +1451,6 @@ function CancelEvent()
     global $mysqli;
     global $updated_on;
 
-    //Book
     $eventToCancel = filter_input(INPUT_POST, 'eventToCancel', FILTER_SANITIZE_STRING);
 
     $event_status = 'cancelled';
@@ -1602,6 +1606,7 @@ function MessageUser() {
 
 }
 
+//SetMessageRed function
 function SetMessageRead () {
 
 	global $mysqli;

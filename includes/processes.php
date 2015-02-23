@@ -19,7 +19,7 @@ elseif (isset($_POST['email'], $_POST['password'])) {
 
 //Call Register function
 //Call RegisterUser function
-if(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email1"], $_POST["password1"])) {
+elseif(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email1"], $_POST["password1"])) {
 	RegisterUser();
 }
 
@@ -27,7 +27,7 @@ if(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email
 
 //Call Forgotten Password/Password Reset functions
 //Call SendPasswordToken function
-if (isset($_POST["email2"])) {
+elseif (isset($_POST["email2"])) {
 	SendPasswordToken();
 }
 
@@ -83,11 +83,6 @@ elseif (isset(
     CreateTimetable();
 }
 
-//Call ActivateTimetable function
-elseif (isset($_POST['timetableToActivate'])) {
-    ActivateTimetable();
-}
-
 //Call UpdateTimetable function
 elseif (isset(
     $_POST['moduleid'],
@@ -129,6 +124,11 @@ elseif (isset(
 //Call CancelTimetable function
 elseif (isset($_POST['timetableToCancel'])) {
     CancelTimetable();
+}
+
+//Call ActivateTimetable function
+elseif (isset($_POST['timetableToActivate'])) {
+    ActivateTimetable();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
