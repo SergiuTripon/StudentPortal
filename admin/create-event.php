@@ -45,7 +45,7 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Event name</label>
+	<label>Name</label>
     <input class="form-control" type="text" name="event_name" id="event_name" placeholder="Enter a name">
 	</div>
 	</div>
@@ -53,25 +53,25 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Event notes</label>
+	<label>Notes</label>
     <textarea class="form-control" rows="5" name="event_notes" id="event_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Event URL</label>
+	<label>URL</label>
     <input class="form-control" type="text" name="event_url" id="event_url" placeholder="Enter a URL">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Event from</label>
+	<label>From</label>
 	<input type="text" class="form-control" name="event_from" id="event_from" placeholder="Select a date and time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Lecture to (time)</label>
+	<label>To</label>
 	<input type="text" class="form-control" name="event_to" id="event_to" placeholder="Select a date and time">
 	</div>
 	</div>
@@ -79,7 +79,7 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Event price</label>
+	<label>Price</label>
 	<input type="text" class="form-control" name="event_amount" id="event_amount" placeholder="Enter an amount">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
@@ -91,7 +91,7 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Lecturer</label>
+    <label>Category</label>
     <select class="selectpicker category" name="category" id="category">
         <option data-hidden="true">Select an option</option>
         <option>Social</option>
