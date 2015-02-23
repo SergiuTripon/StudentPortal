@@ -311,13 +311,13 @@ include 'includes/session.php';
     <div id="completedtasks-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Cancelled timetables</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Cancelled timetables</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Completed tasks -->
+	<!-- Cancelled timetables -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom module-table">
 
