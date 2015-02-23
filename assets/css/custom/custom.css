@@ -653,10 +653,6 @@ form .success-style:-ms-input-placeholder {
     line-height: 1.2;
 }
 
-.btn-group-justified {
-    border-collapse: collapse;
-}
-
 .btn-default:active,
 .active.btn-default {
     color: #FFFFFF;
