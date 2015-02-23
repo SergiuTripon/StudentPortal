@@ -109,7 +109,7 @@ if (isset($_POST["eventToUpdate"])) {
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Category</label>
+    <label for="event_category">Category</label>
     <select class="selectpicker event_category" name="event_category" id="event_category">
         <?php
         $stmt1 = $mysqli->query("SELECT event_category FROM system_events WHERE eventid = '$eventid' AND event_category = '$event_category'");
@@ -256,6 +256,15 @@ if (isset($_POST["eventToUpdate"])) {
     });
 
 	});
+
+    $("#update_event_category").change(function() {
+        var new_lecturer = $("#update_event_category option:selected").text();
+        var new_lecturer1 = $("#update_event_category option:selected").val();
+        $("label[for='event_category']").empty().append("New lecturer");
+        $('#event_category option:selected').text(new_lecturer);
+        $('#event_category option:selected').val(new_lecturer1);
+        $('#event_category').selectpicker('refresh');
+    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
