@@ -244,10 +244,10 @@ include 'includes/session.php';
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-    <li class="active">Library</li>
+    <li class="active">Events</li>
     </ol>
 
-    <a class="btn btn-success btn-lg ladda-button" style="margin-bottom: 5px;" data-style="slide-up" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
+    <a class="btn btn-success btn-lg ladda-button" style="margin-bottom: 5px;" data-style="slide-up" href="../admin/create-event/"><span class="ladda-label">Create event</span></a>
 
     <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -278,14 +278,13 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Notes</th>
-	<th>External URL</th>
 	<th>From</th>
 	<th>To</th>
 	<th>Price</th>
 	<th>Tickets</th>
 	<th>Category</th>
 	<th>Action</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
