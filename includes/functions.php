@@ -1313,7 +1313,7 @@ function CreateEvent() {
 
         $event_status = 'active';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_events (event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3 = $mysqli->prepare("INSERT INTO system_events (event_name, event_notes, event_url, event_class, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt3->bind_param('ssssssiisss', $event_name, $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
