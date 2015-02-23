@@ -857,12 +857,22 @@ form .feedback-happy {
     border-color: #1863E6;
 }
 
-.panel-heading .accordion-toggle:before {
+#headingOne .accordion-toggle:before {
     font-family: FontAwesome;
     content: "\f078";
     color: #FFFFFF;
 }
-.panel-heading .accordion-toggle.collapsed:before {
+#headingOne .accordion-toggle.collapsed:before {
+    color: #FFFFFF;
+    content: "\f054";
+}
+
+#headingTwo .accordion-toggle:before {
+    font-family: FontAwesome;
+    content: "\f078";
+    color: #FFFFFF;
+}
+#headingTwo .accordion-toggle.collapsed:before {
     color: #FFFFFF;
     content: "\f054";
 }
