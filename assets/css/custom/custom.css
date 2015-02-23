@@ -686,7 +686,11 @@ form .success-style:-ms-input-placeholder {
     -o-box-shadow:      inset 0 0 8px rgba(93, 93, 93, 1);
 }
 
-
+@media(max-width:480px) {
+.btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
+    border-top-right-radius: 3px;
+}
+}
 /* End of Button group */
 
 /* Bootstrap Select */
