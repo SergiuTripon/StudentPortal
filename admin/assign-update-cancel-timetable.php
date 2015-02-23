@@ -30,7 +30,7 @@ include '../includes/session.php';
 	<ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
     <li><a href="../../timetable/">Timetable</a></li>
-	<li class="active">Update/Assign timetable</li>
+	<li class="active">Assign/Update/Cancel timetable</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
