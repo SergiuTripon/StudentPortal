@@ -117,10 +117,6 @@ elseif (isset($_POST["moduleToCancel"], $_POST["moduleToCancel"])) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
 //Call Account functions
 //Call UpdateAccount function
 elseif (isset($_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['email4'], $_POST['nationality'], $_POST['dateofbirth'], $_POST['phonenumber'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'])) {
