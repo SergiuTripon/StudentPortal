@@ -63,7 +63,6 @@ if (isset($_POST["recordToAssign"])) {
 	<th>Surname</th>
 	<th>Email address</th>
 	<th>Action</th>
-    <th>Test</th>
 	</tr>
 	</thead>
 
@@ -79,20 +78,12 @@ if (isset($_POST["recordToAssign"])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-    $stmt2 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid=? LIMIT 1");
-    $stmt2->bind_param('ii', $db_userid, $moduleToAssign);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($db_userid1);
-    $stmt2->fetch();
-
 	echo '<tr id="assign-'.$db_userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
 			<td data-title="Action">'.($already_assigned = '0' ? "Already assigned" : "<a id=\"assign-$db_userid\" class=\"btn btn-primary btn-md assign-button\">Assign</a>").'</td>
-            <td data-title="Test">'.(mysqli_num_rows($db_userid1) === '0' ? "Yes" : "No").'</td>
 			</tr>';
 	}
 
