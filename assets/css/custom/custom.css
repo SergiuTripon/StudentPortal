@@ -655,10 +655,10 @@ form .success-style:-ms-input-placeholder {
 
 .btn-default:active,
 .active.btn-default {
-    color: #FFFFFF;
+    color: #333333;
     border-radius: 3px;
-    background-color: #5D5D5D;
-    border: 1px solid #5D5D5D;
+    background-color: #CCCCCC;
+    border: 1px solid #CCCCCC;
 }
 
 .btn:active, .active.btn {
