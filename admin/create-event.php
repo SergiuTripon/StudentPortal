@@ -94,8 +94,8 @@ include '../includes/session.php';
     <label>Lecturer</label>
     <select class="selectpicker category" name="category" id="category">
         <option data-hidden="true">Select an option</option>
-        <option data-hidden="true">Social</option>
-        <option data-hidden="true">Careers</option>
+        <option>Social</option>
+        <option>Careers</option>
     </select>
 
     </div>
