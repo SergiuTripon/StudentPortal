@@ -88,7 +88,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <li class="active">Update timetable</li>
     </ol>
 
-    <!-- Create timetable -->
+    <!-- Update timetable -->
 	<form class="form-custom" style="max-width: 100%;" name="updatetimetable_form" id="updatetimetable_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
@@ -98,7 +98,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $moduleid; ?>">
 
-    <!-- Create module -->
+    <!-- Update module -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module name</label>
@@ -120,13 +120,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <input class="form-control" type="text" name="module_url" id="module_url" value="<?php echo $module_url; ?>" placeholder="Enter a URL">
 	</div>
 	</div>
-    <!-- End of Create module -->
+    <!-- End of Update module -->
 
     <hr class="hr-separator">
 
     <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureid; ?>">
 
-    <!-- Create lecture -->
+    <!-- Update lecture -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture name</label>
@@ -245,7 +245,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <input type="hidden" name="tutorialid" id="tutorialid" value="<?php echo $tutorialid; ?>">
 
-    <!-- Create tutorial -->
+    <!-- Update tutorial -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial name</label>
@@ -358,7 +358,48 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	</div>
 	</div>
     <p id="error13" class="feedback-sad text-center"></p>
-    <!-- End of Create tutorial -->
+    <!-- End of Update tutorial -->
+
+    <!-- Update exam -->
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Exam name</label>
+    <input class="form-control" type="text" name="exam_name" id="exam_name" value="<?php echo $exam_name; ?>" placeholder="Enter a name">
+	</div>
+	</div>
+	<p id="error14" class="feedback-sad text-center"></p>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Exam notes</label>
+    <textarea class="form-control" rows="5" name="exam_notes" id="exam_notes" value="<?php echo $exam_notes; ?>" placeholder="Enter notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Exam date</label>
+	<input type="text" class="form-control" name="exam_date" id="exam_date" value="<?php echo $exam_date; ?>" placeholder="Select a date">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Exam time</label>
+	<input type="text" class="form-control" name="exam_time" id="exam_time" value="<?php echo $exam_time; ?>" placeholder="Select a time">
+	</div>
+	</div>
+    <p id="error15" class="feedback-sad text-center"></p>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Exam location</label>
+	<input type="text" class="form-control" name="exam_location" id="exam_location" value="<?php echo $exam_location; ?>" placeholder="Enter a location">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Exam capacity</label>
+	<input type="text" class="form-control" name="exam_capacity" id="exam_capacity" value="<?php echo $exam_capacity; ?>" placeholder="Enter a capacity">
+	</div>
+	</div>
+    <p id="error16" class="feedback-sad text-center"></p>
+    <!-- End of Update exam -->
 
 	<hr>
 
@@ -369,7 +410,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </div>
 	
     </form>
-    <!-- End of Create timetable -->
+    <!-- End of Update timetable -->
 
 	</div> <!-- /container -->
 	
@@ -448,20 +489,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $('.selectpicker').selectpicker();
 
-    $("#update_lecturer option:selected").css("color", "gray");
-    $("#update_tutorial_assistant option:selected").css("color", "gray");
-
-    $( ".bootstrap-select" ).click(function() {
-        var lecturer_style = $("#update_lecturer option:selected").html();
-        var tutorial_assistant_style = $("#update_tutorial_assistant option:selected").html();
-
-        if (lecturer_style != 'Select a lecturer') {
-            $("#update_lecturer option:selected").css("cssText", "color: #333333;");
-        }
-
-        if (tutorial_assistant_style != 'Select a tutorial assistant') {
-            $("#update_tutorial_assistant option:selected").css("cssText", "color: #333333;");
-        }
+    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
+        $(".filter-option").css("cssText", "color: #333333;");
     });
 
     // Date Time Picker
@@ -517,25 +546,22 @@ WHERE system_modules.moduleid = ? LIMIT 1
             $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
         }
     });
+
+    $('#exam_date').datepicker({
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
+        }
+    });
+
+    $('#exam_time').timepicker();
+
 	});
-
-    $("#update_lecturer").change(function() {
-        var new_lecturer = $("#update_lecturer option:selected").text();
-        var new_lecturer1 = $("#update_lecturer option:selected").val();
-        $("label[for='lecturer']").empty().append("New lecturer");
-        $('#lecturer option:selected').text(new_lecturer);
-        $('#lecturer option:selected').val(new_lecturer1);
-        $('#lecturer').selectpicker('refresh');
-    });
-
-    $("#update_tutorial_assistant").change(function() {
-        var new_tutorial_assistant = $("#update_tutorial_assistant option:selected").text();
-        var new_tutorial_assistant1 = $("#update_tutorial_assistant option:selected").val();
-        $("label[for='tutorial_assistant']").empty().append("New tutorial assistant");
-        $('#tutorial_assistant option:selected').text(new_tutorial_assistant);
-        $('#tutorial_assistant option:selected').val(new_tutorial_assistant1);
-        $('#tutorial_assistant').selectpicker('refresh');
-    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {

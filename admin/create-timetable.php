@@ -47,7 +47,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Module name</label>
-    <input class="form-control" type="text" name="module_name" id="module_name" value="" placeholder="Enter a name">
+    <input class="form-control" type="text" name="module_name" id="module_name" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error1" class="feedback-sad text-center"></p>
@@ -73,7 +73,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture name</label>
-    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="" placeholder="Enter a name">
+    <input class="form-control" type="text" name="lecture_name" id="lecture_name" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error2" class="feedback-sad text-center"></p>
@@ -165,7 +165,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Tutorial name</label>
-    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="" placeholder="Enter a name">
+    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error8" class="feedback-sad text-center"></p>
@@ -254,7 +254,7 @@ include '../includes/session.php';
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Exam name</label>
-    <input class="form-control" type="text" name="exam_name" id="exam_name" value="" placeholder="Enter a name">
+    <input class="form-control" type="text" name="exam_name" id="exam_name" placeholder="Enter a name">
 	</div>
 	</div>
 	<p id="error14" class="feedback-sad text-center"></p>
