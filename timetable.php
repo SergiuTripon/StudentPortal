@@ -388,17 +388,6 @@ include 'includes/session.php';
 		}
 	});
 
-	//DataTables
-    $('.module-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "You have no lectures on this day."
-		}
-	});
-
     $("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
 
