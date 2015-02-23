@@ -303,7 +303,7 @@ include 'includes/session.php';
 	$event_ticket_no = $row["event_ticket_no"];
 	$event_category = ucfirst($row["event_category"]);
 
-	echo '<tr id="task-'.$row["eventid"].'">
+	echo '<tr id="cancel-'.$row["eventid"].'">
 
 			<td data-title="Name">'.$event_name.'</td>
 			<td data-title="From">'.$event_from.'</td>
@@ -311,8 +311,8 @@ include 'includes/session.php';
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td data-title="Action"><a id="book-'.$eventid.'" class="btn btn-primary btn-md ladda-button update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a id="book-'.$eventid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
+			<td data-title="Action"><a id="update-'.$eventid.'" class="btn btn-primary btn-md ladda-button update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+            <td data-title="Action"><a id="cancel-'.$eventid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
 			</tr>';
 	}
 
