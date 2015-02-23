@@ -250,6 +250,47 @@ include '../includes/session.php';
     <p id="error13" class="feedback-sad text-center"></p>
     <!-- End of Create tutorial -->
 
+    <!-- Create exam -->
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Exam name</label>
+    <input class="form-control" type="text" name="exam_name" id="exam_name" value="" placeholder="Enter a name">
+	</div>
+	</div>
+	<p id="error14" class="feedback-sad text-center"></p>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Exam notes</label>
+    <textarea class="form-control" rows="5" name="exam_notes" id="exam_notes" placeholder="Enter notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Exam date</label>
+	<input type="text" class="form-control" name="exam_date" id="exam_date" placeholder="Select a time">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Exam time</label>
+	<input type="text" class="form-control" name="exam_time" id="exam_time" placeholder="Select a time">
+	</div>
+	</div>
+    <p id="error15" class="feedback-sad text-center"></p>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label>Exam location</label>
+	<input type="text" class="form-control" name="exam_location" id="exam_location" placeholder="Enter a location">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label>Exam capacity</label>
+	<input type="text" class="form-control" name="exam_capacity" id="exam_capacity" placeholder="Enter a capacity">
+	</div>
+	</div>
+    <p id="error16" class="feedback-sad text-center"></p>
+    <!-- End of Create exam -->
+
 	</div>
 
 	<hr>
@@ -401,6 +442,21 @@ include '../includes/session.php';
             $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
         }
     });
+
+    $('#exam_date').datepicker({
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
+        }
+    });
+
+    $('#exam_time').timepicker();
+
 	});
 
     //Ajax call
@@ -651,6 +707,69 @@ include '../includes/session.php';
 
     var tutorial_assistant = $("#tutorial_assistant option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
+
+    //Exams
+	var exam_name = $("#exam_name").val();
+	if(exam_name === '') {
+		$("#error14").show();
+        $("#error14").empty().append("Please enter a tutorial name.");
+		$("#exam_name").addClass("error-style");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error14").hide();
+		$("#exam_name").addClass("success-style");
+	}
+
+    var exam_date = $("#exam_date").val();
+	if(exam_date === '') {
+		$("#error15").show();
+		$("#error15").empty().append("Please select a date.");
+		$("#exam_date").addClass("error-style");
+		hasError  = true;
+        return false;
+	} else {
+		$("#error15").hide();
+		$("#exam_date").addClass("success-style");
+	}
+
+    var exam_time = $("#exam_time").val();
+	if(tutorial_from_time === '') {
+		$("#error15").show();
+		$("#error15").empty().append("Please select a time.");
+		$("#exam_time").addClass("error-style");
+		hasError  = true;
+        return false;
+	} else {
+		$("#error15").hide();
+		$("#exam_time").addClass("success-style");
+	}
+
+    var exam_location = $("#exam_location").val();
+	if(exam_location === '') {
+		$("#error16").show();
+		$("#error16").empty().append("Please enter a location.");
+		$("#exam_location").addClass("error-style");
+		hasError  = true;
+        return false;
+	} else {
+		$("#error16").hide();
+		$("#exam_location").addClass("success-style");
+	}
+
+    var exam_capacity = $("#exam_capacity").val();
+	if(exam_capacity === '') {
+		$("#error16").show();
+		$("#error16").empty().append("Please enter a capacity.");
+		$("#exam_capacity").addClass("error-style");
+		hasError  = true;
+        return false;
+	} else {
+		$("#error16").hide();
+		$("#exam_capacity").addClass("success-style");
+	}
+
+    var exam_notes = $("#exam_notes").val();
 
 	if(hasError == false){
     jQuery.ajax({
