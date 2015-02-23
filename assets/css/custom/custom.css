@@ -694,8 +694,11 @@ form .success-style:-ms-input-placeholder {
 .btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
     border-top-right-radius: 3px;
 }
+.btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
+    border-bottom: 0;
+}
 .btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
-
+    border-bottom: 0;
 }
 }
 
