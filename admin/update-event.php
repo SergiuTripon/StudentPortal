@@ -111,7 +111,6 @@ if (isset($_POST["eventToUpdate"])) {
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Category</label>
     <select class="selectpicker event_category" name="event_category" id="event_category">
-        <option data-hidden="true">Select an option</option>
         <?php
         $stmt1 = $mysqli->query("SELECT event_category FROM system_events WHERE event_category = '$event_category'");
 
