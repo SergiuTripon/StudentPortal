@@ -1360,7 +1360,7 @@ function UpdateEvent() {
 
     } else {
 
-        $stmt3 = $mysqli->prepare("SELECT eventid FROM system_events WHERE events_name = ?");
+        $stmt3 = $mysqli->prepare("SELECT eventid FROM system_events WHERE event_name = ?");
         $stmt3->bind_param('s', $event_name);
         $stmt3->execute();
         $stmt3->store_result();
