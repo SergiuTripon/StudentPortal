@@ -216,10 +216,10 @@ include 'includes/session.php';
 
 
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-	<a href="/admin/assign-update-delete-timetable/">
+	<a href="/admin/assign-update-cancel-timetable/">
     <div class="tile">
     <i class="fa fa-refresh"></i>
-	<p class="tile-text">Update/Assign timetable</p>
+	<p class="tile-text">Assign/Update/Cancel timetable</p>
     </div>
 	</a>
 	</div>
@@ -270,7 +270,7 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
-	<script type="text/javascript" class="init">
+	<script>
     $(document).ready(function () {
 
 	//DataTables
