@@ -1,7 +1,7 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["bookToUpdate"])) {
+if (isset($_POST["eventToUpdate"])) {
 
     $eventToUpdate = filter_input(INPUT_POST, 'eventToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
@@ -14,7 +14,7 @@ if (isset($_POST["bookToUpdate"])) {
     $stmt1->close();
 
 } else {
-    header('Location: ../../library/');
+    header('Location: ../../events/');
 }
 ?>
 
