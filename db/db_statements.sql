@@ -187,7 +187,7 @@ CREATE TABLE `student_portal`.`system_exams` (
 	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
 	`exam_name` VARCHAR(300) NOT NULL,
 	`exam_notes` VARCHAR(5000),
-	`exam_date` DATETIME NOT NULL,
+	`exam_date` DATE NOT NULL,
 	`exam_time` TIME NOT NULL,
 	`exam_location` VARCHAR(300) NOT NULL,
 	`exam_capacity` INT(11) NOT NULL,
