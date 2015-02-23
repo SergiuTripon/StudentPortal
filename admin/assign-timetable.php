@@ -92,7 +92,7 @@ if (isset($_POST["recordToAssign"])) {
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.' '.$already_assigned.'</td>
 			<td data-title="Action">'.($already_assigned = '0' ? "Already assigned" : "<a id=\"assign-$db_userid\" class=\"btn btn-primary btn-md assign-button\">Assign</a>").'</td>
-            <td data-title="Test">'.($stmt3->num_rows === '0' ? "Yes" : "No").'</td>
+            <td data-title="Test">'.($stmt2->num_rows === '0' ? "Yes" : "No").'</td>
 			</tr>';
 	}
 
