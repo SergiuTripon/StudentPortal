@@ -255,11 +255,11 @@ include 'includes/session.php';
     <li class="active">Library</li>
     </ol>
 
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label"><i class="fa fa-plus"></i> Create book</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label"><i class="fa fa-plus"></i> Create book</span></a>
 
-    	<div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="books-content" class="panel panel-default">
+	<div class="panel panel-default">
 
 	<?php
 	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE NOT book_status = 'cancelled'");
@@ -320,8 +320,8 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Action"><a id=update-'.$bookid.' class="btn btn-default btn-md update-button">Update</a></td>
-			<td data-title="Action"><a id=cancel-'.$bookid.' class="btn btn-default btn-md cancel-button">Cancel</a></td>
+			<td data-title="Action"><a id=update-'.$bookid.' class="btn btn-primary btn-md update-button">Update</a></td>
+			<td data-title="Action"><a id=cancel-'.$bookid.' class="btn btn-primary btn-md cancel-button">Cancel</a></td>
 			</tr>';
 	}
 
