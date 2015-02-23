@@ -412,13 +412,13 @@ include 'includes/session.php';
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var moduleToCancel = clickedID[1];
+    var timetableToCancel = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'moduleToCancel='+ moduleToCancel,
+	data:'timetableToCancel='+ timetableToCancel,
 	success:function(){
 		$('#cancel-'+moduleToCancel).fadeOut();
 	},

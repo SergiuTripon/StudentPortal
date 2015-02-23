@@ -779,33 +779,33 @@ function CancelTimetable() {
     global $mysqli;
     global $updated_on;
 
-    $moduleToCancel = filter_input(INPUT_POST, 'moduleToCancel', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToCancel = filter_input(INPUT_POST, 'timetableToCancel', FILTER_SANITIZE_NUMBER_INT);
 
     $module_status = 'cancelled';
 
     $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
-    $stmt1->bind_param('ssi', $module_status, $updated_on, $moduleToDelete);
+    $stmt1->bind_param('ssi', $module_status, $updated_on, $timetableToCancel);
     $stmt1->execute();
     $stmt1->close();
 
     $lecture_status = 'cancelled';
 
     $stmt2 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
-    $stmt2->bind_param('ssi', $lecture_status, $updated_on, $moduleToDelete);
+    $stmt2->bind_param('ssi', $lecture_status, $updated_on, $timetableToCancel);
     $stmt2->execute();
     $stmt2->close();
 
     $tutorial_status = 'cancelled';
 
     $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $moduleToDelete);
+    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $timetableToCancel);
     $stmt3->execute();
     $stmt3->close();
 
     $exam_status = 'cancelled';
 
     $stmt3 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $exam_status, $updated_on, $moduleToCancel);
+    $stmt3->bind_param('ssi', $exam_status, $updated_on, $timetableToCancel);
     $stmt3->execute();
     $stmt3->close();
 }
