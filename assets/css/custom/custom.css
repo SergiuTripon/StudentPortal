@@ -112,48 +112,20 @@ hr {
     padding-left: 0;
 }
 .form-group > .col-sm-12 {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0;
+    padding-left: 0;
 }
 }
 
 /* Controls padding on inputs */
 .pr0 {
-    padding-right: 0px;
+    padding-right: 0;
 }
 
 .pl0 {
-    padding-left: 0px;
+    padding-left: 0;
 }
 
-/* Action buttons */
-.change-button i {
-    font-size: 20px;
-}
-
-.update-button i {
-    font-size: 20px;
-}
-
-.complete-button i {
-    font-size: 20px;
-}
-
-.reserve-button i {
-    font-size: 20px;
-}
-
-.message-button i {
-    font-size: 20px;
-}
-
-.book-button i {
-    font-size: 20px;
-}
-
-.delete-button i {
-    font-size: 20px;
-}
 /* End of Global */
 
 /* Navbar */
