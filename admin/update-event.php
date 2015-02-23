@@ -334,7 +334,15 @@ if (isset($_POST["eventToUpdate"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'eventid1='          + eventid,
+    data:'eventid1='          + eventid +
+         '&event_name1='       + event_name +
+         '&event_notes1='     + event_notes +
+         '&event_url1='       + event_url +
+         '&event_from1='      + event_from +
+         '&event_to1='        + event_to +
+         '&event_amount1='    + event_amount +
+         '&event_ticket_no1=' + event_ticket_no +
+         '&event_category1='  + event_category,
 
     success:function(){
 		$("#error").hide();
