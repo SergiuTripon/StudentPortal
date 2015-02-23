@@ -368,44 +368,6 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
-	<div class="panel-group calendar-view" id="accordion" role="tablist" aria-multiselectable="true">
-
-	<div id="calendar-toggle" class="panel panel-default">
-	<div class="panel-heading" role="tab" id="headingThree">
-	<h4 class="panel-title">
-	<a data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
-	</h4>
-	</div>
-	<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-	<div class="panel-body">
-
-	<div class="calendar-buttons text-right">
-	<div id="calendar-buttons1" class="btn-group">
-		<button class="btn btn-default" data-calendar-nav="prev"><< Prev</button>
-		<button class="btn btn-default" data-calendar-nav="today">Today</button>
-		<button class="btn btn-default" data-calendar-nav="next">Next >></button>
-	</div>
-	<div id="calendar-buttons2" class="btn-group">
-		<button class="btn btn-default" data-calendar-view="year">Year</button>
-		<button class="btn btn-default active" data-calendar-view="month">Month</button>
-		<button class="btn btn-default" data-calendar-view="week">Week</button>
-		<button class="btn btn-default" data-calendar-view="day">Day</button>
-	</div>
-	</div>
-
-	<div class="page-header">
-	<h3></h3>
-	<hr>
-	</div>
-
-	<div id="calendar"></div>
-
-	</div><!-- /panel-body -->
-	</div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	</div><!-- /.panel-group -->
-
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
