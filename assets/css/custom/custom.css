@@ -658,6 +658,7 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
     border-radius: 3px;
     background-color: #CCCCCC;
+    border-color: #CCCCCC !important;
 }
 
 .btn:active, .active.btn {
@@ -674,6 +675,7 @@ form .success-style:-ms-input-placeholder {
     color: #333333;
     box-shadow: none;
     border-radius: 3px;
+    border-color: #CCCCCC; !important;
     background-color: #CCCCCC !important;
 }
 
