@@ -700,6 +700,9 @@ form .success-style:-ms-input-placeholder {
 .btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
     border-radius: 3px;
 }
+.btn-group > :last-child:not(:first-child).btn {
+    border-radius: 3px;
+}
 }
 
 @media(min-width:480px) {
