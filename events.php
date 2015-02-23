@@ -251,32 +251,29 @@ include 'includes/session.php';
 
     <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div class="panel panel-default">
+	<div id="events-toggle" class="panel panel-default">
 
 	<?php
-	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE NOT book_status = 'cancelled'");
+	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
-
-	$bookid = $row["bookid"];
-
- 	echo '<form id="update-book-form-'.$bookid.'" style="display: none;" action="/admin/update-book/" method="POST">
-		<input type="hidden" name="bookToUpdate" id="bookToUpdate" value="'.$bookid.'"/>
-		</form>';
+	  echo '<form id="book-event-form-'.$row["eventid"].'" style="display: none;" action="/events/book-event/" method="POST">
+			<input type="hidden" name="recordToBook" id="recordToBook" value="'.$row["eventid"].'"/>
+			</form>';
 	}
 	$stmt2->close();
 	?>
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Books</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Events</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Books -->
+	<!-- Event -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom books-table">
+	<table class="table table-condensed table-custom events-table">
 
 	<thead>
 	<tr>
