@@ -39,7 +39,7 @@ if (isset($_POST["recordToAssign"])) {
 		<li class="active">Assign timetable</li>
 	</ol>
 
-    <div id="moduleToAssign" style="display: none !important;"><?php echo $moduleToAssign; ?></div>
+    <div id="moduleid" style="display: none !important;"><?php echo $moduleToAssign; ?></div>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -171,7 +171,7 @@ if (isset($_POST["recordToAssign"])) {
 
     var clickedID = this.id.split('-');
     var userToAssign = clickedID[1];
-    var moduleToAssign = $("#moduleToAssign").html();
+    var moduleToAssign = $("#moduleid").html();
 
 	jQuery.ajax({
 	type: "POST",
@@ -196,7 +196,7 @@ if (isset($_POST["recordToAssign"])) {
 
     var clickedID = this.id.split('-');
     var userToUnassign = clickedID[1];
-    var moduleToUnassign = $("#moduleToUnassign").html();
+    var moduleToUnassign = $("#moduleid").html();
 
     alert(userToUnassign);
     alert(moduleToUnassign);
