@@ -219,22 +219,22 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="tutorial_from_time">Tutorial from (time)</label>
+	<label for="tutorial_from_time">Lecture from (time)<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="tutorial_from_time" id="tutorial_from_time" placeholder="Select a time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="tutorial_to_time">Tutorial to (time)</label>
+	<label for="tutorial_to_time">Lecture to (time)<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" placeholder="Select a time">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="tutorial_from_date">Tutorial from (date)</label>
+	<label for="tutorial_from_date">Tutorial from (date)<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="tutorial_from_date" id="tutorial_from_date" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="tutorial_to_date">Tutorial to (date)</label>
+	<label for="tutorial_to_date">Tutorial to (date)<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" placeholder="Select a date">
 	</div>
 	</div>
