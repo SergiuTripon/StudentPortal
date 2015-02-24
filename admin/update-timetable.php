@@ -111,11 +111,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Module name</label>
+	<label for="module_name">Module name</label>
     <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -140,16 +139,15 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Lecture name</label>
+	<label for="lecture_name">Lecture name</label>
     <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="<?php echo $lecture_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
-	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="lecturer">Current lecturer</label>
-    <select class="selectpicker lecturer" name="lecturer" id="lecturer">
+    <label for="lecture_lecturer">Current lecturer</label>
+    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
 
@@ -173,8 +171,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     </div>
 
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="update_lecturer">Update lecturer</label>
-    <select class="selectpicker update_lecturer" name="update_lecturer" id="update_lecturer">
+    <label for="update_lecture_lecturer">Update lecturer</label>
+    <select class="selectpicker update_lecture_lecturer" name="update_lecture_lecturer" id="update_lecture_lecturer">
         <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$lecture_lecturer'");
@@ -198,7 +196,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     </div>
     </div>
-    <p id="error3" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -209,48 +206,51 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Lecture day</label>
-    <input class="form-control" type="text" name="lecture_day" id="lecture_day" value="<?php echo $lecture_day; ?>" placeholder="Select a day">
+    <label for="lecture_day">Lecture day</label>
+    <select class="selectpicker lecture_day" name="lecture_day" id="lecture_day">
+        <option data-hidden="true">Select an option</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+    </select>
     </div>
     </div>
-    <p id="error4" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Lecture from (time)</label>
+	<label for="lecture_from_time">Lecture from (time)</label>
 	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" value="<?php echo $lecture_from_time; ?>" placeholder="Select a time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Lecture to (time)</label>
+	<label for="lecture_to_time">Lecture to (time)</label>
 	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" value="<?php echo $lecture_to_time; ?>" placeholder="Select a time">
 	</div>
 	</div>
-    <p id="error5" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Lecture from (date)</label>
+	<label for="lecture_from_date">Lecture from (date)</label>
 	<input type="text" class="form-control" name="lecture_from_date" id="lecture_from_date" value="<?php echo $lecture_from_date; ?>" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Lecture to (date)</label>
+	<label for="lecture_to_date">Lecture to (date)</label>
 	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" value="<?php echo $lecture_to_date; ?>" placeholder="Select a date">
 	</div>
 	</div>
-	<p id="error6" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Lecture location</label>
+	<label for="lecture_location">Lecture location</label>
 	<input type="text" class="form-control" name="lecture_location" id="lecture_location" value="<?php echo $lecture_location; ?>" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Lecture capacity</label>
+	<label for="lecture_capacity">Lecture capacity</label>
 	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" value="<?php echo $lecture_capacity; ?>" placeholder="Enter a capacity">
 	</div>
 	</div>
-    <p id="error7" class="feedback-sad text-center"></p>
-    <!-- End of Create lecture -->
+    <!-- End of Update lecture -->
 
     <hr class="hr-separator">
 
@@ -260,11 +260,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Tutorial name</label>
+	<label for="tutorial_name">Tutorial name</label>
     <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="<?php echo $tutorial_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
-	<p id="error8" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
@@ -329,47 +328,50 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Tutorial day</label>
-    <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" value="<?php echo $tutorial_day; ?>" placeholder="Select a day">
+    <label for="tutorial_day">Tutorial day</label>
+    <select class="selectpicker tutorial_day" name="tutorial_day" id="tutorial_day">
+        <option data-hidden="true">Select an option</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+    </select>
     </div>
     </div>
-    <p id="error10" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Tutorial from (time)</label>
+	<label for="tutorial_from_time">Tutorial from (time)</label>
 	<input type="text" class="form-control" name="tutorial_from_time" id="tutorial_from_time" value="<?php echo $tutorial_from_time; ?>" placeholder="Select a time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Tutorial to (time)</label>
+	<label for="tutorial_to_time">Tutorial to (time)</label>
 	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" value="<?php echo $tutorial_to_time; ?>" placeholder="Select a time">
 	</div>
 	</div>
-    <p id="error11" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Tutorial from (date)</label>
+	<label for="tutorial_from_date">Tutorial from (date)</label>
 	<input type="text" class="form-control" name="tutorial_from_date" id="tutorial_from_date" value="<?php echo $tutorial_from_date; ?>" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Tutorial to (date)</label>
+	<label for="tutorial_to_date">Tutorial to (date)</label>
 	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" value="<?php echo $tutorial_to_date; ?>" placeholder="Select a date">
 	</div>
 	</div>
-	<p id="error12" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Tutorial location</label>
+	<label for="tutorial_location">Tutorial location</label>
 	<input type="text" class="form-control" name="tutorial_location" id="tutorial_location" value="<?php echo $tutorial_location; ?>" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Tutorial capacity</label>
+	<label for="tutorial_capacity">Tutorial capacity</label>
 	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" value="<?php echo $tutorial_capacity; ?>" placeholder="Enter a capacity">
 	</div>
 	</div>
-    <p id="error13" class="feedback-sad text-center"></p>
     <!-- End of Update tutorial -->
 
     <!-- Update exam -->
@@ -378,11 +380,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Exam name</label>
+	<label for="exam_name">Exam name</label>
     <input class="form-control" type="text" name="exam_name" id="exam_name" value="<?php echo $exam_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
-	<p id="error14" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -393,27 +394,25 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Exam date</label>
+	<label for="exam_date">Exam date</label>
 	<input type="text" class="form-control" name="exam_date" id="exam_date" value="<?php echo $exam_date; ?>" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Exam time</label>
+	<label for="exam_time">Exam time</label>
 	<input type="text" class="form-control" name="exam_time" id="exam_time" value="<?php echo $exam_time; ?>" placeholder="Select a time">
 	</div>
 	</div>
-    <p id="error15" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Exam location</label>
+	<label for="exam_location">Exam location</label>
 	<input type="text" class="form-control" name="exam_location" id="exam_location" value="<?php echo $exam_location; ?>" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Exam capacity</label>
+	<label for="exam_capacity">Exam capacity</label>
 	<input type="text" class="form-control" name="exam_capacity" id="exam_capacity" value="<?php echo $exam_capacity; ?>" placeholder="Enter a capacity">
 	</div>
 	</div>
-    <p id="error16" class="feedback-sad text-center"></p>
     <!-- End of Update exam -->
 
 	<hr>
@@ -605,288 +604,367 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	var hasError = false;
 
     //Modules
+
     var moduleid = $("#moduleid").val();
 
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a module name.");
-		$("#module_name").addClass("error-style");
+        $("label[for='module_name']").empty().append("Please enter a module name.");
+        $("label[for='module_name']").removeClass("feedback-happy");
+        $("label[for='module_name']").addClass("feedback-sad");
+        $("#module_name").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
-		$("#module_name").addClass("success-style");
+        $("label[for='module_name']").empty().append("All good!");
+        $("label[for='module_name']").removeClass("feedback-sad");
+        $("label[for='module_name']").addClass("feedback-happy");
 	}
 
     var module_notes = $("#module_notes").val();
     var module_url = $("#module_url").val();
 
     //Lectures
+
     var lectureid = $("#lectureid").val();
 
 	var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a lecture name.");
-		$("#lecture_name").addClass("error-style");
+        $("label[for='lecture_name']").empty().append("Please enter a lecture name.");
+        $("label[for='lecture_name']").removeClass("feedback-happy");
+        $("label[for='lecture_name']").addClass("feedback-sad");
+        $("#lecture_name").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
-		$("#lecture_name").addClass("success-style");
+        $("label[for='lecture_name']").empty().append("All good!");
+        $("label[for='lecture_name']").removeClass("feedback-sad");
+        $("label[for='lecture_name']").addClass("feedback-happy");
 	}
 
-    var lecture_day = $("#lecture_day").val();
-	if(lecture_day === '') {
-		$("#error4").show();
-		$("#error4").empty().append("Please enter a day.");
-		$("#lecture_day").addClass("error-style");
-		hasError  = true;
+    var lecture_lecturer_check = $("#lecture_lecturer option:selected").html();
+    if (lecture_lecturer_check === 'Select an option') {
+        $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
+        $("label[for='lecture_lecturer']").removeClass("feedback-happy");
+        $("label[for='lecture_lecturer']").addClass("feedback-sad");
+        hasError  = true;
         return false;
-	} else {
-		$("#error4").hide();
-		$("#lecture_day").addClass("success-style");
-	}
+    }
+    else {
+        $("label[for='lecture_lecturer']").empty().append("All good!");
+        $("label[for='lecture_lecturer']").removeClass("feedback-sad");
+        $("label[for='lecture_lecturer']").addClass("feedback-happy");
+    }
+
+    var lecture_day_check = $("#lecture_day option:selected").html();
+    if (lecture_day_check === 'Select an option') {
+        $("label[for='lecture_day']").empty().append("Please select a day.");
+        $("label[for='lecture_day']").removeClass("feedback-happy");
+        $("label[for='lecture_day']").addClass("feedback-sad");
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("label[for='lecture_day']").empty().append("All good!");
+        $("label[for='lecture_day']").removeClass("feedback-sad");
+        $("label[for='lecture_day']").addClass("feedback-happy");
+    }
 
     var lecture_from_time = $("#lecture_from_time").val();
 	if(lecture_from_time === '') {
-		$("#error5").show();
-		$("#error5").empty().append("Please select a time.");
-		$("#lecture_from_time").addClass("error-style");
+        $("label[for='lecture_from_time']").empty().append("Please select a time.");
+        $("label[for='lecture_from_time']").removeClass("feedback-happy");
+        $("label[for='lecture_from_time']").addClass("feedback-sad");
+        $("#lecture_from_time").focus();
         hasError  = true;
         return false;
 	} else {
-		$("#error5").hide();
-		$("#lecture_from_time").addClass("success-style");
+        $("label[for='lecture_from_time']").empty().append("All good!");
+        $("label[for='lecture_from_time']").removeClass("feedback-sad");
+        $("label[for='lecture_from_time']").addClass("feedback-happy");
 	}
 
     var lecture_to_time = $("#lecture_to_time").val();
 	if(lecture_to_time === '') {
-		$("#error5").show();
-		$("#error5").empty().append("Please select a time.");
-		$("#lecture_to_time").addClass("error-style");
+        $("label[for='lecture_to_time']").empty().append("Please select a time.");
+        $("label[for='lecture_to_time']").removeClass("feedback-happy");
+        $("label[for='lecture_to_time']").addClass("feedback-sad");
+        $("#lecture_to_time").focus();
         hasError  = true;
         return false;
 	} else {
-		$("#error5").hide();
-		$("#lecture_to_time").addClass("success-style");
+        $("label[for='lecture_to_time']").empty().append("All good!");
+        $("label[for='lecture_to_time']").removeClass("feedback-sad");
+        $("label[for='lecture_to_time']").addClass("feedback-happy");
 	}
 
     var lecture_from_date = $("#lecture_from_date").val();
 	if(lecture_from_date === '') {
-		$("#error6").show();
-		$("#error6").empty().append("Please select a date.");
-		$("#lecture_from_date").addClass("error-style");
+        $("label[for='lecture_from_date']").empty().append("Please select a date.");
+        $("label[for='lecture_from_date']").removeClass("feedback-happy");
+        $("label[for='lecture_from_date']").addClass("feedback-sad");
+        $("#lecture_from_date").focus();
         hasError  = true;
         return false;
 	} else {
-		$("#error6").hide();
-		$("#lecture_from_date").addClass("success-style");
+        $("label[for='lecture_from_date']").empty().append("All good!");
+        $("label[for='lecture_from_date']").removeClass("feedback-sad");
+        $("label[for='lecture_from_date']").addClass("feedback-happy");
 	}
 
     var lecture_to_date = $("#lecture_to_date").val();
 	if(lecture_to_date === '') {
-		$("#error6").show();
-		$("#error6").empty().append("Please select a date.");
-		$("#lecture_to_date").addClass("error-style");
+        $("label[for='lecture_to_date']").empty().append("Please select a date.");
+        $("label[for='lecture_to_date']").removeClass("feedback-happy");
+        $("label[for='lecture_to_date']").addClass("feedback-sad");
+        $("lecture_to_date").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error6").hide();
-		$("#lecture_to_date").addClass("success-style");
+        $("label[for='lecture_to_date']").empty().append("All good!");
+        $("label[for='lecture_to_date']").removeClass("feedback-sad");
+        $("label[for='lecture_to_date']").addClass("feedback-happy");
 	}
 
     var lecture_location = $("#lecture_location").val();
 	if(lecture_location === '') {
-		$("#error7").show();
-		$("#error7").empty().append("Please enter a location.");
-		$("#lecture_location").addClass("error-style");
+        $("label[for='lecture_location']").empty().append("Please enter a location.");
+        $("label[for='lecture_location']").removeClass("feedback-happy");
+        $("label[for='lecture_location']").addClass("feedback-sad");
+        $("#lecture_location").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error7").hide();
-		$("#lecture_location").addClass("success-style");
+        $("label[for='lecture_location']").empty().append("All good!");
+        $("label[for='lecture_location']").removeClass("feedback-sad");
+        $("label[for='lecture_location']").addClass("feedback-happy");
 	}
 
     var lecture_capacity = $("#lecture_capacity").val();
 	if(lecture_capacity === '') {
-		$("#error7").show();
-		$("#error7").empty().append("Please enter a capacity.");
-		$("#lecture_capacity").addClass("error-style");
+        $("label[for='lecture_capacity']").empty().append("Please enter a capacity.");
+        $("label[for='lecture_capacity']").removeClass("feedback-happy");
+        $("label[for='lecture_capacity']").addClass("feedback-sad");
+        $("#lecture_capacity").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error7").hide();
-		$("#lecture_capacity").addClass("success-style");
+        $("label[for='lecture_capacity']").empty().append("All good!");
+        $("label[for='lecture_capacity']").removeClass("feedback-sad");
+        $("label[for='lecture_capacity']").addClass("feedback-happy");
 	}
 
-    var lecture_lecturer = $("#lecturer option:selected").val();
+    var lecture_lecturer = $("#lecture_lecturer option:selected").val();
+    var lecture_day = $("#lecture_day option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
+
     var tutorialid = $("#tutorialid").val();
 
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
-		$("#error8").show();
-        $("#error8").empty().append("Please enter a tutorial name.");
-		$("#tutorial_name").addClass("error-style");
+        $("label[for='tutorial_name']").empty().append("Please enter a tutorial name.");
+        $("label[for='tutorial_name']").removeClass("feedback-happy");
+        $("label[for='tutorial_name']").addClass("feedback-sad");
+        $("#tutorial_name").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error8").hide();
-		$("#tutorial_name").addClass("success-style");
+        $("label[for='tutorial_name']").empty().append("All good!");
+        $("label[for='tutorial_name']").removeClass("feedback-sad");
+        $("label[for='tutorial_name']").addClass("feedback-happy");
 	}
 
-    var tutorial_day = $("#tutorial_day").val();
-	if(tutorial_day === '') {
-		$("#error10").show();
-		$("#error10").empty().append("Please enter a day.");
-		$("#tutorial_day").addClass("error-style");
-		hasError  = true;
+    var tutorial_assistant_check = $("#tutorial_assistant option:selected").html();
+    if (tutorial_assistant_check === 'Select an option') {
+        $("label[for='tutorial_assistant']").empty().append("Please enter a tutorial assistant.");
+        $("label[for='tutorial_assistant']").removeClass("feedback-happy");
+        $("label[for='tutorial_assistant']").addClass("feedback-sad");
+        hasError  = true;
         return false;
-	} else {
-		$("#error10").hide();
-		$("#tutorial_day").addClass("success-style");
-	}
+    }
+    else {
+        $("label[for='tutorial_assistant']").empty().append("All good!");
+        $("label[for='tutorial_assistant']").removeClass("feedback-sad");
+        $("label[for='tutorial_assistant']").addClass("feedback-happy");
+        $("#lecture_lecturer").focus();
+    }
+
+    var tutorial_day_check = $("#tutorial_day option:selected").html();
+    if (tutorial_day_check === 'Select an option') {
+        $("label[for='tutorial_day']").empty().append("Please select a day.");
+        $("label[for='tutorial_day']").removeClass("feedback-happy");
+        $("label[for='tutorial_day']").addClass("feedback-sad");
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("label[for='tutorial_day']").empty().append("All good!");
+        $("label[for='tutorial_day']").removeClass("feedback-sad");
+        $("label[for='tutorial_day']").addClass("feedback-happy");
+    }
 
     var tutorial_from_time = $("#tutorial_from_time").val();
 	if(tutorial_from_time === '') {
-		$("#error11").show();
-		$("#error11").empty().append("Please select a time.");
-		$("#tutorial_from_time").addClass("error-style");
+        $("label[for='tutorial_from_time']").empty().append("Please select a time.");
+        $("label[for='tutorial_from_time']").removeClass("feedback-happy");
+        $("label[for='tutorial_from_time']").addClass("feedback-sad");
+        $("#tutorial_from_time").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error11").hide();
-		$("#tutorial_from_time").addClass("success-style");
+        $("label[for='tutorial_from_time']").empty().append("All good!");
+        $("label[for='tutorial_from_time']").removeClass("feedback-sad");
+        $("label[for='tutorial_from_time']").addClass("feedback-happy");
 	}
 
     var tutorial_to_time = $("#tutorial_to_time").val();
 	if(tutorial_to_time === '') {
-		$("#error11").show();
-		$("#error11").empty().append("Please select a time.");
-		$("#tutorial_to_time").addClass("error-style");
+        $("label[for='tutorial_to_time']").empty().append("Please select a time.");
+        $("label[for='tutorial_to_time']").removeClass("feedback-happy");
+        $("label[for='tutorial_to_time']").addClass("feedback-sad");
+        $("#tutorial_to_time").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error11").hide();
-		$("#tutorial_to_time").addClass("success-style");
+        $("label[for='tutorial_to_time']").empty().append("All good!");
+        $("label[for='tutorial_to_time']").removeClass("feedback-sad");
+        $("label[for='tutorial_to_time']").addClass("feedback-happy");
 	}
 
     var tutorial_from_date = $("#tutorial_from_date").val();
 	if(tutorial_from_date === '') {
-		$("#error12").show();
-		$("#error12").empty().append("Please select a time.");
-		$("#tutorial_from_date").addClass("error-style");
+        $("label[for='tutorial_from_date']").empty().append("Please select a date.");
+        $("label[for='tutorial_from_date']").removeClass("feedback-happy");
+        $("label[for='tutorial_from_date']").addClass("feedback-sad");
+        $("#tutorial_from_date").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error12").hide();
-		$("#tutorial_from_date").addClass("success-style");
+        $("label[for='tutorial_from_date']").empty().append("All good!");
+        $("label[for='tutorial_from_date']").removeClass("feedback-sad");
+        $("label[for='tutorial_from_date']").addClass("feedback-happy");
 	}
 
     var tutorial_to_date = $("#tutorial_to_date").val();
 	if(tutorial_to_date === '') {
-		$("#error12").show();
-		$("#error12").empty().append("Please select a date.");
-		$("#tutorial_to_date").addClass("error-style");
+        $("label[for='tutorial_to_date']").empty().append("Please select a date.");
+        $("label[for='tutorial_to_date']").removeClass("feedback-happy");
+        $("label[for='tutorial_to_date']").addClass("feedback-sad");
+        $("#tutorial_to_date").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error12").hide();
-		$("#tutorial_to_date").addClass("success-style");
+        $("label[for='tutorial_to_date']").empty().append("All good!");
+        $("label[for='tutorial_to_date']").removeClass("feedback-sad");
+        $("label[for='tutorial_to_date']").addClass("feedback-happy");
 	}
 
     var tutorial_location = $("#tutorial_location").val();
 	if(tutorial_location === '') {
-		$("#error13").show();
-		$("#error13").empty().append("Please enter a location.");
-		$("#tutorial_location").addClass("error-style");
+        $("label[for='tutorial_location']").empty().append("Please enter a location.");
+        $("label[for='tutorial_location']").removeClass("feedback-happy");
+        $("label[for='tutorial_location']").addClass("feedback-sad");
+        $("#tutorial_location").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error13").hide();
-		$("#tutorial_location").addClass("success-style");
+        $("label[for='tutorial_location']").empty().append("All good!");
+        $("label[for='tutorial_location']").removeClass("feedback-sad");
+        $("label[for='tutorial_location']").addClass("feedback-happy");
 	}
 
     var tutorial_capacity = $("#tutorial_capacity").val();
 	if(tutorial_capacity === '') {
-		$("#error13").show();
-		$("#error13").empty().append("Please enter a capacity.");
-		$("#tutorial_capacity").addClass("error-style");
+        $("label[for='tutorial_capacity']").empty().append("Please enter a location.");
+        $("label[for='tutorial_capacity']").removeClass("feedback-happy");
+        $("label[for='tutorial_capacity']").addClass("feedback-sad");
+        $("#tutorial_capacity").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error13").hide();
-		$("#tutorial_capacity").addClass("success-style");
+        $("label[for='tutorial_capacity']").empty().append("All good!");
+        $("label[for='tutorial_capacity']").removeClass("feedback-sad");
+        $("label[for='tutorial_capacity']").addClass("feedback-happy");
 	}
 
-    var tutorial_assistant = $("#tutorial_assistant option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
+    var tutorial_assistant = $("#tutorial_assistant option:selected").val();
+    var tutorial_day = $("#tutorial_day option:selected").val();
 
     //Exams
+
     var examid = $("#examid").val();
 
 	var exam_name = $("#exam_name").val();
 	if(exam_name === '') {
-		$("#error14").show();
-        $("#error14").empty().append("Please enter a tutorial name.");
-		$("#exam_name").addClass("error-style");
+        $("label[for='exam_name']").empty().append("Please enter a location.");
+        $("label[for='exam_name']").removeClass("feedback-happy");
+        $("label[for='exam_name']").addClass("feedback-sad");
+        $("#exam_name").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error14").hide();
-		$("#exam_name").addClass("success-style");
+        $("label[for='exam_name']").empty().append("All good!");
+        $("label[for='exam_name']").removeClass("feedback-sad");
+        $("label[for='exam_name']").addClass("feedback-happy");
 	}
 
     var exam_date = $("#exam_date").val();
 	if(exam_date === '') {
-		$("#error15").show();
-		$("#error15").empty().append("Please select a date.");
-		$("#exam_date").addClass("error-style");
+        $("label[for='exam_date']").empty().append("Please select a date.");
+        $("label[for='exam_date']").removeClass("feedback-happy");
+        $("label[for='exam_date']").addClass("feedback-sad");
+        $("#exam_date").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error15").hide();
-		$("#exam_date").addClass("success-style");
+        $("label[for='exam_date']").empty().append("All good!");
+        $("label[for='exam_date']").removeClass("feedback-sad");
+        $("label[for='exam_date']").addClass("feedback-happy");
 	}
 
     var exam_time = $("#exam_time").val();
 	if(exam_time === '') {
-		$("#error15").show();
-		$("#error15").empty().append("Please select a time.");
-		$("#exam_time").addClass("error-style");
+        $("label[for='exam_time']").empty().append("Please select a time.");
+        $("label[for='exam_time']").removeClass("feedback-happy");
+        $("label[for='exam_time']").addClass("feedback-sad");
+        $("#exam_time").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error15").hide();
-		$("#exam_time").addClass("success-style");
+        $("label[for='exam_time']").empty().append("All good!");
+        $("label[for='exam_time']").removeClass("feedback-sad");
+        $("label[for='exam_time']").addClass("feedback-happy");
 	}
 
     var exam_location = $("#exam_location").val();
 	if(exam_location === '') {
-		$("#error16").show();
-		$("#error16").empty().append("Please enter a location.");
-		$("#exam_location").addClass("error-style");
+        $("label[for='exam_location']").empty().append("Please enter a location.");
+        $("label[for='exam_location']").removeClass("feedback-happy");
+        $("label[for='exam_location']").addClass("feedback-sad");
+        $("#exam_location").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error16").hide();
-		$("#exam_location").addClass("success-style");
+        $("label[for='exam_location']").empty().append("All good!");
+        $("label[for='exam_location']").removeClass("feedback-sad");
+        $("label[for='exam_location']").addClass("feedback-happy");
 	}
 
     var exam_capacity = $("#exam_capacity").val();
 	if(exam_capacity === '') {
-		$("#error16").show();
-		$("#error16").empty().append("Please enter a capacity.");
-		$("#exam_capacity").addClass("error-style");
+        $("label[for='exam_capacity']").empty().append("Please enter a capacity.");
+        $("label[for='exam_capacity']").removeClass("feedback-happy");
+        $("label[for='exam_capacity']").addClass("feedback-sad");
+        $("#exam_capacity").focus();
 		hasError  = true;
         return false;
 	} else {
-		$("#error16").hide();
-		$("#exam_capacity").addClass("success-style");
+        $("label[for='exam_capacity']").empty().append("All good!");
+        $("label[for='exam_capacity']").removeClass("feedback-sad");
+        $("label[for='exam_capacity']").addClass("feedback-happy");
 	}
 
     var exam_notes = $("#exam_notes").val();
@@ -901,7 +979,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
          '&module_url1='         + module_url +
          '&lectureid='           + lectureid +
          '&lecture_name1='       + lecture_name +
-         '&lecture_lecturer1='    + lecture_lecturer +
+         '&lecture_lecturer1='   + lecture_lecturer +
          '&lecture_notes1='      + lecture_notes +
          '&lecture_day1='        + lecture_day +
          '&lecture_from_time1='  + lecture_from_time +
@@ -921,13 +999,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
          '&tutorial_to_date1='   + tutorial_to_date +
          '&tutorial_location1='  + tutorial_location +
          '&tutorial_capacity1='  + tutorial_capacity +
-         '&examid='           + examid +
-         '&exam_name1='           + exam_name +
-         '&exam_notes1='          + exam_notes +
-         '&exam_date1='           + exam_date +
-         '&exam_time1='           + exam_time +
-         '&exam_location1='       + exam_location +
-         '&exam_capacity1='       + exam_capacity,
+         '&examid='              + examid +
+         '&exam_name1='          + exam_name +
+         '&exam_notes1='         + exam_notes +
+         '&exam_date1='          + exam_date +
+         '&exam_time1='          + exam_time +
+         '&exam_location1='      + exam_location +
+         '&exam_capacity1='      + exam_capacity,
 
     success:function(){
 		$("#error").hide();
