@@ -178,67 +178,9 @@ include 'includes/session.php';
     <h4>Perform actions against other accounts</h4>
     <hr>
 
-   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingOne">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users online now - click to minimize or maximize</a>
-  	</h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-  	<div class="panel-body">
-
-	<!-- Update an account -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>User ID</th>
-	<th>First name</th>
-	<th>Surname</th>
-	<th>Email address</th>
-	<th>Account type</th>
-	<th>Created on</th>
-	<th>Updated on</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid' AND user_signin.isSignedIn = '1'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-	$account_type = ucfirst($row["account_type"]);
-
-	echo '<tr>
-
-			<td data-title="User ID">'.$row["userid"].'</td>
-			<td data-title="First name">'.$row["firstname"].'</td>
-			<td data-title="Surname">'.$row["surname"].'</td>
-			<td data-title="Email address">'.$row["email"].'</td>
-			<td data-title="Account type">'.$account_type.'</td>
-			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Updated on">'.$row["updated_on"].'</td>
-			</tr>';
-	}
-
-	$stmt1->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-    	<div class="panel panel-default">
+    <div class="panel panel-default">
 
 	<?php
     //Update an account
@@ -354,6 +296,64 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+	<div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users online now - click to minimize or maximize</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Update an account -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>User ID</th>
+	<th>First name</th>
+	<th>Surname</th>
+	<th>Email address</th>
+	<th>Account type</th>
+	<th>Created on</th>
+	<th>Updated on</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid' AND user_signin.isSignedIn = '1'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$account_type = ucfirst($row["account_type"]);
+
+	echo '<tr>
+
+			<td data-title="User ID">'.$row["userid"].'</td>
+			<td data-title="First name">'.$row["firstname"].'</td>
+			<td data-title="Surname">'.$row["surname"].'</td>
+			<td data-title="Email address">'.$row["email"].'</td>
+			<td data-title="Account type">'.$account_type.'</td>
+			<td data-title="Created on">'.$row["created_on"].'</td>
+			<td data-title="Updated on">'.$row["updated_on"].'</td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
     </div><!-- /panel-group -->
 
     </div><!-- /container -->
@@ -412,6 +412,67 @@ include 'includes/session.php';
 			"emptyTable": "There are no users to display."
 		}
 	});
+
+    //Change account password form submit
+	$("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var userToUpdate = clickedID[1];
+
+    alert(userToUpdate);
+
+	$("#update-an-account-form-" + userToUpdate).submit();
+
+	});
+
+	//Change account password form submit
+	$("body").on("click", ".change-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var userToChangePassword = clickedID[1];
+
+	$("#change-password-form-" + userToChangePassword).submit();
+
+	});
+
+	//Delete an account ajax call
+	$("body").on("click", ".delete-button1", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var userToDelete = clickedID[1];
+    var myData = 'userToDelete='+ userToDelete;
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:myData,
+	success:function(){
+		$('#user-'+userToDelete).fadeOut();
+		$('#hide').hide();
+		$('.form-logo i').removeClass('fa-trash');
+		$('.form-logo i').addClass('fa-check-square-o');
+		$('.modal-body p').removeClass('feedback-custom');
+		$('.modal-body p').addClass('feedback-happy');
+		$('#success').empty().append('The account has been deleted successfully.');
+		$('#success-button').show();
+		$("#success-button").click(function () {
+			location.reload();
+		});
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#success").hide();
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
 
     });
 
