@@ -171,7 +171,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'cancelled'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -192,7 +192,6 @@ include 'includes/session.php';
 	<td data-title="Start date">'.$task_startdate.'</td>
 	<td data-title="Due date">'.$task_duedate.'</td>
 	<td data-title="Category">'.$task_category.'</td>
-    <td data-title="Action"><a id="activate-'.$taskid.'" class="btn btn-primary btn-md activate-button">Activate</a></td>
 	</tr>';
 	}
 
@@ -228,13 +227,14 @@ include 'includes/session.php';
 	<th>Start</th>
 	<th>Due</th>
 	<th>Category</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'canceled'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -255,6 +255,7 @@ include 'includes/session.php';
 	<td data-title="Start date">'.$task_startdate.'</td>
 	<td data-title="Due date">'.$task_duedate.'</td>
 	<td data-title="Category">'.$task_category.'</td>
+    <td data-title="Action"><a id="activate-'.$taskid.'" class="btn btn-primary btn-md activate-button">Activate</a></td>
 	</tr>';
 	}
 
