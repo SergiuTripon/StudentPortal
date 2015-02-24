@@ -468,12 +468,12 @@ include '../includes/session.php';
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
         $("label[for='module_name']").empty().append("Please enter a module name.");
-        $("label[for='module_name']").css("feedback-sad");
+        $("label[for='module_name']").addClass("feedback-sad");
 		hasError  = true;
 		return false;
     } else {
         $("label[for='module_name']").empty().append("Please enter a module name.");
-        $("label[for='module_name']").css("feedback-happy");
+        $("label[for='module_name']").addClass("feedback-happy");
 	}
 
     var module_notes = $("#module_notes").val();
