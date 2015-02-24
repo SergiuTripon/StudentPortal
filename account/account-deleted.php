@@ -1,3 +1,6 @@
+<?php
+include '../includes/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +20,7 @@
 
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
 
-    <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include '../includes/menus/portal_menu.php'; ?>
 
     <div class="container">
 
