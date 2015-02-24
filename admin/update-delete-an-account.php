@@ -39,33 +39,25 @@ include '../includes/session.php';
 	<div class="panel panel-default">
 
 	<?php
-	$stmt3 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
-	while($row = $stmt3->fetch_assoc()) {
-		echo '<form id="update-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
-		<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["userid"].'"/>
-		</form>';
-	}
-	$stmt3->close();
-	?>
-
-    <?php
+    //Update an account
 	$stmt1 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 	while($row = $stmt1->fetch_assoc()) {
-		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../change-account-password/" method="POST">
-		<input type="hidden" name="recordToChange" id="recordToChange" value="'.$row["userid"].'"/>
+		echo '<form id="update-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
+		<input type="hidden" name="userToUpdate" id="userToUpdate" value="'.$row["userid"].'"/>
 		</form>';
 	}
 	$stmt1->close();
 	?>
 
     <?php
-	$stmt5 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
-	while($row = $stmt5->fetch_assoc()) {
-		echo '<form id="delete-account-form-'.$row["userid"].'" style="display: none;" action="../delete-an-account/" method="POST">
-		<input type="hidden" name="recordToDelete" id="recordToDelete" value="'.$row["userid"].'"/>
+    //Change an account's password
+	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt2->fetch_assoc()) {
+		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../change-account-password/" method="POST">
+		<input type="hidden" name="userToChangePassword" id="userToChangePassword" value="'.$row["userid"].'"/>
 		</form>';
 	}
-	$stmt5->close();
+	$stmt2->close();
 	?>
 
     <div class="panel-heading" role="tab" id="headingOne">
@@ -277,12 +269,13 @@ include '../includes/session.php';
 
 	var clickedID = this.id.split('-');
     var userToDelete = clickedID[1];
+    var myData = 'userToDelete='+ userToDelete;
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToDelete='+ userToDelete,
+	data:myData,
 	success:function(){
 		$('#user-'+userToDelete).fadeOut();
 		$('#hide').hide();
@@ -290,8 +283,9 @@ include '../includes/session.php';
 		$('.form-logo i').addClass('fa-check-square-o');
 		$('.modal-body p').removeClass('feedback-custom');
 		$('.modal-body p').addClass('feedback-happy');
-		$('.modal-body p').empty().append('The account has been deleted successfully.');
-		$(".delete-button1").click(function () {
+		$('#success').empty().append('The account has been deleted successfully.');
+		$('#success-button').show();
+		$("#success-button").click(function () {
 			location.reload();
 		});
 	},

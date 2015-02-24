@@ -1,17 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["recordToChange"])) {
+if (isset($_POST["userToChangePassword"])) {
 
-    $idToChange = filter_input(INPUT_POST, 'recordToChange', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE userid = ? LIMIT 1");
-    $stmt1->bind_param('i', $idToChange);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($userid);
-    $stmt1->fetch();
-    $stmt1->close();
+    $userToChangePassword = filter_input(INPUT_POST, 'userToChangePassword', FILTER_SANITIZE_NUMBER_INT);
 
 } else {
     header('Location: ../../account/');
@@ -62,7 +54,7 @@ if (isset($_POST["recordToChange"])) {
 
     <div id="hide">
 
-	<input type="hidden" name="userid" id="userid" value="<?php echo $userid1; ?>" />
+	<input type="hidden" name="userid" id="userid" value="<?php echo $userToChangePassword; ?>" />
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
