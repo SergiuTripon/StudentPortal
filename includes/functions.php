@@ -935,11 +935,11 @@ function RequestBook() {
     $bookToRequest = filter_input(INPUT_POST, 'bookToRequest', FILTER_SANITIZE_STRING);
 
 
-    $stmt1 = $mysqli->prepare("SELECT reserved_books.userid, reserved_books.reserved_on, reserved_books.toreturn_on, system_books.book_name, system_books.book_author FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid WHERE bookid=?");
+    $stmt1 = $mysqli->prepare("SELECT reserved_books.userid, reserved_books.reserved_on, reserved_books.toreturn_on, system_books.book_name, system_books.book_author, system_books.book_status FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid WHERE reserved_books.bookid=?");
     $stmt1->bind_param('i', $bookToRequest);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($userid);
+    $stmt1->bind_result($userid, $bookreserved_from, $bookreserved_to, $book_name, $book_author, $book_status);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -960,7 +960,7 @@ function RequestBook() {
     $stmt2->close();
 
     //Creating email
-    $subject = 'Reservation confirmation';
+    $subject = 'Request notice';
 
     $message = '<html>';
     $message .= '<body>';
@@ -974,7 +974,7 @@ function RequestBook() {
     $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_author</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_from</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_to</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Reservation status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservation_status</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Book status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_status</td></tr>";
     $message .= '</table>';
     $message .= '</body>';
     $message .= '</html>';
