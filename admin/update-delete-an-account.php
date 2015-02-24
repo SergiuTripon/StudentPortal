@@ -40,13 +40,13 @@ include '../includes/session.php';
 
 	<?php
     //Update an account
-	$stmt1 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
-	while($row = $stmt1->fetch_assoc()) {
-		echo '<form id="update-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
+	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt2->fetch_assoc()) {
+		echo '<form id="update-an-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
 		<input type="hidden" name="userToUpdate" id="userToUpdate" value="'.$row["userid"].'"/>
 		</form>';
 	}
-	$stmt1->close();
+	$stmt2->close();
 	?>
 
     <?php
@@ -241,25 +241,25 @@ include '../includes/session.php';
 		}
 	});
 
+    //Change account password form submit
+	$("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var userToUpdate = clickedID[1];
+
+	$("#update-an-account-form-" + userToUpdate).submit();
+
+	});
+
 	//Change account password form submit
 	$("body").on("click", ".change-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
+    var userToChangePassword = clickedID[1];
 
-	$("#change-password-form-" + DbNumberID).submit();
-
-	});
-
-	//Update an account form submit
-	$("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#update-account-form-" + DbNumberID).submit();
+	$("#change-password-form-" + userToChangePassword).submit();
 
 	});
 
