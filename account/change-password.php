@@ -121,22 +121,26 @@ include '../includes/session.php';
 		hasError  = true;
 		return false;
     } else {
-        $("label[for='lecture_capacity']").empty().append("All good!");
-        $("label[for='lecture_capacity']").removeClass("feedback-sad");
-        $("label[for='lecture_capacity']").addClass("feedback-happy");
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-sad");
+        $("label[for='password']").addClass("feedback-happy");
 		$("#password").css("border-color", "#4DC742");
 	}
 
     password = $("#password").val();
 	if (password.length < 6) {
-		$("#error1").show();
-		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
-		$("#password").css("border-color", "#FF5454");
+        $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
+        $("label[for='password']").removeClass("feedback-happy");
+        $("label[for='password']").addClass("feedback-sad");
+        $("#password").focus();
+        $("#password").css("cssText", "border: 2px solid #FF5454;");
 		hasError  = true;
 		return false;
 	} else {
-		$("#error1").hide();
-		$("#password").css("border-color", "#4DC742");
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-sad");
+        $("label[for='password']").addClass("feedback-happy");
+        $("#password").css("cssText", "border: 2px solid #4DC742;");
 	}
 
 	var upperCase= new RegExp('[A-Z]');
