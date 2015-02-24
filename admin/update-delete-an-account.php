@@ -380,7 +380,7 @@ include '../includes/session.php';
 
 	jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/admin/update-an-account.php?userToUpdate="userToUpdate"",
+	url: "https://student-portal.co.uk/admin/update-an-account.php?'userToUpdate=' + userToUpdate",
 	dataType:"text",
 	data:'userToUpdate='+ userToUpdate,
 	success:function(){
