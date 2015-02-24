@@ -144,6 +144,7 @@ include '../includes/session.php';
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
+        $("#error1").hide();
 	}
 
 	var upperCase= new RegExp('[A-Z]');
@@ -155,6 +156,7 @@ include '../includes/session.php';
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
+        $("#error1").hide();
 	} else {
         $("#error1").show();
         $("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
@@ -193,6 +195,7 @@ include '../includes/session.php';
         $("label[for='confirmpwd']").empty().append("All good!");
         $("label[for='confirmpwd']").removeClass("feedback-sad");
         $("label[for='confirmpwd']").addClass("feedback-happy");
+        $("#error1").hide();
 	}
 	
 	if(hasError == false){
