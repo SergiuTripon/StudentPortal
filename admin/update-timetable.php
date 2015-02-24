@@ -153,26 +153,26 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
+    $lecturer_firstname = $row["firstname"];
+    $lecturer_surname = $row["surname"];
 
-        echo '<option>'.$firstname.' '.$surname.'</option>';
+        echo '<option>'.$lecturer_firstname.' '.$lecturer_surname.'</option>';
     }
 
     $stmt2 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type='lecturer' AND NOT userid = '$lecture_lecturer'");
 
     while ($row = $stmt2->fetch_assoc()){
 
-        $lecture_lecturer = $row["userid"];
+        $other_lecturers = $row["userid"];
 
-        $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-        $stmt1->bind_param('i', $lecture_lecturer);
-        $stmt1->execute();
-        $stmt1->store_result();
-        $stmt1->bind_result($firstname, $surname);
-        $stmt1->fetch();
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3->bind_param('i', $other_lecturers);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($other_lecturers_firstname, $other_lecturers_surname);
+        $stmt3->fetch();
 
-        echo '<option>'.$firstname.' '.$surname.'</option>';
+        echo '<option>'.$other_lecturers_firstname.' '.$other_lecturers_surname.'</option>';
     }
     ?>
 
