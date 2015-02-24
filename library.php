@@ -60,7 +60,7 @@ include 'includes/session.php';
 	<div id="books-content" class="panel panel-default">
 
 	<?php
-	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE NOT book_status = 'cancelled'");
+	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE NOT book_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
 
 	$bookid = $row["bookid"];
@@ -98,7 +98,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE NOT book_status = 'cancelled'");
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE NOT book_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -336,6 +336,83 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+    <div class="panel panel-default">
+
+	<?php
+	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE NOT book_status = 'cancelled'");
+	while($row = $stmt2->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+
+ 	echo '<form id="update-book-form-'.$bookid.'" style="display: none;" action="/admin/update-book/" method="POST">
+		<input type="hidden" name="bookToUpdate" id="bookToUpdate" value="'.$bookid.'"/>
+		</form>';
+	}
+	$stmt2->close();
+	?>
+
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Books</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Books -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom books-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Author</th>
+	<th>Notes</th>
+	<th>Copy no.</th>
+	<th>Status</th>
+	<th>Action</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE NOT book_status = 'cancelled'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+	$book_name = $row["book_name"];
+	$book_author = $row["book_author"];
+	$book_notes = $row["book_notes"];
+	$book_copy_no = $row["book_copy_no"];
+	$book_status = $row["book_status"];
+	$book_status = ucfirst($book_status);
+
+	echo '<tr id="cancel-'.$bookid.'">
+
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Notes">'.$book_notes.'</td>
+			<td data-title="Copy no.">'.$book_copy_no.'</td>
+			<td data-title="Status">'.$book_status.'</td>
+			<td data-title="Action"><a id=update-'.$bookid.' class="btn btn-primary btn-md update-button ladda-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+			<td data-title="Action"><a id=cancel-'.$bookid.' class="btn btn-primary btn-md cancel-button ladda-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
 	</div><!-- /panel-group -->
 
     </div><!-- /container -->
@@ -481,6 +558,30 @@ include 'includes/session.php';
 	data:'bookToCancel='+ bookToCancel,
 	success:function(){
 		$('#cancel-'+bookToCancel).fadeOut();
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
+    $("body").on("click", ".activate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var bookToActivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'bookToActivate='+ bookToActivate,
+	success:function(){
+		$('#cancel-'+bookToActivate).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
