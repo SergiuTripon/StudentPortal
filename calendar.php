@@ -341,16 +341,40 @@ include 'includes/session.php';
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-    var myData = 'recordToComplete='+ DbNumberID;
+    var taskToComplete = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:myData,
-	success:function(response){
+	data:'taskToComplete='+ taskToComplete,
+	success:function(){
 		$('#task-'+DbNumberID).fadeOut();
+		setTimeout(function(){
+			location.reload();
+		}, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    $("body").on("click", ".cancel-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var taskToCancel = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'taskToCancel='+ taskToCancel,
+	success:function(){
+		$('#task-'+taskToCancel).fadeOut();
 		setTimeout(function(){
 			location.reload();
 		}, 1000);
