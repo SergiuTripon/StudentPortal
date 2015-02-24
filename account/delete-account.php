@@ -150,7 +150,8 @@ $stmt1->fetch();
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    var accountToDelete = $("#session_userid").html();
+    var accountToDelete = $("#session_userid").text();
+        alert(accountToDelete);
 
     jQuery.ajax({
     type: "POST",
