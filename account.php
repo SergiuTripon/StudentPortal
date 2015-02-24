@@ -460,8 +460,7 @@ include 'includes/session.php';
 		$('#hide').hide();
 		$('.form-logo i').removeClass('fa-trash');
 		$('.form-logo i').addClass('fa-check-square-o');
-		$('.modal-body p').removeClass('feedback-custom');
-		$('.modal-body p').addClass('feedback-happy');
+		$('.modal-body p').css("cssText", "color: #3FAD46;");
 		$('.modal-body p').empty().append('The account has been deleted successfully.');
 		$('#success-button').show();
 		$("#success-button").click(function () {
