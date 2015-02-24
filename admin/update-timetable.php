@@ -159,7 +159,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
         echo '<option>'.$firstname.' '.$surname.'</option>';
     }
 
-    $stmt2 = $mysqli->query("SELECT userid FROM user_signin WHERE NOT userid = '$lecture_lecturer'");
+    $stmt2 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$lecture_lecturer'");
 
     while ($row = $stmt2->fetch_assoc()){
 
