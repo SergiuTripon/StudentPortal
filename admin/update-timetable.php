@@ -159,7 +159,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
         echo '<option value="'.$lecture_lecturer.'">'.$firstname.' '.$surname.'</option>';
 
-    $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE NOT userid = ? LIMIT 1");
+    $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE NOT userid = ?");
     $stmt3->bind_param('i', $lecture_lecturer);
     $stmt3->execute();
     $stmt3->store_result();
