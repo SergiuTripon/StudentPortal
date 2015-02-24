@@ -1644,10 +1644,9 @@ function MessageUser() {
 	$stmt1->execute();
 	$stmt1->close();
 
-	// subject
+	//Creating email
 	$subject = "$message_to_firstname $message_to_surname - New message on Student Portal";
 
-	// message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>The following person sent you a message:</p>';
@@ -1665,16 +1664,13 @@ function MessageUser() {
 	$message .= '</body>';
 	$message .= '</html>';
 
-	// To send HTML mail, the Content-type header must be set
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	// Additional headers
-	$headers .= "From: $firstname1 $surname1 <$email1>" . "\r\n";
-	$headers .= "Reply-To: $firstname1 $surname1 <$email1>" . "\r\n";
+	$headers .= "From: $message_to_firstname $message_to_surname <$message_to_email>" . "\r\n";
+	$headers .= "Reply-To: $message_to_firstname $message_to_surname <$message_to_email>" . "\r\n";
 
-	// Mail it
-	mail($email, $subject, $message, $headers);
+	mail($message_to_email, $subject, $message, $headers);
 
 }
 
