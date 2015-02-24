@@ -1678,11 +1678,11 @@ function MessageUser() {
 function SetMessageRead () {
 
 	global $mysqli;
-	global $userid;
+	global $session_userid;
 
 	$isRead = 1;
 	$stmt1 = $mysqli->prepare("UPDATE user_messages SET isRead=? WHERE message_to=?");
-	$stmt1->bind_param('ii', $isRead, $userid);
+	$stmt1->bind_param('ii', $isRead, $session_userid);
 	$stmt1->execute();
 	$stmt1->close();
 }
