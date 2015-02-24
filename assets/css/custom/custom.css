@@ -655,19 +655,13 @@ form .feedback-happy {
     background-color: #CCCCCC;
 }
 
-.bootstrap-select > .error-style > .filter-option {
-    color: #D9534F !important;
-}
-
-.bootstrap-select > .error-style:focus > .filter-option {
-    color: gray !important;
-}
-
 .bootstrap-select > .error-style {
+    color: #D9534F !important;
     border-color: #D9534F !important;
 }
 
 .bootstrap-select > .error-style:focus {
+    color: #D9534F !important;
     border-color: #8A8A8A !important;
 }
 /* End of Bootstrap Select */
