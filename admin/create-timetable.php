@@ -383,7 +383,7 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-    $(".filter-option").css("color", "gray");
+    $(".selectpicker").css("color", "gray");
 
     $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
         $(".filter-option").css("cssText", "color: #333333 !important;");
