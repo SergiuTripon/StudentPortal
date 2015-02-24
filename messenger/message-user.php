@@ -220,7 +220,7 @@ if (isset($_POST["recordToMessage"])) {
         $("#message").addClass("success-style");
     }
 
-    var message_to_userid = $("#message_to_surname").val();
+    var message_to_userid = $("#message_to_userid").val();
     var message_to_firstname = $("#message_to_firstname").val();
     var message_to_surname = $("#message_to_surname").val();
     var message_to_email = $("#message_to_email").val();
