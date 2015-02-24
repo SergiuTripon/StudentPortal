@@ -284,7 +284,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="tutorial_day">Lecture day</label>
+	<label for="tutorial_day">Tutorial day</label>
     <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" value="<?php echo $tutorial_day; ?>" placeholder="Enter a day">
 	</div>
 	</div>
