@@ -496,16 +496,18 @@ include '../includes/session.php';
 
     var lecturer_check = $("#lecturer option:selected").html();
     if (lecturer_check === 'Select an option') {
-        $("#error3").show();
-        $("#error3").empty().append("Please select a lecturer.");
-        $(".lecturer > .selectpicker").addClass("error-style");
+        $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
+        $("label[for='lecture_lecturer']").removeClass("feedback-happy");
+        $("label[for='lecture_lecturer']").addClass("feedback-sad");
+        $("label[for='lecture_lecturer']").focus();
         hasError  = true;
         return false;
     }
     else {
-        $("#error3").hide();
-        $(".lecturer > .selectpicker").addClass("success-style");
-        $(".lecturer > .error-style > .filter-option").css("cssText", "color: #FFFFFF; !important");
+        $("label[for='lecture_lecturer']").empty().append("All good!");
+        $("label[for='lecture_lecturer']").removeClass("feedback-sad");
+        $("label[for='lecture_lecturer']").addClass("feedback-happy");
+        $("label[for='lecture_lecturer']").focus();
     }
 
     var lecture_day = $("#lecture_day").val();
