@@ -934,12 +934,20 @@ function ReturnBook() {
     //Book
     $bookToReturn = filter_input(INPUT_POST, 'bookToReturn', FILTER_SANITIZE_STRING);
 
-    $book_status = 'active';
+    $isReturned = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
-    $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToReturn);
+    $stmt1 = $mysqli->prepare("UPDATE reserved_books SET isReturned=? WHERE bookid=?");
+    $stmt1->bind_param('ssi', $isReturned, $bookToReturn);
     $stmt1->execute();
     $stmt1->close();
+
+    $book_status = 'active';
+
+    $stmt2 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt2->bind_param('ssi', $book_status, $updated_on, $bookToReturn);
+    $stmt2->execute();
+    $stmt2->close();
+
 
 }
 
