@@ -511,7 +511,6 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
-        $(".bootstrap-select.lecture_lecturer").focus();
         hasError  = true;
         return false;
     }
@@ -526,7 +525,6 @@ include '../includes/session.php';
         $("label[for='lecture_day']").empty().append("Please select a day.");
         $("label[for='lecture_day']").removeClass("feedback-happy");
         $("label[for='lecture_day']").addClass("feedback-sad");
-        $("#lecture_day").focus();
         hasError  = true;
         return false;
     }
@@ -644,7 +642,6 @@ include '../includes/session.php';
         $("label[for='tutorial_assistant']").empty().append("Please enter a tutorial assistant.");
         $("label[for='tutorial_assistant']").removeClass("feedback-happy");
         $("label[for='tutorial_assistant']").addClass("feedback-sad");
-        $("#tutorial_assistant").focus();
         hasError  = true;
         return false;
     }
@@ -660,7 +657,6 @@ include '../includes/session.php';
         $("label[for='tutorial_day']").empty().append("Please select a day.");
         $("label[for='tutorial_day']").removeClass("feedback-happy");
         $("label[for='tutorial_day']").addClass("feedback-sad");
-        $("#lecture_day").focus();
         hasError  = true;
         return false;
     }
