@@ -105,10 +105,6 @@ include '../includes/session.php';
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 1000});
 
-	//Hiding error message
-	$("#error1").hide();
-	$("#error2").hide();
-
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
