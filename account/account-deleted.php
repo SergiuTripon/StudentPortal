@@ -37,18 +37,18 @@ include '../includes/session.php';
 	<hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../../overview/"><span class="ladda-label">Overview</span></a>
     </div>
 
     <div class="text-right">
-    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="../sign-out/"><span class="ladda-label">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="../../sign-out/"><span class="ladda-label">Sign Out</span></a>
     </div>
 
 	</form>
 
     </div>
 
-    <?php include 'includes/footers/footer.php'; ?>
+    <?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
