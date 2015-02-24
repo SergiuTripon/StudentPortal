@@ -385,16 +385,8 @@ include '../includes/session.php';
 	data:'userToUpdate='+ userToUpdate,
 	success:function(){
 		$('#user-'+userToUpdate).fadeOut();
-		$('#hide').hide();
-		$('.logo-custom i').removeClass('fa-trash');
-		$('.logo-custom i').addClass('fa-check-square-o');
-		$('.modal-body p').removeClass('feedback-custom');
-		$('.modal-body p').addClass('feedback-happy');
-		$('#success').empty().append('The account has been deleted successfully.');
-		$('#success-button').show();
-		$("#success-button").click(function () {
-			location.reload();
-		});
+		$('#success').empty().append('The account has been updated successfully.');
+        window.location.href = "https://student-portal.co.uk/admin/update-an-account.php";
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
