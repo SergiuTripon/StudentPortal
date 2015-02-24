@@ -660,7 +660,7 @@ form .feedback-happy {
 }
 
 .bootstrap-select > .error-style:focus > .filter-option {
-    color: #333333 !important;
+    color: gray !important;
 }
 
 .bootstrap-select > .error-style {
