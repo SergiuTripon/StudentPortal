@@ -662,10 +662,6 @@ form .feedback-happy {
 .bootstrap-select > .error-style {
     border-color: #D9534F !important;
 }
-
-.bootstrap-select > .btn-group.open .dropdown-toggle {
-    box-shadow: none !important;
-}
 /* End of Bootstrap Select */
 
 /* Tiles style */
