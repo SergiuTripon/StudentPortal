@@ -251,7 +251,7 @@ include 'includes/session.php';
 
     <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="events-toggle" class="panel panel-default">
+	<div class="panel panel-default">
 
 	<?php
 	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
@@ -265,7 +265,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Events</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active events</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -313,6 +313,70 @@ include 'includes/session.php';
 			<td data-title="Category">'.$event_category.'</td>
 			<td data-title="Action"><a id="update-'.$eventid.'" class="btn btn-primary btn-md ladda-button update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
             <td data-title="Action"><a id="cancel-'.$eventid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Cancelled events</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Event -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom events-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>From</th>
+	<th>To</th>
+	<th>Price</th>
+	<th>Tickets</th>
+	<th>Category</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'cancelled'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$eventid = $row["eventid"];
+	$event_name = $row["event_name"];
+	$event_from = $row["event_from"];
+	$event_to = $row["event_to"];
+	$event_amount = $row["event_amount"];
+	$event_ticket_no = $row["event_ticket_no"];
+	$event_category = ucfirst($row["event_category"]);
+
+	echo '<tr id="cancel-'.$row["eventid"].'">
+
+			<td data-title="Name">'.$event_name.'</td>
+			<td data-title="From">'.$event_from.'</td>
+			<td data-title="To">'.$event_to.'</td>
+			<td data-title="Price">'.$event_amount.'</td>
+			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
+			<td data-title="Category">'.$event_category.'</td>
+            <td data-title="Action"><a id="activate-'.$eventid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
 			</tr>';
 	}
 
