@@ -887,7 +887,7 @@ function ReserveBook() {
 	$stmt3->close();
 
 	$stmt4 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-	$stmt4->bind_param('i', $userid);
+	$stmt4->bind_param('i', $session_userid);
 	$stmt4->execute();
 	$stmt4->store_result();
 	$stmt4->bind_result($email, $firstname, $surname, $studentno);
