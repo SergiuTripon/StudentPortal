@@ -387,7 +387,7 @@ include '../includes/session.php';
 
     $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
         $(".bootstrap-select > .selectpicker:focus").css("cssText", "border-color: #8A8A8A !important");
-        $(".bootstrap-select > .selectpicker").css("cssText", "color: #333333 !important; border-color: #CCCCCC !important");
+        $(".bootstrap-select > .selectpicker").css("cssText", "color: #333333 !important; border-color: #CCCCCC");
     });
 
     // Date Time Picker
