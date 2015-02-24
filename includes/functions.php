@@ -1550,7 +1550,6 @@ function ImportLocations () {
 
 	global $mysqli;
     global $category;
-    global $category1;
 
 	$stmt1 = $mysqli->prepare("DELETE FROM system_map_markers");
 	$stmt1->execute();
