@@ -620,7 +620,7 @@ include '../includes/session.php';
         $("label[for='lecture_capacity']").addClass("feedback-happy");
 	}
 
-    var lecture_lecturer = $("#lecturer option:selected").val();
+    var lecture_lecturer = $("#lecture_lecturer option:selected").val();
     var lecture_day = $("#lecture_day option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
 
@@ -689,7 +689,7 @@ include '../includes/session.php';
         $("label[for='tutorial_to_time']").empty().append("Please select a time.");
         $("label[for='tutorial_to_time']").removeClass("feedback-happy");
         $("label[for='tutorial_to_time']").addClass("feedback-sad");
-        $("#tutorial_from_time").focus();
+        $("#tutorial_to_time").focus();
 		hasError  = true;
         return false;
 	} else {
