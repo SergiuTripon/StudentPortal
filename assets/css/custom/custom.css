@@ -657,7 +657,7 @@ form .feedback-happy {
 
 .bootstrap-select > .error-style {
     color: #D9534F !important;
-    border-color: #D9534F;
+    border-color: #D9534F !important;
 }
 
 .bootstrap-select > .error-style:focus {
