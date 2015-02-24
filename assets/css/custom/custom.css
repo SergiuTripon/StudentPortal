@@ -520,6 +520,11 @@ form .feedback-happy {
     font-size: 16px;
     font-weight: 600;
 }
+
+.required-field {
+    font-size: 16px;
+    color: #3FAD46;
+}
 /* End of Success message */
 
 /* Form Logo */

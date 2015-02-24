@@ -46,7 +46,7 @@ include '../includes/session.php';
     <!-- Create module -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="module_name">Module name</label>
+	<label for="module_name">Module name<span class="required-field">*</span></label>
     <input class="form-control" type="text" name="module_name" id="module_name" placeholder="Enter a name">
 	</div>
 	</div>
@@ -71,16 +71,15 @@ include '../includes/session.php';
     <!-- Create lecture -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Lecture name</label>
+	<label for="lecture_name">Lecture name<span class="required-field">*</span></label>
     <input class="form-control" type="text" name="lecture_name" id="lecture_name" placeholder="Enter a name">
 	</div>
 	</div>
-	<p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Lecturer</label>
-    <select class="selectpicker lecturer" name="lecturer" id="lecturer">
+    <label for="lecture_lecturer">Lecturer<span class="required-field">*</span></label>
+    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
         <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
@@ -104,7 +103,6 @@ include '../includes/session.php';
 
     </div>
     </div>
-    <p id="error3" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -115,31 +113,29 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Lecture day</label>
+    <label for="lecture_day">Lecture day<span class="required-field">*</span></label>
     <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Select a day">
     </div>
     </div>
-    <p id="error4" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Lecture from (time)</label>
+	<label for="lecture_from_time">Lecture from (time)<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" placeholder="Select a time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Lecture to (time)</label>
+	<label for="lecture_to_time">Lecture to (time)<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" placeholder="Select a time">
 	</div>
 	</div>
-    <p id="error5" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Lecture from (date)</label>
+	<label for="lecture_from_date">Lecture from (date)<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="lecture_from_date" id="lecture_from_date" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Lecture to (date)</label>
+	<label for="lecture_to_date">Lecture to (date)<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" placeholder="Select a date">
 	</div>
 	</div>
@@ -147,15 +143,14 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Lecture location</label>
+	<label for="lecture_location">Lecture location<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="lecture_location" id="lecture_location" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Lecture capacity</label>
+	<label for="lecture_capacity">Lecture capacity<span class="required-field">*</span></label>
 	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
-    <p id="error7" class="feedback-sad text-center"></p>
     <!-- End of Create lecture -->
 
     <hr class="hr-separator">
@@ -486,14 +481,17 @@ include '../includes/session.php';
     //Lectures
 	var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a lecture name.");
-		$("#lecture_name").addClass("error-style");
+        $("label[for='lecture_name']").empty().append("Please enter a lecture name.");
+        $("label[for='lecture_name']").removeClass("feedback-happy");
+        $("label[for='lecture_name']").addClass("feedback-sad");
+        $("label[for='lecture_name']").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
-		$("#lecture_name").addClass("success-style");
+        $("label[for='lecture_name']").empty().append("All good!");
+        $("label[for='lecture_name']").removeClass("feedback-sad");
+        $("label[for='lecture_name']").addClass("feedback-happy");
+        $("label[for='lecture_name']").focus();
 	}
 
     var lecturer_check = $("#lecturer option:selected").html();
