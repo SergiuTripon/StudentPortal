@@ -140,7 +140,7 @@ elseif (isset($_POST["bookid"], $_POST["book_name"], $_POST["book_author"], $_PO
 }
 
 //Call ReturnBook function
-elseif (isset($_POST["ReturnBook"])) {
+elseif (isset($_POST["bookToReturn"])) {
     ReturnBook();
 }
 
