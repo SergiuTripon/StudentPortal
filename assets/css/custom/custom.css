@@ -736,46 +736,7 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Tile selected */
 
-/* Modal custom */
-.modal-confirmation .modal-content {
-    border: none;
-    border-radius: 3px;
-    background-color: #F0F0F0;
-}
 
-.modal-confirmation .modal-header {
-border-bottom-color: #B8B8B8;
-}
-
-.modal-header .close {
-    margin-top: -4px;
-}
-
-.modal-confirmation .close, .close:hover, .close:focus {
-    font-size: 30px;
-    cursor: pointer;
-    outline: none !important;
-    opacity: 1;
-    text-shadow: none;
-    color: #333333;
-}
-.modal-confirmation {
-    border-color: #CCCCCC;
-}
-
-.modal-confirmation {
-    border-color: #CCCCCC;
-}
-
-.modal-confirmation {
-    color: #333333;
-}
-
-.modal-confirmation p {
-    color: #333333;
-    margin-bottom: 0;
-}
-/* End of Modal style */
 
 /* Modal help */
 #modal-help .modal-content {
