@@ -279,7 +279,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     $stmt1->fetch();
 
         echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
-    }
+
     ?>
 
     </select>
