@@ -383,12 +383,10 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-    $(".lecture > .selectpicker").css("color", "gray");
+    $(".bootstrap-select > .selectpicker").css("color", "gray");
 
     $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
-        $(".lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
-        $(".bootstrap-select > .error-style").css("cssText", "color: #CCCCCC !important;");
-
+        $(".bootstrap-select > .selectpicker").css("cssText", "color: #333333 !important;");
     });
 
     // Date Time Picker
