@@ -127,9 +127,9 @@ include 'includes/session.php';
 			<td data-title="Start date">'.$task_startdate.'</td>
 			<td data-title="Due date">'.$task_duedate.'</td>
 			<td data-title="Category">'.$task_category.'</td>
-			<td data-title="Action"><a id="complete-'.$taskid.'" class="btn btn-primary btn-md complete-button">Complete</a></td>
-			<td data-title="Action"><a id="update-'.$taskid.'" class="btn btn-primary btn-md update-button">Update</a></td>
-			<td data-title="Action"><a id="cancel-'.$taskid.'" class="btn btn-primary btn-md cancel-button">Cancel</a></td>
+			<td data-title="Action"><a id="complete-'.$taskid.'" class="btn btn-primary btn-md ladda-button complete-button" data-style="slide-up"><span class="ladda-label">Complete</span></a></td>
+			<td data-title="Action"><a id="update-'.$taskid.'" class="btn btn-primary btn-md ladda-button update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+			<td data-title="Action"><a id="cancel-'.$taskid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
 			</tr>';
 	}
 
@@ -255,7 +255,7 @@ include 'includes/session.php';
 	<td data-title="Start date">'.$task_startdate.'</td>
 	<td data-title="Due date">'.$task_duedate.'</td>
 	<td data-title="Category">'.$task_category.'</td>
-    <td data-title="Action"><a id="activate-'.$taskid.'" class="btn btn-primary btn-md activate-button">Activate</a></td>
+    <td data-title="Action"><a id="activate-'.$taskid.'" class="btn btn-primary btn-md ladda-button activate-button">data-style="slide-up"><span class="ladda-label">Activate</span></a></td>
 	</tr>';
 	}
 
