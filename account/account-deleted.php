@@ -32,12 +32,12 @@ include '../includes/session.php';
 
 	<hr>
 
-	<p class="feedback-sad text-center">You already have an account and therefore cannot register for another. Only one account is allowed per user.</p>
+	<p class="feedback-sad text-center">You haven't deleted your account, and we hope you never will.</p>
 
 	<hr>
 
 	<div class="pull-left">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="../overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../overview/"><span class="ladda-label">Overview</span></a>
     </div>
 
     <div class="text-right">
