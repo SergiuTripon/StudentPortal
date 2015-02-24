@@ -124,7 +124,7 @@ include '../includes/session.php';
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
-		$("#password").css("border-color", "#4DC742");
+		$("#password").css("border-color", "#4DC742 !important");
 	}
 
     password = $("#password").val();
@@ -140,7 +140,7 @@ include '../includes/session.php';
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
-        $("#password").css("border-color", "#4DC742");
+        $("#password").css("cssText", "border-color: #4DC742; !important");
 	}
 
 	var upperCase= new RegExp('[A-Z]');
