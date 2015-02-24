@@ -36,7 +36,7 @@ include 'includes/session.php';
 	<div class="panel panel-default">
 
 	<?php
-	$stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE NOT userid = '$userid'");
+	$stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE NOT userid = '$session_userid'");
 	while($row = $stmt1->fetch_assoc()) {
 
 	$userid1 = $row["userid"];
@@ -50,7 +50,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Send a message - click to minimize or maximize</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Send a message</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -73,7 +73,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -134,7 +134,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_messages.userid, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.message_to = '$userid'");
+	$stmt2 = $mysqli->query("SELECT user_messages.userid, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.message_to = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -197,7 +197,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT user_messages.message_to, user_messages.message_subject, user_messages.message_body, user_messages.isRead, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.userid = '$userid'");
+	$stmt4 = $mysqli->query("SELECT user_messages.message_to, user_messages.message_subject, user_messages.message_body, user_messages.isRead, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.userid = '$session_userid'");
 
 	while($row = $stmt4->fetch_assoc()) {
 
