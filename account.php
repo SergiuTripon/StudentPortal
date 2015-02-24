@@ -462,7 +462,7 @@ include 'includes/session.php';
 		$('.form-logo i').addClass('fa-check-square-o');
 		$('.modal-body p').removeClass('feedback-custom');
 		$('.modal-body p').addClass('feedback-happy');
-		$('#success').empty().append('The account has been deleted successfully.');
+		$('.modal-body p').empty().append('The account has been deleted successfully.');
 		$('#success-button').show();
 		$("#success-button").click(function () {
 			location.reload();
