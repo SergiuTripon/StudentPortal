@@ -50,7 +50,7 @@ include '../includes/session.php';
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	</div>
 	</div>
-    <p id="error" class="feedback-sad text-center"></p>
+    <p id="error1" class="feedback-sad text-center"></p>
 
 	<hr>
 
@@ -155,7 +155,8 @@ include '../includes/session.php';
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
 	} else {
-        $("label[for='password']").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+        $("#error1").show();
+        $("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
@@ -178,7 +179,8 @@ include '../includes/session.php';
 	}
 
 	if(password != confirmpwd) {
-        $("label[for='confirmpwd']").empty().append("Your password and confirmation do not match. Please try again.");
+        $("#error1").show();
+        $("#error1").empty().append("Your password and confirmation do not match. Please try again.");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
         $("#confirmpwd").focus();
