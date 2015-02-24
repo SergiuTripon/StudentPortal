@@ -66,7 +66,7 @@ include 'includes/session.php';
 	$bookid = $row["bookid"];
 
  	echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/library/reserve-book/" method="POST">
-		<input type="hidden" name="recordToReserve" id="recordToReserve" value="'.$bookid.'"/>
+		<input type="hidden" name="bookToReserve" id="bookToReserve" value="'.$bookid.'"/>
 		</form>';
 	}
 	$stmt2->close();
@@ -282,7 +282,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Books -->
+	<!-- Active books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom books-table">
 
@@ -346,7 +346,7 @@ include 'includes/session.php';
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Books -->
+	<!-- Cancelled books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom books-table">
 
@@ -513,9 +513,9 @@ include 'includes/session.php';
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
+    var bookToReserve = clickedID[1];
 
-	$("#reserve-book-form-" + DbNumberID).submit();
+	$("#reserve-book-form-" + bookToReserve).submit();
 
 	});
 
@@ -524,9 +524,9 @@ include 'includes/session.php';
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
+    var bookToUpdate = clickedID[1];
 
-	$("#update-book-form-" + DbNumberID).submit();
+	$("#update-book-form-" + bookToUpdate).submit();
 
 	});
 
@@ -543,6 +543,9 @@ include 'includes/session.php';
 	data:'bookToCancel='+ bookToCancel,
 	success:function(){
 		$('#cancel-'+bookToCancel).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
@@ -567,6 +570,9 @@ include 'includes/session.php';
 	data:'bookToActivate='+ bookToActivate,
 	success:function(){
 		$('#activate-'+bookToActivate).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
