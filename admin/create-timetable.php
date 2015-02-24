@@ -479,7 +479,6 @@ include '../includes/session.php';
         $("label[for='module_name']").empty().append("All good!");
         $("label[for='module_name']").removeClass("feedback-sad");
         $("label[for='module_name']").addClass("feedback-happy");
-        $("label[for='module_name']").focus();
 	}
 
     var module_notes = $("#module_notes").val();
@@ -498,7 +497,6 @@ include '../includes/session.php';
         $("label[for='lecture_name']").empty().append("All good!");
         $("label[for='lecture_name']").removeClass("feedback-sad");
         $("label[for='lecture_name']").addClass("feedback-happy");
-        $("label[for='lecture_name']").focus();
 	}
 
     var lecture_lecturer_check = $("#lecturer option:selected").html();
@@ -506,7 +504,6 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
-        $("label[for='lecture_lecturer']").focus();
         hasError  = true;
         return false;
     }
@@ -514,7 +511,6 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("All good!");
         $("label[for='lecture_lecturer']").removeClass("feedback-sad");
         $("label[for='lecture_lecturer']").addClass("feedback-happy");
-        $("label[for='lecture_lecturer']").focus();
     }
 
     var lecture_day_check = $("#lecture_day option:selected").html();
@@ -530,7 +526,6 @@ include '../includes/session.php';
         $("label[for='lecture_day']").empty().append("All good!");
         $("label[for='lecture_day']").removeClass("feedback-sad");
         $("label[for='lecture_day']").addClass("feedback-happy");
-        $("label[for='lecture_day']").focus();
     }
 
     var lecture_from_time = $("#lecture_from_time").val();
@@ -545,7 +540,6 @@ include '../includes/session.php';
         $("label[for='lecture_day']").empty().append("All good!");
         $("label[for='lecture_day']").removeClass("feedback-sad");
         $("label[for='lecture_day']").addClass("feedback-happy");
-        $("label[for='lecture_day']").focus();
 	}
 
     var lecture_to_time = $("#lecture_to_time").val();
@@ -560,7 +554,6 @@ include '../includes/session.php';
         $("label[for='lecture_to_time']").empty().append("All good!");
         $("label[for='lecture_to_time']").removeClass("feedback-sad");
         $("label[for='lecture_to_time']").addClass("feedback-happy");
-        $("label[for='lecture_to_time']").focus();
 	}
 
     var lecture_from_date = $("#lecture_from_date").val();
@@ -575,7 +568,6 @@ include '../includes/session.php';
         $("label[for='lecture_from_date']").empty().append("All good!");
         $("label[for='lecture_from_date']").removeClass("feedback-sad");
         $("label[for='lecture_from_date']").addClass("feedback-happy");
-        $("label[for='lecture_from_date']").focus();
 	}
 
     var lecture_to_date = $("#lecture_to_date").val();
@@ -590,7 +582,6 @@ include '../includes/session.php';
         $("label[for='lecture_to_date']").empty().append("All good!");
         $("label[for='lecture_to_date']").removeClass("feedback-sad");
         $("label[for='lecture_to_date']").addClass("feedback-happy");
-        $("label[for='lecture_to_date']").focus();
 	}
 
     var lecture_location = $("#lecture_location").val();
@@ -605,7 +596,6 @@ include '../includes/session.php';
         $("label[for='lecture_location']").empty().append("All good!");
         $("label[for='lecture_location']").removeClass("feedback-sad");
         $("label[for='lecture_location']").addClass("feedback-happy");
-        $("label[for='lecture_location']").focus();
 	}
 
     var lecture_capacity = $("#lecture_capacity").val();
@@ -620,7 +610,6 @@ include '../includes/session.php';
         $("label[for='lecture_capacity']").empty().append("All good!");
         $("label[for='lecture_capacity']").removeClass("feedback-sad");
         $("label[for='lecture_capacity']").addClass("feedback-happy");
-        $("label[for='lecture_capacity']").focus();
 	}
 
     var lecture_lecturer = $("#lecturer option:selected").val();
