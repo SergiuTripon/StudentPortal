@@ -83,8 +83,7 @@ include '../includes/session.php';
 	<thead>
 	<tr>
 	<th>User ID</th>
-	<th>First name</th>
-	<th>Surname</th>
+	<th>Full name</th>
 	<th>Email address</th>
 	<th>Account type</th>
 	<th>Created on</th>
@@ -107,8 +106,7 @@ include '../includes/session.php';
 	echo '<tr>
 
 			<td data-title="User ID">'.$row["userid"].'</td>
-			<td data-title="First name">'.$row["firstname"].'</td>
-			<td data-title="Surname">'.$row["surname"].'</td>
+			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
