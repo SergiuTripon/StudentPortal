@@ -745,7 +745,7 @@ form .form-control:-ms-input-placeholder {
 
 .modal-confirmation .modal-header .close {
     margin-top: -4px;
-    border-bottom: #B8B8B8;
+    border-bottom-color: #B8B8B8;
 }
 
 .modal-confirmation .close, .close:hover, .close:focus {
