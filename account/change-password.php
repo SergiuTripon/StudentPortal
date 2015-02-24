@@ -140,7 +140,7 @@ include '../includes/session.php';
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
-        $("#password").css("cssText", "border: 2px solid #4DC742;");
+        $("#password").css("border-color", "#4DC742");
 	}
 
 	var upperCase= new RegExp('[A-Z]');
