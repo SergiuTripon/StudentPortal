@@ -38,6 +38,36 @@ include '../includes/session.php';
 
 	<div class="panel panel-default">
 
+	<?php
+	$stmt3 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt3->fetch_assoc()) {
+		echo '<form id="update-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
+		<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt3->close();
+	?>
+
+    <?php
+	$stmt1 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt1->fetch_assoc()) {
+		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../change-account-password/" method="POST">
+		<input type="hidden" name="recordToChange" id="recordToChange" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt1->close();
+	?>
+
+    <?php
+	$stmt5 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt5->fetch_assoc()) {
+		echo '<form id="delete-account-form-'.$row["userid"].'" style="display: none;" action="../delete-an-account/" method="POST">
+		<input type="hidden" name="recordToDelete" id="recordToDelete" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt5->close();
+	?>
+
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Update an account</a>
@@ -59,7 +89,9 @@ include '../includes/session.php';
 	<th>Account type</th>
 	<th>Created on</th>
 	<th>Updated on</th>
-	<th>Update</th>
+	<th>Action</th>
+    <th>Action</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -82,7 +114,43 @@ include '../includes/session.php';
 			<td data-title="Created on">'.$row["created_on"].'</td>
 			<td data-title="Updated on">'.$row["updated_on"].'</td>
 			<td data-title="Update"><a id="update-'.$row["userid"].'" class="update-button"><i class="fa fa-refresh"></i></a></td>
-			</tr>';
+            <td data-title="Change"><a id="change-'.$row["userid"].'" class="change-button" href="#modal-help" data-toggle="modal"><i class="fa fa-lock"></i></a></td>
+            <td data-title="Delete"><a class="delete-button" href="#modal-'.$row["userid"].'" data-toggle="modal"><i class="fa fa-close"></i></a></td>
+			</tr>
+
+			<!-- Delete an account modal -->
+    		<div class="modal fade modal-custom" id="modal-'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="success" class="feedback-custom text-center">Are you sure you want to delete this account?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="hide">
+			<div class="pull-left">
+			<a id="delete-'.$row["userid"].'" class="btn btn-danger btn-lg delete-button1 ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+			<!-- End of Delete an account modal -->';
 	}
 
 	$stmt4->close();
@@ -97,6 +165,16 @@ include '../includes/session.php';
 	</div><!-- /panel-default -->
 
 	<div class="panel panel-default">
+
+	<?php
+	$stmt1 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt1->fetch_assoc()) {
+		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../change-account-password/" method="POST">
+		<input type="hidden" name="recordToChange" id="recordToChange" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt1->close();
+	?>
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
@@ -155,6 +233,16 @@ include '../includes/session.php';
 	</div><!-- /panel-default -->
 
 	<div class="panel panel-default">
+
+	<?php
+	$stmt5 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt5->fetch_assoc()) {
+		echo '<form id="delete-account-form-'.$row["userid"].'" style="display: none;" action="../delete-an-account/" method="POST">
+		<input type="hidden" name="recordToDelete" id="recordToDelete" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt5->close();
+	?>
 
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
@@ -335,69 +423,27 @@ include '../includes/session.php';
 		}
 	});
 
-    //Change an account's password ajax call
+	//Change account password form submit
 	$("body").on("click", ".change-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var userToChangePassword = clickedID[1];
+    var DbNumberID = clickedID[1];
 
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/admin/change-account-password.php",
-	dataType:"text",
-	data:'userToChangePassword='+ userToChangePassword,
-	success:function(){
-		$('#user-'+userToChangePassword).fadeOut();
-		$('#hide').hide();
-		$('.logo-custom i').removeClass('fa-trash');
-		$('.logo-custom i').addClass('fa-check-square-o');
-		$('.modal-body p').removeClass('feedback-custom');
-		$('.modal-body p').addClass('feedback-happy');
-		$('#success').empty().append('The account has been deleted successfully.');
-		$('#success-button').show();
-		$("#success-button").click(function () {
-			location.reload();
-		});
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#success").hide();
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
+	$("#change-password-form-" + DbNumberID).submit();
 
 	});
 
-    });
-
-    //Update an account ajax call
+	//Update an account form submit
 	$("body").on("click", ".update-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var userToUpdate = clickedID[1];
+    var DbNumberID = clickedID[1];
 
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/admin/update-an-account.php?'userToUpdate=' + userToUpdate",
-	dataType:"text",
-	data:'userToUpdate='+ userToUpdate,
-	success:function(){
-		$('#user-'+userToUpdate).fadeOut();
-		$('#success').empty().append('The account has been updated successfully.');
-        window.location.href = "https://student-portal.co.uk/admin/update-an-account.php";
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#success").hide();
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
+	$("#update-account-form-" + DbNumberID).submit();
 
 	});
-
-    });
 
 	//Delete an account ajax call
 	$("body").on("click", ".delete-button1", function(e) {
