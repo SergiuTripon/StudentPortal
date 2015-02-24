@@ -667,8 +667,8 @@ form .feedback-happy {
     border-color: #D9534F !important;
 }
 
-.bootstrap-select > .error-style {
-    border-color: #333333 !important;
+.bootstrap-select > .error-style:focus {
+    border-color: #CCCCCC !important;
 }
 /* End of Bootstrap Select */
 
