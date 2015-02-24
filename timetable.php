@@ -205,14 +205,7 @@ include 'includes/session.php';
 
     <div class="row">
 
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <a href="/admin/create-timetable/">
-    <div class="tile">
-    <i class="fa fa-clock-o"></i>
-	<p class="tile-text">Create timetable</p>
-    </div>
-    </a>
-	</div>
+    <a class="btn btn-success btn-lg ladda-button" style="margin-bottom: 5px;" data-style="slide-up" href="/admin/create-timetable/"><span class="ladda-label">Create timetable</span></a>
 
     </div><!-- /row -->
 
