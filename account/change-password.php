@@ -39,11 +39,11 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="password">New password</label>
+    <label>New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="confirmpwd">New password confirmation</label>
+    <label>New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	</div>
 	</div>
@@ -114,31 +114,26 @@ include '../includes/session.php';
 
 	var password = $("#password").val();
 	if(password === '') {
-        $("label[for='password']").empty().append("Please enter a new password.");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
-        $("#password").focus();
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a password.");
+		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-        $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
+		$("#error1").hide();
+		$("#password").css("border-color", "#4DC742");
 	}
 
     password = $("#password").val();
 	if (password.length < 6) {
-        $("#error1").show();
-        $("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
-        $("#password").focus();
+		$("#error1").show();
+		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
+		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	} else {
-        $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
+		$("#error1").hide();
+		$("#password").css("border-color", "#4DC742");
 	}
 
 	var upperCase= new RegExp('[A-Z]');
@@ -147,44 +142,39 @@ include '../includes/session.php';
 
     password = $("#password").val();
 	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
-        $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
+		$("#error1").hide();
+		$("#password").css("border-color", "#4DC742");
 	} else {
-        $("#error1").show;
-        $("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
-        $("#password").focus();
+		$("#error1").show();
+		$("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
 	}
 
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-        $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
-        $("label[for='confirmpwd']").removeClass("feedback-happy");
-        $("label[for='confirmpwd']").addClass("feedback-sad");
-        $("#confirmpwd").focus();
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a password confirmation.");
+		$("#confirmpwd").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-        $("label[for='confirmpwd']").empty().append("All good!");
-        $("label[for='confirmpwd']").removeClass("feedback-sad");
-        $("label[for='confirmpwd']").addClass("feedback-happy");
+		$("#error1").hide();
+		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
 	if(password != confirmpwd) {
-        $("label[for='confirmpwd']").empty().append("Your password and confirmation do not match. Please try again.");
-        $("label[for='confirmpwd']").removeClass("feedback-happy");
-        $("label[for='confirmpwd']").addClass("feedback-sad");
-        $("#confirmpwd").focus();
+		$("#error1").show();
+		$("#error1").empty().append("Your password and confirmation do not match. Please try again.");
+		$("#password").css("border-color", "#FF5454");
+		$("#confirmpwd").css("border-color", "#FF5454");
         hasError  = true;
 		return false;
 	} else {
-		$("label[for='confirmpwd']").empty().append("All good!");
-        $("label[for='confirmpwd']").removeClass("feedback-sad");
-        $("label[for='confirmpwd']").addClass("feedback-happy");
+		$("#error1").hide();
+		$("#password").css("border-color", "#4DC742");
+		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 	
 	if(hasError == false){
