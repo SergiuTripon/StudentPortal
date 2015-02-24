@@ -1226,6 +1226,7 @@ function UpdateTask() {
 function CompleteTask() {
 
 	global $mysqli;
+    global $updated_on;
 
 	$taskToComplete = filter_input(INPUT_POST, 'taskToComplete', FILTER_SANITIZE_NUMBER_INT);
 	$task_status = 'completed';
@@ -1240,6 +1241,7 @@ function CompleteTask() {
 function CancelTask() {
 
     global $mysqli;
+    global $updated_on;
 
     $taskToCancel = filter_input(INPUT_POST, 'taskToCancel', FILTER_SANITIZE_NUMBER_INT);
     $task_status = 'cancelled';
@@ -1254,6 +1256,7 @@ function CancelTask() {
 function ActivateTask() {
 
     global $mysqli;
+    global $updated_on;
 
     $taskToActivate = filter_input(INPUT_POST, 'taskToActivate', FILTER_SANITIZE_NUMBER_INT);
     $task_status = 'active';
