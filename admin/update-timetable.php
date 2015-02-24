@@ -175,7 +175,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
         echo '<option>'.$other_lecturers_firstname.' '.$other_lecturers_surname.'</option>';
     }
     ?>
-
     </select>
 
     </div>
@@ -253,49 +252,35 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <label for="tutorial_assistant">Current tutorial assistant</label>
     <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
-
-        $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-        $stmt1->bind_param('i', $tutorial_assistant);
-        $stmt1->execute();
-        $stmt1->store_result();
-        $stmt1->bind_result($firstname, $surname);
-        $stmt1->fetch();
-
-        echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
-
-    ?>
-
-    </select>
-
-    </div>
-
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="update_tutorial_assistant">Update tutorial assistant</label>
-    <select class="selectpicker update_tutorial_assistant" name="update_tutorial_assistant" id="update_tutorial_assistant">
-        <option data-hidden="true">Select an option</option>
-    <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$tutorial_assistant'");
+    $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$tutorial_assistant'");
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $tutorial_assistant = $row["userid"];
+    $tutorial_assistant_firstname = $row["firstname"];
+    $tutorial_assistant_surname = $row["surname"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $tutorial_assistant);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
+        echo '<option>'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</option>';
+    }
 
-        echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
+    $stmt2 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type='lecturer' AND NOT userid = '$tutorial_assistant'");
+
+    while ($row = $stmt2->fetch_assoc()){
+
+        $other_tutorial_assistants = $row["userid"];
+
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3->bind_param('i', $other_tutorial_assistants);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($other_tutorial_assistants_firstname, $other_tutorial_assistants_surname);
+        $stmt3->fetch();
+
+        echo '<option>'.$other_tutorial_assistants_firstname.' '.$other_tutorial_assistants_surname.'</option>';
     }
     ?>
-
     </select>
 
     </div>
-    </div>
-    <p id="error9" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
