@@ -38,6 +38,16 @@ include '../includes/session.php';
 
 	<div class="panel panel-default">
 
+	<?php
+	$stmt3 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt3->fetch_assoc()) {
+		echo '<form id="update-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
+		<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt3->close();
+	?>
+
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Update an account</a>
@@ -98,6 +108,16 @@ include '../includes/session.php';
 
 	<div class="panel panel-default">
 
+	<?php
+	$stmt1 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt1->fetch_assoc()) {
+		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../change-account-password/" method="POST">
+		<input type="hidden" name="recordToChange" id="recordToChange" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt1->close();
+	?>
+
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
 	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Change an account's password</a>
@@ -155,6 +175,16 @@ include '../includes/session.php';
 	</div><!-- /panel-default -->
 
 	<div class="panel panel-default">
+
+	<?php
+	$stmt5 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	while($row = $stmt5->fetch_assoc()) {
+		echo '<form id="delete-account-form-'.$row["userid"].'" style="display: none;" action="../delete-an-account/" method="POST">
+		<input type="hidden" name="recordToDelete" id="recordToDelete" value="'.$row["userid"].'"/>
+		</form>';
+	}
+	$stmt5->close();
+	?>
 
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
@@ -335,69 +365,27 @@ include '../includes/session.php';
 		}
 	});
 
-    //Change an account's password ajax call
+	//Change account password form submit
 	$("body").on("click", ".change-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var userToChangePassword = clickedID[1];
+    var DbNumberID = clickedID[1];
 
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/admin/change-account-password.php",
-	dataType:"text",
-	data:'userToChangePassword='+ userToChangePassword,
-	success:function(){
-		$('#user-'+userToChangePassword).fadeOut();
-		$('#hide').hide();
-		$('.logo-custom i').removeClass('fa-trash');
-		$('.logo-custom i').addClass('fa-check-square-o');
-		$('.modal-body p').removeClass('feedback-custom');
-		$('.modal-body p').addClass('feedback-happy');
-		$('#success').empty().append('The account has been deleted successfully.');
-		$('#success-button').show();
-		$("#success-button").click(function () {
-			location.reload();
-		});
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#success").hide();
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
+	$("#change-password-form-" + DbNumberID).submit();
 
 	});
 
-    });
-
-    //Update an account ajax call
+	//Update an account form submit
 	$("body").on("click", ".update-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var userToUpdate = clickedID[1];
+    var DbNumberID = clickedID[1];
 
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/admin/update-an-account.php?userToUpdate="userToUpdate"",
-	dataType:"text",
-	data:'userToUpdate='+ userToUpdate,
-	success:function(){
-		$('#user-'+userToUpdate).fadeOut();
-		$('#success').empty().append('The account has been updated successfully.');
-        window.location.href = "https://student-portal.co.uk/admin/update-an-account.php";
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#success").hide();
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
+	$("#update-account-form-" + DbNumberID).submit();
 
 	});
-
-    });
 
 	//Delete an account ajax call
 	$("body").on("click", ".delete-button1", function(e) {
