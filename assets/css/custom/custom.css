@@ -740,11 +740,12 @@ form .form-control:-ms-input-placeholder {
 .modal-confirmation .modal-content {
     border: none;
     border-radius: 3px;
-    background-color: #FFFFFF;
+    background-color: #F0F0F0;
 }
 
 .modal-confirmation .modal-header .close {
     margin-top: -4px;
+    border-bottom: #B8B8B8;
 }
 
 .modal-confirmation .close, .close:hover, .close:focus {
