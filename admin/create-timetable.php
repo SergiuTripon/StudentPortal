@@ -792,7 +792,7 @@ include '../includes/session.php';
         $("label[for='exam_time']").empty().append("Please select a time.");
         $("label[for='exam_time']").removeClass("feedback-happy");
         $("label[for='exam_time']").addClass("feedback-sad");
-        $("#exam_name").focus();
+        $("#exam_time").focus();
 		hasError  = true;
         return false;
 	} else {
@@ -806,7 +806,7 @@ include '../includes/session.php';
         $("label[for='exam_location']").empty().append("Please enter a location.");
         $("label[for='exam_location']").removeClass("feedback-happy");
         $("label[for='exam_location']").addClass("feedback-sad");
-        $("#exam_name").focus();
+        $("#exam_location").focus();
 		hasError  = true;
         return false;
 	} else {
