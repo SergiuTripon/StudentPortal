@@ -13,6 +13,45 @@
 
 <body>
 
+    <div class="preloader"></div>
+
+    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
+
+    <?php include 'includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
+
+    <form class="form-custom">
+
+	<div class="form-logo text-center">
+    <i class="fa fa-check-square-o"></i>
+    </div>
+
+	<hr>
+
+	<p class="feedback-sad text-center">You already have an account and therefore cannot register for another. Only one account is allowed per user.</p>
+
+	<hr>
+
+	<div class="pull-left">
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="../overview/"><span class="ladda-label">Overview</span></a>
+    </div>
+
+    <div class="text-right">
+    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="../sign-out/"><span class="ladda-label">Sign Out</span></a>
+    </div>
+
+	</form>
+
+    </div>
+
+    <?php include 'includes/footers/footer.php'; ?>
+
+    <!-- Sign Out (Inactive) JS -->
+    <script src="../assets/js/sign-out-inactive.js"></script>
+
+	<?php else : ?>
+
     <?php include '../includes/menus/menu.php'; ?>
 
 	<div class="preloader"></div>
@@ -45,6 +84,8 @@
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
+
+    <?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 	
