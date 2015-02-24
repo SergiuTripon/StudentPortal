@@ -2208,12 +2208,11 @@ function ChangeAccountPassword() {
 function DeleteAnAccount() {
 
     global $mysqli;
-    global $userid;
 
-    $idToDelete = filter_input(INPUT_POST, 'recordToDelete', FILTER_SANITIZE_NUMBER_INT);
+    $userToDelete = filter_input(INPUT_POST, 'userToDelete', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ? LIMIT 1");
-    $stmt1->bind_param('i', $idToDelete);
+    $stmt1->bind_param('i', $userToDelete);
     $stmt1->execute();
     $stmt1->close();
 }
