@@ -97,7 +97,7 @@ function SignIn() {
 
 	$session_userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
 
- 	$_SESSION['userid'] = $session_userid;
+ 	$_SESSION['session_userid'] = $session_userid;
 	$_SESSION['account_type'] = $session_account_type;
 
 	} else {

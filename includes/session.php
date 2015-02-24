@@ -12,9 +12,11 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if (isset($_SESSION['userid']))
-$userid = $_SESSION['userid'];
-else $userid = '';
+if (isset($_SESSION['session_userid'])) {
+    $session_userid = $_SESSION['session_userid'];
+} else {
+    $session_userid = '';
+}
 
 $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
 $stmt1->bind_param('i', $userid);
