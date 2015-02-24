@@ -1209,13 +1209,41 @@ function CompleteTask() {
 
 	global $mysqli;
 
-	$idToComplete = filter_input(INPUT_POST, 'recordToComplete', FILTER_SANITIZE_NUMBER_INT);
+	$taskToComplete = filter_input(INPUT_POST, 'taskToComplete', FILTER_SANITIZE_NUMBER_INT);
 	$task_status = 'completed';
 
-	$stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, completed_on = ? WHERE taskid = ? LIMIT 1");
-	$stmt1->bind_param('ssi', $task_status, $completed_on, $idToComplete);
+	$stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, updated_on = ? WHERE taskid = ? LIMIT 1");
+	$stmt1->bind_param('ssi', $task_status, $updated_on, $taskToComplete);
 	$stmt1->execute();
 	$stmt1->close();
+}
+
+//CancelTask function
+function CancelTask() {
+
+    global $mysqli;
+
+    $taskToCancel = filter_input(INPUT_POST, 'taskToCancel', FILTER_SANITIZE_NUMBER_INT);
+    $task_status = 'cancelled';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, updated_on = ? WHERE taskid = ? LIMIT 1");
+    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToCancel);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//ActivateTask function
+function ActivateTask() {
+
+    global $mysqli;
+
+    $taskToActivate = filter_input(INPUT_POST, 'taskToActivate', FILTER_SANITIZE_NUMBER_INT);
+    $task_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, updated_on = ? WHERE taskid = ? LIMIT 1");
+    $stmt1->bind_param('ssi', $task_status, $completed_on, $taskToActivate);
+    $stmt1->execute();
+    $stmt1->close();
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

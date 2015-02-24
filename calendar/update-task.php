@@ -1,12 +1,12 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["recordToUpdate"])) {
+if (isset($_POST["taskToUpdate"])) {
 
-$idToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
+$taskToUpdate = filter_input(INPUT_POST, 'taskToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
 $stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, task_startdate, task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
-$stmt1->bind_param('i', $idToUpdate);
+$stmt1->bind_param('i', $taskToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
 $stmt1->bind_result($taskid, $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $task_category);

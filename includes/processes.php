@@ -182,8 +182,18 @@ elseif (isset($_POST['taskid'], $_POST['task_name1'], $_POST['task_notes1'], $_P
 }
 
 //Call CompleteTask function
-elseif (isset($_POST["recordToComplete"])) {
+elseif (isset($_POST["taskToComplete"])) {
     CompleteTask();
+}
+
+//Call CompleteTask function
+elseif (isset($_POST["taskToCancel"])) {
+    CancelTask();
+}
+
+//Call CompleteTask function
+elseif (isset($_POST["taskToActivate"])) {
+    ActivateTask();
 }
 
 /////////////////////////////////////////////////////////////

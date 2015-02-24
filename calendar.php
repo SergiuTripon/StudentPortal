@@ -71,7 +71,7 @@ include 'includes/session.php';
 	$stmt2 = $mysqli->query("SELECT taskid FROM user_tasks WHERE userid = '$userid' AND task_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
 	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="/calendar/update-task/" method="POST">
-			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["taskid"].'"/>
+			<input type="hidden" name="taskToUpdate" id="taskToUpdate" value="'.$row["taskid"].'"/>
 			</form>';
 	}
 	$stmt2->close();
@@ -375,6 +375,33 @@ include 'includes/session.php';
 	data:'taskToCancel='+ taskToCancel,
 	success:function(){
 		$('#task-'+taskToCancel).fadeOut();
+		setTimeout(function(){
+			location.reload();
+		}, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
+    $("body").on("click", ".activate-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var taskToActivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'taskToActivate='+ taskToActivate,
+	success:function(){
+		$('#task-'+taskToActivate).fadeOut();
 		setTimeout(function(){
 			location.reload();
 		}, 1000);
