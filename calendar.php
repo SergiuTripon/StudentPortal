@@ -68,7 +68,7 @@ include 'includes/session.php';
 	<div id="duetasks-toggle" class="panel panel-default">
 
 	<?php
-	$stmt2 = $mysqli->query("SELECT taskid FROM user_tasks WHERE userid = '$userid' AND task_status = 'active'");
+	$stmt2 = $mysqli->query("SELECT taskid FROM user_tasks WHERE userid = '$session_userid' AND task_status = 'active'");
 	while($row = $stmt2->fetch_assoc()) {
 	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="/calendar/update-task/" method="POST">
 			<input type="hidden" name="taskToUpdate" id="taskToUpdate" value="'.$row["taskid"].'"/>
