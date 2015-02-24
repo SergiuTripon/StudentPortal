@@ -330,7 +330,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="tutorial_day">Tutorial day</label>
     <select class="selectpicker tutorial_day" name="tutorial_day" id="tutorial_day">
-        <option data-hidden="true">Select an option</option>
         <option><?php echo $tutorial_day; ?></option>
     </select>
     </div>
