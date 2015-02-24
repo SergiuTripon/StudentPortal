@@ -159,27 +159,29 @@ include '../includes/session.php';
 
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a password confirmation.");
-		$("#confirmpwd").css("border-color", "#FF5454");
+        $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
+        $("label[for='confirmpwd']").removeClass("feedback-happy");
+        $("label[for='confirmpwd']").addClass("feedback-sad");
+        $("#confirmpwd").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
-		$("#confirmpwd").css("border-color", "#4DC742");
+        $("label[for='confirmpwd']").empty().append("All good!");
+        $("label[for='confirmpwd']").removeClass("feedback-sad");
+        $("label[for='confirmpwd']").addClass("feedback-happy");
 	}
 
 	if(password != confirmpwd) {
-		$("#error1").show();
-		$("#error1").empty().append("Your password and confirmation do not match. Please try again.");
-		$("#password").css("border-color", "#FF5454");
-		$("#confirmpwd").css("border-color", "#FF5454");
+        $("label[for='confirmpwd']").empty().append("Your password and confirmation do not match. Please try again.");
+        $("label[for='confirmpwd']").removeClass("feedback-happy");
+        $("label[for='confirmpwd']").addClass("feedback-sad");
+        $("#confirmpwd").focus();
         hasError  = true;
 		return false;
 	} else {
-		$("#error1").hide();
-		$("#password").css("border-color", "#4DC742");
-		$("#confirmpwd").css("border-color", "#4DC742");
+        $("label[for='confirmpwd']").empty().append("All good!");
+        $("label[for='confirmpwd']").removeClass("feedback-sad");
+        $("label[for='confirmpwd']").addClass("feedback-happy");
 	}
 	
 	if(hasError == false){
