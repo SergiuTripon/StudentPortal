@@ -937,7 +937,7 @@ function ReturnBook() {
     $isReturned = 1;
 
     $stmt1 = $mysqli->prepare("UPDATE reserved_books SET isReturned=? WHERE bookid=?");
-    $stmt1->bind_param('ssi', $isReturned, $bookToReturn);
+    $stmt1->bind_param('ii', $isReturned, $bookToReturn);
     $stmt1->execute();
     $stmt1->close();
 
