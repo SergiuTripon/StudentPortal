@@ -134,6 +134,7 @@ include '../includes/session.php';
         $("#error1").show();
         $("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
         $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
+        $("label[for='password']").empty().append("Wait a minute!");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
@@ -157,6 +158,7 @@ include '../includes/session.php';
 	} else {
         $("#error1").show();
         $("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+        $("label[for='password']").empty().append("Wait a minute!");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
@@ -181,6 +183,7 @@ include '../includes/session.php';
 	if(password != confirmpwd) {
         $("#error1").show();
         $("#error1").empty().append("Your password and confirmation do not match. Please try again.");
+        $("label[for='password']").empty().append("Wait a minute!");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
         $("#confirmpwd").focus();
