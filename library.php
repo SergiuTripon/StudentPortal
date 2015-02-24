@@ -364,6 +364,68 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'reserved'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+	$book_name = $row["book_name"];
+	$book_author = $row["book_author"];
+	$book_notes = $row["book_notes"];
+	$book_copy_no = $row["book_copy_no"];
+	$book_status = $row["book_status"];
+	$book_status = ucfirst($book_status);
+
+	echo '<tr id="activate-'.$bookid.'">
+
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Notes">'.$book_notes.'</td>
+			<td data-title="Copy no.">'.$book_copy_no.'</td>
+			<td data-title="Status">'.$book_status.'</td>
+			<td data-title="Action"><a id=activate-'.$bookid.' class="btn btn-primary btn-md activate-button ladda-button" data-style="slide-up"><span class="ladda-label">Activate</span></a></td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Cancelled books</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Cancelled books -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom books-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Author</th>
+	<th>Notes</th>
+	<th>Copy no.</th>
+	<th>Status</th>
+	<th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
 	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'cancelled'");
 
 	while($row = $stmt1->fetch_assoc()) {
