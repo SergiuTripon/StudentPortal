@@ -102,7 +102,7 @@ include '../includes/session.php';
 
 	$account_type = ucfirst($row["account_type"]);
 
-	echo '<tr>
+	echo '<tr id="user-'.$row["userid"].'">
 
 			<td data-title="User ID">'.$row["userid"].'</td>
 			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
