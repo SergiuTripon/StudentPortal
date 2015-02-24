@@ -112,36 +112,40 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
-	var password3 = $("#password").val();
-	if(password3 === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a password.");
-		$("#password").css("border-color", "#FF5454");
+	var password = $("#password").val();
+	if(password === '') {
+        $("label[for='password']").empty().append("Please enter a new password.");
+        $("label[for='password']").removeClass("feedback-happy");
+        $("label[for='password']").addClass("feedback-sad");
+        $("#password").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
-		$("#password").css("border-color", "#4DC742");
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-sad");
+        $("label[for='password']").addClass("feedback-happy");
 	}
 
-    password3 = $("#password").val();
-	if (password3.length < 6) {
-		$("#error1").show();
-		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
-		$("#password").css("border-color", "#FF5454");
+    password = $("#password").val();
+	if (password.length < 6) {
+        $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
+        $("label[for='password']").removeClass("feedback-happy");
+        $("label[for='password']").addClass("feedback-sad");
+        $("#password").focus();
 		hasError  = true;
 		return false;
 	} else {
-		$("#error1").hide();
-		$("#password").css("border-color", "#4DC742");
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-sad");
+        $("label[for='password']").addClass("feedback-happy");
 	}
 
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
 
-    password3 = $("#password").val();
-	if(password3.match(upperCase) && password3.match(lowerCase) && password3.match(numbers)) {
+    password = $("#password").val();
+	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
 		$("#error1").hide();
 		$("#password").css("border-color", "#4DC742");
 	} else {
@@ -164,7 +168,7 @@ include '../includes/session.php';
 		$("#confirmpwd").css("border-color", "#4DC742");
 	}
 
-	if(password3 != confirmpwd) {
+	if(password != confirmpwd) {
 		$("#error1").show();
 		$("#error1").empty().append("Your password and confirmation do not match. Please try again.");
 		$("#password").css("border-color", "#FF5454");
@@ -181,7 +185,7 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'password3=' + password3,
+    data:'password3=' + password,
     success:function(){
 		$("#hide").hide();
 		$("#error").hide();
