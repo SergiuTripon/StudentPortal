@@ -270,18 +270,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <label for="tutorial_assistant">Current tutorial assistant</label>
     <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$tutorial_assistant'");
 
-    while ($row = $stmt1->fetch_assoc()){
-
-    $tutorial_assistant = $row["userid"];
-
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $tutorial_assistant);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
+    $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt1->bind_param('i', $tutorial_assistant);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($firstname, $surname);
+    $stmt1->fetch();
 
         echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
     }
@@ -329,7 +324,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="tutorial_day">Tutorial day</label>
-    <select class="selectpicker tutorial_day" name="tutorial_day" id="tutorial_day">
+    <select class="selectpicker tutorial_day" name="tutorial_day" id="tutorial_day" disabled>
         <option><?php echo $tutorial_day; ?></option>
     </select>
     </div>
