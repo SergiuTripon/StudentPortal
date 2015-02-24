@@ -186,7 +186,7 @@ include 'includes/session.php';
 
 	<?php
     //Update an account
-	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
 	while($row = $stmt2->fetch_assoc()) {
 		echo '<form id="update-an-account-form-'.$row["userid"].'" style="display: none;" action="../admin/update-an-account/" method="POST">
 		<input type="hidden" name="userToUpdate" id="userToUpdate" value="'.$row["userid"].'"/>
@@ -197,7 +197,7 @@ include 'includes/session.php';
 
     <?php
     //Change an account's password
-	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
 	while($row = $stmt2->fetch_assoc()) {
 		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../admin/change-account-password/" method="POST">
 		<input type="hidden" name="userToChangePassword" id="userToChangePassword" value="'.$row["userid"].'"/>
@@ -234,7 +234,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
+	$stmt4 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
 
 	while($row = $stmt4->fetch_assoc()) {
 
@@ -325,7 +325,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid' AND user_signin.isSignedIn = '1'");
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
