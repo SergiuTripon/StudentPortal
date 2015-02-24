@@ -947,7 +947,7 @@ function RequestBook() {
     $stmt2->bind_param('i', $userid);
     $stmt2->execute();
     $stmt2->store_result();
-    $stmt2->bind_result($reservee_email, $reservee_firstname, $reservee_surname);
+    $stmt2->bind_result($reservee_email, $reservee_firstname, $reservee_surname, $reservee_studentno);
     $stmt2->fetch();
     $stmt2->close();
 
