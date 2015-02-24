@@ -147,22 +147,16 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label for="lecture_lecturer">Current lecturer</label>
-    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
+    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer" disabled>
     <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
+    $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$lecture_lecturer'");
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $tutorial_assistant = $row["userid"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $tutorial_assistant);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
-
-        echo '<option value="'.$tutorial_assistant.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option>'.$firstname.' '.$surname.'</option>';
     }
     ?>
 
