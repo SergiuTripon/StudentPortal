@@ -661,7 +661,7 @@ form .feedback-happy {
 }
 
 .bootstrap-select > .error-style:focus {
-    color: #D9534F !important;
+    color: gray !important;
     border-color: #8A8A8A !important;
 }
 /* End of Bootstrap Select */
