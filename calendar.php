@@ -204,6 +204,68 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
   	</div><!-- /panel-default -->
 
+    <div id="cancelleddtasks-toggle" class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseTwo"> Cancelled tasks</a>
+  	</h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+  	<div class="panel-body">
+
+	<!-- Completed tasks -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Notes</th>
+	<th>External URL</th>
+	<th>Start</th>
+	<th>Due</th>
+	<th>Category</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'cancelled'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+    $taskid = $row["taskid"];
+    $task_name = $row["task_name"];
+    $task_notes = $row["task_notes"];
+    $task_startdate = $row["task_startdate"];
+    $task_duedate = $row["task_duedate"];
+    $task_url = $row["task_url"];
+    $task_category = $row["task_category"];
+    $task_category = ucfirst($row["task_category"]);
+
+	echo '<tr id="task-'.$taskid.'">
+
+	<td data-title="Name">'.$task_name.'</td>
+	<td data-title="Notes">'.($task_notes === '' ? "No notes" : "$task_notes").'</td>
+    <td data-title="External URL">'.($task_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
+	<td data-title="Start date">'.$task_startdate.'</td>
+	<td data-title="Due date">'.$task_duedate.'</td>
+	<td data-title="Category">'.$task_category.'</td>
+	</tr>';
+	}
+
+	$stmt2->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+  	</div><!-- /panel-default -->
+
 	</div><!-- /panel-group -->
 
 	<div class="panel-group calendar-view" id="accordion" role="tablist" aria-multiselectable="true">
