@@ -1005,6 +1005,24 @@ function CancelBook()
     $stmt1->close();
 }
 
+//ActivateBook function
+function ActivateBook()
+{
+
+    global $mysqli;
+    global $updated_on;
+
+    //Book
+    $bookToActivate = filter_input(INPUT_POST, 'bookToActivate', FILTER_SANITIZE_STRING);
+
+    $book_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToActivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Transport functions
