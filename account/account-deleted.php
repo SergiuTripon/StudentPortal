@@ -32,7 +32,7 @@ include '../includes/session.php';
 
 	<hr>
 
-	<p class="feedback-sad text-center">You haven't deleted your account, and we hope you never will.</p>
+	<p class="feedback-sad text-center">You haven't deleted your account, and we hope you never will. But if you actually want to, click the button below.</p>
 
 	<hr>
 
@@ -41,7 +41,7 @@ include '../includes/session.php';
     </div>
 
     <div class="text-right">
-    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="../../sign-out/"><span class="ladda-label">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="../account/delete-account/"><span class="ladda-label">Delete account</span></a>
     </div>
 
 	</form>
