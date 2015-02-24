@@ -383,10 +383,10 @@ include '../includes/session.php';
 
     $('.selectpicker').selectpicker();
 
-    $(".selectpicker").css("color", "gray");
+    $(".lecture > .selectpicker").css("color", "gray");
 
     $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
-        $(".selectpicker").css("cssText", "color: #333333 !important;");
+        $(".lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
         $(".bootstrap-select > .error-style").css("cssText", "color: #CCCCCC !important;");
 
     });
