@@ -147,7 +147,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label for="lecture_lecturer">Current lecturer</label>
-    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
+    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer" disabled>
     <?php
     $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$lecture_lecturer'");
 
@@ -155,6 +155,16 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $firstname = $row["firstname"];
     $surname = $row["surname"];
+
+        echo '<option>'.$firstname.' '.$surname.'</option>';
+    }
+
+    $stmt2 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE NOT userid = '$lecture_lecturer'");
+
+    while ($row = $stmt2->fetch_assoc()){
+
+        $firstname = $row["firstname"];
+        $surname = $row["surname"];
 
         echo '<option>'.$firstname.' '.$surname.'</option>';
     }
