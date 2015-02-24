@@ -926,6 +926,70 @@ function ReserveBook() {
 }
 
 //ReturnBook function
+function RequestBook() {
+
+    global $mysqli;
+    global $session_userid;
+
+    //Book
+    $bookToRequest = filter_input(INPUT_POST, 'bookToRequest', FILTER_SANITIZE_STRING);
+
+
+    $stmt1 = $mysqli->prepare("SELECT reserved_books.userid, reserved_books.reserved_on, reserved_books.toreturn_on, system_books.book_name, system_books.book_author FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid WHERE bookid=?");
+    $stmt1->bind_param('i', $bookToRequest);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($userid);
+    $stmt1->fetch();
+    $stmt1->close();
+
+    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $userid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($reservee_email, $reservee_firstname, $reservee_surname);
+    $stmt2->fetch();
+    $stmt2->close();
+
+    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $session_userid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($requester_email, $requester_firstname, $requester_surname, $requester_studentno);
+    $stmt2->fetch();
+    $stmt2->close();
+
+    //Creating email
+    $subject = 'Reservation confirmation';
+
+    $message = '<html>';
+    $message .= '<body>';
+    $message .= '<p>Hi! Someone requested a book you reserved. Below, you can find the request summary:</p>';
+    $message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$requester_firstname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $requester_surname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $requester_email</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $requester_studentno</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_name</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_author</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_from</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_to</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Reservation status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $reservation_status</td></tr>";
+    $message .= '</table>';
+    $message .= '</body>';
+    $message .= '</html>';
+
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+    $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+    $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+    mail("$reservee_email, admin@student-portal.co.uk", $subject, $message, $headers);
+
+}
+
+//ReturnBook function
 function ReturnBook() {
 
     global $mysqli;

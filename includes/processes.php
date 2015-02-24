@@ -139,6 +139,11 @@ elseif (isset($_POST["bookid"], $_POST["book_name"], $_POST["book_author"], $_PO
     ReserveBook();
 }
 
+//Call RequestBook function
+elseif (isset($_POST["bookToRequest"])) {
+    RequestBook();
+}
+
 //Call ReturnBook function
 elseif (isset($_POST["bookToReturn"])) {
     ReturnBook();
