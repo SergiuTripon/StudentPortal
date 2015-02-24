@@ -249,7 +249,7 @@ elseif (isset($_POST["eventToActivate"])) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call MessageUser functions
-elseif (isset($_POST["userid2"], $_POST["firstname5"], $_POST["surname5"], $_POST["email8"], $_POST["subject"], $_POST["message1"])) {
+elseif (isset($_POST["message_to_userid"], $_POST["message_to_firstname"], $_POST["message_to_surname"], $_POST["message_to_email"], $_POST["subject"], $_POST["message1"])) {
     MessageUser();
 }
 
