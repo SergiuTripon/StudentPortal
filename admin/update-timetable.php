@@ -331,18 +331,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <label for="tutorial_day">Tutorial day</label>
     <select class="selectpicker tutorial_day" name="tutorial_day" id="tutorial_day">
         <option data-hidden="true">Select an option</option>
-        <?php
-        $stmt1 = $mysqli->query("SELECT tutorial_day FROM system_tutorials WHERE tutorial_day = '$tutorial_day'");
-
-        while ($row = $stmt1->fetch_assoc()){
-
-            $tutorial_day = $row["tutorial_day"];
-
-
-            echo '<option>'.$tutorial_day.'</option>';
-        }
-        ?>
-
+        <option><?php echo $tutorial_day; ?></option>
     </select>
     </div>
     </div>
