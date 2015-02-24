@@ -99,6 +99,7 @@ include 'includes/session.php';
 	<th>Category</th>
 	<th>Action</th>
 	<th>Action</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -128,6 +129,7 @@ include 'includes/session.php';
 			<td data-title="Category">'.$task_category.'</td>
 			<td data-title="Action"><a id="complete-'.$taskid.'" class="btn btn-primary btn-md complete-button">Complete</a></td>
 			<td data-title="Action"><a id="update-'.$taskid.'" class="btn btn-primary btn-md update-button">Update</a></td>
+			<td data-title="Action"><a id="cancel-'.$taskid.'" class="btn btn-primary btn-md cancel-button">Cancel</a></td>
 			</tr>';
 	}
 
@@ -169,7 +171,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'completed'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$userid' AND task_status = 'cancelled'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -190,6 +192,7 @@ include 'includes/session.php';
 	<td data-title="Start date">'.$task_startdate.'</td>
 	<td data-title="Due date">'.$task_duedate.'</td>
 	<td data-title="Category">'.$task_category.'</td>
+    <td data-title="Action"><a id="activate-'.$taskid.'" class="btn btn-primary btn-md activate-button">Activate</a></td>
 	</tr>';
 	}
 
@@ -399,6 +402,16 @@ include 'includes/session.php';
 		}
 	});
 
+    $("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#update-task-form-" + DbNumberID).submit();
+
+	});
+
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
 
@@ -479,16 +492,6 @@ include 'includes/session.php';
 	});
 
     });
-
-	$("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#update-task-form-" + DbNumberID).submit();
-
-	});
 
 	$("#calendar-toggle").hide();
 	$(".task-tile").addClass("tile-selected");
