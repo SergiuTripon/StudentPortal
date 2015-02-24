@@ -260,48 +260,56 @@ if ($fee_amount == "0.00") {
 
     var payer_address1 = $('#payer_address1').val();
 	if (payer_address1 === '') {
-        $("#error1").show();
-        $("#error1").empty().append("Please enter the first line of an address.");
-		$("#payer_address1").css("border-color", "#FF5454");
+        $("label[for='payer_address1']").empty().append("Please enter the first line of an address.");
+        $("label[for='payer_address1']").removeClass("feedback-happy");
+        $("label[for='payer_address1']").addClass("feedback-sad");
+        $("#payer_address1").focus();
 		hasError  = true;
 		return false;
 	} else {
-		$("#error1").hide();
-		$("#payer_address1").css("border-color", "#4DC742");
+        $("label[for='payer_address1']").empty().append("All good!");
+        $("label[for='payer_address1']").removeClass("feedback-sad");
+        $("label[for='payer_address1']").addClass("feedback-happy");
 	}
 
     var payer_city = $("#payer_city").val();
 	if(payer_city === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a city.");
-		$("#payer_city").css("border-color", "#FF5454");
+        $("label[for='payer_city']").empty().append("Please enter a city.");
+        $("label[for='payer_city']").removeClass("feedback-happy");
+        $("label[for='payer_city']").addClass("feedback-sad");
+        $("#payer_city").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
-		$("#payer_city").css("border-color", "#4DC742");
+        $("label[for='payer_city']").empty().append("All good!");
+        $("label[for='payer_city']").removeClass("feedback-sad");
+        $("label[for='payer_city']").addClass("feedback-happy");
 	}
 
     var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a postcode.");
-		$("#payer_postcode").css("border-color", "#FF5454");
+        $("label[for='payer_city']").empty().append("Please enter a postcode.");
+        $("label[for='payer_city']").removeClass("feedback-happy");
+        $("label[for='payer_city']").addClass("feedback-sad");
+        $("#payer_city").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
-		$("#payer_postcode").css("border-color", "#4DC742");
+        $("label[for='payer_city']").empty().append("All good!");
+        $("label[for='payer_city']").removeClass("feedback-sad");
+        $("label[for='payer_city']").addClass("feedback-happy");
 	}
 
     var fees_type_check = $(".fees_type");
 	if (fees_type_check.hasClass('active')) {
-		$("#error3").hide();
-		$(".btn-group > .fees_type").addClass("success-style");
+        $("label[for='fees_type']").empty().append("All good!");
+        $("label[for='fees_type']").removeClass("feedback-sad");
+        $("label[for='fees_type']").addClass("feedback-happy");
 	}
 	else {
-		$("#error3").empty().append("Please select how you want to pay your fees.");
-		$(".btn-group > .fees_type").addClass("error-style");
+        $("label[for='fees_type']").empty().append("Please select how you want to pay your fees.");
+        $("label[for='fees_type']").removeClass("feedback-happy");
+        $("label[for='fees_type']").addClass("feedback-sad");
 		hasError  = true;
 		return false;
 	}
