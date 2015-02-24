@@ -198,7 +198,7 @@ if (isset($_POST["recordToMessage"])) {
         $("#subject").addClass("success-style");
     }
 
-    var message_body = $("#message").val();
+    var message_body = $("#message_body").val();
 	if(message_body === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a message.");
@@ -219,7 +219,6 @@ if (isset($_POST["recordToMessage"])) {
         $("#error2").hide();
         $("#message").addClass("success-style");
     }
-
 
     var message_to_userid = $("#message_to_surname").val();
     var message_to_firstname = $("#message_to_firstname").val();
