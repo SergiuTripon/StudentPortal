@@ -810,10 +810,10 @@ function CancelTimetable() {
 
     $exam_status = 'cancelled';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $exam_status, $updated_on, $timetableToCancel);
-    $stmt3->execute();
-    $stmt3->close();
+    $stmt4 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt4->bind_param('ssi', $exam_status, $updated_on, $timetableToCancel);
+    $stmt4->execute();
+    $stmt4->close();
 }
 
 //ActivateTimetable function
@@ -847,10 +847,10 @@ function ActivateTimetable() {
 
     $exam_status = 'active';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $exam_status, $updated_on, $timetableToActivate);
-    $stmt3->execute();
-    $stmt3->close();
+    $stmt4 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt4->bind_param('ssi', $exam_status, $updated_on, $timetableToActivate);
+    $stmt4->execute();
+    $stmt4->close();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1957,15 +1957,20 @@ function DeleteAccount() {
 	$stmt1->execute();
 	$stmt1->close();
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_messages WHERE userid = ?");
-    $stmt1->bind_param('i', $userid);
-    $stmt1->execute();
-    $stmt1->close();
+    $stmt2 = $mysqli->prepare("DELETE FROM user_messages WHERE userid = ?");
+    $stmt2->bind_param('i', $userid);
+    $stmt2->execute();
+    $stmt2->close();
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_messages WHERE message_to = ?");
-    $stmt1->bind_param('i', $userid);
-    $stmt1->execute();
-    $stmt1->close();
+    $stmt3 = $mysqli->prepare("DELETE FROM user_messages WHERE message_to = ?");
+    $stmt3->bind_param('i', $userid);
+    $stmt3->execute();
+    $stmt3->close();
+
+    $stmt4 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = ?");
+    $stmt4->bind_param('i', $userid);
+    $stmt4->execute();
+    $stmt4->close();
 
 	session_unset();
 	session_destroy();
@@ -2235,6 +2240,11 @@ function DeleteAnAccount() {
     $stmt3->bind_param('i', $userToDelete);
     $stmt3->execute();
     $stmt3->close();
+
+    $stmt4 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = ? LIMIT 1");
+    $stmt4->bind_param('i', $userToDelete);
+    $stmt4->execute();
+    $stmt4->close();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
