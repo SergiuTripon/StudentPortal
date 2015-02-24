@@ -513,7 +513,7 @@ form .form-control:-ms-input-placeholder {
 /* End of Form */
 
 /* Error message */
-form .feedback-sad {
+.feedback-sad {
     color: #D9534F;
     font-size: 16px;
     font-weight: 600;
@@ -521,7 +521,7 @@ form .feedback-sad {
 /* End of Error message */
 
 /* Success message */
-form .feedback-happy {
+.feedback-happy {
     color: #3FAD46;
     font-size: 16px;
     font-weight: 600;
