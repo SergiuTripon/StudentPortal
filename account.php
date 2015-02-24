@@ -186,7 +186,7 @@ include 'includes/session.php';
     //Update an account
 	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 	while($row = $stmt2->fetch_assoc()) {
-		echo '<form id="update-an-account-form-'.$row["userid"].'" style="display: none;" action="../update-an-account/" method="POST">
+		echo '<form id="update-an-account-form-'.$row["userid"].'" style="display: none;" action="../admin/update-an-account/" method="POST">
 		<input type="hidden" name="userToUpdate" id="userToUpdate" value="'.$row["userid"].'"/>
 		</form>';
 	}
@@ -197,7 +197,7 @@ include 'includes/session.php';
     //Change an account's password
 	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
 	while($row = $stmt2->fetch_assoc()) {
-		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../change-account-password/" method="POST">
+		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../admin/change-account-password/" method="POST">
 		<input type="hidden" name="userToChangePassword" id="userToChangePassword" value="'.$row["userid"].'"/>
 		</form>';
 	}
