@@ -603,13 +603,6 @@ form .form-control:-ms-input-placeholder {
     border-radius: 3px;
 }
 }
-
-@media(min-width:480px) {
-.btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
-    border-right: 0;
-    border-left: 0;
-}
-}
 /* End of Button group */
 
 /* Bootstrap Select */

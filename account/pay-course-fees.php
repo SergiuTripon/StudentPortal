@@ -287,16 +287,16 @@ if ($fee_amount == "0.00") {
 
     var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
-        $("label[for='payer_city']").empty().append("Please enter a postcode.");
-        $("label[for='payer_city']").removeClass("feedback-happy");
-        $("label[for='payer_city']").addClass("feedback-sad");
+        $("label[for='payer_postcode']").empty().append("Please enter a postcode.");
+        $("label[for='payer_postcode']").removeClass("feedback-happy");
+        $("label[for='payer_postcode']").addClass("feedback-sad");
         $("#payer_city").focus();
 		hasError  = true;
 		return false;
     } else {
-        $("label[for='payer_city']").empty().append("All good!");
-        $("label[for='payer_city']").removeClass("feedback-sad");
-        $("label[for='payer_city']").addClass("feedback-happy");
+        $("label[for='payer_postcode']").empty().append("All good!");
+        $("label[for='payer_postcode']").removeClass("feedback-sad");
+        $("label[for='payer_postcode']").addClass("feedback-happy");
 	}
 
     var fees_type_check = $(".fees_type");
