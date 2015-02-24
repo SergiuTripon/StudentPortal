@@ -656,8 +656,11 @@ form .feedback-happy {
 }
 
 .bootstrap-select > .error-style > .filter-option {
-    color: #D9534F;
-    border-color: #D9534F;
+    color: #D9534F !important;
+}
+
+.bootstrap-select > .error-style {
+    border-color: #D9534F !important;
 }
 
 .bootstrap-select > .btn-group.open .dropdown-toggle {
