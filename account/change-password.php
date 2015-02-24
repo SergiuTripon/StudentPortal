@@ -114,13 +114,17 @@ include '../includes/session.php';
 
 	var password = $("#password").val();
 	if(password === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a password.");
+        $("label[for='password']").empty().append("Please enter a capacity.");
+        $("label[for='password']").removeClass("feedback-happy");
+        $("label[for='password']").addClass("feedback-sad");
+        $("#password").focus();
 		$("#password").css("border-color", "#FF5454");
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
+        $("label[for='lecture_capacity']").empty().append("All good!");
+        $("label[for='lecture_capacity']").removeClass("feedback-sad");
+        $("label[for='lecture_capacity']").addClass("feedback-happy");
 		$("#password").css("border-color", "#4DC742");
 	}
 
