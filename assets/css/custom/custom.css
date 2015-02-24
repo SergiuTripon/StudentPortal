@@ -127,6 +127,12 @@ hr {
 }
 /* End of Global */
 
+/* Spacing helpers */
+.mt10 {
+    margin-bottom: 10px;
+}
+/* End of Spacing helpers */
+
 /* Navbar */
 .navbar-fixed-top {
     background-color: #D9534F;
