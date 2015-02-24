@@ -108,7 +108,7 @@ include '../includes/session.php';
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
 			<td data-title="Update"><a id="update-'.$row["userid"].'" class="btn btn-primary btn-md update-button">Update</a></td>
-            <td data-title="Change"><a id="change-'.$row["userid"].'" class="btn btn-primary btn-md change-button" href="#modal-help" data-toggle="modal">Change password</a></td>
+            <td data-title="Change"><a id="change-'.$row["userid"].'" class="btn btn-primary btn-md change-button" href="#modal-help" data-toggle="modal">Change</a></td>
             <td data-title="Delete"><a class="btn btn-primary btn-md delete-button" href="#modal-'.$row["userid"].'" data-toggle="modal">Delete</a></td>
 			</tr>
 
