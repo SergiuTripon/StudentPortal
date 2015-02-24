@@ -39,10 +39,10 @@ include 'includes/session.php';
 	$stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE NOT userid = '$session_userid'");
 	while($row = $stmt1->fetch_assoc()) {
 
-	$userid1 = $row["userid"];
+	$userid = $row["userid"];
 
- 	echo '<form id="message-user-form-'.$userid1.'" style="display: none;" action="/messenger/message-user/" method="POST">
-		<input type="hidden" name="recordToMessage" id="recordToMessage" value="'.$userid1.'"/>
+ 	echo '<form id="message-user-form-'.$userid.'" style="display: none;" action="/messenger/message-user/" method="POST">
+		<input type="hidden" name="recordToMessage" id="recordToMessage" value="'.$userid.'"/>
 		</form>';
 	}
 	$stmt1->close();
@@ -77,7 +77,7 @@ include 'includes/session.php';
 
 	while($row = $stmt2->fetch_assoc()) {
 
-	$userid2 = $row["userid"];
+	$userid = $row["userid"];
 	$email = $row["email"];
 	$firstname = $row["firstname"];
 	$surname = $row["surname"];
@@ -89,7 +89,7 @@ include 'includes/session.php';
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="message-'.$userid2.'" class="btn btn-primary btn-md message-button">Message</a></td>
+			<td data-title="Action"><a id="message-'.$userid.'" class="btn btn-primary btn-md message-button">Message</a></td>
 			</tr>';
 	}
 
@@ -138,13 +138,13 @@ include 'includes/session.php';
 
 	while($row = $stmt2->fetch_assoc()) {
 
-    $message_from = $row["userid"];
+    $userid = $row["userid"];
 	$message_subject = $row["message_subject"];
 	$message_body = $row["message_body"];
 	$message_sent_on = $row["created_on"];
 
 	$stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('i', $message_from);
+	$stmt3->bind_param('i', $userid);
 	$stmt3->execute();
 	$stmt3->store_result();
 	$stmt3->bind_result($firstname, $surname);
