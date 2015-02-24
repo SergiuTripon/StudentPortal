@@ -428,7 +428,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'taskToComplete='+ taskToComplete,
 	success:function(){
-		$('#task-'+DbNumberID).fadeOut();
+		$('#task-'+taskToComplete).fadeOut();
 		setTimeout(function(){
 			location.reload();
 		}, 1000);
