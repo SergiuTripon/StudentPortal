@@ -47,7 +47,6 @@ include '../includes/session.php';
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	</div>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
 
 	<hr>
 
@@ -114,7 +113,7 @@ include '../includes/session.php';
 
 	var password = $("#password").val();
 	if(password === '') {
-        $("label[for='password']").empty().append("Please enter a capacity.");
+        $("label[for='password']").empty().append("Please enter a password.");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
