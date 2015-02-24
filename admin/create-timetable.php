@@ -113,8 +113,15 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="lecture_day">Lecture day<span class="required-field">*</span></label>
-    <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Select a day">
+    <label>Lecture day</label>
+    <select class="selectpicker lecture_day" name="lecture_day" id="lecture_day">
+        <option data-hidden="true">Select an option</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+    </select>
     </div>
     </div>
 
@@ -494,8 +501,8 @@ include '../includes/session.php';
         $("label[for='lecture_name']").focus();
 	}
 
-    var lecturer_check = $("#lecturer option:selected").html();
-    if (lecturer_check === 'Select an option') {
+    var lecture_lecturer_check = $("#lecturer option:selected").html();
+    if (lecture_lecturer_check === 'Select an option') {
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
@@ -510,17 +517,21 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").focus();
     }
 
-    var lecture_day = $("#lecture_day").val();
-	if(lecture_day === '') {
-		$("#error4").show();
-		$("#error4").empty().append("Please enter a day.");
-		$("#lecture_day").addClass("error-style");
-		hasError  = true;
+    var lecture_day_check = $("#lecture_day option:selected").html();
+    if (lecture_day_check === 'Select an option') {
+        $("label[for='lecture_day']").empty().append("Please select a day.");
+        $("label[for='lecture_day']").removeClass("feedback-happy");
+        $("label[for='lecture_day']").addClass("feedback-sad");
+        $("label[for='lecture_day']").focus();
+        hasError  = true;
         return false;
-	} else {
-		$("#error4").hide();
-		$("#lecture_day").addClass("success-style");
-	}
+    }
+    else {
+        $("label[for='lecture_day']").empty().append("All good!");
+        $("label[for='lecture_day']").removeClass("feedback-sad");
+        $("label[for='lecture_day']").addClass("feedback-happy");
+        $("label[for='lecture_day']").focus();
+    }
 
     var lecture_from_time = $("#lecture_from_time").val();
 	if(lecture_from_time === '') {
