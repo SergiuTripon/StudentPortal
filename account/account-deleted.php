@@ -41,7 +41,7 @@ include '../includes/session.php';
     </div>
 
     <div class="text-right">
-    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="../account/delete-account/"><span class="ladda-label">Delete account</span></a>
+    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="../delete-account/"><span class="ladda-label">Delete account</span></a>
     </div>
 
 	</form>
