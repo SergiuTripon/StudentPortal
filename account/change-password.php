@@ -117,14 +117,12 @@ include '../includes/session.php';
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
-		$("#password").css("cssText", "border: 2px solid #FF5454;");
 		hasError  = true;
 		return false;
     } else {
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
-		$("#password").css("border-color", "#4DC742 !important");
 	}
 
     password = $("#password").val();
@@ -133,14 +131,12 @@ include '../includes/session.php';
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
-        $("#password").css("cssText", "border: 2px solid #FF5454;");
 		hasError  = true;
 		return false;
 	} else {
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
-        $("#password").css("cssText", "border-color: #4DC742; !important");
 	}
 
 	var upperCase= new RegExp('[A-Z]');
@@ -149,12 +145,14 @@ include '../includes/session.php';
 
     password = $("#password").val();
 	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
-		$("#error1").hide();
-		$("#password").css("border-color", "#4DC742");
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-sad");
+        $("label[for='password']").addClass("feedback-happy");
 	} else {
-		$("#error1").show();
-		$("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
-		$("#password").css("border-color", "#FF5454");
+        $("label[for='password']").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+        $("label[for='password']").removeClass("feedback-happy");
+        $("label[for='password']").addClass("feedback-sad");
+        $("#password").focus();
 		hasError  = true;
 		return false;
 	}
