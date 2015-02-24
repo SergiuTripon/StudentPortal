@@ -338,19 +338,6 @@ include 'includes/session.php';
 
     <div class="panel panel-default">
 
-	<?php
-	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE NOT book_status = 'cancelled'");
-	while($row = $stmt2->fetch_assoc()) {
-
-	$bookid = $row["bookid"];
-
- 	echo '<form id="update-book-form-'.$bookid.'" style="display: none;" action="/admin/update-book/" method="POST">
-		<input type="hidden" name="bookToUpdate" id="bookToUpdate" value="'.$bookid.'"/>
-		</form>';
-	}
-	$stmt2->close();
-	?>
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Books</a>
@@ -390,15 +377,14 @@ include 'includes/session.php';
 	$book_status = $row["book_status"];
 	$book_status = ucfirst($book_status);
 
-	echo '<tr id="cancel-'.$bookid.'">
+	echo '<tr id="activate-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Action"><a id=update-'.$bookid.' class="btn btn-primary btn-md update-button ladda-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action"><a id=cancel-'.$bookid.' class="btn btn-primary btn-md cancel-button ladda-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
+			<td data-title="Action"><a id=activate-'.$bookid.' class="btn btn-primary btn-md activate-button ladda-button" data-style="slide-up"><span class="ladda-label">Activate</span></a></td>
 			</tr>';
 	}
 
@@ -581,7 +567,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'bookToActivate='+ bookToActivate,
 	success:function(){
-		$('#cancel-'+bookToActivate).fadeOut();
+		$('#activate-'+bookToActivate).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
