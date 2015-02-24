@@ -165,33 +165,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     </div>
 
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="update_lecture_lecturer">Update lecturer</label>
-    <select class="selectpicker update_lecture_lecturer" name="update_lecture_lecturer" id="update_lecture_lecturer">
-        <option data-hidden="true">Select an option</option>
-    <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND NOT userid = '$lecture_lecturer'");
-
-    while ($row = $stmt1->fetch_assoc()){
-
-    $lecturer = $row["userid"];
-
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lecturer);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
-
-        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
-    }
-    ?>
-
-    </select>
-
-    </div>
-    </div>
-
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Lecture notes</label>
