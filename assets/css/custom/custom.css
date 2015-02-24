@@ -654,16 +654,6 @@ form .feedback-happy {
     color: #333333;
     background-color: #CCCCCC;
 }
-
-.bootstrap-select > .error-style {
-    color: #D9534F !important;
-    border-color: #D9534F !important;
-}
-
-.bootstrap-select > .error-style:focus {
-    color: gray !important;
-    border-color: #8A8A8A !important;
-}
 /* End of Bootstrap Select */
 
 /* Tiles style */
