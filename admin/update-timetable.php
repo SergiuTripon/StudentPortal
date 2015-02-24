@@ -484,7 +484,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
         dateFormat: "yy-mm-dd",
         controlType: 'select',
         minDate: today,
-        defaultDate: "+1w",
         changeMonth: true,
         numberOfMonths: 2,
         onClose: function(selectedDate) {
@@ -495,7 +494,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
         dateFormat: "yy-mm-dd",
         controlType: 'select',
         minDate: today,
-        defaultDate: "+1w",
         changeMonth: true,
         numberOfMonths: 2,
         onClose: function(selectedDate) {
