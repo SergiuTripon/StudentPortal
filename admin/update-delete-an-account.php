@@ -36,100 +36,6 @@ include '../includes/session.php';
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-    <!-- Tube | This weekend | Station status -->
-	<div class="panel panel-default">
-	<div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Tube | This weekend | Station status</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>User ID</th>
-	<th>Full name</th>
-	<th>Email address</th>
-	<th>Account type</th>
-	<th>Updated on</th>
-	<th>Action</th>
-    <th>Action</th>
-    <th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt4 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$userid'");
-
-	while($row = $stmt4->fetch_assoc()) {
-
-	$account_type = ucfirst($row["account_type"]);
-
-	echo '<tr>
-
-			<td data-title="User ID">'.$row["userid"].'</td>
-			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
-			<td data-title="Email address">'.$row["email"].'</td>
-			<td data-title="Account type">'.$account_type.'</td>
-			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Update"><a id="update-'.$row["userid"].'" class="btn btn-primary btn-md update-button">Update</a></td>
-            <td data-title="Change"><a id="change-'.$row["userid"].'" class="btn btn-primary btn-md change-button" href="#modal-help" data-toggle="modal">Change password</a></td>
-            <td data-title="Delete"><a class="btn btn-primary btn-md delete-button" href="#modal-'.$row["userid"].'" data-toggle="modal">Delete</a></td>
-			</tr>
-
-			<!-- Delete an account modal -->
-    		<div class="modal fade modal-custom" id="modal-'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="success" class="feedback-custom text-center">Are you sure you want to delete this account?</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="hide">
-			<div class="pull-left">
-			<a id="delete-'.$row["userid"].'" class="btn btn-danger btn-lg delete-button1 ladda-button" data-style="slide-up">Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-			<!-- End of Delete an account modal -->';
-	}
-
-	$stmt4->close();
-	?>
-	</tbody>
-
-	</table>
-
-	</section>
-	</div><!-- /panel-body -->
-	</div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-	<!-- End of Tube | This weekend | Station status -->
-
 	<div class="panel panel-default">
 
 	<?php
@@ -176,7 +82,6 @@ include '../includes/session.php';
 
 	<thead>
 	<tr>
-	<th>User ID</th>
 	<th>Full name</th>
 	<th>Email address</th>
 	<th>Account type</th>
@@ -198,7 +103,6 @@ include '../includes/session.php';
 
 	echo '<tr>
 
-			<td data-title="User ID">'.$row["userid"].'</td>
 			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$account_type.'</td>
