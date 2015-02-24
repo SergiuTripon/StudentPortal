@@ -164,7 +164,7 @@ if ($fee_amount == "0.00") {
 
     <hr>
 
-    <p class="error text-center">You need to have a student account to access this area.</p>
+    <p class="feedback-sad text-center">You need to have a student account to access this area.</p>
 
     <hr>
 
