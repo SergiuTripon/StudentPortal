@@ -248,6 +248,8 @@ include '../includes/session.php';
 	var clickedID = this.id.split('-');
     var userToUpdate = clickedID[1];
 
+    alert(userToUpdate);
+
 	$("#update-an-account-form-" + userToUpdate).submit();
 
 	});
