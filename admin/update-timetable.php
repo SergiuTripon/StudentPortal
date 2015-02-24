@@ -146,7 +146,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pl0">
-    <label for="lecture_lecturer">Current lecturer</label>
+    <label for="lecture_lecturer">Lecturer</label>
     <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$lecture_lecturer'");
@@ -190,7 +190,16 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="lecture_day">Lecture day</label>
     <select class="selectpicker lecture_day" name="lecture_day" id="lecture_day">
-        <option data-hidden="true">Select an option</option>
+    <?php
+    $stmt1 = $mysqli->query("SELECT lecture_day FROM system_lectures WHERE lecture_day = '$lecture_day'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+    $selected_lecture_day = $row["lecture_day"];
+
+        echo '<option>'.$selected_lecture_day.'</option>';
+    }
+    ?>
         <option>Monday</option>
         <option>Tuesday</option>
         <option>Wednesday</option>
@@ -249,7 +258,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="tutorial_assistant">Current tutorial assistant</label>
+    <label for="tutorial_assistant">Tutorial assistant</label>
     <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
     $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$tutorial_assistant'");
