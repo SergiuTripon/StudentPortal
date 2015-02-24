@@ -362,6 +362,8 @@ include 'includes/session.php';
 
 	});
 
+    });
+
     $("body").on("click", ".cancel-button", function(e) {
     e.preventDefault();
 
