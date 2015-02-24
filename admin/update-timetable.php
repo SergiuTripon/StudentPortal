@@ -150,14 +150,14 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
 
-    $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE NOT userid=?");
+    $stmt1 = $mysqli->prepare("SELECT userid FROM user_details WHERE NOT userid=?");
     $stmt1->bind_param('i', $lecture_lecturer);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($firstname, $surname);
+    $stmt1->bind_result($userid1);
     $stmt1->fetch();
 
-        echo '<option value="'.$lecture_lecturer.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$lecture_lecturer.'">'.$userid1.'</option>';
 
     ?>
 
