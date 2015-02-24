@@ -118,7 +118,7 @@ include '../includes/session.php';
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
-		$("#password").css("cssText", "border: 1px solid #FF5454;");
+		$("#password").css("cssText", "border: 2px solid #FF5454;");
 		hasError  = true;
 		return false;
     } else {
