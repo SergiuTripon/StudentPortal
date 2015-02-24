@@ -147,7 +147,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label for="lecture_lecturer">Current lecturer</label>
-    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer" disabled>
+    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$lecture_lecturer'");
 
