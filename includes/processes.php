@@ -39,12 +39,12 @@ elseif (isset($_POST["token"], $_POST["email3"], $_POST["password2"])) {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call AssignTimetable function
-elseif (isset($_POST["userToAssign"], $_POST["moduleToAssign"])) {
+elseif (isset($_POST["userToAssign"], $_POST["timetableToAssign"])) {
     AssignTimetable();
 }
 
 //Call UnassignTimetable function
-elseif (isset($_POST["userToUnassign"], $_POST["moduleToUnassign"])) {
+elseif (isset($_POST["userToUnassign"], $_POST["timetableToUnassign"])) {
     UnassignTimetable();
 }
 

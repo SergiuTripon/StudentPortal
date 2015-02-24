@@ -171,13 +171,13 @@ if (isset($_POST["recordToAssign"])) {
 
     var clickedID = this.id.split('-');
     var userToAssign = clickedID[1];
-    var moduleToAssign = $("#moduleid").html();
+    var timetableToAssign = $("#moduleid").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToAssign='+ userToAssign + '&moduleToAssign='+ moduleToAssign,
+	data:'userToAssign='+ userToAssign + '&timetableToAssign='+ timetableToAssign,
 	success:function(){
 		$('#assign-'+userToAssign).fadeOut();
 	},
@@ -196,13 +196,13 @@ if (isset($_POST["recordToAssign"])) {
 
     var clickedID = this.id.split('-');
     var userToUnassign = clickedID[1];
-    var moduleToUnassign = $("#moduleid").html();
+    var timetableToUnassign = $("#moduleid").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToUnassign='+ userToUnassign + '&moduleToUnassign='+ moduleToUnassign,
+	data:'userToUnassign='+ userToUnassign + '&timetableToUnassign='+ timetableToUnassign,
 	success:function(){
 		$('#assign-'+userToUnassign).fadeOut();
 	},

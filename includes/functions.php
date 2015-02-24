@@ -53,7 +53,7 @@ function ContactUs() {
 function SignIn() {
 
 	global $mysqli;
-	global $userid;
+	global $session_userid;
 
 	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -137,32 +137,35 @@ function RegisterUser() {
     } else {
 
 	// Check existing e-mail address
-	$stmt2 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
-	$stmt2->bind_param('s', $email);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($db_userid);
-	$stmt2->fetch();
+	$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
+	$stmt1->bind_param('s', $email);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($db_userid);
+	$stmt1->fetch();
 
-	if ($stmt2->num_rows == 1) {
-	$stmt2->close();
-	header('HTTP/1.0 550 An account with the email address entered already exists.');
-	exit();
-	} else {
+	if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+	    header('HTTP/1.0 550 An account with the email address entered already exists.');
+	    exit();
+	}
 
 	$account_type = 'student';
 	$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-	$stmt3 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
-	$stmt3->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
+    //Creating user
+	$stmt2 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
+	$stmt2->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
+	$stmt2->execute();
+	$stmt2->close();
+
+    //Creating user details
+	$stmt3 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, created_on) VALUES (?, ?, ?, ?)");
+	$stmt3->bind_param('ssss', $firstname, $surname, $gender, $created_on);
 	$stmt3->execute();
 	$stmt3->close();
 
-	$stmt4 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, created_on) VALUES (?, ?, ?, ?)");
-	$stmt4->bind_param('ssss', $firstname, $surname, $gender, $created_on);
-	$stmt4->execute();
-	$stmt4->close();
-
+    //Creating user token
 	$token = null;
 
 	$stmt5 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
@@ -170,6 +173,7 @@ function RegisterUser() {
 	$stmt5->execute();
 	$stmt5->close();
 
+    //Creating user fees
 	$fee_amount = '9000.00';
 
 	$stmt6 = $mysqli->prepare("INSERT INTO user_fees (fee_amount, created_on) VALUES (?, ?)");
@@ -178,7 +182,6 @@ function RegisterUser() {
 	$stmt6->close();
 
 	}
-	}
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -186,7 +189,6 @@ function RegisterUser() {
 function SendPasswordToken() {
 
 	global $mysqli;
-	global $userid;
 	global $created_on;
 
 	$email = filter_input(INPUT_POST, 'email2', FILTER_SANITIZE_EMAIL);
@@ -197,33 +199,35 @@ function SendPasswordToken() {
 		exit();
 	}
 
-	// Getting user login details
-	$stmt = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
-	$stmt->bind_param('s', $email);
-	$stmt->execute();
-	$stmt->store_result();
-	$stmt->bind_result($userid);
-	$stmt->fetch();
-
-	$stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt1->bind_param('i', $userid);
+	// Getting userid using the email
+	$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
+	$stmt1->bind_param('s', $email);
 	$stmt1->execute();
 	$stmt1->store_result();
-	$stmt1->bind_result($firstname, $surname);
+	$stmt1->bind_result($userid);
 	$stmt1->fetch();
-	$stmt1->close();
 
-	if ($stmt->num_rows == 1) {
+	if ($stmt1->num_rows == 1) {
 
 		$uniqueid = uniqid(true);
 		$token = password_hash($uniqueid, PASSWORD_BCRYPT);
 
 		$stmt2 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
-		$stmt2->bind_param('ssi', $token, $created_on, $userid);
+		$stmt2>bind_param('ssi', $token, $created_on, $userid);
 		$stmt2->execute();
 		$stmt2->close();
 
+        //Creating link to be sent to the user
 		$passwordlink = "<a href=https://student-portal.co.uk/password-reset/?token=$token>here</a>";
+
+        //Getting firstname, surname using userid
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3->bind_param('i', $userid);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($firstname, $surname);
+        $stmt3->fetch();
+        $stmt3->close();
 
 		// subject
 		$subject = 'Request to change your password';
@@ -253,7 +257,7 @@ function SendPasswordToken() {
 		// Mail it
 		mail($email, $subject, $message, $headers);
 
-		$stmt->close();
+		$stmt1->close();
 	}
 	else
 		header('HTTP/1.0 550 The email address you entered is incorrect.');
@@ -277,6 +281,7 @@ function ResetPassword() {
 		exit();
 	}
 
+    //Getting userid using email
 	$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
 	$stmt1->bind_param('s', $email);
 	$stmt1->execute();
@@ -284,6 +289,7 @@ function ResetPassword() {
 	$stmt1->bind_result($userid);
 	$stmt1->fetch();
 
+    //Getting token from database
 	$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_details.userid WHERE user_token.userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
 	$stmt2->execute();
@@ -291,15 +297,19 @@ function ResetPassword() {
 	$stmt2->bind_result($db_token, $firstname);
 	$stmt2->fetch();
 
+    //Comparing client side token with database token
 	if ($token == $db_token) {
 
+    //Hashing the password
 	$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
+    //Changing the password
 	$stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
 	$stmt4->bind_param('sss', $password_hash, $updated_on, $email);
 	$stmt4->execute();
 	$stmt4->close();
 
+    //Emptying token table
 	$empty_token = NULL;
 	$empty_created_on = NULL;
 
@@ -308,10 +318,9 @@ function ResetPassword() {
 	$stmt4->execute();
 	$stmt4->close();
 
-	// subject
+    //Creating email
 	$subject = 'Password reset successfully';
 
-	// message
 	$message = '<html>';
 	$message .= '<head>';
 	$message .= '<title>Student Portal | Account</title>';
@@ -324,32 +333,28 @@ function ResetPassword() {
 	$message .= '</body>';
 	$message .= '</html>';
 
-	// To send HTML mail, the Content-type header must be set
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	// Additional headers
 	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
-	// Mail it
 	mail($email, $subject, $message, $headers);
 
-	}
-	else
-		header('HTTP/1.0 550 The password reset key is invalid.');
-	exit();
+	} else {
+        header('HTTP/1.0 550 The password reset key is invalid.');
+        exit();
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-
 
 //Overview functions
 //GetDashboardData function
 function GetDashboardData() {
 
 	global $mysqli;
-	global $userid;
+	global $session_userid;
 	global $timetable_count;
 	global $exams_count;
 	global $library_count;
@@ -358,28 +363,28 @@ function GetDashboardData() {
 	global $messenger_count;
 
 	$stmt1 = $mysqli->prepare("SELECT system_lectures.lectureid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = ? LIMIT 1");
-	$stmt1->bind_param('i', $userid);
+	$stmt1->bind_param('i', $session_userid);
 	$stmt1->execute();
 	$stmt1->store_result();
 	$stmt1->bind_result($lectureid);
 	$stmt1->fetch();
 
 	$stmt2 = $mysqli->prepare("SELECT system_tutorials.tutorialid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $userid);
+	$stmt2->bind_param('i', $session_userid);
 	$stmt2->execute();
 	$stmt2->store_result();
 	$stmt2->bind_result($tutorialid);
 	$stmt2->fetch();
 
 	$stmt3 = $mysqli->prepare("SELECT system_exams.examid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = ? LIMIT 1");
-	$stmt3->bind_param('i', $userid);
+	$stmt3->bind_param('i', $session_userid);
 	$stmt3->execute();
 	$stmt3->store_result();
 	$stmt3->bind_result($examid);
 	$stmt3->fetch();
 
 	$stmt4 = $mysqli->prepare("	SELECT reserved_books.bookid FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = ? AND system_books.book_status = 'reserved' AND isReturned = '0'");
-	$stmt4->bind_param('i', $userid);
+	$stmt4->bind_param('i', $session_userid);
 	$stmt4->execute();
 	$stmt4->store_result();
 	$stmt4->bind_result($bookid);
@@ -387,7 +392,7 @@ function GetDashboardData() {
 
 	$task_status = 'active';
 	$stmt5 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE userid = ? AND task_status = ?");
-	$stmt5->bind_param('is', $userid, $task_status);
+	$stmt5->bind_param('is', $session_userid, $task_status);
 	$stmt5->execute();
 	$stmt5->store_result();
 	$stmt5->bind_result($taskid);
@@ -403,7 +408,7 @@ function GetDashboardData() {
 
 	$isRead = '0';
 	$stmt7 = $mysqli->prepare("	SELECT user_messages.userid FROM user_messages WHERE user_messages.message_to = ? AND isRead = ?");
-	$stmt7->bind_param('ii', $userid, $isRead);
+	$stmt7->bind_param('ii', $session_userid, $isRead);
 	$stmt7->execute();
 	$stmt7->store_result();
 	$stmt7->bind_result($messenger_userid);
@@ -412,37 +417,35 @@ function GetDashboardData() {
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
 	$timetable_count = $lectures_count + $tutorials_count;
-
 	$exams_count = $stmt3->num_rows;
-
 	$library_count = $stmt4->num_rows;
-
 	$calendar_count = $stmt5->num_rows;
-
 	$events_count = $stmt6->num_rows;
-
 	$messenger_count = $stmt7->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();
 	$stmt3->close();
+    $stmt4->close();
+    $stmt5->close();
+    $stmt6->close();
+    $stmt7->close();
 
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
 //Timetable functions
-
 //AssignTimetable function
 function AssignTimetable() {
 
     global $mysqli;
 
     $userToAssign = filter_input(INPUT_POST, 'userToAssign', FILTER_SANITIZE_NUMBER_INT);
-    $moduleToAssign = filter_input(INPUT_POST, 'moduleToAssign', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToAssign = filter_input(INPUT_POST, 'timetableToAssign', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("INSERT INTO user_timetable (userid, moduleid) VALUES (?, ?)");
-    $stmt1->bind_param('ii', $userToAssign, $moduleToAssign);
+    $stmt1->bind_param('ii', $userToAssign, $timetableToAssign);
     $stmt1->execute();
     $stmt1->close();
 }
@@ -453,10 +456,10 @@ function UnassignTimetable() {
     global $mysqli;
 
     $userToUnassign = filter_input(INPUT_POST, 'userToUnassign', FILTER_SANITIZE_NUMBER_INT);
-    $moduleToUnassign = filter_input(INPUT_POST, 'moduleToUnassign', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToUnassign = filter_input(INPUT_POST, 'timetableToUnassign', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
-    $stmt1->bind_param('ii', $userToUnassign, $moduleToUnassign);
+    $stmt1->bind_param('ii', $userToUnassign, $timetableToUnassign);
     $stmt1->execute();
     $stmt1->close();
 }
@@ -860,7 +863,7 @@ function ActivateTimetable() {
 function ReserveBook() {
 
 	global $mysqli;
-	global $userid;
+	global $session_userid;
 
 	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
 	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
@@ -872,7 +875,7 @@ function ReserveBook() {
 	$isReturned = 0;
 
 	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, book_class, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt1->bind_param('iisssi', $userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned);
+	$stmt1->bind_param('iisssi', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned);
 	$stmt1->execute();
 	$stmt1->close();
 
@@ -893,10 +896,9 @@ function ReserveBook() {
 
 	$reservation_status = 'Completed';
 
-	// subject
+	//Creating email
 	$subject = 'Reservation confirmation';
 
-	// message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>Thank you for your recent book reservation! Below, you can find the reservation summary:</p>';
@@ -914,21 +916,17 @@ function ReserveBook() {
 	$message .= '</body>';
 	$message .= '</html>';
 
-	// To send HTML mail, the Content-type header must be set
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	// Additional headers
 	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
-	// Mail it
 	mail($email, $subject, $message, $headers);
 }
 
 //ReturnBook function
-function ReturnBook()
-{
+function ReturnBook() {
 
     global $mysqli;
     global $updated_on;
@@ -942,6 +940,7 @@ function ReturnBook()
     $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToReturn);
     $stmt1->execute();
     $stmt1->close();
+
 }
 
 //CreateBook function
@@ -950,13 +949,13 @@ function CreateBook() {
     global $mysqli;
     global $created_on;
 
-    //Module
+    //Book
     $book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
     $book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
     $book_notes = filter_input(INPUT_POST, 'book_notes', FILTER_SANITIZE_STRING);
     $book_copy_no = filter_input(INPUT_POST, 'book_copy_no', FILTER_SANITIZE_STRING);
 
-    // Check existing book name
+    //If book exists, increase copy number
     $stmt1 = $mysqli->prepare("SELECT bookid, book_copy_no FROM system_books WHERE book_name=? AND book_author=? ORDER BY bookid DESC LIMIT 1");
     $stmt1->bind_param('ss', $book_name, $book_author);
     $stmt1->execute();
@@ -973,6 +972,7 @@ function CreateBook() {
         $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
         $stmt5->execute();
         $stmt5->close();
+
     } else {
 
         $book_status = 'active';
@@ -1006,8 +1006,7 @@ function UpdateBook()
 }
 
 //CancelBook function
-function CancelBook()
-{
+function CancelBook() {
 
     global $mysqli;
     global $updated_on;
@@ -1024,8 +1023,7 @@ function CancelBook()
 }
 
 //ActivateBook function
-function ActivateBook()
-{
+function ActivateBook() {
 
     global $mysqli;
     global $updated_on;
@@ -1137,7 +1135,7 @@ function GetCycleHireStatus () {
 function CreateTask () {
 
 	global $mysqli;
-	global $userid;
+	global $session_userid;
 	global $created_on;
 
 	$task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
@@ -1155,26 +1153,28 @@ function CreateTask () {
 
     // Check if task exists
     $stmt1 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE task_name = ? AND userid = ? LIMIT 1");
-    $stmt1->bind_param('si', $task_name, $userid);
+    $stmt1->bind_param('si', $task_name, $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($db_taskid);
     $stmt1->fetch();
 
     if ($stmt1->num_rows == 1) {
-	header('HTTP/1.0 550 A task with the task name entered already exists.');
-	exit();
-	$stmt1->close();
 
-	} else {
-	$task_status = 'active';
+        $stmt1->close();
+	    header('HTTP/1.0 550 A task with the task name entered already exists.');
+	    exit();
 
-	$stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('isssssssss', $userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
-	$stmt2->execute();
-	$stmt2->close();
+    } else {
 
-	$stmt1->close();
+        $task_status = 'active';
+
+	    $stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	    $stmt2->bind_param('isssssssss', $userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
+	    $stmt2->execute();
+	    $stmt2->close();
+
+	    $stmt1->close();
     }
 }
 
@@ -1208,35 +1208,34 @@ function UpdateTask() {
 
 	if ($db_taskname == $task_name) {
 
-	$stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-	$stmt2->bind_param('sssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
-	$stmt2->execute();
-	$stmt2->close();
+	    $stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	    $stmt2->bind_param('sssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
+	    $stmt2->execute();
+	    $stmt2->close();
 
-	}
+	} else {
 
-	else {
+        $stmt3 = $mysqli->prepare("SELECT taskid from user_tasks where task_name = ? AND userid = ? LIMIT 1");
+        $stmt3->bind_param('si', $task_name, $userid);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($db_taskid);
+        $stmt3->fetch();
 
-	$stmt3 = $mysqli->prepare("SELECT taskid from user_tasks where task_name = ? AND userid = ? LIMIT 1");
-	$stmt3->bind_param('si', $task_name, $userid);
-	$stmt3->execute();
-	$stmt3->store_result();
-	$stmt3->bind_result($db_taskid);
-	$stmt3->fetch();
+	    if ($stmt3->num_rows == 1) {
 
-	if ($stmt3->num_rows == 1) {
-	header('HTTP/1.0 550 A task with the name entered already exists.');
-	exit();
-	$stmt3->close();
-	}
-	else {
+        $stmt3->close();
+        header('HTTP/1.0 550 A task with the name entered already exists.');
+        exit();
 
-	$stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-	$stmt4->bind_param('ssssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
-	$stmt4->execute();
-	$stmt4->close();
+        } else {
 
-	}
+        $stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+        $stmt4->bind_param('ssssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
+        $stmt4->execute();
+        $stmt4->close();
+
+        }
 	}
 }
 
@@ -1280,7 +1279,7 @@ function ActivateTask() {
     $task_status = 'active';
 
     $stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, updated_on = ? WHERE taskid = ? LIMIT 1");
-    $stmt1->bind_param('ssi', $task_status, $completed_on, $taskToActivate);
+    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToActivate);
     $stmt1->execute();
     $stmt1->close();
 }
@@ -1296,6 +1295,7 @@ function EventsPaypalPaymentSuccess() {
 	global $created_on;
 	global $completed_on;
 
+    //Get data from Paypal IPN
 	$item_number1 = $_POST["item_number1"];
 	$quantity1 = $_POST["quantity1"];
 	$product_name = $_POST["item_name1"];
@@ -1308,6 +1308,7 @@ function EventsPaypalPaymentSuccess() {
 	$payment_status1 = ($_POST["payment_status"]);
 	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
 
+    //Get userid by using invoice_id
 	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
 	$stmt1->bind_param('i', $invoice_id);
 	$stmt1->execute();
@@ -1316,43 +1317,43 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $userid);
+	$stmt2 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, tickets_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt2->bind_param('iisiis', $userid, $item_number1, $product_name, $product_amount, $quantity1, $created_on);
 	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($email, $firstname, $surname);
-	$stmt2->fetch();
 	$stmt2->close();
 
-	$stmt3 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, tickets_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt3->bind_param('iisiis', $userid, $item_number1, $product_name, $product_amount, $quantity1, $created_on);
+	$stmt3 = $mysqli->prepare("SELECT event_ticket_no from system_events where eventid = ?");
+	$stmt3->bind_param('i', $item_number1);
 	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($event_ticket_no);
+	$stmt3->fetch();
 	$stmt3->close();
-
-	$stmt4 = $mysqli->prepare("SELECT event_ticket_no from system_events where eventid = ?");
-	$stmt4->bind_param('i', $item_number1);
-	$stmt4->execute();
-	$stmt4->store_result();
-	$stmt4->bind_result($event_ticket_no);
-	$stmt4->fetch();
-	$stmt4->close();
 
 	$newquantity = $event_ticket_no - $quantity1;
 
-	$stmt5 = $mysqli->prepare("UPDATE system_events SET event_ticket_no=? WHERE eventid=?");
-	$stmt5->bind_param('ii', $newquantity, $item_number1);
-	$stmt5->execute();
-	$stmt5->close();
+	$stmt4 = $mysqli->prepare("UPDATE system_events SET event_ticket_no=? WHERE eventid=?");
+	$stmt4->bind_param('ii', $newquantity, $item_number1);
+	$stmt4->execute();
+	$stmt4->close();
 
 	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
 	$stmt5->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
 	$stmt5->execute();
 	$stmt5->close();
 
-	// subject
+    //Get name and email for sending email
+    $stmt6 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt6->bind_param('i', $userid);
+    $stmt6->execute();
+    $stmt6->store_result();
+    $stmt6->bind_result($email, $firstname, $surname);
+    $stmt6->fetch();
+    $stmt6->close();
+
+	//Creating email
 	$subject = 'Payment confirmation';
 
-	// message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
@@ -1370,15 +1371,11 @@ function EventsPaypalPaymentSuccess() {
 	$message .= '</body>';
 	$message .= '</html>';
 
-	// To send HTML mail, the Content-type header must be set
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	// Additional headers
 	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
-	// Mail it
 	mail($email, $subject, $message, $headers);
 }
 
