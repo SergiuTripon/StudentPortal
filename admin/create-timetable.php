@@ -386,7 +386,7 @@ include '../includes/session.php';
     $(".selectpicker").css("color", "gray");
 
     $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
-        $(".filter-option").css("cssText", "color: #333333 !important;");
+        $(".selectpicker").css("cssText", "color: #333333 !important;");
         $(".bootstrap-select > .error-style").css("cssText", "color: #CCCCCC !important;");
 
     });
