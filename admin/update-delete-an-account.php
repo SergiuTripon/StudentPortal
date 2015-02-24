@@ -276,16 +276,15 @@ include '../includes/session.php';
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-    var myData = 'recordToDelete='+ DbNumberID;
+    var userToDelete = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:myData,
+	data:'userToDelete='+ userToDelete,
 	success:function(){
-		$('#user-'+DbNumberID).fadeOut();
+		$('#user-'+userToDelete).fadeOut();
 		$('#hide').hide();
 		$('.form-logo i').removeClass('fa-trash');
 		$('.form-logo i').addClass('fa-check-square-o');
