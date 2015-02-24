@@ -1461,6 +1461,23 @@ function CancelEvent()
     $stmt1->close();
 }
 
+//ActivateEvent function
+function ActivateEvent()
+{
+
+    global $mysqli;
+    global $updated_on;
+
+    $eventToActivate = filter_input(INPUT_POST, 'eventToActivate', FILTER_SANITIZE_STRING);
+
+    $event_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_events SET event_status=?, updated_on=? WHERE eventid=?");
+    $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToActivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //University map functions

@@ -268,7 +268,7 @@ include 'includes/session.php';
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active events</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
 	<!-- Event -->
@@ -368,7 +368,7 @@ include 'includes/session.php';
 	$event_ticket_no = $row["event_ticket_no"];
 	$event_category = ucfirst($row["event_category"]);
 
-	echo '<tr id="cancel-'.$row["eventid"].'">
+	echo '<tr id="activate-'.$row["eventid"].'">
 
 			<td data-title="Name">'.$event_name.'</td>
 			<td data-title="From">'.$event_from.'</td>
@@ -536,6 +536,30 @@ include 'includes/session.php';
 	data:'eventToCancel='+ eventToCancel,
 	success:function(){
 		$('#cancel-'+eventToCancel).fadeOut();
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
+    $("body").on("click", ".activate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var eventToActivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'eventToActivate='+ eventToActivate,
+	success:function(){
+		$('#activate-'+eventToActivate).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
