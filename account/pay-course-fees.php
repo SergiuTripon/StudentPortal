@@ -101,15 +101,14 @@ if ($fee_amount == "0.00") {
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Address line 1</label>
+    <label for="payer_address1">Address line 1</label>
     <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Address 1">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>City</label>
+    <label for="payer_city">City</label>
 	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="City">
     </div>
     </div>
-    <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
@@ -117,13 +116,13 @@ if ($fee_amount == "0.00") {
     <input class="form-control" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Country" readonly="readonly">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Post code</label>
+    <label for="payer_postcode">Post code</label>
     <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code">
     </div>
     </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
-	<label>Pay half or the full fee amount - select below</label>
+	<label for="fees_type">Pay half or the full fee amount - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg fees_type">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Full fees
