@@ -47,6 +47,7 @@ include '../includes/session.php';
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	</div>
 	</div>
+    <p id="error1" class="feedback-sad text-center"></p>
 
 	<hr>
 
@@ -127,6 +128,8 @@ include '../includes/session.php';
 
     password = $("#password").val();
 	if (password.length < 6) {
+        $("#error1").show();
+        $("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
         $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
