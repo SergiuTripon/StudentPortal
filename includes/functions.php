@@ -926,6 +926,24 @@ function ReserveBook() {
 	mail($email, $subject, $message, $headers);
 }
 
+//ReturnBook function
+function ReturnBook()
+{
+
+    global $mysqli;
+    global $updated_on;
+
+    //Book
+    $bookToReturn = filter_input(INPUT_POST, 'bookToReturn', FILTER_SANITIZE_STRING);
+
+    $book_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToReturn);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //CreateBook function
 function CreateBook() {
 

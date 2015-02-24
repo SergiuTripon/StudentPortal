@@ -376,7 +376,7 @@ include 'includes/session.php';
 	$book_status = $row["book_status"];
 	$book_status = ucfirst($book_status);
 
-	echo '<tr id="activate-'.$bookid.'">
+	echo '<tr id="return-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
@@ -580,6 +580,33 @@ include 'includes/session.php';
 	$("#reserve-book-form-" + bookToReserve).submit();
 
 	});
+
+    $("body").on("click", ".return-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var bookToReturn = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'bookToReturn='+ bookToReturn,
+	success:function(){
+		$('#return-'+bookToReturn).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
 
     //Update book form submit
 	$("body").on("click", ".update-button", function(e) {
