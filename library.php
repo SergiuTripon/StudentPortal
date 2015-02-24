@@ -154,13 +154,14 @@ include 'includes/session.php';
 	<th>Booked on</th>
 	<th>Return on</th>
 	<th>Status</th>
+    <th>Returned</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y') as toreturn_on, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_status FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT reserved_books.bookid, DATE_FORMAT(reserved_books.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(reserved_books.toreturn_on,'%d %b %y') as toreturn_on,, reserved_books.isReturned, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_status FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -170,6 +171,7 @@ include 'includes/session.php';
     $reserved_on = $row["reserved_on"];
     $toreturn_on = $row["toreturn_on"];
 	$book_status = $row["book_status"];
+    $isReturned = $row["isReturned"];
 
 	$book_status = ucfirst($book_status);
 
@@ -181,6 +183,7 @@ include 'includes/session.php';
 			<td data-title="Booken on">'.$reserved_on.'</td>
 			<td data-title="Return on">'.$toreturn_on.'</td>
 			<td data-title="Status">'.$book_status.'</td>
+			<td data-title="isReturned">'.($isReturned === '0' ? "Nos" : "Yes").'</td>
 			</tr>';
 	}
 
