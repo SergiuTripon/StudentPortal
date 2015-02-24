@@ -159,14 +159,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
         echo '<option>'.$firstname.' '.$surname.'</option>';
     }
 
-    $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$lecture_lecturer'");
+    $stmt2 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type='lecturer' AND NOT userid = '$lecture_lecturer'");
 
-    while ($row = $stmt1->fetch_assoc()){
+    while ($row = $stmt2->fetch_assoc()){
 
-        $firstname = $row["firstname"];
-        $surname = $row["surname"];
+        $firstname = $row["userid"];
 
-        echo '<option>'.$firstname.' '.$surname.'</option>';
+        echo '<option>'.$firstname.'</option>';
     }
     ?>
 
