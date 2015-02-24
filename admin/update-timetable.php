@@ -475,12 +475,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     $('.selectpicker').selectpicker();
 
-    $(".filter-option").css("color", "gray");
-
-    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
-        $(".filter-option").css("cssText", "color: #333333;");
-    });
-
     // Date Time Picker
     var today = new Date();
 	$(function () {
