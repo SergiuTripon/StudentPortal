@@ -666,6 +666,10 @@ form .feedback-happy {
 .bootstrap-select > .error-style {
     border-color: #D9534F !important;
 }
+
+.bootstrap-select > .error-style {
+    border-color: #333333 !important;
+}
 /* End of Bootstrap Select */
 
 /* Tiles style */
