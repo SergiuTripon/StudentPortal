@@ -336,7 +336,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
         while ($row = $stmt1->fetch_assoc()){
 
-            $tutorial_day = $row["userid"];
+            $tutorial_day = $row["tutorial_day"];
 
 
             echo '<option>'.$tutorial_day.'</option>';
