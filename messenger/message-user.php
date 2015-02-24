@@ -103,7 +103,7 @@ if (isset($_POST["recordToMessage"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="subject" id="subject">
+    <input class="form-control" type="text" name="message_subject" id="message_subject">
 	</div>
     </div>
     <p id="error1" class="feedback-sad text-center"></p>
@@ -111,7 +111,7 @@ if (isset($_POST["recordToMessage"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Message</label>
-    <textarea class="form-control" rows="5" name="message" id="message"></textarea>
+    <textarea class="form-control" rows="5" name="message_body" id="message_body"></textarea>
     </div>
     </div>
     <p id="error2" class="feedback-sad text-center"></p>
@@ -176,8 +176,8 @@ if (isset($_POST["recordToMessage"])) {
 
     var hasError = false;
 
-    var subject = $("#subject").val();
-	if(subject === '') {
+    var message_subject = $("#message_subject").val();
+	if(message_subject === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a subject.");
 		$("#subject").addClass("error-style");
@@ -187,7 +187,7 @@ if (isset($_POST["recordToMessage"])) {
 		$("#error1").hide();
 		$("#subject").addClass("success-style");
 	}
-    if (subject.length > 300) {
+    if (message_subject.length > 300) {
         $("#error1").show();
         $("#error1").empty().append("The subject entered is too long.<br>The maximum length of the subject is 300 characters.");
         $("#subject").addClass("error-style");
@@ -198,8 +198,8 @@ if (isset($_POST["recordToMessage"])) {
         $("#subject").addClass("success-style");
     }
 
-    var message = $("#message").val();
-	if(message === '') {
+    var message_body = $("#message").val();
+	if(message_body === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a message.");
 		$("#message").addClass("error-style");
@@ -209,7 +209,7 @@ if (isset($_POST["recordToMessage"])) {
 		$("#error2").hide();
 		$("#message").addClass("success-style");
 	}
-    if (message.length > 5000) {
+    if (message_body.length > 5000) {
         $("#error2").show();
         $("#error2").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
         $("#message").addClass("error-style");
