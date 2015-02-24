@@ -511,7 +511,7 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
-        $(".lecture_lecturer").focus();
+        $(".bootstrap-select.lecture_lecturer").focus();
         hasError  = true;
         return false;
     }
