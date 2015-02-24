@@ -1957,6 +1957,16 @@ function DeleteAccount() {
 	$stmt1->execute();
 	$stmt1->close();
 
+    $stmt1 = $mysqli->prepare("DELETE FROM user_messages WHERE userid = ?");
+    $stmt1->bind_param('i', $userid);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_messages WHERE message_to = ?");
+    $stmt1->bind_param('i', $userid);
+    $stmt1->execute();
+    $stmt1->close();
+
 	session_unset();
 	session_destroy();
 }
@@ -2215,6 +2225,16 @@ function DeleteAnAccount() {
     $stmt1->bind_param('i', $userToDelete);
     $stmt1->execute();
     $stmt1->close();
+
+    $stmt2 = $mysqli->prepare("DELETE FROM user_messages WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $userToDelete);
+    $stmt2->execute();
+    $stmt2->close();
+
+    $stmt3 = $mysqli->prepare("DELETE FROM user_messages WHERE message_to = ? LIMIT 1");
+    $stmt3->bind_param('i', $userToDelete);
+    $stmt3->execute();
+    $stmt3->close();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////

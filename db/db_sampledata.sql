@@ -22,3 +22,5 @@ INSERT INTO `system_events`(`eventid`, `event_name`, `event_notes`, `event_url`,
 
 #Library dummy data
 INSERT INTO `system_books`(`bookid`, `book_name`, `book_author`, `book_notes`, `book_copy_no`, `book_status`, `created_on`, `updated_on`) VALUES ('2','Da Vinci Code','Dan Brown','','2','available','0000-00-00 00:00:00','');
+
+INSERT INTO `user_messages`(`userid`, `messageid`, `message_subject`, `message_body`, `message_to`, `isRead`, `created_on`, `deleted_on`) VALUES ('1','','','2','','','','')
