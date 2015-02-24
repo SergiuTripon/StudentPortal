@@ -536,6 +536,9 @@ include 'includes/session.php';
 	data:'eventToCancel='+ eventToCancel,
 	success:function(){
 		$('#cancel-'+eventToCancel).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
@@ -560,6 +563,9 @@ include 'includes/session.php';
 	data:'eventToActivate='+ eventToActivate,
 	success:function(){
 		$('#activate-'+eventToActivate).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
