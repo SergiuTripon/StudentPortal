@@ -255,7 +255,7 @@ include 'includes/session.php';
     <li class="active">Library</li>
     </ol>
 
-    <a class="btn btn-success btn-lg ladda-button" style="margin-bottom: 5px;" data-style="slide-up" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
+    <a class="btn btn-success btn-lg ladda-button mt10" data-style="slide-up" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
 
     <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -276,7 +276,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Books</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active books</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -338,12 +338,12 @@ include 'includes/session.php';
 
     <div class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingOne">
+    <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Books</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Cancelled books</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
 	<!-- Books -->
