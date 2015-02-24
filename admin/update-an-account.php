@@ -1,7 +1,7 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["userToUpdate"])) {
+if (isset($_GET"userToUpdate"])) {
 
 	$userToUpdate = filter_input(INPUT_POST, 'userToUpdate', FILTER_SANITIZE_NUMBER_INT);
 

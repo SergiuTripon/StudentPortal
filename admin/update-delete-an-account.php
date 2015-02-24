@@ -386,7 +386,7 @@ include '../includes/session.php';
 	success:function(){
 		$('#user-'+userToUpdate).fadeOut();
 		$('#success').empty().append('The account has been updated successfully.');
-        window.location.href = "https://student-portal.co.uk/admin/update-an-account.php";
+        window.location.href = "https://student-portal.co.uk/admin/update-an-account.php?userToUpdate";
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
