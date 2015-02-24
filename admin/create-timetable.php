@@ -113,7 +113,7 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Lecture day</label>
+    <label for="lecture_day">Lecture day</label>
     <select class="selectpicker lecture_day" name="lecture_day" id="lecture_day">
         <option data-hidden="true">Select an option</option>
         <option>Monday</option>
