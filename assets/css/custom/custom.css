@@ -527,7 +527,7 @@ form .form-control:-ms-input-placeholder {
     font-weight: 600;
 }
 
-.required-field {
+.field-required {
     font-size: 20px;
     color: #D9534F;
 }
