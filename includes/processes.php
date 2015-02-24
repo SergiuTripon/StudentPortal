@@ -272,7 +272,7 @@ elseif (isset($_POST["password3"])) {
 }
 
 //Call DeleteAccount function
-elseif (isset($_POST['deleteaccount_button'])) {
+elseif (isset($_POST['accountToDelete'])) {
 	DeleteAccount();
 }
 

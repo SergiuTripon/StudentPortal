@@ -2034,25 +2034,26 @@ function PaypalPaymentCancel() {
 function DeleteAccount() {
 
 	global $mysqli;
-	global $userid;
+
+    $accountToDelete = filter_input(INPUT_POST, 'accountToDelete', FILTER_SANITIZE_STRING);
 
 	$stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
-	$stmt1->bind_param('i', $userid);
+	$stmt1->bind_param('i', $accountToDelete);
 	$stmt1->execute();
 	$stmt1->close();
 
     $stmt2 = $mysqli->prepare("DELETE FROM user_messages WHERE userid = ?");
-    $stmt2->bind_param('i', $userid);
+    $stmt2->bind_param('i', $accountToDelete);
     $stmt2->execute();
     $stmt2->close();
 
     $stmt3 = $mysqli->prepare("DELETE FROM user_messages WHERE message_to = ?");
-    $stmt3->bind_param('i', $userid);
+    $stmt3->bind_param('i', $accountToDelete);
     $stmt3->execute();
     $stmt3->close();
 
     $stmt4 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = ?");
-    $stmt4->bind_param('i', $userid);
+    $stmt4->bind_param('i', $accountToDelete);
     $stmt4->execute();
     $stmt4->close();
 

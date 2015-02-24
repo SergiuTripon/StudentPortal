@@ -68,8 +68,8 @@ $stmt1->fetch();
     </div>
 
     </form>
-    <!-- Delete Account Modal -->
 
+    <!-- Delete Account Modal -->
     <div class="modal fade modal-custom" id="deleteaccount-modal" tabindex="-1" role="dialog" aria-labelledby="deleteaccount-modal-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -82,9 +82,7 @@ $stmt1->fetch();
 
     <div class="modal-body">
 
-    <form class="form-custom" style="background: none; border: none;" name="deleteaccount_form">
-
-    <input type="hidden" name="deleteaccount_button" id="deleteaccount_button">
+    <div id="session_userid" style="display: none;"><?php echo $session_userid; ?></div>
 
     <p class="text-center">Are you sure you want to delete your account?</p>
 
@@ -100,8 +98,6 @@ $stmt1->fetch();
 	</div>
     
 	</div>
-
-    </form>
 
     </div>
     </div>
@@ -154,12 +150,12 @@ $stmt1->fetch();
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    var deleteaccount_button = $("#deleteaccount_button").val();
+    var accountToDelete = $("#session_userid").val();
 
     jQuery.ajax({
     type: "POST",
     url: "https://student-portal.co.uk/includes/processes.php",
-    data:'deleteaccount_button=' + deleteaccount_button,
+    data:'accountToDelete=' + accountToDelete,
     success:function(){
         window.location.href = "/account/account-deleted/";
     },
