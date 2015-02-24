@@ -46,11 +46,10 @@ include '../includes/session.php';
     <!-- Create module -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Module name</label>
+	<label for="module_name">Module name</label>
     <input class="form-control" type="text" name="module_name" id="module_name" placeholder="Enter a name">
 	</div>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -468,14 +467,13 @@ include '../includes/session.php';
     //Modules
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a module name.");
-		$("#module_name").addClass("error-style");
+        $("label[for='module_name']").empty().append("Please enter a module name.");
+        $("label[for='module_name']").css("feedback-sad");
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
-		$("#module_name").addClass("success-style");
+        $("label[for='module_name']").empty().append("Please enter a module name.");
+        $("label[for='module_name']").css("feedback-happy");
 	}
 
     var module_notes = $("#module_notes").val();
