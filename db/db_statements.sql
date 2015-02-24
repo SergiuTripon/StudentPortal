@@ -151,9 +151,7 @@ CREATE TABLE `student_portal`.`system_lectures` (
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid),
-FOREIGN KEY (lecture_lecturer)
-REFERENCES user_signin(userid)
+REFERENCES system_modules(moduleid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -175,9 +173,7 @@ CREATE TABLE `student_portal`.`system_tutorials` (
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid),
-FOREIGN KEY (tutorial_assistant)
-REFERENCES user_signin(userid)
+REFERENCES system_modules(moduleid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;

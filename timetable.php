@@ -203,7 +203,7 @@ include 'includes/session.php';
     <li class="active">Timetable</li>
     </ol>
 
-    <a class="btn btn-success btn-lg ladda-button" style="margin-bottom: 5px;" data-style="slide-up" href="/admin/create-timetable/"><span class="ladda-label">Create timetable</span></a>
+    <a class="btn btn-success btn-lg ladda-button mt10" data-style="slide-up" href="/admin/create-timetable/"><span class="ladda-label">Create timetable</span></a>
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
