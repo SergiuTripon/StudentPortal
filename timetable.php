@@ -214,16 +214,6 @@ include 'includes/session.php';
     </a>
 	</div>
 
-
-	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-	<a href="/admin/assign-update-cancel-timetable/">
-    <div class="tile">
-    <i class="fa fa-refresh"></i>
-	<p class="tile-text">Assign timetable</p>
-    </div>
-	</a>
-	</div>
-
     </div><!-- /row -->
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
