@@ -5,18 +5,18 @@ if (isset($_POST["recordToMessage"])) {
 
     $idToMessage = filter_input(INPUT_POST, 'recordToMessage', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt1->bind_param('i', $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($message_from, $message_from_email, $message_from_firstname, $message_from_surname);
+    $stmt1->bind_result($message_from_email, $message_from_firstname, $message_from_surname);
     $stmt1->fetch();
 
     $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt1->bind_param('i', $idToMessage);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($message_to, $message_to_email, $message_to_firstname, $message_to_surname);
+    $stmt1->bind_result($message_to_userid, $message_to_email, $message_to_firstname, $message_to_surname);
     $stmt1->fetch();
 
 } else {
