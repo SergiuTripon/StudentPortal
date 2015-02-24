@@ -77,6 +77,13 @@ include '../includes/session.php';
 	</div>
 
     <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Lecture notes</label>
+    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="lecture_lecturer">Lecturer<span class="required-field">*</span></label>
     <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
@@ -103,13 +110,6 @@ include '../includes/session.php';
 
     </div>
     </div>
-
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Lecture notes</label>
-    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter notes"></textarea>
-	</div>
-	</div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -146,7 +146,6 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" placeholder="Select a date">
 	</div>
 	</div>
-	<p id="error6" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -167,6 +166,13 @@ include '../includes/session.php';
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="tutorial_name">Tutorial name</label>
     <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" placeholder="Enter a name">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="tutorial_notes">Tutorial notes</label>
+    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
@@ -196,13 +202,6 @@ include '../includes/session.php';
     </select>
     </div>
     </div>
-
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="tutorial_assistant">Tutorial notes</label>
-    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter notes"></textarea>
-	</div>
-	</div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -628,7 +627,7 @@ include '../includes/session.php';
     //Tutorials
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
-        $("label[for='tutorial_name']").empty().append("Please enter a module name.");
+        $("label[for='tutorial_name']").empty().append("Please enter a tutorial name.");
         $("label[for='tutorial_name']").removeClass("feedback-happy");
         $("label[for='tutorial_name']").addClass("feedback-sad");
         $("#tutorial_name").focus();
