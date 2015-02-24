@@ -380,13 +380,13 @@ include '../includes/session.php';
 
 	jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/admin/update-an-account.php",
+	url: "https://student-portal.co.uk/admin/update-an-account.php?userToUpdate="userToUpdate"",
 	dataType:"text",
 	data:'userToUpdate='+ userToUpdate,
 	success:function(){
 		$('#user-'+userToUpdate).fadeOut();
 		$('#success').empty().append('The account has been updated successfully.');
-        window.location.href = "https://student-portal.co.uk/admin/update-an-account.php?userToUpdate";
+        window.location.href = "https://student-portal.co.uk/admin/update-an-account.php";
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
