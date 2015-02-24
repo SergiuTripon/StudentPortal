@@ -163,7 +163,7 @@ include '../includes/session.php';
         $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
-        $("#password").focus();
+        $("#confirmpwd").focus();
 		hasError  = true;
 		return false;
     } else {
@@ -173,7 +173,7 @@ include '../includes/session.php';
 	}
 
 	if(password != confirmpwd) {
-        $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
+        $("label[for='confirmpwd']").empty().append("Your password and confirmation do not match. Please try again.");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
         $("#confirmpwd").focus();
