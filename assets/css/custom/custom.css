@@ -878,6 +878,16 @@ form .form-control:-ms-input-placeholder {
     color: #FFFFFF;
     content: "\f054";
 }
+
+#headingThree .accordion-toggle:before {
+    font-family: FontAwesome;
+    content: "\f078";
+    color: #FFFFFF;
+}
+#headingThree .accordion-toggle.collapsed:before {
+    color: #FFFFFF;
+    content: "\f054";
+}
 /* End of Accordion style */
 
 /* Timetable portal */
