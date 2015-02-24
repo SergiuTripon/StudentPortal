@@ -252,7 +252,7 @@ include 'includes/session.php';
             <td data-title="Delete"><a class="btn btn-primary btn-md delete-button" href="#modal-'.$row["userid"].'" data-toggle="modal">Delete</a></td>
 			</tr>
 
-    		<div class="modal fade modal-custom" id="modal-'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal fade modal-confirmation" id="modal-'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-confirmation-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 

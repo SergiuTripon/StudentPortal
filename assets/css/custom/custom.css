@@ -737,17 +737,17 @@ form .form-control:-ms-input-placeholder {
 /* End of Tile selected */
 
 /* Modal custom */
-.confirmation-modal .modal-content {
+.modal-confirmation .modal-content {
     border: none;
     border-radius: 3px;
     background-color: #FFFFFF;
 }
 
-.confirmation-modal .modal-header .close {
+.modal-confirmation .modal-header .close {
     margin-top: -4px;
 }
 
-.confirmation-modal .close, .close:hover, .close:focus {
+.modal-confirmation .close, .close:hover, .close:focus {
     font-size: 30px;
     cursor: pointer;
     outline: none !important;
@@ -755,19 +755,19 @@ form .form-control:-ms-input-placeholder {
     text-shadow: none;
     color: #333333;
 }
-.confirmation-modal {
+.modal-confirmation {
     border-color: #CCCCCC;
 }
 
-.confirmation-modal {
+.modal-confirmation {
     border-color: #CCCCCC;
 }
 
-.confirmation-modal {
+.modal-confirmation {
     color: #333333;
 }
 
-.confirmation-modal p {
+.modal-confirmation p {
     color: #333333;
     margin-bottom: 0;
 }
