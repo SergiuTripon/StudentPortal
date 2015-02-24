@@ -149,21 +149,24 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <label for="lecture_lecturer">Current lecturer</label>
     <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer' AND userid = '$lecture_lecturer'");
 
-    while ($row = $stmt1->fetch_assoc()){
+    $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt1->bind_param('i', $lecture_lecturer);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($firstname, $surname);
+    $stmt1->fetch();
 
-    $lecturer = $row["userid"];
+        echo '<option value="'.$lecture_lecturer.'">'.$firstname.' '.$surname.'</option>';
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lecturer);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
+    $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE NOT userid = ? LIMIT 1");
+    $stmt3->bind_param('i', $lecture_lecturer);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($firstname1, $surname1);
+    $stmt3->fetch();
 
-        echo '<option value="'.$lecturer.'">'.$firstname.' '.$surname.'</option>';
-    }
+        echo '<option value="'.$lecture_lecturer.'">'.$firstname1.' '.$surname1.'</option>';
     ?>
 
     </select>
