@@ -5,18 +5,18 @@ if (isset($_POST["recordToMessage"])) {
 
     $idToMessage = filter_input(INPUT_POST, 'recordToMessage', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt1->bind_param('i', $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($userid, $email1, $firstname1, $surname1);
+    $stmt1->bind_result($message_from, $message_from_email, $message_from_firstname, $message_from_surname);
     $stmt1->fetch();
 
-    $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt1->bind_param('i', $idToMessage);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($userid, $email2, $firstname2, $surname2);
+    $stmt1->bind_result($message_to, $message_to_email, $message_to_firstname, $message_to_surname);
     $stmt1->fetch();
 
 } else {
@@ -62,7 +62,7 @@ if (isset($_POST["recordToMessage"])) {
     <p id="error" class="feedback-sad text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="userid2" id="userid2" value="<?php echo $userid2; ?>">
+    <input type="hidden" name="message_to_userid" id="message_to_userid" value="<?php echo $message_to_userid; ?>">
 
     <h4 class="text-center">From</h4>
     <hr class="hr-custom">
@@ -70,15 +70,15 @@ if (isset($_POST["recordToMessage"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname1" id="firstname1" value="<?php echo $firstname1; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="message_from_firstname" id="message_from_firstname" value="<?php echo $message_from_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="surname1" id="surname1" value="<?php echo $surname1; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="message_from_surname" id="message_from_surname" value="<?php echo $message_from_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="email1" id="email1" value="<?php echo $email1; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="message_from_email" id="message_from_email" value="<?php echo $message_from_email; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -88,15 +88,15 @@ if (isset($_POST["recordToMessage"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="firstname2" id="firstname2" value="<?php echo $firstname2; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="message_to_firstname" id="message_to_firstname" value="<?php echo $message_to_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="surname2" id="surname2" value="<?php echo $surname2; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="message_to_surname" id="message_to_surname" value="<?php echo $message_to_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="email2" id="email2" value="<?php echo $email2; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="message_to_email" id="message_to_email" value="<?php echo $message_to_email; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -221,16 +221,16 @@ if (isset($_POST["recordToMessage"])) {
     }
 
 
-    var userid = $("#userid2").val();
-    var firstname = $("#firstname2").val();
-    var surname = $("#surname2").val();
-    var email = $("#email2").val();
+    var message_to_userid = $("#message_to_surname").val();
+    var message_to_firstname = $("#message_to_firstname").val();
+    var message_to_surname = $("#message_to_surname").val();
+    var message_to_email = $("#message_to_email").val();
 
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid2=' + userid + '&firstname5=' + firstname + '&surname5=' + surname + '&email8=' + email + '&subject=' + subject + '&message1=' + message,
+    data:'message_to_userid=' + message_to_userid + '&message_to_firstname=' + message_to_firstname + '&message_to_surname=' + message_to_surname + '&message_to_email=' + message_to_email + '&subject=' + subject + '&message1=' + message,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
