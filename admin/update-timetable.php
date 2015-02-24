@@ -165,12 +165,12 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
         $lecture_lecturer = $row["userid"];
 
-        $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-        $stmt2->bind_param('i', $lecture_lecturer);
-        $stmt2->execute();
-        $stmt2->store_result();
-        $stmt2->bind_result($firstname, $surname);
-        $stmt2->fetch();
+        $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt1->bind_param('i', $lecture_lecturer);
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($firstname, $surname);
+        $stmt1->fetch();
 
         echo '<option>'.$firstname.' '.$surname.'</option>';
     }
