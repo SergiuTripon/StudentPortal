@@ -457,8 +457,8 @@ include '../includes/session.php';
 	success:function(){
 		$('#user-'+DbNumberID).fadeOut();
 		$('#hide').hide();
-		$('.logo-custom i').removeClass('fa-trash');
-		$('.logo-custom i').addClass('fa-check-square-o');
+		$('.form-logo i').removeClass('fa-trash');
+		$('.form-logo i').addClass('fa-check-square-o');
 		$('.modal-body p').removeClass('feedback-custom');
 		$('.modal-body p').addClass('feedback-happy');
 		$('#success').empty().append('The account has been deleted successfully.');
