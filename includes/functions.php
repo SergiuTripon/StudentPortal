@@ -2038,24 +2038,34 @@ function DeleteAccount() {
     $accountToDelete = filter_input(INPUT_POST, 'accountToDelete', FILTER_SANITIZE_STRING);
 
 	$stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
-	$stmt1->bind_param('i', $session_userid);
+	$stmt1->bind_param('i', $accountToDelete);
 	$stmt1->execute();
 	$stmt1->close();
 
     $stmt2 = $mysqli->prepare("DELETE FROM user_messages WHERE userid = ?");
-    $stmt2->bind_param('i', $session_userid);
+    $stmt2->bind_param('i', $accountToDelete);
     $stmt2->execute();
     $stmt2->close();
 
     $stmt3 = $mysqli->prepare("DELETE FROM user_messages WHERE message_to = ?");
-    $stmt3->bind_param('i', $session_userid);
+    $stmt3->bind_param('i', $accountToDelete);
     $stmt3->execute();
     $stmt3->close();
 
     $stmt4 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = ?");
-    $stmt4->bind_param('i', $session_userid);
+    $stmt4->bind_param('i', $accountToDelete);
     $stmt4->execute();
     $stmt4->close();
+
+    $stmt5 = $mysqli->prepare("DELETE FROM reserved_books WHERE userid = ?");
+    $stmt5->bind_param('i', $accountToDelete);
+    $stmt5->execute();
+    $stmt5->close();
+
+    $stmt6 = $mysqli->prepare("DELETE FROM booked_events WHERE userid = ?");
+    $stmt6->bind_param('i', $accountToDelete);
+    $stmt6->execute();
+    $stmt6->close();
 
 	session_unset();
 	session_destroy();
