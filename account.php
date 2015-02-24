@@ -252,7 +252,6 @@ include 'includes/session.php';
             <td data-title="Delete"><a class="btn btn-primary btn-md delete-button" href="#modal-'.$row["userid"].'" data-toggle="modal">Delete</a></td>
 			</tr>
 
-			<!-- Delete an account modal -->
     		<div class="modal fade modal-custom" id="modal-'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
@@ -283,8 +282,7 @@ include 'includes/session.php';
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-			<!-- End of Delete an account modal -->';
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt4->close();

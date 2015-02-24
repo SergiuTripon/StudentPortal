@@ -738,37 +738,27 @@ form .form-control:-ms-input-placeholder {
 
 /* Modal custom */
 .modal-custom .modal-content {
-    border: none;
-    border-radius: 3px;
-    border-color: #CCCCCC;
-    background-color: #FFFFFF;
+    border-color: #333333;
+    background-color: #E9DDC6;
 }
 
-.modal-custom .modal-header .close {
-    margin-top: -4px;
+.modal-custom .modal-header {
+    border-color: #333333;
+}
+
+.modal-custom .modal-footer {
+    border-color: #333333;
+}
+
+.modal-custom .modal-title {
+    color: #333333;
+}
+
+.modal-custom .modal-body p {
+    color: #333333;
 }
 
 .modal-custom .close, .close:hover, .close:focus {
-    font-size: 30px;
-    cursor: pointer;
-    outline: none !important;
-    opacity: 1;
-    text-shadow: none;
-    color: #333333;
-}
-.modal-header {
-    border-color: #CCCCCC;
-}
-
-.modal-footer {
-    border-color: #CCCCCC;
-}
-
-.modal-title {
-    color: #333333;
-}
-
-.modal-body p {
     color: #333333;
 }
 /* End of Modal style */
