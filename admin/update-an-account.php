@@ -286,30 +286,30 @@ if ($dateofbirth == "0000-00-00") {
 	.resize();//trigger the resize event on page load.
 
     //Global variable
-	var account_type1;
-	var gender3;
-	var studentno1;
+	var account_type;
+	var gender;
+	var studentno;
 
-	account_type1 = ($('.account_type.active').text().replace(/^\s+|\s+$/g,''));
-	gender3 = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
+	account_type = ($('.account_type.active').text().replace(/^\s+|\s+$/g,''));
+	gender = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
 
 	//Setting variable value
 	$('.btn-group > .account_type').click(function(){
-		account_type1 = ($(this).text().replace(/^\s+|\s+$/g,''))
+		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
 
-		if(account_type1 === 'Student') {
+		if(account_type === 'Student') {
 			$('label[for="studentno"]').show();
 			$('#studentno').show();
 			$('label[for="degree"]').show();
 			$('#degree').show();
 		}
-		if(account_type1 === 'Lecturer') {
+		if(account_type === 'Lecturer') {
 			$('label[for="studentno"]').hide();
 			$('#studentno').hide();
 			$('label[for="degree"]').hide();
 			$('#degree').hide();
 		}
-		if(account_type1 === 'Admin') {
+		if(account_type === 'Admin') {
 			$('label[for="studentno"]').hide();
 			$('#studentno').hide();
 			$('label[for="degree"]').hide();
@@ -318,7 +318,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	})
 	$('.btn-group > .gender').click(function(){
-		gender3 = ($(this).text().replace(/^\s+|\s+$/g,''))
+		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
 	})
 
 	//Ajax call
@@ -329,8 +329,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	var userid = $("#userid").val();
 
-	var firstname3 = $("#firstname").val();
-	if(firstname3 === '') {
+	var firstname = $("#firstname").val();
+	if(firstname === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a first name.");
 		$("#firstname").css("border-color", "#FF5454");
@@ -341,8 +341,8 @@ if ($dateofbirth == "0000-00-00") {
 		$("#firstname").css("border-color", "#4DC742");
 	}
 
-	var surname3 = $("#surname").val();
-	if(surname3 === '') {
+	var surname = $("#surname").val();
+	if(surname === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter a surname.");
 		$("#surname").css("border-color", "#FF5454");
@@ -353,8 +353,8 @@ if ($dateofbirth == "0000-00-00") {
 		$("#surname").css("border-color", "#4DC742");
 	}
 
-	var email6 = $("#email").val();
-	if(email6 === '') {
+	var email = $("#email").val();
+	if(email === '') {
 		$("#error5").show();
         $("#error5").empty().append("Please enter an email address.");
 		$("#email").css("border-color", "#FF5454");
@@ -365,9 +365,9 @@ if ($dateofbirth == "0000-00-00") {
 		$("#email").css("border-color", "#4DC742");
 	}
 
-	if (account_type1 === 'Student') {
-		studentno1 = $("#studentno").val();
-		if(studentno1 === '') {
+	if (account_type === 'Student') {
+		studentno = $("#studentno").val();
+		if(studentno === '') {
 			$("#error4").show();
 			$("#error4").empty().append("Please enter a student number.");
 			$("#studentno").css("border-color", "#FF5454");
@@ -377,7 +377,7 @@ if ($dateofbirth == "0000-00-00") {
 			$("#error4").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
-		if ($.isNumeric(studentno1)) {
+		if ($.isNumeric(studentno)) {
 			$("#error4").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		} else {
@@ -387,7 +387,7 @@ if ($dateofbirth == "0000-00-00") {
 			hasError  = true;
 			return false;
 		}
-		if (studentno1.length != 9) {
+		if (studentno.length != 9) {
 			$("#error4").show();
 			$("#error4").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
 			$("#studentno").css("border-color", "#FF5454");
@@ -398,11 +398,11 @@ if ($dateofbirth == "0000-00-00") {
 			$("#studentno").css("border-color", "#4DC742");
 		}
 	} else {
-		studentno1 = $("#studentno").val();
+		studentno = $("#studentno").val();
 	}
 
-	var degree1 = $("#degree").val();
-	if(degree1 === '') {
+	var degree = $("#degree").val();
+	if(degree === '') {
 		$("#error4").show();
         $("#error4").empty().append("Please enter a programme of study.");
 		$("#degree").css("border-color", "#FF5454");
@@ -413,22 +413,22 @@ if ($dateofbirth == "0000-00-00") {
 		$("#degree").css("border-color", "#4DC742");
 	}
 
-	var nationality2 = $("#nationality").val();
-	var dateofbirth2 = $("#dateofbirth").val();
-	var phonenumber2 = $("#phonenumber").val();
- 	var address12 = $("#address1").val();
-	var address22 = $("#address2").val();
-	var town2 = $("#town").val();
-	var city2 = $("#city").val();
-	var country2 = $("#country").val();
-	var postcode2 = $("#postcode").val();
+	var nationality = $("#nationality").val();
+	var dateofbirth = $("#dateofbirth").val();
+	var phonenumber = $("#phonenumber").val();
+ 	var address1 = $("#address1").val();
+	var address2 = $("#address2").val();
+	var town = $("#town").val();
+	var city = $("#city").val();
+	var country = $("#country").val();
+	var postcode = $("#postcode").val();
 
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&account_type1=' + account_type1 + '&firstname3=' + firstname3 + '&surname3=' + surname3 + '&gender3=' + gender3 + '&studentno1=' + studentno1 + '&degree1=' + degree1 + '&email6=' + email6 + '&nationality2=' + nationality2 + '&dateofbirth2=' + dateofbirth2 + '&phonenumber2=' + phonenumber2 + '&address12=' + address12 + '&address22=' + address22 + '&town2=' + town2 + '&city2=' + city2 + '&country2=' + country2 + '&postcode2=' + postcode2,
+    data:'userid=' + userid + '&account_type1=' + account_type + '&firstname3=' + firstname + '&surname3=' + surname + '&gender3=' + gender + '&studentno1=' + studentno + '&degree1=' + degree + '&email6=' + email + '&nationality2=' + nationality + '&dateofbirth2=' + dateofbirth + '&phonenumber2=' + phonenumber + '&address12=' + address1 + '&address22=' + address + '&town2=' + town + '&city2=' + city + '&country2=' + country + '&postcode2=' + postcode,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();

@@ -261,8 +261,8 @@ if ($dateofbirth == "0000-00-00") {
 	
 	var hasError = false;
 	
-	var firstname1 = $("#firstname").val();
-	if(firstname1 === '') {
+	var firstname = $("#firstname").val();
+	if(firstname === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").addClass("error-style");
@@ -270,8 +270,8 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 	
-	var surname1 = $("#surname").val();
-	if(surname1 === '') {
+	var surname = $("#surname").val();
+	if(surname === '') {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a surname.");
 		$("#surname").addClass("error-style");
@@ -279,8 +279,8 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
-	var email4 = $("#email").val();
-	if(email4 === '') {
+	var email = $("#email").val();
+	if(email === '') {
 		$("#error2").show();
         $("#error2").empty().append("Please enter an email address.");
 		$("#email").addClass("error-style");
@@ -303,7 +303,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'firstname1=' + firstname1 + '&surname1=' + surname1 + '&gender1=' + gender1 + '&email4=' + email4 + '&nationality=' + nationality + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
+    data:'firstname1=' + firstname + '&surname1=' + surname + '&gender1=' + gender1 + '&email4=' + email + '&nationality=' + nationality + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
