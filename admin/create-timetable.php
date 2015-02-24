@@ -499,19 +499,19 @@ include '../includes/session.php';
         $("label[for='lecture_name']").addClass("feedback-happy");
 	}
 
-    var lecture_lecturer_check = $("#lecturer option:selected").html();
+    var lecture_lecturer_check = $("#lecture_lecturer option:selected").html();
     if (lecture_lecturer_check === 'Select an option') {
-        $("label[for='lecture_lecturer']").empty().append("All good!");
-        $("label[for='lecture_lecturer']").removeClass("feedback-sad");
-        $("label[for='lecture_lecturer']").addClass("feedback-happy");
-        hasError  = true;
-        return false;
-    }
-    else {
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
         $("label[for='lecture_lecturer']").focus();
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("label[for='lecture_lecturer']").empty().append("All good!");
+        $("label[for='lecture_lecturer']").removeClass("feedback-sad");
+        $("label[for='lecture_lecturer']").addClass("feedback-happy");
     }
 
     var lecture_day_check = $("#lecture_day option:selected").html();
