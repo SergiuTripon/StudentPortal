@@ -743,7 +743,7 @@ form .form-control:-ms-input-placeholder {
     background-color: #F0F0F0;
 }
 
-.modal-confirmation {
+.modal-confirmation .modal-header {
 border-bottom-color: #B8B8B8;
 }
 
