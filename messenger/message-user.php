@@ -230,7 +230,7 @@ if (isset($_POST["recordToMessage"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'message_to_userid=' + message_to_userid + '&message_to_firstname=' + message_to_firstname + '&message_to_surname=' + message_to_surname + '&message_to_email=' + message_to_email + '&subject=' + subject + '&message1=' + message,
+    data:'message_to_userid=' + message_to_userid + '&message_to_firstname=' + message_to_firstname + '&message_to_surname=' + message_to_surname + '&message_to_email=' + message_to_email + '&message_subject=' + message_subject + '&message_body=' + message_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();

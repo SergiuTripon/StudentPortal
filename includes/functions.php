@@ -1631,38 +1631,30 @@ function MessageUser() {
 	global $userid;
 	global $created_on;
 
-	$message_to = filter_input(INPUT_POST, 'userid2', FILTER_SANITIZE_STRING);
-	$firstname = filter_input(INPUT_POST, 'firstname5', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname5', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email8', FILTER_SANITIZE_EMAIL);
-	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$message_subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
-	$message_body = filter_input(INPUT_POST, 'message1', FILTER_SANITIZE_STRING);
+	$message_to_userid = filter_input(INPUT_POST, 'message_to_userid', FILTER_SANITIZE_STRING);
+	$message_to_firstname = filter_input(INPUT_POST, 'message_to_firstname', FILTER_SANITIZE_STRING);
+	$message_to_surname = filter_input(INPUT_POST, 'message_to_surname', FILTER_SANITIZE_STRING);
+	$message_to_email = filter_input(INPUT_POST, 'message_to_email', FILTER_SANITIZE_EMAIL);
+    $message_to_email = filter_var($message_to_email, FILTER_VALIDATE_EMAIL);
+	$message_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
+	$message_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
 
 	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (userid, message_subject, message_body, message_to, created_on) VALUES (?, ?, ?, ?, ?)");
-	$stmt1->bind_param('issis', $userid, $message_subject, $message_body, $message_to, $created_on);
+	$stmt1->bind_param('issis', $userid, $message_subject, $message_body, $message_to_userid, $created_on);
 	$stmt1->execute();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $userid);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($email1, $firstname1, $surname1);
-	$stmt2->fetch();
-	$stmt2->close();
-
 	// subject
-	$subject = "$firstname1 $surname1 - New message on Student Portal";
+	$subject = "$message_to_firstname $message_to_surname - New message on Student Portal";
 
 	// message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>The following person sent you a message:</p>';
 	$message .= '<table rules="all" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$firstname1</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $surname1</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $email1</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$message_to_firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_to_surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_to_email</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_subject</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_body</td></tr>";
 	$message .= '</table><br>';
