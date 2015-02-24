@@ -472,7 +472,7 @@ include '../includes/session.php';
 		hasError  = true;
 		return false;
     } else {
-        $("label[for='module_name']").empty().append("Please enter a module name.");
+        $("label[for='module_name']").empty().append("All good!");
         $("label[for='module_name']").addClass("feedback-happy");
 	}
 
