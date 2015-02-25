@@ -413,6 +413,8 @@ include 'includes/session.php';
 		var width = $(window).width();
 		if(width <= 480){
 			$('.btn-group').addClass('btn-group-vertical full-width');
+        } else {
+            $('.btn-group').removeClass('btn-group-vertical full-width');
         }
 	})
 	.resize();

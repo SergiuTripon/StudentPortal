@@ -939,7 +939,7 @@ form .form-control:-ms-input-placeholder {
 }
 #calendar-portal .calendar-buttons > .btn-group,
 #calendar-portal .calendar-buttons > .btn-group-vertical {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 /* End of Calendar portal */
 
