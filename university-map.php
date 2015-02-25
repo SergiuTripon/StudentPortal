@@ -32,7 +32,7 @@ include 'includes/session.php';
 	<div class="row mb10">
 
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
-    <a href="../university-map/overview.php">
+    <a href="../university-map/overview/">
     <div class="tile">
 	<i class="fa fa-university"></i>
 	<p class="tile-text">See all locations</p>
@@ -41,7 +41,7 @@ include 'includes/session.php';
 	</div>
 
 	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
-    <a href="../university-map/search.php">
+    <a href="../university-map/search/">
 	<div class="tile">
     <i class="fa fa-search-plus"></i>
 	<p class="tile-text">Search for a location</p>
