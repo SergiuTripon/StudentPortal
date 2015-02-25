@@ -202,6 +202,7 @@ include '../includes/session.php';
         $("label[for='task_name']").empty().append("All good!");
         $("label[for='task_name']").removeClass("feedback-sad");
         $("label[for='task_name']").addClass("feedback-happy");
+        $("#task_name").css("cssText", "border-color: #3FAD46");
 	}
 	
 	var task_notes = $("#task_notes").val();
@@ -220,6 +221,7 @@ include '../includes/session.php';
         $("label[for='task_startdate']").empty().append("All good!");
         $("label[for='task_startdate']").removeClass("feedback-sad");
         $("label[for='task_startdate']").addClass("feedback-happy");
+        $("#task_startdate").css("cssText", "border-color: #3FAD46");
 	}
 
 	var task_duedate = $("#task_duedate").val();
@@ -235,6 +237,7 @@ include '../includes/session.php';
         $("label[for='task_duedate']").empty().append("All good!");
         $("label[for='task_duedate']").removeClass("feedback-sad");
         $("label[for='task_duedate']").addClass("feedback-happy");
+        $("#task_duedate").css("cssText", "border-color: #3FAD46");
 	}
 
 	var task_category_check = $(".task_category");
@@ -242,6 +245,7 @@ include '../includes/session.php';
         $("label[for='task_category']").empty().append("All good!");
         $("label[for='task_category']").removeClass("feedback-sad");
         $("label[for='task_category']").addClass("feedback-happy");
+        $("#task_category").css("cssText", "border-color: #3FAD46");
 	}
 	else {
         $("label[for='task_category']").empty().append("Please select a category.");
