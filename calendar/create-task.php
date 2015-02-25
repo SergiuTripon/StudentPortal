@@ -147,6 +147,19 @@ include '../includes/session.php';
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
+    // Date Time Picker
+    var today = new Date();
+	$(function () {
+	    $('#task_startdate').datetimepicker({
+		    dateFormat: "yy-mm-dd",
+            minDate: today
+	    });
+        $('#task_duedate').datetimepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: today
+        });
+	});
+
 	//Responsiveness
 	$(window).resize(function(){
 		var width = $(window).width();
@@ -229,13 +242,13 @@ include '../includes/session.php';
         $("label[for='task_category']").empty().append("All good!");
         $("label[for='task_category']").removeClass("feedback-sad");
         $("label[for='task_category']").addClass("feedback-happy");
-        $("#task_category").css("cssText", "border-color: #3FAD46");
+        $(".task_category").css("cssText", "border-color: #3FAD46");
 	}
 	else {
         $("label[for='task_category']").empty().append("Please select a category.");
         $("label[for='task_category']").removeClass("feedback-happy");
         $("label[for='task_category']").addClass("feedback-sad");
-        $("#task_category").css("cssText", "border-color: #D9534F");
+        $(".task_category").css("cssText", "border-color: #D9534F");
         $("#task_category").focus();
         hasError = true;
         return false;
