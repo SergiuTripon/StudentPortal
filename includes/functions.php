@@ -967,7 +967,7 @@ function RequestBook() {
     $message = '<html>';
     $message .= '<body>';
     $message .= '<p>Hi! Someone requested a book you reserved. Below, you can find the request summary:</p>';
-    $message .= '<table rules="all" align="center" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
+    $message .= '<table rules="all" align="left" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
     $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$requester_firstname</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $requester_surname</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $requester_email</td></tr>";
