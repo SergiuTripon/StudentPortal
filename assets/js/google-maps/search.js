@@ -32,7 +32,7 @@
 
     function searchLocations() {
 
-        var address = $("addressInput").val();
+        var address = document.getElementById("addressInput").value;
         if(address === '') {
             $("label[for='addressInput']").empty().append("Please enter a address.");
             $("label[for='addressInput']").removeClass("feedback-happy");
@@ -42,7 +42,7 @@
             return false;
         }
 
-        var radius = $("#radiusSelect option:selected").val();
+        var radius = document.getElementById("radiusSelect").value;
         if(radius === '') {
             $("label[for='radiusSelect']").empty().append("Please select radius.");
             $("label[for='radiusSelect']").removeClass("feedback-happy");
