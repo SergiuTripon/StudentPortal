@@ -151,7 +151,6 @@ $stmt1->fetch();
     e.preventDefault();
 
     var accountToDelete = $("#session_userid").text();
-        alert(accountToDelete);
 
     jQuery.ajax({
     type: "POST",
