@@ -171,8 +171,7 @@ include '../includes/session.php';
 		} else {
 			$('.btn-group').addClass('btn-group-justified');
 		}
-	})
-	.resize();
+	}).resize();
 
 	//Global variable
 	var task_category;
