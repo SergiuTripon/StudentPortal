@@ -10,6 +10,7 @@ include '../includes/session.php';
     <title>University map | Search</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
@@ -43,7 +44,7 @@ include '../includes/session.php';
     </div>
 
     <div class="col-xs-3 col-sm-2 full-width">
-    <select class="form-control" id="radiusSelect">
+    <select class="form-control selectpicker" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
     <option value="200">200mi</option>
@@ -101,6 +102,7 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
 
     <script>
     //Ladda
@@ -110,6 +112,8 @@ include '../includes/session.php';
     window.onload = function () {
         loadMap();
     }
+
+    $('.selectpicker').selectpicker();
     </script>
 
 </body>
