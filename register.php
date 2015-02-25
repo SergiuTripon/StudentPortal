@@ -235,21 +235,6 @@ include 'includes/session.php';
         $("label[for='firstname']").removeClass("feedback-sad");
         $("label[for='firstname']").addClass("feedback-happy");
 	}
-
-    $('#firstname').bind('keypress keyup blur', function() {
-        if(firstname === '') {
-            $("label[for='firstname']").empty().append("Please enter a first name.");
-            $("label[for='firstname']").removeClass("feedback-happy");
-            $("label[for='firstname']").addClass("feedback-sad");
-            $("#firstname").focus();
-            hasError = true;
-            return false;
-        } else {
-            $("label[for='firstname']").empty().append("All good!");
-            $("label[for='firstname']").removeClass("feedback-sad");
-            $("label[for='firstname']").addClass("feedback-happy");
-        }
-    });
 	
 	var surname = $("#surname").val();
 	if(surname === '') {
@@ -323,6 +308,23 @@ include 'includes/session.php';
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
 	}
+
+    $('#password').bind('keypress keyup blur', function() {
+        if (password.length < 6) {
+            $("#error1").show();
+            $("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
+            $("label[for='password']").empty().append("Wait a minute!");
+            $("label[for='password']").removeClass("feedback-happy");
+            $("label[for='password']").addClass("feedback-sad");
+            $("#password").focus();
+            hasError = true;
+            return false;
+        } else {
+            $("label[for='password']").empty().append("All good!");
+            $("label[for='password']").removeClass("feedback-sad");
+            $("label[for='password']").addClass("feedback-happy");
+        }
+    });
 	
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
