@@ -78,14 +78,14 @@ if (isset($_POST["recordToBook"])) {
     <input class="form-control" type="text" name="payer_firstname" id="payer_firstname" value="<?php echo $firstname; ?>" placeholder="First Name" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Surname</label>
+    <label></label>Surname</label>
     <input class="form-control" type="text" name="payer_surname" id="payer_surname" value="<?php echo $surname; ?>" placeholder="Surname" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Address line 1</label>
+    <label for="payer_address1">Address line 1<span class="field-required">*</span></label>
     <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Enter the first line of an address">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
@@ -93,7 +93,6 @@ if (isset($_POST["recordToBook"])) {
 	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="Enter a city">
     </div>
     </div>
-    <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
@@ -101,11 +100,10 @@ if (isset($_POST["recordToBook"])) {
     <input class="form-control" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Post code</label>
+    <label for="payer_postcode">Post code</label>
     <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Enter a post code">
     </div>
     </div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -131,11 +129,10 @@ if (isset($_POST["recordToBook"])) {
     <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Quantity</label>
+    <label for="product_quantity">Quantity</label>
     <input class="form-control" type="text" name="product_quantity" id="product_quantity" placeholder="Quantity">
     </div>
     </div>
-    <p id="error3" class="feedback-sad text-center"></p>
 
     <hr class="hr-custom">
 
@@ -223,13 +220,13 @@ if (isset($_POST["recordToBook"])) {
 
     //Checks for empty values
     var payer_address1 = $("#payer_firstname").val();
-	if(payer_address1 === '') { $("#payer_firstname").css("border-color", "#FF5454"); }
+	if(payer_address1 === '') { $("#payer_address1").addClass("input-sad"); }
     var payer_city = $("#payer_city").val();
-	if(payer_city === '') { $("#payer_city").css("border-color", "#FF5454"); }
+	if(payer_city === '') { $("#payer_city").addClass("input-sad"); }
     var payer_postcode = $("#payer_postcode").val();
-	if(payer_postcode === '') { $("#payer_postcode").css("border-color", "#FF5454"); }
+	if(payer_postcode === '') { $("#payer_postcode").addClass("input-sad"); }
     var product_quantity = $("#product_quantity").val();
-    if(product_quantity === '') { $("#product_quantity").css("border-color", "#FF5454"); }
+    if(product_quantity === '') { $("#product_quantity").addClass("input-sad"); }
 
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
@@ -239,46 +236,74 @@ if (isset($_POST["recordToBook"])) {
 
     var payer_address1 = $("#payer_address1").val();
 	if (payer_address1 === '') {
-        $("#error1").show();
-        $("#error1").empty().append("Please enter the first line of an address.");
-		$("#payer_address1").css("border-color", "#FF5454");
+        $("label[for='payer_address1']").empty().append("Please enter an address.");
+        $("label[for='payer_address1']").removeClass("feedback-happy");
+        $("#payer_address1").removeClass("input-style-happy");
+        $("label[for='payer_address1']").addClass("feedback-sad");
+        $("#payer_address1").addClass("input-style-sad");
+        $("#payer_address1").focus();
 		hasError  = true;
+        return false;
 	} else {
-		$("#error1").hide();
-		$("#payer_address1").css("border-color", "#4DC742");
+        $("label[for='payer_address1']").empty().append("All good!");
+        $("label[for='payer_address1']").removeClass("feedback-sad");
+        $("#payer_address1").removeClass("input-style-sad");
+        $("label[for='payer_address1']").addClass("feedback-happy");
+        $("#payer_address1").addClass("input-style-happy");
 	}
 
     var payer_city = $("#payer_city").val();
     if(payer_city === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a city.");
-		$("#payer_city").css("border-color", "#FF5454");
+        $("label[for='payer_city']").empty().append("Please enter a city.");
+        $("label[for='payer_city']").removeClass("feedback-happy");
+        $("#payer_city").removeClass("input-style-happy");
+        $("label[for='payer_city']").addClass("feedback-sad");
+        $("#payer_city").addClass("input-style-sad");
+        $("#payer_city").focus();
 		hasError  = true;
+        return false;
     } else {
-		$("#error1").hide();
-		$("#payer_city").css("border-color", "#4DC742");
+        $("label[for='payer_city']").empty().append("All good!");
+        $("label[for='payer_city']").removeClass("feedback-sad");
+        $("#payer_city").removeClass("input-style-sad");
+        $("label[for='payer_city']").addClass("feedback-happy");
+        $("#payer_city").addClass("input-style-happy");
 	}
 
     var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a postcode.");
-		$("#payer_postcode").css("border-color", "#FF5454");
+        $("label[for='payer_postcode']").empty().append("Please enter a postcode.");
+        $("label[for='payer_postcode']").removeClass("feedback-happy");
+        $("#payer_postcode").removeClass("input-style-happy");
+        $("label[for='payer_postcode']").addClass("feedback-sad");
+        $("#payer_postcode").addClass("input-style-sad");
+        $("#payer_postcode").focus();
 		hasError  = true;
+        return false;
     } else {
-		$("#error2").hide();
-		$("#payer_postcode").css("border-color", "#4DC742");
+        $("label[for='payer_postcode']").empty().append("All good!");
+        $("label[for='payer_postcode']").removeClass("feedback-sad");
+        $("#payer_postcode").removeClass("input-style-sad");
+        $("label[for='payer_postcode']").addClass("feedback-happy");
+        $("#payer_postcode").addClass("input-style-happy");
 	}
 
     var product_quantity = $("#product_quantity").val();
     if(product_quantity === '') {
-        $("#error3").show();
-        $("#error3").empty().append("Please enter a quantity.");
-        $("#product_quantity").css("border-color", "#FF5454");
+        $("label[for='product_quantity']").empty().append("Please enter a quantity.");
+        $("label[for='product_quantity']").removeClass("feedback-happy");
+        $("#product_quantity").removeClass("input-style-happy");
+        $("label[for='product_quantity']").addClass("feedback-sad");
+        $("#payer_postcode").addClass("input-style-sad");
+        $("#payer_postcode").focus();
         hasError  = true;
+        return false;
     } else {
-        $("#error3").hide();
-        $("#product_quantity").css("border-color", "#4DC742");
+        $("label[for='product_quantity']").empty().append("All good!");
+        $("label[for='product_quantity']").removeClass("feedback-sad");
+        $("#product_quantity").removeClass("input-style-sad");
+        $("label[for='product_quantity']").addClass("feedback-happy");
+        $("#product_quantity").addClass("input-style-happy");
     }
 
     var eventid = $("#product_id").val();
