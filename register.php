@@ -345,7 +345,9 @@ include 'includes/session.php';
 	}
 	
 	if(password != confirmpwd) {
-        $("label[for='confirmpwd']").empty().append("Your password and confirmation do not match. Please try again");
+        $("#error1").show();
+        $("#error1").empty().append("Your password and confirmation do not match. Please try again");
+        $("label[for='confirmpwd']").empty().append("Wait a minute!");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
         $("#confirmpwd").focus();
