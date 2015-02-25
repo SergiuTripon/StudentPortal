@@ -521,7 +521,7 @@ form .form-control:-ms-input-placeholder {
 }
 
 .input-sad {
-    border-color: #FF5454;
+    border-color: #FF5454 !important;
 }
 /* End of Error message */
 
@@ -533,7 +533,7 @@ form .form-control:-ms-input-placeholder {
 }
 
 .input-happy {
-    border-color: #4DC742;
+    border-color: #4DC742 !important;
 }
 /* End of Success message */
 
