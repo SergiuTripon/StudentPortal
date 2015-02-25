@@ -89,7 +89,7 @@ if (isset($_POST["recordToBook"])) {
     <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Enter the first line of an address">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>City</label>
+    <label for="payer_city">City<span class="field-required">*</span></label>
 	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="Enter a city">
     </div>
     </div>
