@@ -89,7 +89,7 @@ include 'includes/session.php';
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="message-'.$userid.'" class="btn btn-primary btn-md message-button">Message</a></td>
+			<td data-title="Action"><a id="message-'.$userid.'" class="btn btn-primary ladda-button btn-md message-button" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
 			</tr>';
 	}
 
