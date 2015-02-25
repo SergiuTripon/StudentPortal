@@ -974,7 +974,7 @@ function RequestBook() {
     $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_author</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_from</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $bookreserved_to</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Book status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $book_status</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Book status:</strong> </td><td style=\"border: 1px solid #FFA500;\"> ucfirst($book_status)</td></tr>";
     $message .= '</table>';
     $message .= '</body>';
     $message .= '</html>';
