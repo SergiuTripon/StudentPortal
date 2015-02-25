@@ -190,7 +190,7 @@ include '../includes/session.php';
 
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
-        $("label[for='task_name']").empty().append("Please enter a password.");
+        $("label[for='task_name']").empty().append("Please enter a name.");
         $("label[for='task_name']").removeClass("feedback-happy");
         $("#task_name").removeClass("input-style-happy");
         $("label[for='task_name']").addClass("feedback-sad");
