@@ -235,6 +235,21 @@ include 'includes/session.php';
         $("label[for='firstname']").removeClass("feedback-sad");
         $("label[for='firstname']").addClass("feedback-happy");
 	}
+
+    $('#firstname').bind('keypress keyup blur', function() {
+        if(firstname === '') {
+            $("label[for='firstname']").empty().append("Please enter a first name.");
+            $("label[for='firstname']").removeClass("feedback-happy");
+            $("label[for='firstname']").addClass("feedback-sad");
+            $("#firstname").focus();
+            hasError = true;
+            return false;
+        } else {
+            $("label[for='firstname']").empty().append("All good!");
+            $("label[for='firstname']").removeClass("feedback-sad");
+            $("label[for='firstname']").addClass("feedback-happy");
+        }
+    });
 	
 	var surname = $("#surname").val();
 	if(surname === '') {
