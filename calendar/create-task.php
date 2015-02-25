@@ -150,16 +150,18 @@ include '../includes/session.php';
 	//Date Time Picker
     var today = new Date();
 	$(function () {
-	$('#task_startdate').datetimepicker({
-		dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-	});
-	$('#task_duedate').datetimepicker({
-		dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-	});
+        $('#task_startdate').datetimepicker({
+            dateFormat: "yy-mm-dd",
+            controlType: 'select',
+            minDate: today
+        });
+
+        $('#task_duedate').datetimepicker({
+            dateFormat: "yy-mm-dd",
+            controlType: 'select',
+            minDate: today
+        });
+    });
 
 	//Responsiveness
 	$(window).resize(function(){
@@ -179,7 +181,7 @@ include '../includes/session.php';
 	//Setting variable value
 	$('.btn-group .task_category').click(function(){
 		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
-	})
+	});
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
@@ -237,14 +239,18 @@ include '../includes/session.php';
 
 	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
-		$("#error3").hide();
-		$(".btn-group > .btn-default").addClass("success-style");
+        $("label[for='task_category']").empty().append("All good!");
+        $("label[for='task_category']").removeClass("feedback-sad");
+        $("label[for='task_category']").addClass("feedback-happy");
 	}
 	else {
-		$("#error3").show();
-		$("#error3").empty().append("Please select a task category.");
-		$(".btn-group > .btn-default").addClass("error-style");
-		hasError = true;
+        $("label[for='task_category']").empty().append("Please select a category.");
+        $("label[for='task_category']").removeClass("feedback-happy");
+        $("label[for='task_category']").addClass("feedback-sad");
+        $("#task_category").css("cssText", "border-color: #D9534F");
+        $("#task_category").focus();
+        hasError = true;
+        return false;
 	}
 
 	if(hasError == false){
