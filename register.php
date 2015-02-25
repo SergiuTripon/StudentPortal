@@ -78,8 +78,9 @@ include 'includes/session.php';
 
     <hr>
 
-	<p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
+    <p id="error1" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
 
@@ -93,7 +94,6 @@ include 'includes/session.php';
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
     </div>
     </div>
-    <p id="error1" class="feedback-sad text-center"></p>
 
 	<label for="gender">Gender - select below<span class="field-required">*</span></label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
@@ -107,7 +107,6 @@ include 'includes/session.php';
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <label for="email">Email address<span class="field-required">*</span></label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email address">
@@ -123,7 +122,6 @@ include 'includes/session.php';
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your password confirmation">
     </div>
     </div>
-    <p id="error4" class="feedback-sad text-center"></p>
 
 	<div class="text-right">
     <a href="#modal-help" data-toggle="modal">Need help?</a>
@@ -297,7 +295,9 @@ include 'includes/session.php';
 
     password = $("#password").val();
 	if (password.length < 6) {
-        $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
+        $("#error1").show();
+        $("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
+        $("label[for='password']").empty().append("Wait a minute!");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
@@ -320,7 +320,9 @@ include 'includes/session.php';
         $("label[for='password']").addClass("feedback-happy");
         hasError = false;
 	} else {
-        $("label[for='password']").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+        $("#error1").show();
+        $("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+        $("label[for='password']").empty().append("Wait a minute!");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
