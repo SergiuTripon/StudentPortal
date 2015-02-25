@@ -12,7 +12,7 @@ include '../includes/session.php';
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
-	<title>Student Portal | Create a task</title>
+	<title>Student Portal | Create task</title>
 	
 </head>
 
@@ -194,7 +194,7 @@ include '../includes/session.php';
         $("label[for='task_name']").removeClass("feedback-happy");
         $("#task_name").removeClass("input-style-happy");
         $("label[for='task_name']").addClass("feedback-sad");
-        $("#task_name").addClass("input-style-sad");
+        $("#task_name").addClass("input-sad");
         $("#task_name").focus();
         hasError = true;
         return false;
@@ -203,7 +203,7 @@ include '../includes/session.php';
         $("label[for='task_name']").removeClass("feedback-sad");
         $("#task_name").removeClass("input-style-sad");
         $("label[for='task_name']").addClass("feedback-happy");
-        $("#task_name").addClass("input-style-happy");
+        $("#task_name").addClass("input-happy");
 	}
 	
 	var task_notes = $("#task_notes").val();
@@ -215,7 +215,7 @@ include '../includes/session.php';
         $("label[for='task_startdate']").removeClass("feedback-happy");
         $("#task_startdate").removeClass("input-style-happy");
         $("label[for='task_startdate']").addClass("feedback-sad");
-        $("#task_startdate").addClass("input-style-sad");
+        $("#task_startdate").addClass("input-sad");
         $("#task_startdate").focus();
         hasError = true;
         return false;
@@ -224,7 +224,7 @@ include '../includes/session.php';
         $("label[for='task_startdate']").removeClass("feedback-sad");
         $("#task_startdate").removeClass("input-style-sad");
         $("label[for='task_startdate']").addClass("feedback-happy");
-        $("#task_startdate").addClass("input-style-happy");
+        $("#task_startdate").addClass("input-happy");
 	}
 
 	var task_duedate = $("#task_duedate").val();
@@ -233,7 +233,7 @@ include '../includes/session.php';
         $("label[for='task_duedate']").removeClass("feedback-happy");
         $("#task_duedate").removeClass("input-style-happy");
         $("label[for='task_duedate']").addClass("feedback-sad");
-        $("#task_duedate").addClass("input-style-sad");
+        $("#task_duedate").addClass("input-sad");
         $("#task_duedate").focus();
         hasError = true;
         return false;
@@ -242,7 +242,7 @@ include '../includes/session.php';
         $("label[for='task_duedate']").removeClass("feedback-sad");
         $("#task_duedate").removeClass("input-style-sad");
         $("label[for='task_duedate']").addClass("feedback-happy");
-        $("#task_duedate").addClass("input-style-happy");
+        $("#task_duedate").addClass("input-happy");
 	}
 
 	var task_category_check = $(".task_category");
@@ -251,14 +251,14 @@ include '../includes/session.php';
         $("label[for='task_category']").removeClass("feedback-sad");
         $(".task_category").removeClass("input-style-sad");
         $("label[for='task_category']").addClass("feedback-happy");
-        $(".task_category").addClass("input-style-happy");
+        $(".task_category").addClass("input-happy");
 	}
 	else {
         $("label[for='task_category']").empty().append("Please select a category.");
         $("label[for='task_category']").removeClass("feedback-happy");
         $("#task_category").removeClass("input-style-happy");
         $("label[for='task_category']").addClass("feedback-sad");
-        $("#task_category").addClass("input-style-sad");
+        $("#task_category").addClass("input-sad");
         $("#task_category").focus();
         hasError = true;
         return false;

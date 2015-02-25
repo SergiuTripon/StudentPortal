@@ -45,7 +45,7 @@ header('Location: ../calendar/');
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../calendar/">Calendar</a></li>
-    <li class="active">Create a task</li>
+    <li class="active">Update task</li>
     </ol>
 	
 	<!-- Update a task -->
@@ -191,57 +191,81 @@ header('Location: ../calendar/');
 	var hasError = false;
 	
 	var taskid = $("#taskid").val();
-	
-	var task_name1 = $("#task_name").val();
-	if(task_name1 === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter task name.");
-		$("#task_name").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error1").hide();
-		$("#task_name").css("border-color", "#4DC742");
-	}
-	
-	var task_notes1 = $("#task_notes").val();
-	var task_url1 = $("#task_url").val();
 
-	var task_startdate1 = $("#task_startdate").val();
-	if(task_startdate1 === '') {
-		$("#error2").show();
-		$("#error2").empty().append("Please enter a task start date and time.");
-		$("#task_startdate").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
+	var task_name = $("#task_name").val();
+	if(task_name === '') {
+        $("label[for='task_name']").empty().append("Please enter a password.");
+        $("label[for='task_name']").removeClass("feedback-happy");
+        $("#task_name").removeClass("input-happy");
+        $("label[for='task_name']").addClass("feedback-sad");
+        $("#task_name").addClass("input-sad");
+        $("#task_name").focus();
+        hasError = true;
+        return false;
+    } else {
+        $("label[for='task_name']").empty().append("All good!");
+        $("label[for='task_name']").removeClass("feedback-sad");
+        $("#task_name").removeClass("input-sad");
+        $("label[for='task_name']").addClass("feedback-happy");
+        $("#task_name").addClass("input-happy");
+	}
+
+	var task_notes = $("#task_notes").val();
+	var task_url = $("#task_url").val();
+
+	var task_startdate = $("#task_startdate").val();
+	if(task_startdate === '') {
+        $("label[for='task_startdate']").empty().append("Please select a date and time.");
+        $("label[for='task_startdate']").removeClass("feedback-happy");
+        $("#task_startdate").removeClass("input-happy");
+        $("label[for='task_startdate']").addClass("feedback-sad");
+        $("#task_startdate").addClass("input-sad");
+        $("#task_startdate").focus();
+        hasError = true;
+        return false;
 	} else {
-		$("#error2").hide();
-		$("#datepicker1").css("border-color", "#4DC742");
+        $("label[for='task_startdate']").empty().append("All good!");
+        $("label[for='task_startdate']").removeClass("feedback-sad");
+        $("#task_startdate").removeClass("input-sad");
+        $("label[for='task_startdate']").addClass("feedback-happy");
+        $("#task_startdate").addClass("input-happy");
 	}
 
-	var task_duedate1 = $("#task_duedate").val();
-	if(task_duedate1 === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a task due date.");
-		$("#task_duedate").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
+	var task_duedate = $("#task_duedate").val();
+	if(task_duedate === '') {
+        $("label[for='task_duedate']").empty().append("Please select a date and time.");
+        $("label[for='task_duedate']").removeClass("feedback-happy");
+        $("#task_duedate").removeClass("input-happy");
+        $("label[for='task_duedate']").addClass("feedback-sad");
+        $("#task_duedate").addClass("input-sad");
+        $("#task_duedate").focus();
+        hasError = true;
+        return false;
     } else {
-		$("#error2").hide();
-		$("#datepicker2").css("border-color", "#4DC742");
+        $("label[for='task_duedate']").empty().append("All good!");
+        $("label[for='task_duedate']").removeClass("feedback-sad");
+        $("#task_duedate").removeClass("input-sad");
+        $("label[for='task_duedate']").addClass("feedback-happy");
+        $("#task_duedate").addClass("input-happy");
 	}
 
 	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
-		$("#error3").show();
-		$("#error3").hide();
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #4DC742 !important');
+        $("label[for='task_category']").empty().append("All good!");
+        $("label[for='task_category']").removeClass("feedback-sad");
+        $(".task_category").removeClass("input-sad");
+        $("label[for='task_category']").addClass("feedback-happy");
+        $(".task_category").addClass("input-happy");
 	}
 	else {
-		$("#error3").empty().append("Please select a task category.");
-		$(".btn-group > .btn-custom").css('cssText', 'border-color: #FF5454 !important');
-		hasError  = true;
-		return false;
+        $("label[for='task_category']").empty().append("Please select a category.");
+        $("label[for='task_category']").removeClass("feedback-happy");
+        $("#task_category").removeClass("input-happy");
+        $("label[for='task_category']").addClass("feedback-sad");
+        $("#task_category").addClass("input-sad");
+        $("#task_category").focus();
+        hasError = true;
+        return false;
 	}
 	
 	if(hasError == false){
