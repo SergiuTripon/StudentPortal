@@ -42,16 +42,6 @@
             return false;
         }
 
-        var radius = document.getElementById("radiusSelect").value;
-        if(radius === '') {
-            $("label[for='radiusSelect']").empty().append("Please select radius.");
-            $("label[for='radiusSelect']").removeClass("feedback-happy");
-            $("label[for='radiusSelect']").addClass("feedback-sad");
-            $("#radiusSelect").css("cssText", "border-color: #D9534F");
-            $("#radiusSelect").focus();
-            return false;
-        }
-
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({address: address}, function(results, status) {
