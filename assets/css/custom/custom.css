@@ -529,8 +529,9 @@ form .form-control:-ms-input-placeholder {
 }
 
 .field-required {
-    font-size: 20px;
+    font-size: 15px;
     color: #D9534F;
+    font-weight: 800;
 }
 /* End of Success message */
 
