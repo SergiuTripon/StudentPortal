@@ -32,14 +32,23 @@
 
     function searchLocations() {
 
-        var address = document.getElementById("addressInput").value;
-
+        var address = $("addressInput").val();
         if(address === '') {
             $("label[for='addressInput']").empty().append("Please enter a address.");
             $("label[for='addressInput']").removeClass("feedback-happy");
             $("label[for='addressInput']").addClass("feedback-sad");
             $("#addressInput").css("cssText", "border-color: #D9534F");
             $("#addressInput").focus();
+            return false;
+        }
+
+        var radius = $("#radiusSelect option:selected").val();
+        if(radius === '') {
+            $("label[for='radiusSelect']").empty().append("Please select radius.");
+            $("label[for='radiusSelect']").removeClass("feedback-happy");
+            $("label[for='radiusSelect']").addClass("feedback-sad");
+            $("#radiusSelect").css("cssText", "border-color: #D9534F");
+            $("#radiusSelect").focus();
             return false;
         }
 
