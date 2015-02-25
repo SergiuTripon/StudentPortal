@@ -176,7 +176,7 @@ include 'includes/session.php';
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
   	<div class="panel-body">
 
-	<!-- Reserved books -->
+	<!-- Sent messages -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom message-table">
 
@@ -274,6 +274,9 @@ include 'includes/session.php';
 
 	<script>
 	$(document).ready(function () {
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
 
 	//DataTables
     $('.user-table').dataTable({
