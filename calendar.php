@@ -412,11 +412,8 @@ include 'includes/session.php';
 	$(window).resize(function(){
 		var width = $(window).width();
 		if(width <= 480){
-			$('.btn-group').removeClass('btn-group-justified');
 			$('.btn-group').addClass('btn-group-vertical full-width');
-		} else {
-			$('.btn-group').addClass('btn-group-justified');
-		}
+        }
 	})
 	.resize();
 
