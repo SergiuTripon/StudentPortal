@@ -81,7 +81,7 @@ include 'includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Email address</label>
+    <label for="email">Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address">
     </div>
     </div>
@@ -89,7 +89,7 @@ include 'includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Password</label>
+    <label for="password">Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
     </div>
     </div>
@@ -131,40 +131,34 @@ include 'includes/session.php';
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    var hasError;
+    var hasError = false;
 
 	var email = $('#email').val();
 	if (email === '') {
-        $("#error").hide();
-        $("#error1").show();
-        $("#error1").empty().append("Please enter an email address.");
-        $("#email").removeClass("success-style");
-        $("#email").addClass("error-style");
+        $("label[for='email']").empty().append("Please enter an email address.");
+        $("label[for='email']").removeClass("feedback-happy");
+        $("label[for='email']").addClass("feedback-sad");
+        $("#email").focus();
 		hasError  = true;
         return false;
 	} else {
-        $("#error").hide();
-		$("#error1").hide();
-        $("#email").removeClass("error-style");
-		$("#email").addClass("success-style");
-        hasError = false;
+        $("label[for='email']").empty().append("All good!");
+        $("label[for='email']").removeClass("feedback-sad");
+        $("label[for='email']").addClass("feedback-happy");
 	}
 	
 	var password = $("#password").val();
 	if(password === '') {
-        $("#error").hide();
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a password.");
-        $("#password").removeClass("success-style");
-		$("#password").addClass("error-style");
+        $("label[for='password']").empty().append("Please enter a password.");
+        $("label[for='password']").removeClass("feedback-happy");
+        $("label[for='password']").addClass("feedback-sad");
+        $("#password").focus();
 		hasError  = true;
         return false;
     } else {
-        $("#error").hide();
-		$("#error2").hide();
-        $("#password").removeClass("error-style");
-		$("#password").addClass("success-style");
-        hasError = false;
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-sad");
+        $("label[for='password']").addClass("feedback-happy");
 	}
 	
 	if(hasError == false){
