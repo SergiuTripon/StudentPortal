@@ -70,16 +70,16 @@ header('Location: ../calendar/');
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="task_startdate">Start date<span class="field-required">*</span></label>
+	<label for="task_startdate">Start date and time<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="task_duedate">Due date<span class="field-required">*</span></label>
+	<label for="task_duedate">Due date and time<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
 	</div>
 	</div>
 
-	<label for="task_category">Task category - select below</label>
+	<label for="task_category">Task category - select below<span class="field-required">*</span></label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg task_category <?php if($task_category == "university") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University

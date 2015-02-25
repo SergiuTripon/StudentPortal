@@ -41,7 +41,7 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="task_name">Name</label>
+    <label for="task_name">Name<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
 	<p id="error1" class="feedback-sad text-center"></p>
     </div>
@@ -63,16 +63,16 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="task_startdate">Start date and time</label>
+	<label for="task_startdate">Start date and time<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="task_duedate">Due date and time</label>
+	<label for="task_duedate">Due date and time<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
 	</div>
 	</div>
 
-	<label for="task_category">Task category - select below</label>
+	<label for="task_category">Task category - select below<span class="field-required">*</span></label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg task_category">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
