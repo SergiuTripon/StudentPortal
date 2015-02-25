@@ -45,7 +45,7 @@ include '../includes/session.php';
     <option value="200">200mi</option>
     </select>
 
-    <div id="map-search-button text-center">
+    <div id="map-search-button" class="text-center">
     <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up"><span class="ladda-label">Search</span></a>
     </div>
 
