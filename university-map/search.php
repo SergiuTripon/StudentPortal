@@ -40,7 +40,7 @@ include '../includes/session.php';
     <label for="addressInput">Address<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="addressInput" id="addressInput" placeholder="Enter a valid address"/>
 
-    <label for="radiusSelect">Radius<span class="field-required">*</span></label>
+    <label>Radius</label>
     <select class="form-control" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
