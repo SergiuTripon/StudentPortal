@@ -10,7 +10,6 @@ include '../includes/session.php';
     <title>University map | Search</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
-    <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
@@ -38,19 +37,13 @@ include '../includes/session.php';
 
     <div id="map-search">
 
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
     <input class="form-control" type="text" id="addressInput" placeholder="Enter a valid address"/>
-    </div>
 
-    <div class="col-xs-3 col-sm-2 full-width">
     <select class="form-control" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
     <option value="200">200mi</option>
     </select>
-    </div>
-    </div>
 
     <div id="map-search-button">
     <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up"><span class="ladda-label">Search</span></a>
@@ -102,7 +95,6 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
 
     <script>
     //Ladda
