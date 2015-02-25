@@ -1907,17 +1907,16 @@ function ChangePassword() {
 
 	// Getting user login details
 	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
-	$stmt1->bind_param('i', $userid);
+	$stmt1->bind_param('i', $session_userid);
 	$stmt1->execute();
 	$stmt1->store_result();
 	$stmt1->bind_result($db_password);
 	$stmt1->fetch();
 
 	if (password_verify($password, $db_password)) {
-
+        $stmt1->close();
 		header('HTTP/1.0 550 This is your current password. Please enter a new password.');
 		exit();
-		$stmt1->close();
 
 	} else {
 

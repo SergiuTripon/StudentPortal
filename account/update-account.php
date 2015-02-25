@@ -242,13 +242,13 @@ if ($dateofbirth == "0000-00-00") {
 	.resize();
 
     //Global variable
-    var gender1;
+    var gender;
 
-    gender1 = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
+    gender = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
 
     //Setting variable value
     $('.btn-group .gender').click(function(){
-        gender1 = ($(this).text().replace(/^\s+|\s+$/g,''))
+        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
     })
 
     $("#error1").hide();
@@ -303,7 +303,7 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'firstname1=' + firstname + '&surname1=' + surname + '&gender1=' + gender1 + '&email4=' + email + '&nationality=' + nationality + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
+    data:'firstname1=' + firstname + '&surname1=' + surname + '&gender1=' + gender + '&email4=' + email + '&nationality=' + nationality + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
