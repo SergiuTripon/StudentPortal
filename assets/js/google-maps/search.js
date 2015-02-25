@@ -31,7 +31,22 @@
     }
 
     function searchLocations() {
+
         var address = document.getElementById("addressInput").value;
+
+        if(address === '') {
+            $("label[for='addressInput']").empty().append("Please enter a address.");
+            $("label[for='addressInput']").removeClass("feedback-happy");
+            $("label[for='addressInput']").addClass("feedback-sad");
+            $("#addressInput").css("cssText", "border-color: #D9534F");
+            $("#addressInput").focus();
+            return false;
+        } else {
+            $("label[for='addressInput']").empty().append("All good!");
+            $("label[for='addressInput']").removeClass("feedback-sad");
+            $("label[for='addressInput']").addClass("feedback-happy");
+        }
+
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({address: address}, function(results, status) {
