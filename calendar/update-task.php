@@ -65,7 +65,7 @@ header('Location: ../calendar/');
     <label>Notes (Optional)</label>
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" value="<?php echo $task_notes; ?>" placeholder="Notes"></textarea>
 
-	<label>External URL (Optional)</label>
+	<label>External URL (www.example.com)</label>
 	<input class="form-control" type="text" name="task_url" id="task_url" value="<?php echo $task_url; ?>" placeholder="Enter an external URL">
 
 	<div class="form-group">
