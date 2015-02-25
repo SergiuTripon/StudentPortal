@@ -172,7 +172,7 @@ include '../includes/session.php';
 			$('.btn-group').addClass('btn-group-justified');
 		}
 	})
-	.resize();//trigger the resize event on page load.
+	.resize();
 
 	//Global variable
 	var task_category;

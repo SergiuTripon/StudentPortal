@@ -255,7 +255,7 @@ include 'includes/session.php';
 	<td data-title="Start date">'.$task_startdate.'</td>
 	<td data-title="Due date">'.$task_duedate.'</td>
 	<td data-title="Category">'.$task_category.'</td>
-    <td data-title="Action"><a id="activate-'.$taskid.'" class="btn btn-primary btn-md ladda-button activate-button" data-style="slide-up"><span class="ladda-label">Activate</span></a></td>
+    <td data-title="Action"><a id="activate-'.$taskid.'" class="btn btn-primary btn-md ladda-button activate-button" data-style="slide-up"><span class="ladda-label">Restore</span></a></td>
 	</tr>';
 	}
 
@@ -358,6 +358,7 @@ include 'includes/session.php';
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
+    //Calendar
 	(function($) {
 
 	"use strict";
@@ -396,6 +397,7 @@ include 'includes/session.php';
 	});
 	}(jQuery));
 
+    //DataTables
     $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
@@ -406,6 +408,19 @@ include 'includes/session.php';
 		}
 	});
 
+    //Responsiveness
+	$(window).resize(function(){
+		var width = $(window).width();
+		if(width <= 480){
+			$('.btn-group').removeClass('btn-group-justified');
+			$('.btn-group').addClass('btn-group-vertical full-width');
+		} else {
+			$('.btn-group').addClass('btn-group-justified');
+		}
+	})
+	.resize();
+
+    //Update process
     $("body").on("click", ".update-button", function(e) {
     e.preventDefault();
 
@@ -416,6 +431,7 @@ include 'includes/session.php';
 
 	});
 
+    //Complete process
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
 
@@ -443,6 +459,7 @@ include 'includes/session.php';
 
     });
 
+    //Cancel process
     $("body").on("click", ".cancel-button", function(e) {
     e.preventDefault();
 
@@ -470,6 +487,7 @@ include 'includes/session.php';
 
     });
 
+    //Activate process
     $("body").on("click", ".activate-button", function(e) {
     e.preventDefault();
 
