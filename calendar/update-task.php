@@ -61,7 +61,6 @@ header('Location: ../calendar/');
 	
     <label>Name</label>
     <input class="form-control" type="text" name="task_name" id="task_name" value="<?php echo $task_name; ?>" placeholder="Enter a name">
-	<p id="error1" class="feedback-sad text-center"></p>
 
     <label>Notes (Optional)</label>
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" value="<?php echo $task_notes; ?>" placeholder="Notes"></textarea>
@@ -72,31 +71,29 @@ header('Location: ../calendar/');
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Start date (YYYY-MM-DD)</label>
-	<input type='text' class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
+	<input class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Due date (YYYY-MM-DD)</label>
-    <input type='text' class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
+    <input class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
 	</div>
 	</div>
-	<p id="error2" class="feedback-sad text-center"></p>
 
 	<label>Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default task_category <?php if($task_category == "university") echo "active"; ?>">
+	<label class="btn btn-default btn-lg task_category <?php if($task_category == "university") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
-	<label class="btn btn-default task_category <?php if($task_category == "work") echo "active"; ?>">
+	<label class="btn btn-default btn-lg task_category <?php if($task_category == "work") echo "active"; ?>">
 		<input type="radio" name="options" id="option2" autocomplete="off"> Work
 	</label>
-	<label class="btn btn-default task_category <?php if($task_category == "personal") echo "active"; ?>">
+	<label class="btn btn-default btn-lg task_category <?php if($task_category == "personal") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
 	</label>
-	<label class="btn btn-default task_category <?php if($task_category == "other") echo "active"; ?>">
+	<label class="btn btn-default btn-lg task_category <?php if($task_category == "other") echo "active"; ?>">
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-	<p id="error3" class="feedback-sad text-center"></p>
 
 	<hr class="hr-custom">
 
