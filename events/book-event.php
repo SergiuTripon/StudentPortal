@@ -100,7 +100,7 @@ if (isset($_POST["recordToBook"])) {
     <input class="form-control" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="payer_postcode">Post code</label>
+    <label for="payer_postcode">Post code<span class="field-required">*</span></label>
     <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Enter a post code">
     </div>
     </div>
@@ -129,7 +129,7 @@ if (isset($_POST["recordToBook"])) {
     <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="product_quantity">Quantity</label>
+    <label for="product_quantity">Quantity<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="product_quantity" id="product_quantity" placeholder="Quantity">
     </div>
     </div>
@@ -219,7 +219,7 @@ if (isset($_POST["recordToBook"])) {
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //Checks for empty values
-    var payer_address1 = $("#payer_firstname").val();
+    var payer_address1 = $("#payer_address1").val();
 	if(payer_address1 === '') { $("#payer_address1").addClass("input-sad"); }
     var payer_city = $("#payer_city").val();
 	if(payer_city === '') { $("#payer_city").addClass("input-sad"); }
