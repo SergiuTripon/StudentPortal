@@ -237,18 +237,14 @@ include '../includes/session.php';
 
 	var task_category_check = $(".task_category");
 	if (task_category_check.hasClass('active')) {
-        $("label[for='task_category']").empty().append("All good!");
-        $("label[for='task_category']").removeClass("feedback-sad");
-        $("label[for='task_category']").addClass("feedback-happy");
+		$("#error3").hide();
+		$(".btn-group > .btn-default").addClass("success-style");
 	}
 	else {
-        $("label[for='task_category']").empty().append("Please select a category.");
-        $("label[for='task_category']").removeClass("feedback-happy");
-        $("label[for='task_category']").addClass("feedback-sad");
-        $("#task_category").css("cssText", "border-color: #D9534F");
-        $("#task_category").focus();
-        hasError = true;
-        return false;
+		$("#error3").show();
+		$("#error3").empty().append("Please select a task category.");
+		$(".btn-group > .btn-default").addClass("error-style");
+		hasError = true;
 	}
 
 	if(hasError == false){
