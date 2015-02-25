@@ -59,7 +59,7 @@ header('Location: ../calendar/');
 
 	<input type="hidden" name="taskid" id="taskid" value="<?php echo $taskid; ?>" />
 	
-    <label>Name</label>
+    <label for="task_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="task_name" id="task_name" value="<?php echo $task_name; ?>" placeholder="Enter a name">
 
     <label>Notes (Optional)</label>
@@ -70,16 +70,16 @@ header('Location: ../calendar/');
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Start date (YYYY-MM-DD)</label>
+	<label for="task_startdate">Start date<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Due date (YYYY-MM-DD)</label>
+	<label for="task_duedate">Due date<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
 	</div>
 	</div>
 
-	<label>Task category - select below</label>
+	<label for="task_category">Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg task_category <?php if($task_category == "university") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
