@@ -26,11 +26,11 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-	<div id="timetable-portal" class="container">
+	<div class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-	<li class="active">Timetable</li>
+	<li class="active">Feedback</li>
     </ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
