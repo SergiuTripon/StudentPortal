@@ -152,10 +152,12 @@ include '../includes/session.php';
 	$(function () {
 	    $('#task_startdate').datetimepicker({
 		    dateFormat: "yy-mm-dd",
+            controlType: 'select',
             minDate: today
 	    });
         $('#task_duedate').datetimepicker({
             dateFormat: "yy-mm-dd",
+            controlType: 'select',
             minDate: today
         });
 	});
