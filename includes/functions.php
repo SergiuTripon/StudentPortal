@@ -398,7 +398,6 @@ function GetDashboardData() {
 	$stmt5->bind_result($taskid);
 	$stmt5->fetch();
 
-	$event_status = 'active';
 	$stmt6 = $mysqli->prepare("SELECT eventid FROM booked_events WHERE userid = ?");
 	$stmt6->bind_param('i', $session_userid);
 	$stmt6->execute();
@@ -1767,7 +1766,7 @@ function SetMessageRead () {
 function UpdateAccount() {
 
 	global $mysqli;
-	global $userid;
+	global $session_userid;
 	global $updated_on;
 
 	$firstname = filter_input(INPUT_POST, 'firstname1', FILTER_SANITIZE_STRING);
@@ -1798,7 +1797,7 @@ function UpdateAccount() {
 	else {
 
 	$stmt1 = $mysqli->prepare("SELECT email from user_signin where userid = ?");
-	$stmt1->bind_param('i', $userid);
+	$stmt1->bind_param('i', $session_userid);
 	$stmt1->execute();
 	$stmt1->store_result();
 	$stmt1->bind_result($db_email);
@@ -1807,7 +1806,7 @@ function UpdateAccount() {
 	if ($db_email == $email) {
 
 	$stmt2 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
-	$stmt2->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt2->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
 	$stmt2->execute();
 	$stmt2->close();
 
@@ -1856,12 +1855,12 @@ function UpdateAccount() {
 	else {
 
 	$stmt4 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
-	$stmt4->bind_param('ssssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt4->bind_param('ssssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
 	$stmt4->execute();
 	$stmt4->close();
 
 	$stmt5 = $mysqli->prepare("UPDATE user_signin SET email=?, updated_on=? WHERE userid = ?");
-	$stmt5->bind_param('ssi', $email, $updated_on, $userid);
+	$stmt5->bind_param('ssi', $email, $updated_on, $session_userid);
 	$stmt5->execute();
 	$stmt5->close();
 
@@ -1901,7 +1900,7 @@ function UpdateAccount() {
 function ChangePassword() {
 
 	global $mysqli;
-	global $userid;
+	global $session_userid;
 	global $updated_on;
 
 	$password = filter_input(INPUT_POST, 'password3', FILTER_SANITIZE_STRING);
@@ -1925,12 +1924,12 @@ function ChangePassword() {
 	$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
 	$stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
-	$stmt2->bind_param('ssi', $password_hash, $updated_on, $userid);
+	$stmt2->bind_param('ssi', $password_hash, $updated_on, $session_userid);
 	$stmt2->execute();
 	$stmt2->close();
 
 	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ?");
-	$stmt3->bind_param('i', $userid);
+	$stmt3->bind_param('i', $session_userid);
 	$stmt3->execute();
 	$stmt3->store_result();
 	$stmt3->bind_result($email, $firstname);
@@ -2076,14 +2075,14 @@ function FeesPaypalPaymentSuccess() {
 function PaypalPaymentCancel() {
 
 	global $mysqli;
-	global $userid;
+	global $session_userid;
 	global $updated_on;
 	global $cancelled_on;
 
 	$payment_status = 'cancelled';
 
 	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, updated_on=?, cancelled_on=? WHERE userid = ? ORDER BY payment_id DESC LIMIT 1");
-	$stmt5->bind_param('sssi', $payment_status, $updated_on, $cancelled_on, $userid);
+	$stmt5->bind_param('sssi', $payment_status, $updated_on, $cancelled_on, $session_userid);
 	$stmt5->execute();
 	$stmt5->close();
 }
@@ -2136,7 +2135,6 @@ function DeleteAccount() {
 function CreateAnAccount() {
 
     global $mysqli;
-    global $userid;
     global $created_on;
 
     $account_type = filter_input(INPUT_POST, 'account_type', FILTER_SANITIZE_STRING);
@@ -2174,9 +2172,9 @@ function CreateAnAccount() {
     $stmt1->fetch();
 
     if ($stmt1->num_rows == 1) {
+    $stmt1->close();
     header('HTTP/1.0 550 An account with the student number entered already exists.');
     exit();
-    $stmt1->close();
     }
 
     // Check existing email
