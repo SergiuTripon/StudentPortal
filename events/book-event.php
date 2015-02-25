@@ -78,7 +78,7 @@ if (isset($_POST["recordToBook"])) {
     <input class="form-control" type="text" name="payer_firstname" id="payer_firstname" value="<?php echo $firstname; ?>" placeholder="First Name" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label></label>Surname</label>
+    <label>Surname</label>
     <input class="form-control" type="text" name="payer_surname" id="payer_surname" value="<?php echo $surname; ?>" placeholder="Surname" readonly="readonly">
 	</div>
     </div>
