@@ -14,7 +14,7 @@ if (isset($_POST["recordToBook"])) {
     $stmt1->close();
 
     $stmt = $mysqli->prepare("SELECT user_signin.email, user_details.studentno, user_details.firstname, user_details.surname, user_details.gender, user_details.dateofbirth, user_details.phonenumber, user_details.degree, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-    $stmt->bind_param('i', $userid);
+    $stmt->bind_param('i', $session_userid);
     $stmt->execute();
     $stmt->store_result();
     $stmt->bind_result($email, $studentno, $firstname, $surname, $gender, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $postcode);
