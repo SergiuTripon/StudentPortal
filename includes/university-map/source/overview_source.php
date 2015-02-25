@@ -24,7 +24,6 @@ while ($row = $stmt1->fetch_assoc()){
     $newnode->setAttribute("description", $row['marker_description']);
     $newnode->setAttribute("lat", $row['marker_lat']);
     $newnode->setAttribute("lng", $row['marker_long']);
-    $newnode->setAttribute("icon", $row['marker_icon']);
     $newnode->setAttribute("type", $row['marker_category']);
 }
 
