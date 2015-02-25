@@ -399,8 +399,8 @@ function GetDashboardData() {
 	$stmt5->fetch();
 
 	$event_status = 'active';
-	$stmt6 = $mysqli->prepare("SELECT eventid FROM system_events WHERE event_status = ?");
-	$stmt6->bind_param('i', $event_status);
+	$stmt6 = $mysqli->prepare("SELECT eventid FROM booked_events WHERE userid = ?");
+	$stmt6->bind_param('i', $session_userid);
 	$stmt6->execute();
 	$stmt6->store_result();
 	$stmt6->bind_result($eventid);
