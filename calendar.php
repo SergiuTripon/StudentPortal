@@ -289,7 +289,7 @@ include 'includes/session.php';
 		<button class="btn btn-default" data-calendar-nav="today">Today</button>
 		<button class="btn btn-default" data-calendar-nav="next">Next >></button>
 	</div>
-	<div id="calendar-buttons2" class="btn-group">
+	<div id="calendar-buttons2" class="btn-group mt10">
 		<button class="btn btn-default" data-calendar-view="year">Year</button>
 		<button class="btn btn-default active" data-calendar-view="month">Month</button>
 		<button class="btn btn-default" data-calendar-view="week">Week</button>
