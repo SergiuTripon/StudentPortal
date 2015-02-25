@@ -33,6 +33,7 @@ include '../includes/session.php';
 	<form class="form-custom" style="max-width: 100%;" name="changepassword_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
+    <p id="error1" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 	
     <div id="hide">
@@ -50,7 +51,6 @@ include '../includes/session.php';
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	</div>
 	</div>
-    <p id="error1" class="feedback-sad text-center"></p>
 
 	<hr>
 
