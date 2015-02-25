@@ -85,17 +85,17 @@ include 'includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="firstname">First name</label>
+    <label for="firstname">First name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="surname">Surname</label>
+    <label for="surname">Surname<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
     </div>
     </div>
     <p id="error1" class="feedback-sad text-center"></p>
 
-	<label for="gender">Gender - select below</label>
+	<label for="gender">Gender - select below<span class="field-required">*</span></label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg gender">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Male
@@ -109,17 +109,17 @@ include 'includes/session.php';
 	</div>
     <p id="error2" class="feedback-sad text-center"></p>
 
-    <label for="email">Email address</label>
+    <label for="email">Email address<span class="field-required">*</span></label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email address">
     <p id="error3" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="password">Password</label>
+    <label for="password">Password<span class="field-required">*</span></label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="confirmpwd">Confirm password</label>
+	<label for="confirmpwd">Confirm password<span class="field-required">*</span></label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your password confirmation">
     </div>
     </div>
