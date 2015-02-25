@@ -245,7 +245,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You have no lectures on this day."
+			"emptyTable": "There are no lectures to display."
 		}
 	});
 
@@ -255,17 +255,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You have no tutorials on this day."
-		}
-	});
-
-    $('.module-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no timetables to display."
+			"emptyTable": "There are no tutorials to display."
 		}
 	});
 
