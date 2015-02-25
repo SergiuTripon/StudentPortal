@@ -501,6 +501,17 @@ include 'includes/session.php';
 		}
 	});
 
+    //Responsiveness
+	$(window).resize(function(){
+		var width = $(window).width();
+		if(width <= 480){
+			$('.btn-group').addClass('btn-group-vertical full-width');
+        } else {
+            $('.btn-group').removeClass('btn-group-vertical full-width');
+        }
+	})
+	.resize();
+
 	//Book event form submit
 	$("body").on("click", ".book-button", function(e) {
     e.preventDefault();
@@ -512,7 +523,7 @@ include 'includes/session.php';
 
 	});
 
-    //Book event form submit
+    //Update event form submit
 	$("body").on("click", ".update-button", function(e) {
     e.preventDefault();
 
@@ -523,6 +534,7 @@ include 'includes/session.php';
 
 	});
 
+    //Cancel event process
     $("body").on("click", ".cancel-button", function(e) {
     e.preventDefault();
 
@@ -550,6 +562,7 @@ include 'includes/session.php';
 
     });
 
+    //Activate event process
     $("body").on("click", ".activate-button", function(e) {
     e.preventDefault();
 
