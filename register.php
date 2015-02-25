@@ -241,7 +241,7 @@ include 'includes/session.php';
         $("label[for='surname']").empty().append("Please enter a surname.");
         $("label[for='surname']").removeClass("feedback-happy");
         $("label[for='surname']").addClass("feedback-sad");
-        $("#firstname").focus();
+        $("#surname").focus();
 		hasError = true;
         return false;
     } else {
