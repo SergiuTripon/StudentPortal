@@ -37,12 +37,12 @@ switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
 		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $userid);
+		$stmt->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $session_userid);
 		$stmt->execute();
 		$stmt->close();
 
 		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param('iiisiisssssssssssss', $userid, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
+		$stmt->bind_param('iiisiisssssssssssss', $session_userid, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
 		$stmt->execute();
 		$stmt->close();
 		
