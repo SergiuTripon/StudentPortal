@@ -39,14 +39,11 @@ include '../includes/session.php';
     <div id="hide">
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
     <label for="password">New password<span class="field-required">*</span></label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
 	</div>
-    </div>
-
-    <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
     <label for="confirmpwd">New password confirmation<span class="field-required">*</span></label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	</div>
