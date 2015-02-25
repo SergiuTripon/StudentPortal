@@ -519,6 +519,10 @@ form .form-control:-ms-input-placeholder {
     font-size: 15px;
     font-weight: 600;
 }
+
+.input-sad {
+    border-color: #D9534F;
+}
 /* End of Error message */
 
 /* Success message */
@@ -528,12 +532,17 @@ form .form-control:-ms-input-placeholder {
     font-weight: 600;
 }
 
+.input-happy {
+    border-color: #3FAD46;
+}
+/* End of Success message */
+
+/* Required field */
 .field-required {
     font-size: 15px;
     color: #D9534F;
     font-weight: 800;
 }
-/* End of Success message */
 
 /* Form Logo */
 .form-logo i {
