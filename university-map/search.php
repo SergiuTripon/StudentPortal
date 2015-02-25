@@ -44,7 +44,7 @@ include '../includes/session.php';
     </div>
 
     <div class="col-xs-3 col-sm-2 full-width">
-    <select class="form-control radiusSelect" id="radiusSelect">
+    <select class="form-control" id="radiusSelect">
     <option value="25" selected>25mi</option>
     <option value="100">100mi</option>
     <option value="200">200mi</option>
@@ -56,7 +56,7 @@ include '../includes/session.php';
     <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up"><span class="ladda-label">Search</span></a>
     </div>
 
-    <div><select class="form-control locationSelect" id="locationSelect" style="width:100%; display: none;"></select></div>
+    <div><select class="form-control" id="locationSelect" style="width:100%; display: none;"></select></div>
 
     </div>
 
@@ -109,12 +109,10 @@ include '../includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //Loading map
-    window.onload = function () {
+    $( document ).ready(function() {
         loadMap();
-    }
+    });
 
-    $('.radiusSelect').selectpicker();
-    $('.locationSelect').selectpicker();
     </script>
 
 </body>

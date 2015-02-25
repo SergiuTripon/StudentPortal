@@ -81,9 +81,10 @@ include '../includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //Loading map
-    window.onload = function () {
+    $( document ).ready(function() {
         loadMap();
-    }
+    });
+
     </script>
 
 </body>
