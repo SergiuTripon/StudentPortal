@@ -190,8 +190,8 @@ include '../includes/session.php';
 	if(task_name === '') {
         $("label[for='task_name']").empty().append("Please enter a password.");
         $("label[for='task_name']").removeClass("feedback-happy");
-        $("label[for='task_name']").addClass("feedback-sad");
         $("#task_name").removeClass("input-style-happy");
+        $("label[for='task_name']").addClass("feedback-sad");
         $("#task_name").addClass("input-style-sad");
         $("#task_name").focus();
         hasError = true;
@@ -199,8 +199,8 @@ include '../includes/session.php';
     } else {
         $("label[for='task_name']").empty().append("All good!");
         $("label[for='task_name']").removeClass("feedback-sad");
-        $("label[for='task_name']").addClass("feedback-happy");
         $("#task_name").removeClass("input-style-sad");
+        $("label[for='task_name']").addClass("feedback-happy");
         $("#task_name").addClass("input-style-happy");
 	}
 	
@@ -211,9 +211,8 @@ include '../includes/session.php';
 	if(task_startdate === '') {
         $("label[for='task_startdate']").empty().append("Please select a date and time.");
         $("label[for='task_startdate']").removeClass("feedback-happy");
-        $("label[for='task_startdate']").addClass("feedback-sad");
-        $("#task_startdate").css("cssText", "border-color: #D9534F");
         $("#task_startdate").removeClass("input-style-happy");
+        $("label[for='task_startdate']").addClass("feedback-sad");
         $("#task_startdate").addClass("input-style-sad");
         $("#task_startdate").focus();
         hasError = true;
@@ -221,8 +220,8 @@ include '../includes/session.php';
 	} else {
         $("label[for='task_startdate']").empty().append("All good!");
         $("label[for='task_startdate']").removeClass("feedback-sad");
-        $("label[for='task_startdate']").addClass("feedback-happy");
         $("#task_startdate").removeClass("input-style-sad");
+        $("label[for='task_startdate']").addClass("feedback-happy");
         $("#task_startdate").addClass("input-style-happy");
 	}
 
@@ -230,8 +229,8 @@ include '../includes/session.php';
 	if(task_duedate === '') {
         $("label[for='task_duedate']").empty().append("Please select a date and time.");
         $("label[for='task_duedate']").removeClass("feedback-happy");
-        $("label[for='task_duedate']").addClass("feedback-sad");
         $("#task_duedate").removeClass("input-style-happy");
+        $("label[for='task_duedate']").addClass("feedback-sad");
         $("#task_duedate").addClass("input-style-sad");
         $("#task_duedate").focus();
         hasError = true;
@@ -239,8 +238,8 @@ include '../includes/session.php';
     } else {
         $("label[for='task_duedate']").empty().append("All good!");
         $("label[for='task_duedate']").removeClass("feedback-sad");
-        $("label[for='task_duedate']").addClass("feedback-happy");
         $("#task_duedate").removeClass("input-style-sad");
+        $("label[for='task_duedate']").addClass("feedback-happy");
         $("#task_duedate").addClass("input-style-happy");
 	}
 
@@ -248,15 +247,15 @@ include '../includes/session.php';
 	if (task_category_check.hasClass('active')) {
         $("label[for='task_category']").empty().append("All good!");
         $("label[for='task_category']").removeClass("feedback-sad");
-        $("label[for='task_category']").addClass("feedback-happy");
         $(".task_category").removeClass("input-style-sad");
+        $("label[for='task_category']").addClass("feedback-happy");
         $(".task_category").addClass("input-style-happy");
 	}
 	else {
         $("label[for='task_category']").empty().append("Please select a category.");
         $("label[for='task_category']").removeClass("feedback-happy");
-        $("label[for='task_category']").addClass("feedback-sad");
         $("#task_category").removeClass("input-style-happy");
+        $("label[for='task_category']").addClass("feedback-sad");
         $("#task_category").addClass("input-style-sad");
         $("#task_category").focus();
         hasError = true;
