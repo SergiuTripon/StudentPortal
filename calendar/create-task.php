@@ -39,29 +39,40 @@ include '../includes/session.php';
 
 	<div id="hide">
 
-    <label>Name</label>
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="task_name">Name</label>
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
 	<p id="error1" class="feedback-sad text-center"></p>
+    </div>
+    </div>
 
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Notes (Optional)</label>
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Enter notes"></textarea>
+    </div>
+    </div>
 
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>External URL (www.example.com)</label>
 	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
+    </div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Start date and time</label>
+	<label for="task_startdate">Start date and time</label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date and time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Due date and time</label>
+	<label for="task_duedate">Due date and time</label>
 	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date and time">
 	</div>
 	</div>
-	<p id="error2" class="feedback-sad text-center"></p>
 
-	<label>Task category - select below</label>
+	<label for="task_category">Task category - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg task_category">
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
@@ -76,13 +87,12 @@ include '../includes/session.php';
 		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
-	<p id="error3" class="feedback-sad text-center"></p>
 	</div>
 
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mt10" data-style="slide-up"><span class="ladda-label">Create task</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create task</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
