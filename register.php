@@ -332,7 +332,7 @@ include 'includes/session.php';
 	
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-        $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
+        $("label[for='confirmpwd']").empty().append("Please enter a confirmation.");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
         $("#confirmpwd").focus();
