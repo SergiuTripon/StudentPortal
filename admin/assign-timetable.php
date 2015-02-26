@@ -228,8 +228,8 @@ if (isset($_GET['id'])) {
 	data:'userToAssign='+ userToAssign + '&timetableToAssign='+ timetableToAssign,
 	success:function(){
         $('#assign-'+userToAssign).hide();
-        $('#loadUnallocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getUnallocatedStudents.php');
-	},
+        $('#loadAllocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getAllocatedStudents.php');
+    },
 
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
