@@ -53,3 +53,46 @@ include '../../includes/session.php';
 
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
+
+    <script>
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //DataTables
+    $('.module-table').dataTable({
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "You have no lectures on this day."
+        }
+    });
+
+    $("body").on("click", ".activate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var timetableToActivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'timetableToActivate='+ timetableToActivate,
+	success:function(){
+		$('#activate-'+timetableToActivate).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+    </script>
