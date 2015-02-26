@@ -2,6 +2,9 @@
 include '../../includes/session.php';
 ?>
 
+    <!-- Tutorials -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom tutorial-table">
 	<thead>
 	<tr>
 	<th>Name</th>
@@ -51,3 +54,29 @@ include '../../includes/session.php';
 	$stmt3->close();
 	?>
 	</tbody>
+	</table>
+	</section>
+    <!-- End of Tutorials -->
+
+    <?php include '../../includes/assets/js-paths/datatables-js-path.php'; ?>
+
+    <script>
+    $(document).ready(function () {
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
+
+	//DataTables
+    $('.lecture-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "You have no lectures on this day."
+		}
+	});
+
+	});
+
+	</script>
