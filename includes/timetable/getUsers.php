@@ -2,43 +2,48 @@
 include '../../includes/session.php';
 ?>
 
-<table class="table table-condensed table-custom module-table">
+<table class="table table-condensed table-custom">
 
     <thead>
     <tr>
-        <th>Name</th>
-        <th>Notes</th>
-        <th>URL</th>
-        <th>Action</th>
+        <th>First Name</th>
+        <th>Surname</th>
+        <th>Email address</th>
         <th>Action</th>
         <th>Action</th>
     </tr>
     </thead>
 
-    <tbody id="loadModules-table">
+    <tbody id="loadUsers-table">
     <?php
 
-    $stmt3 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'active'");
+    $stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.account_type = 'student'");
 
-    while($row = $stmt3->fetch_assoc()) {
+    while($row = $stmt1->fetch_assoc()) {
 
-        $moduleid = $row["moduleid"];
-        $module_name = $row["module_name"];
-        $module_notes = $row["module_notes"];
-        $module_url = $row["module_url"];
+        $db_userid = $row["userid"];
+        $email = $row["email"];
+        $firstname = $row["firstname"];
+        $surname = $row["surname"];
 
-        echo '<tr id="cancel-'.$moduleid.'">
+        $stmt2 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid = ?");
+        $stmt2->bind_param('ii', $db_userid, $moduleToAssign);
+        $stmt2->execute();
 
-			<td data-title="Name">'.$module_name.'</td>
-			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
-            <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md assign-button" href="/admin/assign-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></a></td>
-			<td data-title="Action"><a class="btn btn-primary btn-md update-button" href="/admin/update-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></a></td>
-            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></a></td>
+        $assignment_check = $stmt2->num_rows === '' ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
+        $unassignment_check = $stmt2->num_rows === '' ? '<a id="unnasign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
+
+        echo '<tr id="assign-'.$db_userid.'">
+
+			<td data-title="First name">'.$firstname.'</td>
+			<td data-title="Surname">'.$surname.'</td>
+			<td data-title="Email address">'.$email.'</td>
+			<td data-title="Action">'.$assignment_check.'</td>
+			<td data-title="Action">'.$unassignment_check.'</td>
 			</tr>';
+        $stmt2->close();
     }
-
-    $stmt3->close();
+    $stmt1->close();
     ?>
     </tbody>
 
