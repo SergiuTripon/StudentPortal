@@ -281,6 +281,11 @@ include 'includes/session.php';
 
 	});
 
+    $("#loadData").click(function() {
+        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    });
+
 	</script>
 
 </body>
