@@ -173,8 +173,8 @@ include 'includes/session.php';
 
     $('#student-lectures').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
     $('#student-tutorials').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
-    $('#admin-modules').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    $('#admin-cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    $('#admin-modules').load('https://student-portal.co.uk/includes/timetable/getModules.php');
+    $('#admin-cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
 
     });
 
