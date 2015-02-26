@@ -127,9 +127,7 @@ include '../../includes/session.php';
 	data:'timetableToCancel='+ timetableToCancel,
 	success:function(){
 		$('#cancel-'+timetableToCancel).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        $('#cancel-'+timetableToCancel).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){

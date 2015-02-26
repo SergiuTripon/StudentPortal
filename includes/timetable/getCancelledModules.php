@@ -82,9 +82,8 @@ include '../../includes/session.php';
 	data:'timetableToActivate='+ timetableToActivate,
 	success:function(){
 		$('#activate-'+timetableToActivate).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        $('#modules').load('https://student-portal.co.uk/includes/timetable/getModules.php');
+        $('#cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
