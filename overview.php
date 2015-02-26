@@ -12,11 +12,11 @@ include 'includes/functions.php';
 
 <head>
 
-    <?php include 'includes/assets/meta-tags.php'; ?>
+    <?php include 'assets/meta-tags.php'; ?>
 
     <title>Student Portal | Overview</title>
 
-    <?php include 'includes/assets/css-paths/common-css-paths.php'; ?>
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -363,8 +363,8 @@ include 'includes/functions.php';
 
 	<?php endif; ?>
 
-    <?php include 'includes/assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'includes/assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
 	<script>
     Ladda.bind('.ladda-button', {timeout: 2000});
