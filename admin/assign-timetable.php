@@ -208,7 +208,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'userToUnassign='+ userToUnassign + '&timetableToUnassign='+ timetableToUnassign,
 	success:function(){
-		$('#assign-'+userToUnassign).fadeOut();
+		$('#assign-'+userToUnassign).hide();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
