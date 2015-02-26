@@ -44,14 +44,6 @@ include 'includes/session.php';
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
-
-    <!-- Lectures -->
-    <section id="no-more-tables">
-    <table class="table table-condensed table-custom lecture-table">
-    </table>
-    </section>
-    <!-- End of Lectures -->
-
     </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
@@ -65,14 +57,6 @@ include 'includes/session.php';
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
-
-    <!-- Tutorials -->
-    <section id="no-more-tables">
-    <table class="table table-condensed table-custom tutorial-table">
-    </table>
-    </section>
-    <!-- End of Tutorials -->
-
     </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
