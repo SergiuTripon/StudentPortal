@@ -155,7 +155,7 @@ if (isset($_GET['id'])) {
 	});
 
     $("#loadUsers").click(function() {
-        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getUsers.php');
+        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
     });
 
 	$("body").on("click", ".assign-button", function(e) {
@@ -171,7 +171,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'userToAssign='+ userToAssign + '&timetableToAssign='+ timetableToAssign,
 	success:function(){
-        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getUsers.php');
+        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
