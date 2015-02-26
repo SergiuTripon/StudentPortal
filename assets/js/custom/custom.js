@@ -1,3 +1,7 @@
+	$(window).load(function() {
+		$(".preloader").fadeOut("slow");
+	});
+
 	// Replaces empty text with "No Extra Information"
     $('.table-custom td').each(function () {
     if ($(this).html().trim().length === 0) 
