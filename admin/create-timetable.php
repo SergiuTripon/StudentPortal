@@ -375,22 +375,12 @@ include '../includes/session.php';
     $('#lecture_from_date').datepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#lecture_to_date").datepicker( "option", "minDate", selectedDate);
-        }
+        minDate: today
     });
     $('#lecture_to_date').datepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#lecture_from_date").datepicker( "option", "minDate", selectedDate);
-        }
+        minDate: today
     });
 
     $('#tutorial_from_time').timepicker();
@@ -399,33 +389,17 @@ include '../includes/session.php';
     $('#tutorial_from_date').datepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
-        }
+        minDate: today
     });
     $('#tutorial_to_date').datepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
+        minDate: today
 
     $('#exam_date').datepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
-        }
+        minDate: today
     });
 
     $('#exam_time').timepicker();
