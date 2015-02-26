@@ -198,7 +198,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div id="timetable-portal" class="container">
+    <div class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
@@ -209,6 +209,7 @@ include 'includes/session.php';
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
+
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Timetables</a>
