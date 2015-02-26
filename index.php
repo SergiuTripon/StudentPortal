@@ -7,11 +7,11 @@ include 'includes/session.php';
 
 <head>
 
-    <?php include 'assets/meta-tags.php'; ?>
+    <?php include 'includes/assets/meta-tags.php'; ?>
 
     <title>Student Portal</title>
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <?php include 'includes/assets/css-paths/common-css-paths.php'; ?>
 
     <style>
     #signin a {
@@ -117,9 +117,9 @@ include 'includes/session.php';
 
 	<?php endif; ?>
 
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/easing-js-path.php'; ?>
-    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include 'includes/assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'includes/assets/js-paths/easing-js-path.php'; ?>
+    <?php include 'includes/assets/js-paths/tilejs-js-path.php'; ?>
 
 	<script>
     $(document).ready(function() {
