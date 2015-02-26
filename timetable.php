@@ -274,7 +274,13 @@ include 'includes/session.php';
 	<?php include 'includes/assets/js-paths/calendar-js-path.php'; ?>
 
 	<script>
+    function getLectures(){
+        $('.panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    }):
+
     $(document).ready(function () {
+
+    getLectures();
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
@@ -309,9 +315,6 @@ include 'includes/session.php';
 			"emptyTable": "There are no timetables to display."
 		}
 	});
-
-    $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
 
     $("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
