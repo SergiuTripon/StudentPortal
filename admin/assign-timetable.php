@@ -84,7 +84,7 @@ if (isset($_GET['id'])) {
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="assign-'.$userid.'" class="btn btn-primary btn-md ladda-button assign-button" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
+			<td data-title="Action"><a id="allocate-'.$userid.'" class="btn btn-primary btn-md ladda-button allocate-button" data-style="slide-up"><span class="ladda-label">Allocate</span></a></td>
 			</tr>';
     }
 	$stmt1->close();
@@ -139,7 +139,7 @@ if (isset($_GET['id'])) {
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="unassign-'.$userid.'" class="btn btn-primary btn-md ladda-button unassign-button" data-style="slide-up"><span class="ladda-label">Unassign</span></a></td>
+			<td data-title="Action"><a id="unallocate-'.$userid.'" class="btn btn-primary btn-md ladda-button unallocate-button" data-style="slide-up"><span class="ladda-label">Unallocate</span></a></td>
 			</tr>';
     }
 	$stmt2->close();
@@ -222,20 +222,20 @@ if (isset($_GET['id'])) {
     });
 
     //Assign timetable
-	$("body").on("click", ".assign-button", function(e) {
+	$("body").on("click", ".allocate-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var userToAssign = clickedID[1];
-    var timetableToAssign = $("#moduleid").html();
+    var userToAllocate = clickedID[1];
+    var timetableToAllocate = $("#moduleid").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToAssign='+ userToAssign + '&timetableToAssign='+ timetableToAssign,
+	data:'userToAssign='+ userToAllocate + '&timetableToAssign='+ timetableToAllocate,
 	success:function(){
-        $('#assign-'+userToAssign).hide();
+        $('#assign-'+userToAllocate).hide();
         location.reload();
     },
 
@@ -249,20 +249,20 @@ if (isset($_GET['id'])) {
     });
 
     //Unassign timetable
-    $("body").on("click", ".unassign-button", function(e) {
+    $("body").on("click", ".unallocate-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var userToUnassign = clickedID[1];
-    var timetableToUnassign = $("#moduleid").html();
+    var userToUnallocate = clickedID[1];
+    var timetableToUnallocate = $("#moduleid").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToUnassign='+ userToUnassign + '&timetableToUnassign='+ timetableToUnassign,
+	data:'userToUnassign='+ userToUnallocate + '&timetableToUnassign='+ timetableToUnallocate,
 	success:function(){
-        $('#unassign-'+userToUnassign).hide();
+        $('#unassign-'+userToUnallocate).hide();
         location.reload();
     },
 

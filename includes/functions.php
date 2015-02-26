@@ -436,29 +436,29 @@ function GetDashboardData() {
 
 //Timetable functions
 //AssignTimetable function
-function AssignTimetable() {
+function AllocateTimetable() {
 
     global $mysqli;
 
-    $userToAssign = filter_input(INPUT_POST, 'userToAssign', FILTER_SANITIZE_NUMBER_INT);
-    $timetableToAssign = filter_input(INPUT_POST, 'timetableToAssign', FILTER_SANITIZE_NUMBER_INT);
+    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToAllocate = filter_input(INPUT_POST, 'timetableToAllocate', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("INSERT INTO user_timetable (userid, moduleid) VALUES (?, ?)");
-    $stmt1->bind_param('ii', $userToAssign, $timetableToAssign);
+    $stmt1->bind_param('ii', $userToAllocate, $timetableToAllocate);
     $stmt1->execute();
     $stmt1->close();
 }
 
 //UnassignTimetable function
-function UnassignTimetable() {
+function UnallocateTimetable() {
 
     global $mysqli;
 
-    $userToUnassign = filter_input(INPUT_POST, 'userToUnassign', FILTER_SANITIZE_NUMBER_INT);
-    $timetableToUnassign = filter_input(INPUT_POST, 'timetableToUnassign', FILTER_SANITIZE_NUMBER_INT);
+    $userToUnallocate = filter_input(INPUT_POST, 'userToUnallocate', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToUnallocate = filter_input(INPUT_POST, 'timetableToUnallocate', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
-    $stmt1->bind_param('ii', $userToUnassign, $timetableToUnassign);
+    $stmt1->bind_param('ii', $userToUnallocate, $timetableToUnallocate);
     $stmt1->execute();
     $stmt1->close();
 }
