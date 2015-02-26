@@ -629,6 +629,15 @@ form .form-control:-ms-input-placeholder {
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
     width: 100% !important;
     margin-bottom: 10px; !important;
+    outline: none !important;
+}
+
+.bootstrap-select {
+    outline: none !important;
+}
+
+.bootstrap-select:hover, .bootstrap-select:focus {
+    outline: none !important;
 }
 
 .bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
