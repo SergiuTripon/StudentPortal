@@ -288,15 +288,6 @@ include 'includes/session.php';
         $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
     })
 
-    function refreshData() {
-        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
-    })
-
-    $("#loadData").click(function() {
-        refreshData();
-    });
-
 	</script>
 
 </body>
