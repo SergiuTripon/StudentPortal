@@ -218,10 +218,6 @@ if (isset($_GET['id'])) {
         $('#loadAssignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
     });
 
-    $("#loadUnassignedUsers").click(function() {
-        $('#loadUnassignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getUnassignedUsers.php');
-    });
-
     //Assign timetable
 	$("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
