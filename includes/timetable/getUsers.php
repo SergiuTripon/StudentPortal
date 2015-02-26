@@ -18,7 +18,7 @@ include '../../includes/session.php';
     $stmt2->execute();
 
     $assignment_check = $stmt2->num_rows === 0 ? 'Already assigned' : '<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
-    $unassignment_check = $stmt2->num_rows > 0 ? '<a id="unnasign-'.$userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
+    $unassignment_check = $stmt2->num_rows > 0 ? 'Not assigned yet' : '<a id="unnasign-'.$userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>';
 
 	echo '<tr id="assign-'.$userid.'">
 
