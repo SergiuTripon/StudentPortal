@@ -500,7 +500,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'timetableToActivate='+ timetableToActivate,
 	success:function(){
-		$('#activate-'+timetableToActivate).fadeOut();
+		$('#activate-'+timetableToActivate).hide();
         $('#loadModules-table').load('https://student-portal.co.uk/includes/timetable/getModules.php');
 	},
 
