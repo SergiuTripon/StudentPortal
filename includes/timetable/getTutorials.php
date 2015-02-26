@@ -1,4 +1,8 @@
-	<!-- Tutorials -->
+<?php
+include '../../includes/session.php';
+?>
+
+    <!-- Tutorials -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom tutorial-table">
 
