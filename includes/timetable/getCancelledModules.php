@@ -2,10 +2,6 @@
 include '../../includes/session.php';
 ?>
 
-	<!-- Cancelled modules -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom admin-cancelled-modules-table">
-
 	<thead>
 	<tr>
 	<th>Name</th>
@@ -32,54 +28,10 @@ include '../../includes/session.php';
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a id="activate-'.$moduleid.'" class="btn btn-primary btn-md ladda-button activate-button" data-style="slide-up"><span class="ladda-label">Activate</span></a></td>
+            <td data-title="Action"><a id="activate-'.$moduleid.'" class="btn btn-primary btn-md activate-button">Activate</a></td>
 			</tr>';
 	}
 
 	$stmt3->close();
 	?>
 	</tbody>
-
-	</table>
-	</section>
-
-    <script>
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
-
-    //DataTables
-    $('.admin-cancelled-modules-table').dataTable({
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no timetables to display."
-        }
-    });
-
-    $("body").on("click", ".activate-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var timetableToActivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'timetableToActivate='+ timetableToActivate,
-	success:function(){
-		$('#activate-'+timetableToActivate).fadeOut();
-        $('#admin-modules').load('https://student-portal.co.uk/includes/timetable/getModules.php');
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-
-    });
-    </script>
