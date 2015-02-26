@@ -1,6 +1,7 @@
 <?php
 include '../../includes/session.php';
 
+getUnallocatedStudents();
 
 function getUnallocatedStudents () {
 

@@ -47,14 +47,14 @@ if (isset($_GET['id'])) {
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Assigned users</a>
-    <a id="loadAssignedUsers" class="pull-right"><i class="fa fa-refresh"></i></a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Allocated students</a>
+    <a id="loadAllocatedStudents" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Assigned users -->
+	<!-- Allocated students -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -67,7 +67,7 @@ if (isset($_GET['id'])) {
 	</tr>
 	</thead>
 
-	<tbody id="loadAssignedUsers-table">
+	<tbody id="loadAllocatedStudents-table">
     <?php
 
 	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
@@ -102,14 +102,14 @@ if (isset($_GET['id'])) {
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Unassigned users</a>
-    <a id="loadUnassignedUsers" class="pull-right"><i class="fa fa-refresh"></i></a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Unallocated users</a>
+    <a id="loadUnallocatedStudents" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Unassigned users -->
+	<!-- Unallocated students -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -122,7 +122,7 @@ if (isset($_GET['id'])) {
 	</tr>
 	</thead>
 
-	<tbody id="loadUnassignedUsers-table">
+	<tbody id="loadUnallocatedStudents-table">
     <?php
 
 	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
@@ -214,8 +214,11 @@ if (isset($_GET['id'])) {
 	});
 
     //Loading buttons
-    $("#loadAssignedUsers").click(function() {
-        $('#loadAssignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
+    $("#loadAllocatedStudents").click(function() {
+        $('#loadAllocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getAllocatedStudents.php');
+    });
+    $("#loadUnallocatedStudents").click(function() {
+        $('#loadUnallocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getUnallocatedStudents.php');
     });
 
     //Assign timetable

@@ -1,7 +1,9 @@
 <?php
 include '../../includes/session.php';
 
-function getAllocateStudents() {
+getAllocatedStudents();
+
+function getAllocatedStudents() {
 
     global $mysqli;
 
