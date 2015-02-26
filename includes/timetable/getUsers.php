@@ -8,19 +8,19 @@ include '../../includes/session.php';
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$db_userid = $row["userid"];
+	$userid = $row["userid"];
 	$email = $row["email"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
     $stmt2 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid = ?");
-    $stmt2->bind_param('ii', $db_userid, $moduleToAssign);
+    $stmt2->bind_param('ii', $userid, $moduleToAssign);
     $stmt2->execute();
 
-    $assignment_check = $stmt2->num_rows === 0 ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
-    $unassignment_check = $stmt2->num_rows === 0 ? '<a id="unnasign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
+    $assignment_check = $stmt2->num_rows === 0 ? 'Already assigned' : '<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
+    $unassignment_check = $stmt2->num_rows === 0 ? '<a id="unnasign-'.$userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
 
-	echo '<tr id="assign-'.$db_userid.'">
+	echo '<tr id="assign-'.$userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
