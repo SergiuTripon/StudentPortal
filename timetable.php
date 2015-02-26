@@ -45,7 +45,6 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
