@@ -215,10 +215,7 @@ if (isset($_GET['id'])) {
 
     //Loading buttons
     $("#loadAllocatedStudents").click(function() {
-        $('#loadAllocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getAllocatedStudents.php');
-    });
-    $("#loadUnallocatedStudents").click(function() {
-        $('#loadUnallocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getUnallocatedStudents.php');
+        $("#loadAllocatedStudents-table").load("https://student-portal.co.uk/includes/timetable/getAllocatedStudents.php");
     });
 
     //Assign timetable
