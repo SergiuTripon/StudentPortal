@@ -545,17 +545,6 @@ include 'includes/session.php';
 		}
 	});
 
-	//Reserved book form submit
-	$("body").on("click", ".reserve-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var bookToReserve = clickedID[1];
-
-	$("#reserve-book-form-" + bookToReserve).submit();
-
-	});
-
     $("body").on("click", ".request-button", function(e) {
     e.preventDefault();
 
@@ -609,17 +598,6 @@ include 'includes/session.php';
 	});
 
     });
-
-    //Update book form submit
-	$("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var bookToUpdate = clickedID[1];
-
-	$("#update-book-form-" + bookToUpdate).submit();
-
-	});
 
     $("body").on("click", ".cancel-button", function(e) {
     e.preventDefault();
