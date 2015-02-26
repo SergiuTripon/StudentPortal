@@ -2,10 +2,7 @@
 include '../../includes/session.php';
 ?>
 
-    <!-- Tutorials -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom student-tutorial-table">
-	<thead>
+    <thead>
 	<tr>
 	<th>Name</th>
 	<th>Tutorial assistant</th>
@@ -54,21 +51,3 @@ include '../../includes/session.php';
 	$stmt3->close();
 	?>
 	</tbody>
-	</table>
-	</section>
-    <!-- End of Tutorials -->
-
-    <?php include '../../includes/assets/js-paths/datatables-js-path.php'; ?>
-
-    <script>
-	//DataTables
-    $('.student-tutorial-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "You have no tutorials on this day."
-		}
-	});
-	</script>

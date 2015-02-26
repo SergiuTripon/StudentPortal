@@ -24,9 +24,18 @@ include '../../includes/session.php';
     $stmt2->close();
     ?>
 
+
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Timetables</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
 	<!-- Modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom admin-modules-table">
+	<table class="table table-condensed table-custom module-table">
 
 	<thead>
 	<tr>
@@ -51,14 +60,14 @@ include '../../includes/session.php';
 	$module_notes = $row["module_notes"];
 	$module_url = $row["module_url"];
 
-	echo '<tr id="cancel-'.$moduleid.'">
+	echo '<tr id="activate-'.$moduleid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md ladda-button assign-button" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
-			<td data-title="Action"><a id="update-'.$moduleid.'" class="btn btn-primary btn-md ladda-button update-button ladda-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md ladda-button cancel-button ladda-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
+            <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
+			<td data-title="Action"><a id="update-'.$moduleid.'" class="btn btn-primary btn-md update-button">Update</a></td>
+            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md cancel-button">Cancel</a></td>
 			</tr>';
 	}
 
@@ -69,63 +78,5 @@ include '../../includes/session.php';
 	</table>
 	</section>
 
-    <script>
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
-
-    //DataTables
-    $('.admin-modules-table').dataTable({
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no timetables to display."
-        }
-    });
-
-    $("body").on("click", ".assign-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#assign-timetable-form-" + DbNumberID).submit();
-
-	});
-
-    $("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#update-timetable-form-" + DbNumberID).submit();
-
-	});
-
-    $("body").on("click", ".cancel-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var timetableToCancel = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'timetableToCancel='+ timetableToCancel,
-	success:function(){
-		$('#cancel-'+timetableToCancel).fadeOut();
-        $('#admin-cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-
-    });
-    </script>
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
