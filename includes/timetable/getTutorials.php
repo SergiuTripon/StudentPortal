@@ -64,7 +64,7 @@ include '../../includes/session.php';
     $(document).ready(function () {
 
 	//DataTables
-    $('.lecture-table').dataTable({
+    $('.tutorial-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
