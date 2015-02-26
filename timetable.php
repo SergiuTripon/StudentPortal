@@ -209,11 +209,10 @@ include 'includes/session.php';
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Timetables</a>
-    <a id="loadModules"><i class="fa fa-refresh"></i></a>
+    <a id="loadModules" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
