@@ -265,8 +265,6 @@ if (isset($_GET['id'])) {
 	data:'userToUnassign='+ userToUnassign + '&timetableToUnassign='+ timetableToUnassign,
 	success:function(){
         $('#unassign-'+userToUnassign).hide();
-        $('#loadAssignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getUnassignedUsers.php');
-        $('#loadUnasignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){

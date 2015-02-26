@@ -10,7 +10,6 @@ include '../../includes/session.php';
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 	echo '<tr id="unassign-'.$userid.'">
-
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>

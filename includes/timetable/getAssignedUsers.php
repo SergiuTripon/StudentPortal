@@ -13,7 +13,7 @@ include '../../includes/session.php';
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
+			<td data-title="Action"><a id="assign-'.$userid.'" class="btn btn-primary btn-md ladda-button assign-button" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
 			</tr>';
     }
 	$stmt1->close();
