@@ -2,7 +2,6 @@
 include '../../includes/session.php';
 ?>
 
-	<tbody>
 	<?php
 
 	$stmt3 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'cancelled'");
@@ -25,4 +24,3 @@ include '../../includes/session.php';
 
 	$stmt3->close();
 	?>
-	</tbody>
