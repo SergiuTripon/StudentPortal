@@ -184,6 +184,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'userToAssign='+ userToAssign + '&timetableToAssign='+ timetableToAssign,
 	success:function(){
+        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getUsers.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
@@ -208,7 +209,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'userToUnassign='+ userToUnassign + '&timetableToUnassign='+ timetableToUnassign,
 	success:function(){
-		$('#assign-'+userToUnassign).hide();
+        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getUsers.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
