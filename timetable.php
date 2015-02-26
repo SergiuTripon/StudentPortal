@@ -236,6 +236,17 @@ include 'includes/session.php';
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
+    //DataTables
+    $('.admin-modules-table').dataTable({
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no timetables to display."
+        }
+    });
+
     $('#student-lectures').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
     $('#student-tutorials').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
     $('#admin-cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
