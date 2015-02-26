@@ -44,7 +44,7 @@ include 'includes/session.php';
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-  	<div class="panel-body">
+  	<div id="student-lectures" class="panel-body">
     </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
@@ -58,7 +58,7 @@ include 'includes/session.php';
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
+  	<div id="student-tutorials" class="panel-body">
     </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
@@ -78,17 +78,17 @@ include 'includes/session.php';
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    $('#student-lectures').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    $('#student-tutorials').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
 
 	});
 
     $("#loadLectures").click(function() {
-        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+        $('#student-lectures').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
     });
 
     $("#loadTutorials").click(function() {
-        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+        $('#student-tutorials').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
     });
 
     </script>
