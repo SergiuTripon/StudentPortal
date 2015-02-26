@@ -148,13 +148,6 @@ include 'includes/session.php';
 
     <?php include 'includes/assets/js-paths/common-js-paths.php'; ?>
 
-    <script>
-    $(document).ready(function () {
-    $('#admin-modules').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    $('#admin-cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
-	});
-    </script>
-
     <?php endif; ?>
 
     <?php else : ?>
