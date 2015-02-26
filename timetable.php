@@ -114,7 +114,7 @@ include 'includes/session.php';
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div class="panel panel-default">
+	<div id="modules" class="panel panel-default">
 
 	</div><!-- /panel-default -->
 
@@ -184,7 +184,7 @@ include 'includes/session.php';
     <script>
     $(document).ready(function () {
 
-    $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    $('#modules').load('https://student-portal.co.uk/includes/timetable/getModules.php');
     $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
 
 	});
