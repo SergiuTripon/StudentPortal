@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
 	<tr>
 	<th>First Name</th>
 	<th>Surname</th>
-	<th>Email address</th>
+	<th>Student number</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -82,7 +82,7 @@ if (isset($_GET['id'])) {
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
-			<td data-title="Email address">'.$studentno.'</td>
+			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Action"><a id="allocate-'.$userid.'" class="btn btn-primary btn-md ladda-button allocate-button" data-style="slide-up"><span class="ladda-label">Allocate</span></a></td>
 			</tr>';
     }
@@ -115,7 +115,7 @@ if (isset($_GET['id'])) {
 	<tr>
 	<th>First Name</th>
 	<th>Surname</th>
-	<th>Email address</th>
+	<th>Student number</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -136,7 +136,7 @@ if (isset($_GET['id'])) {
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
-			<td data-title="Email address">'.$studentno.'</td>
+			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Action"><a id="deallocate-'.$userid.'" class="btn btn-primary btn-md ladda-button deallocate-button" data-style="slide-up"><span class="ladda-label">Deallocate</span></a></td>
 			</tr>';
     }
