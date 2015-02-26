@@ -35,7 +35,7 @@ include '../../includes/session.php';
 
         echo '<tr id="assign-'.$userid.'">
 
-			<td data-title="First name">'.$stmt2->num_rows.'</td>
+			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
 			<td data-title="Action">'.$assignment_check.'</td>
