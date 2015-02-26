@@ -175,9 +175,6 @@ if (isset($_GET['id'])) {
     var userToAssign = clickedID[1];
     var timetableToAssign = $("#moduleid").html();
 
-    alert(userToAssign);
-    alert(timetableToAssign);
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -202,9 +199,6 @@ if (isset($_GET['id'])) {
     var clickedID = this.id.split('-');
     var userToUnassign = clickedID[1];
     var timetableToUnassign = $("#moduleid").html();
-
-    alert(userToUnassign);
-    alert(timetableToUnassign);
 
 	jQuery.ajax({
 	type: "POST",
