@@ -219,7 +219,7 @@ if (isset($_GET['id'])) {
     });
 
     $("#loadUnassignedUsers").click(function() {
-        $('#loadUnassignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getUnssignedUsers.php');
+        $('#loadUnassignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getUnassignedUsers.php');
     });
 
     //Assign timetable
