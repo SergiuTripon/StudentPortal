@@ -389,7 +389,7 @@ include 'includes/session.php';
 	});
 
     function getLectures(){
-        $('#tableHolder').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+        $('#collpseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
     }):
 
 	</script>
