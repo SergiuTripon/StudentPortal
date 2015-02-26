@@ -1,6 +1,8 @@
 <?php
 include '../includes/session.php';
 
+header("Cache-Control: no-cache, must-revalidate");
+
 if (isset($_GET['id'])) {
 
     $timetableToAssign = $_GET['id'];
