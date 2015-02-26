@@ -33,10 +33,6 @@ include 'includes/session.php';
 	<li class="active">Timetable</li>
     </ol>
 
-    <div class="text-right">
-    <a id="loadData" class="btn btn-success btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Refresh</span></a>
-    </div>
-
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
@@ -44,7 +40,8 @@ include 'includes/session.php';
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Lectures</a>
-  	</h4>
+    <a id="loadData" class="btn btn-success btn-lg ladda-button pull-right" data-style="slide-up"><span class="ladda-label">Refresh</span></a>
+    </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
