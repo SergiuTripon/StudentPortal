@@ -112,18 +112,11 @@ include '../includes/session.php';
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="lecture_day">Lecture day</label>
-    <select class="selectpicker lecture_day" name="lecture_day" id="lecture_day">
-        <option data-hidden="true">Select an option</option>
-        <option>Monday</option>
-        <option>Tuesday</option>
-        <option>Wednesday</option>
-        <option>Thursday</option>
-        <option>Friday</option>
-    </select>
-    </div>
-    </div>
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="lecture_day">Lecture day<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Enter a day">
+	</div>
+	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -204,18 +197,11 @@ include '../includes/session.php';
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="tutorial_day">Tutorial day</label>
-    <select class="selectpicker tutorial_day" name="tutorial_day" id="tutorial_day">
-        <option data-hidden="true">Select an option</option>
-        <option>Monday</option>
-        <option>Tuesday</option>
-        <option>Wednesday</option>
-        <option>Thursday</option>
-        <option>Friday</option>
-    </select>
-    </div>
-    </div>
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="tutorial_day">Tutorial day<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" value="" placeholder="Enter a day">
+	</div>
+	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
