@@ -48,7 +48,8 @@ if (isset($_GET['id'])) {
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Users</a>
-  	</h4>
+    <a id="loadUsers" class="pull-right"><i class="fa fa-refresh"></i></a>
+    </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
@@ -67,40 +68,8 @@ if (isset($_GET['id'])) {
 	</tr>
 	</thead>
 
-	<tbody>
-	<?php
+	<tbody id="loadUsers-table">
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.account_type = 'student'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-	$db_userid = $row["userid"];
-	$email = $row["email"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
-
-    $stmt3 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid = ?");
-    $stmt3->bind_param('ii', $db_userid, $moduleToAssign);
-    $stmt3->execute();
-    $stmt3->store_result();
-    $stmt3->bind_result($db_userid1);
-    $stmt3->fetch();
-
-    $assignment_check = $stmt3->num_rows ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
-    $assignment_check1 = $stmt3->num_rows ? '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
-
-	echo '<tr id="assign-'.$db_userid.'">
-
-			<td data-title="First name">'.$firstname.'</td>
-			<td data-title="Surname">'.$surname.'</td>
-			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action">'.$assignment_check.'</td>
-			<td data-title="Action">'.$assignment_check1.'</td>
-			</tr>';
-	}
-
-	$stmt1->close();
-	?>
 	</tbody>
 
 	</table>
@@ -165,6 +134,10 @@ if (isset($_GET['id'])) {
 			"emptyTable": "There are no users to display."
 		}
 	});
+
+    $("#loadUsers").click(function() {
+        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getUsers.php');
+    });
 
 	$("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
