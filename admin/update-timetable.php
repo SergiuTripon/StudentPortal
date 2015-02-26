@@ -106,7 +106,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div id="hide">
 
     <!-- Update module -->
-    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $timetableToUpdate; ?>">
+    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $moduleid; ?>">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">

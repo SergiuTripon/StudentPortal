@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["timetableToAssign"])) {
+if (isset($_GET['id'])) {
 
-    $timetableToAssign = filter_input(INPUT_POST, 'timetableToAssign', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToAssign = $_GET['id'];
 
 } else {
     header('Location: ../../timetable/');
