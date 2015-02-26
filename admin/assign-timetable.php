@@ -87,7 +87,7 @@ if (isset($_GET['id'])) {
     $stmt2->bind_result($db_userid);
     $stmt2->fetch();
 
-    if ($stmt2->num_rows === 0) {
+    if ($db_userid = '') {
         $assignment_check = 'Not assigned yet';
         $unassignment_check = 'Assign';
     } else {
