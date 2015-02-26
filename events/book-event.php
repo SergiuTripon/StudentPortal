@@ -238,72 +238,72 @@ if (isset($_POST["recordToBook"])) {
 	if (payer_address1 === '') {
         $("label[for='payer_address1']").empty().append("Please enter an address.");
         $("label[for='payer_address1']").removeClass("feedback-happy");
-        $("#payer_address1").removeClass("input-style-happy");
+        $("#payer_address1").removeClass("input-happy");
         $("label[for='payer_address1']").addClass("feedback-sad");
-        $("#payer_address1").addClass("input-style-sad");
+        $("#payer_address1").addClass("input-sad");
         $("#payer_address1").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='payer_address1']").empty().append("All good!");
         $("label[for='payer_address1']").removeClass("feedback-sad");
-        $("#payer_address1").removeClass("input-style-sad");
+        $("#payer_address1").removeClass("input-sad");
         $("label[for='payer_address1']").addClass("feedback-happy");
-        $("#payer_address1").addClass("input-style-happy");
+        $("#payer_address1").addClass("input-happy");
 	}
 
     var payer_city = $("#payer_city").val();
     if(payer_city === '') {
         $("label[for='payer_city']").empty().append("Please enter a city.");
         $("label[for='payer_city']").removeClass("feedback-happy");
-        $("#payer_city").removeClass("input-style-happy");
+        $("#payer_city").removeClass("input-happy");
         $("label[for='payer_city']").addClass("feedback-sad");
-        $("#payer_city").addClass("input-style-sad");
+        $("#payer_city").addClass("input-sad");
         $("#payer_city").focus();
 		hasError  = true;
         return false;
     } else {
         $("label[for='payer_city']").empty().append("All good!");
         $("label[for='payer_city']").removeClass("feedback-sad");
-        $("#payer_city").removeClass("input-style-sad");
+        $("#payer_city").removeClass("input-sad");
         $("label[for='payer_city']").addClass("feedback-happy");
-        $("#payer_city").addClass("input-style-happy");
+        $("#payer_city").addClass("input-happy");
 	}
 
     var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
         $("label[for='payer_postcode']").empty().append("Please enter a postcode.");
         $("label[for='payer_postcode']").removeClass("feedback-happy");
-        $("#payer_postcode").removeClass("input-style-happy");
+        $("#payer_postcode").removeClass("input-happy");
         $("label[for='payer_postcode']").addClass("feedback-sad");
-        $("#payer_postcode").addClass("input-style-sad");
+        $("#payer_postcode").addClass("input-sad");
         $("#payer_postcode").focus();
 		hasError  = true;
         return false;
     } else {
         $("label[for='payer_postcode']").empty().append("All good!");
         $("label[for='payer_postcode']").removeClass("feedback-sad");
-        $("#payer_postcode").removeClass("input-style-sad");
+        $("#payer_postcode").removeClass("input-sad");
         $("label[for='payer_postcode']").addClass("feedback-happy");
-        $("#payer_postcode").addClass("input-style-happy");
+        $("#payer_postcode").addClass("input-happy");
 	}
 
     var product_quantity = $("#product_quantity").val();
     if(product_quantity === '') {
         $("label[for='product_quantity']").empty().append("Please enter a quantity.");
         $("label[for='product_quantity']").removeClass("feedback-happy");
-        $("#product_quantity").removeClass("input-style-happy");
+        $("#product_quantity").removeClass("input-happy");
         $("label[for='product_quantity']").addClass("feedback-sad");
-        $("#payer_postcode").addClass("input-style-sad");
+        $("#payer_postcode").addClass("input-sad");
         $("#payer_postcode").focus();
         hasError  = true;
         return false;
     } else {
         $("label[for='product_quantity']").empty().append("All good!");
         $("label[for='product_quantity']").removeClass("feedback-sad");
-        $("#product_quantity").removeClass("input-style-sad");
+        $("#product_quantity").removeClass("input-sad");
         $("label[for='product_quantity']").addClass("feedback-happy");
-        $("#product_quantity").addClass("input-style-happy");
+        $("#product_quantity").addClass("input-happy");
     }
 
     var eventid = $("#product_id").val();
