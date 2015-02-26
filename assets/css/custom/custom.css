@@ -344,7 +344,6 @@ ul.external-pages-links {
 #features-showcase hr {
     max-width: 300px;
     margin-top: 0;
-    float: none;
     margin-bottom: 0;
     border-color: #449D44;
     background: #449D44;
@@ -365,7 +364,6 @@ ul.external-pages-links {
 #user-manual-showcase hr {
     max-width: 300px;
     margin-top: 0;
-    float: none;
     margin-bottom: 20px;
     border-color: #4582EC;
     background: #4582EC;
@@ -380,7 +378,6 @@ ul.external-pages-links {
 #contact-showcase hr {
     max-width: 300px;
     margin-top: 0;
-    float: none;
     margin-bottom: 20px;
     border-color: #6B5204;
     background: #6B5204;
@@ -398,7 +395,7 @@ ul.external-pages-links {
 
 /* Social showcase */
 #social-showcase {
-    padding-top: 0px;
+    padding-top: 0;
 }
 
 #social-showcase h1 {
@@ -408,7 +405,6 @@ ul.external-pages-links {
 #social-showcase hr {
     max-width: 700px;
     margin-top: 0;
-    float: none;
     margin-bottom: 20px;
     border-color: #6B5204;
     background: #6B5204;
