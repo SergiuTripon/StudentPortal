@@ -71,7 +71,7 @@ if (isset($_GET['id'])) {
 	<tbody id="loadUsers-table">
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.account_type = 'student'");
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid LEFT JOIN user_timetable ON user_signin.userid=user_timetable.userid WHERE user_signin.account_type = 'student' AND user_timetable.moduleid = '$timetableToAssign'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -87,21 +87,11 @@ if (isset($_GET['id'])) {
     $stmt2->bind_result($db_userid);
     $stmt2->fetch();
 
-    if ($db_userid = '') {
-        $assignment_check = 'Not assigned yet';
-        $unassignment_check = 'Assign';
-    } else {
-        $assignment_check = 'Already assigned';
-        $unassignment_check = 'Unassign';
-    }
-
 	echo '<tr id="assign-'.$userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action">'.$assignment_check.'</td>
-			<td data-title="Action">'.$unassignment_check.'</td>
 			</tr>';
     $stmt2->close();
     }
