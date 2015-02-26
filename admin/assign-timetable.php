@@ -213,6 +213,14 @@ if (isset($_GET['id'])) {
 		}
 	});
 
+    $("#loadUnallocatedStudents").click(function() {
+        $('#loadUnallocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getAllocatedStudents.php');
+    });
+
+    $("#loadAllocatedStudents").click(function() {
+        $('#loadAllocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getUnallocatedStudents.php');
+    });
+
     //Assign timetable
 	$("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
