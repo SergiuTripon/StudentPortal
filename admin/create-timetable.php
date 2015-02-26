@@ -501,9 +501,9 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").addClass("feedback-happy");
     }
 
-    var lecture_day_check = $("#lecture_day option:selected").html();
-    if (lecture_day_check === 'Select an option') {
-        $("label[for='lecture_day']").empty().append("Please select a day.");
+    var lecture_day = $("#lecture_day").val();
+    if (lecture_day === '') {
+        $("label[for='lecture_day']").empty().append("Please enter a day.");
         $("label[for='lecture_day']").removeClass("feedback-happy");
         $("label[for='lecture_day']").addClass("feedback-sad");
         hasError  = true;
@@ -600,7 +600,6 @@ include '../includes/session.php';
 	}
 
     var lecture_lecturer = $("#lecture_lecturer option:selected").val();
-    var lecture_day = $("#lecture_day option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
@@ -633,9 +632,9 @@ include '../includes/session.php';
         $("#lecture_lecturer").focus();
     }
 
-    var tutorial_day_check = $("#tutorial_day option:selected").html();
-    if (tutorial_day_check === 'Select an option') {
-        $("label[for='tutorial_day']").empty().append("Please select a day.");
+    var tutorial_day = $("#tutorial_day").val();
+    if (tutorial_day === '') {
+        $("label[for='tutorial_day']").empty().append("Please enter a day.");
         $("label[for='tutorial_day']").removeClass("feedback-happy");
         $("label[for='tutorial_day']").addClass("feedback-sad");
         hasError  = true;
@@ -733,7 +732,6 @@ include '../includes/session.php';
 
     var tutorial_notes = $("#tutorial_notes").val();
     var tutorial_assistant = $("#tutorial_assistant option:selected").val();
-    var tutorial_day = $("#tutorial_day option:selected").val();
 
     //Exams
 	var exam_name = $("#exam_name").val();
