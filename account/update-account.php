@@ -238,8 +238,7 @@ if ($dateofbirth == "0000-00-00") {
 		} else {
 			$('.btn-group').addClass('btn-group-justified');
 		}
-	})
-	.resize();
+	}).resize();
 
     //Global variable
     var gender;
@@ -249,11 +248,7 @@ if ($dateofbirth == "0000-00-00") {
     //Setting variable value
     $('.btn-group .gender').click(function(){
         gender = ($(this).text().replace(/^\s+|\s+$/g,''))
-    })
-
-    $("#error1").hide();
-    $("#error2").hide();
-    $("#error3").hide();
+    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
