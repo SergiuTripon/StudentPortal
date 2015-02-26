@@ -178,6 +178,9 @@ if (isset($_GET['id'])) {
     var userToAssign = clickedID[1];
     var timetableToAssign = $("#moduleid").html();
 
+    alert(userToAssign);
+    alert(timetableToAssign);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
