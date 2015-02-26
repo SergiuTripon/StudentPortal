@@ -181,6 +181,8 @@ include 'includes/session.php';
 	<!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'includes/assets/js-paths/common-js-paths.php'; ?>
+
     <script>
     $(document).ready(function () {
 
