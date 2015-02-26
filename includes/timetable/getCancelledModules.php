@@ -2,15 +2,6 @@
 include '../../includes/session.php';
 ?>
 
-    <thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>URL</th>
-	<th>Action</th>
-	</tr>
-	</thead>
-
 	<tbody>
 	<?php
 

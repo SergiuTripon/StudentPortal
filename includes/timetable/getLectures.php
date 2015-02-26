@@ -2,18 +2,6 @@
 include '../../includes/session.php';
 ?>
 
-    <thead>
-	<tr>
-	<th>Name</th>
-	<th>Lecturer</th>
-	<th>Day</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
-	</tr>
-	</thead>
-
 	<tbody>
 	<?php
 
