@@ -402,10 +402,13 @@ include '../includes/session.php';
         controlType: 'select',
         minDate: today
     });
+
     $('#tutorial_to_date').datepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
         minDate: today
+
+    });
 
     $('#exam_date').datepicker({
         dateFormat: "yy-mm-dd",
