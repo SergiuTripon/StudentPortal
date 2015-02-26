@@ -135,7 +135,7 @@ include 'includes/session.php';
 	<?php include 'includes/assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include 'includes/assets/js-paths/datatables-js-path.php'; ?>
 
-	<script type="text/javascript" class="init">
+	<script>
     $(document).ready(function () {
 
 	//DataTables
