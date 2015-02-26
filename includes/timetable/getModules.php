@@ -80,7 +80,7 @@ include '../../includes/session.php';
         "ordering": true,
         "info": false,
         "language": {
-            "emptyTable": "You have no lectures on this day."
+            "emptyTable": "There are no timetables to display."
         }
     });
 
