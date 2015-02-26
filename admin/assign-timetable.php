@@ -80,13 +80,12 @@ if (isset($_GET['id'])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-    $stmt3 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid = ?");
-    $stmt3->bind_param('ii', $db_userid, $moduleToAssign);
-    $stmt3->execute();
-    $stmt3->fetch();
+    $stmt2 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid = ?");
+    $stmt2->bind_param('ii', $db_userid, $moduleToAssign);
+    $stmt2->execute();
 
-    $assignment_check = $stmt3->num_rows ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
-    $assignment_check1 = $stmt3->num_rows ? '<a id="unnasign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
+    $assignment_check = $stmt2->num_rows > 0 ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
+    $unassignment_check = $stmt2->num_rows = 0 ? '<a id="unnasign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
 
 	echo '<tr id="assign-'.$db_userid.'">
 
@@ -94,11 +93,10 @@ if (isset($_GET['id'])) {
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
 			<td data-title="Action">'.$assignment_check.'</td>
-			<td data-title="Action">'.$assignment_check1.'</td>
+			<td data-title="Action">'.$unassignment_check.'</td>
 			</tr>';
-	}
-
-    $stmt3->close();
+	$stmt2->close();
+    }
 	$stmt1->close();
 	?>
 	</tbody>
