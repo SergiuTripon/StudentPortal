@@ -15,10 +15,10 @@ if (isset($_POST["timetableToAssign"])) {
 
 <head>
 
-	<?php include '../includes/assets/meta-tags.php'; ?>
+	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../includes/assets/css-paths/datatables-css-path.php'; ?>
-	<?php include '../includes/assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
+	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Assign timetable</title>
 
@@ -149,9 +149,9 @@ if (isset($_POST["timetableToAssign"])) {
 
 	<?php endif; ?>
 
-	<?php include '../includes/assets/js-paths/common-js-paths.php'; ?>
-	<?php include '../includes/assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include '../includes/assets/js-paths/datatables-js-path.php'; ?>
+	<?php include '../assets/js-paths/common-js-paths.php'; ?>
+	<?php include '../assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
     $(document).ready(function () {
