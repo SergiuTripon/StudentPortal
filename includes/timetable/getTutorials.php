@@ -70,7 +70,7 @@ include '../../includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You have no lectures on this day."
+			"emptyTable": "You have no tutorials on this day."
 		}
 	});
 

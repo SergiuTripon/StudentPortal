@@ -118,7 +118,7 @@ include 'includes/session.php';
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-  	<div class="panel-body">
+  	<div id="admin-modules" class="panel-body">
 
     </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
@@ -131,7 +131,7 @@ include 'includes/session.php';
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
+  	<div id="admin-cancelled-modules" class="panel-body">
 
     </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
@@ -150,8 +150,8 @@ include 'includes/session.php';
 
     <script>
     $(document).ready(function () {
-    $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    $('#admin-modules').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    $('#admin-cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
 	});
     </script>
 

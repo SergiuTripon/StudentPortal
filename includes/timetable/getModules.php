@@ -26,7 +26,7 @@ include '../../includes/session.php';
 
 	<!-- Modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom modules-table">
+	<table class="table table-condensed table-custom admin-modules-table">
 
 	<thead>
 	<tr>
@@ -74,7 +74,7 @@ include '../../includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //DataTables
-    $('.modules-table').dataTable({
+    $('.admin-modules-table').dataTable({
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,

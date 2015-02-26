@@ -4,7 +4,7 @@ include '../../includes/session.php';
 
 	<!-- Cancelled modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom cancelled-modules-table">
+	<table class="table table-condensed table-custom admin-cancelled-modules-table">
 
 	<thead>
 	<tr>
@@ -48,7 +48,7 @@ include '../../includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //DataTables
-    $('.cancelled-modules-table').dataTable({
+    $('.admin-cancelled-modules-table').dataTable({
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
