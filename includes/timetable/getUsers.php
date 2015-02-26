@@ -17,17 +17,17 @@ include '../../includes/session.php';
     $stmt2->bind_param('ii', $db_userid, $moduleToAssign);
     $stmt2->execute();
 
-    $test = 'Yes, it\'s 0';
-    $test1 = 'No, it\'s not 0';
+    $test1 = 'Yes, it\'s 0';
+    $test2 = 'No, it\'s not 0';
 
-    $stmt2->num_rows === 0 ? $test : $test1;
+    $test = $stmt2->num_rows === 0 ? $test1 : $test2;
 
 	echo '<tr id="assign-'.$userid.'">
 
 			<td data-title="First name">'.$stmt2->num_rows.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$test.'</td>
-			<td data-title="Action">'.$test1.'</td>
+			<td data-title="Action">'.$test.'</td>
 			<td data-title="Action">test</td>
 			</tr>';
 	$stmt2->close();
