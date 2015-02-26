@@ -209,8 +209,12 @@ if (isset($_GET['id'])) {
 		}
 	});
 
-    $("#loadUsers").click(function() {
-        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
+    $("#loadAssignedUsers").click(function() {
+        $('#loadAssignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
+    });
+
+    $("#loadUnassignedUsers").click(function() {
+        $('#loadUnassignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getUnssignedUsers.php');
     });
 
 	$("body").on("click", ".assign-button", function(e) {
@@ -226,6 +230,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'userToAssign='+ userToAssign + '&timetableToAssign='+ timetableToAssign,
 	success:function(){
+        $('#assign-'+userToAssign).hide();
         $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
 	},
 
@@ -245,16 +250,14 @@ if (isset($_GET['id'])) {
     var userToUnassign = clickedID[1];
     var timetableToUnassign = $("#moduleid").html();
 
-    alert(userToUnassign);
-    alert(timetableToUnassign);
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'userToUnassign='+ userToUnassign + '&timetableToUnassign='+ timetableToUnassign,
 	success:function(){
-        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
+        $('#unassign-'+userToUnassign).hide();
+        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getUnassignedUsers.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
