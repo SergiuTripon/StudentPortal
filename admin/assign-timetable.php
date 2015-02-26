@@ -102,14 +102,14 @@ if (isset($_GET['id'])) {
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Assigned users</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Unassigned users</a>
     <a id="loadUnassignedUsers" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Assigned users -->
+	<!-- Unassigned users -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -237,7 +237,7 @@ if (isset($_GET['id'])) {
 	data:'userToAssign='+ userToAssign + '&timetableToAssign='+ timetableToAssign,
 	success:function(){
         $('#assign-'+userToAssign).hide();
-        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
+        $('#loadAssignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
@@ -264,7 +264,7 @@ if (isset($_GET['id'])) {
 	data:'userToUnassign='+ userToUnassign + '&timetableToUnassign='+ timetableToUnassign,
 	success:function(){
         $('#unassign-'+userToUnassign).hide();
-        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getUnassignedUsers.php');
+        $('#loadUnassignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getUnassignedUsers.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
