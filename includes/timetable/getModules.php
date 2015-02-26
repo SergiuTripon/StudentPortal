@@ -93,4 +93,51 @@ include '../../includes/session.php';
             "emptyTable": "You have no lectures on this day."
         }
     });
+
+    $("body").on("click", ".assign-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#assign-timetable-form-" + DbNumberID).submit();
+
+	});
+
+    $("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#update-timetable-form-" + DbNumberID).submit();
+
+	});
+
+    $("body").on("click", ".cancel-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var timetableToCancel = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'timetableToCancel='+ timetableToCancel,
+	success:function(){
+		$('#cancel-'+timetableToCancel).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
     </script>
