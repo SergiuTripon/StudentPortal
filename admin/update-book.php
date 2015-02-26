@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["bookToUpdate"])) {
+if (isset($_POST["id"])) {
 
-    $bookToUpdate = filter_input(INPUT_POST, 'bookToUpdate', FILTER_SANITIZE_NUMBER_INT);
+    $bookToUpdate = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no FROM system_books WHERE bookid = ? LIMIT 1");
     $stmt1->bind_param('i', $bookToUpdate);
