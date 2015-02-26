@@ -293,7 +293,7 @@ include 'includes/session.php';
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
 	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">  Cancelled timetables</a>
-    <a id="loadCancelledModules"><i class="fa fa-refresh"></i></a>
+    <a id="loadCancelledModules" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
