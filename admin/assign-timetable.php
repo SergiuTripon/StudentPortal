@@ -87,8 +87,13 @@ if (isset($_GET['id'])) {
     $stmt2->bind_result($db_userid);
     $stmt2->fetch();
 
-    $assignment_check = (empty($db_userid)) ? 'Yes' : 'No';
-    $unassignment_check = (!empty($db_userid)) ? 'No' : 'Yes';
+    if ($stmt2->num_rows === 0) {
+        $assignment_check = 'Not assigned yet';
+        $unassignment_check = 'Assign';
+    } else {
+        $assignment_check = 'Already assigned';
+        $unassignment_check = 'Unassign';
+    }
 
 	echo '<tr id="assign-'.$userid.'">
 
