@@ -40,7 +40,7 @@ include '../../includes/session.php';
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a id="activate-'.$moduleid.'" class="btn btn-primary btn-md activate-button">Activate</a></td>
+            <td data-title="Action"><a id="activate-'.$moduleid.'" class="btn btn-primary btn-md ladda-button activate-button" data-style="slide-up"><span class="ladda-label">Activate</span></a></td>
 			</tr>';
 	}
 
