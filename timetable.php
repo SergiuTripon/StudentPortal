@@ -33,7 +33,7 @@ include 'includes/session.php';
 	<li class="active">Timetable</li>
     </ol>
 
-    <a id="loadData" class="btn btn-success btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Refresh</span></a>
+    <a id="loadData" class="btn btn-success btn-lg ladda-button text-center" data-style="slide-up"><span class="ladda-label">Refresh</span></a>
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
