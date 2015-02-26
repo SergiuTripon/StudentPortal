@@ -1,5 +1,8 @@
 <?php
 include '../../includes/session.php';
+
+header("Cache-Control: no-cache, must-revalidate");
+
 ?>
 
     <?php
