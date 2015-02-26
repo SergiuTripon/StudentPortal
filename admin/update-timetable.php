@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_GET["id"])) {
+if (isset($_GET['id'])) {
 
-    $timetableToUpdate = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToUpdate = $_GET['id'];
 
     $stmt1 = $mysqli->prepare("SELECT
 
@@ -106,7 +106,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div id="hide">
 
     <!-- Update module -->
-
     <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $timetableToUpdate; ?>">
 
 	<div class="form-group">
