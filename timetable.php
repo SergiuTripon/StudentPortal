@@ -33,7 +33,7 @@ include 'includes/session.php';
 	<li class="active">Timetable</li>
     </ol>
 
-    <div class="text-center">
+    <div class="text-right">
     <a id="loadData" class="btn btn-success btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Refresh</span></a>
     </div>
 
