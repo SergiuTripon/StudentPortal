@@ -53,7 +53,6 @@ a, a:focus, a:hover {
 hr {
     height: 5px;
     width: 100%;
-    float: left;
     background: #c4e17f;
     border-radius: 2px;
     border: 1px solid transparent !important;
@@ -455,6 +454,10 @@ form a {
 form a:focus, form a:hover {
     color: #4582EC;
     text-decoration: none;
+}
+
+form hr {
+    float: left;
 }
 
 form label {
