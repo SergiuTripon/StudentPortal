@@ -117,7 +117,6 @@ include '../../includes/session.php';
 	data:'timetableToCancel='+ timetableToCancel,
 	success:function(){
 		$('#cancel-'+timetableToCancel).fadeOut();
-        $('#admin-modules').load('https://student-portal.co.uk/includes/timetable/getModules.php');
         $('#admin-cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
 	},
 
