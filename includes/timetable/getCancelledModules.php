@@ -12,7 +12,7 @@ include '../../includes/session.php';
 
 	<!-- Completed tasks -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom cancelled-modules-table">
 
 	<thead>
 	<tr>
@@ -57,6 +57,17 @@ include '../../includes/session.php';
     <script>
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //DataTables
+    $('.cancelled-modules-table').dataTable({
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "You have no lectures on this day."
+        }
+    });
 
     $("body").on("click", ".activate-button", function(e) {
     e.preventDefault();
