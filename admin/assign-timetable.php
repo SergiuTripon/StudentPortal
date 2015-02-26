@@ -83,8 +83,6 @@ if (isset($_GET['id'])) {
     $stmt3 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid = ?");
     $stmt3->bind_param('ii', $db_userid, $moduleToAssign);
     $stmt3->execute();
-    $stmt3->store_result();
-    $stmt3->bind_result($db_userid1);
     $stmt3->fetch();
 
     $assignment_check = $stmt3->num_rows ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
@@ -100,6 +98,7 @@ if (isset($_GET['id'])) {
 			</tr>';
 	}
 
+    $stmt3->close();
 	$stmt1->close();
 	?>
 	</tbody>
