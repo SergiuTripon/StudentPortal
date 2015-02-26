@@ -14,7 +14,7 @@ include '../../includes/session.php';
     $surname = $row["surname"];
 
     $stmt2 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid = ?");
-    $stmt2->bind_param('ii', $db_userid, $moduleToAssign);
+    $stmt2->bind_param('ii', $userid, $moduleToAssign);
     $stmt2->execute();
 
     $assignment_check = $stmt2->num_rows === 0 ? '<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a>' : 'Already assigned';
