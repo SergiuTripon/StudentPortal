@@ -199,7 +199,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'userToUnassign='+ userToUnassign + '&timetableToUnassign='+ timetableToUnassign,
 	success:function(){
-        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getUsers.php');
+        $('#loadUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
