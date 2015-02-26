@@ -1,12 +1,12 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["bookToReserve"])) {
+if (isset($_POST["id"])) {
 
-    $idToReserve = filter_input(INPUT_POST, 'bookToReserve', FILTER_SANITIZE_NUMBER_INT);
+    $bookToReserve = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes FROM system_books WHERE bookid = ? LIMIT 1");
-    $stmt1->bind_param('i', $idToReserve);
+    $stmt1->bind_param('i', $bookToReserve);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes);

@@ -58,20 +58,6 @@ include 'includes/session.php';
 	<div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="books-content" class="panel panel-default">
-
-	<?php
-	$stmt2 = $mysqli->query("SELECT bookid FROM system_books WHERE book_status = 'active'");
-	while($row = $stmt2->fetch_assoc()) {
-
-	$bookid = $row["bookid"];
-
- 	echo '<form id="reserve-book-form-'.$bookid.'" style="display: none;" action="/library/reserve-book/" method="POST">
-		<input type="hidden" name="bookToReserve" id="bookToReserve" value="'.$bookid.'"/>
-		</form>';
-	}
-	$stmt2->close();
-	?>
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Available books</a>
@@ -117,7 +103,7 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Action">'.($book_status === 'Reserved' ? "<a id=\"request-$bookid\" class=\"btn btn-primary btn-md ladda-button request-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a id=\"reserve-$bookid\" class=\"btn btn-primary btn-md ladda-button reserve-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
+			<td data-title="Action">'.($book_status === 'Reserved' ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=\"$bookid\"\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a id=\"reserve-$bookid\" class=\"btn btn-primary btn-md ladda-button reserve-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
 			</tr>';
 	}
 
