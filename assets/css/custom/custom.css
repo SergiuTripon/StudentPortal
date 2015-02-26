@@ -912,7 +912,7 @@ form .form-control:-ms-input-placeholder {
     margin-bottom: 10px;
 }
 
-#timetable-portal #loadData {
+#timetable-portal .btn {
     margin-bottom: 10px;
 }
 
