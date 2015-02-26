@@ -367,6 +367,10 @@ ul.external-pages-links {
     border-color: #4582EC;
     background: #4582EC;
 }
+
+#user-manual-showcase .panel-group {
+    margin-bottom: 0px;
+}
 /* End of User manual showcase */
 
 /* Contact showcase */
