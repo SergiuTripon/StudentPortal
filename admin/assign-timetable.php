@@ -85,7 +85,7 @@ if (isset($_GET['id'])) {
     $stmt2->execute();
 
     $assignment_check = $stmt2->num_rows > 0 ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
-    $unassignment_check = $stmt2->num_rows = 0 ? '<a id="unnasign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
+    $unassignment_check = $stmt2->num_rows = '0' ? '<a id="unnasign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
 
 	echo '<tr id="assign-'.$db_userid.'">
 
