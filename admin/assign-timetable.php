@@ -78,18 +78,12 @@ if (isset($_GET['id'])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-    $stmt2 = $mysqli->prepare("SELECT userid FROM user_timetable WHERE userid = ? AND moduleid = ?");
-    $stmt2->bind_param('ii', $userid, $moduleToAssign);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($db_userid);
-    $stmt2->fetch();
-
 	echo '<tr id="assign-'.$userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
+			<td<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
 			</tr>';
     $stmt2->close();
     }
