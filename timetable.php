@@ -421,16 +421,6 @@ include 'includes/session.php';
     });
 
 
-    $("body").on("click", ".assign-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#assign-timetable-form-" + DbNumberID).submit();
-
-	});
-
     $("body").on("click", ".cancel-button", function(e) {
     e.preventDefault();
 
