@@ -261,6 +261,31 @@ include 'includes/session.php';
         $('#student-tutorials').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
     });
 
+    $("body").on("click", ".cancel-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var timetableToCancel = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'timetableToCancel='+ timetableToCancel,
+	success:function(){
+		$('#cancel-'+timetableToCancel).fadeOut();
+        $('#admin-cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
     </script>
 
 </body>
