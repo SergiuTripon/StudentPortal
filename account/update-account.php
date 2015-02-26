@@ -205,31 +205,31 @@ if ($dateofbirth == "0000-00-00") {
 	var val;
 
     val = $("#gender").val();
-	if(val === '') { $("#gender").css("border-color", "#FF5454"); }
+	if(val === '') { $("#gender").addClass("input-sad"); }
 	val = $("#firstname").val();
-	if(val === '') { $("#firstname").css("border-color", "#FF5454"); }
+	if(val === '') { $("#firstname").addClass("input-sad"); }
 	val = $("#surname").val();
-	if(val === '') { $("#surname").css("border-color", "#FF5454"); }
+	if(val === '') { $("#surname").addClass("input-sad"); }
 	val = $("#email").val();
-	if(val === '') { $("#email").css("border-color", "#FF5454"); }
+	if(val === '') { $("#email").addClass("input-sad"); }
     val = $("#nationality").val();
-    if(val === '') { $("#nationality").css("border-color", "#FF5454"); }
+    if(val === '') { $("#nationality").addClass("input-sad"); }
     val = $("#dateofbirth").val();
-    if(val === '') { $("#dateofbirth").css("border-color", "#FF5454"); }
+    if(val === '') { $("#dateofbirth").addClass("input-sad"); }
 	val = $("#phonenumber").val();
-	if(val === '') { $("#phonenumber").css("border-color", "#FF5454"); }
+	if(val === '') { $("#phonenumber").addClass("input-sad"); }
 	val = $("#address1").val();
-	if(val === '') { $("#address1").css("border-color", "#FF5454"); }
+	if(val === '') { $("#address1").addClass("input-sad"); }
 	val = $("#address2").val();
-	if(val === '') { $("#address2").css("border-color", "#FF5454"); }
+	if(val === '') { $("#address2").addClass("input-sad"); }
 	val = $("#town").val();
-	if(val === '') { $("#town").css("border-color", "#FF5454"); }
+	if(val === '') { $("#town").addClass("input-sad"); }
 	val = $("#city").val();
-	if(val === '') { $("#city").css("border-color", "#FF5454"); }
+	if(val === '') { $("#city").addClass("input-sad"); }
 	val = $("#country").val();
-	if(val === '') { $("#country").css("border-color", "#FF5454"); }
+	if(val === '') { $("#country").addClass("input-sad"); }
 	val = $("#postcode").val();
-	if(val === '') { $("#postcode").css("border-color", "#FF5454"); }
+	if(val === '') { $("#postcode").addClass("input-sad"); }
 
     //Responsiveness
 	$(window).resize(function(){
