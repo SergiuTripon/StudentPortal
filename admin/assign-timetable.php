@@ -63,6 +63,7 @@ if (isset($_GET['id'])) {
 	<th>First Name</th>
 	<th>Surname</th>
 	<th>Email address</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -83,7 +84,7 @@ if (isset($_GET['id'])) {
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
+			<td data-title="Action"><a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
 			</tr>';
     }
 	$stmt1->close();
