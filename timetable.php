@@ -427,6 +427,23 @@ include 'includes/session.php';
 		}
 	});
 
+    $("#loadLectures").click(function() {
+        $('#loadLectures-table').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    });
+
+    $("#loadTutorials").click(function() {
+        $('#loadTutorials-table').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    });
+
+    $("#loadModules").click(function() {
+        $('#loadModules-table').load('https://student-portal.co.uk/includes/timetable/getModules.php');
+    });
+
+    $("#loadCancelledModules").click(function() {
+        $('#loadCancelledModules-table').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
+    });
+
+
     $("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
 
@@ -499,20 +516,6 @@ include 'includes/session.php';
 	});
 
     });
-
-    $("#loadLectures").click(function() {
-        $('#loadLectures-table').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    });
-    $("#loadTutorials").click(function() {
-        $('#loadTutorials-table').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
-    });
-    $("#loadModules").click(function() {
-        $('#loadModules-table').load('https://student-portal.co.uk/includes/timetable/getModules.php');
-    });
-    $("#loadCancelledModules").click(function() {
-        $('#loadCancelledModules-table').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
-    });
-
 	</script>
 
 </body>
