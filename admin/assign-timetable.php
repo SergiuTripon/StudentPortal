@@ -199,6 +199,10 @@ if (isset($_GET['id'])) {
 	<script>
     $(document).ready(function () {
 
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //DataTables
     $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
@@ -209,6 +213,7 @@ if (isset($_GET['id'])) {
 		}
 	});
 
+    //Loading buttons
     $("#loadAssignedUsers").click(function() {
         $('#loadAssignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getAssignedUsers.php');
     });
@@ -217,6 +222,7 @@ if (isset($_GET['id'])) {
         $('#loadUnassignedUsers-table').load('https://student-portal.co.uk/includes/timetable/getUnssignedUsers.php');
     });
 
+    //Assign timetable
 	$("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
 
@@ -243,6 +249,7 @@ if (isset($_GET['id'])) {
 
     });
 
+    //Unassign timetable
     $("body").on("click", ".unassign-button", function(e) {
     e.preventDefault();
 
