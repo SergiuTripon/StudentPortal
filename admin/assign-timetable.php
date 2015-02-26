@@ -74,15 +74,15 @@ if (isset($_GET['id'])) {
 	while($row = $stmt1->fetch_assoc()) {
 
 	$userid = $row["userid"];
-	$email = $row["email"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
+    $studentno = $row["studentno"];
 
 	echo '<tr id="allocate-'.$userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
-			<td data-title="Email address">'.$email.'</td>
+			<td data-title="Email address">'.$studentno.'</td>
 			<td data-title="Action"><a id="allocate-'.$userid.'" class="btn btn-primary btn-md ladda-button allocate-button" data-style="slide-up"><span class="ladda-label">Allocate</span></a></td>
 			</tr>';
     }
@@ -128,15 +128,15 @@ if (isset($_GET['id'])) {
 	while($row = $stmt2->fetch_assoc()) {
 
 	$userid = $row["userid"];
-	$email = $row["email"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
+    $studentno = $row["studentno"];
 
 	echo '<tr id="unallocate-'.$userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
-			<td data-title="Email address">'.$email.'</td>
+			<td data-title="Email address">'.$studentno.'</td>
 			<td data-title="Action"><a id="deallocate-'.$userid.'" class="btn btn-primary btn-md ladda-button deallocate-button" data-style="slide-up"><span class="ladda-label">Deallocate</span></a></td>
 			</tr>';
     }
