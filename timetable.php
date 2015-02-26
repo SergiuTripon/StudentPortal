@@ -218,28 +218,6 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-    <!-- Update timetable -->
-    <?php
-	$stmt1 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
-	while($row = $stmt1->fetch_assoc()) {
-	  echo '<form id="update-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/update-timetable/" method="POST">
-			<input type="hidden" name="timetableToUpdate" id="timetableToUpdate" value="'.$row["moduleid"].'"/>
-			</form>';
-	}
-	$stmt1->close();
-	?>
-
-    <!-- Assign timetable -->
-    <?php
-    $stmt2 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
-    while($row = $stmt2->fetch_assoc()) {
-        echo '<form id="assign-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/assign-timetable/" method="POST">
-        <input type="hidden" name="timetableToAssign" id="timetableToAssign" value="'.$row["moduleid"].'"/>
-        </form>';
-    }
-    $stmt2->close();
-    ?>
-
 	<!-- Modules -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom module-table">
@@ -273,7 +251,7 @@ include 'includes/session.php';
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md assign-button" data-style="slide-up"><span class="ladda-label">Assign</span></a></a></td>
-			<td data-title="Action"><a id="update-'.$moduleid.'" class="btn btn-primary btn-md update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md update-button" href="/admin/update-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></a></td>
             <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></a></td>
 			</tr>';
 	}
@@ -450,16 +428,6 @@ include 'includes/session.php';
     var DbNumberID = clickedID[1];
 
 	$("#assign-timetable-form-" + DbNumberID).submit();
-
-	});
-
-    $("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#update-timetable-form-" + DbNumberID).submit();
 
 	});
 

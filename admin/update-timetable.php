@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["timetableToUpdate"])) {
+if (isset($_GET["id"])) {
 
-    $timetableToUpdate = filter_input(INPUT_POST, 'timetableToUpdate', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToUpdate = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("SELECT
 
