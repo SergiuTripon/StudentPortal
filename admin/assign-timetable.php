@@ -48,7 +48,6 @@ if (isset($_GET['id'])) {
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Allocated students</a>
-    <a id="loadAllocatedStudents" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -67,7 +66,7 @@ if (isset($_GET['id'])) {
 	</tr>
 	</thead>
 
-	<tbody id="loadAllocatedStudents-table">
+	<tbody>
     <?php
 
 	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
@@ -79,7 +78,7 @@ if (isset($_GET['id'])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-	echo '<tr id="assign-'.$userid.'">
+	echo '<tr id="allocate-'.$userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
@@ -103,7 +102,6 @@ if (isset($_GET['id'])) {
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Unallocated users</a>
-    <a id="loadUnallocatedStudents" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
@@ -122,7 +120,7 @@ if (isset($_GET['id'])) {
 	</tr>
 	</thead>
 
-	<tbody id="loadUnallocatedStudents-table">
+	<tbody>
     <?php
 
 	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
@@ -134,12 +132,12 @@ if (isset($_GET['id'])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-	echo '<tr id="unassign-'.$userid.'">
+	echo '<tr id="unallocate-'.$userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="unallocate-'.$userid.'" class="btn btn-primary btn-md ladda-button unallocate-button" data-style="slide-up"><span class="ladda-label">Unallocate</span></a></td>
+			<td data-title="Action"><a id="deallocate-'.$userid.'" class="btn btn-primary btn-md ladda-button deallocate-button" data-style="slide-up"><span class="ladda-label">Deallocate</span></a></td>
 			</tr>';
     }
 	$stmt2->close();
@@ -213,14 +211,6 @@ if (isset($_GET['id'])) {
 		}
 	});
 
-    $("#loadUnallocatedStudents").click(function() {
-        $('#loadUnallocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getAllocatedStudents.php');
-    });
-
-    $("#loadAllocatedStudents").click(function() {
-        $('#loadAllocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getUnallocatedStudents.php');
-    });
-
     //Assign timetable
 	$("body").on("click", ".allocate-button", function(e) {
     e.preventDefault();
@@ -233,9 +223,9 @@ if (isset($_GET['id'])) {
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToAssign='+ userToAllocate + '&timetableToAssign='+ timetableToAllocate,
+	data:'userToAllocate='+ userToAllocate + '&timetableToAllocate='+ timetableToAllocate,
 	success:function(){
-        $('#assign-'+userToAllocate).hide();
+        $('#allocate-'+userToAllocate).hide();
         location.reload();
     },
 
@@ -249,20 +239,20 @@ if (isset($_GET['id'])) {
     });
 
     //Unassign timetable
-    $("body").on("click", ".unallocate-button", function(e) {
+    $("body").on("click", ".deallocate-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var userToUnallocate = clickedID[1];
-    var timetableToUnallocate = $("#moduleid").html();
+    var userToDeallocate = clickedID[1];
+    var timetableToDeallocate = $("#moduleid").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToUnassign='+ userToUnallocate + '&timetableToUnassign='+ timetableToUnallocate,
+	data:'userToDeallocate='+ userToDeallocate + '&timetableToDeallocate='+ timetableToDeallocate,
 	success:function(){
-        $('#unassign-'+userToUnallocate).hide();
+        $('#deallocate-'+userToDeallocate).hide();
         location.reload();
     },
 

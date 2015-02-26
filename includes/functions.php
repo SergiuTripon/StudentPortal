@@ -449,16 +449,16 @@ function AllocateTimetable() {
     $stmt1->close();
 }
 
-//UnassignTimetable function
-function UnallocateTimetable() {
+//DeallocateTimetable function
+function DeallocateTimetable() {
 
     global $mysqli;
 
-    $userToUnallocate = filter_input(INPUT_POST, 'userToUnallocate', FILTER_SANITIZE_NUMBER_INT);
-    $timetableToUnallocate = filter_input(INPUT_POST, 'timetableToUnallocate', FILTER_SANITIZE_NUMBER_INT);
+    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToDeallocate = filter_input(INPUT_POST, 'timetableToDeallocate', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
-    $stmt1->bind_param('ii', $userToUnallocate, $timetableToUnallocate);
+    $stmt1->bind_param('ii', $userToDeallocate, $timetableToDeallocate);
     $stmt1->execute();
     $stmt1->close();
 }

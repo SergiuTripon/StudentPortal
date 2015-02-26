@@ -44,8 +44,8 @@ elseif (isset($_POST["userToAllocate"], $_POST["timetableToAllocate"])) {
 }
 
 //Call UnassignTimetable function
-elseif (isset($_POST["userToUnallocate"], $_POST["timetableToUnallocate"])) {
-    UnallocateTimetable();
+elseif (isset($_POST["userToDeallocate"], $_POST["timetableToDeallocate"])) {
+    DeallocateTimetable();
 }
 
 //Call Timetable functions
