@@ -501,15 +501,12 @@ include 'includes/session.php';
 	data:'timetableToActivate='+ timetableToActivate,
 	success:function(){
 		$('#activate-'+timetableToActivate).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        $('#loadModules-table').load('https://student-portal.co.uk/includes/timetable/getModules.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
-        $('#loadModules-table').load('https://student-portal.co.uk/includes/timetable/getModules.php');
 	}
 
 	});
