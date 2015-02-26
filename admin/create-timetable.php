@@ -227,11 +227,11 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="tutorial_location">Tutorial location</label>
+	<label for="tutorial_location">Tutorial location<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_location" id="tutorial_location" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="tutorial_capacity">Tutorial capacity</label>
+	<label for="tutorial_capacity">Tutorial capacity<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
@@ -240,7 +240,7 @@ include '../includes/session.php';
     <!-- Create exam -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="exam_name">Exam name</label>
+	<label for="exam_name">Exam name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="exam_name" id="exam_name" placeholder="Enter a name">
 	</div>
 	</div>
@@ -254,22 +254,22 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="exam_date">Exam date</label>
+	<label for="exam_date">Exam date<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_date" id="exam_date" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="exam_time">Exam time</label>
+	<label for="exam_time">Exam time<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_time" id="exam_time" placeholder="Select a time">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="exam_location">Exam location</label>
+	<label for="exam_location">Exam location<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_location" id="exam_location" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="exam_capacity">Exam capacity</label>
+	<label for="exam_capacity">Exam capacity<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_capacity" id="exam_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
