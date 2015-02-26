@@ -82,4 +82,15 @@ include '../../includes/session.php';
     <script>
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //DataTables
+    $('.tutorial-table').dataTable({
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "You have no lectures on this day."
+        }
+    });
     </script>
