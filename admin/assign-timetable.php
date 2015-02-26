@@ -83,7 +83,7 @@ if (isset($_GET['id'])) {
     $stmt2->bind_param('ii', $db_userid, $moduleToAssign);
     $stmt2->execute();
 
-    $assignment_check = $stmt2->num_rows > 0 ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
+    $assignment_check = $stmt2->num_rows ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
 
 	echo '<tr id="assign-'.$db_userid.'">
 
