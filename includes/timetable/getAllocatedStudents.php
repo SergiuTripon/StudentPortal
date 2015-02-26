@@ -6,6 +6,7 @@ getAllocatedStudents();
 function getAllocatedStudents() {
 
     global $mysqli;
+    global $timetableToAssign;
 
     $stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
     while ($row = $stmt1->fetch_assoc()) {
