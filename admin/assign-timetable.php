@@ -236,9 +236,7 @@ if (isset($_GET['id'])) {
 	data:'userToAssign='+ userToAssign + '&timetableToAssign='+ timetableToAssign,
 	success:function(){
         $('#assign-'+userToAssign).hide();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        location.reload();
     },
 
 	error:function (xhr, ajaxOptions, thrownError){
@@ -265,9 +263,7 @@ if (isset($_GET['id'])) {
 	data:'userToUnassign='+ userToUnassign + '&timetableToUnassign='+ timetableToUnassign,
 	success:function(){
         $('#unassign-'+userToUnassign).hide();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        location.reload();
     },
 
 	error:function (xhr, ajaxOptions, thrownError){
