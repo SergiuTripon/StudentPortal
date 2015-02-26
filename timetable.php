@@ -72,21 +72,18 @@ include 'includes/session.php';
 	<!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'includes/assets/js-paths/common-js-paths.php'; ?>
+
     <script>
     $(document).ready(function () {
-
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
-
     $('#student-lectures').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
     $('#student-tutorials').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
-
 	});
-
     $("#loadLectures").click(function() {
         $('#student-lectures').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
     });
-
     $("#loadTutorials").click(function() {
         $('#student-tutorials').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
     });
