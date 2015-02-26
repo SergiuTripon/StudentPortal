@@ -12,11 +12,11 @@ include 'includes/functions.php';
 
 <head>
 
-    <?php include 'assets/meta-tags.php'; ?>
+    <?php include 'includes/assets/meta-tags.php'; ?>
 
     <title>Student Portal | Overview</title>
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <?php include 'includes/assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
