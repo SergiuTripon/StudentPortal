@@ -6,7 +6,7 @@ include '../../includes/session.php';
 	$stmt1 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
 	while($row = $stmt1->fetch_assoc()) {
 	  echo '<form id="update-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/update-timetable/" method="POST">
-			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["moduleid"].'"/>
+			<input type="hidden" name="timetableToUpdate" id="timetableToUpdate" value="'.$row["moduleid"].'"/>
 			</form>';
 	}
 	$stmt1->close();
@@ -16,7 +16,7 @@ include '../../includes/session.php';
     $stmt2 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
     while($row = $stmt2->fetch_assoc()) {
         echo '<form id="assign-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/assign-timetable/" method="POST">
-        <input type="hidden" name="recordToAssign" id="recordToAssign" value="'.$row["moduleid"].'"/>
+        <input type="hidden" name="timetableToAssign" id="timetableToAssign" value="'.$row["moduleid"].'"/>
         </form>';
     }
     $stmt2->close();
