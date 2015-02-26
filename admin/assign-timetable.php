@@ -85,7 +85,6 @@ if (isset($_GET['id'])) {
 			<td data-title="Email address">'.$email.'</td>
 			<td<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a></td>
 			</tr>';
-    $stmt2->close();
     }
 	$stmt1->close();
 	?>
