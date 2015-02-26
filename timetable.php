@@ -7,11 +7,11 @@ include 'includes/session.php';
 
 <head>
 
-	<?php include 'includes/assets/meta-tags.php'; ?>
+	<?php include 'assets/meta-tags.php'; ?>
 
-	<?php include 'includes/assets/css-paths/datatables-css-path.php'; ?>
-	<?php include 'includes/assets/css-paths/common-css-paths.php'; ?>
-	<?php include 'includes/assets/css-paths/calendar-css-path.php'; ?>
+	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
+	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
     <title>Student Portal | Timetable</title>
 
@@ -209,23 +209,21 @@ include 'includes/session.php';
 
 	<div class="panel panel-default">
 
-    <!-- Update timetable -->
     <?php
 	$stmt1 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
 	while($row = $stmt1->fetch_assoc()) {
 	  echo '<form id="update-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/update-timetable/" method="POST">
-			<input type="hidden" name="timetableToUpdate" id="timetableToUpdate" value="'.$row["moduleid"].'"/>
+			<input type="hidden" name="recordToUpdate" id="recordToUpdate" value="'.$row["moduleid"].'"/>
 			</form>';
 	}
 	$stmt1->close();
 	?>
 
-    <!-- Assign timetable -->
     <?php
     $stmt2 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
     while($row = $stmt2->fetch_assoc()) {
         echo '<form id="assign-timetable-form-'.$row["moduleid"].'" style="display: none;" action="/admin/assign-timetable/" method="POST">
-        <input type="hidden" name="timetableToAssign" id="timetableToAssign" value="'.$row["moduleid"].'"/>
+        <input type="hidden" name="recordToAssign" id="recordToAssign" value="'.$row["moduleid"].'"/>
         </form>';
     }
     $stmt2->close();
@@ -289,7 +287,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div class="panel panel-default">
+    <div id="completedtasks-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
 	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">  Cancelled timetables</a>
@@ -298,7 +296,7 @@ include 'includes/session.php';
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Cancelled modules -->
+	<!-- Completed tasks -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom module-table">
 
@@ -384,10 +382,10 @@ include 'includes/session.php';
 
 	<?php endif; ?>
 
-	<?php include 'includes/assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'includes/assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include 'includes/assets/js-paths/datatables-js-path.php'; ?>
-	<?php include 'includes/assets/js-paths/calendar-js-path.php'; ?>
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
+	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
 	<script>
     $(document).ready(function () {
