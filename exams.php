@@ -8,10 +8,10 @@ include 'includes/session.php';
 
 <head>
 
-	<?php include 'assets/meta-tags.php'; ?>
+	<?php include 'includes/assets/meta-tags.php'; ?>
 
-	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
+	<?php include 'includes/assets/css-paths/datatables-css-path.php'; ?>
+	<?php include 'includes/assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Exams</title>
 
@@ -131,9 +131,9 @@ include 'includes/session.php';
 
 	<?php endif; ?>
 
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
+	<?php include 'includes/assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'includes/assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include 'includes/assets/js-paths/datatables-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
     $(document).ready(function () {
