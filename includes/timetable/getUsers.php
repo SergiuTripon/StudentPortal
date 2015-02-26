@@ -17,14 +17,17 @@ include '../../includes/session.php';
     $stmt2->bind_param('ii', $db_userid, $moduleToAssign);
     $stmt2->execute();
 
-    $assignment_check = $stmt2->num_rows === 0 ? 'Already assigned' : '<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
+    $test = 'Yes, it\'s 0';
+    $test1 = 'No, it\'s not 0';
+
+    $stmt2->num_rows === 0 ? $test : $test1;
 
 	echo '<tr id="assign-'.$userid.'">
 
 			<td data-title="First name">'.$stmt2->num_rows.'</td>
 			<td data-title="Surname">'.$surname.'</td>
-			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action">'.$assignment_check.'</td>
+			<td data-title="Email address">'.$test.'</td>
+			<td data-title="Action">'.$test1.'</td>
 			<td data-title="Action">test</td>
 			</tr>';
 	$stmt2->close();
