@@ -68,6 +68,7 @@ include 'includes/session.php';
     <table class="table table-condensed table-custom tutorial-table">
     </table>
     </section>
+    <!-- End of Tutorials -->
     </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
