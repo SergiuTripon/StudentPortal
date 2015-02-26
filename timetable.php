@@ -301,7 +301,7 @@ include 'includes/session.php';
 
 	<!-- Cancelled modules -->
 	<section id="no-more-tables">
-	<table id="loadCancelledModules-table" class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom module-table">
 
 	<thead>
 	<tr>
@@ -312,7 +312,7 @@ include 'includes/session.php';
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="loadCancelledModules-table">
 	<?php
 
 	$stmt3 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'cancelled'");
