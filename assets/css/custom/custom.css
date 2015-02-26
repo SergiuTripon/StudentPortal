@@ -909,11 +909,7 @@ form .form-control:-ms-input-placeholder {
 }
 
 #timetable-portal .breadcrumb {
-    margin-bottom: 10px;
-}
-
-#timetable-portal .btn {
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 #timetable-portal hr {
