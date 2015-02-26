@@ -203,6 +203,9 @@ if (isset($_GET['id'])) {
     var userToUnassign = clickedID[1];
     var timetableToUnassign = $("#moduleid").html();
 
+    alert(userToUnassign);
+    alert(timetableToUnassign);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
