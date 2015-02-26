@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["recordToUpdate"])) {
+if (isset($_POST["timetableToUpdate"])) {
 
-    $moduleToUpdate = filter_input(INPUT_POST, 'recordToUpdate', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToUpdate = filter_input(INPUT_POST, 'timetableToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("SELECT
 
@@ -52,7 +52,7 @@ LEFT JOIN system_exams     ON system_modules.moduleid=system_exams.moduleid
 
 WHERE system_modules.moduleid = ? LIMIT 1
 ");
-    $stmt1->bind_param('i', $moduleToUpdate);
+    $stmt1->bind_param('i', $timetableToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($moduleid, $module_name, $module_notes, $module_url, $lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $tutorialid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $examid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity);
