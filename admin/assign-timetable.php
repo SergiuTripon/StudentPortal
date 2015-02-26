@@ -179,7 +179,6 @@ if (isset($_POST["timetableToAssign"])) {
 	dataType:"text",
 	data:'userToAssign='+ userToAssign + '&timetableToAssign='+ timetableToAssign,
 	success:function(){
-		$('#assign-'+userToAssign).fadeOut();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
