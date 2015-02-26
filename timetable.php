@@ -48,7 +48,7 @@ include 'includes/session.php';
 
 	<!-- Lectures -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table id="loadLectures-table" class="table table-condensed table-custom lecture-table">
 
 	<thead>
 	<tr>
@@ -120,7 +120,7 @@ include 'includes/session.php';
 
 	<!-- Tutorials -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
+	<table id="loadTutorials-table" class="table table-condensed table-custom tutorial-table">
 
 	<thead>
 	<tr>
@@ -243,7 +243,7 @@ include 'includes/session.php';
 
 	<!-- Modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table id="loadModules-table" class="table table-condensed table-custom module-table">
 
 	<thead>
 	<tr>
@@ -290,7 +290,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div id="completedtasks-toggle" class="panel panel-default">
+    <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
 	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">  Cancelled timetables</a>
@@ -302,7 +302,7 @@ include 'includes/session.php';
 
 	<!-- Cancelled modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table id="loadCancelledModules-table" class="table table-condensed table-custom module-table">
 
 	<thead>
 	<tr>
@@ -392,7 +392,6 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function () {
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
@@ -461,9 +460,7 @@ include 'includes/session.php';
 	data:'timetableToCancel='+ timetableToCancel,
 	success:function(){
 		$('#cancel-'+timetableToCancel).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        $('#loadCancelledModules-table').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
@@ -496,13 +493,25 @@ include 'includes/session.php';
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
+        $('#loadModules-table').load('https://student-portal.co.uk/includes/timetable/getModules.php');
 	}
 
 	});
 
     });
 
-	});
+    $("#loadLectures").click(function() {
+        $('#loadLectures-table').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    });
+    $("#loadTutorials").click(function() {
+        $('#loadTutorials-table').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    });
+    $("#loadModules").click(function() {
+        $('#loadModules-table').load('https://student-portal.co.uk/includes/timetable/getModules.php');
+    });
+    $("#loadCancelledModules").click(function() {
+        $('#loadCancelledModules-table').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
+    });
 
 	</script>
 
