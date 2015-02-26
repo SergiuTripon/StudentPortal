@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["recordToAssign"])) {
+if (isset($_POST["timetableToAssign"])) {
 
-    $moduleToAssign = filter_input(INPUT_POST, 'recordToAssign', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToAssign = filter_input(INPUT_POST, 'timetableToAssign', FILTER_SANITIZE_NUMBER_INT);
 
 } else {
     header('Location: ../../timetable/');
@@ -15,10 +15,10 @@ if (isset($_POST["recordToAssign"])) {
 
 <head>
 
-	<?php include '../assets/meta-tags.php'; ?>
+	<?php include '../includes/assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
+	<?php include '../includes/assets/css-paths/datatables-css-path.php'; ?>
+	<?php include '../includes/assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Assign timetable</title>
 
@@ -39,7 +39,7 @@ if (isset($_POST["recordToAssign"])) {
 		<li class="active">Assign timetable</li>
 	</ol>
 
-    <div id="moduleid" style="display: none !important;"><?php echo $moduleToAssign; ?></div>
+    <div id="moduleid" style="display: none !important;"><?php echo $timetableToAssign; ?></div>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -149,9 +149,9 @@ if (isset($_POST["recordToAssign"])) {
 
 	<?php endif; ?>
 
-	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-	<?php include '../assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
+	<?php include '../includes/assets/js-paths/common-js-paths.php'; ?>
+	<?php include '../includes/assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include '../includes/assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
     $(document).ready(function () {
