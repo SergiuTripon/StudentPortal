@@ -2,6 +2,9 @@
 include '../../includes/session.php';
 ?>
 
+    <!-- Lectures -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom lecture-table">
 	<thead>
 	<tr>
 	<th>Name</th>
@@ -51,3 +54,126 @@ include '../../includes/session.php';
 	$stmt1->close();
 	?>
 	</tbody>
+	</table>
+	</section>
+    <!-- End of Lectures -->
+
+    <?php include '../../includes/assets/js-paths/datatables-js-path.php'; ?>
+
+    <script>
+    $(document).ready(function () {
+
+    $('.lecture-table').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    $('.tutorial-table').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
+
+	//DataTables
+    $('.lecture-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "You have no lectures on this day."
+		}
+	});
+
+    $('.tutorial-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "You have no tutorials on this day."
+		}
+	});
+
+    $('.module-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no timetables to display."
+		}
+	});
+
+    $("body").on("click", ".assign-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#assign-timetable-form-" + DbNumberID).submit();
+
+	});
+
+    $("body").on("click", ".update-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var DbNumberID = clickedID[1];
+
+	$("#update-timetable-form-" + DbNumberID).submit();
+
+	});
+
+    $("body").on("click", ".cancel-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var timetableToCancel = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'timetableToCancel='+ timetableToCancel,
+	success:function(){
+		$('#cancel-'+timetableToCancel).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
+    $("body").on("click", ".activate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var timetableToActivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'timetableToActivate='+ timetableToActivate,
+	success:function(){
+		$('#activate-'+timetableToActivate).fadeOut();
+        setTimeout(function(){
+            location.reload();
+        }, 1000);
+	},
+
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
+	});
+
+	</script>
