@@ -303,7 +303,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a id="activate-'.$moduleid.'" class="btn btn-primary btn-md ladda-button activate-button" data-style="slide-up"><span class="ladda-label">Active</span></a></td>
+            <td data-title="Action"><a id="activate-'.$moduleid.'" class="btn btn-primary btn-md ladda-button activate-button" data-style="slide-up"><span class="ladda-label">Activate</span></a></td>
 			</tr>';
 	}
 
@@ -412,15 +412,13 @@ include 'includes/session.php';
 	data:'timetableToCancel='+ timetableToCancel,
 	success:function(){
 		$('#cancel-'+timetableToCancel).hide();
+        location.reload();
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 
     $("body").on("click", ".activate-button", function(e) {
@@ -436,15 +434,13 @@ include 'includes/session.php';
 	data:'timetableToActivate='+ timetableToActivate,
 	success:function(){
 		$('#activate-'+timetableToActivate).hide();
+        location.reload();
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 	</script>
 

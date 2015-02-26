@@ -228,7 +228,6 @@ if (isset($_GET['id'])) {
         $('#allocate-'+userToAllocate).hide();
         location.reload();
     },
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -255,7 +254,6 @@ if (isset($_GET['id'])) {
         $('#deallocate-'+userToDeallocate).hide();
         location.reload();
     },
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
