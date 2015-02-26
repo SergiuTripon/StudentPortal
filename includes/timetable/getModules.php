@@ -39,9 +39,9 @@ include '../../includes/session.php';
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md ladda-button assign-button" data-style=\"slide-up\"><span class=\"ladda-label\">Assign</span></a></td>
-			<td data-title="Action"><a id="update-'.$moduleid.'" class="btn btn-primary btn-md ladda-butto update-button" data-style=\"slide-up\"><span class=\"ladda-label\">Update</span></a></td>
-            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style=\"slide-up\"><span class=\"ladda-label\">Cancel</span></a></td>
+            <td data-title="Action"><a id="assign-'.$moduleid.'" class="btn btn-primary btn-md ladda-button assign-button" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
+			<td data-title="Action"><a id="update-'.$moduleid.'" class="btn btn-primary btn-md ladda-button update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
 			</tr>';
 	}
 
