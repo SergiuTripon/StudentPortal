@@ -1,5 +1,6 @@
 <?php
 include '../../includes/session.php';
+include '../../admin/assign-timetable.php';
 
 getAllocatedStudents();
 
