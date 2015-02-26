@@ -58,6 +58,49 @@ include 'includes/session.php';
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div id="student-tutorials" class="panel-body">
+
+    </div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+	</div><!-- /.panel-group -->
+
+    </div><!-- /container -->
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<!-- Sign Out (Inactive) JS -->
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
+
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
+
+    <?php include 'includes/menus/portal_menu.php'; ?>
+
+    <div id="timetable-portal" class="container">
+
+	<ol class="breadcrumb">
+    <li><a href="../overview/">Overview</a></li>
+    <li class="active">Timetable</li>
+    </ol>
+
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/admin/create-timetable/"><span class="ladda-label">Create timetable</span></a>
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+	<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Timetables</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div id="admin-modules" class="panel-body">
     <!-- Update timetable -->
     <?php
 	$stmt1 = $mysqli->query("SELECT moduleid FROM system_modules WHERE module_status = 'active'");
@@ -124,49 +167,6 @@ include 'includes/session.php';
 
 	</table>
 	</section>
-    </div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	</div><!-- /.panel-group -->
-
-    </div><!-- /container -->
-
-	<?php include 'includes/footers/footer.php'; ?>
-
-	<!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
-
-    <?php endif; ?>
-
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
-
-    <?php endif; ?>
-
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
-
-    <?php include 'includes/menus/portal_menu.php'; ?>
-
-    <div id="timetable-portal" class="container">
-
-	<ol class="breadcrumb">
-    <li><a href="../overview/">Overview</a></li>
-    <li class="active">Timetable</li>
-    </ol>
-
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/admin/create-timetable/"><span class="ladda-label">Create timetable</span></a>
-
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-	<div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Timetables</a>
-  	</h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-  	<div id="admin-modules" class="panel-body">
-
     </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
