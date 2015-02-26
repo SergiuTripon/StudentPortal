@@ -213,11 +213,6 @@ if (isset($_GET['id'])) {
 		}
 	});
 
-    //Loading buttons
-    $("#loadAllocatedStudents").click(function() {
-        $('#loadAllocatedStudents-table').load('https://student-portal.co.uk/includes/timetable/getAllocatedStudents.php');
-    });
-
     //Assign timetable
 	$("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
