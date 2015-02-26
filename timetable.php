@@ -277,6 +277,9 @@ include 'includes/session.php';
 	<script>
     $(document).ready(function () {
 
+    $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
