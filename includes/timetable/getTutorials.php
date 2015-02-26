@@ -2,10 +2,6 @@
 include '../../includes/session.php';
 ?>
 
-    <!-- Tutorials -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
-
 	<thead>
 	<tr>
 	<th>Name</th>
@@ -55,7 +51,4 @@ include '../../includes/session.php';
 	$stmt3->close();
 	?>
 	</tbody>
-
-	</table>
-	</section>
     <!-- End of Tutorials -->

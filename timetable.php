@@ -44,8 +44,13 @@ include 'includes/session.php';
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
-
-  	</div><!-- /panel-body -->
+    <!-- Lectures -->
+    <section id="no-more-tables">
+    <table class="table table-condensed table-custom lecture-table">
+    </table>
+    </section>
+    <!-- End of Lectures -->
+    </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
@@ -58,8 +63,12 @@ include 'includes/session.php';
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
-
-  	</div><!-- /panel-body -->
+    <!-- Tutorials -->
+    <section id="no-more-tables">
+    <table class="table table-condensed table-custom tutorial-table">
+    </table>
+    </section>
+    </div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
@@ -276,8 +285,8 @@ include 'includes/session.php';
 	<script>
     $(document).ready(function () {
 
-    $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    $('.lecture-table').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    $('.tutorial-table').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
