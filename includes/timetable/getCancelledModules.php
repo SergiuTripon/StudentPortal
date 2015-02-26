@@ -58,17 +58,6 @@ include '../../includes/session.php';
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    //DataTables
-    $('.module-table').dataTable({
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "You have no lectures on this day."
-        }
-    });
-
     $("body").on("click", ".activate-button", function(e) {
     e.preventDefault();
 
