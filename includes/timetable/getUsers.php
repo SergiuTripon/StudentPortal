@@ -20,7 +20,7 @@ header("Cache-Control: no-cache, must-revalidate");
     $stmt2->bind_param('ii', $db_userid, $moduleToAssign);
     $stmt2->execute();
 
-    $assignment_check = $stmt2->num_rows === 0 ? 'Already assigned' : '<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
+    $assignment_check = $stmt2->num_rows === 0 ? '<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a>' : 'Already assigned';
 
 	echo '<tr id="assign-'.$userid.'">
 
