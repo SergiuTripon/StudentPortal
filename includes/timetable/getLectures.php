@@ -61,8 +61,6 @@ include '../../includes/session.php';
     <?php include '../../includes/assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
-    $(document).ready(function () {
-
 	//DataTables
     $('.student-lecture-table').dataTable({
         "iDisplayLength": 10,
@@ -73,7 +71,4 @@ include '../../includes/session.php';
 			"emptyTable": "You have no lectures on this day."
 		}
 	});
-
-	});
-
 	</script>
