@@ -7,7 +7,7 @@ include 'includes/session.php';
 
 <head>
 
-	<?php include 'assets/meta-tags.php'; ?>
+	<?php include 'includes/assets/meta-tags.php'; ?>
 
 	<?php include 'includes/assets/css-paths/datatables-css-path.php'; ?>
 	<?php include 'includes/assets/css-paths/common-css-paths.php'; ?>
