@@ -4,7 +4,7 @@ include '../../includes/session.php';
 
     <!-- Tutorials -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
+	<table class="table table-condensed table-custom student-tutorial-table">
 	<thead>
 	<tr>
 	<th>Name</th>
@@ -64,7 +64,7 @@ include '../../includes/session.php';
     $(document).ready(function () {
 
 	//DataTables
-    $('.tutorial-table').dataTable({
+    $('.student-tutorial-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
