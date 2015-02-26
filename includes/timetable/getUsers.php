@@ -17,7 +17,7 @@ include '../../includes/session.php';
     $stmt2->bind_param('ii', $userid, $moduleToAssign);
     $stmt2->execute();
 
-    $assignment_check = $stmt2->num_rows === 0 ? '<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a>' : '<a id="unnasign-'.$userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>';
+    $assignment_check = $stmt2->num_rows === 0 ? '<a id="unnasign-'.$userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : '<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
 
 	echo '<tr id="assign-'.$userid.'">
 
