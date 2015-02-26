@@ -110,7 +110,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="module_name">Module name</label>
+	<label for="module_name">Module name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
@@ -138,14 +138,14 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="lecture_name">Lecture name</label>
+	<label for="lecture_name">Lecture name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="<?php echo $lecture_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pl0">
-    <label for="lecture_lecturer">Lecturer</label>
+    <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
     <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$lecture_lecturer'");
@@ -187,40 +187,40 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="lecture_day">Lecture day</label>
+	<label for="lecture_day">Lecture day<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="lecture_day" id="lecture_day" value="<?php echo $lecture_day; ?>" placeholder="Enter a day">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="lecture_from_time">Lecture from (time)</label>
+	<label for="lecture_from_time">Lecture from (time)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" value="<?php echo $lecture_from_time; ?>" placeholder="Select a time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="lecture_to_time">Lecture to (time)</label>
+	<label for="lecture_to_time">Lecture to (time)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" value="<?php echo $lecture_to_time; ?>" placeholder="Select a time">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="lecture_from_date">Lecture from (date)</label>
+	<label for="lecture_from_date">Lecture from (date)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_from_date" id="lecture_from_date" value="<?php echo $lecture_from_date; ?>" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="lecture_to_date">Lecture to (date)</label>
+	<label for="lecture_to_date">Lecture to (date)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" value="<?php echo $lecture_to_date; ?>" placeholder="Select a date">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="lecture_location">Lecture location</label>
+	<label for="lecture_location">Lecture location<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_location" id="lecture_location" value="<?php echo $lecture_location; ?>" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="lecture_capacity">Lecture capacity</label>
+	<label for="lecture_capacity">Lecture capacity<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" value="<?php echo $lecture_capacity; ?>" placeholder="Enter a capacity">
 	</div>
 	</div>
@@ -229,19 +229,18 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <hr class="hr-separator">
 
     <!-- Update tutorial -->
-
     <input type="hidden" name="tutorialid" id="tutorialid" value="<?php echo $tutorialid; ?>">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="tutorial_name">Tutorial name</label>
+	<label for="tutorial_name">Tutorial name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="<?php echo $tutorial_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pl0">
-    <label for="tutorial_assistant">Tutorial assistant</label>
+    <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
     <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
     $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$tutorial_assistant'");
@@ -283,40 +282,40 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="tutorial_day">Tutorial day</label>
+	<label for="tutorial_day">Tutorial day<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" value="<?php echo $tutorial_day; ?>" placeholder="Enter a day">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="tutorial_from_time">Tutorial from (time)</label>
+	<label for="tutorial_from_time">Tutorial from (time)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_from_time" id="tutorial_from_time" value="<?php echo $tutorial_from_time; ?>" placeholder="Select a time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="tutorial_to_time">Tutorial to (time)</label>
+	<label for="tutorial_to_time">Tutorial to (time)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" value="<?php echo $tutorial_to_time; ?>" placeholder="Select a time">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="tutorial_from_date">Tutorial from (date)</label>
+	<label for="tutorial_from_date">Tutorial from (date)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_from_date" id="tutorial_from_date" value="<?php echo $tutorial_from_date; ?>" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="tutorial_to_date">Tutorial to (date)</label>
+	<label for="tutorial_to_date">Tutorial to (date)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" value="<?php echo $tutorial_to_date; ?>" placeholder="Select a date">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="tutorial_location">Tutorial location</label>
+	<label for="tutorial_location">Tutorial location<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_location" id="tutorial_location" value="<?php echo $tutorial_location; ?>" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="tutorial_capacity">Tutorial capacity</label>
+	<label for="tutorial_capacity">Tutorial capacity<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" value="<?php echo $tutorial_capacity; ?>" placeholder="Enter a capacity">
 	</div>
 	</div>
@@ -328,7 +327,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="exam_name">Exam name</label>
+	<label for="exam_name">Exam name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="exam_name" id="exam_name" value="<?php echo $exam_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
@@ -342,22 +341,22 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="exam_date">Exam date</label>
+	<label for="exam_date">Exam date<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_date" id="exam_date" value="<?php echo $exam_date; ?>" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="exam_time">Exam time</label>
+	<label for="exam_time">Exam time<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_time" id="exam_time" value="<?php echo $exam_time; ?>" placeholder="Select a time">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="exam_location">Exam location</label>
+	<label for="exam_location">Exam location<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_location" id="exam_location" value="<?php echo $exam_location; ?>" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="exam_capacity">Exam capacity</label>
+	<label for="exam_capacity">Exam capacity<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_capacity" id="exam_capacity" value="<?php echo $exam_capacity; ?>" placeholder="Enter a capacity">
 	</div>
 	</div>
