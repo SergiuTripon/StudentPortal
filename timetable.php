@@ -153,12 +153,9 @@ include 'includes/session.php';
 
     <script>
     $(document).ready(function () {
-
-    $('#modules').load('https://student-portal.co.uk/includes/timetable/getModules.php');
-    $('#cancelled-modules').load('https://student-portal.co.uk/includes/timetable/getCancelledModules.php');
-
+    $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
 	});
-
     </script>
 
     <?php endif; ?>
