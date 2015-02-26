@@ -210,10 +210,12 @@ if ($dateofbirth == "0000-00-00") {
 	if(val === '') { $("#firstname").css("border-color", "#FF5454"); }
 	val = $("#surname").val();
 	if(val === '') { $("#surname").css("border-color", "#FF5454"); }
-	val = $("#dateofbirth").val();
-	if(val === '') { $("#dateofbirth").css("border-color", "#FF5454"); }
 	val = $("#email").val();
 	if(val === '') { $("#email").css("border-color", "#FF5454"); }
+    val = $("#nationality").val();
+    if(val === '') { $("#nationality").css("border-color", "#FF5454"); }
+    val = $("#dateofbirth").val();
+    if(val === '') { $("#dateofbirth").css("border-color", "#FF5454"); }
 	val = $("#phonenumber").val();
 	if(val === '') { $("#phonenumber").css("border-color", "#FF5454"); }
 	val = $("#address1").val();
