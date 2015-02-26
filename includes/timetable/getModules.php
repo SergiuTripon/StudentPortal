@@ -22,22 +22,6 @@ include '../../includes/session.php';
     $stmt2->close();
     ?>
 
-	<!-- Modules -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>URL</th>
-	<th>Action</th>
-    <th>Action</th>
-    <th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody>
 	<?php
 
 	$stmt3 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'active'");
@@ -49,7 +33,7 @@ include '../../includes/session.php';
 	$module_notes = $row["module_notes"];
 	$module_url = $row["module_url"];
 
-	echo '<tr id="activate-'.$moduleid.'">
+	echo '<tr id="cancel-'.$moduleid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
@@ -62,7 +46,3 @@ include '../../includes/session.php';
 
 	$stmt3->close();
 	?>
-	</tbody>
-
-	</table>
-	</section>
