@@ -1,8 +1,5 @@
 <?php
 include '../../includes/session.php';
-
-header("Cache-Control: no-cache, must-revalidate");
-
 ?>
 
     <?php
@@ -21,6 +18,7 @@ header("Cache-Control: no-cache, must-revalidate");
     $stmt2->execute();
 
     $assignment_check = $stmt2->num_rows === 0 ? '<a id="assign-'.$userid.'" class="btn btn-primary btn-md assign-button">Assign</a>' : 'Already assigned';
+    $unassignment_check = $stmt2->num_rows !== 0 ? '<a id="unnasign-'.$userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
 
 	echo '<tr id="assign-'.$userid.'">
 
