@@ -345,6 +345,7 @@ ul.external-pages-links {
 #features-showcase hr {
     max-width: 300px;
     margin-top: 0;
+    float: none;
     margin-bottom: 0;
     border-color: #449D44;
     background: #449D44;
@@ -353,7 +354,7 @@ ul.external-pages-links {
 #features-showcase .text-left {
     color: #449D44;
     font-weight: 600;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 /* End of Features showcase */
 
@@ -364,7 +365,8 @@ ul.external-pages-links {
 
 #user-manual-showcase hr {
     max-width: 300px;
-    margin-top: 0px;
+    margin-top: 0;
+    float: none;
     margin-bottom: 20px;
     border-color: #4582EC;
     background: #4582EC;
