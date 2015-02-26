@@ -72,6 +72,27 @@ include 'includes/session.php';
 	<!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
+    <script>
+    $(document).ready(function () {
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
+
+        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+
+	});
+
+    $("#loadLectures").click(function() {
+        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    });
+
+    $("#loadTutorials").click(function() {
+        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    });
+
+    </script>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
@@ -272,27 +293,6 @@ include 'includes/session.php';
 	<?php include 'includes/assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include 'includes/assets/js-paths/datatables-js-path.php'; ?>
 	<?php include 'includes/assets/js-paths/calendar-js-path.php'; ?>
-
-	<script>
-    $(document).ready(function () {
-
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
-
-        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
-
-	});
-
-    $("#loadLectures").click(function() {
-        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    });
-
-    $("#loadTutorials").click(function() {
-        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
-    });
-
-    </script>
 
 </body>
 </html>
