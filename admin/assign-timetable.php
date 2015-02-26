@@ -88,7 +88,7 @@ if (isset($_GET['id'])) {
     $stmt3->fetch();
 
     $assignment_check = $stmt3->num_rows ? 'Already assigned' : '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md assign-button">Assign</a>';
-    $assignment_check1 = $stmt3->num_rows ? '<a id="assign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
+    $assignment_check1 = $stmt3->num_rows ? '<a id="unnasign-'.$db_userid.'" class="btn btn-primary btn-md unassign-button">Unassign</a>' : 'Not assigned yet';
 
 	echo '<tr id="assign-'.$db_userid.'">
 
