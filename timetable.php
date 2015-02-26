@@ -33,7 +33,10 @@ include 'includes/session.php';
 	<li class="active">Timetable</li>
     </ol>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <a class="btn btn-success btn-lg ladda-button mt10" data-style="slide-up" href="/admin/create-timetable/"><span class="ladda-label">Create timetable</span></a>
+
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 
@@ -87,7 +90,7 @@ include 'includes/session.php';
     <li class="active">Timetable</li>
     </ol>
 
-    <a class="btn btn-success btn-lg ladda-button mt10" data-style="slide-up" href="/admin/create-timetable/"><span class="ladda-label">Create timetable</span></a>
+    <a id="loadData" class="btn btn-success btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Refresh</span></a>
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -274,10 +277,27 @@ include 'includes/session.php';
 	<script>
     $(document).ready(function () {
 
-    $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+        getLectures();
+        getTutorials();
 
 	});
+
+    $("#loadData").click(function() {
+        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    });
+
+    function getLectures() {
+        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+    })
+    function getTutorials() {
+        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    })
+
+    function refreshData() {
+        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
+        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
+    })
 
 	</script>
 
