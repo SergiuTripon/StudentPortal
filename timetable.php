@@ -36,11 +36,10 @@ include 'includes/session.php';
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Lectures</a>
-    <a id="loadLectures"><i class="fa fa-refresh"></i></a>
+    <a id="loadLectures" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -112,7 +111,7 @@ include 'includes/session.php';
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Tutorials</a>
-    <a id="loadTutorials"><i class="fa fa-refresh"></i></a>
+    <a id="loadTutorials" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
@@ -198,7 +197,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div class="container">
+    <div id="timetable-portal" class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
@@ -209,11 +208,10 @@ include 'includes/session.php';
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Timetables</a>
-    <a id="loadModules"><i class="fa fa-refresh"></i></a>
+    <a id="loadModules" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -294,7 +292,7 @@ include 'includes/session.php';
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
 	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">  Cancelled timetables</a>
-    <a id="loadCancelledModules"><i class="fa fa-refresh"></i></a>
+    <a id="loadCancelledModules" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
