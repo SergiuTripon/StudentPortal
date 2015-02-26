@@ -185,17 +185,8 @@ include 'includes/session.php';
     $(document).ready(function () {
 
     $('#modules').load('https://student-portal.co.uk/includes/timetable/getModules.php');
-    $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
 
 	});
-
-    $("#loadLectures").click(function() {
-        $('#collapseOne .panel-body').load('https://student-portal.co.uk/includes/timetable/getLectures.php');
-    });
-
-    $("#loadTutorials").click(function() {
-        $('#collapseTwo .panel-body').load('https://student-portal.co.uk/includes/timetable/getTutorials.php');
-    });
 
     </script>
 
