@@ -2,10 +2,6 @@
 include '../../includes/session.php';
 ?>
 
-    <!-- Lectures -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
-
 	<thead>
 	<tr>
 	<th>Name</th>
@@ -55,7 +51,3 @@ include '../../includes/session.php';
 	$stmt1->close();
 	?>
 	</tbody>
-
-	</table>
-	</section>
-    <!-- End of Lectures -->

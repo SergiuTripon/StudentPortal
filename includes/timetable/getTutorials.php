@@ -51,4 +51,3 @@ include '../../includes/session.php';
 	$stmt3->close();
 	?>
 	</tbody>
-    <!-- End of Tutorials -->
