@@ -47,14 +47,14 @@ if (isset($_GET['id'])) {
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Users</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Assigned users</a>
     <a id="loadUsers" class="pull-right"><i class="fa fa-refresh"></i></a>
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Users -->
+	<!-- Assigned users -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -88,6 +88,61 @@ if (isset($_GET['id'])) {
 			</tr>';
     }
 	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Assigned users</a>
+    <a id="loadUnassignedUsers" class="pull-right"><i class="fa fa-refresh"></i></a>
+    </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Assigned users -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>First Name</th>
+	<th>Surname</th>
+	<th>Email address</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody id="loadUnassignedUsers-table">
+    <?php
+
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+	$userid = $row["userid"];
+	$email = $row["email"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
+
+	echo '<tr id="unassign-'.$userid.'">
+
+			<td data-title="First name">'.$firstname.'</td>
+			<td data-title="Surname">'.$surname.'</td>
+			<td data-title="Email address">'.$email.'</td>
+			<td data-title="Action"><a id="unassign-'.$userid.'" class="btn btn-primary btn-md unassign-button">Assign</a></td>
+			</tr>';
+    }
+	$stmt2->close();
 	?>
 	</tbody>
 
