@@ -49,8 +49,7 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>First name</th>
-	<th>Surname</th>
+	<th>Full name</th>
 	<th>Email address</th>
 	<th>Action</th>
 	</tr>
