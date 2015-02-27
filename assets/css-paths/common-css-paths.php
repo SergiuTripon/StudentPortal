@@ -2,7 +2,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="https://student-portal.co.uk/assets/img/favicon/favicon.ico">
 
     <!-- open-sans-font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel="stylesheet">
 
     <!-- bootstrap -->
     <link href="https://student-portal.co.uk/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
