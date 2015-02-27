@@ -116,7 +116,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_messages.userid, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.message_to = '$session_userid'");
+	$stmt2 = $mysqli->query("");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -179,7 +179,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT user_messages.message_to, user_messages.message_subject, user_messages.message_body, user_messages.isRead, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages LEFT JOIN user_details as join1 ON user_messages.userid=join1.userid LEFT JOIN user_details as join2 ON user_messages.message_to=join2.userid WHERE user_messages.userid = '$session_userid'");
+	$stmt4 = $mysqli->query("");
 
 	while($row = $stmt4->fetch_assoc()) {
 

@@ -272,12 +272,15 @@ CREATE TABLE `student_portal`.`user_messages` (
 ) ENGINE = InnoDB;
 
 CREATE TABLE `student_portal`.`user_messages_lookup` (
+  `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
-  FOREIGN KEY (message_from)
-  REFERENCES user_signin(userid),
-  FOREIGN KEY (message_to)
-  REFERENCES user_signin(userid)
+FOREIGN KEY (messageid)
+REFERENCES user_messages(messageid),
+FOREIGN KEY (message_from)
+REFERENCES user_signin(userid),
+FOREIGN KEY (message_to)
+REFERENCES user_signin(userid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
