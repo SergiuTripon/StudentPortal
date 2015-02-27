@@ -1483,9 +1483,9 @@ table.dataTable thead th.sorting_desc:after {
 /* Hide table headers (but not display: none;, for accessibility) */
 #no-more-tables table {
     border-collapse: collapse;
-    border-top: 1px solid #5D5D5D !important;
-    border-right: 1px solid #5D5D5D !important;
-    border-left: 1px solid #5D5D5D !important;
+    border-top: 1px solid #CCCCCC !important;
+    border-right: 1px solid #CCCCCC !important;
+    border-left: 1px solid #CCCCCC !important;
 }
 
 #no-more-tables thead tr {
@@ -1494,14 +1494,10 @@ table.dataTable thead th.sorting_desc:after {
     left: -9999px;
 }
 
-#no-more-tables tr {
-    border: 1px solid #8A8A8A;
-}
-
 #no-more-tables td {
     /* Behave  like a "row" */
     border: none;
-    border-bottom: 1px solid #CCCCCC;
+    border-bottom: 2px solid #CCCCCC;
     position: relative;
     padding-left: 50%;
     white-space: normal;
