@@ -59,8 +59,7 @@ if (isset($_GET['id'])) {
 
 	<thead>
 	<tr>
-	<th>First Name</th>
-	<th>Surname</th>
+	<th>Full name</th>
 	<th>Student number</th>
     <th>Action</th>
 	</tr>
@@ -74,14 +73,13 @@ if (isset($_GET['id'])) {
 	while($row = $stmt1->fetch_assoc()) {
 
 	$userid = $row["userid"];
+    $studentno = $row["studentno"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
-    $studentno = $row["studentno"];
 
 	echo '<tr id="allocate-'.$userid.'">
 
-			<td data-title="First name">'.$firstname.'</td>
-			<td data-title="Surname">'.$surname.'</td>
+			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Action"><a id="allocate-'.$userid.'" class="btn btn-primary btn-md ladda-button allocate-button" data-style="slide-up"><span class="ladda-label">Allocate</span></a></td>
 			</tr>';
@@ -113,8 +111,7 @@ if (isset($_GET['id'])) {
 
 	<thead>
 	<tr>
-	<th>First Name</th>
-	<th>Surname</th>
+	<th>Full name</th>
 	<th>Student number</th>
     <th>Action</th>
 	</tr>
@@ -128,14 +125,13 @@ if (isset($_GET['id'])) {
 	while($row = $stmt2->fetch_assoc()) {
 
 	$userid = $row["userid"];
+    $studentno = $row["studentno"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
-    $studentno = $row["studentno"];
 
 	echo '<tr id="unallocate-'.$userid.'">
 
-			<td data-title="First name">'.$firstname.'</td>
-			<td data-title="Surname">'.$surname.'</td>
+			<td data-title="First name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Action"><a id="deallocate-'.$userid.'" class="btn btn-primary btn-md ladda-button deallocate-button" data-style="slide-up"><span class="ladda-label">Deallocate</span></a></td>
 			</tr>';
