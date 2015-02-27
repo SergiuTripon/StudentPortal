@@ -296,7 +296,6 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Full name</th>
-	<th>Email address</th>
 	<th>Account type</th>
 	<th>Created on</th>
 	<th>Updated on</th>
@@ -306,13 +305,12 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on, user_details.surname, user_details.firstname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
+	$stmt1 = $mysqli->query("SELECT user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on, user_details.surname, user_details.firstname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
     $userid = $row["userid"];
     $account_type = ucfirst($row["account_type"]);
-    $email = $row["email"];
     $created_on = $row["created_on"];
     $updated_on = $row["updated_on"];
     $firstname = $row["firstname"];
@@ -321,7 +319,6 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
-			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
 			<td data-title="Updated on">'.$row["updated_on"].'</td>
