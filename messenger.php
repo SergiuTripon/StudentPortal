@@ -295,6 +295,7 @@ include 'includes/session.php';
     error:function (xhr, ajaxOptions, thrownError) {
     }
 	});
+	});
 	</script>
 
 </body>
