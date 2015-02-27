@@ -1492,7 +1492,7 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 #no-more-tables tr {
-
+    border: 1px solid #8A8A8A;
 }
 
 #no-more-tables td {
@@ -1523,7 +1523,7 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 .table-custom {
-    border: 1px solid #5D5D5D !important;
+    border: none;
 }
 /* End of No More Responsive Table*/
 
