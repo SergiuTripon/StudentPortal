@@ -1010,15 +1010,15 @@ form .form-control:-ms-input-placeholder {
 
 /* Account admin portal */
 #account-admin-portal h4 {
-    color: #3FAD46;
+    color: #449D44;
     font-weight: 600;
     margin-top: 20px;
 }
 #account-admin-portal hr {
     margin-top: 5px;
     margin-bottom: 10px;
-    border-color: #3FAD46;
-    background: #3FAD46;
+    border-color: #449D44;
+    background: #449D44;
 }
 #account-admin-portal .panel-group {
     margin-bottom: 0px;
