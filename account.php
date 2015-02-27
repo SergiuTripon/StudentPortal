@@ -309,7 +309,6 @@ include 'includes/session.php';
 
 	while($row = $stmt1->fetch_assoc()) {
 
-    $userid = $row["userid"];
     $account_type = ucfirst($row["account_type"]);
     $created_on = $row["created_on"];
     $updated_on = $row["updated_on"];
