@@ -70,8 +70,7 @@ include 'includes/session.php';
 
 	echo '<tr id="book-'.$userid.'">
 
-			<td data-title="First name">'.$firstname.'</td>
-			<td data-title="Surname">'.$surname.'</td>
+			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
 			<td data-title="Action"><a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
 			</tr>';
