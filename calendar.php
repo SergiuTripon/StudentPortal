@@ -413,9 +413,10 @@ include 'includes/session.php';
 		var width = $(window).width();
 		if(width <= 480){
 			$('.btn-group').addClass('btn-group-vertical full-width');
-            $('#calendar-buttons2').addClass("mt10");
+            $('#calendar-buttons2 .btn-group').addClass("mt10");
         } else {
             $('.btn-group').removeClass('btn-group-vertical full-width');
+            $('#calendar-buttons2 .btn-group').removeClass("mt10");
         }
 	}).resize();
 
