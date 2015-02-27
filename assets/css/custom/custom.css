@@ -524,32 +524,32 @@ form .form-control:-ms-input-placeholder {
 
 /* Error message */
 .feedback-sad {
-    color: #FF4136;
+    color: #D9534F;
     font-size: 15px;
     font-weight: 600;
 }
 
 .input-sad {
-    border-color: #FF4136 !important;
+    border-color: #D9534F !important;
 }
 /* End of Error message */
 
 /* Success message */
 .feedback-happy {
-    color: #28B62C;
+    color: #5CB85C;
     font-size: 15px;
     font-weight: 600;
 }
 
 .input-happy {
-    border-color: #28B62C !important;
+    border-color: #5CB85C !important;
 }
 /* End of Success message */
 
 /* Required field */
 .field-required {
     font-size: 15px;
-    color: #FF4136;
+    color: #D9534F;
     font-weight: 800;
 }
 
