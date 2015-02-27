@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["recordToMessage"])) {
+if (isset($_GET["id"])) {
 
-    $idToMessage = filter_input(INPUT_POST, 'recordToMessage', FILTER_SANITIZE_NUMBER_INT);
+    $idToMessage = $_GET["id"];
 
     $stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt1->bind_param('i', $session_userid);

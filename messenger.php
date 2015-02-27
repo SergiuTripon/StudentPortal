@@ -60,9 +60,9 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
 
-	while($row = $stmt2->fetch_assoc()) {
+	while($row = $stmt1->fetch_assoc()) {
 
 	$userid = $row["userid"];
 	$email = $row["email"];
@@ -76,11 +76,10 @@ include 'includes/session.php';
 			<td data-title="Surname">'.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a id="message-'.$userid.'" class="btn btn-primary ladda-button btn-md message-button" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
 			</tr>';
 	}
-
-	$stmt2->close();
+	$stmt1->close();
 	?>
 	</tbody>
 
@@ -287,7 +286,6 @@ include 'includes/session.php';
 	});
 
 	var message_read;
-
 	message_read = '1';
 
 	$("#message-read-trigger").click(function (e) {
@@ -302,20 +300,6 @@ include 'includes/session.php';
     error:function (xhr, ajaxOptions, thrownError) {
     }
 	});
-
-	});
-
-	//Book event form submit
-	$("body").on("click", ".message-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#message-user-form-" + DbNumberID).submit();
-
-	});
-
 	});
 	</script>
 
