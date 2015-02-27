@@ -975,6 +975,16 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Calendar portal */
 
+/* Library portal */
+#events-portal .breadcrumb{
+    margin-bottom: 10px;
+}
+
+#events-portal .btn{
+    margin-bottom: 5px;
+}
+/* End of Library portal */
+
 /* Account admin portal */
 #account-admin-portal h4 {
     color: #3FAD46;
