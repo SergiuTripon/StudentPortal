@@ -114,6 +114,24 @@ function SignIn() {
 
 	}
 }
+
+//SignOut function
+function SignOut() {
+
+    global $mysqli;
+    global $session_userid;
+
+    $isSignedIn = 0;
+
+    $stmt1 = $mysqli->prepare("UPDATE user_signin SET isSignedIn = ? WHERE userid = ? LIMIT 1");
+    $stmt1->bind_param('ii', $isSignedIn, $session_userid);
+    $stmt1->execute();
+    $stmt1->close();
+
+    session_unset();
+    session_destroy();
+    header('Location: /');
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //RegisterUser function
@@ -2351,10 +2369,9 @@ function ChangeAccountPassword() {
 	$stmt1->fetch();
 
     if (password_verify($password, $db_password)) {
-
+        $stmt1->close();
 		header('HTTP/1.0 550 This is the account\'s current password. Please enter a new password.');
 		exit();
-		$stmt1->close();
 
 	} else {
 
