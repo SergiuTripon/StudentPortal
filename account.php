@@ -183,29 +183,6 @@ include 'includes/session.php';
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
-
-	<?php
-    //Update an account
-	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
-	while($row = $stmt2->fetch_assoc()) {
-		echo '<form id="update-an-account-form-'.$row["userid"].'" style="display: none;" action="../admin/update-an-account/" method="POST">
-		<input type="hidden" name="userToUpdate" id="userToUpdate" value="'.$row["userid"].'"/>
-		</form>';
-	}
-	$stmt2->close();
-	?>
-
-    <?php
-    //Change an account's password
-	$stmt2 = $mysqli->query("SELECT user_signin.userid FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
-	while($row = $stmt2->fetch_assoc()) {
-		echo '<form id="change-password-form-'.$row["userid"].'" style="display: none;" action="../admin/change-account-password/" method="POST">
-		<input type="hidden" name="userToChangePassword" id="userToChangePassword" value="'.$row["userid"].'"/>
-		</form>';
-	}
-	$stmt2->close();
-	?>
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Users</a>
@@ -220,7 +197,6 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>User ID</th>
 	<th>Full name</th>
 	<th>Account type</th>
     <th>Created on</th>
@@ -238,12 +214,10 @@ include 'includes/session.php';
 
 	while($row = $stmt4->fetch_assoc()) {
 
-    $userid = $row["userid"];
 	$account_type = ucfirst($row["account_type"]);
 
 	echo '<tr id="user-'.$row["userid"].'">
 
-			<td data-title="User ID">'.$row["userid"].'</td>
 			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
@@ -313,9 +287,7 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>User ID</th>
 	<th>First name</th>
-	<th>Surname</th>
 	<th>Email address</th>
 	<th>Account type</th>
 	<th>Created on</th>
@@ -334,9 +306,7 @@ include 'includes/session.php';
 
 	echo '<tr>
 
-			<td data-title="User ID">'.$row["userid"].'</td>
-			<td data-title="First name">'.$row["firstname"].'</td>
-			<td data-title="Surname">'.$row["surname"].'</td>
+			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
 			<td data-title="Email address">'.$row["email"].'</td>
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
