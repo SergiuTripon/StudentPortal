@@ -430,7 +430,7 @@ function GetDashboardData() {
 	$stmt7->bind_param('ii', $session_userid, $isRead);
 	$stmt7->execute();
 	$stmt7->store_result();
-	$stmt7->bind_result($messenger_userid);
+	$stmt7->bind_result($message_from);
 	$stmt7->fetch();
 
 	$lectures_count = $stmt1->num_rows;
