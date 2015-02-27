@@ -52,7 +52,7 @@ a, a:focus, a:hover {
 
 /* hr */
 hr {
-    height: 3px;
+    height: 5px;
     width: 100%;
     background: #c4e17f;
     border-radius: 2px;
