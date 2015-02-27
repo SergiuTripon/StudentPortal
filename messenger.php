@@ -176,7 +176,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT user_messages_lookup.message_to, user_messages_lookup.isRead, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on, user_details.firstname, user_details.surname FROM user_messages_lookup LEFT JOIN user_messages ON user_messages_lookup.messageid=user_messages.messageid LEFT JOIN user_details as join1 ON user_messages_lookup.message_from=join1.userid LEFT JOIN user_details as join2 ON user_messages_lookup.message_to=join2.userid WHERE user_messages_lookup.message_from = '$session_userid'");
+	$stmt4 = $mysqli->query("SELECT user_messages_lookup.message_to, user_messages_lookup.isRead, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on, user_details.firstname, user_details.surname FROM user_messages_lookup LEFT JOIN user_messages ON user_messages_lookup.messageid=user_messages.messageid LEFT JOIN user_details ON user_messages_lookup.message_to=user_details.userid WHERE user_messages_lookup.message_from = '$session_userid'");
 
 	while($row = $stmt4->fetch_assoc()) {
 
