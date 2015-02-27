@@ -982,6 +982,9 @@ form .form-control:-ms-input-placeholder {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
+#calendar-portal .btn-group-vertical>.btn:first-child:not(:last-child) {
+    border-bottom-left-radius: 3px;
+}
 /* End of Calendar portal */
 
 /* Library portal */
