@@ -523,6 +523,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	var hasError = false;
 
     //Modules
+    var moduleid = $("#moduleid").val();
+
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
         $("label[for='module_name']").empty().append("Please enter a module name.");
@@ -545,6 +547,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     var module_url = $("#module_url").val();
 
     //Lectures
+    var lectureid = $("#lectureid").val();
+
 	var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
         $("label[for='lecture_name']").empty().append("Please enter a lecture name.");
@@ -712,6 +716,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
+    var tutorialid = $("#tutorialid").val();
+
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
         $("label[for='tutorial_name']").empty().append("Please enter a tutorial name.");
