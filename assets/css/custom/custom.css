@@ -973,6 +973,10 @@ form .form-control:-ms-input-placeholder {
 #calendar-portal .calendar-buttons > .btn-group-vertical {
     margin-bottom: 0;
 }
+
+#calendar-portal .full-width {
+    width: 100% !important;
+}
 /* End of Calendar portal */
 
 /* Library portal */
