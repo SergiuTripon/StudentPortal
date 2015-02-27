@@ -436,7 +436,7 @@ form .form-control {
     color: #333333;
     font-size: 15px;
     z-index: 30;
-    background: #FFFFFF;
+    background: rgba(255,255,255,0.7);
     border-color: #CCCCCC;
     height: auto;
     padding: 10px;
