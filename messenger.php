@@ -51,7 +51,6 @@ include 'includes/session.php';
 	<tr>
 	<th>First name</th>
 	<th>Surname</th>
-	<th>Student number</th>
 	<th>Email address</th>
 	<th>Action</th>
 	</tr>
@@ -68,13 +67,11 @@ include 'includes/session.php';
 	$email = $row["email"];
 	$firstname = $row["firstname"];
 	$surname = $row["surname"];
-    $studentno = $row["studentno"];
 
 	echo '<tr id="book-'.$userid.'">
 
 			<td data-title="First name">'.$firstname.'</td>
 			<td data-title="Surname">'.$surname.'</td>
-			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Email address">'.$email.'</td>
 			<td data-title="Action"><a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
 			</tr>';
