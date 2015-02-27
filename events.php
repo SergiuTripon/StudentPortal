@@ -58,17 +58,6 @@ include 'includes/session.php';
 	<div class="panel-group event-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="events-toggle" class="panel panel-default">
-
-	<?php
-	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
-	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="book-event-form-'.$row["eventid"].'" style="display: none;" action="/events/book-event/" method="POST">
-			<input type="hidden" name="recordToBook" id="recordToBook" value="'.$row["eventid"].'"/>
-			</form>';
-	}
-	$stmt2->close();
-	?>
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Events</a>
