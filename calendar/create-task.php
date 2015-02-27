@@ -78,13 +78,10 @@ include '../includes/session.php';
 		<input type="radio" name="options" id="option1" autocomplete="off"> University
 	</label>
 	<label class="btn btn-default btn-lg task_category">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Work
+		<input type="radio" name="options" id="option2" autocomplete="off"> Personal
 	</label>
 	<label class="btn btn-default btn-lg task_category">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
-	</label>
-	<label class="btn btn-default btn-lg task_category">
-		<input type="radio" name="options" id="option4" autocomplete="off"> Other
+		<input type="radio" name="options" id="option3" autocomplete="off"> Other
 	</label>
 	</div>
 	</div>
@@ -262,13 +259,6 @@ include '../includes/session.php';
         hasError = true;
         return false;
 	}
-
-    alert(task_name);
-    alert(task_notes);
-    alert(task_url);
-    alert(task_startdate);
-    alert(task_duedate);
-    alert(task_category);
 
 	if(hasError == false){
     jQuery.ajax({
