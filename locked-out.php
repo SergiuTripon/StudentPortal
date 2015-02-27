@@ -172,13 +172,13 @@ include 'includes/session.php';
         $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
     });
 
+    });
+
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 	
 	$("#after").hide();
-	
     $("#unlock-button").click(function (e) {
-
 	$("#before").hide();
 	$("#after").show();
 	
@@ -191,25 +191,38 @@ include 'includes/session.php';
 	
 	var email = $('#email').val();
 	if (email === '') {
-        $("#error1").empty().append("Please enter an email address.");
-		$("#email").addClass("error-style");
+        $("label[for='email']").empty().append("Please enter an email address.");
+        $("label[for='email']").removeClass("feedback-happy");
+        $("label[for='email']").addClass("feedback-sad");
+        $("#email").removeClass("input-happy");
+        $("#email").addClass("input-sad");
+        $("#email").focus();
 		hasError  = true;
-		return false;
+        return false;
 	} else {
-		$("#error1").hide();
-		$("#email").addClass("success-style");
+        $("label[for='email']").empty().append("All good!");
+        $("label[for='email']").removeClass("feedback-sad");
+        $("label[for='email']").addClass("feedback-happy");
+        $("#email").removeClass("input-sad");
+        $("#email").addClass("input-happy");
 	}
-	
+
 	var password = $("#password").val();
 	if(password === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a password.");
-		$("#password").addClass("error-style");
+        $("label[for='password']").empty().append("Please enter a password.");
+        $("label[for='password']").removeClass("feedback-happy");
+        $("label[for='password']").addClass("feedback-sad");
+        $("#password").removeClass("input-happy");
+        $("#password").addClass("input-sad");
+        $("#password").focus();
 		hasError  = true;
-		return false;
+        return false;
     } else {
-		$("#error2").hide();
-		$("#password").addClass("success-style");
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-sad");
+        $("label[for='password']").addClass("feedback-happy");
+        $("#password").removeClass("input-sad");
+        $("#password").addClass("input-happy");
 	}
 	
 	if(hasError == false){
@@ -226,11 +239,7 @@ include 'includes/session.php';
     }
 	});
     }
-	
 	return true;
-	
-	});
-	
 	});
 	</script>
 
