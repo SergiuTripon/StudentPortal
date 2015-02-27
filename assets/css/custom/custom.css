@@ -1431,9 +1431,7 @@ table.dataTable thead th.sorting_desc:after {
 /* Table Custom style */
 .table-custom {
     border-collapse: collapse !important;
-    border-top: 1px solid #5D5D5D !important;
-    border-right: 1px solid #5D5D5D !important;
-    border-left: 1px solid #5D5D5D !important;
+    border: 1px solid #5D5D5D !important;
 }
 
 .table-custom th {
@@ -1485,7 +1483,9 @@ table.dataTable thead th.sorting_desc:after {
 /* Hide table headers (but not display: none;, for accessibility) */
 #no-more-tables table {
     border-collapse: collapse;
-    border: 1px solid #5D5D5D;
+    border-top: 1px solid #5D5D5D !important;
+    border-right: 1px solid #5D5D5D !important;
+    border-left: 1px solid #5D5D5D !important;
 }
 
 #no-more-tables thead tr {
