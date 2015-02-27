@@ -33,11 +33,13 @@ include 'includes/functions.php';
     <div id="overview-portal" class="container">
     <div class="row">
 
+    <a href="../timetable/">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-    <a class="tile large-tile" href="../timetable/">
+    <div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable<span class="badge"><?php echo ($timetable_count == '0' ? "" : "$timetable_count"); ?></span></p>
     </div>
+	</div>
     </a>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
