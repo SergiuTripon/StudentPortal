@@ -266,7 +266,6 @@ CREATE TABLE `student_portal`.`user_messages` (
 	`messageid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`message_subject` VARCHAR(300) NOT NULL,
 	`message_body` VARCHAR(5000),
-	`isRead` TINYINT(1) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`deleted_on` DATETIME
 ) ENGINE = InnoDB;
@@ -275,6 +274,7 @@ CREATE TABLE `student_portal`.`user_messages_lookup` (
   `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
+  `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (messageid)
 REFERENCES user_messages(messageid),
 FOREIGN KEY (message_from)

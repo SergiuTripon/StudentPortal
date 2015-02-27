@@ -259,8 +259,6 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
-
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
@@ -299,7 +297,6 @@ include 'includes/session.php';
     },
     error:function (xhr, ajaxOptions, thrownError) {
     }
-	});
 	});
 	</script>
 
