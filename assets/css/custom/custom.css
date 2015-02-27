@@ -942,6 +942,16 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Admin Timetable portal */
 
+/* Library portal */
+#library-portal .breadcrumb{
+    margin-bottom: 10px;
+}
+
+#library-portal .btn{
+    margin-bottom: 5px;
+}
+/* End of Library portal */
+
 /* Calendar portal */
 #calendar-portal .page-header {
     margin: 0;

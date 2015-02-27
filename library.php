@@ -237,7 +237,7 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div class="container">
+    <div id="library-portal" class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
