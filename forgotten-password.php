@@ -73,9 +73,8 @@ include 'includes/session.php';
 
     <div id="hide2">
 
-	<label>Email address</label>
+	<label for="email">Email address<span class="field-required">*</span></label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Email address">
-    <p id="error1" class="feedback-sad text-center"></p>
 
     </div>
 
@@ -115,23 +114,24 @@ include 'includes/session.php';
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-	var hasError;
+	var hasError = false;
 
 	var email = $("#email").val();
 	if(email === '') {
-        $("#error").hide();
-		$("#error1").show();
-        $("#error1").empty().append("Please enter an email address.");
-        $("#email").removeClass("success-style");
-		$("#email").addClass("error-style");
+        $("label[for='email']").empty().append("Please enter an email address.");
+        $("label[for='email']").removeClass("feedback-happy");
+		$("label[for='email']").addClass("feedback-sad");
+        $("#email").removeClass("input-happy");
+        $("#email").addClass("input-sad");
+        $("#email").focus();
 		hasError = true;
 		return false;
 	} else {
-        $("#error").hide();
-        $("#error1").hide();
-        $("#email").removeClass("error-style");
-        $("#email").addClass("success-style");
-        hasError = false;
+        $("label[for='email']").empty().append("All good!");
+        $("label[for='email']").removeClass("feedback-sad");
+        $("label[for='email']").addClass("feedback-happy");
+        $("#email").removeClass("input-sad");
+        $("#email").addClass("input-happy");
     }
 
 	if(hasError == false){
