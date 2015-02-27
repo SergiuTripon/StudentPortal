@@ -1523,11 +1523,11 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 .table-custom {
-    border: none;
+    border: none !important;
 }
 
 .table-custom tr {
-    border: none;
+    border: none !important;
 }
 /* End of No More Responsive Table*/
 
