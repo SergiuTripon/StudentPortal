@@ -885,6 +885,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
     var tutorial_assistant = $("#tutorial_assistant option:selected").val();
 
     //Exams
+    var examid = $("#examid").val();
+
 	var exam_name = $("#exam_name").val();
 	if(exam_name === '') {
         $("label[for='exam_name']").empty().append("Please enter a location.");
