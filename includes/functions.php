@@ -1732,10 +1732,15 @@ function MessageUser() {
 	$message_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
 	$message_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
 
-	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (userid, message_subject, message_body, message_to, created_on) VALUES (?, ?, ?, ?, ?)");
-	$stmt1->bind_param('issis', $session_userid, $message_subject, $message_body, $message_to_userid, $created_on);
+	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (message_subject, message_body, created_on) VALUES (?, ?, ?)");
+	$stmt1->bind_param('sss', $message_subject, $message_body, $created_on);
 	$stmt1->execute();
 	$stmt1->close();
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_messages_lookup (message_from, message_to) VALUES (?, ?)");
+    $stmt1->bind_param('ii', $session_userid, $message_to_userid);
+    $stmt1->execute();
+    $stmt1->close();
 
 	//Creating email
 	$subject = "$message_to_firstname $message_to_surname - New message on Student Portal";
