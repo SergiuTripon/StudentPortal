@@ -238,6 +238,7 @@ include 'includes/session.php';
 
 	while($row = $stmt4->fetch_assoc()) {
 
+    $userid = $row["userid"];
 	$account_type = ucfirst($row["account_type"]);
 
 	echo '<tr id="user-'.$row["userid"].'">
@@ -247,7 +248,7 @@ include 'includes/session.php';
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$row["created_on"].'</td>
             <td data-title="Updated on">'.$row["updated_on"].'</td>
-			<td data-title="Update"><a class="btn btn-primary btn-md href="../admin/update-an-account?id='.$row["userid"].'">Update</a></td>
+			<td data-title="Update"><a class="btn btn-primary btn-md href="../admin/update-an-account?id='.$userid.'">Update</a></td>
             <td data-title="Change"><a id="change-'.$row["userid"].'" class="btn btn-primary btn-md change-button">Change</a></td>
             <td data-title="Delete"><a class="btn btn-primary btn-md delete-button" href="#modal-'.$row["userid"].'" data-toggle="modal">Delete</a></td>
 			</tr>
