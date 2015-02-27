@@ -430,6 +430,10 @@ form {
     background-color: #F0F0F0;
     border-radius: 3px;
     border: 1px solid #B8B8B8;
+    box-shadow:         0 0 5px rgba(93, 93, 93, 1);
+    -moz-box-shadow:    0 0 5px rgba(93, 93, 93, 1);
+    -webkit-box-shadow: 0 0 5px rgba(93, 93, 93, 1);
+    -o-box-shadow:      0 0 5px rgba(93, 93, 93, 1);
 }
 
 form .form-control {
@@ -445,10 +449,6 @@ form .form-control {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    box-shadow:         0 0 5px rgba(93, 93, 93, 1);
-    -moz-box-shadow:    0 0 5px rgba(93, 93, 93, 1);
-    -webkit-box-shadow: 0 0 5px rgba(93, 93, 93, 1);
-    -o-box-shadow:      0 0 5px rgba(93, 93, 93, 1);
 }
 
 form a {
