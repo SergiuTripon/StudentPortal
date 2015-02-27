@@ -250,6 +250,7 @@ hr {
 .navbar-fixed-bottom .navbar-nav > li > a:focus {
     color: #735326;
     outline: none !important;
+    border-top: 1px solid #735326;
 }
 
 .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-bottom .navbar-form {
