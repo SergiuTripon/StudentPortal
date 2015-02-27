@@ -289,7 +289,7 @@ include 'includes/session.php';
 		<button class="btn btn-default" data-calendar-nav="today">Today</button>
 		<button class="btn btn-default" data-calendar-nav="next">Next >></button>
 	</div>
-	<div id="calendar-buttons2" class="btn-group mt10">
+	<div id="calendar-buttons2" class="btn-group">
 		<button class="btn btn-default" data-calendar-view="year">Year</button>
 		<button class="btn btn-default active" data-calendar-view="month">Month</button>
 		<button class="btn btn-default" data-calendar-view="week">Week</button>
@@ -413,11 +413,11 @@ include 'includes/session.php';
 		var width = $(window).width();
 		if(width <= 480){
 			$('.btn-group').addClass('btn-group-vertical full-width');
+            $('.calendar-buttons2').addClass("mt10");
         } else {
             $('.btn-group').removeClass('btn-group-vertical full-width');
         }
-	})
-	.resize();
+	}).resize();
 
     //Update process
     $("body").on("click", ".update-button", function(e) {
