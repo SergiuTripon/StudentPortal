@@ -1,7 +1,7 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["id"])) {
+if (isset($_GET["id"])) {
 
     $bookToUpdate = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
