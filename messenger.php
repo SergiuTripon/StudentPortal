@@ -176,26 +176,21 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT user_messages_lookup.message_to, user_messages_lookup.isRead, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages_lookup LEFT JOIN user_messages ON user_messages_lookup.messageid=user_messages.messageid LEFT JOIN user_details as join1 ON user_messages_lookup.message_from=join1.userid LEFT JOIN user_details as join2 ON user_messages_lookup.message_to=join2.userid WHERE user_messages_lookup.message_from = '$session_userid'");
+	$stmt4 = $mysqli->query("SELECT user_messages_lookup.message_to, user_messages_lookup.isRead, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on, user_details.firstname, user_details.surname FROM user_messages_lookup LEFT JOIN user_messages ON user_messages_lookup.messageid=user_messages.messageid LEFT JOIN user_details as join1 ON user_messages_lookup.message_from=join1.userid LEFT JOIN user_details as join2 ON user_messages_lookup.message_to=join2.userid WHERE user_messages_lookup.message_from = '$session_userid'");
 
 	while($row = $stmt4->fetch_assoc()) {
 
     $message_to = $row["message_to"];
+    $message_isRead = $row["isRead"];
 	$message_subject = $row["message_subject"];
 	$message_body = $row["message_body"];
-    $message_isRead = $row["isRead"];
 	$message_sent_on = $row["created_on"];
-
-	$stmt5 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt5->bind_param('i', $message_to);
-	$stmt5->execute();
-	$stmt5->store_result();
-	$stmt5->bind_result($firstname, $surname);
-	$stmt5->fetch();
+    $message_to_firstname = $row["firstname"];
+    $message_to_surname = $row["surname"];
 
 	echo '<tr>
 
-			<td data-title="To">'.$firstname.' '.$surname.'</td>
+			<td data-title="To">'.$message_to_firstname.' '.$message_to_surname.'</td>
 			<td data-title="Subject">'.$message_subject.'</td>
 			<td data-title="Message">'.$message_body.'</td>
 			<td data-title="Message">'.($message_isRead === '0' ? "No" : "Yes").'</td>
