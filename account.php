@@ -191,7 +191,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Update an account -->
+	<!-- Users-->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -289,13 +289,13 @@ include 'includes/session.php';
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Update an account -->
+	<!-- Users online now -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
-	<th>First name</th>
+	<th>Full name</th>
 	<th>Email address</th>
 	<th>Account type</th>
 	<th>Created on</th>
@@ -316,7 +316,7 @@ include 'includes/session.php';
     $created_on = $row["created_on"];
     $updated_on = $row["updated_on"];
     $firstname = $row["firstname"];
-     $surname = $row["surname"];
+    $surname = $row["surname"];
 
 	echo '<tr>
 
