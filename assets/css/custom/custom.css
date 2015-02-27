@@ -1481,8 +1481,9 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 /* Hide table headers (but not display: none;, for accessibility) */
-#no-more-tables {
+#no-more-tables table {
     border-collapse: collapse;
+    border: 1px solid #5D5D5D;
 }
 
 #no-more-tables thead tr {
