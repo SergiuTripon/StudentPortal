@@ -111,7 +111,7 @@ include 'includes/session.php';
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
 			<td data-title="Category">'.$event_category.'</td>
-			<td data-title="Action">'.($event_ticket_no === '0' ? "Sold Out" : "<a id=\"book-$eventid\" class=\"btn btn-primary btn-md ladda-button book-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</span></a>").'</td>
+			<td data-title="Action">'.($event_ticket_no === '0' ? "Sold Out" : "<a class=\"btn btn-primary btn-md ladda-button book-button\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</span></a>").'</td>
 			</tr>';
 	}
 
