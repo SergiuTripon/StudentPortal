@@ -1514,7 +1514,7 @@ table.dataTable thead th.sorting_desc:after {
     width: 45%;
     padding-right: 10px;
     white-space: nowrap;
-    text-align:left;
+    text-align:center;
     font-weight: 600;
 }
 
