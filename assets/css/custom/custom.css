@@ -549,7 +549,7 @@ form .form-control:-ms-input-placeholder {
 /* Required field */
 .field-required {
     font-size: 15px;
-    color: #D9534F;
+    color: #FF4136;
     font-weight: 800;
 }
 
