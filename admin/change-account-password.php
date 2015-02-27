@@ -32,7 +32,7 @@ if (isset($_POST["userToChangePassword"])) {
 <body>
 	<div class="preloader"></div>
 
-	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
+	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
 	<?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 

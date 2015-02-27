@@ -24,7 +24,7 @@ GetLiveTubeStatus();
 <body>
 <div class="preloader"></div>
 
-	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
+	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
     <div class="container">
 

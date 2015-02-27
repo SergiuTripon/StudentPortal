@@ -94,7 +94,7 @@ function SignIn() {
 	$stmt3->close();
 
 	// Setting a session variable
-	$_SESSION['loggedin'] = true;
+	$_SESSION['signedIn'] = true;
 
 	$session_userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
 

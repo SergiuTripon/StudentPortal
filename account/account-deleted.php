@@ -18,7 +18,7 @@ include '../includes/session.php';
 
     <div class="preloader"></div>
 
-    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
+    <?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
     <?php include '../includes/menus/portal_menu.php'; ?>
 
