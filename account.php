@@ -210,24 +210,32 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
 
-	while($row = $stmt4->fetch_assoc()) {
+	while($row = $stmt1->fetch_assoc()) {
+
+    $userid = $row["userid"];
+    $account_type = ucfirst($row["account_type"]);
+    $email = $row["email"];
+    $created_on = $row["created_on"];
+    $updated_on = $row["updated_on"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
 
 	$account_type = ucfirst($row["account_type"]);
 
 	echo '<tr id="user-'.$row["userid"].'">
 
-			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
+			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Account type">'.$account_type.'</td>
-			<td data-title="Created on">'.$row["created_on"].'</td>
-            <td data-title="Updated on">'.$row["updated_on"].'</td>
+			<td data-title="Created on">'.$created_on.'</td>
+            <td data-title="Updated on">'.$updated_on.'</td>
 			<td data-title="Update"><a class="btn btn-primary btn-md" href="/admin/update-an-account?id='.$userid.'">Update</a></td>
-            <td data-title="Change"><a id="change-'.$row["userid"].'" class="btn btn-primary btn-md change-button">Change</a></td>
-            <td data-title="Delete"><a class="btn btn-primary btn-md delete-button" href="#modal-'.$row["userid"].'" data-toggle="modal">Delete</a></td>
+            <td data-title="Change"><a id="change-'.$userid.'" class="btn btn-primary btn-md change-button">Change</a></td>
+            <td data-title="Delete"><a class="btn btn-primary btn-md delete-button" href="#modal-'.$userid.'" data-toggle="modal">Delete</a></td>
 			</tr>
 
-    		<div class="modal modal-custom fade" id="modal-'.$row["userid"].'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal modal-custom fade" id="modal-'.$userid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -244,7 +252,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="hide">
 			<div class="pull-left">
-			<a id="delete-'.$row["userid"].'" class="btn btn-danger btn-lg delete-button1 ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$userid.'" class="btn btn-danger btn-lg delete-button1 ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
@@ -260,7 +268,7 @@ include 'includes/session.php';
 			</div><!-- /modal-content -->';
 	}
 
-	$stmt4->close();
+	$stmt1->close();
 	?>
 	</tbody>
 
@@ -298,11 +306,17 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, user_signin.email, user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
+	$stmt1 = $mysqli->query("SELECT user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on, user_details.surname, user_details.firstname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$account_type = ucfirst($row["account_type"]);
+    $userid = $row["userid"];
+    $account_type = ucfirst($row["account_type"]);
+    $email = $row["email"];
+    $created_on = $row["created_on"];
+    $updated_on = $row["updated_on"];
+    $firstname = $row["firstname"];
+     $surname = $row["surname"];
 
 	echo '<tr>
 
