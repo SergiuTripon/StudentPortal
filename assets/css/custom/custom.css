@@ -524,25 +524,25 @@ form .form-control:-ms-input-placeholder {
 
 /* Error message */
 .feedback-sad {
-    color: #B94A48;
+    color: #FF4136;
     font-size: 15px;
     font-weight: 600;
 }
 
 .input-sad {
-    border-color: #B94A48 !important;
+    border-color: #FF4136 !important;
 }
 /* End of Error message */
 
 /* Success message */
 .feedback-happy {
-    color: #468847;
+    color: #28B62C;
     font-size: 15px;
     font-weight: 600;
 }
 
 .input-happy {
-    border-color: #468847 !important;
+    border-color: #28B62C !important;
 }
 /* End of Success message */
 
