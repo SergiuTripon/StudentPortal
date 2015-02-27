@@ -116,17 +116,17 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("");
+	$stmt2 = $mysqli->query("SELECT user_messages_lookup.message_from, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages_lookup LEFT JOIN user_messages ON user_messages_lookup.messageid=user_messages.messageid LEFT JOIN user_details as join1 ON user_messages_lookup.message_from=join1.userid LEFT JOIN user_details as join2 ON user_messages_lookup.message_to=join2.userid WHERE user_messages_lookup.message_to = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
-    $userid = $row["userid"];
+    $message_from = $row["message_from"];
 	$message_subject = $row["message_subject"];
 	$message_body = $row["message_body"];
 	$message_sent_on = $row["created_on"];
 
 	$stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('i', $userid);
+	$stmt3->bind_param('i', $message_from);
 	$stmt3->execute();
 	$stmt3->store_result();
 	$stmt3->bind_result($firstname, $surname);
@@ -179,7 +179,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("");
+	$stmt4 = $mysqli->query("SELECT user_messages_lookup.message_to, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on FROM user_messages_lookup LEFT JOIN user_messages ON user_messages_lookup.messageid=user_messages.messageid LEFT JOIN user_details as join1 ON user_messages_lookup.message_from=join1.userid LEFT JOIN user_details as join2 ON user_messages_lookup.message_to=join2.userid WHERE user_messages_lookup.message_from = '$session_userid'");
 
 	while($row = $stmt4->fetch_assoc()) {
 
