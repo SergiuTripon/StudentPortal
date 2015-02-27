@@ -1737,10 +1737,12 @@ function MessageUser() {
 	$stmt1->execute();
 	$stmt1->close();
 
-    $stmt1 = $mysqli->prepare("INSERT INTO user_messages_lookup (message_from, message_to) VALUES (?, ?)");
-    $stmt1->bind_param('ii', $session_userid, $message_to_userid);
-    $stmt1->execute();
-    $stmt1->close();
+    $isRead = 0;
+
+    $stmt2 = $mysqli->prepare("INSERT INTO user_messages_lookup (message_from, message_to, isRead) VALUES (?, ?, ?)");
+    $stmt2->bind_param('ii', $session_userid, $message_to_userid, $isRead);
+    $stmt2->execute();
+    $stmt2->close();
 
 	//Creating email
 	$subject = "$message_to_firstname $message_to_surname - New message on Student Portal";
