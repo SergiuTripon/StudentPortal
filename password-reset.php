@@ -1,5 +1,8 @@
 <?php
 include 'includes/session.php';
+
+global $token;
+
 ?>
 
 <!DOCTYPE html>
