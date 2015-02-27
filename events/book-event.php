@@ -1,12 +1,12 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["recordToBook"])) {
+if (isset($_GET["id"])) {
 
-    $idToBook = filter_input(INPUT_POST, 'recordToBook', FILTER_SANITIZE_NUMBER_INT);
+    $eventToBook = $_GET["id"];
 
     $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_from, event_to, event_amount FROM system_events WHERE eventid = ? LIMIT 1");
-    $stmt1->bind_param('i', $idToBook);
+    $stmt1->bind_param('i', $eventToBook);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($eventid, $event_name, $event_from, $event_to, $event_amount);
