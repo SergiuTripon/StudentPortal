@@ -136,7 +136,7 @@ hr {
 /* Navbar */
 .navbar-fixed-top {
     background-color: #D9534F;
-    border-bottom: 1px solid #992320;
+    border-bottom: 2px solid #992320;
 }
 .navbar-fixed-top .navbar-brand {
     color: #FFFFFF;
@@ -222,7 +222,7 @@ hr {
 
 .navbar-fixed-bottom {
     background-color: #F0AD4E;
-    border-top: 1px solid #735326;
+    border-top: 2px solid #735326;
 }
 .navbar-fixed-bottom .navbar-brand {
     color: #735326;
