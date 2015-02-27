@@ -545,12 +545,11 @@ include 'includes/session.php';
 		}
 	});
 
+    //Request book ajax call
     $("body").on("click", ".request-button", function(e) {
     e.preventDefault();
-
     var clickedID = this.id.split('-');
     var bookToRequest = clickedID[1];
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -558,26 +557,20 @@ include 'includes/session.php';
 	data:'bookToRequest='+ bookToRequest,
 	success:function(){
 		$('#book-'+bookToRequest).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        location.reload();
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 
+    //Return book ajax call
     $("body").on("click", ".return-button", function(e) {
     e.preventDefault();
-
     var clickedID = this.id.split('-');
     var bookToReturn = clickedID[1];
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -585,26 +578,20 @@ include 'includes/session.php';
 	data:'bookToReturn='+ bookToReturn,
 	success:function(){
 		$('#return-'+bookToReturn).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        location.reload();
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 
+    //Cancel book ajax call
     $("body").on("click", ".cancel-button", function(e) {
     e.preventDefault();
-
     var clickedID = this.id.split('-');
     var bookToCancel = clickedID[1];
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -612,26 +599,20 @@ include 'includes/session.php';
 	data:'bookToCancel='+ bookToCancel,
 	success:function(){
 		$('#cancel-'+bookToCancel).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        location.reload();
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 
+    //Activate book ajax call
     $("body").on("click", ".activate-button", function(e) {
     e.preventDefault();
-
     var clickedID = this.id.split('-');
     var bookToActivate = clickedID[1];
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -639,18 +620,13 @@ include 'includes/session.php';
 	data:'bookToActivate='+ bookToActivate,
 	success:function(){
 		$('#activate-'+bookToActivate).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+        location.reload();
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 
 	//Event view/Calendar view toggle
