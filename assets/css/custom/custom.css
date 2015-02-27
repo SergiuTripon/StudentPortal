@@ -1521,6 +1521,10 @@ table.dataTable thead th.sorting_desc:after {
 /* Label the data */
 #no-more-tables td:before { content: attr(data-title); }
 }
+
+.table-custom {
+    border: 1px solid #5D5D5D !important;
+}
 /* End of No More Responsive Table*/
 
 /* Transport Panel */
