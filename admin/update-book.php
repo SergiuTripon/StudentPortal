@@ -3,7 +3,7 @@ include '../includes/session.php';
 
 if (isset($_GET["id"])) {
 
-    $bookToUpdate = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $bookToUpdate = $_GET["id"];
 
     $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no FROM system_books WHERE bookid = ? LIMIT 1");
     $stmt1->bind_param('i', $bookToUpdate);
