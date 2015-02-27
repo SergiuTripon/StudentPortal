@@ -35,19 +35,6 @@ include 'includes/session.php';
 
 	<div class="panel panel-default">
 
-	<?php
-	$stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE NOT userid = '$session_userid'");
-	while($row = $stmt1->fetch_assoc()) {
-
-	$userid = $row["userid"];
-
- 	echo '<form id="message-user-form-'.$userid.'" style="display: none;" action="/messenger/message-user/" method="POST">
-		<input type="hidden" name="recordToMessage" id="recordToMessage" value="'.$userid.'"/>
-		</form>';
-	}
-	$stmt1->close();
-	?>
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Send a message</a>
