@@ -155,7 +155,7 @@ include 'includes/session.php';
     </a>
 	</div>
 
-	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
 	<a href="/account/change-password/">
     <div class="tile">
     <i class="fa fa-key"></i>
@@ -164,7 +164,7 @@ include 'includes/session.php';
     </a>
 	</div>
 
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
 	<a href="/account/delete-account/">
     <div class="tile">
     <i class="fa fa-trash"></i>
