@@ -536,13 +536,13 @@ form .form-control:-ms-input-placeholder {
 
 /* Success message */
 .feedback-happy {
-    color: #5CB85C;
+    color: #449D44;
     font-size: 15px;
     font-weight: 600;
 }
 
 .input-happy {
-    border-color: #5CB85C !important;
+    border-color: #449D44 !important;
 }
 /* End of Success message */
 
