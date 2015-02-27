@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["eventToUpdate"])) {
+if (isset($_GET["eventToUpdate"])) {
 
-    $eventToUpdate = filter_input(INPUT_POST, 'eventToUpdate', FILTER_SANITIZE_NUMBER_INT);
+    $eventToUpdate = $_GET["eventToUpdate"];
 
     $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE eventid = ? LIMIT 1");
     $stmt1->bind_param('i', $eventToUpdate);
