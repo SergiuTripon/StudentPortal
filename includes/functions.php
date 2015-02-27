@@ -1748,12 +1748,12 @@ function MessageUser() {
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>The following person sent you a message:</p>';
-	$message .= '<table rules="all" cellpadding="10" style="color: #FFA500; background-color: #333333; border: 1px solid #FFA500;">';
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #FFA500;\">$message_to_firstname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_to_surname</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_to_email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_subject</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #FFA500;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #FFA500;\"> $message_body</td></tr>";
+	$message .= '<table rules="all" align="left" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$message_to_firstname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $message_to_surname</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $message_to_email</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $message_subject</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $message_body</td></tr>";
 	$message .= '</table><br>';
 	$message .= '<a href="https://student-portal.co.uk/messenger">View message on Student Portal</a><br>';
 	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
