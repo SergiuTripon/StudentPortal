@@ -271,7 +271,7 @@ CREATE TABLE `student_portal`.`user_messages` (
 	`deleted_on` DATETIME
 ) ENGINE = InnoDB;
 
-CREATE TABLE `student_portal`.`user_timetable` (
+CREATE TABLE `student_portal`.`user_messages_lookup` (
   `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
   FOREIGN KEY (message_from)
