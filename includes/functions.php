@@ -54,6 +54,7 @@ function SignIn() {
 
 	global $mysqli;
 	global $session_userid;
+    global $updated_on;
 
 	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -87,8 +88,8 @@ function SignIn() {
 
 	$isSignedIn = 1;
 
-	$stmt3 = $mysqli->prepare("UPDATE user_signin SET isSignedIn = ? WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('ii', $isSignedIn, $userid);
+	$stmt3 = $mysqli->prepare("UPDATE user_signin SET isSignedIn=?, updated_on=? WHERE userid=? LIMIT 1");
+	$stmt3->bind_param('isi', $isSignedIn, $updated_on, $userid);
 	$stmt3->execute();
 	$stmt3->close();
 
@@ -120,11 +121,12 @@ function SignOut() {
 
     global $mysqli;
     global $session_userid;
+    global $updated_on;
 
     $isSignedIn = 0;
 
-    $stmt1 = $mysqli->prepare("UPDATE user_signin SET isSignedIn = ? WHERE userid = ? LIMIT 1");
-    $stmt1->bind_param('ii', $isSignedIn, $session_userid);
+    $stmt1 = $mysqli->prepare("UPDATE user_signin SET isSignedIn=?, updated_on=? WHERE userid=? LIMIT 1");
+    $stmt1->bind_param('isi', $isSignedIn, $updated_on, $session_userid);
     $stmt1->execute();
     $stmt1->close();
 
