@@ -411,7 +411,7 @@ include 'includes/session.php';
     //Responsiveness
 	$(window).resize(function(){
 		var width = $(window).width();
-		if(width <= 500){
+		if(width <= 600){
 			$('.btn-group').addClass('btn-group-vertical full-width');
             $('#calendar-buttons2').addClass("mt10");
         } else {
