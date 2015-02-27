@@ -1515,7 +1515,7 @@ table.dataTable thead th.sorting_desc:after {
     padding-right: 10px;
     white-space: nowrap;
     text-align:left;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 /* Label the data */
@@ -1523,6 +1523,10 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 .table-custom {
+    border: none;
+}
+
+.table-custom tr {
     border: none;
 }
 /* End of No More Responsive Table*/
