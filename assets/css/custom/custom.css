@@ -13,6 +13,7 @@ html {
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
+    font-weight: 300;
     margin-bottom: 60px;
     background: #E9DDC6 url(../../img/bg/background.png);
 }
