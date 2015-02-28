@@ -412,7 +412,7 @@ function GetDashboardData() {
     $book_reserved = 'reserved';
 
 	$stmt4 = $mysqli->prepare("SELECT reserved_books.bookid FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = ? AND system_books.book_status = ? AND isReturned = '0'");
-	$stmt4->bind_param('sis', $book_reserved, $session_userid);
+	$stmt4->bind_param('sis', $session_userid, $book_reserved);
 	$stmt4->execute();
 	$stmt4->store_result();
 	$stmt4->bind_result($bookid);
