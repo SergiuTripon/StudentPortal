@@ -1316,12 +1316,10 @@ textarea {
 
 /* dataTables */
 div.dataTables_filter label {
-    color: #333333;
     font-weight: 600;
 }
 
 div.dataTables_length label {
-    color: #333333;
     font-weight: 600;
 }
 
