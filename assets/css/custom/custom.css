@@ -1290,6 +1290,10 @@ form .form-control:-ms-input-placeholder {
     background-color: #E3E3E3;
 }
 
+.table-custom > thead > tr > th {
+    font-weight: 600;
+}
+
 .table-custom > thead > tr > th,
 .table-custom > tbody > tr > th,
 .table-custom > tfoot > tr > th,
@@ -1297,7 +1301,6 @@ form .form-control:-ms-input-placeholder {
 .table-custom > tbody > tr > td,
 .table-custom > tfoot > tr > td {
     color: #333333;
-    font-weight: 600;
     text-align: center;
     vertical-align: middle;
     border: 1px solid #5D5D5D;
