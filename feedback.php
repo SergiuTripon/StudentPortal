@@ -39,21 +39,22 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Lectures</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Feedback</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
 	<!-- Lectures -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom feedback-table">
 
 	<thead>
 	<tr>
+	<th>From</th>
 	<th>Name</th>
-	<th>Lecturer</th>
-	<th>Tutorial assistant</th>
+    <th>Subject</th>
+    <th>Feedback</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -61,35 +62,24 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_modules.moduleid, system_modules.module_name, system_lectures.lecture_lecturer, system_tutorials.tutorial_assistant FROM system_modules LEFT JOIN user_timetable ON system_modules.moduleid=user_timetable.moduleid LEFT JOIN system_lectures ON system_modules.moduleid=system_lectures.moduleid LEFT JOIN system_tutorials ON system_modules.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = '$session_userid' AND system_modules.module_status='active'");
+	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_lectures.lecture_name, user_feedback.feedbackid,user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE isApproved = 0 AND isRead = 0");
 
 	while($row = $stmt1->fetch_assoc()) {
 
-    $moduleid = $row["moduleid"];
-	$module_name = $row["module_name"];
-    $lecture_lecturer = $row["lecture_lecturer"];
-    $tutorial_assistant = $row["tutorial_assistant"];
+    $feedbackid = $row["feedbackid"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
+	$lecture_name = $row["lecture_name"];
+	$feedback_subject = $row["feedback_subject"];
+    $feedback_body = $row["feedback_body"];
 
-    $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid=?");
-    $stmt1->bind_param('i', $lecture_lecturer);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($lecturer_firstname, $lecturer_surname);
-    $stmt1->fetch();
+	echo '<tr id="approve-'.$feedbackid.'">
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid=?");
-    $stmt2->bind_param('i', $tutorial_assistant);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
-    $stmt2->fetch();
-
-	echo '<tr>
-
-			<td data-title="Name">'.$module_name.'</td>
-			<td data-title="Lecturer">'.$lecturer_firstname.' '.$lecturer_surname.'</td>
-			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_firstname.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-lecture-feedback?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
+			<td data-title="From">'.$firstname.' '.$surname.'</td>
+			<td data-title="Lecture name">'.$lecture_name.'</td>
+			<td data-title="Subject">'.$feedback_subject.'</td>
+			<td data-title="Feedback">'.$feedback_body.'</td>
+            <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
 			</tr>';
 	}
 
@@ -198,7 +188,7 @@ include 'includes/session.php';
 
     <?php endif; ?>
 
-        <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
