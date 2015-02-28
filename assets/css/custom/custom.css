@@ -1292,6 +1292,10 @@ form .form-control:-ms-input-placeholder {
     border: 1px solid #CCCCCC;
 }
 
+.table-custom > thead {
+    border-top: 1px solid #CCCCCC;
+}
+
 .table-custom > thead > tr > th,
 .table-custom > tbody > tr > th,
 .table-custom > tfoot > tr > th,
