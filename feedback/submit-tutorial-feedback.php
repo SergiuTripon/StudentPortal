@@ -112,7 +112,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="tutorial_feedback_subject" id="feedback_subject" value="<?php echo $feedback_tutorial_name; ?> - Tutorial - Feedback" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_subject" id="tutorial_feedback_subject" value="<?php echo $feedback_tutorial_name; ?> - Tutorial - Feedback" readonly="readonly">
 	</div>
     </div>
 
