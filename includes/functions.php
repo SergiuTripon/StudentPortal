@@ -1739,8 +1739,8 @@ function SubmitFeedback() {
     $feedback_to_surname = filter_input(INPUT_POST, 'feedback_to_surname', FILTER_SANITIZE_STRING);
     $feedback_to_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
     $feedback_to_email = filter_var($feedback_to_email, FILTER_VALIDATE_EMAIL);
-    $feedback_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
-    $feedback_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
+    $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
+    $feedback_body = filter_input(INPUT_POST, 'feedback_body', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (feedback_subject, feedback_body, created_on) VALUES (?, ?, ?)");
     $stmt1->bind_param('sss', $feedback_subject, $feedback_body, $created_on);
