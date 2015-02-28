@@ -231,7 +231,7 @@ include 'includes/session.php';
 			<td data-title="Created on">'.$created_on.'</td>
             <td data-title="Updated on">'.$updated_on.'</td>
 			<td data-title="Update"><a class="btn btn-primary btn-md ladda-button" href="/admin/update-an-account?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Change"><a id="change-'.$userid.'" class="btn btn-primary btn-sm ladda-button change-button" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
+            <td data-title="Change"><a class="btn btn-primary btn-sm ladda-button" href="/admin/change-account-password?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
             <td data-title="Delete"><a class="btn btn-primary btn-md ladda-button delete-button" href="#modal-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
@@ -395,30 +395,6 @@ include 'includes/session.php';
 		"language": {
 			"emptyTable": "There are no users to display."
 		}
-	});
-
-    //Change account password form submit
-	$("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var userToUpdate = clickedID[1];
-
-    alert(userToUpdate);
-
-	$("#update-an-account-form-" + userToUpdate).submit();
-
-	});
-
-	//Change account password form submit
-	$("body").on("click", ".change-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var userToChangePassword = clickedID[1];
-
-	$("#change-password-form-" + userToChangePassword).submit();
-
 	});
 
 	//Delete an account ajax call

@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_POST["userToChangePassword"])) {
+if (isset($_GET["id"])) {
 
-    $userToChangePassword = filter_input(INPUT_POST, 'userToChangePassword', FILTER_SANITIZE_NUMBER_INT);
+    $userToChangePassword = $_GET["id"];
 
 } else {
     header('Location: ../../account/');
