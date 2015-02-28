@@ -348,7 +348,7 @@ include 'includes/session.php';
 
 	$bookid = $row["bookid"];
     $userid = $row["userid"];
-    $firstname = $row["fistname"];
+    $firstname = $row["firstname"];
     $surname = $row["surname"];
 	$book_name = $row["book_name"];
 	$book_author = $row["book_author"];
