@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
 
     $tutorialToFeedback = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT system_tutorials.moduleid, system_tutorials.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.tutorialid=?");
+    $stmt1 = $mysqli->prepare("SELECT system_tutorials.moduleid, system_tutorials.tutorial_name, user_signin.email, user_details.firstname, user_details.surname FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.tutorialid=?");
     $stmt1->bind_param('i', $tutorialToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
