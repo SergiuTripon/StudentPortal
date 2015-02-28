@@ -9,7 +9,7 @@ if (isset($_GET["id"])) {
     $stmt1->bind_param('i', $lectureToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($feedback_lecture, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
+    $stmt1->bind_result($lecture_name, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
     $stmt1->fetch();
 
     $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
@@ -101,14 +101,14 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="message_subject" id="message_subject">
+    <input class="form-control" type="text" name="message_subject" value="<?php echo $lecture_name; ?> - Feedback" id="message_subject">
 	</div>
     </div>
     <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Message</label>
+    <label>Feedback</label>
     <textarea class="form-control" rows="5" name="message_body" id="message_body"></textarea>
     </div>
     </div>
