@@ -69,7 +69,7 @@ include 'includes/session.php';
 	$lecture_lecturer = $row["lecture_lecturer"];
     $tutorial_assistant = $row["tutorial_assistant"];
 
-    $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM system_events WHERE userid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
     $stmt1->bind_param('i', $lecture_lecturer);
     $stmt1->execute();
     $stmt1->store_result();
