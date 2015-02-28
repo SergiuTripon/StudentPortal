@@ -1,19 +1,20 @@
-DROP TABLE paypal_log; 
-DROP TABLE user_details; 
-DROP TABLE user_fees; 
-DROP TABLE user_token; 
-DROP TABLE user_tasks;
 DROP TABLE system_lectures;
 DROP TABLE system_tutorials;
 DROP TABLE system_exams;
 DROP TABLE user_timetable;
 DROP TABLE system_modules;
-DROP TABLE booked_events;
-DROP TABLE system_events;
 DROP TABLE reserved_books;
 DROP TABLE system_books;
-DROP TABLE user_messages;
+DROP TABLE user_tasks;
+DROP TABLE booked_events;
+DROP TABLE system_events;
 DROP TABLE system_map_markers;
+DROP TABLE user_messages_lookup;
+DROP TABLE user_messages;
+DROP TABLE paypal_log;
+DROP TABLE user_fees; 
+DROP TABLE user_token;
+DROP TABLE user_details;
 DROP TABLE user_signin;
 
 CREATE TABLE `student_portal`.`user_signin` (
