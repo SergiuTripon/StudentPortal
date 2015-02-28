@@ -451,15 +451,6 @@ function GetDashboardData() {
     $stmt8->bind_result($message_from);
     $stmt8->fetch();
 
-    $isApproved = 1;
-
-    $stmt9 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN system_tutorials ON user_feedback_lookup.moduleid=system_tutorials.moduleid WHERE tutorial_assistant=? AND isRead=? AND isApproved = ?");
-    $stmt9->bind_param('iii', $session_userid, $isRead, $isApproved);
-    $stmt9->execute();
-    $stmt9->store_result();
-    $stmt9->bind_result($message_from);
-    $stmt9->fetch();
-
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
 	$timetable_count = $lectures_count + $tutorials_count;
@@ -468,10 +459,7 @@ function GetDashboardData() {
 	$calendar_count = $stmt5->num_rows;
 	$events_count = $stmt6->num_rows;
 	$messenger_count = $stmt7->num_rows;
-    $feedback_lectures_count = $stmt8->num_rows;
-    $feedback_tutorials_count = $stmt9->num_rows;
-    $feedback_count = $feedback_lectures_count + $feedback_tutorials_count;
-
+    $feedback_count = $stmt8->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();
@@ -481,7 +469,6 @@ function GetDashboardData() {
     $stmt6->close();
     $stmt7->close();
     $stmt8->close();
-    $stmt9->close();
 
 }
 
