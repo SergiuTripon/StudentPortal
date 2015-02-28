@@ -78,7 +78,7 @@ include 'includes/session.php';
     $stmt1->fetch();
 
     $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid=?");
-    $stmt2->bind_param('i', $lecture_lecturer);
+    $stmt2->bind_param('i', $tutorial_assistant);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
