@@ -1753,30 +1753,30 @@ function ImportLocations () {
 
 //Feedback functions
 //SubmitFeedback function
-function SubmitLectureFeedback() {
+function SubmitFeedback() {
 
     global $mysqli;
     global $session_userid;
     global $created_on;
 
-    $lecture_feedback_moduleid = filter_input(INPUT_POST, 'lecture_feedback_moduleid', FILTER_SANITIZE_STRING);
-    $lecture_feedback_from_firstname = filter_input(INPUT_POST, 'lecture_feedback_from_firstname', FILTER_SANITIZE_STRING);
-    $lecture_feedback_from_surname = filter_input(INPUT_POST, 'lecture_feedback_from_surname', FILTER_SANITIZE_STRING);
-    $lecture_feedback_from_email = filter_input(INPUT_POST, 'lecture_feedback_from_email', FILTER_SANITIZE_EMAIL);
-    $lecture_feedback_to_email = filter_input(INPUT_POST, 'lecture_feedback_to_email', FILTER_SANITIZE_EMAIL);
-    $lecture_feedback_to_email = filter_var($lecture_feedback_to_email, FILTER_VALIDATE_EMAIL);
-    $lecture_feedback_subject = filter_input(INPUT_POST, 'lecture_feedback_subject', FILTER_SANITIZE_STRING);
-    $lecture_feedback_body = filter_input(INPUT_POST, 'lecture_feedback_body', FILTER_SANITIZE_STRING);
+    $feedback_moduleid = filter_input(INPUT_POST, 'feedback_moduleid', FILTER_SANITIZE_STRING);
+    $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_from_firstname', FILTER_SANITIZE_STRING);
+    $feedback_from_surname = filter_input(INPUT_POST, 'feedback_from_surname', FILTER_SANITIZE_STRING);
+    $feedback_from_email = filter_input(INPUT_POST, 'feedback_from_email', FILTER_SANITIZE_EMAIL);
+    $feedback_to_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
+    $feedback_to_email = filter_var($feedback_to_email, FILTER_VALIDATE_EMAIL);
+    $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
+    $feedback_body = filter_input(INPUT_POST, 'feedback_body', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (feedback_subject, feedback_body, created_on) VALUES (?, ?, ?)");
-    $stmt1->bind_param('sss', $lecture_feedback_subject, $lecture_feedback_body, $created_on);
+    $stmt1->bind_param('sss', $feedback_subject, $feedback_body, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
     $isRead = 0;
 
     $stmt2 = $mysqli->prepare("INSERT INTO user_feedback_lookup (feedback_from, moduleid, isRead) VALUES (?, ?, ?)");
-    $stmt2->bind_param('iii', $session_userid, $lecture_feedback_moduleid, $isRead);
+    $stmt2->bind_param('iii', $session_userid, $feedback_moduleid, $isRead);
     $stmt2->execute();
     $stmt2->close();
 
@@ -1807,64 +1807,6 @@ function SubmitLectureFeedback() {
     $headers .= "Reply-To: $lecture_feedback_from_firstname $lecture_feedback_from_surname <$lecture_feedback_from_email>" . "\r\n";
 
     mail($lecture_feedback_to_email, $subject, $message, $headers);
-
-}
-
-//SubmitFeedback function
-function SubmitTutorialFeedback() {
-
-    global $mysqli;
-    global $session_userid;
-    global $created_on;
-
-    $tutorial_feedback_moduleid = filter_input(INPUT_POST, 'tutorial_feedback_moduleid', FILTER_SANITIZE_STRING);
-    $tutorial_feedback_from_firstname = filter_input(INPUT_POST, 'tutorial_feedback_from_firstname', FILTER_SANITIZE_STRING);
-    $tutorial_feedback_from_surname = filter_input(INPUT_POST, 'tutorial_feedback_from_surname', FILTER_SANITIZE_STRING);
-    $tutorial_feedback_from_email = filter_input(INPUT_POST, 'tutorial_feedback_from_email', FILTER_SANITIZE_EMAIL);
-    $tutorial_feedback_to_email = filter_input(INPUT_POST, 'tutorial_feedback_to_email', FILTER_SANITIZE_EMAIL);
-    $tutorial_feedback_to_email = filter_var($tutorial_feedback_to_email, FILTER_VALIDATE_EMAIL);
-    $tutorial_feedback_subject = filter_input(INPUT_POST, 'tutorial_feedback_subject', FILTER_SANITIZE_STRING);
-    $tutorial_feedback_body = filter_input(INPUT_POST, 'tutorial_feedback_body', FILTER_SANITIZE_STRING);
-
-    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (feedback_subject, feedback_body, created_on) VALUES (?, ?, ?)");
-    $stmt1->bind_param('sss', $tutorial_feedback_subject, $tutorial_feedback_body, $created_on);
-    $stmt1->execute();
-    $stmt1->close();
-
-    $isRead = 0;
-
-    $stmt2 = $mysqli->prepare("INSERT INTO user_feedback_lookup (feedback_from, moduleid, isRead) VALUES (?, ?, ?)");
-    $stmt2->bind_param('iii', $session_userid, $tutorial_feedback_moduleid, $isRead);
-    $stmt2->execute();
-    $stmt2->close();
-
-    //Creating email
-    $subject = "$tutorial_feedback_from_firstname $tutorial_feedback_from_firstname - New message on Student Portal";
-
-    $message = '<html>';
-    $message .= '<body>';
-    $message .= '<p>The following student submitted some feedback for you:</p>';
-    $message .= '<table rules="all" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$tutorial_feedback_from_firstname</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $tutorial_feedback_from_surname</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $tutorial_feedback_from_email</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $tutorial_feedback_subject</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $tutorial_feedback_body</td></tr>";
-    $message .= '</table><br>';
-    $message .= '<a href="https://student-portal.co.uk/messenger">View message on Student Portal</a><br>';
-    $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-    $message .= '</body>';
-    $message .= '</html>';
-    $message .= '</body>';
-    $message .= '</html>';
-
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-    $headers .= "From: $tutorial_feedback_from_firstname $tutorial_feedback_from_surname <$tutorial_feedback_from_email>" . "\r\n";
-    $headers .= "Reply-To: $tutorial_feedback_from_firstname $tutorial_feedback_from_surname <$tutorial_feedback_from_email>" . "\r\n";
-
-    mail($tutorial_feedback_to_email, $subject, $message, $headers);
 
 }
 

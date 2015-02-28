@@ -5,19 +5,33 @@ if (isset($_GET["id"])) {
 
     $moduleToFeedback = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT system_lectures.moduleid, system_lectures.name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecturer=user_details.userid WHERE system_lectures.lectureid=?");
-    $stmt1->bind_param('i', $lectureToFeedback);
+    $stmt1 = $mysqli->prepare("SELECT moduleid, module_name FROM system_modules WHERE system_modules.moduleid=?");
+    $stmt1->bind_param('i', $moduleToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($moduleid, $name, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
+    $stmt1->bind_result($lecture_feedback_to_email, $lecture_feedback_to_firstname, $lecture_feedback_to_surname);
     $stmt1->fetch();
 
-    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $session_userid);
+    $stmt2 = $mysqli->prepare("SELECT system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.lectureid=?");
+    $stmt2->bind_param('i', $moduleToFeedback);
     $stmt2->execute();
     $stmt2->store_result();
-    $stmt2->bind_result($feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
+    $stmt2->bind_result($lecturer_feedback_to_email, $lecturer_feedback_to_firstname, $lecturer_feedback_to_surname);
     $stmt2->fetch();
+
+    $stmt3 = $mysqli->prepare("SELECT system_lectures.tutorial_name, user_signin.email, user_details.firstname, user_details.surname FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.tutorialid=?");
+    $stmt3->bind_param('i', $moduleToFeedback);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($tutorial_assistant_feedback_to_email, $tutorial_assistant_feedback_to_firstname, $tutorial_assistant_feedback_to_surname);
+    $stmt3->fetch();
+
+    $stmt4 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt4->bind_param('i', $session_userid);
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
+    $stmt4->fetch();
 
 }
 
@@ -63,13 +77,13 @@ if (isset($_GET["id"])) {
     <div id="hide">
     <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
 
-    <h4 class="text-center">Lecture</h4>
+    <h4 class="text-center">Module</h4>
     <hr class="hr-custom">
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Name</label>
-    <input class="form-control" type="text" name="name" id="name" value="<?php echo $name; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_module_name" id="feedback_module_name" value="<?php echo $module_name; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -79,15 +93,15 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="lecture_feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="lecture_feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="lecture_feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -97,29 +111,47 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="feedback_to_firstname" id="feedback_to_firstname" value="<?php echo $feedback_to_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="lecturer_feedback_to_firstname" id="lecturer_feedback_to_firstname" value="<?php echo $lecturer_feedback_to_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="feedback_to_surname" id="feedback_to_surname" value="<?php echo $feedback_to_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="lecturer_feedback_to_surname" id="lecturer_feedback_to_surname" value="<?php echo $lecturer_feedback_to_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="feedback_to_email" id="feedback_to_email" value="<?php echo $feedback_to_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="lecturer_feedback_to_email" id="lecturer_feedback_to_email" value="<?php echo $lecturer_feedback_to_email; ?>" readonly="readonly">
+	</div>
+    </div>
+
+    <h4 class="text-center">Tutorial assistant</h4>
+    <hr class="hr-custom">
+
+    <div class="form-group">
+    <div class="col-xs-4 col-sm-4 full-width pl0">
+    <label>First name</label>
+    <input class="form-control" type="text" name="tutorial_assistant_feedback_to_firstname" id="tutorial_assistant_feedback_to_firstname" value="<?php echo $tutorial_assistant_feedback_to_firstname; ?>" readonly="readonly">
+	</div>
+    <div class="col-xs-4 col-sm-4 full-width">
+    <label>Surname</label>
+    <input class="form-control" type="text" name="tutorial_assistant_feedback_to_surname" id="tutorial_assistant_feedback_to_surname" value="<?php echo $tutorial_assistant_feedback_to_surname; ?>" readonly="readonly">
+    </div>
+    <div class="col-xs-4 col-sm-4 full-width pr0">
+    <label>Email address</label>
+    <input class="form-control" type="email" name="tutorial_assistant_feedback_to_email" id="tutorial_assistant_feedback_to_email" value="<?php echo $tutorial_assistant_feedback_to_email; ?>" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="feedback_subject" id="feedback_subject" value="<?php echo $name; ?> - Lecture - Feedback" readonly="readonly">
+    <input class="form-control" type="text" name="lecture_feedback_subject" id="feedback_subject" value="<?php echo $module_name; ?> - Lecture - Feedback" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="feedback_body">Feedback<span class="field-required">*</span></label>
-    <textarea class="form-control" rows="5" name="feedback_body" id="feedback_body"></textarea>
+    <textarea class="form-control" rows="5" name="lecture_feedback_body" id="feedback_body"></textarea>
     </div>
     </div>
 
@@ -183,17 +215,16 @@ if (isset($_GET["id"])) {
 
     var hasError = false;
 
-    var feedback_moduleid = $("#feedback_moduleid").val();
+    var lecture_feedback_moduleid = $("#lecture_feedback_moduleid").val();
 
-    var feedback_from_firstname = $("#feedback_from_firstname").val();
-    var feedback_from_surname = $("#feedback_from_surname").val();
-    var feedback_from_email = $("#feedback_from_email").val();
+    var feedback_from_firstname = $("#lecture_feedback_from_firstname").val();
+    var feedback_from_surname = $("#lecture_feedback_from_surname").val();
+    var feedback_from_email = $("#lecture_feedback_from_email").val();
 
-    var feedback_to_firstname = $("#feedback_to_firstname").val();
-    var feedback_to_surname = $("#feedback_to_surname").val();
-    var feedback_to_email = $("#feedback_to_email").val();
+    var lecturer_feedback_to_email = $("#lecturer_feedback_to_email").val();
+    var tutorial_assistant_feedback_to_email = $("#tutorial_assistant_feedback_to_email").val();
 
-    var feedback_subject = $("#feedback_subject").val();
+    var feedback_subject = $("#lecture_feedback_subject").val();
 
     var feedback_body = $("#feedback_body").val();
 	if(feedback_body === '') {
@@ -233,7 +264,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&feedback_to_email=' + feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
+    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&lecturer_feedback_to_email=' + lecturer_feedback_to_email + '&tutorial_assistant_feedback_to_email=' + tutorial_assistant_feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
