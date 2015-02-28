@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_GET["tutorialid"])) {
+if (isset($_GET["id"])) {
 
-    $tutorialToFeedback = $_GET["tutorialid"];
+    $tutorialToFeedback = $_GET["id"];
 
     $stmt1 = $mysqli->prepare("SELECT lecture_name FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt1->bind_param('i', $tutorialToFeedback);
