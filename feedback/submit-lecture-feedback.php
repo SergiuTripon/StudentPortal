@@ -237,7 +237,7 @@ if (isset($_GET["id"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('Message sent successfully.');
+        $("#success").empty().append('Feedback submitted successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
