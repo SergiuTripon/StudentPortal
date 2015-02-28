@@ -222,14 +222,14 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_lectures.lecture_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE user_feedback_lookup.isApproved = 1 AND system_lectures.lecture_lecturer='$session_userid'");
+	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_modules.module_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_modules ON user_feedback_lookup.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN system_tutorials ON user_feedback_lookup.moduleid=system_tutorials.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE user_feedback_lookup.isApproved = 1 AND (system_lectures.lecture_lecturer='$session_userid' OR system_tutorials.tutorial_assistant='$session_userid')");
 
 	while($row = $stmt1->fetch_assoc()) {
 
     $firstname = $row["firstname"];
     $surname = $row["surname"];
-	$lecture_name = $row["lecture_name"];
-    $feedback_subject = $row["feedback_body"];
+	$module_name = $row["module_name"];
+    $feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
 
 	echo '<tr>
@@ -243,62 +243,6 @@ include 'includes/session.php';
 
 	$stmt1->close();
 	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	<div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Tutorials</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<!-- Tutorials -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom feedback-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Tutorial assistant</th>
-	<th>Day</th>
-    <th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody>
-    <?php
-
-    $stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_tutorials.tutorial_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_tutorials ON user_feedback_lookup.moduleid=system_tutorials.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE user_feedback_lookup.isApproved = 1 AND system_tutorials.tutorial_assistant='$session_userid'");
-
-    while($row = $stmt1->fetch_assoc()) {
-
-        $firstname = $row["firstname"];
-        $surname = $row["surname"];
-        $tutorial_name = $row["tutorial_name"];
-        $feedback_subject = $row["feedback_body"];
-        $feedback_body = $row["feedback_body"];
-
-        echo '<tr>
-
-			<td data-title="From">'.$firstname.' '.$surname.'</td>
-			<td data-title="Lecture name">'.$tutorial_name.'</td>
-			<td data-title="Subject">'.$feedback_subject.'</td>
-			<td data-title="Feedback">'.$feedback_body.'</td>
-			</tr>';
-    }
-
-    $stmt1->close();
-    ?>
 	</tbody>
 
 	</table>
