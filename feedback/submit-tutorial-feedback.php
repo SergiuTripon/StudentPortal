@@ -119,7 +119,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="tutorial_feedback_body">Feedback<span class="field-required">*</span></label>
-    <textarea class="form-control" rows="5" name="tutorial_feedback_body" id="feedback_body"></textarea>
+    <textarea class="form-control" rows="5" name="tutorial_feedback_body" id="tutorial_feedback_body"></textarea>
     </div>
     </div>
 
