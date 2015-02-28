@@ -6,4 +6,6 @@ include 'functions.php';
 //Call ApproveFeedback function
 if (isset($_POST["feedbackToApprove"])) {
     ApproveFeedback();
+} else {
+    header("/");
 }
