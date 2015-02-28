@@ -63,7 +63,7 @@ if (isset($_GET["id"])) {
     <div id="hide">
     <input type="hidden" name="tutorial_feedback_moduleid" id="tutorial_feedback_moduleid" value="<?php echo $moduleid; ?>">
 
-    <h4 class="text-center">Lecture</h4>
+    <h4 class="text-center">Tutorial</h4>
     <hr class="hr-custom">
 
     <div class="form-group">
@@ -91,7 +91,7 @@ if (isset($_GET["id"])) {
 	</div>
     </div>
 
-    <h4 class="text-center">Lecturer</h4>
+    <h4 class="text-center">Tutorial Assistant</h4>
     <hr class="hr-custom">
 
     <div class="form-group">
