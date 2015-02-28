@@ -255,8 +255,8 @@ elseif (isset($_POST["eventToActivate"])) {
 
 //Call Feedback functions
 //Call SubmitFeedback functions
-elseif (isset($_POST["message_to_userid"], $_POST["message_to_firstname"], $_POST["message_to_surname"], $_POST["message_to_email"], $_POST["message_subject"], $_POST["message_body"])) {
-    MessageUser();
+elseif (isset($_POST["feedback_userid"], $_POST["feedback_moduleid"], $_POST["feedback_subject"], $_POST["feedback_body"])) {
+    SubmitFeedback();
 }
 
 //Call SetMessageRead function
