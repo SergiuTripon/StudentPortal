@@ -10,6 +10,7 @@ include 'includes/functions.php';
     global $calendar_count;
     global $events_count;
     global $messenger_count;
+    global $feedback_count;
 
     GetDashboardData();
 
@@ -199,7 +200,7 @@ include 'includes/functions.php';
 	<a href="../feedback/">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
-	<p>Feedback</p>
+    <p>Feedback<span class="badge"><?php echo ($feedback_count == '0' ? "" : "$feedback_count"); ?></span></p>
     </div>
     </a>
 	</div>
