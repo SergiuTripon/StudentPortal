@@ -381,7 +381,6 @@ function GetDashboardData() {
 	global $calendar_count;
 	global $events_count;
 	global $messenger_count;
-    global $feedback_count;
 
     $lecture_status = 'active';
 
@@ -416,19 +415,15 @@ function GetDashboardData() {
 	$stmt6->bind_param('i', $session_userid);
 	$stmt6->execute();
 
-	$isRead = 0;
+	$isRead = '0';
 	$stmt7 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup WHERE message_to=? AND isRead=?");
 	$stmt7->bind_param('ii', $session_userid, $isRead);
 	$stmt7->execute();
 
-    $isRead = 0;
-    $stmt8 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid WHERE lecture_lecturer=? AND isRead=?");
+    $isRead = '0';
+    $stmt8 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup WHERE message_to=? AND isRead=?");
     $stmt8->bind_param('ii', $session_userid, $isRead);
     $stmt8->execute();
-
-    $stmt9 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid WHERE lecture_lecturer=? AND isRead=?");
-    $stmt9->bind_param('ii', $session_userid, $isRead);
-    $stmt9->execute();
 
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
@@ -437,10 +432,7 @@ function GetDashboardData() {
 	$library_count = $stmt4->num_rows;
 	$calendar_count = $stmt5->num_rows;
 	$events_count = $stmt6->num_rows;
-    $messenger_count = $stmt7->num_rows;
-	$feedback_lecture_count = $stmt8->num_rows;
-    $feedback_tutorial_count = $stmt9->num_rows;
-    $feedback_count = $feedback_lecture_count + $feedback_tutorial_count;
+	$messenger_count = $stmt7->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();
@@ -449,8 +441,6 @@ function GetDashboardData() {
     $stmt5->close();
     $stmt6->close();
     $stmt7->close();
-    $stmt8->close();
-    $stmt9->close();
 
 }
 
