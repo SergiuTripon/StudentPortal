@@ -451,7 +451,10 @@ function GetDashboardData() {
     $stmt8->bind_result($feedbackid);
     $stmt8->fetch();
 
+    $isApproved = 0;
+
     $stmt9 = $mysqli->prepare("SELECT DISTINCT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE isApproved=? AND isRead=?");
+    $stmt8->bind_param('ii', $isApproved, $isRead);
     $stmt9->execute();
     $stmt9->store_result();
     $stmt9->bind_result($feedbackid);
