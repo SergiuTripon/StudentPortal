@@ -296,9 +296,7 @@ include 'includes/session.php';
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action">'.($book_status === 'reserved' ? "" : "<a id=cancel-'.$bookid.' class=\"btn btn-primary btn-md cancel-button ladda-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Cancel</span></a>").'</td>
-
-
+			<td data-title="Action">'.($book_status === 'Reserved' ? "<a id=\"request-$bookid\" class=\"btn btn-primary btn-md ladda-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
 			</tr>';
 	}
 
