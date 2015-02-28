@@ -333,8 +333,6 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function () {
-
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
@@ -382,36 +380,6 @@ include 'includes/session.php';
 	});
 
     });
-
-    $("body").on("click", ".activate-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var timetableToActivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'timetableToActivate='+ timetableToActivate,
-	success:function(){
-		$('#activate-'+timetableToActivate).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-
-    });
-
-	});
-
 	</script>
 
 </body>
