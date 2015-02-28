@@ -19,7 +19,7 @@ if (isset($_GET["id"])) {
     $stmt2->bind_result($lecturer_feedback_to_email, $lecturer_feedback_to_firstname, $lecturer_feedback_to_surname);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("SELECT system_lectures.tutorial_name, user_signin.email, user_details.firstname, user_details.surname FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.tutorialid=?");
+    $stmt3 = $mysqli->prepare("SELECT system_tutorials.tutorial_name, user_signin.email, user_details.firstname, user_details.surname FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.tutorialid=?");
     $stmt3->bind_param('i', $moduleToFeedback);
     $stmt3->execute();
     $stmt3->store_result();
