@@ -98,7 +98,7 @@ include 'includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pl0">
-    <label>Email address</label>
+    <label for="email">Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address" autocomplete="no">
     </div>
     </div>
@@ -106,7 +106,7 @@ include 'includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pl0">
-    <label>Password</label>
+    <label for="password">Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password" autocomplete="no">
     </div>
     </div>
