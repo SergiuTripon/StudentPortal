@@ -1287,7 +1287,7 @@ form .form-control:-ms-input-placeholder {
 /* Table Custom style */
 .table-custom > thead {
     border-top: 1px solid #CCCCCC;
-    background-color: #8A8A8A !important;
+    background-color: #F8F8F8 !important;
 }
 
 .table-custom > thead > tr > th {
