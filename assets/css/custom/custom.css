@@ -1286,8 +1286,12 @@ form .form-control:-ms-input-placeholder {
 
 /* Table Custom style */
 .table-custom > thead > tr > th {
-    border: none;
+    color: #5D5D5D;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #CCCCCC;
 }
+
 /* End of Table Custom style */
 
 /* No More Responsive Table */
