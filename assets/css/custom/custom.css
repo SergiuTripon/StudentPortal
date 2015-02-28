@@ -1286,8 +1286,8 @@ form .form-control:-ms-input-placeholder {
 
 /* Table Custom style */
 .table-custom > thead {
-    border-top: 1px solid #5D5D5D;
-    background-color: #E3E3E3 !important;
+    border-top: 1px solid #CCCCCC;
+    background-color: #CCCCCC !important;
 }
 
 .table-custom > thead > tr > th {
@@ -1303,13 +1303,13 @@ form .form-control:-ms-input-placeholder {
     color: #333333;
     text-align: center;
     vertical-align: middle;
-    border: 1px solid #5D5D5D;
+    border: 1px solid #CCCCCC;
 }
 
-tr:nth-child(even) {
+.table-custom > tbody > tr:nth-child(even) {
     background: #E3E3E3;
 }
-tr:nth-child(odd) {
+.table-custom > tbody > tr:nth-child(odd) {
     background: #FFFFFF;
 }
 /* End of Table Custom style */
