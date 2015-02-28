@@ -56,11 +56,12 @@ if (isset($_GET["id"])) {
 	<!-- Message user -->
     <form class="form-custom" style="max-width: 100%;" method="post" name="messageuser_form" id="messageuser_form" novalidate>
 
-    <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
+    <p id="error1" class="feedback-sad text-center"></p>
+    <p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="message_to_userid" id="message_to_userid" value="<?php echo $lectureToFeedback; ?>">
+    <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureToFeedback; ?>">
 
     <h4 class="text-center">From</h4>
     <hr class="hr-custom">
@@ -101,23 +102,21 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="message_subject" id="message_subject" value="<?php echo $lecture_name; ?> - Lecture - Feedback" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_subject" id="feedback_subject" value="<?php echo $lecture_name; ?> - Lecture - Feedback" readonly="readonly">
 	</div>
     </div>
-    <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Feedback</label>
-    <textarea class="form-control" rows="5" name="message_body" id="message_body"></textarea>
+    <label for="feedback_body">Feedback<span class="field-required">*</span></label>
+    <textarea class="form-control" rows="5" name="feedback_body" id="feedback_body"></textarea>
     </div>
     </div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Message user</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Submit feedback</span></button>
 	</div>
 
     </div>
@@ -174,48 +173,38 @@ if (isset($_GET["id"])) {
 
     var hasError = false;
 
-    var message_subject = $("#message_subject").val();
-	if(message_subject === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a subject.");
-		$("#subject").addClass("error-style");
+    var feedback_body = $("#feedback_body").val();
+	if(feedback_body === '') {
+        $("label[for='feedback_body']").empty().append("Please enter feedback.");
+        $("label[for='feedback_body']").removeClass("feedback-happy");
+        $("label[for='feedback_body']").addClass("feedback-sad");
+        $("#feedback_body").removeClass("input-happy");
+        $("#feedback_body").addClass("input-sad");
+        $("#feedback_body").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
-		$("#subject").addClass("success-style");
+        $("label[for='feedback_body']").empty().append("All good!");
+        $("label[for='feedback_body']").removeClass("feedback-sad");
+        $("label[for='feedback_body']").addClass("feedback-happy");
+        $("#feedback_body").removeClass("input-sad");
+        $("#feedback_body").addClass("input-happy");
 	}
-    if (message_subject.length > 300) {
+    if (feedback_body.length > 5000) {
         $("#error1").show();
-        $("#error1").empty().append("The subject entered is too long.<br>The maximum length of the subject is 300 characters.");
-        $("#subject").addClass("error-style");
+        $("#error1").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
+        $("#feedback_body").removeClass("input-happy");
+        $("#feedback_body").addClass("input-sad");
+        $("#feedback_body").focus();
         hasError  = true;
         return false;
     } else {
         $("#error1").hide();
-        $("#subject").addClass("success-style");
-    }
-
-    var message_body = $("#message_body").val();
-	if(message_body === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a message.");
-		$("#message").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error2").hide();
-		$("#message").addClass("success-style");
-	}
-    if (message_body.length > 5000) {
-        $("#error2").show();
-        $("#error2").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
-        $("#message").addClass("error-style");
-        hasError  = true;
-        return false;
-    } else {
-        $("#error2").hide();
-        $("#message").addClass("success-style");
+        $("label[for='feedback_body']").empty().append("All good!");
+        $("label[for='feedback_body']").removeClass("feedback-sad");
+        $("label[for='feedback_body']").addClass("feedback-happy");
+        $("#feedback_body").removeClass("input-sad");
+        $("#feedback_body").addClass("input-happy");
     }
 
     var message_to_userid = $("#message_to_userid").val();
