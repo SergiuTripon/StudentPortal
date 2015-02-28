@@ -39,10 +39,10 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Lectures</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Lectures</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
 	<!-- Lectures -->
@@ -54,44 +54,26 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Lecturer</th>
 	<th>Day</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_lecturer, system_lectures.lecture_day, DATE_FORMAT(system_lectures.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(system_lectures.lecture_to_time,'%H:%i') as lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid='$session_userid' AND system_lectures.lecture_status='active' LIMIT 1");
+	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, user_details.firstname, user_details.surname, system_lectures.lecture_day FROM system_lectures LEFT JOIN system_modules ON system_lectures.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_lectures.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_lectures.lecture_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$lecture_name = $row["lecture_name"];
-	$lecture_lecturer = $row["lecture_lecturer"];
+	$firstname = $row["firstname"];
+    $surname = $row["surname"];
 	$lecture_day = $row["lecture_day"];
-	$lecture_from_time = $row["lecture_from_time"];
-	$lecture_to_time = $row["lecture_to_time"];
-	$lecture_location = $row["lecture_location"];
-	$lecture_capacity = $row["lecture_capacity"];
-
-	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $lecture_lecturer);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($firstname, $surname);
-	$stmt2->fetch();
 
 	echo '<tr>
 
 			<td data-title="Name">'.$lecture_name.'</td>
 			<td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
 			<td data-title="From">'.$lecture_day.'</td>
-			<td data-title="From">'.$lecture_from_time.'</td>
-			<td data-title="To">'.$lecture_to_time.'</td>
-			<td data-title="Location">'.$lecture_location.'</td>
-			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>';
 	}
 
@@ -110,10 +92,10 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Tutorials</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Tutorials</a>
   	</h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
 	<!-- Tutorials -->
@@ -125,44 +107,26 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Tutorial assistant</th>
 	<th>Day</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt3 = $mysqli->query("SELECT system_tutorials.tutorial_name, system_tutorials.tutorial_assistant, system_tutorials.tutorial_day, DATE_FORMAT(system_tutorials.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(system_tutorials.tutorial_to_time,'%H:%i') as tutorial_to_time, system_tutorials.tutorial_location, system_tutorials.tutorial_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid='$session_userid' AND system_tutorials.tutorial_status ='active' LIMIT 1");
+	$stmt3 = $mysqli->query("SELECT system_tutorials.tutorial_name, user_details.firstname, user_details.surname, system_tutorials.tutorial_day FROM system_tutorials LEFT JOIN system_modules ON system_tutorials.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_tutorials.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_tutorials.tutorial_status='active'");
 
 	while($row = $stmt3->fetch_assoc()) {
 
 	$tutorial_name = $row["tutorial_name"];
-	$tutorial_assistant = $row["tutorial_assistant"];
+	$firstname = $row["firstname"];
+    $firstname = $row["surname"];
 	$tutorial_day = $row["tutorial_day"];
-	$tutorial_from_time = $row["tutorial_from_time"];
-	$tutorial_to_time = $row["tutorial_to_time"];
-	$tutorial_location = $row["tutorial_location"];
-	$tutorial_capacity = $row["tutorial_capacity"];
-
-	$stmt4 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt4->bind_param('i', $tutorial_assistant);
-	$stmt4->execute();
-	$stmt4->store_result();
-	$stmt4->bind_result($firstname, $surname);
-	$stmt4->fetch();
 
 	echo '<tr>
 
 			<td data-title="Name">'.$tutorial_name.'</td>
 			<td data-title="Notes">'.$firstname.' '.$surname.'</td>
 			<td data-title="Notes">'.$tutorial_day.'</td>
-			<td data-title="From">'.$tutorial_from_time.'</td>
-			<td data-title="To">'.$tutorial_to_time.'</td>
-			<td data-title="Location">'.$tutorial_location.'</td>
-			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>';
 	}
 
