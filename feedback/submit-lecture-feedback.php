@@ -49,7 +49,7 @@ if (isset($_GET["id"])) {
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../messenger/">Feedback</a></li>
+	<li><a href="../../feedback/">Feedback</a></li>
     <li class="active">Lecture feedback</li>
     </ol>
 
