@@ -253,6 +253,20 @@ elseif (isset($_POST["eventToActivate"])) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Call Feedback functions
+//Call SubmitFeedback functions
+elseif (isset($_POST["message_to_userid"], $_POST["message_to_firstname"], $_POST["message_to_surname"], $_POST["message_to_email"], $_POST["message_subject"], $_POST["message_body"])) {
+    MessageUser();
+}
+
+//Call SetMessageRead function
+elseif (isset($_POST["message_read"])) {
+    SetMessageRead();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Call Messenger functions
 //Call MessageUser functions
 elseif (isset($_POST["message_to_userid"], $_POST["message_to_firstname"], $_POST["message_to_surname"], $_POST["message_to_email"], $_POST["message_subject"], $_POST["message_body"])) {
     MessageUser();

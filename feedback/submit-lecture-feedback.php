@@ -5,18 +5,18 @@ if (isset($_GET["id"])) {
 
     $lectureToFeedback = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.lectureid=?");
+    $stmt1 = $mysqli->prepare("SELECT system_lectures.moduleid, system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.lectureid=?");
     $stmt1->bind_param('i', $lectureToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($lecture_name, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
+    $stmt1->bind_result($moduleid, $lecture_name, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
     $stmt1->fetch();
 
-    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt2->bind_param('i', $session_userid);
     $stmt2->execute();
     $stmt2->store_result();
-    $stmt2->bind_result($feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
+    $stmt2->bind_result($userid, $feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
     $stmt2->fetch();
 
 }
@@ -61,7 +61,8 @@ if (isset($_GET["id"])) {
     <p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureToFeedback; ?>">
+    <input type="hidden" name="feedback_userid" id="feedback_userid" value="<?php echo $userid; ?>">
+    <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
 
     <h4 class="text-center">Lecture</h4>
     <hr class="hr-custom">
@@ -183,6 +184,10 @@ if (isset($_GET["id"])) {
 
     var hasError = false;
 
+    var feedback_userid = $("#feedback_userid").val();
+    var feedback_moduleid = $("#feedback_moduleid").val();
+    var feedback_subject = $("#feedback_subject").val();
+
     var feedback_body = $("#feedback_body").val();
 	if(feedback_body === '') {
         $("label[for='feedback_body']").empty().append("Please enter feedback.");
@@ -217,16 +222,11 @@ if (isset($_GET["id"])) {
         $("#feedback_body").addClass("input-happy");
     }
 
-    var message_to_userid = $("#message_to_userid").val();
-    var message_to_firstname = $("#message_to_firstname").val();
-    var message_to_surname = $("#message_to_surname").val();
-    var message_to_email = $("#message_to_email").val();
-
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'message_to_userid=' + message_to_userid + '&message_to_firstname=' + message_to_firstname + '&message_to_surname=' + message_to_surname + '&message_to_email=' + message_to_email + '&message_subject=' + message_subject + '&message_body=' + message_body,
+    data:'feedback_userid=' + feedback_userid + '&feedback_moduleid=' + feedback_moduleid + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();

@@ -296,17 +296,24 @@ CREATE TABLE `system_map_markers` (
 ) ENGINE = InnoDB;
 
 CREATE TABLE `student_portal`.`user_feedback` (
-  `userid` INT(11) NOT NULL,
-  `moduleid` INT(11) NOT NULL,
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
-  `feedback_name` VARCHAR(300) NOT NULL,
+  `feedback_subject` VARCHAR(300) NOT NULL,
   `feedback_body` VARCHAR(5000) NOT NULL,
-  `feedback_status` VARCHAR(9) NOT NULL,
-  `isRead ` TINYINT(1) NOT NULL,
   `created_on` DATETIME NOT NULL,
-  `updated_on` DATETIME,
-FOREIGN KEY (userid) REFERENCES user_signin(userid),
-FOREIGN KEY (moduleid) REFERENCES system_modules(moduleid)
+  `updated_on` DATETIME
+) ENGINE = InnoDB;
+
+CREATE TABLE `student_portal`.`user_feedback_lookup` (
+  `feedbackid` INT(11) NOT NULL AUTO_INCREMENT,
+  `feedback_from` INT(11) NOT NULL,
+  `moduleid` INT(11) NOT NULL,
+  `isRead` TINYINT(1) NOT NULL,
+FOREIGN KEY (feedbackid)
+REFERENCES user_feedback(feedbackid),
+FOREIGN KEY (feedback_from)
+REFERENCES user_signin(userid),
+FOREIGN KEY (moduleid)
+REFERENCES system_modules(moduleid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
