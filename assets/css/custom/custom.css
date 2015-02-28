@@ -1334,6 +1334,15 @@ select.input-sm, select.form-group-sm .form-control {
 .form-inline .form-control {
     width: auto;
 }
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background-color: #5D5D5D;
+}
 /* End of dataTables */
 
 /* No More Responsive Table */
