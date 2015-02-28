@@ -1029,7 +1029,7 @@ function ReturnBook() {
 
     $isReturned = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE reserved_books SET returned_on=?, isReturned=? WHERE bookid=?");
+    $stmt1 = $mysqli->prepare("UPDATE reserved_books SET returned_on=?, isReturned=? WHERE bookid=? ORDER BY DESC");
     $stmt1->bind_param('sii', $updated_on, $isReturned, $bookToReturn);
     $stmt1->execute();
     $stmt1->close();
