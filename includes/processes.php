@@ -264,12 +264,6 @@ elseif (isset($_POST["feedbackToApprove"])) {
     ApproveFeedback();
 }
 
-//Call SetFeedbackRead function
-elseif (isset($_POST["feedback_read"])) {
-    SetFeedbackRead();
-}
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Messenger functions
