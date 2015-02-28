@@ -198,23 +198,24 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_lectures.lecture_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE isApproved = 0 AND isRead = 0");
+	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_lectures.lecture_name, user_feedback.feedbackid,user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE isApproved = 0 AND isRead = 0");
 
 	while($row = $stmt1->fetch_assoc()) {
 
+    $feedbackid = $row["feedbackid"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 	$lecture_name = $row["lecture_name"];
 	$feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
 
-	echo '<tr>
+	echo '<tr id="approve-'.$feedbackid.'">
 
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
 			<td data-title="Lecture name">'.$lecture_name.'</td>
 			<td data-title="Subject">'.$feedback_subject.'</td>
 			<td data-title="Feedback">'.$feedback_body.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-lecture-feedback?id='.$lectureid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
+            <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md approve-button ladda-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></td>
 			</tr>';
 	}
 
@@ -358,42 +359,20 @@ include 'includes/session.php';
 		}
 	});
 
-    $("body").on("click", ".assign-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#assign-timetable-form-" + DbNumberID).submit();
-
-	});
-
-    $("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#update-timetable-form-" + DbNumberID).submit();
-
-	});
-
-    $("body").on("click", ".cancel-button", function(e) {
+    $("body").on("click", ".approve-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var timetableToCancel = clickedID[1];
+    var feedbackToApprove = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'timetableToCancel='+ timetableToCancel,
+	data:'feedbackToApprove='+ feedbackToApprove,
 	success:function(){
-		$('#cancel-'+timetableToCancel).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
+		$('#aprove-'+feedbackToApprove).hide();
+        location.reload();
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
