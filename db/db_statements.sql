@@ -294,3 +294,19 @@ CREATE TABLE `system_map_markers` (
 	`marker_long` FLOAT(10,6) NOT NULL,
 	`marker_category` VARCHAR (70) NOT NULL
 ) ENGINE = InnoDB;
+
+CREATE TABLE `student_portal`.`user_feedback` (
+  `userid` INT(11) NOT NULL,
+  `moduleid` INT(11) NOT NULL,
+  `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+  `feedback_name` VARCHAR(300) NOT NULL,
+  `feedback_body` VARCHAR(5000) NOT NULL,
+  `feedback_status` VARCHAR(9) NOT NULL,
+  `isRead ` TINYINT(1) NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME,
+FOREIGN KEY (userid) REFERENCES user_signin(userid),
+FOREIGN KEY (moduleid) REFERENCES system_modules(moduleid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
