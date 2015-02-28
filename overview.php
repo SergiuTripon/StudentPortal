@@ -11,6 +11,7 @@ include 'includes/functions.php';
     global $events_count;
     global $messenger_count;
     global $feedback_count;
+    global $feedback_admin_count;
 
     GetDashboardData();
 
