@@ -330,10 +330,9 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
+    <th>Reserved by</th>
 	<th>Name</th>
 	<th>Author</th>
-	<th>Notes</th>
-	<th>Copy no.</th>
 	<th>Status</th>
 	<th>Action</th>
 	</tr>
@@ -342,26 +341,27 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'reserved'");
+	$stmt1 = $mysqli->query("SELECT reserved_books.bookid, reserved_books.userid, user_details.firstname, user_details.surname, system_books.book_name, system_books.book_author, system_books.book_status FROM reserved_books LEFT JOIN user_details ON reserved_books.userid=user_details.userid LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid WHERE system_books.book_status = 'reserved'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$bookid = $row["bookid"];
+    $userid = $row["userid"];
+    $firstname = $row["fistname"];
+    $surname = $row["surname"];
 	$book_name = $row["book_name"];
 	$book_author = $row["book_author"];
-	$book_notes = $row["book_notes"];
-	$book_copy_no = $row["book_copy_no"];
 	$book_status = $row["book_status"];
 	$book_status = ucfirst($book_status);
 
 	echo '<tr id="return-'.$bookid.'">
 
+            <td data-title="Reserved by">'.$firstname.' '.$surname.'</td>
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.$book_notes.'</td>
-			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Action"><a id=return-'.$bookid.' class="btn btn-primary btn-md return-button ladda-button" data-style="slide-up"><span class="ladda-label">Mark returned</span></a></td>
+			<td data-title="Action"><a id=return-'.$userid.' class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
+            <td data-title="Action"><a id=return-'.$bookid.' class="btn btn-primary btn-md return-button ladda-button" data-style="slide-up"><span class="ladda-label">Mark returned</span></a></td>
 			</tr>';
 	}
 
