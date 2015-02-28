@@ -16,7 +16,7 @@ if (isset($_GET["id"])) {
     $stmt2->bind_param('i', $moduleToFeedback);
     $stmt2->execute();
     $stmt2->store_result();
-    $stmt2->bind_result($lecturer_feedback_to_email, $lecturer_feedback_to_firstname, $lecturer_feedback_to_surname);
+    $stmt2->bind_result($lecturer_feedback_to_email, $lecturer_feedback_to_firstname, $lecturer_feedback_to_surname, $lecture_lecturer);
     $stmt2->fetch();
 
     $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, tutorial_assistant FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.moduleid=?");
@@ -76,6 +76,7 @@ if (isset($_GET["id"])) {
 
     <div id="hide">
     <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
+    <input type="hidden" name="feedback_lecturer" id="feedback_lecturer" value="<?php echo $lecture_lecturer; ?>">
 
     <h4 class="text-center">Module</h4>
     <hr class="hr-custom">
@@ -216,6 +217,7 @@ if (isset($_GET["id"])) {
     var hasError = false;
 
     var feedback_moduleid = $("#feedback_moduleid").val();
+    var feedback_lecturer = $("#feedback_lecturer").val();
 
     var feedback_from_firstname = $("#feedback_from_firstname").val();
     var feedback_from_surname = $("#feedback_from_surname").val();
@@ -264,7 +266,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&lecturer_feedback_to_email=' + lecturer_feedback_to_email + '&tutorial_assistant_feedback_to_email=' + tutorial_assistant_feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
+    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_lecturer=' + feedback_lecturer + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&lecturer_feedback_to_email=' + lecturer_feedback_to_email + '&tutorial_assistant_feedback_to_email=' + tutorial_assistant_feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();

@@ -308,13 +308,17 @@ CREATE TABLE `student_portal`.`user_feedback_lookup` (
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT,
   `feedback_from` INT(11) NOT NULL,
   `moduleid` INT(11) NOT NULL,
+  `lecturer` INT(11) NOT NULL,
   `isApproved` TINYINT(1) NOT NULL,
+  `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (feedbackid)
 REFERENCES user_feedback(feedbackid),
 FOREIGN KEY (feedback_from)
 REFERENCES user_signin(userid),
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
+REFERENCES system_modules(moduleid),
+FOREIGN KEY (lecturer)
+REFERENCES user_signin(userid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;

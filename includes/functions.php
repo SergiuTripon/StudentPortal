@@ -1760,6 +1760,7 @@ function SubmitFeedback() {
     global $created_on;
 
     $feedback_moduleid = filter_input(INPUT_POST, 'feedback_moduleid', FILTER_SANITIZE_STRING);
+    $feedback_lecturer = filter_input(INPUT_POST, 'feedback_lecturer', FILTER_SANITIZE_STRING);
     $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_from_firstname', FILTER_SANITIZE_STRING);
     $feedback_from_surname = filter_input(INPUT_POST, 'feedback_from_surname', FILTER_SANITIZE_STRING);
     $feedback_from_email = filter_input(INPUT_POST, 'feedback_from_email', FILTER_SANITIZE_EMAIL);
@@ -1777,8 +1778,8 @@ function SubmitFeedback() {
 
     $isRead = 0;
 
-    $stmt2 = $mysqli->prepare("INSERT INTO user_feedback_lookup (feedback_from, moduleid, isRead) VALUES (?, ?, ?)");
-    $stmt2->bind_param('iii', $session_userid, $feedback_moduleid, $isRead);
+    $stmt2 = $mysqli->prepare("INSERT INTO user_feedback_lookup (feedback_from, moduleid, lecturer, isRead) VALUES (?, ?, ?, ?)");
+    $stmt2->bind_param('iiii', $session_userid, $feedback_moduleid, $feedback_lecturer, $isRead);
     $stmt2->execute();
     $stmt2->close();
 
@@ -1808,7 +1809,7 @@ function SubmitFeedback() {
     $headers .= "From: $feedback_from_firstname $feedback_from_surname <$feedback_from_email>" . "\r\n";
     $headers .= "Reply-To: $feedback_from_firstname $feedback_from_surname <$feedback_from_email>" . "\r\n";
 
-    mail($lecturer_feedback_to_email, $tutorial_assistant_feedback_to_email, $subject, $message, $headers);
+    mail("$lecturer_feedback_to_email, $tutorial_assistant_feedback_to_email", $subject, $message, $headers);
 
 }
 
