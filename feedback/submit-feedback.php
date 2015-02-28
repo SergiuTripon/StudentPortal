@@ -9,7 +9,7 @@ if (isset($_GET["id"])) {
     $stmt1->bind_param('i', $moduleToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($lecture_feedback_to_email, $lecture_feedback_to_firstname, $lecture_feedback_to_surname);
+    $stmt1->bind_result($moduleid, $module_name);
     $stmt1->fetch();
 
     $stmt2 = $mysqli->prepare("SELECT system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.lectureid=?");
