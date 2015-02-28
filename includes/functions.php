@@ -952,7 +952,7 @@ function ReserveBook() {
 	mail($email, $subject, $message, $headers);
 }
 
-//ReturnBook function
+//RequestBook function
 function RequestBook() {
 
     global $mysqli;
