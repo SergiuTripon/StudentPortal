@@ -268,8 +268,8 @@ include 'includes/session.php';
 	<th>Notes</th>
 	<th>Copy no.</th>
 	<th>Status</th>
-	<th>Action</th>
-    <th>Action</th>
+	<th>Update</th>
+    <th>Cancel</th>
 	</tr>
 	</thead>
 
@@ -295,8 +295,8 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action">'.($book_status === 'Reserved' ? "" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
+			<td data-title="Update"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+			<td data-title="Cancel">'.($book_status === 'Reserved' ? "Cancel is not possible due to book being reserved" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
 			</tr>';
 	}
 
