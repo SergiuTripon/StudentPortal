@@ -390,29 +390,29 @@ include 'includes/session.php';
 	</thead>
 
 	<tbody>
-	<?php
+    <?php
 
-	$stmt3 = $mysqli->query("SELECT system_tutorials.tutorial_name, user_details.firstname, user_details.surname, system_tutorials.tutorial_day FROM system_tutorials LEFT JOIN system_modules ON system_tutorials.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_tutorials.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_tutorials.tutorial_status='active'");
+    $stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_tutorials.tutorial_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_tutorials ON user_feedback_lookup.moduleid=system_tutorials.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE isApproved = 0 AND system_lectures.tutorial_assistant='$session_userid'");
 
-	while($row = $stmt3->fetch_assoc()) {
+    while($row = $stmt1->fetch_assoc()) {
 
-    $tutorialid = $row["tutorialid"];
-	$tutorial_name = $row["tutorial_name"];
-	$firstname = $row["firstname"];
-    $surname = $row["surname"];
-	$tutorial_day = $row["tutorial_day"];
+        $firstname = $row["firstname"];
+        $surname = $row["surname"];
+        $tutorial_name = $row["tutorial_name"];
+        $feedback_subject = $row["feedback_body"];
+        $feedback_body = $row["feedback_body"];
 
-	echo '<tr>
+        echo '<tr>
 
-			<td data-title="Name">'.$tutorial_name.'</td>
-			<td data-title="Notes">'.$firstname.' '.$surname.'</td>
-			<td data-title="Notes">'.$tutorial_day.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-tutorial-feedback?id='.$tutorialid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
+			<td data-title="From">'.$firstname.' '.$surname.'</td>
+			<td data-title="Lecture name">'.$tutorial_name.'</td>
+			<td data-title="Subject">'.$feedback_subject.'</td>
+			<td data-title="Feedback">'.$feedback_body.'</td>
 			</tr>';
-	}
+    }
 
-	$stmt3->close();
-	?>
+    $stmt1->close();
+    ?>
 	</tbody>
 
 	</table>
