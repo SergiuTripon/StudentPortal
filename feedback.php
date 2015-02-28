@@ -39,22 +39,21 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Feedback</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Modules</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Lectures -->
+	<!-- Modules -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom feedback-table">
 
 	<thead>
 	<tr>
-	<th>From</th>
 	<th>Name</th>
-    <th>Subject</th>
-    <th>Feedback</th>
+	<th>Lecturer</th>
+    <th>Tutorial assistant</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -65,20 +64,17 @@ include 'includes/session.php';
 	$stmt1 = $mysqli->query("SELECT system_modules.moduleid, system_modules.module_name, system_lectures.lecture_lecturer, system_tutorials.tutorial_assistant FROM system_modules LEFT JOIN user_timetable ON system_modules.moduleid = user_timetable.moduleid LEFT JOIN system_lectures ON system_modules.moduleid = system_lectures.moduleid LEFT JOIN system_tutorials ON system_modules.moduleid = system_tutorials.moduleid WHERE user_timetable.userid = '$session_userid' AND system_modules.module_status = 'active'");
 	while($row = $stmt1->fetch_assoc()) {
 
-    $feedbackid = $row["feedbackid"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
-	$lecture_name = $row["lecture_name"];
+    $moduleid = $row["moduleid"];
+	$module_name = $row["module_name"];
 	$feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
 
-	echo '<tr id="approve-'.$feedbackid.'">
+	echo '<tr id="approve-'.$moduleid.'">
 
-			<td data-title="From">'.$firstname.' '.$surname.'</td>
-			<td data-title="Lecture name">'.$lecture_name.'</td>
-			<td data-title="Subject">'.$feedback_subject.'</td>
-			<td data-title="Feedback">'.$feedback_body.'</td>
-            <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
+			<td data-title="Name">'.$firstname.' '.$surname.'</td>
+			<td data-title="Lecturer">'.$module_name.'</td>
+			<td data-title="Tutorial assistant">'.$feedback_subject.'</td>
+            <td data-title="Action"><a id="approve-'.$moduleid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
 			</tr>';
 	}
 
