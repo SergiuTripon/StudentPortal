@@ -1306,6 +1306,12 @@ form .form-control:-ms-input-placeholder {
     border: 1px solid #5D5D5D;
 }
 
+tr:nth-child(even) {
+    background: #E3E3E3;
+}
+tr:nth-child(odd) {
+    background: #FFFFFF;
+}
 /* End of Table Custom style */
 
 /* No More Responsive Table */
