@@ -337,24 +337,22 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_lectures.lecture_name, user_feedback.feedbackid,user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE isApproved = 0 AND isRead = 0");
+	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_lectures.lecture_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE isApproved = 0 AND system_lectures.lecture_lecturer='$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
-    $feedbackid = $row["feedbackid"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 	$lecture_name = $row["lecture_name"];
-	$feedback_subject = $row["feedback_subject"];
+    $feedback_subject = $row["feedback_body"];
     $feedback_body = $row["feedback_body"];
 
-	echo '<tr id="cancel-'.$feedbackid.'">
+	echo '<tr>
 
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
 			<td data-title="Lecture name">'.$lecture_name.'</td>
 			<td data-title="Subject">'.$feedback_subject.'</td>
 			<td data-title="Feedback">'.$feedback_body.'</td>
-            <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
 			</tr>';
 	}
 
