@@ -242,16 +242,6 @@ include 'includes/session.php';
 
 	<div class="panel panel-default">
 
-	<?php
-	$stmt2 = $mysqli->query("SELECT eventid FROM system_events WHERE event_status = 'active'");
-	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="update-event-form-'.$row["eventid"].'" style="display: none;" action="/admin/update-event/" method="POST">
-			<input type="hidden" name="eventToUpdate" id="eventToUpdate" value="'.$row["eventid"].'"/>
-			</form>';
-	}
-	$stmt2->close();
-	?>
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active events</a>

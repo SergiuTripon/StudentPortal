@@ -60,10 +60,11 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, user_details.firstname, user_details.surname, system_lectures.lecture_day FROM system_lectures LEFT JOIN system_modules ON system_lectures.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_lectures.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_lectures.lecture_status='active'");
+	$stmt1 = $mysqli->query("SELECT system_lectures.lectureid, system_lectures.lecture_name, user_details.firstname, user_details.surname, system_lectures.lecture_day FROM system_lectures LEFT JOIN system_modules ON system_lectures.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_lectures.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_lectures.lecture_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
+    $lectureid = $row["lectureid"];
 	$lecture_name = $row["lecture_name"];
 	$firstname = $row["firstname"];
     $surname = $row["surname"];
@@ -117,6 +118,7 @@ include 'includes/session.php';
 
 	while($row = $stmt3->fetch_assoc()) {
 
+    $tutorialid = $row["tutorialid"];
 	$tutorial_name = $row["tutorial_name"];
 	$firstname = $row["firstname"];
     $surname = $row["surname"];
@@ -127,6 +129,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$tutorial_name.'</td>
 			<td data-title="Notes">'.$firstname.' '.$surname.'</td>
 			<td data-title="Notes">'.$tutorial_day.'</td>
+            <td data-title="Action"><a id="cancel-'.$tutorialid.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
 			</tr>';
 	}
 
