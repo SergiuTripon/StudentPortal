@@ -69,12 +69,12 @@ include 'includes/session.php';
 	$lecture_lecturer = $row["lecture_lecturer"];
     $tutorial_assistant = $row["tutorial_assistant"];
 
-	echo '<tr id="approve-'.$moduleid.'">
+	echo '<tr>
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Lecturer">'.$lecture_lecturer.'</td>
 			<td data-title="Tutorial assistant">'.$tutorial_assistant.'</td>
-            <td data-title="Action"><a id="approve-'.$moduleid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Submit feedback</span></a></a></td>
 			</tr>';
 	}
 
