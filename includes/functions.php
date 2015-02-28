@@ -1794,7 +1794,7 @@ function ApproveFeedback () {
 
     $isApproved = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback_lookup SET isApprove=? WHERE feedbackid=?");
+    $stmt1 = $mysqli->prepare("UPDATE user_feedback_lookup SET isApproved=? WHERE feedbackid=?");
     $stmt1->bind_param('ii', $isApproved, $feedbackToApprove);
     $stmt1->execute();
     $stmt1->close();
