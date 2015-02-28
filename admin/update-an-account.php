@@ -416,20 +416,18 @@ if ($dateofbirth == "0000-00-00") {
 			$("#error4").hide();
 			$("#studentno").css("border-color", "#4DC742");
 		}
+        if(degree === '') {
+			$("#error4").show();
+			$("#error4").empty().append("Please enter a programme of study.");
+			$("#degree").addClass("error-style");
+			hasError  = true;
+			return false;
+		} else {
+			$("#error4").hide();
+			$("#degree").addClass("success-style");
+		}
 	} else {
 		studentno = $("#studentno").val();
-	}
-
-	var degree = $("#degree").val();
-	if(degree === '') {
-		$("#error4").show();
-        $("#error4").empty().append("Please enter a programme of study.");
-		$("#degree").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error4").hide();
-		$("#degree").css("border-color", "#4DC742");
 	}
 
 	var nationality = $("#nationality").val();
