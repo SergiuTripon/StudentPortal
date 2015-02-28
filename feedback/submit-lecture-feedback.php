@@ -16,7 +16,7 @@ if (isset($_GET["id"])) {
     $stmt2->bind_param('i', $session_userid);
     $stmt2->execute();
     $stmt2->store_result();
-    $stmt2->bind_result($userid, $feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
+    $stmt2->bind_result($feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
     $stmt2->fetch();
 
 }
@@ -61,8 +61,8 @@ if (isset($_GET["id"])) {
     <p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="feedback_userid" id="feedback_userid" value="<?php echo $userid; ?>">
     <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
+    <input type="hidden" name="feedback_to_userid" id="feedback_to_userid" value="<?php echo $moduleid; ?>">
 
     <h4 class="text-center">Lecture</h4>
     <hr class="hr-custom">
@@ -184,8 +184,11 @@ if (isset($_GET["id"])) {
 
     var hasError = false;
 
-    var feedback_userid = $("#feedback_userid").val();
     var feedback_moduleid = $("#feedback_moduleid").val();
+    var feedback_to_firstname = $("#feedback_to_firstname").val();
+    var feedback_to_surname = $("#feedback_to_surname").val();
+    var feedback_to_email = $("#feedback_to_email").val();
+
     var feedback_subject = $("#feedback_subject").val();
 
     var feedback_body = $("#feedback_body").val();
@@ -226,7 +229,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_userid=' + feedback_userid + '&feedback_moduleid=' + feedback_moduleid + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
+    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_to_firstname=' + feedback_to_firstname + '&feedback_to_surname=' + feedback_to_surname + '&feedback_to_email=' + feedback_to_email + '&feedback_moduleid=' + feedback_moduleid + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();

@@ -1726,46 +1726,46 @@ function ImportLocations () {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Messenger functions
-//MessageUser function
+//Feedback functions
+//SubmitFeedback function
 function SubmitFeedback() {
 
     global $mysqli;
     global $session_userid;
     global $created_on;
 
-    $message_to_userid = filter_input(INPUT_POST, 'message_to_userid', FILTER_SANITIZE_STRING);
-    $message_to_firstname = filter_input(INPUT_POST, 'message_to_firstname', FILTER_SANITIZE_STRING);
-    $message_to_surname = filter_input(INPUT_POST, 'message_to_surname', FILTER_SANITIZE_STRING);
-    $message_to_email = filter_input(INPUT_POST, 'message_to_email', FILTER_SANITIZE_EMAIL);
-    $message_to_email = filter_var($message_to_email, FILTER_VALIDATE_EMAIL);
-    $message_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
-    $message_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
+    $feedback_moduleid = filter_input(INPUT_POST, 'feedback_moduleid', FILTER_SANITIZE_STRING);
+    $feedback_to_firstname = filter_input(INPUT_POST, 'feedback_to_firstname', FILTER_SANITIZE_STRING);
+    $feedback_to_surname = filter_input(INPUT_POST, 'feedback_to_surname', FILTER_SANITIZE_STRING);
+    $feedback_to_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
+    $feedback_to_email = filter_var($feedback_to_email, FILTER_VALIDATE_EMAIL);
+    $feedback_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
+    $feedback_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("INSERT INTO user_messages (message_subject, message_body, created_on) VALUES (?, ?, ?)");
-    $stmt1->bind_param('sss', $message_subject, $message_body, $created_on);
+    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (feedback_subject, feedback_body, created_on) VALUES (?, ?, ?)");
+    $stmt1->bind_param('sss', $feedback_subject, $feedback_body, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
     $isRead = 0;
 
     $stmt2 = $mysqli->prepare("INSERT INTO user_messages_lookup (message_from, message_to, isRead) VALUES (?, ?, ?)");
-    $stmt2->bind_param('iii', $session_userid, $message_to_userid, $isRead);
+    $stmt2->bind_param('iii', $session_userid, $feedback_moduleid, $isRead);
     $stmt2->execute();
     $stmt2->close();
 
     //Creating email
-    $subject = "$message_to_firstname $message_to_surname - New message on Student Portal";
+    $subject = "$feedback_to_firstname $feedback_to_surname - New message on Student Portal";
 
     $message = '<html>';
     $message .= '<body>';
     $message .= '<p>The following person sent you a message:</p>';
     $message .= '<table rules="all" align="left" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$message_to_firstname</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $message_to_surname</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $message_to_email</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $message_subject</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $message_body</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$feedback_to_firstname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_to_surname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_to_email</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_subject</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_body</td></tr>";
     $message .= '</table><br>';
     $message .= '<a href="https://student-portal.co.uk/messenger">View message on Student Portal</a><br>';
     $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
@@ -1777,10 +1777,10 @@ function SubmitFeedback() {
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-    $headers .= "From: $message_to_firstname $message_to_surname <$message_to_email>" . "\r\n";
-    $headers .= "Reply-To: $message_to_firstname $message_to_surname <$message_to_email>" . "\r\n";
+    $headers .= "From: $feedback_to_firstname $feedback_to_surname <$feedback_to_email>" . "\r\n";
+    $headers .= "Reply-To: $feedback_to_firstname $feedback_to_surname <$feedback_to_email>" . "\r\n";
 
-    mail($message_to_email, $subject, $message, $headers);
+    mail($feedback_to_email, $subject, $message, $headers);
 
 }
 
