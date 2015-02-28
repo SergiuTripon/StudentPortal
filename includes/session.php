@@ -7,6 +7,8 @@ if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
 
 include 'db_connection.php';
 
+global $mysqli;
+
 if (session_status() == PHP_SESSION_NONE) {
 	session_cache_limiter('none');
     session_start();
