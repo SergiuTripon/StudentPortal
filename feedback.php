@@ -183,7 +183,7 @@ include 'includes/session.php';
 
 	<!-- Feedback -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom feedback-table">
 
 	<thead>
 	<tr>
@@ -299,6 +299,16 @@ include 'includes/session.php';
 			"emptyTable": "There are no tutorials to display."
 		}
 	});
+
+    $('.feedback-table').dataTable({
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There is no feedback to display."
+        }
+    });
 
     $("body").on("click", ".assign-button", function(e) {
     e.preventDefault();
