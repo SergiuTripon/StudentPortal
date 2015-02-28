@@ -187,7 +187,6 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
 	<th>Lecturer</th>
 	<th>Day</th>
     <th>Action</th>
@@ -197,21 +196,22 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_lectures.lectureid, system_lectures.lecture_name, user_details.firstname, user_details.surname, system_lectures.lecture_day FROM system_lectures LEFT JOIN system_modules ON system_lectures.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_lectures.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_lectures.lecture_status='active'");
+	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_lectures.lecture_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE isApproved = 0 AND isRead = 0");
 
 	while($row = $stmt1->fetch_assoc()) {
 
-    $lectureid = $row["lectureid"];
-	$lecture_name = $row["lecture_name"];
-	$firstname = $row["firstname"];
+    $firstname = $row["firstname"];
     $surname = $row["surname"];
-	$lecture_day = $row["lecture_day"];
+	$lecture_name = $row["lecture_name"];
+	$feedback_subject = $row["feedback_subject"];
+    $feedback_body = $row["feedback_body"];
 
 	echo '<tr>
 
-			<td data-title="Name">'.$lecture_name.'</td>
-			<td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
-			<td data-title="From">'.$lecture_day.'</td>
+			<td data-title="From">'.$firstname.' '.$surname.'</td>
+			<td data-title="Lecture name">'.$lecture_name.'</td>
+			<td data-title="Subject">'.$feedback_subject.'</td>
+			<td data-title="Feedback">'.$feedback_body.'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-lecture-feedback?id='.$lectureid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
 			</tr>';
 	}
