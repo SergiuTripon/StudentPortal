@@ -446,16 +446,16 @@ function GetDashboardData() {
     $stmt8 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid WHERE lecture_lecturer=? AND isRead=?");
     $stmt8->bind_param('ii', $session_userid, $isRead);
     $stmt8->execute();
-    $stmt7->store_result();
-    $stmt7->bind_result($message_from);
-    $stmt7->fetch();
+    $stmt8->store_result();
+    $stmt8->bind_result($message_from);
+    $stmt8->fetch();
 
     $stmt9 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid WHERE lecture_lecturer=? AND isRead=?");
     $stmt9->bind_param('ii', $session_userid, $isRead);
     $stmt9->execute();
-    $stmt7->store_result();
-    $stmt7->bind_result($message_from);
-    $stmt7->fetch();
+    $stmt9->store_result();
+    $stmt9->bind_result($message_from);
+    $stmt9->fetch();
 
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
