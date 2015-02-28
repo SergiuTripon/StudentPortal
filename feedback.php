@@ -76,7 +76,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$lecture_name.'</td>
 			<td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
 			<td data-title="From">'.$lecture_day.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?id='.$lectureid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?lectureid='.$lectureid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
 			</tr>';
 	}
 
@@ -132,7 +132,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$tutorial_name.'</td>
 			<td data-title="Notes">'.$firstname.' '.$surname.'</td>
 			<td data-title="Notes">'.$tutorial_day.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?id='.$tutorialid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?tutorialid='.$tutorialid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
 			</tr>';
 	}
 
