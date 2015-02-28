@@ -374,7 +374,6 @@ include 'includes/session.php';
 		$('#aprove-'+feedbackToApprove).hide();
         location.reload();
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
