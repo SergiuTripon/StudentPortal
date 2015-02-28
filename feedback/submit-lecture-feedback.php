@@ -228,7 +228,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_to_firstname=' + feedback_to_firstname + '&feedback_to_surname=' + feedback_to_surname + '&feedback_to_email=' + feedback_to_email + '&feedback_moduleid=' + feedback_moduleid + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
+    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_to_firstname=' + feedback_to_firstname + '&feedback_to_surname=' + feedback_to_surname + '&feedback_to_email=' + feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
