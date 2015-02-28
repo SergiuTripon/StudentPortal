@@ -1735,8 +1735,9 @@ function SubmitFeedback() {
     global $created_on;
 
     $feedback_moduleid = filter_input(INPUT_POST, 'feedback_moduleid', FILTER_SANITIZE_STRING);
-    $feedback_to_firstname = filter_input(INPUT_POST, 'feedback_to_firstname', FILTER_SANITIZE_STRING);
-    $feedback_to_surname = filter_input(INPUT_POST, 'feedback_to_surname', FILTER_SANITIZE_STRING);
+    $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_to_firstname', FILTER_SANITIZE_STRING);
+    $feedback_from_surname = filter_input(INPUT_POST, 'feedback_to_surname', FILTER_SANITIZE_STRING);
+    $feedback_from_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
     $feedback_to_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
     $feedback_to_email = filter_var($feedback_to_email, FILTER_VALIDATE_EMAIL);
     $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
@@ -1755,15 +1756,15 @@ function SubmitFeedback() {
     $stmt2->close();
 
     //Creating email
-    $subject = "$feedback_to_firstname $feedback_to_surname - New message on Student Portal";
+    $subject = "$feedback_from_firstname $feedback_from_surname - New message on Student Portal";
 
     $message = '<html>';
     $message .= '<body>';
     $message .= '<p>The following person sent you a message:</p>';
     $message .= '<table rules="all" align="center" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$feedback_to_firstname</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_to_surname</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_to_email</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$feedback_from_firstname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_from_surname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_from_email</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_subject</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_body</td></tr>";
     $message .= '</table><br>';
@@ -1777,8 +1778,8 @@ function SubmitFeedback() {
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-    $headers .= "From: $feedback_to_firstname $feedback_to_surname <$feedback_to_email>" . "\r\n";
-    $headers .= "Reply-To: $feedback_to_firstname $feedback_to_surname <$feedback_to_email>" . "\r\n";
+    $headers .= "From: $feedback_from_firstname $feedback_from_surname <$feedback_from_email>" . "\r\n";
+    $headers .= "Reply-To: $feedback_from_firstname $feedback_from_firstname <$feedback_from_email>" . "\r\n";
 
     mail($feedback_to_email, $subject, $message, $headers);
 

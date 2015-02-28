@@ -184,6 +184,11 @@ if (isset($_GET["id"])) {
     var hasError = false;
 
     var feedback_moduleid = $("#feedback_moduleid").val();
+
+    var feedback_from_firstname = $("#feedback_from_firstname").val();
+    var feedback_from_surname = $("#feedback_from_surname").val();
+    var feedback_from_email = $("#feedback_from_email").val();
+
     var feedback_to_firstname = $("#feedback_to_firstname").val();
     var feedback_to_surname = $("#feedback_to_surname").val();
     var feedback_to_email = $("#feedback_to_email").val();
@@ -228,7 +233,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_to_firstname=' + feedback_to_firstname + '&feedback_to_surname=' + feedback_to_surname + '&feedback_to_email=' + feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
+    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&feedback_to_email=' + feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
