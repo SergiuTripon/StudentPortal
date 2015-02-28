@@ -215,7 +215,7 @@ if (isset($_GET["id"])) {
 
     var hasError = false;
 
-    var lecture_feedback_moduleid = $("#lecture_feedback_moduleid").val();
+    var feedback_moduleid = $("#feedback_moduleid").val();
 
     var feedback_from_firstname = $("#lecture_feedback_from_firstname").val();
     var feedback_from_surname = $("#lecture_feedback_from_surname").val();
