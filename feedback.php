@@ -62,8 +62,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_lectures.lecture_name, user_feedback.feedbackid,user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE isApproved = 0 AND isRead = 0");
-
+	$stmt1 = $mysqli->query("SELECT system_modules.moduleid, system_modules.module_name, system_lectures.lecture_lecturer, system_tutorials.tutorial_assistant FROM system_modules LEFT JOIN user_timetable ON system_modules.moduleid = user_timetable.moduleid LEFT JOIN system_lectures ON system_modules.moduleid = system_lectures.moduleid LEFT JOIN system_tutorials ON system_modules.moduleid = system_tutorials.moduleid WHERE user_timetable.userid = '$session_userid' AND system_modules.module_status = 'active'");
 	while($row = $stmt1->fetch_assoc()) {
 
     $feedbackid = $row["feedbackid"];
