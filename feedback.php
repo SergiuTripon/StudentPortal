@@ -187,9 +187,10 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Lecturer</th>
-	<th>Day</th>
-    <th>Action</th>
+	<th>From</th>
+	<th>Name</th>
+    <th>Subject</th>
+    <th>Feedback</th>
 	</tr>
 	</thead>
 
