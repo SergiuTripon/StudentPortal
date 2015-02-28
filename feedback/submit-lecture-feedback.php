@@ -86,15 +86,15 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="message_to_firstname" id="message_to_firstname" value="<?php echo $feedback_to_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_to_firstname" id="feedback_to_firstname" value="<?php echo $feedback_to_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="message_to_surname" id="message_to_surname" value="<?php echo $feedback_to_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_to_surname" id="feedback_to_surname" value="<?php echo $feedback_to_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="message_to_email" id="message_to_email" value="<?php echo $feedback_to_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="feedback_to_email" id="feedback_to_email" value="<?php echo $feedback_to_email; ?>" readonly="readonly">
 	</div>
     </div>
 
