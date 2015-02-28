@@ -169,7 +169,7 @@ include 'includes/session.php';
 			<td data-title="Booken on">'.$reserved_on.'</td>
 			<td data-title="Return on">'.$toreturn_on.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="isReturned">'.($isReturned === '0' ? "Nos" : "Yes").'</td>
+			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
 			</tr>';
 	}
 
@@ -296,7 +296,9 @@ include 'includes/session.php';
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action"><a id=cancel-'.$bookid.' class="btn btn-primary btn-md cancel-button ladda-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
+			<td data-title="Action">'.($book_status === 'reserved' ? "" : "<a id=cancel-'.$bookid.' class=\"btn btn-primary btn-md cancel-button ladda-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Cancel</span></a>").'</td>
+
+
 			</tr>';
 	}
 
