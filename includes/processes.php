@@ -7,5 +7,6 @@ include 'functions.php';
 if (isset($_POST["feedbackToApprove"])) {
     ApproveFeedback();
 } else {
-    header("/");
+    header('HTTP/1.0 550 An event with the name entered already exists.');
+    exit();
 }
