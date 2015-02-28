@@ -1287,11 +1287,11 @@ form .form-control:-ms-input-placeholder {
 /* Table Custom style */
 .table-custom > thead {
     border-top: 1px solid #5D5D5D;
-    background-color: #E3E3E3 !important;
 }
 
 .table-custom > thead > tr > th {
     font-weight: 600;
+    background-color: #E3E3E3 !important;
 }
 
 .table-custom > thead > tr > th,
