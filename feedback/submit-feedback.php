@@ -64,11 +64,11 @@ if (isset($_GET["id"])) {
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../feedback/">Feedback</a></li>
-    <li class="active">Submit lecture feedback</li>
+    <li class="active">Submit feedback</li>
     </ol>
 
 	<!-- Message user -->
-    <form class="form-custom" style="max-width: 100%;" method="post" name="submitlecturefeedaback_form" id="submitlecturefeedaback_form" novalidate>
+    <form class="form-custom" style="max-width: 100%;" method="post" name="submitfeedaback_form" id="submitfeedaback_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
     <p id="error1" class="feedback-sad text-center"></p>
