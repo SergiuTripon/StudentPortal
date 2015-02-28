@@ -3,14 +3,22 @@ include '../includes/session.php';
 
 if (isset($_GET["id"])) {
 
-    $tutorialToFeedback = $_GET["id"];
+    $lectureToFeedback = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT lecture_name FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-    $stmt1->bind_param('i', $tutorialToFeedback);
+    $stmt1 = $mysqli->prepare("SELECT system_lectures.moduleid, system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.lectureid=?");
+    $stmt1->bind_param('i', $lectureToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($message_to_userid, $message_to_email, $message_to_firstname, $message_to_surname);
+    $stmt1->bind_result($moduleid, $lecture_name, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
     $stmt1->fetch();
+
+    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $session_userid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
+    $stmt2->fetch();
+
 }
 
 ?>
@@ -41,75 +49,84 @@ if (isset($_GET["id"])) {
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../messenger/">Messenger</a></li>
-    <li class="active">Message a user</li>
+	<li><a href="../../feedback/">Feedback</a></li>
+    <li class="active">Submit lecture feedback</li>
     </ol>
 
 	<!-- Message user -->
-    <form class="form-custom" style="max-width: 100%;" method="post" name="messageuser_form" id="messageuser_form" novalidate>
+    <form class="form-custom" style="max-width: 100%;" method="post" name="submitlecturefeedaback_form" id="submitlecturefeedaback_form" novalidate>
 
-    <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
+    <p id="error1" class="feedback-sad text-center"></p>
+    <p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="message_to_userid" id="message_to_userid" value="<?php echo $message_to_userid; ?>">
+    <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
 
-    <h4 class="text-center">From</h4>
+    <h4 class="text-center">Lecture</h4>
+    <hr class="hr-custom">
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Name</label>
+    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="<?php echo $lecture_name; ?>" readonly="readonly">
+	</div>
+    </div>
+
+    <h4 class="text-center">Student</h4>
     <hr class="hr-custom">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="message_from_firstname" id="message_from_firstname" value="<?php echo $message_from_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="message_from_surname" id="message_from_surname" value="<?php echo $message_from_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="message_from_email" id="message_from_email" value="<?php echo $message_from_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
 	</div>
     </div>
 
-    <h4 class="text-center">To</h4>
+    <h4 class="text-center">Lecturer</h4>
     <hr class="hr-custom">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="message_to_firstname" id="message_to_firstname" value="<?php echo $message_to_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_to_firstname" id="feedback_to_firstname" value="<?php echo $feedback_to_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="message_to_surname" id="message_to_surname" value="<?php echo $message_to_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_to_surname" id="feedback_to_surname" value="<?php echo $feedback_to_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="message_to_email" id="message_to_email" value="<?php echo $message_to_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="feedback_to_email" id="feedback_to_email" value="<?php echo $feedback_to_email; ?>" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="message_subject" id="message_subject">
+    <input class="form-control" type="text" name="feedback_subject" id="feedback_subject" value="<?php echo $lecture_name; ?> - Lecture - Feedback" readonly="readonly">
 	</div>
     </div>
-    <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Message</label>
-    <textarea class="form-control" rows="5" name="message_body" id="message_body"></textarea>
+    <label for="feedback_body">Feedback<span class="field-required">*</span></label>
+    <textarea class="form-control" rows="5" name="feedback_body" id="feedback_body"></textarea>
     </div>
     </div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Message user</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Submit feedback</span></button>
 	</div>
 
     </div>
@@ -166,64 +183,61 @@ if (isset($_GET["id"])) {
 
     var hasError = false;
 
-    var message_subject = $("#message_subject").val();
-	if(message_subject === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a subject.");
-		$("#subject").addClass("error-style");
+    var feedback_moduleid = $("#feedback_moduleid").val();
+
+    var feedback_from_firstname = $("#feedback_from_firstname").val();
+    var feedback_from_surname = $("#feedback_from_surname").val();
+    var feedback_from_email = $("#feedback_from_email").val();
+
+    var feedback_to_firstname = $("#feedback_to_firstname").val();
+    var feedback_to_surname = $("#feedback_to_surname").val();
+    var feedback_to_email = $("#feedback_to_email").val();
+
+    var feedback_subject = $("#feedback_subject").val();
+
+    var feedback_body = $("#feedback_body").val();
+	if(feedback_body === '') {
+        $("label[for='feedback_body']").empty().append("Please enter feedback.");
+        $("label[for='feedback_body']").removeClass("feedback-happy");
+        $("label[for='feedback_body']").addClass("feedback-sad");
+        $("#feedback_body").removeClass("input-happy");
+        $("#feedback_body").addClass("input-sad");
+        $("#feedback_body").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
-		$("#subject").addClass("success-style");
+        $("label[for='feedback_body']").empty().append("All good!");
+        $("label[for='feedback_body']").removeClass("feedback-sad");
+        $("label[for='feedback_body']").addClass("feedback-happy");
+        $("#feedback_body").removeClass("input-sad");
+        $("#feedback_body").addClass("input-happy");
 	}
-    if (message_subject.length > 300) {
+    if (feedback_body.length > 5000) {
         $("#error1").show();
-        $("#error1").empty().append("The subject entered is too long.<br>The maximum length of the subject is 300 characters.");
-        $("#subject").addClass("error-style");
+        $("#error1").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
+        $("#feedback_body").removeClass("input-happy");
+        $("#feedback_body").addClass("input-sad");
+        $("#feedback_body").focus();
         hasError  = true;
         return false;
     } else {
         $("#error1").hide();
-        $("#subject").addClass("success-style");
+        $("label[for='feedback_body']").empty().append("All good!");
+        $("label[for='feedback_body']").removeClass("feedback-sad");
+        $("label[for='feedback_body']").addClass("feedback-happy");
+        $("#feedback_body").removeClass("input-sad");
+        $("#feedback_body").addClass("input-happy");
     }
-
-    var message_body = $("#message_body").val();
-	if(message_body === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a message.");
-		$("#message").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error2").hide();
-		$("#message").addClass("success-style");
-	}
-    if (message_body.length > 5000) {
-        $("#error2").show();
-        $("#error2").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
-        $("#message").addClass("error-style");
-        hasError  = true;
-        return false;
-    } else {
-        $("#error2").hide();
-        $("#message").addClass("success-style");
-    }
-
-    var message_to_userid = $("#message_to_userid").val();
-    var message_to_firstname = $("#message_to_firstname").val();
-    var message_to_surname = $("#message_to_surname").val();
-    var message_to_email = $("#message_to_email").val();
 
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'message_to_userid=' + message_to_userid + '&message_to_firstname=' + message_to_firstname + '&message_to_surname=' + message_to_surname + '&message_to_email=' + message_to_email + '&message_subject=' + message_subject + '&message_body=' + message_body,
+    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&feedback_to_email=' + feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('Message sent successfully.');
+        $("#success").empty().append('Feedback submitted successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();

@@ -1763,13 +1763,13 @@ function SubmitFeedback() {
     $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_from_firstname', FILTER_SANITIZE_STRING);
     $feedback_from_surname = filter_input(INPUT_POST, 'feedback_from_surname', FILTER_SANITIZE_STRING);
     $feedback_from_email = filter_input(INPUT_POST, 'feedback_from_email', FILTER_SANITIZE_EMAIL);
-    $feedback_to_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
-    $feedback_to_email = filter_var($feedback_to_email, FILTER_VALIDATE_EMAIL);
-    $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
-    $feedback_body = filter_input(INPUT_POST, 'feedback_body', FILTER_SANITIZE_STRING);
+    $lecture_feedback_to_email = filter_input(INPUT_POST, 'lecture_feedback_to_email', FILTER_SANITIZE_EMAIL);
+    $lecture_feedback_to_email = filter_var($lecture_feedback_to_email, FILTER_VALIDATE_EMAIL);
+    $lecture_feedback_subject = filter_input(INPUT_POST, 'lecture_feedback_subject', FILTER_SANITIZE_STRING);
+    $lecture_feedback_body = filter_input(INPUT_POST, 'lecture_feedback_body', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (feedback_subject, feedback_body, created_on) VALUES (?, ?, ?)");
-    $stmt1->bind_param('sss', $feedback_subject, $feedback_body, $created_on);
+    $stmt1->bind_param('sss', $lecture_feedback_subject, $lecture_feedback_body, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
@@ -1806,7 +1806,7 @@ function SubmitFeedback() {
     $headers .= "From: $feedback_from_firstname $feedback_from_surname <$feedback_from_email>" . "\r\n";
     $headers .= "Reply-To: $feedback_from_firstname $feedback_from_firstname <$feedback_from_email>" . "\r\n";
 
-    mail($feedback_to_email, $subject, $message, $headers);
+    mail($lecture_feedback_to_email, $subject, $message, $headers);
 
 }
 

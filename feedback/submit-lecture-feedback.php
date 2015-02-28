@@ -9,7 +9,7 @@ if (isset($_GET["id"])) {
     $stmt1->bind_param('i', $lectureToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($moduleid, $lecture_name, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
+    $stmt1->bind_result($moduleid, $lecture_name, $lecture_feedback_to_email, $lecture_feedback_to_firstname, $lecture_feedback_to_surname);
     $stmt1->fetch();
 
     $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
@@ -97,15 +97,15 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="feedback_to_firstname" id="feedback_to_firstname" value="<?php echo $feedback_to_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="lecture_feedback_to_firstname" id="lecture_feedback_to_firstname" value="<?php echo $lecture_feedback_to_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="feedback_to_surname" id="feedback_to_surname" value="<?php echo $feedback_to_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="lecture_feedback_to_surname" id="lecture_feedback_to_surname" value="<?php echo $lecture_feedback_to_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="feedback_to_email" id="feedback_to_email" value="<?php echo $feedback_to_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="lecture_feedback_to_email" id="lecture_feedback_to_email" value="<?php echo $lecture_feedback_to_email; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -189,14 +189,14 @@ if (isset($_GET["id"])) {
     var feedback_from_surname = $("#feedback_from_surname").val();
     var feedback_from_email = $("#feedback_from_email").val();
 
-    var feedback_to_firstname = $("#feedback_to_firstname").val();
-    var feedback_to_surname = $("#feedback_to_surname").val();
-    var feedback_to_email = $("#feedback_to_email").val();
+    var lecture_feedback_to_firstname = $("#lecture_feedback_to_firstname").val();
+    var lecture_feedback_to_surname = $("#lecture_feedback_to_surname").val();
+    var lecture_feedback_to_email = $("#lecture_feedback_to_email").val();
 
-    var feedback_subject = $("#feedback_subject").val();
+    var lecture_feedback_subject = $("#lecture_feedback_subject").val();
 
-    var feedback_body = $("#feedback_body").val();
-	if(feedback_body === '') {
+    var lecture_feedback_body = $("#lecture_feedback_body").val();
+	if(lecture_feedback_body === '') {
         $("label[for='feedback_body']").empty().append("Please enter feedback.");
         $("label[for='feedback_body']").removeClass("feedback-happy");
         $("label[for='feedback_body']").addClass("feedback-sad");
@@ -212,7 +212,7 @@ if (isset($_GET["id"])) {
         $("#feedback_body").removeClass("input-sad");
         $("#feedback_body").addClass("input-happy");
 	}
-    if (feedback_body.length > 5000) {
+    if (lecture_feedback_body.length > 5000) {
         $("#error1").show();
         $("#error1").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
         $("#feedback_body").removeClass("input-happy");
@@ -233,7 +233,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&feedback_to_email=' + feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
+    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&lecture_feedback_to_email=' + lecture_feedback_to_email + '&lecture_feedback_subject=' + lecture_feedback_subject + '&lecture_feedback_body=' + lecture_feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
