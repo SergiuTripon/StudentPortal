@@ -209,13 +209,13 @@ include 'includes/session.php';
 	$feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
 
-	echo '<tr id="approve-'.$feedbackid.'">
+	echo '<tr id="cancel-'.$feedbackid.'">
 
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
 			<td data-title="Lecture name">'.$lecture_name.'</td>
 			<td data-title="Subject">'.$feedback_subject.'</td>
 			<td data-title="Feedback">'.$feedback_body.'</td>
-            <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md approve-button ladda-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></td>
+            <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
 			</tr>';
 	}
 
@@ -369,16 +369,14 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'feedbackToApprove='+ feedbackToApprove,
 	success:function(){
-		$('#aprove-'+feedbackToApprove).hide();
+		$('#approve-'+feedbackToApprove).hide();
         location.reload();
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 	</script>
 
