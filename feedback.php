@@ -147,14 +147,14 @@ include 'includes/session.php';
     $feedbackid = $row["feedbackid"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
-	$lecture_name = $row["lecture_name"];
+	$module_name = $row["module_name"];
 	$feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
 
 	echo '<tr id="approve-'.$feedbackid.'">
 
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
-			<td data-title="Lecture name">'.$lecture_name.'</td>
+			<td data-title="Lecture name">'.$module_name.'</td>
 			<td data-title="Subject">'.$feedback_subject.'</td>
 			<td data-title="Feedback">'.$feedback_body.'</td>
             <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
