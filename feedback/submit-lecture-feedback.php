@@ -63,6 +63,16 @@ if (isset($_GET["id"])) {
     <div id="hide">
     <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureToFeedback; ?>">
 
+    <h4 class="text-center">Lecture</h4>
+    <hr class="hr-custom">
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Name</label>
+    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="<?php echo $lecture_name; ?>" readonly="readonly">
+	</div>
+    </div>
+
     <h4 class="text-center">From</h4>
     <hr class="hr-custom">
 
