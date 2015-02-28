@@ -382,22 +382,28 @@ function GetDashboardData() {
 	global $events_count;
 	global $messenger_count;
 
-	$stmt1 = $mysqli->prepare("SELECT system_lectures.lectureid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid = ?");
-	$stmt1->bind_param('i', $session_userid);
+    $lecture_status = 'active';
+
+	$stmt1 = $mysqli->prepare("SELECT system_lectures.lectureid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid=? AND lecture_status=?");
+	$stmt1->bind_param('is', $session_userid, $lecture_status);
 	$stmt1->execute();
 	$stmt1->store_result();
 	$stmt1->bind_result($lectureid);
 	$stmt1->fetch();
 
-	$stmt2 = $mysqli->prepare("SELECT system_tutorials.tutorialid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid = ?");
-	$stmt2->bind_param('i', $session_userid);
+    $tutorial_status = 'active';
+
+	$stmt2 = $mysqli->prepare("SELECT system_tutorials.tutorialid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid=? AND tutorial_status=?");
+	$stmt2->bind_param('is', $session_userid, $tutorial_status);
 	$stmt2->execute();
 	$stmt2->store_result();
 	$stmt2->bind_result($tutorialid);
 	$stmt2->fetch();
 
-	$stmt3 = $mysqli->prepare("SELECT system_exams.examid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = ?");
-	$stmt3->bind_param('i', $session_userid);
+    $exam_status = 'active';
+
+	$stmt3 = $mysqli->prepare("SELECT system_exams.examid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid=? AND exam_status=?");
+	$stmt3->bind_param('is', $session_userid, $exam_status);
 	$stmt3->execute();
 	$stmt3->store_result();
 	$stmt3->bind_result($examid);
