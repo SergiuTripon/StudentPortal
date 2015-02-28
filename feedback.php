@@ -330,7 +330,6 @@ include 'includes/session.php';
 	<th>Name</th>
     <th>Subject</th>
     <th>Feedback</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
