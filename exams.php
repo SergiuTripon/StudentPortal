@@ -60,7 +60,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_exams.exam_name, DATE_FORMAT(system_exams.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(system_exams.exam_time,'%H:%i') as exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT system_exams.exam_name, DATE_FORMAT(system_exams.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(system_exams.exam_time,'%H:%i') as exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = '$session_userid' AND system_exams.exam_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
