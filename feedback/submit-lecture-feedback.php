@@ -49,8 +49,8 @@ if (isset($_GET["id"])) {
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../messenger/">Messenger</a></li>
-    <li class="active">Message a user</li>
+	<li><a href="../../messenger/">Feedback</a></li>
+    <li class="active">Lecture feedback</li>
     </ol>
 
 	<!-- Message user -->
@@ -101,7 +101,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="message_subject" id="message_subject" value="<?php echo $lecture_name; ?> - Feedback" readonly="readonly">
+    <input class="form-control" type="text" name="message_subject" id="message_subject" value="<?php echo $lecture_name; ?> - Lecture - Feedback" readonly="readonly">
 	</div>
     </div>
     <p id="error1" class="feedback-sad text-center"></p>
