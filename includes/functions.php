@@ -420,11 +420,6 @@ function GetDashboardData() {
 	$stmt7->bind_param('ii', $session_userid, $isRead);
 	$stmt7->execute();
 
-    $isRead = '0';
-    $stmt8 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup WHERE message_to=? AND isRead=?");
-    $stmt8->bind_param('ii', $session_userid, $isRead);
-    $stmt8->execute();
-
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
 	$timetable_count = $lectures_count + $tutorials_count;
