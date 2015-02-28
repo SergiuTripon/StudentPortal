@@ -1374,7 +1374,8 @@ form .form-control:-ms-input-placeholder {
 }
 
 /* Label the data */
-#no-more-tables td:before { content: attr(data-title); }
+#no-more-tables td:before {
+    content: attr(data-title);
 }
 
 .table-custom {
@@ -1383,6 +1384,7 @@ form .form-control:-ms-input-placeholder {
 
 .table-custom tr {
     border: none !important;
+}
 }
 /* End of No More Responsive Table*/
 
