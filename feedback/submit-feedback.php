@@ -19,11 +19,11 @@ if (isset($_GET["id"])) {
     $stmt2->bind_result($lecturer_feedback_to_email, $lecturer_feedback_to_firstname, $lecturer_feedback_to_surname, $lecture_lecturer);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.moduleid=?");
+    $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, tutorial_assistant FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.moduleid=?");
     $stmt3->bind_param('i', $moduleToFeedback);
     $stmt3->execute();
     $stmt3->store_result();
-    $stmt3->bind_result($tutorial_assistant_feedback_to_email, $tutorial_assistant_feedback_to_firstname, $tutorial_assistant_feedback_to_surname);
+    $stmt3->bind_result($tutorial_assistant_feedback_to_email, $tutorial_assistant_feedback_to_firstname, $tutorial_assistant_feedback_to_surname, $tutorial_assistant);
     $stmt3->fetch();
 
     $stmt4 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
@@ -77,7 +77,7 @@ if (isset($_GET["id"])) {
     <div id="hide">
     <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
     <input type="hidden" name="feedback_lecturer" id="feedback_lecturer" value="<?php echo $lecture_lecturer; ?>">
-
+    <input type="hidden" name="feedback_tutorial_assistant" id="feedback_tutorial_assistant" value="<?php echo $tutorial_assistant; ?>">
     <h4 class="text-center">Module</h4>
     <hr class="hr-custom">
 
@@ -218,6 +218,7 @@ if (isset($_GET["id"])) {
 
     var feedback_moduleid = $("#feedback_moduleid").val();
     var feedback_lecturer = $("#feedback_lecturer").val();
+    var feedback_tutorial_assistant = $("#feedback_tutorial_assistant").val();
 
     var feedback_from_firstname = $("#feedback_from_firstname").val();
     var feedback_from_surname = $("#feedback_from_surname").val();
@@ -266,7 +267,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_lecturer=' + feedback_lecturer + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&lecturer_feedback_to_email=' + lecturer_feedback_to_email + '&tutorial_assistant_feedback_to_email=' + tutorial_assistant_feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
+    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_lecturer=' + feedback_lecturer + '&feedback_tutorial_assistant=' + feedback_tutorial_assistant + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&lecturer_feedback_to_email=' + lecturer_feedback_to_email + '&tutorial_assistant_feedback_to_email=' + tutorial_assistant_feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
