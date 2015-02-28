@@ -448,8 +448,14 @@ function GetDashboardData() {
     $stmt8->bind_param('ii', $session_userid, $isRead);
     $stmt8->execute();
     $stmt8->store_result();
-    $stmt8->bind_result($message_from);
+    $stmt8->bind_result($feedbackid);
     $stmt8->fetch();
+
+    $stmt9 = $mysqli->prepare("SELECT DISTINCT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE isApproved=? AND isRead=?");
+    $stmt9->execute();
+    $stmt9->store_result();
+    $stmt9->bind_result($feedbackid);
+    $stmt9->fetch();
 
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
@@ -460,6 +466,7 @@ function GetDashboardData() {
 	$events_count = $stmt6->num_rows;
 	$messenger_count = $stmt7->num_rows;
     $feedback_count = $stmt8->num_rows;
+    $feedback_admin_count = $stmt9->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();
@@ -469,6 +476,7 @@ function GetDashboardData() {
     $stmt6->close();
     $stmt7->close();
     $stmt8->close();
+    $stmt9->close();
 
 }
 
