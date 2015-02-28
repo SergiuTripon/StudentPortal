@@ -307,6 +307,7 @@ CREATE TABLE `student_portal`.`user_feedback_lookup` (
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT,
   `feedback_from` INT(11) NOT NULL,
   `moduleid` INT(11) NOT NULL,
+  `isApproved` TINYINT(1) NOT NULL,
   `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (feedbackid)
 REFERENCES user_feedback(feedbackid),
