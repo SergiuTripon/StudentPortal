@@ -392,7 +392,7 @@ include 'includes/session.php';
 	<tbody>
     <?php
 
-    $stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_tutorials.tutorial_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_tutorials ON user_feedback_lookup.moduleid=system_tutorials.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE isApproved = 0 AND system_tutorials.tutorial_assistant='$session_userid'");
+    $stmt1 = $mysqli->query("SELECT user_details.firstname, user_details.surname, system_tutorials.tutorial_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_lookup LEFT JOIN user_details ON user_feedback_lookup.feedback_from=user_details.userid LEFT JOIN system_tutorials ON user_feedback_lookup.moduleid=system_tutorials.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE user_feedback_lookup.isApproved = 1 AND system_tutorials.tutorial_assistant='$session_userid'");
 
     while($row = $stmt1->fetch_assoc()) {
 
