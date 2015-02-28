@@ -75,6 +75,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$lecture_name.'</td>
 			<td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
 			<td data-title="From">'.$lecture_day.'</td>
+            <td data-title="Action"><a id="cancel-'.$lectureid.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
 			</tr>';
 	}
 
