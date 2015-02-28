@@ -139,6 +139,7 @@ include 'includes/session.php';
 	<th>Notes</th>
 	<th>Booked on</th>
 	<th>Return on</th>
+    <th>Returned on</th>
 	<th>Status</th>
     <th>Returned</th>
 	</tr>
@@ -169,7 +170,7 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Booken on">'.$reserved_on.'</td>
 			<td data-title="Return on">'.$toreturn_on.'</td>
-			<td data-title="Return on">'.$returned_on.'</td>
+			<td data-title="Returned on">'.$returned_on.'</td>
 			<td data-title="Status">'.$book_status.'</td>
 			<td data-title="isReturned">'.($isReturned === '0' ? "No" : "Yes").'</td>
 			</tr>';
