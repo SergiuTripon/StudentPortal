@@ -1760,7 +1760,7 @@ function SubmitFeedback() {
 
     $message = '<html>';
     $message .= '<body>';
-    $message .= '<p>The following person sent you a message:</p>';
+    $message .= '<p>The following student submitted some feedback for you:</p>';
     $message .= '<table rules="all" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$feedback_from_firstname</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_from_surname</td></tr>";
