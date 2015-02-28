@@ -335,6 +335,7 @@ include 'includes/session.php';
 	<th>Author</th>
 	<th>Status</th>
 	<th>Action</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
