@@ -1808,7 +1808,7 @@ function SubmitFeedback() {
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_subject</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_body</td></tr>";
     $message .= '</table><br>';
-    $message .= '<a href="https://student-portal.co.uk/messenger">View message on Student Portal</a><br>';
+    $message .= '<a href="https://student-portal.co.uk/feedback">View feedback on Student Portal</a><br>';
     $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
     $message .= '</body>';
     $message .= '</html>';
