@@ -1284,45 +1284,6 @@ form .form-control:-ms-input-placeholder {
 }
 /* End of Buttons */
 
-/* Table Custom style */
-.table-custom {
-    border-collapse: collapse !important;
-    border: 1px solid #5D5D5D !important;
-}
-
-.table-custom th {
-    color: #5D5D5D;
-    text-align: center;
-    vertical-align: middle !important;
-    border: 1px solid #5D5D5D !important;
-    background-color: #FFFFFF;
-}
-
-.table-custom tr {
-    color: #5D5D5D;
-    border: 1px solid #5D5D5D;
-}
-
-.table-custom tr:nth-child(even) {
-    background: #E8E8E8 !important;
-}
-.table-custom tr:nth-child(odd) {
-    background: #FFFFFF !important;
-}
-
-.table-custom td {
-    color: #5D5D5D;
-    text-align: center;
-    vertical-align: middle !important;
-    padding: 7px;
-    border: 1px solid #5D5D5D;
-}
-
-.table-custom td a {
-    color: #5D5D5D;
-}
-/* End of Table Custom style */
-
 /* No More Responsive Table */
 @media only screen and (max-width: 800px) {
 
@@ -1387,6 +1348,45 @@ form .form-control:-ms-input-placeholder {
 }
 }
 /* End of No More Responsive Table*/
+
+/* Table Custom style */
+.table-custom {
+    border-collapse: collapse !important;
+    border: 1px solid #5D5D5D !important;
+}
+
+.table-custom th {
+    color: #5D5D5D;
+    text-align: center;
+    vertical-align: middle !important;
+    border: 1px solid #5D5D5D !important;
+    background-color: #FFFFFF;
+}
+
+.table-custom tr {
+    color: #5D5D5D;
+    border: 1px solid #5D5D5D;
+}
+
+.table-custom tr:nth-child(even) {
+    background: #E8E8E8 !important;
+}
+.table-custom tr:nth-child(odd) {
+    background: #FFFFFF !important;
+}
+
+.table-custom td {
+    color: #5D5D5D;
+    text-align: center;
+    vertical-align: middle !important;
+    padding: 7px;
+    border: 1px solid #5D5D5D;
+}
+
+.table-custom td a {
+    color: #5D5D5D;
+}
+/* End of Table Custom style */
 
 /* Transport Panel */
 .transport-panel {
