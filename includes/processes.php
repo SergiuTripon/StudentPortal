@@ -255,7 +255,7 @@ elseif (isset($_POST["eventToActivate"])) {
 
 //Call Feedback functions
 //Call SubmitLectureFeedback functions
-elseif (isset($_POST["feedback_moduleid"], $_POST["feedback_from_firstname"], $_POST["feedback_from_surname"], $_POST["feedback_from_email"], $_POST["lecture_feedback_to_email"], $_POST["lecture_feedback_subject"], $_POST["lecture_feedback_body"])) {
+elseif (isset($_POST["lecture_feedback_moduleid"], $_POST["lecture_feedback_from_firstname"], $_POST["lecture_feedback_from_surname"], $_POST["lecture_feedback_from_email"], $_POST["lecture_feedback_to_email"], $_POST["lecture_feedback_subject"], $_POST["lecture_feedback_body"])) {
     SubmitLectureFeedback();
 }
 

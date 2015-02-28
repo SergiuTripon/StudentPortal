@@ -61,7 +61,7 @@ if (isset($_GET["id"])) {
     <p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
+    <input type="hidden" name="lecture_feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
 
     <h4 class="text-center">Lecture</h4>
     <hr class="hr-custom">
@@ -79,15 +79,15 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="lecture_feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="lecture_feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="lecture_feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -183,11 +183,11 @@ if (isset($_GET["id"])) {
 
     var hasError = false;
 
-    var feedback_moduleid = $("#feedback_moduleid").val();
+    var lecture_feedback_moduleid = $("#lecture_feedback_moduleid").val();
 
-    var feedback_from_firstname = $("#feedback_from_firstname").val();
-    var feedback_from_surname = $("#feedback_from_surname").val();
-    var feedback_from_email = $("#feedback_from_email").val();
+    var lecture_feedback_from_firstname = $("#lecture_feedback_from_firstname").val();
+    var lecture_feedback_from_surname = $("#lecture_feedback_from_surname").val();
+    var lecture_feedback_from_email = $("#lecture_feedback_from_email").val();
 
     var lecture_feedback_to_firstname = $("#lecture_feedback_to_firstname").val();
     var lecture_feedback_to_surname = $("#lecture_feedback_to_surname").val();
@@ -233,7 +233,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&lecture_feedback_to_email=' + lecture_feedback_to_email + '&lecture_feedback_subject=' + lecture_feedback_subject + '&lecture_feedback_body=' + lecture_feedback_body,
+    data:'lecture_feedback_moduleid=' + lecture_feedback_moduleid + '&lecture_feedback_from_firstname=' + lecture_feedback_from_firstname + '&lecture_feedback_from_surname=' + lecture_feedback_from_surname + '&lecture_feedback_from_email=' + lecture_feedback_from_email + '&lecture_feedback_to_email=' + lecture_feedback_to_email + '&lecture_feedback_subject=' + lecture_feedback_subject + '&lecture_feedback_body=' + lecture_feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
