@@ -382,6 +382,7 @@ function GetDashboardData() {
 	global $events_count;
 	global $messenger_count;
     global $feedback_count;
+    global $feedback_admin_count;
 
     $lecture_status = 'active';
 
