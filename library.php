@@ -170,7 +170,7 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Booken on">'.$reserved_on.'</td>
 			<td data-title="Return on">'.$toreturn_on.'</td>
-			<td data-title="Returned on">'.($returned_on = NULL ? "Not yet" : "$returned_on").'</td>
+			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
 			<td data-title="Status">'.$book_status.'</td>
 			<td data-title="isReturned">'.($isReturned === '0' ? "No" : "Yes").'</td>
 			</tr>';
