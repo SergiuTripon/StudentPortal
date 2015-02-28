@@ -3,10 +3,10 @@ include '../includes/session.php';
 
 if (isset($_GET["id"])) {
 
-    $idToMessage = $_GET["id"];
+    $lectureToFeedback = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid");
-    $stmt1->bind_param('i', $idToMessage);
+    $stmt1 = $mysqli->prepare("SELECT system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.lectureid=?");
+    $stmt1->bind_param('i', $lectureToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($feedback_lecture, $feedback_to_firstname, $feedback_to_surname);
