@@ -1285,7 +1285,7 @@ form .form-control:-ms-input-placeholder {
 /* End of Buttons */
 
 /* Table Custom style */
-.table-custom thead tr th {
+.table-custom > thead > tr > th {
     border: none;
 }
 /* End of Table Custom style */
