@@ -117,7 +117,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Feedback</a>
+	<a id="feedback-read-trigger" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Feedback</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -344,6 +344,23 @@ include 'includes/session.php';
 	}
 	});
     });
+
+    var feedback_read;
+    feedback_read = '1';
+
+	$("#feedback-read-trigger").click(function (e) {
+	e.preventDefault();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'feedback_read=' + feedback_read,
+    success:function() {
+    },
+    error:function (xhr, ajaxOptions, thrownError) {
+    }
+	});
+	});
 	</script>
 
 </body>
