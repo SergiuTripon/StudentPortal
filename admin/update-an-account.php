@@ -293,6 +293,25 @@ if ($dateofbirth == "0000-00-00") {
 	account_type = ($('.account_type.active').text().replace(/^\s+|\s+$/g,''));
 	gender = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
 
+    if(account_type === 'Student') {
+			$('label[for="studentno"]').show();
+			$('#studentno').show();
+			$('label[for="degree"]').show();
+			$('#degree').show();
+    }
+    if(account_type === 'Lecturer') {
+        $('label[for="studentno"]').hide();
+        $('#studentno').hide();
+        $('label[for="degree"]').hide();
+        $('#degree').hide();
+    }
+    if(account_type === 'Admin') {
+        $('label[for="studentno"]').hide();
+        $('#studentno').hide();
+        $('label[for="degree"]').hide();
+        $('#degree').hide();
+    }
+
 	//Setting variable value
 	$('.btn-group > .account_type').click(function(){
 		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
