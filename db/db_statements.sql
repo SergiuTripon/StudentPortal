@@ -1,5 +1,5 @@
-DROP TABLE user_feedback_lookup;
-DROP TABLE user_feedback;
+DROP TABLE user_messages_lookup;
+DROP TABLE user_;
 DROP TABLE system_lectures;
 DROP TABLE system_tutorials;
 DROP TABLE system_exams;
@@ -61,8 +61,7 @@ FOREIGN KEY (userid)
 REFERENCES user_signin(userid)   
 ON UPDATE CASCADE   
 ON DELETE CASCADE   
-) ENGINE = InnoDB;  
-
+) ENGINE = InnoDB;
 
 CREATE TABLE `student_portal`.`user_fees` (
 	`userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,

@@ -1833,14 +1833,16 @@ function SetFeedbackRead () {
     global $mysqli;
     global $session_userid;
 
-    $stmt1 = $mysqli->prepare("SELECT moduleid FROM user_feedback_lookup WHERE feedback_from=?");
-    $stmt1->bind_param('ii', $isRead, $session_userid);
+    $stmt1 = $mysqli->prepare("SELECT user_feedback_lookup.moduleid FROM user_feedback_lookup LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid LEFT JOIN system_tutorials ON user_feedback_lookup.moduleid=system_lectures.moduleid WHERE system_lectures.lecture_lecturer=? OR system_tutorials.tutorial_assistant=? ORDER BY DESC LIMIT 1");
+    $stmt1->bind_param('ii', $session_userid, $session_userid);
     $stmt1->execute();
-    $stmt1->close();
+    $stmt1->store_result();
+    $stmt1->bind_result($moduleid);
+    $stmt1->fetch();
 
     $isRead = 1;
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback_lookup SET isRead=? WHERE feedback_from=?");
-    $stmt1->bind_param('ii', $isRead, $session_userid);
+    $stmt1 = $mysqli->prepare("UPDATE user_feedback_lookup SET isRead=? WHERE moduleid=?");
+    $stmt1->bind_param('ii', $isRead, $moduleid);
     $stmt1->execute();
     $stmt1->close();
 }
