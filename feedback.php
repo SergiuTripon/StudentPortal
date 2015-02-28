@@ -117,7 +117,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt3 = $mysqli->query("SELECT system_tutorials.tutorial_name, user_details.firstname, user_details.surname, system_tutorials.tutorial_day FROM system_tutorials LEFT JOIN system_modules ON system_tutorials.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_tutorials.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_tutorials.tutorial_status='active'");
+	$stmt3 = $mysqli->query("SELECT system_tutorials.tutorialid, system_tutorials.tutorial_name, user_details.firstname, user_details.surname, system_tutorials.tutorial_day FROM system_tutorials LEFT JOIN system_modules ON system_tutorials.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_tutorials.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_tutorials.tutorial_status='active'");
 
 	while($row = $stmt3->fetch_assoc()) {
 
