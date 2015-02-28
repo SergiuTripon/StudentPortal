@@ -447,7 +447,7 @@ function GetDashboardData() {
     $isApproved = 1;
 
     $stmt8 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE module_staff=? AND isRead=? AND isApproved=?");
-    $stmt8->bind_param('ii', $session_userid, $isRead, $isApproved);
+    $stmt8->bind_param('iii', $session_userid, $isRead, $isApproved);
     $stmt8->execute();
     $stmt8->store_result();
     $stmt8->bind_result($feedbackid);
