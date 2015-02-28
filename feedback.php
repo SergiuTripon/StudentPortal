@@ -235,7 +235,7 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
-			<td data-title="Lecture name">'.$lecture_name.'</td>
+			<td data-title="Lecture name">'.$module_name.'</td>
 			<td data-title="Subject">'.$feedback_subject.'</td>
 			<td data-title="Feedback">'.$feedback_body.'</td>
 			</tr>';
