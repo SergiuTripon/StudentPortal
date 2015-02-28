@@ -1,3 +1,5 @@
+DROP TABLE user_feedback_lookup;
+DROP TABLE user_feedback;
 DROP TABLE system_lectures;
 DROP TABLE system_tutorials;
 DROP TABLE system_exams;
