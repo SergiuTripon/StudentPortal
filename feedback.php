@@ -54,7 +54,7 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Lecturer</th>
 	<th>Day</th>
-    <th>Feedback</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -110,7 +110,7 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Tutorial assistant</th>
 	<th>Day</th>
-    <th>Feedback</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
