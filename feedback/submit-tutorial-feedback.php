@@ -9,14 +9,14 @@ if (isset($_GET["id"])) {
     $stmt1->bind_param('i', $tutorialToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($moduleid, $tutorial_name, $tutorial_feedback_to_email, $tutorial_feedback_to_firstname, $tutorial_feedback_to_surname);
+    $stmt1->bind_result($tutorial_feedback_moduleid, $feedback_tutorial_name, $tutorial_feedback_to_email, $tutorial_feedback_to_firstname, $tutorial_feedback_to_surname);
     $stmt1->fetch();
 
     $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt2->bind_param('i', $session_userid);
     $stmt2->execute();
     $stmt2->store_result();
-    $stmt2->bind_result($feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
+    $stmt2->bind_result($tutorial_feedback_from_email, $tutorial_feedback_from_firstname, $tutorial_feedback_from_surname);
     $stmt2->fetch();
 
 }
@@ -61,7 +61,7 @@ if (isset($_GET["id"])) {
     <p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="tutorial_feedback_moduleid" id="tutorial_feedback_moduleid" value="<?php echo $moduleid; ?>">
+    <input type="hidden" name="tutorial_feedback_moduleid" id="tutorial_feedback_moduleid" value="<?php echo $tutorial_feedback_moduleid; ?>">
 
     <h4 class="text-center">Tutorial</h4>
     <hr class="hr-custom">
@@ -69,7 +69,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Name</label>
-    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="<?php echo $tutorial_name; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="<?php echo $feedback_tutorial_name; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -79,15 +79,15 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="tutorial_feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $tutorial_feedback_from_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="tutorial_feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_from_surname" id="feedback_from_surname" value="<?php echo $tutorial_feedback_from_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="tutorial_feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="tutorial_feedback_from_email" id="feedback_from_email" value="<?php echo $tutorial_feedback_from_email; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -97,15 +97,15 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="tutorial_feedback_to_firstname" id="tutorial_feedback_to_firstname" value="<?php echo $lecture_feedback_to_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_to_firstname" id="tutorial_feedback_to_firstname" value="<?php echo $tutorial_feedback_to_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="tutorial_feedback_to_surname" id="tutorial_feedback_to_surname" value="<?php echo $lecture_feedback_to_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_to_surname" id="tutorial_feedback_to_surname" value="<?php echo $tutorial_feedback_to_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="tutorial_feedback_to_email" id="tutorial_feedback_to_email" value="<?php echo $lecture_feedback_to_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="tutorial_feedback_to_email" id="tutorial_feedback_to_email" value="<?php echo $tutorial_feedback_to_email; ?>" readonly="readonly">
 	</div>
     </div>
 
