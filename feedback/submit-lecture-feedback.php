@@ -9,7 +9,7 @@ if (isset($_GET["id"])) {
     $stmt1->bind_param('i', $lectureToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($feedback_lecture, $feedback_to_firstname, $feedback_to_surname);
+    $stmt1->bind_result($feedback_lecture, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
     $stmt1->fetch();
 
     $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
