@@ -322,7 +322,7 @@ include 'includes/session.php';
 
 	<!-- Lectures -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom feedback-table">
 
 	<thead>
 	<tr>
@@ -378,7 +378,7 @@ include 'includes/session.php';
 
 	<!-- Tutorials -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
+	<table class="table table-condensed table-custom feedback-table">
 
 	<thead>
 	<tr>
@@ -490,6 +490,16 @@ include 'includes/session.php';
 		"info": false,
 		"language": {
 			"emptyTable": "There are no tutorials to display."
+		}
+	});
+
+    $('.feedback-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There is no feedback to display."
 		}
 	});
 
