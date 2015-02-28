@@ -73,7 +73,7 @@ if (isset($_GET["id"])) {
 	</div>
     </div>
 
-    <h4 class="text-center">From</h4>
+    <h4 class="text-center">Student</h4>
     <hr class="hr-custom">
 
     <div class="form-group">
@@ -91,7 +91,7 @@ if (isset($_GET["id"])) {
 	</div>
     </div>
 
-    <h4 class="text-center">To</h4>
+    <h4 class="text-center">Lecturer</h4>
     <hr class="hr-custom">
 
     <div class="form-group">
