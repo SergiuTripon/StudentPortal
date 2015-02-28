@@ -1796,7 +1796,7 @@ function SubmitFeedback() {
     $stmt3->close();
 
     //Creating email
-    $subject = "$feedback_from_firstname $feedback_from_surname - New message on Student Portal";
+    $subject = "$feedback_from_firstname $feedback_from_surname - New feedback on Student Portal";
 
     $message = '<html>';
     $message .= '<body>';
