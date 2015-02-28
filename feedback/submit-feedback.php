@@ -5,11 +5,11 @@ if (isset($_GET["id"])) {
 
     $moduleToFeedback = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT system_lectures.moduleid, system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.lectureid=?");
+    $stmt1 = $mysqli->prepare("SELECT system_lectures.moduleid, system_lectures.name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecturer=user_details.userid WHERE system_lectures.lectureid=?");
     $stmt1->bind_param('i', $lectureToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($moduleid, $lecture_name, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
+    $stmt1->bind_result($moduleid, $name, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
     $stmt1->fetch();
 
     $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
@@ -61,7 +61,7 @@ if (isset($_GET["id"])) {
     <p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="lecture_feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
+    <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
 
     <h4 class="text-center">Lecture</h4>
     <hr class="hr-custom">
@@ -69,7 +69,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Name</label>
-    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="<?php echo $lecture_name; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="name" id="name" value="<?php echo $name; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -79,15 +79,15 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="lecture_feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="lecture_feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="lecture_feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -97,29 +97,29 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="lecture_feedback_to_firstname" id="lecture_feedback_to_firstname" value="<?php echo $lecture_feedback_to_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_to_firstname" id="feedback_to_firstname" value="<?php echo $feedback_to_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="lecture_feedback_to_surname" id="lecture_feedback_to_surname" value="<?php echo $lecture_feedback_to_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_to_surname" id="feedback_to_surname" value="<?php echo $feedback_to_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="lecture_feedback_to_email" id="lecture_feedback_to_email" value="<?php echo $lecture_feedback_to_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="feedback_to_email" id="feedback_to_email" value="<?php echo $feedback_to_email; ?>" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="lecture_feedback_subject" id="feedback_subject" value="<?php echo $lecture_name; ?> - Lecture - Feedback" readonly="readonly">
+    <input class="form-control" type="text" name="feedback_subject" id="feedback_subject" value="<?php echo $name; ?> - Lecture - Feedback" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="feedback_body">Feedback<span class="field-required">*</span></label>
-    <textarea class="form-control" rows="5" name="lecture_feedback_body" id="feedback_body"></textarea>
+    <textarea class="form-control" rows="5" name="feedback_body" id="feedback_body"></textarea>
     </div>
     </div>
 
@@ -183,20 +183,20 @@ if (isset($_GET["id"])) {
 
     var hasError = false;
 
-    var lecture_feedback_moduleid = $("#lecture_feedback_moduleid").val();
+    var feedback_moduleid = $("#feedback_moduleid").val();
 
-    var lecture_feedback_from_firstname = $("#lecture_feedback_from_firstname").val();
-    var lecture_feedback_from_surname = $("#lecture_feedback_from_surname").val();
-    var lecture_feedback_from_email = $("#lecture_feedback_from_email").val();
+    var feedback_from_firstname = $("#feedback_from_firstname").val();
+    var feedback_from_surname = $("#feedback_from_surname").val();
+    var feedback_from_email = $("#feedback_from_email").val();
 
-    var lecture_feedback_to_firstname = $("#lecture_feedback_to_firstname").val();
-    var lecture_feedback_to_surname = $("#lecture_feedback_to_surname").val();
-    var lecture_feedback_to_email = $("#lecture_feedback_to_email").val();
+    var feedback_to_firstname = $("#feedback_to_firstname").val();
+    var feedback_to_surname = $("#feedback_to_surname").val();
+    var feedback_to_email = $("#feedback_to_email").val();
 
-    var lecture_feedback_subject = $("#lecture_feedback_subject").val();
+    var feedback_subject = $("#feedback_subject").val();
 
-    var lecture_feedback_body = $("#lecture_feedback_body").val();
-	if(lecture_feedback_body === '') {
+    var feedback_body = $("#feedback_body").val();
+	if(feedback_body === '') {
         $("label[for='feedback_body']").empty().append("Please enter feedback.");
         $("label[for='feedback_body']").removeClass("feedback-happy");
         $("label[for='feedback_body']").addClass("feedback-sad");
@@ -212,7 +212,7 @@ if (isset($_GET["id"])) {
         $("#feedback_body").removeClass("input-sad");
         $("#feedback_body").addClass("input-happy");
 	}
-    if (lecture_feedback_body.length > 5000) {
+    if (feedback_body.length > 5000) {
         $("#error1").show();
         $("#error1").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
         $("#feedback_body").removeClass("input-happy");
@@ -233,7 +233,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'lecture_feedback_moduleid=' + lecture_feedback_moduleid + '&lecture_feedback_from_firstname=' + lecture_feedback_from_firstname + '&lecture_feedback_from_surname=' + lecture_feedback_from_surname + '&lecture_feedback_from_email=' + lecture_feedback_from_email + '&lecture_feedback_to_email=' + lecture_feedback_to_email + '&lecture_feedback_subject=' + lecture_feedback_subject + '&lecture_feedback_body=' + lecture_feedback_body,
+    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&feedback_to_email=' + feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
