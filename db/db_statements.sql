@@ -299,8 +299,7 @@ CREATE TABLE `student_portal`.`user_feedback` (
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `feedback_subject` VARCHAR(300) NOT NULL,
   `feedback_body` VARCHAR(5000) NOT NULL,
-  `created_on` DATETIME NOT NULL,
-  `updated_on` DATETIME
+  `created_on` DATETIME NOT NULL
 ) ENGINE = InnoDB;
 
 CREATE TABLE `student_portal`.`user_feedback_lookup` (
