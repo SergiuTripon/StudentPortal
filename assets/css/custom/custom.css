@@ -458,7 +458,7 @@ form a:focus, form a:hover {
     text-decoration: none;
 }
 
-hr {
+form hr {
     float: left;
 }
 
