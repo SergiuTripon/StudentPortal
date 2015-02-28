@@ -209,7 +209,7 @@ include 'includes/session.php';
 	$feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
 
-	echo '<tr id="cancel-'.$feedbackid.'">
+	echo '<tr id="approve-'.$feedbackid.'">
 
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
 			<td data-title="Lecture name">'.$lecture_name.'</td>
