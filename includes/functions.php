@@ -1798,7 +1798,6 @@ function ApproveFeedback () {
     $stmt1->bind_param('ii', $isApproved, $feedbackToApprove);
     $stmt1->execute();
     $stmt1->close();
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
