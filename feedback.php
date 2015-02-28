@@ -91,62 +91,6 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-	<div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Tutorials</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<!-- Tutorials -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom tutorial-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Tutorial assistant</th>
-	<th>Day</th>
-    <th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt3 = $mysqli->query("SELECT system_tutorials.tutorial_name, user_details.firstname, user_details.surname, system_tutorials.tutorial_day FROM system_tutorials LEFT JOIN system_modules ON system_tutorials.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_tutorials.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_tutorials.tutorial_status='active'");
-
-	while($row = $stmt3->fetch_assoc()) {
-
-    $tutorialid = $row["tutorialid"];
-	$tutorial_name = $row["tutorial_name"];
-	$firstname = $row["firstname"];
-    $surname = $row["surname"];
-	$tutorial_day = $row["tutorial_day"];
-
-	echo '<tr>
-
-			<td data-title="Name">'.$tutorial_name.'</td>
-			<td data-title="Notes">'.$firstname.' '.$surname.'</td>
-			<td data-title="Notes">'.$tutorial_day.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-tutorial-feedback?id='.$tutorialid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
-			</tr>';
-	}
-
-	$stmt3->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
 	</div><!-- /.panel-group -->
 
     </div><!-- /container -->
