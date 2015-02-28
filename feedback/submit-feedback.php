@@ -12,14 +12,14 @@ if (isset($_GET["id"])) {
     $stmt1->bind_result($moduleid, $module_name);
     $stmt1->fetch();
 
-    $stmt2 = $mysqli->prepare("SELECT system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.lectureid=?");
+    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.moduleid=?");
     $stmt2->bind_param('i', $moduleToFeedback);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($lecturer_feedback_to_email, $lecturer_feedback_to_firstname, $lecturer_feedback_to_surname);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("SELECT system_tutorials.tutorial_name, user_signin.email, user_details.firstname, user_details.surname FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.tutorialid=?");
+    $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.moduleid=?");
     $stmt3->bind_param('i', $moduleToFeedback);
     $stmt3->execute();
     $stmt3->store_result();
