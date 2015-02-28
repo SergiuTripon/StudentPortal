@@ -1341,6 +1341,7 @@ select.input-sm, select.form-group-sm .form-control {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
+    border-color: #5D5D5D;
     background-color: #5D5D5D;
 }
 /* End of dataTables */
