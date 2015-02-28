@@ -169,7 +169,7 @@ include 'includes/session.php';
 			<td data-title="Booken on">'.$reserved_on.'</td>
 			<td data-title="Return on">'.$toreturn_on.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
+			<td data-title="isReturned">'.($isReturned === '0' ? "No" : "Yes").'</td>
 			</tr>';
 	}
 
@@ -268,15 +268,15 @@ include 'includes/session.php';
 	<th>Notes</th>
 	<th>Copy no.</th>
 	<th>Status</th>
-	<th>Update</th>
-    <th>Cancel</th>
+	<th>Action</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'active' OR book_status = 'reserved'");
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -295,8 +295,8 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Update"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Cancel">'.($book_status === 'Reserved' ? "Cancel not allowed" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+			<td data-title="Action"><a id=cancel-'.$bookid.' class="btn btn-primary btn-md cancel-button ladda-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
 			</tr>';
 	}
 
