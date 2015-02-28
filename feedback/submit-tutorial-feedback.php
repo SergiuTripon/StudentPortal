@@ -1,12 +1,12 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_GET["lectureid"])) {
+if (isset($_GET["tutorialid"])) {
 
-    $lectureToFeedback = $_GET["id"];
+    $tutorialToFeedback = $_GET["id"];
 
     $stmt1 = $mysqli->prepare("SELECT lecture_name FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-    $stmt1->bind_param('i', $lectureToFeedback);
+    $stmt1->bind_param('i', $tutorialToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($message_to_userid, $message_to_email, $message_to_firstname, $message_to_surname);
