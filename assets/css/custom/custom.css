@@ -1289,11 +1289,11 @@ form .form-control:-ms-input-placeholder {
     color: #FFFFFF;
     font-weight: 600;
     text-align: center;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #8A8A8A;
 }
 
 .table-custom > thead {
-    border-top: 1px solid #CCCCCC;
+    border-top: 1px solid #8A8A8A;
     background-color: #8A8A8A;
 }
 
@@ -1305,7 +1305,7 @@ form .form-control:-ms-input-placeholder {
 .table-custom > tfoot > tr > td {
     color: #5D5D5D;
     text-align: center;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #8A8A8A;
 }
 
 /* End of Table Custom style */
