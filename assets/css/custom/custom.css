@@ -1330,9 +1330,9 @@ form .form-control:-ms-input-placeholder {
 /* Hide table headers (but not display: none;, for accessibility) */
 #no-more-tables table {
     border-collapse: collapse;
-    border-top: 2px solid #CCCCCC !important;
-    border-right: 2px solid #CCCCCC !important;
-    border-left: 2px solid #CCCCCC !important;
+    border-top: 2px solid #5D5D5D !important;
+    border-right: 2px solid #5D5D5D !important;
+    border-left: 2px solid #5D5D5D !important;
 }
 
 #no-more-tables thead tr {
