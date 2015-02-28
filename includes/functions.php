@@ -1827,6 +1827,24 @@ function ApproveFeedback () {
     $stmt1->close();
 }
 
+//SetMessageRed function
+function SetFeedbackRead () {
+
+    global $mysqli;
+    global $session_userid;
+
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM user_feedback_lookup WHERE feedback_from=?");
+    $stmt1->bind_param('ii', $isRead, $session_userid);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $isRead = 1;
+    $stmt1 = $mysqli->prepare("UPDATE user_feedback_lookup SET isRead=? WHERE feedback_from=?");
+    $stmt1->bind_param('ii', $isRead, $session_userid);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Messenger functions

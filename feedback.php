@@ -47,7 +47,7 @@ include 'includes/session.php';
 
 	<!-- Modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom feedback-table">
+	<table class="table table-condensed table-custom module-table">
 
 	<thead>
 	<tr>
@@ -100,7 +100,7 @@ include 'includes/session.php';
 
     <?php endif; ?>
 
-        <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
@@ -117,7 +117,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Feedback</a>
+	<a id="feedback-read-trigger" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Feedback</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -303,23 +303,13 @@ include 'includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
 	//DataTables
-    $('.lecture-table').dataTable({
+    $('.module-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
 			"emptyTable": "There are no lectures to display."
-		}
-	});
-
-    $('.tutorial-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no tutorials to display."
 		}
 	});
 
@@ -354,6 +344,23 @@ include 'includes/session.php';
 	}
 	});
     });
+
+    var feedback_read;
+    feedback_read = '1';
+
+	$("#feedback-read-trigger").click(function (e) {
+	e.preventDefault();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'feedback_read=' + feedback_read,
+    success:function() {
+    },
+    error:function (xhr, ajaxOptions, thrownError) {
+    }
+	});
+	});
 	</script>
 
 </body>
