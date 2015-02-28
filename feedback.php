@@ -244,11 +244,6 @@ include 'includes/session.php';
 
     <?php endif; ?>
 
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
-
-
-    <?php endif; ?>
-
     <?php else : ?>
 
 	<?php include 'includes/menus/menu.php'; ?>
