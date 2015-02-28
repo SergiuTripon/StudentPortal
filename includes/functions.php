@@ -443,6 +443,7 @@ function GetDashboardData() {
 	$stmt7->fetch();
 
     $isRead = 0;
+
     $stmt8 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid WHERE lecture_lecturer=? AND isRead=?");
     $stmt8->bind_param('ii', $session_userid, $isRead);
     $stmt8->execute();
