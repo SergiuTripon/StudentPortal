@@ -1749,7 +1749,7 @@ function SubmitFeedback() {
 
     $isRead = 0;
 
-    $stmt2 = $mysqli->prepare("INSERT INTO user_messages_lookup (message_from, message_to, isRead) VALUES (?, ?, ?)");
+    $stmt2 = $mysqli->prepare("INSERT INTO user_feedback_lookup (feedback_from, moduleid, isRead) VALUES (?, ?, ?)");
     $stmt2->bind_param('iii', $session_userid, $feedback_moduleid, $isRead);
     $stmt2->execute();
     $stmt2->close();
