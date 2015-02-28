@@ -453,7 +453,7 @@ function GetDashboardData() {
 
     $isApproved = 1;
 
-    $stmt9 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN system_lectures ON user_feedback_lookup.moduleid=system_lectures.moduleid WHERE lecture_lecturer=? AND isRead=? AND isApproved = ?");
+    $stmt9 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN system_tutorials ON user_feedback_lookup.moduleid=system_tutorials.moduleid WHERE tutorial_assistant=? AND isRead=? AND isApproved = ?");
     $stmt9->bind_param('iii', $session_userid, $isRead, $isApproved);
     $stmt9->execute();
     $stmt9->store_result();
