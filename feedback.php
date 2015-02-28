@@ -66,13 +66,20 @@ include 'includes/session.php';
 
     $moduleid = $row["moduleid"];
 	$module_name = $row["module_name"];
-	$feedback_subject = $row["feedback_subject"];
-    $feedback_body = $row["feedback_body"];
+	$lecture_lecturer = $row["lecture_lecturer"];
+    $tutorial_assistant = $row["tutorial_assistant"];
+
+    $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM system_events WHERE userid = ? LIMIT 1");
+    $stmt1->bind_param('i', $lecture_lecturer);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($lecturer_firstname, $lecturer_surname);
+    $stmt1->fetch();
 
 	echo '<tr id="approve-'.$moduleid.'">
 
-			<td data-title="Name">'.$firstname.' '.$surname.'</td>
-			<td data-title="Lecturer">'.$module_name.'</td>
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Lecturer">'.$lecturer_firstname.' '.$lecturer_surname.'</td>
 			<td data-title="Tutorial assistant">'.$feedback_subject.'</td>
             <td data-title="Action"><a id="approve-'.$moduleid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
 			</tr>';
