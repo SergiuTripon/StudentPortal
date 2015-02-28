@@ -1763,9 +1763,9 @@ function SubmitFeedback() {
     $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_from_firstname', FILTER_SANITIZE_STRING);
     $feedback_from_surname = filter_input(INPUT_POST, 'feedback_from_surname', FILTER_SANITIZE_STRING);
     $feedback_from_email = filter_input(INPUT_POST, 'feedback_from_email', FILTER_SANITIZE_EMAIL);
-    $lecturer_feedback_to_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
+    $lecturer_feedback_to_email = filter_input(INPUT_POST, 'lecturer_feedback_to_email', FILTER_SANITIZE_EMAIL);
     $lecturer_feedback_to_email = filter_var($lecturer_feedback_to_email, FILTER_VALIDATE_EMAIL);
-    $tutorial_assistant_feedback_to_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
+    $tutorial_assistant_feedback_to_email = filter_input(INPUT_POST, 'tutorial_assistant_feedback_to_email', FILTER_SANITIZE_EMAIL);
     $tutorial_assistant_feedback_to_email = filter_var($tutorial_assistant_feedback_to_email, FILTER_VALIDATE_EMAIL);
     $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
     $feedback_body = filter_input(INPUT_POST, 'feedback_body', FILTER_SANITIZE_STRING);
