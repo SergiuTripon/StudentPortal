@@ -259,7 +259,7 @@ elseif (isset($_POST["feedback_moduleid"], $_POST["feedback_from_firstname"], $_
     SubmitFeedback();
 }
 
-//Call SetMessageRead function
+//Call ApproveFeedback function
 elseif (isset($_POST["feedbackToApprove"])) {
     ApproveFeedback();
 }
