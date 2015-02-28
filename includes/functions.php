@@ -1785,6 +1785,21 @@ function SubmitFeedback() {
 
 }
 
+//ApproveFeedback function
+function ApproveFeedback () {
+
+    global $mysqli;
+
+    $feedbackToApprove = filter_input(INPUT_POST, 'feedbackToApprove', FILTER_SANITIZE_STRING);
+    $isApproved = 1;
+
+    $stmt1 = $mysqli->prepare("UPDATE user_feedback_lookup SET isApprove=? WHERE feedbackid=?");
+    $stmt1->bind_param('ii', $isApproved, $feedbackToApprove);
+    $stmt1->execute();
+    $stmt1->close();
+
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Messenger functions

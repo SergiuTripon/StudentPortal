@@ -260,8 +260,8 @@ elseif (isset($_POST["feedback_moduleid"], $_POST["feedback_from_firstname"], $_
 }
 
 //Call SetMessageRead function
-elseif (isset($_POST["message_read"])) {
-    SetMessageRead();
+elseif (isset($_POST["feedbackToApprove"])) {
+    ApproveFeedback();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
