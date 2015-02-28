@@ -53,7 +53,7 @@ include 'includes/session.php';
 	<tr>
 	<th>Name</th>
 	<th>Lecturer</th>
-	<th>Day</th>
+	<th>Tutorial assistant</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -65,18 +65,31 @@ include 'includes/session.php';
 
 	while($row = $stmt1->fetch_assoc()) {
 
-    $lectureid = $row["lectureid"];
-	$lecture_name = $row["lecture_name"];
-	$firstname = $row["firstname"];
-    $surname = $row["surname"];
-	$lecture_day = $row["lecture_day"];
+    $moduleid = $row["moduleid"];
+	$module_name = $row["module_name"];
+    $lecture_lecturer = $row["lecture_lecturer"];
+    $tutorial_assistant = $row["tutorial_assistant"];
+
+    $stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid=?");
+    $stmt1->bind_param('i', $lecture_lecturer);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($lecturer_firstname, $lecturer_surname);
+    $stmt1->fetch();
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid=?");
+    $stmt2->bind_param('i', $lecture_lecturer);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
+    $stmt2->fetch();
 
 	echo '<tr>
 
-			<td data-title="Name">'.$lecture_name.'</td>
-			<td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
-			<td data-title="From">'.$lecture_day.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-lecture-feedback?id='.$lectureid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Lecturer">'.$lecturer_firstname.' '.$lecturer_surname.'</td>
+			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_firstname.'</td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-lecture-feedback?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Feedback</span></a></td>
 			</tr>';
 	}
 
