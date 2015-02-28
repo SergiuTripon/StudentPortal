@@ -309,7 +309,7 @@ include 'includes/functions.php';
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
-	<p>Feedback</p>
+    <p>Feedback<span class="badge"><?php echo ($feedback_admin_count == '0' ? "" : "$feedback_admin_count"); ?></span></p>
     </div>
 	</div>
     </a>
