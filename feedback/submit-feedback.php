@@ -217,14 +217,14 @@ if (isset($_GET["id"])) {
 
     var feedback_moduleid = $("#feedback_moduleid").val();
 
-    var feedback_from_firstname = $("#lecture_feedback_from_firstname").val();
-    var feedback_from_surname = $("#lecture_feedback_from_surname").val();
-    var feedback_from_email = $("#lecture_feedback_from_email").val();
+    var feedback_from_firstname = $("#feedback_from_firstname").val();
+    var feedback_from_surname = $("#feedback_from_surname").val();
+    var feedback_from_email = $("#feedback_from_email").val();
 
     var lecturer_feedback_to_email = $("#lecturer_feedback_to_email").val();
     var tutorial_assistant_feedback_to_email = $("#tutorial_assistant_feedback_to_email").val();
 
-    var feedback_subject = $("#lecture_feedback_subject").val();
+    var feedback_subject = $("#feedback_subject").val();
 
     var feedback_body = $("#feedback_body").val();
 	if(feedback_body === '') {
