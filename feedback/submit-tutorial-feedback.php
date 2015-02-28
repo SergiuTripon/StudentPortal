@@ -3,13 +3,13 @@ include '../includes/session.php';
 
 if (isset($_GET["id"])) {
 
-    $lectureToFeedback = $_GET["id"];
+    $tutorialToFeedback = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT system_lectures.moduleid, system_lectures.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_lectures LEFT JOIN user_signin ON system_lectures.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE system_lectures.lectureid=?");
-    $stmt1->bind_param('i', $lectureToFeedback);
+    $stmt1 = $mysqli->prepare("SELECT system_tutorials.moduleid, system_tutorials.lecture_name, user_signin.email, user_details.firstname, user_details.surname FROM system_tutorials LEFT JOIN user_signin ON system_tutorials.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorials.tutorial_assistant=user_details.userid WHERE system_tutorials.tutorialid=?");
+    $stmt1->bind_param('i', $tutorialToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($moduleid, $lecture_name, $feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
+    $stmt1->bind_result($moduleid, $tutorial_name, $tutorial_feedback_to_email, $tutorial_feedback_to_firstname, $tutorial_feedback_to_surname);
     $stmt1->fetch();
 
     $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
@@ -50,18 +50,18 @@ if (isset($_GET["id"])) {
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../feedback/">Feedback</a></li>
-    <li class="active">Submit lecture feedback</li>
+    <li class="active">Submit tutorial feedback</li>
     </ol>
 
 	<!-- Message user -->
-    <form class="form-custom" style="max-width: 100%;" method="post" name="submitlecturefeedaback_form" id="submitlecturefeedaback_form" novalidate>
+    <form class="form-custom" style="max-width: 100%;" method="post" name="submittutorialfeedaback_form" id="submittutorialfeedaback_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
     <p id="error1" class="feedback-sad text-center"></p>
     <p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
-    <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
+    <input type="hidden" name="tutorial_feedback_moduleid" id="tutorial_feedback_moduleid" value="<?php echo $moduleid; ?>">
 
     <h4 class="text-center">Lecture</h4>
     <hr class="hr-custom">
@@ -69,7 +69,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Name</label>
-    <input class="form-control" type="text" name="lecture_name" id="lecture_name" value="<?php echo $lecture_name; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" value="<?php echo $tutorial_name; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -79,15 +79,15 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $feedback_from_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_from_surname" id="feedback_from_surname" value="<?php echo $feedback_from_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="tutorial_feedback_from_email" id="feedback_from_email" value="<?php echo $feedback_from_email; ?>" readonly="readonly">
 	</div>
     </div>
 
@@ -97,29 +97,29 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="feedback_to_firstname" id="feedback_to_firstname" value="<?php echo $feedback_to_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_to_firstname" id="tutorial_feedback_to_firstname" value="<?php echo $lecture_feedback_to_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="feedback_to_surname" id="feedback_to_surname" value="<?php echo $feedback_to_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_to_surname" id="tutorial_feedback_to_surname" value="<?php echo $lecture_feedback_to_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="feedback_to_email" id="feedback_to_email" value="<?php echo $feedback_to_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="tutorial_feedback_to_email" id="tutorial_feedback_to_email" value="<?php echo $lecture_feedback_to_email; ?>" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="feedback_subject" id="feedback_subject" value="<?php echo $lecture_name; ?> - Lecture - Feedback" readonly="readonly">
+    <input class="form-control" type="text" name="tutorial_feedback_subject" id="feedback_subject" value="<?php echo $tutorial_name; ?> - Tutorial - Feedback" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="feedback_body">Feedback<span class="field-required">*</span></label>
-    <textarea class="form-control" rows="5" name="feedback_body" id="feedback_body"></textarea>
+    <label for="tutorial_feedback_body">Feedback<span class="field-required">*</span></label>
+    <textarea class="form-control" rows="5" name="tutorial_feedback_body" id="feedback_body"></textarea>
     </div>
     </div>
 
@@ -183,57 +183,57 @@ if (isset($_GET["id"])) {
 
     var hasError = false;
 
-    var feedback_moduleid = $("#feedback_moduleid").val();
+    var tutorial_feedback_moduleid = $("#tutorial_feedback_moduleid").val();
 
-    var feedback_from_firstname = $("#feedback_from_firstname").val();
-    var feedback_from_surname = $("#feedback_from_surname").val();
-    var feedback_from_email = $("#feedback_from_email").val();
+    var tutorial_feedback_from_firstname = $("#tutorial_feedback_from_firstname").val();
+    var tutorial_feedback_from_surname = $("#tutorial_feedback_from_surname").val();
+    var tutorial_feedback_from_email = $("#tutorial_feedback_from_email").val();
 
-    var feedback_to_firstname = $("#feedback_to_firstname").val();
-    var feedback_to_surname = $("#feedback_to_surname").val();
-    var feedback_to_email = $("#feedback_to_email").val();
+    var tutorial_feedback_to_firstname = $("#tutorial_feedback_to_firstname").val();
+    var tutorial_feedback_to_surname = $("#tutorial_feedback_to_surname").val();
+    var tutorial_feedback_to_email = $("#tutorial_feedback_to_email").val();
 
-    var feedback_subject = $("#feedback_subject").val();
+    var tutorial_feedback_subject = $("#tutorial_feedback_subject").val();
 
-    var feedback_body = $("#feedback_body").val();
-	if(feedback_body === '') {
-        $("label[for='feedback_body']").empty().append("Please enter feedback.");
-        $("label[for='feedback_body']").removeClass("feedback-happy");
-        $("label[for='feedback_body']").addClass("feedback-sad");
-        $("#feedback_body").removeClass("input-happy");
-        $("#feedback_body").addClass("input-sad");
-        $("#feedback_body").focus();
+    var tutorial_feedback_body = $("#tutorial_feedback_body").val();
+	if(tutorial_feedback_body === '') {
+        $("label[for='tutorial_feedback_body']").empty().append("Please enter feedback.");
+        $("label[for='tutorial_feedback_body']").removeClass("feedback-happy");
+        $("label[for='tutorial_feedback_body']").addClass("feedback-sad");
+        $("#tutorial_feedback_body").removeClass("input-happy");
+        $("#tutorial_feedback_body").addClass("input-sad");
+        $("#tutorial_feedback_body").focus();
 		hasError  = true;
 		return false;
     } else {
-        $("label[for='feedback_body']").empty().append("All good!");
-        $("label[for='feedback_body']").removeClass("feedback-sad");
-        $("label[for='feedback_body']").addClass("feedback-happy");
-        $("#feedback_body").removeClass("input-sad");
-        $("#feedback_body").addClass("input-happy");
+        $("label[for='tutorial_feedback_body']").empty().append("All good!");
+        $("label[for='tutorial_feedback_body']").removeClass("feedback-sad");
+        $("label[for='tutorial_feedback_body']").addClass("feedback-happy");
+        $("#tutorial_feedback_body").removeClass("input-sad");
+        $("#tutorial_feedback_body").addClass("input-happy");
 	}
-    if (feedback_body.length > 5000) {
+    if (tutorial_feedback_body.length > 5000) {
         $("#error1").show();
         $("#error1").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
-        $("#feedback_body").removeClass("input-happy");
-        $("#feedback_body").addClass("input-sad");
-        $("#feedback_body").focus();
+        $("#tutorial_feedback_body").removeClass("input-happy");
+        $("#tutorial_feedback_body").addClass("input-sad");
+        $("#tutorial_feedback_body").focus();
         hasError  = true;
         return false;
     } else {
         $("#error1").hide();
-        $("label[for='feedback_body']").empty().append("All good!");
-        $("label[for='feedback_body']").removeClass("feedback-sad");
-        $("label[for='feedback_body']").addClass("feedback-happy");
-        $("#feedback_body").removeClass("input-sad");
-        $("#feedback_body").addClass("input-happy");
+        $("label[for='tutorial_feedback_body']").empty().append("All good!");
+        $("label[for='tutorial_feedback_body']").removeClass("feedback-sad");
+        $("label[for='tutorial_feedback_body']").addClass("feedback-happy");
+        $("#tutorial_feedback_body").removeClass("input-sad");
+        $("#tutorial_feedback_body").addClass("input-happy");
     }
 
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_moduleid=' + feedback_moduleid + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&feedback_to_email=' + feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
+    data:'tutorial_feedback_moduleid=' + tutorial_feedback_moduleid + '&tutorial_feedback_from_firstname=' + tutorial_feedback_from_firstname + '&tutorial_feedback_from_surname=' + tutorial_feedback_from_surname + '&tutorial_feedback_from_email=' + tutorial_feedback_from_email + '&tutorial_feedback_to_email=' + tutorial_feedback_to_email + '&tutorial_feedback_subject=' + tutorial_feedback_subject + '&tutorial_feedback_body=' + tutorial_feedback_body,
     success:function(){
         $("#error").hide();
         $("#hide").hide();

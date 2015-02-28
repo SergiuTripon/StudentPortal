@@ -112,14 +112,14 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Subject</label>
-    <input class="form-control" type="text" name="feedback_subject" id="feedback_subject" value="<?php echo $lecture_name; ?> - Lecture - Feedback" readonly="readonly">
+    <input class="form-control" type="text" name="lecture_feedback_subject" id="feedback_subject" value="<?php echo $lecture_name; ?> - Lecture - Feedback" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="feedback_body">Feedback<span class="field-required">*</span></label>
-    <textarea class="form-control" rows="5" name="feedback_body" id="feedback_body"></textarea>
+    <textarea class="form-control" rows="5" name="lecture_feedback_body" id="feedback_body"></textarea>
     </div>
     </div>
 
