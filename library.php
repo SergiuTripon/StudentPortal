@@ -296,7 +296,7 @@ include 'includes/session.php';
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
 			<td data-title="Update"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Cancel">'.($book_status === 'Reserved' ? "Cancel is not possible due to book being reserved" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
+			<td data-title="Cancel">'.($book_status === 'Reserved' ? "Cancel not allowed" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
 			</tr>';
 	}
 
