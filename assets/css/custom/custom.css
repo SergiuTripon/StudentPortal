@@ -1302,8 +1302,9 @@ form .form-control:-ms-input-placeholder {
 .table-custom > thead > tr > td,
 .table-custom > tbody > tr > td,
 .table-custom > tfoot > tr > td {
-    border: 1px solid #CCCCCC;
+    color: #5D5D5D;
     text-align: center;
+    border: 1px solid #CCCCCC;
 }
 
 /* End of Table Custom style */
