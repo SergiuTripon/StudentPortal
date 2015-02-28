@@ -119,7 +119,7 @@ include 'includes/session.php';
 
 	$tutorial_name = $row["tutorial_name"];
 	$firstname = $row["firstname"];
-    $firstname = $row["surname"];
+    $surname = $row["surname"];
 	$tutorial_day = $row["tutorial_day"];
 
 	echo '<tr>

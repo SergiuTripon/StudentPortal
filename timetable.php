@@ -63,25 +63,18 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, system_lectures.lecture_lecturer, system_lectures.lecture_day, DATE_FORMAT(system_lectures.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(system_lectures.lecture_to_time,'%H:%i') as lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid='$session_userid' AND system_lectures.lecture_status='active'");
+	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, user_details.firstname, user_details.surname, system_lectures.lecture_day, DATE_FORMAT(system_lectures.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(system_lectures.lecture_to_time,'%H:%i') as lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM system_lectures LEFT JOIN system_modules ON system_lectures.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_lectures.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_lectures.lecture_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$lecture_name = $row["lecture_name"];
-	$lecture_lecturer = $row["lecture_lecturer"];
+	$firstname = $row["firstname"];
+    $surname = $row["surname"];
 	$lecture_day = $row["lecture_day"];
 	$lecture_from_time = $row["lecture_from_time"];
 	$lecture_to_time = $row["lecture_to_time"];
 	$lecture_location = $row["lecture_location"];
 	$lecture_capacity = $row["lecture_capacity"];
-
-	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $lecture_lecturer);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($firstname, $surname);
-	$stmt2->fetch();
 
 	echo '<tr>
 
