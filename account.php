@@ -231,7 +231,7 @@ include 'includes/session.php';
 			<td data-title="Created on">'.$created_on.'</td>
             <td data-title="Updated on">'.$updated_on.'</td>
 			<td data-title="Update"><a class="btn btn-primary btn-md ladda-button" href="/admin/update-an-account?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Change"><a class="btn btn-primary btn-sm ladda-button" href="/admin/change-account-password?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
+            <td data-title="Change"><a class="btn btn-primary btn-xs ladda-button" href="/admin/change-account-password?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
             <td data-title="Delete"><a class="btn btn-primary btn-md ladda-button delete-button" href="#modal-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
