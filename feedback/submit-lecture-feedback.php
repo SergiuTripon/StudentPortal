@@ -62,7 +62,6 @@ if (isset($_GET["id"])) {
 
     <div id="hide">
     <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
-    <input type="hidden" name="feedback_to_userid" id="feedback_to_userid" value="<?php echo $moduleid; ?>">
 
     <h4 class="text-center">Lecture</h4>
     <hr class="hr-custom">
