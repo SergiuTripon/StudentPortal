@@ -1344,6 +1344,18 @@ select.input-sm, select.form-group-sm .form-control {
     border-color: #5D5D5D;
     background-color: #5D5D5D;
 }
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #333333;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    color: #333333;
+}
 /* End of dataTables */
 
 /* No More Responsive Table */
