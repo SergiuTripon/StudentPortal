@@ -1735,9 +1735,9 @@ function SubmitFeedback() {
     global $created_on;
 
     $feedback_moduleid = filter_input(INPUT_POST, 'feedback_moduleid', FILTER_SANITIZE_STRING);
-    $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_to_firstname', FILTER_SANITIZE_STRING);
-    $feedback_from_surname = filter_input(INPUT_POST, 'feedback_to_surname', FILTER_SANITIZE_STRING);
-    $feedback_from_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
+    $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_from_firstname', FILTER_SANITIZE_STRING);
+    $feedback_from_surname = filter_input(INPUT_POST, 'feedback_from_surname', FILTER_SANITIZE_STRING);
+    $feedback_from_email = filter_input(INPUT_POST, 'feedback_from_email', FILTER_SANITIZE_EMAIL);
     $feedback_to_email = filter_input(INPUT_POST, 'feedback_to_email', FILTER_SANITIZE_EMAIL);
     $feedback_to_email = filter_var($feedback_to_email, FILTER_VALIDATE_EMAIL);
     $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
@@ -1761,7 +1761,7 @@ function SubmitFeedback() {
     $message = '<html>';
     $message .= '<body>';
     $message .= '<p>The following person sent you a message:</p>';
-    $message .= '<table rules="all" align="center" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
+    $message .= '<table rules="all" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$feedback_from_firstname</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_from_surname</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_from_email</td></tr>";
