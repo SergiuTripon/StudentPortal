@@ -1761,7 +1761,7 @@ function SubmitFeedback() {
 
     $feedback_moduleid = filter_input(INPUT_POST, 'feedback_moduleid', FILTER_SANITIZE_STRING);
     $feedback_lecturer = filter_input(INPUT_POST, 'feedback_lecturer', FILTER_SANITIZE_STRING);
-    $feedback_tutorial_assistant = filter_input(INPUT_POST, '$feedback_tutorial_assistant', FILTER_SANITIZE_STRING);
+    $feedback_tutorial_assistant = filter_input(INPUT_POST, 'feedback_tutorial_assistant', FILTER_SANITIZE_STRING);
     $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_from_firstname', FILTER_SANITIZE_STRING);
     $feedback_from_surname = filter_input(INPUT_POST, 'feedback_from_surname', FILTER_SANITIZE_STRING);
     $feedback_from_email = filter_input(INPUT_POST, 'feedback_from_email', FILTER_SANITIZE_EMAIL);
@@ -1786,9 +1786,14 @@ function SubmitFeedback() {
     $isRead = 0;
 
     $stmt2 = $mysqli->prepare("INSERT INTO user_feedback_lookup (feedbackid, feedback_from, moduleid, module_staff, isRead) VALUES (?, ?, ?, ?, ?)");
-    $stmt2->bind_param('iiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isRead);
+    $stmt2->bind_param('iiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer, $isRead);
     $stmt2->execute();
     $stmt2->close();
+
+    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_lookup (feedbackid, feedback_from, moduleid, module_staff, isRead) VALUES (?, ?, ?, ?, ?)");
+    $stmt3->bind_param('iiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isRead);
+    $stmt3->execute();
+    $stmt3->close();
 
     //Creating email
     $subject = "$feedback_from_firstname $feedback_from_surname - New feedback on Student Portal";
