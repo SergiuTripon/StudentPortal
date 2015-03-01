@@ -137,7 +137,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Total to pay</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" placeholder="Name" readonly="readonly">
+    <input class="form-control" type="text" name="product_amount" id="product_amount" placeholder="Total to pay" readonly="readonly">
 	</div>
     </div>
 
