@@ -105,6 +105,77 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+    	<div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Submitted feedback</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Submitted feedback -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom module-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Lecturer</th>
+    <th>Tutorial assistant</th>
+    <th>Subject</th>
+    <th>Feedback</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT system_modules.moduleid, system_modules.module_name, system_lectures.lecture_lecturer, system_tutorials.tutorial_assistant FROM system_modules LEFT JOIN user_timetable ON system_modules.moduleid = user_timetable.moduleid LEFT JOIN system_lectures ON system_modules.moduleid = system_lectures.moduleid LEFT JOIN system_tutorials ON system_modules.moduleid = system_tutorials.moduleid WHERE user_timetable.userid = '$session_userid' AND system_modules.module_status = 'active'");
+	while($row = $stmt1->fetch_assoc()) {
+
+    $moduleid = $row["moduleid"];
+	$module_name = $row["module_name"];
+	$lecture_lecturer = $row["lecture_lecturer"];
+    $tutorial_assistant = $row["tutorial_assistant"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lecture_lecturer);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
+    $stmt2->fetch();
+
+    $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt3->bind_param('i', $tutorial_assistant);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
+    $stmt3->fetch();
+
+	echo '<tr>
+
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
+			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Submit feedback</span></a></a></td>
+			</tr>';
+    $stmt2->close();
+    $stmt3->close();
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
 	</div><!-- /.panel-group -->
 
     </div><!-- /container -->
