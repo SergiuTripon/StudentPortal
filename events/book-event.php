@@ -248,7 +248,7 @@ if (isset($_GET["id"])) {
         var iPrice = $("#ticket_price").val();
 
         var total = quantity * iPrice;
-        $("#product_amount").val(total).toFixed(2);
+        $("#product_amount").val(total.toFixed(2));
     });
 
     //Pay course fees form submit
