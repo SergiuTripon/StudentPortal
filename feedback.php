@@ -83,6 +83,7 @@ include 'includes/session.php';
 			<td data-title="Tutorial assistant">'.$tutorial_assistant.'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Submit feedback</span></a></a></td>
 			</tr>';
+    $stmt2->close();
 	}
 
 	$stmt1->close();
