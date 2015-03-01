@@ -263,9 +263,6 @@ if (isset($_GET["id"])) {
         $("#feedback_body").addClass("input-happy");
     }
 
-    alert(feedback_lecturer);
-    alert(feedback_tutorial_assistant);
-
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
