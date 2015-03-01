@@ -156,12 +156,17 @@ include 'includes/session.php';
 
 	while($row = $stmt2->fetch_assoc()) {
 
+    $event_name = $row["event_name"];
+    $event_amount_paid = $row["event_amount_paid"];
+    $ticket_quantity = $row["ticket_quantity"];
+    $booked_on = $row["booked_on"];
+
 	echo '<tr>
 
-			<td data-title="Name">'.$row["event_name"].'</td>
-			<td data-title="Price">'.$row["event_amount"].'</td>
-			<td data-title="Quantity">'.$row["tickets_quantity"].'</td>
-			<td data-title="From">'.$row["booked_on"].'</td>
+			<td data-title="Name">'.$event_name.'</td>
+			<td data-title="Price">'.$event_amount_paid.'</td>
+			<td data-title="Quantity">'.$ticket_quantity.'</td>
+			<td data-title="From">'.$booked_on.'</td>
 			</tr>';
 	}
 
