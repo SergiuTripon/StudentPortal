@@ -17,7 +17,8 @@ $invoice_id = rand(1111111111,9999999999);
 
 $product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
-$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
+$product_quantity = filter_input(INPUT_POST, 'ticket_quantity', FILTER_SANITIZE_STRING);
+$product_quantity = 1;
 $product_amount = filter_input(INPUT_POST, 'product_amount', FILTER_SANITIZE_STRING);
 $payer_firstname = filter_input(INPUT_POST, 'payer_firstname', FILTER_SANITIZE_STRING);
 $payer_surname = filter_input(INPUT_POST, 'payer_surname', FILTER_SANITIZE_STRING);
