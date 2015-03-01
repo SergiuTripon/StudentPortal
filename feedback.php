@@ -77,7 +77,7 @@ include 'includes/session.php';
     $stmt2->fetch();
 
     $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt3->bind_param('i', $lecture_lecturer);
+    $stmt3->bind_param('i', $tutorial_assistant);
     $stmt3->execute();
     $stmt3->store_result();
     $stmt3->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
