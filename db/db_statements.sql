@@ -156,9 +156,8 @@ CREATE TABLE `student_portal`.`system_events` (
 CREATE TABLE `student_portal`.`booked_events` (
   `userid` INT(11) NOT NULL,
   `eventid` INT(11) NOT NULL,
-	`event_name` VARCHAR(300) NOT NULL,
-	`event_amount` NUMERIC(15,2) NOT NULL,
-	`tickets_quantity` VARCHAR(11) NOT NULL,
+	`event_amount_paid` NUMERIC(15,2) NOT NULL,
+	`ticket_quantity` INT(11) NOT NULL,
 	`booked_on` DATETIME NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),

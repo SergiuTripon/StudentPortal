@@ -210,7 +210,7 @@ elseif (isset($_POST["taskToActivate"])) {
 
 //Call Events functions
 //Call EventsQuantityCheck function
-elseif (isset($_POST["eventid"], $_POST["ticket_quantity"])) {
+elseif (isset($_POST["eventid"], $_POST["product_quantity"])) {
     EventTicketQuantityCheck();
 }
 

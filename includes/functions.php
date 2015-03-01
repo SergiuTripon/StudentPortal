@@ -1443,8 +1443,8 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_name, event_amount, tickets_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('iisiis', $userid, $item_number1, $product_name, $product_amount, $quantity1, $created_on);
+	$stmt2 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_amount, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt2->bind_param('iisiis', $userid, $item_number1, $product_amount, $quantity1, $created_on);
 	$stmt2->execute();
 	$stmt2->close();
 
@@ -1505,13 +1505,13 @@ function EventsPaypalPaymentSuccess() {
 	mail($email, $subject, $message, $headers);
 }
 
-//EventsQuantityCheck function
+//EventTicketQuantityCheck function
 function EventTicketQuantityCheck () {
 
 	global $mysqli;
 
 	$eventid = filter_input(INPUT_POST, 'eventid', FILTER_SANITIZE_STRING);
-	$product_quantity = filter_input(INPUT_POST, 'ticket_quantity', FILTER_SANITIZE_STRING);
+	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 
 	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
 	$stmt1->bind_param('i', $eventid);
