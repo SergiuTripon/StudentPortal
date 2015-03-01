@@ -1308,7 +1308,7 @@ function GetTubeStatus () {
         $dock_empty_docks = $xml_var->nbEmptyDocks;
         $dock_total_docks = $xml_var->nbDocks;
 
-        $stmt1 = $mysqli->prepare("INSERT INTO cycle_hire_status (dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt1 = $mysqli->prepare("INSERT INTO cycle_hire_status_now (dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt1->bind_param('ssssiiis', $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
         $stmt1->execute();
         $stmt1->close();
