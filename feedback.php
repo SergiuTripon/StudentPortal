@@ -131,7 +131,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT system_modules.module_name, user_feedback.feedback_subject, user_feedback.feedback_body, user_feedback.created_on FROM user_feedback_lookup LEFT JOIN system_modules ON user_feedback_lookup.moduleid = system_modules.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid = user_feedback.feedbackid WHERE feedback_from = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT DISTINCT system_modules.module_name, user_feedback.feedback_subject, user_feedback.feedback_body,  DATE_FORMAT(user_feedback.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_lookup LEFT JOIN system_modules ON user_feedback_lookup.moduleid = system_modules.moduleid LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid = user_feedback.feedbackid WHERE feedback_from = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
