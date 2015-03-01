@@ -143,7 +143,7 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Price</th>
+	<th>Total paid</th>
 	<th>Quantity</th>
 	<th>Booked on</th>
 	</tr>
