@@ -126,12 +126,19 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Price (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
+    <input class="form-control" type="text" name="ticket_price" id="ticket_price" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label for="product_quantity">Quantity<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="product_quantity" id="product_quantity" placeholder="Quantity">
+    <input class="form-control" type="text" name="ticket_quantity" id="ticket_quantity" placeholder="Quantity">
     </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label>Total to pay</label>
+    <input class="form-control" type="text" name="product_amount" id="product_amount" placeholder="Name" readonly="readonly">
+	</div>
     </div>
 
     <hr class="hr-custom">
@@ -214,19 +221,36 @@ if (isset($_GET["id"])) {
 
 	<script>
     $(document).ready(function () {
+        //Checks for empty values
+        var payer_address1 = $("#payer_address1").val();
+        if (payer_address1 === '') {
+            $("#payer_address1").addClass("input-sad");
+        }
+        var payer_city = $("#payer_city").val();
+        if (payer_city === '') {
+            $("#payer_city").addClass("input-sad");
+        }
+        var payer_postcode = $("#payer_postcode").val();
+        if (payer_postcode === '') {
+            $("#payer_postcode").addClass("input-sad");
+        }
+        var product_quantity = $("#product_quantity").val();
+        if (product_quantity === '') {
+            $("#product_quantity").addClass("input-sad");
+        }
+    });
+
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    //Checks for empty values
-    var payer_address1 = $("#payer_address1").val();
-	if(payer_address1 === '') { $("#payer_address1").addClass("input-sad"); }
-    var payer_city = $("#payer_city").val();
-	if(payer_city === '') { $("#payer_city").addClass("input-sad"); }
-    var payer_postcode = $("#payer_postcode").val();
-	if(payer_postcode === '') { $("#payer_postcode").addClass("input-sad"); }
-    var product_quantity = $("#product_quantity").val();
-    if(product_quantity === '') { $("#product_quantity").addClass("input-sad"); }
+    $('#product_quantity').keyup(function() {
+        var quantity = $("#ticket_quantity").val();
+        var iPrice = $("#ticket_price").val();
+
+        var total = quantity * iPrice;
+        $("#product_amount").val(total);
+    });
 
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
@@ -326,10 +350,7 @@ if (isset($_GET["id"])) {
     }
 	});
     }
-
 	return true;
-
-	});
 	});
 	</script>
 
