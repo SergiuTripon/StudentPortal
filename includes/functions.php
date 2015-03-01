@@ -1255,7 +1255,7 @@ function GetLiveTubeStatus () {
         $tube_station_status = $xml_var->Status->attributes()->Description;
         $tube_station_info = $xml_var->attributes()->StatusDetails;
 
-        $stmt1 = $mysqli->prepare("INSERT INTO tube_status_status_now (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
+        $stmt1 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
         $stmt1->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
         $stmt1->execute();
         $stmt1->close();
