@@ -76,14 +76,22 @@ include 'includes/session.php';
     $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
     $stmt2->fetch();
 
+    $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt3->bind_param('i', $lecture_lecturer);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
+    $stmt3->fetch();
+
 	echo '<tr>
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
-			<td data-title="Tutorial assistant">'.$tutorial_assistant.'</td>
+			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Submit feedback</span></a></a></td>
 			</tr>';
     $stmt2->close();
+    $stmt3->close();
 	}
 
 	$stmt1->close();
