@@ -164,9 +164,9 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Name">'.$event_name.'</td>
-			<td data-title="Price">'.$event_amount_paid.'</td>
+			<td data-title="Total paid">'.$event_amount_paid.'</td>
 			<td data-title="Quantity">'.$ticket_quantity.'</td>
-			<td data-title="From">'.$booked_on.'</td>
+			<td data-title="Booked on">'.$booked_on.'</td>
 			</tr>';
 	}
 
