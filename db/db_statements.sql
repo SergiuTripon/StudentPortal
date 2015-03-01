@@ -333,6 +333,42 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
+#Transport
+CREATE TABLE `tube_line_status_now` (
+  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `tube_line` VARCHAR (70) NOT NULL,
+  `tube_line_status` VARCHAR (70) NOT NULL,
+  `tube_line_info` VARCHAR(10000) NOT NULL,
+  `updated_on` DATETIME NOT NULL
+) ENGINE = InnoDB;
+
+#Transport
+CREATE TABLE `tube_station_status_now` (
+  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `tube_station` VARCHAR (70) NOT NULL,
+  `tube_station_status` VARCHAR (70) NOT NULL,
+  `tube_station_info` VARCHAR(10000) NOT NULL,
+  `updated_on` DATETIME NOT NULL
+) ENGINE = InnoDB;
+
+#Transport
+CREATE TABLE `tube_line_status_this_weekend` (
+  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `tube_line` VARCHAR (70) NOT NULL,
+  `tube_line_status` VARCHAR (70) NOT NULL,
+  `tube_line_info` VARCHAR(10000) NOT NULL,
+  `updated_on` DATETIME NOT NULL
+) ENGINE = InnoDB;
+
+#Transport
+CREATE TABLE `tube_station_status_this_weekend` (
+  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `tube_station` VARCHAR (70) NOT NULL,
+  `tube_station_status` VARCHAR (70) NOT NULL,
+  `tube_station_info` VARCHAR(10000) NOT NULL,
+  `updated_on` DATETIME NOT NULL
+) ENGINE = InnoDB;
+
 #University Map
 CREATE TABLE `system_map_markers` (
   `markerid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
