@@ -243,7 +243,7 @@ if (isset($_GET["id"])) {
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $('#product_quantity').keyup(function() {
+    $('#ticket_quantity').keyup(function() {
         var quantity = $("#ticket_quantity").val();
         var iPrice = $("#ticket_price").val();
 
