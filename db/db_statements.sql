@@ -337,8 +337,8 @@ ON DELETE CASCADE
 CREATE TABLE `tube_line_status_now` (
   `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `tube_line` VARCHAR (70) NOT NULL,
-  `tube_line_status` VARCHAR (70) NOT NULL,
-  `tube_line_info` VARCHAR(10000) NOT NULL,
+  `tube_line_status` VARCHAR (70),
+  `tube_line_info` VARCHAR(10000),
   `updated_on` DATETIME NOT NULL
 ) ENGINE = InnoDB;
 
@@ -346,8 +346,8 @@ CREATE TABLE `tube_line_status_now` (
 CREATE TABLE `tube_station_status_now` (
   `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `tube_station` VARCHAR (70) NOT NULL,
-  `tube_station_status` VARCHAR (70) NOT NULL,
-  `tube_station_info` VARCHAR(10000) NOT NULL,
+  `tube_station_status` VARCHAR (70),
+  `tube_station_info` VARCHAR(10000),
   `updated_on` DATETIME NOT NULL
 ) ENGINE = InnoDB;
 
@@ -355,8 +355,8 @@ CREATE TABLE `tube_station_status_now` (
 CREATE TABLE `tube_line_status_this_weekend` (
   `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `tube_line` VARCHAR (70) NOT NULL,
-  `tube_line_status` VARCHAR (70) NOT NULL,
-  `tube_line_info` VARCHAR(10000) NOT NULL,
+  `tube_line_status` VARCHAR (70),
+  `tube_line_info` VARCHAR(10000),
   `updated_on` DATETIME NOT NULL
 ) ENGINE = InnoDB;
 
@@ -364,8 +364,21 @@ CREATE TABLE `tube_line_status_this_weekend` (
 CREATE TABLE `tube_station_status_this_weekend` (
   `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `tube_station` VARCHAR (70) NOT NULL,
-  `tube_station_status` VARCHAR (70) NOT NULL,
-  `tube_station_info` VARCHAR(10000) NOT NULL,
+  `tube_station_status` VARCHAR (70),
+  `tube_station_info` VARCHAR(10000),
+  `updated_on` DATETIME NOT NULL
+) ENGINE = InnoDB;
+
+#Transport
+CREATE TABLE `cycle_hire_status_now` (
+  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `dock_name` VARCHAR (70) NOT NULL,
+  `dock_installed` VARCHAR (3),
+  `dock_locked` VARCHAR(3),
+  `dock_temporary` VARCHAR(3),
+  `dock_bikes_available` INT(11),
+  `dock_empty_docks` INT(11),
+  `dock_total_docks` INT(11),
   `updated_on` DATETIME NOT NULL
 ) ENGINE = InnoDB;
 

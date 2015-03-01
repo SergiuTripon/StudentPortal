@@ -1227,6 +1227,7 @@ function GetTubeStatus () {
 	global $xml_line_status;
 	global $xml_station_status;
     global $xml_this_weekend;
+    global $cycle_hire;
 
 	$url1 = 'http://cloud.tfl.gov.uk/TrackerNet/LineStatus';
 	$result1 = file_get_contents($url1);
@@ -1239,6 +1240,10 @@ function GetTubeStatus () {
     $url3 = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
     $result3 = file_get_contents($url3);
     $xml_this_weekend = new SimpleXMLElement($result3);
+
+    $url4 = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
+    $result4 = file_get_contents($url4);
+    $cycle_hire = new SimpleXMLElement($result4);
 
     //Live Line status
     foreach ($xml_line_status->LineStatus as $xml_var) {
@@ -1291,16 +1296,23 @@ function GetTubeStatus () {
         $stmt1->execute();
         $stmt1->close();
     }
-}
 
-//GetThisWeekendStatus function
-function GetThisWeekendTubeStatus () {
+    //Cycle hire
+    foreach ($cycle_hire->station as $xml_var) {
 
-	global $xml_this_weekend;
+        $dock_name = $xml_var->name;
+        $dock_installed = $xml_var->installed;
+        $dock_locked = $xml_var->locked;
+        $dock_temporary = $xml_var->temporary;
+        $dock_bikes_available = $xml_var->nbBikes;
+        $dock_empty_docks = $xml_var->nbEmptyDocks;
+        $dock_total_docks = $xml_var->nbDocks;
 
-	$url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
-	$result = file_get_contents($url);
-	$xml_this_weekend = new SimpleXMLElement($result);
+        $stmt1 = $mysqli->prepare("INSERT INTO cycle_hire_status (dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt1->bind_param('ssssiiis', $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
+        $stmt1->execute();
+        $stmt1->close();
+    }
 }
 
 //GetCycleHireStatus function
