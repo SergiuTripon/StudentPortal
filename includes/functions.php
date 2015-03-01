@@ -1443,7 +1443,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_amount, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt2 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_amount_paid, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?)");
 	$stmt2->bind_param('iiiis', $userid, $item_number1, $product_amount, $quantity1, $created_on);
 	$stmt2->execute();
 	$stmt2->close();
