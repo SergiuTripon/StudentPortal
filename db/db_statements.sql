@@ -1,4 +1,9 @@
 DROP TABLE system_map_markers;
+DROP TABLE cycle_hire_status_now;
+DROP TABLE tube_station_status_this_weekend;
+DROP TABLE tube_line_status_this_weekend;
+DROP TABLE tube_station_status_now;
+DROP TABLE tube_line_status_now;
 DROP TABLE user_feedback_lookup;
 DROP TABLE user_feedback;
 DROP TABLE system_lectures;
@@ -20,7 +25,7 @@ DROP TABLE user_details;
 DROP TABLE user_signin;
 
 #Sign In
-CREATE TABLE `student_portal`.`user_signin` (
+CREATE TABLE `user_signin` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `account_type` VARCHAR(8) NOT NULL,
   `email` VARCHAR(300) NOT NULL UNIQUE,
@@ -31,7 +36,7 @@ CREATE TABLE `student_portal`.`user_signin` (
 ) ENGINE = InnoDB;
 
 #User details
-CREATE TABLE `student_portal`.`user_details` (
+CREATE TABLE `user_details` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `firstname` VARCHAR(70) NOT NULL,
   `surname` VARCHAR(70) NOT NULL,
@@ -56,7 +61,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Forgotten Password & Password Reset
-CREATE TABLE `student_portal`.`user_token` (
+CREATE TABLE `user_token` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `token` CHAR(70) UNIQUE,
   `created_on` DATETIME,
@@ -67,7 +72,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Fees
-CREATE TABLE `student_portal`.`user_fees` (
+CREATE TABLE `user_fees` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `fee_amount` NUMERIC(15,2) NOT NULL,
   `isHalf` TINYINT(1) NOT NULL,
@@ -80,7 +85,7 @@ CREATE TABLE `student_portal`.`user_fees` (
 ) ENGINE = InnoDB;
 
 #Paypal payment
-CREATE TABLE `student_portal`.`paypal_log` (
+CREATE TABLE `paypal_log` (
 	`userid` INT(11) NOT NULL,
 	`payment_id` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`invoice_id` BIGINT(10) NOT NULL UNIQUE,
@@ -112,7 +117,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Messenger
-CREATE TABLE `student_portal`.`user_messages` (
+CREATE TABLE `user_messages` (
 	`messageid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`message_subject` VARCHAR(300) NOT NULL,
 	`message_body` VARCHAR(5000),
@@ -120,7 +125,7 @@ CREATE TABLE `student_portal`.`user_messages` (
 ) ENGINE = InnoDB;
 
 #Messenger
-CREATE TABLE `student_portal`.`user_messages_lookup` (
+CREATE TABLE `user_messages_lookup` (
   `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
@@ -136,7 +141,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Events
-CREATE TABLE `student_portal`.`system_events` (
+CREATE TABLE `system_events` (
 	`eventid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`event_name` VARCHAR(300) NOT NULL,
 	`event_notes` VARCHAR(5000),
@@ -153,7 +158,7 @@ CREATE TABLE `student_portal`.`system_events` (
 ) ENGINE = InnoDB;
 
 #Events
-CREATE TABLE `student_portal`.`booked_events` (
+CREATE TABLE `booked_events` (
   `userid` INT(11) NOT NULL,
   `eventid` INT(11) NOT NULL,
 	`event_amount_paid` NUMERIC(15,2) NOT NULL,
@@ -168,7 +173,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Library
-CREATE TABLE `student_portal`.`system_books` (
+CREATE TABLE `system_books` (
 	`bookid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`book_name` VARCHAR(300) NOT NULL,
 	`book_author` VARCHAR(300) NOT NULL,
@@ -180,7 +185,7 @@ CREATE TABLE `student_portal`.`system_books` (
 ) ENGINE = InnoDB;
 
 #Library
-CREATE TABLE `student_portal`.`reserved_books` (
+CREATE TABLE `reserved_books` (
   `userid` INT(11) NOT NULL,
 	`bookid` INT(11) NOT NULL,
 	`book_class` VARCHAR(15) NOT NULL,
@@ -197,7 +202,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Calendar
-CREATE TABLE `student_portal`.`user_tasks` (
+CREATE TABLE `user_tasks` (
 	`userid` INT(11) NOT NULL,
 	`taskid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`task_name` VARCHAR(70) NOT NULL,
@@ -218,7 +223,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `student_portal`.`system_modules` (
+CREATE TABLE `system_modules` (
 	`moduleid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`module_name` VARCHAR(300) NOT NULL,
 	`module_notes` VARCHAR(5000),
@@ -229,7 +234,7 @@ CREATE TABLE `student_portal`.`system_modules` (
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `student_portal`.`user_timetable` (
+CREATE TABLE `user_timetable` (
 	`userid` INT(11) NOT NULL,
 	`moduleid` INT(11) NOT NULL,
 FOREIGN KEY (userid)
@@ -241,7 +246,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `student_portal`.`system_lectures` (
+CREATE TABLE `system_lectures` (
 	`moduleid` INT(11) NOT NULL UNIQUE,
 	`lectureid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`lecture_name` VARCHAR(300) NOT NULL,
@@ -264,7 +269,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `student_portal`.`system_tutorials` (
+CREATE TABLE `system_tutorials` (
 	`moduleid` INT(11) NOT NULL UNIQUE,
 	`tutorialid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`tutorial_name` VARCHAR(300) NOT NULL,
@@ -287,7 +292,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `student_portal`.`system_exams` (
+CREATE TABLE `system_exams` (
 	`moduleid` INT(11) NOT NULL UNIQUE,
 	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`exam_name` VARCHAR(300) NOT NULL,
@@ -306,7 +311,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Feedback
-CREATE TABLE `student_portal`.`user_feedback` (
+CREATE TABLE `user_feedback` (
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `feedback_subject` VARCHAR(300) NOT NULL,
   `feedback_body` VARCHAR(5000) NOT NULL,
@@ -314,7 +319,7 @@ CREATE TABLE `student_portal`.`user_feedback` (
 ) ENGINE = InnoDB;
 
 #Feedback
-CREATE TABLE `student_portal`.`user_feedback_lookup` (
+CREATE TABLE `user_feedback_lookup` (
   `feedbackid` INT(11) NOT NULL,
   `feedback_from` INT(11) NOT NULL,
   `moduleid` INT(11) NOT NULL,
@@ -373,9 +378,9 @@ CREATE TABLE `tube_station_status_this_weekend` (
 CREATE TABLE `cycle_hire_status_now` (
   `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `dock_name` VARCHAR (70) NOT NULL,
-  `dock_installed` VARCHAR (3),
-  `dock_locked` VARCHAR(3),
-  `dock_temporary` VARCHAR(3),
+  `dock_installed` VARCHAR (5),
+  `dock_locked` VARCHAR(5),
+  `dock_temporary` VARCHAR(5),
   `dock_bikes_available` INT(11),
   `dock_empty_docks` INT(11),
   `dock_total_docks` INT(11),
