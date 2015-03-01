@@ -126,18 +126,18 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Price (&pound;)</label>
-    <input class="form-control" type="text" name="ticket_price" id="ticket_price" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="ticket_quantity">Quantity<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="ticket_quantity" id="ticket_quantity" placeholder="Quantity">
+    <label for="product_quantity">Quantity<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="product_quantity" id="product_quantity" placeholder="Quantity">
     </div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label>Total to pay (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" placeholder="Total to pay" readonly="readonly">
+    <label>Total to pay</label>
+    <input class="form-control" type="text" name="total_to_pay" id="total_to_pay" placeholder="Total to pay" readonly="readonly">
 	</div>
     </div>
 
@@ -221,34 +221,26 @@ if (isset($_GET["id"])) {
 
 	<script>
     $(document).ready(function () {
-        //Checks for empty values
-        var payer_address1 = $("#payer_address1").val();
-        if (payer_address1 === '') {
-            $("#payer_address1").addClass("input-sad");
-        }
-        var payer_city = $("#payer_city").val();
-        if (payer_city === '') {
-            $("#payer_city").addClass("input-sad");
-        }
-        var payer_postcode = $("#payer_postcode").val();
-        if (payer_postcode === '') {
-            $("#payer_postcode").addClass("input-sad");
-        }
-        var ticket_quantity = $("#ticket_quantity").val();
-        if (ticket_quantity === '') {
-            $("#ticket_quantity").addClass("input-sad");
-        }
-    });
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $('#ticket_quantity').keyup(function() {
-        var quantity = $("#ticket_quantity").val();
-        var iPrice = $("#ticket_price").val();
+    //Checks for empty values
+    var payer_address1 = $("#payer_address1").val();
+	if(payer_address1 === '') { $("#payer_address1").addClass("input-sad"); }
+    var payer_city = $("#payer_city").val();
+	if(payer_city === '') { $("#payer_city").addClass("input-sad"); }
+    var payer_postcode = $("#payer_postcode").val();
+	if(payer_postcode === '') { $("#payer_postcode").addClass("input-sad"); }
+    var product_quantity = $("#product_quantity").val();
+    if(product_quantity === '') { $("#product_quantity").addClass("input-sad"); }
+
+    $('#product_quantity').keyup(function() {
+        var quantity = $("#product_quantity").val();
+        var iPrice = $("#product_amount").val();
 
         var total = quantity * iPrice;
-        $("#product_amount").val(total.toFixed(2));
+        $("#total_to_pay").val(total.toFixed(2));
     });
 
     //Pay course fees form submit
@@ -311,22 +303,22 @@ if (isset($_GET["id"])) {
         $("#payer_postcode").addClass("input-happy");
 	}
 
-    var ticket_quantity = $("#ticket_quantity").val();
-    if(ticket_quantity === '') {
-        $("label[for='ticket_quantity']").empty().append("Please enter a quantity.");
-        $("label[for='ticket_quantity']").removeClass("feedback-happy");
-        $("#ticket_quantity").removeClass("input-happy");
-        $("label[for='ticket_quantity']").addClass("feedback-sad");
-        $("#ticket_quantity").addClass("input-sad");
-        $("#ticket_quantity").focus();
+    var product_quantity = $("#product_quantity").val();
+    if(product_quantity === '') {
+        $("label[for='product_quantity']").empty().append("Please enter a quantity.");
+        $("label[for='product_quantity']").removeClass("feedback-happy");
+        $("#product_quantity").removeClass("input-happy");
+        $("label[for='product_quantity']").addClass("feedback-sad");
+        $("#payer_postcode").addClass("input-sad");
+        $("#payer_postcode").focus();
         hasError  = true;
         return false;
     } else {
-        $("label[for='ticket_quantity']").empty().append("All good!");
-        $("label[for='ticket_quantity']").removeClass("feedback-sad");
-        $("#ticket_quantity").removeClass("input-sad");
-        $("label[for='ticket_quantity']").addClass("feedback-happy");
-        $("#ticket_quantity").addClass("input-happy");
+        $("label[for='product_quantity']").empty().append("All good!");
+        $("label[for='product_quantity']").removeClass("feedback-sad");
+        $("#product_quantity").removeClass("input-sad");
+        $("label[for='product_quantity']").addClass("feedback-happy");
+        $("#product_quantity").addClass("input-happy");
     }
 
     var eventid = $("#product_id").val();
@@ -335,7 +327,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'eventid=' + eventid + '&ticket_quantity=' + ticket_quantity,
+    data:'eventid=' + eventid + '&product_quantity=' + product_quantity,
     success:function(msg){
         if (msg == 'error') {
             $("#error").empty().append("The quantity entered exceeds the amount of tickets available.<br>You can check the ticket availability on the Events page.");
@@ -349,7 +341,10 @@ if (isset($_GET["id"])) {
     }
 	});
     }
+
 	return true;
+
+	});
 	});
 	</script>
 
