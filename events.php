@@ -144,7 +144,7 @@ include 'includes/session.php';
 	<tr>
 	<th>Name</th>
 	<th>Price</th>
-	<th>Quality</th>
+	<th>Quantity</th>
 	<th>Booked on</th>
 	</tr>
 	</thead>
