@@ -1506,12 +1506,12 @@ function EventsPaypalPaymentSuccess() {
 }
 
 //EventsQuantityCheck function
-function EventsQuantityCheck () {
+function EventTicketQuantityCheck () {
 
 	global $mysqli;
 
 	$eventid = filter_input(INPUT_POST, 'eventid', FILTER_SANITIZE_STRING);
-	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
+	$product_quantity = filter_input(INPUT_POST, 'ticket_quantity', FILTER_SANITIZE_STRING);
 
 	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
 	$stmt1->bind_param('i', $eventid);

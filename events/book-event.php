@@ -234,9 +234,9 @@ if (isset($_GET["id"])) {
         if (payer_postcode === '') {
             $("#payer_postcode").addClass("input-sad");
         }
-        var product_quantity = $("#ticket_quantity").val();
-        if (product_quantity === '') {
-            $("#product_quantity").addClass("input-sad");
+        var ticket_quantity = $("#ticket_quantity").val();
+        if (ticket_quantity === '') {
+            $("#ticket_quantity").addClass("input-sad");
         }
     });
 
@@ -311,8 +311,8 @@ if (isset($_GET["id"])) {
         $("#payer_postcode").addClass("input-happy");
 	}
 
-    var product_quantity = $("#ticket_quantity").val();
-    if(product_quantity === '') {
+    var ticket_quantity = $("#ticket_quantity").val();
+    if(ticket_quantity === '') {
         $("label[for='ticket_quantity']").empty().append("Please enter a quantity.");
         $("label[for='ticket_quantity']").removeClass("feedback-happy");
         $("#ticket_quantity").removeClass("input-happy");
@@ -335,7 +335,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'eventid=' + eventid + '&product_quantity=' + product_quantity,
+    data:'eventid=' + eventid + '&ticket_quantity=' + ticket_quantity,
     success:function(msg){
         if (msg == 'error') {
             $("#error").empty().append("The quantity entered exceeds the amount of tickets available.<br>You can check the ticket availability on the Events page.");
