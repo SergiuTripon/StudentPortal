@@ -1236,11 +1236,11 @@ function GetLiveTubeStatus () {
     $xml_station_status = new SimpleXMLElement($result2);
 
     //Line status
-    foreach ($xml_line_status->LineStatus->item as $xml_var) {
+    foreach ($xml_line_status->LineStatus as $name) {
 
-        $tube_line = $xml_var->Line->attributes()->Name;
-        $tube_line_status = $xml_var->Status->attributes()->Description;
-        $tube_line_info = $xml_var->attributes()->StatusDetails;
+        $tube_line = $name->Line->attributes()->Name;
+        $tube_line_status = $name->Status->attributes()->Description;
+        $tube_line_info = $name->attributes()->StatusDetails;
 
         $stmt1 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?)");
         $stmt1->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
