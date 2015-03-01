@@ -152,7 +152,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT event_name, event_amount, tickets_quantity, DATE_FORMAT(booked_on,'%d %b %y %H:%i') as booked_on FROM booked_events WHERE userid = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT event_amount, ticket_quantity, DATE_FORMAT(booked_on,'%d %b %y %H:%i') as booked_on FROM booked_events LEFT JOIN system_events ON booked_events.eventid=system_events.eventid WHERE userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
