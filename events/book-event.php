@@ -129,7 +129,7 @@ if (isset($_GET["id"])) {
     <input class="form-control" type="text" name="ticket_price" id="ticket_price" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="product_quantity">Quantity<span class="field-required">*</span></label>
+    <label for="ticket_quantity">Quantity<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="ticket_quantity" id="ticket_quantity" placeholder="Quantity">
     </div>
     </div>
@@ -234,7 +234,7 @@ if (isset($_GET["id"])) {
         if (payer_postcode === '') {
             $("#payer_postcode").addClass("input-sad");
         }
-        var product_quantity = $("#product_quantity").val();
+        var product_quantity = $("#ticket_quantity").val();
         if (product_quantity === '') {
             $("#product_quantity").addClass("input-sad");
         }
@@ -311,22 +311,22 @@ if (isset($_GET["id"])) {
         $("#payer_postcode").addClass("input-happy");
 	}
 
-    var product_quantity = $("#product_quantity").val();
+    var product_quantity = $("#ticket_quantity").val();
     if(product_quantity === '') {
-        $("label[for='product_quantity']").empty().append("Please enter a quantity.");
-        $("label[for='product_quantity']").removeClass("feedback-happy");
-        $("#product_quantity").removeClass("input-happy");
-        $("label[for='product_quantity']").addClass("feedback-sad");
-        $("#payer_postcode").addClass("input-sad");
-        $("#payer_postcode").focus();
+        $("label[for='ticket_quantity']").empty().append("Please enter a quantity.");
+        $("label[for='ticket_quantity']").removeClass("feedback-happy");
+        $("#ticket_quantity").removeClass("input-happy");
+        $("label[for='ticket_quantity']").addClass("feedback-sad");
+        $("#ticket_quantity").addClass("input-sad");
+        $("#ticket_quantity").focus();
         hasError  = true;
         return false;
     } else {
-        $("label[for='product_quantity']").empty().append("All good!");
-        $("label[for='product_quantity']").removeClass("feedback-sad");
-        $("#product_quantity").removeClass("input-sad");
-        $("label[for='product_quantity']").addClass("feedback-happy");
-        $("#product_quantity").addClass("input-happy");
+        $("label[for='ticket_quantity']").empty().append("All good!");
+        $("label[for='ticket_quantity']").removeClass("feedback-sad");
+        $("#ticket_quantity").removeClass("input-sad");
+        $("label[for='ticket_quantity']").addClass("feedback-happy");
+        $("#ticket_quantity").addClass("input-happy");
     }
 
     var eventid = $("#product_id").val();
