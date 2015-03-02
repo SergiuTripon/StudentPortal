@@ -1176,91 +1176,91 @@ function GetTubeLineLiveStatus() {
     $stmt1 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Bakerloo'");
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($bakerloo1, $bakerloo);
+    $stmt1->bind_result($bakerloo, $bakerloo1);
     $stmt1->fetch();
     $stmt1->close();
 
     $stmt2 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Central'");
     $stmt2->execute();
     $stmt2->store_result();
-    $stmt2->bind_result($central1, $central);
+    $stmt2->bind_result($central, $central1);
     $stmt2->fetch();
     $stmt2->close();
 
     $stmt3 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Circle'");
     $stmt3->execute();
     $stmt3->store_result();
-    $stmt3->bind_result($circle1, $circle);
+    $stmt3->bind_result($circle, $circle1);
     $stmt3->fetch();
     $stmt3->close();
 
     $stmt4 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='District'");
     $stmt4->execute();
     $stmt4->store_result();
-    $stmt4->bind_result($district1, $district);
+    $stmt4->bind_result($district, $district1);
     $stmt4->fetch();
     $stmt4->close();
 
     $stmt5 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Hammersmith and City'");
     $stmt5->execute();
     $stmt5->store_result();
-    $stmt5->bind_result($hammersmith1, $hammersmith);
+    $stmt5->bind_result($hammersmith, $hammersmith1);
     $stmt5->fetch();
     $stmt5->close();
 
     $stmt6 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Jubilee'");
     $stmt6->execute();
     $stmt6->store_result();
-    $stmt6->bind_result($jubilee1, $jubilee);
+    $stmt6->bind_result($jubilee, $jubilee1);
     $stmt6->fetch();
     $stmt6->close();
 
     $stmt7 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Metropolitan'");
     $stmt7->execute();
     $stmt7->store_result();
-    $stmt7->bind_result($metropolitan1, $metropolitan);
+    $stmt7->bind_result($metropolitan, $metropolitan1);
     $stmt7->fetch();
     $stmt7->close();
 
     $stmt8 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Northern'");
     $stmt8->execute();
     $stmt8->store_result();
-    $stmt8->bind_result($northern1, $northern);
+    $stmt8->bind_result($northern, $northern1);
     $stmt8->fetch();
     $stmt8->close();
 
     $stmt9 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Picadilly'");
     $stmt9->execute();
     $stmt9->store_result();
-    $stmt9->bind_result($picadilly1, $picadilly);
+    $stmt9->bind_result($picadilly, $picadilly1);
     $stmt9->fetch();
     $stmt9->close();
 
     $stmt10 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Victoria'");
     $stmt10->execute();
     $stmt10->store_result();
-    $stmt10->bind_result($victoria1, $victoria);
+    $stmt10->bind_result($victoria, $victoria1);
     $stmt10->fetch();
     $stmt10->close();
 
     $stmt11 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Waterloo and City'");
     $stmt11->execute();
     $stmt11->store_result();
-    $stmt11->bind_result($waterloo1, $waterloo);
+    $stmt11->bind_result($waterloo, $waterloo1);
     $stmt11->fetch();
     $stmt11->close();
 
     $stmt12 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Overground'");
     $stmt12->execute();
     $stmt12->store_result();
-    $stmt12->bind_result($overground1, $overground);
+    $stmt12->bind_result($overground, $overground1);
     $stmt12->fetch();
     $stmt12->close();
 
     $stmt13 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='DLR'");
     $stmt13->execute();
     $stmt13->store_result();
-    $stmt13->bind_result($dlr1, $dlr);
+    $stmt13->bind_result($dlr, $dlr1);
     $stmt13->fetch();
     $stmt13->close();
 
