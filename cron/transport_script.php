@@ -1,8 +1,8 @@
 <?php
 include '../includes/session.php';
 
-UpdateTransportStatus();
-//InsertTransportStatus();
+//UpdateTransportStatus();
+InsertTransportStatus();
 
 //GetTransportStatus function
 function UpdateTransportStatus () {
@@ -50,8 +50,8 @@ function UpdateTransportStatus () {
         $tube_station_status = $xml_var->Status->attributes()->Description;
         $tube_station_info = $xml_var->attributes()->StatusDetails;
 
-        $stmt1 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=?");
-        $stmt1->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
+        $stmt1 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_station=?");
+        $stmt1->bind_param('sssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
         $stmt1->execute();
         $stmt1->close();
     }
@@ -63,8 +63,8 @@ function UpdateTransportStatus () {
         $tube_line_status = $xml_var->Status->Text;
         $tube_line_info = $xml_var->Status->Message->Text;
 
-        $stmt1 = $mysqli->prepare("UPDATE tube_line_status_this_weekend SET tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=?");
-        $stmt1->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
+        $stmt1 = $mysqli->prepare("UPDATE tube_line_status_this_weekend SET tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_line=?");
+        $stmt1->bind_param('sssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_line);
         $stmt1->execute();
         $stmt1->close();
     }
@@ -76,8 +76,8 @@ function UpdateTransportStatus () {
         $tube_station_status = $xml_var->Status->Text;
         $tube_station_info = $xml_var->Status->Message->Text;
 
-        $stmt1 = $mysqli->prepare("UPDATE tube_station_status_this_weekend SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=?");
-        $stmt1->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
+        $stmt1 = $mysqli->prepare("UPDATE tube_station_status_this_weekend SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_station=?");
+        $stmt1->bind_param('sssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
         $stmt1->execute();
         $stmt1->close();
     }
@@ -93,8 +93,8 @@ function UpdateTransportStatus () {
         $dock_empty_docks = $xml_var->nbEmptyDocks;
         $dock_total_docks = $xml_var->nbDocks;
 
-        $stmt1 = $mysqli->prepare("UPDATE INTO cycle_hire_status_now SET dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=?)");
-        $stmt1->bind_param('ssssiiis', $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
+        $stmt1 = $mysqli->prepare("UPDATE INTO cycle_hire_status_now SET dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dock_name=?");
+        $stmt1->bind_param('ssssiiiss', $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dock_name);
         $stmt1->execute();
         $stmt1->close();
     }
