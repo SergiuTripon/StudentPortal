@@ -741,13 +741,13 @@ include 'includes/session.php';
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal">Return</a>
+            <a id="return-'.$bookid.'" class="btn btn-primary btn-md" data-style="slide-up">Return</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="../messenger/message-user?id='.$userid.'" data-style="slide-up">Message</a></li>
+            <li><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message</a></li>
             </ul>
             </div>
             </td>
