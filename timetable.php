@@ -889,6 +889,8 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Notes</th>
 	<th>URL</th>
+    <th>Lecturer</th>
+    <th>Tutorial assistant</th>
 	<th>Action</th>
 	</tr>
 	</thead>
@@ -896,20 +898,36 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt3 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url, l.lecture_lecturer, t.tutorial_assistant FROM system_modules m LEFT JOIN system_lectures l ON m.moduleid=l.moduleid LEFT JOIN system_tutorials t ON m.moduleid=t.moduleid WHERE m.module_status = 'active'");
 
-	while($row = $stmt3->fetch_assoc()) {
+	while($row = $stmt1->fetch_assoc()) {
 
     $moduleid = $row["moduleid"];
 	$module_name = $row["module_name"];
 	$module_notes = $row["module_notes"];
 	$module_url = $row["module_url"];
 
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lecture_lecturer);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
+    $stmt2->fetch();
+
+    $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt3->bind_param('i', $tutorial_assistant);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
+    $stmt3->fetch();
+
 	echo '<tr id="timetable-'.$moduleid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
+            <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
+            <td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
             <a class="btn btn-primary" href="/admin/allocate-timetable?id='.$moduleid.'">Allocate</a>
@@ -993,7 +1011,7 @@ include 'includes/session.php';
 			</div><!-- /modal-content -->';
 	}
 
-	$stmt3->close();
+	$stmt1->close();
 	?>
 	</tbody>
 
