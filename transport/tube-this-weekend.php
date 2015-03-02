@@ -61,13 +61,26 @@ $xml_this_weekend = new SimpleXMLElement($result3);
 	</thead>
 
 	<tbody>
-	<?php foreach ($xml_this_weekend->Lines->Line as $xml_var) : ?>
-	<tr>
-	<td data-title="Line"><?php echo $xml_var->Name ?></td>
-	<td data-title="Status"><?php echo $xml_var->Status->Text ?></td>
-	<td class="text-justify" data-title="Info"><?php echo $xml_var->Status->Message->Text ?></td>
-	</tr>
-	<?php endforeach; ?>
+    <?php
+
+	$stmt1 = $mysqli->query("SELECT tube_line, tube_line_status, tube_line_info FROM tube_line_status_this_weekend");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $tube_line = $row["tube_line"];
+    $tube_line_status = $row["tube_line_status"];
+    $tube_line_info = $row["tube_line_info"];
+
+	echo '<tr>
+
+			<td data-title="Line">'.$tube_line.'</td>
+			<td data-title="Status">'.$tube_line_status.'</td>
+			<td data-title="Info">'.$tube_line_info.'</td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
 	</tbody>
 
 	</table>
@@ -100,13 +113,26 @@ $xml_this_weekend = new SimpleXMLElement($result3);
 	</thead>
 
 	<tbody>
-	<?php foreach ($xml_this_weekend->Stations->Station as $xml_var) : ?>
-	<tr>
-	<td data-title="Station"><?php echo $xml_var->Name ?></td>
-	<td data-title="Status"><?php echo $xml_var->Status->Text ?></td>
-	<td class="text-justify" data-title="Info"><?php echo $xml_var->Status->Message->Text ?></td>
-	</tr>
-	<?php endforeach; ?>
+	<?php
+
+    $stmt1 = $mysqli->query("SELECT tube_station, tube_station_status, tube_station_info FROM tube_station_status_this_weekend");
+
+    while($row = $stmt1->fetch_assoc()) {
+
+        $tube_station = $row["tube_station"];
+        $tube_station_status = $row["tube_station_status"];
+        $tube_station_info = $row["tube_station_info"];
+
+        echo '<tr>
+
+			<td data-title="Station">'.$tube_station.'</td>
+			<td data-title="Status">'.$tube_station_status.'</td>
+			<td data-title="Info">'.$tube_station_info.'</td>
+			</tr>';
+    }
+
+    $stmt1->close();
+    ?>
 	</tbody>
 
 	</table>
