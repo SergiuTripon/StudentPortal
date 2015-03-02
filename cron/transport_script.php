@@ -198,7 +198,7 @@ function GetTransportStatus () {
     $cron_job = 'transport_script.txt';
 
     $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
-    $cron_log_content = "$cron_job ran successfully at $updated_on.";
+    $cron_log_content = "$cron_job ran successfully at $updated_on.\n";
     fwrite($cron_log, $cron_log_content);
     fclose($cron_log);
 
