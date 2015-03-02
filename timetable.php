@@ -1120,16 +1120,7 @@ include 'includes/session.php';
             <td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="/admin/allocate-timetable?id='.$moduleid.'">Allocate</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="/admin/update-timetable?id='.$moduleid.'">Update</a></li>
-            <li><a href="#deactivate-'.$moduleid.'" data-toggle="modal">Deactivate</a></li>
-            <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
-            </ul>
+            <a class="btn btn-primary" href="#restore-'.$moduleid.'" data-toggle="modal">Restore</a>
             </div>
             </td>
 			</tr>
@@ -1152,9 +1143,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#restore-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Restore</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
