@@ -915,6 +915,7 @@ include 'includes/session.php';
     $stmt2->store_result();
     $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
     $stmt2->fetch();
+    $stmt2->close();
 
     $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
     $stmt3->bind_param('i', $tutorial_assistant);
@@ -922,6 +923,7 @@ include 'includes/session.php';
     $stmt3->store_result();
     $stmt3->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
     $stmt3->fetch();
+    $stmt3->close();
 
 	echo '<tr id="timetable-'.$moduleid.'">
 
@@ -1044,8 +1046,6 @@ include 'includes/session.php';
 			</div><!-- /modal-content -->';
 	}
 
-    $stmt3->close();
-    $stmt2->close();
     $stmt1->close();
 	?>
 	</tbody>
@@ -1099,6 +1099,7 @@ include 'includes/session.php';
         $stmt2->store_result();
         $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
         $stmt2->fetch();
+        $stmt2->close();
 
         $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
         $stmt3->bind_param('i', $tutorial_assistant);
@@ -1106,6 +1107,7 @@ include 'includes/session.php';
         $stmt3->store_result();
         $stmt3->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
         $stmt3->fetch();
+        $stmt3->close();
 
         echo '<tr id="timetable-'.$moduleid.'">
 
@@ -1195,8 +1197,6 @@ include 'includes/session.php';
 			</div><!-- /modal-content -->';
 	}
 
-    $stmt3->close();
-    $stmt2->close();
 	$stmt1->close();
 	?>
 	</tbody>
