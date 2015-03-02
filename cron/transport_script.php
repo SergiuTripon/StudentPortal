@@ -62,15 +62,15 @@ function InsertTransportStatus () {
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("DELETE FROM tube_line_status_now");
+    $stmt2 = $mysqli->prepare("DELETE FROM tube_station_status_now");
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("DELETE FROM tube_line_status_now");
+    $stmt3 = $mysqli->prepare("DELETE FROM tube_line_status_this_weekend");
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("DELETE FROM tube_line_status_now");
+    $stmt4 = $mysqli->prepare("DELETE FROM tube_station_status_this_weekend");
     $stmt4->execute();
     $stmt4->close();
 
