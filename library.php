@@ -412,7 +412,7 @@ include 'includes/session.php';
 
 	echo '<tr id="book-'.$bookid.'">
 
-			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Name"><a href="#view-book-'.$bookid.'">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
