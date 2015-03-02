@@ -93,7 +93,7 @@ function UpdateTransportStatus () {
         $dock_empty_docks = $xml_var->nbEmptyDocks;
         $dock_total_docks = $xml_var->nbDocks;
 
-        $stmt1 = $mysqli->prepare("UPDATE INTO cycle_hire_status_now SET dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dock_name=?");
+        $stmt1 = $mysqli->prepare("UPDATE cycle_hire_status_now SET dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dock_name=?");
         $stmt1->bind_param('ssssiiiss', $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dock_name);
         $stmt1->execute();
         $stmt1->close();
