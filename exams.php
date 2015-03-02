@@ -107,6 +107,8 @@ include 'includes/session.php';
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
 
+    <?php include 'includes/menus/portal_menu.php'; ?>
+
     <div id="exams-portal" class="container">
 
 	<ol class="breadcrumb breadcrumb-custom">
@@ -136,18 +138,19 @@ include 'includes/session.php';
 	<th>Date</th>
     <th>Time</th>
     <th>Location</th>
-    <th>Capacity</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_exams.exam_name, DATE_FORMAT(system_exams.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(system_exams.exam_time,'%H:%i') as exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE system_exams.exam_status='active'");
+	$stmt1 = $mysqli->query("SELECT system_exams.examid, system_exams.exam_name, system_exams.exam_notes, DATE_FORMAT(system_exams.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(system_exams.exam_time,'%H:%i') as exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE system_exams.exam_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
+    $examid = $row["examid"];
     $exam_name = $row["exam_name"];
+    $exam_notes = $row["exam_notes"];
     $exam_date = $row["exam_date"];
     $exam_time = $row["exam_time"];
     $exam_location = $row["exam_location"];
@@ -156,12 +159,40 @@ include 'includes/session.php';
 
 	echo '<tr>
 
-			<td data-title="Name">'.$exam_name.'</td>
+			<td data-title="Name"><a href="#view-exam-'.$examid.'">'.$exam_name.'</a></td>
 			<td data-title="Date">'.$exam_date.'</td>
 			<td data-title="Time">'.$exam_time.'</td>
 			<td data-title="Location">'.$exam_location.'</td>
-			<td data-title="Capacity">'.$exam_capacity.'</td>
-			</tr>';
+			</tr>
+
+			<div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$exam_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($exam_notes) ? "No description" : "$exam_notes").'</p>
+			<p><b>Date:</b> '.$exam_date.'</p>
+			<p><b>Time:</b> '.$exam_time.'</p>
+			<p><b>Location:</b> '.$exam_location.'</p>
+			<p><b>Capacity:</b> '.$exam_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt1->close();
