@@ -82,9 +82,8 @@ global $transport_status_last_updated;
 
 	$stmt1->close();
 	?>
-    <p>Last updated: <?php echo $transport_status_last_updated ?></p>
 	</tbody>
-
+    <div>Last updated: <?php echo $transport_status_last_updated ?></div>
 	</table>
 	</section>
 
