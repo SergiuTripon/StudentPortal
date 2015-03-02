@@ -60,6 +60,8 @@ function GetTransportStatus () {
 
             $stmt1->close();
         }
+
+        print $xml_var->attributes()->ID;;
     }
 }
 
