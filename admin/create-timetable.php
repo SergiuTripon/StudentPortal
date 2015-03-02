@@ -440,7 +440,7 @@ include '../includes/session.php';
         $("#lecture_name").addClass("input-happy");
 	}
 
-    var lecture_lecturer_check = $('#lecture_lecturer :selected').text();
+    var lecture_lecturer_check = $('#lecture_lecturer :selected').html();
     if (lecture_lecturer_check === '') {
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
@@ -586,7 +586,6 @@ include '../includes/session.php';
 	}
 
     var lecture_lecturer = $("#lecture_lecturer option:selected").html();
-    alert(lecture_lecturer);
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
@@ -608,7 +607,7 @@ include '../includes/session.php';
         $("#tutorial_name").addClass("input-happy");
 	}
 
-    var tutorial_assistant_check = $('#tutorial_assistant :selected').text();
+    var tutorial_assistant_check = $('#tutorial_assistant :selected').html();
     if (tutorial_assistant_check === '') {
         $("label[for='tutorial_assistant']").empty().append("Please enter a tutorial assistant.");
         $("label[for='tutorial_assistant']").removeClass("feedback-happy");
@@ -754,7 +753,7 @@ include '../includes/session.php';
 	}
 
     var tutorial_notes = $("#tutorial_notes").val();
-    var tutorial_assistant = $("#tutorial_assistant option:selected").val();
+    var tutorial_assistant = $("#tutorial_assistant option:selected").html();
 
     //Exams
 	var exam_name = $("#exam_name").val();
