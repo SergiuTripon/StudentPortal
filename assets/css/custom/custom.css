@@ -468,7 +468,9 @@ label {
     margin-left: 2px;
 }
 
-input[type=text] {
+input[type=text],
+input[type=password],
+input[type=email]{
     margin-bottom: 10px;
 }
 
