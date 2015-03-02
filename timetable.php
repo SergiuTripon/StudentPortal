@@ -964,7 +964,6 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/allocate-timetable?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Allocate</a>
             <a href="/admin/update-timetable?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
             <a href="#deactivate-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
             <a href="#delete-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
