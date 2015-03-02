@@ -714,7 +714,6 @@ include 'includes/session.php';
     <th>Reserved by</th>
 	<th>Name</th>
 	<th>Author</th>
-	<th>Action</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -738,8 +737,18 @@ include 'includes/session.php';
             <td data-title="Reserved by">'.$firstname.' '.$surname.'</td>
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
-            <td data-title="Action"><a id="return-'.$bookid.'" class="btn btn-primary btn-md return-button ladda-button" data-style="slide-up"><span class="ladda-label">Return</span></a></td>
+            <td data-title="Action">
+            <div class="btn-group btn-action">
+            <a id="return-'.$bookid.'" class="btn btn-primary btn-md return-button ladda-button" data-style="slide-up"><span class="ladda-label">Return</span></a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <a class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a>
+            </ul>
+            </div>
+            </td>
 			</tr>';
 	}
 
