@@ -114,15 +114,15 @@ include '../includes/session.php';
 
     while($row = $stmt1->fetch_assoc()) {
 
-        $tube_line = $row["tube_line"];
-        $tube_line_status = $row["tube_line_status"];
-        $tube_Line_info = $row["tube_Line_info"];
+        $tube_station = $row["tube_staion"];
+        $tube_station_status = $row["tube_station_status"];
+        $tube_station_info = $row["tube_station_info"];
 
         echo '<tr>
 
-			<td data-title="Station">'.$tube_line.'</td>
-			<td data-title="Status">'.$tube_line_status.'</td>
-			<td data-title="Info">'.$tube_Line_info.'</td>
+			<td data-title="Station">'.$tube_station.'</td>
+			<td data-title="Status">'.$tube_station_status.'</td>
+			<td data-title="Info">'.$tube_station_info.'</td>
 			</tr>';
     }
 
