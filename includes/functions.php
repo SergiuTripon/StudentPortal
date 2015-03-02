@@ -1278,6 +1278,7 @@ function GetTubeThisWeekendStatus() {
 function GetTransportStatusLastUpdated() {
 
     global $mysqli;
+    global $transport_status_last_updated;
 
     $stmt1 = $mysqli->prepare("SELECT DISTINCT DATE_FORMAT(updated_on,'%H:%i') AS updated_on from tube_line_status_now LIMIT 1");
     $stmt1->execute();
