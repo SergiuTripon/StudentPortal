@@ -1,5 +1,5 @@
 <?php
-include '../includes/session.php';
+include '../includes/db_connection.php';
 
 GetTransportStatus();
 //DeleteTransportStatus();
