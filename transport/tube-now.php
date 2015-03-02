@@ -1,5 +1,11 @@
 <?php
 include '../includes/session.php';
+include '../includes/functions.php';
+
+GetTransportStatusLastUpdated();
+
+global $transport_status_last_updated;
+
 ?>
 
 
@@ -79,6 +85,7 @@ include '../includes/session.php';
 	</tbody>
 
 	</table>
+    <p>Last updated: <?php echo $transport_status_last_updated ?></p>
 	</section>
 
 	</div><!-- /panel-body -->
@@ -130,6 +137,7 @@ include '../includes/session.php';
     ?>
 	</tbody>
 	</table>
+    <p>Last updated: <?php echo $transport_status_last_updated ?></p>
 
 	</section>
 	</div><!-- /panel-body -->
