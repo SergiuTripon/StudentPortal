@@ -741,13 +741,13 @@ include 'includes/session.php';
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a id="return-'.$bookid.'" class="btn btn-primary btn-md return-button ladda-button" data-style="slide-up"><span class="ladda-label">Return</span></a>
+            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal">Return</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></li>
+            <li><a href="../messenger/message-user?id='.$userid.'" data-style="slide-up">Message</a></li>
             </ul>
             </div>
             </td>
@@ -770,12 +770,43 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-book?id='.$bookid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
             <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="return-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="return-question" class="text-center feedback-sad">Are you sure you want to return '.$book_name.'?</p>
+            <p id="return-confirmation" style="display: none;" class="text-center feedback-happy">'.$book_name.' has been returned successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="return-hide">
+			<div class="pull-left">
+			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="return-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -973,8 +1004,16 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'bookToReturn='+ bookToReturn,
 	success:function(){
-		$('#book-'+bookToReturn).fadeOut();
-        location.reload();
+        $('#book-'+bookToReturn).fadeOut();
+        $('.form-logo i').removeClass('fa-book');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#return-question').hide();
+        $('#return-confirmation').show();
+        $('#return-hide').hide();
+        $('#return-success-button').show();
+        $("#return-success-button").click(function () {
+            location.reload();
+        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
