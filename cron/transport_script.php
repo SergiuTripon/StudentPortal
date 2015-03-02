@@ -181,7 +181,7 @@ function GetTransportStatus () {
 
             $stmt1->close();
         } else {
-            $stmt2 = $mysqli->prepare("INSERT INTO cycle_hire_status_now (dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt2 = $mysqli->prepare("INSERT INTO cycle_hire_status_now (dockid, dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt2->bind_param('issssiiis', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
             $stmt2->execute();
             $stmt2->close();
