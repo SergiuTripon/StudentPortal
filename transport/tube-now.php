@@ -114,7 +114,7 @@ include '../includes/session.php';
 
     while($row = $stmt1->fetch_assoc()) {
 
-        $tube_station = $row["tube_staion"];
+        $tube_station = $row["tube_station"];
         $tube_station_status = $row["tube_station_status"];
         $tube_station_info = $row["tube_station_info"];
 
