@@ -1046,7 +1046,7 @@ include 'includes/session.php';
 
     $stmt3->close();
     $stmt2->close();
-	$stmt1->close();
+    $stmt1->close();
 	?>
 	</tbody>
 
