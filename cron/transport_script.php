@@ -46,15 +46,15 @@ function GetTransportStatus () {
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
-            $stmt2 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_lineid=?, tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_lineid=?");
-            $stmt2->bind_param('issssi', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_lineid);
+            $stmt2 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_lineid=? WHERE tube_lineid=?");
+            $stmt2->bind_param('ii', $tube_lineid, $tube_lineid);
             $stmt2->execute();
             $stmt2->close();
 
             $stmt1->close();
         } else {
-            $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_lineid, tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?, ?)");
-            $stmt2->bind_param('issss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on);
+            $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_lineid) VALUES (?)");
+            $stmt2->bind_param('i', $tube_lineid);
             $stmt2->execute();
             $stmt2->close();
 
