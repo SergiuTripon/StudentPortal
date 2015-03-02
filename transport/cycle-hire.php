@@ -68,7 +68,7 @@ include '../includes/session.php';
 
     $dock_name = $row["dock_name"];
     $dock_installed = $row["dock_installed"];
-    $odck_locked = $row["dock_locked"];
+    $dock_locked = $row["dock_locked"];
     $dock_temporary = $row["dock_temporary"];
     $dock_bikes_available = $row["dock_bikes_available"];
     $dock_empty_docks = $row["dock_empty_docks"];
@@ -78,7 +78,7 @@ include '../includes/session.php';
 
 			<td data-title="Dock name">'.$dock_name.'</td>
 			<td data-title="Installed">'.$dock_installed.'</td>
-			<td data-title="Locked">'.$odck_locked.'</td>
+			<td data-title="Locked">'.$dock_locked.'</td>
 			<td data-title="Temporary">'.$dock_temporary.'</td>
 			<td data-title="Bikes available">'.$dock_bikes_available.'</td>
 			<td data-title="Empty docks">'.$dock_empty_docks.'</td>
