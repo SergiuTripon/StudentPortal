@@ -721,7 +721,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT r.bookid, r.userid, d.firstname, d.surname, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_books_reserved r LEFT JOIN user_details d ON r.userid=d.userid LEFT JOIN system_books b ON r.bookid=b.bookid WHERE b.book_status = 'reserved'");
+	$stmt1 = $mysqli->query("SELECT r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_books_reserved r LEFT JOIN user_details d ON r.userid=d.userid LEFT JOIN system_books b ON r.bookid=b.bookid WHERE b.book_status = 'reserved'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -729,6 +729,9 @@ include 'includes/session.php';
     $userid = $row["userid"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
+    $gender = $row["gender"];
+    $dateofbirth = $row["dateofbirth"];
+    $nationality = $row["nationality"];
 	$book_name = $row["book_name"];
 	$book_author = $row["book_author"];
     $book_notes = $row["book_notes"];
@@ -763,7 +766,36 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Author:</b> '.$book_author.'</p>
+			<p><b>Gender:</b> '.$gender.'</p>
+			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "No description" : "$dateofbirth").'</p>
+			<p><b>Nationality:</b> '.(empty($nationality) ? "No link" : "$nationality").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Return</a>
+            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Messenger</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="view-user-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-book"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$firstname.' '.$surname.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Gender:</b> '.$book_author.'</p>
 			<p><b>Description:</b> '.(empty($book_notes) ? "No description" : "$book_notes").'</p>
 			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "No link" : "$book_copy_no").'</p>
 			</div>
