@@ -1044,6 +1044,8 @@ include 'includes/session.php';
 			</div><!-- /modal-content -->';
 	}
 
+    $stmt3->close();
+    $stmt2->close();
 	$stmt1->close();
 	?>
 	</tbody>
@@ -1078,30 +1080,86 @@ include 'includes/session.php';
 	</thead>
 
 	<tbody>
-	<?php
+    <?php
 
-	$stmt3 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'inactive'");
+    $stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url, l.lecture_lecturer, t.tutorial_assistant FROM system_modules m LEFT JOIN system_lectures l ON m.moduleid=l.moduleid LEFT JOIN system_tutorials t ON m.moduleid=t.moduleid WHERE m.module_status = 'inactive'");
 
-	while($row = $stmt3->fetch_assoc()) {
+    while($row = $stmt1->fetch_assoc()) {
 
-    $moduleid = $row["moduleid"];
-	$module_name = $row["module_name"];
-	$module_notes = $row["module_notes"];
-	$module_url = $row["module_url"];
+        $moduleid = $row["moduleid"];
+        $module_name = $row["module_name"];
+        $module_notes = $row["module_notes"];
+        $module_url = $row["module_url"];
+        $lecture_lecturer = $row["lecture_lecturer"];
+        $tutorial_assistant = $row["tutorial_assistant"];
 
-	echo '<tr id="timetable-'.$moduleid.'">
+        $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt2->bind_param('i', $lecture_lecturer);
+        $stmt2->execute();
+        $stmt2->store_result();
+        $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
+        $stmt2->fetch();
 
-			<td data-title="Name">'.$module_name.'</td>
-			<td data-title="Notes">'.(empty($module_notes) ? "No notes" : "$module_notes").'</td>
-            <td data-title="URL">'.(empty($module_url) ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3->bind_param('i', $tutorial_assistant);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($tutorial_assistant_firstname, $tutorial_assistant_surname);
+        $stmt3->fetch();
+
+        echo '<tr id="timetable-'.$moduleid.'">
+
+			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
+			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
+            <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
+            <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
+            <td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
             <td data-title="Action">
-
-			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#reactivate-'.$moduleid.'" data-toggle="modal">Reactivate</a>
+            <div class="btn-group btn-action">
+            <a class="btn btn-primary" href="/admin/allocate-timetable?id='.$moduleid.'">Allocate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/update-timetable?id='.$moduleid.'">Update</a></li>
+            <li><a href="#deactivate-'.$moduleid.'" data-toggle="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
+            </ul>
             </div>
             </td>
-
 			</tr>
+
+			<div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			<p><b>Lecturer:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
+			<p><b>Tutorial assistant:</b> '.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-timetable?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#deactivate-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#delete-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
 
 			<div id="reactivate-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -1137,7 +1195,9 @@ include 'includes/session.php';
 			</div><!-- /modal-content -->';
 	}
 
-	$stmt3->close();
+    $stmt3->close();
+    $stmt2->close();
+	$stmt1->close();
 	?>
 	</tbody>
 
