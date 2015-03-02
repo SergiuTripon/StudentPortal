@@ -745,13 +745,13 @@ include 'includes/session.php';
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a href="#return-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal">Return</a>
+            <a href="#return-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal">Return book</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message</a></li>
+            <li><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a></li>
             </ul>
             </div>
             </td>
@@ -802,7 +802,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Return</a>
+            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Return book</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
