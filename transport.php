@@ -5,11 +5,11 @@ $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_now");
 $stmt1->execute();
 $stmt1->store_result();
 $stmt1->bind_result($bakerloo, $central);
-$stmt1->fetch();
+while ($stmt->fetch()) {
+    printf ("%s (%s)\n", $bakerloo, $central);
+}
 $stmt1->close();
 
-echo $bakerloo;
-echo $central;
 
 ?>
 
