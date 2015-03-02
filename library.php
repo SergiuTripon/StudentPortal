@@ -885,7 +885,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT r.requestid, r.bookid, r.userid, r.isApproved, d.firstname, d.surname, b.book_name, b.book_author, b.book_status FROM system_books_requested r LEFT JOIN system_books b ON r.bookid=b.bookid LEFT JOIN user_details d ON r.userid=d.userid WHERE r.isApproved = '0'");
+	$stmt1 = $mysqli->query("SELECT r.requestid, r.bookid, r.userid, r.isApproved, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_status FROM system_books_requested r LEFT JOIN system_books b ON r.bookid=b.bookid LEFT JOIN user_details d ON r.userid=d.userid WHERE r.isApproved = '0'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -895,6 +895,9 @@ include 'includes/session.php';
     $isApproved = $row["isApproved"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
+    $gender = $row["gender"];
+    $dateofbirth = $row["dateofbirth"];
+    $nationality = $row["nationality"];
 	$book_name = $row["book_name"];
 	$book_author = $row["book_author"];
 
@@ -907,7 +910,7 @@ include 'includes/session.php';
             <td data-title="Action"><a id="approve-'.$requestid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve request</span></a></td>
 			</tr>
 
-            <div id="view-reserved-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-requested-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -935,7 +938,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="view-reserved-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-requested-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
