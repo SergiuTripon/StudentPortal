@@ -191,6 +191,8 @@ function GetTransportStatus () {
             $stmt1->close();
         }
     }
+
+    echo 'Script ran successfully.';
 }
 
 //GetTransportStatus function
