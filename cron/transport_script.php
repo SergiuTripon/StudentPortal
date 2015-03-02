@@ -30,6 +30,9 @@ function GetTransportStatus () {
     $result4 = file_get_contents($url4);
     $cycle_hire = new SimpleXMLElement($result4);
 
+    date_default_timezone_set('Europe/London');
+    $updated_on = date("Y-m-d G:i:s");
+
     //Live Line status
     foreach ($xml_line_status->LineStatus as $xml_var) {
 
