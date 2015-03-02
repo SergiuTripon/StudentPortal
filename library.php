@@ -878,7 +878,6 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Author</th>
 	<th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -907,7 +906,6 @@ include 'includes/session.php';
             <td data-title="Requested by"><a href="#view-requested-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Name"><a href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
             <td data-title="Action">
 			<div class="btn-group btn-action">
             <a href="#approve-'.$requestid.'" class="btn btn-primary btn-md" data-toggle="modal">Approve request</a>
