@@ -46,8 +46,8 @@ function GetTransportStatus () {
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
-            $stmt2 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_lineid, tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_line=?");
-            $stmt2->bind_param('isssss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_line);
+            $stmt2 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_lineid, tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_lineid=?");
+            $stmt2->bind_param('issssi', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_lineid);
             $stmt2->execute();
             $stmt2->close();
 
@@ -78,8 +78,8 @@ function GetTransportStatus () {
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
-            $stmt2 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_stationid=?, tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_station=?");
-            $stmt2->bind_param('isssss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
+            $stmt2 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_stationid=?, tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_stationid=?");
+            $stmt2->bind_param('issssi', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_stationid);
             $stmt2->execute();
             $stmt2->close();
 
@@ -176,8 +176,8 @@ function GetTransportStatus () {
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
-            $stmt2 = $mysqli->prepare("UPDATE cycle_hire_status_now SET dockid=?, dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dock_name=?");
-            $stmt2->bind_param('issssiiiss', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dock_name);
+            $stmt2 = $mysqli->prepare("UPDATE cycle_hire_status_now SET dockid=?, dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dockid=?");
+            $stmt2->bind_param('issssiiisi', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dockid);
             $stmt2->execute();
             $stmt2->close();
 
