@@ -159,7 +159,7 @@ include 'includes/session.php';
 
 	echo '<tr>
 
-			<td data-title="Name"><a href="#view-exam-'.$examid.'">'.$exam_name.'</a></td>
+			<td data-title="Name"><a href="#view-exam-'.$examid.'" data-toggle="modal">'.$exam_name.'</a></td>
 			<td data-title="Date">'.$exam_date.'</td>
 			<td data-title="Time">'.$exam_time.'</td>
 			<td data-title="Location">'.$exam_location.'</td>
