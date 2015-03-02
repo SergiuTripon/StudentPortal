@@ -1,11 +1,11 @@
 <?php
 include '../includes/session.php';
 
-//UpdateTransportStatus();
-InsertTransportStatus();
+//GetTransportStatus();
+DeleteTransportStatus();
 
 //GetTransportStatus function
-function UpdateTransportStatus () {
+function GetTransportStatus () {
 
     global $mysqli;
     global $updated_on;
@@ -188,4 +188,30 @@ function UpdateTransportStatus () {
             $stmt1->close();
         }
     }
+}
+
+//GetTransportStatus function
+function DeleteTransportStatus () {
+
+    global $mysqli;
+
+    $stmt1 = $mysqli->prepare("DELETE FROM tube_line_status_now");
+    $stmt1->execute();
+    $stmt1->close();
+
+    $stmt2 = $mysqli->prepare("DELETE FROM tube_station_status_now");
+    $stmt2->execute();
+    $stmt2->close();
+
+    $stmt3 = $mysqli->prepare("DELETE FROM tube_line_status_this_weekend");
+    $stmt3->execute();
+    $stmt3->close();
+
+    $stmt4 = $mysqli->prepare("DELETE FROM tube_station_status_this_weekend");
+    $stmt4->execute();
+    $stmt4->close();
+
+    $stmt5 = $mysqli->prepare("DELETE FROM cycle_hire_status_now");
+    $stmt5->execute();
+    $stmt5->close();
 }
