@@ -739,7 +739,7 @@ include 'includes/session.php';
 
 	echo '<tr id="book-'.$bookid.'">
 
-            <td data-title="Reserved by">'.$firstname.' '.$surname.'</td>
+            <td data-title="Reserved by">href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Name"><a href="#view-reserved-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action">
@@ -756,19 +756,19 @@ include 'includes/session.php';
             </td>
 			</tr>
 
-			<div id="view-reserved-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
             <div class="close"><i class="fa fa-book"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
+            <h4 class="modal-title" id="modal-custom-label">'.$firstname.' '.$surname.'</h4>
 			</div>
 
 			<div class="modal-body">
-			<p><b>Gender:</b> '.$gender.'</p>
-			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "No description" : "$dateofbirth").'</p>
-			<p><b>Nationality:</b> '.(empty($nationality) ? "No link" : "$nationality").'</p>
+			<p><b>Gender:</b> '.$book_author.'</p>
+			<p><b>Description:</b> '.(empty($book_notes) ? "No description" : "$book_notes").'</p>
+			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "No link" : "$book_copy_no").'</p>
 			</div>
 
 			<div class="modal-footer">
@@ -785,19 +785,19 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="view-user-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-reserved-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
             <div class="close"><i class="fa fa-book"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$firstname.' '.$surname.'</h4>
+            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
 			</div>
 
 			<div class="modal-body">
-			<p><b>Gender:</b> '.$book_author.'</p>
-			<p><b>Description:</b> '.(empty($book_notes) ? "No description" : "$book_notes").'</p>
-			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "No link" : "$book_copy_no").'</p>
+			<p><b>Gender:</b> '.$gender.'</p>
+			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "No description" : "$dateofbirth").'</p>
+			<p><b>Nationality:</b> '.(empty($nationality) ? "No link" : "$nationality").'</p>
 			</div>
 
 			<div class="modal-footer">
