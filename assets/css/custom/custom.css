@@ -879,7 +879,7 @@ textarea {
 }
 
 .panel-default>.panel-heading+.panel-collapse>.panel-body {
-    color: #8A8A8A;
+    color: #333333;
     background-color: #F8F8F8;
     border-color: #1863E6;
 }
