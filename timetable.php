@@ -1075,6 +1075,8 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Notes</th>
 	<th>URL</th>
+    <th>Lecturer</th>
+    <th>Tutorial assistant</th>
 	<th>Action</th>
 	</tr>
 	</thead>
