@@ -967,8 +967,8 @@ include 'includes/session.php';
 			<div class="modal-footer">
             <div class="view-action pull-left">
             <a href="/admin/update-timetable?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#deactivate-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#delete-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
@@ -1120,7 +1120,7 @@ include 'includes/session.php';
             <td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#restore-'.$moduleid.'" data-toggle="modal">Restore</a>
+            <a class="btn btn-primary" href="#reactivate-'.$moduleid.'" data-dismiss="modal" data-toggle="modal">Reactivate</a>
             </div>
             </td>
 			</tr>
