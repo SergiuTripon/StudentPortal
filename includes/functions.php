@@ -1173,7 +1173,7 @@ function GetTubeLineLiveStatus() {
 	global $mysqli;
     global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district, $district1, $hammersmith, $hammersmith1, $jubilee, $jubilee1, $metropolitan, $metropolitan1, $northern, $northern1, $piccadilly, $piccadilly1, $victoria, $victoria1, $waterloo, $waterloo1, $overground, $overground1, $dlr, $dlr1, $last_updated;
 
-    $stmt1 = $mysqli->prepare("SELECT DISTINCT DATE_FORMAT(updated_on,'%H:%i') as updated_on from tube_line_status_now LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT DISTINCT DATE_FORMAT(updated_on,'%H:%i') AS updated_on from tube_line_status_now LIMIT 1");
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($last_updated);
