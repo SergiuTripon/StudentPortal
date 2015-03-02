@@ -600,7 +600,7 @@ include 'includes/session.php';
 			<div class="modal-body">
 			<p><b>Author:</b> '.$book_author.'</p>
 			<p><b>Description:</b> '.(empty($book_notes) ? "No description" : "$book_notes").'</p>
-			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "No link" : "$book_copy_no").'</p>
+			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "No copy number" : "$book_copy_no").'</p>
 			</div>
 
 			<div class="modal-footer">
@@ -766,9 +766,9 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Gender:</b> '.$book_author.'</p>
+			<p><b>Author:</b> '.$book_author.'</p>
 			<p><b>Description:</b> '.(empty($book_notes) ? "No description" : "$book_notes").'</p>
-			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "No link" : "$book_copy_no").'</p>
+			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "No copy number" : "$book_copy_no").'</p>
 			</div>
 
 			<div class="modal-footer">
@@ -794,9 +794,9 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Gender:</b> '.$gender.'</p>
-			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "No description" : "$dateofbirth").'</p>
-			<p><b>Nationality:</b> '.(empty($nationality) ? "No link" : "$nationality").'</p>
+			<p><b>Gender:</b> '.$book_author.'</p>
+			<p><b>Description:</b> '.(empty($book_notes) ? "No description" : "$book_notes").'</p>
+			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "No link" : "$book_copy_no").'</p>
 			</div>
 
 			<div class="modal-footer">
