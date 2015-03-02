@@ -36,7 +36,7 @@ function GetTransportStatus () {
         $tube_line_status = $xml_var->Status->attributes()->Description;
         $tube_line_info = $xml_var->attributes()->StatusDetails;
 
-        $stmt1 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?)");
+        $stmt1 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=?");
         $stmt1->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
         $stmt1->execute();
         $stmt1->close();
@@ -49,7 +49,7 @@ function GetTransportStatus () {
         $tube_station_status = $xml_var->Status->attributes()->Description;
         $tube_station_info = $xml_var->attributes()->StatusDetails;
 
-        $stmt1 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
+        $stmt1 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=?");
         $stmt1->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
         $stmt1->execute();
         $stmt1->close();
@@ -62,7 +62,7 @@ function GetTransportStatus () {
         $tube_line_status = $xml_var->Status->Text;
         $tube_line_info = $xml_var->Status->Message->Text;
 
-        $stmt1 = $mysqli->prepare("INSERT INTO tube_line_status_this_weekend (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?)");
+        $stmt1 = $mysqli->prepare("UPDATE tube_line_status_this_weekend SET tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=?");
         $stmt1->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
         $stmt1->execute();
         $stmt1->close();
@@ -75,7 +75,7 @@ function GetTransportStatus () {
         $tube_station_status = $xml_var->Status->Text;
         $tube_station_info = $xml_var->Status->Message->Text;
 
-        $stmt1 = $mysqli->prepare("INSERT INTO tube_station_status_this_weekend (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
+        $stmt1 = $mysqli->prepare("UPDATE tube_station_status_this_weekend SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=?");
         $stmt1->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
         $stmt1->execute();
         $stmt1->close();
@@ -92,7 +92,7 @@ function GetTransportStatus () {
         $dock_empty_docks = $xml_var->nbEmptyDocks;
         $dock_total_docks = $xml_var->nbDocks;
 
-        $stmt1 = $mysqli->prepare("INSERT INTO cycle_hire_status_now (dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt1 = $mysqli->prepare("UPDATE INTO cycle_hire_status_now SET dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=?)");
         $stmt1->bind_param('ssssiiis', $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
         $stmt1->execute();
         $stmt1->close();
