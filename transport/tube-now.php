@@ -45,7 +45,8 @@ global $transport_status_last_updated;
 	<div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Tube | Now | Line status</a>
-  	</h4>
+    <a><?php echo $transport_status_last_updated ?></a>
+    </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
@@ -83,7 +84,6 @@ global $transport_status_last_updated;
 	$stmt1->close();
 	?>
 	</tbody>
-    <div>Last updated: <?php echo $transport_status_last_updated ?></div>
 	</table>
 	</section>
 
