@@ -1,5 +1,13 @@
 <?php
 include 'includes/session.php';
+
+$stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_now");
+$stmt1->bind_param('ss', $tube_station, $tube_station_info);
+$stmt1->execute();
+$stmt1->store_result();
+$stmt1->bind_result($bakerloo, $central, $circle, $district, $hammersmith, $jubilee, $metropolitan, $northern, $picadilly, $victoria, $waterloo, $overground, $dlr);
+$stmt1->fetch();
+
 ?>
 
 <!DOCTYPE html>
