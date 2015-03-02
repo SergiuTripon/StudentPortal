@@ -95,11 +95,11 @@ function GetTransportStatus () {
     }
 
     //This Weekend Line status
-    foreach ($xml_this_weekend->Lines as $xml_var) {
+    foreach ($xml_this_weekend->Lines->Line as $xml_var) {
 
-        $tube_line = $xml_var->Line->Name;
-        $tube_line_status = $xml_var->Line->Status->Text;
-        $tube_line_info = $xml_var->Line->Status->Message->Text;
+        $tube_line = $xml_var->Name;
+        $tube_line_status = $xml_var->Status->Text;
+        $tube_line_info = $xml_var->Status->Message->Text;
 
         $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_this_weekend WHERE tube_line = ?");
         $stmt1->bind_param('s', $tube_line);
