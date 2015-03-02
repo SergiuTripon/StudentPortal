@@ -8,9 +8,8 @@ $result = $stmt1->get_result();
 
 while ($row = $result->fetch_assoc()) {
     echo 'ID: '.$row['id'].'<br>';
-    echo 'First Name: '.$row['first_name'].'<br>';
-    echo 'Last Name: '.$row['last_name'].'<br>';
-    echo 'Username: '.$row['username'].'<br><br>';
+    echo 'First Name: '.$row['tube_line'].'<br>';
+    echo 'Last Name: '.$row['tube_line_status'].'<br>';
 }
 $stmt1->close();
 
