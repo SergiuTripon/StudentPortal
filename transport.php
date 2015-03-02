@@ -8,6 +8,8 @@ $stmt1->bind_result($bakerloo, $central, $circle, $district, $hammersmith, $jubi
 $stmt1->fetch();
 $stmt1->close();
 
+echo $bakerloo;
+
 ?>
 
 <!DOCTYPE html>
