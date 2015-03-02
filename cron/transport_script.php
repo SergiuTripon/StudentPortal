@@ -37,7 +37,7 @@ function GetTransportStatus () {
         $tube_line_status = $xml_var->Status->attributes()->Description;
         $tube_line_info = $xml_var->attributes()->StatusDetails;
 
-        $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_now WHERE tube_line = ?");
+        $stmt1 = $mysqli->prepare("SELECT tube_line FROM tube_line_status_now WHERE tube_line = ?");
         $stmt1->bind_param('s', $tube_line);
         $stmt1->execute();
         $stmt1->store_result();
@@ -130,8 +130,8 @@ function GetTransportStatus () {
         $tube_station_status = $xml_var->Status->Text;
         $tube_station_info = $xml_var->Status->Message->Text;
 
-        $stmt1 = $mysqli->prepare("SELECT tube_station from tube_station_status_this_weekend WHERE tube_station = ?");
-        $stmt1->bind_param('s', $tube_station);
+        $stmt1 = $mysqli->prepare("SELECT tube_station from tube_station_status_this_weekend WHERE tube_station = ? AND tube_station_info=?");
+        $stmt1->bind_param('ss', $tube_station, $tube_station_info);
         $stmt1->execute();
         $stmt1->store_result();
         $stmt1->bind_result($db_tube_station);
