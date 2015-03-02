@@ -896,6 +896,7 @@ include 'includes/session.php';
     $firstname = $row["firstname"];
     $surname = $row["surname"];
     $gender = $row["gender"];
+    $gender = ucfirst($gender);
     $dateofbirth = $row["dateofbirth"];
     $nationality = $row["nationality"];
 	$book_name = $row["book_name"];
@@ -907,7 +908,19 @@ include 'includes/session.php';
 			<td data-title="Name"><a href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
-            <td data-title="Action"><a id="approve-'.$requestid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve request</span></a></td>
+            <td data-title="Action">
+			<div class="btn-group btn-action">
+            <a href="#return-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal">Return book</a>
+            <a href="#approve-'.$requestid.'" class="btn btn-primary btn-md" data-toggle="modal">Approve request</a></td>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a></li>
+            </ul>
+            </div>
+            </td>
 			</tr>
 
             <div id="view-requested-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -992,6 +1005,39 @@ include 'includes/session.php';
 			</div>
 			<div class="text-center">
 			<a id="return-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            <div id="approve-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="approve-question" class="text-center feedback-sad">Are you sure you want to approve a request for '.$book_name.'?</p>
+            <p id="approve-confirmation" style="display: none;" class="text-center feedback-happy">The request for '.$book_name.' has been approved successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="approve-hide">
+			<div class="pull-left">
+			<a id="approve-'.$requestid.'" class="btn btn-success btn-lg approve-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="approve-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
