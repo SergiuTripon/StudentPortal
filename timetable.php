@@ -907,7 +907,7 @@ include 'includes/session.php';
 	$module_notes = $row["module_notes"];
 	$module_url = $row["module_url"];
     $lecture_lecturer = $row["lecture_lecturer"];
-    $lecture_lecturer = $row["lecture_lecturer"];
+    $tutorial_assistant = $row["tutorial_assistant"];
 
     $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $lecture_lecturer);
@@ -945,6 +945,38 @@ include 'includes/session.php';
             </div>
             </td>
 			</tr>
+
+            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			<p><b>Lecture:</b> '.$lecture_lecturer.' '.$lecturer_surname.'</p>
+			<p><b>Tutorial assistant:</b> '.$lecture_lecturer.' '.$lecturer_surname.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/allocate-timetable?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Allocate</a>
+            <a href="/admin/update-timetable?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#deactivate-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#delete-'.$moduleid.'" data-toggle="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
 
 			<div id="deactivate-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
