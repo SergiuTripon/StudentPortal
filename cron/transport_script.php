@@ -142,9 +142,13 @@ function InsertTransportStatus () {
     $result3 = file_get_contents($url3);
     $xml_this_weekend = new SimpleXMLElement($result3);
 
-    $url4 = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
+    $url4 = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
     $result4 = file_get_contents($url4);
-    $cycle_hire = new SimpleXMLElement($result4);
+    $xml_this_weekend1 = new SimpleXMLElement($result4);
+
+    $url5 = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
+    $result5 = file_get_contents($url5);
+    $cycle_hire = new SimpleXMLElement($result5);
 
     //Live Line status
     foreach ($xml_line_status->LineStatus as $xml_var) {
@@ -186,11 +190,11 @@ function InsertTransportStatus () {
     }
 
     //This Weekend Station status
-    foreach ($xml_this_weekend->Stations->Station as $xml_var) {
+    foreach ($xml_this_weekend1->Stations->Station as $xml_var1) {
 
-        $tube_station = $xml_var->Name;
-        $tube_station_status = $xml_var->Status->Text;
-        $tube_station_info = $xml_var->Status->Message->Text;
+        $tube_station = $xml_var1->Name;
+        $tube_station_status = $xml_var1->Status->Text;
+        $tube_station_info = $xml_var1->Status->Message->Text;
 
         $stmt1 = $mysqli->prepare("INSERT INTO tube_station_status_this_weekend (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
         $stmt1->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
