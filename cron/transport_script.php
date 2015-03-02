@@ -95,11 +95,11 @@ function GetTransportStatus () {
     }
 
     //This Weekend Line status
-    foreach ($xml_this_weekend as $xml_var) {
+    foreach ($xml_this_weekend->Lines as $xml_var) {
 
-        $tube_line = $xml_var->Lines->Line->Name;
-        $tube_line_status = $xml_var->Lines->Line->Status->Text;
-        $tube_line_info = $xml_var->Lines->Line->Status->Message->Text;
+        $tube_line = $xml_var->Line->Name;
+        $tube_line_status = $xml_var->Line->Status->Text;
+        $tube_line_info = $xml_var->Line->Status->Message->Text;
 
         $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_this_weekend WHERE tube_line = ?");
         $stmt1->bind_param('s', $tube_line);
@@ -126,11 +126,11 @@ function GetTransportStatus () {
     }
 
     //This Weekend Station status
-    foreach ($xml_this_weekend as $xml_var) {
+    foreach ($xml_this_weekend->Stations->Station as $xml_var) {
 
-        $tube_station = $xml_var->Stations->Station->Name;
-        $tube_station_status = $xml_var->Stations->Station->Status->Text;
-        $tube_station_info = $xml_var->Stations->Station->Status->Message->Text;
+        $tube_station = $xml_var->Name;
+        $tube_station_status = $xml_var->Status->Text;
+        $tube_station_info = $xml_var->Status->Message->Text;
 
         $stmt1 = $mysqli->prepare("SELECT tube_station from tube_station_status_this_weekend WHERE tube_station = ? AND tube_station_info=?");
         $stmt1->bind_param('ss', $tube_station, $tube_station_info);
