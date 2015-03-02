@@ -177,7 +177,7 @@ function GetTransportStatus () {
 
         if ($stmt1->num_rows == 1) {
             $stmt2 = $mysqli->prepare("UPDATE cycle_hire_status_now SET dockid=?, dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dockid=?");
-            $stmt2->bind_param('issssiiiss', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dock_name);
+            $stmt2->bind_param('issssiiisi', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dockid);
             $stmt2->execute();
             $stmt2->close();
 
