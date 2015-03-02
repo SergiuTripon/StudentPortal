@@ -5,7 +5,6 @@ $stmt1 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_sta
 $stmt1->execute();
 $stmt1->store_result();
 $stmt1->bind_result($bakerloo, $bakerloo1);
-$stmt1->close();
 
 
 ?>
