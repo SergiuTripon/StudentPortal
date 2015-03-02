@@ -442,7 +442,7 @@ include '../includes/session.php';
 
     var lecture_lecturer_check = $('#lecture_lecturer :selected').html();
     if (lecture_lecturer_check === '') {
-        $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
+        $("label[for='lecture_lecturer']").empty().append("Please select a lecturer.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
         $(".lecture_lecturer > .selectpicker").removeClass("input-happy");
@@ -609,7 +609,7 @@ include '../includes/session.php';
 
     var tutorial_assistant_check = $('#tutorial_assistant :selected').html();
     if (tutorial_assistant_check === '') {
-        $("label[for='tutorial_assistant']").empty().append("Please enter a tutorial assistant.");
+        $("label[for='tutorial_assistant']").empty().append("Please select a tutorial assistant.");
         $("label[for='tutorial_assistant']").removeClass("feedback-happy");
         $("label[for='tutorial_assistant']").addClass("feedback-sad");
         $("#tutorial_assistant").removeClass("input-happy");
