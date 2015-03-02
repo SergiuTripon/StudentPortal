@@ -906,6 +906,8 @@ include 'includes/session.php';
 	$module_name = $row["module_name"];
 	$module_notes = $row["module_notes"];
 	$module_url = $row["module_url"];
+    $lecture_lecturer = $row["lecture_lecturer"];
+    $lecture_lecturer = $row["lecture_lecturer"];
 
     $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $lecture_lecturer);
