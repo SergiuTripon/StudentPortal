@@ -65,27 +65,28 @@ function GetTransportStatus () {
     //Live Station status
     foreach ($xml_station_status->StationStatus as $xml_var) {
 
+        $tube_stationid = $xml_var->Station->attributes()->ID;
         $tube_station = $xml_var->Station->attributes()->Name;
         $tube_station_status = $xml_var->Status->attributes()->Description;
         $tube_station_info = $xml_var->attributes()->StatusDetails;
 
-        $stmt1 = $mysqli->prepare("SELECT tube_station from tube_station_status_now WHERE tube_station = ?");
-        $stmt1->bind_param('s', $tube_station);
+        $stmt1 = $mysqli->prepare("SELECT tube_stationid from tube_station_status_now WHERE tube_stationid = ?");
+        $stmt1->bind_param('i', $tube_stationid);
         $stmt1->execute();
         $stmt1->store_result();
-        $stmt1->bind_result($db_tube_station);
+        $stmt1->bind_result($db_tube_stationid);
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
-            $stmt2 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_station=?");
-            $stmt2->bind_param('sssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
+            $stmt2 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_stationid=?, tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_stationid=?");
+            $stmt2->bind_param('isssss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
             $stmt2->execute();
             $stmt2->close();
 
             $stmt1->close();
         } else {
-            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
-            $stmt2->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
+            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?, ?)");
+            $stmt2->bind_param('issss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on);
             $stmt2->execute();
             $stmt2->close();
 
