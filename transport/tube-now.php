@@ -56,13 +56,26 @@ include '../includes/session.php';
 	</thead>
 
 	<tbody>
-	<?php foreach ($xml_line_status->LineStatus as $name) : ?>
-	<tr>
-	<td data-title="Line"><?php echo $name->Line->attributes()->Name ?></td>
-	<td data-title="Status"><?php echo $name->Status->attributes()->Description ?></td>
-	<td class="text-justify" data-title="Info"><?php echo $name->attributes()->StatusDetails ?></td>
-	</tr>
-	<?php endforeach; ?>
+    <?php
+
+	$stmt1 = $mysqli->query("SELECT tube_line, tube_line_status, tube_line_info FROM tube_line_status_now");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $tube_line = $row["tube_line"];
+    $tube_line_status = $row["tube_line_status"];
+    $tube_line_info = $row["tube_line_info"];
+
+	echo '<tr>
+
+			<td data-title="Line">'.$tube_line.'</td>
+			<td data-title="Status">'.$tube_line_status.'</td>
+			<td data-title="Info">'.$tube_line_info.'</td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
 	</tbody>
 
 	</table>
@@ -95,13 +108,26 @@ include '../includes/session.php';
 	</thead>
 
 	<tbody>
-	<?php foreach ($xml_station_status->StationStatus as $xml_var) : ?>
-	<tr>
-	<td data-title="Station"><?php echo $xml_var->Station->attributes()->Name ?></td>
-	<td data-title="Status"><?php echo $xml_var->Status->attributes()->Description ?></td>
-	<td class="text-justify" data-title="Info"><?php echo $xml_var->attributes()->StatusDetails ?></td>
-	</tr>
-	<?php endforeach; ?>
+    <?php
+
+    $stmt1 = $mysqli->query("SELECT tube_station, tube_station_status, tube_station_info FROM tube_station_status_now");
+
+    while($row = $stmt1->fetch_assoc()) {
+
+        $tube_line = $row["tube_line"];
+        $tube_line_status = $row["tube_line_status"];
+        $tube_Line_info = $row["tube_Line_info"];
+
+        echo '<tr>
+
+			<td data-title="Station">'.$tube_line.'</td>
+			<td data-title="Status">'.$tube_line_status.'</td>
+			<td data-title="Info">'.$tube_Line_info.'</td>
+			</tr>';
+    }
+
+    $stmt1->close();
+    ?>
 	</tbody>
 	</table>
 
