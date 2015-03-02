@@ -941,8 +941,8 @@ include 'includes/session.php';
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><a href="/admin/update-timetable?id='.$moduleid.'">Update</a></li>
-            <li><a href="#deactivate-'.$moduleid.'" data-toggle="modal">Deactivate</a></li>
-            <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
+            <li><a href="#deactivate-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
             </td>
