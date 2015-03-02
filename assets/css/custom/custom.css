@@ -873,6 +873,7 @@ textarea {
     background-color: #4582EC;
     border-color: #1863E6;
     padding-right: 5px;
+    padding-left: 5px;
 }
 
 .panel-title {
