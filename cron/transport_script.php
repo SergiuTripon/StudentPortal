@@ -95,11 +95,12 @@ function GetTransportStatus () {
     }
 
     //This Weekend Line status
-    foreach ($xml_this_weekend->Lines as $xml_var) {
+    foreach ($xml_this_weekend as $xml_var) {
 
-        $tube_line = $xml_var->Line->Name;
-        $tube_line_status = $xml_var->Line->Status->Text;
-        $tube_line_info = $xml_var->Line->Status->Message->Text;
+        $tube_line_last_updated = $xml_var->Header->PublishDateTime->attributes()->utc;
+        $tube_line = $xml_var->Lines->Line->Name;
+        $tube_line_status = $xml_var->Lines->Line->Status->Text;
+        $tube_line_info = $xml_var->Lines->Line->Status->Message->Text;
 
         $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_this_weekend WHERE tube_line = ?");
         $stmt1->bind_param('s', $tube_line);
@@ -110,14 +111,14 @@ function GetTransportStatus () {
 
         if ($stmt1->num_rows == 1) {
             $stmt2 = $mysqli->prepare("UPDATE tube_line_status_this_weekend SET tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_line=?");
-            $stmt2->bind_param('sssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_line);
+            $stmt2->bind_param('sssss', $tube_line, $tube_line_status, $tube_line_info, $tube_line_last_updated, $tube_line);
             $stmt2->execute();
             $stmt2->close();
 
             $stmt1->close();
         } else {
             $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_this_weekend (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?)");
-            $stmt2->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
+            $stmt2->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $tube_line_last_updated);
             $stmt2->execute();
             $stmt2->close();
 
@@ -126,11 +127,12 @@ function GetTransportStatus () {
     }
 
     //This Weekend Station status
-    foreach ($xml_this_weekend->Stations->Station as $xml_var) {
+    foreach ($xml_this_weekend as $xml_var) {
 
-        $tube_station = $xml_var->Name;
-        $tube_station_status = $xml_var->Status->Text;
-        $tube_station_info = $xml_var->Status->Message->Text;
+        $tube_station_last_updated = $xml_var->Header->attributes()->utc;
+        $tube_station = $xml_var->Stations->Station->Name;
+        $tube_station_status = $xml_var->Stations->Station->Status->Text;
+        $tube_station_info = $xml_var->Stations->Station->Status->Message->Text;
 
         $stmt1 = $mysqli->prepare("SELECT tube_station from tube_station_status_this_weekend WHERE tube_station = ? AND tube_station_info=?");
         $stmt1->bind_param('ss', $tube_station, $tube_station_info);
@@ -141,14 +143,14 @@ function GetTransportStatus () {
 
         if ($stmt1->num_rows == 1) {
             $stmt2 = $mysqli->prepare("UPDATE tube_station_status_this_weekend SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_station=?");
-            $stmt2->bind_param('sssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
+            $stmt2->bind_param('sssss', $tube_station, $tube_station_status, $tube_station_info, $tube_station_last_updated, $tube_station);
             $stmt2->execute();
             $stmt2->close();
 
             $stmt1->close();
         } else {
             $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_this_weekend (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
-            $stmt2->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
+            $stmt2->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $tube_station_last_updated);
             $stmt2->execute();
             $stmt2->close();
 
