@@ -739,7 +739,7 @@ include 'includes/session.php';
 
 	echo '<tr id="book-'.$bookid.'">
 
-            <td data-title="Reserved by">href="#view-reserved-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
+            <td data-title="Reserved by"><a href="#view-reserved-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Name"><a href="#view-reserved-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action">
