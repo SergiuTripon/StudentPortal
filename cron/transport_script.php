@@ -85,7 +85,7 @@ function GetTransportStatus () {
 
             $stmt1->close();
         } else {
-            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?, ?)");
+            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_stationid, tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?, ?)");
             $stmt2->bind_param('issss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on);
             $stmt2->execute();
             $stmt2->close();
