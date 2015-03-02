@@ -1,9 +1,5 @@
 <?php
 include '../includes/session.php';
-include '../includes/functions.php';
-
-GetCycleHireStatus();
-
 ?>
 
 
@@ -64,17 +60,34 @@ GetCycleHireStatus();
 	</thead>
 
 	<tbody>
-	<?php foreach ($cycle_hire->station as $xml_var) : ?>
-	<tr>
-	<td data-title="Dock Name"><?php echo $xml_var->name ?></td>
-	<td class="text-center" data-title="Installed"><?php echo $xml_var->installed ?></td>
-	<td class="text-center" data-title="Locked"><?php echo $xml_var->locked ?></td>
-	<td class="text-center" data-title="Temporary"><?php echo $xml_var->temporary ?></td>
-	<td class="text-center" data-title="Bikes Available"><?php echo $xml_var->nbBikes ?></td>
-	<td class="text-center" data-title="Empty Docks"><?php echo $xml_var->nbEmptyDocks ?></td>
-	<td class="text-center" data-title="Total Docks"><?php echo $xml_var->nbDocks ?></td>
-	</tr>
-	<?php endforeach; ?>
+    <?php
+
+	$stmt1 = $mysqli->query("SELECT dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks FROM cycle_hire_status_now");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $dock_name = $row["dock_name"];
+    $dock_installed = $row["dock_installed"];
+    $odck_locked = $row["dock_locked"];
+    $dock_temporary = $row["dock_temporary"];
+    $dock_bikes_available = $row["dock_bikes_available"];
+    $dock_empty_docks = $row["dock_empty_docks"];
+    $dock_total_docks = $row["dock_total_docks"];
+
+	echo '<tr>
+
+			<td data-title="Dock name">'.$dock_name.'</td>
+			<td data-title="Installed">'.$dock_installed.'</td>
+			<td data-title="Locked">'.$odck_locked.'</td>
+			<td data-title="Temporary">'.$dock_temporary.'</td>
+			<td data-title="Bikes available">'.$dock_bikes_available.'</td>
+			<td data-title="Empty docks">'.$dock_empty_docks.'</td>
+			<td data-title="Total docks">'.$dock_total_docks.'</td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
 	</tbody>
 
 	</table>
