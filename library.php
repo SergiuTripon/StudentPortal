@@ -910,8 +910,7 @@ include 'includes/session.php';
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
             <td data-title="Action">
 			<div class="btn-group btn-action">
-            <a href="#return-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal">Return book</a>
-            <a href="#approve-'.$requestid.'" class="btn btn-primary btn-md" data-toggle="modal">Approve request</a></td>
+            <a href="#approve-'.$requestid.'" class="btn btn-primary btn-md" data-toggle="modal">Approve request</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
