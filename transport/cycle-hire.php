@@ -139,7 +139,7 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
 	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
-	<script type="text/javascript" class="init">
+	<script>
 	$(document).ready(function () {
 	$('.table-custom').dataTable({
 		"iDisplayLength": 10,
