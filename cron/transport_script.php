@@ -130,7 +130,7 @@ function GetTransportStatus () {
         $tube_station_status = $xml_var->Status->Text;
         $tube_station_info = $xml_var->Status->Message->Text;
 
-        $stmt1 = $mysqli->prepare("SELECT tube_line from tube_station_status_this_weekend WHERE tube_station = ?");
+        $stmt1 = $mysqli->prepare("SELECT tube_station from tube_station_status_this_weekend WHERE tube_station = ?");
         $stmt1->bind_param('s', $tube_station);
         $stmt1->execute();
         $stmt1->store_result();
