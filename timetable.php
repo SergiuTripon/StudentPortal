@@ -925,7 +925,7 @@ include 'includes/session.php';
 
 	echo '<tr id="timetable-'.$moduleid.'">
 
-			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
