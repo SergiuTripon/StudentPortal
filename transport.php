@@ -1,11 +1,17 @@
 <?php
 include 'includes/session.php';
 
-$stmt1 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Bakerloo'");
+$stmt1 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now");
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($bakerloo1, $bakerloo);
-$stmt1->fetch();
+$result = $stmt1->get_result();
+
+while ($row = $result->fetch_assoc()) {
+    echo 'ID: '.$row['id'].'<br>';
+    echo 'First Name: '.$row['first_name'].'<br>';
+    echo 'Last Name: '.$row['last_name'].'<br>';
+    echo 'Username: '.$row['username'].'<br><br>';
+}
 $stmt1->close();
 
 
