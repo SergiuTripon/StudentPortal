@@ -341,6 +341,7 @@ ON DELETE CASCADE
 #Transport
 CREATE TABLE `tube_line_status_now` (
   `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `tube_lineid` INT NOT NULL UNIQUE,
   `tube_line` VARCHAR (70) NOT NULL,
   `tube_line_status` VARCHAR (70),
   `tube_line_info` VARCHAR(10000),
@@ -350,6 +351,7 @@ CREATE TABLE `tube_line_status_now` (
 #Transport
 CREATE TABLE `tube_station_status_now` (
   `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `tube_stationid` INT NOT NULL UNIQUE,
   `tube_station` VARCHAR (70) NOT NULL,
   `tube_station_status` VARCHAR (70),
   `tube_station_info` VARCHAR(10000),

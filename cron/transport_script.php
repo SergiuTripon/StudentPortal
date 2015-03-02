@@ -33,27 +33,28 @@ function GetTransportStatus () {
     //Live Line status
     foreach ($xml_line_status->LineStatus as $xml_var) {
 
+        $tube_lineid = $xml_var->Line->attributes()->ID;
         $tube_line = $xml_var->Line->attributes()->Name;
         $tube_line_status = $xml_var->Status->attributes()->Description;
         $tube_line_info = $xml_var->attributes()->StatusDetails;
 
-        $stmt1 = $mysqli->prepare("SELECT tube_line FROM tube_line_status_now WHERE tube_line = ?");
-        $stmt1->bind_param('s', $tube_line);
+        $stmt1 = $mysqli->prepare("SELECT tube_lineid FROM tube_line_status_now WHERE tube_lineid = ?");
+        $stmt1->bind_param('i', $tube_lineid);
         $stmt1->execute();
         $stmt1->store_result();
-        $stmt1->bind_result($db_tube_line);
+        $stmt1->bind_result($db_tube_lineid);
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
-            $stmt2 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_line=?");
-            $stmt2->bind_param('sssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_line);
+            $stmt2 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_lineid, tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_line=?");
+            $stmt2->bind_param('isssss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_line);
             $stmt2->execute();
             $stmt2->close();
 
             $stmt1->close();
         } else {
-            $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?)");
-            $stmt2->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
+            $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?, ?)");
+            $stmt2->bind_param('issss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on);
             $stmt2->execute();
             $stmt2->close();
 
@@ -64,27 +65,28 @@ function GetTransportStatus () {
     //Live Station status
     foreach ($xml_station_status->StationStatus as $xml_var) {
 
+        $tube_stationid = $xml_var->Station->attributes()->ID;
         $tube_station = $xml_var->Station->attributes()->Name;
         $tube_station_status = $xml_var->Status->attributes()->Description;
         $tube_station_info = $xml_var->attributes()->StatusDetails;
 
-        $stmt1 = $mysqli->prepare("SELECT tube_station from tube_station_status_now WHERE tube_station = ?");
-        $stmt1->bind_param('s', $tube_station);
+        $stmt1 = $mysqli->prepare("SELECT tube_stationid from tube_station_status_now WHERE tube_stationid = ?");
+        $stmt1->bind_param('i', $tube_stationid);
         $stmt1->execute();
         $stmt1->store_result();
-        $stmt1->bind_result($db_tube_station);
+        $stmt1->bind_result($db_tube_stationid);
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
-            $stmt2 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_station=?");
-            $stmt2->bind_param('sssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
+            $stmt2 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_stationid=?, tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_station=?");
+            $stmt2->bind_param('isssss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
             $stmt2->execute();
             $stmt2->close();
 
             $stmt1->close();
         } else {
-            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
-            $stmt2->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
+            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_stationid, tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?, ?)");
+            $stmt2->bind_param('issss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on);
             $stmt2->execute();
             $stmt2->close();
 
@@ -174,7 +176,7 @@ function GetTransportStatus () {
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
-            $stmt2 = $mysqli->prepare("UPDATE cycle_hire_status_now SET dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dock_name=?");
+            $stmt2 = $mysqli->prepare("UPDATE cycle_hire_status_now SET dockid=?, dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dock_name=?");
             $stmt2->bind_param('issssiiiss', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dock_name);
             $stmt2->execute();
             $stmt2->close();
