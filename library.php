@@ -389,8 +389,6 @@ include 'includes/session.php';
 	<tr>
 	<th>Name</th>
 	<th>Author</th>
-	<th>Notes</th>
-	<th>Copy no.</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -414,8 +412,6 @@ include 'includes/session.php';
 
 			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
-			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td>
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="../admin/update-book?id='.$bookid.'">Update</a>
@@ -557,8 +553,6 @@ include 'includes/session.php';
 	<tr>
 	<th>Name</th>
 	<th>Author</th>
-	<th>Notes</th>
-	<th>Copy no.</th>
 	<th>Action</th>
 	</tr>
 	</thead>
@@ -580,8 +574,6 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
-			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="#reactivate-'.$bookid.'" data-toggle="modal">Reactivate</a>
