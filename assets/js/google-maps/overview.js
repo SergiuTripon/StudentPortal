@@ -1,7 +1,7 @@
     //<![CDATA[
     var customIcons = {
     building: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
+        icon: 'https://student-portal.co.uk/assets/img/google-maps/google_maps_black_icon.png'
     },
     student_centre: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
