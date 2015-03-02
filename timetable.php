@@ -958,7 +958,7 @@ include 'includes/session.php';
 			<div class="modal-body">
 			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
 			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
-			<p><b>Lecture:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
+			<p><b>Lecturer:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
 			<p><b>Tutorial assistant:</b> '.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</p>
 			</div>
 
