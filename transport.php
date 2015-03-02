@@ -4,7 +4,7 @@ include 'includes/functions.php';
 
 GetTubeLineLiveStatus();
 
-global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district, $district1, $hammersmith, $hammersmith1, $jubilee, $jubilee1, $metropolitan, $metropolitan1, $northern, $northern1, $piccadilly, $piccadilly1, $victoria, $victoria1, $waterloo, $waterloo1, $overground, $overground1, $dlr, $dlr1;
+global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district, $district1, $hammersmith, $hammersmith1, $jubilee, $jubilee1, $metropolitan, $metropolitan1, $northern, $northern1, $piccadilly, $piccadilly1, $victoria, $victoria1, $waterloo, $waterloo1, $overground, $overground1, $dlr, $dlr1, $last_updated;
 
 ?>
 
@@ -61,7 +61,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-	<h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+	<h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
     <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Station status <i class="fa fa-angle-right"></i></a></h5>
@@ -87,7 +87,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-    <h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
     <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-this-weekend/">Station status <i class="fa fa-angle-right"></i></a></h5>
@@ -129,7 +129,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-    <h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
     <h5><a class="ladda-button" data-style="slide-down" href="/transport/cycle-hire/">Availability updates <i class="fa fa-angle-right"></i></a></h5>
@@ -161,7 +161,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
 	<div class="pull-left">
-    <h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
     <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -187,7 +187,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-	<h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+	<h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
 	</div>
     <div class="pull-right">
     <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -213,7 +213,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-    <h5 style="color: #113892 !important;"><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5 style="color: #113892 !important;"><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
     <h5><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -245,7 +245,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-    <h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
 	<h5><a class="ladda-button long" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -271,7 +271,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-    <h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
 	<h5><a class="ladda-button long" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -297,7 +297,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-	<h5 style="color: #113892 !important;"><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+	<h5 style="color: #113892 !important;"><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
 	</div>
     <div class="pull-right">
     <h5><a class="ladda-button long" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -323,7 +323,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
 	<div class="pull-left">
-    <h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
 	<h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -355,7 +355,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-    <h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
     <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -381,7 +381,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-    <h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
     <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -407,7 +407,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
     <div class="transport-footer">
     <div class="pull-left">
-    <h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+    <h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
     </div>
     <div class="pull-right">
     <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -439,7 +439,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
 	<div class="transport-footer">
 	<div class="pull-left">
-	<h5><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+	<h5><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
 	</div>
 	<div class="pull-right">
 	<h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
@@ -465,7 +465,7 @@ global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district,
 
 	<div class="transport-footer">
 	<div class="pull-left">
-	<h5 style="color: #113892 !important;"><i class="fa fa-clock-o"></i> <?php echo $now ?></h5>
+	<h5 style="color: #113892 !important;"><i class="fa fa-clock-o"></i> <?php echo $last_updated ?></h5>
 	</div>
 	<div class="pull-right">
 	<h5><a class="ladda-button" style="color: #113892 !important;" data-style="slide-down" data-spinner-color="#113892" href="/transport/tube-now/">Find out more <i class="fa fa-angle-right"></i></a></h5>
