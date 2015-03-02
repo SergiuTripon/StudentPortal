@@ -872,6 +872,9 @@ textarea {
     color: #FFFFFF;
     background-color: #4582EC;
     border-color: #1863E6;
+}
+
+.panel-heading {
     margin-right: 5px;
 }
 
