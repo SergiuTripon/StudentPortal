@@ -1,8 +1,8 @@
 <?php
 include '../includes/session.php';
 
-DeleteTransportStatus();
 GetTransportStatus();
+//DeleteTransportStatus();
 
 //GetTransportStatus function
 function GetTransportStatus () {
