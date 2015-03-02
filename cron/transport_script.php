@@ -38,7 +38,7 @@ function GetTransportStatus () {
         $tube_line_info = $xml_var->attributes()->StatusDetails;
 
         $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_now WHERE tube_line = ?");
-        $stmt1->bind_param('i', $tube_line);
+        $stmt1->bind_param('s', $tube_line);
         $stmt1->execute();
         $stmt1->store_result();
         $stmt1->bind_result($db_tube_line);
@@ -69,7 +69,7 @@ function GetTransportStatus () {
         $tube_station_info = $xml_var->attributes()->StatusDetails;
 
         $stmt1 = $mysqli->prepare("SELECT tube_station from tube_station_status_now WHERE tube_station = ?");
-        $stmt1->bind_param('i', $tube_station);
+        $stmt1->bind_param('s', $tube_station);
         $stmt1->execute();
         $stmt1->store_result();
         $stmt1->bind_result($db_tube_station);
@@ -100,7 +100,7 @@ function GetTransportStatus () {
         $tube_line_info = $xml_var->Status->Message->Text;
 
         $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_this_weekend WHERE tube_line = ?");
-        $stmt1->bind_param('i', $tube_line);
+        $stmt1->bind_param('s', $tube_line);
         $stmt1->execute();
         $stmt1->store_result();
         $stmt1->bind_result($db_tube_line);
@@ -131,7 +131,7 @@ function GetTransportStatus () {
         $tube_station_info = $xml_var->Status->Message->Text;
 
         $stmt1 = $mysqli->prepare("SELECT tube_line from tube_station_status_this_weekend WHERE tube_station = ?");
-        $stmt1->bind_param('i', $tube_station);
+        $stmt1->bind_param('s', $tube_station);
         $stmt1->execute();
         $stmt1->store_result();
         $stmt1->bind_result($db_tube_station);
@@ -166,7 +166,7 @@ function GetTransportStatus () {
         $dock_total_docks = $xml_var->nbDocks;
 
         $stmt1 = $mysqli->prepare("SELECT dock_name from cycle_hire_status_now WHERE dock_name = ?");
-        $stmt1->bind_param('i', $dock_name);
+        $stmt1->bind_param('s', $dock_name);
         $stmt1->execute();
         $stmt1->store_result();
         $stmt1->bind_result($db_dock_name);
