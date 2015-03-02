@@ -3,6 +3,9 @@ include 'includes/session.php';
 include 'includes/functions.php';
 
 GetTubeLineLiveStatus();
+
+global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district, $district1, $hammersmith, $hammersmith1, $jubilee, $jubilee1, $metropolitan, $metropolitan1, $northern, $northern1, $piccadilly, $piccadilly1, $victoria, $victoria1, $waterloo, $waterloo1, $overground, $overground1, $dlr, $dlr1;
+
 ?>
 
 <!DOCTYPE html>
@@ -148,12 +151,12 @@ GetTubeLineLiveStatus();
     <div class="transport-panel bakerloo">
 
     <div class="transport-header">
-    <h4><?php echo $bakerloo ?></h4>
+    <h4><?php echo $bakerloo1 ?></h4>
     </div>
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-	<h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $bakerloo1 ?></a></h4>
+	<h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $bakerloo ?></a></h4>
     </div>
 
     <div class="transport-footer">
@@ -394,12 +397,12 @@ GetTubeLineLiveStatus();
     <div class="transport-panel picadilly">
 
     <div class="transport-header">
-    <h4><?php echo $picadilly1 ?></h4>
+    <h4><?php echo $piccadilly1 ?></h4>
     </div>
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $picadilly ?></a></h4>
+    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $piccadilly ?></a></h4>
     </div>
 
     <div class="transport-footer">

@@ -1171,7 +1171,7 @@ function ActivateBook() {
 function GetTubeLineLiveStatus() {
 
 	global $mysqli;
-    global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district, $district1, $hammersmith, $hammersmith1, $jubilee, $jubilee1, $metropolitan, $metropolitan1, $northern, $northern1, $picadilly, $picadilly1, $victoria, $victoria1, $waterloo, $waterloo1, $overground, $overground1, $dlr, $dlr1;
+    global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district, $district1, $hammersmith, $hammersmith1, $jubilee, $jubilee1, $metropolitan, $metropolitan1, $northern, $northern1, $piccadilly, $piccadilly1, $victoria, $victoria1, $waterloo, $waterloo1, $overground, $overground1, $dlr, $dlr1;
 
     $stmt1 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Bakerloo'");
     $stmt1->execute();
@@ -1229,10 +1229,10 @@ function GetTubeLineLiveStatus() {
     $stmt8->fetch();
     $stmt8->close();
 
-    $stmt9 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Picadilly'");
+    $stmt9 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Piccadilly'");
     $stmt9->execute();
     $stmt9->store_result();
-    $stmt9->bind_result($picadilly, $picadilly1);
+    $stmt9->bind_result($piccadilly, $piccadilly1);
     $stmt9->fetch();
     $stmt9->close();
 
