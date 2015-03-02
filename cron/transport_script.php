@@ -33,7 +33,7 @@ function GetTransportStatus () {
     //Live Line status
     foreach ($xml_line_status->LineStatus as $xml_var) {
 
-        $tube_lineid = $xml_var->attributes()->ID;
+        $tube_lineid = $xml_var->Line->attributes()->ID;
         $tube_line = $xml_var->Line->attributes()->Name;
         $tube_line_status = $xml_var->Status->attributes()->Description;
         $tube_line_info = $xml_var->attributes()->StatusDetails;
