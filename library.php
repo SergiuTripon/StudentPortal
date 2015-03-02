@@ -745,7 +745,7 @@ include 'includes/session.php';
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <a class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a>
+            <li><a class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></li>
             </ul>
             </div>
             </td>
