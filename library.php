@@ -635,10 +635,10 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="reactivate-hide">
 			<div class="pull-left">
-			<a id="reactivate-'.$bookid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$bookid.'" class="btn btn-success btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
@@ -668,10 +668,10 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$bookid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$bookid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
@@ -770,7 +770,8 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Return</a>
+            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
