@@ -340,7 +340,7 @@ ON DELETE CASCADE
 
 #Transport
 CREATE TABLE `tube_line_status_now` (
-  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `tube_line` VARCHAR (70) NOT NULL,
   `tube_line_status` VARCHAR (70),
   `tube_line_info` VARCHAR(10000),
@@ -349,7 +349,7 @@ CREATE TABLE `tube_line_status_now` (
 
 #Transport
 CREATE TABLE `tube_station_status_now` (
-  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `tube_station` VARCHAR (70) NOT NULL,
   `tube_station_status` VARCHAR (70),
   `tube_station_info` VARCHAR(10000),
@@ -358,7 +358,7 @@ CREATE TABLE `tube_station_status_now` (
 
 #Transport
 CREATE TABLE `tube_line_status_this_weekend` (
-  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `tube_line` VARCHAR (70) NOT NULL,
   `tube_line_status` VARCHAR (70),
   `tube_line_info` VARCHAR(10000),
@@ -367,7 +367,7 @@ CREATE TABLE `tube_line_status_this_weekend` (
 
 #Transport
 CREATE TABLE `tube_station_status_this_weekend` (
-  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `tube_station` VARCHAR (70) NOT NULL,
   `tube_station_status` VARCHAR (70),
   `tube_station_info` VARCHAR(10000),
@@ -376,7 +376,8 @@ CREATE TABLE `tube_station_status_this_weekend` (
 
 #Transport
 CREATE TABLE `cycle_hire_status_now` (
-  `statusid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `dockid` INT NOT NULL UNIQUE,
   `dock_name` VARCHAR (70) NOT NULL,
   `dock_installed` VARCHAR (5),
   `dock_locked` VARCHAR(5),

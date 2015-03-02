@@ -157,6 +157,7 @@ function GetTransportStatus () {
     //Cycle hire
     foreach ($cycle_hire->station as $xml_var) {
 
+        $dockid = $xml_var->id;
         $dock_name = $xml_var->name;
         $dock_installed = $xml_var->installed;
         $dock_locked = $xml_var->locked;
@@ -165,23 +166,23 @@ function GetTransportStatus () {
         $dock_empty_docks = $xml_var->nbEmptyDocks;
         $dock_total_docks = $xml_var->nbDocks;
 
-        $stmt1 = $mysqli->prepare("SELECT dock_name from cycle_hire_status_now WHERE dock_name = ?");
-        $stmt1->bind_param('s', $dock_name);
+        $stmt1 = $mysqli->prepare("SELECT dockid from cycle_hire_status_now WHERE dockid = ?");
+        $stmt1->bind_param('i', $dockid);
         $stmt1->execute();
         $stmt1->store_result();
-        $stmt1->bind_result($db_dock_name);
+        $stmt1->bind_result($db_dockid);
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
             $stmt2 = $mysqli->prepare("UPDATE cycle_hire_status_now SET dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dock_name=?");
-            $stmt2->bind_param('ssssiiiss', $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dock_name);
+            $stmt2->bind_param('issssiiiss', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dock_name);
             $stmt2->execute();
             $stmt2->close();
 
             $stmt1->close();
         } else {
-            $stmt2 = $mysqli->prepare("INSERT INTO cycle_hire_status_now (dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt2->bind_param('ssssiiis', $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
+            $stmt2 = $mysqli->prepare("INSERT INTO cycle_hire_status_now (dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt2->bind_param('issssiiis', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
             $stmt2->execute();
             $stmt2->close();
 
