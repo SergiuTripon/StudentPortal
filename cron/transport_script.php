@@ -1,8 +1,8 @@
 <?php
 include '../includes/session.php';
 
+DeleteTransportStatus();
 GetTransportStatus();
-//DeleteTransportStatus();
 
 //GetTransportStatus function
 function GetTransportStatus () {
@@ -38,16 +38,16 @@ function GetTransportStatus () {
         $tube_line_status = $xml_var->Status->attributes()->Description;
         $tube_line_info = $xml_var->attributes()->StatusDetails;
 
-        $stmt1 = $mysqli->prepare("SELECT tube_line FROM tube_line_status_now WHERE tube_line = ?");
-        $stmt1->bind_param('s', $tube_line);
+        $stmt1 = $mysqli->prepare("SELECT tube_lineid FROM tube_line_status_now WHERE tube_lineid = ?");
+        $stmt1->bind_param('i', $tube_lineid);
         $stmt1->execute();
         $stmt1->store_result();
-        $stmt1->bind_result($db_tube_line);
+        $stmt1->bind_result($db_tube_lineid);
         $stmt1->fetch();
 
         if ($stmt1->num_rows == 1) {
-            $stmt2 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_lineid=?, tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_line=?");
-            $stmt2->bind_param('isssss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_line);
+            $stmt2 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_lineid=?, tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_lineid=?");
+            $stmt2->bind_param('isssss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_lineid);
             $stmt2->execute();
             $stmt2->close();
 
