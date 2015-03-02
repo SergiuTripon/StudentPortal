@@ -4,7 +4,7 @@ include 'includes/session.php';
 $stmt1 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Bakerloo'");
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($bakerloo, $bakerloo1);
+$stmt1->bind_result($bakerloo1, $bakerloo);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -154,12 +154,12 @@ $stmt1->close();
     <div class="transport-panel bakerloo">
 
     <div class="transport-header">
-    <h4><?php echo $bakerloo1 ?></h4>
+    <h4><?php echo $bakerloo ?></h4>
     </div>
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-	<h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $bakerloo ?></a></h4>
+	<h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/"><?php echo $bakerloo1 ?></a></h4>
     </div>
 
     <div class="transport-footer">
