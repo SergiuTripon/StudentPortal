@@ -5,11 +5,12 @@ $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_now");
 $stmt1->execute();
 $stmt1->store_result();
 $stmt1->bind_result($bakerloo, $central, $circle, $district, $hammersmith, $jubilee, $metropolitan, $northern, $picadilly, $victoria, $waterloo, $overground, $dlr);
-while ($stmt1->fetch()) {
-    printf ("%s (%s)\n", $bakerloo, $central, $circle, $district, $hammersmith, $jubilee, $metropolitan, $northern, $picadilly, $victoria, $waterloo, $overground, $dlr);
-}
-$stmt1->close();
+$result = $stmt->get_result();
+$data = $result->fetch_array();
 
+echo $data;
+
+//$bakerloo, $central, $circle, $district, $hammersmith, $jubilee, $metropolitan, $northern, $picadilly, $victoria, $waterloo, $overground, $dlr
 
 ?>
 
