@@ -5,9 +5,8 @@ $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_now");
 $stmt1->execute();
 $stmt1->store_result();
 $stmt1->bind_result($bakerloo, $central, $circle, $district, $hammersmith, $jubilee, $metropolitan, $northern, $picadilly, $victoria, $waterloo, $overground, $dlr);
-$result = $stmt1->get_result();
 
-echo $result;
+echo $bakerloo;
 
 //$bakerloo, $central, $circle, $district, $hammersmith, $jubilee, $metropolitan, $northern, $picadilly, $victoria, $waterloo, $overground, $dlr
 
