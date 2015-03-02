@@ -1,19 +1,8 @@
 <?php
 include 'includes/session.php';
+include 'includes/functions.php';
 
-$stmt1 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now");
-$stmt1->execute();
-$stmt1->store_result();
-$result = $stmt1->get_result();
-
-while ($row = $result->fetch_assoc()) {
-    echo 'ID: '.$row['id'].'<br>';
-    echo 'First Name: '.$row['tube_line'].'<br>';
-    echo 'Last Name: '.$row['tube_line_status'].'<br>';
-}
-$stmt1->close();
-
-
+GetTubeLineLiveStatus();
 ?>
 
 <!DOCTYPE html>
