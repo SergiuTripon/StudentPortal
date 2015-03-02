@@ -1,8 +1,8 @@
 <?php
 include '../includes/session.php';
 
-UpdateTransportStatus();
-//InsertTransportStatus();
+//UpdateTransportStatus();
+InsertTransportStatus();
 
 //GetTransportStatus function
 function UpdateTransportStatus () {
