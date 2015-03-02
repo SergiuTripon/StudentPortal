@@ -737,7 +737,7 @@ include 'includes/session.php';
 	echo '<tr id="book-'.$bookid.'">
 
             <td data-title="Reserved by">'.$firstname.' '.$surname.'</td>
-			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
+			<td data-title="Name"><a href="#view-reserved-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
@@ -753,7 +753,7 @@ include 'includes/session.php';
             </td>
 			</tr>
 
-			<div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-reserved-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
