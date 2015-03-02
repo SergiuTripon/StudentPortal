@@ -1,14 +1,12 @@
 <?php
 include 'includes/session.php';
 
-$stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_now");
+$stmt1 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Bakerloo'");
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($bakerloo, $central, $circle, $district, $hammersmith, $jubilee, $metropolitan, $northern, $picadilly, $victoria, $waterloo, $overground, $dlr);
+$stmt1->bind_result($bakerloo, $bakerloo1);
+$stmt1->close();
 
-echo $bakerloo;
-
-//$bakerloo, $central, $circle, $district, $hammersmith, $jubilee, $metropolitan, $northern, $picadilly, $victoria, $waterloo, $overground, $dlr
 
 ?>
 
