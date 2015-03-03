@@ -108,7 +108,7 @@ include 'includes/functions.php';
     <a>
 
     <a href="../events/">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="tile">
 	<i class="fa fa-ticket"></i>
 	<p>Events<span class="badge"><?php echo ($events_count == '0' ? "" : "$events_count"); ?></span></p>
