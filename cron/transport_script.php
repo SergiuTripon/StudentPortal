@@ -25,7 +25,7 @@ function GetTransportStatus () {
 
         $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or exit("Unable to open file!");
-        $cron_log_content = "$cron_job failed to run on $updated_on.\n";
+        $cron_log_content = "$cron_job failed to run on $updated_on.". PHP_EOL ."";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
         exit();
@@ -75,7 +75,7 @@ function GetTransportStatus () {
 
         $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
-        $cron_log_content = "$cron_job failed to run on $updated_on.\n";
+        $cron_log_content = "$cron_job failed to run on $updated_on.". PHP_EOL ."";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
         exit();
@@ -125,7 +125,7 @@ function GetTransportStatus () {
 
         $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
-        $cron_log_content = "$cron_job failed to run on $updated_on.\n";
+        $cron_log_content = "$cron_job failed to run on $updated_on.". PHP_EOL ."";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
         exit();
@@ -205,7 +205,7 @@ function GetTransportStatus () {
 
         $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
-        $cron_log_content = "$cron_job failed to run on $updated_on.\n";
+        $cron_log_content = "$cron_job failed to run on $updated_on.". PHP_EOL ."";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
         exit();
