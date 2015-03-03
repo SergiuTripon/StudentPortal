@@ -873,43 +873,6 @@ function DeleteTimetable() {
     $stmt4->close();
 }
 
-//ActivateTimetable function
-function ActivateTimetable() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $timetableToActivate = filter_input(INPUT_POST, 'timetableToActivate', FILTER_SANITIZE_NUMBER_INT);
-
-    $module_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
-    $stmt1->bind_param('ssi', $module_status, $updated_on, $timetableToActivate);
-    $stmt1->execute();
-    $stmt1->close();
-
-    $lecture_status = 'active';
-
-    $stmt2 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
-    $stmt2->bind_param('ssi', $lecture_status, $updated_on, $timetableToActivate);
-    $stmt2->execute();
-    $stmt2->close();
-
-    $tutorial_status = 'active';
-
-    $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $timetableToActivate);
-    $stmt3->execute();
-    $stmt3->close();
-
-    $exam_status = 'active';
-
-    $stmt4 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
-    $stmt4->bind_param('ssi', $exam_status, $updated_on, $timetableToActivate);
-    $stmt4->execute();
-    $stmt4->close();
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //CreateResult function
