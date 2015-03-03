@@ -63,13 +63,22 @@ include 'includes/functions.php';
     </a>
 
     <a href="../transport/">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
     <div class="tile">
     <i class="fa fa-subway"></i>
 	<p>Transport</p>
     </div>
 	</div>
     </a>
+
+    <a href="../university-map/">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+    <div class="tile">
+    <i class="fa fa-map-marker"></i>
+	<p>University Map</p>
+    </div>
+	</div>
+    <a>
 
     <a href="../results/">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
@@ -79,15 +88,6 @@ include 'includes/functions.php';
     </div>
 	</div>
     </a>
-
-    <a href="../university-map/">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div class="tile">
-    <i class="fa fa-map-marker"></i>
-	<p>University Map</p>
-    </div>
-	</div>
-    <a>
 
     <a href="../library/">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
