@@ -48,7 +48,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
 
-	<div id="admin-timetable-portal" class="container">
+	<div id="results-portal" class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>

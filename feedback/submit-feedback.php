@@ -59,7 +59,7 @@ if (isset($_GET["id"])) {
 
     <?php include '../includes/menus/portal_menu.php'; ?>
 
-	<div id="messenger-portal" class="container">
+	<div id="feedback-portal" class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
