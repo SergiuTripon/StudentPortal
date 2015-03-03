@@ -363,7 +363,7 @@ include 'includes/session.php';
 
     });
 
-    //Cancel process
+    //Delete ajax call
     $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
