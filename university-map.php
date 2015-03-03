@@ -66,14 +66,14 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div class="container">
+    <div id="events-portal" class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
     <li class="active">Events</li>
     </ol>
 
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../admin/create-event/"><span class="ladda-label">Create location</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../admin/create-event/"><span class="ladda-label">Create event</span></a>
 
     <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -81,15 +81,15 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Locations</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Events</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Locations -->
+	<!-- Event -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom location-table">
+	<table class="table table-condensed table-custom event-table">
 
 	<thead>
 	<tr>
@@ -176,6 +176,13 @@ include 'includes/session.php';
 	</div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
+
+    </div><!-- /container -->
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<!-- Sign Out (Inactive) JS -->
+    <script src="../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
 
