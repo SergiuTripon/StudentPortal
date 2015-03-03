@@ -1170,10 +1170,15 @@ function DeleteBook() {
 
     $bookToDelete = filter_input(INPUT_POST, 'bookToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_books WHERE bookid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM reserved_books WHERE bookid=?");
     $stmt1->bind_param('i', $bookToDelete);
     $stmt1->execute();
     $stmt1->close();
+
+    $stmt2 = $mysqli->prepare("DELETE FROM system_books WHERE bookid=?");
+    $stmt2->bind_param('i', $bookToDelete);
+    $stmt2->execute();
+    $stmt2->close();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
