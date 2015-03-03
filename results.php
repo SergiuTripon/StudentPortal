@@ -51,19 +51,18 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
-	<th>Lecturer</th>
-	<th>Day</th>
-	<th>From</th>
-    <th>To</th>
-    <th>Location</th>
-    <th>Capacity</th>
+	<th>Module</th>
+	<th>Coursework mark</th>
+	<th>Exam mark</th>
+	<th>Overall mark</th>
+    <th>Created on</th>
+    <th>Updated on</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
-	$stmt1 = $mysqli->query("SELECT user_results.resultid, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid WHERE user_results.userid = '$session_userid' AND system_modules.module_status='active'");
+	$stmt1 = $mysqli->query("SELECT user_results.resultid, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark, user_results.created_on, user_results.updated_on FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid WHERE user_results.userid = '$session_userid' AND system_modules.module_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -72,15 +71,17 @@ include 'includes/session.php';
     $result_coursework_mark = $row["result_coursework_mark"];
     $result_exam_mark = $row["result_exam_mark"];
     $result_overall_mark = $row["result_overall_mark"];
+    $result_created_on = $row["created_on"];
+    $result_updated_on = $row["updated_on"];
 
 	echo '<tr id="delete-'.$resultid.'">
 
-			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Module">'.$module_name.'</td>
 			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
 			<td data-title="Exam mark">'.$result_exam_mark.'</td>
 			<td data-title="Overall mark">'.$result_overall_mark.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../update-results/?id='.$resultid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action"><a id="delete-'.$resultid.'" class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$resultid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Added on">'.(empty($result_created_on) ? "-" : "$result_created_on").'</td>
+            <td data-title="Added on">'.(empty($result_updated_on) ? "-" : "$result_updated_on").'</td>
 			</tr>';
 	}
 
