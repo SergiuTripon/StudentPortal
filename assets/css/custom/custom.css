@@ -1345,7 +1345,8 @@ textarea {
 /* End of Table Custom style */
 
 /* dataTables */
-div.dataTables_filter label {
+div.dataTables_filter label,
+div.dataTables_length label {
     font-weight: 600;
 }
 
@@ -1357,13 +1358,6 @@ div.dataTables_length label {
     font-weight: 600;
 }
 
-select.input-sm, select.form-group-sm .form-control {
-    height: 100%;
-}
-
-.form-inline .form-control {
-    width: auto;
-}
 
 .pagination > .active > a,
 .pagination > .active > span,
