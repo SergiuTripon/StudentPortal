@@ -392,9 +392,10 @@ CREATE TABLE `cycle_hire_status_now` (
 
 #University Map
 CREATE TABLE `system_map_markers` (
-  `markerid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `markerid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `marker_title` VARCHAR (70) NOT NULL,
-  `marker_description` VARCHAR (5000) NOT NULL,
+  `marker_link` VARCHAR (300),
+  `marker_description` VARCHAR (10000),
   `marker_lat` FLOAT(10,6) NOT NULL,
   `marker_long` FLOAT(10,6) NOT NULL,
   `marker_category` VARCHAR (70) NOT NULL
