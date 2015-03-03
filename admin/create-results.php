@@ -224,15 +224,6 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     var result_overall_mark = $("#result_overall_mark").val();
     var result_notes = $("#result_notes").val();
 
-    alert(result_userid);
-    alert(result_moduleid);
-    alert(result_coursework_mark);
-    alert(result_exam_mark);
-    alert(result_overal_mark);
-    alert(result_notes);
-
-
-
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
