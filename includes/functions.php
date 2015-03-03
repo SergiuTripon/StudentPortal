@@ -852,6 +852,11 @@ function DeleteTimetable() {
 
     $timetableToDelete = filter_input(INPUT_POST, 'timetableToDelete', FILTER_SANITIZE_NUMBER_INT);
 
+    $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE moduleid=?");
+    $stmt1->bind_param('i', $timetableToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
     $stmt1 = $mysqli->prepare("DELETE FROM system_modules WHERE moduleid=?");
     $stmt1->bind_param('i', $timetableToDelete);
     $stmt1->execute();
