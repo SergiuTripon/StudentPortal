@@ -133,6 +133,13 @@ elseif (isset($_POST['timetableToActivate'])) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Call Results functions
+elseif (isset($_POST["result_userid"], $_POST["result_moduleid"], $_POST["result_coursework_mark"], $_POST["result_exam_mark"], $_POST["result_overall_mark"], $_POST["result_notes"])) {
+    CreateResult();
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 //Call Library functions
 //Call ReserveBook function
 elseif (isset($_POST["bookid"], $_POST["book_name"], $_POST["book_author"], $_POST["book_notes"], $_POST["bookreserved_from"], $_POST["bookreserved_to"])) {

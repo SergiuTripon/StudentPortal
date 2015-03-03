@@ -3,18 +3,18 @@ include '../includes/session.php';
 
 if (isset($_GET['userid'], $_GET['moduleid'])) {
 
-    $userid = $_GET['userid'];
-    $moduleid = $_GET['moduleid'];
+    $result_userid = $_GET['userid'];
+    $result_moduleid = $_GET['moduleid'];
 
     $stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
-    $stmt1->bind_param('i', $userid);
+    $stmt1->bind_param('i', $result_userid);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($student_email, $student_firstname, $student_surname);
     $stmt1->fetch();
 
     $stmt2 = $mysqli->prepare("SELECT module_name FROM system_modules WHERE moduleid=?");
-    $stmt2->bind_param('i', $moduleid);
+    $stmt2->bind_param('i', $result_moduleid);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($module_name);
@@ -59,8 +59,8 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <!-- Create book -->
 	<form class="form-custom" style="max-width: 100%;" name="createresults_form" id="createresults_form" novalidate>
 
-    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>">
-    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $moduleid; ?>">
+    <input type="hidden" name="results_userid" id="userid" value="<?php echo $result_userid; ?>">
+    <input type="hidden" name="result_moduleid" id="moduleid" value="<?php echo $result_moduleid; ?>">
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -97,6 +97,13 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Coursework mark (if any)</label>
+    <input class="form-control" type="text" name="result_coursework_mark" id="result_coursework_mark" placeholder="Enter a mark">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Exam mark (if any)</label>
     <input class="form-control" type="text" name="result_exam_mark" id="result_exam_mark" placeholder="Enter a mark">
 	</div>
@@ -104,8 +111,8 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Coursework mark (if any)</label>
-    <input class="form-control" type="text" name="result_coursework_mark" id="result_coursework_mark" placeholder="Enter a mark">
+	<label>Overall mark</label>
+    <input class="form-control" type="text" name="result_overall_mark" id="result_overall_mark" placeholder="Enter a mark">
 	</div>
 	</div>
 
@@ -121,7 +128,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create book</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create result</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
@@ -199,7 +206,6 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-	$(document).ready(function () {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
@@ -207,63 +213,29 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
-	var hasError = false;
 
-    //Modules
-	var book_name = $("#book_name").val();
-	if(book_name === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a name.");
-		$("#book_name").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error1").hide();
-		$("#book_name").addClass("success-style");
-	}
+    var result_userid = $("#result_userid").val();
+    var result_moduleid = $("#result_moduleid").val();
+    var result_coursework_mark = $("#result_coursework_mark").val();
+    var result_exam_mark = $("#result_exam_mark").val();
+    var result_overal_mark = $("#result_overal_mark").val();
+    var result_notes = $("#result_notes").val();
 
-    var book_author = $("#book_author").val();
-	if(book_author === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter an author.");
-		$("#book_author").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error1").hide();
-		$("#book_author").addClass("success-style");
-	}
-
-    var book_notes = $("#book_notes").val();
-
-    var book_copy_no = $("#book_copy_no").val();
-	if(book_copy_no === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a copy number.");
-		$("#book_copy_no").addClass("error-style");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error2").hide();
-		$("#book_copy_no").addClass("success-style");
-	}
-
-	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'book_name='     + book_name +
-         '&book_author='  + book_author +
-         '&book_notes='   + book_notes +
-         '&book_copy_no=' + book_copy_no,
+    data:'result_userid='           + result_userid +
+         '&result_moduleid='        + result_moduleid +
+         '&result_coursework_mark=' + results_coursework_mark +
+         '&result_exam_mark='       + result_exam_mark +
+         '&result_notes='           + result_notes,
 
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Book created successfully.');
+		$("#success").empty().append('Result created successfully.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
@@ -272,11 +244,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
         $("#error").empty().append(thrownError);
     }
 	});
-    }
-
 	return true;
-
-	});
 	});
 	</script>
 

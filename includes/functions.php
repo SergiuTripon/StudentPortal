@@ -908,7 +908,28 @@ function ActivateTimetable() {
     $stmt4->close();
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//CreateResult function
+function CreateResult() {
+
+    global $mysqli;
+    global $created_on;
+
+    $result_userid = filter_input(INPUT_POST, 'result_userid', FILTER_SANITIZE_NUMBER_INT);
+    $result_moduleid = filter_input(INPUT_POST, 'result_moduleid', FILTER_SANITIZE_NUMBER_INT);
+    $result_coursework_mark = filter_input(INPUT_POST, 'result_coursework_mark', FILTER_SANITIZE_STRING);
+    $result_exam_mark = filter_input(INPUT_POST, 'result_exam_mark', FILTER_SANITIZE_STRING);
+    $result_overall_mark = filter_input(INPUT_POST, 'result_overall_mark', FILTER_SANITIZE_STRING);
+    $result_notes = filter_input(INPUT_POST, 'result_notes', FILTER_SANITIZE_STRING);
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_results (userid, moduleid, result_coursework_mark, result_exam_mark, result_overall_mark, result_notes, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt1->bind_param('iisssss', $result_userid, $result_moduleid, $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes, $created_on);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Library functions
 //ReserveBook function

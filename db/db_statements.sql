@@ -310,6 +310,25 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
+#Timetable
+CREATE TABLE `user_results` (
+  `userid` INT(11) NOT NULL,
+  `resultid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `moduleid` INT(11) NOT NULL,
+  `coursework_mark` NUMERIC(15,2),
+  `exam_mark` NUMERIC(15,2),
+  `overall_mark` NUMERIC(15,2),
+  `result_notes` VARCHAR(5000),
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
+FOREIGN KEY (moduleid)
+REFERENCES system_modules(moduleid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
 #Feedback
 CREATE TABLE `user_feedback` (
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
