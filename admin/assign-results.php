@@ -230,20 +230,21 @@ if (isset($_GET['id'])) {
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //DataTables
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false
-    });
-
     $('.module-table').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
 		"language": {
 			"emptyTable": "There are no modules to display."
 		}
 	});
 
     $('.results-table').dataTable({
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
         "language": {
             "emptyTable": "There are no results to display."
         }
