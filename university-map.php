@@ -89,7 +89,7 @@ include 'includes/session.php';
 
 	<!-- Locations -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom event-table">
+	<table class="table table-condensed table-custom location-table">
 
 	<thead>
 	<tr>
