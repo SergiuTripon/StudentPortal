@@ -77,7 +77,7 @@ global $transport_status_last_updated;
 
 			<td data-title="Line">'.$tube_line.'</td>
 			<td data-title="Status">'.$tube_line_status.'</td>
-			<td data-title="Info">'.(empty($tube_line_info) ? "No extra information" : "$tube_line_info").'</td>
+			<td data-title="Info">'.(empty($tube_line_info) ? "No extra info" : "$tube_line_info").'</td>
 			</tr>';
 	}
 
@@ -129,7 +129,7 @@ global $transport_status_last_updated;
 
 			<td data-title="Station">'.$tube_station.'</td>
 			<td data-title="Status">'.$tube_station_status.'</td>
-			<td data-title="Info">'.$tube_station_info.'</td>
+			<td data-title="Info">'.(empty($tube_station_info) ? "No extra info" : "$tube_station_info").'</td>
 			</tr>';
     }
 
