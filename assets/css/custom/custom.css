@@ -1354,6 +1354,7 @@ div.dataTables_length label {
 .dataTables_length .form-control {
     font-weight: normal;
     height: 35px;
+    margin-bottom: 0px;
 }
 
 select.input-sm, select.form-group-sm .form-control {
