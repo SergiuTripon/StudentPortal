@@ -208,6 +208,7 @@ if (isset($_GET['id'])) {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
+    var result_resultid = $("#result_resultid").val();
     var result_userid = $("#result_userid").val();
     var result_moduleid = $("#result_moduleid").val();
     var result_coursework_mark = $("#result_coursework_mark").val();
@@ -218,12 +219,13 @@ if (isset($_GET['id'])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'result_userid='           + result_userid +
-         '&result_moduleid='        + result_moduleid +
-         '&result_coursework_mark=' + result_coursework_mark +
-         '&result_exam_mark='       + result_exam_mark +
-         '&result_overall_mark='    + result_overall_mark +
-         '&result_notes='           + result_notes,
+    data:'result_resultid='          + result_resultid +
+         '&result_userid1='           + result_userid +
+         '&result_moduleid1='        + result_moduleid +
+         '&result_coursework_mark1=' + result_coursework_mark +
+         '&result_exam_mark1='       + result_exam_mark +
+         '&result_overall_mark1='    + result_overall_mark +
+         '&result_notes1='           + result_notes,
 
     success:function(){
 		$("#error").hide();

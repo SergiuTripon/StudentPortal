@@ -929,6 +929,26 @@ function CreateResult() {
     $stmt1->close();
 }
 
+//UpdateResult function
+function UpdateResult() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $result_resultid = filter_input(INPUT_POST, '$result_resultid', FILTER_SANITIZE_NUMBER_INT);
+    $result_userid = filter_input(INPUT_POST, 'result_userid1', FILTER_SANITIZE_NUMBER_INT);
+    $result_moduleid = filter_input(INPUT_POST, 'result_moduleid1', FILTER_SANITIZE_NUMBER_INT);
+    $result_coursework_mark = filter_input(INPUT_POST, 'result_coursework_mark1', FILTER_SANITIZE_STRING);
+    $result_exam_mark = filter_input(INPUT_POST, 'result_exam_mark1', FILTER_SANITIZE_STRING);
+    $result_overall_mark = filter_input(INPUT_POST, 'result_overall_mark1', FILTER_SANITIZE_STRING);
+    $result_notes = filter_input(INPUT_POST, 'result_notes1', FILTER_SANITIZE_STRING);
+
+    $stmt1 = $mysqli->prepare("UPDATE user_results SET userid=?, moduleid=?, result_coursework_mark=?, result_exam_mark=?, result_overall_mark=?, result_notes=?, updated_on=? WHERE resultid=?");
+    $stmt1->bind_param('iisssssi', $result_userid, $result_moduleid, $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes, $updated_on, $result_resultid);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Library functions

@@ -134,8 +134,14 @@ elseif (isset($_POST['timetableToActivate'])) {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Results functions
+//Call CreateResult function
 elseif (isset($_POST["result_userid"], $_POST["result_moduleid"], $_POST["result_coursework_mark"], $_POST["result_exam_mark"], $_POST["result_overall_mark"], $_POST["result_notes"])) {
     CreateResult();
+}
+
+//Call UpdateResult function
+elseif (isset($_POST["result_resultid"], $_POST["result_userid1"], $_POST["result_moduleid1"], $_POST["result_coursework_mark1"], $_POST["result_exam_mark1"], $_POST["result_overall_mark1"], $_POST["result_notes1"])) {
+    UpdateResult();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
