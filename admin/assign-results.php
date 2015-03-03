@@ -47,13 +47,13 @@ if (isset($_GET['id'])) {
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Unallocated students</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Modules</a>
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Allocated students -->
+	<!-- Modules -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -68,75 +68,21 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
+	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid WHERE userid = '$moduleToAssignResults'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$userid = $row["userid"];
-    $studentno = $row["studentno"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
+    $moduleid = $row["moduleid"];
+    $module_name = $row["module_name"];
 
 	echo '<tr id="allocate-'.$userid.'">
 
-			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
-			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a id="allocate-'.$userid.'" class="btn btn-primary btn-md ladda-button allocate-button" data-style="slide-up"><span class="ladda-label">Allocate</span></a></td>
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../create-results/?'.$userid.'&'.$moduleid.'" data-style="slide-up"><span class="ladda-label">Allocate</span></a></td>
 			</tr>';
     }
 	$stmt1->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Allocated students</a>
-    </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<!-- Unallocated students -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>Full name</th>
-	<th>Student number</th>
-    <th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody>
-    <?php
-
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
-
-	while($row = $stmt2->fetch_assoc()) {
-
-	$userid = $row["userid"];
-    $studentno = $row["studentno"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
-
-	echo '<tr id="unallocate-'.$userid.'">
-
-			<td data-title="First name">'.$firstname.' '.$surname.'</td>
-			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a id="deallocate-'.$userid.'" class="btn btn-primary btn-md ladda-button deallocate-button" data-style="slide-up"><span class="ladda-label">Deallocate</span></a></td>
-			</tr>';
-    }
-	$stmt2->close();
 	?>
 	</tbody>
 
