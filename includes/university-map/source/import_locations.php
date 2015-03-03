@@ -8,6 +8,7 @@ function ImportLocations () {
 
     global $mysqli;
     global $category;
+    global $created_on;
 
     $stmt1 = $mysqli->prepare("DELETE FROM system_map_markers");
     $stmt1->execute();
@@ -44,8 +45,8 @@ function ImportLocations () {
 
         $category = $xml_var->category;
 
-        $stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_link, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt2->bind_param('ssssss', $title, $link, $description, $lat, $long, $category);
+        $stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_link, marker_description, marker_lat, marker_long, marker_category, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('sssssss', $title, $link, $description, $lat, $long, $category, $created_on);
         $stmt2->execute();
         $stmt2->close();
     }
@@ -61,8 +62,8 @@ function ImportLocations () {
 
         $category = 'cycle_hire';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssss', $title, $description, $long, $lat, $category);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('ssssss', $title, $description, $long, $lat, $category, $created_on);
         $stmt3->execute();
         $stmt3->close();
     }
@@ -78,8 +79,8 @@ function ImportLocations () {
 
         $category = 'cycle_parking';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssss', $title, $description, $long, $lat, $category);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('ssssss', $title, $description, $long, $lat, $category, $created_on);
         $stmt3->execute();
         $stmt3->close();
     }
@@ -95,8 +96,8 @@ function ImportLocations () {
 
         $category = 'ATM';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category) VALUES (?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssss', $title, $description, $long, $lat, $category);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('ssssss', $title, $description, $long, $lat, $category, $created_on);
         $stmt3->execute();
         $stmt3->close();
     }
