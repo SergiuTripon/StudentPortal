@@ -1668,38 +1668,23 @@ function UpdateEvent() {
     }
 }
 
-//CancelEvent function
-function CancelEvent()
+//DeleteEvent function
+function DeleteEvent()
 {
 
     global $mysqli;
-    global $updated_on;
 
-    $eventToCancel = filter_input(INPUT_POST, 'eventToCancel', FILTER_SANITIZE_STRING);
+    $eventToDelete = filter_input(INPUT_POST, 'eventToDelete', FILTER_SANITIZE_STRING);
 
-    $event_status = 'cancelled';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_events SET event_status=?, updated_on=? WHERE eventid=?");
-    $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToCancel);
+    $stmt1 = $mysqli->prepare("DELETE FROM reserved_events WHERE eventid=?");
+    $stmt1->bind_param('i', $eventToDelete);
     $stmt1->execute();
     $stmt1->close();
-}
 
-//ActivateEvent function
-function ActivateEvent()
-{
-
-    global $mysqli;
-    global $updated_on;
-
-    $eventToActivate = filter_input(INPUT_POST, 'eventToActivate', FILTER_SANITIZE_STRING);
-
-    $event_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_events SET event_status=?, updated_on=? WHERE eventid=?");
-    $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToActivate);
-    $stmt1->execute();
-    $stmt1->close();
+    $stmt2 = $mysqli->prepare("DELETE FROM system_events WHERE eventid=?");
+    $stmt2->bind_param('i', $eventToDelete);
+    $stmt2->execute();
+    $stmt2->close();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

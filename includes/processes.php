@@ -181,7 +181,7 @@ elseif (isset(
     UpdateBook();
 }
 
-//Call CancelBook function
+//Call DeleteBook function
 elseif (isset($_POST["bookToDelete"])) {
     DeleteBook();
 }
@@ -244,14 +244,9 @@ elseif (isset(
     UpdateEvent();
 }
 
-//Call CancelEvent function
-elseif (isset($_POST["eventToCancel"])) {
-    CancelEvent();
-}
-
-//Call CancelEvent function
-elseif (isset($_POST["eventToActivate"])) {
-    ActivateEvent();
+//Call DeleteEvent function
+elseif (isset($_POST["eventToDelete"])) {
+    DeleteEvent();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////

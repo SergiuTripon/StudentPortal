@@ -287,7 +287,7 @@ include 'includes/session.php';
 	$event_ticket_no = $row["event_ticket_no"];
 	$event_category = ucfirst($row["event_category"]);
 
-	echo '<tr id="cancel-'.$row["eventid"].'">
+	echo '<tr id="event-'.$row["eventid"].'">
 
 			<td data-title="Name">'.$event_name.'</td>
 			<td data-title="From">'.$event_from.'</td>
@@ -296,8 +296,40 @@ include 'includes/session.php';
 			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
 			<td data-title="Category">'.$event_category.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$eventid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a id="cancel-'.$eventid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
-			</tr>';
+            <td data-title="Action"><a id="cancel-'.$eventid.'" class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
+			</tr>
+
+			<div class="modal modal-custom fade" id="modal-'.$eventid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this account?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="hide">
+			<div class="pull-left">
+			<a id="delete-'.$eventid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt1->close();
@@ -519,59 +551,35 @@ include 'includes/session.php';
 	});
 
     //Cancel event process
-    $("body").on("click", ".cancel-button", function(e) {
+    $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var eventToCancel = clickedID[1];
+    var eventToDelete = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'eventToCancel='+ eventToCancel,
+	data:'eventToDelete='+ eventToDelete,
 	success:function(){
-		$('#cancel-'+eventToCancel).fadeOut();
-        setTimeout(function(){
+		$('#event-'+eventToDelete).fadeOut();
+        $('#hide').hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('.modal-body p').removeClass('feedback-sad');
+        $('.modal-body p').addClass('feedback-happy');
+        $('.modal-body p').empty().append('The event has been deleted successfully.');
+        $('#success-button').show();
+        $("#success-button").click(function () {
             location.reload();
-        }, 1000);
+        });
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
-    });
-
-    //Activate event process
-    $("body").on("click", ".activate-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var eventToActivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'eventToActivate='+ eventToActivate,
-	success:function(){
-		$('#activate-'+eventToActivate).fadeOut();
-        setTimeout(function(){
-            location.reload();
-        }, 1000);
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-
     });
 
 	//Event view/Calendar view toggle
