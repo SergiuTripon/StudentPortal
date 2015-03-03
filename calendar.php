@@ -381,7 +381,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no tasks at the moment."
+			"emptyTable": "There are no tasks to display at the moment."
 		}
 	});
 
