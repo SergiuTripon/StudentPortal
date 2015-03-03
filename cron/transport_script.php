@@ -22,13 +22,12 @@ function GetTransportStatus () {
 	$xml_line_status = new SimpleXMLElement($result1);
 
     if ($result1 === FALSE) {
-        $cron_job = 'transport_script.txt';
 
+        $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
         $cron_log_content = "$cron_job failed to run on $updated_on.\n";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
-
         exit();
 
     } else {
@@ -72,13 +71,12 @@ function GetTransportStatus () {
     $xml_station_status = new SimpleXMLElement($result2);
 
     if ($result2 === FALSE) {
-        $cron_job = 'transport_script.txt';
 
+        $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
         $cron_log_content = "$cron_job failed to run on $updated_on.\n";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
-
         exit();
 
     } else {
@@ -122,13 +120,12 @@ function GetTransportStatus () {
     $xml_this_weekend = new SimpleXMLElement($result3);
 
     if ($result3 === FALSE) {
-        $cron_job = 'transport_script.txt';
 
+        $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
         $cron_log_content = "$cron_job failed to run on $updated_on.\n";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
-
         exit();
 
     } else {
@@ -202,13 +199,12 @@ function GetTransportStatus () {
     $cycle_hire = new SimpleXMLElement($result4);
 
     if ($result4 === FALSE) {
-        $cron_job = 'transport_script.txt';
 
+        $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
         $cron_log_content = "$cron_job failed to run on $updated_on.\n";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
-
         exit();
 
     } else {
