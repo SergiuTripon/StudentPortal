@@ -1448,8 +1448,7 @@ function CompleteTask() {
 }
 
 //CancelTask function
-function DeleteTask()
-{
+function DeleteTask() {
 
     global $mysqli;
 

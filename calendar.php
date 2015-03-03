@@ -382,7 +382,7 @@ include 'includes/session.php';
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The result has been deleted successfully.');
+        $('.modal-body p').empty().append('The task has been deleted successfully.');
         $('#success-button').show();
         $("#success-button").click(function () {
             location.reload();
