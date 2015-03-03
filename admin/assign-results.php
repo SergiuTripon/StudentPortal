@@ -76,7 +76,7 @@ if (isset($_GET['id'])) {
 	echo '<tr id="allocate-'.$userid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../create-result/?userid='.$userid.'&moduleid='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../create-results/?userid='.$userid.'&moduleid='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
 			</tr>';
     }
 	$stmt1->close();
@@ -133,7 +133,8 @@ if (isset($_GET['id'])) {
 			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
 			<td data-title="Exam mark">'.$result_exam_mark.'</td>
 			<td data-title="Overall mark">'.$result_overall_mark.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../update-result/?id='.$resultid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../update-results/?id='.$resultid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+			<td data-title="Action"><a id="delete-'.$resultid.'" class="btn btn-primary btn-md ladda-button delete-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
 			</tr>';
     }
 	$stmt1->close();
