@@ -102,7 +102,7 @@ if (isset($_GET['id'])) {
 
 	<!-- Modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom results-table">
 
 	<thead>
 	<tr>
@@ -239,6 +239,16 @@ if (isset($_GET['id'])) {
 			"emptyTable": "There are no modules to display."
 		}
 	});
+
+    $('.results-table').dataTable({
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no results to display."
+        }
+    });
 
     //Delete result
     $("body").on("click", ".delete-button", function(e) {
