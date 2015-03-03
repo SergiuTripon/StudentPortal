@@ -5,11 +5,11 @@ if (isset($_GET['id'])) {
 
     $resultToUpdate = $_GET['id'];
 
-    $stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, system_modules.module_name, user_results.resultid, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark, user_results.result_notes FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid LEFT JOIN user_signin ON user_results.userid=user_signin.userid LEFT JOIN user_details ON user_results.userid=user_details.userid WHERE user_results.resultid=? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark, user_results.result_notes FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid LEFT JOIN user_signin ON user_results.userid=user_signin.userid LEFT JOIN user_details ON user_results.userid=user_details.userid WHERE user_results.resultid=? LIMIT 1");
     $stmt1->bind_param('i', $resultToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($student_email, $student_firstname, $student_surname, $module_name, $resultid, $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes);
+    $stmt1->bind_result($student_email, $student_firstname, $student_surname, $module_name, $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes);
     $stmt1->fetch();
 
 } else {
@@ -51,7 +51,7 @@ if (isset($_GET['id'])) {
     <!-- Create book -->
 	<form class="form-custom" style="max-width: 100%;" name="createresults_form" id="createresults_form" novalidate>
 
-    <input type="hidden" name="result_resultid" id="result_resultid" value="<?php echo $result_resultid; ?>">
+    <input type="hidden" name="result_resultid" id="result_resultid" value="<?php echo $resultToUpdate; ?>">
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
