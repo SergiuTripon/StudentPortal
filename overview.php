@@ -54,7 +54,7 @@ include 'includes/functions.php';
     </a>
 
     <a href="../exams/">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="tile">
 	<i class="fa fa-pencil"></i>
 	<p>Exams<span class="badge"><?php echo ($exams_count == '0' ? "" : "$exams_count"); ?></span></p>
@@ -65,7 +65,7 @@ include 'includes/functions.php';
     <a href="../results/">
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div class="tile">
-	<i class="fa fa-star-o"></i>
+	<i class="fa fa-star"></i>
 	<p>Results<span class="badge"><?php echo ($exams_count == '0' ? "" : "$exams_count"); ?></span></p>
     </div>
 	</div>
