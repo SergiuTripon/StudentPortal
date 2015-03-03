@@ -23,6 +23,8 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
+    <?php if (isset($_SESSION['account_type']) && ($_SESSION['account_type'] == 'student' || $_SESSION['account_type'] == 'lecturer' || $_SESSION['account_type'] == 'admin')) : ?>
+
 	<?php include 'includes/menus/portal_menu.php'; ?>
 
 	<div id="calendar-portal" class="container">
@@ -316,6 +318,8 @@ include 'includes/session.php';
 		
 	<!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/custom/sign-out-inactive.js"></script>
+
+    <?php endif; ?>
 
 	<?php else : ?>
 

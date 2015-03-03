@@ -174,7 +174,7 @@ include 'includes/session.php';
 
     <?php endif; ?>
 
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer' || $_SESSION['account_type'] == 'admin') : ?>
+    <?php if (isset($_SESSION['account_type']) && ($_SESSION['account_type'] == 'lecturer' || $_SESSION['account_type'] == 'admin')) : ?>
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
