@@ -224,7 +224,7 @@ include 'includes/session.php';
 
 	$account_type = ucfirst($row["account_type"]);
 
-	echo '<tr id="user-'.$row["userid"].'">
+	echo '<tr id="user-'.$userid.'">
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Account type">'.$account_type.'</td>
@@ -232,7 +232,7 @@ include 'includes/session.php';
             <td data-title="Updated on">'.$updated_on.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/update-an-account?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/change-account-password?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-button" href="#modal-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
     		<div class="modal modal-custom fade" id="modal-'.$userid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -398,18 +398,17 @@ include 'includes/session.php';
 	});
 
 	//Delete an account ajax call
-	$("body").on("click", ".delete-button1", function(e) {
+	$("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
     var userToDelete = clickedID[1];
-    var myData = 'userToDelete='+ userToDelete;
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:myData,
+	data:'userToDelete='+ userToDelete,
 	success:function(){
 		$('#user-'+userToDelete).fadeOut();
 		$('#hide').hide();
