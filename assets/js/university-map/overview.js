@@ -1,9 +1,21 @@
     //<![CDATA[
-
-    var customIcons = [];
-    customIcons["building"] = 'https://student-portal.co.uk/assets/img/university-map/university_map_black_icon.png';
-    customIcons["student_centre"] = 'http://labs.google.com/ridefinder/images/mm_20_red.png';
-    var markerGroups = { "building": [], "student_centre": []};
+    var customIcons = {
+    building: {
+        icon: 'https://student-portal.co.uk/assets/img/university-map/university_map_black_icon.png'
+    },
+    student_centre: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+    },
+    lecture_theatre: {
+        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
+    },
+    computer_lab: {
+        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
+    },
+    library: {
+        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
+    }
+    };
 
     function loadMap() {
         var mapOptions = {
@@ -12,6 +24,7 @@
             mapTypeId: 'roadmap',
             styles: [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}]
         };
+
         var mapElement = document.getElementById('map');
         var map = new google.maps.Map(mapElement, mapOptions);
         var infoWindow = new google.maps.InfoWindow({ maxWidth: 400 });
@@ -33,7 +46,6 @@
             map: map,
             position: point,
             icon: icon.icon,
-            type: type,
             animation: google.maps.Animation.DROP
         });
         bindInfoWindow(marker, map, infoWindow, html);
@@ -62,17 +74,6 @@
 
     request.open('GET', url, true);
     request.send(null);
-    }
-
-    function toggleGroup(type) {
-        for (var i = 0; i < markerGroups[type].length; i++) {
-            var marker = markerGroups[type][i];
-            if (marker.isHidden()) {
-                marker.show();
-            } else {
-                marker.hide();
-            }
-        }
     }
 
     function doNothing() {}
