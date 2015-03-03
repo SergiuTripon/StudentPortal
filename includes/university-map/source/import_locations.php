@@ -1,7 +1,7 @@
 <?php
 include '../../../includes/session.php';
 
-DeleteLocation();
+DeleteLocations();
 ImportLocations();
 
 //ImportLocations function
