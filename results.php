@@ -74,7 +74,7 @@ include 'includes/session.php';
     $result_created_on = $row["created_on"];
     $result_updated_on = $row["updated_on"];
 
-	echo '<tr id="delete-'.$resultid.'">
+	echo '<tr>
 
 			<td data-title="Module">'.$module_name.'</td>
 			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
