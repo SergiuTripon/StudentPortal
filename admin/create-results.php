@@ -73,7 +73,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Name</label>
-    <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name">
+    <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name" disabled="disabled">
 	</div>
 	</div>
 
