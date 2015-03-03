@@ -25,7 +25,7 @@ include 'includes/session.php';
 
 	<?php include 'includes/menus/portal_menu.php'; ?>
 
-	<div id="events-portal" class="container">
+	<div id="university-map-portal" class="container">
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
