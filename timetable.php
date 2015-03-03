@@ -369,6 +369,8 @@ include 'includes/session.php';
     var clickedID = this.id.split('-');
     var timetableToCancel = clickedID[1];
 
+    alert(timetableToCancel);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
