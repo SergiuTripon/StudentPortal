@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $moduleToAssignResults = $_GET['id'];
 
 } else {
-    header('Location: ../../timetable/');
+    header('Location: ../../results/');
 }
 ?>
 
