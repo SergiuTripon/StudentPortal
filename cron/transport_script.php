@@ -64,7 +64,7 @@ function GetTransportStatus () {
     if ($tube_station_status_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
-        $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
+        $cron_log = fopen("cron_log.txt", "w") or exit("Unable to open file!");
         $cron_log_content = "$cron_job failed to run on $updated_on.". PHP_EOL ."";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
@@ -103,7 +103,7 @@ function GetTransportStatus () {
     if ($tube_status_this_weekend_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
-        $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
+        $cron_log = fopen("cron_log.txt", "w") or exit("Unable to open file!");
         $cron_log_content = "$cron_job failed to run on $updated_on.". PHP_EOL ."";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
@@ -159,7 +159,7 @@ function GetTransportStatus () {
     if ($cycle_hire_status_now_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
-        $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
+        $cron_log = fopen("cron_log.txt", "w") or exit("Unable to open file!");
         $cron_log_content = "$cron_job failed to run on $updated_on.". PHP_EOL ."";
         fwrite($cron_log, $cron_log_content);
         fclose($cron_log);
@@ -195,7 +195,7 @@ function GetTransportStatus () {
 
     $cron_job = 'transport_script.txt';
 
-    $cron_log = fopen("cron_log.txt", "a") or die("Unable to open file!");
+    $cron_log = fopen("cron_log.txt", "a") or exit("Unable to open file!");
     $cron_log_content = "$cron_job ran successfully at $updated_on.". PHP_EOL ."";
     fwrite($cron_log, $cron_log_content);
     fclose($cron_log);

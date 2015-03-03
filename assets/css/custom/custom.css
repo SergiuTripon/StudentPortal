@@ -872,8 +872,8 @@ textarea {
     color: #FFFFFF;
     background-color: #4582EC;
     border-color: #1863E6;
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .panel-title {
@@ -1554,9 +1554,3 @@ select.input-sm, select.form-group-sm .form-control {
     background: none !important;
 }
 /* End of Tube Lines colour definition */
-
-
-
-
-
-
