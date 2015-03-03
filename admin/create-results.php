@@ -53,6 +53,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../results/">Results</a></li>
+    <li><a href="../admin/assign-results/">Assign results</a></li>
     <li class="active">Create results</li>
     </ol>
 
