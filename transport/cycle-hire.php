@@ -44,7 +44,7 @@ global $transport_status_last_updated;
 	<div class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Cycle Hire | Availability updates</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Cycle Hire</a>
     <a class="pull-right"><i class="fa fa-clock-o"></i> <?php echo $transport_status_last_updated ?></a>
   	</h4>
     </div>
@@ -114,7 +114,7 @@ global $transport_status_last_updated;
 	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>
 
