@@ -203,7 +203,7 @@ include 'includes/session.php';
 
 	<!-- Modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom timetable-table">
 
 	<thead>
 	<tr>
@@ -235,8 +235,40 @@ include 'includes/session.php';
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button assign-button" href="/admin/assign-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></a></td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button update-button" href="/admin/update-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></a></td>
-            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></a></td>
-			</tr>';
+            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md ladda-button delete-trigger" data-style="slide-up"><span class="ladda-label">Cancel</span></a></a></td>
+			</tr>
+
+			<div class="modal modal-custom fade" id="modal-'.$moduleid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this account?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="hide">
+			<div class="pull-left">
+			<a id="delete-'.$moduleid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt3->close();
@@ -249,60 +281,6 @@ include 'includes/session.php';
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
-
-    <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">  Cancelled timetables</a>
-    </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<!-- Cancelled modules -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>URL</th>
-	<th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody id="loadCancelledModules-table">
-	<?php
-
-	$stmt3 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'cancelled'");
-
-	while($row = $stmt3->fetch_assoc()) {
-
-    $moduleid = $row["moduleid"];
-	$module_name = $row["module_name"];
-	$module_notes = $row["module_notes"];
-	$module_url = $row["module_url"];
-
-	echo '<tr id="activate-'.$moduleid.'">
-
-			<td data-title="Name">'.$module_name.'</td>
-			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
-            <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a id="activate-'.$moduleid.'" class="btn btn-primary btn-md ladda-button activate-button" data-style="slide-up"><span class="ladda-label">Activate</span></a></td>
-			</tr>';
-	}
-
-	$stmt3->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-  	</div><!-- /panel-default -->
 
 	</div><!-- /.panel-group -->
 
@@ -375,7 +353,7 @@ include 'includes/session.php';
 		}
 	});
 
-    $('.module-table').dataTable({
+    $('.timetable-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
@@ -385,7 +363,7 @@ include 'includes/session.php';
 		}
 	});
 
-    $("body").on("click", ".cancel-button", function(e) {
+    $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -397,30 +375,17 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'timetableToCancel='+ timetableToCancel,
 	success:function(){
-		$('#cancel-'+timetableToCancel).hide();
-        location.reload();
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    $("body").on("click", ".activate-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var timetableToActivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'timetableToActivate='+ timetableToActivate,
-	success:function(){
-		$('#activate-'+timetableToActivate).hide();
-        location.reload();
+		$('#delete-'+timetableToCancel).hide();
+        $('#hide').hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('.modal-body p').removeClass('feedback-sad');
+        $('.modal-body p').addClass('feedback-happy');
+        $('.modal-body p').empty().append('The result has been deleted successfully.');
+        $('#success-button').show();
+        $("#success-button").click(function () {
+            location.reload();
+        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
