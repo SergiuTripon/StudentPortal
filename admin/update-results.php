@@ -209,28 +209,15 @@ if (isset($_GET['id'])) {
     e.preventDefault();
 
     var result_resultid = $("#result_resultid").val();
-    var result_userid = $("#result_userid").val();
-    var result_moduleid = $("#result_moduleid").val();
     var result_coursework_mark = $("#result_coursework_mark").val();
     var result_exam_mark = $("#result_exam_mark").val();
     var result_overall_mark = $("#result_overall_mark").val();
     var result_notes = $("#result_notes").val();
 
-    alert(result_resultid);
-    alert(result_userid);
-    alert(result_moduleid);
-    alert(result_coursework_mark);
-    alert(result_exam_mark);
-    alert(result_overall_mark);
-    alert(result_notes);
-
-
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'result_resultid='          + result_resultid +
-         '&result_userid1='          + result_userid +
-         '&result_moduleid1='        + result_moduleid +
          '&result_coursework_mark1=' + result_coursework_mark +
          '&result_exam_mark1='       + result_exam_mark +
          '&result_overall_mark1='    + result_overall_mark +
