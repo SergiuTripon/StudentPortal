@@ -3,7 +3,7 @@
     var customIcons = [];
     customIcons["building"] = 'https://student-portal.co.uk/assets/img/university-map/university_map_black_icon.png';
     customIcons["student_centre"] = 'http://labs.google.com/ridefinder/images/mm_20_red.png';
-    var markerGroups = { "restaurant": [], "bar": []};
+    var markerGroups = { "building": [], "student_centre": []};
 
     function loadMap() {
         var mapOptions = {
