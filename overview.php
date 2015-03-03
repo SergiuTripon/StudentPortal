@@ -126,7 +126,7 @@ include 'includes/functions.php';
     </a>
 
 	<a href="../messenger/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div class="tile">
     <i class="fa fa-comments"></i>
 	<p>Messenger<span class="badge"><?php echo ($messenger_count == '0' ? "" : "$messenger_count"); ?></span></p>
@@ -135,7 +135,7 @@ include 'includes/functions.php';
     </a>
 
 	<a href="../account/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div class="tile">
     <i class="fa fa-user"></i>
 	<p>Account</p>
