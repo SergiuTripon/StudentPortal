@@ -45,7 +45,6 @@ if (isset($_GET['id'])) {
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../results/">Results</a></li>
-    <li><a href="../assign-results/">Assign results</a></li>
     <li class="active">Update results</li>
     </ol>
 
@@ -118,17 +117,13 @@ if (isset($_GET['id'])) {
 	</div>
 	</div>
 
-	</div>
-
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create result</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Update result</span></button>
     </div>
 
-	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label">Create another</span></a>
-	</div>
+    </div>
 	
     </form>
     <!-- End of Create book -->
@@ -229,8 +224,7 @@ if (isset($_GET['id'])) {
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Result created successfully.');
-		$("#success-button").show();
+		$("#success").empty().append('Result updated successfully.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
