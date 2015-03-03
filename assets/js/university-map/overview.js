@@ -1,21 +1,9 @@
     //<![CDATA[
-    var customIcons = {
-    building: {
-        icon: 'https://student-portal.co.uk/assets/img/university-map/university_map_black_icon.png'
-    },
-    student_centre: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
-    },
-    lecture_theatre: {
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'
-    },
-    computer_lab: {
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'
-    },
-    library: {
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_black.png'
-    }
-    };
+
+    var customIcons = [];
+    customIcons["building"] = 'https://student-portal.co.uk/assets/img/university-map/university_map_black_icon.png';
+    customIcons["student_centre"] = 'http://labs.google.com/ridefinder/images/mm_20_red.png';
+    var markerGroups = { "restaurant": [], "bar": []};
 
     function loadMap() {
         var mapOptions = {
@@ -45,6 +33,7 @@
             map: map,
             position: point,
             icon: icon.icon,
+            type: type,
             animation: google.maps.Animation.DROP
         });
         bindInfoWindow(marker, map, infoWindow, html);
@@ -73,6 +62,17 @@
 
     request.open('GET', url, true);
     request.send(null);
+    }
+
+    function toggleGroup(type) {
+        for (var i = 0; i < markerGroups[type].length; i++) {
+            var marker = markerGroups[type][i];
+            if (marker.isHidden()) {
+                marker.show();
+            } else {
+                marker.hide();
+            }
+        }
     }
 
     function doNothing() {}
