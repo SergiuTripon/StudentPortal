@@ -33,6 +33,8 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
+    <input type="checkbox" id="restaurantCheckbox" onclick="toggleGroup('restaurant')" CHECKED />
+
     <div id="map"></div>
 
     </form>
