@@ -935,7 +935,7 @@ function UpdateResult() {
     global $mysqli;
     global $updated_on;
 
-    $result_resultid = filter_input(INPUT_POST, '$result_resultid', FILTER_SANITIZE_NUMBER_INT);
+    $result_resultid = filter_input(INPUT_POST, 'result_resultid', FILTER_SANITIZE_NUMBER_INT);
     $result_userid = filter_input(INPUT_POST, 'result_userid1', FILTER_SANITIZE_NUMBER_INT);
     $result_moduleid = filter_input(INPUT_POST, 'result_moduleid1', FILTER_SANITIZE_NUMBER_INT);
     $result_coursework_mark = filter_input(INPUT_POST, 'result_coursework_mark1', FILTER_SANITIZE_STRING);
