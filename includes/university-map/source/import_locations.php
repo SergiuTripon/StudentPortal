@@ -19,7 +19,7 @@ function ImportLocations () {
 
     $url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle_hire.xml';
     $result2 = file_get_contents($url2);
-    $universitymap_atms = new SimpleXMLElement($result2);
+    $universitymap_cycle_hire = new SimpleXMLElement($result2);
 
     $url3 = 'https://student-portal.co.uk/includes/university-map/xml/cycle_parking.xml';
     $result3 = file_get_contents($url3);
@@ -51,7 +51,7 @@ function ImportLocations () {
     }
 
     //Cycle Hire
-    foreach ($universitymap_cycle_parking->Document->Placemark as $xml_var) {
+    foreach ($universitymap_cycle_hire->Document->Placemark as $xml_var) {
 
         $title = $xml_var->name;
         $description = $xml_var->description;
