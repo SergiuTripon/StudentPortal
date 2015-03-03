@@ -1362,7 +1362,8 @@ div.dataTables_length label {
 
 .dataTables_length .form-control {
     height: 40px;
-    padding: 0;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 select.input-sm, select.form-group-sm .form-control {
