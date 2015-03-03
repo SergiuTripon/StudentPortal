@@ -1675,7 +1675,7 @@ function DeleteEvent() {
 
     $eventToDelete = filter_input(INPUT_POST, 'eventToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM reserved_events WHERE eventid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM booked_events WHERE eventid=?");
     $stmt1->bind_param('i', $eventToDelete);
     $stmt1->execute();
     $stmt1->close();
