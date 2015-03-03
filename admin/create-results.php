@@ -221,7 +221,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     var result_moduleid = $("#result_moduleid").val();
     var result_coursework_mark = $("#result_coursework_mark").val();
     var result_exam_mark = $("#result_exam_mark").val();
-    var result_overal_mark = $("#result_overal_mark").val();
+    var result_overall_mark = $("#result_overall_mark").val();
     var result_notes = $("#result_notes").val();
 
     alert(result_userid);
@@ -240,6 +240,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
          '&result_moduleid='        + result_moduleid +
          '&result_coursework_mark=' + result_coursework_mark +
          '&result_exam_mark='       + result_exam_mark +
+         '&result_overall_mark='    + result_overall_mark +
          '&result_notes='           + result_notes,
 
     success:function(){
