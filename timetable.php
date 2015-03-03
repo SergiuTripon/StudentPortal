@@ -235,7 +235,7 @@ include 'includes/session.php';
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button assign-button" href="/admin/assign-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></a></td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button update-button" href="/admin/update-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></a></td>
-            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md ladda-button delete-trigger" data-style="slide-up"><span class="ladda-label">Cancel</span></a></a></td>
+            <td data-title="Action"><a id="cancel-'.$moduleid.'" class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Cancel</span></a></a></td>
 			</tr>
 
 			<div class="modal modal-custom fade" id="modal-'.$moduleid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
