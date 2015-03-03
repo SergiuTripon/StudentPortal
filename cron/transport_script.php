@@ -17,9 +17,9 @@ function GetTransportStatus () {
     date_default_timezone_set('Europe/London');
     $updated_on = date("Y-m-d G:i:s");
 
+    //Live Line status
 	$url1 = 'http://cloud.tfl.gov.uk/TrackerNet/LineStatus';
 	$result1 = file_get_contents($url1);
-	$xml_line_status = new SimpleXMLElement($result1);
 
     if ($result1 === FALSE) {
 
@@ -32,7 +32,8 @@ function GetTransportStatus () {
 
     } else {
 
-        //Live Line status
+        $xml_line_status = new SimpleXMLElement($result1);
+
         foreach ($xml_line_status->LineStatus as $xml_var) {
 
             $tube_lineid = $xml_var->Line->attributes()->ID;
@@ -66,9 +67,9 @@ function GetTransportStatus () {
 
     }
 
+    //Live Station status
     $url2 = 'http://cloud.tfl.gov.uk/TrackerNet/StationStatus';
     $result2 = file_get_contents($url2);
-    $xml_station_status = new SimpleXMLElement($result2);
 
     if ($result2 === FALSE) {
 
@@ -81,7 +82,8 @@ function GetTransportStatus () {
 
     } else {
 
-        //Live Station status
+        $xml_station_status = new SimpleXMLElement($result2);
+
         foreach ($xml_station_status->StationStatus as $xml_var) {
 
             $tube_stationid = $xml_var->Station->attributes()->ID;
@@ -115,9 +117,9 @@ function GetTransportStatus () {
 
     }
 
+    //This Weekend Line status
     $url3 = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
     $result3 = file_get_contents($url3);
-    $xml_this_weekend = new SimpleXMLElement($result3);
 
     if ($result3 === FALSE) {
 
@@ -130,7 +132,8 @@ function GetTransportStatus () {
 
     } else {
 
-        //This Weekend Line status
+        $xml_this_weekend = new SimpleXMLElement($result3);
+
         foreach ($xml_this_weekend->Lines->Line as $xml_var) {
 
             $tube_line = $xml_var->Name;
@@ -194,9 +197,9 @@ function GetTransportStatus () {
 
     }
 
+    //Cycle hire
     $url4 = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
     $result4 = file_get_contents($url4);
-    $cycle_hire = new SimpleXMLElement($result4);
 
     if ($result4 === FALSE) {
 
@@ -209,7 +212,8 @@ function GetTransportStatus () {
 
     } else {
 
-        //Cycle hire
+        $cycle_hire = new SimpleXMLElement($result4);
+
         foreach ($cycle_hire->station as $xml_var) {
 
             $dockid = $xml_var->id;
