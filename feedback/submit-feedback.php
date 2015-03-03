@@ -78,6 +78,7 @@ if (isset($_GET["id"])) {
     <input type="hidden" name="feedback_moduleid" id="feedback_moduleid" value="<?php echo $moduleid; ?>">
     <input type="hidden" name="feedback_lecturer" id="feedback_lecturer" value="<?php echo $lecture_lecturer; ?>">
     <input type="hidden" name="feedback_tutorial_assistant" id="feedback_tutorial_assistant" value="<?php echo $tutorial_assistant; ?>">
+
     <h4 class="text-center">Module</h4>
     <hr class="hr-custom">
 

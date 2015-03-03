@@ -6,8 +6,19 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     $userid = $_GET['userid'];
     $moduleid = $_GET['moduleid'];
 
-    echo $userid;
-    echo $moduleid;
+    $stmt1 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt1->bind_param('i', $userid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($student_email, $student_firstname, $student_surname);
+    $stmt1->fetch();
+
+    $stmt2 = $mysqli->prepare("SELECT moduleid, module_name FROM system_modules WHERE system_modules.moduleid=?");
+    $stmt2->bind_param('i', $moduleid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($module_name);
+    $stmt2->fetch();
 
 } else {
     header('Location: ../../results/');
@@ -48,18 +59,23 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <!-- Create book -->
 	<form class="form-custom" style="max-width: 100%;" name="createresults_form" id="createresults_form" novalidate>
 
+    <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>">
+    <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $moduleid; ?>">
+
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
 	<div id="hide">
 
+    <h4 class="text-center">Module</h4>
+    <hr class="hr-custom">
+
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book name</label>
-    <input class="form-control" type="text" name="book_name" id="book_name" placeholder="Enter a name">
+	<label>Name</label>
+    <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -67,7 +83,6 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <input class="form-control" type="text" name="book_author" id="book_author" placeholder="Enter an author">
 	</div>
 	</div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
