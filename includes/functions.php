@@ -1447,7 +1447,7 @@ function CompleteTask() {
 	$stmt1->close();
 }
 
-//CancelTask function
+//DeleteTask function
 function DeleteTask() {
 
     global $mysqli;
