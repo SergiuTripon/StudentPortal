@@ -367,17 +367,15 @@ include 'includes/session.php';
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var timetableToCancel = clickedID[1];
-
-    alert(timetableToCancel);
+    var timetableToDelete = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'timetableToCancel='+ timetableToCancel,
+	data:'timetableToDelete='+ timetableToDelete,
 	success:function(){
-		$('#delete-'+timetableToCancel).hide();
+		$('#delete-'+timetableToDelete).hide();
         $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
