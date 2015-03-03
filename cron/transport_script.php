@@ -9,10 +9,10 @@ function GetTransportStatus () {
 
     global $mysqli;
     global $updated_on;
-	global $xml_line_status_now;
-	global $xml_station_status_now;
-    global $xml_this_weekend;
-    global $cycle_hire;
+	global $tube_line_status_now;
+	global $tube_station_status_now;
+    global $tube_status_this_weekend;
+    global $cycle_hire_hire_status_now;
 
     date_default_timezone_set('Europe/London');
     $updated_on = date("Y-m-d G:i:s");
@@ -21,6 +21,7 @@ function GetTransportStatus () {
 	$tube_line_status_now_url = 'http://cloud.tfl.gov.uk/TrackerNet/LineStatus';
 	$tube_line_status_now_result = file_get_contents($tube_line_status_now_url);
 
+    //Checking if URL is valid
     if ($tube_line_status_now_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
@@ -32,13 +33,15 @@ function GetTransportStatus () {
 
     } else {
 
-        $xml_line_status_now = new SimpleXMLElement($tube_line_status_now_result);
-
+        //Cleaning table
         $stmt1 = $mysqli->prepare("DELETE FROM tube_line_status_now");
         $stmt1->execute();
         $stmt1->close();
 
-        foreach ($xml_line_status_now->LineStatus as $xml_var) {
+        //Getting new data
+        $tube_line_status_now = new SimpleXMLElement($tube_line_status_now_result);
+
+        foreach ($tube_line_status_now->LineStatus as $xml_var) {
 
             $tube_lineid = $xml_var->Line->attributes()->ID;
             $tube_line = $xml_var->Line->attributes()->Name;
@@ -57,6 +60,7 @@ function GetTransportStatus () {
     $tube_station_status_now_ulr = 'http://cloud.tfl.gov.uk/TrackerNet/StationStatus';
     $tube_station_status_result = file_get_contents($tube_station_status_now_ulr);
 
+    //Checking if URL is valid
     if ($tube_station_status_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
@@ -68,13 +72,15 @@ function GetTransportStatus () {
 
     } else {
 
-        $xml_station_status_now = new SimpleXMLElement($tube_station_status_result);
-
+        //Cleaning table
         $stmt1 = $mysqli->prepare("DELETE FROM tube_station_status_now");
         $stmt1->execute();
         $stmt1->close();
 
-        foreach ($xml_station_status_now->StationStatus as $xml_var) {
+        //Getting new data
+        $tube_station_status_now = new SimpleXMLElement($tube_station_status_result);
+
+        foreach ($tube_station_status_now->StationStatus as $xml_var) {
 
             $tube_stationid = $xml_var->Station->attributes()->ID;
             $tube_station = $xml_var->Station->attributes()->Name;
@@ -89,10 +95,11 @@ function GetTransportStatus () {
 
     }
 
-    //This Weekend Line status
+    //This Weekend Tube status
     $tube_status_this_weekend_url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
     $tube_status_this_weekend_result = file_get_contents($tube_status_this_weekend_url);
 
+    //Checking if URL is valid
     if ($tube_status_this_weekend_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
@@ -104,8 +111,7 @@ function GetTransportStatus () {
 
     } else {
 
-        $tube_status_this_weekend = new SimpleXMLElement($tube_status_this_weekend_result);
-
+        //Cleaning tables
         $stmt1 = $mysqli->prepare("DELETE FROM tube_line_status_this_weekend");
         $stmt1->execute();
         $stmt1->close();
@@ -114,6 +120,10 @@ function GetTransportStatus () {
         $stmt2->execute();
         $stmt2->close();
 
+        //Getting new data
+        $tube_status_this_weekend = new SimpleXMLElement($tube_status_this_weekend_result);
+
+        //This Weekend Line status
         foreach ($tube_status_this_weekend->Lines->Line as $xml_var) {
 
             $tube_line = $xml_var->Name;
@@ -145,6 +155,7 @@ function GetTransportStatus () {
     $cycle_hire_status_now_url = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
     $cycle_hire_status_now_result = file_get_contents($cycle_hire_status_now_url);
 
+    //Checking if URL is valid
     if ($cycle_hire_status_now_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
@@ -156,11 +167,13 @@ function GetTransportStatus () {
 
     } else {
 
-        $cycle_hire_hire_status_now = new SimpleXMLElement($cycle_hire_status_now_result);
-
+        //Cleaning table
         $stmt1 = $mysqli->prepare("DELETE FROM cycle_hire_status_now");
         $stmt1->execute();
         $stmt1->close();
+
+        //Getting new data
+        $cycle_hire_hire_status_now = new SimpleXMLElement($cycle_hire_status_now_result);
 
         foreach ($cycle_hire_hire_status_now->station as $xml_var) {
 
