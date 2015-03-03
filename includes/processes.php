@@ -251,6 +251,14 @@ elseif (isset($_POST["eventToDelete"])) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Call University map functions
+//Call DeleteLocation function
+elseif (isset($_POST["locationToDelete"])) {
+    DeleteLocation();
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //Call Feedback functions
 //Call SubmitFeedback functions
 elseif (isset($_POST["feedback_moduleid"], $_POST["feedback_lecturer"], $_POST["feedback_tutorial_assistant"], $_POST["feedback_from_firstname"], $_POST["feedback_from_surname"], $_POST["feedback_from_email"], $_POST["lecturer_feedback_to_email"], $_POST["tutorial_assistant_feedback_to_email"], $_POST["feedback_subject"], $_POST["feedback_body"])) {

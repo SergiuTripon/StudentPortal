@@ -1688,6 +1688,25 @@ function DeleteEvent() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//University map functions
+//DeleteLocation function
+
+//DeleteEvent function
+function DeleteLocation() {
+
+    global $mysqli;
+
+    $locationToDelete = filter_input(INPUT_POST, 'locationToDelete', FILTER_SANITIZE_STRING);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM system_map_markers WHERE markerid=?");
+    $stmt1->bind_param('i', $locationToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //Feedback functions
 //SubmitFeedback function
 function SubmitFeedback() {

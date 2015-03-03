@@ -121,7 +121,7 @@ include 'includes/session.php';
     $updated_on = $row["updated_on"];
 
 
-	echo '<tr id="marker-'.$markerid.'">
+	echo '<tr id="location-'.$markerid.'">
 
 			<td data-title="Name">'.$marker_title.'</td>
 			<td data-title="Latitude">'.$marker_lat.'</td>
@@ -231,6 +231,38 @@ include 'includes/session.php';
         "language": {
             "emptyTable": "There are no locations to display."
         }
+    });
+
+    //Cancel event process
+    $("body").on("click", ".delete-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var locationToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'locationToDelete='+ locationToDelete,
+	success:function(){
+		$('#location-'+locationToDelete).fadeOut();
+        $('#hide').hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('.modal-body p').removeClass('feedback-sad');
+        $('.modal-body p').addClass('feedback-happy');
+        $('.modal-body p').empty().append('The location has been deleted successfully.');
+        $('#success-button').show();
+        $("#success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
     });
 
     </script>
