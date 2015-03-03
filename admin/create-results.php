@@ -59,7 +59,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <!-- Create book -->
 	<form class="form-custom" style="max-width: 100%;" name="createresults_form" id="createresults_form" novalidate>
 
-    <input type="hidden" name="results_userid" id="userid" value="<?php echo $result_userid; ?>">
+    <input type="hidden" name="result_userid" id="userid" value="<?php echo $result_userid; ?>">
     <input type="hidden" name="result_moduleid" id="moduleid" value="<?php echo $result_moduleid; ?>">
 
     <p id="error" class="feedback-sad text-center"></p>
