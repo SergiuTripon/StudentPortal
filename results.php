@@ -205,6 +205,7 @@ include 'includes/session.php';
 	<tr>
 	<th>Full name</th>
 	<th>Student number</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
