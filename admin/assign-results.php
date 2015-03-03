@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN user_results ON user_timetable.moduleid=user_results.moduleid WHERE NOT user_results.userid = '$userToAssignResults'");
+	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN user_results ON user_timetable.moduleid=user_results.moduleid WHERE user_timetable.userid NOT IN (SELECT DISTINCT(user_results.userid) FROM user_results WHERE user_results.userid = '$userToAssignResults') AND system_modules.module_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
