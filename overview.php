@@ -99,7 +99,7 @@ include 'includes/functions.php';
     </a>
 
     <a href="../university-map/">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p>University Map</p>
@@ -117,7 +117,7 @@ include 'includes/functions.php';
     </a>
 
 	<a href="../feedback/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
 	<p>Feedback</p>
