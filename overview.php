@@ -72,7 +72,7 @@ include 'includes/functions.php';
     </a>
 
     <a href="../transport/">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-subway"></i>
 	<p>Transport</p>
@@ -90,7 +90,7 @@ include 'includes/functions.php';
     </a>
 
     <a href="../calendar/">
-	<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+	<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-calendar"></i>
 	<p>Calendar<span class="badge"><?php echo ($calendar_count == '0' ? "" : "$calendar_count"); ?></span></p>
@@ -99,7 +99,7 @@ include 'includes/functions.php';
     </a>
 
     <a href="../university-map/">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p>University Map</p>
@@ -108,7 +108,7 @@ include 'includes/functions.php';
     <a>
 
     <a href="../events/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
     <div class="tile">
 	<i class="fa fa-ticket"></i>
 	<p>Events<span class="badge"><?php echo ($events_count == '0' ? "" : "$events_count"); ?></span></p>
