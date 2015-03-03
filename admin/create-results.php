@@ -13,7 +13,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     $stmt1->bind_result($student_email, $student_firstname, $student_surname);
     $stmt1->fetch();
 
-    $stmt2 = $mysqli->prepare("SELECT moduleid, module_name FROM system_modules WHERE system_modules.moduleid=?");
+    $stmt2 = $mysqli->prepare("SELECT module_name FROM system_modules WHERE moduleid=?");
     $stmt2->bind_param('i', $moduleid);
     $stmt2->execute();
     $stmt2->store_result();
