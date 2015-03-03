@@ -179,6 +179,10 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
+    </div><!-- /container -->
+
+    <?php include 'includes/footers/footer.php'; ?>
+
     <?php endif; ?>
 
     <?php else : ?>
