@@ -1353,8 +1353,16 @@ div.dataTables_length label {
 .dataTables_filter .form-control,
 .dataTables_length .form-control {
     font-weight: normal;
+    margin-bottom: 0;
+}
+
+.dataTables_filter .form-control {
     height: 35px;
-    margin-bottom: 0px;
+}
+
+.dataTables_length .form-control {
+    height: 40px;
+    padding: 0;
 }
 
 select.input-sm, select.form-group-sm .form-control {
