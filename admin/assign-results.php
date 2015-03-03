@@ -55,7 +55,7 @@ if (isset($_GET['id'])) {
 
 	<!-- Modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom module-table">
 
 	<thead>
 	<tr>
@@ -136,19 +136,18 @@ if (isset($_GET['id'])) {
 	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function () {
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //DataTables
-    $('.table-custom').dataTable({
+    $('.module-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no users to display."
+			"emptyTable": "There are no modules to display."
 		}
 	});
 
@@ -204,7 +203,6 @@ if (isset($_GET['id'])) {
 
     });
 
-	});
 	</script>
 
 </body>
