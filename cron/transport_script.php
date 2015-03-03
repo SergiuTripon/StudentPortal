@@ -9,8 +9,8 @@ function GetTransportStatus () {
 
     global $mysqli;
     global $updated_on;
-	global $xml_line_status;
-	global $xml_station_status;
+	global $xml_line_status_now;
+	global $xml_station_status_now;
     global $xml_this_weekend;
     global $cycle_hire;
 
@@ -34,6 +34,10 @@ function GetTransportStatus () {
 
         $xml_line_status_now = new SimpleXMLElement($tube_line_status_now_result);
 
+        $stmt1 = $mysqli->prepare("DELETE FROM tube_line_status_now");
+        $stmt1->execute();
+        $stmt1->close();
+
         foreach ($xml_line_status_now->LineStatus as $xml_var) {
 
             $tube_lineid = $xml_var->Line->attributes()->ID;
@@ -41,14 +45,10 @@ function GetTransportStatus () {
             $tube_line_status = $xml_var->Status->attributes()->Description;
             $tube_line_info = $xml_var->attributes()->StatusDetails;
 
-            $stmt1 = $mysqli->prepare("DELETE FROM tube_line_status_now");
+            $stmt1 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_lineid, tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?, ?)");
+            $stmt1->bind_param('issss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on);
             $stmt1->execute();
             $stmt1->close();
-
-            $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_lineid, tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?, ?)");
-            $stmt2->bind_param('issss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on);
-            $stmt2->execute();
-            $stmt2->close();
         }
 
     }
@@ -70,6 +70,10 @@ function GetTransportStatus () {
 
         $xml_station_status_now = new SimpleXMLElement($tube_station_status_result);
 
+        $stmt1 = $mysqli->prepare("DELETE FROM tube_station_status_now");
+        $stmt1->execute();
+        $stmt1->close();
+
         foreach ($xml_station_status_now->StationStatus as $xml_var) {
 
             $tube_stationid = $xml_var->Station->attributes()->ID;
@@ -77,23 +81,19 @@ function GetTransportStatus () {
             $tube_station_status = $xml_var->Status->attributes()->Description;
             $tube_station_info = $xml_var->attributes()->StatusDetails;
 
-            $stmt1 = $mysqli->prepare("DELETE FROM tube_station_status_now");
+            $stmt1 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_stationid, tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?, ?)");
+            $stmt1->bind_param('issss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on);
             $stmt1->execute();
             $stmt1->close();
-
-            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_stationid, tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?, ?)");
-            $stmt2->bind_param('issss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on);
-            $stmt2->execute();
-            $stmt2->close();
         }
 
     }
 
     //This Weekend Line status
-    $tube_line_status_this_weekend_url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
-    $tube_line_status_this_weekend_result = file_get_contents($tube_line_status_this_weekend_url);
+    $tube_status_this_weekend_url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
+    $tube_status_this_weekend_result = file_get_contents($tube_status_this_weekend_url);
 
-    if ($tube_line_status_this_weekend_result === FALSE) {
+    if ($tube_status_this_weekend_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
@@ -104,39 +104,39 @@ function GetTransportStatus () {
 
     } else {
 
-        $tube_line_status_this_weekend = new SimpleXMLElement($tube_line_status_this_weekend_result);
+        $tube_status_this_weekend = new SimpleXMLElement($tube_status_this_weekend_result);
 
-        foreach ($tube_line_status_this_weekend->Lines->Line as $xml_var) {
+        $stmt1 = $mysqli->prepare("DELETE FROM tube_line_status_this_weekend");
+        $stmt1->execute();
+        $stmt1->close();
+
+        $stmt2 = $mysqli->prepare("DELETE FROM tube_station_status_this_weekend");
+        $stmt2->execute();
+        $stmt2->close();
+
+        foreach ($tube_status_this_weekend->Lines->Line as $xml_var) {
 
             $tube_line = $xml_var->Name;
             $tube_line_status = $xml_var->Status->Text;
             $tube_line_info = $xml_var->Status->Message->Text;
 
-            $stmt1 = $mysqli->prepare("DELETE FROM tube_line_status_this_weekend");
+            $stmt1 = $mysqli->prepare("INSERT INTO tube_line_status_this_weekend (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?)");
+            $stmt1->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
             $stmt1->execute();
             $stmt1->close();
-
-            $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_this_weekend (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?)");
-            $stmt2->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
-            $stmt2->execute();
-            $stmt2->close();
         }
 
         //This Weekend Station status
-        foreach ($xml_this_weekend->Stations->Station as $xml_var) {
+        foreach ($tube_status_this_weekend->Stations->Station as $xml_var) {
 
             $tube_station = $xml_var->Name;
             $tube_station_status = $xml_var->Status->Text;
             $tube_station_info = $xml_var->Status->Message->Text;
 
-            $stmt1 = $mysqli->prepare("DELETE FROM tube_station_status_this_weekend");
+            $stmt1 = $mysqli->prepare("INSERT INTO tube_station_status_this_weekend (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
+            $stmt1->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
             $stmt1->execute();
             $stmt1->close();
-
-            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_this_weekend (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
-            $stmt2->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
-            $stmt2->execute();
-            $stmt2->close();
         }
 
     }
@@ -158,6 +158,10 @@ function GetTransportStatus () {
 
         $cycle_hire_hire_status_now = new SimpleXMLElement($cycle_hire_status_now_result);
 
+        $stmt1 = $mysqli->prepare("DELETE FROM cycle_hire_status_now");
+        $stmt1->execute();
+        $stmt1->close();
+
         foreach ($cycle_hire_hire_status_now->station as $xml_var) {
 
             $dockid = $xml_var->id;
@@ -168,10 +172,6 @@ function GetTransportStatus () {
             $dock_bikes_available = $xml_var->nbBikes;
             $dock_empty_docks = $xml_var->nbEmptyDocks;
             $dock_total_docks = $xml_var->nbDocks;
-
-            $stmt1 = $mysqli->prepare("DELETE FROM cycle_hire_status_now");
-            $stmt1->execute();
-            $stmt1->close();
 
             $stmt2 = $mysqli->prepare("INSERT INTO cycle_hire_status_now (dockid, dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt2->bind_param('issssiiis', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
