@@ -95,8 +95,6 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Link</th>
-	<th>Description</th>
 	<th>Latitude</th>
 	<th>Longitude</th>
 	<th>Category</th>
@@ -110,14 +108,12 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT markerid, marker_title, marker_link, marker_description, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_markers");
+	$stmt1 = $mysqli->query("SELECT markerid, marker_title, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_markers");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$markerid = $row["markerid"];
     $marker_title = $row["marker_title"];
-    $marker_link = $row["marker_link"];
-    $marker_description = $row["marker_description"];
     $marker_lat = $row["marker_lat"];
     $marker_long = $row["marker_long"];
     $marker_category = ucfirst($row["marker_category"]);
@@ -128,8 +124,6 @@ include 'includes/session.php';
 	echo '<tr id="marker-'.$markerid.'">
 
 			<td data-title="Name">'.$marker_title.'</td>
-			<td data-title="Link">'.$marker_link.'</td>
-			<td data-title="Description">'.$marker_description.'</td>
 			<td data-title="Latitude">'.$marker_lat.'</td>
 			<td data-title="Longitude">'.$marker_long.'</td>
 			<td data-title="Category">'.$marker_category.'</td>
