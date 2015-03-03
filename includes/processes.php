@@ -182,13 +182,8 @@ elseif (isset(
 }
 
 //Call CancelBook function
-elseif (isset($_POST["bookToCancel"])) {
-    CancelBook();
-}
-
-//Call ActivateBook function
-elseif (isset($_POST["bookToActivate"])) {
-    ActivateBook();
+elseif (isset($_POST["bookToDelete"])) {
+    DeleteBook();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
