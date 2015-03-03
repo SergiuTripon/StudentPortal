@@ -377,6 +377,7 @@ function GetDashboardData() {
 	global $session_userid;
 	global $timetable_count;
 	global $exams_count;
+    global $results_count;
 	global $library_count;
 	global $calendar_count;
 	global $events_count;
@@ -411,67 +412,76 @@ function GetDashboardData() {
 	$stmt3->bind_result($examid);
 	$stmt3->fetch();
 
+    $stmt4 = $mysqli->prepare("SELECT resultid FROM user_results WHERE userid=?");
+    $stmt4->bind_param('i', $session_userid);
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($resultid);
+    $stmt4->fetch();
+
     $book_reserved = 'reserved';
 
-	$stmt4 = $mysqli->prepare("SELECT reserved_books.bookid FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = ? AND system_books.book_status = ? AND isReturned = '0'");
-	$stmt4->bind_param('is', $session_userid, $book_reserved);
-	$stmt4->execute();
-	$stmt4->store_result();
-	$stmt4->bind_result($bookid);
-	$stmt4->fetch();
-
-	$task_status = 'active';
-	$stmt5 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE userid = ? AND task_status = ?");
-	$stmt5->bind_param('is', $session_userid, $task_status);
+	$stmt5 = $mysqli->prepare("SELECT reserved_books.bookid FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = ? AND system_books.book_status = ? AND isReturned = '0'");
+	$stmt5->bind_param('is', $session_userid, $book_reserved);
 	$stmt5->execute();
 	$stmt5->store_result();
-	$stmt5->bind_result($taskid);
+	$stmt5->bind_result($bookid);
 	$stmt5->fetch();
 
-	$stmt6 = $mysqli->prepare("SELECT eventid FROM booked_events WHERE userid = ?");
-	$stmt6->bind_param('i', $session_userid);
+	$task_status = 'active';
+
+	$stmt6 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE userid = ? AND task_status = ?");
+	$stmt6->bind_param('is', $session_userid, $task_status);
 	$stmt6->execute();
 	$stmt6->store_result();
-	$stmt6->bind_result($eventid);
+	$stmt6->bind_result($taskid);
 	$stmt6->fetch();
 
-	$isRead = '0';
-	$stmt7 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup WHERE message_to=? AND isRead=?");
-	$stmt7->bind_param('ii', $session_userid, $isRead);
+	$stmt7 = $mysqli->prepare("SELECT eventid FROM booked_events WHERE userid = ?");
+	$stmt7->bind_param('i', $session_userid);
 	$stmt7->execute();
 	$stmt7->store_result();
-	$stmt7->bind_result($message_from);
+	$stmt7->bind_result($eventid);
 	$stmt7->fetch();
+
+	$isRead = '0';
+	$stmt8 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup WHERE message_to=? AND isRead=?");
+	$stmt8->bind_param('ii', $session_userid, $isRead);
+	$stmt8->execute();
+	$stmt8->store_result();
+	$stmt8->bind_result($message_from);
+	$stmt8->fetch();
 
     $isRead = 0;
     $isApproved = 1;
 
-    $stmt8 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE module_staff=? AND isRead=? AND isApproved=?");
-    $stmt8->bind_param('iii', $session_userid, $isRead, $isApproved);
-    $stmt8->execute();
-    $stmt8->store_result();
-    $stmt8->bind_result($feedbackid);
-    $stmt8->fetch();
-
-    $admin_isApproved = 0;
-
-    $stmt9 = $mysqli->prepare("SELECT DISTINCT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE isApproved=? AND isRead=?");
-    $stmt9->bind_param('ii', $admin_isApproved, $isRead);
+    $stmt9 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE module_staff=? AND isRead=? AND isApproved=?");
+    $stmt9->bind_param('iii', $session_userid, $isRead, $isApproved);
     $stmt9->execute();
     $stmt9->store_result();
     $stmt9->bind_result($feedbackid);
     $stmt9->fetch();
 
+    $admin_isApproved = 0;
+
+    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE isApproved=? AND isRead=?");
+    $stmt10->bind_param('ii', $admin_isApproved, $isRead);
+    $stmt10->execute();
+    $stmt10->store_result();
+    $stmt10->bind_result($feedbackid);
+    $stmt10->fetch();
+
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
 	$timetable_count = $lectures_count + $tutorials_count;
 	$exams_count = $stmt3->num_rows;
-	$library_count = $stmt4->num_rows;
-	$calendar_count = $stmt5->num_rows;
-	$events_count = $stmt6->num_rows;
-	$messenger_count = $stmt7->num_rows;
-    $feedback_count = $stmt8->num_rows;
-    $feedback_admin_count = $stmt9->num_rows;
+    $results_count = $stmt4->num_rows;
+	$library_count = $stmt5->num_rows;
+	$calendar_count = $stmt6->num_rows;
+	$events_count = $stmt7->num_rows;
+	$messenger_count = $stmt8->num_rows;
+    $feedback_count = $stmt9->num_rows;
+    $feedback_admin_count = $stmt10->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();
@@ -482,6 +492,7 @@ function GetDashboardData() {
     $stmt7->close();
     $stmt8->close();
     $stmt9->close();
+    $stmt10->close();
 
 }
 
