@@ -368,15 +368,15 @@ include 'includes/session.php';
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var taskToCancel = clickedID[1];
+    var taskToDelete = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'taskToCancel='+ taskToCancel,
+	data:'taskToDelete='+ taskToDelete,
 	success:function(){
-		$('#task-'+taskToCancel).fadeOut();
+		$('#task-'+taskToDelete).fadeOut();
         $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
