@@ -62,7 +62,7 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-	$stmt1 = $mysqli->query("SELECT user_results.resultid, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark, user_results.created_on, user_results.updated_on FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid WHERE user_results.userid = '$session_userid' AND system_modules.module_status='active'");
+	$stmt1 = $mysqli->query("SELECT user_results.resultid, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark, DATE_FORMAT(user_results.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_results.updated_on,'%d %b %y %H:%i') as updated_on FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid WHERE user_results.userid = '$session_userid' AND system_modules.module_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
