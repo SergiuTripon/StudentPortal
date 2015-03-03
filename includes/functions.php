@@ -852,35 +852,40 @@ function DeleteTimetable() {
 
     $timetableToDelete = filter_input(INPUT_POST, 'timetableToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_results WHERE moduleid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_lookup WHERE moduleid=?");
     $stmt1->bind_param('i', $timetableToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("DELETE FROM system_exams WHERE moduleid=?");
+    $stmt2 = $mysqli->prepare("DELETE FROM user_results WHERE moduleid=?");
     $stmt2->bind_param('i', $timetableToDelete);
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("DELETE FROM system_tutorials WHERE moduleid=?");
+    $stmt3 = $mysqli->prepare("DELETE FROM system_exams WHERE moduleid=?");
     $stmt3->bind_param('i', $timetableToDelete);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("DELETE FROM system_lectures WHERE moduleid=?");
+    $stmt4 = $mysqli->prepare("DELETE FROM system_tutorials WHERE moduleid=?");
     $stmt4->bind_param('i', $timetableToDelete);
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM user_timetable WHERE moduleid=?");
+    $stmt5 = $mysqli->prepare("DELETE FROM system_lectures WHERE moduleid=?");
     $stmt5->bind_param('i', $timetableToDelete);
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM system_modules WHERE moduleid=?");
+    $stmt6 = $mysqli->prepare("DELETE FROM user_timetable WHERE moduleid=?");
     $stmt6->bind_param('i', $timetableToDelete);
     $stmt6->execute();
     $stmt6->close();
+
+    $stmt7 = $mysqli->prepare("DELETE FROM system_modules WHERE moduleid=?");
+    $stmt7->bind_param('i', $timetableToDelete);
+    $stmt7->execute();
+    $stmt7->close();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
