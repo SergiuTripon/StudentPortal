@@ -845,8 +845,8 @@ function UpdateTimetable() {
 
 }
 
-//CancelTimetable function
-function CancelTimetable() {
+//DeleteTimetable function
+function DeleteTimetable() {
 
     global $mysqli;
 
