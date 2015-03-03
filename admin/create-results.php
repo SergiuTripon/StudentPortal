@@ -95,6 +95,9 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	</div>
     </div>
 
+    <h4 class="text-center">Mark</h4>
+    <hr class="hr-custom">
+
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Coursework mark (if any)</label>
@@ -220,6 +223,15 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     var result_exam_mark = $("#result_exam_mark").val();
     var result_overal_mark = $("#result_overal_mark").val();
     var result_notes = $("#result_notes").val();
+
+    alert(result_userid);
+    alert(result_moduleid);
+    alert(result_coursework_mark);
+    alert(result_exam_mark);
+    alert(result_overal_mark);
+    alert(result_notes);
+
+
 
     jQuery.ajax({
 	type: "POST",
