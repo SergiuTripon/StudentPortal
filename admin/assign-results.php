@@ -149,7 +149,7 @@ if (isset($_GET['id'])) {
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="feedback-custom text-center">Are you sure you want to delete this account?</p>
+			<p id="success" class="feedback-sad text-center">Are you sure you want to delete this account?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -257,7 +257,8 @@ if (isset($_GET['id'])) {
         $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').css("cssText", "color: #3FAD46;");
+        $('.modal-body p').removeClass('feedback-sad');
+        $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The result has been deleted successfully.');
         $('#success-button').show();
         $("#success-button").click(function () {
