@@ -1669,8 +1669,7 @@ function UpdateEvent() {
 }
 
 //DeleteEvent function
-function DeleteEvent()
-{
+function DeleteEvent() {
 
     global $mysqli;
 
