@@ -80,6 +80,15 @@ include 'includes/functions.php';
 	</div>
     </a>
 
+    <a href="../university-map/">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="tile">
+    <i class="fa fa-map-marker"></i>
+	<p>University Map</p>
+    </div>
+	</div>
+    <a>
+
     <a href="../library/">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
@@ -106,15 +115,6 @@ include 'includes/functions.php';
     </div>
 	</div>
     </a>
-
-    <a href="../university-map/">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div class="tile">
-    <i class="fa fa-map-marker"></i>
-	<p>University Map</p>
-    </div>
-	</div>
-    <a>
 
 	<a href="../feedback/">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
