@@ -71,20 +71,20 @@ include 'includes/functions.php';
 	</div>
     </a>
 
+    <a href="../results/">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="tile">
+	<i class="fa fa-star"></i>
+	<p>Results<span class="badge"><?php echo ($exams_count == '0' ? "" : "$exams_count"); ?></span></p>
+    </div>
+	</div>
+    </a>
+
     <a href="../library/">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-book"></i>
 	<p>Library<span class="badge"><?php echo ($library_count == '0' ? "" : "$library_count"); ?></span></p>
-    </div>
-	</div>
-    </a>
-
-    <a href="../results/">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div class="tile">
-	<i class="fa fa-star"></i>
-	<p>Results<span class="badge"><?php echo ($exams_count == '0' ? "" : "$exams_count"); ?></span></p>
     </div>
 	</div>
     </a>
