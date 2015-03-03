@@ -182,7 +182,7 @@ include 'includes/session.php';
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-    <li class="active">Timetable</li>
+    <li class="active">Results</li>
     </ol>
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
