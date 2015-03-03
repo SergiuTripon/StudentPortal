@@ -1350,9 +1350,10 @@ div.dataTables_length label {
     font-weight: 600;
 }
 
-.dataTables_filter .form-control {
+.dataTables_filter .form-control,
+.dataTables_length .form-control {
     font-weight: normal;
-    height: 40px;
+    height: 35px;
 }
 
 select.input-sm, select.form-group-sm .form-control {
