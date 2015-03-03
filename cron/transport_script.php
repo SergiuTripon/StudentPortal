@@ -18,10 +18,10 @@ function GetTransportStatus () {
     $updated_on = date("Y-m-d G:i:s");
 
     //Live Line status
-	$url1 = 'http://cloud.tfl.gov.uk/TrackerNet/LineStatus';
-	$result1 = file_get_contents($url1);
+	$tube_line_status_now_url = 'http://cloud.tfl.gov.uk/TrackerNet/LineStatus';
+	$tube_line_status_now_result = file_get_contents($tube_line_status_now_url);
 
-    if ($result1 === FALSE) {
+    if ($tube_line_status_now_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or exit("Unable to open file!");
@@ -32,46 +32,32 @@ function GetTransportStatus () {
 
     } else {
 
-        $xml_line_status = new SimpleXMLElement($result1);
+        $xml_line_status_now = new SimpleXMLElement($tube_line_status_now_result);
 
-        foreach ($xml_line_status->LineStatus as $xml_var) {
+        foreach ($xml_line_status_now->LineStatus as $xml_var) {
 
             $tube_lineid = $xml_var->Line->attributes()->ID;
             $tube_line = $xml_var->Line->attributes()->Name;
             $tube_line_status = $xml_var->Status->attributes()->Description;
             $tube_line_info = $xml_var->attributes()->StatusDetails;
 
-            $stmt1 = $mysqli->prepare("SELECT tube_lineid FROM tube_line_status_now WHERE tube_lineid = ?");
-            $stmt1->bind_param('i', $tube_lineid);
+            $stmt1 = $mysqli->prepare("DELETE FROM tube_line_status_now");
             $stmt1->execute();
-            $stmt1->store_result();
-            $stmt1->bind_result($db_tube_lineid);
-            $stmt1->fetch();
+            $stmt1->close();
 
-            if ($stmt1->num_rows == 1) {
-                $stmt2 = $mysqli->prepare("UPDATE tube_line_status_now SET tube_lineid=?, tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_lineid=?");
-                $stmt2->bind_param('isssss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_lineid);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            } else {
-                $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_lineid, tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?, ?)");
-                $stmt2->bind_param('issss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            }
+            $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_now (tube_lineid, tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?, ?)");
+            $stmt2->bind_param('issss', $tube_lineid, $tube_line, $tube_line_status, $tube_line_info, $updated_on);
+            $stmt2->execute();
+            $stmt2->close();
         }
 
     }
 
     //Live Station status
-    $url2 = 'http://cloud.tfl.gov.uk/TrackerNet/StationStatus';
-    $result2 = file_get_contents($url2);
+    $tube_station_status_now_ulr = 'http://cloud.tfl.gov.uk/TrackerNet/StationStatus';
+    $tube_station_status_result = file_get_contents($tube_station_status_now_ulr);
 
-    if ($result2 === FALSE) {
+    if ($tube_station_status_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
@@ -82,46 +68,32 @@ function GetTransportStatus () {
 
     } else {
 
-        $xml_station_status = new SimpleXMLElement($result2);
+        $xml_station_status_now = new SimpleXMLElement($tube_station_status_result);
 
-        foreach ($xml_station_status->StationStatus as $xml_var) {
+        foreach ($xml_station_status_now->StationStatus as $xml_var) {
 
             $tube_stationid = $xml_var->Station->attributes()->ID;
             $tube_station = $xml_var->Station->attributes()->Name;
             $tube_station_status = $xml_var->Status->attributes()->Description;
             $tube_station_info = $xml_var->attributes()->StatusDetails;
 
-            $stmt1 = $mysqli->prepare("SELECT tube_stationid from tube_station_status_now WHERE tube_stationid = ?");
-            $stmt1->bind_param('i', $tube_stationid);
+            $stmt1 = $mysqli->prepare("DELETE FROM tube_station_status_now");
             $stmt1->execute();
-            $stmt1->store_result();
-            $stmt1->bind_result($db_tube_stationid);
-            $stmt1->fetch();
+            $stmt1->close();
 
-            if ($stmt1->num_rows == 1) {
-                $stmt2 = $mysqli->prepare("UPDATE tube_station_status_now SET tube_stationid=?, tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_stationid=?");
-                $stmt2->bind_param('isssss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            } else {
-                $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_stationid, tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?, ?)");
-                $stmt2->bind_param('issss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            }
+            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_now (tube_stationid, tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?, ?)");
+            $stmt2->bind_param('issss', $tube_stationid, $tube_station, $tube_station_status, $tube_station_info, $updated_on);
+            $stmt2->execute();
+            $stmt2->close();
         }
 
     }
 
     //This Weekend Line status
-    $url3 = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
-    $result3 = file_get_contents($url3);
+    $tube_line_status_this_weekend_url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
+    $tube_line_status_this_weekend_result = file_get_contents($tube_line_status_this_weekend_url);
 
-    if ($result3 === FALSE) {
+    if ($tube_line_status_this_weekend_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
@@ -132,36 +104,22 @@ function GetTransportStatus () {
 
     } else {
 
-        $xml_this_weekend = new SimpleXMLElement($result3);
+        $tube_line_status_this_weekend = new SimpleXMLElement($tube_line_status_this_weekend_result);
 
-        foreach ($xml_this_weekend->Lines->Line as $xml_var) {
+        foreach ($tube_line_status_this_weekend->Lines->Line as $xml_var) {
 
             $tube_line = $xml_var->Name;
             $tube_line_status = $xml_var->Status->Text;
             $tube_line_info = $xml_var->Status->Message->Text;
 
-            $stmt1 = $mysqli->prepare("SELECT tube_line from tube_line_status_this_weekend WHERE tube_line = ?");
-            $stmt1->bind_param('s', $tube_line);
+            $stmt1 = $mysqli->prepare("DELETE FROM tube_line_status_this_weekend");
             $stmt1->execute();
-            $stmt1->store_result();
-            $stmt1->bind_result($db_tube_line);
-            $stmt1->fetch();
+            $stmt1->close();
 
-            if ($stmt1->num_rows == 1) {
-                $stmt2 = $mysqli->prepare("UPDATE tube_line_status_this_weekend SET tube_line=?, tube_line_status=?, tube_line_info=?, updated_on=? WHERE tube_line=?");
-                $stmt2->bind_param('sssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on, $tube_line);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            } else {
-                $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_this_weekend (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?)");
-                $stmt2->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            }
+            $stmt2 = $mysqli->prepare("INSERT INTO tube_line_status_this_weekend (tube_line, tube_line_status, tube_line_info, updated_on) VALUES (?, ?, ?, ?)");
+            $stmt2->bind_param('ssss', $tube_line, $tube_line_status, $tube_line_info, $updated_on);
+            $stmt2->execute();
+            $stmt2->close();
         }
 
         //This Weekend Station status
@@ -171,37 +129,23 @@ function GetTransportStatus () {
             $tube_station_status = $xml_var->Status->Text;
             $tube_station_info = $xml_var->Status->Message->Text;
 
-            $stmt1 = $mysqli->prepare("SELECT tube_station from tube_station_status_this_weekend WHERE tube_station = ? AND tube_station_info=?");
-            $stmt1->bind_param('ss', $tube_station, $tube_station_info);
+            $stmt1 = $mysqli->prepare("DELETE FROM tube_station_status_this_weekend");
             $stmt1->execute();
-            $stmt1->store_result();
-            $stmt1->bind_result($db_tube_station);
-            $stmt1->fetch();
+            $stmt1->close();
 
-            if ($stmt1->num_rows == 1) {
-                $stmt2 = $mysqli->prepare("UPDATE tube_station_status_this_weekend SET tube_station=?, tube_station_status=?, tube_station_info=?, updated_on=? WHERE tube_station=?");
-                $stmt2->bind_param('sssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on, $tube_station);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            } else {
-                $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_this_weekend (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
-                $stmt2->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            }
+            $stmt2 = $mysqli->prepare("INSERT INTO tube_station_status_this_weekend (tube_station, tube_station_status, tube_station_info, updated_on) VALUES (?, ?, ?, ?)");
+            $stmt2->bind_param('ssss', $tube_station, $tube_station_status, $tube_station_info, $updated_on);
+            $stmt2->execute();
+            $stmt2->close();
         }
 
     }
 
     //Cycle hire
-    $url4 = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
-    $result4 = file_get_contents($url4);
+    $cycle_hire_status_now_url = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml';
+    $cycle_hire_status_now_result = file_get_contents($cycle_hire_status_now_url);
 
-    if ($result4 === FALSE) {
+    if ($cycle_hire_status_now_result === FALSE) {
 
         $cron_job = 'transport_script.txt';
         $cron_log = fopen("cron_log.txt", "w") or die("Unable to open file!");
@@ -212,9 +156,9 @@ function GetTransportStatus () {
 
     } else {
 
-        $cycle_hire = new SimpleXMLElement($result4);
+        $cycle_hire_hire_status_now = new SimpleXMLElement($cycle_hire_status_now_result);
 
-        foreach ($cycle_hire->station as $xml_var) {
+        foreach ($cycle_hire_hire_status_now->station as $xml_var) {
 
             $dockid = $xml_var->id;
             $dock_name = $xml_var->name;
@@ -225,28 +169,14 @@ function GetTransportStatus () {
             $dock_empty_docks = $xml_var->nbEmptyDocks;
             $dock_total_docks = $xml_var->nbDocks;
 
-            $stmt1 = $mysqli->prepare("SELECT dockid from cycle_hire_status_now WHERE dockid = ?");
-            $stmt1->bind_param('i', $dockid);
+            $stmt1 = $mysqli->prepare("DELETE FROM cycle_hire_status_now");
             $stmt1->execute();
-            $stmt1->store_result();
-            $stmt1->bind_result($db_dockid);
-            $stmt1->fetch();
+            $stmt1->close();
 
-            if ($stmt1->num_rows == 1) {
-                $stmt2 = $mysqli->prepare("UPDATE cycle_hire_status_now SET dockid=?, dock_name=?, dock_installed=?, dock_locked=?, dock_temporary=?, dock_bikes_available=?, dock_empty_docks=?, dock_total_docks=?, updated_on=? WHERE dockid=?");
-                $stmt2->bind_param('issssiiisi', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on, $dockid);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            } else {
-                $stmt2 = $mysqli->prepare("INSERT INTO cycle_hire_status_now (dockid, dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                $stmt2->bind_param('issssiiis', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
-                $stmt2->execute();
-                $stmt2->close();
-
-                $stmt1->close();
-            }
+            $stmt2 = $mysqli->prepare("INSERT INTO cycle_hire_status_now (dockid, dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks, updated_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt2->bind_param('issssiiis', $dockid, $dock_name, $dock_installed, $dock_locked, $dock_temporary, $dock_bikes_available, $dock_empty_docks, $dock_total_docks, $updated_on);
+            $stmt2->execute();
+            $stmt2->close();
         }
     }
 
