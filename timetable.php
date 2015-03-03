@@ -255,7 +255,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="hide">
 			<div class="pull-left">
-			<a id="delete-'.$moduleid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-button-'.$moduleid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
