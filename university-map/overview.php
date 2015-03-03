@@ -31,8 +31,6 @@ include '../includes/session.php';
         <li class="active">Overview</li>
     </ol>
 
-    <input type="checkbox" id="restaurantCheckbox" onclick="toggleGroup('student_centre')" CHECKED />
-
     <form class="form-custom">
 
     <div id="map"></div>
