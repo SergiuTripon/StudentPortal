@@ -1,6 +1,7 @@
 <?php
 include '../../../includes/session.php';
 
+DeleteLocation();
 ImportLocations();
 
 //ImportLocations function
@@ -102,4 +103,13 @@ function ImportLocations () {
         $stmt3->close();
     }
 
+}
+
+function DeleteLocations() {
+
+    global $mysqli;
+
+    $stmt3 = $mysqli->prepare("DELETE FROM system_map_markers");
+    $stmt3->execute();
+    $stmt3->close();
 }
