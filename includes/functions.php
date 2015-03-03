@@ -1448,31 +1448,15 @@ function CompleteTask() {
 }
 
 //CancelTask function
-function CancelTask() {
+function DeleteTask()
+{
 
     global $mysqli;
-    global $updated_on;
 
-    $taskToCancel = filter_input(INPUT_POST, 'taskToCancel', FILTER_SANITIZE_NUMBER_INT);
-    $task_status = 'cancelled';
+    $taskToDelete = filter_input(INPUT_POST, 'taskToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, updated_on = ? WHERE taskid = ? LIMIT 1");
-    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToCancel);
-    $stmt1->execute();
-    $stmt1->close();
-}
-
-//ActivateTask function
-function ActivateTask() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $taskToActivate = filter_input(INPUT_POST, 'taskToActivate', FILTER_SANITIZE_NUMBER_INT);
-    $task_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, updated_on = ? WHERE taskid = ? LIMIT 1");
-    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToActivate);
+    $stmt1 = $mysqli->prepare("DELETE FROM user_tasks WHERE taskid = ?");
+    $stmt1->bind_param('i', $taskToDelete);
     $stmt1->execute();
     $stmt1->close();
 }

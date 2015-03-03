@@ -131,7 +131,7 @@ include 'includes/session.php';
 			<td data-title="Category">'.$task_category.'</td>
 			<td data-title="Action"><a id="complete-'.$taskid.'" class="btn btn-primary btn-md ladda-button complete-button" data-style="slide-up"><span class="ladda-label">Complete</span></a></td>
 			<td data-title="Action"><a id="update-'.$taskid.'" class="btn btn-primary btn-md ladda-button update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$taskid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
 			<div class="modal modal-custom fade" id="modal-'.$taskid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -264,6 +264,11 @@ include 'includes/session.php';
 
 	<script>
     $(document).ready(function () {
+        $("#calendar-toggle").hide();
+        $(".task-tile").addClass("tile-selected");
+        $(".task-tile p").addClass("tile-text-selected");
+        $(".task-tile i").addClass("tile-text-selected");
+    });
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
@@ -383,20 +388,12 @@ include 'includes/session.php';
             location.reload();
         });
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
-
-	$("#calendar-toggle").hide();
-	$(".task-tile").addClass("tile-selected");
-	$(".task-tile p").addClass("tile-text-selected");
-	$(".task-tile i").addClass("tile-text-selected");
 
 	$("#task-button").click(function (e) {
     e.preventDefault();
@@ -428,7 +425,6 @@ include 'includes/session.php';
 		$(".calendar-tile i").addClass("tile-text-selected");
 	});
 
-	});
 	</script>
 
 </body>

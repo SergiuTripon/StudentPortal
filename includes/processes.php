@@ -209,14 +209,9 @@ elseif (isset($_POST["taskToComplete"])) {
     CompleteTask();
 }
 
-//Call CompleteTask function
-elseif (isset($_POST["taskToCancel"])) {
-    CancelTask();
-}
-
-//Call CompleteTask function
-elseif (isset($_POST["taskToActivate"])) {
-    ActivateTask();
+//Call DeleteTask function
+elseif (isset($_POST["taskToDelete"])) {
+    DeleteTask();
 }
 
 /////////////////////////////////////////////////////////////
