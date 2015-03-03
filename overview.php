@@ -90,7 +90,7 @@ include 'includes/functions.php';
     </a>
 
     <a href="../library/">
-    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile">
     <i class="fa fa-book"></i>
 	<p>Library<span class="badge"><?php echo ($library_count == '0' ? "" : "$library_count"); ?></span></p>
