@@ -67,7 +67,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid WHERE userid = '$moduleToAssignResults'");
+	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid WHERE NOT userid = '$moduleToAssignResults'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
