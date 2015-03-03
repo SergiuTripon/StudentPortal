@@ -1000,15 +1000,15 @@ textarea {
 }
 /* End of Calendar portal */
 
-/* Library portal */
+/* Events portal */
 #events-portal .breadcrumb{
     margin-bottom: 10px;
 }
 
-#events-portal .btn{
+#events-portal .btn-success {
     margin-bottom: 5px;
 }
-/* End of Library portal */
+/* End of Events portal */
 
 /* Account admin portal */
 #account-admin-portal h4 {
@@ -1102,6 +1102,14 @@ textarea {
 #university-map-portal #map {
     height: 100%;
     width: 100%;
+}
+
+#university-map-portal .breadcrumb{
+    margin-bottom: 10px;
+}
+
+#university-map-portal .btn-success {
+    margin-bottom: 5px;
 }
 
 @media (max-width: 480px) {
