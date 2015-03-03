@@ -62,11 +62,3 @@
 	$('.table-custom td').filter(function() { return $.trim($(this).text()) === "Information"; }).empty().
 	append("No Extra Information");
 	
-	//If a table cell contains "True" it replaces it with "Yes"
-	$('.table-custom td').filter(function() { return $.trim($(this).text()) === "true"; }).empty().
-	append("Yes");
-	
-	//If a table cell contains "False" it replaces it with "No"
-	$('.table-custom td').filter(function() { return $.trim($(this).text()) === "false"; }).empty().
-	append("No");
-	

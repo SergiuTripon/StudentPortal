@@ -84,9 +84,9 @@ global $transport_status_last_updated;
 	echo '<tr>
 
 			<td data-title="Dock name">'.$dock_name.'</td>
-			<td data-title="Installed">'.$dock_installed.'</td>
-			<td data-title="Locked">'.$dock_locked.'</td>
-			<td data-title="Temporary">'.$dock_temporary.'</td>
+			<td data-title="Installed">'.($dock_installed === 'true' ? "Yes" : "No").'</td>
+			<td data-title="Locked">'.($dock_locked === 'true' ? "Yes" : "No").'</td>
+			<td data-title="Temporary">'.($dock_temporary === 'true' ? "Yes" : "No").'</td>
 			<td data-title="Bikes available">'.$dock_bikes_available.'</td>
 			<td data-title="Empty docks">'.$dock_empty_docks.'</td>
 			<td data-title="Total docks">'.$dock_total_docks.'</td>
