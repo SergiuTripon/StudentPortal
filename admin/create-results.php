@@ -226,7 +226,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'result_userid='           + result_userid +
          '&result_moduleid='        + result_moduleid +
-         '&result_coursework_mark=' + results_coursework_mark +
+         '&result_coursework_mark=' + result_coursework_mark +
          '&result_exam_mark='       + result_exam_mark +
          '&result_notes='           + result_notes,
 
