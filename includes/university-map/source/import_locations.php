@@ -61,7 +61,7 @@ function ImportLocations () {
 
         list($lat, $long) = explode(',', $latlong);
 
-        $category = 'cycle_hire';
+        $category = 'cycle hire';
 
         $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category, created_on) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt3->bind_param('ssssss', $title, $description, $long, $lat, $category, $created_on);
@@ -78,7 +78,7 @@ function ImportLocations () {
 
         list($lat, $long) = explode(',', $latlong);
 
-        $category = 'cycle_parking';
+        $category = 'cycle parking';
 
         $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category, created_on) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt3->bind_param('ssssss', $title, $description, $long, $lat, $category, $created_on);
