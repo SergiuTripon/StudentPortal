@@ -103,10 +103,6 @@ global $token;
 
 	<hr class="hr-custom">
 
-    <?php if (!empty($success_footer)) {
-    echo $success_footer;
-    } ?>
-
     <div id="extra-button" class="pull-left">
     <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
     </div>

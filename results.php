@@ -47,7 +47,7 @@ include 'includes/session.php';
 
 	<!-- Results -->
 	<section id="no-more-tables">
-	<table id="loadLectures-table" class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom result-table">
 
 	<thead>
 	<tr>
@@ -222,23 +222,13 @@ include 'includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
 	//DataTables
-    $('.lecture-table').dataTable({
+    $('.result-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You have no lectures on this day."
-		}
-	});
-
-    $('.tutorial-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "You have no tutorials on this day."
+			"emptyTable": "You have no results to display."
 		}
 	});
 
@@ -251,50 +241,6 @@ include 'includes/session.php';
 			"emptyTable": "There are no timetables to display."
 		}
 	});
-
-    $("body").on("click", ".cancel-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var timetableToCancel = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'timetableToCancel='+ timetableToCancel,
-	success:function(){
-		$('#cancel-'+timetableToCancel).hide();
-        location.reload();
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    $("body").on("click", ".activate-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var timetableToActivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'timetableToActivate='+ timetableToActivate,
-	success:function(){
-		$('#activate-'+timetableToActivate).hide();
-        location.reload();
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
 	</script>
 
 </body>

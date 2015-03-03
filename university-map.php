@@ -144,7 +144,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this account?</p>
+			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this location?</p>
 			</div>
 
 			<div class="modal-footer">
