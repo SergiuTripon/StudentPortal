@@ -73,7 +73,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Name</label>
-    <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name" readonly="readonly">
+    <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" readonly="readonly">
 	</div>
 	</div>
 
@@ -83,29 +83,36 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
     <label>First name</label>
-    <input class="form-control" type="text" name="lecture_feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $student_firstname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="student_firstname" id="student_firstname" value="<?php echo $student_firstname; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-4 col-sm-4 full-width">
     <label>Surname</label>
-    <input class="form-control" type="text" name="lecture_feedback_from_surname" id="feedback_from_surname" value="<?php echo $student_surname; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="student_surname" id="student_surname" value="<?php echo $student_surname; ?>" readonly="readonly">
     </div>
     <div class="col-xs-4 col-sm-4 full-width pr0">
     <label>Email address</label>
-    <input class="form-control" type="email" name="lecture_feedback_from_email" id="feedback_from_email" value="<?php echo $student_email; ?>" readonly="readonly">
+    <input class="form-control" type="email" name="student_email" id="student_email" value="<?php echo $student_email; ?>" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book notes</label>
-    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" placeholder="Enter notes"></textarea>
+	<label>Exam mark (if any)</label>
+    <input class="form-control" type="text" name="result_exam_mark" id="result_exam_mark" placeholder="Enter a mark">
 	</div>
 	</div>
 
-	<div class="form-group">
+    <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book copy number</label>
-    <input class="form-control" type="text" name="book_copy_no" id="book_copy_no" placeholder="Enter a copy number">
+	<label>Coursework mark (if any)</label>
+    <input class="form-control" type="text" name="result_coursework_mark" id="result_coursework_mark" placeholder="Enter a mark">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Notes</label>
+    <textarea class="form-control" rows="5" name="result_notes" id="result_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
