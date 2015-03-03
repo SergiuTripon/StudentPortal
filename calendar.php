@@ -131,8 +131,40 @@ include 'includes/session.php';
 			<td data-title="Category">'.$task_category.'</td>
 			<td data-title="Action"><a id="complete-'.$taskid.'" class="btn btn-primary btn-md ladda-button complete-button" data-style="slide-up"><span class="ladda-label">Complete</span></a></td>
 			<td data-title="Action"><a id="update-'.$taskid.'" class="btn btn-primary btn-md ladda-button update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action"><a id="cancel-'.$taskid.'" class="btn btn-primary btn-md ladda-button cancel-button" data-style="slide-up"><span class="ladda-label">Cancel</span></a></td>
-			</tr>';
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+			</tr>
+
+			<div class="modal modal-custom fade" id="modal-'.$taskid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this account?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="hide">
+			<div class="pull-left">
+			<a id="delete-button-'.$taskid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt1->close();
@@ -145,132 +177,6 @@ include 'includes/session.php';
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
-
-	<div id="completedtasks-toggle" class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Completed tasks</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<!-- Completed tasks -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>External URL</th>
-	<th>Start</th>
-	<th>Due</th>
-	<th>Category</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$session_userid' AND task_status = 'completed'");
-
-	while($row = $stmt2->fetch_assoc()) {
-
-    $taskid = $row["taskid"];
-    $task_name = $row["task_name"];
-    $task_notes = $row["task_notes"];
-    $task_startdate = $row["task_startdate"];
-    $task_duedate = $row["task_duedate"];
-    $task_url = $row["task_url"];
-    $task_category = $row["task_category"];
-    $task_category = ucfirst($row["task_category"]);
-
-	echo '<tr id="task-'.$taskid.'">
-
-	<td data-title="Name">'.$task_name.'</td>
-	<td data-title="Notes">'.($task_notes === '' ? "No notes" : "$task_notes").'</td>
-    <td data-title="External URL">'.($task_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
-	<td data-title="Start date">'.$task_startdate.'</td>
-	<td data-title="Due date">'.$task_duedate.'</td>
-	<td data-title="Category">'.$task_category.'</td>
-	</tr>';
-	}
-
-	$stmt2->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-  	</div><!-- /panel-default -->
-
-	<div id="cancelledtasks-toggle" class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Cancelled tasks</a>
-  	</h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-  	<div class="panel-body">
-
-	<!-- Completed tasks -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>External URL</th>
-	<th>Start</th>
-	<th>Due</th>
-	<th>Category</th>
-    <th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$session_userid' AND task_status = 'cancelled'");
-
-	while($row = $stmt2->fetch_assoc()) {
-
-    $taskid = $row["taskid"];
-    $task_name = $row["task_name"];
-    $task_notes = $row["task_notes"];
-    $task_startdate = $row["task_startdate"];
-    $task_duedate = $row["task_duedate"];
-    $task_url = $row["task_url"];
-    $task_category = $row["task_category"];
-    $task_category = ucfirst($row["task_category"]);
-
-	echo '<tr id="task-'.$taskid.'">
-
-	<td data-title="Name">'.$task_name.'</td>
-	<td data-title="Notes">'.($task_notes === '' ? "No notes" : "$task_notes").'</td>
-    <td data-title="External URL">'.($task_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
-	<td data-title="Start date">'.$task_startdate.'</td>
-	<td data-title="Due date">'.$task_duedate.'</td>
-	<td data-title="Category">'.$task_category.'</td>
-    <td data-title="Action"><a id="activate-'.$taskid.'" class="btn btn-primary btn-md ladda-button activate-button" data-style="slide-up"><span class="ladda-label">Restore</span></a></td>
-	</tr>';
-	}
-
-	$stmt2->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-  	</div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
 
@@ -424,17 +330,6 @@ include 'includes/session.php';
         }
 	}).resize();
 
-    //Update process
-    $("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#update-task-form-" + DbNumberID).submit();
-
-	});
-
     //Complete process
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
@@ -464,7 +359,7 @@ include 'includes/session.php';
     });
 
     //Cancel process
-    $("body").on("click", ".cancel-button", function(e) {
+    $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -477,37 +372,16 @@ include 'includes/session.php';
 	data:'taskToCancel='+ taskToCancel,
 	success:function(){
 		$('#task-'+taskToCancel).fadeOut();
-		setTimeout(function(){
-			location.reload();
-		}, 1000);
-	},
-
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-
-    });
-
-    //Activate process
-    $("body").on("click", ".activate-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var taskToActivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'taskToActivate='+ taskToActivate,
-	success:function(){
-		$('#task-'+taskToActivate).fadeOut();
-		setTimeout(function(){
-			location.reload();
-		}, 1000);
+        $('#hide').hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('.modal-body p').removeClass('feedback-sad');
+        $('.modal-body p').addClass('feedback-happy');
+        $('.modal-body p').empty().append('The result has been deleted successfully.');
+        $('#success-button').show();
+        $("#success-button").click(function () {
+            location.reload();
+        });
 	},
 
 	error:function (xhr, ajaxOptions, thrownError){
@@ -531,7 +405,6 @@ include 'includes/session.php';
         $(".task-view").show();
 		$("#duetasks-toggle").show();
 		$("#completedtasks-toggle").show();
-        $("#cancelledtasks-toggle").show();
 		$(".calendar-tile").removeClass("tile-selected");
 		$(".calendar-tile p").removeClass("tile-text-selected");
 		$(".calendar-tile i").removeClass("tile-text-selected");
@@ -545,7 +418,6 @@ include 'includes/session.php';
         $(".task-view").hide();
 		$("#duetasks-toggle").hide();
 		$("#completedtasks-toggle").hide();
-        $("#cancelledtasks-toggle").hide();
         $(".calendar-view").show();
 		$("#calendar-toggle").show();
 		$(".task-tile").removeClass("tile-selected");
