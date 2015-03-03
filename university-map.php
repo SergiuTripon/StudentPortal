@@ -224,7 +224,7 @@ include 'includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //DataTables
-    $('.location-table').dataTable({
+    $('.event-table').dataTable({
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
