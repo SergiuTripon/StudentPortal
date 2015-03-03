@@ -35,8 +35,8 @@ if (isset($_GET['id'])) {
 
 	<ol class="breadcrumb">
 		<li><a href="../../overview/">Overview</a></li>
-        <li><a href="../../timetable/">Timetable</a></li>
-		<li class="active">Assign timetable</li>
+        <li><a href="../../results/">Results</a></li>
+		<li class="active">Assign results</li>
 	</ol>
 
     <div id="moduleid" style="display: none !important;"><?php echo $timetableToAssign; ?></div>
