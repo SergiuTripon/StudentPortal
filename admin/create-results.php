@@ -73,16 +73,27 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label>Name</label>
-    <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name" disabled="disabled">
+    <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name" readonly="readonly">
 	</div>
 	</div>
 
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book author</label>
-    <input class="form-control" type="text" name="book_author" id="book_author" placeholder="Enter an author">
+	<h4 class="text-center">Student</h4>
+    <hr class="hr-custom">
+
+    <div class="form-group">
+    <div class="col-xs-4 col-sm-4 full-width pl0">
+    <label>First name</label>
+    <input class="form-control" type="text" name="lecture_feedback_from_firstname" id="feedback_from_firstname" value="<?php echo $student_firstname; ?>" readonly="readonly">
 	</div>
+    <div class="col-xs-4 col-sm-4 full-width">
+    <label>Surname</label>
+    <input class="form-control" type="text" name="lecture_feedback_from_surname" id="feedback_from_surname" value="<?php echo $student_surname; ?>" readonly="readonly">
+    </div>
+    <div class="col-xs-4 col-sm-4 full-width pr0">
+    <label>Email address</label>
+    <input class="form-control" type="email" name="lecture_feedback_from_email" id="feedback_from_email" value="<?php echo $student_email; ?>" readonly="readonly">
 	</div>
+    </div>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
