@@ -2,12 +2,6 @@
 		$(".preloader").fadeOut("slow");
 	});
 
-	// Replaces empty text with "No Extra Information"
-    $('.table-custom td').each(function () {
-    if ($(this).html().trim().length === 0) 
-    $(this).append("No information");
-    });
-
 	// Disables the background of a cell that contains Victoria in the Station Status table
 	$(".table-stationstatus td").filter(function() { return $.trim($(this).text()) === "Victoria"; }).
 	closest('tr').addClass( "no-background" );
@@ -57,8 +51,3 @@
 	
 	$('.table-custom td').filter(function() { return $.trim($(this).text()) === "Waterloo & City"; }).
 	closest('tr').addClass( "waterloo" );
-	
-	//If a table cell contains "Information" it replaces it with "No Extra Information"
-	$('.table-custom td').filter(function() { return $.trim($(this).text()) === "Information"; }).empty().
-	append("No Extra Information");
-	
