@@ -3,7 +3,7 @@ include '../includes/session.php';
 
 if (isset($_GET['id'])) {
 
-    $userToAssignResult = $_GET['id'];
+    $userToAssignResults = $_GET['id'];
 
 } else {
     header('Location: ../../results/');
@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN user_results ON user_timetable.moduleid=user_results.moduleid WHERE NOT user_results.userid = '$userToAssignResult'");
+	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN user_results ON user_timetable.moduleid=user_results.moduleid WHERE NOT user_results.userid = '$userToAssignResults'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -117,7 +117,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_results.resultid, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid WHERE user_results.userid = '$userToAssignResult'");
+	$stmt1 = $mysqli->query("SELECT user_results.resultid, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid WHERE user_results.userid = '$userToAssignResults'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
