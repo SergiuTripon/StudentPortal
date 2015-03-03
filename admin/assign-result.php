@@ -3,7 +3,7 @@ include '../includes/session.php';
 
 if (isset($_GET['id'])) {
 
-    $userToAssignResults = $_GET['id'];
+    $userToAssignResult = $_GET['id'];
 
 } else {
     header('Location: ../../results/');
@@ -39,8 +39,6 @@ if (isset($_GET['id'])) {
 		<li class="active">Assign results</li>
 	</ol>
 
-    <div id="moduleid" style="display: none !important;"><?php echo $timetableToAssign; ?></div>
-
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
@@ -67,7 +65,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN user_results ON user_timetable.moduleid=user_results.moduleid WHERE NOT user_results.userid = '$userToAssignResults'");
+	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN user_results ON user_timetable.moduleid=user_results.moduleid WHERE NOT user_results.userid = '$userToAssignResult'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -78,7 +76,64 @@ if (isset($_GET['id'])) {
 	echo '<tr id="allocate-'.$userid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../create-results/?userid='.$userid.'&moduleid='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../create-result/?userid='.$userid.'&moduleid='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
+			</tr>';
+    }
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    	<div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Existing results</a>
+    </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Modules -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom module-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+    <th>Coursework mark</th>
+    <th>Exam mark</th>
+    <th>Overall mark</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+    <?php
+
+	$stmt1 = $mysqli->query("SELECT user_results.resultid, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid WHERE user_results.userid = '$userToAssignResults'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$resultid = $row["resultid"];
+    $module_name = $row["module_name"];
+    $result_coursework_mark = $row["result_coursework_mark"];
+    $result_exam_mark = $row["result_exam_mark"];
+    $result_overall_mark = $row["result_overall_mark"];
+
+	echo '<tr id="update-'.$resultid.'">
+
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
+			<td data-title="Exam mark">'.$result_exam_mark.'</td>
+			<td data-title="Overall mark">'.$result_overall_mark.'</td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../update-result/?id='.$resultid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></td>
 			</tr>';
     }
 	$stmt1->close();
