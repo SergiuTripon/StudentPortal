@@ -135,7 +135,7 @@ if (isset($_GET['id'])) {
 			<td data-title="Exam mark">'.$result_exam_mark.'</td>
 			<td data-title="Overall mark">'.$result_overall_mark.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../update-results/?id='.$resultid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action"><a id="delete-'.$resultid.'" class="btn btn-primary btn-md ladda-button delete-button" href="#modal-'.$resultid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+			<td data-title="Action"><a id="delete-'.$resultid.'" class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$resultid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
 			<div class="modal modal-custom fade" id="modal-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -155,7 +155,7 @@ if (isset($_GET['id'])) {
 			<div class="modal-footer">
 			<div id="hide">
 			<div class="pull-left">
-			<a id="delete-'.$resultid.'" class="btn btn-danger btn-lg delete-button1 ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$resultid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>

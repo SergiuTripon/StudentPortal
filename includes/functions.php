@@ -947,6 +947,20 @@ function UpdateResult() {
     $stmt1->close();
 }
 
+//DeleteResult function
+function DeleteResult() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $result_resultid = filter_input(INPUT_POST, 'resultToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_results WHERE resultid=?");
+    $stmt1->bind_param('i');
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Library functions

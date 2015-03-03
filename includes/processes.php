@@ -144,6 +144,11 @@ elseif (isset($_POST["result_resultid"], $_POST["result_coursework_mark1"], $_PO
     UpdateResult();
 }
 
+//Call UpdateResult function
+elseif (isset($_POST["resultToDelete"])) {
+    DeleteResult();
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Library functions
