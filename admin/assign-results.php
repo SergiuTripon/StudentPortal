@@ -128,15 +128,47 @@ if (isset($_GET['id'])) {
     $result_exam_mark = $row["result_exam_mark"];
     $result_overall_mark = $row["result_overall_mark"];
 
-	echo '<tr id="update-'.$resultid.'">
+	echo '<tr id="delete-'.$resultid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
 			<td data-title="Exam mark">'.$result_exam_mark.'</td>
 			<td data-title="Overall mark">'.$result_overall_mark.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../update-results/?id='.$resultid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action"><a id="delete-'.$resultid.'" class="btn btn-primary btn-md ladda-button delete-button" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
-			</tr>';
+			<td data-title="Action"><a id="delete-'.$resultid.'" class="btn btn-primary btn-md ladda-button delete-button" href="#modal-'.$resultid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+			</tr>
+
+			<div class="modal modal-custom fade" id="modal-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="success" class="feedback-custom text-center">Are you sure you want to delete this account?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="hide">
+			<div class="pull-left">
+			<a id="delete-'.$resultid.'" class="btn btn-danger btn-lg delete-button1 ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
     }
 	$stmt1->close();
 	?>
@@ -208,48 +240,29 @@ if (isset($_GET['id'])) {
 		}
 	});
 
-    //Assign timetable
-	$("body").on("click", ".allocate-button", function(e) {
+    //Delete result
+    $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var userToAllocate = clickedID[1];
-    var timetableToAllocate = $("#moduleid").html();
+    var resultToDelete = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToAllocate='+ userToAllocate + '&timetableToAllocate='+ timetableToAllocate,
+	data:'resultToDelete='+ resultToDelete,
 	success:function(){
-        $('#allocate-'+userToAllocate).hide();
+        $('#delete-'+resultToDelete).hide();
+        $('#hide').hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('.modal-body p').css("cssText", "color: #3FAD46;");
+        $('.modal-body p').empty().append('The result has been deleted successfully.');
+        $('#success-button').show();
+        $("#success-button").click(function () {
         location.reload();
-    },
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-
-    });
-
-    //Unassign timetable
-    $("body").on("click", ".deallocate-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var userToDeallocate = clickedID[1];
-    var timetableToDeallocate = $("#moduleid").html();
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'userToDeallocate='+ userToDeallocate + '&timetableToDeallocate='+ timetableToDeallocate,
-	success:function(){
-        $('#deallocate-'+userToDeallocate).hide();
-        location.reload();
+        });
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();

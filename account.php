@@ -419,7 +419,7 @@ include 'includes/session.php';
 		$('.modal-body p').empty().append('The account has been deleted successfully.');
 		$('#success-button').show();
 		$("#success-button").click(function () {
-			location.reload();
+        location.reload();
 		});
 	},
 
