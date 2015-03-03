@@ -75,9 +75,9 @@ global $transport_status_last_updated;
 
 	echo '<tr>
 
-			<td data-title="Line">'.(empty($tube_line) ? "No Extra Information" : "$tube_line").'</td>
+			<td data-title="Line">'.$tube_line.'</td>
 			<td data-title="Status">'.$tube_line_status.'</td>
-			<td data-title="Info">'.$tube_line_info.'</td>
+			<td data-title="Info">'.(empty($tube_line_info) ? "No Extra Information" : "$tube_line_info").'</td>
 			</tr>';
 	}
 
