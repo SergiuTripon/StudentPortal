@@ -257,9 +257,9 @@ if (isset($_GET['id'])) {
         $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The result has been deleted successfully.');
+        $('.modal-body').removeClass('feedback-sad');
+        $('.modal-body').addClass('feedback-happy');
+        $('.modal-body').empty().append('The result has been deleted successfully.');
         $('#success-button').show();
         $("#success-button").click(function () {
         location.reload();
