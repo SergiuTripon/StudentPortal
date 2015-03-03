@@ -138,7 +138,7 @@ include 'includes/session.php';
 
 	<!-- Booked events -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom bookedevents-table">
+	<table class="table table-condensed table-custom booked-event-table">
 
 	<thead>
 	<tr>
@@ -257,7 +257,7 @@ include 'includes/session.php';
 
 	<!-- Event -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom events-table">
+	<table class="table table-condensed table-custom event-table">
 
 	<thead>
 	<tr>
@@ -439,7 +439,7 @@ include 'includes/session.php';
 	}(jQuery));
 
 	//DataTables
-    $('.events-table').dataTable({
+    $('.event-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
@@ -449,7 +449,7 @@ include 'includes/session.php';
 		}
 	});
 
-	$('.bookedevents-table').dataTable({
+	$('.booked-event-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,

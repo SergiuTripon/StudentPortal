@@ -89,17 +89,19 @@ include 'includes/session.php';
 
 	<!-- Locations -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom events-table">
+	<table class="table table-condensed table-custom location-table">
 
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>From</th>
-	<th>To</th>
-	<th>Price</th>
-	<th>Tickets</th>
+	<th>Link</th>
+	<th>Description</th>
+	<th>Latitude</th>
+	<th>Longitude</th>
 	<th>Category</th>
-	<th>Action</th>
+	<th>Created on</th>
+    <th>Updated on</th>
+    <th>Action</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -107,31 +109,36 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT markerid, marker_title, marker_link, marker_description, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_markers");
 
 	while($row = $stmt1->fetch_assoc()) {
 
-	$eventid = $row["eventid"];
-	$event_name = $row["event_name"];
-	$event_from = $row["event_from"];
-	$event_to = $row["event_to"];
-	$event_amount = $row["event_amount"];
-	$event_ticket_no = $row["event_ticket_no"];
-	$event_category = ucfirst($row["event_category"]);
+	$markerid = $row["markerid"];
+    $marker_title = $row["marker_title"];
+    $marker_link = $row["marker_link"];
+    $marker_description = $row["marker_description"];
+    $marker_lat = $row["marker_lat"];
+    $marker_long = $row["marker_long"];
+    $marker_category = ucfirst($row["marker_category"]);
+    $created_on = $row["created_on"];
+    $updated_on = $row["updated_on"];
 
-	echo '<tr id="event-'.$row["eventid"].'">
 
-			<td data-title="Name">'.$event_name.'</td>
-			<td data-title="From">'.$event_from.'</td>
-			<td data-title="To">'.$event_to.'</td>
-			<td data-title="Price">'.$event_amount.'</td>
-			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
-			<td data-title="Category">'.$event_category.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$eventid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+	echo '<tr id="marker-'.$markerid.'">
+
+			<td data-title="Name">'.$marker_title.'</td>
+			<td data-title="Link">'.$marker_link.'</td>
+			<td data-title="Description">'.$marker_description.'</td>
+			<td data-title="Latitude">'.$marker_lat.'</td>
+			<td data-title="Longitude">'.$marker_long.'</td>
+			<td data-title="Category">'.$marker_category.'</td>
+			<td data-title="Created on">'.$created_on.'</td>
+			<td data-title="Updated on">'.$updated_on.'</td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$markerid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$markerid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="modal-'.$eventid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="modal-'.$markerid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -148,7 +155,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="hide">
 			<div class="pull-left">
-			<a id="delete-'.$eventid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
@@ -179,6 +186,8 @@ include 'includes/session.php';
 
     <?php endif; ?>
 
+    <?php else : ?>
+
 	<?php include 'includes/menus/menu.php'; ?>
 
     <div class="container">
@@ -207,6 +216,24 @@ include 'includes/session.php';
 
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
+
+    <script>
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //DataTables
+    $('.location-table').dataTable({
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no locations to display."
+        }
+    });
+
+    </script>
 
 </body>
 </html>

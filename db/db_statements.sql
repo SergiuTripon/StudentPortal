@@ -417,5 +417,7 @@ CREATE TABLE `system_map_markers` (
   `marker_description` VARCHAR (10000),
   `marker_lat` FLOAT(10,6) NOT NULL,
   `marker_long` FLOAT(10,6) NOT NULL,
-  `marker_category` VARCHAR (70) NOT NULL
+  `marker_category` VARCHAR (70) NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME
 ) ENGINE = InnoDB;
