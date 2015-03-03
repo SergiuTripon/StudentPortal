@@ -44,8 +44,8 @@ if (isset($_GET['id'])) {
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../library/">Library</a></li>
-    <li class="active">Create results</li>
+	<li><a href="../../results/">Results</a></li>
+    <li class="active">Update results</li>
     </ol>
 
     <!-- Create book -->
