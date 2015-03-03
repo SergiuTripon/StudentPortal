@@ -130,7 +130,7 @@ global $transport_status_last_updated;
 
 			<td data-title="Station">'.$tube_station.'</td>
 			<td data-title="Status">'.$tube_station_status.'</td>
-			<td data-title="Info">'.$tube_station_info.'</td>
+			<td data-title="Info">'.(empty($tube_station_info) ? "No status. Information provided." : "$tube_station_info").'</td>
 			</tr>';
     }
 
