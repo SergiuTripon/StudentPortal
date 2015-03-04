@@ -282,12 +282,10 @@ elseif (isset($_POST["eventToDelete"])) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call University map functions
-
 //Call DeactivateLocation function
 elseif (isset($_POST["locationToDeactivate"])) {
     DeactivateLocation();
 }
-
 
 //Call ReactivateLocation function
 elseif (isset($_POST["locationToReactivate"])) {
