@@ -71,7 +71,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="marker_notes">Notes</label>
-    <textarea class="form-control" rows="5" name="marker_notes" id="marker_notes" placeholder="Enter notes">value="<?php echo $marker_notes ?>"</textarea>
+    <textarea class="form-control" rows="5" name="marker_notes" id="marker_notes" placeholder="Enter notes"><?php echo $marker_notes ?></textarea>
 	</div>
 	</div>
 
