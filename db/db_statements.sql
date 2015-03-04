@@ -120,8 +120,7 @@ ON DELETE CASCADE
 CREATE TABLE `user_messages` (
 	`messageid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`message_subject` VARCHAR(300) NOT NULL,
-	`message_body` VARCHAR(5000),
-	`created_on` DATETIME NOT NULL
+	`message_body` VARCHAR(5000)
 ) ENGINE = InnoDB;
 
 #Messenger
@@ -130,6 +129,9 @@ CREATE TABLE `user_messages_lookup` (
   `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
   `isRead` TINYINT(1) NOT NULL,
+  `message_status` VARCHAR(9) NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME,
 FOREIGN KEY (messageid)
 REFERENCES user_messages(messageid),
 FOREIGN KEY (message_from)
@@ -334,10 +336,7 @@ ON DELETE CASCADE
 CREATE TABLE `user_feedback` (
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `feedback_subject` VARCHAR(300) NOT NULL,
-  `feedback_body` VARCHAR(5000) NOT NULL,
-  `feedback_status` VARCHAR(9) NOT NULL,
-  `created_on` DATETIME NOT NULL,
-  `updated_on` DATETIME
+  `feedback_body` VARCHAR(5000) NOT NULL
 ) ENGINE = InnoDB;
 
 #Feedback
@@ -348,6 +347,9 @@ CREATE TABLE `user_feedback_lookup` (
   `module_staff` INT(11) NOT NULL,
   `isApproved` TINYINT(1) NOT NULL,
   `isRead` TINYINT(1) NOT NULL,
+  `feedback_status` VARCHAR(9) NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME,
 FOREIGN KEY (feedbackid)
 REFERENCES user_feedback(feedbackid),
 FOREIGN KEY (feedback_from)
