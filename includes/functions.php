@@ -1289,7 +1289,7 @@ function ReactivateBook() {
 
     $bookToReactivate = filter_input(INPUT_POST, 'bookToReactivate', FILTER_SANITIZE_STRING);
 
-    $book_status = 'inactive';
+    $book_status = 'active';
 
     $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
     $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToReactivate);
