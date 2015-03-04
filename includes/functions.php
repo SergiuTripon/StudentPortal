@@ -1881,8 +1881,8 @@ function CreateLocation() {
 
         $marker_status = 'active';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category, marker_status) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssiiss', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $marker_status);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('sssiisss', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $marker_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
 
