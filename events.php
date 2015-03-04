@@ -667,7 +667,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'eventToReactivate='+ eventToReactivate,
 	success:function(){
-		$('#event-'+eventToDelete).fadeOut();
+		$('#event-'+eventToReactivate).fadeOut();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
