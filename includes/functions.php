@@ -906,7 +906,7 @@ function ReactivateTimetable() {
 
     $feedback_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback SET feedback_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1 = $mysqli->prepare("UPDATE user_feedback_lookup SET feedback_status=?, updated_on=? WHERE moduleid=?");
     $stmt1->bind_param('ssi', $feedback_status, $updated_on, $timetableToReactivate);
     $stmt1->execute();
     $stmt1->close();
