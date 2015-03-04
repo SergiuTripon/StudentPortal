@@ -1878,7 +1878,7 @@ function ReactivateLocation() {
     global $mysqli;
     global $updated_on;
 
-    $locationToReactivate = filter_input(INPUT_POST, 'locationToDeactivate', FILTER_SANITIZE_STRING);
+    $locationToReactivate = filter_input(INPUT_POST, 'locationToReactivate', FILTER_SANITIZE_STRING);
 
     $marker_status = 'active';
 
