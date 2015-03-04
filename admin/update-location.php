@@ -59,7 +59,7 @@ if (isset($_GET["id"])) {
 
 	<div id="hide">
 
-    <input class="form-control" type="hiden" name="markerid" id="markerid" value="<?php echo $markerid ?>">
+    <input class="form-control" type="hidden" name="markerid" id="markerid" value="<?php echo $markerid ?>">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
