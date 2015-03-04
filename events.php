@@ -296,10 +296,10 @@ include 'includes/session.php';
 			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
 			<td data-title="Category">'.$event_category.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$eventid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#deactivate-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="modal-'.$eventid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="deactivate-'.$eventid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -310,11 +310,141 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this event?</p>
+			<p id="success" class="text-center feedback-sad">Are you sure you want to deactivate '.$event_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide">
+			<div id="hide-deactivate">
+			<div class="pull-left">
+			<a id="deactivate-'.$eventid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="success-button-deactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingThree">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Inactive events</a>
+  	</h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+  	<div class="panel-body">
+
+	<!-- Inactive event -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom event-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>From</th>
+	<th>To</th>
+	<th>Price</th>
+	<th>Tickets</th>
+	<th>Category</th>
+	<th>Action</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'inactive'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$eventid = $row["eventid"];
+	$event_name = $row["event_name"];
+	$event_from = $row["event_from"];
+	$event_to = $row["event_to"];
+	$event_amount = $row["event_amount"];
+	$event_ticket_no = $row["event_ticket_no"];
+	$event_category = ucfirst($row["event_category"]);
+
+	echo '<tr id="event-'.$row["eventid"].'">
+
+			<td data-title="Name">'.$event_name.'</td>
+			<td data-title="From">'.$event_from.'</td>
+			<td data-title="To">'.$event_to.'</td>
+			<td data-title="Price">'.$event_amount.'</td>
+			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
+			<td data-title="Category">'.$event_category.'</td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#reactivate-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Reactivate</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+			</tr>
+
+			<div class="modal modal-custom fade" id="reactivate-'.$eventid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-sad">Are you sure you want to reactivate '.$event_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="hide-reactivate">
+			<div class="pull-left">
+			<a id="reactivate-'.$eventid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="success-button-reactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div class="modal modal-custom fade" id="delete-'.$eventid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-sad">Are you sure you want to delete '.$event_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="hide-delete">
 			<div class="pull-left">
 			<a id="delete-'.$eventid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -323,7 +453,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="success-button-delete" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -492,6 +622,70 @@ include 'includes/session.php';
 
 	});
 
+    //Deactivate event
+    $("body").on("click", ".deactivate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var eventToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'eventToDeactivate='+ eventToDeactivate,
+	success:function(){
+		$('#event-'+eventToDeactivate).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('.modal-body p').removeClass('feedback-sad');
+        $('.modal-body p').addClass('feedback-happy');
+        $('.modal-body p').empty().append('The event has been deactivated successfully.');
+        $('#hide-deactivate').hide();
+        $('#success-button-deactivate').show();
+        $("#success-button-deactivate").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate event process
+    $("body").on("click", ".reactivate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var eventToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'eventToReactivate='+ eventToReactivate,
+	success:function(){
+		$('#event-'+eventToDelete).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('.modal-body p').removeClass('feedback-sad');
+        $('.modal-body p').addClass('feedback-happy');
+        $('.modal-body p').empty().append('The event has been reactivated successfully.');
+        $('#hide-reactivate').hide();
+        $('#success-button-reactivate').show();
+        $("#success-button-reactivate").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
     //Cancel event process
     $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
@@ -506,14 +700,14 @@ include 'includes/session.php';
 	data:'eventToDelete='+ eventToDelete,
 	success:function(){
 		$('#event-'+eventToDelete).fadeOut();
-        $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The event has been deleted successfully.');
-        $('#success-button').show();
-        $("#success-button").click(function () {
+        $('#hide-delete').hide();
+        $('#success-button-delete').show();
+        $("#success-button-delete").click(function () {
             location.reload();
         });
 	},

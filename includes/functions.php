@@ -1802,6 +1802,38 @@ function UpdateEvent() {
     }
 }
 
+//DeactivateEvent function
+function DeactivateEvent() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $eventToDeactivate = filter_input(INPUT_POST, 'eventToDeactivate', FILTER_SANITIZE_STRING);
+
+    $event_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_events SET book_status=?, updated_on=? WHERE eventid=?");
+    $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//ReactivateEvent function
+function ReactivateEvent() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $eventToReactivate = filter_input(INPUT_POST, 'eventToReactivate', FILTER_SANITIZE_STRING);
+
+    $event_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_events SET book_status=?, updated_on=? WHERE eventid=?");
+    $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //DeleteEvent function
 function DeleteEvent() {
 

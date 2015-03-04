@@ -264,6 +264,16 @@ elseif (isset(
     UpdateEvent();
 }
 
+//Call DeactivateEvent function
+elseif (isset($_POST["eventToDeactivate"])) {
+    DeactivateEvent();
+}
+
+//Call ReactivateEvent function
+elseif (isset($_POST["eventToReactivate"])) {
+    ReactivateEvent();
+}
+
 //Call DeleteEvent function
 elseif (isset($_POST["eventToDelete"])) {
     DeleteEvent();
