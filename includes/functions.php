@@ -1265,6 +1265,38 @@ function UpdateBook()
     $stmt5->close();
 }
 
+//DeactivateBook function
+function DeactivateBook() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $bookToDeactivate = filter_input(INPUT_POST, 'bookToDeactivate', FILTER_SANITIZE_STRING);
+
+    $book_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeactivateBook function
+function ReactivateBook() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $bookToReactivate = filter_input(INPUT_POST, 'bookToReactivate', FILTER_SANITIZE_STRING);
+
+    $book_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //DeleteBook function
 function DeleteBook() {
 

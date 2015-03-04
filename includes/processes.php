@@ -191,6 +191,16 @@ elseif (isset(
     UpdateBook();
 }
 
+//Call DeactivateBook function
+elseif (isset($_POST["bookToDeactivate"])) {
+    DeactivateBook();
+}
+
+//Call ReactivateBook function
+elseif (isset($_POST["bookToReactivate"])) {
+    ReactivateBook();
+}
+
 //Call DeleteBook function
 elseif (isset($_POST["bookToDelete"])) {
     DeleteBook();
