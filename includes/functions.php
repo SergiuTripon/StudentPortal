@@ -1854,10 +1854,40 @@ function DeleteEvent() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//University map functions
-//DeleteLocation function
+//University map function
+//DeactivateLocation function
+function DeactivateLocation() {
 
-//DeleteEvent function
+    global $mysqli;
+
+    $locationToDeactivate = filter_input(INPUT_POST, 'locationToDeactivate', FILTER_SANITIZE_STRING);
+
+    $marker_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_map_markers SET marker_status=?, updated_on=? WHERE markerid=?");
+    $stmt1->bind_param('ssi', $marker_status, $updated_on, $locationToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+}
+
+//ReactivateLocation function
+function ReactivateLocation() {
+
+    global $mysqli;
+
+    $locationToReactivate = filter_input(INPUT_POST, 'locationToDeactivate', FILTER_SANITIZE_STRING);
+
+    $marker_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_map_markers SET marker_status=?, updated_on=? WHERE markerid=?");
+    $stmt1->bind_param('ssi', $marker_status, $updated_on, $locationToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+}
+
+//DeleteLocation function
 function DeleteLocation() {
 
     global $mysqli;
