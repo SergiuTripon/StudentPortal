@@ -130,7 +130,7 @@ include 'includes/session.php';
 			<td data-title="Created on">'.$created_on.'</td>
 			<td data-title="Updated on">'.$updated_on.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$markerid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#deactivate-'.$markerid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$markerid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
 			</tr>
 
 			<div class="modal modal-custom fade" id="deactivate-'.$markerid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -144,7 +144,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this location?</p>
+			<p id="success" class="text-center feedback-sad">Are you sure you want to deactivate '.$marker_title.'?</p>
 			</div>
 
 			<div class="modal-footer">
