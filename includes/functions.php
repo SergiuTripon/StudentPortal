@@ -1812,7 +1812,7 @@ function DeactivateEvent() {
 
     $event_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_events SET book_status=?, updated_on=? WHERE eventid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_events SET event_status=?, updated_on=? WHERE eventid=?");
     $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -1828,7 +1828,7 @@ function ReactivateEvent() {
 
     $event_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_events SET book_status=?, updated_on=? WHERE eventid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_events SET event_status=?, updated_on=? WHERE eventid=?");
     $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToReactivate);
     $stmt1->execute();
     $stmt1->close();
