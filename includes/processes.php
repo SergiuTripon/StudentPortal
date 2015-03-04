@@ -289,12 +289,12 @@ elseif (isset($_POST["locationToDeactivate"])) {
 }
 
 
-//Call DeactivateLocation function
+//Call ReactivateLocation function
 elseif (isset($_POST["locationToReactivate"])) {
     ReactivateLocation();
 }
 
-//Call DeactivateLocation function
+//Call DeleteLocation function
 elseif (isset($_POST["locationToDelete"])) {
     DeleteLocation();
 }
