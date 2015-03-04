@@ -12,7 +12,7 @@ function ImportLocations () {
     global $created_on;
     global $status;
 
-    $status = 'active';
+    $marker_status = 'active';
 
     $stmt1 = $mysqli->prepare("DELETE FROM system_map_markers");
     $stmt1->execute();
@@ -37,20 +37,20 @@ function ImportLocations () {
     //Locations
     foreach ($universitymap_locations->channel->item as $xml_var) {
 
-        $title = $xml_var->title;
-        $link = $xml_var->link;
-        $description = $xml_var->description;
+        $marker_name = $xml_var->title;
+        $marker_url = $xml_var->link;
+        $maker_notes = $xml_var->description;
 
         $namespaces = $xml_var->getNameSpaces(true);
         $latlong_selector = $xml_var->children($namespaces['geo']);
 
-        $lat = $latlong_selector->lat;
-        $long = $latlong_selector->long;
+        $marker_lat = $latlong_selector->lat;
+        $marker_long = $latlong_selector->long;
 
-        $category = $xml_var->category;
+        $marker_category = $xml_var->category;
 
-        $stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_link, marker_description, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt2->bind_param('ssssssss', $title, $link, $description, $lat, $long, $category, $status, $created_on);
+        $stmt2 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('ssssssss', $marker_name, $maker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $marker_status, $created_on);
         $stmt2->execute();
         $stmt2->close();
     }
@@ -58,16 +58,16 @@ function ImportLocations () {
     //Cycle Hire
     foreach ($universitymap_cycle_hire->Document->Placemark as $xml_var) {
 
-        $title = $xml_var->name;
-        $description = $xml_var->description;
+        $marker_title = $xml_var->name;
+        $maker_notes = $xml_var->description;
         $latlong = $xml_var->Point->coordinates;
 
-        list($lat, $long) = explode(',', $latlong);
+        list($marker_lat, $marker_long) = explode(',', $latlong);
 
-        $category = 'cycle hire';
+        $marker_category = 'cycle hire';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssssss', $title, $description, $long, $lat, $category, $status, $created_on);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('sssssss', $marker_title, $maker_notes, $marker_long, $marker_lat, $marker_category, $marker_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
     }
@@ -75,16 +75,16 @@ function ImportLocations () {
     //Cycle Parking
     foreach ($universitymap_cycle_parking->Document->Placemark as $xml_var) {
 
-        $title = $xml_var->name;
-        $description = $xml_var->description;
+        $marker_title = $xml_var->name;
+        $maker_notes = $xml_var->description;
         $latlong = $xml_var->Point->coordinates;
 
-        list($lat, $long) = explode(',', $latlong);
+        list($marker_lat, $marker_long) = explode(',', $latlong);
 
-        $category = 'cycle parking';
+        $marker_category = 'cycle parking';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssssss', $title, $description, $long, $lat, $category, $status, $created_on);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('sssssss', $marker_title, $maker_notes, $marker_long, $marker_lat, $marker_category, $marker_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
     }
@@ -92,16 +92,16 @@ function ImportLocations () {
     //ATMs
     foreach ($universitymap_atms->Document->Folder->Placemark as $xml_var) {
 
-        $title = $xml_var->name;
-        $description = $xml_var->description;
+        $marker_title = $xml_var->name;
+        $maker_notes = $xml_var->description;
         $latlong = $xml_var->Point->coordinates;
 
-        list($lat, $long) = explode(',', $latlong);
+        list($marker_lat, $marker_long) = explode(',', $latlong);
 
         $category = 'ATM';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_title, marker_description, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssssss', $title, $description, $long, $lat, $category, $status, $created_on);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('sssssss', $marker_title, $maker_notes, $marker_long, $marker_lat, $category, $status, $created_on);
         $stmt3->execute();
         $stmt3->close();
     }
