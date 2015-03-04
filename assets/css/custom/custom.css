@@ -530,6 +530,7 @@ textarea {
     color: #D9534F !important;
     font-size: 15px;
     font-weight: 600;
+    margin-bottom: 0;
 }
 
 .input-sad {
@@ -542,6 +543,7 @@ textarea {
     color: #449D44 !important;
     font-size: 15px;
     font-weight: 600;
+    margin-bottom: 0;
 }
 
 .input-happy {
