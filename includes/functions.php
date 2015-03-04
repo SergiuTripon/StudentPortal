@@ -1876,10 +1876,11 @@ function DeactivateLocation() {
 function ReactivateLocation() {
 
     global $mysqli;
+    global $updated_on;
 
     $locationToReactivate = filter_input(INPUT_POST, 'locationToDeactivate', FILTER_SANITIZE_STRING);
 
-    $marker_status = 'inactive';
+    $marker_status = 'active';
 
     $stmt1 = $mysqli->prepare("UPDATE system_map_markers SET marker_status=?, updated_on=? WHERE markerid=?");
     $stmt1->bind_param('ssi', $marker_status, $updated_on, $locationToReactivate);
