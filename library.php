@@ -317,7 +317,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide">
+			<div id="hide-deactivate">
 			<div class="pull-left">
 			<a id="deactivate-'.$bookid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
