@@ -71,7 +71,7 @@ include 'includes/session.php';
 
 	<ol class="breadcrumb">
     <li><a href="../overview/">Overview</a></li>
-    <li class="active">Events</li>
+    <li class="active">University map</li>
     </ol>
 
     <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../admin/create-event/"><span class="ladda-label">Create location</span></a>
