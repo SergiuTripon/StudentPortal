@@ -129,7 +129,7 @@ include 'includes/session.php';
 			<td data-title="Category">'.$marker_category.'</td>
 			<td data-title="Created on">'.$created_on.'</td>
 			<td data-title="Updated on">'.$updated_on.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$markerid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-location/?id='.$markerid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$markerid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
 			</tr>
 
