@@ -502,9 +502,9 @@ include 'includes/session.php';
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The timetable has been deactivated successfully.');
-        $('#hide').hide();
-        $('#success-button').show();
-        $("#success-button").click(function () {
+        $('#hide-deactivate').hide();
+        $('#success-button-deactivate').show();
+        $("#success-button-deactivate").click(function () {
             location.reload();
         });
 	},
@@ -534,9 +534,9 @@ include 'includes/session.php';
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The timetable has been reactivated successfully.');
-        $('#hide').hide();
-        $('#success-button').show();
-        $("#success-button").click(function () {
+        $('#hide-reactivate').hide();
+        $('#success-button-reactivate').show();
+        $("#success-button-reactivate").click(function () {
             location.reload();
         });
 	},
@@ -567,8 +567,8 @@ include 'includes/session.php';
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The timetable has been deleted successfully.');
         $('#hide-delete').hide();
-        $('#success-button').show();
-        $("#success-button").click(function () {
+        $('#success-button-delete').show();
+        $("#success-button-delete").click(function () {
             location.reload();
         });
 	},
