@@ -499,12 +499,12 @@ include 'includes/session.php';
 	data:'timetableToDeactivate='+ timetableToDeactivate,
 	success:function(){
 		$('#timetable-'+timetableToDeactivate).hide();
-        $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The timetable has been deactivated successfully.');
+        $('#hide').hide();
         $('#success-button').show();
         $("#success-button").click(function () {
             location.reload();
@@ -531,12 +531,12 @@ include 'includes/session.php';
 	data:'timetableToReactivate='+ timetableToReactivate,
 	success:function(){
 		$('#timetable-'+timetableToReactivate).hide();
-        $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The timetable has been reactivated successfully.');
+        $('#hide').hide();
         $('#success-button').show();
         $("#success-button").click(function () {
             location.reload();
@@ -563,12 +563,12 @@ include 'includes/session.php';
 	data:'timetableToDelete='+ timetableToDelete,
 	success:function(){
 		$('#timetable-'+timetableToDelete).hide();
-        $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The timetable has been deleted successfully.');
+        $('#hide').hide();
         $('#success-button').show();
         $("#success-button").click(function () {
             location.reload();
