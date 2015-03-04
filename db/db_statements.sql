@@ -319,6 +319,7 @@ CREATE TABLE `user_results` (
   `result_exam_mark` NUMERIC(15,2),
   `result_overall_mark` NUMERIC(15,2),
   `result_notes` VARCHAR(5000),
+  `result_status` VARCHAR(9) NOT NULL,
   `created_on` DATETIME NOT NULL,
   `updated_on` DATETIME,
 FOREIGN KEY (userid)
@@ -334,7 +335,9 @@ CREATE TABLE `user_feedback` (
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `feedback_subject` VARCHAR(300) NOT NULL,
   `feedback_body` VARCHAR(5000) NOT NULL,
-  `created_on` DATETIME NOT NULL
+  `feedback_status` VARCHAR(9) NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME
 ) ENGINE = InnoDB;
 
 #Feedback

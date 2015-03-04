@@ -121,6 +121,16 @@ elseif (isset(
     UpdateTimetable();
 }
 
+//Call DeactivateTimetable function
+elseif (isset($_POST['timetableToDeactivate'])) {
+    DeactivateTimetable();
+}
+
+//Call ReactivateTimetable function
+elseif (isset($_POST['timetableToReactivate'])) {
+    ReactivateTimetable();
+}
+
 //Call DeleteTimetable function
 elseif (isset($_POST['timetableToDelete'])) {
     DeleteTimetable();

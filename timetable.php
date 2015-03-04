@@ -228,17 +228,17 @@ include 'includes/session.php';
 	$module_notes = $row["module_notes"];
 	$module_url = $row["module_url"];
 
-	echo '<tr id="delete-'.$moduleid.'">
+	echo '<tr id="timetable-'.$moduleid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button assign-button" href="/admin/assign-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Assign</span></a></a></td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button update-button" href="/admin/update-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></a></td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="modal-'.$moduleid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="deactivate-'.$moduleid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -249,13 +249,133 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this timetable?</p>
+			<p id="success" class="text-center feedback-sad">Are you sure you want to deactivate '.$module_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div id="hide">
 			<div class="pull-left">
-			<a id="delete-button-'.$moduleid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$moduleid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt3->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Timetables</a>
+    </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Modules -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom timetable-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Notes</th>
+	<th>URL</th>
+	<th>Action</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody id="loadModules-table">
+	<?php
+
+	$stmt3 = $mysqli->query("SELECT moduleid, module_name, module_notes, module_url FROM system_modules WHERE module_status = 'inactive'");
+
+	while($row = $stmt3->fetch_assoc()) {
+
+    $moduleid = $row["moduleid"];
+	$module_name = $row["module_name"];
+	$module_notes = $row["module_notes"];
+	$module_url = $row["module_url"];
+
+	echo '<tr id="timetable-'.$moduleid.'">
+
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
+            <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#reactivate-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Reactivate</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+			</tr>
+
+			<div class="modal modal-custom fade" id="reactivate-'.$moduleid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="success" class="text-center feedback-sad">Are you sure you want to reactivate '.$module_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="hide">
+			<div class="pull-left">
+			<a id="reactivate-'.$moduleid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div class="modal modal-custom fade" id="delete-'.$moduleid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="success" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="hide">
+			<div class="pull-left">
+			<a id="delete-'.$moduleid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
@@ -363,6 +483,71 @@ include 'includes/session.php';
 		}
 	});
 
+    //Deactivate record
+    $("body").on("click", ".deactivate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var timetableToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'timetableToDeactivate='+ timetableToDeactivate,
+	success:function(){
+		$('#timetable-'+timetableToDeactivate).hide();
+        $('#hide').hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('.modal-body p').removeClass('feedback-sad');
+        $('.modal-body p').addClass('feedback-happy');
+        $('.modal-body p').empty().append('The timetable has been deactivated successfully.');
+        $('#success-button').show();
+        $("#success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate record
+    $("body").on("click", ".reactivate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var timetableToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'timetableToReactivate='+ timetableToReactivate,
+	success:function(){
+		$('#timetable-'+timetableToReactivate).hide();
+        $('#hide').hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('.modal-body p').removeClass('feedback-sad');
+        $('.modal-body p').addClass('feedback-happy');
+        $('.modal-body p').empty().append('The timetable has been reactivated successfully.');
+        $('#success-button').show();
+        $("#success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete record
     $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
@@ -375,7 +560,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'timetableToDelete='+ timetableToDelete,
 	success:function(){
-		$('#delete-'+timetableToDelete).hide();
+		$('#timetable-'+timetableToDelete).hide();
         $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
