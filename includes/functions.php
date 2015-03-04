@@ -1859,6 +1859,7 @@ function DeleteEvent() {
 function DeactivateLocation() {
 
     global $mysqli;
+    global $updated_on;
 
     $locationToDeactivate = filter_input(INPUT_POST, 'locationToDeactivate', FILTER_SANITIZE_STRING);
 
