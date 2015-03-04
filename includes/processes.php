@@ -284,7 +284,7 @@ elseif (isset($_POST["eventToDelete"])) {
 //Call University map functions
 //Call CreateLocation function
 elseif (isset(
-    $_POST['marker_title'],
+    $_POST['marker_name'],
     $_POST['marker_notes'],
     $_POST['marker_url'],
     $_POST['marker_lat'],
