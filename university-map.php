@@ -130,10 +130,10 @@ include 'includes/session.php';
 			<td data-title="Created on">'.$created_on.'</td>
 			<td data-title="Updated on">'.$updated_on.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$markerid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$markerid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#deactivate-'.$markerid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="modal-'.$markerid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="deactivate-'.$markerid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -148,16 +148,16 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide">
+			<div id="hide-deactivate">
 			<div class="pull-left">
-			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$markerid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="success-button-deactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -234,27 +234,27 @@ include 'includes/session.php';
     });
 
     //Cancel event process
-    $("body").on("click", ".delete-button", function(e) {
+    $("body").on("click", ".deactivate-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var locationToDelete = clickedID[1];
+    var locationToDeactivate = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'locationToDelete='+ locationToDelete,
+	data:'locationToDeactivate='+ locationToDeactivate,
 	success:function(){
-		$('#location-'+locationToDelete).fadeOut();
-        $('#hide').hide();
+		$('#location-'+locationToDeactivate).fadeOut();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The location has been deleted successfully.');
-        $('#success-button').show();
-        $("#success-button").click(function () {
+        $('.modal-body p').empty().append('The location has been deactivated successfully.');
+        $('#hide-deactivate').hide();
+        $('#success-button-deactivate').show();
+        $("#success-button-deactivate").click(function () {
             location.reload();
         });
 	},
