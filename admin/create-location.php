@@ -199,8 +199,8 @@ include '../includes/session.php';
 	var hasError = false;
 
     //Locations
-	var marker_title = $("#marker_title").val();
-	if(marker_title === '') {
+	var marker_name = $("#marker_name").val();
+	if(marker_name === '') {
         $("label[for='marker_name']").empty().append("Please enter a name.");
         $("label[for='marker_name']").removeClass("feedback-happy");
         $("label[for='marker_name']").addClass("feedback-sad");
@@ -282,7 +282,7 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'marker_title='     + marker_title +
+    data:'marker_name='      + marker_name +
          '&marker_notes='    + marker_notes +
          '&marker_url='      + marker_url +
          '&marker_lat='      + marker_lat +
