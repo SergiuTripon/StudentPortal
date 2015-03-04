@@ -457,8 +457,8 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#modal-'.$bookid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Reactivate</span></a></td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#modal-'.$bookid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#reactivate-'.$bookid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Reactivate</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$bookid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
 			<div class="modal modal-custom fade" id="reactivate-'.$bookid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
