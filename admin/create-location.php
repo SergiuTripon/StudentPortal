@@ -11,7 +11,6 @@ include '../includes/session.php';
 
     <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
-    <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Create location</title>
 	
@@ -45,42 +44,40 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Name<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="marker_title" id="marker_title" placeholder="Enter a name">
-	</div>
-	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
-
-    <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>URL</label>
-    <input class="form-control" type="text" name="marker_link" id="marker_link" placeholder="Enter a URL">
+	<label for="marker_name">Name<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="marker_name" id="marker_name" placeholder="Enter a name">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Notes</label>
-    <textarea class="form-control" rows="5" name="marker_description" id="marker_description" placeholder="Enter notes"></textarea>
+	<label for="marker_notes">Notes</label>
+    <textarea class="form-control" rows="5" name="marker_notes" id="marker_notes" placeholder="Enter notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="marker_url">URL</label>
+    <input class="form-control" type="text" name="marker_url" id="marker_url" placeholder="Enter a URL">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label>Latitude<span class="field-required">*</span></label>
+	<label for="marker_lat">Latitude<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="marker_lat" id="marker_lat" placeholder="Enter latitude">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Longitude<span class="field-required">*</span></label>
+	<label for="marker_long">Longitude<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="marker_long" id="marker_long" placeholder="Enter longitude">
 	</div>
 	</div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="lecture_lecturer">Category<span class="field-required">*</span></label>
-    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
+    <label for="marker_category">Category<span class="field-required">*</span></label>
+    <select class="selectpicker marker_category" name="marker_category" id="marker_category">
         <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_markers WHERE marker_status = 'active' AND NOT marker_category=''");
@@ -180,7 +177,6 @@ include '../includes/session.php';
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
     <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
-    <?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
 	$(document).ready(function () {
@@ -196,125 +192,109 @@ include '../includes/session.php';
         $(".filter-option").css("cssText", "color: #333333 !important;");
     });
 
-    // Date Time Picker
-    var today = new Date();
-	$(function () {
-
-    $('#event_from').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
-    $('#event_to').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
-
-	});
-
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-    //Modules
-	var event_name = $("#event_name").val();
-	if(event_name === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a name.");
+    //Locations
+	var marker_title = $("#marker_title").val();
+	if(marker_title === '') {
+        $("label[for='marker_name']").empty().append("Please enter a name.");
+        $("label[for='marker_name']").removeClass("feedback-happy");
+        $("label[for='marker_name']").addClass("feedback-sad");
+        $("#marker_name").removeClass("input-happy");
+        $("#marker_name").addClass("input-sad");
+        $("#marker_name").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
+        $("label[for='marker_name']").empty().append("All good!");
+        $("label[for='marker_name']").removeClass("feedback-sad");
+        $("label[for='marker_name']").addClass("feedback-happy");
+        $("#marker_name").removeClass("input-sad");
+        $("#marker_name").addClass("input-happy");
 	}
 
-    var event_notes = $("#event_notes").val();
-    var event_url = $("#event_url").val();
+    var marker_notes = $("#marker_notes").val();
+    var marker_url = $("#marker_url").val();
 
-    var event_from = $("#event_from").val();
-	if(event_from === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please select a date and time.");
+    var marker_lat = $("#marker_lat").val();
+	if(marker_lat === '') {
+        $("label[for='marker_lat']").empty().append("Please enter latitude.");
+        $("label[for='marker_lat']").removeClass("feedback-happy");
+        $("label[for='marker_lat']").addClass("feedback-sad");
+        $("#marker_lat").removeClass("input-happy");
+        $("#marker_lat").addClass("input-sad");
+        $("#marker_lat").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
+        $("label[for='marker_lat']").empty().append("All good!");
+        $("label[for='marker_lat']").removeClass("feedback-sad");
+        $("label[for='marker_lat']").addClass("feedback-happy");
+        $("#marker_lat").removeClass("input-sad");
+        $("#marker_lat").addClass("input-happy");
 	}
 
-    var event_to = $("#event_to").val();
-	if(event_to === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please select a date and time.");
+    var marker_long = $("#marker_long").val();
+	if(marker_long === '') {
+        $("label[for='marker_long']").empty().append("Please enter longitude.");
+        $("label[for='marker_long']").removeClass("feedback-happy");
+        $("label[for='marker_long']").addClass("feedback-sad");
+        $("#marker_long").removeClass("input-happy");
+        $("#marker_long").addClass("input-sad");
+        $("#marker_long").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
+        $("label[for='marker_long']").empty().append("All good!");
+        $("label[for='marker_long']").removeClass("feedback-sad");
+        $("label[for='marker_long']").addClass("feedback-happy");
+        $("#marker_long").removeClass("input-sad");
+        $("#marker_long").addClass("input-happy");
 	}
 
-    var event_amount = $("#event_amount").val();
-	if(event_amount === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a price.");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error2").hide();
-	}
-
-    var event_ticket_no = $("#event_ticket_no").val();
-	if(event_ticket_no === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a number.");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error2").hide();
-	}
-
-    var event_category_check = $("#event_category option:selected").html();
-    if (event_category_check === 'Select an option') {
-        $("#error4").show();
-        $("#error4").empty().append("Please select an option.");
+    var marker_category_check = $("#marker_category option:selected").html();
+    if (marker_category_check === 'Select an option') {
+        $("label[for='marker_category']").empty().append("Please select an option.");
+        $("label[for='marker_category']").removeClass("feedback-happy");
+        $("label[for='marker_category']").addClass("feedback-sad");
+        $("#marker_category").removeClass("input-happy");
+        $("#marker_category").addClass("input-sad");
+        $("#marker_category").focus();
         hasError  = true;
         return false;
     }
     else {
-        $("#error4").hide();
+        $("label[for='marker_category']").empty().append("All good!");
+        $("label[for='marker_category']").removeClass("feedback-sad");
+        $("label[for='marker_category']").addClass("feedback-happy");
+        $("#marker_category").removeClass("input-sad");
+        $("#marker_category").addClass("input-happy");
     }
 
-    var event_category = $("#event_category option:selected").val();
+
+    var marker_category = $("#marker_category option:selected").val();
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'event_name='       + event_name +
-         '&event_notes='     + event_notes +
-         '&event_url='       + event_url +
-         '&event_from='      + event_from +
-         '&event_to='        + event_to +
-         '&event_amount='    + event_amount +
-         '&event_ticket_no=' + event_ticket_no +
-         '&event_category='  + event_category,
+    data:'marker_title='     + marker_title +
+         '&marker_notes='    + marker_notes +
+         '&marker_url='      + marker_url +
+         '&marker_lat='      + marker_lat +
+         '&marker_long='     + marker_long +
+         '&marker_category=' + marker_category,
 
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Event created successfully.');
+		$("#success").empty().append('Location created successfully.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){

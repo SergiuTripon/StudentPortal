@@ -1724,13 +1724,10 @@ function CreateEvent() {
     $stmt1->fetch();
 
     if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+        header('HTTP/1.0 550 The event name you entered already exists.');
+        exit();
 
-        $event_status = 'active';
-
-        $stmt2 = $mysqli->prepare("INSERT INTO system_events (event_notes, event_url, event_class, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt2->bind_param('sssssiisss', $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
-        $stmt2->execute();
-        $stmt2->close();
     } else {
 
         $event_status = 'active';
@@ -1855,6 +1852,43 @@ function DeleteEvent() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //University map function
+//CreateEvent function
+function CreateLocation() {
+
+    global $mysqli;
+    global $created_on;
+
+    $marker_name = filter_input(INPUT_POST, 'marker_name', FILTER_SANITIZE_STRING);
+    $marker_notes = filter_input(INPUT_POST, 'marker_notes', FILTER_SANITIZE_STRING);
+    $marker_url = filter_input(INPUT_POST, 'marker_url', FILTER_SANITIZE_STRING);
+    $marker_lat = filter_input(INPUT_POST, 'marker_lat', FILTER_SANITIZE_STRING);
+    $marker_long = filter_input(INPUT_POST, 'marker_long', FILTER_SANITIZE_STRING);
+    $marker_category = filter_input(INPUT_POST, 'marker_category', FILTER_SANITIZE_STRING);
+
+    // Check existing location name
+    $stmt1 = $mysqli->prepare("SELECT markerid FROM system_map_markers WHERE marker_name=? LIMIT 1");
+    $stmt1->bind_param('s', $marker_name);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_markerid);
+    $stmt1->fetch();
+
+    if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+        header('HTTP/1.0 550 The location name you entered already exists.');
+        exit();
+    } else {
+
+        $marker_status = 'active';
+
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category, marker_status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('sssiiss', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $marker_status);
+        $stmt3->execute();
+        $stmt3->close();
+
+    }
+}
+
 //DeactivateLocation function
 function DeactivateLocation() {
 
