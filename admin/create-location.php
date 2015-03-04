@@ -83,15 +83,14 @@ include '../includes/session.php';
     <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
         <option data-hidden="true">Select an option</option>
     <?php
-    $stmt1 = $mysqli->query("SELECT DISTINCT marker_category, markerid FROM system_map_markers WHERE marker_status = 'active'");
+    $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_markers WHERE marker_status = 'active'");
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $markerid = $row["markerid"];
     $marker_category = $row["marker_category"];
     $marker_category = ucfirst($marker_category);
 
-        echo '<option value="'.$markerid.'">'.$marker_category.'</option>';
+        echo '<option>'.$marker_category.'</option>';
     }
 
     ?>
