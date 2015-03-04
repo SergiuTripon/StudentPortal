@@ -373,7 +373,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide">
+			<div id="hide-delete">
 			<div class="pull-left">
 			<a id="delete-'.$moduleid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -568,7 +568,7 @@ include 'includes/session.php';
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The timetable has been deleted successfully.');
-        $('#hide').hide();
+        $('#hide-delete').hide();
         $('#success-button').show();
         $("#success-button").click(function () {
             location.reload();
