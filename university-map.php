@@ -144,7 +144,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to deactivate '.$marker_title.'?</p>
+			<p id="success" class="text-center feedback-sad">Are you sure you want to deactivate '.$marker_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -243,7 +243,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to reactivate '.$marker_title.'?</p>
+			<p class="text-center feedback-sad">Are you sure you want to reactivate '.$marker_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -275,7 +275,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$marker_title.'?</p>
+			<p class="text-center feedback-sad">Are you sure you want to delete '.$marker_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
