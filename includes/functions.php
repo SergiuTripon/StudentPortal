@@ -1904,7 +1904,7 @@ function UpdateLocation() {
     $marker_category = filter_input(INPUT_POST, 'marker_category1', FILTER_SANITIZE_STRING);
 
     // Check if event name is different
-    $stmt1 = $mysqli->prepare("SELECT marker_name FROM system_map_markers WHERE markerid = ?");
+    $stmt1 = $mysqli->prepare("SELECT marker_name FROM system_map_markers WHERE markerid=? LIMIT 1");
     $stmt1->bind_param('i', $markerid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -1934,7 +1934,7 @@ function UpdateLocation() {
             exit();
         } else {
             $stmt4 = $mysqli->prepare("UPDATE system_map_markers SET marker_name=?, marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
-            $stmt4->bind_param('sssiissi', $marker_name, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
+            $stmt4->bind_param('sssiissi', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
             $stmt4->execute();
             $stmt4->close();
         }
