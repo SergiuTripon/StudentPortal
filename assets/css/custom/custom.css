@@ -636,11 +636,14 @@ textarea {
     margin-bottom: 10px; !important;
 }
 
+.bootstrap-select .btn:focus {
+    outline: none !important;
+}
+
 .bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
     box-shadow: none !important;
     border: 1px solid #8A8A8A !important;
     background-color: #FFFFFF !important;
-    outline: none !important;
 }
 
 .bootstrap-select > .btn-default:hover {
