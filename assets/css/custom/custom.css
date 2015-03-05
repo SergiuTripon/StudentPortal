@@ -569,7 +569,6 @@ textarea {
 
 /* Button group */
 .btn-group, .btn-group-vertical {
-    outline: none !important;
     margin-bottom: 10px;
 }
 
@@ -580,7 +579,6 @@ textarea {
 
 .btn-default:active,
 .active.btn-default {
-    outline: none !important;
     color: #333333;
     border-radius: 3px;
     background-color: #CCCCCC;
@@ -588,19 +586,16 @@ textarea {
 }
 
 .btn:active, .active.btn {
-    outline: none !important;
     box-shadow: none;
 }
 
 .btn-group > .btn-default:hover, .btn-group > .btn-default:focus {
-    outline: none !important;
     color: #333333;
     background-color: #FFFFFF;
     border-color: #CCCCCC;
 }
 
 .btn-group > .btn:active, .btn-group > .active.btn {
-    outline: none !important;
     color: #333333;
     box-shadow: none;
     border-radius: 3px;
@@ -1119,7 +1114,7 @@ textarea {
 /* End of Badge */
 
 /* Buttons */
-.btn, .btn:focus, .btn:hover, .btn:active, .btn.active {
+.btn, .btn:focus, .btn:hover {
     outline: none !important;
 }
 
