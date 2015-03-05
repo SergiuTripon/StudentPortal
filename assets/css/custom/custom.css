@@ -655,6 +655,10 @@ textarea {
 .bootstrap-select > .dropdown-menu {
     background-color: #FFFFFF;
 }
+
+.bootstrap-select > .dropdown-menu > .dropdown-menu {
+    background-color: #FFFFFF;
+}
 /* End of Bootstrap Select */
 
 /* Tiles style */
