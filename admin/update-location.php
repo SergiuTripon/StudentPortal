@@ -205,12 +205,6 @@ if (isset($_GET["id"])) {
 
     $('.selectpicker').selectpicker();
 
-    $(".filter-option").css("color", "gray");
-
-    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
-        $(".filter-option").css("cssText", "color: #333333 !important;");
-    });
-
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
