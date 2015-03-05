@@ -433,22 +433,6 @@ include '../includes/session.php';
 
 	});
 
-    $(".bootstrap-select > .selectpicker").css("color", "gray");
-
-    $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
-        $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    $( ".lecture_day .dropdown-menu > li > a" ).click(function() {
-        $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-
-    $( ".tutorial_assistant .dropdown-menu > li > a" ).click(function() {
-        $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    $( ".tutorial_day .dropdown-menu > li > a" ).click(function() {
-        $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
