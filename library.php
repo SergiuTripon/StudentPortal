@@ -298,9 +298,16 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$bookid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
-			</tr>
+			<td><div class="btn-group"><button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                <li><a href="../admin/update-book?id='.$bookid.'">Update</a></li>
+                <li class="divider"></li>
+                <li><a href="#deactivate-'.$bookid.'">Deactivate</a></li>
+                </ul>
+                </div>
+            </td>
+
+          </tr>
 
 			<div class="modal modal-custom fade" id="deactivate-'.$bookid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
