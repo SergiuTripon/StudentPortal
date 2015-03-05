@@ -595,13 +595,13 @@ textarea {
 }
 
 .bootstrap-select .btn:focus {
-    outline: none;
+    outline: none !important;
 }
 
 .bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
     box-shadow: none;
     border: 1px solid #8A8A8A;
-    background-color: #FFFFFF;
+    background-color: #FFFFFF !important;
 }
 
 .bootstrap-select > .btn-default:hover {
