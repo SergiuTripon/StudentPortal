@@ -371,11 +371,12 @@ include '../includes/session.php';
         $('.btn-mobileSelect-gen').attr('type', 'button');
     });
 
+    $('.mobileSelect').mobileSelect({
+        title: 'Lecturer'
+    });
+
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
-
-    //Select box
-    $('.mobileSelect').mobileSelect();
 
     // Date Time Picker
     var today = new Date();
