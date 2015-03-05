@@ -375,7 +375,7 @@ include '../includes/session.php';
         }
     });
 
-    $(".mobileSelect-savebtn").click(function() {
+    $('.list-container').on('click', ".mobileSelect-control']", function() {
         var lecture_lecturer_style = $(".mobileSelect-control.selected").html();
 
         alert(lecture_lecturer_style);
