@@ -288,18 +288,19 @@
     </div>
     </li>
 
-    <li class="timeline-inverted">
-    <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
+    <li>
+    <div class="timeline-badge info"><i class="fa fa-save"></i>
     </div>
     <div class="timeline-panel">
     <div class="timeline-heading">
-    <h4 class="timeline-title">University Map</h4>
+    <h4 class="timeline-title">Calendar</h4>
     </div>
     <div class="timeline-body">
     <p></p>
     </div>
     </div>
     </li>
+
     </ul>
     </div>
     <!-- /.panel-body -->
