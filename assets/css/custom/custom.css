@@ -666,8 +666,7 @@ textarea {
     border-color: #D9534F !important;
 }
 
-.input-sad:hover,
-.input-sad:focus {
+.input-sad:hover {
     border-color: #D9534F !important;
 }
 /* End of Error message */
@@ -684,8 +683,7 @@ textarea {
     border-color: #449D44 !important;
 }
 
-.input-happy:hover,
-.input-happy:focus {
+.input-happy:hover {
     border-color: #449D44 !important;
 }
 /* End of Success message */
