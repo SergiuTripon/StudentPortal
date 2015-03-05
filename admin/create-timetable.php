@@ -181,24 +181,10 @@ include '../includes/session.php';
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
     <select class="mobileSelect tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
-    <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
-
-    while ($row = $stmt1->fetch_assoc()){
-
-    $lectureid = $row["userid"];
-
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lectureid);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
-
-        echo '<option>'.$firstname.' '.$surname.'</option>';
-    }
-
-    ?>
+        <option value="pizza">Pizza</option>
+        <option value="burger">Burger</option>
+        <option value="tacos">Tacos</option>
+        <option value="garlic-bread">Garlic Bread</option>
     </select>
     </div>
     </div>
