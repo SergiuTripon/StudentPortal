@@ -593,6 +593,7 @@ textarea {
     color: #333333;
     background-color: #FFFFFF;
     border-color: #CCCCCC;
+    outline: none !important;
 }
 
 .btn-group > .btn:active, .btn-group > .active.btn {
@@ -601,6 +602,7 @@ textarea {
     border-radius: 3px;
     border-color: #CCCCCC; !important;
     background-color: #CCCCCC !important;
+    outline: none !important;
 }
 
 .btn-group.open .dropdown-toggle {
@@ -632,64 +634,8 @@ textarea {
 
 /* Bootstrap Select */
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    margin-bottom: 10px;
     width: 100% !important;
-    margin-bottom: 10px; !important;
-    outline: none !important;
-}
-
-.bootstrap-select {
-    outline: none !important;
-}
-
-.bootstrap-select:hover, .bootstrap-select:focus {
-    outline: none !important;
-}
-
-.bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
-    outline: none !important;
-    box-shadow: none !important;
-    border: 1px solid #8A8A8A !important;
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select > .btn-default:hover {
-    outline: none !important;
-    color: #333333 !important;
-    border-color: #CCCCCC !important;
-    background-color: #FFFFFF !important;
-}
-
-
-.bootstrap-select > .btn-default:focus {
-    outline: none !important;
-    color: #333333 !important;
-    border-color: #8A8A8A !important;
-    background-color: #FFFFFF !important;
-}
-
-.selectpicker:hover,
-.selectpicker:focus,
-.selectpicker.focus,
-.selectpicker:active,
-.selectpicker.active,
-.open >.dropdown-toggle.selectpicker {
-    border-color: #8A8A8A !important;
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select .dropdown-menu {
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select .dropdown-menu > li > a {
-    color: #333333 !important;
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select .dropdown-menu > li > a:hover,
-.bootstrap-select .dropdown-menu > li > a:focus {
-    color: #333333 !important;
-    background-color: #CCCCCC !important;
 }
 /* End of Bootstrap Select */
 
@@ -916,45 +862,29 @@ textarea {
 }
 /* End of Accordion style */
 
-/* Timetable portal */
-#timetable-portal h3 {
-    color: #4582EC;
-}
-
-#timetable-portal .breadcrumb {
+/* Admin */
+.breadcrumb-admin {
     margin-bottom: 10px;
 }
 
-#timetable-portal .btn-success {
+.btn-admin {
     margin-bottom: 5px;
 }
+/* End of Admin */
 
-#timetable-portal hr {
-    margin-top: 0;
+/* Separator */
+.title-separator {
+    color: #3FAD46;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.hr-separator {
+    margin-top: 5px;
     margin-bottom: 20px;
-    border-color: #4582EC;
-    background: #4582EC;
+    border-color: #3FAD46;
+    background: #3FAD46;
 }
-/* End of Timetable portal */
-
-/* Admin Timetable portal */
-#admin-timetable-portal .hr-separator {
-    margin-top: 0;
-    margin-bottom: 20px;
-    border-color: #CCCCCC;
-    background: #CCCCCC;
-}
-/* End of Admin Timetable portal */
-
-/* Library portal */
-#library-portal .breadcrumb{
-    margin-bottom: 10px;
-}
-
-#library-portal .btn{
-    margin-bottom: 5px;
-}
-/* End of Library portal */
+/* End of Separator */
 
 /* Calendar portal */
 #calendar-portal .page-header {
@@ -1001,30 +931,9 @@ textarea {
 }
 /* End of Calendar portal */
 
-/* Events portal */
-#events-portal .breadcrumb{
-    margin-bottom: 10px;
-}
-
-#events-portal .btn-success {
-    margin-bottom: 5px;
-}
-/* End of Events portal */
-
 /* Account admin portal */
-#account-admin-portal h4 {
-    color: #449D44;
-    font-weight: 600;
-    margin-top: 20px;
-}
-#account-admin-portal hr {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border-color: #449D44;
-    background: #449D44;
-}
 #account-admin-portal .panel-group {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #account-admin-portal .panel-group .panel {
@@ -1033,51 +942,9 @@ textarea {
 
 #account-admin-portal .panel-title {
     color: #FFFFFF;
-    margin-top: 0px;
+    margin-top: 0;
 }
 /* End of Account admin portal */
-
-/* Results portal */
-#results-portal h4 {
-    color: #3FAD46;
-    font-weight: 600;
-    margin-top: 20px;
-}
-#results-portal .hr-custom {
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border-color: #3FAD46;
-    background: #3FAD46;
-}
-/* End of Results portal */
-
-/* Feedback portal */
-#feedback-portal h4 {
-    color: #3FAD46;
-    font-weight: 600;
-    margin-top: 20px;
-}
-#feedback-portal .hr-custom {
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border-color: #3FAD46;
-    background: #3FAD46;
-}
-/* End of Feedback portal */
-
-/* Messenger portal */
-#messenger-portal h4 {
-    color: #3FAD46;
-    font-weight: 600;
-    margin-top: 20px;
-}
-#messenger-portal .hr-custom {
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border-color: #3FAD46;
-    background: #3FAD46;
-}
-/* End of Messenger portal */
 
 /* University map */
 #university-map-portal form {
@@ -1103,14 +970,6 @@ textarea {
 #university-map-portal #map {
     height: 100%;
     width: 100%;
-}
-
-#university-map-portal .breadcrumb{
-    margin-bottom: 10px;
-}
-
-#university-map-portal .btn-success {
-    margin-bottom: 5px;
 }
 
 @media (max-width: 480px) {
@@ -1257,7 +1116,7 @@ textarea {
 /* End of Badge */
 
 /* Buttons */
-.btn, .btn:focus, .btn:hover {
+.btn, .btn:focus, .btn:hover, .btn:active {
     outline: none !important;
 }
 
