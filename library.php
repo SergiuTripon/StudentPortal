@@ -301,7 +301,7 @@ include 'includes/session.php';
                 <ul class="dropdown-menu" role="menu">
                 <li><a href="../admin/update-book?id='.$bookid.'">Update</a></li>
                 <li class="divider"></li>
-                <li><a href="deactivate-'.$bookid.'">Deactivate</a></li>
+                <li><a href="#deactivate-'.$bookid.'">Deactivate</a></li>
                 </ul>
                 </div>
             </td>
