@@ -667,7 +667,7 @@ textarea {
     background-color: #FFFFFF !important;
 }
 
-.selectpicker, .selectpicker:hover {
+.selectpicker:hover {
     color: gray !important;
 }
 
