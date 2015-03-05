@@ -61,7 +61,6 @@
             position: relative;
             margin: 0 auto;
             margin-bottom: 2.5em;
-            background: rgb(236, 236, 236);
 
             -webkit-transition: all ease 500ms;
             -moz-transition: all ease 500ms;
@@ -289,7 +288,6 @@
     <div id="overview-portal" class="container">
 
         <section id="lab">
-            <div class="sectionheader">	<h1>The lab</h1><div class="beaker"></div></div>
             <article>
 
                 <div class="lab_item">
