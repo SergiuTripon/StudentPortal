@@ -939,12 +939,12 @@ textarea {
 /* End of Timetable portal */
 
 /* Admin Timetable portal */
-#feedback-portal h4 {
+#admin-timetable-portal h4 {
     color: #3FAD46;
     font-weight: 600;
     margin-top: 20px;
 }
-#feedback-portal .hr-custom {
+#admin-timetable-portal .hr-custom {
     margin-top: 5px;
     margin-bottom: 20px;
     border-color: #3FAD46;
