@@ -369,6 +369,19 @@ include '../includes/session.php';
 	<script>
     $(document).ready(function(){
         $('.btn-mobileSelect-gen').attr('type', 'button');
+        var lecture_lecturer_style = $("#lecture_lecturer option:selected").html();
+        if (lecture_lecturer_style === 'Select an option') {
+            $(".btn-mobileSelect-gen").css("color", "gray");
+        }
+    });
+
+    $( ".mobileSelect-control" ).click(function() {
+        var lecture_lecturer_style = $("#lecture_lecturer option:selected").html();
+        if (lecture_lecturer_style === 'Select an option') {
+            $(".btn-mobileSelect-gen").css("color", "gray");
+        } else {
+            $(".btn-mobileSelect-gen").css("cssText", "color: #333333 !important;");
+        }
     });
 
     $('.lecture_lecturer').mobileSelect({
@@ -377,12 +390,6 @@ include '../includes/session.php';
 
     $('.tutorial_assistant').mobileSelect({
         title: 'Tutorial Assistant'
-    });
-
-    $(".btn-mobileSelect-gen").css("color", "gray");
-
-    $( ".mobileSelect-control" ).click(function() {
-        $(".btn-mobileSelect-gen").css("cssText", "color: #333333 !important;");
     });
 
 	//Ladda
