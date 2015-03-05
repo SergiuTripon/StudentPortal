@@ -667,16 +667,6 @@ textarea {
     background-color: #FFFFFF !important;
 }
 
-.selectpicker:hover,
-.selectpicker:focus,
-.selectpicker.focus,
-.selectpicker:active,
-.selectpicker.active,
-.open >.dropdown-toggle.selectpicker {
-    border-color: #8A8A8A !important;
-    background-color: #FFFFFF !important;
-}
-
 .bootstrap-select .dropdown-menu {
     background-color: #FFFFFF !important;
 }
