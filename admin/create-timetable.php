@@ -378,7 +378,7 @@ include '../includes/session.php';
 
     $( ".mobileSelect-control" ).click(function() {
         var lecture_lecturer_style = $("#lecture_lecturer option:selected").html();
-        if (lecture_lecturer_style !== 'Select an option') {
+        if (lecture_lecturer_style != 'Select an option') {
             $(".btn-mobileSelect-gen").removeClass("input-happy");
             $(".btn-mobileSelect-gen").addClass("input-sad");
         }
