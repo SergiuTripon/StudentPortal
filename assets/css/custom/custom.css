@@ -601,6 +601,7 @@ textarea {
     border-radius: 3px;
     border-color: #CCCCCC; !important;
     background-color: #CCCCCC !important;
+    outline: none !important;
 }
 
 .btn-group.open .dropdown-toggle {
@@ -1259,7 +1260,7 @@ textarea {
 /* End of Badge */
 
 /* Buttons */
-.btn, .btn:focus, .btn:hover {
+.btn, .btn:focus, .btn:hover, .btn:focus {
     outline: none !important;
 }
 
