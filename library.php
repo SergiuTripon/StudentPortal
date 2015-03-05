@@ -271,7 +271,6 @@ include 'includes/session.php';
 	<th>Notes</th>
 	<th>Copy no.</th>
 	<th>Status</th>
-	<th>Action</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -298,13 +297,17 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td><div class="btn-group"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu">
-                <li><a href="../admin/update-book?id='.$bookid.'">Update</a></li>
-                <li class="divider"></li>
-                <li><a href="#deactivate-'.$bookid.'" data-toggle="modal">Deactivate</a></li>
-                </ul>
-                </div>
+			<td>
+			<div class="btn-group">
+            <a class="btn btn-primary">Update</a>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Deactivate</a></li>
+            </ul>
+            </div>
             </td>
 
 			</tr>
