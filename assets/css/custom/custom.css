@@ -658,6 +658,7 @@ textarea {
     background-color: #FFFFFF !important;
 }
 
+.selectpicker:focus,
 .selectpicker.focus,
 .selectpicker:active,
 .selectpicker.active,
