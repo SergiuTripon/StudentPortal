@@ -9,8 +9,8 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Create timetable</title>
