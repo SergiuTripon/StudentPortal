@@ -369,10 +369,7 @@ include '../includes/session.php';
 	<script>
     $(document).ready(function(){
         $('.btn-mobileSelect-gen').attr('type', 'button');
-        var lecture_lecturer_style = $(".mobileSelect-control.selected").html();
-        if (lecture_lecturer_style === 'Select an option') {
-            alert("Yes");
-        }
+        $(".btn-mobileSelect-gen").css("color", "gray");
     });
 
     $('.lecture_lecturer').mobileSelect({
