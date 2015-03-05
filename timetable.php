@@ -9,11 +9,10 @@ include 'includes/session.php';
 
 	<?php include 'assets/meta-tags.php'; ?>
 
-	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
-
     <title>Student Portal | Timetable</title>
+
+    <?php include 'assets/css-paths/datatables-css-path.php'; ?>
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -111,7 +110,7 @@ include 'includes/session.php';
 
 	<!-- Tutorials -->
 	<section id="no-more-tables">
-	<table id="loadTutorials-table" class="table table-condensed table-custom tutorial-table">
+	<table class="table table-condensed table-custom tutorial-table">
 
 	<thead>
 	<tr>
@@ -446,7 +445,6 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
 	<script>
     //Ladda
