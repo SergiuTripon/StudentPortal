@@ -939,11 +939,16 @@ textarea {
 /* End of Timetable portal */
 
 /* Admin Timetable portal */
-#admin-timetable-portal .hr-separator {
-    margin-top: 0;
+#feedback-portal h4 {
+    color: #3FAD46;
+    font-weight: 600;
+    margin-top: 20px;
+}
+#feedback-portal .hr-custom {
+    margin-top: 5px;
     margin-bottom: 20px;
-    border-color: #CCCCCC;
-    background: #CCCCCC;
+    border-color: #3FAD46;
+    background: #3FAD46;
 }
 /* End of Admin Timetable portal */
 
