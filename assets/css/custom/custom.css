@@ -638,7 +638,10 @@ textarea {
     width: 100% !important;
 }
 
-
+.btn-mobileSelect-gen:hover,
+.btn-mobileSelect-gen:focus {
+    background-color: #FFFFFF;
+}
 /* End of Bootstrap Select */
 
 /* Tiles style */
