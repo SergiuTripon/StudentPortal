@@ -601,6 +601,7 @@ textarea {
     border-radius: 3px;
     border-color: #CCCCCC; !important;
     background-color: #CCCCCC !important;
+    outline: none !important;
 }
 
 .btn-group.open .dropdown-toggle {
@@ -634,13 +635,6 @@ textarea {
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
     margin-bottom: 10px;
     width: 100% !important;
-}
-
-.bootstrap-select,
-.bootstrap-select:hover,
-.bootstrap-select:focus,
-.bootstrap-select:active {
-    outline: none !important;
 }
 /* End of Bootstrap Select */
 
