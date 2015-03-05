@@ -142,7 +142,7 @@ hr {
     background-color: #FFFFFF;
     border-color: #CCCCCC;
 }
-.btn-default:focus, .btn-default:focus {
+.btn-default:focus, .btn-default:hover {
     color: #333333;
     background-color: #E6E6E6;
     border-color: #BEBEBE;
@@ -734,7 +734,7 @@ textarea {
     border-color: #D9534F;
 }
 
-.input-sad:hover {
+.input-sad.btn-default:hover {
     border-color: #D9534F;
 }
 /* End of Error message */
@@ -751,7 +751,7 @@ textarea {
     border-color: #449D44;
 }
 
-.input-happy:hover {
+.input-happy.btn-default:hover {
     border-color: #449D44;
 }
 /* End of Success message */
