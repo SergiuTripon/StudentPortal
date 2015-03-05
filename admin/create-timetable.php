@@ -371,7 +371,7 @@ include '../includes/session.php';
         $('.btn-mobileSelect-gen').attr('type', 'button');
         var lecture_lecturer_style = $(".mobileSelect-control.selected").html();
         if (lecture_lecturer_style === 'Select an option') {
-            $(".btn-mobileSelect-gen").css("color", "gray");
+            alert("Yes");
         }
     });
 
@@ -381,9 +381,9 @@ include '../includes/session.php';
         alert(lecture_lecturer_style);
 
         if (lecture_lecturer_style === 'Select an option') {
-            $(".btn-mobileSelect-gen").css("color", "gray");
+            alert("Yes");
         } else {
-            $(".btn-mobileSelect-gen").css("cssText", "color: #333333 !important;");
+            alert("No");
         }
     });
 
