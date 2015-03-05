@@ -290,6 +290,8 @@ if (isset($_GET["id"])) {
         $("#marker_category").addClass("input-happy");
     }
 
+    var marker_category = $("#marker_category option:selected").val();
+
     alert(markerid);
     alert(marker_name);
     alert(marker_notes);
@@ -297,9 +299,6 @@ if (isset($_GET["id"])) {
     alert(marker_lat);
     alert(marker_long);
     alert(marker_category);
-
-
-    var marker_category = $("#marker_category option:selected").val();
 
 	if(hasError == false){
     jQuery.ajax({
