@@ -634,40 +634,26 @@ textarea {
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
     width: 100% !important;
     margin-bottom: 10px; !important;
-    outline: none !important;
-}
-
-.bootstrap-select {
-    outline: none !important;
-}
-
-.bootstrap-select:hover, .bootstrap-select:focus {
-    outline: none !important;
 }
 
 .bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
-    outline: none !important;
     box-shadow: none !important;
     border: 1px solid #8A8A8A !important;
     background-color: #FFFFFF !important;
 }
 
 .bootstrap-select > .btn-default:hover {
-    outline: none !important;
     color: #333333 !important;
     border-color: #CCCCCC !important;
     background-color: #FFFFFF !important;
 }
 
-
 .bootstrap-select > .btn-default:focus {
-    outline: none !important;
     color: #333333 !important;
     border-color: #8A8A8A !important;
     background-color: #FFFFFF !important;
 }
 
-.selectpicker:hover,
 .selectpicker:focus,
 .selectpicker.focus,
 .selectpicker:active,
@@ -676,6 +662,10 @@ textarea {
     color: #333333 !important;
     border-color: #8A8A8A !important;
     background-color: #FFFFFF !important;
+}
+
+.selectpicker:hover {
+    color: gray !important;
 }
 
 .bootstrap-select .dropdown-menu {
