@@ -9,8 +9,8 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Create timetable</title>
@@ -44,9 +44,6 @@ include '../includes/session.php';
 	<div id="hide">
 
     <!-- Create module -->
-    <h4 class="title-separator text-center">Module</h4>
-    <hr class="hr-separator">
-
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="module_name">Module name<span class="field-required">*</span></label>
@@ -69,10 +66,9 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create module -->
 
-    <!-- Create lecture -->
-    <h4 class="title-separator text-center">Lecture</h4>
     <hr class="hr-separator">
 
+    <!-- Create lecture -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="lecture_name">Lecture name<span class="field-required">*</span></label>
@@ -106,7 +102,7 @@ include '../includes/session.php';
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option>'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
     }
 
     ?>
@@ -156,10 +152,9 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create lecture -->
 
-    <!-- Create tutorial -->
-    <h4 class="title-separator text-center">Tutorial</h4>
     <hr class="hr-separator">
 
+    <!-- Create tutorial -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="tutorial_name">Tutorial name</label>
@@ -193,7 +188,7 @@ include '../includes/session.php';
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option>'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
     }
 
     ?>
@@ -243,9 +238,6 @@ include '../includes/session.php';
     <!-- End of Create tutorial -->
 
     <!-- Create exam -->
-    <h4 class="title-separator text-center">Exam</h4>
-    <hr class="hr-separator">
-
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="exam_name">Exam name<span class="field-required">*</span></label>
@@ -368,29 +360,12 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function () {
-        $(".bootstrap-select > .selectpicker").css("color", "gray");
-    });
-
-    $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
-        $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    $( ".lecture_day .dropdown-menu > li > a" ).click(function() {
-        $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-
-    $( ".tutorial_assistant .dropdown-menu > li > a" ).click(function() {
-        $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    $( ".tutorial_day .dropdown-menu > li > a" ).click(function() {
-        $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-
-    //Select
-    $('.selectpicker').selectpicker();
+	$(document).ready(function () {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
+
+    $('.selectpicker').selectpicker();
 
     // Date Time Picker
     var today = new Date();
@@ -447,7 +422,23 @@ include '../includes/session.php';
 
 	});
 
-    //Create timetable ajax call
+    $(".bootstrap-select > .selectpicker").css("color", "gray");
+
+    $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
+        $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+    $( ".lecture_day .dropdown-menu > li > a" ).click(function() {
+        $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+
+    $( ".tutorial_assistant .dropdown-menu > li > a" ).click(function() {
+        $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+    $( ".tutorial_day .dropdown-menu > li > a" ).click(function() {
+        $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+
+    //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -499,8 +490,8 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
-        $(".btn-mobileSelect-gen").removeClass("input-happy");
-        $(".btn-mobileSelect-gen").addClass("input-sad");
+        $("#lecture_lecturer").removeClass("input-happy");
+        $("#lecture_lecturer").addClass("input-sad");
         hasError  = true;
         return false;
     }
@@ -508,8 +499,8 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("All good!");
         $("label[for='lecture_lecturer']").removeClass("feedback-sad");
         $("label[for='lecture_lecturer']").addClass("feedback-happy");
-        $(".btn-mobileSelect-gen").removeClass("input-sad");
-        $(".btn-mobileSelect-gen").addClass("input-happy");
+        $("#lecture_lecturer").removeClass("input-sad");
+        $("#lecture_lecturer").addClass("input-happy");
     }
 
     var lecture_day = $("#lecture_day").val();
@@ -951,7 +942,10 @@ include '../includes/session.php';
     }
 	});
     }
+
 	return true;
+
+	});
 	});
 	</script>
 
