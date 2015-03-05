@@ -275,7 +275,7 @@
     </div>
     </li>
 
-    <li>
+    <li class="timeline-inverted">
     <div class="timeline-badge"><i class="fa fa-check"></i>
     </div>
     <div class="timeline-panel">
