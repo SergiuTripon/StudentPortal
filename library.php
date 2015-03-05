@@ -272,6 +272,7 @@ include 'includes/session.php';
 	<th>Copy no.</th>
 	<th>Status</th>
 	<th>Action</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -297,16 +298,16 @@ include 'includes/session.php';
 			<td data-title="Notes">'.$book_notes.'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Status">'.$book_status.'</td>
-			<td><div class="btn-group"><button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Action <span class="fa fa-caret-down"></span></button>
+			<td><div class="btn-group"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu">
                 <li><a href="../admin/update-book?id='.$bookid.'">Update</a></li>
                 <li class="divider"></li>
-                <li><a href="#deactivate-'.$bookid.'">Deactivate</a></li>
+                <li><a href="#deactivate-'.$bookid.'" data-toggle="modal">Deactivate</a></li>
                 </ul>
                 </div>
             </td>
 
-          </tr>
+			</tr>
 
 			<div class="modal modal-custom fade" id="deactivate-'.$bookid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
