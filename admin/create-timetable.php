@@ -370,14 +370,14 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
+    $('.mobileSelect').mobileSelect();
+
     $(document).ready(function(){
         $('.btn-mobileSelect-gen').attr('type', 'button');
     });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
-
-    $('.mobileSelect').mobileSelect();
 
     // Date Time Picker
     var today = new Date();
