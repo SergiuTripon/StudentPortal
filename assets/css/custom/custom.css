@@ -536,6 +536,11 @@ textarea {
 .input-sad {
     border-color: #D9534F !important;
 }
+
+.input-sad:hover,
+.input-sad:focus {
+    border-color: #D9534F !important;
+}
 /* End of Error message */
 
 /* Success message */
@@ -547,6 +552,11 @@ textarea {
 }
 
 .input-happy {
+    border-color: #449D44 !important;
+}
+
+.input-happy:hover,
+.input-happy:focus {
     border-color: #449D44 !important;
 }
 /* End of Success message */
