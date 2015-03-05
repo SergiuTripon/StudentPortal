@@ -449,8 +449,6 @@ include '../includes/session.php';
         $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
     });
 
-    $('.btn-mobileSelect-gen').attr('type', 'button');
-
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
