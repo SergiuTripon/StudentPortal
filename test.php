@@ -19,7 +19,7 @@
         transition: opacity .5s;
         cursor: pointer;
     }
-    .hex-tile:before, .rhex:after {
+    .hex-tile:before, .hex-tile:after {
         position: absolute;
         width: inherit; height: inherit;
         border-radius: inherit;
