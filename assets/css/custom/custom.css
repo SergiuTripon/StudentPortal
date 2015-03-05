@@ -1161,7 +1161,7 @@ textarea {
 /* End of Badge */
 
 /* Buttons */
-.btn, .btn:focus, .btn:hover, .btn:focus, .btn:active {
+.btn, .btn:focus, .btn:hover, .btn:focus, .btn:active, .btn.active {
     outline: none !important;
 }
 
