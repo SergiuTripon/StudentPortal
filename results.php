@@ -9,11 +9,11 @@ include 'includes/session.php';
 
 	<?php include 'assets/meta-tags.php'; ?>
 
-	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
-
     <title>Student Portal | Results</title>
+
+    <?php include 'assets/css-paths/datatables-css-path.php'; ?>
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <?php include 'assets/css-paths/calendar-css-path.php'; ?>
 
 </head>
 
@@ -156,7 +156,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$firstname.' '.$surname.'</td>
             <td data-title="Student number">'.$studentno.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button assign-button" href="/admin/assign-results?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Select</span></a></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button assign-button" href="/admin/select-modules?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Select</span></a></a></td>
 			</tr>';
 	}
 

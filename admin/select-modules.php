@@ -3,7 +3,7 @@ include '../includes/session.php';
 
 if (isset($_GET['id'])) {
 
-    $userToAssignResults = $_GET['id'];
+    $userToCreateResults = $_GET['id'];
 
 } else {
     header('Location: ../../results/');
@@ -17,10 +17,10 @@ if (isset($_GET['id'])) {
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | Assign timetable</title>
+
+    <?php include '../assets/css-paths/datatables-css-path.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
 	<ol class="breadcrumb">
 		<li><a href="../../overview/">Overview</a></li>
         <li><a href="../../results/">Results</a></li>
-		<li class="active">Assign results</li>
+		<li class="active">Select modules</li>
 	</ol>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN user_results ON user_timetable.moduleid=user_results.moduleid WHERE user_timetable.userid NOT IN (SELECT DISTINCT(user_results.userid) FROM user_results WHERE user_results.userid = '$userToAssignResults') AND system_modules.module_status='active'");
+	$stmt1 = $mysqli->query("SELECT user_timetable.userid, user_timetable.moduleid, system_modules.module_name FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN user_results ON user_timetable.moduleid=user_results.moduleid WHERE user_timetable.userid NOT IN (SELECT DISTINCT(user_results.userid) FROM user_results WHERE user_results.userid = '$userToCreateResults') AND system_modules.module_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -90,7 +90,7 @@ if (isset($_GET['id'])) {
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    	<div class="panel panel-default">
+    <div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">

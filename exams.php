@@ -140,9 +140,7 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function () {
-
-	//DataTables
+    //DataTables
     $('.exam-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
@@ -152,8 +150,6 @@ include 'includes/session.php';
 			"emptyTable": "There are no exams to display."
 		}
 	});
-	});
-
 	</script>
 
 </body>
