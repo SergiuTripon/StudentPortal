@@ -97,7 +97,6 @@ if (isset($_GET["id"])) {
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="marker_category">Category<span class="field-required">*</span></label>
     <select class="selectpicker marker_category" name="marker_category" id="marker_category">
-        <option data-hidden="true">Select an option</option>
         <option><?php echo $marker_category ?></option>
     <?php
     $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_markers WHERE marker_status = 'active' AND NOT marker_category=''");
