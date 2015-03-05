@@ -583,6 +583,7 @@ textarea {
     border-radius: 3px;
     background-color: #CCCCCC;
     border-color: #CCCCCC !important;
+    outline: none !important;
 }
 
 .btn:active, .active.btn {
