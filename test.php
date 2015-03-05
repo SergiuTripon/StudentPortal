@@ -49,6 +49,9 @@ include 'includes/functions.php';
     <div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable<span class="badge"><?php echo ($timetable_count == '0' ? "" : "$timetable_count"); ?></span></p>
+    <div class="tile-footer">
+    <p>Timetable<span class="badge"><?php echo ($timetable_count == '0' ? "" : "$timetable_count"); ?></span></p>
+    </div>
     </div>
 	</div>
     </a>
