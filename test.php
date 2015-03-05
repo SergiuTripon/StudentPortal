@@ -26,6 +26,7 @@
             border-left: 50px solid transparent;
             border-right: 50px solid transparent;
             border-bottom: 25px solid red;
+            border-radius: 5px;
         }
         #hexagon:after {
             content: "";
@@ -37,6 +38,7 @@
             border-left: 50px solid transparent;
             border-right: 50px solid transparent;
             border-top: 25px solid red;
+            border-radius: 5px;
         }
     </style>
 
