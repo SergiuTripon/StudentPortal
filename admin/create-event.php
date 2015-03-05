@@ -92,11 +92,10 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Category</label>
-    <select class="form-control mobileSelect">
-        <option value="pizza">Pizza</option>
-        <option value="burger">Burger</option>
-        <option value="tacos">Tacos</option>
-        <option value="garlic-bread">Garlic Bread</option>
+    <select class="form-control mobileSelect event_category" name="event_category" id="event_category">
+        <option data-hidden="true">Select an option</option>
+        <option>Social</option>
+        <option>Careers</option>
     </select>
 
     </div>
@@ -187,15 +186,147 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/bootstrap-fullscreen-select-js-path.php'; ?>
     <?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
-    <script type="text/javascript">
-        $(function () {
-            $('.mobileSelect').mobileSelect();
-        });
+	<script>
+    $(document).ready(function(){
+        $('.btn-mobileSelect-gen').attr('type', 'button');
+    });
 
-        $(document).ready(function(){
-            $('.btn-mobileSelect-gen').attr('type', 'button');
-        });
-    </script>
+	//Ladda
+	Ladda.bind('.ladda-button', {timeout: 2000});
+
+    $('.mobileSelect').mobileSelect();
+
+    // Date Time Picker
+    var today = new Date();
+	$(function () {
+
+    $('#event_from').datepicker({
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
+        }
+    });
+    $('#event_to').datepicker({
+        dateFormat: "yy-mm-dd",
+        controlType: 'select',
+        minDate: today,
+        changeMonth: true,
+        numberOfMonths: 2,
+        onClose: function(selectedDate) {
+            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
+        }
+    });
+
+	});
+
+    //Create event ajax call
+    $("#FormSubmit").click(function (e) {
+    e.preventDefault();
+
+	var hasError = false;
+
+    //Modules
+	var event_name = $("#event_name").val();
+	if(event_name === '') {
+		$("#error1").show();
+        $("#error1").empty().append("Please enter a name.");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error1").hide();
+	}
+
+    var event_notes = $("#event_notes").val();
+    var event_url = $("#event_url").val();
+
+    var event_from = $("#event_from").val();
+	if(event_from === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please select a date and time.");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+	}
+
+    var event_to = $("#event_to").val();
+	if(event_to === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please select a date and time.");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+	}
+
+    var event_amount = $("#event_amount").val();
+	if(event_amount === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a price.");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+	}
+
+    var event_ticket_no = $("#event_ticket_no").val();
+	if(event_ticket_no === '') {
+		$("#error2").show();
+        $("#error2").empty().append("Please enter a number.");
+		hasError  = true;
+		return false;
+    } else {
+		$("#error2").hide();
+	}
+
+    var event_category_check = $("#event_category option:selected").html();
+    if (event_category_check === 'Select an option') {
+        $("#error4").show();
+        $("#error4").empty().append("Please select an option.");
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("#error4").hide();
+    }
+
+    var event_category = $("#event_category option:selected").val();
+
+	if(hasError == false){
+    jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'event_name='       + event_name +
+         '&event_notes='     + event_notes +
+         '&event_url='       + event_url +
+         '&event_from='      + event_from +
+         '&event_to='        + event_to +
+         '&event_amount='    + event_amount +
+         '&event_ticket_no=' + event_ticket_no +
+         '&event_category='  + event_category,
+
+    success:function(){
+		$("#error").hide();
+		$("#hide").hide();
+		$("#FormSubmit").hide();
+		$("#success").show();
+		$("#success").empty().append('Event created successfully.');
+		$("#success-button").show();
+	},
+    error:function (xhr, ajaxOptions, thrownError){
+		$("#success").hide();
+		$("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
+    }
+	return true;
+	});
+	</script>
 
 </body>
 </html>

@@ -44,7 +44,6 @@ include '../includes/session.php';
 	<div id="hide">
 
     <!-- Create module -->
-
     <h4 class="title-separator text-center">Module</h4>
     <hr class="hr-separator">
 
@@ -71,7 +70,6 @@ include '../includes/session.php';
     <!-- End of Create module -->
 
     <!-- Create lecture -->
-
     <h4 class="title-separator text-center">Lecture</h4>
     <hr class="hr-separator">
 
@@ -92,8 +90,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
-    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
-        <option data-hidden="true">Select an option</option>
+    <select class="mobileSelect lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -108,7 +105,7 @@ include '../includes/session.php';
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option>'.$firstname.' '.$surname.'</option>';
     }
 
     ?>
@@ -159,7 +156,6 @@ include '../includes/session.php';
     <!-- End of Create lecture -->
 
     <!-- Create tutorial -->
-
     <h4 class="title-separator text-center">Tutorial</h4>
     <hr class="hr-separator">
 
@@ -180,8 +176,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
-    <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
-        <option data-hidden="true">Select an option</option>
+    <select class="mobileSelect tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -196,7 +191,7 @@ include '../includes/session.php';
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option>'.$firstname.' '.$surname.'</option>';
     }
 
     ?>
@@ -246,7 +241,6 @@ include '../includes/session.php';
     <!-- End of Create tutorial -->
 
     <!-- Create exam -->
-
     <h4 class="title-separator text-center">Exam</h4>
     <hr class="hr-separator">
 
@@ -372,12 +366,15 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
+    $(document).ready(function(){
+        $('.btn-mobileSelect-gen').attr('type', 'button');
+    });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $('.selectpicker').selectpicker();
+    //Select box
+    $('.mobileSelect').mobileSelect();
 
     // Date Time Picker
     var today = new Date();
@@ -434,23 +431,7 @@ include '../includes/session.php';
 
 	});
 
-    $(".bootstrap-select > .selectpicker").css("color", "gray");
-
-    $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
-        $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    $( ".lecture_day .dropdown-menu > li > a" ).click(function() {
-        $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-
-    $( ".tutorial_assistant .dropdown-menu > li > a" ).click(function() {
-        $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    $( ".tutorial_day .dropdown-menu > li > a" ).click(function() {
-        $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-
-    //Ajax call
+    //Create timetable ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -954,10 +935,7 @@ include '../includes/session.php';
     }
 	});
     }
-
 	return true;
-
-	});
 	});
 	</script>
 
