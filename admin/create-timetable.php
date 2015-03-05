@@ -371,7 +371,7 @@ include '../includes/session.php';
         $('.btn-mobileSelect-gen').attr('type', 'button');
     });
 
-    $('.lecturer').mobileSelect({
+    $('.lecture_lecturer').mobileSelect({
         title: 'Lecturer'
     });
 
