@@ -525,6 +525,64 @@ textarea {
 /* End of Placeholder */
 /* End of Form */
 
+/* Bootstrap Select */
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100% !important;
+    margin-bottom: 10px; !important;
+}
+
+.bootstrap-select .btn:focus {
+    outline: none !important;
+}
+
+.bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
+    box-shadow: none !important;
+    border: 1px solid #8A8A8A !important;
+    background-color: #FFFFFF !important;
+}
+
+.bootstrap-select > .btn-default:hover {
+    color: #333333 !important;
+    border-color: #CCCCCC !important;
+    background-color: #FFFFFF !important;
+}
+
+.bootstrap-select > .btn-default:focus {
+    color: #333333 !important;
+    border-color: #8A8A8A !important;
+    background-color: #FFFFFF !important;
+}
+
+.selectpicker:focus,
+.selectpicker.focus,
+.selectpicker:active,
+.selectpicker.active,
+.open >.dropdown-toggle.selectpicker {
+    color: #333333 !important;
+    border-color: #8A8A8A !important;
+    background-color: #FFFFFF !important;
+}
+
+.selectpicker:hover {
+    color: gray !important;
+}
+
+.bootstrap-select .dropdown-menu {
+    background-color: #FFFFFF !important;
+}
+
+.bootstrap-select .dropdown-menu > li > a {
+    color: #333333 !important;
+    background-color: #FFFFFF !important;
+}
+
+.bootstrap-select .dropdown-menu > li > a:hover,
+.bootstrap-select .dropdown-menu > li > a:focus {
+    color: #333333 !important;
+    background-color: #CCCCCC !important;
+}
+/* End of Bootstrap Select */
+
 /* Error message */
 .feedback-sad {
     color: #D9534F !important;
@@ -639,64 +697,6 @@ textarea {
 }
 }
 /* End of Button group */
-
-/* Bootstrap Select */
-.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
-    width: 100% !important;
-    margin-bottom: 10px; !important;
-}
-
-.bootstrap-select .btn:focus {
-    outline: none !important;
-}
-
-.bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
-    box-shadow: none !important;
-    border: 1px solid #8A8A8A !important;
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select > .btn-default:hover {
-    color: #333333 !important;
-    border-color: #CCCCCC !important;
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select > .btn-default:focus {
-    color: #333333 !important;
-    border-color: #8A8A8A !important;
-    background-color: #FFFFFF !important;
-}
-
-.selectpicker:focus,
-.selectpicker.focus,
-.selectpicker:active,
-.selectpicker.active,
-.open >.dropdown-toggle.selectpicker {
-    color: #333333 !important;
-    border-color: #8A8A8A !important;
-    background-color: #FFFFFF !important;
-}
-
-.selectpicker:hover {
-    color: gray !important;
-}
-
-.bootstrap-select .dropdown-menu {
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select .dropdown-menu > li > a {
-    color: #333333 !important;
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select .dropdown-menu > li > a:hover,
-.bootstrap-select .dropdown-menu > li > a:focus {
-    color: #333333 !important;
-    background-color: #CCCCCC !important;
-}
-/* End of Bootstrap Select */
 
 /* Tiles style */
 .tile {
