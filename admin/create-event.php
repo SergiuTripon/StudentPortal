@@ -92,7 +92,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label>Category</label>
-    <select class="selectpicker event_category" name="event_category" id="event_category">
+    <select class="form-control mobileSelect event_category" name="event_category" id="event_category">
         <option data-hidden="true">Select an option</option>
         <option>Social</option>
         <option>Careers</option>
@@ -192,13 +192,7 @@ include '../includes/session.php';
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $('.selectpicker').selectpicker();
-
-    $(".filter-option").css("color", "gray");
-
-    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
-        $(".filter-option").css("cssText", "color: #333333 !important;");
-    });
+    $('.mobileSelect').mobileSelect();
 
     // Date Time Picker
     var today = new Date();

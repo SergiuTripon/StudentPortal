@@ -92,7 +92,8 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
-    <select class="form-control mobileSelect lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
+    <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
+        <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -179,7 +180,8 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
-    <select class="form-control mobileSelect tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
+    <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
+        <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -194,7 +196,7 @@ include '../includes/session.php';
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option>'.$firstname.' '.$surname.'</option>';
+        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
     }
 
     ?>
@@ -370,14 +372,12 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-    $('.mobileSelect').mobileSelect();
-
-    $(document).ready(function(){
-        $('.btn-mobileSelect-gen').attr('type', 'button');
-    });
+	$(document).ready(function () {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
+
+    $('.selectpicker').selectpicker();
 
     // Date Time Picker
     var today = new Date();
@@ -433,6 +433,22 @@ include '../includes/session.php';
     });
 
 	});
+
+    $(".bootstrap-select > .selectpicker").css("color", "gray");
+
+    $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
+        $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+    $( ".lecture_day .dropdown-menu > li > a" ).click(function() {
+        $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+
+    $( ".tutorial_assistant .dropdown-menu > li > a" ).click(function() {
+        $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+    $( ".tutorial_day .dropdown-menu > li > a" ).click(function() {
+        $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
@@ -938,7 +954,10 @@ include '../includes/session.php';
     }
 	});
     }
+
 	return true;
+
+	});
 	});
 	</script>
 
