@@ -91,6 +91,7 @@ include '../includes/session.php';
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
     <select class="mobileSelect lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
+        <option disabled>Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
 
@@ -105,7 +106,7 @@ include '../includes/session.php';
     $stmt2->bind_result($firstname, $surname);
     $stmt2->fetch();
 
-        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+        echo '<option>'.$firstname.' '.$surname.'</option>';
     }
 
     ?>
