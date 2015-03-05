@@ -296,6 +296,8 @@
     </li>
 
     <li>
+    <div class="timeline-badge"><i class="fa fa-check"></i>
+    </div>
     <div class="timeline-panel">
     <div class="timeline-heading">
     <h4 class="timeline-title">Lorem ipsum dolor</h4>
