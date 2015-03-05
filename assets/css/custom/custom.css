@@ -652,6 +652,10 @@ textarea {
     border-color: #8A8A8A;
 }
 
+.bootstrap-select > .dropdown-menu {
+    background-color: #FFFFFF;
+}
+
 .bootstrap-select > .dropdown-menu > .dropdown-menu {
     background-color: #FFFFFF;
 }
