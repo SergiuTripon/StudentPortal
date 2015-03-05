@@ -501,7 +501,7 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
         $(".lecture_lecturer > .selectpicker").removeClass("input-happy");
-        $.lecture_lecturer > .selectpicker").addClass("input-sad");
+        $(".lecture_lecturer > .selectpicker").addClass("input-sad");
         hasError  = true;
         return false;
     }
