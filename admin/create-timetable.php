@@ -370,6 +370,9 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
+	$(document).ready(function () {
+        $(".bootstrap-select > .selectpicker").css("cssText", "color: gray !important;");
+    });
 
     $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
         $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
