@@ -530,7 +530,6 @@ textarea {
     color: #D9534F !important;
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 0;
 }
 
 .input-sad {
@@ -543,7 +542,6 @@ textarea {
     color: #449D44 !important;
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 0;
 }
 
 .input-happy {
@@ -634,15 +632,26 @@ textarea {
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
     width: 100% !important;
     margin-bottom: 10px; !important;
+    outline: none !important;
+}
+
+.bootstrap-select {
+    outline: none !important;
+}
+
+.bootstrap-select:hover, .bootstrap-select:focus {
+    outline: none !important;
 }
 
 .bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
+    outline: none !important;
     box-shadow: none !important;
     border: 1px solid #8A8A8A !important;
     background-color: #FFFFFF !important;
 }
 
 .bootstrap-select > .btn-default:hover {
+    outline: none !important;
     color: #333333 !important;
     border-color: #CCCCCC !important;
     background-color: #FFFFFF !important;
@@ -650,6 +659,7 @@ textarea {
 
 
 .bootstrap-select > .btn-default:focus {
+    outline: none !important;
     color: #333333 !important;
     border-color: #8A8A8A !important;
     background-color: #FFFFFF !important;
@@ -905,29 +915,45 @@ textarea {
 }
 /* End of Accordion style */
 
-/* Admin */
-.breadcrumb-admin {
+/* Timetable portal */
+#timetable-portal h3 {
+    color: #4582EC;
+}
+
+#timetable-portal .breadcrumb {
     margin-bottom: 10px;
 }
 
-.btn-admin {
+#timetable-portal .btn-success {
     margin-bottom: 5px;
 }
-/* End of Admin */
 
-/* Separator */
-.title-separator {
-    color: #3FAD46;
-    font-weight: 600;
-    margin-top: 20px;
-}
-.hr-separator {
-    margin-top: 5px;
+#timetable-portal hr {
+    margin-top: 0;
     margin-bottom: 20px;
-    border-color: #3FAD46;
-    background: #3FAD46;
+    border-color: #4582EC;
+    background: #4582EC;
 }
-/* End of Separator */
+/* End of Timetable portal */
+
+/* Admin Timetable portal */
+#admin-timetable-portal .hr-separator {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-color: #CCCCCC;
+    background: #CCCCCC;
+}
+/* End of Admin Timetable portal */
+
+/* Library portal */
+#library-portal .breadcrumb{
+    margin-bottom: 10px;
+}
+
+#library-portal .btn{
+    margin-bottom: 5px;
+}
+/* End of Library portal */
 
 /* Calendar portal */
 #calendar-portal .page-header {
@@ -974,9 +1000,30 @@ textarea {
 }
 /* End of Calendar portal */
 
+/* Events portal */
+#events-portal .breadcrumb{
+    margin-bottom: 10px;
+}
+
+#events-portal .btn-success {
+    margin-bottom: 5px;
+}
+/* End of Events portal */
+
 /* Account admin portal */
+#account-admin-portal h4 {
+    color: #449D44;
+    font-weight: 600;
+    margin-top: 20px;
+}
+#account-admin-portal hr {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-color: #449D44;
+    background: #449D44;
+}
 #account-admin-portal .panel-group {
-    margin-bottom: 0;
+    margin-bottom: 0px;
 }
 
 #account-admin-portal .panel-group .panel {
@@ -985,9 +1032,51 @@ textarea {
 
 #account-admin-portal .panel-title {
     color: #FFFFFF;
-    margin-top: 0;
+    margin-top: 0px;
 }
 /* End of Account admin portal */
+
+/* Results portal */
+#results-portal h4 {
+    color: #3FAD46;
+    font-weight: 600;
+    margin-top: 20px;
+}
+#results-portal .hr-custom {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-color: #3FAD46;
+    background: #3FAD46;
+}
+/* End of Results portal */
+
+/* Feedback portal */
+#feedback-portal h4 {
+    color: #3FAD46;
+    font-weight: 600;
+    margin-top: 20px;
+}
+#feedback-portal .hr-custom {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-color: #3FAD46;
+    background: #3FAD46;
+}
+/* End of Feedback portal */
+
+/* Messenger portal */
+#messenger-portal h4 {
+    color: #3FAD46;
+    font-weight: 600;
+    margin-top: 20px;
+}
+#messenger-portal .hr-custom {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-color: #3FAD46;
+    background: #3FAD46;
+}
+/* End of Messenger portal */
 
 /* University map */
 #university-map-portal form {
@@ -1013,6 +1102,14 @@ textarea {
 #university-map-portal #map {
     height: 100%;
     width: 100%;
+}
+
+#university-map-portal .breadcrumb{
+    margin-bottom: 10px;
+}
+
+#university-map-portal .btn-success {
+    margin-bottom: 5px;
 }
 
 @media (max-width: 480px) {
