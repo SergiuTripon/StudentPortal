@@ -673,7 +673,6 @@ textarea {
 .selectpicker:active,
 .selectpicker.active,
 .open >.dropdown-toggle.selectpicker {
-    color: #333333 !important;
     border-color: #8A8A8A !important;
     background-color: #FFFFFF !important;
 }
