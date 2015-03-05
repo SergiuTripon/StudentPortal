@@ -10,32 +10,28 @@
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <style>
-        .rhex {
-            position: relative;
-            margin: 1em auto;
-            width: 10em; height: 17.32em;
-            border-radius: 1em/.5em;
-            opacity: .25;
-            background: orange;
-            transition: opacity .5s;
-            cursor: pointer;
-        }
-        .rhex:before, .rhex:after {
-            position: absolute;
-            width: inherit; height: inherit;
-            border-radius: inherit;
-            background: inherit;
-            content: '';
-        }
-        .rhex:before {
-            transform: rotate(60deg);
-        }
-        .rhex:after {
-            transform: rotate(-60deg);
-        }
-        .rhex:hover {
-            opacity: 1;
-        }
+    .hex-tile {
+        position: relative;
+        margin: 1em auto;
+        width: 10em; height: 17.32em;
+        border-radius: 1em/.5em;
+        background: orange;
+        transition: opacity .5s;
+        cursor: pointer;
+    }
+    .hex-tile:before, .rhex:after {
+        position: absolute;
+        width: inherit; height: inherit;
+        border-radius: inherit;
+        background: inherit;
+        content: '';
+    }
+    .hex-tile:before {
+        transform: rotate(60deg);
+    }
+    .hex-tile:after {
+        transform: rotate(-60deg);
+    }
     </style>
 
 </head>
@@ -48,7 +44,7 @@
 
     <div id="overview-portal" class="container">
 
-        <div class='rhex'></div>
+    <div class="hex-tile"></div>
 
 	</div> <!-- /container -->
 
