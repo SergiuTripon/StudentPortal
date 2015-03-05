@@ -106,6 +106,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div id="hide">
 
     <!-- Update module -->
+
+    <h4 class="title-separator text-center">Module</h4>
+    <hr class="hr-separator">
+
     <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $moduleid; ?>">
 
 	<div class="form-group">
@@ -130,9 +134,10 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	</div>
     <!-- End of Update module -->
 
-    <hr class="hr-separator">
-
     <!-- Update lecture -->
+
+    <h4 class="title-separator text-center">Lecture</h4>
+    <hr class="hr-separator">
 
     <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureid; ?>">
 
@@ -224,11 +229,13 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" value="<?php echo $lecture_capacity; ?>" placeholder="Enter a capacity">
 	</div>
 	</div>
-    <!-- End of Update lecture -->
-
-    <hr class="hr-separator">
+    <!-- End of Update lecture --
 
     <!-- Update tutorial -->
+
+    <h4 class="title-separator text-center">Tutorial</h4>
+    <hr class="hr-separator">
+
     <input type="hidden" name="tutorialid" id="tutorialid" value="<?php echo $tutorialid; ?>">
 
 	<div class="form-group">
@@ -322,6 +329,9 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <!-- End of Update tutorial -->
 
     <!-- Update exam -->
+
+    <h4 class="title-separator text-center">Exam</h4>
+    <hr class="hr-separator">
 
     <input type="hidden" name="examid" id="examid" value="<?php echo $examid; ?>">
 

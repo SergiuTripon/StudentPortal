@@ -917,6 +917,16 @@ textarea {
 }
 /* End of Accordion style */
 
+/* Admin */
+.breadcrumb-admin {
+    margin-bottom: 10px;
+}
+
+.btn-admin {
+    margin-bottom: 5px;
+}
+/* End of Admin */
+
 /* Separator */
 .title-separator {
     color: #3FAD46;
@@ -930,16 +940,6 @@ textarea {
     background: #3FAD46;
 }
 /* End of Separator */
-
-/* Admin */
-.breadcrumb .breadcrumb-admin {
-    margin-bottom: 10px;
-}
-
-.btn-success .btn-admin {
-    margin-bottom: 5px;
-}
-/* End of Admin */
 
 /* Calendar portal */
 #calendar-portal .page-header {
