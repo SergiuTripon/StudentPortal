@@ -632,9 +632,10 @@ textarea {
 
 /* Bootstrap Select */
 button.btn-mobileSelect-gen:not([class*=col-]):not([class*=form-control]):not(.input-group-btn):not(.btn-block) {
-    width: 100% !important;
-    margin-bottom: 10px;
+    font-size: 15px;
     padding: 10px;
+    margin-bottom: 10px;
+    width: 100% !important;
 }
 
 
