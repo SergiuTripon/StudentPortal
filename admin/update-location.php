@@ -292,14 +292,6 @@ if (isset($_GET["id"])) {
 
     var marker_category = $("#marker_category option:selected").val();
 
-    alert(markerid);
-    alert(marker_name);
-    alert(marker_notes);
-    alert(marker_url);
-    alert(marker_lat);
-    alert(marker_long);
-    alert(marker_category);
-
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
