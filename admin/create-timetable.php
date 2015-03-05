@@ -10,7 +10,7 @@ include '../includes/session.php';
 	<?php include '../assets/meta-tags.php'; ?>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
-    <?php include '../assets/css-paths/bootstrap-fullscreen-select-css-path.php'; ?>
+    <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Create timetable</title>
@@ -363,22 +363,13 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/bootstrap-fullscreen-select-js-path.php'; ?>
+    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function(){
-        $('.btn-mobileSelect-gen').attr('type', 'button');
-        $(".btn-mobileSelect-gen").css("color", "gray");
-    });
 
-    $('.lecture_lecturer').mobileSelect({
-        title: 'Lecturer'
-    });
-
-    $('.tutorial_assistant').mobileSelect({
-        title: 'Tutorial Assistant'
-    });
+    //Select
+    $('.selectpicker').selectpicker();
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
