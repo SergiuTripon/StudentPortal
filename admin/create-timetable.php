@@ -376,7 +376,7 @@ include '../includes/session.php';
     });
 
     $('.tutorial_assistant').mobileSelect({
-        title: 'Tutorial Assitant'
+        title: 'Tutorial Assistant'
     });
 
 	//Ladda
