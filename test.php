@@ -116,16 +116,7 @@ include 'includes/functions.php';
 	</div>
     </a>
 
-	<a href="../feedback/">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div class="tile">
-    <i class="fa fa-check-square-o"></i>
-	<p>Feedback</p>
-    </div>
-	</div>
-    </a>
-
-	<a href="../messenger/">
+    <a href="../messenger/">
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div class="tile">
     <i class="fa fa-comments"></i>
@@ -139,6 +130,15 @@ include 'includes/functions.php';
     <div class="tile">
     <i class="fa fa-user"></i>
 	<p>Account</p>
+    </div>
+	</div>
+    </a>
+
+	<a href="../feedback/">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="tile">
+    <i class="fa fa-check-square-o"></i>
+	<p>Feedback</p>
     </div>
 	</div>
     </a>
