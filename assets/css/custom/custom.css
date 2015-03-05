@@ -632,8 +632,6 @@ textarea {
 
 /* Bootstrap Select */
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
-    font-size: 15px;
-    padding: 10px;
     margin-bottom: 10px;
     width: 100% !important;
 }
@@ -1116,7 +1114,7 @@ textarea {
 /* End of Badge */
 
 /* Buttons */
-.btn, .btn:focus, .btn:hover {
+.btn, .btn:focus, .btn:hover, .btn:active, .btn.active {
     outline: none !important;
 }
 
