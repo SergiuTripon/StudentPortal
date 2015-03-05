@@ -631,7 +631,7 @@ textarea {
 /* End of Button group */
 
 /* Bootstrap Select */
-button.btn-mobileSelect-gen:not([class*=col-]):not([class*=form-control]):not(.input-group-btn):not(.btn-block) {
+.btn-mobileSelect-gen {
     font-size: 15px;
     padding: 10px;
     margin-bottom: 10px;
