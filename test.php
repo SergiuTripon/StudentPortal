@@ -293,7 +293,7 @@
     </div>
     <div class="timeline-panel">
     <div class="timeline-heading">
-    <h4 class="timeline-title">Calendar</h4>
+    <h4 class="timeline-title">Library</h4>
     </div>
     <div class="timeline-body">
     <p></p>
