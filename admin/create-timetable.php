@@ -422,7 +422,7 @@ include '../includes/session.php';
 
 	});
 
-    $(".bootstrap-select > .selectpicker").css("color", "gray");
+    $(".bootstrap-select > .selectpicker").css("cssText", "color: gray !important;");
 
     $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
         $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
