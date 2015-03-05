@@ -369,7 +369,7 @@ include '../includes/session.php';
 
 	<script>
     $(document).ready(function () {
-        $(".bootstrap-select > .selectpicker").css("cssText", "color: gray !important;");
+        $(".bootstrap-select > .selectpicker").css("cssText", "color: gray;");
     });
 
     $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
