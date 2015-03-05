@@ -639,7 +639,9 @@ textarea {
 }
 
 .btn-mobileSelect-gen:hover,
-.btn-mobileSelect-gen:focus {
+.btn-mobileSelect-gen:focus,
+.btn-mobileSelect-gen:active {
+    border: 1px solid #CCCCCC;
     background-color: #FFFFFF;
 }
 /* End of Bootstrap Select */
