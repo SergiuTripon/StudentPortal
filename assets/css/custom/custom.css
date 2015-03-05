@@ -692,6 +692,13 @@ textarea {
 }
 /* Bootstrap Select */
 
+.select-placeholder {
+    color: gray;
+}
+
+.select-text {
+    color: #333333;
+}
 
 /* End of Bootstrap Select */
 
