@@ -570,6 +570,7 @@ textarea {
 /* Button group */
 .btn-group, .btn-group-vertical {
     margin-bottom: 10px;
+    outline: none !important;
 }
 
 .btn-lg, .btn-group-lg > .btn {
