@@ -287,6 +287,18 @@ include '../includes/session.php';
     </form>
     <!-- End of Create timetable -->
 
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+                <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
+                <select class="mobileSelect tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
+                    <option value="pizza">Pizza</option>
+                    <option value="burger">Burger</option>
+                    <option value="tacos">Tacos</option>
+                    <option value="garlic-bread">Garlic Bread</option>
+                </select>
+            </div>
+        </div>
+
 	</div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
