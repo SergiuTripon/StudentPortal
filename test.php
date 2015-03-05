@@ -272,6 +272,8 @@ include 'includes/functions.php';
                                         </div>
                                     </div>
                                 </li>
+                                <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
+                                </div>
                                 <li class="timeline-inverted">
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
