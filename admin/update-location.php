@@ -219,6 +219,9 @@ if (isset($_GET["id"])) {
 	var hasError = false;
 
     //Locations
+
+    var markerid = $("#markerid").val();
+
 	var marker_name = $("#marker_name").val();
 	if(marker_name === '') {
         $("label[for='marker_name']").empty().append("Please enter a name.");
@@ -302,12 +305,13 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'marker_name='      + marker_name +
-         '&marker_notes='    + marker_notes +
-         '&marker_url='      + marker_url +
-         '&marker_lat='      + marker_lat +
-         '&marker_long='     + marker_long +
-         '&marker_category=' + marker_category,
+    data:'markerid='         + markerid +
+         '&marker_name1='     + marker_name +
+         '&marker_notes1='    + marker_notes +
+         '&marker_url1='      + marker_url +
+         '&marker_lat1='      + marker_lat +
+         '&marker_long1='     + marker_long +
+         '&marker_category1=' + marker_category,
 
     success:function(){
 		$("#error").hide();

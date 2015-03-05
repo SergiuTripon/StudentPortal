@@ -1889,6 +1889,58 @@ function CreateLocation() {
     }
 }
 
+//UpdateLocation function
+function UpdateLocation() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $markerid = filter_input(INPUT_POST, 'markerid', FILTER_SANITIZE_STRING);
+    $marker_name = filter_input(INPUT_POST, 'marker_name1', FILTER_SANITIZE_STRING);
+    $marker_notes = filter_input(INPUT_POST, 'marker_notes1', FILTER_SANITIZE_STRING);
+    $marker_url = filter_input(INPUT_POST, 'marker_url1', FILTER_SANITIZE_STRING);
+    $marker_lat = filter_input(INPUT_POST, 'marker_lat1', FILTER_SANITIZE_STRING);
+    $marker_long = filter_input(INPUT_POST, 'marker_long1', FILTER_SANITIZE_STRING);
+    $marker_category = filter_input(INPUT_POST, 'marker_category1', FILTER_SANITIZE_STRING);
+
+    // Check if event name is different
+    $stmt1 = $mysqli->prepare("SELECT marker_name FROM system_map_markers WHERE markerid = ?");
+    $stmt1->bind_param('i', $markerid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_marker_name);
+    $stmt1->fetch();
+
+    if ($db_marker_name === $marker_name) {
+
+        $stmt2 = $mysqli->prepare("UPDATE system_map_markers SET marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
+        $stmt2->bind_param('ssiissi', $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
+        $stmt2->execute();
+        $stmt2->close();
+
+    } else {
+
+        // Check existing event name
+        $stmt3 = $mysqli->prepare("SELECT markerid FROM system_map_markers WHERE marker_name = ?");
+        $stmt3->bind_param('s', $marker_name);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($db_markerid);
+        $stmt3->fetch();
+
+        if ($stmt3->num_rows == 1) {
+            $stmt3->close();
+            header('HTTP/1.0 550 A location with the name entered already exists.');
+            exit();
+        } else {
+            $stmt4 = $mysqli->prepare("UPDATE system_map_markers SET marker_name=?, marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
+            $stmt4->bind_param('sssiissi', $marker_name, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
+            $stmt4->execute();
+            $stmt4->close();
+        }
+    }
+}
+
 //DeactivateLocation function
 function DeactivateLocation() {
 

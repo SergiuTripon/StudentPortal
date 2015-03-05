@@ -293,6 +293,18 @@ elseif (isset(
     CreateLocation();
 }
 
+//Call UpdateLocation function
+elseif (isset(
+    $_POST['marker_id'],
+    $_POST['marker_name1'],
+    $_POST['marker_notes1'],
+    $_POST['marker_url1'],
+    $_POST['marker_lat1'],
+    $_POST['marker_long1'],
+    $_POST['marker_category1'])) {
+    UpdateLocation();
+}
+
 
 //Call DeactivateLocation function
 elseif (isset($_POST["locationToDeactivate"])) {
