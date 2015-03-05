@@ -543,7 +543,7 @@ textarea {
 
 .bootstrap-select > .btn-default:hover {
     color: #333333 !important;
-    border-color: #CCCCCC;
+    border-color: #CCCCCC !important;
     background-color: #FFFFFF !important;
 }
 
