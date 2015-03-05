@@ -212,7 +212,6 @@ if (isset($_GET["id"])) {
 	var hasError = false;
 
     //Locations
-
     var markerid = $("#markerid").val();
 
 	var marker_name = $("#marker_name").val();
