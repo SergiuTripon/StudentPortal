@@ -377,9 +377,7 @@ include '../includes/session.php';
 
     $( ".mobileSelect-control" ).click(function() {
         var lecture_lecturer_style = $("#lecture_lecturer option:selected").html();
-        if (lecture_lecturer_style === 'Select an option') {
-            $(".btn-mobileSelect-gen").css("color", "gray");
-        } else {
+        if (lecture_lecturer_style !== 'Select an option') {
             $(".btn-mobileSelect-gen").css("cssText", "color: #333333 !important;");
         }
     });
