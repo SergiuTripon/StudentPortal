@@ -369,7 +369,10 @@ include '../includes/session.php';
 	<script>
     $(document).ready(function(){
         $('.btn-mobileSelect-gen').attr('type', 'button');
-        var lecture_lecturer_style = $(".mobileSelect-contro.selected").html();
+        var lecture_lecturer_style = $(".mobileSelect-control.selected").html();
+
+        alert(lecture_lecturer_style);
+
         if (lecture_lecturer_style === 'Select an option') {
             $(".btn-mobileSelect-gen").removeClass("input-sad");
             $(".btn-mobileSelect-gen").addClass("input-happy");
