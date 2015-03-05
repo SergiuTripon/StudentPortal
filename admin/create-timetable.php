@@ -156,8 +156,6 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create lecture -->
 
-    <hr class="hr-separator">
-
     <!-- Create tutorial -->
     <h4 class="title-separator text-center">Tutorial</h4>
     <hr class="hr-separator">
