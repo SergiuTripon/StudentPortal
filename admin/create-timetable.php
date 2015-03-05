@@ -370,20 +370,17 @@ include '../includes/session.php';
     $(document).ready(function(){
         $('.btn-mobileSelect-gen').attr('type', 'button');
         var lecture_lecturer_style = $(".mobileSelect-control.selected").html();
-
-        alert(lecture_lecturer_style);
-
         if (lecture_lecturer_style === 'Select an option') {
-            $(".btn-mobileSelect-gen").removeClass("input-sad");
-            $(".btn-mobileSelect-gen").addClass("input-happy");
+            $(".btn-mobileSelect-gen").css("color", "gray");
         }
     });
 
-    $( ".mobileSelect-control" ).click(function() {
-        var lecture_lecturer_style = $("#lecture_lecturer option:selected").html();
+    $(".mobileSelect-control").click(function() {
+        var lecture_lecturer_style = $(".mobileSelect-control.selected").html();
         if (lecture_lecturer_style === 'Select an option') {
-            $(".btn-mobileSelect-gen").removeClass("input-happy");
-            $(".btn-mobileSelect-gen").addClass("input-sad");
+            $(".btn-mobileSelect-gen").css("color", "gray");
+        } else {
+            $(".btn-mobileSelect-gen").css("cssText", "color: #333333 !important;");
         }
     });
 
