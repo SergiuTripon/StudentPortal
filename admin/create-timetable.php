@@ -156,6 +156,8 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create lecture -->
 
+    <hr class="hr-separator">
+
     <!-- Create tutorial -->
     <h4 class="title-separator text-center">Tutorial</h4>
     <hr class="hr-separator">
@@ -369,22 +371,6 @@ include '../includes/session.php';
 
 	<script>
 	$(document).ready(function () {
-        $(".bootstrap-select > .selectpicker").css("cssText", "color: gray;");
-    });
-
-    $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
-        $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    $( ".lecture_day .dropdown-menu > li > a" ).click(function() {
-        $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-
-    $( ".tutorial_assistant .dropdown-menu > li > a" ).click(function() {
-        $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    $( ".tutorial_day .dropdown-menu > li > a" ).click(function() {
-        $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
@@ -445,6 +431,22 @@ include '../includes/session.php';
     });
 
 	});
+
+    $(".bootstrap-select > .selectpicker").css("cssText", "color: gray !important;");
+
+    $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
+        $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+    $( ".lecture_day .dropdown-menu > li > a" ).click(function() {
+        $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+
+    $( ".tutorial_assistant .dropdown-menu > li > a" ).click(function() {
+        $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+    $( ".tutorial_day .dropdown-menu > li > a" ).click(function() {
+        $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
@@ -953,6 +955,7 @@ include '../includes/session.php';
 
 	return true;
 
+	});
 	});
 	</script>
 
