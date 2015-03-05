@@ -489,8 +489,8 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
-        $("#lecture_lecturer").removeClass("input-happy");
-        $("#lecture_lecturer").addClass("input-sad");
+        $("#btn-mobileSelect-gen").removeClass("input-happy");
+        $("#btn-mobileSelect-gen").addClass("input-sad");
         hasError  = true;
         return false;
     }
@@ -498,8 +498,8 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("All good!");
         $("label[for='lecture_lecturer']").removeClass("feedback-sad");
         $("label[for='lecture_lecturer']").addClass("feedback-happy");
-        $("#lecture_lecturer").removeClass("input-sad");
-        $("#lecture_lecturer").addClass("input-happy");
+        $("#btn-mobileSelect-gen").removeClass("input-sad");
+        $("#btn-mobileSelect-gen").addClass("input-happy");
     }
 
     var lecture_day = $("#lecture_day").val();
