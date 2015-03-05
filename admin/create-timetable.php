@@ -373,16 +373,20 @@ include '../includes/session.php';
     });
 
     $( ".lecture_lecturer .dropdown-menu > li > a" ).click(function() {
+        $(".lecture_lecturer > .selectpicker").removeClass("select-placeholder");
         $(".lecture_lecturer > .selectpicker").addClass("select-text");
     });
     $( ".lecture_day .dropdown-menu > li > a" ).click(function() {
+        $(".lecture_day > .selectpicker").removeClass("select-placeholder");
         $(".lecture_day > .selectpicker").addClass("select-text");
     });
 
     $( ".tutorial_assistant .dropdown-menu > li > a" ).click(function() {
+        $(".tutorial_assistant > .selectpicker").removeClass("select-placeholder");
         $(".tutorial_assistant > .selectpicker").addClass("select-text");
     });
     $( ".tutorial_day .dropdown-menu > li > a" ).click(function() {
+        $(".tutorial_day > .selectpicker").removeClass("select-placeholder");
         $(".tutorial_day > .selectpicker").addClass("select-text");
     });
 
