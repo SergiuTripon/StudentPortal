@@ -100,7 +100,7 @@ include 'includes/functions.php';
 
     <a href="../university-map/">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-    <div class="tile">
+    <div class="tile large-tile">
     <i class="fa fa-map-marker"></i>
 	<p>University Map</p>
     </div>
