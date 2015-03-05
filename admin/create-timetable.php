@@ -371,8 +371,12 @@ include '../includes/session.php';
         $('.btn-mobileSelect-gen').attr('type', 'button');
     });
 
-    $('.mobileSelect').mobileSelect({
+    $('.lecturer').mobileSelect({
         title: 'Lecturer'
+    });
+
+    $('.tutorial_assistant').mobileSelect({
+        title: 'Tutorial Assitant'
     });
 
 	//Ladda
