@@ -637,6 +637,10 @@ textarea {
     margin-bottom: 10px;
     width: 100% !important;
 }
+
+.bootstrap-select > .btn:active, .bootstrap-select > .active.btn {
+    background-color: #CCCCCC !important;
+}
 /* End of Bootstrap Select */
 
 /* Tiles style */
