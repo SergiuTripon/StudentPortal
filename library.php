@@ -272,7 +272,6 @@ include 'includes/session.php';
 	<th>Copy no.</th>
 	<th>Status</th>
 	<th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
