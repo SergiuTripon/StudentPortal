@@ -297,7 +297,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'markerid='         + markerid +
+    data:'markerid='          + markerid +
          '&marker_name1='     + marker_name +
          '&marker_notes1='    + marker_notes +
          '&marker_url1='      + marker_url +
@@ -310,7 +310,7 @@ if (isset($_GET["id"])) {
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Location created successfully.');
+		$("#success").empty().append('Location updated successfully.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
