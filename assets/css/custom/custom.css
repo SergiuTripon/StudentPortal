@@ -663,7 +663,7 @@ textarea {
 }
 
 .input-sad {
-    border-color: #D9534F !important;
+    border-color: #D9534F;
 }
 
 .input-sad:hover {
@@ -680,7 +680,7 @@ textarea {
 }
 
 .input-happy {
-    border-color: #449D44 !important;
+    border-color: #449D44;
 }
 
 .input-happy:hover {
