@@ -249,11 +249,10 @@ include 'includes/functions.php';
     <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div id="overview-portal" class="container">
-
     <div class="row">
 
     <a href="../timetable/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
     <div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable</p>
@@ -262,7 +261,7 @@ include 'includes/functions.php';
     </a>
 
     <a href="../exams/">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
     <div class="tile">
 	<i class="fa fa-pencil"></i>
 	<p>Exams</p>
@@ -270,11 +269,11 @@ include 'includes/functions.php';
 	</div>
     </a>
 
-    <a href="../library/">
-    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-	<div class="tile">
-    <i class="fa fa-book"></i>
-	<p>Library</p>
+    <a href="../results/">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="tile">
+	<i class="fa fa-star"></i>
+	<p>Results</p>
     </div>
 	</div>
     </a>
@@ -288,6 +287,15 @@ include 'includes/functions.php';
 	</div>
     </a>
 
+    <a href="../library/">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+	<div class="tile">
+    <i class="fa fa-book"></i>
+	<p>Library</p>
+    </div>
+	</div>
+    </a>
+
     <a href="../calendar/">
 	<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<div class="tile">
@@ -297,17 +305,8 @@ include 'includes/functions.php';
 	</div>
     </a>
 
-    <a href="../events/">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div class="tile">
-	<i class="fa fa-ticket"></i>
-	<p>Events</p>
-    </div>
-	</div>
-    </a>
-
     <a href="../university-map/">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p>University Map</p>
@@ -315,17 +314,26 @@ include 'includes/functions.php';
 	</div>
     <a>
 
+    <a href="../events/">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="tile">
+	<i class="fa fa-ticket"></i>
+	<p>Events</p>
+    </div>
+	</div>
+    </a>
+
 	<a href="../feedback/">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
-    <p>Feedback<span class="badge"><?php echo ($feedback_admin_count == '0' ? "" : "$feedback_admin_count"); ?></span></p>
+	<p>Feedback<span class="badge"><?php echo ($feedback_admin_count == '0' ? "" : "$feedback_admin_count"); ?></span></p>
     </div>
 	</div>
     </a>
 
 	<a href="../messenger/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div class="tile">
     <i class="fa fa-comments"></i>
 	<p>Messenger<span class="badge"><?php echo ($messenger_count == '0' ? "" : "$messenger_count"); ?></span></p>
@@ -334,7 +342,7 @@ include 'includes/functions.php';
     </a>
 
 	<a href="../account/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div class="tile">
     <i class="fa fa-user"></i>
 	<p>Account</p>
@@ -343,7 +351,6 @@ include 'includes/functions.php';
     </a>
 	
 	</div><!-- /row -->
-    
 	</div><!-- /container -->
 
     <?php include 'includes/footers/footer.php'; ?>
