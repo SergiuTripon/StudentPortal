@@ -10,35 +10,31 @@
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <style>
-        #hexagon {
-            width: 100px;
-            height: 55px;
-            background: red;
+        .rhex {
             position: relative;
+            margin: 1em auto;
+            width: 10em; height: 17.32em;
+            border-radius: 1em/.5em;
+            opacity: .25;
+            background: orange;
+            transition: opacity .5s;
+            cursor: pointer;
         }
-        #hexagon:before {
-            content: "";
+        .rhex:before, .rhex:after {
             position: absolute;
-            top: -25px;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-bottom: 25px solid red;
-            border-radius: 5px;
+            width: inherit; height: inherit;
+            border-radius: inherit;
+            background: inherit;
+            content: '';
         }
-        #hexagon:after {
-            content: "";
-            position: absolute;
-            bottom: -25px;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-top: 25px solid red;
-            border-radius: 5px;
+        .rhex:before {
+            transform: rotate(60deg);
+        }
+        .rhex:after {
+            transform: rotate(-60deg);
+        }
+        .rhex:hover {
+            opacity: 1;
         }
     </style>
 
@@ -52,7 +48,7 @@
 
     <div id="overview-portal" class="container">
 
-    <div id="hexagon"></div>
+        <div class='rhex'></div>
 
 	</div> <!-- /container -->
 
