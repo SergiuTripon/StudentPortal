@@ -631,18 +631,11 @@ textarea {
 /* End of Button group */
 
 /* Bootstrap Select */
-.btn-mobileSelect-gen {
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
     font-size: 15px;
     padding: 10px;
     margin-bottom: 10px;
     width: 100% !important;
-}
-
-.btn-mobileSelect-gen:hover,
-.btn-mobileSelect-gen:focus,
-.btn-mobileSelect-gen:active {
-    border: 1px solid #CCCCCC;
-    background-color: #FFFFFF;
 }
 /* End of Bootstrap Select */
 
