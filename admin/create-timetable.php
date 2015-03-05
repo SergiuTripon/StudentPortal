@@ -45,8 +45,8 @@ include '../includes/session.php';
 
     <!-- Create module -->
 
-    <h4 class="text-center">Module</h4>
-    <hr class="hr-custom">
+    <h4 class="title-separator text-center">Module</h4>
+    <hr class="hr-separator">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -72,8 +72,8 @@ include '../includes/session.php';
 
     <!-- Create lecture -->
 
-    <h4 class="text-center">Lecture</h4>
-    <hr class="hr-custom">
+    <h4 class="title-separator text-center">Lecture</h4>
+    <hr class="hr-separator">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -160,8 +160,8 @@ include '../includes/session.php';
 
     <!-- Create tutorial -->
 
-    <h4 class="text-center">Tutorial</h4>
-    <hr class="hr-custom">
+    <h4 class="title-separator text-center">Tutorial</h4>
+    <hr class="hr-separator">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -247,8 +247,8 @@ include '../includes/session.php';
 
     <!-- Create exam -->
 
-    <h4 class="text-center">Exam</h4>
-    <hr class="hr-custom">
+    <h4 class="title-separator text-center">Exam</h4>
+    <hr class="hr-separator">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">

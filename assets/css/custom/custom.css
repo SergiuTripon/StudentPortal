@@ -917,50 +917,29 @@ textarea {
 }
 /* End of Accordion style */
 
-/* Timetable portal */
-#timetable-portal h3 {
-    color: #4582EC;
-}
-
-#timetable-portal .breadcrumb {
-    margin-bottom: 10px;
-}
-
-#timetable-portal .btn-success {
-    margin-bottom: 5px;
-}
-
-#timetable-portal hr {
-    margin-top: 0;
-    margin-bottom: 20px;
-    border-color: #4582EC;
-    background: #4582EC;
-}
-/* End of Timetable portal */
-
-/* Admin Timetable portal */
-#admin-timetable-portal h4 {
+/* Separator */
+.title-separator {
     color: #3FAD46;
     font-weight: 600;
     margin-top: 20px;
 }
-#admin-timetable-portal .hr-custom {
+.hr-separator {
     margin-top: 5px;
     margin-bottom: 20px;
     border-color: #3FAD46;
     background: #3FAD46;
 }
-/* End of Admin Timetable portal */
+/* End of Separator */
 
-/* Library portal */
-#library-portal .breadcrumb{
+/* Admin */
+.breadcrumb .breadcrumb-admin {
     margin-bottom: 10px;
 }
 
-#library-portal .btn{
+.btn-success .btn-admin {
     margin-bottom: 5px;
 }
-/* End of Library portal */
+/* End of Admin */
 
 /* Calendar portal */
 #calendar-portal .page-header {
@@ -1007,30 +986,9 @@ textarea {
 }
 /* End of Calendar portal */
 
-/* Events portal */
-#events-portal .breadcrumb{
-    margin-bottom: 10px;
-}
-
-#events-portal .btn-success {
-    margin-bottom: 5px;
-}
-/* End of Events portal */
-
 /* Account admin portal */
-#account-admin-portal h4 {
-    color: #449D44;
-    font-weight: 600;
-    margin-top: 20px;
-}
-#account-admin-portal hr {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border-color: #449D44;
-    background: #449D44;
-}
 #account-admin-portal .panel-group {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #account-admin-portal .panel-group .panel {
@@ -1039,51 +997,9 @@ textarea {
 
 #account-admin-portal .panel-title {
     color: #FFFFFF;
-    margin-top: 0px;
+    margin-top: 0;
 }
 /* End of Account admin portal */
-
-/* Results portal */
-#results-portal h4 {
-    color: #3FAD46;
-    font-weight: 600;
-    margin-top: 20px;
-}
-#results-portal .hr-custom {
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border-color: #3FAD46;
-    background: #3FAD46;
-}
-/* End of Results portal */
-
-/* Feedback portal */
-#feedback-portal h4 {
-    color: #3FAD46;
-    font-weight: 600;
-    margin-top: 20px;
-}
-#feedback-portal .hr-custom {
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border-color: #3FAD46;
-    background: #3FAD46;
-}
-/* End of Feedback portal */
-
-/* Messenger portal */
-#messenger-portal h4 {
-    color: #3FAD46;
-    font-weight: 600;
-    margin-top: 20px;
-}
-#messenger-portal .hr-custom {
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border-color: #3FAD46;
-    background: #3FAD46;
-}
-/* End of Messenger portal */
 
 /* University map */
 #university-map-portal form {
@@ -1109,14 +1025,6 @@ textarea {
 #university-map-portal #map {
     height: 100%;
     width: 100%;
-}
-
-#university-map-portal .breadcrumb{
-    margin-bottom: 10px;
-}
-
-#university-map-portal .btn-success {
-    margin-bottom: 5px;
 }
 
 @media (max-width: 480px) {
