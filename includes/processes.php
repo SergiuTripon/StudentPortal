@@ -295,7 +295,7 @@ elseif (isset(
 
 //Call UpdateLocation function
 elseif (isset(
-    $_POST['marker_id'],
+    $_POST['markerid'],
     $_POST['marker_name1'],
     $_POST['marker_notes1'],
     $_POST['marker_url1'],
