@@ -593,6 +593,7 @@ textarea {
     color: #333333;
     background-color: #FFFFFF;
     border-color: #CCCCCC;
+    outline: none !important;
 }
 
 .btn-group > .btn:active, .btn-group > .active.btn {
