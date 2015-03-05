@@ -49,7 +49,7 @@ include 'includes/functions.php';
     <div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable<span class="badge"><?php echo ($timetable_count == '0' ? "" : "$timetable_count"); ?></span></p>
-    <div class="tile-footer">
+    <div class="tile-footer large-tile-footer">
     <p>Timetable<span class="badge"><?php echo ($timetable_count == '0' ? "" : "$timetable_count"); ?></span></p>
     </div>
     </div>
@@ -61,6 +61,9 @@ include 'includes/functions.php';
     <div class="tile">
 	<i class="fa fa-pencil"></i>
 	<p>Exams<span class="badge"><?php echo ($exams_count == '0' ? "" : "$exams_count"); ?></span></p>
+    <div class="tile-footer large-tile-footer">
+    <p>Exams<span class="badge"><?php echo ($exams_count == '0' ? "" : "$exams_count"); ?></span></p>
+    </div>
     </div>
 	</div>
     </a>
