@@ -635,6 +635,13 @@ textarea {
     margin-bottom: 10px;
     width: 100% !important;
 }
+
+.bootstrap-select,
+.bootstrap-select:hover,
+.bootstrap-select:focus,
+.bootstrap-select:active {
+    outline: none !important;
+}
 /* End of Bootstrap Select */
 
 /* Tiles style */
