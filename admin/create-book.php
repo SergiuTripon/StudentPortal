@@ -43,19 +43,17 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book name</label>
+	<label for="book_name">Book name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_name" id="book_name" placeholder="Enter a name">
 	</div>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book author</label>
+	<label for="book_author">Book author<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_author" id="book_author" placeholder="Enter an author">
 	</div>
 	</div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -66,7 +64,7 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book copy number</label>
+	<label for="book_copy_no">Book copy number<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_copy_no" id="book_copy_no" placeholder="Enter a copy number">
 	</div>
 	</div>
@@ -168,40 +166,58 @@ include '../includes/session.php';
     //Modules
 	var book_name = $("#book_name").val();
 	if(book_name === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a name.");
-		$("#book_name").addClass("error-style");
+        $("label[for='book_name']").empty().append("Please enter a name.");
+        $("label[for='book_name']").removeClass("feedback-happy");
+        $("label[for='book_name']").addClass("feedback-sad");
+        $("#book_name").removeClass("input-happy");
+        $("#book_name").addClass("input-sad");
+        $("#book_name").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
-		$("#book_name").addClass("success-style");
+        $("label[for='book_name']").empty().append("All good!");
+        $("label[for='book_name']").removeClass("feedback-sad");
+        $("label[for='book_name']").addClass("feedback-happy");
+        $("#book_name").removeClass("input-sad");
+        $("#book_name").addClass("input-happy");
 	}
 
     var book_author = $("#book_author").val();
 	if(book_author === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter an author.");
-		$("#book_author").addClass("error-style");
+        $("label[for='book_author']").empty().append("Please enter a name.");
+        $("label[for='book_author']").removeClass("feedback-happy");
+        $("label[for='book_author']").addClass("feedback-sad");
+        $("#book_author").removeClass("input-happy");
+        $("#book_author").addClass("input-sad");
+        $("#book_author").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error1").hide();
-		$("#book_author").addClass("success-style");
+        $("label[for='book_author']").empty().append("All good!");
+        $("label[for='book_author']").removeClass("feedback-sad");
+        $("label[for='book_author']").addClass("feedback-happy");
+        $("#book_author").removeClass("input-sad");
+        $("#book_author").addClass("input-happy");
 	}
 
     var book_notes = $("#book_notes").val();
 
     var book_copy_no = $("#book_copy_no").val();
 	if(book_copy_no === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a copy number.");
-		$("#book_copy_no").addClass("error-style");
+        $("label[for='book_copy_no']").empty().append("Please enter a number.");
+        $("label[for='book_copy_no']").removeClass("feedback-happy");
+        $("label[for='book_copy_no']").addClass("feedback-sad");
+        $("#book_copy_no").removeClass("input-happy");
+        $("#book_copy_no").addClass("input-sad");
+        $("#book_copy_no").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
-		$("#book_copy_no").addClass("success-style");
+        $("label[for='book_copy_no']").empty().append("All good!");
+        $("label[for='book_copy_no']").removeClass("feedback-sad");
+        $("label[for='book_copy_no']").addClass("feedback-happy");
+        $("#book_copy_no").removeClass("input-sad");
+        $("#book_copy_no").addClass("input-happy");
 	}
 
 	if(hasError == false){
