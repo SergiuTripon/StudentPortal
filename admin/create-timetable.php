@@ -9,12 +9,12 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
+    <title>Student Portal | Create timetable</title>
+
     <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
-    <title>Student Portal | Create timetable</title>
-	
 </head>
 
 <body>
@@ -27,7 +27,7 @@ include '../includes/session.php';
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
 
-	<div id="admin-timetable-portal" class="container">
+	<div class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -155,8 +155,6 @@ include '../includes/session.php';
 	</div>
 	</div>
     <!-- End of Create lecture -->
-
-    <hr class="hr-separator">
 
     <!-- Create tutorial -->
     <h4 class="title-separator text-center">Tutorial</h4>
@@ -370,85 +368,49 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
+    //On load
 	$(document).ready(function () {
-        $(".bootstrap-select > .selectpicker").css("cssText", "color: gray !important;");
 
-        $(".lecture_lecturer .dropdown-menu > li > a").click(function () {
-            $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
-        });
-        $(".lecture_day .dropdown-menu > li > a").click(function () {
-            $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
-        });
+    //Select box
+    $(".bootstrap-select > .selectpicker").css("cssText", "color: gray !important;");
 
-        $(".tutorial_assistant .dropdown-menu > li > a").click(function () {
-            $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
-        });
-        $(".tutorial_day .dropdown-menu > li > a").click(function () {
-            $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
-        });
+    $(".lecture_lecturer .dropdown-menu > li > a").click(function () {
+        $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
     });
+    $(".lecture_day .dropdown-menu > li > a").click(function () {
+        $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+
+    $(".tutorial_assistant .dropdown-menu > li > a").click(function () {
+        $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+    $(".tutorial_day .dropdown-menu > li > a").click(function () {
+        $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
+    });
+    });
+
+    //Select box
+    $('.selectpicker').selectpicker();
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $('.selectpicker').selectpicker();
-
     // Date Time Picker
     var today = new Date();
 	$(function () {
-	$('#lecture_from_time').timepicker({
-        controlType: 'select'
-    });
-
-    $('#lecture_to_time').timepicker({
-        controlType: 'select'
-    });
-
-    $('#lecture_from_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-    });
-    $('#lecture_to_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-    });
-
-    $('#tutorial_from_time').timepicker({
-        controlType: 'select'
-    });
-
-    $('#tutorial_to_time').timepicker({
-        controlType: 'select'
-    });
-
-    $('#tutorial_from_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-    });
-
-    $('#tutorial_to_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-
-    });
-
-    $('#exam_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-    });
-
-    $('#exam_time').timepicker({
-        controlType: 'select'
-    });
-
+	$('#lecture_from_time').timepicker({ controlType: 'select' });
+    $('#lecture_to_time').timepicker({ controlType: 'select' });
+    $('#lecture_from_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
+    $('#lecture_to_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
+    $('#tutorial_from_time').timepicker({ controlType: 'select' });
+    $('#tutorial_to_time').timepicker({ controlType: 'select' });
+    $('#tutorial_from_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
+    $('#tutorial_to_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
+    $('#exam_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
+    $('#exam_time').timepicker({ controlType: 'select' });
 	});
 
-    //Ajax call
+    //Create timetable ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	

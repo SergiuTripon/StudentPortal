@@ -725,7 +725,7 @@ textarea {
 /* Error message */
 .feedback-sad {
     color: #D9534F !important;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     margin-bottom: 0;
 }
@@ -742,7 +742,7 @@ textarea {
 /* Success message */
 .feedback-happy {
     color: #449D44 !important;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     margin-bottom: 0;
 }
