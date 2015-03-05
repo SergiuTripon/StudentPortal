@@ -44,6 +44,10 @@ include '../includes/session.php';
 	<div id="hide">
 
     <!-- Create module -->
+
+    <h4 class="text-center">Module</h4>
+    <hr class="hr-custom">
+
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="module_name">Module name<span class="field-required">*</span></label>
@@ -66,9 +70,11 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create module -->
 
-    <hr class="hr-separator">
-
     <!-- Create lecture -->
+
+    <h4 class="text-center">Lecture</h4>
+    <hr class="hr-custom">
+
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="lecture_name">Lecture name<span class="field-required">*</span></label>
@@ -152,9 +158,11 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create lecture -->
 
-    <hr class="hr-separator">
-
     <!-- Create tutorial -->
+
+    <h4 class="text-center">Tutorial</h4>
+    <hr class="hr-custom">
+
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="tutorial_name">Tutorial name</label>
@@ -238,6 +246,10 @@ include '../includes/session.php';
     <!-- End of Create tutorial -->
 
     <!-- Create exam -->
+
+    <h4 class="text-center">Exam</h4>
+    <hr class="hr-custom">
+
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="exam_name">Exam name<span class="field-required">*</span></label>
