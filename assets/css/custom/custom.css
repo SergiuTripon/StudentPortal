@@ -157,7 +157,6 @@ hr {
     background-color: #4582EC;
 }
 
-.btn-primary.dropdown-toggle,
 .open > .btn-primary.dropdown-toggle {
     color: #FFFFFF;
     border-right-color: #4582EC;
@@ -170,8 +169,7 @@ hr {
 .btn-primary:focus,
 .focus.btn-primary,
 .btn-primary:active,
-.active.btn-primary,
-.open > .btn-primary.dropdown-toggle {
+.active.btn-primary {
     color: #FFFFFF;
     border-color: #1863E6;
     background-color: #1863E6;
