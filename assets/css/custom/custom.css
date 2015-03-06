@@ -1145,6 +1145,7 @@ div.dataTables_filter input {
 
 div.dataTables_length select {
     height: auto;
+    vertical-align: inherit;
 }
 
 div.dataTables_filter label {
