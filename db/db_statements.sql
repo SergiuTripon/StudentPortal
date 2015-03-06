@@ -52,6 +52,7 @@ CREATE TABLE `user_details` (
   `city` VARCHAR(70),
   `country` VARCHAR(70),
   `postcode` VARCHAR(70),
+  `user_status` VARCHAR(9) NOT NULL,
   `created_on` DATETIME NOT NULL,
   `updated_on` DATETIME,
 FOREIGN KEY (userid)

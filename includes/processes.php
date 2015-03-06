@@ -385,9 +385,19 @@ elseif (isset($_POST["password3"])) {
 	ChangePassword();
 }
 
+//Call DeactivateAccount function
+elseif (isset($_POST['userToDeactivate'])) {
+    DeactivateUser();
+}
+
+//Call ReactivateAccount function
+elseif (isset($_POST['userToReactivate'])) {
+    ReactivateUser();
+}
+
 //Call DeleteAccount function
-elseif (isset($_POST['accountToDelete'])) {
-	DeleteAccount();
+elseif (isset($_POST['userToDelete'])) {
+	DeleteUser();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

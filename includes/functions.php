@@ -180,8 +180,10 @@ function RegisterUser() {
 	$stmt2->close();
 
     //Creating user details
-	$stmt3 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, created_on) VALUES (?, ?, ?, ?)");
-	$stmt3->bind_param('ssss', $firstname, $surname, $gender, $created_on);
+    $user_status = 'active';
+
+	$stmt3 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, user_status, created_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt3->bind_param('sssss', $firstname, $surname, $gender, $user_status, $created_on);
 	$stmt3->execute();
 	$stmt3->close();
 
@@ -2841,32 +2843,79 @@ function ChangeAccountPassword() {
 	}
 }
 
-//DeleteAnAccount function
-function DeleteAnAccount() {
+//DeactivateUser function
+function DeactivateUser() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $userToDeactivate = filter_input(INPUT_POST, 'userToDeactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $user_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_details SET user_status=?, updated_on=? WHERE userid = ?");
+    $stmt1->bind_param('ssi', $user_status, $updated_on, $userToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//ReactivateUser function
+function ReactivateUser() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $userToReactivate = filter_input(INPUT_POST, 'userToReactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $user_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_details SET user_status=?, updated_on=? WHERE userid = ?");
+    $stmt1->bind_param('ssi', $user_status, $updated_on, $userToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeleteUser function
+function DeleteUser() {
 
     global $mysqli;
 
     $userToDelete = filter_input(INPUT_POST, 'userToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_messages_lookup WHERE message_from = ?");
     $stmt1->bind_param('i', $userToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("DELETE FROM user_messages WHERE userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("DELETE FROM user_messages_lookup WHERE message_to = ?");
     $stmt2->bind_param('i', $userToDelete);
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("DELETE FROM user_messages WHERE message_to = ? LIMIT 1");
+    $stmt3 = $mysqli->prepare("DELETE FROM user_feedback_lookup WHERE feedback_from = ?");
     $stmt3->bind_param('i', $userToDelete);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = ? LIMIT 1");
+    $stmt4 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = ?");
     $stmt4->bind_param('i', $userToDelete);
     $stmt4->execute();
     $stmt4->close();
+
+    $stmt5 = $mysqli->prepare("DELETE FROM reserved_books WHERE userid = ?");
+    $stmt5->bind_param('i', $userToDelete);
+    $stmt5->execute();
+    $stmt5->close();
+
+    $stmt6 = $mysqli->prepare("DELETE FROM booked_events WHERE userid = ?");
+    $stmt6->bind_param('i', $userToDelete);
+    $stmt6->execute();
+    $stmt6->close();
+
+    $stmt7 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+    $stmt7->bind_param('i', $userToDelete);
+    $stmt7->execute();
+    $stmt7->close();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////

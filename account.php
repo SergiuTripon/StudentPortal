@@ -232,34 +232,35 @@ include 'includes/session.php';
             <td data-title="Updated on">'.$updated_on.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/update-an-account?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/change-account-password?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
 			</tr>
 
-    		<div class="modal modal-custom fade" id="modal-'.$userid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div id="deactivate-'.$userid.'" class="modal modal-custom fade" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-user-times"></i>
 			</div>
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="feedback-custom text-center">Are you sure you want to delete this account?</p>
+			<p id="deactivate-question" class="feedback-sad text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
+            <p id="deactivate-question" class="feedback-happy text-center">'.$firstname.' '.$surname.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide">
+			<div id="deactivate-hide">
 			<div class="pull-left">
-			<a id="delete-'.$userid.'" class="btn btn-danger btn-lg delete-button1 ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$userid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -381,7 +382,6 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
-	$(document).ready(function () {
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
@@ -397,7 +397,73 @@ include 'includes/session.php';
 		}
 	});
 
-	//Delete an account ajax call
+	//Deactivate record
+	$("body").on("click", ".deactivate-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var userToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'userToDeactivate='+ userToDeactivate,
+	success:function(){
+		$('#user-'+userToDeactivate).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-question').hide();
+        $('#deactivate-confirmation').show();
+        $('#deactivate-hide').hide();
+        $('#deactivate-success-button').show();
+        $("#deactivate-success-button").click(function () {
+            location.reload();
+        });
+    },
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#success").hide();
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+    });
+
+    //Reactivate record
+	$("body").on("click", ".reactivate-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var userToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'userToReactivate='+ userToReactivate,
+	success:function(){
+		$('#user-'+userToReactivate).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#reactivate-question').hide();
+        $('#reactivate-confirmation').show();
+        $('#reactivate-hide').hide();
+        $('#reactivate-success-button').show();
+        $("#reactivate-success-button").click(function () {
+            location.reload();
+        });
+    },
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#success").hide();
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+    });
+
+    //Delete record
 	$("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
@@ -411,17 +477,16 @@ include 'includes/session.php';
 	data:'userToDelete='+ userToDelete,
 	success:function(){
 		$('#user-'+userToDelete).fadeOut();
-		$('#hide').hide();
-		$('.form-logo i').removeClass('fa-trash');
-		$('.form-logo i').addClass('fa-check-square-o');
-		$('.modal-body p').css("cssText", "color: #3FAD46;");
-		$('.modal-body p').empty().append('The account has been deleted successfully.');
-		$('#success-button').show();
-		$("#success-button").click(function () {
-        location.reload();
-		});
-	},
-
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-question').hide();
+        $('#delete-confirmation').show();
+        $('#delete-hide').hide();
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
+            location.reload();
+        });
+    },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();
@@ -429,11 +494,7 @@ include 'includes/session.php';
 	}
 
 	});
-
     });
-
-    });
-
     </script>
 
 </body>
