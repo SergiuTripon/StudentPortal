@@ -133,6 +133,10 @@ hr {
 /* End of Spacing helpers */
 
 /* Buttons */
+.btn {
+    border-radius: 3px;
+}
+
 .btn, .btn:focus, .btn:hover, .btn:focus, .btn:active, .btn.active {
     outline: none !important;
 }
@@ -1137,7 +1141,7 @@ textarea {
 
 .container .calendar-buttons > .btn-group,
 .container .calendar-buttons > .btn-group-vertical {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
