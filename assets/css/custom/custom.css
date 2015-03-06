@@ -1142,6 +1142,10 @@ div.dataTables_filter input {
     width: auto;
 }
 
+div.dataTables_length select {
+    height: auto;
+}
+
 
 .pagination > .active > a,
 .pagination > .active > span,
