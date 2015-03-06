@@ -164,7 +164,7 @@ if (isset($_GET['id'])) {
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-deactivate">
+			<div id="deactivate-hide">
 			<div class="pull-left">
 			<a id="deactivate-'.$resultid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
