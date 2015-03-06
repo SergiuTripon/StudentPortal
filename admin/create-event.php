@@ -70,7 +70,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="event_from" id="event_from" placeholder="Select a date and time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="event_to">To<span class="field-required"></span></label>
+	<label for="event_to">To<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="event_to" id="event_to" placeholder="Select a date and time">
 	</div>
 	</div>
@@ -81,7 +81,7 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="event_amount" id="event_amount" placeholder="Enter an amount">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="event_ticket_no">Tickets available</label>
+	<label for="event_ticket_no">Tickets available<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" placeholder="Enter a number">
 	</div>
 	</div>
