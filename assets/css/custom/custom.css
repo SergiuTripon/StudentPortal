@@ -231,7 +231,6 @@ hr {
     background-color: #1863E6;
 }
 /* End of Buttons */
-
 /* End of Global */
 
 /* Navbar */
@@ -643,63 +642,22 @@ textarea {
 }
 /* End of Button group */
 
-/* Bootstrap Select */
-.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
-    width: 100%;
-    margin-bottom: 10px;
+/* Form Logo */
+.form-logo i {
+    font-size: 80px;
+    color: #2AABD2;
+    text-align: center;
+    cursor: default;
 }
+/* End of Form Logo */
 
-.bootstrap-select .btn:focus {
-    outline: none !important;
+/* Required field */
+.field-required {
+    font-size: 15px;
+    color: #D9534F;
+    font-weight: 800;
 }
-
-.bootstrap-select  > .btn:active, .bootstrap-select > .active.btn {
-    box-shadow: none;
-    border: 1px solid #8A8A8A;
-    background-color: #FFFFFF !important;
-}
-
-.bootstrap-select > .btn-default:hover {
-    color: #333333;
-    border-color: #CCCCCC;
-    background-color: #FFFFFF;
-}
-
-.bootstrap-select > .btn-default:focus {
-    color: #333333;
-    border-color: #8A8A8A;
-    background-color: #FFFFFF;
-}
-
-.selectpicker:focus,
-.selectpicker.focus,
-.selectpicker:active,
-.selectpicker.active,
-.open >.dropdown-toggle.selectpicker {
-    color: #333333;
-    border-color: #8A8A8A;
-    background-color: #FFFFFF;
-}
-
-.selectpicker:hover {
-    color: gray;
-}
-
-.bootstrap-select .dropdown-menu {
-    background-color: #FFFFFF;
-}
-
-.bootstrap-select .dropdown-menu > li > a {
-    color: #333333;
-    background-color: #FFFFFF;
-}
-
-.bootstrap-select .dropdown-menu > li > a:hover,
-.bootstrap-select .dropdown-menu > li > a:focus {
-    color: #333333;
-    background-color: #CCCCCC;
-}
-/* End of Bootstrap Select */
+/* End of Required field */
 
 /* Error message */
 .feedback-sad {
@@ -710,10 +668,6 @@ textarea {
 }
 
 .input-sad {
-    border-color: #D9534F;
-}
-
-.input-sad.btn-default:hover {
     border-color: #D9534F;
 }
 /* End of Error message */
@@ -730,26 +684,7 @@ textarea {
     border-color: #449D44;
 }
 
-.input-happy.btn-default:hover {
-    border-color: #449D44;
-}
 /* End of Success message */
-
-/* Required field */
-.field-required {
-    font-size: 15px;
-    color: #D9534F;
-    font-weight: 800;
-}
-
-/* Form Logo */
-.form-logo i {
-    font-size: 80px;
-    color: #2AABD2;
-    text-align: center;
-    cursor: default;
-}
-/* End of Form Logo */
 
 /* Tiles style */
 .tile {
@@ -859,7 +794,7 @@ textarea {
 /* Modal help */
 #modal-help .modal-content {
     border-color: #333333;
-    background-color: #E9DDC6;
+    background: #E9DDC6 url(../../img/bg/background.png);
 }
 
 #modal-help .modal-header {
