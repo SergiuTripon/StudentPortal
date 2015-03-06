@@ -534,7 +534,7 @@ form {
     border: 1px solid #B8B8B8;
 }
 
-.form-control {
+form .form-control {
     color: #333333;
     font-size: 15px;
     z-index: 30;
@@ -597,7 +597,7 @@ form textarea {
 }
 
 /* Overwrites box shadow effect */
-.form-control:focus {
+form .form-control:focus {
     border-color: #8A8A8A !important;
     box-shadow:         inset 0 0 5px rgba(93, 93, 93, 1);
     -moz-box-shadow:    inset 0 0 5px rgba(93, 93, 93, 1);
@@ -606,38 +606,38 @@ form textarea {
 }
 
 /* Remember Password hack (Chrome) */
-.form-control:-webkit-autofill {
+form .form-control:-webkit-autofill {
     -webkit-text-fill-color: #333333;
     -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset;
 }
 
-.form-control:-webkit-autofill:focus {
+form .form-control:-webkit-autofill:focus {
     -webkit-text-fill-color: #333333;
     -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset;
 }
 /* End of Remember Password hack (Chrome) */
 
 /* Placeholder */
-.form-control::-webkit-input-placeholder {
+form .form-control::-webkit-input-placeholder {
     color: gray;
 }
 
-.form-control:-moz-placeholder {
+form .form-control:-moz-placeholder {
     color: gray;
 }
 
-.form-control::-moz-placeholder {
+form .form-control::-moz-placeholder {
     color: gray;
 }
 
-.form-control:-ms-input-placeholder {
+form .form-control:-ms-input-placeholder {
     color: gray;
 }
 /* End of Placeholder */
 /* End of Form */
 
 /* Button group */
-.btn-group, .btn-group-vertical {
+form .btn-group, .btn-group-vertical {
     margin-bottom: 10px;
 }
 /* End of Button group */
