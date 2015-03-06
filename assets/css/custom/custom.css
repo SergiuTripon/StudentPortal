@@ -767,12 +767,12 @@ textarea {
 }
 
 .modal-custom .close, .close:hover, .close:focus {
+    opacity: 1;
+    color: #333333;
     font-size: 30px;
     cursor: pointer;
-    outline: none !important;
-    opacity: 1;
     text-shadow: none;
-    color: #333333;
+    outline: none !important;
 }
 .modal-custom .modal-header {
     border-color: #CCCCCC;
@@ -790,60 +790,6 @@ textarea {
     border-color: #CCCCCC;
 }
 /* End of Modal style */
-
-/* Modal help */
-#modal-help .modal-content {
-    border-color: #333333;
-    background: #E9DDC6 url(../../img/bg/background.png);
-}
-
-#modal-help .modal-header {
-    border-color: #333333;
-}
-
-#modal-help .modal-footer {
-    border-color: #333333;
-}
-
-#modal-help .modal-title {
-    color: #333333;
-}
-
-#modal-help .modal-body p {
-    color: #333333;
-}
-
-#modal-help .close, .close:hover, .close:focus {
-    color: #333333;
-}
-/* End of Modal help */
-
-/* Modal features */
-#modal-features .modal-content {
-    border-color: #449D44;
-    background-color: #5CB85C;
-}
-
-#modal-features .modal-header {
-    border-color: #FFFFFF;
-}
-
-#modal-features .modal-footer {
-    border-color: #FFFFFF;
-}
-
-#modal-features .modal-title {
-    color: #FFFFFF;
-}
-
-#modal-features .modal-body p {
-    color: #FFFFFF;
-}
-
-#modal-features .close, .close:hover, .close:focus {
-    color: #FFFFFF;
-}
-/* End of Modal features */
 
 /* Accordion style */
 .panel-group .panel {
