@@ -759,7 +759,7 @@ textarea {
 .modal-custom .modal-content {
     border: none;
     border-radius: 3px;
-    background-color: #FFFFFF;
+    background: #E9DDC6 url(../../img/bg/background.png);
 }
 
 .modal-custom .modal-header .close {
@@ -774,20 +774,20 @@ textarea {
     text-shadow: none;
     color: #333333;
 }
-.modal-header {
+.modal-custom .modal-header {
     border-color: #CCCCCC;
 }
 
-.modal-footer {
+.modal-custom .modal-title {
+    color: #333333;
+}
+
+.modal-custom .modal-body p {
+    color: #333333;
+}
+
+.modal-custom .modal-footer {
     border-color: #CCCCCC;
-}
-
-.modal-title {
-    color: #333333;
-}
-
-.modal-body p {
-    color: #333333;
 }
 /* End of Modal style */
 
