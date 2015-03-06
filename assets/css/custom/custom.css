@@ -1144,6 +1144,12 @@ div.dataTables_filter input {
     width: auto;
 }
 
+@media (max-width: 280px) {
+div.dataTables_filter input {
+    width: auto;
+}
+}
+
 div.dataTables_length select {
     height: auto;
 }
