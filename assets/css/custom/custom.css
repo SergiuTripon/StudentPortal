@@ -808,30 +808,36 @@ textarea {
     border-color: #1863E6;
 }
 
+/*Removes top spacing */
 .panel-group .panel + .panel {
     margin-top: 0;
 }
 
+/*Sets border color */
 .panel .panel-default {
     border-color: #4582EC;
 }
 
+/*Sets background and text color */
 .panel-default>.panel-heading {
     color: #FFFFFF;
     background-color: #4582EC;
     border-color: #1863E6;
 }
 
+/* Sets panel title font size */
 .panel-title {
     font-size: 15px;
 }
 
+/* Sets background and text color of the panel content */
 .panel-default>.panel-heading+.panel-collapse>.panel-body {
     color: #333333;
     background-color: #F8F8F8;
     border-color: #1863E6;
 }
 
+/* Styles collapse toggle */
 #headingOne .accordion-toggle:before {
     font-family: FontAwesome;
     content: "\f078";
@@ -1131,38 +1137,6 @@ textarea {
 }
 /* End of Table Custom style */
 
-/* dataTables */
-.pagination > .active > a,
-.pagination > .active > span,
-.pagination > .active > a:hover,
-.pagination > .active > span:hover,
-.pagination > .active > a:focus,
-.pagination > .active > span:focus {
-    border-color: #5D5D5D;
-    background-color: #5D5D5D;
-}
-
-.pagination > li > a,
-.pagination > li > span {
-    color: #333333;
-}
-
-.pagination > li > a:hover,
-.pagination > li > span:hover,
-.pagination > li > a:focus,
-.pagination > li > span:focus {
-    color: #333333;
-}
-
-.pagination > .disabled > span,
-.pagination > .disabled > span:hover,
-.pagination > .disabled > span:focus,
-.pagination > .disabled > a,
-.pagination > .disabled > a:hover,
-.pagination > .disabled > a:focus {
-    color: #CCCCCC;
-}
-/* End of dataTables */
 
 /* No More Responsive Table */
 @media only screen and (max-width: 992px) {
