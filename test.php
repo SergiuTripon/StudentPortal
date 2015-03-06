@@ -378,22 +378,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="lab_item">
-                    <div class="hexagon hexagon2">
-                        <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/280/300);">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lab_item">
-                    <div class="hexagon hexagon2">
-                        <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/290/300);">
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
 
