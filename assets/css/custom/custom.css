@@ -212,9 +212,13 @@ hr {
 
 .btn-action > .dropdown-toggle:hover,
 .btn-action > .dropdown-toggle:focus,
-.btn-action > .dropdown-toggle.focus,
-.btn-action > .dropdown-toggle:active,
-.btn-action > .dropdown-toggle.active {
+.btn-action > .dropdown-toggle:active {
+    border: 1px solid #1863E6;
+    background-color: #1863E6;
+}
+
+.btn-action > .btn:active,
+.btn-action > .active.btn {
     border: 1px solid #1863E6;
     background-color: #1863E6;
 }
