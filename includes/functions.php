@@ -2688,8 +2688,10 @@ function CreateAnAccount() {
         $dateofbirth = NULL;
     }
 
-    $stmt5 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, studentno, degree, nationality, dateofbirth, phonenumber, address1, address2, town, city, country, postcode, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt5->bind_param('sssisssssssssss', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $created_on);
+    $user_status = 'active';
+
+    $stmt5 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, studentno, degree, nationality, dateofbirth, phonenumber, address1, address2, town, city, country, postcode, user_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt5->bind_param('sssisssssssssss', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $user_status, $created_on);
     $stmt5->execute();
     $stmt5->close();
 
