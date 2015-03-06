@@ -159,7 +159,7 @@ if (isset($_GET['id'])) {
 			</div>
 
 			<div class="modal-body">
-			<p id="deactivate-success" class="text-center feedback-sad">Are you sure you want to deactivate this result for '.$module_name.'?</p>
+			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to deactivate this result for '.$module_name.'?</p>
             <p id="deactivate-confirmation" style="display: none;" class="text-center feedback-happy">The result for '.$module_name.' has been deactivated successfully.</p>
 			</div>
 
@@ -261,7 +261,7 @@ if (isset($_GET['id'])) {
 			</div>
 
 			<div class="modal-body">
-			<p id="reactivate-success" class="text-center feedback-sad">Are you sure you want to reactivate this result for '.$module_name.'?</p>
+			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to reactivate this result for '.$module_name.'?</p>
             <p id="reactivate-confirmation" style="display: none;" class="text-center feedback-happy">The result for '.$module_name.' has been reactivated successfully.</p>
 			</div>
 
@@ -294,7 +294,7 @@ if (isset($_GET['id'])) {
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-success" class="text-center feedback-sad">Are you sure you want to delete this result for '.$module_name.'?</p>
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete this result for '.$module_name.'?</p>
             <p id="delete-confirmation" style="display: none;" class="text-center feedback-happy">The result for '.$module_name.' has been deleted successfully.</p>
 			</div>
 
