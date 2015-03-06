@@ -260,18 +260,6 @@ hr {
 .navbar-fixed-top .navbar-nav > li > a {
     text-align: center;
 }
-
-.navbar-fixed-top .navbar-nav .open .dropdown-menu > li > a,
-.navbar-fixed-top .navbar-nav .open .dropdown-menu > li > a {
-    color: #FFFFFF;
-    background-color: transparent;
-    text-align: center;
-}
-.navbar-fixed-top .navbar-nav .open .dropdown-menu > li > a:hover,
-.navbar-fixed-top .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #FFFFFF;
-    text-align: center;
-}
 }
 /* End of Navbar */
 
