@@ -111,7 +111,6 @@ if (isset($_GET['id'])) {
     <th>Exam mark</th>
     <th>Overall mark</th>
     <th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
