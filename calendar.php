@@ -298,6 +298,7 @@ include 'includes/session.php';
 	<th>Start</th>
 	<th>Due</th>
 	<th>Category</th>
+    <th>Archived on</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -305,7 +306,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks WHERE userid = '$session_userid' AND task_status = 'inactive'");
+	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_tasks WHERE userid = '$session_userid' AND task_status = 'inactive'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -317,6 +318,7 @@ include 'includes/session.php';
 	$task_url = $row["task_url"];
 	$task_category = $row["task_category"];
 	$task_category = ucfirst($row["task_category"]);
+    $updated_on = $row["updated_on"];
 
 	echo '<tr id="task-'.$taskid.'">
 
@@ -326,6 +328,7 @@ include 'includes/session.php';
 			<td data-title="Start date">'.$task_startdate.'</td>
 			<td data-title="Due date">'.$task_duedate.'</td>
 			<td data-title="Category">'.$task_category.'</td>
+			<td data-title="Archived on">'.$updated_on.'</td>
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
