@@ -185,13 +185,111 @@ include 'includes/session.php';
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Users</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active users</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Users-->
+	<!-- Active users-->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>Full name</th>
+	<th>Account type</th>
+    <th>Created on</th>
+	<th>Updated on</th>
+	<th>Action</th>
+    <th>Action</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid' AND user_details.user_status = 'active'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $userid = $row["userid"];
+    $account_type = ucfirst($row["account_type"]);
+    $email = $row["email"];
+    $created_on = $row["created_on"];
+    $updated_on = $row["updated_on"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
+
+	$account_type = ucfirst($row["account_type"]);
+
+	echo '<tr id="user-'.$userid.'">
+
+			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
+			<td data-title="Account type">'.$account_type.'</td>
+			<td data-title="Created on">'.$created_on.'</td>
+            <td data-title="Updated on">'.$updated_on.'</td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/update-an-account?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/change-account-password?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
+			</tr>
+
+    		<div id="deactivate-'.$userid.'" class="modal modal-custom fade" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-user-times"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="deactivate-question" class="feedback-sad text-center">Are you sure you want to deactivate '.$firstname.' '.$surname.'?</p>
+            <p id="deactivate-confirmation" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been deactivated successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="deactivate-hide">
+			<div class="pull-left">
+			<a id="deactivate-'.$userid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Inactive users</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Inactive user -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
