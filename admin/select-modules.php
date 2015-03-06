@@ -238,19 +238,19 @@ if (isset($_GET['id'])) {
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="../update-results/?id='.$resultid.'">Update</a>
+            <a class="btn btn-primary" href="#reactivate-'.$resultid.'" data-toggle="modal">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="#deactivate-'.$resultid.'" data-toggle="modal" data-toggle="modal" data-toggle="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$resultid.'" data-toggle="modal" data-toggle="modal" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
             </td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="deactivate-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="reactivate-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -261,21 +261,54 @@ if (isset($_GET['id'])) {
 			</div>
 
 			<div class="modal-body">
-			<p id="deactivate-success" class="text-center feedback-sad">Are you sure you want to deactivate this result for '.$module_name.'?</p>
-            <p id="deactivate-confirmation" style="display: none;" class="text-center feedback-happy">The result for '.$module_name.' has been deactivated successfully.</p>
+			<p id="reactivate-success" class="text-center feedback-sad">Are you sure you want to reactivate this result for '.$module_name.'?</p>
+            <p id="reactivate-confirmation" style="display: none;" class="text-center feedback-happy">The result for '.$module_name.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="deactivate-hide">
+			<div id="reactivate-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$resultid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$resultid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div class="modal modal-custom fade" id="delete-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-success" class="text-center feedback-sad">Are you sure you want to delete this result for '.$module_name.'?</p>
+            <p id="delete-confirmation" style="display: none;" class="text-center feedback-happy">The result for '.$module_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$resultid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
