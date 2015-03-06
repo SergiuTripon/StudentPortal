@@ -283,10 +283,10 @@ include 'includes/session.php';
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Inactive users</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Inactive users</a>
   	</h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
 	<!-- Inactive user -->
@@ -300,7 +300,6 @@ include 'includes/session.php';
     <th>Created on</th>
 	<th>Updated on</th>
 	<th>Action</th>
-    <th>Action</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -328,12 +327,11 @@ include 'includes/session.php';
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$created_on.'</td>
             <td data-title="Updated on">'.$updated_on.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/update-an-account?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/change-account-password?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#reactivate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
 			</tr>
 
-    		<div id="deactivate-'.$userid.'" class="modal modal-custom fade" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div id="reactivate-'.$userid.'" class="modal modal-custom fade" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -344,21 +342,54 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="deactivate-question" class="feedback-sad text-center">Are you sure you want to deactivate '.$firstname.' '.$surname.'?</p>
-            <p id="deactivate-confirmation" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been deactivated successfully.</p>
+			<p id="reactivate-question" class="feedback-sad text-center">Are you sure you want to reactivate '.$firstname.' '.$surname.'?</p>
+            <p id="reactivate-confirmation" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="deactivate-hide">
+			<div id="reactivate-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$userid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$userid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-'.$userid.'" class="modal modal-custom fade" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-user-times"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-question" class="feedback-sad text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
+            <p id="delete-confirmation" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$userid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
