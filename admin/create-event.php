@@ -201,22 +201,12 @@ include '../includes/session.php';
     $('#event_from').datepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
-        }
+        minDate: today
     });
     $('#event_to').datepicker({
         dateFormat: "yy-mm-dd",
         controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
-        }
+        minDate: today
     });
 
 	});
