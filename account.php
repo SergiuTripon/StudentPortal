@@ -246,8 +246,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="deactivate-question" class="feedback-sad text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
-            <p id="deactivate-question" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been deleted successfully.</p>
+			<p id="deactivate-question" class="feedback-sad text-center">Are you sure you want to deactivate '.$firstname.' '.$surname.'?</p>
+            <p id="deactivate-question" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been deactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
