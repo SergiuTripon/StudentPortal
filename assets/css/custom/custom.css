@@ -219,8 +219,8 @@ hr {
 
 .btn-action > .btn:active,
 .btn-action > .active.btn {
-    border: 1px solid #1863E6;
-    background-color: #1863E6;
+    border: 1px solid #1863E6 !important;
+    background-color: #1863E6 !important;
 }
 /* End of Buttons */
 
