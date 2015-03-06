@@ -102,7 +102,7 @@ if (isset($_GET['id'])) {
 			<div class="modal-footer">
 			<div id="allocate-hide">
 			<div class="pull-left">
-			<a id="allocate-'.$userid.'" class="btn btn-danger btn-lg deallocate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="allocate-'.$userid.'" class="btn btn-danger btn-lg allocate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
