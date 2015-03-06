@@ -90,8 +90,6 @@ include 'includes/session.php';
 	<th>Due</th>
 	<th>Category</th>
 	<th>Action</th>
-	<th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
