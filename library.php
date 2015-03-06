@@ -309,7 +309,6 @@ include 'includes/session.php';
             </ul>
             </div>
             </td>
-
 			</tr>
 
 			<div class="modal modal-custom fade" id="deactivate-'.$bookid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -323,11 +322,12 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to deactivate '.$book_name.'?</p>
+			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$book_name.'?</p>
+			<p id="deactivate-confirmation" class="text-center feedback-happy">Are you sure you want to deactivate '.$book_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-deactivate">
+			<div id="deactivate-hide">
 			<div class="pull-left">
 			<a id="deactivate-'.$bookid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -336,7 +336,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-deactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -482,11 +482,12 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to reactivate '.$book_name.'?</p>
+			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$book_name.'?</p>
+			<p id="reactivate-confirmation" class="text-center feedback-happy">'.$book_name.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-reactivate">
+			<div id="reactivate-hide">
 			<div class="pull-left">
 			<a id="reactivate-'.$bookid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -495,7 +496,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-reactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -503,7 +504,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div class="modal modal-custom fade" id="delete-'.$bookid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -514,11 +515,12 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$book_name.'?</p>
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$book_name.'?</p>
+			<p id="delete-confirmation" class="text-center feedback-happy">'.$book_name.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-delete">
+			<div id="delete-hide">
 			<div class="pull-left">
 			<a id="delete-'.$bookid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -527,7 +529,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-delete" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -720,12 +722,11 @@ include 'includes/session.php';
 		$('#book-'+bookToDeactivate).fadeOut();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The book has been deactivated successfully.');
-        $('#hide-deactivate').hide();
-        $('#success-button-deactivate').show();
-        $("#success-button-deactivate").click(function () {
+        $('#deactivate-question').hide();
+        $('#deactivate-confirmation').show();
+        $('#deactivate-hide').hide();
+        $('#deactivate-success-button').show();
+        $("#deactivate-success-button").click(function () {
             location.reload();
         });
 	},
@@ -751,12 +752,11 @@ include 'includes/session.php';
 		$('#book-'+bookToReactivate).fadeOut();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The book has been reactivated successfully.');
-        $('#hide-reactivate').hide();
-        $('#success-button-reactivate').show();
-        $("#success-button-reactivate").click(function () {
+        $('#reactivate-question').hide();
+        $('#reactivate-confirmation').show();
+        $('#reactivate-hide').hide();
+        $('#reactivate-success-button').show();
+        $("#reactivate-success-button").click(function () {
             location.reload();
         });
 	},
@@ -781,12 +781,11 @@ include 'includes/session.php';
 		$('#book-'+bookToDelete).fadeOut();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The book has been deleted successfully.');
-        $('#hide-delete').hide();
-        $('#success-button-delete').show();
-        $("#success-button-delete").click(function () {
+        $('#delete-question').hide();
+        $('#delete-confirmation').show();
+        $('#delete-hide').hide();
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
             location.reload();
         });
 	},
