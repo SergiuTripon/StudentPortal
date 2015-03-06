@@ -230,9 +230,19 @@ include 'includes/session.php';
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$created_on.'</td>
             <td data-title="Updated on">'.$updated_on.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/update-an-account?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/change-account-password?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Change password</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="/admin/update-an-account?id='.$userid.'">Update</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/change-account-password?id='.$userid.'">Change password</a></li>
+            <li><a href="#deactivate-'.$userid.'" data-toggle="modal">Deactivate</a></li>
+            </ul>
+            </div>
+            </td>
 			</tr>
 
     		<div id="deactivate-'.$userid.'" class="modal modal-custom fade" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -327,8 +337,18 @@ include 'includes/session.php';
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$created_on.'</td>
             <td data-title="Updated on">'.$updated_on.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#reactivate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Reactivate</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="#reactivate-'.$userid.'" data-toggle="modal">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-'.$userid.'" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
 			</tr>
 
     		<div id="reactivate-'.$userid.'" class="modal modal-custom fade" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
