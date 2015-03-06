@@ -204,6 +204,17 @@ hr {
 .btn-action > .dropdown-toggle {
     background-color: #1863E6;
 }
+
+.btn-action > .dropdown-toggle {
+    border: none;
+    background-color: #1863E6;
+}
+
+.btn-action > .dropdown-toggle:hover,
+.btn-action > .dropdown-toggle:focus {
+    border: none;
+    background-color: #1863E6;
+}
 /* End of Buttons */
 
 /* End of Global */
