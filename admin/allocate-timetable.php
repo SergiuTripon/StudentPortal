@@ -90,7 +90,7 @@ if (isset($_GET['id'])) {
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-user-plus"></i>
 			</div>
 			</div>
 
@@ -175,7 +175,7 @@ if (isset($_GET['id'])) {
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-user-times"></i>
 			</div>
 			</div>
 
