@@ -100,7 +100,7 @@ if (isset($_GET['id'])) {
     <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Modules -->
+	<!-- Existing results -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom results-table">
 
@@ -118,7 +118,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_results.resultid, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid WHERE user_results.userid = '$userToAssignResults' AND system_modules.module_status='active'");
+	$stmt1 = $mysqli->query("SELECT user_results.resultid, system_modules.module_name, user_results.result_coursework_mark, user_results.result_exam_mark, user_results.result_overall_mark FROM user_results LEFT JOIN system_modules ON user_results.moduleid=system_modules.moduleid WHERE user_results.userid = '$userToCreateResults' AND system_modules.module_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
