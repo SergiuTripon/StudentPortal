@@ -1603,11 +1603,14 @@ function CompleteTask() {
 function DeleteTask() {
 
     global $mysqli;
+    global $updated_on;
 
-    $taskToDelete = filter_input(INPUT_POST, 'taskToDelete', FILTER_SANITIZE_NUMBER_INT);
+    $taskToDeactivate = filter_input(INPUT_POST, 'taskToDeactivate', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_tasks WHERE taskid = ?");
-    $stmt1->bind_param('i', $taskToDelete);
+    $task_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status=?, updated_on=? WHERE taskid = ?");
+    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToDeactivate);
     $stmt1->execute();
     $stmt1->close();
 }

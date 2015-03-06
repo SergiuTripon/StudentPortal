@@ -234,9 +234,9 @@ elseif (isset($_POST["taskToComplete"])) {
     CompleteTask();
 }
 
-//Call DeleteTask function
-elseif (isset($_POST["taskToDelete"])) {
-    DeleteTask();
+//Call DeactivateTask function
+elseif (isset($_POST["taskToDeactivate"])) {
+    DeactivateTask();
 }
 
 /////////////////////////////////////////////////////////////
