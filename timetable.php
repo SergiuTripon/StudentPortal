@@ -194,7 +194,7 @@ include 'includes/session.php';
 	<div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active timetables</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active modules</a>
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -261,7 +261,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-deactivate">
+			<div id="deactivate-hide">
 			<div class="pull-left">
 			<a id="deactivate-'.$moduleid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -270,7 +270,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-deactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -293,7 +293,7 @@ include 'includes/session.php';
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Inactive timetables</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Inactive modules</a>
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -357,11 +357,11 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$module_name.'?</p>
-            <p id="reactivate-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been reactivated successfully.</p>
+            <p id="reactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$module_name.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-reactivate">
+			<div id="reactivate-hide">
 			<div class="pull-left">
 			<a id="reactivate-'.$moduleid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -370,7 +370,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-reactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -394,7 +394,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-delete">
+			<div id="delete-hide">
 			<div class="pull-left">
 			<a id="delete-'.$moduleid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -403,7 +403,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-delete" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -521,9 +521,9 @@ include 'includes/session.php';
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-question').hide();
         $('#deactivate-confirmation').show();
-        $('#hide-deactivate').hide();
-        $('#success-button-deactivate').show();
-        $("#success-button-deactivate").click(function () {
+        $('#deactivate-hide').hide();
+        $('#deactivate-success-button').show();
+        $("#deactivate-success-button").click(function () {
             location.reload();
         });
 	},
@@ -552,9 +552,9 @@ include 'includes/session.php';
         $('.form-logo i').addClass('fa-check-square-o');
         $('#reactivate-question').hide();
         $('#reactivate-confirmation').show();
-        $('#hide-reactivate').hide();
-        $('#success-button-reactivate').show();
-        $("#success-button-reactivate").click(function () {
+        $('#reactivate-hide').hide();
+        $('#reactivate-success-button').show();
+        $("#reactivate-success-button").click(function () {
             location.reload();
         });
 	},
@@ -583,9 +583,9 @@ include 'includes/session.php';
         $('.form-logo i').addClass('fa-check-square-o');
         $('#delete-question').hide();
         $('#delete-confirmation').show();
-        $('#hide-delete').hide();
-        $('#success-button-delete').show();
-        $("#success-button-delete").click(function () {
+        $('#delete-hide').hide();
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
             location.reload();
         });
 	},
