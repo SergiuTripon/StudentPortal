@@ -563,18 +563,18 @@ form hr {
     float: left;
 }
 
-label {
+form label {
     color: #333333;
     font-weight: 600;
     margin-left: 2px;
 }
 
-label.feedback-sad {
+form label.feedback-sad {
     font-size: 15px;
     margin-bottom: 5px;
 }
 
-label.feedback-happy {
+form label.feedback-happy {
     font-size: 15px;
     margin-bottom: 5px;
 }
