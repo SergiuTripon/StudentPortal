@@ -323,7 +323,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$book_name.'?</p>
-			<p id="deactivate-confirmation" class="text-center feedback-happy">Are you sure you want to deactivate '.$book_name.'?</p>
+			<p id="deactivate-confirmation" class="text-center feedback-happy" style="display: none;">Are you sure you want to deactivate '.$book_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -430,7 +430,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$book_name.'?</p>
-			<p id="reactivate-confirmation" class="text-center feedback-happy">'.$book_name.' has been reactivated successfully.</p>
+			<p id="reactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$book_name.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -463,7 +463,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$book_name.'?</p>
-			<p id="delete-confirmation" class="text-center feedback-happy">'.$book_name.' has been deleted successfully.</p>
+			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$book_name.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
