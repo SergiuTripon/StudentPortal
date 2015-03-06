@@ -329,8 +329,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#reactivate-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Reactivate</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action">
 
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="#reactivate-'.$moduleid.'" data-toggle="modal">Allocate</a>
@@ -342,6 +341,7 @@ include 'includes/session.php';
             <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-toggle="modal">Deactivate</a></li>
             </ul>
             </div>
+            </td>
 
 			</tr>
 
