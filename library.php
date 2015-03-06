@@ -323,7 +323,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$book_name.'?</p>
-			<p id="deactivate-confirmation" class="text-center feedback-happy" style="display: none;">Are you sure you want to deactivate '.$book_name.'?</p>
+			<p id="deactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$book_name.' has been deactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
