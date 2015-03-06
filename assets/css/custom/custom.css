@@ -775,11 +775,11 @@ textarea {
     outline: none !important;
 }
 .modal-custom .modal-header {
-    border-color: #735326;
+    border-color: #9F8170;
 }
 
 .modal-custom .modal-header .form-logo i {
-    color: #735326;
+    color: #826644;
 }
 
 .modal-custom .modal-title {
@@ -791,7 +791,7 @@ textarea {
 }
 
 .modal-custom .modal-footer {
-    border-color: #735326;
+    border-color: #9F8170;
 }
 /* End of Modal style */
 
