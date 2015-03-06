@@ -157,8 +157,7 @@ hr {
     background-color: #4582EC;
 }
 
-.btn-primary.dropdown-toggle,
-.open > .btn-primary.dropdown-toggle {
+.btn-primary.dropdown-toggle {
     color: #FFFFFF;
     border-right-color: #4582EC;
     border-left-color: #1863E6;
