@@ -1141,13 +1141,7 @@ form .input-happy {
 
 /* dataTables */
 div.dataTables_filter input {
-    width: auto;
-}
-
-@media (max-width: 280px) {
-div.dataTables_filter input {
-    width: 150px;
-}
+    max-width: 100%;
 }
 
 div.dataTables_length select {
