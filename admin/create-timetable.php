@@ -243,7 +243,7 @@ include '../includes/session.php';
     <!-- End of Create tutorial -->
 
     <!-- Create exam -->
-    <h4 class="title-separator text-center">Lecture</h4>
+    <h4 class="title-separator text-center">Exam</h4>
     <hr class="hr-separator">
 
 	<div class="form-group">
