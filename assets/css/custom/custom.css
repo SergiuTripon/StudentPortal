@@ -787,8 +787,11 @@ textarea {
     color: #826644;
 }
 
-.modal-custom .modal-body p {
+.modal-custom .modal-body {
     color: #735326;
+}
+
+.modal-custom .modal-body p {
     margin-bottom: 0;
 }
 
