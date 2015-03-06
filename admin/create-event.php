@@ -89,7 +89,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="event_category">Category</label>
-    <select class="form-control selectpicker event_category" name="event_category" id="event_category">
+    <select class="selectpicker event_category" name="event_category" id="event_category">
         <option data-hidden="true">Select an option</option>
         <option>Social</option>
         <option>Careers</option>
