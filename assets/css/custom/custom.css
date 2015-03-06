@@ -218,8 +218,16 @@ hr {
 }
 
 .btn-action > .dropdown-menu {
-    color: #FFFFFF;
     background-color: #4582EC;
+}
+
+.btn-action > .dropdown-menu > li > a {
+    color: #FFFFFF;
+}
+
+.btn-action > .dropdown-menu > li > a:hover,
+.btn-action > .dropdown-menu > li > a:focus {
+    color: #FFFFFF;
 }
 /* End of Buttons */
 
