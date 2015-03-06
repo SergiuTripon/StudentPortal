@@ -176,7 +176,7 @@ include 'includes/session.php';
     </div><!-- /row -->
 
     <h4>Perform actions against other accounts</h4>
-    <hr>
+    <hr style="margin-bottom: 0;">
 
     <a class="btn btn-success btn-lg ladda-button" style="margin-bottom: 10px;" data-style="slide-up" href="/admin/create-account/"><span class="ladda-label">Create account</span></a>
 
