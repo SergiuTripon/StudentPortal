@@ -411,7 +411,7 @@ include 'includes/session.php';
 
 	<div class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingTwo">
+    <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
 	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Users online now</a>
   	</h4>

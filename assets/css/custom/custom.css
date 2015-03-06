@@ -1024,21 +1024,6 @@ textarea {
 }
 /* End of Calendar portal */
 
-/* Account admin portal */
-#account-admin-portal .panel-group {
-    margin-bottom: 0;
-}
-
-#account-admin-portal .panel-group .panel {
-    margin-bottom: 10px;
-}
-
-#account-admin-portal .panel-title {
-    color: #FFFFFF;
-    margin-top: 0;
-}
-/* End of Account admin portal */
-
 /* University map */
 #university-map-portal form {
     max-width: 100%;
