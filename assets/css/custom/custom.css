@@ -602,21 +602,6 @@ textarea {
 /* End of Form */
 
 /* Button group */
-.btn-group, .btn-group-vertical {
-    margin-bottom: 10px;
-}
-
-@media(max-width:480px) {
-.btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
-    border-radius: 3px;
-}
-.btn-group > :not(:first-child):not(.dropdown-toggle):not(:last-child).btn {
-    border-radius: 3px;
-}
-.btn-group > :last-child:not(:first-child).btn {
-    border-radius: 3px;
-}
-}
 /* End of Button group */
 
 /* Bootstrap Select */
