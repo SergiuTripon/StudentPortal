@@ -237,7 +237,7 @@ include 'includes/session.php';
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></a></td>
 			</tr>
 
-			<div class="modal hide fade modal-custom" id="deactivate-'.$moduleid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="deactivate-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -326,7 +326,7 @@ include 'includes/session.php';
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
-			<div class="modal hide fade modal-custom" id="reactivate-'.$moduleid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="reactivate-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -359,7 +359,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-            <div class="modal hide fade modal-custom" id="delete-'.$moduleid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -483,12 +483,6 @@ include 'includes/session.php';
 			"emptyTable": "There are no timetables to display."
 		}
 	});
-
-    //Modal
-    $(".modal-custom").modal({
-        backdrop: 'static',
-        keyboard: false
-    });
 
     //Deactivate record
     $("body").on("click", ".deactivate-button", function(e) {
