@@ -233,13 +233,14 @@ include 'includes/session.php';
 	<th>Start</th>
 	<th>Due</th>
 	<th>Category</th>
+    <th>Completed on</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$session_userid' AND task_status = 'completed'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i'), task_category, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_tasks where userid = '$session_userid' AND task_status = 'completed'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -251,6 +252,7 @@ include 'includes/session.php';
     $task_url = $row["task_url"];
     $task_category = $row["task_category"];
     $task_category = ucfirst($row["task_category"]);
+    $updated_on = $row["updated_on"];
 
 	echo '<tr id="task-'.$taskid.'">
 
@@ -260,6 +262,7 @@ include 'includes/session.php';
 	<td data-title="Start date">'.$task_startdate.'</td>
 	<td data-title="Due date">'.$task_duedate.'</td>
 	<td data-title="Category">'.$task_category.'</td>
+	<td data-title="Completed on">'.$updated_on.'</td>
 	</tr>';
 	}
 
