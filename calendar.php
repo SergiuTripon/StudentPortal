@@ -355,7 +355,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="complete-hide">
+			<div id="reactivate-hide">
 			<div class="pull-left">
 			<a id="reactivate-'.$taskid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
