@@ -136,9 +136,21 @@ if (isset($_GET['id'])) {
 			<td data-title="Overall mark">'.$result_overall_mark.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../update-results/?id='.$resultid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
 			<td data-title="Action"><a id="delete-'.$resultid.'" class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$resultid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="../update-results/?id='.$resultid.'">Update</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#deactivate-'.$resultid.'" data-toggle="modal" data-toggle="modal" data-toggle="modal">Deactivate</a></li>
+            </ul>
+            </div>
+            </td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="modal-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="deactivate-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -149,20 +161,21 @@ if (isset($_GET['id'])) {
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this account?</p>
+			<p id="deactivate-success" class="text-center feedback-sad">Are you sure you want to deactivate this result for '.$module_name.'?</p>
+            <p id="deactivate-confirmation" style="display: none;" class="text-center feedback-happy">The result for '.$module_name.' has been deactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide">
+			<div id="hide-deactivate">
 			<div class="pull-left">
-			<a id="delete-'.$resultid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$resultid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -250,7 +263,69 @@ if (isset($_GET['id'])) {
         }
     });
 
-    //Delete result
+    //Deactivate record
+    $("body").on("click", ".deactivate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var resultToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'resultToDeactivate='+ resultToDeactivate,
+	success:function(){
+        $('#result-'+resultToDeactivate).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-question').hide();
+        $('#deactivate-confirmation').show();
+        $('#deactivate-hide').hide();
+        $('#deactivate-success-button').show();
+        $("#deactivate-success-button").click(function () {
+            location.reload();
+        });
+    },
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate record
+    $("body").on("click", ".reactivate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var resultToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'resultToReactivate='+ resultToReactivate,
+	success:function(){
+		$('#result-'+resultToReactivate).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#reactivate-question').hide();
+        $('#reactivate-confirmation').show();
+        $('#reactivate-hide').hide();
+        $('#reactivate-success-button').show();
+        $("#reactivate-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete record
     $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
@@ -263,27 +338,23 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'resultToDelete='+ resultToDelete,
 	success:function(){
-        $('#delete-'+resultToDelete).hide();
-        $('#hide').hide();
+		$('#result-'+resultToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The result has been deleted successfully.');
-        $('#success-button').show();
-        $("#success-button").click(function () {
-        location.reload();
+        $('#delete-question').hide();
+        $('#delete-confirmation').show();
+        $('#delete-hide').hide();
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
+            location.reload();
         });
-    },
+	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
-
 	</script>
 
 </body>

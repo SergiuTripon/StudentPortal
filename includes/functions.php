@@ -1029,15 +1029,47 @@ function UpdateResult() {
     $stmt1->close();
 }
 
+//DeactivateResult function
+function DeactivateResult() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $resultToDeactivate = filter_input(INPUT_POST, 'resultToDeactivate', FILTER_SANITIZE_STRING);
+
+    $result_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE resultid=?");
+    $stmt1->bind_param('ssi', $result_status, $updated_on, $resultToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//ReactivateResult function
+function ReactivateResult() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $resultToReactivate = filter_input(INPUT_POST, 'resultToReactivate', FILTER_SANITIZE_STRING);
+
+    $result_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE resultid=?");
+    $stmt1->bind_param('ssi', $result_status, $updated_on, $resultToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //DeleteResult function
 function DeleteResult() {
 
     global $mysqli;
 
-    $result_resultid = filter_input(INPUT_POST, 'resultToDelete', FILTER_SANITIZE_NUMBER_INT);
+    $resultToDelete = filter_input(INPUT_POST, 'resultToDelete', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_results WHERE resultid=?");
-    $stmt1->bind_param('i', $result_resultid);
+    $stmt1->bind_param('i', $resultToDelete);
     $stmt1->execute();
     $stmt1->close();
 }

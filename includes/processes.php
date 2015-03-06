@@ -149,7 +149,17 @@ elseif (isset($_POST["result_resultid"], $_POST["result_coursework_mark1"], $_PO
     UpdateResult();
 }
 
-//Call UpdateResult function
+//Call DeactivateResult function
+elseif (isset($_POST["resultToDeactivate"])) {
+    DeactivateResult();
+}
+
+//Call ReactivateResult function
+elseif (isset($_POST["resultToReactivate"])) {
+    ReactivateResult();
+}
+
+//Call DeleteResult function
 elseif (isset($_POST["resultToDelete"])) {
     DeleteResult();
 }
