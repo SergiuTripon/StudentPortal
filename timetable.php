@@ -337,7 +337,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to reactivate '.$module_name.'?</p>
+			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$module_name.'?</p>
+            <p id="reactivate-confirmation" style="display: none;" class="text-center feedback-sad">'.$module_name.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -369,8 +370,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="question" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
-			<p id="confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deleted successfully.</p>
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
+			<p id="delete-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -530,9 +531,8 @@ include 'includes/session.php';
 		$('#timetable-'+timetableToReactivate).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The timetable has been reactivated successfully.');
+        $('#reactivate-question').hide();
+        $('#reactivate-confirmation').show();
         $('#hide-reactivate').hide();
         $('#success-button-reactivate').show();
         $("#success-button-reactivate").click(function () {
@@ -562,9 +562,8 @@ include 'includes/session.php';
 		$('#timetable-'+timetableToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The timetable has been deleted successfully.');
+        $('#delete-question').hide();
+        $('#delete-confirmation').show();
         $('#hide-delete').hide();
         $('#success-button-delete').show();
         $("#success-button-delete").click(function () {
