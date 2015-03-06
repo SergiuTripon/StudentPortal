@@ -615,10 +615,7 @@ include '../includes/session.php';
     }
 	});
     }
-	
 	return true;
-	
-	});
 	});
 	</script>
 
