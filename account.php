@@ -334,7 +334,7 @@ include 'includes/session.php';
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Created on">'.$created_on.'</td>
             <td data-title="Updated on">'.$updated_on.'</td>
-
+            <td data-title="Action">
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="#reactivate-'.$userid.'" data-toggle="modal">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
