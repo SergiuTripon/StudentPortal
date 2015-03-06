@@ -230,7 +230,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <!-- End of Update lecture --
 
     <!-- Update tutorial -->
-
     <h4 class="title-separator text-center">Tutorial</h4>
     <hr class="hr-separator">
 
@@ -327,7 +326,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <!-- End of Update tutorial -->
 
     <!-- Update exam -->
-
     <h4 class="title-separator text-center">Exam</h4>
     <hr class="hr-separator">
 
@@ -378,10 +376,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
     </div>
 	
-    </form>
-    <!-- End of Update timetable -->
-
-	</div> <!-- /container -->
+    </form><!-- End of Update timetable -->
+	</div><!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
 
@@ -418,6 +414,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
+
 	<?php else : ?>
 
 	<?php include '../includes/menus/menu.php'; ?>
@@ -451,11 +448,11 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
+    //Select box
     $('.selectpicker').selectpicker();
 
     // Date Time Picker
@@ -505,24 +502,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
     });
 
 	});
-
-    $("#update_lecturer").change(function() {
-        var new_lecturer = $("#update_lecturer option:selected").text();
-        var new_lecturer1 = $("#update_lecturer option:selected").val();
-        $("label[for='lecturer']").empty().append("New lecturer");
-        $('#lecturer option:selected').text(new_lecturer);
-        $('#lecturer option:selected').val(new_lecturer1);
-        $('#lecturer').selectpicker('refresh');
-    });
-
-    $("#update_tutorial_assistant").change(function() {
-        var new_tutorial_assistant = $("#update_tutorial_assistant option:selected").text();
-        var new_tutorial_assistant1 = $("#update_tutorial_assistant option:selected").val();
-        $("label[for='tutorial_assistant']").empty().append("New tutorial assistant");
-        $('#tutorial_assistant option:selected').text(new_tutorial_assistant);
-        $('#tutorial_assistant option:selected').val(new_tutorial_assistant1);
-        $('#tutorial_assistant').selectpicker('refresh');
-    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
@@ -574,24 +553,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
         $("#lecture_name").removeClass("input-sad");
         $("#lecture_name").addClass("input-happy");
 	}
-
-    var lecture_lecturer_check = $("#lecture_lecturer option:selected").html();
-    if (lecture_lecturer_check === 'Select an option') {
-        $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
-        $("label[for='lecture_lecturer']").removeClass("feedback-happy");
-        $("label[for='lecture_lecturer']").addClass("feedback-sad");
-        $("#lecture_lecturer").removeClass("input-happy");
-        $("#lecture_lecturer").addClass("input-sad");
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("label[for='lecture_lecturer']").empty().append("All good!");
-        $("label[for='lecture_lecturer']").removeClass("feedback-sad");
-        $("label[for='lecture_lecturer']").addClass("feedback-happy");
-        $("#lecture_lecturer").removeClass("input-sad");
-        $("#lecture_lecturer").addClass("input-happy");
-    }
 
     var lecture_day = $("#lecture_day").val();
     if (lecture_day === '') {
@@ -743,24 +704,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
         $("#tutorial_name").removeClass("input-sad");
         $("#tutorial_name").addClass("input-happy");
 	}
-
-    var tutorial_assistant_check = $("#tutorial_assistant option:selected").html();
-    if (tutorial_assistant_check === 'Select an option') {
-        $("label[for='tutorial_assistant']").empty().append("Please enter a tutorial assistant.");
-        $("label[for='tutorial_assistant']").removeClass("feedback-happy");
-        $("label[for='tutorial_assistant']").addClass("feedback-sad");
-        $("#tutorial_assistant").removeClass("input-happy");
-        $("#tutorial_assistant").addClass("input-sad");
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("label[for='tutorial_assistant']").empty().append("All good!");
-        $("label[for='tutorial_assistant']").removeClass("feedback-sad");
-        $("label[for='tutorial_assistant']").addClass("feedback-happy");
-        $("#tutorial_assistant").removeClass("input-sad");
-        $("#tutorial_assistant").addClass("input-happy");
-    }
 
     var tutorial_day = $("#tutorial_day").val();
     if (tutorial_day === '') {
@@ -1024,7 +967,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
          '&exam_time1='          + exam_time +
          '&exam_location1='      + exam_location +
          '&exam_capacity1='      + exam_capacity,
-
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -1038,10 +980,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     }
 	});
     }
-
 	return true;
-
-	});
 	});
 	</script>
 
