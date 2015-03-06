@@ -1139,7 +1139,7 @@ textarea {
 
 /* dataTables */
 div.dataTables_filter input {
-    width: 350px;
+    width: auto;
 }
 
 
