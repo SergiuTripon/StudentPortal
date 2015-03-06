@@ -805,7 +805,7 @@ form .input-happy {
     box-shadow: none;
     border-radius: 3px;
     margin-bottom: 5px;
-    border-color: #1863E6;
+    border: 2px #4582EC;
     background-color: #4582EC;
 }
 
