@@ -166,8 +166,11 @@ hr {
 .btn-primary.dropdown-toggle,
 .open > .btn-primary.dropdown-toggle {
     color: #FFFFFF;
-    background-color: #1863E6;
-    border-color: #1863E6;
+    background-color: #4582EC;
+    border-right-color: #1863E6;
+    border-left-color: #4582EC;
+    border-top-color: #4582EC;
+    border-bottom-color: #4582EC;
 }
 
 .btn-success {
