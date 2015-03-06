@@ -1146,7 +1146,7 @@ div.dataTables_filter input {
 
 @media (max-width: 280px) {
 div.dataTables_filter input {
-    width: auto;
+    width: 150px;
 }
 }
 
