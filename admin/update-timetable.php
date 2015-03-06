@@ -71,8 +71,8 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Update timetable</title>
@@ -106,7 +106,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
 	<div id="hide">
 
     <!-- Update module -->
-
     <h4 class="title-separator text-center">Module</h4>
     <hr class="hr-separator">
 
@@ -135,7 +134,6 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <!-- End of Update module -->
 
     <!-- Update lecture -->
-
     <h4 class="title-separator text-center">Lecture</h4>
     <hr class="hr-separator">
 
