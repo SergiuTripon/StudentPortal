@@ -177,7 +177,7 @@ if (isset($_GET["id"])) {
 
     var message_subject = $("#message_subject").val();
 	if(message_subject === '') {
-        $("label[for='message_subject']").empty().append("Please enter a module name.");
+        $("label[for='message_subject']").empty().append("Please enter a subject.");
         $("label[for='message_subject']").removeClass("feedback-happy");
         $("label[for='message_subject']").addClass("feedback-sad");
         $("#message_subject").removeClass("input-happy");
