@@ -146,7 +146,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="complete-question" class="text-center feedback-sad">Are you sure you want to complete '.$task_name.'?</p>
-			<p id="complete-confirmation" class="text-center feedback-sad" style="display: none;">'.$task_name.' has been completed successfully.</p>
+			<p id="complete-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been completed successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -179,7 +179,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to archive '.$task_name.'?</p>
-			<p id="deactivate-confirmation" class="text-center feedback-sad" style="display: none;">'.$task_name.' has been archived successfully.</p>
+			<p id="deactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been archived successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -476,7 +476,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(){
-		$('#task-'+taskToDelete).fadeOut();
+		$('#task-'+taskToDeactivate).fadeOut();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-question').hide();

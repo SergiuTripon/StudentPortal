@@ -1599,8 +1599,8 @@ function CompleteTask() {
 	$stmt1->close();
 }
 
-//DeleteTask function
-function DeleteTask() {
+//DeactivateTask function
+function DeactivateTask() {
 
     global $mysqli;
     global $updated_on;
