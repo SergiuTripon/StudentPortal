@@ -96,7 +96,7 @@ if (isset($_GET['id'])) {
 
 			<div class="modal-body">
 			<p id="allocate-question" class="text-center feedback-sad">Are you sure you want to allocate '.$firstname.' '.$surname.' to this module?</p>
-            <p id="allocate-confirmation" style="display: none;" class="text-center feedback-happy">'.$firstname.' '.$surname.' has been allocated from this module successfully.</p>
+            <p id="allocate-confirmation" style="display: none;" class="text-center feedback-happy">'.$firstname.' '.$surname.' has been allocated to this module successfully.</p>
 			</div>
 
 			<div class="modal-footer">
