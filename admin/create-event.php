@@ -45,7 +45,7 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="event_name">Name<span class="field-required"></span></label>
+	<label for="event_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="event_name" id="event_name" placeholder="Enter a name">
 	</div>
 	</div>
@@ -66,7 +66,7 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="event_from">From<span class="field-required"></span></label>
+	<label for="event_from">From<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="event_from" id="event_from" placeholder="Select a date and time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
@@ -77,7 +77,7 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="event_amount">Price</label>
+	<label for="event_amount">Price<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="event_amount" id="event_amount" placeholder="Enter an amount">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
@@ -88,7 +88,7 @@ include '../includes/session.php';
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="event_category">Category</label>
+    <label for="event_category">Category<span class="field-required">*</span></label>
     <select class="selectpicker event_category" name="event_category" id="event_category">
         <option data-hidden="true">Select an option</option>
         <option>Social</option>
