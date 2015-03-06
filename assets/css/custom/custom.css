@@ -1146,6 +1146,14 @@ div.dataTables_length select {
     height: auto;
 }
 
+div.dataTables_filter label {
+    font-weight: 600;
+}
+
+div.dataTables_length label {
+    font-weight: 600;
+}
+
 
 .pagination > .active > a,
 .pagination > .active > span,
