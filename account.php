@@ -202,8 +202,6 @@ include 'includes/session.php';
     <th>Created on</th>
 	<th>Updated on</th>
 	<th>Action</th>
-    <th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -310,7 +308,6 @@ include 'includes/session.php';
     <th>Created on</th>
 	<th>Updated on</th>
 	<th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
