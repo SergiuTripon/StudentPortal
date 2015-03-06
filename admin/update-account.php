@@ -51,7 +51,7 @@ if ($dateofbirth == "0000-00-00") {
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
-    <li class="active">Update an account</li>
+    <li class="active">Update account</li>
     </ol>
 
 	<!-- Update an account -->

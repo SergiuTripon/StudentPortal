@@ -42,7 +42,7 @@ if (isset($_GET["id"])) {
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
-    <li class="active">Change an account's password</li>
+    <li class="active">Change password</li>
     </ol>
 
 	<!-- Change Password -->
