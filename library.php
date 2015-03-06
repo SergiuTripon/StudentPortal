@@ -251,76 +251,13 @@ include 'includes/session.php';
 
     <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
-    <div class="panel panel-default">
-
+	<div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Reserved books</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active books</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-  	<div class="panel-body">
-
-	<!-- Reserved books -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom books-table">
-
-	<thead>
-	<tr>
-    <th>Reserved by</th>
-	<th>Name</th>
-	<th>Author</th>
-	<th>Status</th>
-	<th>Action</th>
-    <th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt1 = $mysqli->query("SELECT reserved_books.bookid, reserved_books.userid, user_details.firstname, user_details.surname, system_books.book_name, system_books.book_author, system_books.book_status FROM reserved_books LEFT JOIN user_details ON reserved_books.userid=user_details.userid LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid WHERE system_books.book_status = 'reserved'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-	$bookid = $row["bookid"];
-    $userid = $row["userid"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
-	$book_name = $row["book_name"];
-	$book_author = $row["book_author"];
-	$book_status = $row["book_status"];
-	$book_status = ucfirst($book_status);
-
-	echo '<tr id="return-'.$bookid.'">
-
-            <td data-title="Reserved by">'.$firstname.' '.$surname.'</td>
-			<td data-title="Name">'.$book_name.'</td>
-			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Status">'.$book_status.'</td>
-			<td data-title="Action"><a id=return-'.$userid.' class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
-            <td data-title="Action"><a id=return-'.$bookid.' class="btn btn-primary btn-md return-button ladda-button" data-style="slide-up"><span class="ladda-label">Mark returned</span></a></td>
-			</tr>';
-	}
-
-	$stmt1->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	<div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Active books</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
 	<!-- Active books -->
@@ -421,12 +358,12 @@ include 'includes/session.php';
 
     <div class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="headingThree">
+    <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Inactive books</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Inactive books</a>
   	</h4>
     </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
 	<!-- Inactive books -->
@@ -546,6 +483,69 @@ include 'includes/session.php';
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingThree">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Reserved books</a>
+  	</h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+  	<div class="panel-body">
+
+	<!-- Reserved books -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom books-table">
+
+	<thead>
+	<tr>
+    <th>Reserved by</th>
+	<th>Name</th>
+	<th>Author</th>
+	<th>Status</th>
+	<th>Action</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT reserved_books.bookid, reserved_books.userid, user_details.firstname, user_details.surname, system_books.book_name, system_books.book_author, system_books.book_status FROM reserved_books LEFT JOIN user_details ON reserved_books.userid=user_details.userid LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid WHERE system_books.book_status = 'reserved'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+    $userid = $row["userid"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
+	$book_name = $row["book_name"];
+	$book_author = $row["book_author"];
+	$book_status = $row["book_status"];
+	$book_status = ucfirst($book_status);
+
+	echo '<tr id="return-'.$bookid.'">
+
+            <td data-title="Reserved by">'.$firstname.' '.$surname.'</td>
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Status">'.$book_status.'</td>
+			<td data-title="Action"><a id=return-'.$userid.' class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
+            <td data-title="Action"><a id=return-'.$bookid.' class="btn btn-primary btn-md return-button ladda-button" data-style="slide-up"><span class="ladda-label">Mark returned</span></a></td>
+			</tr>';
 	}
 
 	$stmt1->close();
