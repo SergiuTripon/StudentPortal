@@ -2660,9 +2660,9 @@ function CreateAnAccount() {
     $stmt2->fetch();
 
     if ($stmt2->num_rows == 1) {
+    $stmt2->close();
     header('HTTP/1.0 550 An account with the email address entered already exists.');
     exit();
-    $stmt2->close();
     }
 
     $stmt3 = $mysqli->prepare("SELECT userid FROM user_signin ORDER BY userid DESC LIMIT 1");
