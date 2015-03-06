@@ -144,12 +144,12 @@ hr {
 .btn-default {
     color: #333333;
     background-color: #FFFFFF;
-    border-color: #CCCCCC;
+    border-color: #FFFFFF;
 }
 .btn-default:focus, .btn-default:hover {
     color: #333333;
     background-color: #E6E6E6;
-    border-color: #BEBEBE;
+    border-color: #E6E6E6;
 }
 .btn-primary {
     color: #FFFFFF;
