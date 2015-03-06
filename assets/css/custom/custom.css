@@ -602,6 +602,9 @@ textarea {
 /* End of Form */
 
 /* Button group */
+.btn-group, .btn-group-vertical {
+    margin-bottom: 10px;
+}
 /* End of Button group */
 
 /* Bootstrap Select */
