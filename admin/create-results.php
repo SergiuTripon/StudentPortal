@@ -48,7 +48,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
 
-	<div id="results-portal" class="container">
+	<div class="container">
 
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
@@ -67,8 +67,8 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
 	<div id="hide">
 
-    <h4 class="text-center">Module</h4>
-    <hr class="hr-custom">
+    <h4 class="title-separator text-center">Module</h4>
+    <hr class="hr-separator">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -77,8 +77,8 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	</div>
 	</div>
 
-	<h4 class="text-center">Student</h4>
-    <hr class="hr-custom">
+    <h4 class="title-separator text-center">Module</h4>
+    <hr class="hr-separator">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
@@ -95,8 +95,8 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	</div>
     </div>
 
-    <h4 class="text-center">Mark</h4>
-    <hr class="hr-custom">
+    <h4 class="title-separator text-center">Student</h4>
+    <hr class="hr-separator">
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
