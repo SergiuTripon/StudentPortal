@@ -52,7 +52,7 @@ if (isset($_GET["id"])) {
     <ol class="breadcrumb">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../messenger/">Messenger</a></li>
-    <li class="active">Message a user</li>
+    <li class="active">Send a message</li>
     </ol>
 
 	<!-- Message user -->
