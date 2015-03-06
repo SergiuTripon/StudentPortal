@@ -28,12 +28,12 @@ include 'includes/session.php';
 
 	<div id="exams-portal" class="container">
 
-	<ol class="breadcrumb">
+	<ol class="breadcrumb breadcrumb-custom">
     <li><a href="../overview/">Overview</a></li>
 	<li class="active">Exams</li>
     </ol>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 

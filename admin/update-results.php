@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
 
 	<div id="results-portal" class="container">
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../results/">Results</a></li>
     <li class="active">Update results</li>

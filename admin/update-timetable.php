@@ -91,7 +91,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
 	<div id="admin-timetable-portal" class="container">
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../timetable/">Timetable</a></li>
     <li class="active">Update timetable</li>

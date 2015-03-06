@@ -25,7 +25,7 @@ include '../includes/session.php';
 
     <div class="container">
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../calendar/">Calendar</a></li>
     <li class="active">Create a task</li>

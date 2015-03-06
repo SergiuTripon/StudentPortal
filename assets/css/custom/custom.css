@@ -1074,24 +1074,24 @@ form .input-happy {
 /* End of Bootstrap calendar */
 
 /* Breadcrumb style */
-.breadcrumb {
+.breadcrumb-custom {
     margin-bottom: 10px;
     background-color: #6B5204;
     border-radius: 3px;
     border: 1px solid #6B5204;
 }
 
-.breadcrumb a {
+.breadcrumb-custom a {
     color: #FFFFFF;
 }
 
-.breadcrumb > .active {
+.breadcrumb-custom > .active {
     color: #F0AD4E;
     cursor: default;
     font-weight: 600;
 }
 
-.breadcrumb > li + li:before {
+.breadcrumb-custom > li + li:before {
     color: #FFFFFF;
 }
 /* End of Breadcrumb style */

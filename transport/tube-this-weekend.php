@@ -32,13 +32,13 @@ global $transport_status_last_updated;
 
     <?php include '../includes/menus/portal_menu.php'; ?>
 
-	<ol class="breadcrumb">
+	<ol class="breadcrumb breadcrumb-custom">
 	<li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../transport/">Transport</a></li>
 	<li class="active">Tube - This Weekend</li>
 	</ol>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<!-- Tube | This weekend | Line status -->
 	<div class="panel panel-default">

@@ -37,7 +37,7 @@ global $transport_status_last_updated;
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb breadcrumb-custom">
 	<li><a href="../overview/">Overview</a></li>
     <li class="active">Transport</li>
     </ol>

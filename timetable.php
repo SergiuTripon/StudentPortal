@@ -27,12 +27,12 @@ include 'includes/session.php';
 
 	<div class="container">
 
-	<ol class="breadcrumb">
+	<ol class="breadcrumb breadcrumb-custom">
     <li><a href="../overview/">Overview</a></li>
 	<li class="active">Timetable</li>
     </ol>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 
@@ -190,7 +190,7 @@ include 'includes/session.php';
 
     <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-timetable/"><span class="ladda-label">Create timetable</span></a>
 
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">

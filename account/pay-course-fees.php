@@ -50,7 +50,7 @@ if ($fee_amount == "0.00") {
 
     <div class="container">
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../account/">Account</a></li>
     <li class="active">Pay course fees</li>

@@ -45,7 +45,7 @@ if (isset($_GET["id"])) {
 
 	<div id="admin-timetable-portal" class="container">
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../university-map/">University Map</a></li>
     <li class="active">Create location</li>

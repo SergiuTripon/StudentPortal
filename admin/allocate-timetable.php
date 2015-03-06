@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
 
 	<div class="container">
 
-	<ol class="breadcrumb">
+	<ol class="breadcrumb breadcrumb-custom">
 		<li><a href="../../overview/">Overview</a></li>
         <li><a href="../../timetable/">Timetable</a></li>
 		<li class="active">Allocate timetable</li>
@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
 
     <div id="moduleid" style="display: none !important;"><?php echo $timetableToAllocate; ?></div>
 
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 

@@ -40,7 +40,7 @@ include 'includes/session.php';
     <h1 class="text-center">User manual</h1>
     <hr class="hr-small">
 
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -761,7 +761,7 @@ include 'includes/session.php';
     <h1 class="text-center">User manual</h1>
     <hr class="hr-small">
 
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">

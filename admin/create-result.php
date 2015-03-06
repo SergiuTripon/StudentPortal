@@ -50,7 +50,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
 	<div class="container">
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../results/">Results</a></li>
     <li class="active">Create result</li>

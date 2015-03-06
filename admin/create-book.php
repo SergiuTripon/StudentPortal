@@ -27,7 +27,7 @@ include '../includes/session.php';
 
 	<div id="admin-timetable-portal" class="container">
 
-    <ol class="breadcrumb">
+    <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../library/">Library</a></li>
     <li class="active">Create book</li>
