@@ -768,7 +768,7 @@ textarea {
 
 .modal-custom .close, .close:hover, .close:focus {
     opacity: 1;
-    color: #333333;
+    color: #735326;
     font-size: 30px;
     cursor: pointer;
     text-shadow: none;
@@ -778,16 +778,18 @@ textarea {
     border-color: #9F8170;
 }
 
+.modal-custom .modal-title {
+    color: #735326;
+    font-weight: 600;
+}
+
 .modal-custom .modal-header .form-logo i {
     color: #826644;
 }
 
-.modal-custom .modal-title {
-    color: #333333;
-}
-
 .modal-custom .modal-body p {
-    color: #333333;
+    color: #735326;
+    margin-bottom: 0;
 }
 
 .modal-custom .modal-footer {
