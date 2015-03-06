@@ -157,12 +157,6 @@ hr {
     background-color: #4582EC;
 }
 
-.btn-primary:focus, .btn-primary:hover {
-    color: #FFFFFF;
-    background-color: #1863E6;
-    border-color: #1863E6;
-}
-
 .btn-primary.dropdown-toggle,
 .open > .btn-primary.dropdown-toggle {
     color: #FFFFFF;
@@ -178,6 +172,7 @@ hr {
 .btn-primary:active,
 .active.btn-primary,
 .open > .btn-primary.dropdown-toggle {
+    color: #FFFFFF;
     border-color: #1863E6;
     background-color: #1863E6;
 }
