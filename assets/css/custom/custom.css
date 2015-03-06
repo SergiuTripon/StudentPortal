@@ -178,6 +178,7 @@ hr {
 .btn-primary:active,
 .active.btn-primary,
 .open > .btn-primary.dropdown-toggle {
+    border-color: #1863E6;
     background-color: #1863E6;
 }
 
