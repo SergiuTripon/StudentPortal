@@ -286,7 +286,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'userToAllocate='+ userToAllocate + '&timetableToAllocate='+ timetableToAllocate,
 	success:function(){
-        $('#allocate-'+userToAllocate).hide();
+        $('#user-'+userToAllocate).hide();
         $('.form-logo i').removeClass('fa-user-plus');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#allocate-question').hide();
@@ -320,7 +320,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'userToDeallocate='+ userToDeallocate + '&timetableToDeallocate='+ timetableToDeallocate,
 	success:function(){
-        $('#deallocate-'+userToDeallocate).hide();
+        $('#user-'+userToDeallocate).hide();
         $('.form-logo i').removeClass('fa-user-times');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deallocate-question').hide();
