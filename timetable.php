@@ -249,6 +249,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="success" class="text-center feedback-sad">Are you sure you want to deactivate '.$module_name.'?</p>
+            <p id="confirmation" class="text-center feedback-happy">'.$module_name.' has been deactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -368,7 +369,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
+			<p id="question" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
+			<p id="confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -497,9 +499,8 @@ include 'includes/session.php';
 		$('#timetable-'+timetableToDeactivate).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The timetable has been deactivated successfully.');
+        $('#deactivate-question').hide();
+        $('#deactivate-confirmation').show();
         $('#hide-deactivate').hide();
         $('#success-button-deactivate').show();
         $("#success-button-deactivate").click(function () {
