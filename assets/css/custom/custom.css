@@ -585,11 +585,11 @@ input[type=email]{
     margin-bottom: 10px;
 }
 
-select {
+form select {
     margin-bottom: 10px;
 }
 
-textarea {
+form textarea {
     margin-bottom: 10px;
     resize: none;
     white-space: normal;
