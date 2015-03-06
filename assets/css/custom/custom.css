@@ -197,6 +197,13 @@ hr {
     border-color: #C9302C;
     background-color: #C9302C;
 }
+.btn-action.btn-group {
+    margin-bottom: 0;
+}
+
+.btn-action > .dropdown-toggle {
+    background-color: #1863E6;
+}
 /* End of Buttons */
 
 /* End of Global */
