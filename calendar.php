@@ -295,6 +295,7 @@ include 'includes/session.php';
 	<th>Start</th>
 	<th>Due</th>
 	<th>Category</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
