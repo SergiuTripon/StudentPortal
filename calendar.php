@@ -69,16 +69,6 @@ include 'includes/session.php';
 
 	<div id="duetasks-toggle" class="panel panel-default">
 
-	<?php
-	$stmt2 = $mysqli->query("SELECT taskid FROM user_tasks WHERE userid = '$session_userid' AND task_status = 'active'");
-	while($row = $stmt2->fetch_assoc()) {
-	  echo '<form id="update-task-form-'.$row["taskid"].'" style="display: none;" action="/calendar/update-task/" method="POST">
-			<input type="hidden" name="taskToUpdate" id="taskToUpdate" value="'.$row["taskid"].'"/>
-			</form>';
-	}
-	$stmt2->close();
-	?>
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Due tasks</a>
@@ -129,12 +119,24 @@ include 'includes/session.php';
 			<td data-title="Start date">'.$task_startdate.'</td>
 			<td data-title="Due date">'.$task_duedate.'</td>
 			<td data-title="Category">'.$task_category.'</td>
-			<td data-title="Action"><a id="complete-'.$taskid.'" class="btn btn-primary btn-md ladda-button complete-button" data-style="slide-up"><span class="ladda-label">Complete</span></a></td>
-			<td data-title="Action"><a id="update-'.$taskid.'" class="btn btn-primary btn-md ladda-button update-button" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#modal-'.$taskid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+			<td data-title="Action">
+
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="#complete-'.$taskid.'" data-toggle="modal">Complete</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="../calendar/update-taskid='.$taskid.'" data-toggle="modal" data-toggle="modal">Update</a></li>
+            <li><a href="#deactivate-'.$taskid.'" data-toggle="modal" data-toggle="modal">Archive</a></li>
+            </ul>
+            </div>
+            </td>
+
 			</tr>
 
-			<div class="modal modal-custom fade" id="modal-'.$taskid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="complete-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -145,20 +147,54 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to delete this task?</p>
+			<p id="complete-question" class="text-center feedback-sad">Are you sure you want to complete '.$task_name.'?</p>
+			<p id="complete-confirmation" class="text-center feedback-sad" style="display: none;">'.$task_name.' has been completed successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide">
+			<div id="complete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="complete-'.$taskid.'" class="btn btn-danger btn-lg complete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="complete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="deactivate-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to archive '.$task_name.'?</p>
+			<p id="deactivate-confirmation" class="text-center feedback-sad" style="display: none;">'.$task_name.' has been archived successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="deactivate-hide">
+			<div class="pull-left">
+			<a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -411,42 +447,45 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(){
 		$('#task-'+taskToComplete).fadeOut();
-		setTimeout(function(){
-			location.reload();
-		}, 1000);
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#complete-question').hide();
+        $('#complete-confirmation').show();
+        $('#complete-hide').hide();
+        $('#complete-success-button').show();
+        $("#complete-success-button").click(function () {
+            location.reload();
+        });
 	},
-
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
 
     });
 
-    //Delete ajax call
-    $("body").on("click", ".delete-button", function(e) {
+    //Archive record
+    $("body").on("click", ".deactivate-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
-    var taskToDelete = clickedID[1];
+    var taskToDeactivate = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'taskToDelete='+ taskToDelete,
+	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(){
 		$('#task-'+taskToDelete).fadeOut();
-        $('#hide').hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The task has been deleted successfully.');
-        $('#success-button').show();
-        $("#success-button").click(function () {
+        $('#deactivate-question').hide();
+        $('#deactivate-confirmation').show();
+        $('#deactivate-hide').hide();
+        $('#deactivate-success-button').show();
+        $("#deactivate-success-button").click(function () {
             location.reload();
         });
 	},
