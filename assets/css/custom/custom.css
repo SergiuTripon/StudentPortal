@@ -1148,6 +1148,9 @@ div.dataTables_length select {
     height: auto;
 }
 
+div.dataTables_filter .form-control {
+    vertical-align: inherit;
+}
 div.dataTables_length .form-control {
     vertical-align: inherit;
 }
