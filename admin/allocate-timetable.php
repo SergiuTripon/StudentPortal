@@ -3,7 +3,7 @@ include '../includes/session.php';
 
 if (isset($_GET['id'])) {
 
-    $timetableToAssign = $_GET['id'];
+    $timetableToAllocate = $_GET['id'];
 
 } else {
     header('Location: ../../timetable/');
@@ -17,10 +17,10 @@ if (isset($_GET['id'])) {
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <title>Student Portal | Allocate timetable</title>
 
-    <title>Student Portal | Assign timetable</title>
+    <?php include '../assets/css-paths/datatables-css-path.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -36,10 +36,10 @@ if (isset($_GET['id'])) {
 	<ol class="breadcrumb">
 		<li><a href="../../overview/">Overview</a></li>
         <li><a href="../../timetable/">Timetable</a></li>
-		<li class="active">Assign timetable</li>
+		<li class="active">Allocate timetable</li>
 	</ol>
 
-    <div id="moduleid" style="display: none !important;"><?php echo $timetableToAssign; ?></div>
+    <div id="moduleid" style="display: none !important;"><?php echo $timetableToAllocate; ?></div>
 
 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAllocate') AND user_signin.account_type = 'student'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -81,8 +81,41 @@ if (isset($_GET['id'])) {
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a id="allocate-'.$userid.'" class="btn btn-primary btn-md ladda-button allocate-button" data-style="slide-up"><span class="ladda-label">Allocate</span></a></td>
-			</tr>';
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#allocate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Allocate</span></a></td>
+			</tr>
+
+			<div id="allocate-'.$userid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="allocate-question" class="text-center feedback-sad">Are you sure you want to allocate '.$firstname.' '.$surname.' to this module?</p>
+            <p id="allocate-confirmation" style="display: none;" class="text-center feedback-happy">'.$firstname.' '.$surname.' has been allocated from this module successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="allocate-hide">
+			<div class="pull-left">
+			<a id="allocate-'.$userid.'" class="btn btn-danger btn-lg deallocate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="allocate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
     }
 	$stmt1->close();
 	?>
@@ -120,7 +153,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAssign') AND user_signin.account_type = 'student'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_timetable.userid) FROM user_timetable WHERE user_timetable.moduleid = '$timetableToAllocate') AND user_signin.account_type = 'student'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -133,8 +166,41 @@ if (isset($_GET['id'])) {
 
 			<td data-title="First name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a id="deallocate-'.$userid.'" class="btn btn-primary btn-md ladda-button deallocate-button" data-style="slide-up"><span class="ladda-label">Deallocate</span></a></td>
-			</tr>';
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deallocate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deallocate</span></a></td>
+			</tr>
+
+			<div id="deallocate-'.$userid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="deallocate-question" class="text-center feedback-sad">Are you sure you want to deallocate '.$firstname.' '.$surname.' to this module?</p>
+            <p id="deallocate-confirmation" style="display: none;" class="text-center feedback-happy">'.$firstname.' '.$surname.' has been deallocated from this module successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="deallocate-hide">
+			<div class="pull-left">
+			<a id="deallocate-'.$userid.'" class="btn btn-danger btn-lg deallocate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="deallocate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
     }
 	$stmt2->close();
 	?>
@@ -191,7 +257,6 @@ if (isset($_GET['id'])) {
 	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function () {
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
@@ -207,7 +272,7 @@ if (isset($_GET['id'])) {
 		}
 	});
 
-    //Assign timetable
+    //Allocate module
 	$("body").on("click", ".allocate-button", function(e) {
     e.preventDefault();
 
@@ -222,7 +287,15 @@ if (isset($_GET['id'])) {
 	data:'userToAllocate='+ userToAllocate + '&timetableToAllocate='+ timetableToAllocate,
 	success:function(){
         $('#allocate-'+userToAllocate).hide();
-        location.reload();
+        $('.form-logo i').removeClass('fa-user-plus');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#allocate-question').hide();
+        $('#allocate-confirmation').show();
+        $('#allocate-hide').hide();
+        $('#allocate-success-button').show();
+        $("#allocate-success-button").click(function () {
+            location.reload();
+        });
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -233,7 +306,7 @@ if (isset($_GET['id'])) {
 
     });
 
-    //Unassign timetable
+    //Deallocate module
     $("body").on("click", ".deallocate-button", function(e) {
     e.preventDefault();
 
@@ -248,7 +321,15 @@ if (isset($_GET['id'])) {
 	data:'userToDeallocate='+ userToDeallocate + '&timetableToDeallocate='+ timetableToDeallocate,
 	success:function(){
         $('#deallocate-'+userToDeallocate).hide();
-        location.reload();
+        $('.form-logo i').removeClass('fa-user-times');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deallocate-question').hide();
+        $('#deallocate-confirmation').show();
+        $('#deallocate-hide').hide();
+        $('#deallocate-success-button').show();
+        $("#deallocate-success-button").click(function () {
+            location.reload();
+        });
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -256,10 +337,7 @@ if (isset($_GET['id'])) {
 	}
 
 	});
-
     });
-
-	});
 	</script>
 
 </body>
