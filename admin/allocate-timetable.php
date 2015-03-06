@@ -77,7 +77,7 @@ if (isset($_GET['id'])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-	echo '<tr id="allocate-'.$userid.'">
+	echo '<tr id="user-'.$userid.'">
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
@@ -162,7 +162,7 @@ if (isset($_GET['id'])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-	echo '<tr id="unallocate-'.$userid.'">
+	echo '<tr id="user-'.$userid.'">
 
 			<td data-title="First name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
