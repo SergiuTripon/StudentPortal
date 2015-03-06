@@ -26,10 +26,10 @@ header('Location: ../calendar/');
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
-
     <title>Student Portal | Update task</title>
+
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 	
 </head>
 
