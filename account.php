@@ -183,12 +183,68 @@ include 'includes/session.php';
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
+
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active users</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Users online now</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Users online now -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>Full name</th>
+	<th>Account type</th>
+	<th>Created on</th>
+	<th>Updated on</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on, user_details.surname, user_details.firstname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $account_type = ucfirst($row["account_type"]);
+    $created_on = $row["created_on"];
+    $updated_on = $row["updated_on"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
+
+	echo '<tr>
+
+			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
+			<td data-title="Account type">'.$account_type.'</td>
+			<td data-title="Created on">'.$row["created_on"].'</td>
+			<td data-title="Updated on">'.$row["updated_on"].'</td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Active users</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
 	<!-- Active users-->
@@ -289,12 +345,12 @@ include 'includes/session.php';
 	</div><!-- /panel-default -->
 
     <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
+    <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Inactive users</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Inactive users</a>
   	</h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
   	<div class="panel-body">
 
 	<!-- Inactive user -->
@@ -413,62 +469,6 @@ include 'includes/session.php';
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-	}
-
-	$stmt1->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	<div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingThree">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Users online now</a>
-  	</h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-  	<div class="panel-body">
-
-	<!-- Users online now -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
-
-	<thead>
-	<tr>
-	<th>Full name</th>
-	<th>Account type</th>
-	<th>Created on</th>
-	<th>Updated on</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt1 = $mysqli->query("SELECT user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_details.updated_on,'%d %b %y %H:%i') as updated_on, user_details.surname, user_details.firstname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-    $account_type = ucfirst($row["account_type"]);
-    $created_on = $row["created_on"];
-    $updated_on = $row["updated_on"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
-
-	echo '<tr>
-
-			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
-			<td data-title="Account type">'.$account_type.'</td>
-			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Updated on">'.$row["updated_on"].'</td>
-			</tr>';
 	}
 
 	$stmt1->close();
