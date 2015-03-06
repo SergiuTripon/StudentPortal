@@ -967,9 +967,9 @@ form .input-happy {
 }
 
 @media (max-width: 480px) {
-    #university-map-portal #map-search-button {
-        text-align: center !important;
-    }
+#university-map-portal #map-search-button {
+    text-align: center !important;
+}
 }
 /* End of University map */
 
@@ -1013,7 +1013,7 @@ form .input-happy {
 }
 
 .cal-week-box hr {
-    margin-top: 5;
+    margin-top: 5px;
     margin-bottom: 0;
     border-radius: 0;
     border-color: #CCCCCC;
@@ -1141,7 +1141,13 @@ form .input-happy {
 
 /* dataTables */
 div.dataTables_filter input {
-    max-width: 100%;
+    width: auto;
+}
+
+@media (max-width: 480px) {
+div.dataTables_filter input {
+    width: 180px;
+}
 }
 
 div.dataTables_length select {
@@ -1164,7 +1170,6 @@ div.dataTables_length label {
     font-weight: 600;
     margin-bottom: 0;
 }
-
 
 .pagination > .active > a,
 .pagination > .active > span,
