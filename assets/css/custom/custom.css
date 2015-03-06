@@ -643,7 +643,7 @@ form textarea {
 /* End of Button group */
 
 /* Form Logo */
-.form-logo i {
+form .form-logo i {
     font-size: 80px;
     color: #2AABD2;
     text-align: center;
@@ -652,7 +652,7 @@ form textarea {
 /* End of Form Logo */
 
 /* Required field */
-.field-required {
+form .field-required {
     font-size: 15px;
     color: #D9534F;
     font-weight: 800;
@@ -660,27 +660,27 @@ form textarea {
 /* End of Required field */
 
 /* Error message */
-.feedback-sad {
+form .feedback-sad {
     color: #D9534F !important;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 0;
 }
 
-.input-sad {
+form .input-sad {
     border-color: #D9534F;
 }
 /* End of Error message */
 
 /* Success message */
-.feedback-happy {
+form .feedback-happy {
     color: #449D44 !important;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 0;
 }
 
-.input-happy {
+form .input-happy {
     border-color: #449D44;
 }
 
