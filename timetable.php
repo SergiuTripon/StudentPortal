@@ -210,8 +210,6 @@ include 'includes/session.php';
 	<th>Notes</th>
 	<th>URL</th>
 	<th>Action</th>
-    <th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
