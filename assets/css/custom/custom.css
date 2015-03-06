@@ -273,6 +273,28 @@ hr {
     text-align: center;
 }
 }
+
+.navbar-fixed-top .navbar-nav > .open > a,
+.navbar-fixed-top .navbar-nav > .open > a:hover,
+.navbar-fixed-top .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #D9534F;
+}
+
+.navbar-fixed-top  .dropdown-menu {
+    min-width: 100%;
+    background-color: #D9534F;
+}
+
+.navbar-fixed-top  .dropdown-menu > li > a {
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
+.navbar-fixed-top  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: #FFFFFF;
+    background-color: #D9534F;
+}
 /* End of Navbar */
 
 /* Footer */
