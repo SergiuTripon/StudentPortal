@@ -232,14 +232,14 @@ include 'includes/session.php';
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <button type="button" class="btn btn-primary">Allocate</button>
+            <a class="btn btn-primary" href="/admin/assign-timetable?id='.$moduleid.'">Allocate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Update</a></li>
-            <li><a href="#">Deactivate</a></li>
+            <li><a href="/admin/update-timetable?id='.$moduleid.'">Update</a></li>
+            <li><a href="#deactivate-'.$moduleid.'">Deactivate</a></li>
             </ul>
             </div>
             </td>
