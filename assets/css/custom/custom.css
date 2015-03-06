@@ -228,6 +228,7 @@ hr {
 .btn-action > .dropdown-menu > li > a:hover,
 .btn-action > .dropdown-menu > li > a:focus {
     color: #FFFFFF;
+    background-color: #1863E6;
 }
 /* End of Buttons */
 
