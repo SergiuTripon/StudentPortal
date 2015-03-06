@@ -239,7 +239,7 @@ include 'includes/session.php';
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><a href="/admin/update-timetable?id='.$moduleid.'">Update</a></li>
-            <li><a href="#deactivate-'.$moduleid.'">Deactivate</a></li>
+            <li><a href="#deactivate-'.$moduleid.'" data-toggle="modal">Deactivate</a></li>
             </ul>
             </div>
             </td>
@@ -309,7 +309,6 @@ include 'includes/session.php';
 	<th>Notes</th>
 	<th>URL</th>
 	<th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -332,6 +331,18 @@ include 'includes/session.php';
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#reactivate-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Reactivate</span></a></td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
+
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="#reactivate-'.$moduleid.'" data-toggle="modal">Allocate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-toggle="modal">Deactivate</a></li>
+            </ul>
+            </div>
+
 			</tr>
 
 			<div id="reactivate-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
