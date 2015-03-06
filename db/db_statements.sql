@@ -10,6 +10,7 @@ DROP TABLE system_lectures;
 DROP TABLE system_tutorials;
 DROP TABLE system_exams;
 DROP TABLE user_timetable;
+DROP TABLE user_results;
 DROP TABLE system_modules;
 DROP TABLE reserved_books;
 DROP TABLE system_books;
