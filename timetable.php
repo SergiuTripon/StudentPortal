@@ -232,9 +232,22 @@ include 'includes/session.php';
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="/admin/allocate-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Allocate</span></a></a></td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button update-button" href="/admin/update-timetable?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$moduleid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></a></td>
+            <td data-title="Action">
+            <div class="btn-group">
+            <button type="button" class="btn btn-danger">Action</button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            </ul>
+            </div>
+            </td>
 			</tr>
 
 			<div id="deactivate-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
