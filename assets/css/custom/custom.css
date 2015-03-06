@@ -163,6 +163,12 @@ hr {
     border-color: #1863E6;
 }
 
+.btn-primary.dropdown-toggle {
+    color: #FFFFFF;
+    background-color: #1863E6;
+    border-color: #1863E6;
+}
+
 .btn-success {
     color: #FFFFFF;
     border-color: #3FAD46;
