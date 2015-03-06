@@ -338,7 +338,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$module_name.'?</p>
-            <p id="reactivate-confirmation" style="display: none;" class="text-center feedback-sad">'.$module_name.' has been reactivated successfully.</p>
+            <p id="reactivate-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -483,6 +483,12 @@ include 'includes/session.php';
 			"emptyTable": "There are no timetables to display."
 		}
 	});
+
+    //Modal
+    $(".modal-custom").modal({
+        backdrop: 'static',
+        keyboard: false
+    });
 
     //Deactivate record
     $("body").on("click", ".deactivate-button", function(e) {
