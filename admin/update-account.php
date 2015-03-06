@@ -58,13 +58,14 @@ if ($dateofbirth == "0000-00-00") {
 	<form class="form-custom" style="max-width: 100%;" name="updateanaccount_form" id="updateanaccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
+    <p id="error1" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
 	<div id="hide">
 
 	<input type="hidden" name="userid" id="userid" value="<?php echo $userToUpdate; ?>">
 
-	<label>Account type - select below</label>
+	<label for="account_type">Account type - select below<span class="field-required">*</span></label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg account_type <?php if($account_type == "student") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Student
@@ -76,23 +77,21 @@ if ($dateofbirth == "0000-00-00") {
 		<input type="radio" name="options" id="option3" autocomplete="off"> Admin
 	</label>
 	</div>
-	<p id="error1" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>First name</label>
+    <label for="firstname">First name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter a first name">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label>Surname</label>
+	<label for="surname">Surname<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter a surname">
 	</div>
 	</div>
-	<p id="error2" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Gender - select below</label>
+	<label for="gender">Gender - select below<span class="field-required">*</span></label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg gender <?php if($gender == "male") echo "active"; ?>">
 		<input type="radio" name="options" id="option1" autocomplete="off"> Male
@@ -106,23 +105,21 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 	</div>
 	</div>
-	<p id="error3" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="studentno">Student number</label>
+	<label for="studentno">Student number<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter a student number">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="degree">Programme of Study</label>
+	<label for="degree">Programme of Study<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study">
 	</div>
 	</div>
-	<p id="error4" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Email address</label>
+	<label for="email">Email address<span class="field-required">*</span></label>
     <input class="form-control" type="email" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
 	</div>
 	</div>
@@ -138,7 +135,7 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label>Date of Birth</label>
-	<input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" value="<?php echo $dateofbirth; ?>" placeholder="Select the date of birth"/>
+	<input class="form-control" type="text" name="dateofbirth" id="dateofbirth" value="<?php echo $dateofbirth; ?>" placeholder="Select the date of birth"/>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label>Phone number</label>
@@ -289,6 +286,7 @@ if ($dateofbirth == "0000-00-00") {
 	var account_type;
 	var gender;
 	var studentno;
+    var degree;
 
 	account_type = ($('.account_type.active').text().replace(/^\s+|\s+$/g,''));
 	gender = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
@@ -335,10 +333,11 @@ if ($dateofbirth == "0000-00-00") {
 			$('#degree').hide();
 		}
 
-	})
+	});
+
 	$('.btn-group > .gender').click(function(){
 		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
-	})
+	});
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
@@ -350,84 +349,135 @@ if ($dateofbirth == "0000-00-00") {
 
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a first name.");
-		$("#firstname").css("border-color", "#FF5454");
+        $("label[for='firstname']").empty().append("Please enter a first name.");
+        $("label[for='firstname']").removeClass("feedback-happy");
+        $("label[for='firstname']").addClass("feedback-sad");
+        $("#firstname").removeClass("input-happy");
+        $("#firstname").addClass("input-sad");
+        $("#firstname").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
-		$("#firstname").css("border-color", "#4DC742");
+        $("label[for='firstname']").empty().append("All good!");
+        $("label[for='firstname']").removeClass("feedback-sad");
+        $("label[for='firstname']").addClass("feedback-happy");
+        $("#firstname").removeClass("input-sad");
+        $("#firstname").addClass("input-happy");
 	}
 
 	var surname = $("#surname").val();
 	if(surname === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter a surname.");
-		$("#surname").css("border-color", "#FF5454");
+        $("label[for='surname']").empty().append("Please enter a surname.");
+        $("label[for='surname']").removeClass("feedback-happy");
+        $("label[for='surname']").addClass("feedback-sad");
+        $("#surname").removeClass("input-happy");
+        $("#surname").addClass("input-sad");
+        $("#surname").focus();
 		hasError  = true;
 		return false;
     } else {
-		$("#error2").hide();
-		$("#surname").css("border-color", "#4DC742");
-	}
-
-	var email = $("#email").val();
-	if(email === '') {
-		$("#error5").show();
-        $("#error5").empty().append("Please enter an email address.");
-		$("#email").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error5").hide();
-		$("#email").css("border-color", "#4DC742");
+        $("label[for='surname']").empty().append("All good!");
+        $("label[for='surname']").removeClass("feedback-sad");
+        $("label[for='surname']").addClass("feedback-happy");
+        $("#surname").removeClass("input-sad");
+        $("#surname").addClass("input-happy");
 	}
 
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
+		degree = $("#degree").val();
+
 		if(studentno === '') {
-			$("#error4").show();
-			$("#error4").empty().append("Please enter a student number.");
-			$("#studentno").css("border-color", "#FF5454");
+            $("label[for='studentno']").empty().append("Please enter a student number.");
+            $("label[for='studentno']").removeClass("feedback-happy");
+            $("label[for='studentno']").addClass("feedback-sad");
+            $("#studentno").removeClass("input-happy");
+            $("#studentno").addClass("input-sad");
+            $("#studentno").focus();
 			hasError  = true;
 			return false;
 		} else {
-			$("#error4").hide();
-			$("#studentno").css("border-color", "#4DC742");
+            $("label[for='studentno']").empty().append("All good!");
+            $("label[for='studentno']").removeClass("feedback-sad");
+            $("label[for='studentno']").addClass("feedback-happy");
+            $("#studentno").removeClass("input-sad");
+            $("#studentno").addClass("input-happy");
 		}
 		if ($.isNumeric(studentno)) {
-			$("#error4").hide();
-			$("#studentno").css("border-color", "#4DC742");
+            $("label[for='studentno']").empty().append("All good!");
+            $("label[for='studentno']").removeClass("feedback-sad");
+            $("label[for='studentno']").addClass("feedback-happy");
+            $("#studentno").removeClass("input-sad");
+            $("#studentno").addClass("input-happy");
+            $("#error1").hide();
 		} else {
-			$("#error4").show();
-			$("#error4").empty().append("The student number entered is invalid.<br>The student number must be numeric.");
-			$("#studentno").css("border-color", "#FF5454");
+			$("#error1").show();
+			$("#error1").empty().append("The student number entered is invalid.<br>The student number must be numeric.");
+            $("label[for='studentno']").empty().append("Wait a minute!");
+            $("label[for='studentno']").removeClass("feedback-happy");
+            $("label[for='studentno']").addClass("feedback-sad");
+            $("#studentno").removeClass("input-happy");
+            $("#studentno").addClass("input-sad");
+            $("#studentno").focus();
 			hasError  = true;
 			return false;
 		}
 		if (studentno.length != 9) {
-			$("#error4").show();
-			$("#error4").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
-			$("#studentno").css("border-color", "#FF5454");
+			$("#error1").show();
+			$("#error1").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+            $("label[for='studentno']").empty().append("Wait a minute!");
+            $("label[for='studentno']").removeClass("feedback-happy");
+            $("label[for='studentno']").addClass("feedback-sad");
+            $("#studentno").removeClass("input-happy");
+            $("#studentno").addClass("input-sad");
+            $("#studentno").focus();
 			hasError  = true;
 			return false;
 		} else {
-			$("#error4").hide();
-			$("#studentno").css("border-color", "#4DC742");
+            $("label[for='studentno']").empty().append("All good!");
+            $("label[for='studentno']").removeClass("feedback-sad");
+            $("label[for='studentno']").addClass("feedback-happy");
+            $("#studentno").removeClass("input-sad");
+            $("#studentno").addClass("input-happy");
+            $("#error1").hide();
 		}
-        if(degree === '') {
-			$("#error4").show();
-			$("#error4").empty().append("Please enter a programme of study.");
-			$("#degree").addClass("error-style");
+		if(degree === '') {
+            $("label[for='degree']").empty().append("Please enter a programme of study.");
+            $("label[for='degree']").removeClass("feedback-happy");
+            $("label[for='degree']").addClass("feedback-sad");
+            $("#degree").removeClass("input-happy");
+            $("#degree").addClass("input-sad");
+            $("#degree").focus();
 			hasError  = true;
 			return false;
 		} else {
-			$("#error4").hide();
-			$("#degree").addClass("success-style");
+            $("label[for='degree']").empty().append("All good!");
+            $("label[for='degree']").removeClass("feedback-sad");
+            $("label[for='degree']").addClass("feedback-happy");
+            $("#degree").removeClass("input-sad");
+            $("#degree").addClass("input-happy");
 		}
 	} else {
 		studentno = $("#studentno").val();
+		degree = $("#degree").val();
+	}
+
+	var email = $("#email").val();
+	if(email === '') {
+        $("label[for='email']").empty().append("Please enter an email address.");
+        $("label[for='email']").removeClass("feedback-happy");
+        $("label[for='email']").addClass("feedback-sad");
+        $("#email").removeClass("input-happy");
+        $("#email").addClass("input-sad");
+        $("#email").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='email']").empty().append("All good!");
+        $("label[for='email']").removeClass("feedback-sad");
+        $("label[for='email']").addClass("feedback-happy");
+        $("#email").removeClass("input-sad");
+        $("#email").addClass("input-happy");
 	}
 
 	var nationality = $("#nationality").val();
