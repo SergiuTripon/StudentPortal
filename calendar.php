@@ -301,31 +301,111 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks where userid = '$session_userid' AND task_status = 'inactive'");
+	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks WHERE userid = '$session_userid' AND task_status = 'inactive'");
 
-	while($row = $stmt2->fetch_assoc()) {
+	while($row = $stmt1->fetch_assoc()) {
 
-    $taskid = $row["taskid"];
-    $task_name = $row["task_name"];
-    $task_notes = $row["task_notes"];
-    $task_startdate = $row["task_startdate"];
-    $task_duedate = $row["task_duedate"];
-    $task_url = $row["task_url"];
-    $task_category = $row["task_category"];
-    $task_category = ucfirst($row["task_category"]);
+	$taskid = $row["taskid"];
+	$task_name = $row["task_name"];
+	$task_notes = $row["task_notes"];
+	$task_startdate = $row["task_startdate"];
+	$task_duedate = $row["task_duedate"];
+	$task_url = $row["task_url"];
+	$task_category = $row["task_category"];
+	$task_category = ucfirst($row["task_category"]);
 
 	echo '<tr id="task-'.$taskid.'">
 
-	<td data-title="Name">'.$task_name.'</td>
-	<td data-title="Notes">'.($task_notes === '' ? "No notes" : "$task_notes").'</td>
-    <td data-title="External URL">'.($task_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
-	<td data-title="Start date">'.$task_startdate.'</td>
-	<td data-title="Due date">'.$task_duedate.'</td>
-	<td data-title="Category">'.$task_category.'</td>
-	</tr>';
+			<td data-title="Name">'.$task_name.'</td>
+			<td data-title="Notes">'.($task_notes === '' ? "No notes" : "$task_notes").'</td>
+			<td data-title="External URL">'.($task_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
+			<td data-title="Start date">'.$task_startdate.'</td>
+			<td data-title="Due date">'.$task_duedate.'</td>
+			<td data-title="Category">'.$task_category.'</td>
+			<td data-title="Action">
+
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="#reactivate-'.$taskid.'" data-toggle="modal">Restore</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+
+			</tr>
+
+            <div id="reactivate-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to restore '.$task_name.'?</p>
+			<p id="reactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been restored successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="complete-hide">
+			<div class="pull-left">
+			<a id="reactivate-'.$taskid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$task_name.'?</p>
+			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
-	$stmt2->close();
+	$stmt1->close();
 	?>
 	</tbody>
 
@@ -493,7 +573,7 @@ include 'includes/session.php';
         }
 	}).resize();
 
-    //Complete process
+    //Complete record
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
 
@@ -525,7 +605,7 @@ include 'includes/session.php';
 
     });
 
-    //Archive record
+    //Deactivate record
     $("body").on("click", ".deactivate-button", function(e) {
     e.preventDefault();
 
@@ -546,6 +626,68 @@ include 'includes/session.php';
         $('#deactivate-hide').hide();
         $('#deactivate-success-button').show();
         $("#deactivate-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate record
+    $("body").on("click", ".reactivate-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var taskToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'taskToReactivate='+ taskToReactivate,
+	success:function(){
+		$('#task-'+taskToReactivate).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#reactivate-question').hide();
+        $('#reactivate-confirmation').show();
+        $('#reactivate-hide').hide();
+        $('#reactivate-success-button').show();
+        $("#reactivate-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete record
+    $("body").on("click", ".delete-button", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var taskToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'taskToDelete='+ taskToDelete,
+	success:function(){
+		$('#task-'+taskToDelete).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-question').hide();
+        $('#delete-confirmation').show();
+        $('#delete-hide').hide();
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
             location.reload();
         });
 	},

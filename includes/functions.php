@@ -1614,6 +1614,35 @@ function DeactivateTask() {
     $stmt1->execute();
     $stmt1->close();
 }
+
+//ReactivateTask function
+function ReactivateTask() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $taskToReactivate = filter_input(INPUT_POST, 'taskToReactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $task_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status=?, updated_on=? WHERE taskid = ?");
+    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeleteTask function
+function DeleteTask() {
+
+    global $mysqli;
+
+    $taskToDelete = filter_input(INPUT_POST, 'taskToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_tasks WHERE taskid = ?");
+    $stmt1->bind_param('i', $taskToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Events functions

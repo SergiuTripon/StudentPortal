@@ -239,6 +239,16 @@ elseif (isset($_POST["taskToDeactivate"])) {
     DeactivateTask();
 }
 
+//Call ReactivateTask function
+elseif (isset($_POST["taskToReactivate"])) {
+    ReactivateTask();
+}
+
+//Call DeleteTask function
+elseif (isset($_POST["taskToDelete"])) {
+    DeleteTask();
+}
+
 /////////////////////////////////////////////////////////////
 
 //Call Events functions
