@@ -1137,6 +1137,43 @@ textarea {
 }
 /* End of Table Custom style */
 
+/* dataTables */
+div.dataTables_filter input {
+    width: auto;
+}
+
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    border-color: #5D5D5D;
+    background-color: #5D5D5D;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #333333;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    color: #333333;
+}
+
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+    color: #CCCCCC;
+}
+/* End of dataTables */
 
 /* No More Responsive Table */
 @media only screen and (max-width: 992px) {
