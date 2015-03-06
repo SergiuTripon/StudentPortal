@@ -332,13 +332,13 @@ include 'includes/session.php';
             <td data-title="Action">
 
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#reactivate-'.$moduleid.'" data-toggle="modal">Allocate</a>
+            <a class="btn btn-primary" href="#reactivate-'.$moduleid.'" data-toggle="modal">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-toggle="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
             </td>
