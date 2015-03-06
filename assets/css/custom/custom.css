@@ -207,6 +207,10 @@ hr {
     border-color: #C9302C;
     background-color: #C9302C;
 }
+
+.btn-action {
+    margin-bottom: 0px;
+}
 /* End of Buttons */
 
 /* End of Global */
