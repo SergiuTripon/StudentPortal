@@ -208,8 +208,8 @@ hr {
     background-color: #C9302C;
 }
 
-.btn-action {
-    margin-bottom: 0px;
+.btn-action.btn-group {
+    margin-bottom: 0;
 }
 /* End of Buttons */
 
