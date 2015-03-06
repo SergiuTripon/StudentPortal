@@ -1224,31 +1224,6 @@ textarea {
 /* End of Table Custom style */
 
 /* dataTables */
-div.dataTables_filter label,
-div.dataTables_length label {
-    font-weight: 600;
-}
-
-.dataTables_filter .form-control,
-.dataTables_length .form-control {
-    font-weight: normal;
-    margin-bottom: 0;
-}
-
-.dataTables_filter .form-control {
-    height: 35px;
-}
-
-.dataTables_length .form-control {
-    height: 40px;
-    padding: 5px 5px 5px 5px;
-}
-
-select.input-sm, select.form-group-sm .form-control {
-    height: 100%;
-}
-
-
 .pagination > .active > a,
 .pagination > .active > span,
 .pagination > .active > a:hover,
