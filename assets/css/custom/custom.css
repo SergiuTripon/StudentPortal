@@ -214,6 +214,10 @@ hr {
 .btn-action.btn-group {
     margin-bottom: 0;
 }
+
+.btn-action > .dropdown-menu {
+    background-color: #1863E6;
+}
 /* End of Buttons */
 
 /* End of Global */
