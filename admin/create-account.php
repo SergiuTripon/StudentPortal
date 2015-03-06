@@ -248,7 +248,6 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
@@ -271,7 +270,7 @@ include '../includes/session.php';
 			$('.btn-group').addClass('btn-group-justified');
 		}
 	})
-	.resize();//trigger the resize event on page load.
+	.resize();
 
     //Global variable
 	var account_type;
@@ -304,11 +303,12 @@ include '../includes/session.php';
 
 	});
 
+    //Setting variable value
 	$('.btn-group > .gender').click(function(){
 		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
 	});
 
-	//Ajax call
+	//Creating record
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -598,7 +598,7 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'account_type=' + account_type + '&firstname=' + firstname + '&surname2=' + surname + '&gender2=' + gender + '&studentno=' + studentno + '&degree=' + degree + '&email5=' + email + '&password4=' + password + '&nationality1=' + nationality + '&dateofbirth1=' + dateofbirth + '&phonenumber1=' + phonenumber + '&address11=' + address1 + '&address21=' + address2 + '&town1=' + town + '&city1=' + city + '&country1=' + country + '&postcode1=' + postcode,
+    data:'account_type=' + account_type + '&firstname2=' + firstname + '&surname2=' + surname + '&gender2=' + gender + '&studentno=' + studentno + '&degree=' + degree + '&email5=' + email + '&password4=' + password + '&nationality1=' + nationality + '&dateofbirth1=' + dateofbirth + '&phonenumber1=' + phonenumber + '&address11=' + address1 + '&address21=' + address2 + '&town1=' + town + '&city1=' + city + '&country1=' + country + '&postcode1=' + postcode,
     success:function(){
         $("#error1").hide();
 		$("#error").hide();
