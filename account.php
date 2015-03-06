@@ -299,7 +299,7 @@ include 'includes/session.php';
             </td>
 			</tr>
 
-    		<div id="modal-features deactivate-'.$userid.'" class="modal modal-custom fade" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div id="deactivate-'.$userid.'" class="modal modal-custom fade" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
