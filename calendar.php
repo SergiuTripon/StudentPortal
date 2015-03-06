@@ -126,7 +126,7 @@ include 'includes/session.php';
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="../calendar/update-taskid='.$taskid.'" data-toggle="modal" data-toggle="modal">Update</a></li>
+            <li><a href="../calendar/update-task?id='.$taskid.'" data-toggle="modal" data-toggle="modal">Update</a></li>
             <li><a href="#deactivate-'.$taskid.'" data-toggle="modal" data-toggle="modal">Archive</a></li>
             </ul>
             </div>
