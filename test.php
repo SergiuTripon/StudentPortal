@@ -293,15 +293,7 @@
                 <div class="lab_item">
                     <div class="hexagon hexagon2">
                         <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url('http://placekitten.com/200/305');">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lab_item">
-                    <div class="hexagon hexagon2">
-                        <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/320);">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
                             </div>
                         </div>
                     </div>
@@ -317,7 +309,7 @@
                 <div class="lab_item">
                     <div class="hexagon hexagon2">
                         <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/300);">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
                             </div>
                         </div>
                     </div>
@@ -325,7 +317,7 @@
                 <div class="lab_item">
                     <div class="hexagon hexagon2">
                         <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/300/300);">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
                             </div>
                         </div>
                     </div>
@@ -333,7 +325,7 @@
                 <div class="lab_item">
                     <div class="hexagon hexagon2">
                         <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/300/400);">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
                             </div>
                         </div>
                     </div>
@@ -341,7 +333,7 @@
                 <div class="lab_item">
                     <div class="hexagon hexagon2">
                         <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/500/500);">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
                             </div>
                         </div>
                     </div>
@@ -349,7 +341,7 @@
                 <div class="lab_item">
                     <div class="hexagon hexagon2">
                         <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/600/600);">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
                             </div>
                         </div>
                     </div>
@@ -357,7 +349,7 @@
                 <div class="lab_item">
                     <div class="hexagon hexagon2">
                         <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/700/700);">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
                             </div>
                         </div>
                     </div>
@@ -365,7 +357,7 @@
                 <div class="lab_item">
                     <div class="hexagon hexagon2">
                         <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/250/300);">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
                             </div>
                         </div>
                     </div>
@@ -373,7 +365,15 @@
                 <div class="lab_item">
                     <div class="hexagon hexagon2">
                         <div class="hexagon-in1">
-                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/230/300);">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lab_item">
+                    <div class="hexagon hexagon2">
+                        <div class="hexagon-in1">
+                            <div class="hexagon-in2" style="background-image: url(http://placekitten.com/200/310);">
                             </div>
                         </div>
                     </div>
