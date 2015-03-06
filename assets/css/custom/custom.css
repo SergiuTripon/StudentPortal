@@ -541,10 +541,12 @@ label {
 }
 
 label.feedback-sad {
+    font-size: 15px;
     margin-bottom: 5px;
 }
 
 label.feedback-happy {
+    font-size: 15px;
     margin-bottom: 5px;
 }
 
