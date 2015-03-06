@@ -249,7 +249,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p id="success" class="text-center feedback-sad">Are you sure you want to deactivate '.$module_name.'?</p>
-            <p id="confirmation" class="text-center feedback-happy">'.$module_name.' has been deactivated successfully.</p>
+            <p id="confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
