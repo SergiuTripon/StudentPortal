@@ -281,17 +281,18 @@ hr {
     background-color: #D9534F;
 }
 
-.navbar-fixed-top  .dropdown-menu {
+.navbar-fixed-top .dropdown-menu {
     min-width: 100%;
     background-color: #D9534F;
 }
 
-.navbar-fixed-top  .dropdown-menu > li > a {
+.navbar-fixed-top .dropdown-menu > li > a {
     color: #FFFFFF;
     font-size: 15px;
 }
 
-.navbar-fixed-top  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+.navbar-fixed-top  .dropdown-menu > li > a:hover,
+.navbar-fixed-top  .dropdown-menu > li > a:focus {
     color: #FFFFFF;
     background-color: #D9534F;
 }
