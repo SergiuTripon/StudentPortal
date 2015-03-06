@@ -1,9 +1,9 @@
 <?php
 include '../includes/session.php';
 
-if (isset($_GET["taskToUpdate"])) {
+if (isset($_GET["id"])) {
 
-$taskToUpdate = $_GET["taskToUpdate"];
+$taskToUpdate = $_GET["id"];
 
 $stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, task_startdate, task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
 $stmt1->bind_param('i', $taskToUpdate);
