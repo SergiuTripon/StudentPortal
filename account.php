@@ -540,7 +540,7 @@ include 'includes/session.php';
 	data:'userToDeactivate='+ userToDeactivate,
 	success:function(){
 		$('#user-'+userToDeactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').removeClass('fa-user-plus');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-question').hide();
         $('#deactivate-confirmation').show();
