@@ -801,7 +801,7 @@ form .input-happy {
 /* End of Modal style */
 
 /* Accordion style */
-.panel-group .panel {
+.panel-custom .panel {
     box-shadow: none;
     border-radius: 3px;
     margin-bottom: 5px;
@@ -810,61 +810,61 @@ form .input-happy {
 }
 
 /*Removes top spacing */
-.panel-group .panel + .panel {
+.panel-custom .panel-group .panel + .panel {
     margin-top: 0;
 }
 
 /*Sets border color */
-.panel .panel-default {
+.panel-custom .panel .panel-default {
     border-color: #4582EC;
 }
 
 /*Sets background and text color */
-.panel-default>.panel-heading {
+.panel-custom .panel-default>.panel-heading {
     color: #FFFFFF;
     background-color: #4582EC;
     border-color: #4582EC;
 }
 
 /* Sets panel title font size */
-.panel-title {
+.panel-custom .panel-title {
     font-size: 15px;
 }
 
 /* Sets background and text color of the panel content */
-.panel-default>.panel-heading+.panel-collapse>.panel-body {
+.panel-custom .panel-default>.panel-heading+.panel-collapse>.panel-body {
     color: #333333;
     background-color: #F8F8F8;
     border-color: #4582EC;
 }
 
 /* Styles collapse toggle */
-#headingOne .accordion-toggle:before {
+.panel-custom #headingOne .accordion-toggle:before {
     font-family: FontAwesome;
     content: "\f078";
     color: #FFFFFF;
 }
-#headingOne .accordion-toggle.collapsed:before {
+.panel-custom #headingOne .accordion-toggle.collapsed:before {
     color: #FFFFFF;
     content: "\f054";
 }
 
-#headingTwo .accordion-toggle:before {
+.panel-custom #headingTwo .accordion-toggle:before {
     font-family: FontAwesome;
     content: "\f078";
     color: #FFFFFF;
 }
-#headingTwo .accordion-toggle.collapsed:before {
+.panel-custom #headingTwo .accordion-toggle.collapsed:before {
     color: #FFFFFF;
     content: "\f054";
 }
 
-#headingThree .accordion-toggle:before {
+.panel-custom #headingThree .accordion-toggle:before {
     font-family: FontAwesome;
     content: "\f078";
     color: #FFFFFF;
 }
-#headingThree .accordion-toggle.collapsed:before {
+.panel-custom #headingThree .accordion-toggle.collapsed:before {
     color: #FFFFFF;
     content: "\f054";
 }
