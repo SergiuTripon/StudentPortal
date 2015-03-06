@@ -1146,6 +1146,7 @@ div.dataTables_filter input {
 
 div.dataTables_length select {
     height: auto;
+    font-weight: normal;
 }
 
 div.dataTables_filter .form-control {
