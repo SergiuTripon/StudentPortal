@@ -175,8 +175,10 @@ include 'includes/session.php';
     </ul>
     </div>
     
-	<div class="modal-footer text-center">
+	<div class="modal-footer">
+    <div class="text-center">
     <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Back</button>
+    </div>
     </div>
             
 	</div><!-- /modal -->
