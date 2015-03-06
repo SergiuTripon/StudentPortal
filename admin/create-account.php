@@ -412,6 +412,7 @@ include '../includes/session.php';
             $("label[for='studentno']").addClass("feedback-happy");
             $("#studentno").removeClass("input-sad");
             $("#studentno").addClass("input-happy");
+            $("#error1").hide();
 		} else {
 			$("#error1").show();
 			$("#error1").empty().append("The student number entered is invalid.<br>The student number must be numeric.");
@@ -441,6 +442,7 @@ include '../includes/session.php';
             $("label[for='studentno']").addClass("feedback-happy");
             $("#studentno").removeClass("input-sad");
             $("#studentno").addClass("input-happy");
+            $("#error1").hide();
 		}
 		if(degree === '') {
             $("label[for='degree']").empty().append("Please enter a programme of study.");
@@ -516,6 +518,7 @@ include '../includes/session.php';
         $("label[for='password']").addClass("feedback-happy");
         $("#password").removeClass("input-sad");
         $("#password").addClass("input-happy");
+        $("#error1").hide();
 	}
 
 	var upperCase= new RegExp('[A-Z]');
@@ -528,6 +531,7 @@ include '../includes/session.php';
         $("label[for='password']").addClass("feedback-happy");
         $("#password").removeClass("input-sad");
         $("#password").addClass("input-happy");
+        $("#error1").hide();
 	} else {
 		$("#error6").show();
 		$("#error6").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
@@ -576,6 +580,7 @@ include '../includes/session.php';
         $("label[for='confirmpwd']").addClass("feedback-happy");
         $("#confirmpwd").removeClass("input-sad");
         $("#confirmpwd").addClass("input-happy");
+        $("#error1").hide();
 	}
 
 	var nationality = $("#nationality").val();
