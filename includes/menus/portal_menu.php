@@ -15,7 +15,15 @@
 
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-        <li><a href=""><?php echo $session_firstname, ' ', $session_surname; ?></a></li>
+        <li class="dropdown">
+            <a id="find-out-more" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $session_firstname, ' ', $session_surname; ?> <span class="fa fa-caret-down"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/account/update-account/">Update account</a></li>
+            <li><a href="/account/change-password/">Change password</a></li>
+            <li><a href="/account/pay-course-fees/">Pay course fees</a></li>
+            <li><a href="/account/delete-account/">Delete account</a></li>
+          </ul>
+        </li>
         <li id="signout"><a href="/sign-out/">Sign Out</a></li>
     </ul>
     </div><!--/.nav-collapse -->
