@@ -2870,7 +2870,7 @@ function ReactivateUser() {
     $user_status = 'active';
 
     $stmt1 = $mysqli->prepare("UPDATE user_details SET user_status=?, updated_on=? WHERE userid = ?");
-    $stmt1->bind_param('ssi', $user_status, $updated_on, $userToDeactivate);
+    $stmt1->bind_param('ssi', $user_status, $updated_on, $userToReactivate);
     $stmt1->execute();
     $stmt1->close();
 }
