@@ -572,10 +572,10 @@ include 'includes/session.php';
 	$(window).resize(function(){
 		var width = $(window).width();
 		if(width <= 550){
-			$('.btn-group').addClass('btn-group-vertical full-width');
+			$('.calendar-buttons .btn-group').addClass('btn-group-vertical full-width');
             $('#calendar-buttons2').addClass("mt10");
         } else {
-            $('.btn-group').removeClass('btn-group-vertical full-width');
+            $('.calendar-buttons .btn-group').removeClass('btn-group-vertical full-width');
             $('#calendar-buttons2').removeClass("mt10");
         }
 	}).resize();
