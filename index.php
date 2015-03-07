@@ -85,7 +85,6 @@ include 'includes/session.php';
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address">
     </div>
     </div>
-    <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -93,7 +92,6 @@ include 'includes/session.php';
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
     </div>
     </div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="text-right">
     <a class="forgot-password" href="forgotten-password/">Forgotten your password?</a>
@@ -175,12 +173,11 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'email=' + email + '&password=' + password,
     success:function(){
+        $("#error").show();
 		window.location = '../overview/';
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#success").hide();
-        $("#error1").hide();
-        $("#error2").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
