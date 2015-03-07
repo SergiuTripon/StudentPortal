@@ -917,23 +917,23 @@ form .input-happy {
     margin-bottom: 0;
 }
 
-#calendar-portal .full-width {
+#calendar-portal .calendar-buttons .full-width {
     width: 100% !important;
 }
 
-#calendar-portal .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+#calendar-portal .calendar-buttons .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
-#calendar-portal .btn-group-vertical>.btn:first-child:not(:last-child) {
+#calendar-portal .calendar-buttons .btn-group-vertical>.btn:first-child:not(:last-child) {
     border-bottom-left-radius: 3px;
 }
 
-#calendar-portal .btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+#calendar-portal .calendar-buttons .btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
     border-radius: 3px;
 }
 
-#calendar-portal .btn-group-vertical>.btn:last-child:not(:first-child) {
+#calendar-portal .calendar-buttons .btn-group-vertical>.btn:last-child:not(:first-child) {
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
