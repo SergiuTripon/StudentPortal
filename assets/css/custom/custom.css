@@ -161,17 +161,6 @@ hr {
     border-left-color: #1863E6;
 }
 
-.btn-primary:hover,
-.btn-primary:focus,
-.focus.btn-primary,
-.btn-primary:active,
-.active.btn-primary,
-.open > .btn-primary.dropdown-toggle {
-    color: #FFFFFF;
-    border-color: #1863E6;
-    background-color: #1863E6;
-}
-
 .btn-success {
     color: #FFFFFF;
     border-color: #3FAD46;
@@ -228,6 +217,17 @@ hr {
 .btn-action > .dropdown-menu > li > a:hover,
 .btn-action > .dropdown-menu > li > a:focus {
     color: #FFFFFF;
+    background-color: #1863E6;
+}
+
+.btn-action .btn-primary:hover,
+.btn-action .btn-primary:focus,
+.btn-action .focus.btn-primary,
+.btn-action .btn-primary:active,
+.btn-action .active.btn-primary,
+.btn-action.open > .btn-primary.dropdown-toggle {
+    color: #FFFFFF;
+    border-color: #1863E6;
     background-color: #1863E6;
 }
 /* End of Buttons */
