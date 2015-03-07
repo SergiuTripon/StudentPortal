@@ -938,6 +938,12 @@ form .input-happy {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
+@media (max-width: 480px) {
+#calendar-portal .calendar-buttons .btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
+    border-top-right-radius: 3px;
+}
+}
 /* End of Calendar portal */
 
 /* University map */
