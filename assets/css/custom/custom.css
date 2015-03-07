@@ -943,6 +943,9 @@ form .input-happy {
 #calendar-portal .calendar-buttons .btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
     border-top-right-radius: 3px;
 }
+#calendar-portal .calendar-buttons .btn-group-vertical > :last-child:not(:first-child).btn {
+    border-bottom-left-radius: 3px;
+}
 }
 /* End of Calendar portal */
 
