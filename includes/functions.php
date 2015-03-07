@@ -235,7 +235,7 @@ function SendPasswordToken() {
 		$token = password_hash($uniqueid, PASSWORD_BCRYPT);
 
 		$stmt2 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
-		$stmt2>bind_param('ssi', $token, $created_on, $userid);
+		$stmt2->bind_param('ssi', $token, $created_on, $userid);
 		$stmt2->execute();
 		$stmt2->close();
 
@@ -311,6 +311,13 @@ function ResetPassword() {
 	$stmt1->bind_result($userid);
 	$stmt1->fetch();
 
+    if ($stmt1->num_rows == 0) {
+        $stmt1->close();
+        header('HTTP/1.0 550 The email address you entered is invalid.');
+        exit();
+
+    } else {
+
     //Getting token from database
 	$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_details.userid WHERE user_token.userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
@@ -322,50 +329,50 @@ function ResetPassword() {
     //Comparing client side token with database token
 	if ($token == $db_token) {
 
-    //Hashing the password
-	$password_hash = password_hash($password, PASSWORD_BCRYPT);
+        //Hashing the password
+        $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-    //Changing the password
-	$stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
-	$stmt4->bind_param('sss', $password_hash, $updated_on, $email);
-	$stmt4->execute();
-	$stmt4->close();
+        //Changing the password
+        $stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
+        $stmt4->bind_param('sss', $password_hash, $updated_on, $email);
+        $stmt4->execute();
+        $stmt4->close();
 
-    //Emptying token table
-	$empty_token = NULL;
-	$empty_created_on = NULL;
+        //Emptying token table
+        $empty_token = NULL;
+        $empty_created_on = NULL;
 
-	$stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
-	$stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
-	$stmt4->execute();
-	$stmt4->close();
+        $stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
+        $stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
+        $stmt4->execute();
+        $stmt4->close();
 
-    //Creating email
-	$subject = 'Password reset successfully';
+        //Creating email
+        $subject = 'Password reset successfully';
 
-	$message = '<html>';
-	$message .= '<head>';
-	$message .= '<title>Student Portal | Account</title>';
-	$message .= '</head>';
-	$message .= '<body>';
-	$message .= "<p>Dear $firstname,</p>";
-	$message .= '<p>Your password has been successfully reset.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
-	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-	$message .= '</body>';
-	$message .= '</html>';
+        $message = '<html>';
+        $message .= '<head>';
+        $message .= '<title>Student Portal | Account</title>';
+        $message .= '</head>';
+        $message .= '<body>';
+        $message .= "<p>Dear $firstname,</p>";
+        $message .= '<p>Your password has been successfully reset.</p>';
+        $message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
+        $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+        $message .= '</body>';
+        $message .= '</html>';
 
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+        $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+        $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
-	mail($email, $subject, $message, $headers);
-
+        mail($email, $subject, $message, $headers);
 	} else {
         header('HTTP/1.0 550 The password reset key is invalid.');
         exit();
+    }
     }
 }
 
