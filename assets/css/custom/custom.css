@@ -141,16 +141,6 @@ hr {
     outline: none !important;
 }
 
-.btn-default {
-    color: #333333;
-    background-color: #FFFFFF;
-    border-color: #CCCCCC;
-}
-.btn-default:focus, .btn-default:hover {
-    color: #333333;
-    background-color: #E6E6E6;
-    border-color: #BEBEBE;
-}
 .btn-primary {
     color: #FFFFFF;
     border-color: #4582EC;
@@ -911,41 +901,6 @@ form .input-happy {
     margin-bottom: 0;
     border-color: #4582EC;
     background: #4582EC;
-}
-#calendar-portal .calendar-buttons > .btn-group,
-#calendar-portal .calendar-buttons > .btn-group-vertical {
-    margin-bottom: 0;
-}
-
-#calendar-portal .calendar-buttons .full-width {
-    width: 100% !important;
-}
-
-#calendar-portal .calendar-buttons .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-#calendar-portal .calendar-buttons .btn-group-vertical>.btn:first-child:not(:last-child) {
-    border-bottom-left-radius: 0;
-}
-
-#calendar-portal .calendar-buttons .btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
-    border-radius: 0;
-}
-
-#calendar-portal .calendar-buttons .btn-group-vertical>.btn:last-child:not(:first-child) {
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-@media (max-width: 480px) {
-#calendar-portal .calendar-buttons .btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
-    border-top-right-radius: 3px;
-}
-#calendar-portal .calendar-buttons .btn-group-vertical > :last-child:not(:first-child).btn {
-    border-bottom-left-radius: 3px;
-}
 }
 /* End of Calendar portal */
 
