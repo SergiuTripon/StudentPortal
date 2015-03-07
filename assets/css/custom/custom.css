@@ -939,7 +939,7 @@ form .input-happy {
     border-bottom-left-radius: 0;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
 #calendar-portal .calendar-buttons .btn-group > :first-child:not(.dropdown-toggle):not(:last-child).btn {
     border-top-right-radius: 3px;
 }
