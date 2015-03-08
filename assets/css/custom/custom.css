@@ -651,7 +651,7 @@ form .btn-group, .btn-group-vertical {
 /* End of Button group */
 
 /* Form Logo */
-form .form-logo i {
+.form-logo i {
     font-size: 80px;
     color: #2AABD2;
     text-align: center;
@@ -668,7 +668,7 @@ form .field-required {
 /* End of Required field */
 
 /* Error message */
-form .feedback-sad {
+.feedback-sad {
     color: #D9534F !important;
     font-size: 16px;
     font-weight: 600;
@@ -681,7 +681,7 @@ form .input-sad {
 /* End of Error message */
 
 /* Success message */
-form .feedback-happy {
+.feedback-happy {
     color: #449D44 !important;
     font-size: 16px;
     font-weight: 600;
