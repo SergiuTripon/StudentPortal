@@ -117,7 +117,7 @@ include 'includes/session.php';
 
 	<!-- Submitted feedback -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom feedback-table">
 
 	<thead>
 	<tr>
