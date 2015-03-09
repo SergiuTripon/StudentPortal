@@ -475,7 +475,7 @@ include 'includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //Select box
-    $('.dataTables_length select').selectpicker();
+    $('select').selectpicker();
 
 	//DataTables
     $('.lecture-table').dataTable({
