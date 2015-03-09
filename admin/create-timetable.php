@@ -299,8 +299,6 @@ include '../includes/session.php';
 	<div id="success-button" class="text-center" style="display:none">
 	<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label">Create another</span></a>
 	</div>
-	
-    </form>
     <!-- End of Create timetable -->
 
 	</div> <!-- /container -->
