@@ -41,12 +41,6 @@ include '../includes/session.php';
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
 
-	<div id="hide">
-
-    <!-- Create module -->
-    <h4 class="title-separator text-center">Module</h4>
-    <hr class="hr-separator">
-
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="module_name">Module name<span class="field-required">*</span></label>
@@ -287,8 +281,6 @@ include '../includes/session.php';
 
 	</form>
     <!-- End of Create exam -->
-
-	</div>
 
 	<hr>
 
