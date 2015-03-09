@@ -238,7 +238,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no timetables to display."
+			"emptyTable": "There are no modules to display."
 		}
 	});
 	</script>

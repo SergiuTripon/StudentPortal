@@ -2187,15 +2187,15 @@ function MessageUser() {
 	$message_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
 	$message_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
 
-	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (message_subject, message_body, created_on) VALUES (?, ?, ?)");
-	$stmt1->bind_param('sss', $message_subject, $message_body, $created_on);
+    $isRead = 0;
+
+	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (message_subject, message_body, isRead, created_on) VALUES (?, ?, ?, ?)");
+	$stmt1->bind_param('ssss', $message_subject, $message_body, $isRead, $created_on);
 	$stmt1->execute();
 	$stmt1->close();
 
-    $isRead = 0;
-
-    $stmt2 = $mysqli->prepare("INSERT INTO user_messages_lookup (message_from, message_to, isRead) VALUES (?, ?, ?)");
-    $stmt2->bind_param('iii', $session_userid, $message_to_userid, $isRead);
+    $stmt2 = $mysqli->prepare("INSERT INTO user_messages_lookup (message_from, message_to) VALUES (?, ?)");
+    $stmt2->bind_param('ii', $session_userid, $message_to_userid);
     $stmt2->execute();
     $stmt2->close();
 
