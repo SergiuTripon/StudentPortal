@@ -28,7 +28,7 @@ include 'includes/session.php';
 
 	<div id="library-portal" class="container">
 
-	<ol class="breadcrumb breadcrumb-custom breadcrumb-admin">
+	<ol class="breadcrumb breadcrumb-custom">
     <li><a href="../overview/">Overview</a></li>
 	<li class="active">Library</li>
     </ol>
@@ -55,7 +55,7 @@ include 'includes/session.php';
 
 	</div><!-- /row -->
 
-	<div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="books-content" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -249,7 +249,7 @@ include 'includes/session.php';
 
     <a class="btn btn-success btn-lg btn-admin ladda-button" data-style="slide-up" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
 
-    <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
