@@ -68,6 +68,10 @@ include '../includes/session.php';
     <!-- End of Create module -->
 
 	</div>
+
+	<hr>
+
+    <div class="text-center"></div>
 	
     </form>
     <!-- End of Create timetable -->
