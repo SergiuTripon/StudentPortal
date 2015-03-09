@@ -2200,7 +2200,7 @@ function MessageUser() {
     $stmt2->close();
 
     $stmt3 = $mysqli->prepare("INSERT INTO user_messages_lookup_received (message_from, message_to) VALUES (?, ?)");
-    $stmt3->bind_param('iii', $session_userid, $message_to_userid);
+    $stmt3->bind_param('ii', $session_userid, $message_to_userid);
     $stmt3->execute();
     $stmt3->close();
 
