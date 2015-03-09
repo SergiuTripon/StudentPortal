@@ -2236,7 +2236,7 @@ function SetMessageRead () {
 	global $session_userid;
 
 	$isRead = 1;
-	$stmt1 = $mysqli->prepare("UPDATE user_messages_lookup SET isRead=? WHERE message_to=?");
+	$stmt1 = $mysqli->prepare("UPDATE user_messages LEFT JOIN user_messages_lookup ON user_messages.messageid=user_messages_lookup.messageid SET user_messages.isRead=? WHERE user_messages_lookup.message_to=?");
 	$stmt1->bind_param('ii', $isRead, $session_userid);
 	$stmt1->execute();
 	$stmt1->close();
