@@ -134,9 +134,13 @@ CREATE TABLE `user_messages` (
 CREATE TABLE `user_messages_sent` (
   `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_from` INT(11) NOT NULL,
+  `message_to` INT(11) NOT NULL,
+  `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (messageid)
 REFERENCES user_messages(messageid),
 FOREIGN KEY (message_from)
+REFERENCES user_signin(userid),
+FOREIGN KEY (message_to)
 REFERENCES user_signin(userid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
@@ -145,10 +149,12 @@ ON DELETE CASCADE
 #Messenger
 CREATE TABLE `user_messages_received` (
   `messageid` INT(11) NOT NULL AUTO_INCREMENT,
+  `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
-  `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (messageid)
 REFERENCES user_messages(messageid),
+FOREIGN KEY (message_from)
+REFERENCES user_signin(userid),
 FOREIGN KEY (message_to)
 REFERENCES user_signin(userid)
 ON UPDATE CASCADE
