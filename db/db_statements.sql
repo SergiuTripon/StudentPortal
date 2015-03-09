@@ -4,7 +4,8 @@ DROP TABLE tube_station_status_this_weekend;
 DROP TABLE tube_line_status_this_weekend;
 DROP TABLE tube_station_status_now;
 DROP TABLE tube_line_status_now;
-DROP TABLE user_feedback_lookup;
+DROP TABLE user_feedback_sent;
+DROP TABLE user_feedback_received;
 DROP TABLE user_feedback;
 DROP TABLE system_lectures;
 DROP TABLE system_tutorials;
@@ -12,12 +13,13 @@ DROP TABLE system_exams;
 DROP TABLE user_timetable;
 DROP TABLE user_results;
 DROP TABLE system_modules;
-DROP TABLE reserved_books;
+DROP TABLE system_books_reserved;
 DROP TABLE system_books;
 DROP TABLE user_tasks;
-DROP TABLE booked_events;
+DROP TABLE system_events_booked;
 DROP TABLE system_events;
-DROP TABLE user_messages_lookup;
+DROP TABLE user_messages_sent;
+DROP TABLE user_messages_received;
 DROP TABLE user_messages;
 DROP TABLE paypal_log;
 DROP TABLE user_fees; 
@@ -129,15 +131,24 @@ CREATE TABLE `user_messages` (
 ) ENGINE = InnoDB;
 
 #Messenger
-CREATE TABLE `user_messages_lookup` (
+CREATE TABLE `user_messages_sent` (
   `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_from` INT(11) NOT NULL,
+FOREIGN KEY (messageid)
+REFERENCES user_messages(messageid),
+FOREIGN KEY (message_from)
+REFERENCES user_signin(userid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Messenger
+CREATE TABLE `user_messages_received` (
+  `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_to` INT(11) NOT NULL,
   `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (messageid)
 REFERENCES user_messages(messageid),
-FOREIGN KEY (message_from)
-REFERENCES user_signin(userid),
 FOREIGN KEY (message_to)
 REFERENCES user_signin(userid)
 ON UPDATE CASCADE
@@ -162,7 +173,7 @@ CREATE TABLE `system_events` (
 ) ENGINE = InnoDB;
 
 #Events
-CREATE TABLE `booked_events` (
+CREATE TABLE `system_events_booked` (
   `userid` INT(11) NOT NULL,
   `eventid` INT(11) NOT NULL,
 	`event_amount_paid` NUMERIC(15,2) NOT NULL,
@@ -189,7 +200,7 @@ CREATE TABLE `system_books` (
 ) ENGINE = InnoDB;
 
 #Library
-CREATE TABLE `reserved_books` (
+CREATE TABLE `system_books_reserved` (
   `userid` INT(11) NOT NULL,
 	`bookid` INT(11) NOT NULL,
 	`book_class` VARCHAR(15) NOT NULL,
@@ -345,17 +356,26 @@ CREATE TABLE `user_feedback` (
 ) ENGINE = InnoDB;
 
 #Feedback
-CREATE TABLE `user_feedback_lookup` (
+CREATE TABLE `user_feedback_sent` (
   `feedbackid` INT(11) NOT NULL,
   `feedback_from` INT(11) NOT NULL,
-  `moduleid` INT(11) NOT NULL,
-  `module_staff` INT(11) NOT NULL,
   `isApproved` TINYINT(1) NOT NULL,
-  `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (feedbackid)
 REFERENCES user_feedback(feedbackid),
 FOREIGN KEY (feedback_from)
-REFERENCES user_signin(userid),
+REFERENCES user_signin(userid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Feedback
+CREATE TABLE `user_feedback_received` (
+  `feedbackid` INT(11) NOT NULL,
+  `moduleid` INT(11) NOT NULL,
+  `module_staff` INT(11) NOT NULL,
+  `isRead` TINYINT(1) NOT NULL,
+FOREIGN KEY (feedbackid)
+REFERENCES user_feedback(feedbackid),
 FOREIGN KEY (moduleid)
 REFERENCES system_modules(moduleid),
 FOREIGN KEY (module_staff)
