@@ -380,7 +380,7 @@ include 'includes/session.php';
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no lectures to display."
+			"emptyTable": "There are no modules to display."
 		}
 	});
 
