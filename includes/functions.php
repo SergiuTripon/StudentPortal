@@ -454,17 +454,17 @@ function GetDashboardData() {
 	$stmt7->fetch();
 
 	$isRead = '0';
-	$stmt8 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup WHERE message_to=? AND isRead=?");
+	$stmt8 = $mysqli->prepare("SELECT messageid FROM user_messages_received LEFT JOIN user_messages_sent ON user_messages_received.messageid=user_messages_sent.messageid WHERE user_messages_received.message_to=? AND user_messages_sent.isRead=?");
 	$stmt8->bind_param('ii', $session_userid, $isRead);
 	$stmt8->execute();
 	$stmt8->store_result();
-	$stmt8->bind_result($message_from);
+	$stmt8->bind_result($messageid);
 	$stmt8->fetch();
 
     $isRead = 0;
     $isApproved = 1;
 
-    $stmt9 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE module_staff=? AND isRead=? AND isApproved=?");
+    $stmt9 = $mysqli->prepare("SELECT user_feedback_received.feedbackid FROM user_feedback_received LEFT JOIN user_feedback_sent ON user_feedback_received.feedbackid=user_feedback_sent.feedbackid WHERE user_feedback_received.module_staff=? AND user_feedback_sent.isRead=? AND user_feedback_sent.isApproved=?");
     $stmt9->bind_param('iii', $session_userid, $isRead, $isApproved);
     $stmt9->execute();
     $stmt9->store_result();
@@ -473,7 +473,7 @@ function GetDashboardData() {
 
     $admin_isApproved = 0;
 
-    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE isApproved=? AND isRead=?");
+    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_received.feedbackid FROM user_feedback_received LEFT JOIN user_feedback_sent ON user_feedback_received.feedbackid=user_feedback_sent.feedbackid WHERE user_feedback_sent.isApproved=? AND user_feedback_sent.isRead=?");
     $stmt10->bind_param('ii', $admin_isApproved, $isRead);
     $stmt10->execute();
     $stmt10->store_result();

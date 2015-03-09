@@ -365,10 +365,17 @@ CREATE TABLE `user_feedback` (
 CREATE TABLE `user_feedback_sent` (
   `feedbackid` INT(11) NOT NULL,
   `feedback_from` INT(11) NOT NULL,
+  `moduleid` INT(11) NOT NULL,
+  `module_staff` INT(11) NOT NULL,
+  `isRead` TINYINT(1) NOT NULL,
   `isApproved` TINYINT(1) NOT NULL,
 FOREIGN KEY (feedbackid)
 REFERENCES user_feedback(feedbackid),
 FOREIGN KEY (feedback_from)
+REFERENCES user_signin(userid),
+FOREIGN KEY (moduleid)
+REFERENCES system_modules(moduleid),
+FOREIGN KEY (module_staff)
 REFERENCES user_signin(userid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
@@ -377,11 +384,13 @@ ON DELETE CASCADE
 #Feedback
 CREATE TABLE `user_feedback_received` (
   `feedbackid` INT(11) NOT NULL,
+  `feedback_from` INT(11) NOT NULL,
   `moduleid` INT(11) NOT NULL,
   `module_staff` INT(11) NOT NULL,
-  `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (feedbackid)
 REFERENCES user_feedback(feedbackid),
+FOREIGN KEY (feedback_from)
+REFERENCES user_signin(userid),
 FOREIGN KEY (moduleid)
 REFERENCES system_modules(moduleid),
 FOREIGN KEY (module_staff)
