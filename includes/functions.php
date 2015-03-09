@@ -2092,21 +2092,22 @@ function SubmitFeedback() {
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt1 = $mysqli->prepare("SELECT feedbackid FROM user_feedback ORDER BY feedbackid DESC LIMIT 1");
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($feedbackid);
-    $stmt1->fetch();
+    $stmt2 = $mysqli->prepare("SELECT feedbackid FROM user_feedback ORDER BY feedbackid DESC LIMIT 1");
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($feedbackid);
+    $stmt2->fetch();
 
+    $isApproved = 0;
     $isRead = 0;
 
-    $stmt2 = $mysqli->prepare("INSERT INTO user_feedback_lookup (feedbackid, feedback_from, moduleid, module_staff, isRead) VALUES (?, ?, ?, ?, ?)");
-    $stmt2->bind_param('iiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer, $isRead);
-    $stmt2->execute();
-    $stmt2->close();
+    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt3->bind_param('iiiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isApproved, $isRead);
+    $stmt3->execute();
+    $stmt3->close();
 
-    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_lookup (feedbackid, feedback_from, moduleid, module_staff, isRead) VALUES (?, ?, ?, ?, ?)");
-    $stmt3->bind_param('iiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isRead);
+    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_received (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt3->bind_param('iiiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isApproved, $isRead);
     $stmt3->execute();
     $stmt3->close();
 
