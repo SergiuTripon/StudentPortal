@@ -67,11 +67,12 @@ include '../includes/session.php';
     <input class="form-control" type="text" name="module_url" id="module_url" placeholder="Enter a URL">
 	</div>
 	</div>
+
+    </form>
     <!-- End of Create module -->
 
     <!-- Create lecture -->
-    <h4 class="title-separator text-center">Lecture</h4>
-    <hr class="hr-separator">
+    <form class="form-custom" style="max-width: 100%;" name="createmodule_form" id="createmodule_form" novalidate>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -154,11 +155,12 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
+
+	</form>
     <!-- End of Create lecture -->
 
     <!-- Create tutorial -->
-    <h4 class="title-separator text-center">Tutorial</h4>
-    <hr class="hr-separator">
+    <form class="form-custom" style="max-width: 100%;" name="createmodule_form" id="createmodule_form" novalidate>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -240,11 +242,12 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
+
+	</form>
     <!-- End of Create tutorial -->
 
     <!-- Create exam -->
-    <h4 class="title-separator text-center">Exam</h4>
-    <hr class="hr-separator">
+    <form class="form-custom" style="max-width: 100%;" name="createmodule_form" id="createmodule_form" novalidate>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -281,6 +284,8 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="exam_capacity" id="exam_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
+
+	</form>
     <!-- End of Create exam -->
 
 	</div>
