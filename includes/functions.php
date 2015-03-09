@@ -2580,12 +2580,12 @@ function DeleteAccount() {
 
     $accountToDelete = filter_input(INPUT_POST, 'accountToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_messages WHERE userid = ?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_messages_sent WHERE message_from = ?");
     $stmt1->bind_param('i', $accountToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("DELETE FROM user_messages WHERE message_to = ?");
+    $stmt2 = $mysqli->prepare("DELETE FROM user_messages_received WHERE message_to = ?");
     $stmt2->bind_param('i', $accountToDelete);
     $stmt2->execute();
     $stmt2->close();
