@@ -44,6 +44,8 @@ include '../includes/session.php';
 	<div id="hide">
 
     <!-- Create module -->
+    <h4 class="title-separator text-center">Module</h4>
+    <hr class="hr-separator">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -67,53 +69,232 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create module -->
 
-    <div class="text-center">
-        <h4>Module</h4>
+    <!-- Create lecture -->
+    <h4 class="title-separator text-center">Lecture</h4>
+    <hr class="hr-separator">
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="lecture_name">Lecture name<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="lecture_name" id="lecture_name" placeholder="Enter a name">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Lecture notes</label>
+    <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
+    <select class="form-control selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
+        <option data-hidden="true">Select an option</option>
+    <?php
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+    $lectureid = $row["userid"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lectureid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($firstname, $surname);
+    $stmt2->fetch();
+
+        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+    }
+
+    ?>
+    </select>
+
+    </div>
     </div>
 
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="lecture_day">Lecture day<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Enter a day">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label for="lecture_from_time">Lecture from (time)<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" placeholder="Select a time">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label for="lecture_to_time">Lecture to (time)<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" placeholder="Select a time">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label for="lecture_from_date">Lecture from (date)<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="lecture_from_date" id="lecture_from_date" placeholder="Select a date">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label for="lecture_to_date">Lecture to (date)<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" placeholder="Select a date">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label for="lecture_location">Lecture location<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="lecture_location" id="lecture_location" placeholder="Enter a location">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label for="lecture_capacity">Lecture capacity<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" placeholder="Enter a capacity">
+	</div>
+	</div>
+    <!-- End of Create lecture -->
+
+    <!-- Create tutorial -->
+    <h4 class="title-separator text-center">Tutorial</h4>
+    <hr class="hr-separator">
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="tutorial_name">Tutorial name</label>
+    <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" placeholder="Enter a name">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="tutorial_notes">Tutorial notes</label>
+    <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
+    <select class="form-control selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
+        <option data-hidden="true">Select an option</option>
+    <?php
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+    $lectureid = $row["userid"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lectureid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($firstname, $surname);
+    $stmt2->fetch();
+
+        echo '<option value="'.$lectureid.'">'.$firstname.' '.$surname.'</option>';
+    }
+
+    ?>
+    </select>
+    </div>
+    </div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="tutorial_day">Tutorial day<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" value="" placeholder="Enter a day">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label for="tutorial_from_time">Lecture from (time)<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="tutorial_from_time" id="tutorial_from_time" placeholder="Select a time">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label for="tutorial_to_time">Lecture to (time)<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" placeholder="Select a time">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label for="tutorial_from_date">Tutorial from (date)<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="tutorial_from_date" id="tutorial_from_date" placeholder="Select a date">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label for="tutorial_to_date">Tutorial to (date)<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" placeholder="Select a date">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label for="tutorial_location">Tutorial location<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="tutorial_location" id="tutorial_location" placeholder="Enter a location">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label for="tutorial_capacity">Tutorial capacity<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
+	</div>
+	</div>
+    <!-- End of Create tutorial -->
+
+    <!-- Create exam -->
+    <h4 class="title-separator text-center">Exam</h4>
+    <hr class="hr-separator">
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="exam_name">Exam name<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="exam_name" id="exam_name" placeholder="Enter a name">
+	</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="exam_notes">Exam notes</label>
+    <textarea class="form-control" rows="5" name="exam_notes" id="exam_notes" placeholder="Enter notes"></textarea>
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label for="exam_date">Exam date<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="exam_date" id="exam_date" placeholder="Select a date">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label for="exam_time">Exam time<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="exam_time" id="exam_time" placeholder="Select a time">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<label for="exam_location">Exam location<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="exam_location" id="exam_location" placeholder="Enter a location">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<label for="exam_capacity">Exam capacity<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="exam_capacity" id="exam_capacity" placeholder="Enter a capacity">
+	</div>
+	</div>
+    <!-- End of Create exam -->
+
+	</div>
+
+	<hr>
+
+    <div class="text-center">
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create timetable</span></button>
+    </div>
+
+	<div id="success-button" class="text-center" style="display:none">
+	<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label">Create another</span></a>
 	</div>
 	
-    </form>
-    <!-- End of Create timetable -->
-
-        <!-- Create timetable -->
-	<form class="form-custom" style="max-width: 100%;" name="createtimetable_form" id="createtimetable_form" novalidate>
-
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
-
-	<div id="hide">
-
-    <!-- Create module -->
-
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="module_name">Module name<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="module_name" id="module_name" placeholder="Enter a name">
-	</div>
-	</div>
-
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Module notes</label>
-    <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter notes"></textarea>
-	</div>
-	</div>
-
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Module URL</label>
-    <input class="form-control" type="text" name="module_url" id="module_url" placeholder="Enter a URL">
-	</div>
-	</div>
-    <!-- End of Create module -->
-
-    <div class="text-center">
-        <h4>Module</h4>
-    </div>
-
-	</div>
-
     </form>
     <!-- End of Create timetable -->
 
