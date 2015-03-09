@@ -28,7 +28,7 @@ include 'includes/session.php';
 
 	<div id="library-portal" class="container">
 
-	<ol class="breadcrumb breadcrumb-custom">
+	<ol class="breadcrumb breadcrumb-admin">
     <li><a href="../overview/">Overview</a></li>
 	<li class="active">Library</li>
     </ol>
