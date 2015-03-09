@@ -44,6 +44,9 @@ include '../includes/session.php';
 	<div id="hide">
 
     <!-- Create module -->
+    <div class="text-center">
+    <h4>Module</h4>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -68,10 +71,6 @@ include '../includes/session.php';
     <!-- End of Create module -->
 
 	</div>
-
-	<hr>
-
-    <div class="text-center"></div>
 	
     </form>
     <!-- End of Create timetable -->
