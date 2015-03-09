@@ -454,7 +454,7 @@ function GetDashboardData() {
 	$stmt7->fetch();
 
 	$isRead = '0';
-	$stmt8 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup LEFT JOIN user_messages WHERE user_messages_lookup.message_to=? AND user_messages.isRead=?");
+	$stmt8 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup LEFT JOIN user_messages ON user_messages_lookup.messageid=user_messages.messageid WHERE user_messages_lookup.message_to=? AND user_messages.isRead=?");
 	$stmt8->bind_param('ii', $session_userid, $isRead);
 	$stmt8->execute();
 	$stmt8->store_result();
