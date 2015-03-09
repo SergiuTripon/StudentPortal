@@ -68,7 +68,7 @@ include 'includes/session.php';
 
 	<!-- Books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom books-table">
+	<table class="table table-condensed table-custom book-table">
 
 	<thead>
 	<tr>
@@ -130,7 +130,7 @@ include 'includes/session.php';
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom reservedbooks-table">
+	<table class="table table-condensed table-custom book-table">
 
 	<thead>
 	<tr>
@@ -655,23 +655,13 @@ include 'includes/session.php';
 	}(jQuery));
 
 	//DataTables
-    $('.books-table').dataTable({
+    $('.book-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
 			"emptyTable": "There are no books to display."
-		}
-	});
-
-	$('.reservedbooks-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no reserved books to display."
 		}
 	});
 
