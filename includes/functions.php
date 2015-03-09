@@ -473,7 +473,7 @@ function GetDashboardData() {
 
     $admin_isApproved = 0;
 
-    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE isApproved=? AND isRead=?");
+    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE user_feedback.isApproved=? AND user_feedback.isRead=?");
     $stmt10->bind_param('ii', $admin_isApproved, $isRead);
     $stmt10->execute();
     $stmt10->store_result();
