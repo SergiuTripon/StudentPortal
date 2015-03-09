@@ -11,6 +11,7 @@ include 'includes/session.php';
 
     <title>Student Portal | Timetable</title>
 
+    <?php include 'assets/css-paths/bootstrap-select-css-path.php'; ?>
     <?php include 'assets/css-paths/datatables-css-path.php'; ?>
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
@@ -202,7 +203,7 @@ include 'includes/session.php';
 
 	<!-- Active timetables -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom timetable-table">
+	<table class="table table-condensed table-custom module-table">
 
 	<thead>
 	<tr>
@@ -301,7 +302,7 @@ include 'includes/session.php';
 
 	<!-- Inactive timetables -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom timetable-table">
+	<table class="table table-condensed table-custom module-table">
 
 	<thead>
 	<tr>
@@ -466,11 +467,15 @@ include 'includes/session.php';
 
 	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include 'assets/js-paths/bootstrap-select-js-path.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
+
+    //Select box
+    $('.dataTables_length select').selectpicker();
 
 	//DataTables
     $('.lecture-table').dataTable({
@@ -493,13 +498,13 @@ include 'includes/session.php';
 		}
 	});
 
-    $('.timetable-table').dataTable({
+    $('.module-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no timetables to display."
+			"emptyTable": "There are no modules to display."
 		}
 	});
 
