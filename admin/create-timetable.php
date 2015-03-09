@@ -44,8 +44,6 @@ include '../includes/session.php';
 	<div id="hide">
 
     <!-- Create module -->
-    <h4 class="title-separator text-center">Module</h4>
-    <hr class="hr-separator">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
