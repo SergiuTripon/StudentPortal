@@ -454,7 +454,7 @@ function GetDashboardData() {
 	$stmt7->fetch();
 
 	$isRead = '0';
-	$stmt8 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup LEFT JOIN user_messages ON user_messages_lookup.messageid=user_messages.messageid WHERE user_messages_lookup.message_to=? AND user_messages.isRead=?");
+	$stmt8 = $mysqli->prepare("SELECT message_from FROM user_messages_lookup WHERE message_to=? AND isRead=?");
 	$stmt8->bind_param('ii', $session_userid, $isRead);
 	$stmt8->execute();
 	$stmt8->store_result();
@@ -464,7 +464,7 @@ function GetDashboardData() {
     $isRead = 0;
     $isApproved = 1;
 
-    $stmt9 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE user_feedback_lookup.module_staff=? AND user_feedback.isRead=? AND user_feedback.isApproved=?");
+    $stmt9 = $mysqli->prepare("SELECT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE module_staff=? AND isRead=? AND isApproved=?");
     $stmt9->bind_param('iii', $session_userid, $isRead, $isApproved);
     $stmt9->execute();
     $stmt9->store_result();
@@ -473,7 +473,7 @@ function GetDashboardData() {
 
     $admin_isApproved = 0;
 
-    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_lookup.feedbackid FROM user_feedback_lookup LEFT JOIN user_feedback ON user_feedback_lookup.feedbackid=user_feedback.feedbackid WHERE user_feedback.isApproved=? AND user_feedback.isRead=?");
+    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_lookup.feedbackid FROM user_feedback_lookup WHERE isApproved=? AND isRead=?");
     $stmt10->bind_param('ii', $admin_isApproved, $isRead);
     $stmt10->execute();
     $stmt10->store_result();
@@ -2187,15 +2187,15 @@ function MessageUser() {
 	$message_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
 	$message_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
 
-    $isRead = 0;
-
-	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (message_subject, message_body, isRead, created_on) VALUES (?, ?, ?, ?)");
-	$stmt1->bind_param('ssss', $message_subject, $message_body, $isRead, $created_on);
+	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (message_subject, message_body, created_on) VALUES (?, ?, ?)");
+	$stmt1->bind_param('sss', $message_subject, $message_body, $created_on);
 	$stmt1->execute();
 	$stmt1->close();
 
-    $stmt2 = $mysqli->prepare("INSERT INTO user_messages_lookup (message_from, message_to) VALUES (?, ?)");
-    $stmt2->bind_param('ii', $session_userid, $message_to_userid);
+    $isRead = 0;
+
+    $stmt2 = $mysqli->prepare("INSERT INTO user_messages_lookup (message_from, message_to, isRead) VALUES (?, ?, ?)");
+    $stmt2->bind_param('iii', $session_userid, $message_to_userid, $isRead);
     $stmt2->execute();
     $stmt2->close();
 
@@ -2236,7 +2236,7 @@ function SetMessageRead () {
 	global $session_userid;
 
 	$isRead = 1;
-	$stmt1 = $mysqli->prepare("UPDATE user_messages LEFT JOIN user_messages_lookup ON user_messages.messageid=user_messages_lookup.messageid SET user_messages.isRead=? WHERE user_messages_lookup.message_to=?");
+	$stmt1 = $mysqli->prepare("UPDATE user_messages_lookup SET isRead=? WHERE message_to=?");
 	$stmt1->bind_param('ii', $isRead, $session_userid);
 	$stmt1->execute();
 	$stmt1->close();
