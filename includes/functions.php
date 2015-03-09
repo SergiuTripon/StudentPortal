@@ -2590,25 +2590,30 @@ function DeleteAccount() {
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = ?");
-    $stmt3->bind_param('i', $accountToDelete);
+    $stmt3 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedback_from = ?");
+    $stmt3->bind_param('i', $userToDelete);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE userid = ?");
+    $stmt4 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = ?");
     $stmt4->bind_param('i', $accountToDelete);
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM system_events_booked WHERE userid = ?");
+    $stmt5 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE userid = ?");
     $stmt5->bind_param('i', $accountToDelete);
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+    $stmt6 = $mysqli->prepare("DELETE FROM system_events_booked WHERE userid = ?");
     $stmt6->bind_param('i', $accountToDelete);
     $stmt6->execute();
     $stmt6->close();
+
+    $stmt7 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+    $stmt7->bind_param('i', $accountToDelete);
+    $stmt7->execute();
+    $stmt7->close();
 
 	session_unset();
 	session_destroy();
@@ -2896,17 +2901,17 @@ function DeleteUser() {
 
     $userToDelete = filter_input(INPUT_POST, 'userToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_messages_lookup WHERE message_from = ?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_messages_sent WHERE message_from = ?");
     $stmt1->bind_param('i', $userToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("DELETE FROM user_messages_lookup WHERE message_to = ?");
+    $stmt2 = $mysqli->prepare("DELETE FROM user_messages_received WHERE message_to = ?");
     $stmt2->bind_param('i', $userToDelete);
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("DELETE FROM user_feedback_lookup WHERE feedback_from = ?");
+    $stmt3 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedback_from = ?");
     $stmt3->bind_param('i', $userToDelete);
     $stmt3->execute();
     $stmt3->close();
