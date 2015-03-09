@@ -2194,12 +2194,12 @@ function MessageUser() {
 
     $isRead = 0;
 
-    $stmt2 = $mysqli->prepare("INSERT INTO user_messages_lookup_sent (message_from, message_to, isRead) VALUES (?, ?, ?)");
+    $stmt2 = $mysqli->prepare("INSERT INTO user_messages_sent (message_from, message_to, isRead) VALUES (?, ?, ?)");
     $stmt2->bind_param('iii', $session_userid, $message_to_userid, $isRead);
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("INSERT INTO user_messages_lookup_received (message_from, message_to) VALUES (?, ?)");
+    $stmt3 = $mysqli->prepare("INSERT INTO user_messages_received (message_from, message_to) VALUES (?, ?)");
     $stmt3->bind_param('ii', $session_userid, $message_to_userid);
     $stmt3->execute();
     $stmt3->close();
