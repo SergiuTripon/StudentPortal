@@ -2076,6 +2076,7 @@ function SubmitFeedback() {
 
     $feedback_moduleid = filter_input(INPUT_POST, 'feedback_moduleid', FILTER_SANITIZE_STRING);
     $feedback_lecturer = filter_input(INPUT_POST, 'feedback_lecturer', FILTER_SANITIZE_STRING);
+    $feedback_tutorial_assistant = filter_input(INPUT_POST, 'feedback_tutorial_assistant', FILTER_SANITIZE_STRING);
     $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_from_firstname', FILTER_SANITIZE_STRING);
     $feedback_from_surname = filter_input(INPUT_POST, 'feedback_from_surname', FILTER_SANITIZE_STRING);
     $feedback_from_email = filter_input(INPUT_POST, 'feedback_from_email', FILTER_SANITIZE_EMAIL);
@@ -2105,10 +2106,20 @@ function SubmitFeedback() {
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_received (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
-    $stmt3->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer);
-    $stmt3->execute();
-    $stmt3->close();
+    $stmt4 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt4->bind_param('iiiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isApproved, $isRead);
+    $stmt4->execute();
+    $stmt4->close();
+
+    $stmt5 = $mysqli->prepare("INSERT INTO user_feedback_received (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
+    $stmt5->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer);
+    $stmt5->execute();
+    $stmt5->close();
+
+    $stmt6 = $mysqli->prepare("INSERT INTO user_feedback_received (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
+    $stmt6->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant);
+    $stmt6->execute();
+    $stmt6->close();
 
     //Creating email
     $subject = "$feedback_from_firstname $feedback_from_surname - New feedback on Student Portal";
