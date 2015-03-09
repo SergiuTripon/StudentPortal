@@ -67,12 +67,53 @@ include '../includes/session.php';
 	</div>
     <!-- End of Create module -->
 
-        <div class="text-center">
-            <h4>Module</h4>
-        </div>
+    <div class="text-center">
+        <h4>Module</h4>
+    </div>
 
 	</div>
 	
+    </form>
+    <!-- End of Create timetable -->
+
+        <!-- Create timetable -->
+	<form class="form-custom" style="max-width: 100%;" name="createtimetable_form" id="createtimetable_form" novalidate>
+
+    <p id="error" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-happy text-center"></p>
+
+	<div id="hide">
+
+    <!-- Create module -->
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="module_name">Module name<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="module_name" id="module_name" placeholder="Enter a name">
+	</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Module notes</label>
+    <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter notes"></textarea>
+	</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Module URL</label>
+    <input class="form-control" type="text" name="module_url" id="module_url" placeholder="Enter a URL">
+	</div>
+	</div>
+    <!-- End of Create module -->
+
+    <div class="text-center">
+        <h4>Module</h4>
+    </div>
+
+	</div>
+
     </form>
     <!-- End of Create timetable -->
 
