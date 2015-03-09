@@ -2106,8 +2106,8 @@ function SubmitFeedback() {
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_received (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt3->bind_param('iiiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isApproved, $isRead);
+    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_received (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
+    $stmt3->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant);
     $stmt3->execute();
     $stmt3->close();
 
