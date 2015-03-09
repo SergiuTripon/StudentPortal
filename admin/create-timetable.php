@@ -36,7 +36,7 @@ include '../includes/session.php';
     </ol>
 
     <!-- Create timetable -->
-	<form class="form-custom" style="max-width: 100%;" name="createtimetable_form" id="createtimetable_form" novalidate>
+	<form class="form-custom" style="max-width: 100%;" name="createmodule_form" id="createmodule_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>

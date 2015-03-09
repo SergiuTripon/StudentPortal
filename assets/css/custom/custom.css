@@ -641,12 +641,15 @@ form textarea {
     white-space: normal;
     text-align: justify;
 }
-
 /* End of Form */
 
 /* Button group */
 form .btn-group, .btn-group-vertical {
-    margin-bottom: 10px;
+    margin-bottom: 10px !important;
+}
+
+.bootstrap-select .btn:focus {
+    outline: none !important;
 }
 /* End of Button group */
 
