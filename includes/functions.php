@@ -430,7 +430,7 @@ function GetDashboardData() {
 
     $book_reserved = 'reserved';
 
-	$stmt5 = $mysqli->prepare("SELECT reserved_books.bookid FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid  WHERE reserved_books.userid = ? AND system_books.book_status = ? AND isReturned = '0'");
+	$stmt5 = $mysqli->prepare("SELECT system_books_reserved.bookid FROM system_books_reserved LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid  WHERE system_books_reserved.userid = ? AND system_books.book_status = ? AND isReturned = '0'");
 	$stmt5->bind_param('is', $session_userid, $book_reserved);
 	$stmt5->execute();
 	$stmt5->store_result();
@@ -446,7 +446,7 @@ function GetDashboardData() {
 	$stmt6->bind_result($taskid);
 	$stmt6->fetch();
 
-	$stmt7 = $mysqli->prepare("SELECT eventid FROM booked_events WHERE userid = ?");
+	$stmt7 = $mysqli->prepare("SELECT eventid FROM system_events_booked WHERE userid = ?");
 	$stmt7->bind_param('i', $session_userid);
 	$stmt7->execute();
 	$stmt7->store_result();
@@ -1103,7 +1103,7 @@ function ReserveBook() {
 	$book_class = 'event-info';
 	$isReturned = 0;
 
-	$stmt1 = $mysqli->prepare("INSERT INTO reserved_books (userid, bookid, book_class, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt1 = $mysqli->prepare("INSERT INTO system_books_reserved (userid, bookid, book_class, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?, ?)");
 	$stmt1->bind_param('iisssi', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned);
 	$stmt1->execute();
 	$stmt1->close();
@@ -1164,7 +1164,7 @@ function RequestBook() {
     $bookToRequest = filter_input(INPUT_POST, 'bookToRequest', FILTER_SANITIZE_STRING);
 
 
-    $stmt1 = $mysqli->prepare("SELECT reserved_books.userid, reserved_books.reserved_on, reserved_books.toreturn_on, system_books.book_name, system_books.book_author, system_books.book_status FROM reserved_books LEFT JOIN system_books ON reserved_books.bookid=system_books.bookid WHERE reserved_books.bookid=?");
+    $stmt1 = $mysqli->prepare("SELECT system_books_reserved.userid, system_books_reserved.reserved_on, system_books_reserved.toreturn_on, system_books.book_name, system_books.book_author, system_books.book_status FROM system_books_reserved LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid WHERE system_books_reserved.bookid=?");
     $stmt1->bind_param('i', $bookToRequest);
     $stmt1->execute();
     $stmt1->store_result();
@@ -1231,7 +1231,7 @@ function ReturnBook() {
 
     $isReturned = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE reserved_books SET returned_on=?, isReturned=? WHERE bookid=? ORDER BY DESC");
+    $stmt1 = $mysqli->prepare("UPDATE system_books_reserved SET returned_on=?, isReturned=? WHERE bookid=? ORDER BY DESC");
     $stmt1->bind_param('sii', $updated_on, $isReturned, $bookToReturn);
     $stmt1->execute();
     $stmt1->close();
@@ -1347,7 +1347,7 @@ function DeleteBook() {
 
     $bookToDelete = filter_input(INPUT_POST, 'bookToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM reserved_books WHERE bookid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE bookid=?");
     $stmt1->bind_param('i', $bookToDelete);
     $stmt1->execute();
     $stmt1->close();
@@ -1686,7 +1686,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("INSERT INTO booked_events (userid, eventid, event_amount_paid, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt2 = $mysqli->prepare("INSERT INTO system_events_booked (userid, eventid, event_amount_paid, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?)");
 	$stmt2->bind_param('iiiis', $userid, $item_number1, $product_amount, $quantity1, $created_on);
 	$stmt2->execute();
 	$stmt2->close();
@@ -1913,7 +1913,7 @@ function DeleteEvent() {
 
     $eventToDelete = filter_input(INPUT_POST, 'eventToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM booked_events WHERE eventid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_events_booked WHERE eventid=?");
     $stmt1->bind_param('i', $eventToDelete);
     $stmt1->execute();
     $stmt1->close();
@@ -2595,12 +2595,12 @@ function DeleteAccount() {
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("DELETE FROM reserved_books WHERE userid = ?");
+    $stmt4 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE userid = ?");
     $stmt4->bind_param('i', $accountToDelete);
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM booked_events WHERE userid = ?");
+    $stmt5 = $mysqli->prepare("DELETE FROM system_events_booked WHERE userid = ?");
     $stmt5->bind_param('i', $accountToDelete);
     $stmt5->execute();
     $stmt5->close();
@@ -2916,12 +2916,12 @@ function DeleteUser() {
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM reserved_books WHERE userid = ?");
+    $stmt5 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE userid = ?");
     $stmt5->bind_param('i', $userToDelete);
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM booked_events WHERE userid = ?");
+    $stmt6 = $mysqli->prepare("DELETE FROM system_events_booked WHERE userid = ?");
     $stmt6->bind_param('i', $userToDelete);
     $stmt6->execute();
     $stmt6->close();
