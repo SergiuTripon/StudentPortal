@@ -34,18 +34,8 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
-    <div class="siderbarmap">
-    <ul>
-    Building<input id="building_checkbox" type="checkbox" onclick="toggleGroup('building')" checked="checked"/>
-    Student centre<input id="student_centre_checkbox" type="checkbox" onclick="toggleGroup('student_centre')" checked="checked"/>
-    Lecture theatre<input id="lecture_theatre_checkbox" type="checkbox" onclick="toggleGroup('lecture_theatre')" checked="checked"/>
-    Computer lab<input id="computer_lab_checkbox" type="checkbox" onclick="toggleGroup('computer_lab')" checked="checked"/>
-    Library<input id="library_checkbox" type="checkbox" onclick="toggleGroup('library')" checked="checked"/>
-    Cycle hire<input id="cycle_hire_checkbox" type="checkbox" onclick="toggleGroup('cycle_hire')" checked="checked"/>
-    Cycle parking<input id="cycle_parking_checkbox" type="checkbox" onclick="toggleGroup('cycle_parking')" checked="checked"/>
-    ATM<input id="atm_checkbox" type="checkbox" onclick="toggleGroup('atm')" checked="checked"/>
-
-    </ul>
+    <div class="checkbox">
+    <input type="checkbox" id="checkbox1"><label for="checkbox1">Check me out</label>
     </div>
 
     <div id="map"></div>
