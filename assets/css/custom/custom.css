@@ -1004,6 +1004,13 @@ form .input-happy {
 #university-map-portal .checkbox-inline input[type=checkbox] {
     position: inherit;
 }
+
+#university-map-portal .checkbox input[type="checkbox"],
+#university-map-portal .checkbox input[type="checkbox"]:hover,
+#university-map-portal .checkbox input[type="checkbox"]:focus,
+#university-map-portal .checkbox input[type="checkbox"]:active {
+    outline: none !important;
+}
 /* End of University map */
 
 /* Lock page style */
