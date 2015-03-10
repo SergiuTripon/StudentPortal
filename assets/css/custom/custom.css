@@ -997,6 +997,13 @@ form .input-happy {
     text-align: center;
     border-bottom: 1px solid #8A8A8A;
 }
+
+#university-map-portal .radio input[type=radio],
+#university-map-portal .radio-inline input[type=radio],
+#university-map-portal .checkbox input[type=checkbox],
+#university-map-portal .checkbox-inline input[type=checkbox] {
+    position: inherit;
+}
 /* End of University map */
 
 /* Lock page style */
