@@ -49,13 +49,13 @@ include '../includes/session.php';
 
     <div class="btn-group" data-toggle="buttons">
     <label class="btn btn-primary active">
-    <input type="checkbox" autocomplete="off" onclick="toggleGroup('building')" checked> Building
+    <input type="checkbox" autocomplete="off" onclick="toggleGroup('building')"> Building
     </label>
     <label class="btn btn-primary">
-    <input type="checkbox" autocomplete="off" onclick="toggleGroup('student_centre')" checked> Student Centre
+    <input type="checkbox" autocomplete="off" onclick="toggleGroup('student_centre')"> Student Centre
     </label>
     <label class="btn btn-primary">
-    <input type="checkbox" autocomplete="off" onclick="toggleGroup('lecture_theatre')" checked> Lecture theatre
+    <input type="checkbox" autocomplete="off" onclick="toggleGroup('lecture_theatre')"> Lecture theatre
     </label>
     </div>
 
