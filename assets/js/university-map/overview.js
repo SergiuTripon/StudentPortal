@@ -35,12 +35,12 @@
         var markers = xml.documentElement.getElementsByTagName("marker");
         for (var i = 0; i < markers.length; i++) {
         var name = markers[i].getAttribute("name");
-        var description = markers[i].getAttribute("notes");
-        var type = markers[i].getAttribute("type");
+        var notes = markers[i].getAttribute("notes");
+        var category = markers[i].getAttribute("category");
         var point = new google.maps.LatLng(
             parseFloat(markers[i].getAttribute("lat")),
             parseFloat(markers[i].getAttribute("lng")));
-        var html = "<b>" + name + "</b> <br/>" + description;
+        var html = "<b>" + name + "</b> <br/>" + notes;
         var icon = customIcons[type] || {};
         var marker = new google.maps.Marker({
             map: map,

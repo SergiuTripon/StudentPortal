@@ -30,7 +30,7 @@ while ($row = $result->fetch_assoc()){
       $newnode->setAttribute("notes", $row['marker_notes']);
       $newnode->setAttribute("lat", $row['marker_lat']);
       $newnode->setAttribute("lng", $row['marker_long']);
-      $newnode->setAttribute("type", $row['marker_category']);
+      $newnode->setAttribute("category", $row['marker_category']);
       $newnode->setAttribute("distance", $row['distance']);
     }
 
