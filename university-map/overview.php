@@ -40,7 +40,7 @@ include '../includes/session.php';
     Lecture theatre<input id="lecture_theatre_checkbox" type="checkbox" onclick="toggleGroup('lecture_theatre')" checked="checked"/>
     Computer lab<input id="computer_lab_checkbox" type="checkbox" onclick="toggleGroup('computer_lab')" checked="checked"/>
     Library<input id="library_checkbox" type="checkbox" onclick="toggleGroup('library')" checked="checked"/>
-    Cycle hire<input id="cycle_hire_checkbox" type="checkbox" onclick="toggleGroup('cycle_hire')"/>
+    Cycle hire<input id="cycle_hire_checkbox" type="checkbox" onclick="toggleGroup('cycle_hire')" checked="checked"/>
     Cycle parking<input id="cycle_parking_checkbox" type="checkbox" onclick="toggleGroup('cycle_parking')" checked="checked"/>
     ATM<input id="atm_checkbox" type="checkbox" onclick="toggleGroup('atm')" checked="checked"/>
 
