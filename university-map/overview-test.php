@@ -43,10 +43,8 @@ include '../includes/session.php';
         <div class="map_wrap">
             <div class="siderbarmap">
                 <ul>
-                    <input id="monumentoCheckbox" type="checkbox" onclick="toggleGroup('monumento')" checked="checked"></input>
-                    <input id="museusCheckbox" type="checkbox" onclick="toggleGroup('museus')" checked="checked"></input>
-                    <input id="restaurantesCheckbox" type="checkbox" onclick="toggleGroup('restaurantes')" checked="checked"></input>
-                    <input id="hotelCheckbox" type="checkbox" onclick="toggleGroup('hotel')" checked="checked"></input>
+                    <input id="monumentoCheckbox" type="checkbox" onclick="toggleGroup('building')" checked="checked"></input>
+                    <input id="museusCheckbox" type="checkbox" onclick="toggleGroup('library')" checked="checked"></input>
                 </ul>
             </div>
             <div id="map" style="width:100%;height:585px; z-index: 1;"></div>

@@ -1,18 +1,12 @@
 
 var infoWindow = new google.maps.InfoWindow();
 var customIcons = {
-    monumento: {
+    building: {
         icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png'
     },
-    hotel: {
+    library: {
         icon: 'http://maps.google.com/mapfiles/ms/icons/green.png'
     },
-    restaurantes: {
-        icon: 'http://maps.google.com/mapfiles/ms/icons/yellow.png'
-    },
-    museus: {
-        icon: 'http://maps.google.com/mapfiles/ms/icons/purple.png'
-    }
 };
 
 var markerGroups = {
