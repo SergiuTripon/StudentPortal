@@ -15,10 +15,8 @@ var customIcons = {
 };
 
 var markerGroups = {
-    "museus": [],
-    "monumentos": [],
-    "restaurantes": [],
-    "hotel": []
+    "building": [],
+    "library": []
 };
 
 function load() {
@@ -91,7 +89,7 @@ function load() {
     for (var i = 0; i < markers.length; i++) {
         var name = markers[i].getAttribute("name");
         var notes = markers[i].getAttribute("notes");
-        var type = markers[i].getAttribute("type");
+        var type = markers[i].getAttribute("category");
 
         var point = new google.maps.LatLng(
             parseFloat(markers[i].getAttribute("lat")),
@@ -110,7 +108,6 @@ function createMarker(point, name, notes, type, map) {
         map: map,
         position: point,
         icon: icon.icon,
-        // shadow: icon.shadow,
         type: type
     });
     if (!markerGroups[type]) markerGroups[type] = [];
