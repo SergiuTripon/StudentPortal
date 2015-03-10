@@ -64,7 +64,7 @@
             type: category
         });
         if (!markerGroups[category]) markerGroups[category] = [];
-        markerGroups[type].push(marker);
+        markerGroups[category].push(marker);
         var html = "<b>" + name + "</b> <br/>" + notes;
         bindInfoWindow(marker, map, infoWindow, html);
         return marker;
