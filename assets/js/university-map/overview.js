@@ -49,7 +49,7 @@
             parseFloat(markers[i].getAttribute("lat")),
             parseFloat(markers[i].getAttribute("lng")));
         var html = "<b>" + name + "</b> <br/>" + notes;
-        var marker = createMarker(point, name, notes, type, map);
+        var marker = createMarker(point, name, notes, category, map);
         bindInfoWindow(marker, map, infoWindow, html);
         }
     });
