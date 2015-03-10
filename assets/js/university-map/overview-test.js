@@ -6,7 +6,7 @@ var customIcons = {
     },
     library: {
         icon: 'http://maps.google.com/mapfiles/ms/icons/green.png'
-    },
+    }
 };
 
 var markerGroups = {
