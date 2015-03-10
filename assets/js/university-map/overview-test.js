@@ -100,7 +100,7 @@ function load() {
         parseFloat(markers[i].getAttribute("lng")));
         var html = "<b>" + name + "</b> <br/>" + notes;
         // var icon = customIcons[type] || {};
-        var marker = createMarker(point, name, address, type, map);
+        var marker = createMarker(point, name, notes, type, map);
         bindInfoWindow(marker, map, infoWindow, html);
     }
     });
