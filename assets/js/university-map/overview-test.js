@@ -23,7 +23,7 @@
         "library": [],
         "cycle_hire": [],
         "cycle_parking": [],
-        "ATM": []
+        "atm": []
     };
 
     function load() {

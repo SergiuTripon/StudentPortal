@@ -42,7 +42,7 @@ include '../includes/session.php';
     Library<input id="library_checkbox" type="checkbox" onclick="toggleGroup('library')" checked="checked"/>
     Cycle hire<input id="cycle_hire_checkbox" type="checkbox" onclick="toggleGroup('cycle_hire')" checked="checked"/>
     Cycle parking<input id="cycle_parking_checkbox" type="checkbox" onclick="toggleGroup('cycle_parking')" checked="checked"/>
-    ATM<input id="atm_checkbox" type="checkbox" onclick="toggleGroup('ATM')" checked="checked"/>
+    ATM<input id="atm_checkbox" type="checkbox" onclick="toggleGroup('atm')" checked="checked"/>
 
     </ul>
     </div>
@@ -93,11 +93,6 @@ include '../includes/session.php';
     <script>
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
-
-    //Loading map
-    $( document ).ready(function() {
-        loadMap();
-    });
 
     </script>
 
