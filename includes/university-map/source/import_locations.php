@@ -8,9 +8,9 @@ ImportLocations();
 function ImportLocations () {
 
     global $mysqli;
-    global $category;
+    global $marker_category;
     global $created_on;
-    global $status;
+    global $marker_status;
 
     $marker_status = 'active';
 
@@ -101,7 +101,7 @@ function ImportLocations () {
         $marker_category = 'ATM';
 
         $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssssss', $marker_title, $maker_notes, $marker_long, $marker_lat, $marker_category, $status, $created_on);
+        $stmt3->bind_param('sssssss', $marker_title, $maker_notes, $marker_long, $marker_lat, $marker_category, $marker_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
     }
