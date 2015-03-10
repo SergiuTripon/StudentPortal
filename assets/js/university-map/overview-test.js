@@ -11,9 +11,7 @@ var customIcons = {
 
 var markerGroups = {
     "building": [],
-    "student centre": [],
-    "lecture theatre": [],
-    "computer lab": []
+    "library": []
 };
 
 function load() {
