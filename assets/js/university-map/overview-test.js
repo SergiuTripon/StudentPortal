@@ -94,7 +94,6 @@ function load() {
         var point = new google.maps.LatLng(
             parseFloat(markers[i].getAttribute("lat")),
             parseFloat(markers[i].getAttribute("lng")));
-        // var icon = customIcons[type] || {};
         var marker = createMarker(point, name, notes, type, map);
     }
     });
