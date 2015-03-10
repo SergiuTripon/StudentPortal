@@ -380,7 +380,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.101527</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category></category>
+<category>student_centre</category>
 </item><item>
 <!-- 17 -->
 <guid isPermaLink="false">9541</guid>
@@ -1066,7 +1066,7 @@ EC1V 0HB.<br /></p>]]></description>
 <geo:long>-0.10078</geo:long>
 <georss:polygon>51.52710209294061 -0.1004299521446228 51.52702700042212 -0.10058015584945679 51.52719887867064 -0.10150015354156494 51.52737576240425 -0.10141700506210327 51.527474216260195 -0.10143578052520752 51.52756766379092 -0.10102808475494385 51.52748589721201 -0.10097980499267578 51.52754763933619 -0.10062843561172485</georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category></category>
+<category>building</category>
 </item><item>
 <!-- 51 -->
 <guid isPermaLink="false">42531</guid>
@@ -1237,7 +1237,7 @@ University Building]]></description>
 <geo:long>-0.10312557220458984</geo:long>
 <georss:polygon></georss:polygon>
 <CUL:icon>http://s1.city.ac.uk/i/skin/map-icons/university.png</CUL:icon>
-<category></category>
+<category>student_centre</category>
 </item><item>
 <!-- 60 -->
 <guid isPermaLink="false">38975</guid>
