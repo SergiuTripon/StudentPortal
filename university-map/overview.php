@@ -35,8 +35,8 @@ include '../includes/session.php';
 
     <div class="siderbarmap">
     <ul>
-    <input id="monumentoCheckbox" type="checkbox" onclick="toggleGroup('building')" checked="checked" />Museums (purple)
-    <input id="museusCheckbox" type="checkbox" onclick="toggleGroup('library')" checked="checked" />Restaurants (yellow
+    <input id="building_checkbox" type="checkbox" onclick="toggleGroup('building')" checked="checked" />Buildings
+    <input id="library_checkbox" type="checkbox" onclick="toggleGroup('library')" checked="checked" />Library
     </ul>
     </div>
 
