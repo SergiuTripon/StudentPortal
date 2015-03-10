@@ -16,15 +16,15 @@ var customIcons = {
 };
 
 var markerGroups = {
-    "museus": [],
-        "monumentos": [],
-        "restaurantes": [],
-        "hotel": []
+    "building": [],
+    "student centre": [],
+    "lecture theatre": [],
+    "computer lab": []
 };
 
 function load() {
     var map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(38.639104, -8.210413),
+        center: new google.maps.LatLng(51.527287, -0.103842),
         zoom: 12,
         mapTypeId: 'roadmap'
     });
@@ -86,7 +86,6 @@ function load() {
         }]
     }]);
 
-    //         downloadUrl("markers.xml", function (data) {
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
     var xml = data.responseXML;
     var markers = xml.documentElement.getElementsByTagName("marker");
