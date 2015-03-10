@@ -32,7 +32,6 @@
         zoom: 12,
         mapTypeId: 'roadmap'
     });
-    var infoWindow = new google.maps.InfoWindow();
 
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
     var xml = data.responseXML;
@@ -50,7 +49,7 @@
     }
 
     function createMarker(point, name, notes, category, map) {
-        var icon = customIcons[type] || {};
+        var icon = customIcons[category] || {};
         var marker = new google.maps.Marker({
             map: map,
             position: point,
