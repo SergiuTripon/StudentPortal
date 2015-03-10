@@ -1009,6 +1009,9 @@ form .input-happy {
 #university-map-portal .checkbox input[type=checkbox],
 #university-map-portal .checkbox-inline input[type=checkbox] {
     position: inherit;
+}
+
+#university-map-portal #marker-toggle .checkbox {
     margin-bottom: 5px;
 }
 /* End of University map */
