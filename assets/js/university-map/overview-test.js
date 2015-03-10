@@ -1,4 +1,5 @@
     var infoWindow = new google.maps.InfoWindow();
+
     var customIcons = {
         building: {
             icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png'
