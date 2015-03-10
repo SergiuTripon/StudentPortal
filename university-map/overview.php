@@ -35,42 +35,42 @@ include '../includes/session.php';
     <form class="form-custom">
 
     <div class="checkbox checkbox-success checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox1" value="option1">
+        <input type="checkbox" id="inlineCheckbox1" value="option1" checked="checked">
         <label for="inlineCheckbox1"> Building </label>
     </div>
 
     <div class="checkbox checkbox-danger checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox2" value="option2">
+        <input type="checkbox" id="inlineCheckbox2" value="option2" checked="checked">
         <label for="inlineCheckbox2"> Student centre </label>
     </div>
 
     <div class="checkbox checkbox-warning checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox3" value="option3">
+        <input type="checkbox" id="inlineCheckbox3" value="option3" checked="checked">
         <label for="inlineCheckbox3"> Lecture theatre </label>
     </div>
 
     <div class="checkbox checkbox-info checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox4" value="option4">
+        <input type="checkbox" id="inlineCheckbox4" value="option4" checked="checked">
         <label for="inlineCheckbox4"> Computer lab </label>
     </div>
 
     <div class="checkbox checkbox-success checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox5" value="option5">
+        <input type="checkbox" id="inlineCheckbox5" value="option5" checked="checked">
         <label for="inlineCheckbox5"> Library </label>
     </div>
 
     <div class="checkbox checkbox-primary checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox6" value="option6">
+        <input type="checkbox" id="inlineCheckbox6" value="option6" checked="checked">
         <label for="inlineCheckbox6"> Cycle hire </label>
     </div>
 
     <div class="checkbox checkbox-primary checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox7" value="option7">
+        <input type="checkbox" id="inlineCheckbox7" value="option7" checked="checked">
         <label for="inlineCheckbox7"> Cycle parking </label>
     </div>
 
     <div class="checkbox checkbox-default checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox8" value="option8">
+        <input type="checkbox" id="inlineCheckbox8" value="option8" checked="checked">
         <label for="inlineCheckbox8"> ATM </label>
     </div>
 
