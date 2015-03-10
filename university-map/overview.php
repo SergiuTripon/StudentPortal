@@ -34,6 +34,7 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
+    <div id="marker-toggle">
     <div class="checkbox checkbox-success checkbox-inline">
         <input type="checkbox" id="inlineCheckbox1" value="option1" onclick="toggleGroup('building')" checked="checked">
         <label for="inlineCheckbox1"> Building </label>
@@ -72,6 +73,7 @@ include '../includes/session.php';
     <div class="checkbox checkbox-default checkbox-inline">
         <input type="checkbox" id="inlineCheckbox8" value="option8" onclick="toggleGroup('atm')" checked="checked">
         <label for="inlineCheckbox8"> ATM </label>
+    </div>
     </div>
 
     <div id="map"></div>

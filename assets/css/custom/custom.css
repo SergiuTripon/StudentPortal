@@ -990,6 +990,10 @@ form .input-happy {
     text-align: center !important;
 }
 }
+
+#university-map-portal #marker-toggle {
+    margin-bottom: 10px;
+}
 /* End of University map */
 
 /* Lock page style */
