@@ -10,6 +10,7 @@ include '../includes/session.php';
     <title>University map | Overview</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/awesome-bootstrap-checkbox-css-path.php'; ?>
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
@@ -45,18 +46,6 @@ include '../includes/session.php';
     ATM<input id="atm_checkbox" type="checkbox" onclick="toggleGroup('atm')" checked="checked"/>
 
     </ul>
-    </div>
-
-    <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-primary active">
-    <input type="checkbox" autocomplete="off" onclick="toggleGroup('building')"> Building
-    </label>
-    <label class="btn btn-primary">
-    <input type="checkbox" autocomplete="off" onclick="toggleGroup('student_centre')"> Student Centre
-    </label>
-    <label class="btn btn-primary">
-    <input type="checkbox" autocomplete="off" onclick="toggleGroup('lecture_theatre')"> Lecture theatre
-    </label>
     </div>
 
     <div id="map"></div>
