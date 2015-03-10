@@ -16,9 +16,12 @@ include '../includes/session.php';
     <script src="https://student-portal.co.uk/assets/js/university-map/overview-test.js"></script>
 
     <style>
-        html, body, #map, #map_wrap {
+        html,
+        body,
+        #map,
+        .map_wrap {
             height: 100%;
-            width:100%;
+            width: 100%;
         }
     </style>
 
@@ -38,19 +41,18 @@ include '../includes/session.php';
         <li class="active">Overview</li>
     </ol>
 
-    <form class="form-custom">
-
         <div class="map_wrap">
             <div class="siderbarmap">
                 <ul>
-                    <input id="monumentoCheckbox" type="checkbox" onclick="toggleGroup('building')" checked="checked"></input>
-                    <input id="museusCheckbox" type="checkbox" onclick="toggleGroup('library')" checked="checked"></input>
+                    Monuments (blue)
+                    <input id="monumentoCheckbox" type="checkbox" onclick="toggleGroup('monumento')" checked="checked" />Museums (purple)
+                    <input id="museusCheckbox" type="checkbox" onclick="toggleGroup('museus')" checked="checked" />Restaurants (yellow)(
+                    <input id="restaurantesCheckbox" type="checkbox" onclick="toggleGroup('restaurantes')" checked="checked" />Hotels (green)
+                    <input id="hotelCheckbox" type="checkbox" onclick="toggleGroup('hotel')" checked="checked" />
                 </ul>
             </div>
             <div id="map" style="width:100%;height:585px; z-index: 1;"></div>
         </div>
-
-    </form>
 
     </div>
 

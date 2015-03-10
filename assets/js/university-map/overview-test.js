@@ -1,22 +1,29 @@
-
 var infoWindow = new google.maps.InfoWindow();
 var customIcons = {
-    building: {
+    monumento: {
         icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png'
     },
-    library: {
+    hotel: {
         icon: 'http://maps.google.com/mapfiles/ms/icons/green.png'
+    },
+    restaurantes: {
+        icon: 'http://maps.google.com/mapfiles/ms/icons/yellow.png'
+    },
+    museus: {
+        icon: 'http://maps.google.com/mapfiles/ms/icons/purple.png'
     }
 };
 
 var markerGroups = {
-    "building": [],
-    "library": []
+    "museus": [],
+    "monumentos": [],
+    "restaurantes": [],
+    "hotel": []
 };
 
 function load() {
     var map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(51.527287, -0.103842),
+        center: new google.maps.LatLng(38.639104, -8.210413),
         zoom: 12,
         mapTypeId: 'roadmap'
     });
@@ -87,8 +94,8 @@ function load() {
         var type = markers[i].getAttribute("type");
 
         var point = new google.maps.LatLng(
-        parseFloat(markers[i].getAttribute("lat")),
-        parseFloat(markers[i].getAttribute("lng")));
+            parseFloat(markers[i].getAttribute("lat")),
+            parseFloat(markers[i].getAttribute("lng")));
         var html = "<b>" + name + "</b> <br/>" + notes;
         // var icon = customIcons[type] || {};
         var marker = createMarker(point, name, notes, type, map);
@@ -125,7 +132,7 @@ function toggleGroup(type) {
 }
 
 function bindInfoWindow(marker, map, infoWindow, html) {
-    google.maps.event.addListener(marker, 'click', function () {
+    google.maps.event.addListener(marker, 'click', function() {
         infoWindow.setContent(html);
         infoWindow.open(map, marker);
 
@@ -135,7 +142,7 @@ function bindInfoWindow(marker, map, infoWindow, html) {
 function downloadUrl(url, callback) {
     var request = window.ActiveXObject ? new ActiveXObject('Microsoft.XMLHTTP') : new XMLHttpRequest();
 
-    request.onreadystatechange = function () {
+    request.onreadystatechange = function() {
         if (request.readyState == 4) {
             request.onreadystatechange = doNothing;
             callback(request, request.status);
