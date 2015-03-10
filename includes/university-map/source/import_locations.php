@@ -35,7 +35,7 @@ function ImportLocations () {
     $universitymap_atms = new SimpleXMLElement($result4);
 
     //Locations
-    /*foreach ($universitymap_locations->channel->item as $xml_var) {
+    foreach ($universitymap_locations->channel->item as $xml_var) {
 
         $marker_name = $xml_var->title;
         $marker_url = $xml_var->link;
@@ -53,10 +53,10 @@ function ImportLocations () {
         $stmt2->bind_param('ssssssss', $marker_name, $maker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $marker_status, $created_on);
         $stmt2->execute();
         $stmt2->close();
-    }*/
+    }
 
     //Cycle Hire
-    /*foreach ($universitymap_cycle_hire->Document->Placemark as $xml_var) {
+    foreach ($universitymap_cycle_hire->Document->Placemark as $xml_var) {
 
         $marker_title = $xml_var->name;
         $maker_notes = $xml_var->description;
@@ -70,10 +70,10 @@ function ImportLocations () {
         $stmt3->bind_param('sssssss', $marker_title, $maker_notes, $marker_long, $marker_lat, $marker_category, $marker_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
-    }*/
+    }
 
     //Cycle Parking
-    /*foreach ($universitymap_cycle_parking->Document->Placemark as $xml_var) {
+    foreach ($universitymap_cycle_parking->Document->Placemark as $xml_var) {
 
         $marker_title = $xml_var->name;
         $maker_notes = $xml_var->description;
@@ -87,7 +87,7 @@ function ImportLocations () {
         $stmt3->bind_param('sssssss', $marker_title, $maker_notes, $marker_long, $marker_lat, $marker_category, $marker_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
-    }*/
+    }
 
     //ATMs
     foreach ($universitymap_atms->Document->Folder->Placemark as $xml_var) {
