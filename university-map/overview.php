@@ -33,18 +33,44 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
-    <div class="siderbarmap">
-    <ul>
-    Building<input id="building_checkbox" type="checkbox" onclick="toggleGroup('building')" checked="checked"/>
-    Student centre<input id="student_centre_checkbox" type="checkbox" onclick="toggleGroup('student_centre')" checked="checked"/>
-    Lecture theatre<input id="lecture_theatre_checkbox" type="checkbox" onclick="toggleGroup('lecture_theatre')" checked="checked"/>
-    Computer lab<input id="computer_lab_checkbox" type="checkbox" onclick="toggleGroup('computer_lab')" checked="checked"/>
-    Library<input id="library_checkbox" type="checkbox" onclick="toggleGroup('library')" checked="checked"/>
-    Cycle hire<input id="cycle_hire_checkbox" type="checkbox" onclick="toggleGroup('cycle_hire')" checked="checked"/>
-    Cycle parking<input id="cycle_parking_checkbox" type="checkbox" onclick="toggleGroup('cycle_parking')" checked="checked"/>
-    ATM<input id="atm_checkbox" type="checkbox" onclick="toggleGroup('atm')" checked="checked"/>
+    <div class="checkbox checkbox-success checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox1" value="option1" checked="checked">
+        <label for="inlineCheckbox1"> Building </label>
+    </div>
 
-    </ul>
+    <div class="checkbox checkbox-danger checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox2" value="option2" checked="checked">
+        <label for="inlineCheckbox2"> Student centre </label>
+    </div>
+
+    <div class="checkbox checkbox-warning checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox3" value="option3" checked="checked">
+        <label for="inlineCheckbox3"> Lecture theatre </label>
+    </div>
+
+    <div class="checkbox checkbox-info checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox4" value="option4" checked="checked">
+        <label for="inlineCheckbox4"> Computer lab </label>
+    </div>
+
+    <div class="checkbox checkbox-success checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox5" value="option5" checked="checked">
+        <label for="inlineCheckbox5"> Library </label>
+    </div>
+
+    <div class="checkbox checkbox-primary checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox6" value="option6" checked="checked">
+        <label for="inlineCheckbox6"> Cycle hire </label>
+    </div>
+
+    <div class="checkbox checkbox-primary checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox7" value="option7" checked="checked">
+        <label for="inlineCheckbox7"> Cycle parking </label>
+    </div>
+
+    <div class="checkbox checkbox-default checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox8" value="option8" checked="checked">
+        <label for="inlineCheckbox8"> ATM </label>
     </div>
 
     <div id="map"></div>
