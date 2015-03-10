@@ -49,16 +49,36 @@
             parseFloat(markers[i].getAttribute("lat")),
             parseFloat(markers[i].getAttribute("lng")));
         var html = "<b>" + name + "</b> <br/>" + notes;
+        var marker = createMarker(point, name, notes, type, map);
+        bindInfoWindow(marker, map, infoWindow, html);
+        }
+    });
+    }
+
+    function createMarker(point, name, notes, category, map) {
         var icon = customIcons[category] || {};
         var marker = new google.maps.Marker({
             map: map,
             position: point,
             icon: icon.icon,
-            animation: google.maps.Animation.DROP
+            type: category
         });
+        if (!markerGroups[category]) markerGroups[category] = [];
+        markerGroups[type].push(marker);
+        var html = "<b>" + name + "</b> <br/>" + notes;
         bindInfoWindow(marker, map, infoWindow, html);
+        return marker;
+    }
+
+    function toggleGroup(category) {
+        for (var i = 0; i < markerGroups[category].length; i++) {
+            var marker = markerGroups[category][i];
+            if (!marker.getVisible()) {
+                marker.setVisible(true);
+            } else {
+                marker.setVisible(false);
+            }
         }
-    });
     }
 
     function bindInfoWindow(marker, map, infoWindow, html) {
