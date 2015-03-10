@@ -34,8 +34,44 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
-    <div class="checkbox">
-    <input type="checkbox" id="checkbox1"><label for="checkbox1">Check me out</label>
+    <div class="checkbox checkbox-success checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox1" value="option1">
+        <label for="inlineCheckbox1"> Building </label>
+    </div>
+
+    <div class="checkbox checkbox-danger checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox2" value="option2">
+        <label for="inlineCheckbox2"> Student centre </label>
+    </div>
+
+    <div class="checkbox checkbox-warning checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox3" value="option3">
+        <label for="inlineCheckbox3"> Lecture theatre </label>
+    </div>
+
+    <div class="checkbox checkbox-info checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox4" value="option4">
+        <label for="inlineCheckbox4"> Computer lab </label>
+    </div>
+
+    <div class="checkbox checkbox-success checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox5" value="option5">
+        <label for="inlineCheckbox5"> Library </label>
+    </div>
+
+    <div class="checkbox checkbox-primary checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox6" value="option6">
+        <label for="inlineCheckbox6"> Cycle hire </label>
+    </div>
+
+    <div class="checkbox checkbox-primary checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox7" value="option7">
+        <label for="inlineCheckbox7"> Cycle parking </label>
+    </div>
+
+    <div class="checkbox checkbox-default checkbox-inline">
+        <input type="checkbox" id="inlineCheckbox8" value="option8">
+        <label for="inlineCheckbox8"> ATM </label>
     </div>
 
     <div id="map"></div>
