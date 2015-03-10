@@ -13,7 +13,14 @@ include '../includes/session.php';
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
-    <script src="https://student-portal.co.uk/assets/js/university-map/overview.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/university-map/overview-test.js"></script>
+
+    <style>
+        html, body, #map, #map_wrap {
+            height: 100%;
+            width:100%;
+        }
+    </style>
 
 </head>
 <body>
@@ -33,7 +40,17 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
-    <div id="map"></div>
+        <div class="map_wrap">
+            <div class="siderbarmap">
+                <ul>
+                    <input id="monumentoCheckbox" type="checkbox" onclick="toggleGroup('monumento')" checked="checked"></input>
+                    <input id="museusCheckbox" type="checkbox" onclick="toggleGroup('museus')" checked="checked"></input>
+                    <input id="restaurantesCheckbox" type="checkbox" onclick="toggleGroup('restaurantes')" checked="checked"></input>
+                    <input id="hotelCheckbox" type="checkbox" onclick="toggleGroup('hotel')" checked="checked"></input>
+                </ul>
+            </div>
+            <div id="map" style="width:100%;height:585px; z-index: 1;"></div>
+        </div>
 
     </form>
 
