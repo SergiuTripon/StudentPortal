@@ -47,6 +47,18 @@ include '../includes/session.php';
     </ul>
     </div>
 
+    <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+    <input type="checkbox" autocomplete="off" onclick="toggleGroup('building')" checked> Building
+    </label>
+    <label class="btn btn-primary">
+    <input type="checkbox" autocomplete="off" onclick="toggleGroup('student_centre')" checked> Student Centre
+    </label>
+    <label class="btn btn-primary">
+    <input type="checkbox" autocomplete="off" onclick="toggleGroup('lecture_theatre')" checked> Lecture theatre
+    </label>
+    </div>
+
     <div id="map"></div>
 
     </form>
