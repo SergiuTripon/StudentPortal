@@ -625,9 +625,15 @@ form label.feedback-happy {
     margin-bottom: 5px;
 }
 
-input[type=text],
-input[type=password],
-input[type=email]{
+form input[type=file]:focus,
+form input[type=radio]:focus,
+form input[type=checkbox]:focus {
+    outline: none !important;
+}
+
+form input[type=text],
+form input[type=password],
+form input[type=email]{
     margin-bottom: 10px;
 }
 
@@ -1004,13 +1010,6 @@ form .input-happy {
 #university-map-portal .checkbox-inline input[type=checkbox] {
     position: inherit;
     margin-bottom: 5px;
-}
-
-#university-map-portal .checkbox input[type="checkbox"],
-#university-map-portal .checkbox input[type="checkbox"]:hover,
-#university-map-portal .checkbox input[type="checkbox"]:focus,
-#university-map-portal .checkbox input[type="checkbox"]:active {
-    outline: none !important;
 }
 /* End of University map */
 
