@@ -13,7 +13,7 @@ include '../includes/session.php';
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
-    <script src="https://student-portal.co.uk/assets/js/university-map/overview.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/university-map/overview-test.js"></script>
 
 </head>
 <body>
@@ -35,8 +35,15 @@ include '../includes/session.php';
 
     <div class="siderbarmap">
     <ul>
-    <input id="building_checkbox" type="checkbox" onclick="toggleGroup('cycle_hire')" checked="checked" />Buildings
-    <input id="library_checkbox" type="checkbox" onclick="toggleGroup('ATM')" checked="checked" />Library
+    Building<input id="building_checkbox" type="checkbox" onclick="toggleGroup('building')" checked="checked"/>
+    Student centre<input id="student_centre_checkbox" type="checkbox" onclick="toggleGroup('student_centre')" checked="checked"/>
+    Lecture theatre<input id="lecture_theatre_checkbox" type="checkbox" onclick="toggleGroup('lecture_theatre')" checked="checked"/>
+    Computer lab<input id="computer_lab_checkbox" type="checkbox" onclick="toggleGroup('computer_lab')" checked="checked"/>
+    Library<input id="library_checkbox" type="checkbox" onclick="toggleGroup('library')" checked="checked"/>
+    Cycle hire<input id="cycle_hire_checkbox" type="checkbox" onclick="toggleGroup('cycle_hire')" checked="checked"/>
+    Cycle parking<input id="cycle_parking_checkbox" type="checkbox" onclick="toggleGroup('cycle_parking')" checked="checked"/>
+    ATM<input id="atm_checkbox" type="checkbox" onclick="toggleGroup('ATM')" checked="checked"/>
+
     </ul>
     </div>
 
