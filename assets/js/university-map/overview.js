@@ -35,7 +35,7 @@
         var markers = xml.documentElement.getElementsByTagName("marker");
         for (var i = 0; i < markers.length; i++) {
         var name = markers[i].getAttribute("name");
-        var description = markers[i].getAttribute("description");
+        var description = markers[i].getAttribute("notes");
         var type = markers[i].getAttribute("type");
         var point = new google.maps.LatLng(
             parseFloat(markers[i].getAttribute("lat")),
