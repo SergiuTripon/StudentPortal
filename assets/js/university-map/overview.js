@@ -29,7 +29,7 @@
     function load() {
     var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(51.527287, -0.103842),
-        zoom: 12,
+        zoom: 15,
         mapTypeId: 'roadmap'
     });
 
