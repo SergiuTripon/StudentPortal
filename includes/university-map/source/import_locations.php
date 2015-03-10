@@ -64,7 +64,7 @@ function ImportLocations () {
 
         list($marker_lat, $marker_long) = explode(',', $latlong);
 
-        $marker_category = 'cycle hire';
+        $marker_category = 'cycle_hire';
 
         $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt3->bind_param('sssssss', $marker_title, $maker_notes, $marker_long, $marker_lat, $marker_category, $marker_status, $created_on);
@@ -81,7 +81,7 @@ function ImportLocations () {
 
         list($marker_lat, $marker_long) = explode(',', $latlong);
 
-        $marker_category = 'cycle parking';
+        $marker_category = 'cycle_parking';
 
         $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt3->bind_param('sssssss', $marker_title, $maker_notes, $marker_long, $marker_lat, $marker_category, $marker_status, $created_on);

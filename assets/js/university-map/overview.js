@@ -16,6 +16,17 @@
     }
     };
 
+    var markerGroups = {
+        "building": [],
+        "student_centre": [],
+        "lecture_theatre": [],
+        "computer_lab": [],
+        "library": [],
+        "cycle_hire": [],
+        "cycle_parking": [],
+        "ATM": []
+    };
+
     function loadMap() {
         var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(51.527287, -0.103842),
