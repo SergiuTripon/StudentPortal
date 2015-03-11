@@ -76,7 +76,6 @@ include 'includes/session.php';
 	<th>Author</th>
 	<th>Notes</th>
 	<th>Copy no.</th>
-	<th>Status</th>
 	<th>Action</th>
 	</tr>
 	</thead>
@@ -100,9 +99,8 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.$book_notes.'</td>
+			<td data-title="Notes">'.(empty($book_notes) ? "No notes" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
-			<td data-title="Status">'.$book_status.'</td>
 			<td data-title="Action">'.($book_status === 'Reserved' ? "<a id=\"request-$bookid\" class=\"btn btn-primary btn-md ladda-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
 			</tr>';
 	}
@@ -140,7 +138,6 @@ include 'includes/session.php';
 	<th>Booked on</th>
 	<th>Return on</th>
     <th>Returned on</th>
-	<th>Status</th>
     <th>Returned</th>
 	</tr>
 	</thead>
@@ -167,11 +164,10 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.$book_notes.'</td>
+			<td data-title="Notes">'.(empty($book_notes) ? "No notes" : "$book_notes").'</td>
 			<td data-title="Booken on">'.$reserved_on.'</td>
 			<td data-title="Return on">'.$toreturn_on.'</td>
 			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
-			<td data-title="Status">'.$book_status.'</td>
 			<td data-title="isReturned">'.($isReturned === '0' ? "No" : "Yes").'</td>
 			</tr>';
 	}
@@ -270,7 +266,6 @@ include 'includes/session.php';
 	<th>Author</th>
 	<th>Notes</th>
 	<th>Copy no.</th>
-	<th>Status</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -294,9 +289,8 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.$book_notes.'</td>
+			<td data-title="Notes">'.(empty($book_notes) ? "No notes" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
-			<td data-title="Status">'.$book_status.'</td>
 			<td>
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="../admin/update-book?id='.$bookid.'">Update</a>
@@ -376,7 +370,6 @@ include 'includes/session.php';
 	<th>Author</th>
 	<th>Notes</th>
 	<th>Copy no.</th>
-	<th>Status</th>
 	<th>Action</th>
 	</tr>
 	</thead>
@@ -393,16 +386,13 @@ include 'includes/session.php';
 	$book_author = $row["book_author"];
 	$book_notes = $row["book_notes"];
 	$book_copy_no = $row["book_copy_no"];
-	$book_status = $row["book_status"];
-	$book_status = ucfirst($book_status);
 
 	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.$book_notes.'</td>
+			<td data-title="Notes">'.(empty($book_notes) ? "No notes" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
-			<td data-title="Status">'.$book_status.'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="#reactivate-'.$bookid.'" data-toggle="modal">Reactivate</a>

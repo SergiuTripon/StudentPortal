@@ -328,8 +328,8 @@ include 'includes/session.php';
 	echo '<tr id="timetable-'.$moduleid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
-			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
-            <td data-title="URL">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
+			<td data-title="Notes">'.(empty($module_notes) ? "No notes" : "$module_notes").'</td>
+            <td data-title="URL">'.(empty($module_url) === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action">
 
 			<div class="btn-group btn-action">
