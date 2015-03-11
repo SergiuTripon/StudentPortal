@@ -190,7 +190,7 @@ include 'includes/session.php';
 	<div id="calendar-content" class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingThree">
 	<h4 class="panel-title">
-    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Returns - Calendar</a>
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Returns - Calendar</a>
 	</h4>
 	</div>
 	<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
