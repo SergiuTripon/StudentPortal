@@ -34,34 +34,35 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
+    <div id="marker-toggle">
     <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 1
+        <input type="checkbox" value=""> Option 1
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 2
+        <input type="checkbox" value=""> Option 2
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
+        <input type="checkbox" value=""> Option 3
     </label>
         <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
+        <input type="checkbox" value=""> Option 3
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
+        <input type="checkbox" value=""> Option 3
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
+        <input type="checkbox" value=""> Option 3
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
+        <input type="checkbox" value=""> Option 3
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
+        <input type="checkbox" value=""> Option 3
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
+        <input type="checkbox" value=""> Option 3
     </label>
-
+    </div>
 
     <div id="map"></div>
 
