@@ -752,6 +752,10 @@ form .input-happy {
     padding-left: 0;
 }
 
+.small-tile-helper {
+    margin-top: 30px;
+}
+
 @media (max-width: 992px) {
 .big-tile {
     height: 150px;
