@@ -145,7 +145,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT system_books_reserved.bookid, DATE_FORMAT(system_books_reserved.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(system_books_reserved.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(system_books_reserved.returned_on,'%d %b %y') as returned_on, system_books_reserved.isReturned, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_status FROM system_books_reserved LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid  WHERE system_books_reserved.userid = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT system_books_reserved.bookid, DATE_FORMAT(system_books_reserved.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(system_books_reserved.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(system_books_reserved.returned_on,'%d %b %y') as returned_on, system_books_reserved.isReturned, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_status FROM system_books_reserved LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid WHERE system_books_reserved.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
