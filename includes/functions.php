@@ -1114,10 +1114,15 @@ function ReserveBook() {
 	$isReturned = 0;
     $isRequested = 0;
 
-	$stmt1 = $mysqli->prepare("INSERT INTO system_books_reserved (userid, bookid, book_class, reserved_on, toreturn_on, isReturned, isRequested) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	$stmt1->bind_param('iisssii', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned, $isRequested);
-	$stmt1->execute();
-	$stmt1->close();
+    $stmt1 = $mysqli->prepare("DELETE FROM system_book_requested WHERE bookid=? AND userid=?");
+    $stmt1->bind_param('ii', $bookid, $session_userid);
+    $stmt1->execute();
+    $stmt1->close();
+
+	$stmt2 = $mysqli->prepare("INSERT INTO system_books_reserved (userid, bookid, book_class, reserved_on, toreturn_on, isReturned, isRequested) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt2->bind_param('iisssii', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned, $isRequested);
+	$stmt2->execute();
+	$stmt2->close();
 
 	$book_status = 'reserved';
 
