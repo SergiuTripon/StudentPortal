@@ -1288,6 +1288,13 @@ function ApproveRequest() {
     $stmt3->execute();
     $stmt3->close();
 
+    $isRequested = 0;
+
+    $stmt4 = $mysqli->prepare("UPDATE system_books_reserved SET isRequested=? WHERE bookid=?");
+    $stmt4->bind_param('ii', $isRequested, $bookid);
+    $stmt4->execute();
+    $stmt4->close();
+
     $stmt2->close();
 }
 
