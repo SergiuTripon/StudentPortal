@@ -997,11 +997,15 @@ form .input-happy {
 }
 }
 
-#university-map-portal .radio-inline+.radio-inline, .checkbox-inline+.checkbox-inline {
+#marker-toggle label {
     margin-left: 0;
 }
 
-#marker-toggle label {
+#marker-toggle {
+    text-align: center;
+}
+
+#university-map-portal .radio-inline+.radio-inline, .checkbox-inline+.checkbox-inline {
     margin-left: 0;
 }
 
