@@ -211,17 +211,17 @@ include 'includes/session.php';
 	<tbody>
     <?php
 
-    $stmt2 = $mysqli->query("SELECT system_books_requested.bookid, DATE_FORMAT(system_books_requested.requested_on,'%d %b %y') as requested_on, system_books_reserved.isRead, system_books_requested.isApproved, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_status FROM system_books_requested LEFT JOIN system_books ON system_books_requested.bookid=system_books.bookid  WHERE system_books_requested.userid = '$session_userid'");
+    $stmt2 = $mysqli->query("SELECT system_books_requested.bookid, DATE_FORMAT(system_books_requested.requested_on,'%d %b %y') as requested_on, system_books_requested.isRead, system_books_requested.isApproved, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_status FROM system_books_requested LEFT JOIN system_books ON system_books_requested.bookid=system_books.bookid  WHERE system_books_requested.userid = '$session_userid'");
 
     while($row = $stmt2->fetch_assoc()) {
 
         $book_name = $row["book_name"];
         $book_author = $row["book_author"];
         $book_notes = $row["book_notes"];
+        $requested_on = $row["requested_on"];
         $isRead = $row["isRead"];
         $isApproved = $row["isApproved"];
         $book_status = $row["book_status"];
-
         $book_status = ucfirst($book_status);
 
         echo '<tr>
@@ -229,7 +229,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
-			<td data-title="Requested on">'.$reserved_on.'</td>
+			<td data-title="Requested on">'.$requested_on.'</td>
 			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
 			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'</td>
 			</tr>';
