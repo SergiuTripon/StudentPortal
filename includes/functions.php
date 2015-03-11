@@ -1276,7 +1276,7 @@ function ApproveRequest() {
 
     $book_status = 'requested';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE requestid=?");
+    $stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
     $stmt3->bind_param('ssi', $book_status, $updated_on, $bookid);
     $stmt3->execute();
     $stmt3->close();
