@@ -34,7 +34,7 @@ if (isset($_GET["id"])) {
 
     <?php include '../assets/meta-tags.php'; ?>
 
-    <title>Student Portal | Reserve book</title>
+    <title>Student Portal | Request book</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
@@ -53,11 +53,11 @@ if (isset($_GET["id"])) {
     <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../library/">Library</a></li>
-    <li class="active">Reserve a book</li>
+    <li class="active">Request a book</li>
     </ol>
 
-	<!-- Book event -->
-    <form class="form-custom" style="max-width: 100%;" method="post" name="reservebook_form" id="reservebook_form" novalidate>
+	<!-- Request event -->
+    <form class="form-custom" style="max-width: 100%;" method="post" name="requestbook_form" id="requestbook_form" novalidate>
 
     <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
@@ -114,7 +114,7 @@ if (isset($_GET["id"])) {
     </div>
 
     </form>
-    <!-- End of Book event -->
+    <!-- End of Request book -->
 
     </div><!-- /container -->
 
@@ -158,7 +158,7 @@ if (isset($_GET["id"])) {
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    //Pay course fees form submit
+    //Request book ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
