@@ -43,21 +43,21 @@ include '../includes/session.php';
     </div>
 	</div>
 
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-2" onclick="toggleGroup('student_centre')">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" onclick="toggleGroup('student_centre')">
     <div class="tile small-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Student centre</p>
     </div>
 	</div>
 
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-2" onclick="toggleGroup('lecture_theatre')">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" onclick="toggleGroup('lecture_theatre')">
     <div class="tile small-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Lecture theatre</p>
     </div>
 	</div>
 
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-2" onclick="toggleGroup('computer_lab')">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" onclick="toggleGroup('computer_lab')">
     <div class="tile small-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Computer lab</p>
@@ -71,14 +71,14 @@ include '../includes/session.php';
     </div>
 	</div>
 
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-2" onclick="toggleGroup('cycle_hire')">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" onclick="toggleGroup('cycle_hire')">
     <div class="tile small-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Cycle hire</p>
     </div>
 	</div>
 
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-2" onclick="toggleGroup('cycle_parking')">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" onclick="toggleGroup('cycle_parking')">
     <div class="tile small-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Cycle parking</p>
