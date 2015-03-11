@@ -1253,7 +1253,7 @@ function SetRequestRead () {
 }
 
 //ApproveRequest function
-function ApproveRequest () {
+function ApproveRequest() {
 
     global $mysqli;
 
