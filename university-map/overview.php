@@ -36,28 +36,28 @@ include '../includes/session.php';
 
     <div id="marker-toggle">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked"> Buildings
+        <input type="checkbox" checked="checked" onclick="toggleGroup('building')"> Buildings
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked"> Student centre
+        <input type="checkbox" checked="checked" onclick="toggleGroup('student_centre')"> Student centre
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked"> Lecture theatre
+        <input type="checkbox" checked="checked" onclick="toggleGroup('lecture_theatre')"> Lecture theatre
     </label>
         <label class="checkbox-inline">
-        <input type="checkbox" checked="checked"> Computer lab
+        <input type="checkbox" checked="checked" onclick="toggleGroup('computer_lab')"> Computer lab
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked"> Library
+        <input type="checkbox" checked="checked" onclick="toggleGroup('library')"> Library
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked"> Cycle hire
+        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_hire')"> Cycle hire
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked"> Cycle parking
+        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_parking')"> Cycle parking
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked"> ATM
+        <input type="checkbox" checked="checked" onclick="toggleGroup('atm')"> ATM
     </label>
     </div>
 
