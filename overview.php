@@ -17,6 +17,8 @@ include 'includes/functions.php';
 
     GetDashboardData();
 
+echo $library_admin_count;
+
 ?>
 
 
