@@ -37,7 +37,7 @@ include '../includes/session.php';
     <div class="row">
 
     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" onclick="toggleGroup('building')">
-    <div class="tile">
+    <div class="tile small-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable</p>
     </div>

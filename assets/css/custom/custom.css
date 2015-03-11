@@ -729,7 +729,7 @@ form .input-happy {
     padding-left: 5px;
 }
 
-.large-tile p {
+.big-tile p {
     color: #FFFFFF;
     font-weight: 600;
     cursor: pointer;
@@ -738,11 +738,11 @@ form .input-happy {
 }
 
 @media (max-width: 992px) {
-.large-tile {
+.big-tile {
     height: 150px;
 }
 
-.large-tile i {
+.big-tile i {
     font-size: 80px;
     margin-top: 23px;
     margin-bottom: 23px;
@@ -750,11 +750,11 @@ form .input-happy {
 }
 
 @media (min-width: 992px) {
-.large-tile {
+.big-tile {
     height: 310px;
 }
 
-.large-tile i {
+.big-tile i {
     font-size: 120px;
     margin-top: 83px;
     margin-bottom: 83px;
