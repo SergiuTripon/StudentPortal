@@ -587,7 +587,7 @@ include 'includes/session.php';
 	$book_name = $row["book_name"];
 	$book_author = $row["book_author"];
 
-	echo '<tr id="return-'.$bookid.'">
+	echo '<tr id="book-'.$bookid.'">
 
             <td data-title="Reserved by">'.$firstname.' '.$surname.'</td>
 			<td data-title="Name">'.$book_name.'</td>
@@ -809,6 +809,28 @@ include 'includes/session.php';
             error:function (xhr, ajaxOptions, thrownError) {
             }
         });
+    });
+
+    $("body").on("click", ".approve-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var requestToApprove = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'requestToApprove='+ requestToApprove,
+	success:function(){
+		$('#book-'+requestToApprove).hide();
+        location.reload();
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
     });
 
     //Deactivate book ajax call

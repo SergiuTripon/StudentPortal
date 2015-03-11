@@ -1252,6 +1252,21 @@ function SetRequestRead () {
     $stmt1->close();
 }
 
+//ApproveRequest function
+function ApproveRequest () {
+
+    global $mysqli;
+
+    $requestToApprove = filter_input(INPUT_POST, 'requestToApprove', FILTER_SANITIZE_STRING);
+
+    $isApproved = 1;
+
+    $stmt1 = $mysqli->prepare("UPDATE system_books_requested SET isApproved=? WHERE requestid=?");
+    $stmt1->bind_param('ii', $isApproved, $requestToApprove);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //ReturnBook function
 function ReturnBook() {
 

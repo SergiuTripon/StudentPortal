@@ -182,6 +182,10 @@ elseif (isset($_POST["request_read"])) {
     SetRequestRead();
 }
 
+//Call ApproveRequest function
+elseif (isset($_POST["feedbackToRequest"])) {
+    ApproveRequest();
+}
 
 //Call ReturnBook function
 elseif (isset($_POST["bookToReturn"])) {
