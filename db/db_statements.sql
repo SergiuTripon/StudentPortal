@@ -14,7 +14,7 @@ DROP TABLE user_timetable;
 DROP TABLE user_results;
 DROP TABLE system_modules;
 DROP TABLE system_books_reserved;
-DROP TABLE system_books_requested;
+DROP TABLE system_books_resq;
 DROP TABLE system_books;
 DROP TABLE user_tasks;
 DROP TABLE system_events_booked;
@@ -215,7 +215,6 @@ CREATE TABLE `system_books_reserved` (
 	`toreturn_on` DATE NOT NULL,
   `returned_on` DATE NOT NULL,
 	`isReturned` TINYINT(1) NOT NULL,
-  `isRequested` TINYINT(1) NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)
