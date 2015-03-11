@@ -1001,7 +1001,9 @@ form .input-happy {
     margin-left: 0;
 }
 
-form label
+#marker-toggle label {
+    margin-left: 0;
+}
 
 /* End of University map */
 
