@@ -214,7 +214,6 @@ CREATE TABLE `system_books_reserved` (
 	`toreturn_on` DATE NOT NULL,
   `returned_on` DATE NOT NULL,
 	`isReturned` TINYINT(1) NOT NULL,
-  `request_status` VARCHAR(9) NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)
