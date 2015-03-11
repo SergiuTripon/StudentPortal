@@ -1256,6 +1256,7 @@ function SetRequestRead () {
 function ApproveRequest() {
 
     global $mysqli;
+    global $updated_on;
 
     $requestToApprove = filter_input(INPUT_POST, 'requestToApprove', FILTER_SANITIZE_STRING);
 
@@ -1275,8 +1276,8 @@ function ApproveRequest() {
 
     $book_status = 'requested';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=? WHERE requestid=?");
-    $stmt3->bind_param('si', $book_status, $bookid);
+    $stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE requestid=?");
+    $stmt3->bind_param('ssi', $book_status, $updated_on, $bookid);
     $stmt3->execute();
     $stmt3->close();
 
