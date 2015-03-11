@@ -36,31 +36,28 @@ include '../includes/session.php';
 
     <div id="marker-toggle">
     <label class="checkbox-inline">
-        <input type="checkbox" value=""> Option 1
+        <input type="checkbox" checked="checked"> Buildings
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value=""> Option 2
+        <input type="checkbox" checked="checked"> Student centre
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value=""> Option 3
+        <input type="checkbox" checked="checked"> Lecture theatre
     </label>
         <label class="checkbox-inline">
-        <input type="checkbox" value=""> Option 3
+        <input type="checkbox" checked="checked"> Computer lab
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value=""> Option 3
+        <input type="checkbox" checked="checked"> Library
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value=""> Option 3
+        <input type="checkbox" checked="checked"> Cycle hire
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value=""> Option 3
+        <input type="checkbox" checked="checked"> Cycle parking
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" value=""> Option 3
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value=""> Option 3
+        <input type="checkbox" checked="checked"> ATM
     </label>
     </div>
 
