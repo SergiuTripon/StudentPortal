@@ -1185,7 +1185,7 @@ function RequestBook() {
 
     $isRequested = 1;
 
-    $stmt3 = $mysqli->prepare("UPDATE system_books SET isRequested=? WHERE bookid =?");
+    $stmt3 = $mysqli->prepare("UPDATE system_books_reserved SET isRequested=? WHERE bookid =?");
     $stmt3->bind_param('ii', $isRequested, $bookToRequest);
     $stmt3->execute();
     $stmt3->close();
