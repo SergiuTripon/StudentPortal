@@ -101,7 +101,7 @@ include 'includes/session.php';
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
-			<td data-title="Action">'.($book_status === 'Reserved' ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../library/reserve-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Reserve</span></a></td>
 			</tr>';
 	}
 
@@ -142,7 +142,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid LEFT JOIN system_books_requested ON system_books.bookid=system_books_requested.bookid WHERE system_books.book_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid LEFT JOIN system_books_requested ON system_books.bookid=system_books_requested.bookid WHERE system_books.book_status = 'reserved'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -160,7 +160,7 @@ include 'includes/session.php';
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
-			<td data-title="Action">'.($book_status === 'Reserved' ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../library/request-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Request</span></a></td>
 			</tr>';
 	}
 
