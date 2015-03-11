@@ -205,6 +205,7 @@ include 'includes/session.php';
     <th>Requested on</th>
     <th>Read</th>
     <th>Approved</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
