@@ -885,6 +885,16 @@ form .input-happy {
     color: #FFFFFF;
     content: "\f054";
 }
+
+.panel-custom #headingFour .accordion-toggle:before {
+    font-family: FontAwesome;
+    content: "\f078";
+    color: #FFFFFF;
+}
+.panel-custom #headingFour .accordion-toggle.collapsed:before {
+    color: #FFFFFF;
+    content: "\f054";
+}
 /* End of Accordion style */
 
 /* Admin */

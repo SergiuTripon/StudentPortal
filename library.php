@@ -624,7 +624,7 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-    <th>Reserved by</th>
+    <th>Requested by</th>
 	<th>Name</th>
 	<th>Author</th>
 	<th>Action</th>
