@@ -228,7 +228,7 @@ CREATE TABLE `system_books_requested` (
   `bookid` INT(11) NOT NULL,
   `requested_on` DATE NOT NULL,
   `isRead` TINYINT(1) NOT NULL,
-  `isApproved` DATE NOT NULL,
+  `isApproved` TINYINT(1) NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)
