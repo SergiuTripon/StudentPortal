@@ -612,7 +612,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingFour">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"> Requested books</a>
+	<a id="request-read-trigger" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"> Requested books</a>
   	</h4>
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
@@ -792,6 +792,23 @@ include 'includes/session.php';
 		$("#error").empty().append(thrownError);
 	}
 	});
+    });
+
+    var request_read;
+    request_read = '1';
+
+    $("#request-read-trigger").click(function (e) {
+        e.preventDefault();
+
+        jQuery.ajax({
+            type: "POST",
+            url: "https://student-portal.co.uk/includes/processes.php",
+            data:'request_read=' + request_read,
+            success:function() {
+            },
+            error:function (xhr, ajaxOptions, thrownError) {
+            }
+        });
     });
 
     //Deactivate book ajax call

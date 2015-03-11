@@ -177,6 +177,12 @@ elseif (isset($_POST["bookToRequest"])) {
     RequestBook();
 }
 
+//Call SetMessageRead function
+elseif (isset($_POST["request_read"])) {
+    SetRequestRead();
+}
+
+
 //Call ReturnBook function
 elseif (isset($_POST["bookToReturn"])) {
     ReturnBook();

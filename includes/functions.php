@@ -1239,6 +1239,20 @@ function RequestBook() {
 
 }
 
+//SetRequestRead function
+function SetRequestRead () {
+
+    global $mysqli;
+    global $session_userid;
+
+    $isRead = 1;
+
+    $stmt1 = $mysqli->prepare("UPDATE system_books_requested SET isRead=?");
+    $stmt1->bind_param('iii', $isRead);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //ReturnBook function
 function ReturnBook() {
 
