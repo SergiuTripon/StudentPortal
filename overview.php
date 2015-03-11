@@ -7,6 +7,7 @@ include 'includes/functions.php';
     global $timetable_count;
     global $exams_count;
     global $library_count;
+    global $library_admin_count;
     global $calendar_count;
     global $events_count;
     global $messenger_count;
@@ -291,7 +292,7 @@ include 'includes/functions.php';
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-book"></i>
-	<p>Library</p>
+	<p>Library<span class="badge"><?php echo ($library_admin_count == '0' ? "" : "$library_admin_count"); ?></span></p>
     </div>
 	</div>
     </a>

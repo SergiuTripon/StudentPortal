@@ -388,6 +388,7 @@ function GetDashboardData() {
 	global $exams_count;
     global $results_count;
 	global $library_count;
+    global $library_admin_count;
 	global $calendar_count;
 	global $events_count;
 	global $messenger_count;
@@ -437,48 +438,55 @@ function GetDashboardData() {
 	$stmt5->bind_result($bookid);
 	$stmt5->fetch();
 
-	$task_status = 'active';
-
-	$stmt6 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE userid = ? AND task_status = ?");
-	$stmt6->bind_param('is', $session_userid, $task_status);
+    $stmt6 = $mysqli->prepare("SELECT system_books_requested.bookid FROM system_books_requested LEFT JOIN system_books ON system_books_requested.bookid=system_books.bookid  WHERE system_books.book_status = ? AND system_books_requested.isRead = '0' AND system_books_requested.isApproved = '0'");
+	$stmt6->bind_param('is', $session_userid, $book_reserved);
 	$stmt6->execute();
 	$stmt6->store_result();
-	$stmt6->bind_result($taskid);
+	$stmt6->bind_result($bookid);
 	$stmt6->fetch();
 
-	$stmt7 = $mysqli->prepare("SELECT eventid FROM system_events_booked WHERE userid = ?");
-	$stmt7->bind_param('i', $session_userid);
+	$task_status = 'active';
+
+	$stmt7 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE userid = ? AND task_status = ?");
+	$stmt7->bind_param('is', $session_userid, $task_status);
 	$stmt7->execute();
 	$stmt7->store_result();
-	$stmt7->bind_result($eventid);
+	$stmt7->bind_result($taskid);
 	$stmt7->fetch();
 
-	$isRead = '0';
-	$stmt8 = $mysqli->prepare("SELECT user_messages_received.messageid FROM user_messages_received LEFT JOIN user_messages_sent ON user_messages_received.messageid=user_messages_sent.messageid WHERE user_messages_received.message_to=? AND user_messages_sent.isRead=?");
-	$stmt8->bind_param('ii', $session_userid, $isRead);
+	$stmt8 = $mysqli->prepare("SELECT eventid FROM system_events_booked WHERE userid = ?");
+	$stmt8->bind_param('i', $session_userid);
 	$stmt8->execute();
 	$stmt8->store_result();
-	$stmt8->bind_result($messageid);
+	$stmt8->bind_result($eventid);
 	$stmt8->fetch();
+
+	$isRead = '0';
+	$stmt9 = $mysqli->prepare("SELECT user_messages_received.messageid FROM user_messages_received LEFT JOIN user_messages_sent ON user_messages_received.messageid=user_messages_sent.messageid WHERE user_messages_received.message_to=? AND user_messages_sent.isRead=?");
+	$stmt9->bind_param('ii', $session_userid, $isRead);
+	$stmt9->execute();
+	$stmt9->store_result();
+	$stmt9->bind_result($messageid);
+	$stmt9->fetch();
 
     $isRead = 0;
     $isApproved = 1;
 
-    $stmt9 = $mysqli->prepare("SELECT DISTINCT user_feedback_received.feedbackid FROM user_feedback_received LEFT JOIN user_feedback_sent ON user_feedback_received.feedbackid=user_feedback_sent.feedbackid WHERE user_feedback_received.module_staff=? AND user_feedback_sent.isRead=? AND user_feedback_sent.isApproved=?");
-    $stmt9->bind_param('iii', $session_userid, $isRead, $isApproved);
-    $stmt9->execute();
-    $stmt9->store_result();
-    $stmt9->bind_result($feedbackid);
-    $stmt9->fetch();
-
-    $admin_isApproved = 0;
-
-    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_received.feedbackid FROM user_feedback_received LEFT JOIN user_feedback_sent ON user_feedback_received.feedbackid=user_feedback_sent.feedbackid WHERE user_feedback_sent.isApproved=? AND user_feedback_sent.isRead=?");
-    $stmt10->bind_param('ii', $admin_isApproved, $isRead);
+    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_received.feedbackid FROM user_feedback_received LEFT JOIN user_feedback_sent ON user_feedback_received.feedbackid=user_feedback_sent.feedbackid WHERE user_feedback_received.module_staff=? AND user_feedback_sent.isRead=? AND user_feedback_sent.isApproved=?");
+    $stmt10->bind_param('iii', $session_userid, $isRead, $isApproved);
     $stmt10->execute();
     $stmt10->store_result();
     $stmt10->bind_result($feedbackid);
     $stmt10->fetch();
+
+    $admin_isApproved = 0;
+
+    $stmt11 = $mysqli->prepare("SELECT DISTINCT user_feedback_received.feedbackid FROM user_feedback_received LEFT JOIN user_feedback_sent ON user_feedback_received.feedbackid=user_feedback_sent.feedbackid WHERE user_feedback_sent.isApproved=? AND user_feedback_sent.isRead=?");
+    $stmt11->bind_param('ii', $admin_isApproved, $isRead);
+    $stmt11->execute();
+    $stmt11->store_result();
+    $stmt11->bind_result($feedbackid);
+    $stmt11->fetch();
 
 	$lectures_count = $stmt1->num_rows;
 	$tutorials_count = $stmt2->num_rows;
@@ -486,11 +494,12 @@ function GetDashboardData() {
 	$exams_count = $stmt3->num_rows;
     $results_count = $stmt4->num_rows;
 	$library_count = $stmt5->num_rows;
-	$calendar_count = $stmt6->num_rows;
-	$events_count = $stmt7->num_rows;
-	$messenger_count = $stmt8->num_rows;
-    $feedback_count = $stmt9->num_rows;
-    $feedback_admin_count = $stmt10->num_rows;
+    $library_admin_count = $stmt6->num_rows;
+	$calendar_count = $stmt7->num_rows;
+	$events_count = $stmt8->num_rows;
+	$messenger_count = $stmt9->num_rows;
+    $feedback_count = $stmt10->num_rows;
+    $feedback_admin_count = $stmt11->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();
@@ -502,6 +511,7 @@ function GetDashboardData() {
     $stmt8->close();
     $stmt9->close();
     $stmt10->close();
+    $stmt11->close();
 
 }
 
