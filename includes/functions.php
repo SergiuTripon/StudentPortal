@@ -439,7 +439,7 @@ function GetDashboardData() {
 	$stmt5->fetch();
 
     $stmt6 = $mysqli->prepare("SELECT system_books_requested.bookid FROM system_books_requested LEFT JOIN system_books ON system_books_requested.bookid=system_books.bookid  WHERE system_books.book_status = ? AND system_books_requested.isRead = '0' AND system_books_requested.isApproved = '0'");
-	$stmt6->bind_param('is', $session_userid, $book_reserved);
+	$stmt6->bind_param('s', $book_reserved);
 	$stmt6->execute();
 	$stmt6->store_result();
 	$stmt6->bind_result($bookid);
