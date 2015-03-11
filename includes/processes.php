@@ -183,7 +183,7 @@ elseif (isset($_POST["request_read"])) {
 }
 
 //Call ApproveRequest function
-elseif (isset($_POST["feedbackToRequest"])) {
+elseif (isset($_POST["requestToApprove"])) {
     ApproveRequest();
 }
 

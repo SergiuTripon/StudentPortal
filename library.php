@@ -653,7 +653,7 @@ include 'includes/session.php';
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
-            <td data-title="Action"><a id="approve-'.$requestid.'" class="btn btn-primary btn-md approve-button ladda-button" data-style="slide-up"><span class="ladda-label">Approve request</span></a></td>
+            <td data-title="Action"><a id="approve-'.$requestid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve request</span></a></td>
 			</tr>';
 	}
 
@@ -817,6 +817,8 @@ include 'includes/session.php';
 
     var clickedID = this.id.split('-');
     var requestToApprove = clickedID[1];
+
+    alert(requestToApprove);
 
 	jQuery.ajax({
 	type: "POST",
