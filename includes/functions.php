@@ -1112,9 +1112,10 @@ function ReserveBook() {
 
 	$book_class = 'event-info';
 	$isReturned = 0;
+    $isRequested = 0;
 
-	$stmt1 = $mysqli->prepare("INSERT INTO system_books_reserved (userid, bookid, book_class, reserved_on, toreturn_on, isReturned) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt1->bind_param('iisssi', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned);
+	$stmt1 = $mysqli->prepare("INSERT INTO system_books_reserved (userid, bookid, book_class, reserved_on, toreturn_on, isReturned, isRequested) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt1->bind_param('iisssi', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned, $isRequested);
 	$stmt1->execute();
 	$stmt1->close();
 
@@ -1176,6 +1177,12 @@ function RequestBook() {
 
     $isRead = 0;
     $isApproved = 0;
+    $isRequested = 1;
+
+    $stmt3 = $mysqli->prepare("UPDATE system_books SET isRequested=? WHERE bookid =?");
+    $stmt3->bind_param('si', $isRequested, $bookid);
+    $stmt3->execute();
+    $stmt3->close();
 
     $stmt1 = $mysqli->prepare("INSERT INTO system_books_requested (userid, bookid, requested_on, isRead, isApproved) VALUES (?, ?, ?, ?, ?)");
     $stmt1->bind_param('iisii', $session_userid, $bookToRequest, $created_on, $isRead, $isApproved);
