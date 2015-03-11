@@ -57,7 +57,7 @@ include 'includes/session.php';
 
 	<div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
-	<div id="books-content" class="panel panel-default">
+	<div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Available books</a>
@@ -116,7 +116,7 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-	<div id="reservedbooks-content" class="panel panel-default">
+	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
@@ -193,7 +193,7 @@ include 'includes/session.php';
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
   	<div class="panel-body">
 
-	<!-- Reserved books -->
+	<!-- Requested books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom book-table">
 
@@ -232,6 +232,7 @@ include 'includes/session.php';
 			<td data-title="Requested on">'.$requested_on.'</td>
 			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
 			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'</td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../library/reserve-book?id=$bookid" data-style="slide-up"><span class="ladda-label">Reserve</span></a></td>
 			</tr>';
     }
 
