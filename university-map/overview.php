@@ -34,47 +34,16 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
-    <div id="marker-toggle">
-    <div class="checkbox checkbox-success checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox1" value="option1" onclick="toggleGroup('building')" checked="checked">
-        <label for="inlineCheckbox1"> Building </label>
-    </div>
+    <div class="row">
 
-    <div class="checkbox checkbox-danger checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox2" value="option2" onclick="toggleGroup('student_centre')" checked="checked">
-        <label for="inlineCheckbox2"> Student centre </label>
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" onclick="toggleGroup('building')">
+    <div class="tile">
+    <i class="fa fa-clock-o"></i>
+	<p>Timetable</p>
     </div>
+	</div>
 
-    <div class="checkbox checkbox-warning checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox3" value="option3" onclick="toggleGroup('lecture_theatre')" checked="checked">
-        <label for="inlineCheckbox3"> Lecture theatre </label>
-    </div>
-
-    <div class="checkbox checkbox-info checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox4" value="option4" onclick="toggleGroup('computer_lab')" checked="checked">
-        <label for="inlineCheckbox4"> Computer lab </label>
-    </div>
-
-    <div class="checkbox checkbox-success checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox5" value="option5" onclick="toggleGroup('library')" checked="checked">
-        <label for="inlineCheckbox5"> Library </label>
-    </div>
-
-    <div class="checkbox checkbox-primary checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox6" value="option6" onclick="toggleGroup('cycle_hire')" checked="checked">
-        <label for="inlineCheckbox6"> Cycle hire </label>
-    </div>
-
-    <div class="checkbox checkbox-primary checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox7" value="option7" onclick="toggleGroup('cycle_parking')" checked="checked">
-        <label for="inlineCheckbox7"> Cycle parking </label>
-    </div>
-
-    <div class="checkbox checkbox-default checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox8" value="option8" onclick="toggleGroup('atm')" checked="checked">
-        <label for="inlineCheckbox8"> ATM </label>
-    </div>
-    </div>
+	</div><!-- /row -->
 
     <div id="map"></div>
 
