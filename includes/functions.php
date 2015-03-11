@@ -1176,7 +1176,6 @@ function RequestBook() {
 
     $isRead = 0;
     $isApproved = 0;
-    $request_status = 'pending';
 
     $stmt1 = $mysqli->prepare("INSERT INTO system_books_requested (userid, bookid, requested_on, isRead, isApproved) VALUES (?, ?, ?, ?, ?)");
     $stmt1->bind_param('iisii', $session_userid, $bookToRequest, $created_on, $isRead, $isApproved);
