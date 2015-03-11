@@ -246,69 +246,6 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
-    <div class="panel panel-default">
-
-    <div class="panel-heading" role="tab" id="headingThree">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Requested books</a>
-  	</h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-  	<div class="panel-body">
-
-	<!-- Reserved books -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom book-table">
-
-	<thead>
-	<tr>
-    <th>Name</th>
-    <th>Author</th>
-    <th>Notes</th>
-    <th>Requested on</th>
-    <th>Read</th>
-    <th>Approved</th>
-	</tr>
-	</thead>
-
-	<tbody>
-    <?php
-
-    $stmt2 = $mysqli->query("SELECT system_books_requested.bookid, DATE_FORMAT(system_books_requested.requested_on,'%d %b %y') as requested_on, system_books_requested.isRead, system_books_requested.isApproved, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_status FROM system_books_requested LEFT JOIN system_books ON system_books_requested.bookid=system_books.bookid  WHERE system_books_requested.userid = '$session_userid'");
-
-    while($row = $stmt2->fetch_assoc()) {
-
-        $book_name = $row["book_name"];
-        $book_author = $row["book_author"];
-        $book_notes = $row["book_notes"];
-        $requested_on = $row["requested_on"];
-        $isRead = $row["isRead"];
-        $isApproved = $row["isApproved"];
-        $book_status = $row["book_status"];
-        $book_status = ucfirst($book_status);
-
-        echo '<tr>
-
-			<td data-title="Name">'.$book_name.'</td>
-			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
-			<td data-title="Requested on">'.$requested_on.'</td>
-			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
-			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'</td>
-			</tr>';
-    }
-
-    $stmt2->close();
-    ?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
 	</div><!-- /panel-group -->
 
 	<div class="panel-group panel-custom calendar-view" id="accordion" role="tablist" aria-multiselectable="true">
@@ -599,6 +536,65 @@ include 'includes/session.php';
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingThree">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Reserved books</a>
+  	</h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+  	<div class="panel-body">
+
+	<!-- Reserved books -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom book-table">
+
+	<thead>
+	<tr>
+    <th>Reserved by</th>
+	<th>Name</th>
+	<th>Author</th>
+	<th>Action</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT system_books_reserved.bookid, system_books_reserved.userid, user_details.firstname, user_details.surname, system_books.book_name, system_books.book_author, system_books.book_status FROM system_books_reserved LEFT JOIN user_details ON system_books_reserved.userid=user_details.userid LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid WHERE system_books.book_status = 'reserved'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+    $userid = $row["userid"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
+	$book_name = $row["book_name"];
+	$book_author = $row["book_author"];
+
+	echo '<tr id="return-'.$bookid.'">
+
+            <td data-title="Reserved by">'.$firstname.' '.$surname.'</td>
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Action"><a id=return-'.$userid.' class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
+            <td data-title="Action"><a id=return-'.$bookid.' class="btn btn-primary btn-md return-button ladda-button" data-style="slide-up"><span class="ladda-label">Mark returned</span></a></td>
+			</tr>';
 	}
 
 	$stmt1->close();
