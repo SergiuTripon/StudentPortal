@@ -165,10 +165,10 @@ include 'includes/session.php';
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
-			<td data-title="Booken on">'.$reserved_on.'</td>
+			<td data-title="Booked on">'.$reserved_on.'</td>
 			<td data-title="Return on">'.$toreturn_on.'</td>
 			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
-			<td data-title="isReturned">'.($isReturned === '0' ? "No" : "Yes").'</td>
+			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
 			</tr>';
 	}
 
@@ -199,40 +199,44 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-    <th>Reserved by</th>
-	<th>Name</th>
-	<th>Author</th>
-	<th>Action</th>
-    <th>Action</th>
+    <th>Name</th>
+    <th>Author</th>
+    <th>Notes</th>
+    <th>Requested on</th>
+    <th>Read</th>
+    <th>Approved</th>
 	</tr>
 	</thead>
 
 	<tbody>
-	<?php
+    <?php
 
-	$stmt1 = $mysqli->query("SELECT system_books_requested.bookid, system_books_requested.userid, user_details.firstname, user_details.surname, system_books.book_name, system_books.book_author, system_books.book_status FROM system_books_requested LEFT JOIN user_details ON system_books_requested.userid=user_details.userid LEFT JOIN system_books ON system_books_requested.bookid=system_books.bookid WHERE system_books_requested.userid='$session_userid'");
+    $stmt2 = $mysqli->query("SELECT system_books_requested.bookid, DATE_FORMAT(system_books_requested.requested_on,'%d %b %y') as requested_on, system_books_reserved.isRead, system_books_requested.isApproved, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_status FROM system_books_requested LEFT JOIN system_books ON system_books_requested.bookid=system_books.bookid  WHERE system_books_requested.userid = '$session_userid'");
 
-	while($row = $stmt1->fetch_assoc()) {
+    while($row = $stmt2->fetch_assoc()) {
 
-	$bookid = $row["bookid"];
-    $userid = $row["userid"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
-	$book_name = $row["book_name"];
-	$book_author = $row["book_author"];
+        $book_name = $row["book_name"];
+        $book_author = $row["book_author"];
+        $book_notes = $row["book_notes"];
+        $isRead = $row["isRead"];
+        $isApproved = $row["isApproved"];
+        $book_status = $row["book_status"];
 
-	echo '<tr id="return-'.$bookid.'">
+        $book_status = ucfirst($book_status);
 
-            <td data-title="Reserved by">'.$firstname.' '.$surname.'</td>
+        echo '<tr>
+
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Action"><a id=return-'.$userid.' class="btn btn-primary btn-md ladda-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
-            <td data-title="Action"><a id=return-'.$bookid.' class="btn btn-primary btn-md return-button ladda-button" data-style="slide-up"><span class="ladda-label">Mark returned</span></a></td>
+			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
+			<td data-title="Requested on">'.$reserved_on.'</td>
+			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
+			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'</td>
 			</tr>';
-	}
+    }
 
-	$stmt1->close();
-	?>
+    $stmt2->close();
+    ?>
 	</tbody>
 
 	</table>
@@ -572,7 +576,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_books_reserved.bookid, system_books_reserved.userid, user_details.firstname, user_details.surname, system_books.book_name, system_books.book_author, system_books.book_status FROM system_books_reserved LEFT JOIN user_details ON system_books_reserved.userid=user_details.userid LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid WHERE system_books_reserved.userid='$session_userid' AND system_books.book_status = 'reserved'");
+	$stmt1 = $mysqli->query("SELECT system_books_reserved.bookid, system_books_reserved.userid, user_details.firstname, user_details.surname, system_books.book_name, system_books.book_author, system_books.book_status FROM system_books_reserved LEFT JOIN user_details ON system_books_reserved.userid=user_details.userid LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid WHERE system_books.book_status = 'reserved'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
