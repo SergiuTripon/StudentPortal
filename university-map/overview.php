@@ -34,6 +34,35 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 1
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 2
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 3
+    </label>
+        <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 3
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 3
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 3
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 3
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 3
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 3
+    </label>
+
+
     <div id="map"></div>
 
     </form>
