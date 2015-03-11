@@ -1003,8 +1003,8 @@ form .input-happy {
 
 #marker-toggle {
     text-align: center;
-    padding-bottom: 10px;
     margin-bottom: 10px;
+    padding-bottom: 5px;
     border-bottom: 1px solid #8A8A8A;
 }
 
