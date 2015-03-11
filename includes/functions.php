@@ -1243,7 +1243,6 @@ function RequestBook() {
 function SetRequestRead () {
 
     global $mysqli;
-    global $session_userid;
 
     $isRead = 1;
 
