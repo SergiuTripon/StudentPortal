@@ -6,6 +6,7 @@ include 'includes/functions.php';
     global $session_userid;
     global $timetable_count;
     global $exams_count;
+    global $results_count;
     global $library_count;
     global $library_admin_count;
     global $calendar_count;
