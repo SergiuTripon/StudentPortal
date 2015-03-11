@@ -786,7 +786,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'bookToReturn='+ bookToReturn,
 	success:function(){
-		$('#return-'+bookToReturn).fadeOut();
+		$('#book-'+bookToReturn).fadeOut();
         location.reload();
 	},
 	error:function (xhr, ajaxOptions, thrownError){
