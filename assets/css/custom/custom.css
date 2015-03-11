@@ -737,25 +737,6 @@ form .input-happy {
     padding-left: 5px;
 }
 
-.small-tile {
-    height: auto;
-}
-
-.small-tile i {
-    font-size: 30px;
-    margin-top: 5px;
-    margin-bottom: 0;
-}
-
-.small-tile p {
-    text-align: center;
-    padding-left: 0;
-}
-
-.small-tile-helper {
-    margin-top: 30px;
-}
-
 @media (max-width: 992px) {
 .big-tile {
     height: 150px;
@@ -1016,23 +997,10 @@ form .input-happy {
 }
 }
 
-#university-map-portal #marker-toggle {
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-    text-align: center;
-    border-bottom: 1px solid #8A8A8A;
+#university-map-portal .radio-inline+.radio-inline, .checkbox-inline+.checkbox-inline {
+    margin-left: 0;
 }
 
-#university-map-portal .radio input[type=radio],
-#university-map-portal .radio-inline input[type=radio],
-#university-map-portal .checkbox input[type=checkbox],
-#university-map-portal .checkbox-inline input[type=checkbox] {
-    position: inherit;
-}
-
-#university-map-portal #marker-toggle .checkbox {
-    margin-bottom: 5px;
-}
 /* End of University map */
 
 /* Lock page style */
