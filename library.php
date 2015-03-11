@@ -398,7 +398,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'active' OR book_status='reserved'");
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'active' OR book_status='reserved' OR book_status='requested'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
