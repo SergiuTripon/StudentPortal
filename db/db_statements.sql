@@ -223,7 +223,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Library
-CREATE TABLE `system_books_reserved` (
+CREATE TABLE `system_books_requested` (
   `userid` INT(11) NOT NULL,
   `bookid` INT(11) NOT NULL,
   `book_class` VARCHAR(15) NOT NULL,
