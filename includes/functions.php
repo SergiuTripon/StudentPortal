@@ -1265,6 +1265,20 @@ function ApproveRequest() {
     $stmt1->bind_param('ii', $isApproved, $requestToApprove);
     $stmt1->execute();
     $stmt1->close();
+
+    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_books_requested WHERE requestid=?");
+    $stmt1->bind_param('i', $requestToApprove);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($bookid);
+    $stmt1->fetch();
+
+    $book_status = 'requested';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=? WHERE requestid=?");
+    $stmt1->bind_param('si', $book_status, $bookid);
+    $stmt1->execute();
+    $stmt1->close();
 }
 
 //ReturnBook function
