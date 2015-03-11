@@ -66,7 +66,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Books -->
+	<!-- Available books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom book-table">
 
@@ -83,7 +83,66 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid LEFT JOIN system_books_requested ON system_books.bookid=system_books_requested.bookid WHERE (system_books.book_status = 'active' OR system_books.book_status = 'reserved') AND NOT system_books_reserved.userid = '$session_userid' and system_books_reserved.isReturned = '0'");
+	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid LEFT JOIN system_books_requested ON system_books.bookid=system_books_requested.bookid WHERE system_books.book_status = 'active'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+	$book_name = $row["book_name"];
+	$book_author = $row["book_author"];
+	$book_notes = $row["book_notes"];
+	$book_copy_no = $row["book_copy_no"];
+	$book_status = $row["book_status"];
+	$book_status = ucfirst($book_status);
+
+	echo '<tr id="book-'.$bookid.'">
+
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
+			<td data-title="Copy no.">'.$book_copy_no.'</td>
+			<td data-title="Action">'.($book_status === 'Reserved' ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+	<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Available books</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Reserved books -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom book-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Author</th>
+	<th>Notes</th>
+	<th>Copy no.</th>
+	<th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid LEFT JOIN system_books_requested ON system_books.bookid=system_books_requested.bookid WHERE system_books.book_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -120,13 +179,13 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Reserved books</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Your reserved books</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Reserved books -->
+	<!-- Your reserved books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom book-table">
 
@@ -187,7 +246,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Requested books</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Your requested books</a>
   	</h4>
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
