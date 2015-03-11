@@ -262,7 +262,7 @@ include 'includes/session.php';
 
 	<!-- Active books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom books-table">
+	<table class="table table-condensed table-custom book-table">
 
 	<thead>
 	<tr>
@@ -368,7 +368,7 @@ include 'includes/session.php';
 
 	<!-- Inactive books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom books-table">
+	<table class="table table-condensed table-custom book-table">
 
 	<thead>
 	<tr>
@@ -508,7 +508,7 @@ include 'includes/session.php';
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom books-table">
+	<table class="table table-condensed table-custom book-table">
 
 	<thead>
 	<tr>
