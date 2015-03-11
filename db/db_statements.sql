@@ -226,7 +226,6 @@ ON DELETE CASCADE
 CREATE TABLE `system_books_requested` (
   `userid` INT(11) NOT NULL,
   `bookid` INT(11) NOT NULL,
-  `book_class` VARCHAR(15) NOT NULL,
   `requested_on` DATE NOT NULL,
   `isRead` TINYINT(1) NOT NULL,
   `isApproved` DATE NOT NULL,

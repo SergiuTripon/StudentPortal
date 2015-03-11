@@ -1159,9 +1159,19 @@ function RequestBook() {
 
     global $mysqli;
     global $session_userid;
+    global $created_on;
 
     //Book
     $bookToRequest = filter_input(INPUT_POST, 'bookToRequest', FILTER_SANITIZE_STRING);
+
+    $isRead = 0;
+    $isApproved = 0;
+    $request_status = 'pending';
+
+    $stmt1 = $mysqli->prepare("INSERT INTO system_books_reserved (userid, bookid, book_class, requested_on, isRead, isApproved, request_status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt1->bind_param('iisiis', $session_userid, $bookToRequest, $created_on, $isRead, $isApproved, $request_status);
+    $stmt1->execute();
+    $stmt1->close();
 
     $stmt1 = $mysqli->prepare("SELECT system_books_reserved.userid, system_books_reserved.reserved_on, system_books_reserved.toreturn_on, system_books.book_name, system_books.book_author, system_books.book_status FROM system_books_reserved LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid WHERE system_books_reserved.bookid=?");
     $stmt1->bind_param('i', $bookToRequest);

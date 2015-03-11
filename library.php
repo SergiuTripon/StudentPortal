@@ -651,27 +651,6 @@ include 'includes/session.php';
 		}
 	});
 
-    //Request book ajax call
-    $("body").on("click", ".request-button", function(e) {
-    e.preventDefault();
-    var clickedID = this.id.split('-');
-    var bookToRequest = clickedID[1];
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'bookToRequest='+ bookToRequest,
-	success:function(){
-		$('#book-'+bookToRequest).fadeOut();
-        location.reload();
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
     //Return book ajax call
     $("body").on("click", ".return-button", function(e) {
     e.preventDefault();

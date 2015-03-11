@@ -154,7 +154,6 @@ if (isset($_GET["id"])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    $(document).ready(function () {
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
@@ -163,31 +162,23 @@ if (isset($_GET["id"])) {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    var bookid = $("#bookid").val();
-    var book_name = $("#book_name").val();
-    var book_author = $("#book_author").val();
-    var book_notes = $("#book_notes").val();
-    var bookreserved_from = $("#bookreserved_from").val();
-    var bookreserved_to = $("#bookreserved_to").val();
+    var bookToRequest = $("#bookid").val();
 
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes + '&bookreserved_from=' + bookreserved_from + '&bookreserved_to=' + bookreserved_to,
+    data:'bookToRequest=' + bookToRequest,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('Book reserved successfully.');
+        $("#success").empty().append('Book requested successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
 	});
-
 	return true;
-
-	});
 	});
 	</script>
 
