@@ -142,7 +142,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid LEFT JOIN system_books_requested ON system_books.bookid=system_books_requested.bookid WHERE NOT system_books_reserved.userid='$session_userid' AND system_books.book_status = 'reserved'");
+	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid LEFT JOIN system_books_requested ON system_books.bookid=system_books_requested.bookid WHERE NOT system_books_reserved.userid='$session_userid' AND NOT system_books_requested.userid='$session_userid' AND system_books.book_status = 'reserved'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
