@@ -215,6 +215,7 @@ include 'includes/session.php';
 
     while($row = $stmt2->fetch_assoc()) {
 
+        $bookid = $row["bookid"];
         $book_name = $row["book_name"];
         $book_author = $row["book_author"];
         $book_notes = $row["book_notes"];
@@ -232,7 +233,7 @@ include 'includes/session.php';
 			<td data-title="Requested on">'.$requested_on.'</td>
 			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
 			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../library/reserve-book?id=$bookid" data-style="slide-up"><span class="ladda-label">Reserve</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../library/reserve-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Reserve</span></a></td>
 			</tr>';
     }
 
