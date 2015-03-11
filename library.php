@@ -819,8 +819,6 @@ include 'includes/session.php';
     var clickedID = this.id.split('-');
     var requestToApprove = clickedID[1];
 
-    alert(requestToApprove);
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
