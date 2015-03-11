@@ -1114,7 +1114,7 @@ function ReserveBook() {
 	$isReturned = 0;
     $isRequested = 0;
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_book_requested WHERE bookid=? AND userid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_books_requested WHERE bookid=? AND userid=?");
     $stmt1->bind_param('ii', $bookid, $session_userid);
     $stmt1->execute();
     $stmt1->close();
