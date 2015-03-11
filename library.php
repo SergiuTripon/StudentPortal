@@ -66,7 +66,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Available books -->
+	<!-- Reserve books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom book-table">
 
@@ -125,7 +125,7 @@ include 'includes/session.php';
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-	<!-- Reserved books -->
+	<!-- Request books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom book-table">
 
@@ -142,7 +142,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid WHERE system_books.book_status = 'reserved' AND NOT system_books_reserved.isReturned = '1' AND NOT system_books_reserved.userid = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid LEFT JOIN system_books_requested ON system_books.bookid=system_books_requested.bookid WHERE NOT system_books_requested.userid = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
