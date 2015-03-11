@@ -222,6 +222,23 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
+#Library
+CREATE TABLE `system_books_reserved` (
+  `userid` INT(11) NOT NULL,
+  `bookid` INT(11) NOT NULL,
+  `book_class` VARCHAR(15) NOT NULL,
+  `requested_on` DATE NOT NULL,
+  `toreturn_on` DATE NOT NULL,
+  `returned_on` DATE NOT NULL,
+  `isReturned` TINYINT(1) NOT NULL,
+  FOREIGN KEY (userid)
+  REFERENCES user_signin(userid),
+  FOREIGN KEY (bookid)
+  REFERENCES system_books(bookid)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+) ENGINE = InnoDB;
+
 #Calendar
 CREATE TABLE `user_tasks` (
 	`userid` INT(11) NOT NULL,

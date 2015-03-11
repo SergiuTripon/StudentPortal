@@ -1163,7 +1163,6 @@ function RequestBook() {
     //Book
     $bookToRequest = filter_input(INPUT_POST, 'bookToRequest', FILTER_SANITIZE_STRING);
 
-
     $stmt1 = $mysqli->prepare("SELECT system_books_reserved.userid, system_books_reserved.reserved_on, system_books_reserved.toreturn_on, system_books.book_name, system_books.book_author, system_books.book_status FROM system_books_reserved LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid WHERE system_books_reserved.bookid=?");
     $stmt1->bind_param('i', $bookToRequest);
     $stmt1->execute();
