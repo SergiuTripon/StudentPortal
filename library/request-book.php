@@ -20,12 +20,6 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
-    $bookreserved_from = date("Y-m-d");
-
-    $add14days = new DateTime($bookreserved_from);
-    $add14days->add(new DateInterval('P14D'));
-    $bookreserved_to = $add14days->format('Y-m-d');
-
 } else {
     header('Location: ../../library/');
 }
@@ -111,21 +105,10 @@ if (isset($_GET["id"])) {
     </div>
     </div>
 
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>From</label>
-    <input class="form-control" type="text" name="bookreserved_from" id="bookreserved_from" value="<?php echo $bookreserved_from; ?>" readonly="readonly">
-	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>To</label>
-    <input class="form-control" type="text" name="bookreserved_to" id="bookreserved_to" value="<?php echo $bookreserved_to; ?>" readonly="readonly">
-    </div>
-    </div>
-
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Reserve book</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Request book</span></button>
 	</div>
 
     </div>
