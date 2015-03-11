@@ -34,36 +34,55 @@ include '../includes/session.php';
 
     <form class="form-custom">
 
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 1
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 2
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
-    </label>
-        <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 3
-    </label>
+        <div class="control-group">
+            <p class="pull-left">Payment Types</p>
+            <div class="controls span2">
+                <label class="checkbox">
+                    <input type="checkbox" value="option1" id="inlineCheckbox1"> Cash
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="option2" id="inlineCheckbox2"> Invoice
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="option3" id="inlineCheckbox3"> Discover
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="option3" id="inlineCheckbox3"> Financing
+                </label>
+            </div>
+            <div class="controls span2">
+                <label class="checkbox">
+                    <input type="checkbox" value="option1" id="inlineCheckbox1"> Check
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="option2" id="inlineCheckbox2"> American Express
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="option3" id="inlineCheckbox3"> MasterCard
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="option3" id="inlineCheckbox3"> Google Checkout
+                </label>
+            </div>
+            <div class="controls span2">
+                <label class="checkbox">
+                    <input type="checkbox" value="option1" id="inlineCheckbox1"> Traveler's Check
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="option2" id="inlineCheckbox2"> Diner's Club
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="option3" id="inlineCheckbox3"> Visa
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="option3" id="inlineCheckbox3"> Paypal
+                </label>
+            </div>
+        </div>
 
 
-    <div id="map"></div>
+
+        <div id="map"></div>
 
     </form>
 
