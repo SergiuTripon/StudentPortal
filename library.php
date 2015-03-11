@@ -83,7 +83,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_books WHERE book_status = 'active' OR book_status = 'reserved'");
+	$stmt1 = $mysqli->query("SELECT system_books.bookid, system_books.book_name, system_books.book_author, system_books.book_notes, system_books.book_copy_no, system_books.book_status FROM system_books LEFT JOIN system_books_reserved ON system_books.bookid=system_books_reserved.bookid WHERE system_books.book_status = 'active' OR system_books.book_status = 'reserved' AND NOT system_books_reserved.userid = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -99,7 +99,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "No notes" : "$book_notes").'</td>
+			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Action">'.($book_status === 'Reserved' ? "<a id=\"request-$bookid\" class=\"btn btn-primary btn-md ladda-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
 			</tr>';
@@ -164,7 +164,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "No notes" : "$book_notes").'</td>
+			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
 			<td data-title="Booken on">'.$reserved_on.'</td>
 			<td data-title="Return on">'.$toreturn_on.'</td>
 			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
@@ -289,7 +289,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "No notes" : "$book_notes").'</td>
+			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td>
 			<div class="btn-group btn-action">
@@ -391,7 +391,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "No notes" : "$book_notes").'</td>
+			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
