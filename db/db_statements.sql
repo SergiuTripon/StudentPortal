@@ -14,7 +14,7 @@ DROP TABLE user_timetable;
 DROP TABLE user_results;
 DROP TABLE system_modules;
 DROP TABLE system_books_reserved;
-DROP TABLE system_books_resq;
+DROP TABLE system_books_requested;
 DROP TABLE system_books;
 DROP TABLE user_tasks;
 DROP TABLE system_events_booked;
