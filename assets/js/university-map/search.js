@@ -1,4 +1,4 @@
-    //<![CDATA[
+
     var map;
     var markers = [];
     var infoWindow;
@@ -151,4 +151,3 @@
     }
 
     function doNothing() {}
-    //]]>
