@@ -1027,7 +1027,7 @@ function CreateResult() {
     $result_status = 'active';
 
     $stmt1 = $mysqli->prepare("INSERT INTO user_results (userid, moduleid, result_coursework_mark, result_exam_mark, result_overall_mark, result_notes, result_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt1->bind_param('iisssss', $result_userid, $result_moduleid, $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes, $result_status, $created_on);
+    $stmt1->bind_param('iissssss', $result_userid, $result_moduleid, $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes, $result_status, $created_on);
     $stmt1->execute();
     $stmt1->close();
 }
