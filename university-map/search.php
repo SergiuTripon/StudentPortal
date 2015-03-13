@@ -101,6 +101,10 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <script>
+    $(document).ready(function() {
+        $("#radiusSelect").select2();
+    });
+
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
