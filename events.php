@@ -299,7 +299,7 @@ include 'includes/session.php';
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#deactivate-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="deactivate-'.$eventid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="deactivate-'.$eventid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -397,7 +397,7 @@ include 'includes/session.php';
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="reactivate-'.$eventid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="reactivate-'.$eventid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -429,7 +429,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div class="modal modal-custom fade" id="delete-'.$eventid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="delete-'.$eventid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 

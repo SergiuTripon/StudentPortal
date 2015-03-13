@@ -133,7 +133,7 @@ include 'includes/session.php';
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$markerid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="deactivate-'.$markerid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="deactivate-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -232,7 +232,7 @@ include 'includes/session.php';
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$markerid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="reactivate-'.$markerid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="reactivate-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -264,7 +264,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div class="modal modal-custom fade" id="delete-'.$markerid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="modal modal-custom fade" id="delete-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
