@@ -1016,9 +1016,10 @@ form .input-happy {
 }
 
 .marker-toggle .checkbox-master {
-    display: inline;
+    display: inline-block;
     padding: 5px;
     border-radius: 3px;
+    margin-bottom: 10px;
 }
 
 #lecture-theatre-checkbox .checkbox-inline {
