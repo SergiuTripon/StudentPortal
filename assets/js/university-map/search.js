@@ -61,7 +61,7 @@
 
         var address = document.getElementById("addressInput").value;
         if(address === '') {
-            $("label[for='addressInput']").empty().append("Please enter a address.");
+            $("label[for='addressInput']").empty().append("Please enter a location.");
             $("label[for='addressInput']").removeClass("feedback-happy");
             $("label[for='addressInput']").addClass("feedback-sad");
             $("#addressInput").css("cssText", "border-color: #D9534F");
