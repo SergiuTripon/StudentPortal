@@ -53,7 +53,8 @@ include '../includes/session.php';
     </div>
 
     <div id="map-search-results" class="mt10">
-        <select class="form-control" id="locationSelect" style="width:100%; display: none;"></select>
+    <label for="locationSelect">Results</label>
+    <select class="form-control" id="locationSelect" style="width:100%; display: none;"></select>
     </div>
 
     </div>
