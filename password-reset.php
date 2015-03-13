@@ -161,21 +161,21 @@ global $token;
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a password.");
         $("label[for='password']").removeClass("feedback-happy");
-		$("label[for='password']").addClass("feedback-sad");
-        $("#password").removeClass("input-happy");
-        $("#password").addClass("input-sad");
+        $("label[for='password']").addClass("feedback-sad");
+        $("#password").removeClass("input-sad");
+        $("#password").addClass("input-happy");
         $("#password").focus();
 		hasError = true;
-		return false;
-	} else {
+        return false;
+    } else {
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
-        $("#password").removeClass("input-sad");
-        $("#password").addClass("input-happy");
-    }
+        $("#password").removeClass("input-happy");
+        $("#password").addClass("input-sad");
+	}
 
-	password = $("#password").val();
+    password = $("#password").val();
 	if (password.length < 6) {
         $("#error1").show();
         $("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
