@@ -145,17 +145,14 @@ include '../includes/session.php';
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
-    var today = new Date();
 	$(function () {
 	    $('#task_startdate').datetimepicker({
 		    dateFormat: "yy-mm-dd",
             controlType: 'select',
-            minDate: today
 	    });
         $('#task_duedate').datetimepicker({
             dateFormat: "yy-mm-dd",
             controlType: 'select',
-            minDate: today
         });
 	});
 
