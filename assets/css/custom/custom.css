@@ -1019,12 +1019,7 @@ form .input-happy {
     display: inline;
     padding: 5px;
     border-radius: 3px;
-}
-
-.marker-toggle #student-centre-checkbox {
-    display: inline;
-    padding: 5px;
-    border-radius: 3px;
+    background-color: #4480E8;
 }
 
 #building-checkbox .checkbox-inline {
