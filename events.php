@@ -55,7 +55,7 @@ include 'includes/session.php';
 
 	</div><!-- /row -->
 
-	<div class="panel-group event-view" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group panel-custom event-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="events-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
