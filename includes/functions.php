@@ -1582,6 +1582,9 @@ function CreateTask () {
     $task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
     $task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
 
+    $task_startdate = date($task_startdate, "Y-m-d H:i:s");
+    $task_duedate = date($task_duedate, "Y-m-d H:i:s");
+
     $task_category = strtolower($task_category);
 
     if ($task_category == 'university') { $task_class = 'event-important'; }

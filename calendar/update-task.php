@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
 
 $taskToUpdate = $_GET["id"];
 
-$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%Y-%m-%d %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%Y-%m-%d %H:%i') as task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d-%m-%Y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d-%m-%Y %H:%i') as task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
 $stmt1->bind_param('i', $taskToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
@@ -71,11 +71,11 @@ header('Location: ../calendar/');
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label for="task_startdate">Start date and time<span class="field-required">*</span></label>
-	<input class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a start date and time"/>
+	<input class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" placeholder="Select a start date and time"/>
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="task_duedate">Due date and time<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" data-date-format="YYYY/MM/DD hh:mm" placeholder="Select a due date and time"/>
+    <input class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" placeholder="Select a due date and time"/>
 	</div>
 	</div>
 
@@ -151,10 +151,12 @@ header('Location: ../calendar/');
 	//Date Time Picker
 	$(function () {
 	$('#task_startdate').datetimepicker({
-		dateFormat: "yy-mm-dd", controlType: 'select'
+		dateFormat: "dd-mm-yy",
+        controlType: 'select'
 	});
 	$('#task_duedate').datetimepicker({
-		dateFormat: "yy-mm-dd", controlType: 'select'
+		dateFormat: "dd-mm-yy",
+        controlType: 'select'
 	});
 	});
 
@@ -178,7 +180,7 @@ header('Location: ../calendar/');
 	//Setting variable value
 	$('.btn-group .task_category').click(function(){
 		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
-	})
+	});
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
