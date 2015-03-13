@@ -225,8 +225,8 @@ global $token;
         $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
-        $("#password").removeClass("input-happy");
-        $("#password").addClass("input-sad");
+        $("#confirmpwd").removeClass("input-happy");
+        $("#confirmpwd").addClass("input-sad");
         $("#confirmpwd").focus();
 		hasError  = true;
 		return false;
@@ -234,8 +234,8 @@ global $token;
         $("label[for='confirmpwd']").empty().append("All good!");
         $("label[for='confirmpwd']").removeClass("feedback-sad");
         $("label[for='confirmpwd']").addClass("feedback-happy");
-        $("#password").removeClass("input-sad");
-        $("#password").addClass("input-happy");
+        $("#confirmpwd").removeClass("input-sad");
+        $("#confirmpwd").addClass("input-happy");
 	}
 
 	if(password != confirmpwd) {
@@ -244,8 +244,8 @@ global $token;
         $("label[for='confirmpwd']").empty().append("Wait a minute!");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
-        $("#password").removeClass("input-happy");
-        $("#password").addClass("input-sad");
+        $("#confirmpwd").removeClass("input-happy");
+        $("#confirmpwd").addClass("input-sad");
         $("#confirmpwd").focus();
         hasError  = true;
 		return false;
@@ -253,8 +253,8 @@ global $token;
         $("label[for='confirmpwd']").empty().append("All good!");
         $("label[for='confirmpwd']").removeClass("feedback-sad");
         $("label[for='confirmpwd']").addClass("feedback-happy");
-        $("#password").removeClass("input-sad");
-        $("#password").addClass("input-happy");
+        $("#confirmpwd").removeClass("input-sad");
+        $("#confirmpwd").addClass("input-happy");
         $("#error1").hide();
 	}
 
