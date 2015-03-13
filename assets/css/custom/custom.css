@@ -1015,22 +1015,20 @@ form .input-happy {
     border-bottom: 1px solid #8A8A8A;
 }
 
-.marker-toggle #checkbox {
+.marker-toggle #building-checkbox {
     display: inline;
     padding: 5px;
     border-radius: 3px;
 }
 
-#checkbox .checkbox-inline {
-    color: #FFFFFF;
-}
-
-.marker-toggle #building-checkbox {
-    background-color: #4480E8;
-}
-
 .marker-toggle #student-centre-checkbox {
-    background-color: #5BB65B;
+    display: inline;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#building-checkbox .checkbox-inline {
+    color: #FFFFFF;
 }
 /* End of University map */
 
