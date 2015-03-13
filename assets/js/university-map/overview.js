@@ -1,27 +1,27 @@
     var customIcons = {
         building: {
-            icon: 'http://student-portal.co.uk/assets/img/university-map/building_icon.png'
+            icon: 'https://student-portal.co.uk/assets/img/university-map/building_icon.png'
         },
         student_centre: {
-            icon: 'http://student-portal.co.uk/assets/img/university-map/student_centre_icon.png'
+            icon: 'https://student-portal.co.uk/assets/img/university-map/student_centre_icon.png'
         },
         lecture_theatre: {
-            icon: 'http://student-portal.co.uk/assets/img/university-map/lecture_theatre_icon.png'
+            icon: 'https://student-portal.co.uk/assets/img/university-map/lecture_theatre_icon.png'
         },
         computer_lab: {
-            icon: 'http://student-portal.co.uk/assets/img/university-map/computer_lab_icon.png'
+            icon: 'https://student-portal.co.uk/assets/img/university-map/computer_lab_icon.png'
         },
         library: {
-            icon: 'http://student-portal.co.uk/assets/img/university-map/library_icon.png'
+            icon: 'https://student-portal.co.uk/assets/img/university-map/library_icon.png'
         },
         cycle_hire: {
-            icon: 'http://student-portal.co.uk/assets/img/university-map/cycle_hire_icon.png'
+            icon: 'https://student-portal.co.uk/assets/img/university-map/cycle_hire_icon.png'
         },
         cycle_parking: {
-            icon: 'http://student-portal.co.uk/assets/img/university-map/cycle_parking_icon.png'
+            icon: 'https://student-portal.co.uk/assets/img/university-map/cycle_parking_icon.png'
         },
         atm: {
-            icon: 'http://student-portal.co.uk/assets/img/university-map/atm_icon.png'
+            icon: 'https://student-portal.co.uk/assets/img/university-map/atm_icon.png'
         }
     };
 
