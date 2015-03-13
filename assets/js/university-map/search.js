@@ -108,13 +108,14 @@
             for (var i = 0; i < markerNodes.length; i++) {
                 var name = markerNodes[i].getAttribute("name");
                 var notes = markerNodes[i].getAttribute("notes");
+                var category = markerNodes[i].getAttribute("category");
                 var distance = parseFloat(markerNodes[i].getAttribute("distance"));
                 var latlng = new google.maps.LatLng(
                 parseFloat(markerNodes[i].getAttribute("lat")),
                 parseFloat(markerNodes[i].getAttribute("lng")));
 
                 createOption(name, distance, i);
-                createMarker(latlng, name, notes);
+                createMarker(latlng, name, notes, category);
                 bounds.extend(latlng);
             }
 
@@ -127,7 +128,7 @@
     });
     }
 
-    function createMarker(latlng, name, notes) {
+    function createMarker(latlng, name, notes, category) {
         var html = "<b>" + name + "</b> <br/>" + notes;
         var icon = customIcons[category] || {};
         var marker = new google.maps.Marker({
