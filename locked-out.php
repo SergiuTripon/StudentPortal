@@ -113,7 +113,7 @@ include 'includes/session.php';
     <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="text-right">
-    <a class="forgot-password" href="forgotten-password/">Forgotten your password?</a>
+    <a class="forgot-password" href="../forgotten-password/">Forgotten your password?</a>
     </div>
 
     <hr>
