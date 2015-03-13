@@ -1005,6 +1005,7 @@ form .input-happy {
 #university-map-portal #map-search-button {
     text-align: center !important;
 }
+}
 
 .marker-toggle {
     text-align: center;
@@ -1014,6 +1015,7 @@ form .input-happy {
 }
 
 .marker-toggle #building-checkbox {
+    display: inline;
     padding: 10px;
     background-color: #4480E8;
 }
