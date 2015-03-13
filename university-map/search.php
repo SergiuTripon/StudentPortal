@@ -104,8 +104,8 @@ include '../includes/session.php';
 
     <script>
     $(document).ready(function() {
-        $("#radiusSelect").select2();
-        $("#locationSelect").select2();
+    //select2
+    $("#radiusSelect").select2();
     });
 
     //Ladda
