@@ -243,7 +243,7 @@ include 'includes/session.php';
 
     <a class="btn btn-success btn-lg btn-admin ladda-button" data-style="slide-up" href="../admin/create-event/"><span class="ladda-label">Create event</span></a>
 
-    <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 
