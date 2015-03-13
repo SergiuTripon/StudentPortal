@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
 
 $taskToUpdate = $_GET["id"];
 
-$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, task_startdate, task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
 $stmt1->bind_param('i', $taskToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
@@ -144,7 +144,6 @@ header('Location: ../calendar/');
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function() {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});	
@@ -285,7 +284,6 @@ header('Location: ../calendar/');
 	
 	return true;
 	
-	});
 	});
 	</script>
 
