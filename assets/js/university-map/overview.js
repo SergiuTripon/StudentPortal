@@ -10,6 +10,18 @@
         },
         computer_lab: {
             icon: 'http://maps.google.com/mapfiles/ms/icons/purple.png'
+        },
+        library: {
+            icon: 'http://maps.google.com/mapfiles/ms/icons/red.png'
+        },
+        cycle_hire: {
+            icon: 'http://maps.google.com/mapfiles/ms/icons/black.png'
+        },
+        cycle_parking: {
+            icon: 'http://maps.google.com/mapfiles/ms/icons/orange.png'
+        },
+        atm: {
+            icon: 'http://maps.google.com/mapfiles/ms/icons/pink.png'
         }
     };
 
