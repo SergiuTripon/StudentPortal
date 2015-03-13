@@ -258,6 +258,10 @@ global $token;
         $("#error1").hide();
 	}
 
+    alert (password);
+    alert(confirmpwd);
+        alert(token);
+
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
