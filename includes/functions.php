@@ -323,11 +323,11 @@ function ResetPassword() {
 	$stmt2->bind_param('i', $userid);
 	$stmt2->execute();
 	$stmt2->store_result();
-	$stmt2->bind_result($db_token, $firstname);
+	$stmt2->bind_result($token, $firstname);
 	$stmt2->fetch();
 
     //Comparing client side token with database token
-	if ($token == $db_token) {
+    if (password_verify($password, $db_token)) {
 
         //Hashing the password
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
