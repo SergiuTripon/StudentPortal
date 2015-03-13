@@ -632,9 +632,7 @@ include 'includes/session.php';
         $('#deactivate-confirmation').show();
         $('#deactivate-hide').hide();
         $('#deactivate-success-button').show();
-        $("#deactivate-success-button").click(function () {
-            location.reload();
-        });
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
