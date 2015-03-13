@@ -1015,7 +1015,7 @@ form .input-happy {
     border-bottom: 1px solid #8A8A8A;
 }
 
-.marker-toggle #building-checkbox {
+.marker-toggle #checkbox {
     display: inline;
     padding: 5px;
     border-radius: 3px;
@@ -1026,7 +1026,7 @@ form .input-happy {
     color: #FFFFFF;
 }
 
-.marker-toggle #student-centre-checkbox {
+.marker-toggle #checkbox {
     display: inline;
     padding: 5px;
     border-radius: 3px;
