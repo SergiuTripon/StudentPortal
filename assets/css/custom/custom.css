@@ -1032,6 +1032,24 @@ form .input-happy {
 .marker-toggle #student-centre-checkbox {
     background-color: #5BB65B;
 }
+.marker-toggle #lecture-theatre-checkbox {
+    background-color: #FCEF03;
+}
+.marker-toggle #computer-lab-checkbox {
+    background-color: #A340D5;
+}
+.marker-toggle #library-checkbox {
+    background-color: #DA4646;
+}
+.marker-toggle #cycle-hire-checkbox {
+    background-color: #95531A;
+}
+.marker-toggle #cycle-parking-checkbox {
+    background-color: #F6A428;
+}
+.marker-toggle #atm-checkbox {
+    background-color: #EA46B1;
+}
 /* End of University map */
 
 /* Lock page style */
