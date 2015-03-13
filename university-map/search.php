@@ -9,8 +9,8 @@ include '../includes/session.php';
 
     <title>University map | Search</title>
 
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/select2-css-path.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
