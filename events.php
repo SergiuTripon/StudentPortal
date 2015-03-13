@@ -68,7 +68,7 @@ include 'includes/session.php';
 
 	<!-- Event -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom events-table">
+	<table class="table table-condensed table-custom event-table">
 
 	<thead>
 	<tr>
@@ -138,7 +138,7 @@ include 'includes/session.php';
 
 	<!-- Booked events -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom booked-event-table">
+	<table class="table table-condensed table-custom event-table">
 
 	<thead>
 	<tr>
@@ -576,16 +576,6 @@ include 'includes/session.php';
 		"info": false,
 		"language": {
 			"emptyTable": "There are no events to display."
-		}
-	});
-
-	$('.booked-event-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no booked events to display."
 		}
 	});
 
