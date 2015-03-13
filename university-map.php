@@ -34,23 +34,23 @@ include 'includes/session.php';
 
 	<div class="row mb10">
 
-	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
     <a href="../university-map/overview/">
+	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
     <div class="tile">
 	<i class="fa fa-university"></i>
 	<p class="tile-text">See all locations</p>
     </div>
-    </a>
 	</div>
+    </a>
 
-	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
     <a href="../university-map/search/">
+	<div class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
 	<div class="tile">
     <i class="fa fa-search-plus"></i>
 	<p class="tile-text">Search for a location</p>
     </div>
-    </a>
 	</div>
+    </a>
 
 	</div><!-- /row -->
 
