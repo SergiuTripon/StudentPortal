@@ -36,7 +36,7 @@ include '../includes/session.php';
 
     <div id="marker-toggle">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('building')"> Buildings
+        <input type="checkbox" checked="checked" onclick="toggleGroup('building')"> <span style="color: #6991FD; font-weight: 600;">Buildings</span>
     </label>
     <label class="checkbox-inline">
         <input type="checkbox" checked="checked" onclick="toggleGroup('student_centre')"> Student centre
