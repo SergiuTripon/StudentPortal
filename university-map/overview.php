@@ -35,9 +35,11 @@ include '../includes/session.php';
     <form class="form-custom">
 
     <div id="marker-toggle">
+    <div style="background-color: #4480E8; ">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('building')"><span style="color: #4480E8; font-weight: 600;"> Buildings</span>
+        <input type="checkbox" checked="checked" onclick="toggleGroup('building')"><span style="color: #FFFFFF; font-weight: 600;"> Buildings</span>
     </label>
+    </div>
     <label class="checkbox-inline">
         <input type="checkbox" checked="checked" onclick="toggleGroup('student_centre')"> <span style="color: #5BB65B; font-weight: 600;">Student centre</span>
     </label>
