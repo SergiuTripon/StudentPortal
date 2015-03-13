@@ -658,11 +658,6 @@ form textarea {
 .select2-container .select2-selection--single {
     height: 43px;
 }
-
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-    color: gray;
-    line-height: 43px;
-}
 /* End of Select2 */
 
 /* Button group */
