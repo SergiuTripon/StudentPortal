@@ -63,6 +63,12 @@
             $("#addressInput").css("cssText", "border-color: #D9534F");
             $("#addressInput").focus();
             return false;
+        } else {
+            $("label[for='payer_postcode']").empty().append("All good!");
+            $("label[for='payer_postcode']").removeClass("feedback-sad");
+            $("#payer_postcode").removeClass("input-sad");
+            $("label[for='payer_postcode']").addClass("feedback-happy");
+            $("#payer_postcode").addClass("input-happy");
         }
 
         var geocoder = new google.maps.Geocoder();
