@@ -10,6 +10,7 @@ include '../includes/session.php';
     <title>University map | Search</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/select2-css-path.php'; ?>
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
@@ -99,8 +100,12 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/select2-js-path.php'; ?>
 
     <script>
+    $(document).ready(function() {
+        $("#radiusSelect").select2();
+    });
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
