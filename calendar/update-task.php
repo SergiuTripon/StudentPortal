@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
 
 $taskToUpdate = $_GET["id"];
 
-$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d-%m-%Y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d-%m-%Y %H:%i') as task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%Y-%m-%d %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%Y-%m-%d %H:%i') as task_duedate, task_category FROM user_tasks WHERE taskid = ? LIMIT 1");
 $stmt1->bind_param('i', $taskToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
@@ -151,11 +151,11 @@ header('Location: ../calendar/');
 	//Date Time Picker
 	$(function () {
 	$('#task_startdate').datetimepicker({
-		dateFormat: "dd-mm-yy",
+		dateFormat: "yy-mm-dd",
         controlType: 'select'
 	});
 	$('#task_duedate').datetimepicker({
-		dateFormat: "dd-mm-yy",
+		dateFormat: "yy-mm-dd",
         controlType: 'select'
 	});
 	});
