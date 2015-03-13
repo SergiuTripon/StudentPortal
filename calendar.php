@@ -36,31 +36,31 @@ include 'includes/session.php';
 
 	<div class="row">
 
+    <a href="/calendar/create-task/">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	<a href="/calendar/create-task/">
     <div class="tile">
     <i class="fa fa-plus"></i>
 	<p class="tile-text">Create a task</p>
     </div>
-    </a>
 	</div>
+    </a>
 	
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-	<a id="task-button">
+	<div id="task-button">
     <div class="tile task-tile">
 	<i class="fa fa-tasks"></i>
 	<p class="tile-text">Task view</p>
     </div>
-    </a>
+    </div>
 	</div>
 	
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-	<a id="calendar-button">
+	<div id="calendar-button">
 	<div class="tile calendar-tile">
     <i class="fa fa-calendar"></i>
 	<p class="tile-text">Calendar view</p>
     </div>
-    </a>
+    </div>
 	</div>
 	
 	</div><!-- /row -->
