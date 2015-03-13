@@ -64,11 +64,11 @@
             $("#addressInput").focus();
             return false;
         } else {
-            $("label[for='payer_postcode']").empty().append("All good!");
-            $("label[for='payer_postcode']").removeClass("feedback-sad");
-            $("#payer_postcode").removeClass("input-sad");
-            $("label[for='payer_postcode']").addClass("feedback-happy");
-            $("#payer_postcode").addClass("input-happy");
+            $("label[for='addressInput']").empty().append("All good!");
+            $("label[for='addressInput']").removeClass("feedback-sad");
+            $("#addressInput").removeClass("input-sad");
+            $("label[for='addressInput']").addClass("feedback-happy");
+            $("#addressInput").addClass("input-happy");
         }
 
         var geocoder = new google.maps.Geocoder();
