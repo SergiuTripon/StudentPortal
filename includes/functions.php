@@ -1629,8 +1629,6 @@ function UpdateTask() {
 	$task_duedate = filter_input(INPUT_POST, 'task_duedate1', FILTER_SANITIZE_STRING);
 	$task_category = filter_input(INPUT_POST, 'task_category1', FILTER_SANITIZE_STRING);
 
-    $task_startdate = $task_startdate->format('Y-m-d H:i:s');
-    $task_duedate = $task_duedate->format('Y-m-d H:i:s');
 	$task_category = strtolower($task_category);
 
 	if ($task_category == 'university') { $task_class = 'event-important'; }
