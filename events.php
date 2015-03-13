@@ -183,7 +183,7 @@ include 'includes/session.php';
 
 	</div><!-- /panel-group -->
 
-	<div class="panel-group calendar-view" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel-group panel-custom calendar-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="calendar-toggle" class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingThree">
