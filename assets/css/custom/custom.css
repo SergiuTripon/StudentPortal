@@ -1019,22 +1019,18 @@ form .input-happy {
     display: inline;
     padding: 5px;
     border-radius: 3px;
+}
+
+.checkbox-master .checkbox-inline {
+    color: #FFFFFF;
+}
+
+.marker-toggle #building-checkbox {
     background-color: #4480E8;
 }
 
-#building-checkbox .checkbox-inline {
-    color: #FFFFFF;
-}
-
-.marker-toggle .checkbox-master {
-    display: inline;
-    padding: 5px;
-    border-radius: 3px;
+.marker-toggle #student-centre-checkbox {
     background-color: #5BB65B;
-}
-
-#student-centre-checkbox .checkbox-inline {
-    color: #FFFFFF;
 }
 /* End of University map */
 
