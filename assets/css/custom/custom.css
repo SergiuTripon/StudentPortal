@@ -651,12 +651,14 @@ form textarea {
 
 /* Select2 */
 .select2-container--default .select2-selection--single {
+    outline: none !important;
     border-radius: 3px;
     border-color: #CCCCCC;
 }
 
 .select2-container .select2-selection--single {
     height: 43px;
+    outline: none !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
