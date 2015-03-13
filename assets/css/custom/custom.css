@@ -1017,7 +1017,8 @@ form .input-happy {
 
 .marker-toggle #building-checkbox {
     display: inline;
-    padding: 10px;
+    padding: 5px;
+    border-radius: 3px;
     background-color: #4480E8;
 }
 
