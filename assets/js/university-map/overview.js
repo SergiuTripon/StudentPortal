@@ -1,5 +1,3 @@
-    var infoWindow = new google.maps.InfoWindow();
-
     var customIcons = {
         building: {
             icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png'
@@ -47,6 +45,10 @@
     }
     });
     }
+
+    var infoWindow = new google.maps.InfoWindow({
+        maxWidth: 400
+    });
 
     function createMarker(point, name, notes, category, map) {
         var icon = customIcons[category] || {};
