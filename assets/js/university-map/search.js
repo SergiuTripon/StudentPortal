@@ -1,3 +1,30 @@
+    var customIcons = {
+    building: {
+        icon: 'https://student-portal.co.uk/assets/img/university-map/building_icon.png'
+    },
+    student_centre: {
+        icon: 'https://student-portal.co.uk/assets/img/university-map/student_centre_icon.png'
+    },
+    lecture_theatre: {
+        icon: 'https://student-portal.co.uk/assets/img/university-map/lecture_theatre_icon.png'
+    },
+    computer_lab: {
+        icon: 'https://student-portal.co.uk/assets/img/university-map/computer_lab_icon.png'
+    },
+    library: {
+        icon: 'https://student-portal.co.uk/assets/img/university-map/library_icon.png'
+    },
+    cycle_hire: {
+        icon: 'https://student-portal.co.uk/assets/img/university-map/cycle_hire_icon.png'
+    },
+    cycle_parking: {
+        icon: 'https://student-portal.co.uk/assets/img/university-map/cycle_parking_icon.png'
+    },
+    atm: {
+        icon: 'https://student-portal.co.uk/assets/img/university-map/atm_icon.png'
+    }
+    };
+
 
     var map;
     var markers = [];
@@ -100,12 +127,13 @@
     });
     }
 
-    function createMarker(latlng, name, address) {
-        var html = "<b>" + name + "</b> <br/>" + address;
-
+    function createMarker(latlng, name, notes) {
+        var html = "<b>" + name + "</b> <br/>" + notes;
+        var icon = customIcons[category] || {};
         var marker = new google.maps.Marker({
             map: map,
             position: latlng,
+            icon: icon.icon,
             animation: google.maps.Animation.DROP
         });
 
