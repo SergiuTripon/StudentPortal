@@ -649,13 +649,25 @@ form textarea {
 }
 /* End of Form */
 
+/* Select2 */
+.select2-container--default .select2-selection--single {
+    border-radius: 3px;
+    border-color: #CCCCCC;
+}
+
+.select2-container .select2-selection--single {
+    height: 43px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: gray;
+    line-height: 43px;
+}
+/* End of Select2 */
+
 /* Button group */
 form .btn-group, .btn-group-vertical {
     margin-bottom: 10px !important;
-}
-
-.bootstrap-select .btn:focus {
-    outline: none !important;
 }
 /* End of Button group */
 
