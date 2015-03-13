@@ -35,12 +35,12 @@ include '../includes/session.php';
     <form class="form-custom">
 
     <div class="marker-toggle">
-    <div id="checkbox-master building-checkbox">
+    <div id="building-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
         <input type="checkbox" checked="checked" onclick="toggleGroup('building')"> Buildings
     </label>
     </div>
-    <div id="checkbox-master student-centre-checkbox">
+    <div id="student-centre-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
         <input type="checkbox" checked="checked" onclick="toggleGroup('student_centre')"> Student centre
     </label>
