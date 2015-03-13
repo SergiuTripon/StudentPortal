@@ -36,28 +36,28 @@ include '../includes/session.php';
 
     <div id="marker-toggle">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('building')"><span style="color: #6991FD; font-weight: 600;"> Buildings</span>
+        <input type="checkbox" checked="checked" onclick="toggleGroup('building')"><span style="color: #4480E8; font-weight: 600;"> Buildings</span>
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('student_centre')"> <span style="color: #00E64D; font-weight: 600;">Student centre</span>
+        <input type="checkbox" checked="checked" onclick="toggleGroup('student_centre')"> <span style="color: #5BB65B; font-weight: 600;">Student centre</span>
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('lecture_theatre')"> <span style="color: #FDF569; font-weight: 600;">Lecture theatre</span>
+        <input type="checkbox" checked="checked" onclick="toggleGroup('lecture_theatre')"> <span style="color: #FCEF03; font-weight: 600;">Lecture theatre</span>
     </label>
         <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('computer_lab')"> <span style="color: #8E67FD; font-weight: 600;">Computer lab</span>
+        <input type="checkbox" checked="checked" onclick="toggleGroup('computer_lab')"> <span style="color: #A340D5; font-weight: 600;">Computer lab</span>
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('library')"> <span style="color: #FD7567; font-weight: 600;">Library</span>
+        <input type="checkbox" checked="checked" onclick="toggleGroup('library')"> <span style="color: #DA4646; font-weight: 600;">Library</span>
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_hire')"> <span style="color: #FD7567; font-weight: 600;">Cycle hire</span>
+        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_hire')"> <span style="color: #95531A; font-weight: 600;">Cycle hire</span>
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_parking')"> Cycle parking
+        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_parking')"> <span style="color: #F6A428; font-weight: 600;">Cycle parking</span>
     </label>
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('atm')"> ATM
+        <input type="checkbox" checked="checked" onclick="toggleGroup('atm')"> <span style="color: #EA46B1; font-weight: 600;">ATM</span>
     </label>
     </div>
 
