@@ -11,7 +11,7 @@ include 'includes/session.php';
 
     <title>Student Portal | Timetable</title>
 
-    <?php include 'assets/css-paths/bootstrap-select-css-path.php'; ?>
+    <?php include 'assets/css-paths/select2-css-path.php'; ?>
     <?php include 'assets/css-paths/datatables-css-path.php'; ?>
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
@@ -467,7 +467,7 @@ include 'includes/session.php';
 
 	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-    <?php include 'assets/js-paths/bootstrap-select-js-path.php'; ?>
+    <?php include 'assets/js-paths/select2-js-path.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>

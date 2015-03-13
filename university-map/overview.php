@@ -10,7 +10,7 @@ include '../includes/session.php';
     <title>University map | Overview</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
-    <?php include '../assets/css-paths/awesome-bootstrap-checkbox-css-path.php'; ?>
+    <?php include '../assets/css-paths/select2-css-path.php'; ?>
 
     <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 

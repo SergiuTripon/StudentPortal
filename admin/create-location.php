@@ -9,7 +9,7 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <?php include '../assets/css-paths/bootstrap-select-css-path.php'; ?>
+    <?php include '../assets/css-paths/select2-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <title>Student Portal | Create location</title>
@@ -176,7 +176,7 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/bootstrap-select-js-path.php'; ?>
+    <?php include '../assets/js-paths/select2-js-path.php'; ?>
 
 	<script>
 	$(document).ready(function () {
