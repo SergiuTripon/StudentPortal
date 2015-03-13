@@ -264,10 +264,6 @@ global $token;
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'token=' + token + '&email3=' + email + '&password2=' + password,
     success:function(){
-        $("#error").hide();
-        $("#error1").hide();
-        $("#error2").hide();
-        $("#error3").hide();
         $("#hide").hide();
 		$("#extra-button").hide();
 		$("#FormSubmit").hide();
