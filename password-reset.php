@@ -162,6 +162,8 @@ global $token;
         $("label[for='password']").empty().append("Please enter a password.");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
+        $("#password").removeClass("input-happy");
+        $("#password").addClass("input-sad");
         $("#password").focus();
 		hasError  = true;
 		return false;
@@ -169,6 +171,8 @@ global $token;
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
+        $("#password").removeClass("input-sad");
+        $("#password").addClass("input-happy");
 	}
 
     password = $("#password").val();
@@ -179,6 +183,8 @@ global $token;
         $("label[for='password']").empty().append("Wait a minute!");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
+        $("#password").removeClass("input-happy");
+        $("#password").addClass("input-sad");
         $("#password").focus();
 		hasError  = true;
 		return false;
@@ -186,7 +192,8 @@ global $token;
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
-        $("#error1").hide();
+        $("#password").removeClass("input-happy");
+        $("#password").addClass("input-sad");
 	}
 
 	var upperCase= new RegExp('[A-Z]');
@@ -198,13 +205,16 @@ global $token;
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-sad");
         $("label[for='password']").addClass("feedback-happy");
-        $("#error1").hide();
+        $("#password").removeClass("input-sad");
+        $("#password").addClass("input-happy");
 	} else {
         $("#error1").show();
         $("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
         $("label[for='password']").empty().append("Wait a minute!");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
+        $("#password").removeClass("input-happy");
+        $("#password").addClass("input-sad");
         $("#password").focus();
 		hasError  = true;
 		return false;
@@ -215,6 +225,8 @@ global $token;
         $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
+        $("#password").removeClass("input-happy");
+        $("#password").addClass("input-sad");
         $("#confirmpwd").focus();
 		hasError  = true;
 		return false;
@@ -222,6 +234,8 @@ global $token;
         $("label[for='confirmpwd']").empty().append("All good!");
         $("label[for='confirmpwd']").removeClass("feedback-sad");
         $("label[for='confirmpwd']").addClass("feedback-happy");
+        $("#password").removeClass("input-sad");
+        $("#password").addClass("input-happy");
 	}
 
 	if(password != confirmpwd) {
@@ -230,6 +244,8 @@ global $token;
         $("label[for='confirmpwd']").empty().append("Wait a minute!");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
+        $("#password").removeClass("input-happy");
+        $("#password").addClass("input-sad");
         $("#confirmpwd").focus();
         hasError  = true;
 		return false;
@@ -237,6 +253,8 @@ global $token;
         $("label[for='confirmpwd']").empty().append("All good!");
         $("label[for='confirmpwd']").removeClass("feedback-sad");
         $("label[for='confirmpwd']").addClass("feedback-happy");
+        $("#password").removeClass("input-sad");
+        $("#password").addClass("input-happy");
         $("#error1").hide();
 	}
 
