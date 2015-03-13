@@ -1021,6 +1021,10 @@ form .input-happy {
     border-radius: 3px;
 }
 
+#lecture-theatre-checkbox .checkbox-inline {
+    color: #113892;
+}
+
 .checkbox-master .checkbox-inline {
     color: #FFFFFF;
 }
