@@ -135,7 +135,7 @@ global $token;
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-	var hasError;
+	var hasError = false;
 
 	var token = $("#token").val();
 
