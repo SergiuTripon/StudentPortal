@@ -601,7 +601,7 @@ include 'includes/session.php';
         $('#complete-hide').hide();
         $('#complete-success-button').show();
         $("#complete-success-button").click(function() {
-            $('.complete'+taskToComplete).modal('show');
+            $('#complete'+taskToComplete).modal('show');
         });
         $("#completed-tasks-load").load("https://student-portal.co.uk/includes/calendar/completed-tasks.php");
 	},
