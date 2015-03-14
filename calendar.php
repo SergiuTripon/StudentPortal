@@ -509,6 +509,8 @@ include 'includes/session.php';
 
 	<script>
     $(document).ready(function () {
+        initDataTables();
+
         $("#calendar-toggle").hide();
         $(".task-tile").addClass("tile-selected");
         $(".task-tile p").addClass("tile-text-selected");
@@ -557,16 +559,18 @@ include 'includes/session.php';
 	});
 	}(jQuery));
 
+    function initDataTables() {
     //DataTables
     $('.table-custom').dataTable({
         "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no tasks to display at the moment."
-		}
-	});
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no tasks to display at the moment."
+        }
+    });
+    }
 
     //Responsiveness
 	$(window).resize(function(){
