@@ -517,7 +517,7 @@ include 'includes/session.php';
     });
 
     $("#load-due-tasks").click(function() {
-        $("#due-tasks-load").load("../../includes/calendar/source/due-tasks.php");
+        $("#due-tasks-load").load("../../includes/calendar/due-tasks.php");
     });
 
     //Ladda
@@ -529,7 +529,7 @@ include 'includes/session.php';
 	"use strict";
 
 	var options = {
-		events_source: '../../includes/calendar/tasks_json.php',
+		events_source: '../../includes/calendar/source/tasks_json.php',
 		view: 'month',
 		tmpl_path: '../assets/tmpls/',
 		tmpl_cache: false,
