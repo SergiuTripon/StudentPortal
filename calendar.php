@@ -607,7 +607,7 @@ include 'includes/session.php';
         $("#complete-success-button").click(function() {
             $('#complete-' + taskToComplete).modal('hide');
         });
-        $('#completed-tasks-table-reload').replaceWith(tableReload);
+        $('#completed-tasks-table-reload').load(tableReload);
         initDataTables();
 	},
 	error:function (xhr, ajaxOptions, thrownError){
