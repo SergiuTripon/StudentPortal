@@ -2722,20 +2722,25 @@ function DeleteAccount() {
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE userid = ?");
+    $stmt5 = $mysqli->prepare("DELETE FROM user_results WHERE userid = ?");
     $stmt5->bind_param('i', $accountToDelete);
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM system_events_booked WHERE userid = ?");
+    $stmt6 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE userid = ?");
     $stmt6->bind_param('i', $accountToDelete);
     $stmt6->execute();
     $stmt6->close();
 
-    $stmt7 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+    $stmt7 = $mysqli->prepare("DELETE FROM system_events_booked WHERE userid = ?");
     $stmt7->bind_param('i', $accountToDelete);
     $stmt7->execute();
     $stmt7->close();
+
+    $stmt8 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+    $stmt8->bind_param('i', $accountToDelete);
+    $stmt8->execute();
+    $stmt8->close();
 
 	session_unset();
 	session_destroy();
