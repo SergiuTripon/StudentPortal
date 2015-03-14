@@ -2744,6 +2744,8 @@ function DeleteAccount() {
 
 	session_unset();
 	session_destroy();
+
+    SignOut();
 }
 
 //////////////////////////////////////////////////////////////////////////
