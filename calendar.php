@@ -520,8 +520,6 @@ include 'includes/session.php';
 
     $("#load-due-tasks").click(function() {
         $("#due-tasks-load").load("../../includes/calendar/due-tasks.php");
-        var oTable = $('.table-custom').dataTable();
-        oTable.fnDestroy();
         initDataTables();
     });
 
