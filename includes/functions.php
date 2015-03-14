@@ -327,7 +327,7 @@ function ResetPassword() {
 	$stmt2->fetch();
 
     //Comparing client side token with database token
-    if (password_verify($token, $db_token)) {
+    if ($token === $db_token) {
 
         //Hashing the password
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
