@@ -430,7 +430,7 @@ elseif (isset($_POST["userid1"], $_POST["password5"])) {
 
 //Call DeleteAnAccount function
 elseif (isset($_POST["userToDelete"])) {
-	DeleteAnAccount();
+	DeleteUser();
 }
 
 ////////////////////////////////////////////////////////////
