@@ -216,7 +216,7 @@ include 'includes/session.php';
 	//Setting variable value
 	$('.btn-group .gender').click(function(){
         gender = ($(this).text().replace(/^\s+|\s+$/g,''))
-	})
+	});
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
