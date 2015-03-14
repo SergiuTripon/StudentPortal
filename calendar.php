@@ -515,6 +515,10 @@ include 'includes/session.php';
         $(".task-tile i").addClass("tile-text-selected");
     });
 
+    $( "#events" ).click(function() {
+
+    completed-tasks-load
+
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
@@ -600,10 +604,9 @@ include 'includes/session.php';
         $('#complete-confirmation').show();
         $('#complete-hide').hide();
         $('#complete-success-button').show();
-        $("#complete-success-button").click(function() {
-            $('#complete'+taskToComplete).modal('hide');
+        $("#complete-success-button").click(function () {
+            location.reload();
         });
-        $("#completed-tasks-load").load("https://student-portal.co.uk/includes/calendar/completed-tasks.php");
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
