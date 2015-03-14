@@ -15,7 +15,7 @@
 
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-        <li id="signin"><a href="/">Sign In</a></li>
+        <li id="signin"><a href="/">Sign in</a></li>
         <li id="register"><a href="/register/">Register</a></li>
     </ul>
     </div><!--/.nav-collapse -->

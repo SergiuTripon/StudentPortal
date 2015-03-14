@@ -132,7 +132,7 @@ include 'includes/session.php';
     <hr>
 
 	<div id="register-button" class="pull-left">
-    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 	
     <div id="register-button" class="text-right">
@@ -140,7 +140,7 @@ include 'includes/session.php';
     </div>
 	
 	<div id="success-button" class="text-center" style="display:none">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 	
     </form>
@@ -407,7 +407,7 @@ include 'includes/session.php';
         $("#FormSubmit").hide();
 		$("#register-button").hide();
         $("#success").show();
-		$("#success").append('Thank you for your registration. You can now sign in to your account.');
+		$("#success").append('Thank you for your registration. You can now Sign in to your account.');
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){

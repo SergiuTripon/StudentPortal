@@ -28,7 +28,7 @@ DROP TABLE user_token;
 DROP TABLE user_details;
 DROP TABLE user_signin;
 
-#Sign In
+#Sign in
 CREATE TABLE `user_signin` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `account_type` VARCHAR(8) NOT NULL,

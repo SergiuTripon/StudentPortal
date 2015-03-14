@@ -81,7 +81,7 @@ include 'includes/session.php';
     <hr>
 
     <div id="extra-button" class="pull-left">
-    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     <div id="extra-button" class="text-right">

@@ -123,7 +123,7 @@ include 'includes/session.php';
     </div>
 
     <div class="text-right">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Sign In</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Sign in</span></button>
 	</div>
 
     </form>

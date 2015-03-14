@@ -104,7 +104,7 @@ global $token;
 	<hr class="hr-custom">
 
     <div id="extra-button" class="pull-left">
-    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     <div class="text-right">
@@ -112,7 +112,7 @@ global $token;
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign In</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     </form>
@@ -269,7 +269,7 @@ global $token;
 		$("#FormSubmit").hide();
         $(".fa").removeClass("fa-lock");
         $(".fa").addClass("fa-key");
-		$("#success").append('Your password has been reset successfully. You can now sign in with your new password.');
+		$("#success").append('Your password has been reset successfully. You can now Sign in with your new password.');
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){

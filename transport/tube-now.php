@@ -166,11 +166,11 @@ global $transport_status_last_updated;
 	</div>
 
 	<hr>
-	<p class="feedback-sad text-center">Looks like you're not signed in yet. Please sign in before accessing this area.</p>
+	<p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
 	<hr>
 
 	<div class="text-center">
-	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign In</span></a>
+	<a class="btn btn-custom btn-lg ladda-button" data-style="slide-up" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign in</span></a>
 	</div>
 
 	</form>
