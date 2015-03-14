@@ -32,7 +32,7 @@ elseif (isset($_POST["email2"])) {
 }
 
 //Call ResetPassword function
-elseif (isset($_POST["token"], $_POST["email3"], $_POST["password2"])) {
+elseif (isset($_POST["rp_token"], $_POST["rp_email"], $_POST["rp_password"])) {
 	ResetPassword();
 }
 

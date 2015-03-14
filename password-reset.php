@@ -262,7 +262,7 @@ global $token;
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'token=' + token + '&email3=' + email + '&password2=' + password,
+    data:'rp_token=' + token + '&rp_email=' + email + '&rp_password=' + password,
     success:function(){
         $("#hide").hide();
 		$("#extra-button").hide();

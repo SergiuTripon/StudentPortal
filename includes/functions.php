@@ -293,10 +293,10 @@ function ResetPassword() {
 	global $mysqli;
 	global $updated_on;
 
-	$token = $_POST["token"];
-	$email = filter_input(INPUT_POST, 'email3', FILTER_SANITIZE_EMAIL);
+	$token = $_POST["rp_token"];
+	$email = filter_input(INPUT_POST, 'rp_email', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$password = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_STRING);
+	$password = filter_input(INPUT_POST, 'rp_password', FILTER_SANITIZE_STRING);
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
