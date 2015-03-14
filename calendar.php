@@ -237,7 +237,7 @@ include 'includes/session.php';
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="completed-tasks-table-reload">
 	<?php
 
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_tasks where userid = '$session_userid' AND task_status = 'completed'");
@@ -592,7 +592,7 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'taskToComplete='+ taskToComplete,
-	success:function(){
+	success:function(tableReload){
 		$('#task-'+taskToComplete).fadeOut();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
@@ -600,9 +600,7 @@ include 'includes/session.php';
         $('#complete-confirmation').show();
         $('#complete-hide').hide();
         $('#complete-success-button').show();
-        $("#complete-success-button").click(function () {
-            location.reload();
-        });
+        $('#completed-tasks-table-reload').replaceWith(tableReload);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
