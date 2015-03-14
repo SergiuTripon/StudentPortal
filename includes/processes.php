@@ -406,8 +406,8 @@ elseif (isset($_POST['userToReactivate'])) {
 }
 
 //Call DeleteAccount function
-elseif (isset($_POST['userToDelete'])) {
-	DeleteUser();
+elseif (isset($_POST['accountToDelete'])) {
+	DeleteAccount();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
