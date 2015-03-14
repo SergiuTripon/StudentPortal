@@ -290,6 +290,9 @@ function SendPasswordToken() {
 //ResetPassword function
 function ResetPassword() {
 
+    header('HTTP/1.0 550 The email address you entered is invalid.');
+    exit();
+
 	global $mysqli;
 	global $updated_on;
 
