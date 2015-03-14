@@ -293,8 +293,8 @@ include 'includes/session.php';
         $("label[for='email']").empty().append("All good!");
         $("label[for='email']").removeClass("feedback-sad");
         $("label[for='email']").addClass("feedback-happy");
-        $("#email").removeClass("input-happy");
-        $("#email").addClass("input-sad");
+        $("#email").removeClass("input-sad");
+        $("#email").addClass("input-happy");
 	}
 
 	var password = $("#password").val();
