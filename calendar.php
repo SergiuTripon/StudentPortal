@@ -604,6 +604,7 @@ include 'includes/session.php';
             $('#complete-' + taskToComplete).modal('hide');
         });
         $('#completed-tasks-table-reload').replaceWith(tableReload);
+        initDataTables();
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
