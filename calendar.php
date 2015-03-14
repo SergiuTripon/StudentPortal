@@ -600,6 +600,7 @@ include 'includes/session.php';
         $('#complete-confirmation').show();
         $('#complete-hide').hide();
         $('#complete-success-button').show();
+        $('#complete-'+taskToComplete).modal('hide');
         $('#completed-tasks-table-reload').replaceWith(tableReload);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
