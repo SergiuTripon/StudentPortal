@@ -2713,7 +2713,7 @@ function DeleteAccount() {
     $stmt2->close();
 
     $stmt3 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedback_from = ?");
-    $stmt3->bind_param('i', $userToDelete);
+    $stmt3->bind_param('i', $accountToDelete);
     $stmt3->execute();
     $stmt3->close();
 
