@@ -600,6 +600,9 @@ include 'includes/session.php';
         $('#complete-confirmation').show();
         $('#complete-hide').hide();
         $('#complete-success-button').show();
+        $("#complete-success-button").click(function() {
+            $('.complete'+taskToComplete).modal('show');
+        });
         $("#completed-tasks-load").load("https://student-portal.co.uk/includes/calendar/completed-tasks.php");
 	},
 	error:function (xhr, ajaxOptions, thrownError){
