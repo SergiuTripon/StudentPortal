@@ -237,7 +237,7 @@ include 'includes/session.php';
 	</tr>
 	</thead>
 
-	<tbody id="completed-tasks-table-reload">
+	<tbody>
 	<?php
 
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_tasks where userid = '$session_userid' AND task_status = 'completed'");
@@ -509,8 +509,6 @@ include 'includes/session.php';
 
 	<script>
     $(document).ready(function () {
-        initDataTables();
-
         $("#calendar-toggle").hide();
         $(".task-tile").addClass("tile-selected");
         $(".task-tile p").addClass("tile-text-selected");
@@ -559,18 +557,16 @@ include 'includes/session.php';
 	});
 	}(jQuery));
 
-    function initDataTables() {
     //DataTables
     $('.table-custom').dataTable({
         "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no tasks to display at the moment."
-        }
-    });
-    }
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no tasks to display at the moment."
+		}
+	});
 
     //Responsiveness
 	$(window).resize(function(){
@@ -596,7 +592,7 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'taskToComplete='+ taskToComplete,
-	success:function(tableReload){
+	success:function(){
 		$('#task-'+taskToComplete).fadeOut();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
@@ -604,10 +600,9 @@ include 'includes/session.php';
         $('#complete-confirmation').show();
         $('#complete-hide').hide();
         $('#complete-success-button').show();
-        $("#complete-success-button").click(function() {
-            $('#complete-' + taskToComplete).modal('hide');
+        $("#complete-success-button").click(function () {
+            location.reload();
         });
-        $('#completed-tasks-table-reload').load(tableReload);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
