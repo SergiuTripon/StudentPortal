@@ -238,7 +238,7 @@ include 'includes/session.php';
 	</tr>
 	</thead>
 
-	<tbody id="completed-tasks-load">
+	<tbody>
 	<?php
 
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_tasks where userid = '$session_userid' AND task_status = 'completed'");
@@ -520,6 +520,8 @@ include 'includes/session.php';
 
     $("#load-due-tasks").click(function() {
         $('.table-due-tasks').dataTable().fnDestroy();
+        $("#due-tasks-load").load("../../includes/calendar/due-tasks.php");
+        initDataTables();
     });
 
     //Ladda
@@ -566,7 +568,7 @@ include 'includes/session.php';
 
     function initDataTables() {
     //DataTables
-    $('.table-custom').dataTable({
+    $('.table-due-tasks').dataTable({
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
