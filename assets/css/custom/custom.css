@@ -652,6 +652,7 @@ form textarea {
 /* Select2 */
 .select2-container--default .select2-selection--single {
     outline: none !important;
+    margin-bottom: 10px;
     border-radius: 3px;
     border-color: #CCCCCC;
 }
