@@ -669,6 +669,10 @@ form textarea {
     line-height: 43px;
 }
 
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: gray;
+}
+
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 43px;
 }
