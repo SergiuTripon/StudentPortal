@@ -80,7 +80,7 @@ include 'includes/session.php';
 
 	<!-- Due tasks -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-due-tasks">
 
 	<thead>
 	<tr>
@@ -519,7 +519,7 @@ include 'includes/session.php';
     });
 
     $("#load-due-tasks").click(function() {
-        $('.table-custom').dataTable().fnDestroy();
+        $('table-due-tasks').dataTable().fnDestroy();
         $("#due-tasks-load").load("../../includes/calendar/due-tasks.php");
         initDataTables();
     });
