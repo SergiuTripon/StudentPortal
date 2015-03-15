@@ -90,7 +90,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
-    <select class="form-control selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
+    <select class="form-control" name="lecture_lecturer" id="lecture_lecturer">
         <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
@@ -177,7 +177,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
-    <select class="form-control selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
+    <select class="form-control" name="tutorial_assistant" id="tutorial_assistant">
         <option data-hidden="true">Select an option</option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
@@ -370,27 +370,10 @@ include '../includes/session.php';
 	<script>
     //On load
 	$(document).ready(function () {
-
-    //Select box
-    $(".bootstrap-select > .selectpicker").css("cssText", "color: gray !important;");
-
-    $(".lecture_lecturer .dropdown-menu > li > a").click(function () {
-        $(".lecture_lecturer > .selectpicker").css("cssText", "color: #333333 !important;");
+        //select2
+        $("#lecture_lecturer").select2();
+        $("#tutorial_assistant").select2();
     });
-    $(".lecture_day .dropdown-menu > li > a").click(function () {
-        $(".lecture_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-
-    $(".tutorial_assistant .dropdown-menu > li > a").click(function () {
-        $(".tutorial_assistant > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    $(".tutorial_day .dropdown-menu > li > a").click(function () {
-        $(".tutorial_day > .selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    });
-
-    //Select box
-    $('.selectpicker').selectpicker();
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
