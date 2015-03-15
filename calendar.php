@@ -402,7 +402,6 @@ include 'includes/session.php';
 
 	<script>
     $(document).ready(function () {
-        initDataTables();
 
         $("#calendar-toggle").hide();
         $(".task-tile").addClass("tile-selected");
@@ -411,7 +410,6 @@ include 'includes/session.php';
     });
 
     $("#load-due-tasks").click(function() {
-        $('.table-due-tasks').dataTable().fnDestroy();
         $("#due-tasks-load").load("../../includes/calendar/due-tasks.php");
         initDataTables();
     });
