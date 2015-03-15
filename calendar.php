@@ -519,7 +519,7 @@ include 'includes/session.php';
     });
 
     $("#load-due-tasks").click(function() {
-        $('table-due-tasks').dataTable().fnDestroy();
+        $('.table-due-tasks').dataTable().fnDestroy();
         $("#due-tasks-load").load("../../includes/calendar/due-tasks.php");
         initDataTables();
     });
