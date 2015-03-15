@@ -519,9 +519,8 @@ include 'includes/session.php';
     });
 
     $("#load-due-tasks").click(function() {
+        $('.table-custom').dataTable().fnDestroy();
         $("#due-tasks-load").load("../../includes/calendar/due-tasks.php");
-        var oTable = $('.table-custom').dataTable();
-        oTable.fnDestroy();
         initDataTables();
     });
 
@@ -574,7 +573,6 @@ include 'includes/session.php';
         "paging": true,
         "ordering": true,
         "info": false,
-        "bDestroy": true,
         "language": {
             "emptyTable": "There are no tasks to display at the moment."
         }
