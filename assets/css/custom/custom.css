@@ -683,8 +683,6 @@ form textarea {
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 43px;
-    font-family: FontAwesome;
-    content: "\f078";
 }
 /* End of Select2 */
 
