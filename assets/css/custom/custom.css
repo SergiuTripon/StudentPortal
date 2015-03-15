@@ -661,6 +661,10 @@ form textarea {
     border-color: #CCCCCC;
 }
 
+.select2-container--default .select2-selection--single:focus {
+    border-color: #8A8A8A;
+}
+
 .select2-container .select2-selection--single {
     height: 43px;
 }
