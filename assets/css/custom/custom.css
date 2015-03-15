@@ -661,11 +661,11 @@ form textarea {
     border-color: #CCCCCC;
 }
 
-.select2-container--focus {
+.select2-container--focus .select2-selection--single {
     border-color: #8A8A8A;
 }
 
-.select2-container--open {
+.select2-container--open .select2-selection--single {
     border-color: #8A8A8A;
 }
 
