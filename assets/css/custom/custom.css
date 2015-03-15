@@ -661,7 +661,11 @@ form textarea {
     border-color: #CCCCCC;
 }
 
-.select2-container--default .select2-selection--single:focus {
+.select2-container--focus {
+    border-color: #8A8A8A;
+}
+
+.select2-container--open {
     border-color: #8A8A8A;
 }
 
