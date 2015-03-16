@@ -629,6 +629,7 @@ include 'includes/session.php';
 
 	<script>
     $( document ).ready(function() {
+        var d = new Date();
         var day = d.getDate();
         alert(day);
     });
