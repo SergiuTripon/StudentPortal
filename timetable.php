@@ -52,39 +52,44 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Lecturer</th>
 	<th>Day</th>
 	<th>From</th>
     <th>To</th>
     <th>Location</th>
-    <th>Capacity</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
-	$stmt1 = $mysqli->query("SELECT system_lectures.lecture_name, user_details.firstname, user_details.surname, system_lectures.lecture_day, DATE_FORMAT(system_lectures.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(system_lectures.lecture_to_time,'%H:%i') as lecture_to_time, system_lectures.lecture_location, system_lectures.lecture_capacity FROM system_lectures LEFT JOIN system_modules ON system_lectures.moduleid=system_modules.moduleid LEFT JOIN user_timetable ON system_lectures.moduleid=user_timetable.moduleid LEFT JOIN user_details ON system_lectures.lecture_lecturer=user_details.userid WHERE user_timetable.userid='$session_userid' AND system_lectures.lecture_status='active'");
+	$stmt1 = $mysqli->query("SELECT l.lecture_name, l.lecture_day, l.lecture_from_time, l.lecture_to_time, l.lecture_location
+FROM system_modules m
+JOIN system_lectures l ON m.moduleid = l.moduleid
+JOIN user_timetable u ON m.moduleid = u.moduleid
+WHERE u.userid = '$session_userid' AND l.lecture_day = 'Monday'
+
+UNION ALL
+
+SELECT t.tutorial_name, t.tutorial_day, t.tutorial_from_time, t.tutorial_to_time, t.tutorial_location
+FROM system_modules m
+JOIN system_tutorials t ON m.moduleid = t.moduleid
+JOIN user_timetable u ON m.moduleid = u.moduleid
+WHERE u.userid = '$session_userid' AND t.tutorial_day = 'Monday'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$lecture_name = $row["lecture_name"];
-	$firstname = $row["firstname"];
-    $surname = $row["surname"];
 	$lecture_day = $row["lecture_day"];
 	$lecture_from_time = $row["lecture_from_time"];
 	$lecture_to_time = $row["lecture_to_time"];
 	$lecture_location = $row["lecture_location"];
-	$lecture_capacity = $row["lecture_capacity"];
 
 	echo '<tr>
 
 			<td data-title="Name">'.$lecture_name.'</td>
-			<td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
-			<td data-title="From">'.$lecture_day.'</td>
+			<td data-title="Day">'.$lecture_day.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
-			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>';
 	}
 
