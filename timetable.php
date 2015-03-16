@@ -39,7 +39,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Monday</a>
+	<a id="panel-monday" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Monday</a>
     </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -96,7 +96,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Tuesday</a>
+	<a id="panel-tuesday" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Tuesday</a>
     </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -153,7 +153,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Wednesday</a>
+	<a id="panel-wednesday" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Wednesday</a>
     </h4>
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -210,7 +210,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingFour">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"> Thursday</a>
+	<a id="panel-thursday" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"> Thursday</a>
     </h4>
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
@@ -267,7 +267,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingFive">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive"> Friday</a>
+	<a id="panel-friday" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive"> Friday</a>
     </h4>
     </div>
     <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
@@ -631,7 +631,7 @@ include 'includes/session.php';
     $( document ).ready(function() {
         var d = new Date();
         var weekday = new Array(7);
-        weekday[0]=  "Sunday";
+        weekday[0] = "Sunday";
         weekday[1] = "Monday";
         weekday[2] = "Tuesday";
         weekday[3] = "Wednesday";
@@ -641,7 +641,22 @@ include 'includes/session.php';
 
         var n = weekday[d.getDay()];
 
-        alert(n);
+        if (n === 'Monday') {
+            $('#panel-monday').removeClass("collapsed");
+            $('#collapseOne').addClass("in");
+        } else if (n === 'Tuesday') {
+            $('#panel-tuesday').removeClass("collapsed");
+            $('#collapseTwo').addClass("in");
+        } else if (n === 'Wednesday') {
+            $('#panel-wednesday').removeClass("collapsed");
+            $('#collapseThree').addClass("in");
+        } else if (n === 'Thursday') {
+            $('#panel-thursday').removeClass("collapsed");
+            $('#collapseFour').addClass("in");
+        } else if (n === 'Friday') {
+            $('#panel-friday').removeClass("collapsed");
+            $('#collapseFive').addClass("in");
+        }
     });
 
     //Ladda
