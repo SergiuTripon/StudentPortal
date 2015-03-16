@@ -47,7 +47,7 @@ include 'includes/session.php';
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom class-table">
 
 	<thead>
 	<tr>
@@ -104,7 +104,7 @@ include 'includes/session.php';
 
 	<!-- Tuesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom class-table">
 
 	<thead>
 	<tr>
@@ -161,7 +161,7 @@ include 'includes/session.php';
 
 	<!-- Wednesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom class-table">
 
 	<thead>
 	<tr>
@@ -218,7 +218,7 @@ include 'includes/session.php';
 
 	<!-- Thursday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom class-table">
 
 	<thead>
 	<tr>
@@ -275,7 +275,7 @@ include 'includes/session.php';
 
 	<!-- Friday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom lecture-table">
+	<table class="table table-condensed table-custom class-table">
 
 	<thead>
 	<tr>
@@ -628,27 +628,22 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
+    $( document ).ready(function() {
+        var day = d.getDate();
+        alert(day);
+    });
+
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
 	//DataTables
-    $('.lecture-table').dataTable({
+    $('.class-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "You have no lectures on this day."
-		}
-	});
-
-    $('.tutorial-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "You have no tutorials on this day."
+			"emptyTable": "You have no classes on this day."
 		}
 	});
 
