@@ -88,7 +88,7 @@
         }
     }
 
-    function toggleGroup(category) {
+    function clearMarkers(category) {
         for (var i = 0; i < markerGroups[category].length; i++) {
             var marker = markerGroups[category][i];
             marker[i].setMap(null);
