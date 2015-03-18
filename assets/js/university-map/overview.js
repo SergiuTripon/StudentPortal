@@ -89,11 +89,9 @@
     }
 
     function clearMarkers(category) {
-        for (var i = 0; i < markerGroups[category].length; i++) {
-            var marker = markerGroups[category][i];
+            var marker = markerGroups[category];
             marker[i].setMap(null);
             markerGroups = [];
-        }
     }
 
     function bindInfoWindow(marker, map, infoWindow, html) {
