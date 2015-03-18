@@ -51,9 +51,9 @@ elseif (isset($_POST["userToDeallocate"], $_POST["timetableToDeallocate"])) {
 //Call Timetable functions
 //Call CreateModule function
 elseif (isset(
-    $_POST['module_name'],
-    $_POST['module_notes'],
-    $_POST['module_url'])) {
+    $_POST['create_module_name'],
+    $_POST['create_module_notes'],
+    $_POST['create_module_url'])) {
     CreateModule();
 }
 

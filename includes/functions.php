@@ -554,9 +554,9 @@ function CreateModule() {
     global $created_on;
 
     //Module
-    $module_name = filter_input(INPUT_POST, 'module_name', FILTER_SANITIZE_STRING);
-    $module_notes = filter_input(INPUT_POST, 'module_notes', FILTER_SANITIZE_STRING);
-    $module_url = filter_input(INPUT_POST, 'module_url', FILTER_SANITIZE_STRING);
+    $module_name = filter_input(INPUT_POST, 'create_module_name', FILTER_SANITIZE_STRING);
+    $module_notes = filter_input(INPUT_POST, 'create_module_notes', FILTER_SANITIZE_STRING);
+    $module_url = filter_input(INPUT_POST, 'create_module_url', FILTER_SANITIZE_STRING);
 
     // Check existing module name
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE module_name = ? LIMIT 1");
