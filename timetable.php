@@ -899,7 +899,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_modules m LEFT JOIN system_lectures l ON m.moduleid=l.moduleid LEFT JOIN system_tutorials t ON m.moduleid=t.moduleid WHERE m.module_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url WHERE m.module_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
