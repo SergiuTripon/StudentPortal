@@ -36,12 +36,41 @@
         "atm": []
     };
 
+    // Add a Home control that returns the user to London
+    function HomeControl(controlDiv, map) {
+        controlDiv.style.padding = '5px';
+        var controlUI = document.createElement('div');
+        controlUI.style.backgroundColor = 'yellow';
+        controlUI.style.border = '1px solid';
+        controlUI.style.cursor = 'pointer';
+        controlUI.style.textAlign = 'center';
+        controlUI.title = 'Set map to London';
+        controlDiv.appendChild(controlUI);
+        var controlText = document.createElement('div');
+        controlText.style.fontFamily = 'Arial,sans-serif';
+        controlText.style.fontSize = '12px';
+        controlText.style.paddingLeft = '4px';
+        controlText.style.paddingRight = '4px';
+        controlText.innerHTML = '<b>Home<b>'
+        controlUI.appendChild(controlText);
+
+        // Setup click-event listener: simply set the map to London
+        google.maps.event.addDomListener(controlUI, 'click', function () {
+            map.setCenter(london)
+        });
+    }
+
     function loadMap() {
     var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(51.527287, -0.103842),
         zoom: 15,
         mapTypeId: 'roadmap'
     });
+
+        // Create a DIV to hold the control and call HomeControl()
+    var homeControlDiv = document.createElement('div');
+    var homeControl = new HomeControl(homeControlDiv, map);
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
 
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
     var xml = data.responseXML;
