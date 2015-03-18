@@ -74,6 +74,7 @@ include '../includes/session.php';
     <label class="checkbox-inline">
         <input type="checkbox" checked="checked" onclick="toggleGroup('atm')"> ATM
     </label>
+    <div onclick="clearMarkers();">Test</div>
     </div>
     </div>
 
