@@ -264,7 +264,7 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
-    var tutorial_moduleid_check = $('#lecture_moduleid :selected').html();
+    var tutorial_moduleid_check = $('#tutorial_moduleid :selected').html();
     if (tutorial_moduleid_check === '') {
         $("label[for='tutorial_moduleid']").empty().append("Please select a module.");
         $("label[for='tutorial_moduleid']").removeClass("feedback-happy");
