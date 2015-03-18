@@ -88,6 +88,15 @@
         }
     }
 
+    function clearMarkers() {
+        var marker = markerGroups[category][i];
+        if (!marker.getVisible()) {
+            marker.setVisible(true);
+        } else {
+            marker.setVisible(false);
+        }
+    }
+
     function bindInfoWindow(marker, map, infoWindow, html) {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
