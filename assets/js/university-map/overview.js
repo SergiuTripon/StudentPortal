@@ -73,7 +73,7 @@
                             content: 'You are here.'
                         });
 
-                        current_location_infowindow.open(map,marker);
+                        current_location_infowindow.open(map,current_location_marker);
 
                         google.maps.event.addListener(marker, 'click', function() {
                             current_location_infowindow.open(map,current_location_marker);
@@ -82,7 +82,6 @@
                         map.setCenter(pos);
                     } else {
                         current_location_marker.setPosition(pos);
-                        map.setCenter(pos);
                     }
 
                 }, function() {
@@ -91,6 +90,8 @@
             } else {
                 handleNoGeolocation(false);
             }
+
+        var no_geolocation_marker = null;
 
         function handleNoGeolocation(errorFlag) {
             if (errorFlag) {
@@ -101,13 +102,36 @@
 
             var options = {
                 map: map,
-                position: new google.maps.LatLng(60, 105),
+                position: new google.maps.LatLng(51.527287, -0.103842),
                 content: content
             };
 
-            var infowindow = new google.maps.InfoWindow(options);
-            map.setCenter(options.position);
+            if (no_geolocation_marker==null) {
+                    no_geolocation_marker = new google.maps.Marker({
+                    map: map,
+                    position: options.position,
+                    title: content
+                });
+
+                var no_geolocation_infowindow = new google.maps.InfoWindow({
+                    content: content
+                });
+
+                no_geolocation_infowindow.open(map,no_geolocation_marker);
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    no_geolocation_infowindow.open(map,no_geolocation_marker);
+                });
+
+                map.setCenter(options.position);
+            } else {
+                no_geolocation_marker.setPosition(options.position);
+            }
         }
+
+        alert(current_location_marker);
+        alert(no_geolocation_marker);
+
         });
     }
 
