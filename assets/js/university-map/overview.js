@@ -72,9 +72,7 @@
                         content: 'You are here.'
                     });
 
-                    google.maps.event.addListener(marker, 'click', function() {
-                        infowindow.open(map,marker);
-                    });
+                    infowindow.open(map,marker);
 
                     map.setCenter(pos);
                 }, function() {
