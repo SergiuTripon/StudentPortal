@@ -37,20 +37,26 @@
     };
 
     function showCurrentLocation(currentLocationDiv, map) {
-        currentLocationDiv.style.padding = '5px';
+
         var currentLocationUI = document.createElement('div');
-        currentLocationUI.style.backgroundColor = 'white';
-        currentLocationUI.style.border = '1px solid';
+        currentLocationUI.style.backgroundColor = '#fff';
+        currentLocationUI.style.border = '2px solid #fff';
+        currentLocationUI.style.borderRadius = '3px';
+        currentLocationUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
         currentLocationUI.style.cursor = 'pointer';
+        currentLocationUI.style.marginBottom = '22px';
         currentLocationUI.style.textAlign = 'center';
-        currentLocationUI.title = 'Shows current location on the map';
+        currentLocationUI.title = 'Click to recenter the map';
         currentLocationDiv.appendChild(currentLocationUI);
+
         var currentLocationText = document.createElement('div');
-        currentLocationText.style.fontFamily = 'Open Sans,Arial,sans-serif';
-        currentLocationText.style.fontSize = '12px';
-        currentLocationText.style.paddingLeft = '4px';
-        currentLocationText.style.paddingRight = '4px';
-        currentLocationText.innerHTML = '<b>Current location<b>';
+        currentLocationText.style.color = 'rgb(25,25,25)';
+        currentLocationText.style.fontFamily = 'Roboto,Arial,sans-serif';
+        currentLocationText.style.fontSize = '16px';
+        currentLocationText.style.lineHeight = '38px';
+        currentLocationText.style.paddingLeft = '5px';
+        currentLocationText.style.paddingRight = '5px';
+        currentLocationText.innerHTML = 'Center Map';
         currentLocationUI.appendChild(currentLocationText);
 
         var marker = null;
