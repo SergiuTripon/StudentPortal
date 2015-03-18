@@ -63,8 +63,6 @@
                     var marker = null;
 
                     if (marker==null) {
-                        marker.setPosition(pos);
-                    } else {
                         marker = new google.maps.Marker({
                             map: map,
                             position: pos,
@@ -82,6 +80,8 @@
                         });
 
                         map.setCenter(pos);
+                    } else {
+                        marker.setPosition(pos);
                     }
 
                 }, function() {
