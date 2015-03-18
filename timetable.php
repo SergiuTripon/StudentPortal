@@ -1274,7 +1274,7 @@ include 'includes/session.php';
 
 	echo '<tr id="lecture-'.$tutorialid.'">
 
-			<td data-title="Name"><a href="#view-lecture-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
+			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
             <td data-title="Lecturer">'.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</td>
             <td data-title="From">'.$tutorial_from_time.'</td>
             <td data-title="To">'.$tutorial_to_time.'</td>
