@@ -17,7 +17,7 @@ include '../includes/session.php';
     <script src="https://student-portal.co.uk/assets/js/university-map/overview.js"></script>
 
 </head>
-<body onload="toggleGroup('cycle_hire')">
+<body>
 <div class="preloader"></div>
 
     <?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
