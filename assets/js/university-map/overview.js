@@ -62,20 +62,20 @@
                     var pos = new google.maps.LatLng(position.coords.latitude,
                         position.coords.longitude);
 
-                    var marker = new google.maps.Marker({
+                    var current_location_marker = new google.maps.Marker({
                         map: map,
                         position: pos,
                         title: 'You are here.'
                     });
 
-                    var infowindow1 = new google.maps.InfoWindow({
+                    var current_location_infowindow = new google.maps.InfoWindow({
                         content: 'You are here.'
                     });
 
-                    infowindow1.open(map,marker);
+                    current_location_infowindow.open(map,current_location_marker);
 
-                    google.maps.event.addListener(marker, 'click', function() {
-                        infowindow1.open(map,marker);
+                    google.maps.event.addListener(current_location_marker, 'click', function() {
+                        current_location_infowindow.open(map,current_location_marker);
                     });
 
                     map.setCenter(pos);
