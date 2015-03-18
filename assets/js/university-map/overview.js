@@ -78,8 +78,6 @@
                         google.maps.event.addListener(marker, 'click', function() {
                             current_location_infowindow.open(map,marker);
                         });
-
-                        map.setCenter(pos);
                     } else {
                         marker.setPosition(pos);
                     }
