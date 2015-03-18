@@ -60,10 +60,12 @@
                     var pos = new google.maps.LatLng(position.coords.latitude,
                         position.coords.longitude);
 
+                    var marker;
+
                     if (marker) {
                         marker.setPosition(pos);
                     } else {
-                        var marker = new google.maps.Marker({
+                        marker = new google.maps.Marker({
                             map: map,
                             position: pos,
                             title: 'You are here.'
