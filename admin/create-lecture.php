@@ -108,11 +108,19 @@ include '../includes/session.php';
     </div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="lecture_day">Lecture day<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="lecture_day" id="lecture_day" placeholder="Enter a day">
-	</div>
-	</div>
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="lecture_day">Lecture day<span class="field-required">*</span></label>
+    <select class="form-control" name="lecture_day" id="lecture_day">
+        <option></option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+    </select>
+
+    </div>
+    </div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -237,6 +245,7 @@ include '../includes/session.php';
         //select2
         $("#lecture_moduleid").select2({placeholder: "Select an option"});
         $("#lecture_lecturer").select2({placeholder: "Select an option"});
+        $("#lecture_day").select2({placeholder: "Select an option"});
     });
 
 	//Ladda
