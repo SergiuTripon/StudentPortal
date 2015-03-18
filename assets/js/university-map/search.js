@@ -183,11 +183,15 @@
             $("label[for='radiusSelect']").empty().append("Please select a radius.");
             $("label[for='radiusSelect']").removeClass("feedback-happy");
             $("label[for='radiusSelect']").addClass("feedback-sad");
+            $("[aria-owns='select2-radiusSelect-results']").removeClass("feedback-happy");
+            $("[aria-owns='select2-radiusSelect-results']").addClass("feedback-sad");
             return false;
         } else {
             $("label[for='radiusSelect']").empty().append("All good!");
             $("label[for='radiusSelect']").removeClass("feedback-sad");
             $("label[for='radiusSelect']").addClass("feedback-happy");
+            $("[aria-owns='select2-radiusSelect-results']").removeClass("feedback-sad");
+            $("[aria-owns='select2-radiusSelect-results']").addClass("feedback-happy");
         }
 
         var geocoder = new google.maps.Geocoder();
