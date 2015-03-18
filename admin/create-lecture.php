@@ -456,6 +456,8 @@ include '../includes/session.php';
     var lecture_day = $("#lecture_day option:selected").html();
     var lecture_notes = $("#lecture_notes").val();
 
+    alert(lecture_lecturer);
+
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
