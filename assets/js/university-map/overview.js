@@ -38,7 +38,6 @@
 
     // Add a Home control that returns the user to London
     function showCurrentLocation(currentLocationDiv, map) {
-        currentLocationDiv.style.padding = '5px';
         var currentLocationUI = document.createElement('div');
         currentLocationUI.style.backgroundColor = 'white';
         currentLocationUI.style.border = '1px solid';
