@@ -37,7 +37,7 @@
     };
 
     // Add a Home control that returns the user to London
-    function HomeControl(controlDiv, map) {
+    function showCurrentLocation(controlDiv, map) {
         controlDiv.style.padding = '5px';
         var controlUI = document.createElement('div');
         controlUI.style.backgroundColor = 'yellow';
@@ -69,7 +69,7 @@
 
         // Create a DIV to hold the control and call HomeControl()
     var homeControlDiv = document.createElement('div');
-    var homeControl = new HomeControl(homeControlDiv, map);
+    var showCurrentLocation = new showCurrentLocation(homeControlDiv, map);
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
 
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
