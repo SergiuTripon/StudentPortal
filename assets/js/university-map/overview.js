@@ -47,7 +47,7 @@
         currentLocationUI.title = 'Set map to London';
         currentLocationDiv.appendChild(controlUI);
         var currentLocationText = document.createElement('div');
-        currentLocationText.style.fontFamily = 'Arial,sans-serif';
+        currentLocationText.style.fontFamily = 'Open Sans,sans-serif';
         currentLocationText.style.fontSize = '12px';
         currentLocationText.style.paddingLeft = '4px';
         currentLocationText.style.paddingRight = '4px';
