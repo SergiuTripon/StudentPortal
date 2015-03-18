@@ -40,7 +40,7 @@
     function showCurrentLocation(currentLocationDiv, map) {
         currentLocationDiv.style.padding = '5px';
         var currentLocationUI = document.createElement('div');
-        currentLocationUI.style.backgroundColor = 'yellow';
+        currentLocationUI.style.backgroundColor = 'white';
         currentLocationUI.style.border = '1px solid';
         currentLocationUI.style.cursor = 'pointer';
         currentLocationUI.style.textAlign = 'center';
