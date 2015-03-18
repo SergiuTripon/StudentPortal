@@ -40,12 +40,12 @@
     function showCurrentLocation(currentLocationDiv, map) {
         currentLocationDiv.style.padding = '5px';
         var currentLocationUI = document.createElement('div');
-        currentLocationUI.style.backgroundColor = 'white';
-        currentLocationUI.style.border = '1px solid gray';
+        currentLocationUI.style.backgroundColor = 'yellow';
+        currentLocationUI.style.border = '1px solid';
         currentLocationUI.style.cursor = 'pointer';
         currentLocationUI.style.textAlign = 'center';
-        currentLocationUI.title = 'Current location';
-        currentLocationDiv.appendChild(controlUI);
+        currentLocationUI.title = 'Set map to London';
+        currentLocationDiv.appendChild(currentLocationUI);
         var currentLocationText = document.createElement('div');
         currentLocationText.style.fontFamily = 'Arial,sans-serif';
         currentLocationText.style.fontSize = '12px';
@@ -54,6 +54,7 @@
         currentLocationText.innerHTML = '<b>Current location<b>';
         currentLocationUI.appendChild(currentLocationText);
 
+        // Setup click-event listener: simply set the map to London
         google.maps.event.addDomListener(currentLocationUI, 'click', function () {
 
         });
@@ -66,6 +67,7 @@
         mapTypeId: 'roadmap'
     });
 
+        // Create a DIV to hold the control and call HomeControl()
     var currentLocationDiv = document.createElement('div');
     var showCurrentLocation = new showCurrentLocation(currentLocationDiv, map);
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocationDiv);
