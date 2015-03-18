@@ -43,8 +43,26 @@ include '../includes/session.php';
 
 	<div id="hide">
 
-    <h4 class="title-separator text-center">Exam</h4>
-    <hr class="hr-separator">
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="exam_moduleid">Module<span class="field-required">*</span></label>
+    <select class="form-control" name="exam_moduleid" id="exam_moduleid">
+        <option></option>
+    <?php
+    $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_modules WHERE module_status='active'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+        $moduleid = $row["moduleid"];
+        $module_name = $row["module_name"];
+
+        echo '<option value="'.$moduleid.'">'.$module_name.'</option>';
+    }
+
+    ?>
+    </select>
+    </div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -167,6 +185,12 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
+    //On load
+    $(document).ready(function () {
+        //select2
+        $("#tutorial_moduleid").select2({placeholder: "Select an option"});
+    });
+
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
@@ -182,6 +206,25 @@ include '../includes/session.php';
     e.preventDefault();
 	
 	var hasError = false;
+
+    var exam_moduleid_check = $('#exam_moduleid :selected').html();
+    if (exam_moduleid_check === '') {
+        $("label[for='exam_moduleid']").empty().append("Please select a module.");
+        $("label[for='exam_moduleid']").removeClass("feedback-happy");
+        $("label[for='exam_moduleid']").addClass("feedback-sad");
+        $("[aria-owns='select2-exam_moduleid-results']").removeClass("input-happy");
+        $("[aria-owns='select2-exam_moduleid-results']").addClass("input-sad");
+        $("[aria-owns='select2-exam_moduleid-results']").focus();
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("label[for='exam_moduleid']").empty().append("All good!");
+        $("label[for='exam_moduleid']").removeClass("feedback-sad");
+        $("label[for='exam_moduleid']").addClass("feedback-happy");
+        $("[aria-owns='select2-exam_moduleid-results']").removeClass("input-sad");
+        $("[aria-owns='select2-exam_moduleid-results']").addClass("input-happy");
+    }
 
     //Exams
 	var exam_name = $("#exam_name").val();
@@ -274,13 +317,15 @@ include '../includes/session.php';
         $("#exam_capacity").addClass("input-happy");
 	}
 
+    var exam_moduleid= $("#exam_moduleid option:selected").val();
     var exam_notes = $("#exam_notes").val();
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'create_exam_name='      + exam_name +
+    data:'create_exam_moduleid='      + exam_moduleid +
+         '&create_exam_name='     + exam_name +
          '&create_exam_notes='    + exam_notes +
          '&create_exam_date='     + exam_date +
          '&create_exam_time='     + exam_time +
