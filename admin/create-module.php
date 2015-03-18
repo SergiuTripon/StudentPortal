@@ -35,7 +35,7 @@ include '../includes/session.php';
     <li class="active">Create module</li>
     </ol>
 
-    <!-- Create timetable -->
+    <!-- Create module -->
 	<form class="form-custom" style="max-width: 100%;" name="createmodule_form" id="createmodule_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
@@ -43,7 +43,6 @@ include '../includes/session.php';
 
 	<div id="hide">
 
-    <!-- Create module -->
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="module_name">Module name<span class="field-required">*</span></label>
@@ -64,7 +63,6 @@ include '../includes/session.php';
     <input class="form-control" type="text" name="module_url" id="module_url" placeholder="Enter a URL">
 	</div>
 	</div>
-    <!-- End of Create module -->
 
 	</div>
 
@@ -79,7 +77,7 @@ include '../includes/session.php';
 	</div>
 	
     </form>
-    <!-- End of Create timetable -->
+    <!-- End of Create module -->
 
 	</div> <!-- /container -->
 	
@@ -188,7 +186,7 @@ include '../includes/session.php';
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'create_module_name='    + module_name +
-         '&created_module_notes=' + module_notes +
+         '&create_module_notes=' + module_notes +
          '&create_module_url='    + module_url,
     success:function(){
 		$("#error").hide();

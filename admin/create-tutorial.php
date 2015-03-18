@@ -126,7 +126,6 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
-    <!-- End of Create tutorial -->
 
 	</div>
 

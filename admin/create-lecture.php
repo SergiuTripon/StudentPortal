@@ -125,7 +125,6 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
-    <!-- End of Create lecture -->
 
 	</div>
 
@@ -140,7 +139,7 @@ include '../includes/session.php';
 	</div>
 	
     </form>
-    <!-- End of Create timetable -->
+    <!-- End of Create lecture -->
 
 	</div> <!-- /container -->
 	
