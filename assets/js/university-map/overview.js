@@ -128,6 +128,10 @@
                 no_geolocation_marker.setPosition(options.position);
             }
         }
+
+        alert(current_location_marker);
+        alert(no_geolocation_marker);
+
         });
     }
 
