@@ -230,6 +230,7 @@
 
         map.fitBounds(bounds);
         locationSelect.style.display = "block";
+        $("#locationSelect").select2();
         locationSelect.onchange = function() {
             var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
             google.maps.event.trigger(markers[markerNum], 'click');

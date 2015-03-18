@@ -109,7 +109,6 @@ include '../includes/session.php';
     loadMap();
     //select2
     $("#radiusSelect").select2({placeholder: "Select an option"});
-    $("#locationSelect").select2();
     });
 
     //Ladda
