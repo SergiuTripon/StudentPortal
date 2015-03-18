@@ -36,32 +36,6 @@
         "atm": []
     };
 
-    function loadMap() {
-    var map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(51.527287, -0.103842),
-        zoom: 15,
-        mapTypeId: 'roadmap'
-    });
-
-    downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
-    var xml = data.responseXML;
-    var markers = xml.documentElement.getElementsByTagName("marker");
-    for (var i = 0; i < markers.length; i++) {
-        var name = markers[i].getAttribute("name");
-        var notes = markers[i].getAttribute("notes");
-        var category = markers[i].getAttribute("category");
-        var point = new google.maps.LatLng(
-            parseFloat(markers[i].getAttribute("lat")),
-            parseFloat(markers[i].getAttribute("lng")));
-        var marker = createMarker(point, name, notes, category, map);
-    }
-    });
-    }
-
-    var infoWindow = new google.maps.InfoWindow({
-        maxWidth: 400
-    });
-
     function showCurrentLocation(currentLocationDiv, map) {
 
         // Set CSS for the control border
@@ -94,6 +68,38 @@
         });
 
     }
+
+    function loadMap() {
+    var map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(51.527287, -0.103842),
+        zoom: 15,
+        mapTypeId: 'roadmap'
+    });
+
+    var currentLocationDiv = document.createElement('div');
+    var currentLocation = new centerControl(currentLocationDiv, map);
+
+    currentLocationDiv.index = 1;
+    map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(currentLocationDiv);
+
+    downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
+    var xml = data.responseXML;
+    var markers = xml.documentElement.getElementsByTagName("marker");
+    for (var i = 0; i < markers.length; i++) {
+        var name = markers[i].getAttribute("name");
+        var notes = markers[i].getAttribute("notes");
+        var category = markers[i].getAttribute("category");
+        var point = new google.maps.LatLng(
+            parseFloat(markers[i].getAttribute("lat")),
+            parseFloat(markers[i].getAttribute("lng")));
+        var marker = createMarker(point, name, notes, category, map);
+    }
+    });
+    }
+
+    var infoWindow = new google.maps.InfoWindow({
+        maxWidth: 400
+    });
 
     function createMarker(point, name, notes, category, map) {
         var icon = customIcons[category] || {};
