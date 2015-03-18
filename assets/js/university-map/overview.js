@@ -36,39 +36,6 @@
         "atm": []
     };
 
-    function showCurrentLocation(currentLocationDiv, map) {
-
-        // Set CSS for the control border
-        var currentlocationUI = document.createElement('div');
-        currentlocationUI.style.backgroundColor = '#fff';
-        currentlocationUI.style.border = '2px solid #fff';
-        currentlocationUI.style.borderRadius = '3px';
-        currentlocationUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-        currentlocationUI.style.cursor = 'pointer';
-        currentlocationUI.style.marginBottom = '22px';
-        currentlocationUI.style.textAlign = 'center';
-        currentlocationUI.title = 'Click to recenter the map';
-        currentLocationDiv.appendChild(currentlocationUI);
-
-        // Set CSS for the control interior
-        var currentLocationText = document.createElement('div');
-        currentLocationText.style.color = 'rgb(25,25,25)';
-        currentLocationText.style.fontFamily = 'Roboto,Arial,sans-serif';
-        currentLocationText.style.fontSize = '16px';
-        currentLocationText.style.lineHeight = '38px';
-        currentLocationText.style.paddingLeft = '5px';
-        currentLocationText.style.paddingRight = '5px';
-        currentLocationText.innerHTML = 'Center Map';
-        currentlocationUI.appendChild(currentLocationText);
-
-        // Setup the click event listeners: simply set the map to
-        // Chicago
-        google.maps.event.addDomListener(currentlocationUI, 'click', function() {
-            map.setCenter(chicago)
-        });
-
-    }
-
     function loadMap() {
     var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(51.527287, -0.103842),
