@@ -16,6 +16,10 @@ include '../includes/session.php';
 
     <script src="https://student-portal.co.uk/assets/js/university-map/search.js"></script>
 
+    <style>
+
+    </style>
+
 </head>
 <body>
 <div class="preloader"></div>
