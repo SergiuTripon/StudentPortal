@@ -452,7 +452,7 @@ include '../includes/session.php';
 	}
 
     var lecture_moduleid= $("#lecture_moduleid option:selected").val();
-    var lecture_lecturer = $("#lecture_lecturer option:selected").html();
+    var lecture_lecturer = $("#lecture_lecturer option:selected").val();
     var lecture_day = $("#lecture_day option:selected").html();
     var lecture_notes = $("#lecture_notes").val();
 
