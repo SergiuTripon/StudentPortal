@@ -79,8 +79,6 @@
                             content: 'You are here.'
                         });
 
-                        infowindow.open(map,marker);
-
                         google.maps.event.addListener(marker, 'click', function() {
                             infowindow.open(map,marker);
                         });
@@ -121,8 +119,6 @@
                 var infowindow = new google.maps.InfoWindow({
                     content: content
                 });
-
-                infowindow.open(map,marker);
 
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.open(map,marker);
