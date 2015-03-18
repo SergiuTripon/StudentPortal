@@ -38,6 +38,7 @@
 
     function showCurrentLocation(currentLocationDiv, map) {
 
+        currentLocationDiv.style.margin = '5px';
         var currentLocationUI = document.createElement('div');
         currentLocationUI.style.backgroundColor = '#fff';
         currentLocationUI.style.border = '2px solid #fff';
