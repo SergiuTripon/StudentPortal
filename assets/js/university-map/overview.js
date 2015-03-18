@@ -102,7 +102,7 @@
 
             var options = {
                 map: map,
-                position: new google.maps.LatLng(51.527287, -0.103842),
+                position: new google.maps.LatLng(51.321312, -0.321321),
                 content: content
             };
 
