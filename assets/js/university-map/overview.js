@@ -53,7 +53,7 @@
         var currentLocationText = document.createElement('div');
         currentLocationText.style.color = 'rgb(25,25,25)';
         currentLocationText.style.fontFamily = 'Open Sans,Arial,sans-serif';
-        currentLocationText.style.fontSize = '16px';
+        currentLocationText.style.fontSize = '15px';
         currentLocationText.style.lineHeight = '38px';
         currentLocationText.style.paddingLeft = '5px';
         currentLocationText.style.paddingRight = '5px';
