@@ -162,7 +162,7 @@
 
     function searchLocations() {
 
-        var address = document.getElementById("addressInput").value;
+        var address = document.getElementById("addressInput:selected").html;
         if(address === '') {
             $("label[for='addressInput']").empty().append("Please enter a location.");
             $("label[for='addressInput']").removeClass("feedback-happy");
