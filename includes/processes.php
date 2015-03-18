@@ -57,38 +57,48 @@ elseif (isset(
     CreateModule();
 }
 
+//Call CreateLecture function
+elseif (isset(
+    $_POST['create_lecture_moduleid'],
+    $_POST['create_lecture_name'],
+    $_POST['create_lecture_lecturer'],
+    $_POST['create_lecture_notes'],
+    $_POST['create_lecture_day'],
+    $_POST['create_lecture_from_time'],
+    $_POST['create_lecture_to_time'],
+    $_POST['create_lecture_from_date'],
+    $_POST['create_lecture_to_date'],
+    $_POST['create_lecture_location'],
+    $_POST['create_lecture_capacity'])) {
+    CreateLecture();
+}
+
+//Call CreateTutorial function
+elseif (isset(
+    $_POST['create_tutorial_moduleid'],
+    $_POST['create_tutorial_name'],
+    $_POST['create_tutorial_assistant'],
+    $_POST['create_tutorial_notes'],
+    $_POST['create_tutorial_day'],
+    $_POST['create_tutorial_from_time'],
+    $_POST['create_tutorial_to_time'],
+    $_POST['create_tutorial_from_date'],
+    $_POST['create_tutorial_to_date'],
+    $_POST['create_tutorial_location'],
+    $_POST['create_tutorial_capacity'])) {
+    CreateTutorial();
+}
+
 //Call CreateTimetable function
 elseif (isset(
-    $_POST['module_name'],
-    $_POST['module_notes'],
-    $_POST['module_url'],
-    $_POST['lecture_name'],
-    $_POST['lecture_lecturer'],
-    $_POST['lecture_notes'],
-    $_POST['lecture_day'],
-    $_POST['lecture_from_time'],
-    $_POST['lecture_to_time'],
-    $_POST['lecture_from_date'],
-    $_POST['lecture_to_date'],
-    $_POST['lecture_location'],
-    $_POST['lecture_capacity'],
-    $_POST['tutorial_name'],
-    $_POST['tutorial_assistant'],
-    $_POST['tutorial_notes'],
-    $_POST['tutorial_day'],
-    $_POST['tutorial_from_time'],
-    $_POST['tutorial_to_time'],
-    $_POST['tutorial_from_date'],
-    $_POST['tutorial_to_date'],
-    $_POST['tutorial_location'],
-    $_POST['tutorial_capacity'],
-    $_POST['exam_name'],
-    $_POST['exam_notes'],
-    $_POST['exam_date'],
-    $_POST['exam_time'],
-    $_POST['exam_location'],
-    $_POST['exam_capacity'])) {
-    CreateTimetable();
+    $_POST['create_exam_moduleid'],
+    $_POST['create_exam_name'],
+    $_POST['create_exam_notes'],
+    $_POST['create_exam_date'],
+    $_POST['create_exam_time'],
+    $_POST['create_exam_location'],
+    $_POST['create_exam_capacity'])) {
+    CreateExam();
 }
 
 //Call UpdateTimetable function
