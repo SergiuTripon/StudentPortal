@@ -87,8 +87,8 @@
 
                         map.setCenter(pos);
                     } else {
-                        marker.setPosition(pos);
                         map.setCenter(pos);
+                        marker.setPosition(pos);
                     }
 
                 }, function() {
@@ -130,8 +130,8 @@
 
                 map.setCenter(options.position);
             } else {
-                marker.setPosition(options.position);
                 map.setCenter(options.position);
+                marker.setPosition(options.position);
             }
         }
 
