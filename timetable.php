@@ -1051,6 +1051,154 @@ include 'includes/session.php';
 
     $stmt1->close();
 	?>
+    <?php
+
+	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, l.lecture_from_time, l.lecture_to_time, l.lecture_from_date, l.lecture_to_date, l.lecture_location, l.lecture_location FROM system_lectures l WHERE l.lecture_status = 'active'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $lectureid = $row["lectureid"];
+	$lecture_name = $row["lecture_name"];
+	$lecture_lecturer = $row["lecture_lecturer"];
+	$lecture_notes = $row["lecture_notes"];
+    $lecture_day = $row["lecture_day"];
+    $lecture_from_time = $row["lecture_from_time"];
+    $lecture_to_time = $row["lecture_to_time"];
+    $lecture_from_date = $row["lecture_from_date"];
+    $lecture_to_date = $row["lecture_to_date"];
+    $lecture_location = $row["lecture_location"];
+    $lecture_capacity = $row["lecture_capacity"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $lecture_lecturer);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
+    $stmt2->fetch();
+    $stmt2->close();
+
+	echo '<tr id="lecture-'.$lectureid.'">
+
+			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
+            <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
+            <td data-title="From">'.$lecture_from_time.'</td>
+            <td data-title="To">'.$lecture_to_time.'</td>
+            <td data-title="Action">
+            <div class="btn-group btn-action">
+            <a class="btn btn-primary" href="/admin/allocate-timetable?id='.$moduleid.'">Allocate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/update-timetable?id='.$moduleid.'">Update</a></li>
+            <li><a href="#deactivate-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			<p><b>Lecturer:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
+			<p><b>Tutorial assistant:</b> '.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-timetable?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#deactivate-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#delete-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="deactivate-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$module_name.'?</p>
+            <p id="deactivate-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deactivated successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="deactivate-hide">
+			<div class="pull-left">
+			<a id="deactivate-'.$moduleid.'" class="btn btn-success btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
+			<p id="delete-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$moduleid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+    $stmt1->close();
+	?>
 	</tbody>
 
 	</table>
