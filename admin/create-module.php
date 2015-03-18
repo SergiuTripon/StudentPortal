@@ -183,10 +183,6 @@ include '../includes/session.php';
     var module_notes = $("#module_notes").val();
     var module_url = $("#module_url").val();
 
-    alert(module_name);
-    alert(module_notes);
-    alert(module_url);
-
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
