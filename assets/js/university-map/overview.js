@@ -77,7 +77,7 @@
     });
 
     var currentLocationDiv = document.createElement('div');
-    var currentLocation = new centerControl(currentLocationDiv, map);
+    var currentLocation = new currentLocation(currentLocationDiv, map);
 
     currentLocationDiv.index = 1;
     map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(currentLocationDiv);
