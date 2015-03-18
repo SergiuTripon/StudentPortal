@@ -451,13 +451,13 @@ include '../includes/session.php';
     var tutorial_moduleid= $("#tutorial_moduleid option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
     var tutorial_assistant = $("#tutorial_assistant option:selected").val();
-    var lecture_day = $("#lecture_day option:selected").html();
+    var tutorial_day = $("#tutorial_day option:selected").html();
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'create_tutorial_moduleid='   + create_tutorial_moduleid +
+    data:'create_tutorial_moduleid='   + tutorial_moduleid +
          '&create_tutorial_name='      + tutorial_name +
          '&create_tutorial_assistant=' + tutorial_assistant +
          '&create_tutorial_notes='     + tutorial_notes +
