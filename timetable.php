@@ -1248,7 +1248,7 @@ include 'includes/session.php';
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, t.tutorial_from_time, t.tutorial_to_time, l.tutorial_from_date, l.tutorial_to_date, l.tutorial_location, l.tutorial_capacity FROM system_tutorials t WHERE t.tutorial_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, t.tutorial_from_time, t.tutorial_to_time, l.tutorial_from_date, t.tutorial_to_date, t.tutorial_location, t.tutorial_capacity FROM system_tutorials t WHERE t.tutorial_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
