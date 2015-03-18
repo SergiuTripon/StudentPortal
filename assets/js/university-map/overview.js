@@ -37,25 +37,25 @@
     };
 
     // Add a Home control that returns the user to London
-    function showCurrentLocation(controlDiv, map) {
-        controlDiv.style.padding = '5px';
-        var controlUI = document.createElement('div');
-        controlUI.style.backgroundColor = 'yellow';
-        controlUI.style.border = '1px solid';
-        controlUI.style.cursor = 'pointer';
-        controlUI.style.textAlign = 'center';
-        controlUI.title = 'Set map to London';
-        controlDiv.appendChild(controlUI);
-        var controlText = document.createElement('div');
-        controlText.style.fontFamily = 'Arial,sans-serif';
-        controlText.style.fontSize = '12px';
-        controlText.style.paddingLeft = '4px';
-        controlText.style.paddingRight = '4px';
-        controlText.innerHTML = '<b>Current location<b>';
-        controlUI.appendChild(controlText);
+    function showCurrentLocation(currentLocationDiv, map) {
+        currentLocationDiv.style.padding = '5px';
+        var currentLocationUI = document.createElement('div');
+        currentLocationUI.style.backgroundColor = 'yellow';
+        currentLocationUI.style.border = '1px solid';
+        currentLocationUI.style.cursor = 'pointer';
+        currentLocationUI.style.textAlign = 'center';
+        currentLocationUI.title = 'Shows current location on the map';
+        currentLocationDiv.appendChild(currentLocationUI);
+        var currentLocationText = document.createElement('div');
+        currentLocationText.style.fontFamily = 'Arial,sans-serif';
+        currentLocationText.style.fontSize = '12px';
+        currentLocationText.style.paddingLeft = '4px';
+        currentLocationText.style.paddingRight = '4px';
+        currentLocationText.innerHTML = '<b>Current location<b>';
+        currentLocationUI.appendChild(currentLocationText);
 
         // Setup click-event listener: simply set the map to London
-        google.maps.event.addDomListener(controlUI, 'click', function () {
+        google.maps.event.addDomListener(currentLocationUI, 'click', function () {
 
         });
     }
@@ -68,9 +68,9 @@
     });
 
         // Create a DIV to hold the control and call HomeControl()
-    var homeControlDiv = document.createElement('div');
-    var currentLocation = new showCurrentLocation(homeControlDiv, map);
-    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
+    var currentLocationDiv = document.createElement('div');
+    var currentLocation = new showCurrentLocation(currentLocationDiv, map);
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocationDiv);
 
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
     var xml = data.responseXML;
