@@ -264,6 +264,9 @@ include '../includes/session.php';
         $("label[for='lecture_moduleid']").empty().append("Please select a module.");
         $("label[for='lecture_moduleid']").removeClass("feedback-happy");
         $("label[for='lecture_moduleid']").addClass("feedback-sad");
+        $("[aria-owns='select2-lecture_moduleid-results']").removeClass("input-happy");
+        $("[aria-owns='select2-lecture_moduleid-results']").addClass("input-sad");
+        $("[aria-owns='select2-lecture_moduleid-results']").focus();
         hasError  = true;
         return false;
     }
@@ -271,6 +274,8 @@ include '../includes/session.php';
         $("label[for='lecture_moduleid']").empty().append("All good!");
         $("label[for='lecture_moduleid']").removeClass("feedback-sad");
         $("label[for='lecture_moduleid']").addClass("feedback-happy");
+        $("[aria-owns='select2-lecture_moduleid-results']").removeClass("input-sad");
+        $("[aria-owns='select2-lecture_moduleid-results']").addClass("input-happy");
     }
 
     var lecture_name = $("#lecture_name").val();
@@ -296,6 +301,9 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
+        $("[aria-owns='select2-lecture_lecturer-results']").removeClass("input-happy");
+        $("[aria-owns='select2-lecture_lecturer-results']").addClass("input-sad");
+        $("[aria-owns='select2-lecture_lecturer-results']").focus();
         hasError  = true;
         return false;
     }
@@ -303,6 +311,8 @@ include '../includes/session.php';
         $("label[for='lecture_lecturer']").empty().append("All good!");
         $("label[for='lecture_lecturer']").removeClass("feedback-sad");
         $("label[for='lecture_lecturer']").addClass("feedback-happy");
+        $("[aria-owns='select2-lecture_lecturer-results']").removeClass("input-sad");
+        $("[aria-owns='select2-lecture_lecturer-results']").addClass("input-happy");
     }
 
     var lecture_day = $("#lecture_day").val();
