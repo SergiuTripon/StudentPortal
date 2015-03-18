@@ -69,7 +69,7 @@
 
         // Create a DIV to hold the control and call HomeControl()
     var homeControlDiv = document.createElement('div');
-    var showCurrentLocation = new showCurrentLocation(homeControlDiv, map);
+    var currentLocation = new showCurrentLocation(homeControlDiv, map);
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
 
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
