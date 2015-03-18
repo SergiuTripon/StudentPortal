@@ -47,17 +47,17 @@
         currentLocationUI.style.cursor = 'pointer';
         currentLocationUI.style.marginBottom = '22px';
         currentLocationUI.style.textAlign = 'center';
-        currentLocationUI.title = 'Click to recenter the map';
+        currentLocationUI.title = 'Click to show current location';
         currentLocationDiv.appendChild(currentLocationUI);
 
         var currentLocationText = document.createElement('div');
         currentLocationText.style.color = 'rgb(25,25,25)';
-        currentLocationText.style.fontFamily = 'Roboto,Arial,sans-serif';
+        currentLocationText.style.fontFamily = 'Open Sans,Arial,sans-serif';
         currentLocationText.style.fontSize = '16px';
         currentLocationText.style.lineHeight = '38px';
         currentLocationText.style.paddingLeft = '5px';
         currentLocationText.style.paddingRight = '5px';
-        currentLocationText.innerHTML = 'Center Map';
+        currentLocationText.innerHTML = 'Current location';
         currentLocationUI.appendChild(currentLocationText);
 
         var marker = null;
