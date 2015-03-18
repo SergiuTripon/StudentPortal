@@ -68,16 +68,6 @@
                         title: 'You are here.'
                     });
 
-                    var infowindow = new google.maps.InfoWindow({
-                        content: 'You are here.'
-                    });
-
-                    infowindow.open(map,marker);
-
-                    google.maps.event.addListener(marker, 'click', function() {
-                        infowindow.open(map,marker);
-                    });
-
                     map.setCenter(pos);
                 }, function() {
                     handleNoGeolocation(true);
