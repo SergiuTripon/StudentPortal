@@ -50,7 +50,7 @@
         currentLocationDiv.appendChild(currentLocationUI);
 
         var currentLocationText = document.createElement('div');
-        currentLocationText.style.color = 'rgb(25,25,25)';
+        currentLocationText.style.color = '#FFFFFF';
         currentLocationText.style.fontFamily = 'Open Sans,Arial,sans-serif';
         currentLocationText.style.fontSize = '15px';
         currentLocationText.style.lineHeight = '30px';
