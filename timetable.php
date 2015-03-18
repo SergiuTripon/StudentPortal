@@ -1063,7 +1063,7 @@ include 'includes/session.php';
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, l.lecture_from_time, l.lecture_to_time, l.lecture_from_date, l.lecture_to_date, l.lecture_location, l.lecture_capacity FROM system_lectures l WHERE l.lecture_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lectures l WHERE l.lecture_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -1074,8 +1074,6 @@ include 'includes/session.php';
     $lecture_day = $row["lecture_day"];
     $lecture_from_time = $row["lecture_from_time"];
     $lecture_to_time = $row["lecture_to_time"];
-    $lecture_from_date = $row["lecture_from_date"];
-    $lecture_to_date = $row["lecture_to_date"];
     $lecture_location = $row["lecture_location"];
     $lecture_capacity = $row["lecture_capacity"];
 
@@ -1248,7 +1246,7 @@ include 'includes/session.php';
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, t.tutorial_from_time, t.tutorial_to_time, t.tutorial_from_date, t.tutorial_to_date, t.tutorial_location, t.tutorial_capacity FROM system_tutorials t WHERE t.tutorial_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorials t WHERE t.tutorial_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -1259,8 +1257,6 @@ include 'includes/session.php';
     $tutorial_day = $row["tutorial_day"];
     $tutorial_from_time = $row["tutorial_from_time"];
     $tutorial_to_time = $row["tutorial_to_time"];
-    $tutorial_from_date = $row["tutorial_from_date"];
-    $tutorial_to_date = $row["tutorial_to_date"];
     $tutorial_location = $row["tutorial_location"];
     $tutorial_capacity = $row["tutorial_capacity"];
 
