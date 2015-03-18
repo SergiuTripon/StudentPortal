@@ -550,7 +550,6 @@ function DeallocateTimetable() {
 function CreateModule() {
 
     global $mysqli;
-    global $moduleid;
     global $created_on;
 
     //Module
