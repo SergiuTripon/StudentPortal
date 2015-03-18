@@ -188,7 +188,7 @@ include '../includes/session.php';
     //On load
     $(document).ready(function () {
         //select2
-        $("#tutorial_moduleid").select2({placeholder: "Select an option"});
+        $("#exam_moduleid").select2({placeholder: "Select an option"});
     });
 
 	//Ladda
