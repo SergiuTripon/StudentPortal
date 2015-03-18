@@ -40,14 +40,14 @@
     function showCurrentLocation(currentLocationDiv, map) {
         currentLocationDiv.style.padding = '5px';
         var currentLocationUI = document.createElement('div');
-        currentLocationUI.style.backgroundColor = 'yellow';
-        currentLocationUI.style.border = '1px solid';
+        currentLocationUI.style.backgroundColor = 'white';
+        currentLocationUI.style.border = '1px solid gray';
         currentLocationUI.style.cursor = 'pointer';
         currentLocationUI.style.textAlign = 'center';
-        currentLocationUI.title = 'Set map to London';
+        currentLocationUI.title = 'Current location';
         currentLocationDiv.appendChild(controlUI);
         var currentLocationText = document.createElement('div');
-        currentLocationText.style.fontFamily = 'Open Sans,sans-serif';
+        currentLocationText.style.fontFamily = 'Arial,sans-serif';
         currentLocationText.style.fontSize = '12px';
         currentLocationText.style.paddingLeft = '4px';
         currentLocationText.style.paddingRight = '4px';
