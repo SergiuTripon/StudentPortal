@@ -1221,6 +1221,191 @@ include 'includes/session.php';
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+        <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Active lectures</a>
+    </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Active lectures -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom module-table">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Lecturer</th>
+	<th>From</th>
+	<th>To</th>
+    <th>Location</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody>
+    <?php
+
+	$stmt1 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, t.tutorial_from_time, t.tutorial_to_time, l.tutorial_from_date, l.tutorial_to_date, l.tutorial_location, l.tutorial_capacity FROM system_tutorials t WHERE t.tutorial_status = 'active'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $tutorialid = $row["tutorialid"];
+	$tutorial_name = $row["tutorial_name"];
+	$tutorial_assistant = $row["tutorial_assistant"];
+	$tutorial_notes = $row["tutorial_notes"];
+    $tutorial_day = $row["tutorial_day"];
+    $tutorial_from_time = $row["tutorial_from_time"];
+    $tutorial_to_time = $row["tutorial_to_time"];
+    $tutorial_from_date = $row["tutorial_from_date"];
+    $tutorial_to_date = $row["tutorial_to_date"];
+    $tutorial_location = $row["tutorial_location"];
+    $tutorial_capacity = $row["tutorial_capacity"];
+
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2->bind_param('i', $tutorial_assistant);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($tutorial_assistant_fistname, $tutorial_assistant_surname);
+    $stmt2->fetch();
+    $stmt2->close();
+
+	echo '<tr id="lecture-'.$tutorialid.'">
+
+			<td data-title="Name"><a href="#view-lecture-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
+            <td data-title="Lecturer">'.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</td>
+            <td data-title="From">'.$tutorial_from_time.'</td>
+            <td data-title="To">'.$tutorial_to_time.'</td>
+            <td data-title="Location">'.$tutorial_location.'</td>
+            <td data-title="Action">
+            <div class="btn-group btn-action">
+            <a class="btn btn-primary" href="/admin/allocate-tutorial?id='.$tutorialid.'">Allocate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/update-tutorial?id='.$tutorialid.'">Update</a></li>
+            <li><a href="#deactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+            <li><a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$tutorial_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
+			<p><b>Lecturer:</b> '.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</p>
+			<p><b>From:</b> '.$tutorial_from_time.'</p>
+			<p><b>To:</b> '.$tutorial_to_time.'</p>
+			<p><b>Location:</b> '.$tutorial_location.'</p>
+			<p><b>Capacity:</b> '.$tutorial_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-timetable?id='.$tutorialid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#deactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="deactivate-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="deactivate-tutorial-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$tutorial_name.'?</p>
+            <p id="deactivate-tutorial-confirmation" style="display: none;" class="text-center feedback-happy">'.$tutorial_name.' has been deactivated successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="deactivate-tutorial-hide">
+			<div class="pull-left">
+			<a id="deactivate-tutorial-'.$tutorialid.'" class="btn btn-success btn-lg deactivate-tutorial-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="deactivate-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-tutorial-question" class="text-center feedback-sad">Are you sure you want to delete '.$tutorial_name.'?</p>
+			<p id="delete-tutorial-confirmation" style="display: none;" class="text-center feedback-happy">'.$tutorial_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-tutorial-hide">
+			<div class="pull-left">
+			<a id="delete-tutorial-'.$tutorialid.'" class="btn btn-success btn-lg delete-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+    $stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
