@@ -88,15 +88,8 @@
         }
     }
 
-    function clearMarkers(category) {
-        for (var i = 0; i < markerGroups[category].length; i++) {
-            var marker = markerGroups[category][i];
-            if (!marker.getVisible()) {
-                marker.setVisible(false);
-            } else {
-                marker.setVisible(false);
-            }
-        }
+    function clearMarkers() {
+        marker.setVisible(false);
     }
 
     function bindInfoWindow(marker, map, infoWindow, html) {
