@@ -60,9 +60,9 @@
                     var pos = new google.maps.LatLng(position.coords.latitude,
                         position.coords.longitude);
 
-                    var marker;
+                    var marker = null;
 
-                    if (marker) {
+                    if (marker==null) {
                         marker.setPosition(pos);
                     } else {
                         marker = new google.maps.Marker({
