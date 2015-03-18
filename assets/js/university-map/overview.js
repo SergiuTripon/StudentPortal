@@ -53,14 +53,14 @@
         currentLocationText.innerHTML = '<b>Current location<b>';
         currentLocationUI.appendChild(currentLocationText);
 
+        var marker = null;
+
         google.maps.event.addDomListener(currentLocationUI, 'click', function () {
 
             if(navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var pos = new google.maps.LatLng(position.coords.latitude,
                         position.coords.longitude);
-
-                    var marker = null;
 
                     if (marker==null) {
                         marker = new google.maps.Marker({
