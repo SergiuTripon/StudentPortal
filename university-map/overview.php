@@ -124,7 +124,7 @@ include '../includes/session.php';
     $(document).ready(function() {
         //google-maps
         loadMap();
-        toggleGroup('student_centre');
+        toggleGroup('cycle_hire');
     });
 
     //Ladda
