@@ -36,7 +36,6 @@
         "atm": []
     };
 
-    // Add a Home control that returns the user to London
     function showCurrentLocation(currentLocationDiv, map) {
         currentLocationDiv.style.padding = '5px';
         var currentLocationUI = document.createElement('div');
@@ -54,7 +53,6 @@
         currentLocationText.innerHTML = '<b>Current location<b>';
         currentLocationUI.appendChild(currentLocationText);
 
-        // Setup click-event listener: simply set the map to London
         google.maps.event.addDomListener(currentLocationUI, 'click', function () {
 
             if(navigator.geolocation) {
@@ -83,7 +81,6 @@
                     handleNoGeolocation(true);
                 });
             } else {
-                // Browser doesn't support Geolocation
                 handleNoGeolocation(false);
             }
 
