@@ -91,7 +91,7 @@
     function clearMarkers() {
         var marker = markerGroups[category][i];
         if (!marker.getVisible()) {
-            marker.setVisible(true);
+            marker.setVisible(false);
         } else {
             marker.setVisible(false);
         }
