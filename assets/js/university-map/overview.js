@@ -40,8 +40,7 @@
 
         currentLocationDiv.style.marginTop = '5px';
         var currentLocationUI = document.createElement('div');
-        currentLocationUI.style.backgroundColor = '#fff';
-        currentLocationUI.style.border = '2px solid #fff';
+        currentLocationUI.style.backgroundColor = '#4582EC';
         currentLocationUI.style.borderRadius = '3px';
         currentLocationUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
         currentLocationUI.style.cursor = 'pointer';
