@@ -719,7 +719,7 @@ form .field-required {
 }
 
 .input-sad {
-    border-color: #D9534F;
+    border-color: #D9534F !important;
 }
 /* End of Error message */
 
@@ -732,7 +732,7 @@ form .field-required {
 }
 
 .input-happy {
-    border-color: #449D44;
+    border-color: #449D44 !important;
 }
 
 /* End of Success message */
