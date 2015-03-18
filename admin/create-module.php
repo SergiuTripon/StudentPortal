@@ -45,21 +45,21 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="module_name">Module name<span class="field-required">*</span></label>
+	<label for="module_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="module_name" id="module_name" placeholder="Enter a name">
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Module notes</label>
+	<label>Notes</label>
     <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Module URL</label>
+	<label>Moodle link</label>
     <input class="form-control" type="text" name="module_url" id="module_url" placeholder="Enter a URL">
 	</div>
 	</div>
