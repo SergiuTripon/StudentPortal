@@ -100,7 +100,7 @@
                 content: content
             };
 
-            var infowindow = new google.maps.InfoWindow(options);
+            var no_geolocation_infowindow = new google.maps.InfoWindow(options);
             map.setCenter(options.position);
         }
         });
