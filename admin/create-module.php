@@ -44,9 +44,6 @@ include '../includes/session.php';
 	<div id="hide">
 
     <!-- Create module -->
-    <h4 class="title-separator text-center">Module</h4>
-    <hr class="hr-separator">
-
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="module_name">Module name<span class="field-required">*</span></label>
@@ -74,7 +71,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create timetable</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create module</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
