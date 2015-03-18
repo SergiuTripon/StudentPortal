@@ -718,7 +718,7 @@ form .field-required {
     margin-bottom: 0;
 }
 
-form .input-sad {
+.input-sad {
     border-color: #D9534F;
 }
 /* End of Error message */
@@ -731,7 +731,7 @@ form .input-sad {
     margin-bottom: 0;
 }
 
-form .input-happy {
+.input-happy {
     border-color: #449D44;
 }
 
