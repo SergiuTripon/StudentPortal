@@ -46,7 +46,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="exam_moduleid">Module<span class="field-required">*</span></label>
-    <select class="form-control" name="exam_moduleid" id="exam_moduleid" style="width: 75%">
+    <select class="form-control" name="exam_moduleid" id="exam_moduleid" style="width: 100%">
         <option></option>
     <?php
     $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_modules WHERE module_status='active'");
