@@ -76,12 +76,6 @@
         mapTypeId: 'roadmap'
     });
 
-    var currentLocationDiv = document.createElement('div');
-    var currentLocation = new currentLocation(currentLocationDiv, map);
-
-    currentLocationDiv.index = 1;
-    map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(currentLocationDiv);
-
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
     var xml = data.responseXML;
     var markers = xml.documentElement.getElementsByTagName("marker");
