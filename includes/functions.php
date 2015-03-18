@@ -569,14 +569,15 @@ function CreateModule() {
         $stmt1->close();
         header('HTTP/1.0 550 A module with the name entered already exists.');
         exit();
+    } else {
+
+        $module_status = 'active';
+
+        $stmt2 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
+        $stmt2->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
+        $stmt2->execute();
+        $stmt2->close();
     }
-
-    $module_status = 'active';
-
-    $stmt5 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
-    $stmt5->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
-    $stmt5->execute();
-    $stmt5->close();
 
 }
 
