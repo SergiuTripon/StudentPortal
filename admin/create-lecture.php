@@ -46,7 +46,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="lecture_moduleid">Module<span class="field-required">*</span></label>
-    <select class="form-control" name="lecture_moduleid" id="lecture_moduleid">
+    <select class="form-control" name="lecture_moduleid" id="lecture_moduleid" style="width: 100%;">
         <option></option>
     <?php
     $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_modules WHERE module_status='active'");
@@ -81,7 +81,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
-    <select class="form-control" name="lecture_lecturer" id="lecture_lecturer">
+    <select class="form-control" name="lecture_lecturer" id="lecture_lecturer" style="width: 100%;">
         <option></option>
     <?php
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
@@ -109,7 +109,7 @@ include '../includes/session.php';
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="lecture_day">Day<span class="field-required">*</span></label>
-    <select class="form-control" name="lecture_day" id="lecture_day">
+    <select class="form-control" name="lecture_day" id="lecture_day" style="width: 100%;">
         <option></option>
         <option>Monday</option>
         <option>Tuesday</option>
