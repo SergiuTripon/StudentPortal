@@ -72,7 +72,7 @@ include '../includes/session.php';
     </div>
     <div id="atm-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="clearMarkers();"> ATM
+        <input type="checkbox" checked="checked" onclick="toggleGroup('atm');"> ATM
     </label>
     </div>
     </div>
@@ -124,7 +124,6 @@ include '../includes/session.php';
     $(document).ready(function() {
         //google-maps
         loadMap();
-        clearMarkers();
     });
 
     //Ladda
