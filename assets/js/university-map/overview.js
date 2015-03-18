@@ -68,7 +68,7 @@
 
     var currentLocationDiv = document.createElement('div');
     var showCurrentLocation = new showCurrentLocation(currentLocationDiv, map);
-    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocationUI);
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocationDiv);
 
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
     var xml = data.responseXML;
