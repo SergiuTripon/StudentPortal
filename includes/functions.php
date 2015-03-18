@@ -547,7 +547,42 @@ function DeallocateTimetable() {
 }
 
 //CreateTimetable function
-function CreateTimetable() {
+function CreateModule() {
+
+    global $mysqli;
+    global $moduleid;
+    global $created_on;
+
+    //Module
+    $module_name = filter_input(INPUT_POST, 'module_name', FILTER_SANITIZE_STRING);
+    $module_notes = filter_input(INPUT_POST, 'module_notes', FILTER_SANITIZE_STRING);
+    $module_url = filter_input(INPUT_POST, 'module_url', FILTER_SANITIZE_STRING);
+
+    // Check existing module name
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE module_name = ? LIMIT 1");
+    $stmt1->bind_param('s', $module_name);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_moduleid);
+    $stmt1->fetch();
+
+    if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+        header('HTTP/1.0 550 A module with the name entered already exists.');
+        exit();
+    }
+
+    $module_status = 'active';
+
+    $stmt5 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
+    $stmt5->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
+    $stmt5->execute();
+    $stmt5->close();
+
+}
+
+//CreateTimetable function
+function CreateLecture() {
 
     global $mysqli;
     global $moduleid;

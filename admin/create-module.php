@@ -187,9 +187,9 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'module_name='         + module_name +
-         '&module_notes='       + module_notes +
-         '&module_url='         + module_url,
+    data:'create_module_name='    + module_name +
+         '&created_module_notes=' + module_notes +
+         '&create_module_url='    + module_url,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
