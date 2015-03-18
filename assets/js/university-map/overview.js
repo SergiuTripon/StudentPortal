@@ -72,7 +72,8 @@
                         marker = new google.maps.Marker({
                             map: map,
                             position: pos,
-                            title: 'You are here.'
+                            title: 'You are here.',
+                            animation: google.maps.Animation.DROP
                         });
 
                         var infowindow = new google.maps.InfoWindow({
@@ -116,7 +117,8 @@
                 marker = new google.maps.Marker({
                     map: map,
                     position: options.position,
-                    title: content
+                    title: content,
+                    animation: google.maps.Animation.DROP
                 });
 
                 var infowindow = new google.maps.InfoWindow({
@@ -174,7 +176,8 @@
             map: map,
             position: point,
             icon: icon.icon,
-            type: category
+            type: category,
+            animation: google.maps.Animation.DROP
         });
         if (!markerGroups[category]) markerGroups[category] = [];
         markerGroups[category].push(marker);
