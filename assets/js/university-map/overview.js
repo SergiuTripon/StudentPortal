@@ -46,7 +46,7 @@
         currentLocationUI.title = 'Shows current location on the map';
         currentLocationDiv.appendChild(currentLocationUI);
         var currentLocationText = document.createElement('div');
-        currentLocationText.style.fontFamily = 'Arial,sans-serif';
+        currentLocationText.style.fontFamily = 'Open Sans,Arial,sans-serif';
         currentLocationText.style.fontSize = '12px';
         currentLocationText.style.paddingLeft = '4px';
         currentLocationText.style.paddingRight = '4px';
