@@ -120,7 +120,7 @@
                 no_geolocation_infowindow.open(map,no_geolocation_marker);
 
                 google.maps.event.addListener(marker, 'click', function() {
-                    no_geolocation_infowindow.open(map,no_geolocation_infowindow);
+                    no_geolocation_infowindow.open(map,no_geolocation_marker);
                 });
 
                 map.setCenter(options.position);
