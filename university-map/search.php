@@ -38,10 +38,10 @@ include '../includes/session.php';
 
     <div id="map-search">
 
-    <label for="addressInput">Address<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="addressInput" id="addressInput" placeholder="Enter a valid address"/>
+    <label for="addressInput">Location<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="addressInput" id="addressInput" placeholder="Enter a location"/>
 
-    <label for="radiusSelect">Radius</label>
+    <label for="radiusSelect">Radius<span class="field-required">*</span></label>
     <select class="form-control" id="radiusSelect">
         <option></option>
         <option value="25">25mi</option>

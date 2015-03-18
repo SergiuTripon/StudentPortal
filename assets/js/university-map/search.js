@@ -178,6 +178,22 @@
             $("#addressInput").addClass("input-happy");
         }
 
+        var radius_check = $('#radiusSelect :selected').html();
+        if(radius_check === '') {
+            $("label[for='radiusSelect']").empty().append("Please select a radius.");
+            $("label[for='radiusSelect']").removeClass("feedback-happy");
+            $("label[for='radiusSelect']").addClass("feedback-sad");
+            $("#radiusSelect").css("cssText", "border-color: #D9534F");
+            $("#radiusSelect").focus();
+            return false;
+        } else {
+            $("label[for='radiusSelect']").empty().append("All good!");
+            $("label[for='radiusSelect']").removeClass("feedback-sad");
+            $("#radiusSelect").removeClass("input-sad");
+            $("label[for='radiusSelect']").addClass("feedback-happy");
+            $("#radiusSelect").addClass("input-happy");
+        }
+
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({address: address}, function(results, status) {
