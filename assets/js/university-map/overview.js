@@ -88,12 +88,6 @@
         }
     }
 
-    function clearMarkers(category) {
-            var marker = markerGroups[category];
-            marker.setMap(null);
-            markerGroups = [];
-    }
-
     function bindInfoWindow(marker, map, infoWindow, html) {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
