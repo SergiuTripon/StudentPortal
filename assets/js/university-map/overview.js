@@ -53,7 +53,7 @@
         currentLocationText.innerHTML = '<b>Current location<b>';
         currentLocationUI.appendChild(currentLocationText);
 
-        var current_location_marker = null;
+        var marker = null;
 
         google.maps.event.addDomListener(currentLocationUI, 'click', function () {
 
@@ -62,8 +62,8 @@
                     var pos = new google.maps.LatLng(position.coords.latitude,
                         position.coords.longitude);
 
-                    if (current_location_marker==null) {
-                        current_location_marker = new google.maps.Marker({
+                    if (marker==null) {
+                        marker = new google.maps.Marker({
                             map: map,
                             position: pos,
                             title: 'You are here.'
@@ -73,15 +73,15 @@
                             content: 'You are here.'
                         });
 
-                        current_location_infowindow.open(map,current_location_marker);
+                        current_location_infowindow.open(map,marker);
 
                         google.maps.event.addListener(marker, 'click', function() {
-                            current_location_infowindow.open(map,current_location_marker);
+                            current_location_infowindow.open(map,marker);
                         });
 
                         map.setCenter(pos);
                     } else {
-                        current_location_marker.setPosition(pos);
+                        marker.setPosition(pos);
                     }
 
                 }, function() {
