@@ -37,62 +37,25 @@
     };
 
     // Add a Home control that returns the user to London
-    function HomeControl(controlDiv, map) {
-        controlDiv.style.padding = '5px';
-        var controlUI = document.createElement('div');
-        controlUI.style.backgroundColor = 'yellow';
-        controlUI.style.border = '1px solid';
-        controlUI.style.cursor = 'pointer';
-        controlUI.style.textAlign = 'center';
-        controlUI.title = 'Set map to London';
-        controlDiv.appendChild(controlUI);
-        var controlText = document.createElement('div');
-        controlText.style.fontFamily = 'Arial,sans-serif';
-        controlText.style.fontSize = '12px';
-        controlText.style.paddingLeft = '4px';
-        controlText.style.paddingRight = '4px';
-        controlText.innerHTML = '<b>Current location<b>';
-        controlUI.appendChild(controlText);
+    function showCurrentLocation(currentLocationDiv, map) {
+        currentLocationDiv.style.padding = '5px';
+        var currentLocationUI = document.createElement('div');
+        currentLocationUI.style.backgroundColor = 'yellow';
+        currentLocationUI.style.border = '1px solid';
+        currentLocationUI.style.cursor = 'pointer';
+        currentLocationUI.style.textAlign = 'center';
+        currentLocationUI.title = 'Set map to London';
+        currentLocationDiv.appendChild(controlUI);
+        var currentLocationText = document.createElement('div');
+        currentLocationText.style.fontFamily = 'Arial,sans-serif';
+        currentLocationText.style.fontSize = '12px';
+        currentLocationText.style.paddingLeft = '4px';
+        currentLocationText.style.paddingRight = '4px';
+        currentLocationText.innerHTML = '<b>Current location<b>';
+        currentLocationUI.appendChild(currentLocationText);
 
-        // Setup click-event listener: simply set the map to London
-        google.maps.event.addDomListener(controlUI, 'click', function () {
-            // Try HTML5 geolocation
-            if(navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var pos = new google.maps.LatLng(position.coords.latitude,
-                        position.coords.longitude);
+        google.maps.event.addDomListener(currentLocationUI, 'click', function () {
 
-                    var infowindow = new google.maps.InfoWindow({
-                        map: map,
-                        position: pos,
-                        content: 'Location found using HTML5.'
-                    });
-
-                    map.setCenter(pos);
-                }, function() {
-                    handleNoGeolocation(true);
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleNoGeolocation(false);
-            }
-
-        function handleNoGeolocation(errorFlag) {
-            if (errorFlag) {
-                var content = 'Error: The Geolocation service failed.';
-            } else {
-                var content = 'Error: Your browser doesn\'t support geolocation.';
-            }
-
-            var options = {
-                map: map,
-                position: new google.maps.LatLng(60, 105),
-                content: content
-            };
-
-            var infowindow = new google.maps.InfoWindow(options);
-            map.setCenter(options.position);
-        }
         });
     }
 
@@ -103,10 +66,9 @@
         mapTypeId: 'roadmap'
     });
 
-        // Create a DIV to hold the control and call HomeControl()
-    var homeControlDiv = document.createElement('div');
-    var homeControl = new HomeControl(homeControlDiv, map);
-    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
+    var currentLocationDiv = document.createElement('div');
+    var showCurrentLocation = new showCurrentLocation(currentLocationDiv, map);
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocationUI);
 
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
     var xml = data.responseXML;
