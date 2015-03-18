@@ -1083,43 +1083,46 @@ include 'includes/session.php';
             <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
             <td data-title="From">'.$lecture_from_time.'</td>
             <td data-title="To">'.$lecture_to_time.'</td>
+            <td data-title="Location">'.$lecture_location.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="/admin/allocate-timetable?id='.$moduleid.'">Allocate</a>
+            <a class="btn btn-primary" href="/admin/allocate-timetable?id='.$lectureid.'">Allocate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="/admin/update-timetable?id='.$moduleid.'">Update</a></li>
-            <li><a href="#deactivate-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
-            <li><a href="#delete-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            <li><a href="/admin/update-timetable?id='.$lectureid.'">Update</a></li>
+            <li><a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+            <li><a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
             </td>
 			</tr>
 
-            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
             <div class="close"><i class="fa fa-clock-o"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
+            <h4 class="modal-title" id="modal-custom-label">'.$lecture_name.'</h4>
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
-			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
 			<p><b>Lecturer:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
-			<p><b>Tutorial assistant:</b> '.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</p>
+			<p><b>From:</b> '.$lecture_from_time.'</p>
+			<p><b>To:</b> '.$lecture_to_time.'</p>
+			<p><b>Location:</b> '.$lecture_location.'</p>
+			<p><b>Capacity:</b> '.$lecture_capacity.'</p>
 			</div>
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
@@ -1130,7 +1133,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="deactivate-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="deactivate-lecture-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1141,21 +1144,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$module_name.'?</p>
-            <p id="deactivate-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deactivated successfully.</p>
+			<p id="deactivate-lecture-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$lecture_name.'?</p>
+            <p id="deactivate-lecture-confirmation" style="display: none;" class="text-center feedback-happy">'.$lecture_name.' has been deactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="deactivate-hide">
+			<div id="deactivate-lecture-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$moduleid.'" class="btn btn-success btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-lecture-'.$lectureid.'" class="btn btn-success btn-lg deactivate-lecture-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -1163,7 +1166,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-lecture-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1174,21 +1177,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
-			<p id="delete-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deleted successfully.</p>
+			<p id="delete-lecture-question" class="text-center feedback-sad">Are you sure you want to delete '.$lecture_name.'?</p>
+			<p id="delete-lecture-confirmation" style="display: none;" class="text-center feedback-happy">'.$lecture_name.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-hide">
+			<div id="delete-lecture-hide">
 			<div class="pull-left">
-			<a id="delete-'.$moduleid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-lecture-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
