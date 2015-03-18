@@ -37,44 +37,43 @@ include '../includes/session.php';
     <div class="marker-toggle">
     <div id="building-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('building')"> Buildings
+        <input type="checkbox" checked="checked" onclick="toggleGroup('building');"> Buildings
     </label>
     </div>
     <div id="student-centre-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('student_centre')"> Student centre
+        <input type="checkbox" checked="checked" onclick="toggleGroup('student_centre');"> Student centre
     </label>
     </div>
     <div id="lecture-theatre-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('lecture_theatre')"> Lecture theatre
+        <input type="checkbox" checked="checked" onclick="toggleGroup('lecture_theatre');"> Lecture theatre
     </label>
     </div>
     <div id="computer-lab-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('computer_lab')"> Computer lab
+        <input type="checkbox" checked="checked" onclick="toggleGroup('computer_lab');"> Computer lab
     </label>
     </div>
     <div id="library-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('library')"> Library
+        <input type="checkbox" checked="checked" onclick="toggleGroup('library');"> Library
     </label>
     </div>
     <div id="cycle-hire-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_hire')"> Cycle hire
+        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_hire');"> Cycle hire
     </label>
     </div>
     <div id="cycle-parking-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_parking')"> Cycle parking
+        <input type="checkbox" checked="checked" onclick="toggleGroup('cycle_parking');"> Cycle parking
     </label>
     </div>
     <div id="atm-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('atm')"> ATM
+        <input type="checkbox" checked="checked" onclick="toggleGroup('atm');"> ATM
     </label>
-    <div onclick="clearMarkers();">Test</div>
     </div>
     </div>
 
@@ -125,6 +124,7 @@ include '../includes/session.php';
     $(document).ready(function() {
         //google-maps
         loadMap();
+        toggleGroup('student_centre');
     });
 
     //Ladda
