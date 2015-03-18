@@ -90,7 +90,7 @@
 
     function clearMarkers(category) {
             var marker = markerGroups[category];
-            marker[i].setMap(null);
+            marker.setMap(null);
             markerGroups = [];
     }
 
