@@ -48,7 +48,7 @@
         currentLocationDiv.appendChild(currentLocationUI);
         var currentLocationText = document.createElement('div');
         currentLocationText.style.fontFamily = 'Arial,sans-serif';
-        currentLocationText.style.fontSize = '11px';
+        currentLocationText.style.fontSize = '12px';
         currentLocationText.style.paddingLeft = '4px';
         currentLocationText.style.paddingRight = '4px';
         currentLocationText.innerHTML = '<b>Current location<b>';
@@ -62,20 +62,20 @@
                     var pos = new google.maps.LatLng(position.coords.latitude,
                         position.coords.longitude);
 
-                    var current_location_marker = new google.maps.Marker({
+                    var marker = new google.maps.Marker({
                         map: map,
                         position: pos,
                         title: 'You are here.'
                     });
 
-                    var current_location_infowindow = new google.maps.InfoWindow({
+                    var infowindow = new google.maps.InfoWindow({
                         content: 'You are here.'
                     });
 
-                    current_location_infowindow.open(map,current_location_marker);
+                    infowindow.open(map,marker);
 
-                    google.maps.event.addListener(current_location_marker, 'click', function() {
-                        current_location_infowindow.open(map,current_location_marker);
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map,marker);
                     });
 
                     map.setCenter(pos);
@@ -100,7 +100,7 @@
                 content: content
             };
 
-            var no_geolocation_infowindow = new google.maps.InfoWindow(options);
+            var infowindow = new google.maps.InfoWindow(options);
             map.setCenter(options.position);
         }
         });
