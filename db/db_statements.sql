@@ -285,7 +285,7 @@ ON DELETE CASCADE
 
 #Timetable
 CREATE TABLE `system_lectures` (
-	`moduleid` INT(11) NOT NULL UNIQUE,
+	`moduleid` INT(11) NOT NULL,
 	`lectureid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`lecture_name` VARCHAR(300) NOT NULL,
 	`lecture_lecturer` INT(11) NOT NULL,
@@ -308,7 +308,7 @@ ON DELETE CASCADE
 
 #Timetable
 CREATE TABLE `system_tutorials` (
-	`moduleid` INT(11) NOT NULL UNIQUE,
+	`moduleid` INT(11) NOT NULL,
 	`tutorialid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`tutorial_name` VARCHAR(300) NOT NULL,
 	`tutorial_assistant` INT(11) NOT NULL,
@@ -331,7 +331,7 @@ ON DELETE CASCADE
 
 #Timetable
 CREATE TABLE `system_exams` (
-	`moduleid` INT(11) NOT NULL UNIQUE,
+	`moduleid` INT(11) NOT NULL,
 	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`exam_name` VARCHAR(300) NOT NULL,
 	`exam_notes` VARCHAR(5000),

@@ -43,19 +43,37 @@ include '../includes/session.php';
 
 	<div id="hide">
 
-    <h4 class="title-separator text-center">Tutorial</h4>
-    <hr class="hr-separator">
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="tutorial_moduleid">Module<span class="field-required">*</span></label>
+    <select class="form-control" name="tutorial_moduleid" id="tutorial_moduleid">
+        <option></option>
+    <?php
+    $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_modules WHERE module_status='active'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+        $moduleid = $row["moduleid"];
+        $module_name = $row["module_name"];
+
+        echo '<option value="'.$moduleid.'">'.$module_name.'</option>';
+    }
+
+    ?>
+    </select>
+    </div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="tutorial_name">Tutorial name</label>
+	<label for="tutorial_name">Name</label>
     <input class="form-control" type="text" name="tutorial_name" id="tutorial_name" placeholder="Enter a name">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="tutorial_notes">Tutorial notes</label>
+	<label for="tutorial_notes">Notes</label>
     <textarea class="form-control" rows="5" name="tutorial_notes" id="tutorial_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
@@ -88,41 +106,49 @@ include '../includes/session.php';
     </div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="tutorial_day">Tutorial day<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="tutorial_day" id="tutorial_day" value="" placeholder="Enter a day">
-	</div>
-	</div>
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="tutorial_day">Day<span class="field-required">*</span></label>
+    <select class="form-control" name="tutorial_day" id="tutorial_day">
+        <option></option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+    </select>
+
+    </div>
+    </div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="tutorial_from_time">Lecture from (time)<span class="field-required">*</span></label>
+	<label for="tutorial_from_time">From (time)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_from_time" id="tutorial_from_time" placeholder="Select a time">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="tutorial_to_time">Lecture to (time)<span class="field-required">*</span></label>
+	<label for="tutorial_to_time">To (time)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_to_time" id="tutorial_to_time" placeholder="Select a time">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="tutorial_from_date">Tutorial from (date)<span class="field-required">*</span></label>
+	<label for="tutorial_from_date">From (date)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_from_date" id="tutorial_from_date" placeholder="Select a date">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="tutorial_to_date">Tutorial to (date)<span class="field-required">*</span></label>
+	<label for="tutorial_to_date">To (date)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_to_date" id="tutorial_to_date" placeholder="Select a date">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="tutorial_location">Tutorial location<span class="field-required">*</span></label>
+	<label for="tutorial_location">Location<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_location" id="tutorial_location" placeholder="Enter a location">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="tutorial_capacity">Tutorial capacity<span class="field-required">*</span></label>
+	<label for="tutorial_capacity">Capacity<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="tutorial_capacity" id="tutorial_capacity" placeholder="Enter a capacity">
 	</div>
 	</div>
@@ -236,6 +262,25 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
+    var tutorial_moduleid_check = $('#lecture_moduleid :selected').html();
+    if (tutorial_moduleid_check === '') {
+        $("label[for='tutorial_moduleid']").empty().append("Please select a module.");
+        $("label[for='tutorial_moduleid']").removeClass("feedback-happy");
+        $("label[for='tutorial_moduleid']").addClass("feedback-sad");
+        $("[aria-owns='select2-tutorial_moduleid-results']").removeClass("input-happy");
+        $("[aria-owns='select2-tutorial_moduleid-results']").addClass("input-sad");
+        $("[aria-owns='select2-tutorial_moduleid-results']").focus();
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("label[for='tutorial_moduleid']").empty().append("All good!");
+        $("label[for='tutorial_moduleid']").removeClass("feedback-sad");
+        $("label[for='tutorial_moduleid']").addClass("feedback-happy");
+        $("[aria-owns='select2-tutorial_moduleid-results']").removeClass("input-sad");
+        $("[aria-owns='select2-tutorial_moduleid-results']").addClass("input-happy");
+    }
+
     //Tutorials
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
@@ -260,8 +305,9 @@ include '../includes/session.php';
         $("label[for='tutorial_assistant']").empty().append("Please select a tutorial assistant.");
         $("label[for='tutorial_assistant']").removeClass("feedback-happy");
         $("label[for='tutorial_assistant']").addClass("feedback-sad");
-        $("#tutorial_assistant").removeClass("input-happy");
-        $("#tutorial_assistant").addClass("input-sad");
+        $("[aria-owns='select2-tutorial_assistant-results']").removeClass("input-happy");
+        $("[aria-owns='select2-tutorial_assistant-results']").addClass("input-sad");
+        $("[aria-owns='select2-tutorial_assistant-results']").focus();
         hasError  = true;
         return false;
     }
@@ -269,18 +315,18 @@ include '../includes/session.php';
         $("label[for='tutorial_assistant']").empty().append("All good!");
         $("label[for='tutorial_assistant']").removeClass("feedback-sad");
         $("label[for='tutorial_assistant']").addClass("feedback-happy");
-        $("#tutorial_assistant").removeClass("input-sad");
-        $("#tutorial_assistant").addClass("input-happy");
+        $("[aria-owns='select2-tutorial_assistant-results']").removeClass("input-sad");
+        $("[aria-owns='select2-tutorial_assistant-results']").addClass("input-happy");
     }
 
-    var tutorial_day = $("#tutorial_day").val();
-    if (tutorial_day === '') {
-        $("label[for='tutorial_day']").empty().append("Please enter a day.");
+    var tutorial_day_check = $('#tutorial_day :selected').html();
+    if (tutorial_day_check === '') {
+        $("label[for='tutorial_day']").empty().append("Please select a day.");
         $("label[for='tutorial_day']").removeClass("feedback-happy");
         $("label[for='tutorial_day']").addClass("feedback-sad");
-        $("#tutorial_day").removeClass("input-happy");
-        $("#tutorial_day").addClass("input-sad");
-        $("#tutorial_day").focus();
+        $("[aria-owns='select2-tutorial_day-results']").removeClass("input-happy");
+        $("[aria-owns='select2-tutorial_day-results']").addClass("input-sad");
+        $("[aria-owns='select2-tutorial_day-results']").focus();
         hasError  = true;
         return false;
     }
@@ -288,8 +334,8 @@ include '../includes/session.php';
         $("label[for='tutorial_day']").empty().append("All good!");
         $("label[for='tutorial_day']").removeClass("feedback-sad");
         $("label[for='tutorial_day']").addClass("feedback-happy");
-        $("#tutorial_day").removeClass("input-sad");
-        $("#tutorial_day").addClass("input-happy");
+        $("[aria-owns='select2-tutorial_day-results']").removeClass("input-sad");
+        $("[aria-owns='select2-tutorial_day-results']").addClass("input-happy");
     }
 
     var tutorial_from_time = $("#tutorial_from_time").val();
@@ -400,8 +446,10 @@ include '../includes/session.php';
         $("#tutorial_capacity").addClass("input-happy");
 	}
 
+    var lecture_moduleid= $("#lecture_moduleid option:selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
-    var tutorial_assistant = $("#tutorial_assistant option:selected").html();
+    var tutorial_assistant = $("#tutorial_assistant option:selected").val();
+    var lecture_day = $("#lecture_day option:selected").html();
 
 	if(hasError == false){
     jQuery.ajax({

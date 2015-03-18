@@ -61,7 +61,6 @@ include '../includes/session.php';
 
     ?>
     </select>
-
     </div>
     </div>
 
@@ -452,15 +451,15 @@ include '../includes/session.php';
 	}
 
     var lecture_moduleid= $("#lecture_moduleid option:selected").val();
+    var lecture_notes = $("#lecture_notes").val();
     var lecture_lecturer = $("#lecture_lecturer option:selected").val();
     var lecture_day = $("#lecture_day option:selected").html();
-    var lecture_notes = $("#lecture_notes").val();
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'&create_lecture_moduleid='   + lecture_moduleid +
+    data:'create_lecture_moduleid='    + lecture_moduleid +
          '&create_lecture_name='       + lecture_name +
          '&create_lecture_lecturer='   + lecture_lecturer +
          '&create_lecture_notes='      + lecture_notes +
