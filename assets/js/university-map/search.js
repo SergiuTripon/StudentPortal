@@ -32,6 +32,109 @@
     var locationSelect;
     var type;
 
+    function showCurrentLocation(currentLocationDiv, map) {
+
+        currentLocationDiv.style.marginTop = '5px';
+        var currentLocationUI = document.createElement('div');
+        currentLocationUI.style.backgroundColor = '#4582EC';
+        currentLocationUI.style.borderRadius = '3px';
+        currentLocationUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+        currentLocationUI.style.cursor = 'pointer';
+        currentLocationUI.style.marginBottom = '22px';
+        currentLocationUI.style.textAlign = 'center';
+        currentLocationUI.title = 'Click to show current location';
+        currentLocationDiv.appendChild(currentLocationUI);
+
+        var currentLocationText = document.createElement('div');
+        currentLocationText.style.color = '#FFFFFF';
+        currentLocationText.style.fontFamily = 'Open Sans,Arial,sans-serif';
+        currentLocationText.style.fontSize = '15px';
+        currentLocationText.style.lineHeight = '30px';
+        currentLocationText.style.paddingLeft = '5px';
+        currentLocationText.style.paddingRight = '5px';
+        currentLocationText.innerHTML = 'Current location';
+        currentLocationUI.appendChild(currentLocationText);
+
+        var marker = null;
+
+        google.maps.event.addDomListener(currentLocationUI, 'click', function () {
+
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = new google.maps.LatLng(position.coords.latitude,
+                        position.coords.longitude);
+
+                    if (marker == null) {
+                        marker = new google.maps.Marker({
+                            map: map,
+                            position: pos,
+                            title: 'You are here.',
+                            animation: google.maps.Animation.DROP
+                        });
+
+                        var infowindow = new google.maps.InfoWindow({
+                            content: 'You are here.'
+                        });
+
+                        google.maps.event.addListener(marker, 'click', function() {
+                            infowindow.open(map,marker);
+                        });
+
+                        map.setCenter(pos);
+                    } else {
+                        map.setCenter(pos);
+                        marker.setPosition(pos);
+                    }
+
+                }, function() {
+                    handleNoGeolocation(true);
+                });
+            } else {
+                handleNoGeolocation(false);
+            }
+
+        function handleNoGeolocation(errorFlag) {
+
+            var content;
+
+            if (errorFlag) {
+                content = 'Error: The Geolocation service failed.';
+            } else {
+                content = 'Error: Your browser doesn\'t support geolocation.';
+            }
+
+            var options = {
+                map: map,
+                position: new google.maps.LatLng(51.527287, -0.103842),
+                content: content
+            };
+
+            if (marker == null) {
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: options.position,
+                    title: content,
+                    animation: google.maps.Animation.DROP
+                });
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: content
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map,marker);
+                });
+
+                map.setCenter(options.position);
+            } else {
+                map.setCenter(options.position);
+                marker.setPosition(options.position);
+            }
+        }
+
+        });
+    }
+
     function loadMap() {
         map = new google.maps.Map(document.getElementById("map"), {
             center: new google.maps.LatLng(51.527287, -0.103842),
@@ -39,6 +142,10 @@
             mapTypeId: 'roadmap',
             mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
         });
+
+        var currentLocationDiv = document.createElement('div');
+        var currentLocation = new showCurrentLocation(currentLocationDiv, map);
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(currentLocationDiv);
 
         infoWindow = new google.maps.InfoWindow({
             maxWidth: 400

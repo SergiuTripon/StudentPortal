@@ -146,7 +146,6 @@
         mapTypeId: 'roadmap'
     });
 
-        // Create a DIV to hold the control and call HomeControl()
     var currentLocationDiv = document.createElement('div');
     var currentLocation = new showCurrentLocation(currentLocationDiv, map);
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(currentLocationDiv);
