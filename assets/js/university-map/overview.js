@@ -53,7 +53,7 @@
         currentLocationText.innerHTML = '<b>Current location<b>';
         currentLocationUI.appendChild(currentLocationText);
 
-        var current_location_marker = null;
+        var marker = null;
 
         google.maps.event.addDomListener(currentLocationUI, 'click', function () {
 
@@ -62,26 +62,26 @@
                     var pos = new google.maps.LatLng(position.coords.latitude,
                         position.coords.longitude);
 
-                    if (current_location_marker==null) {
-                        current_location_marker = new google.maps.Marker({
+                    if (marker==null) {
+                        marker = new google.maps.Marker({
                             map: map,
                             position: pos,
                             title: 'You are here.'
                         });
 
-                        var current_location_infowindow = new google.maps.InfoWindow({
+                        var infowindow = new google.maps.InfoWindow({
                             content: 'You are here.'
                         });
 
-                        current_location_infowindow.open(map,current_location_marker);
+                        infowindow.open(map,marker);
 
                         google.maps.event.addListener(marker, 'click', function() {
-                            current_location_infowindow.open(map,current_location_marker);
+                            infowindow.open(map,marker);
                         });
 
                         map.setCenter(pos);
                     } else {
-                        current_location_marker.setPosition(pos);
+                        marker.setPosition(pos);
                     }
 
                 }, function() {
@@ -90,8 +90,6 @@
             } else {
                 handleNoGeolocation(false);
             }
-
-        var no_geolocation_marker = null;
 
         function handleNoGeolocation(errorFlag) {
             if (errorFlag) {
@@ -102,31 +100,12 @@
 
             var options = {
                 map: map,
-                position: new google.maps.LatLng(51.527287, -0.103842),
+                position: new google.maps.LatLng(60, 105),
                 content: content
             };
 
-            if (no_geolocation_marker==null) {
-                    no_geolocation_marker = new google.maps.Marker({
-                    map: map,
-                    position: options.position,
-                    title: content
-                });
-
-                var no_geolocation_infowindow = new google.maps.InfoWindow({
-                    content: content
-                });
-
-                no_geolocation_infowindow.open(map,no_geolocation_marker);
-
-                google.maps.event.addListener(marker, 'click', function() {
-                    no_geolocation_infowindow.open(map,no_geolocation_marker);
-                });
-
-                map.setCenter(options.position);
-            } else {
-                no_geolocation_marker.setPosition(options.position);
-            }
+            var infowindow = new google.maps.InfoWindow(options);
+            map.setCenter(options.position);
         }
         });
     }
