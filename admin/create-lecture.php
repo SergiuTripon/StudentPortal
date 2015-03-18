@@ -35,7 +35,6 @@ include '../includes/session.php';
     <li class="active">Create lecture</li>
     </ol>
 
-
     <!-- Create lecture -->
 	<form class="form-custom" style="max-width: 100%;" name="createlecture_form" id="createlecture_form" novalidate>
 
@@ -43,6 +42,28 @@ include '../includes/session.php';
 	<p id="success" class="feedback-happy text-center"></p>
 
 	<div id="hide">
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="lecture_moduleid">Module<span class="field-required">*</span></label>
+    <select class="form-control" name="lecture_moduleid" id="lecture_moduleid">
+        <option></option>
+    <?php
+    $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_modules WHERE module_status='active'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+        $moduleid = $row["moduleid"];
+        $module_name = $row["module_name"];
+
+        echo '<option value="'.$moduleid.'">'.$module_name.'</option>';
+    }
+
+    ?>
+    </select>
+
+    </div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -214,6 +235,7 @@ include '../includes/session.php';
     //On load
 	$(document).ready(function () {
         //select2
+        $("#lecture_moduleid").select2({placeholder: "Select an option"});
         $("#lecture_lecturer").select2({placeholder: "Select an option"});
     });
 
@@ -236,7 +258,22 @@ include '../includes/session.php';
 	var hasError = false;
 
     //Lectures
-	var lecture_name = $("#lecture_name").val();
+
+    var lecture_moduleid_check = $('#lecture_moduleid :selected').html();
+    if (lecture_moduleid_check === '') {
+        $("label[for='lecture_moduleid']").empty().append("Please select a module.");
+        $("label[for='lecture_moduleid']").removeClass("feedback-happy");
+        $("label[for='lecture_moduleid']").addClass("feedback-sad");
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("label[for='lecture_moduleid']").empty().append("All good!");
+        $("label[for='lecture_moduleid']").removeClass("feedback-sad");
+        $("label[for='lecture_moduleid']").addClass("feedback-happy");
+    }
+
+    var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
         $("label[for='lecture_name']").empty().append("Please enter a lecture name.");
         $("label[for='lecture_name']").removeClass("feedback-happy");
@@ -395,6 +432,7 @@ include '../includes/session.php';
         $("#lecture_capacity").addClass("input-happy");
 	}
 
+    var lecture_moduleid= $("#lecture_moduleid option:selected").val();
     var lecture_lecturer = $("#lecture_lecturer option:selected").html();
     var lecture_notes = $("#lecture_notes").val();
 
@@ -402,7 +440,8 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'create_lecture_name='        + lecture_name +
+    data:'&create_lecture_moduleid='   + lecture_moduleid +
+         '&create_lecture_name='       + lecture_name +
          '&create_lecture_lecturer='   + lecture_lecturer +
          '&create_lecture_notes='      + lecture_notes +
          '&create_lecture_day='        + lecture_day +

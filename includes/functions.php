@@ -585,7 +585,6 @@ function CreateModule() {
 function CreateLecture() {
 
     global $mysqli;
-    global $moduleid;
     global $created_on;
 
     //Lecture
