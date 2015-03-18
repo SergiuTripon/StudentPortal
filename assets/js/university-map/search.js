@@ -195,12 +195,6 @@
             markers[i].setMap(null);
         }
         markers.length = 0;
-
-        locationSelect.innerHTML = "";
-        var option = document.createElement("option");
-        option.value = "none";
-        option.innerHTML = "See all results:";
-        locationSelect.appendChild(option);
     }
 
     function searchLocationsNear(center) {
@@ -230,7 +224,7 @@
 
         map.fitBounds(bounds);
         locationSelect.style.display = "block";
-        $("#locationSelect").select2();
+        $("#locationSelect").select2({placeholder: "See all results:"});
         locationSelect.onchange = function() {
             var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
             google.maps.event.trigger(markers[markerNum], 'click');

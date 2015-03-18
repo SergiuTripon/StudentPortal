@@ -54,7 +54,9 @@ include '../includes/session.php';
     </div>
 
     <div id="map-search-results" class="mt10">
-    <select class="form-control" id="locationSelect" style="width:100%; display: none;"></select>
+    <select class="form-control" id="locationSelect" style="width:100%; display: none;">
+        <option></option>
+    </select>
     </div>
 
     </div>
