@@ -397,7 +397,7 @@ function GetDashboardData() {
 
     $lecture_status = 'active';
 
-	$stmt1 = $mysqli->prepare("SELECT system_lectures.lectureid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_lectures ON user_timetable.moduleid=system_lectures.moduleid WHERE user_timetable.userid=? AND lecture_status=?");
+	$stmt1 = $mysqli->prepare("SELECT l.lectureid FROM user_lecture u LEFT JOIN system_lectures l ON u.lectureid=l.lectureid WHERE u.userid=? AND l.lecture_status=?");
 	$stmt1->bind_param('is', $session_userid, $lecture_status);
 	$stmt1->execute();
 	$stmt1->store_result();
@@ -406,7 +406,7 @@ function GetDashboardData() {
 
     $tutorial_status = 'active';
 
-	$stmt2 = $mysqli->prepare("SELECT system_tutorials.tutorialid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_tutorials ON user_timetable.moduleid=system_tutorials.moduleid WHERE user_timetable.userid=? AND tutorial_status=?");
+	$stmt2 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorials t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=?");
 	$stmt2->bind_param('is', $session_userid, $tutorial_status);
 	$stmt2->execute();
 	$stmt2->store_result();
@@ -415,7 +415,7 @@ function GetDashboardData() {
 
     $exam_status = 'active';
 
-	$stmt3 = $mysqli->prepare("SELECT system_exams.examid FROM user_timetable LEFT JOIN system_modules ON user_timetable.moduleid=system_modules.moduleid LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid=? AND exam_status=?");
+	$stmt3 = $mysqli->prepare("SELECT e.examid FROM user_timetable u LEFT JOIN system_exams e ON u.examid=e.examid WHERE u.userid=? AND e.exam_status=?");
 	$stmt3->bind_param('is', $session_userid, $exam_status);
 	$stmt3->execute();
 	$stmt3->store_result();
