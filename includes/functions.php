@@ -793,27 +793,27 @@ function UpdateTutorial() {
     $stmt1->fetch();
 
     if ($db_tutorial_name === $tutorial_name) {
-        $stmt2 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
-        $stmt2->bind_param('isssssssisi', $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
+        $stmt2 = $mysqli->prepare("UPDATE system_tutorials SET moduleid=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
+        $stmt2->bind_param('iisssssssisi', $moduleid, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
         $stmt2->execute();
         $stmt2->close();
     } else {
         $stmt3 = $mysqli->prepare("SELECT tutorialid FROM system_tutorials WHERE tutorial_name = ?");
         $stmt3->bind_param('s', $tutorial_name);
         $stmt3->execute();
-        $stmt11->store_result();
-        $stmt11->bind_result($db_tutorialid);
-        $stmt11->fetch();
+        $stmt3->store_result();
+        $stmt3->bind_result($db_tutorialid);
+        $stmt3->fetch();
 
-        if ($stmt11->num_rows == 1) {
-            $stmt11->close();
+        if ($stmt3->num_rows == 1) {
+            $stmt3->close();
             header('HTTP/1.0 550 A tutorial with the name entered already exists.');
             exit();
         } else {
-            $stmt12 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
-            $stmt12->bind_param('sisssssssisi', $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
-            $stmt12->execute();
-            $stmt12->close();
+            $stmt4 = $mysqli->prepare("UPDATE system_tutorials SET moduleid=?, tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
+            $stmt4->bind_param('isisssssssisi', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
+            $stmt4->execute();
+            $stmt4->close();
         }
     }
 }
