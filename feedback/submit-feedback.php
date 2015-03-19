@@ -79,8 +79,8 @@ if (isset($_GET["id"])) {
     <input type="hidden" name="feedback_lecturer" id="feedback_lecturer" value="<?php echo $lecture_lecturer; ?>">
     <input type="hidden" name="feedback_tutorial_assistant" id="feedback_tutorial_assistant" value="<?php echo $tutorial_assistant; ?>">
 
-    <h4 class="text-center">Module</h4>
-    <hr class="hr-custom">
+    <h4 class="text-center title-separator">Module</h4>
+    <hr class="hr-custom hr-separator">
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
@@ -107,8 +107,8 @@ if (isset($_GET["id"])) {
 	</div>
     </div>
 
-    <h4 class="text-center">Lecturer</h4>
-    <hr class="hr-custom">
+    <h4 class="text-center title-separator">Lecturer</h4>
+    <hr class="hr-custom hr-separator">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
@@ -125,8 +125,8 @@ if (isset($_GET["id"])) {
 	</div>
     </div>
 
-    <h4 class="text-center">Tutorial assistant</h4>
-    <hr class="hr-custom">
+    <h4 class="text-center title-separator">Tutorial assistant</h4>
+    <hr class="hr-custom hr-separator">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">

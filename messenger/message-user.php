@@ -65,8 +65,8 @@ if (isset($_GET["id"])) {
     <div id="hide">
     <input type="hidden" name="message_to_userid" id="message_to_userid" value="<?php echo $message_to_userid; ?>">
 
-    <h4 class="text-center">From</h4>
-    <hr class="hr-custom">
+    <h4 class="text-center title-separator">From</h4>
+    <hr class="hr-custom hr-separator">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
@@ -83,8 +83,8 @@ if (isset($_GET["id"])) {
 	</div>
     </div>
 
-    <h4 class="text-center">To</h4>
-    <hr class="hr-custom">
+    <h4 class="text-center title-separator">To</h4>
+    <hr class="hr-custom hr-separator">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
