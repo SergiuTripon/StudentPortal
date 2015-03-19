@@ -3,7 +3,7 @@ include '../includes/session.php';
 
 if (isset($_GET['id'])) {
 
-    $moduleToAllocate = $_GET['id'];
+    $tutorialToAllocate = $_GET['id'];
 
 } else {
     header('Location: ../../timetable/');
@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <title>Student Portal | Allocate module</title>
+    <title>Student Portal | Allocate tutorial</title>
 
     <?php include '../assets/css-paths/datatables-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
@@ -36,10 +36,10 @@ if (isset($_GET['id'])) {
 	<ol class="breadcrumb breadcrumb-custom">
 		<li><a href="../../overview/">Overview</a></li>
         <li><a href="../../timetable/">Timetable</a></li>
-		<li class="active">Allocate module</li>
+		<li class="active">Allocate tutorial</li>
 	</ol>
 
-    <div id="moduleid" style="display: none !important;"><?php echo $moduleToAllocate; ?></div>
+    <div id="moduleid" style="display: none !important;"><?php echo $timetableToAllocate; ?></div>
 
 	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_module.userid) FROM user_module WHERE user_module.moduleid = '$moduleToAllocate') AND user_signin.account_type = 'student'");
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_tutorial.userid) FROM user_tutorial WHERE user_tutorial.tutorialid = '$tutorialToAllocate') AND user_signin.account_type = 'student'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -153,7 +153,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_module.userid) FROM user_module WHERE user_module.moduleid = '$moduleToAllocate') AND user_signin.account_type = 'student'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_tutorial.userid) FROM user_tutorial WHERE user_tutorial.tutorialid = '$tutorialToAllocate') AND user_signin.account_type = 'student'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -278,13 +278,13 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var userToAllocate = clickedID[1];
-    var moduleToAllocate = $("#moduleid").html();
+    var tutorialToAllocate = $("#moduleid").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToAllocate='+ userToAllocate + '&moduleToAllocate='+ moduleToAllocate,
+	data:'userToAllocate='+ userToAllocate + '&tutorialToAllocate='+ tutorialToAllocate,
 	success:function(){
         $('#user-'+userToAllocate).hide();
         $('.form-logo i').removeClass('fa-user-plus');
@@ -312,13 +312,13 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var userToDeallocate = clickedID[1];
-    var moduleToDeallocate = $("#moduleid").html();
+    var tutorialToDeallocate = $("#moduleid").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToDeallocate='+ userToDeallocate + '&moduleToDeallocate='+ moduleToDeallocate,
+	data:'userToDeallocate='+ userToDeallocate + '&tutorialToDeallocate='+ tutorialToDeallocate,
 	success:function(){
         $('#user-'+userToDeallocate).hide();
         $('.form-logo i').removeClass('fa-user-times');

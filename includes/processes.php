@@ -172,9 +172,29 @@ elseif (isset($_POST["userToAllocate"], $_POST["moduleToAllocate"])) {
     AllocateModule();
 }
 
+//Call AllocateLecture function
+elseif (isset($_POST["userToAllocate"], $_POST["lectureToAllocate"])) {
+    AllocateLecture();
+}
+
+//Call AllocateTutorial function
+elseif (isset($_POST["userToAllocate"], $_POST["tutorialToAllocate"])) {
+    AllocateTutorial();
+}
+
 //Call DeallocateModule function
 elseif (isset($_POST["userToDeallocate"], $_POST["moduleToDeallocate"])) {
     DeallocateModule();
+}
+
+//Call DeallocateModule function
+elseif (isset($_POST["userToDeallocate"], $_POST["moduleToDeallocate"])) {
+    DeallocateLecture();
+}
+
+//Call DeallocateModule function
+elseif (isset($_POST["userToDeallocate"], $_POST["tutorialToDeallocate"])) {
+    DeallocateTutorial();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

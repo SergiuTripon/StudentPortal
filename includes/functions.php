@@ -1063,7 +1063,35 @@ function AllocateModule() {
     $stmt1->close();
 }
 
-//DeallocateTimetable function
+//AllocateLecture function
+function AllocateLecture() {
+
+    global $mysqli;
+
+    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
+    $lectureToAllocate = filter_input(INPUT_POST, 'lectureToAllocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_lecture (userid, lectureid) VALUES (?, ?)");
+    $stmt1->bind_param('ii', $userToAllocate, $lectureToAllocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//AssignTimetable function
+function AllocateTutorial() {
+
+    global $mysqli;
+
+    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
+    $tutorialToAllocate = filter_input(INPUT_POST, 'tutorialToAllocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_tutorial (userid, tutorialid) VALUES (?, ?)");
+    $stmt1->bind_param('ii', $userToAllocate, $tutorialToAllocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeallocateModule function
 function DeallocateModule() {
 
     global $mysqli;
@@ -1073,6 +1101,34 @@ function DeallocateModule() {
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_module WHERE userid=? AND moduleid=?");
     $stmt1->bind_param('ii', $userToDeallocate, $moduleToDeallocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeallocateLecture function
+function DeallocateLecture() {
+
+    global $mysqli;
+
+    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+    $lectureToDeallocate = filter_input(INPUT_POST, 'lectureToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_lecture WHERE userid=? AND lectureid=?");
+    $stmt1->bind_param('ii', $userToDeallocate, $lectureToDeallocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeallocateTimetable function
+function DeallocateTutorial() {
+
+    global $mysqli;
+
+    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+    $tutorialToDeallocate = filter_input(INPUT_POST, 'tutorialToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_tutorial WHERE userid=? AND tutorialid=?");
+    $stmt1->bind_param('ii', $userToDeallocate, $tutorialToDeallocate);
     $stmt1->execute();
     $stmt1->close();
 }
