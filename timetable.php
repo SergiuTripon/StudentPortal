@@ -2189,8 +2189,6 @@ include 'includes/session.php';
     var clickedID = this.id.split('-');
     var lectureToReactivate = clickedID[1];
 
-    alert(lectureToReactivate);
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
