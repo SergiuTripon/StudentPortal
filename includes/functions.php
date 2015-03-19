@@ -518,33 +518,6 @@ function GetDashboardData() {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 //Timetable functions
-//AssignTimetable function
-function AllocateTimetable() {
-
-    global $mysqli;
-
-    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
-    $timetableToAllocate = filter_input(INPUT_POST, 'timetableToAllocate', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("INSERT INTO user_timetable (userid, moduleid) VALUES (?, ?)");
-    $stmt1->bind_param('ii', $userToAllocate, $timetableToAllocate);
-    $stmt1->execute();
-    $stmt1->close();
-}
-
-//DeallocateTimetable function
-function DeallocateTimetable() {
-
-    global $mysqli;
-
-    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
-    $timetableToDeallocate = filter_input(INPUT_POST, 'timetableToDeallocate', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
-    $stmt1->bind_param('ii', $userToDeallocate, $timetableToDeallocate);
-    $stmt1->execute();
-    $stmt1->close();
-}
 
 //CreateTimetable function
 function CreateModule() {
@@ -1076,6 +1049,33 @@ function DeleteTutorial() {
     $stmt2->close();
 }
 
+//AssignTimetable function
+function AllocateModule() {
+
+    global $mysqli;
+
+    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
+    $moduleToAllocate = filter_input(INPUT_POST, 'moduleToAllocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_timetable (userid, moduleid) VALUES (?, ?)");
+    $stmt1->bind_param('ii', $userToAllocate, $moduleToAllocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeallocateTimetable function
+function DeallocateTimetable() {
+
+    global $mysqli;
+
+    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+    $timetableToDeallocate = filter_input(INPUT_POST, 'timetableToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
+    $stmt1->bind_param('ii', $userToDeallocate, $timetableToDeallocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

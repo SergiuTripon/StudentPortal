@@ -38,16 +38,6 @@ elseif (isset($_POST["rp_token"], $_POST["rp_email"], $_POST["rp_password"])) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Call AssignTimetable function
-elseif (isset($_POST["userToAllocate"], $_POST["timetableToAllocate"])) {
-    AllocateTimetable();
-}
-
-//Call UnassignTimetable function
-elseif (isset($_POST["userToDeallocate"], $_POST["timetableToDeallocate"])) {
-    DeallocateTimetable();
-}
-
 //Call Timetable functions
 //Call CreateModule function
 elseif (isset(
@@ -175,6 +165,16 @@ elseif (isset($_POST['lectureToDelete'])) {
 //Call DeleteTutorial function
 elseif (isset($_POST['tutorialToDelete'])) {
     DeleteTutorial();
+}
+
+//Call AllocateModule function
+elseif (isset($_POST["userToAllocate"], $_POST["moduleToAllocate"])) {
+    AllocateModule();
+}
+
+//Call UnassignTimetable function
+elseif (isset($_POST["userToDeallocate"], $_POST["timetableToDeallocate"])) {
+    DeallocateTimetable();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
