@@ -308,6 +308,7 @@ include 'includes/session.php';
 	<th>Date</th>
     <th>Time</th>
     <th>Location</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
