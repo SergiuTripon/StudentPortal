@@ -872,7 +872,7 @@ function DeactivateLecture() {
 
     $lecture_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE lectureid=?");
     $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -889,7 +889,7 @@ function DeactivateTutorial() {
 
     $tutorial_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
     $stmt1->bind_param('ssi', $tutorial_status, $updated_on, $tutorialToDeactivate);
     $stmt1->execute();
     $stmt1->close();
