@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
 
     <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../timetable/">Exams</a></li>
+	<li><a href="../../exams/">Exams</a></li>
     <li class="active">Update exam</li>
     </ol>
 
