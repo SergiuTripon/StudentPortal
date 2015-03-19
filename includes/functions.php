@@ -1235,7 +1235,7 @@ function DeactivateExam() {
 
     $exam_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE examid=?");
     $stmt1->bind_param('ssi', $exam_status, $updated_on, $examToDeactivate);
     $stmt1->execute();
     $stmt1->close();
