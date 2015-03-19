@@ -2112,10 +2112,10 @@ include 'includes/session.php';
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-lecture-question').hide();
-        $('#deactivate-lectureconfirmation').show();
-        $('#deactivate-lecturehide').hide();
-        $('#deactivate-lecturesuccess-button').show();
-        $("#deactivate-lecturesuccess-button").click(function () {
+        $('#deactivate-lecture-confirmation').show();
+        $('#deactivate-lecture-hide').hide();
+        $('#deactivate-lecture-success-button').show();
+        $("#deactivate-lecture-success-button").click(function () {
             location.reload();
         });
 	},
