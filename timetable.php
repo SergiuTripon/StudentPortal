@@ -871,7 +871,6 @@ include 'includes/session.php';
     <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-module/"><span class="ladda-label">Create module</span></a>
     <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-lecture/"><span class="ladda-label">Create lecture</span></a>
     <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-tutorial/"><span class="ladda-label">Create tutorial</span></a>
-    <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-exam/"><span class="ladda-label">Create exam</span></a>
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
