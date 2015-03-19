@@ -1442,7 +1442,18 @@ include 'includes/session.php';
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="Moodle link">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#reactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal"><span class="ladda-label">Reactivate</span></a></td>
+            <td data-title="Action">
+            <div class="btn-group btn-action">
+            <a href="#reactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
 			</tr>
 
             <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1498,6 +1509,39 @@ include 'includes/session.php';
 			</div>
 			<div class="text-center">
 			<a id="reactivate-module-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-module-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-module-question" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
+			<p id="delete-module-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-module-hide">
+			<div class="pull-left">
+			<a id="delete-module-'.$moduleid.'" class="btn btn-success btn-lg delete-module-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-module-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -1575,14 +1619,12 @@ include 'includes/session.php';
             <td data-title="Location">'.$lecture_location.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="/admin/allocate-timetable?id='.$lectureid.'">Allocate</a>
+            <a href="#reactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="/admin/update-timetable?id='.$lectureid.'">Update</a></li>
-            <li><a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
             <li><a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
@@ -1648,6 +1690,39 @@ include 'includes/session.php';
 			</div>
 			<div class="text-center">
 			<a id="reactivate-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-lecture-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-lecture-question" class="text-center feedback-sad">Are you sure you want to delete '.$lecture_name.'?</p>
+			<p id="delete-lecture-confirmation" style="display: none;" class="text-center feedback-happy">'.$lecture_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-lecture-hide">
+			<div class="pull-left">
+			<a id="delete-lecture-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -1725,14 +1800,12 @@ include 'includes/session.php';
             <td data-title="Location">'.$tutorial_location.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="/admin/allocate-tutorial?id='.$tutorialid.'">Allocate</a>
+            <a href="#reactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="/admin/update-tutorial?id='.$tutorialid.'">Update</a></li>
-            <li><a href="#deactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
             <li><a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
@@ -1798,6 +1871,39 @@ include 'includes/session.php';
 			</div>
 			<div class="text-center">
 			<a id="reactivate-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-tutorial-question" class="text-center feedback-sad">Are you sure you want to delete '.$tutorial_name.'?</p>
+			<p id="delete-tutorial-confirmation" style="display: none;" class="text-center feedback-happy">'.$tutorial_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-tutorial-hide">
+			<div class="pull-left">
+			<a id="delete-tutorial-'.$tutorialid.'" class="btn btn-success btn-lg delete-tutorial-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
