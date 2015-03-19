@@ -1797,7 +1797,7 @@ include 'includes/session.php';
     $stmt2->fetch();
     $stmt2->close();
 
-	echo '<tr id="lecture-'.$tutorialid.'">
+	echo '<tr id="tutorial-'.$tutorialid.'">
 
 			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
             <td data-title="Lecturer">'.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</td>
