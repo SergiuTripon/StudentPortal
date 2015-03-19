@@ -415,7 +415,7 @@ function GetDashboardData() {
 
     $exam_status = 'active';
 
-	$stmt3 = $mysqli->prepare("SELECT e.examid FROM user_timetable u LEFT JOIN system_exams e ON u.examid=e.examid WHERE u.userid=? AND e.exam_status=?");
+	$stmt3 = $mysqli->prepare("SELECT e.examid FROM user_exam u LEFT JOIN system_exams e ON u.examid=e.examid WHERE u.userid=? AND e.exam_status=?");
 	$stmt3->bind_param('is', $session_userid, $exam_status);
 	$stmt3->execute();
 	$stmt3->store_result();
