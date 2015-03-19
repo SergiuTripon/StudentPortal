@@ -31,7 +31,7 @@ include '../includes/session.php';
 
     <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
-	<li><a href="../../timetable/">Timetable</a></li>
+	<li><a href="../../exams/">Exams</a></li>
     <li class="active">Create exam</li>
     </ol>
 
