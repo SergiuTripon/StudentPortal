@@ -47,7 +47,7 @@ include 'includes/session.php';
 
 	<!-- Exams -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom exam-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -62,7 +62,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_exams.exam_name, DATE_FORMAT(system_exams.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(system_exams.exam_time,'%H:%i') as exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE user_timetable.userid = '$session_userid' AND system_exams.exam_status='active'");
+	$stmt1 = $mysqli->query("SELECT e.exam_name, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM user_exam u LEFT JOIN system_exams e ON u.examid=e.examid WHERE e.exam_status='active' AND u.userid = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -109,20 +109,23 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div id="exams-portal" class="container">
+    <div class="container">
 
-	<ol class="breadcrumb breadcrumb-custom">
+	<ol class="breadcrumb breadcrumb-custom breadcrumb-admin">
     <li><a href="../overview/">Overview</a></li>
 	<li class="active">Exams</li>
     </ol>
 
-	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
+    <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-module/"><span class="ladda-label">Create module</span></a>
+
+
+    <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Exams</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active exams</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -130,7 +133,7 @@ include 'includes/session.php';
 
 	<!-- Exams -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom exam-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -144,7 +147,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_exams.examid, system_exams.exam_name, system_exams.exam_notes, DATE_FORMAT(system_exams.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(system_exams.exam_time,'%H:%i') as exam_time, system_exams.exam_location, system_exams.exam_capacity FROM user_timetable LEFT JOIN system_exams ON user_timetable.moduleid=system_exams.moduleid WHERE system_exams.exam_status='active'");
+	$stmt1 = $mysqli->query("SELECT e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exams e WHERE e.exam_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -251,13 +254,13 @@ include 'includes/session.php';
 
 	<script>
     //DataTables
-    $('.exam-table').dataTable({
+    $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no exams to display."
+			"emptyTable": "There are no records to display."
 		}
 	});
 	</script>
