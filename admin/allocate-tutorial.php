@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
 		<li class="active">Allocate tutorial</li>
 	</ol>
 
-    <div id="moduleid" style="display: none !important;"><?php echo $timetableToAllocate; ?></div>
+    <div id="tutorialid" style="display: none !important;"><?php echo $tutorialToAllocate; ?></div>
 
 	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -278,7 +278,7 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var userToAllocate = clickedID[1];
-    var tutorialToAllocate = $("#moduleid").html();
+    var tutorialToAllocate = $("#tutorialid").html();
 
 	jQuery.ajax({
 	type: "POST",
