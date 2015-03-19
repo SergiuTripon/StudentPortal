@@ -78,7 +78,7 @@ if (isset($_GET['id'])) {
 
     ?>
     <?php
-    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_modules m WHERE m.moduleid = '$moduleid' AND module_status='active'");
+    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_modules m WHERE NOT m.moduleid = '$moduleid' AND module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
 
