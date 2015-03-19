@@ -2313,6 +2313,8 @@ include 'includes/session.php';
     var clickedID = this.id.split('-');
     var tutorialToDelete = clickedID[1];
 
+    alert(tutorialToDelete);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
