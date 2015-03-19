@@ -1181,45 +1181,45 @@ function UpdateExam() {
     global $updated_on;
 
     //Exam
-    $moduleid = filter_input(INPUT_POST, 'create_exam_moduleid', FILTER_SANITIZE_STRING);
-    $examid = filter_input(INPUT_POST, 'examid', FILTER_SANITIZE_STRING);
-    $exam_name = filter_input(INPUT_POST, 'exam_name1', FILTER_SANITIZE_STRING);
-    $exam_notes = filter_input(INPUT_POST, 'exam_notes1', FILTER_SANITIZE_STRING);
-    $exam_date = filter_input(INPUT_POST, 'exam_date1', FILTER_SANITIZE_STRING);
-    $exam_time = filter_input(INPUT_POST, 'exam_time1', FILTER_SANITIZE_STRING);
-    $exam_location = filter_input(INPUT_POST, 'exam_location1', FILTER_SANITIZE_STRING);
-    $exam_capacity = filter_input(INPUT_POST, 'exam_capacity1', FILTER_SANITIZE_STRING);
+    $moduleid = filter_input(INPUT_POST, 'update_exam_moduleid', FILTER_SANITIZE_STRING);
+    $examid = filter_input(INPUT_POST, 'update_examid', FILTER_SANITIZE_STRING);
+    $exam_name = filter_input(INPUT_POST, 'update_exam_name', FILTER_SANITIZE_STRING);
+    $exam_notes = filter_input(INPUT_POST, 'update_exam_notes', FILTER_SANITIZE_STRING);
+    $exam_date = filter_input(INPUT_POST, 'update_exam_date', FILTER_SANITIZE_STRING);
+    $exam_time = filter_input(INPUT_POST, 'update_exam_time', FILTER_SANITIZE_STRING);
+    $exam_location = filter_input(INPUT_POST, 'update_exam_location', FILTER_SANITIZE_STRING);
+    $exam_capacity = filter_input(INPUT_POST, 'update_exam_capacity', FILTER_SANITIZE_STRING);
 
     //Exam
-    $stmt13 = $mysqli->prepare("SELECT exam_name FROM system_exams WHERE examid = ?");
-    $stmt13->bind_param('i', $examid);
-    $stmt13->execute();
-    $stmt13->store_result();
-    $stmt13->bind_result($db_exam_name);
-    $stmt13->fetch();
+    $stmt1 = $mysqli->prepare("SELECT exam_name FROM system_exams WHERE examid = ?");
+    $stmt1->bind_param('i', $examid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_exam_name);
+    $stmt1->fetch();
 
     if ($db_exam_name === $exam_name) {
-        $stmt14 = $mysqli->prepare("UPDATE system_exams SET exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
-        $stmt14->bind_param('ssssssi', $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
-        $stmt14->execute();
-        $stmt14->close();
+        $stmt3 = $mysqli->prepare("UPDATE system_exams SET moduleid=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+        $stmt3->bind_param('issssssi', $moduleid, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
+        $stmt3->execute();
+        $stmt3->close();
     } else {
-        $stmt15 = $mysqli->prepare("SELECT examid FROM system_exams WHERE exam_name = ?");
-        $stmt15->bind_param('s', $exam_name);
-        $stmt15->execute();
-        $stmt15->store_result();
-        $stmt15->bind_result($db_examid);
-        $stmt15->fetch();
+        $stmt4 = $mysqli->prepare("SELECT examid FROM system_exams WHERE exam_name = ?");
+        $stmt4->bind_param('s', $exam_name);
+        $stmt4->execute();
+        $stmt4->store_result();
+        $stmt4->bind_result($db_examid);
+        $stmt4->fetch();
 
-        if ($stmt15->num_rows == 1) {
-            $stmt15->close();
+        if ($stmt4->num_rows == 1) {
+            $stmt4->close();
             header('HTTP/1.0 550 An exam with the name entered already exists.');
             exit();
         } else {
-            $stmt16 = $mysqli->prepare("UPDATE system_exams SET exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
-            $stmt16->bind_param('sssssssi', $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
-            $stmt16->execute();
-            $stmt16->close();
+            $stmt5 = $mysqli->prepare("UPDATE system_exams SET moduleid=?, exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+            $stmt5->bind_param('isssssssi', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
+            $stmt5->execute();
+            $stmt5->close();
         }
     }
 
