@@ -132,7 +132,7 @@ if (isset($_GET['id'])) {
     }
     ?>
     </select>
-
+    </div>
     </div>
 
 	<div class="form-group">
