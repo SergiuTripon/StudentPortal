@@ -1444,7 +1444,7 @@ include 'includes/session.php';
             <td data-title="Moodle link">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a href="#reactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
+            <a class="btn btn-primary" href="#reactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -1619,7 +1619,7 @@ include 'includes/session.php';
             <td data-title="Location">'.$lecture_location.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a href="#reactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
+            <a class="btn btn-primary" href="#reactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -1800,7 +1800,7 @@ include 'includes/session.php';
             <td data-title="Location">'.$tutorial_location.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a href="#reactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
+            <a class="btn btn-primary" href="#reactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
