@@ -89,18 +89,6 @@ elseif (isset(
     CreateTutorial();
 }
 
-//Call CreateTimetable function
-elseif (isset(
-    $_POST['create_exam_moduleid'],
-    $_POST['create_exam_name'],
-    $_POST['create_exam_notes'],
-    $_POST['create_exam_date'],
-    $_POST['create_exam_time'],
-    $_POST['create_exam_location'],
-    $_POST['create_exam_capacity'])) {
-    CreateExam();
-}
-
 //Call UpdateModule function
 elseif (isset(
     $_POST['update_moduleid'],
@@ -144,19 +132,6 @@ elseif (isset(
     UpdateTutorial();
 }
 
-//Call UpdateExam function
-elseif (isset(
-    $_POST['update_exam_moduleid'],
-    $_POST['update_examid'],
-    $_POST['update_exam_name'],
-    $_POST['update_exam_notes'],
-    $_POST['update_exam_date'],
-    $_POST['update_exam_time'],
-    $_POST['update_exam_location'],
-    $_POST['update_exam_capacity'])) {
-    UpdateExam();
-}
-
 //Call DeactivateTimetable function
 elseif (isset($_POST['timetableToDeactivate'])) {
     DeactivateTimetable();
@@ -170,6 +145,34 @@ elseif (isset($_POST['timetableToReactivate'])) {
 //Call DeleteTimetable function
 elseif (isset($_POST['timetableToDelete'])) {
     DeleteTimetable();
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Call Exams functions
+//Call CreateExam function
+elseif (isset(
+    $_POST['create_exam_moduleid'],
+    $_POST['create_exam_name'],
+    $_POST['create_exam_notes'],
+    $_POST['create_exam_date'],
+    $_POST['create_exam_time'],
+    $_POST['create_exam_location'],
+    $_POST['create_exam_capacity'])) {
+    CreateExam();
+}
+
+//Call UpdateExam function
+elseif (isset(
+    $_POST['update_exam_moduleid'],
+    $_POST['update_examid'],
+    $_POST['update_exam_name'],
+    $_POST['update_exam_notes'],
+    $_POST['update_exam_date'],
+    $_POST['update_exam_time'],
+    $_POST['update_exam_location'],
+    $_POST['update_exam_capacity'])) {
+    UpdateExam();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
