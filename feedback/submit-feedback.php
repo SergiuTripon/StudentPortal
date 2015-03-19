@@ -89,8 +89,8 @@ if (isset($_GET["id"])) {
 	</div>
     </div>
 
-    <h4 class="text-center">Student</h4>
-    <hr class="hr-custom">
+    <h4 class="text-center title-separator">Student</h4>
+    <hr class="hr-custom hr-separator">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0">
