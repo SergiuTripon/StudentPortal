@@ -132,9 +132,19 @@ elseif (isset(
     UpdateTutorial();
 }
 
-//Call DeactivateTimetable function
-elseif (isset($_POST['timetableToDeactivate'])) {
-    DeactivateTimetable();
+//Call DeactivateModule function
+elseif (isset($_POST['moduleToDeactivate'])) {
+    DeactivateModule();
+}
+
+//Call DeactivateLecture function
+elseif (isset($_POST['lectureToDeactivate'])) {
+    DeactivateLecture();
+}
+
+//Call DeactivateTutorial function
+elseif (isset($_POST['tutorialToDeactivate'])) {
+    DeactivateTutorial();
 }
 
 //Call ReactivateTimetable function
@@ -173,6 +183,11 @@ elseif (isset(
     $_POST['update_exam_location'],
     $_POST['update_exam_capacity'])) {
     UpdateExam();
+}
+
+//Call DeactivateExam function
+elseif (isset($_POST['examToDeactivate'])) {
+    DeactivateExam();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

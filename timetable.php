@@ -1268,7 +1268,7 @@ include 'includes/session.php';
     $stmt2->fetch();
     $stmt2->close();
 
-	echo '<tr id="lecture-'.$tutorialid.'">
+	echo '<tr id="tutorial-'.$tutorialid.'">
 
 			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
             <td data-title="Lecturer">'.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</td>
@@ -2064,27 +2064,89 @@ include 'includes/session.php';
 		}
 	});
 
-    //Deactivate record
-    $("body").on("click", ".deactivate-button", function(e) {
+    //Deactivate module
+    $("body").on("click", ".deactivate-module-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var timetableToDeactivate = clickedID[1];
+    var moduleToDeactivate = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'timetableToDeactivate='+ timetableToDeactivate,
+	data:'moduleToDeactivate='+ moduleToDeactivate,
 	success:function(){
-		$('#timetable-'+timetableToDeactivate).hide();
+		$('#module-'+moduleToDeactivate).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-question').hide();
-        $('#deactivate-confirmation').show();
-        $('#deactivate-hide').hide();
-        $('#deactivate-success-button').show();
-        $("#deactivate-success-button").click(function () {
+        $('#deactivate-module-question').hide();
+        $('#deactivate-module-confirmation').show();
+        $('#deactivate-module-hide').hide();
+        $('#deactivate-module-success-button').show();
+        $("#deactivate-module-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Deactivate lecture
+    $("body").on("click", ".deactivate-lecture-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var lectureToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'lectureToDeactivate='+ lectureToDeactivate,
+	success:function(){
+		$('#lecture-'+lectureToDeactivate).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-lecture-question').hide();
+        $('#deactivate-lectureconfirmation').show();
+        $('#deactivate-lecturehide').hide();
+        $('#deactivate-lecturesuccess-button').show();
+        $("#deactivate-lecturesuccess-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Deactivate tutorial
+    $("body").on("click", ".deactivate-tutorial-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var tutorialToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'tutorialToDeactivate='+ tutorialToDeactivate,
+	success:function(){
+		$('#tutorial-'+tutorialToDeactivate).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-tutorial-question').hide();
+        $('#deactivate-tutorial-confirmation').show();
+        $('#deactivate-tutorial-hide').hide();
+        $('#deactivate-tutorial-success-button').show();
+        $("#deactivate-tutorial-success-button").click(function () {
             location.reload();
         });
 	},
