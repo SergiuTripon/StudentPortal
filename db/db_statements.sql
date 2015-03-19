@@ -337,20 +337,47 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `user_timetable` (
+CREATE TABLE `user_module` (
 	`userid` INT(11) NOT NULL,
 	`moduleid` INT(11) NOT NULL,
-  `lectureid` INT(11) NOT NULL,
-  `tutorialid` INT(11) NOT NULL,
-  `examid` INT(11) NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid),
+REFERENCES system_modules(moduleid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Timetable
+CREATE TABLE `user_lecture` (
+  `userid` INT(11) NOT NULL,
+  `lectureid` INT(11) NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
 FOREIGN KEY (lectureid)
-REFERENCES system_lectures(lectureid),
+REFERENCES system_lectures(lectureid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Timetable
+CREATE TABLE `user_tutorial` (
+  `userid` INT(11) NOT NULL,
+  `tutorialid` INT(11) NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
 FOREIGN KEY (tutorialid)
-REFERENCES system_tutorials(tutorialid),
+REFERENCES system_tutorials(tutorialid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Timetable
+CREATE TABLE `user_exam` (
+  `userid` INT(11) NOT NULL,
+  `examid` INT(11) NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
 FOREIGN KEY (examid)
 REFERENCES system_exams(examid)
 ON UPDATE CASCADE

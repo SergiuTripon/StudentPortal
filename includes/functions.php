@@ -1057,7 +1057,7 @@ function AllocateModule() {
     $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
     $moduleToAllocate = filter_input(INPUT_POST, 'moduleToAllocate', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("INSERT INTO user_timetable (userid, moduleid) VALUES (?, ?)");
+    $stmt1 = $mysqli->prepare("INSERT INTO user_module (userid, moduleid) VALUES (?, ?)");
     $stmt1->bind_param('ii', $userToAllocate, $moduleToAllocate);
     $stmt1->execute();
     $stmt1->close();
@@ -1071,7 +1071,7 @@ function DeallocateModule() {
     $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
     $moduleToDeallocate = filter_input(INPUT_POST, 'moduleToDeallocate', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid=? AND moduleid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_module WHERE userid=? AND moduleid=?");
     $stmt1->bind_param('ii', $userToDeallocate, $moduleToDeallocate);
     $stmt1->execute();
     $stmt1->close();
