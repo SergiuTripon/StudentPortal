@@ -116,7 +116,7 @@ include 'includes/session.php';
 	<li class="active">Exams</li>
     </ol>
 
-    <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-module/"><span class="ladda-label">Create module</span></a>
+    <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-exam/"><span class="ladda-label">Create exam</span></a>
 
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
@@ -131,7 +131,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Exams -->
+	<!-- Active exams -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -148,6 +148,92 @@ include 'includes/session.php';
 	<?php
 
 	$stmt1 = $mysqli->query("SELECT e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exams e WHERE e.exam_status='active'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $examid = $row["examid"];
+    $exam_name = $row["exam_name"];
+    $exam_notes = $row["exam_notes"];
+    $exam_date = $row["exam_date"];
+    $exam_time = $row["exam_time"];
+    $exam_location = $row["exam_location"];
+    $exam_capacity = $row["exam_capacity"];
+
+
+	echo '<tr>
+
+			<td data-title="Name"><a href="#view-exam-'.$examid.'" data-toggle="modal">'.$exam_name.'</a></td>
+			<td data-title="Date">'.$exam_date.'</td>
+			<td data-title="Time">'.$exam_time.'</td>
+			<td data-title="Location">'.$exam_location.'</td>
+			</tr>
+
+			<div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-pencil"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$exam_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($exam_notes) ? "No description" : "$exam_notes").'</p>
+			<p><b>Date:</b> '.$exam_date.'</p>
+			<p><b>Time:</b> '.$exam_time.'</p>
+			<p><b>Location:</b> '.$exam_location.'</p>
+			<p><b>Capacity:</b> '.$exam_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal"><span class="ladda-label">Close</span></a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+   <div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Inactive exams</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Inactive exams -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Date</th>
+    <th>Time</th>
+    <th>Location</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exams e WHERE e.exam_status='inactive'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
