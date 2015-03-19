@@ -7,11 +7,14 @@ DROP TABLE tube_line_status_now;
 DROP TABLE user_feedback_sent;
 DROP TABLE user_feedback_received;
 DROP TABLE user_feedback;
+DROP TABLE user_lecture;
 DROP TABLE system_lectures;
+DROP TABLE user_tutorial;
 DROP TABLE system_tutorials;
+DROP TABLE user_exam;
 DROP TABLE system_exams;
-DROP TABLE user_timetable;
-DROP TABLE user_results;
+DROP TABLE user_result;
+DROP TABLE user_module;
 DROP TABLE system_modules;
 DROP TABLE system_books_reserved;
 DROP TABLE system_books_requested;
@@ -385,7 +388,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Results
-CREATE TABLE `user_results` (
+CREATE TABLE `user_result` (
   `userid` INT(11) NOT NULL,
   `moduleid` INT(11) NOT NULL,
   `resultid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -406,11 +409,14 @@ ON DELETE CASCADE
 
 #Feedback
 CREATE TABLE `user_feedback` (
+  `moduleid` INT(11) NOT NULL,
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `feedback_subject` VARCHAR(300) NOT NULL,
   `feedback_body` VARCHAR(5000) NOT NULL,
   `feedback_status` VARCHAR(9) NOT NULL,
-  `created_on` DATETIME NOT NULL
+  `created_on` DATETIME NOT NULL,
+FOREIGN KEY (moduleid)
+REFERENCES system_modules(moduleid)
 ) ENGINE = InnoDB;
 
 #Feedback
