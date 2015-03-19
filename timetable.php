@@ -2228,7 +2228,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'tutorialToReactivate='+ tutorialToReactivate,
 	success:function(){
-		$('#tutorial-'+timetableToReactivate).hide();
+		$('#tutorial-'+tutorialToReactivate).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#reactivate-tutorial-question').hide();
