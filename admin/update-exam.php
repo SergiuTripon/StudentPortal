@@ -241,7 +241,6 @@ if (isset($_GET['id'])) {
 	
 	var hasError = false;
 
-
     //Exams
     var examid = $("#examid").val();
 
@@ -334,6 +333,12 @@ if (isset($_GET['id'])) {
         $("#exam_capacity").removeClass("input-sad");
         $("#exam_capacity").addClass("input-happy");
 	}
+
+    $("label[for='exam_moduleid']").empty().append("All good!");
+    $("label[for='exam_moduleid']").removeClass("feedback-sad");
+    $("label[for='exam_moduleid']").addClass("feedback-happy");
+    $("[aria-owns='select2-exam_moduleid-results']").removeClass("input-sad");
+    $("[aria-owns='select2-exam_moduleid-results']").addClass("input-happy");
 
     var exam_moduleid = $("#exam_moduleid option:selected").val();
     var exam_notes = $("#exam_notes").val();
