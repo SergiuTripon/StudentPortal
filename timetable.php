@@ -1047,7 +1047,7 @@ include 'includes/session.php';
 
 	<!-- Active lectures -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1230,7 +1230,7 @@ include 'includes/session.php';
 
 	<!-- Active tutorials -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1414,7 +1414,7 @@ include 'includes/session.php';
 
 	<!-- Inactive modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1568,7 +1568,7 @@ include 'includes/session.php';
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingFive">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive"> Active lectures</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive"> Inactive lectures</a>
     </h4>
     </div>
     <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
@@ -1576,7 +1576,7 @@ include 'includes/session.php';
 
 	<!-- Inactive lectures -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1751,7 +1751,7 @@ include 'includes/session.php';
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingSix">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix"> Active tutorials</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix"> Inactive tutorials</a>
     </h4>
     </div>
     <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
@@ -1759,7 +1759,7 @@ include 'includes/session.php';
 
 	<!-- Inactive tutorials -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -2054,13 +2054,13 @@ include 'includes/session.php';
 		}
 	});
 
-    $('.module-table').dataTable({
+    $('.table-table').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no modules to display."
+			"emptyTable": "There are no records to display."
 		}
 	});
 
