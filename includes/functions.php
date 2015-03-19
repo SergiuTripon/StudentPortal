@@ -1282,11 +1282,11 @@ function AllocateExam() {
 
     global $mysqli;
 
-    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
-    $examToDeallocate = filter_input(INPUT_POST, 'examToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
+    $examToAllocate = filter_input(INPUT_POST, 'examToAllocate', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_exam WHERE userid=? AND examid=?");
-    $stmt1->bind_param('ii', $userToDeallocate, $examToDeallocate);
+    $stmt1->bind_param('ii', $userToAllocate, $examToAllocate);
     $stmt1->execute();
     $stmt1->close();
 }
