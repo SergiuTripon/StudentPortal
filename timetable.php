@@ -1442,7 +1442,7 @@ include 'includes/session.php';
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
             <td data-title="Moodle link">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#reactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal"><span class="ladda-label">Deactivate</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#reactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal"><span class="ladda-label">Reactivate</span></a></td>
 			</tr>
 
             <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1461,9 +1461,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#reactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
@@ -1624,7 +1622,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="deactivate-lecture-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="reactivate-lecture-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1635,54 +1633,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="deactivate-lecture-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$lecture_name.'?</p>
-            <p id="deactivate-lecture-confirmation" style="display: none;" class="text-center feedback-happy">'.$lecture_name.' has been deactivated successfully.</p>
+			<p id="reactivate-lecture-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$lecture_name.'?</p>
+            <p id="reactivate-lecture-confirmation" style="display: none;" class="text-center feedback-happy">'.$lecture_name.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="deactivate-lecture-hide">
+			<div id="reactivate-lecture-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$lectureid.'" class="btn btn-success btn-lg deactivate-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$lectureid.'" class="btn btn-success btn-lg reactivate-lecture-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="delete-lecture-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="delete-lecture-question" class="text-center feedback-sad">Are you sure you want to delete '.$lecture_name.'?</p>
-			<p id="delete-lecture-confirmation" style="display: none;" class="text-center feedback-happy">'.$lecture_name.' has been deleted successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="delete-lecture-hide">
-			<div class="pull-left">
-			<a id="delete-lecture-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button ladda-button" data-style="slide-up">Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -1784,7 +1749,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
+			<p><b>Description:</b> '.(empty($tutorial_notes) ? "No description" : "$tutorial_notes").'</p>
 			<p><b>Lecturer:</b> '.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</p>
 			<p><b>From:</b> '.$tutorial_from_time.'</p>
 			<p><b>To:</b> '.$tutorial_to_time.'</p>
@@ -1807,7 +1772,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="deactivate-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="reactivate-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1818,54 +1783,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="deactivate-tutorial-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$tutorial_name.'?</p>
-            <p id="deactivate-tutorial-confirmation" style="display: none;" class="text-center feedback-happy">'.$tutorial_name.' has been deactivated successfully.</p>
+			<p id="reactivate-tutorial-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$tutorial_name.'?</p>
+            <p id="reactivate-tutorial-confirmation" style="display: none;" class="text-center feedback-happy">'.$tutorial_name.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="deactivate-tutorial-hide">
+			<div id="reactivate-tutorial-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$tutorialid.'" class="btn btn-success btn-lg deactivate-tutorial-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$tutorialid.'" class="btn btn-success btn-lg reactivate-tutorial-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="delete-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="delete-tutorial-question" class="text-center feedback-sad">Are you sure you want to delete '.$tutorial_name.'?</p>
-			<p id="delete-tutorial-confirmation" style="display: none;" class="text-center feedback-happy">'.$tutorial_name.' has been deleted successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="delete-tutorial-hide">
-			<div class="pull-left">
-			<a id="delete-tutorial-'.$tutorialid.'" class="btn btn-success btn-lg delete-lecture-button ladda-button" data-style="slide-up">Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -2113,27 +2045,27 @@ include 'includes/session.php';
 	});
     });
 
-    //Reactivate record
-    $("body").on("click", ".reactivate-button", function(e) {
+    //Reactivate module
+    $("body").on("click", ".reactivate-module-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var timetableToReactivate = clickedID[1];
+    var moduleToReactivate = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'timetableToReactivate='+ timetableToReactivate,
+	data:'moduleToReactivate='+ moduleToReactivate,
 	success:function(){
-		$('#timetable-'+timetableToReactivate).hide();
+		$('#module-'+moduleToReactivate).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('#reactivate-question').hide();
-        $('#reactivate-confirmation').show();
-        $('#reactivate-hide').hide();
-        $('#reactivate-success-button').show();
-        $("#reactivate-success-button").click(function () {
+        $('#reactivate-module-question').hide();
+        $('#reactivate-module-confirmation').show();
+        $('#reactivate-module-hide').hide();
+        $('#reactivate-module-success-button').show();
+        $("#reactivate-module-success-button").click(function () {
             location.reload();
         });
 	},
@@ -2144,27 +2076,151 @@ include 'includes/session.php';
 	});
     });
 
-    //Delete record
-    $("body").on("click", ".delete-button", function(e) {
+    //Reactivate lecture
+    $("body").on("click", ".reactivate-lecture-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var timetableToDelete = clickedID[1];
+    var lectureToReactivate = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'timetableToDelete='+ timetableToDelete,
+	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(){
-		$('#timetable-'+timetableToDelete).hide();
+		$('#lecture-'+lectureToReactivate).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-question').hide();
-        $('#delete-confirmation').show();
-        $('#delete-hide').hide();
-        $('#delete-success-button').show();
-        $("#delete-success-button").click(function () {
+        $('#reactivate-lecture-question').hide();
+        $('#reactivate-lecture-confirmation').show();
+        $('#reactivate-lecture-hide').hide();
+        $('#reactivate-lecture-success-button').show();
+        $("#reactivate-lecture-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate tutorial
+    $("body").on("click", ".reactivate-tutorial-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var tutorialToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'tutorialToReactivate='+ tutorialToReactivate,
+	success:function(){
+		$('#tutorial-'+timetableToReactivate).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#reactivate-tutorial-question').hide();
+        $('#reactivate-tutorial-confirmation').show();
+        $('#reactivate-tutorial-hide').hide();
+        $('#reactivate-tutorial-success-button').show();
+        $("#reactivate-tutorial-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete module
+    $("body").on("click", ".delete-module-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var moduleToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'moduleToDelete='+ moduleToDelete,
+	success:function(){
+		$('#module-'+moduleToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-module-question').hide();
+        $('#delete-module-confirmation').show();
+        $('#delete-module-hide').hide();
+        $('#delete-module-success-button').show();
+        $("#delete-module-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete lecture
+    $("body").on("click", ".delete-lecture-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var lectureToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'lectureToDelete='+ lectureToDelete,
+	success:function(){
+		$('#lecture-'+lectureToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-lecture-question').hide();
+        $('#delete-lecture-confirmation').show();
+        $('#delete-lecture-hide').hide();
+        $('#delete-lecture-success-button').show();
+        $("#delete-lecture-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete tutorial
+    $("body").on("click", ".delete-tutorial-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var tutorialToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'tutorialToDelete='+ tutorialToDelete,
+	success:function(){
+		$('#tutorial-'+tutorialToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-tutorial-question').hide();
+        $('#delete-tutorial-confirmation').show();
+        $('#delete-tutorial-hide').hide();
+        $('#delete-tutorial-success-button').show();
+        $("#delete-tutorial-success-button").click(function () {
             location.reload();
         });
 	},
