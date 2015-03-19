@@ -112,7 +112,7 @@ if (isset($_GET['id'])) {
     $lecturer_firstname = $row["firstname"];
     $lecturer_surname = $row["surname"];
 
-        echo '<option selected>'.$lecturer_firstname.' '.$lecturer_surname.'</option>';
+        echo '<option value="'.$lecture_lecturer.'" selected>'.$lecturer_firstname.' '.$lecturer_surname.'</option>';
     }
 
     $stmt2 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type='lecturer' AND NOT userid = '$lecture_lecturer'");
@@ -128,7 +128,7 @@ if (isset($_GET['id'])) {
         $stmt3->bind_result($other_lecturers_firstname, $other_lecturers_surname);
         $stmt3->fetch();
 
-        echo '<option>'.$other_lecturers_firstname.' '.$other_lecturers_surname.'</option>';
+        echo '<option value="'.$other_lecturers.'">'.$other_lecturers_firstname.' '.$other_lecturers_surname.'</option>';
     }
     ?>
     </select>
