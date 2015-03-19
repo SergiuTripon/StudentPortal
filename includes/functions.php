@@ -472,7 +472,7 @@ function GetDashboardData() {
     $isRead = 0;
     $isApproved = 1;
 
-    $stmt10 = $mysqli->prepare("SELECT DISTINCT user_feedback_received.feedbackid FROM user_feedback_received LEFT JOIN user_feedback_sent ON user_feedback_received.feedbackid=user_feedback_sent.feedbackid WHERE user_feedback_received.module_staff=? AND user_feedback_sent.isRead=? AND user_feedback_sent.isApproved=?");
+    $stmt10 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback_sent s ON r.feedbackid=s.feedbackid WHERE s.module_staff=? AND s.isRead=? AND s.isApproved=?");
     $stmt10->bind_param('iii', $session_userid, $isRead, $isApproved);
     $stmt10->execute();
     $stmt10->store_result();
