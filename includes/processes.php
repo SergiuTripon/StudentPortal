@@ -172,9 +172,9 @@ elseif (isset($_POST["userToAllocate"], $_POST["moduleToAllocate"])) {
     AllocateModule();
 }
 
-//Call UnassignTimetable function
-elseif (isset($_POST["userToDeallocate"], $_POST["timetableToDeallocate"])) {
-    DeallocateTimetable();
+//Call DeallocateModule function
+elseif (isset($_POST["userToDeallocate"], $_POST["moduleToDeallocate"])) {
+    DeallocateModule();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

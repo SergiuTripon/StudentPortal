@@ -1064,7 +1064,7 @@ function AllocateModule() {
 }
 
 //DeallocateTimetable function
-function DeallocateTimetable() {
+function DeallocateModule() {
 
     global $mysqli;
 
