@@ -895,52 +895,85 @@ function DeactivateTutorial() {
     $stmt1->close();
 }
 
-//ReactivateTimetable function
-function ReactivateTimetable() {
+//ReactivateModule function
+function ReactivateModule() {
 
     global $mysqli;
     global $updated_on;
 
-    $timetableToReactivate = filter_input(INPUT_POST, 'timetableToReactivate', FILTER_SANITIZE_NUMBER_INT);
+    $moduleToReactivate = filter_input(INPUT_POST, 'moduleToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
-    $result_status = 'active';
+    $module_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE moduleid=?");
-    $stmt1->bind_param('ssi', $result_status, $updated_on, $timetableToReactivate);
+    $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1->bind_param('ssi', $module_status, $updated_on, $moduleToReactivate);
     $stmt1->execute();
     $stmt1->close();
 
-    $exam_status = 'active';
+    $lecture_status = 'active';
 
-    $stmt2 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
-    $stmt2->bind_param('ssi', $exam_status, $updated_on, $timetableToReactivate);
+    $stmt2 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
+    $stmt2->bind_param('ssi', $lecture_status, $updated_on, $moduleToReactivate);
     $stmt2->execute();
     $stmt2->close();
 
     $tutorial_status = 'active';
 
     $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $timetableToReactivate);
+    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $moduleToReactivate);
     $stmt3->execute();
     $stmt3->close();
 
-    $lecture_status = 'active';
+    $exam_status = 'active';
 
-    $stmt4 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
-    $stmt4->bind_param('ssi', $lecture_status, $updated_on, $timetableToReactivate);
+    $stmt4 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt4->bind_param('ssi', $exam_status, $updated_on, $moduleToReactivate);
     $stmt4->execute();
     $stmt4->close();
 
-    $module_status = 'active';
+    $result_status = 'active';
 
-    $stmt5 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
-    $stmt5->bind_param('ssi', $module_status, $updated_on, $timetableToReactivate);
+    $stmt5 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE moduleid=?");
+    $stmt5->bind_param('ssi', $result_status, $updated_on, $moduleToReactivate);
     $stmt5->execute();
     $stmt5->close();
 }
 
+//ReactivateLecture function
+function ReactivateLecture() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $lectureToReactivate = filter_input(INPUT_POST, 'lectureToReactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $lecture_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE lectureid=?");
+    $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//ReactivateTutorial function
+function ReactivateTutorial() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $tutorialToReactivate = filter_input(INPUT_POST, 'tutorialToReactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $tutorial_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
+    $stmt1->bind_param('ssi', $tutorial_status, $updated_on, $tutorialToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+}
+
 //DeleteTimetable function
-function DeleteTimetable() {
+function DeleteModule() {
 
     global $mysqli;
 
@@ -1148,6 +1181,22 @@ function DeactivateExam() {
 
     $stmt1 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
     $stmt1->bind_param('ssi', $exam_status, $updated_on, $examToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//ReactivateExam function
+function ReactivateExam() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $examToReactivate = filter_input(INPUT_POST, 'examToReactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $exam_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE examid=?");
+    $stmt1->bind_param('ssi', $exam_status, $updated_on, $examToReactivate);
     $stmt1->execute();
     $stmt1->close();
 }
