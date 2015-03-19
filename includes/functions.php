@@ -422,7 +422,7 @@ function GetDashboardData() {
 	$stmt3->bind_result($examid);
 	$stmt3->fetch();
 
-    $stmt4 = $mysqli->prepare("SELECT resultid FROM user_results WHERE userid=?");
+    $stmt4 = $mysqli->prepare("SELECT resultid FROM user_result WHERE userid=?");
     $stmt4->bind_param('i', $session_userid);
     $stmt4->execute();
     $stmt4->store_result();
@@ -829,7 +829,7 @@ function DeactivateModule() {
 
     $result_status = 'inactive';
 
-    $stmt5 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE moduleid=?");
+    $stmt5 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE moduleid=?");
     $stmt5->bind_param('ssi', $result_status, $updated_on, $moduleToDeactivate);
     $stmt5->execute();
     $stmt5->close();
@@ -906,7 +906,7 @@ function ReactivateModule() {
 
     $result_status = 'active';
 
-    $stmt5 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE moduleid=?");
+    $stmt5 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE moduleid=?");
     $stmt5->bind_param('ssi', $result_status, $updated_on, $moduleToReactivate);
     $stmt5->execute();
     $stmt5->close();
@@ -967,7 +967,7 @@ function DeleteModule() {
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("DELETE FROM user_results WHERE moduleid=?");
+    $stmt4 = $mysqli->prepare("DELETE FROM user_result WHERE moduleid=?");
     $stmt4->bind_param('i', $moduleToDelete);
     $stmt4->execute();
     $stmt4->close();
@@ -1310,7 +1310,7 @@ function CreateResult() {
 
     $result_status = 'active';
 
-    $stmt1 = $mysqli->prepare("INSERT INTO user_results (userid, moduleid, result_coursework_mark, result_exam_mark, result_overall_mark, result_notes, result_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt1 = $mysqli->prepare("INSERT INTO user_result (userid, moduleid, result_coursework_mark, result_exam_mark, result_overall_mark, result_notes, result_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt1->bind_param('iissssss', $result_userid, $result_moduleid, $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes, $result_status, $created_on);
     $stmt1->execute();
     $stmt1->close();
@@ -1328,7 +1328,7 @@ function UpdateResult() {
     $result_overall_mark = filter_input(INPUT_POST, 'result_overall_mark1', FILTER_SANITIZE_STRING);
     $result_notes = filter_input(INPUT_POST, 'result_notes1', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("UPDATE user_results SET result_coursework_mark=?, result_exam_mark=?, result_overall_mark=?, result_notes=?, updated_on=? WHERE resultid=?");
+    $stmt1 = $mysqli->prepare("UPDATE user_result SET result_coursework_mark=?, result_exam_mark=?, result_overall_mark=?, result_notes=?, updated_on=? WHERE resultid=?");
     $stmt1->bind_param('sssssi', $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes, $updated_on, $result_resultid);
     $stmt1->execute();
     $stmt1->close();
@@ -1344,7 +1344,7 @@ function DeactivateResult() {
 
     $result_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE resultid=?");
+    $stmt1 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE resultid=?");
     $stmt1->bind_param('ssi', $result_status, $updated_on, $resultToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -1360,7 +1360,7 @@ function ReactivateResult() {
 
     $result_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE resultid=?");
+    $stmt1 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE resultid=?");
     $stmt1->bind_param('ssi', $result_status, $updated_on, $resultToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -1373,7 +1373,7 @@ function DeleteResult() {
 
     $resultToDelete = filter_input(INPUT_POST, 'resultToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_results WHERE resultid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_result WHERE resultid=?");
     $stmt1->bind_param('i', $resultToDelete);
     $stmt1->execute();
     $stmt1->close();
@@ -3039,7 +3039,7 @@ function DeleteAccount() {
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM user_results WHERE userid = ?");
+    $stmt5 = $mysqli->prepare("DELETE FROM user_result WHERE userid = ?");
     $stmt5->bind_param('i', $accountToDelete);
     $stmt5->execute();
     $stmt5->close();
