@@ -153,7 +153,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_exam.userid) FROM user_exam WHERE user_exam.moduleid = '$examToAllocate') AND user_signin.account_type = 'student'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_exam.userid) FROM user_exam WHERE user_exam.examid = '$examToAllocate') AND user_signin.account_type = 'student'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
