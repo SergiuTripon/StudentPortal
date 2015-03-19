@@ -433,6 +433,99 @@ include 'includes/session.php';
 			"emptyTable": "There are no records to display."
 		}
 	});
+
+    //Deactivate module
+    $("body").on("click", ".deactivate-exam-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var examToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'examToDeactivate='+ examToDeactivate,
+	success:function(){
+		$('#exam-'+examToDeactivate).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-exam-question').hide();
+        $('#deactivate-exam-confirmation').show();
+        $('#deactivate-exam-hide').hide();
+        $('#deactivate-exam-success-button').show();
+        $("#deactivate-exam-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate module
+    $("body").on("click", ".reactivate-exam-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var examToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'examToReactivate='+ examToReactivate,
+	success:function(){
+		$('#exam-'+examToReactivate).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#reactivate-exam-question').hide();
+        $('#reactivate-exam-confirmation').show();
+        $('#reactivate-exam-hide').hide();
+        $('#reactivate-exam-success-button').show();
+        $("#reactivate-exam-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete module
+    $("body").on("click", ".delete-exam-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var examToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'examToDelete='+ examToDelete,
+	success:function(){
+		$('#exam-'+examToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-exam-question').hide();
+        $('#delete-exam-confirmation').show();
+        $('#delete-exam-hide').hide();
+        $('#delete-exam-success-button').show();
+        $("#delete-exam-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
 	</script>
 
 </body>

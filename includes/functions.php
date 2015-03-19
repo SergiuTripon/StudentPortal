@@ -998,7 +998,7 @@ function DeleteModule() {
     $stmt6->execute();
     $stmt6->close();
 
-    $stmt7 = $mysqli->prepare("DELETE FROM user_timetable WHERE moduleid=?");
+    $stmt7 = $mysqli->prepare("DELETE FROM user_module WHERE moduleid=?");
     $stmt7->bind_param('i', $moduleToDelete);
     $stmt7->execute();
     $stmt7->close();
@@ -1023,7 +1023,7 @@ function DeleteLecture() {
 
     $lectureid = '';
 
-    $stmt2 = $mysqli->prepare("UPDATE user_timetable SET lectureid=? WHERE lectureid=?");
+    $stmt2 = $mysqli->prepare("DELETE FROM user_lecture WHERE lectureid=?");
     $stmt2->bind_param('ii', $lectureid, $lectureToDelete);
     $stmt2->execute();
     $stmt2->close();
@@ -1043,7 +1043,7 @@ function DeleteTutorial() {
 
     $tutorialid = '';
 
-    $stmt2 = $mysqli->prepare("UPDATE user_timetable SET tutorialid=? WHERE tutorialid=?");
+    $stmt2 = $mysqli->prepare("DELETE FROM user_tutorial WHERE tutorialid=?");
     $stmt2->bind_param('ii', $tutorialid, $tutorialToDelete);
     $stmt2->execute();
     $stmt2->close();
@@ -1271,7 +1271,7 @@ function DeleteExam() {
 
     $examid = '';
 
-    $stmt2 = $mysqli->prepare("UPDATE user_timetable SET examid=? WHERE examid=?");
+    $stmt2 = $mysqli->prepare("DELETE FROM user_exam WHERE examid=?");
     $stmt2->bind_param('ii', $examid, $examToDelete);
     $stmt2->execute();
     $stmt2->close();
