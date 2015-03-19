@@ -274,7 +274,7 @@ if (isset($_GET['id'])) {
     $(document).ready(function () {
         //select2
         $("#tutorial_moduleid").select2({placeholder: "Select an option"});
-        $("#tutorial_lecturer").select2({placeholder: "Select an option"});
+        $("#tutorial_assistant").select2({placeholder: "Select an option"});
         $("#tutorial_day").select2({placeholder: "Select an option"});
     });
 
