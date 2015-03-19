@@ -1061,17 +1061,17 @@ function DeleteTutorial() {
 
     global $mysqli;
 
-    $lectureToDelete = filter_input(INPUT_POST, 'lectureToDelete', FILTER_SANITIZE_NUMBER_INT);
+    $tutorialToDelete = filter_input(INPUT_POST, 'tutorialToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_lectures WHERE lectureid=?");
-    $stmt1->bind_param('i', $lectureToDelete);
+    $stmt1 = $mysqli->prepare("DELETE FROM system_tutorials WHERE tutorialid=?");
+    $stmt1->bind_param('i', $tutorialToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $lectureid = '';
+    $tutorialid = '';
 
-    $stmt2 = $mysqli->prepare("UPDATE user_timetable SET lectureid=? WHERE lectureid=?");
-    $stmt2->bind_param('ii', $lectureid, $lectureToDelete);
+    $stmt2 = $mysqli->prepare("UPDATE user_timetable SET tutorialid=? WHERE tutorialid=?");
+    $stmt2->bind_param('ii', $tutorialid, $tutorialToDelete);
     $stmt2->execute();
     $stmt2->close();
 }
