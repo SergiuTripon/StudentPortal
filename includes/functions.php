@@ -962,51 +962,40 @@ function DeleteModule() {
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("SELECT feedbackid FROM user_feedback_sent WHERE moduleid=?");
-    $stmt3->bind_param('i', $moduleToDelete);
-    $stmt3->execute();
-    $stmt3->store_result();
-    $stmt3->bind_result($db_feedbackid);
-    $stmt3->fetch();
-
-    $params = implode(",", array_fill(0, count($db_feedbackid), "?"));
-
-    $stmt4 = $mysqli->prepare("DELETE FROM user_feedback WHERE feedbackid IN ($params)");
-    call_user_func_array(array($stmt4, 'bindparams'), $db_feedbackid);
-    $stmt4->execute();
-    $stmt4->close();
-
-    $stmt3->close();
-
-    $stmt3 = $mysqli->prepare("DELETE FROM user_results WHERE moduleid=?");
+    $stmt3 = $mysqli->prepare("DELETE FROM user_feedback WHERE moduleid=?");
     $stmt3->bind_param('i', $moduleToDelete);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("DELETE FROM system_exams WHERE moduleid=?");
+    $stmt4 = $mysqli->prepare("DELETE FROM user_results WHERE moduleid=?");
     $stmt4->bind_param('i', $moduleToDelete);
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM system_tutorials WHERE moduleid=?");
+    $stmt5 = $mysqli->prepare("DELETE FROM system_exams WHERE moduleid=?");
     $stmt5->bind_param('i', $moduleToDelete);
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM system_lectures WHERE moduleid=?");
+    $stmt6 = $mysqli->prepare("DELETE FROM system_tutorials WHERE moduleid=?");
     $stmt6->bind_param('i', $moduleToDelete);
     $stmt6->execute();
     $stmt6->close();
 
-    $stmt7 = $mysqli->prepare("DELETE FROM user_module WHERE moduleid=?");
+    $stmt7 = $mysqli->prepare("DELETE FROM system_lectures WHERE moduleid=?");
     $stmt7->bind_param('i', $moduleToDelete);
     $stmt7->execute();
     $stmt7->close();
 
-    $stmt8 = $mysqli->prepare("DELETE FROM system_modules WHERE moduleid=?");
+    $stmt8 = $mysqli->prepare("DELETE FROM user_module WHERE moduleid=?");
     $stmt8->bind_param('i', $moduleToDelete);
     $stmt8->execute();
     $stmt8->close();
+
+    $stmt9 = $mysqli->prepare("DELETE FROM system_modules WHERE moduleid=?");
+    $stmt9->bind_param('i', $moduleToDelete);
+    $stmt9->execute();
+    $stmt9->close();
 }
 
 //DeleteLecture function
@@ -2483,18 +2472,11 @@ function SubmitFeedback() {
     $feedback_moduleid = filter_input(INPUT_POST, 'feedback_moduleid', FILTER_SANITIZE_STRING);
     $feedback_lecturer = filter_input(INPUT_POST, 'feedback_lecturer', FILTER_SANITIZE_STRING);
     $feedback_tutorial_assistant = filter_input(INPUT_POST, 'feedback_tutorial_assistant', FILTER_SANITIZE_STRING);
-    $feedback_from_firstname = filter_input(INPUT_POST, 'feedback_from_firstname', FILTER_SANITIZE_STRING);
-    $feedback_from_surname = filter_input(INPUT_POST, 'feedback_from_surname', FILTER_SANITIZE_STRING);
-    $feedback_from_email = filter_input(INPUT_POST, 'feedback_from_email', FILTER_SANITIZE_EMAIL);
-    $lecturer_feedback_to_email = filter_input(INPUT_POST, 'lecturer_feedback_to_email', FILTER_SANITIZE_EMAIL);
-    $lecturer_feedback_to_email = filter_var($lecturer_feedback_to_email, FILTER_VALIDATE_EMAIL);
-    $tutorial_assistant_feedback_to_email = filter_input(INPUT_POST, 'tutorial_assistant_feedback_to_email', FILTER_SANITIZE_EMAIL);
-    $tutorial_assistant_feedback_to_email = filter_var($tutorial_assistant_feedback_to_email, FILTER_VALIDATE_EMAIL);
     $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
     $feedback_body = filter_input(INPUT_POST, 'feedback_body', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (feedback_subject, feedback_body, created_on) VALUES (?, ?, ?)");
-    $stmt1->bind_param('sss', $feedback_subject, $feedback_body, $created_on);
+    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (moduleid, feedback_subject, feedback_body, created_on) VALUES (?, ?, ?, ?)");
+    $stmt1->bind_param('isss', $feedback_moduleid, $feedback_subject, $feedback_body, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
