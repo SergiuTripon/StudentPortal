@@ -240,6 +240,16 @@ elseif (isset($_POST['examToDelete'])) {
     DeleteExam();
 }
 
+//Call AllocateExam function
+elseif (isset($_POST['examToAllocate'])) {
+    AllocateExam();
+}
+
+//Call DeallocateExam function
+elseif (isset($_POST['examToDeallocate'])) {
+    DeallocateExam();
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Results functions
