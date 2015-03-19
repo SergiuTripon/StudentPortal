@@ -959,6 +959,16 @@ form .field-required {
     color: #FFFFFF;
     content: "\f054";
 }
+
+.panel-custom #headingSix .accordion-toggle:before {
+    font-family: FontAwesome;
+    content: "\f078";
+    color: #FFFFFF;
+}
+.panel-custom #headingSix .accordion-toggle.collapsed:before {
+    color: #FFFFFF;
+    content: "\f054";
+}
 /* End of Accordion style */
 
 /* Admin */
