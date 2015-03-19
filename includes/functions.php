@@ -1036,7 +1036,7 @@ function DeleteModule() {
     $stmt8->close();
 }
 
-//DeleteTimetable function
+//DeleteLecture function
 function DeleteLecture() {
 
     global $mysqli;
