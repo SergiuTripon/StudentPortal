@@ -3,6 +3,8 @@ include 'includes/session.php';
 
 global $mysqli;
 
+$feedbackToApprove = '1';
+
 $stmt2 = $mysqli->prepare("SELECT feedback_from, module_staff FROM user_feedback_sent WHERE feedbackid = ?");
 $stmt2->bind_param('i', $feedbackToApprove);
 $stmt2->execute();
