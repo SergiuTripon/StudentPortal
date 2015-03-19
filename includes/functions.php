@@ -2579,7 +2579,7 @@ function ApproveFeedback () {
     $stmt2->fetch();
     $stmt2->close();
 
-    $stmt2 = $mysqli->prepare("SELECT s.email FROM user_feedback_sent f LEFT JOIN user_signin s ON f.userid=s.userid WHERE f.feedbackid = ? ORDER BY f.module_staff ASC LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT s.email FROM user_feedback_sent f LEFT JOIN user_signin s ON f.module_staff=s.userid WHERE f.feedbackid=? ORDER BY f.module_staff ASC LIMIT 1");
     $stmt2->bind_param('i', $feedbackToApprove);
     $stmt2->execute();
     $stmt2->store_result();
@@ -2587,7 +2587,7 @@ function ApproveFeedback () {
     $stmt2->fetch();
     $stmt2->close();
 
-    $stmt2 = $mysqli->prepare("SELECT s.email FROM user_feedback_sent f WHERE LEFT JOIN user_signin s ON f.userid=s.userid WHERE feedbackid = ? ORDER BY f.module_staff DESC LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT s.email FROM user_feedback_sent f LEFT JOIN user_signin s ON f.module_staff=s.userid WHERE f.feedbackid=? ORDER BY f.module_staff DESC LIMIT 1");
     $stmt2->bind_param('i', $feedbackToApprove);
     $stmt2->execute();
     $stmt2->store_result();
