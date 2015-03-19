@@ -119,16 +119,16 @@ if (isset($_GET['id'])) {
 
     while ($row = $stmt2->fetch_assoc()){
 
-        $other_tutorial_assistants = $row["userid"];
+        $other_tutorial_assistant = $row["userid"];
 
         $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
-        $stmt3->bind_param('i', $other_tutorial_assistants);
+        $stmt3->bind_param('i', $other_tutorial_assistant);
         $stmt3->execute();
         $stmt3->store_result();
-        $stmt3->bind_result($other_tutorial_assistants_firstname, $other_tutorial_assistants_surname);
+        $stmt3->bind_result($other_tutorial_assistant_firstname, $other_tutorial_assistant_surname);
         $stmt3->fetch();
 
-        echo '<option value="'.$other_tutorial_assistants.'">'.$other_tutorial_assistants_firstname.' '.$other_tutorial_assistants_surname.'</option>';
+        echo '<option value="'.$other_tutorial_assistant.'">'.$other_tutorial_assistant_firstname.' '.$other_tutorial_assistant_surname.'</option>';
     }
     ?>
     </select>
