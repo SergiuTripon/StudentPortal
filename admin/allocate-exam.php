@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
 		<li class="active">Allocate exam</li>
 	</ol>
 
-    <div id="moduleid" style="display: none !important;"><?php echo $examToAllocate; ?></div>
+    <div id="examid" style="display: none !important;"><?php echo $examToAllocate; ?></div>
 
 	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -278,7 +278,7 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var userToAllocate = clickedID[1];
-    var examToAllocate = $("#moduleid").html();
+    var examToAllocate = $("#examid").html();
 
 	jQuery.ajax({
 	type: "POST",
@@ -312,13 +312,13 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var userToDeallocate = clickedID[1];
-    var timetableToDeallocate = $("#moduleid").html();
+    var examToDeallocate = $("#examid").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToDeallocate='+ userToDeallocate + '&timetableToDeallocate='+ timetableToDeallocate,
+	data:'userToDeallocate='+ userToDeallocate + '&examToDeallocate='+ examToDeallocate,
 	success:function(){
         $('#user-'+userToDeallocate).hide();
         $('.form-logo i').removeClass('fa-user-times');
