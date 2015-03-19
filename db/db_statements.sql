@@ -272,18 +272,6 @@ CREATE TABLE `system_modules` (
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `user_timetable` (
-	`userid` INT(11) NOT NULL,
-	`moduleid` INT(11) NOT NULL,
-FOREIGN KEY (userid)
-REFERENCES user_signin(userid),
-FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-) ENGINE = InnoDB;
-
-#Timetable
 CREATE TABLE `system_lectures` (
 	`moduleid` INT(11) NOT NULL,
 	`lectureid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -349,6 +337,27 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
+CREATE TABLE `user_timetable` (
+	`userid` INT(11) NOT NULL,
+	`moduleid` INT(11) NOT NULL,
+  `lectureid` INT(11) NOT NULL,
+  `tutorialid` INT(11) NOT NULL,
+  `examid` INT(11) NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
+FOREIGN KEY (moduleid)
+REFERENCES system_modules(moduleid),
+FOREIGN KEY (lectureid)
+REFERENCES system_lectures(lectureid),
+FOREIGN KEY (tutorialid)
+REFERENCES system_tutorials(tutorialid),
+FOREIGN KEY (examid)
+REFERENCES system_exams(examid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Results
 CREATE TABLE `user_results` (
   `userid` INT(11) NOT NULL,
   `moduleid` INT(11) NOT NULL,

@@ -1003,6 +1003,47 @@ function DeleteTimetable() {
     $stmt8->close();
 }
 
+//DeleteTimetable function
+function DeleteLecture() {
+
+    global $mysqli;
+
+    $lectureToDelete = filter_input(INPUT_POST, 'lectureToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM system_lectures WHERE lectureid=?");
+    $stmt1->bind_param('i', $lectureToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $lectureid = '';
+
+    $stmt2 = $mysqli->prepare("UPDATE user_timetable SET lectureid=? WHERE lectureid=?");
+    $stmt2->bind_param('ii', $lectureid, $lectureToDelete);
+    $stmt2->execute();
+    $stmt2->close();
+}
+
+//DeleteTimetable function
+function DeleteTutorial() {
+
+    global $mysqli;
+
+    $lectureToDelete = filter_input(INPUT_POST, 'lectureToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM system_lectures WHERE lectureid=?");
+    $stmt1->bind_param('i', $lectureToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $lectureid = '';
+
+    $stmt2 = $mysqli->prepare("UPDATE user_timetable SET lectureid=? WHERE lectureid=?");
+    $stmt2->bind_param('ii', $lectureid, $lectureToDelete);
+    $stmt2->execute();
+    $stmt2->close();
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Exams

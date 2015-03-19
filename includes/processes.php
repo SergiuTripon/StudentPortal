@@ -147,14 +147,34 @@ elseif (isset($_POST['tutorialToDeactivate'])) {
     DeactivateTutorial();
 }
 
-//Call ReactivateTimetable function
-elseif (isset($_POST['timetableToReactivate'])) {
-    ReactivateTimetable();
+//Call ReactivateModule function
+elseif (isset($_POST['moduleToReactivate'])) {
+    ReactivateModule();
 }
 
-//Call DeleteTimetable function
-elseif (isset($_POST['timetableToDelete'])) {
-    DeleteTimetable();
+//Call ReactivateLecture function
+elseif (isset($_POST['lectureToReactivate'])) {
+    ReactivateLecture();
+}
+
+//Call ReactivateTutorial function
+elseif (isset($_POST['tutorialToReactivate'])) {
+    ReactivateTutorial();
+}
+
+//Call DeleteModule function
+elseif (isset($_POST['moduleToDelete'])) {
+    DeleteModule();
+}
+
+//Call DeleteLecture function
+elseif (isset($_POST['lectureToDelete'])) {
+    DeleteLecture();
+}
+
+//Call DeleteTutorial function
+elseif (isset($_POST['tutorialToDelete'])) {
+    DeleteTutorial();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -188,6 +208,16 @@ elseif (isset(
 //Call DeactivateExam function
 elseif (isset($_POST['examToDeactivate'])) {
     DeactivateExam();
+}
+
+//Call ReactivateExam function
+elseif (isset($_POST['examToReactivate'])) {
+    ReactivateExam();
+}
+
+//Call DeleteExam function
+elseif (isset($_POST['examToDelete'])) {
+    DeleteExam();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
