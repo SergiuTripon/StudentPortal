@@ -179,8 +179,8 @@ include 'includes/session.php';
             <li><a href="#deactivate-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
             <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
-            </td>
             </div>
+            </td>
 			</tr>
 
 			<div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -333,9 +333,21 @@ include 'includes/session.php';
 			<td data-title="Date">'.$exam_date.'</td>
 			<td data-title="Time">'.$exam_time.'</td>
 			<td data-title="Location">'.$exam_location.'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="#reactivate-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
 			</tr>
 
-						<div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
