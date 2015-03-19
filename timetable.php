@@ -976,7 +976,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="deactivate-module-hide">
 			<div class="pull-left">
-			<a id="deactivate-module-'.$moduleid.'" class="btn btn-success btn-lg deactivate-module-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$moduleid.'" class="btn btn-success btn-lg deactivate-module-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
@@ -1159,7 +1159,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="deactivate-lecture-hide">
 			<div class="pull-left">
-			<a id="deactivate-lecture-'.$lectureid.'" class="btn btn-success btn-lg deactivate-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$lectureid.'" class="btn btn-success btn-lg deactivate-lecture-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
@@ -1342,7 +1342,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="deactivate-tutorial-hide">
 			<div class="pull-left">
-			<a id="deactivate-tutorial-'.$tutorialid.'" class="btn btn-success btn-lg deactivate-tutorial-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$tutorialid.'" class="btn btn-success btn-lg deactivate-tutorial-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
