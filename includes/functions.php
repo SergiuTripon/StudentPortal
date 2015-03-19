@@ -1300,7 +1300,7 @@ function DeallocateExam() {
     $examToDeallocate = filter_input(INPUT_POST, 'examToDeallocate', FILTER_SANITIZE_NUMBER_INT);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_exam WHERE userid=? AND examid=?");
-    $stmt1->bind_param('ii', $userToDeallocate, examToDeallocate);
+    $stmt1->bind_param('ii', $userToDeallocate, $examToDeallocate);
     $stmt1->execute();
     $stmt1->close();
 }
