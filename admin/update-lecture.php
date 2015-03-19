@@ -5,11 +5,11 @@ if (isset($_GET['id'])) {
 
     $lectureToUpdate = $_GET['id'];
 
-    $stmt1 = $mysqli->prepare("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') AS lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') AS lecture_to_time, l.lecture_from_date, l.lecture_to_date, l.lecture_location, l.lecture_capacity FROM system_lectures l WHERE l.lectureid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT l.moduleid, l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') AS lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') AS lecture_to_time, l.lecture_from_date, l.lecture_to_date, l.lecture_location, l.lecture_capacity FROM system_lectures l WHERE l.lectureid = ? LIMIT 1");
     $stmt1->bind_param('i', $lectureToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity);
+    $stmt1->bind_result($moduleid, $lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -61,6 +61,38 @@ if (isset($_GET['id'])) {
 
     <input type="hidden" name="lectureid" id="lectureid" value="<?php echo $lectureid; ?>">
 
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="lecture_moduleid">Module<span class="field-required">*</span></label>
+    <select class="form-control" name="lecture_moduleid" id="lecture_moduleid" style="width: 100%;">
+    <?php
+    $stmt1 = $mysqli->query("SELECT l.moduleid, m.module_name FROM system_lectures l LEFT JOIN system_modules m ON l.moduleid=m.moduleid WHERE l.moduleid = '$moduleid' AND module_status='active'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+        $moduleid = $row["moduleid"];
+        $module_name = $row["module_name"];
+
+        echo '<option value="'.$moduleid.'" selected>'.$module_name.'</option>';
+    }
+
+    ?>
+    <?php
+    $stmt2 = $mysqli->query("SELECT l.moduleid, m.module_name FROM system_lectures l LEFT JOIN system_modules m ON l.moduleid=m.moduleid WHERE NOT l.moduleid = '$moduleid' AND module_status='active'");
+
+    while ($row = $stmt2->fetch_assoc()){
+
+        $moduleid = $row["moduleid"];
+        $module_name = $row["module_name"];
+
+        echo '<option value="'.$moduleid.'">'.$module_name.'</option>';
+    }
+
+    ?>
+    </select>
+    </div>
+    </div>
+
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="lecture_name">Lecture name<span class="field-required">*</span></label>
@@ -80,7 +112,7 @@ if (isset($_GET['id'])) {
     $lecturer_firstname = $row["firstname"];
     $lecturer_surname = $row["surname"];
 
-        echo '<option>'.$lecturer_firstname.' '.$lecturer_surname.'</option>';
+        echo '<option selected>'.$lecturer_firstname.' '.$lecturer_surname.'</option>';
     }
 
     $stmt2 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type='lecturer' AND NOT userid = '$lecture_lecturer'");
