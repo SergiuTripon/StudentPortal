@@ -1100,7 +1100,7 @@ include 'includes/session.php';
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="/admin/update-timetable?id='.$lectureid.'">Update</a></li>
+            <li><a href="/admin/update-lecture?id='.$lectureid.'">Update</a></li>
             <li><a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
             <li><a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
