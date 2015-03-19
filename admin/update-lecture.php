@@ -331,25 +331,6 @@ if (isset($_GET['id'])) {
         $("#lecture_name").addClass("input-happy");
 	}
 
-    var lecture_day = $("#lecture_day").val();
-    if (lecture_day === '') {
-        $("label[for='lecture_day']").empty().append("Please enter a day.");
-        $("label[for='lecture_day']").removeClass("feedback-happy");
-        $("label[for='lecture_day']").addClass("feedback-sad");
-        $("#lecture_day").removeClass("input-happy");
-        $("#lecture_day").addClass("input-sad");
-        $("#lecture_day").focus();
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("label[for='lecture_day']").empty().append("All good!");
-        $("label[for='lecture_day']").removeClass("feedback-sad");
-        $("label[for='lecture_day']").addClass("feedback-happy");
-        $("#lecture_day").removeClass("input-sad");
-        $("#lecture_day").addClass("input-happy");
-    }
-
     var lecture_from_time = $("#lecture_from_time").val();
 	if(lecture_from_time === '') {
         $("label[for='lecture_from_time']").empty().append("Please select a time.");
@@ -458,14 +439,18 @@ if (isset($_GET['id'])) {
         $("#lecture_capacity").addClass("input-happy");
 	}
 
-    var lecture_lecturer = $("#lecture_lecturer option:selected").val();
+    var lecture_moduleid= $("#lecture_moduleid option:selected").val();
     var lecture_notes = $("#lecture_notes").val();
+    var lecture_lecturer = $("#lecture_lecturer option:selected").val();
+    var lecture_day = $("#lecture_day option:selected").html();
+
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'update_lectureid='           + lectureid +
+    data:'update_lecture_moduleid='    + lecture_moduleid +
+         '&update_lectureid='           + lectureid +
          '&update_lecture_name='       + lecture_name +
          '&update_lecture_lecturer='   + lecture_lecturer +
          '&update_lecture_notes='      + lecture_notes +
