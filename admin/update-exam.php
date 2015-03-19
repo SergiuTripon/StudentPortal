@@ -133,7 +133,7 @@ if (isset($_GET['id'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Update timetable</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Update exam</span></button>
     </div>
 
     </div>
