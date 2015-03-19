@@ -103,7 +103,7 @@ if (isset($_GET['id'])) {
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pl0">
     <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
-    <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
+    <select class="form-control tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
     $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$tutorial_assistant'");
 
@@ -144,8 +144,8 @@ if (isset($_GET['id'])) {
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="lecture_day">Day<span class="field-required">*</span></label>
-    <select class="form-control" name="lecture_day" id="lecture_day" style="width: 100%;">
+    <label for="tutorial_day">Day<span class="field-required">*</span></label>
+    <select class="form-control" name="tutorial_day" id="tutorial_day" style="width: 100%;">
         <option <?php if($tutorial_day == "Monday") echo "selected"; ?>>Monday</option>
         <option <?php if($tutorial_day == "Tuesday") echo "selected"; ?>>Tuesday</option>
         <option <?php if($tutorial_day == "Wednesday") echo "selected"; ?>>Wednesday</option>
