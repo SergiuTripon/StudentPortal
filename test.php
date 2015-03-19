@@ -5,14 +5,14 @@ global $mysqli;
 
 $feedbackToApprove = '2';
 
-$stmt2 = $mysqli->prepare("SELECT feedback_from, module_staff FROM user_feedback_sent WHERE feedbackid = ? ORDER BY feedbackid DESC");
+$stmt2 = $mysqli->prepare("SELECT feedback_from, module_staff FROM user_feedback_sent WHERE feedbackid = ? ORDER BY module_staff DESC");
 $stmt2->bind_param('i', $feedbackToApprove);
 $stmt2->execute();
 $stmt2->store_result();
 $stmt2->bind_result($feedback_from, $module_staff);
 $stmt2->fetch();
 
-$stmt2 = $mysqli->prepare("SELECT feedback_from, module_staff FROM user_feedback_sent WHERE feedbackid = ? ORDER BY feedbackid ASC");
+$stmt2 = $mysqli->prepare("SELECT feedback_from, module_staff FROM user_feedback_sent WHERE feedbackid = ? ORDER BY module_staff ASC");
 $stmt2->bind_param('i', $feedbackToApprove);
 $stmt2->execute();
 $stmt2->store_result();
