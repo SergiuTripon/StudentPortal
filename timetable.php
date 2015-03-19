@@ -2284,6 +2284,8 @@ include 'includes/session.php';
     var clickedID = this.id.split('-');
     var lectureToDelete = clickedID[1];
 
+    alert(lectureToDelete);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
