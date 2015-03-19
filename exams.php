@@ -386,8 +386,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="reactivate-exam-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$exam_name.'?</p>
-            <p id="reactivate-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been deactivated successfully.</p>
+			<p id="reactivate-exam-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$exam_name.'?</p>
+            <p id="reactivate-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
