@@ -2054,7 +2054,7 @@ include 'includes/session.php';
 		}
 	});
 
-    $('.table-table').dataTable({
+    $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
