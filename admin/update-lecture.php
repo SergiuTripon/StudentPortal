@@ -143,11 +143,17 @@ if (isset($_GET['id'])) {
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="lecture_day">Lecture day<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="lecture_day" id="lecture_day" value="<?php echo $lecture_day; ?>" placeholder="Enter a day">
-	</div>
-	</div>
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="lecture_day">Day<span class="field-required">*</span></label>
+    <select class="form-control" name="lecture_day" id="lecture_day" style="width: 100%;">
+        <option <?php if($lecture_day == "Monday") echo "selected"; ?>>Monday</option>
+        <option <?php if($lecture_day == "Tuesday") echo "selected"; ?>>Tuesday</option>
+        <option <?php if($lecture_day == "Wednesday") echo "selected"; ?>>Wednesday</option>
+        <option <?php if($lecture_day == "Thursday") echo "selected"; ?>>Thursday</option>
+        <option <?php if($lecture_day == "Friday") echo "selected"; ?>>Friday</option>
+    </select>
+    </div>
+    </div>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
