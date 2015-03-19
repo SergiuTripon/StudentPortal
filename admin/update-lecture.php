@@ -66,7 +66,7 @@ if (isset($_GET['id'])) {
     <label for="lecture_moduleid">Module<span class="field-required">*</span></label>
     <select class="form-control" name="lecture_moduleid" id="lecture_moduleid" style="width: 100%;">
     <?php
-    $stmt1 = $mysqli->query("SELECT l.moduleid, m.module_name FROM system_lectures l LEFT JOIN system_modules m ON l.moduleid=m.moduleid WHERE l.moduleid = '$moduleid' AND module_status='active'");
+    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_modules m WHERE m.moduleid = '$moduleid' AND module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -78,14 +78,14 @@ if (isset($_GET['id'])) {
 
     ?>
     <?php
-    $stmt2 = $mysqli->query("SELECT l.moduleid, m.module_name FROM system_lectures l LEFT JOIN system_modules m ON l.moduleid=m.moduleid WHERE NOT l.moduleid = '$moduleid' AND module_status='active'");
+    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_modules m WHERE m.moduleid = '$moduleid' AND module_status='active'");
 
-    while ($row = $stmt2->fetch_assoc()){
+    while ($row = $stmt1->fetch_assoc()){
 
         $moduleid = $row["moduleid"];
         $module_name = $row["module_name"];
 
-        echo '<option value="'.$moduleid.'">'.$module_name.'</option>';
+        echo '<option value="'.$moduleid.'" selected>'.$module_name.'</option>';
     }
 
     ?>
