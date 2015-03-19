@@ -1375,7 +1375,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-tutorial-hide">
 			<div class="pull-left">
-			<a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg delete-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg delete-tutorial-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
