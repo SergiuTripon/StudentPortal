@@ -2571,29 +2571,45 @@ function ApproveFeedback () {
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("SELECT feedback_from, module_staff FROM user_feedback_sent WHERE feedbackid = ?");
+    $stmt2 = $mysqli->prepare("SELECT feedback_subject, feedback_body FROM user_feedback WHERE feedbackid = ? LIMIT 1");
     $stmt2->bind_param('i', $feedbackToApprove);
     $stmt2->execute();
     $stmt2->store_result();
-    $stmt2->bind_result($feedback_from, $module_staff);
+    $stmt2->bind_result($feedback_subject, $feedback_body);
     $stmt2->fetch();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname FROM user_signin s LEFT JOIN user_details d ON s.userid=d.userid WHERE s.userid = ?");
+    $stmt2 = $mysqli->prepare("SELECT s.email FROM user_feedback_sent f LEFT JOIN user_signin s ON f.userid=s.userid WHERE f.feedbackid = ? ORDER BY f.module_staff ASC LIMIT 1");
+    $stmt2->bind_param('i', $feedbackToApprove);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($lecturer_feedback_to_email);
+    $stmt2->fetch();
+    $stmt2->close();
+
+    $stmt2 = $mysqli->prepare("SELECT s.email FROM user_feedback_sent f WHERE LEFT JOIN user_signin s ON f.userid=s.userid WHERE feedbackid = ? ORDER BY f.module_staff DESC LIMIT 1");
+    $stmt2->bind_param('i', $feedbackToApprove);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($tutorial_assistant_feedback_to_email);
+    $stmt2->fetch();
+    $stmt2->close();
+
+    $stmt2 = $mysqli->prepare("SELECT feedback_from FROM user_feedback_sent WHERE feedbackid = ? LIMIT 1");
+    $stmt2->bind_param('i', $feedbackToApprove);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($feedback_from);
+    $stmt2->fetch();
+    $stmt2->close();
+
+    $stmt3 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname FROM user_signin s LEFT JOIN user_details d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
     $stmt3->bind_param('i', $feedback_from);
     $stmt3->execute();
     $stmt3->store_result();
     $stmt3->bind_result($feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
     $stmt3->fetch();
     $stmt3->close();
-
-    $stmt4 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname FROM user_signin s LEFT JOIN user_details d ON s.userid=d.userid WHERE s.userid = ?");
-    $stmt4->bind_param('i', $module_staff);
-    $stmt4->execute();
-    $stmt4->store_result();
-    $stmt4->bind_result($feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
-    $stmt4->fetch();
-    $stmt4->close();
 
     //Creating email
     $subject = "$feedback_from_firstname $feedback_from_surname - New feedback on Student Portal";
