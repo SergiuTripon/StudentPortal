@@ -327,7 +327,7 @@ include 'includes/session.php';
     $exam_capacity = $row["exam_capacity"];
 
 
-	echo '<tr>
+	echo '<tr id="exam-'.$examid.'">
 
 			<td data-title="Name"><a href="#view-exam-'.$examid.'" data-toggle="modal">'.$exam_name.'</a></td>
 			<td data-title="Date">'.$exam_date.'</td>
@@ -335,7 +335,7 @@ include 'includes/session.php';
 			<td data-title="Location">'.$exam_location.'</td>
 			</tr>
 
-			<div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+						<div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -355,6 +355,72 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal"><span class="ladda-label">Close</span></a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="reactivate-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="reactivate-exam-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$exam_name.'?</p>
+            <p id="reactivate-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been deactivated successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="reactivate-exam-hide">
+			<div class="pull-left">
+			<a id="reactivate-'.$examid.'" class="btn btn-success btn-lg reactivate-exam-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="reactivate-exam-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-exam-question" class="text-center feedback-sad">Are you sure you want to delete '.$exam_name.'?</p>
+			<p id="delete-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-exam-hide">
+			<div class="pull-left">
+			<a id="delete-'.$examid.'" class="btn btn-success btn-lg delete-exam-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-exam-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
