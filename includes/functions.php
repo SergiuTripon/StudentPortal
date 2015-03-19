@@ -1068,7 +1068,7 @@ function UpdateExam() {
     $stmt13->bind_result($db_exam_name);
     $stmt13->fetch();
 
-    if ($db_tutorial_name === $tutorial_name) {
+    if ($db_exam_name === $exam_name) {
         $stmt14 = $mysqli->prepare("UPDATE system_exams SET exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
         $stmt14->bind_param('ssssssi', $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
         $stmt14->execute();
