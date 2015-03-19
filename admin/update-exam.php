@@ -52,8 +52,12 @@ if (isset($_GET['id'])) {
     </ol>
 
     <!-- Update exam -->
-    <h4 class="title-separator text-center">Exam</h4>
-    <hr class="hr-separator">
+	<form class="form-custom" style="max-width: 100%;" name="updateexam_form" id="updateexam_form" novalidate>
+
+    <p id="error" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-happy text-center"></p>
+
+    <div id="hide">
 
     <input type="hidden" name="examid" id="examid" value="<?php echo $examid; ?>">
 
@@ -134,8 +138,10 @@ if (isset($_GET['id'])) {
 
     </div>
 	
-    </form><!-- End of Update timetable -->
-	</div><!-- /container -->
+    </form>
+    <!-- End of Update exam -->
+	</div>
+	<!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
 

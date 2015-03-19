@@ -52,7 +52,7 @@ if (isset($_GET['id'])) {
     </ol>
 
     <!-- Update lecture -->
-	<form class="form-custom" style="max-width: 100%;" name="updatetimetable_form" id="updatetimetable_form" novalidate>
+	<form class="form-custom" style="max-width: 100%;" name="updatelecture_form" id="updatelecture_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
