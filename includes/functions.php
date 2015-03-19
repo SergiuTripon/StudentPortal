@@ -641,7 +641,7 @@ function CreateTutorial() {
     $tutorial_location = filter_input(INPUT_POST, 'create_tutorial_location', FILTER_SANITIZE_STRING);
     $tutorial_capacity = filter_input(INPUT_POST, 'create_tutorial_capacity', FILTER_SANITIZE_STRING);
 
-    // Check existing tutorial name
+    //Check existing tutorial name
     $stmt1 = $mysqli->prepare("SELECT tutorialid FROM system_tutorials WHERE tutorial_name = ? LIMIT 1");
     $stmt1->bind_param('s', $tutorial_name);
     $stmt1->execute();
@@ -678,7 +678,7 @@ function CreateExam() {
     $exam_location = filter_input(INPUT_POST, 'create_exam_location', FILTER_SANITIZE_STRING);
     $exam_capacity = filter_input(INPUT_POST, 'create_exam_capacity', FILTER_SANITIZE_STRING);
 
-    // Check existing exam name
+    //Check existing exam name
     $stmt1 = $mysqli->prepare("SELECT examid FROM system_exams WHERE exam_name = ? LIMIT 1");
     $stmt1->bind_param('s', $exam_name);
     $stmt1->execute();
@@ -698,6 +698,53 @@ function CreateExam() {
     $stmt2->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
     $stmt2->execute();
     $stmt2->close();
+}
+
+//UpdateTimetable function
+function UpdateModule() {
+
+    global $mysqli;
+    global $updated_on;
+
+    //Module
+    $moduleid = filter_input(INPUT_POST, 'moduleid', FILTER_SANITIZE_STRING);
+    $module_name = filter_input(INPUT_POST, 'module_name1', FILTER_SANITIZE_STRING);
+    $module_notes = filter_input(INPUT_POST, 'module_notes1', FILTER_SANITIZE_STRING);
+    $module_url = filter_input(INPUT_POST, 'module_url1', FILTER_SANITIZE_STRING);
+
+    //Check existing module name
+    $stmt1 = $mysqli->prepare("SELECT module_name FROM system_modules WHERE moduleid = ?");
+    $stmt1->bind_param('i', $moduleid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_module_name);
+    $stmt1->fetch();
+
+    if ($db_module_name === $module_name) {
+        $stmt2 = $mysqli->prepare("UPDATE system_modules SET module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
+        $stmt2->bind_param('sssi', $module_notes, $module_url, $updated_on, $moduleid);
+        $stmt2->execute();
+        $stmt2->close();
+    } else {
+
+        $stmt3 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE module_name = ?");
+        $stmt3->bind_param('s', $module_name);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($db_moduleid);
+        $stmt3->fetch();
+
+        if ($stmt3->num_rows == 1) {
+            $stmt3->close();
+            header('HTTP/1.0 550 A module with the name entered already exists.');
+            exit();
+        } else {
+            $stmt4 = $mysqli->prepare("UPDATE system_modules SET module_name=?, module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
+            $stmt4->bind_param('ssssi', $module_name, $module_notes, $module_url, $updated_on, $moduleid);
+            $stmt4->execute();
+            $stmt4->close();
+        }
+    }
 }
 
 //UpdateTimetable function
