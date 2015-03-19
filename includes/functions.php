@@ -2570,6 +2570,58 @@ function ApproveFeedback () {
     $stmt1->bind_param('ii', $isApproved, $feedbackToApprove);
     $stmt1->execute();
     $stmt1->close();
+
+    $stmt2 = $mysqli->prepare("SELECT feedback_from, module_staff FROM user_feedback_sent WHERE feedbackid = ?");
+    $stmt2->bind_param('i', $feedbackToApprove);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($feedback_from, $module_staff);
+    $stmt2->fetch();
+    $stmt2->close();
+
+    $stmt3 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname FROM user_signin s LEFT JOIN user_details d ON s.userid=d.userid WHERE s.userid = ?");
+    $stmt3->bind_param('i', $feedback_from);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($feedback_from_email, $feedback_from_firstname, $feedback_from_surname);
+    $stmt3->fetch();
+    $stmt3->close();
+
+    $stmt4 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname FROM user_signin s LEFT JOIN user_details d ON s.userid=d.userid WHERE s.userid = ?");
+    $stmt4->bind_param('i', $module_staff);
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($feedback_to_email, $feedback_to_firstname, $feedback_to_surname);
+    $stmt4->fetch();
+    $stmt4->close();
+
+    //Creating email
+    $subject = "$feedback_from_firstname $feedback_from_surname - New feedback on Student Portal";
+
+    $message = '<html>';
+    $message .= '<body>';
+    $message .= '<p>The following student submitted some feedback for you:</p>';
+    $message .= '<table rules="all" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$feedback_from_firstname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_from_surname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_from_email</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Subject:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_subject</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Message:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $feedback_body</td></tr>";
+    $message .= '</table><br>';
+    $message .= '<a href="https://student-portal.co.uk/feedback">View feedback on Student Portal</a><br>';
+    $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+    $message .= '</body>';
+    $message .= '</html>';
+    $message .= '</body>';
+    $message .= '</html>';
+
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+    $headers .= "From: $feedback_from_firstname $feedback_from_surname <$feedback_from_email>" . "\r\n";
+    $headers .= "Reply-To: $feedback_from_firstname $feedback_from_surname <$feedback_from_email>" . "\r\n";
+
+    mail("$lecturer_feedback_to_email, $tutorial_assistant_feedback_to_email", $subject, $message, $headers);
 }
 
 //SetMessageRed function
