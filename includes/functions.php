@@ -1201,6 +1201,26 @@ function ReactivateExam() {
     $stmt1->close();
 }
 
+//DeleteTimetable function
+function DeleteExam() {
+
+    global $mysqli;
+
+    $examToDelete = filter_input(INPUT_POST, 'examToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM system_exams WHERE examid=?");
+    $stmt1->bind_param('i', $examToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $examid = '';
+
+    $stmt2 = $mysqli->prepare("UPDATE user_timetable SET examid=? WHERE examid=?");
+    $stmt2->bind_param('ii', $examid, $examToDelete);
+    $stmt2->execute();
+    $stmt2->close();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //CreateResult function
