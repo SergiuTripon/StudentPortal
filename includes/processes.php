@@ -101,42 +101,60 @@ elseif (isset(
     CreateExam();
 }
 
-//Call UpdateTimetable function
+//Call UpdateModule function
 elseif (isset(
-    $_POST['moduleid'],
-    $_POST['module_name1'],
-    $_POST['module_notes1'],
-    $_POST['module_url1'],
-    $_POST['lectureid'],
-    $_POST['lecture_name1'],
-    $_POST['lecture_lecturer1'],
-    $_POST['lecture_notes1'],
-    $_POST['lecture_day1'],
-    $_POST['lecture_from_time1'],
-    $_POST['lecture_to_time1'],
-    $_POST['lecture_from_date1'],
-    $_POST['lecture_to_date1'],
-    $_POST['lecture_location1'],
-    $_POST['lecture_capacity1'],
-    $_POST['tutorialid'],
-    $_POST['tutorial_name1'],
-    $_POST['tutorial_assistant1'],
-    $_POST['tutorial_notes1'],
-    $_POST['tutorial_day1'],
-    $_POST['tutorial_from_time1'],
-    $_POST['tutorial_to_time1'],
-    $_POST['tutorial_from_date1'],
-    $_POST['tutorial_to_date1'],
-    $_POST['tutorial_location1'],
-    $_POST['tutorial_capacity1'],
-    $_POST['examid'],
-    $_POST['exam_name1'],
-    $_POST['exam_notes1'],
-    $_POST['exam_date1'],
-    $_POST['exam_time1'],
-    $_POST['exam_location1'],
-    $_POST['exam_capacity1'])) {
-    UpdateTimetable();
+    $_POST['update_moduleid'],
+    $_POST['update_module_name'],
+    $_POST['update_module_notes'],
+    $_POST['update_module_url'])) {
+    UpdateModule();
+}
+
+//Call UpdateLecture function
+elseif (isset(
+    $_POST['update_lecture_moduleid'],
+    $_POST['update_lectureid'],
+    $_POST['update_lecture_name'],
+    $_POST['update_lecture_lecturer'],
+    $_POST['update_lecture_notes'],
+    $_POST['update_lecture_day'],
+    $_POST['update_lecture_from_time'],
+    $_POST['update_lecture_to_time'],
+    $_POST['update_lecture_from_date'],
+    $_POST['update_lecture_to_date'],
+    $_POST['update_lecture_location'],
+    $_POST['update_lecture_capacity'])) {
+    UpdateLecture();
+}
+
+//Call UpdateTutorial function
+elseif (isset(
+    $_POST['update_tutorial_moduleid'],
+    $_POST['update_tutorialid'],
+    $_POST['update_tutorial_name'],
+    $_POST['update_tutorial_assistant'],
+    $_POST['update_tutorial_notes'],
+    $_POST['update_tutorial_day'],
+    $_POST['update_tutorial_from_time'],
+    $_POST['update_tutorial_to_time'],
+    $_POST['update_tutorial_from_date'],
+    $_POST['update_tutorial_to_date'],
+    $_POST['update_tutorial_location'],
+    $_POST['update_tutorial_capacity'])) {
+    UpdateTutorial();
+}
+
+//Call UpdateExam function
+elseif (isset(
+    $_POST['update_exam_moduleid'],
+    $_POST['update_examid'],
+    $_POST['update_exam_name'],
+    $_POST['update_exam_notes'],
+    $_POST['update_exam_date'],
+    $_POST['update_exam_time'],
+    $_POST['update_exam_location'],
+    $_POST['update_exam_capacity'])) {
+    UpdateExam();
 }
 
 //Call DeactivateTimetable function
