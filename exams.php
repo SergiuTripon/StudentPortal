@@ -184,7 +184,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal"><span class="ladda-label">Close</span></a>
 			</div>
 			</div>
 
