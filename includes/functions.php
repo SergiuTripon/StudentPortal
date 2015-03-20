@@ -1420,7 +1420,7 @@ function ReserveBook() {
 	$stmt3->fetch();
 	$stmt3->close();
 
-	$reservation_status = 'Completed';
+	$reservation_status = 'Pending';
 
 	//Creating email
 	$subject = 'Reservation confirmation';
