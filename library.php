@@ -68,7 +68,7 @@ include 'includes/session.php';
 
 	<!-- Reserve books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom book-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -131,7 +131,7 @@ include 'includes/session.php';
 
 	<!-- Your reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom book-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -198,7 +198,7 @@ include 'includes/session.php';
 
 	<!-- Requested books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom book-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -327,7 +327,7 @@ include 'includes/session.php';
 
 	<!-- Active books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom book-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -491,7 +491,7 @@ include 'includes/session.php';
 
 	<!-- Inactive books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom book-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -651,7 +651,7 @@ include 'includes/session.php';
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom book-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -814,7 +814,7 @@ include 'includes/session.php';
 
 	<!-- Requested books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom book-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1094,13 +1094,13 @@ include 'includes/session.php';
 	}(jQuery));
 
 	//DataTables
-    $('.book-table').dataTable({
+    $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no books to display."
+			"emptyTable": "There are no records to display."
 		}
 	});
 
