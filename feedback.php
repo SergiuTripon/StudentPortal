@@ -528,7 +528,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT r.feedbackid, d.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.studentno, d.degree, m.moduleid, m.module_name, m.module_notes, m.module_url f.feedbackid, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on, f.isApproved, r.isRead FROM user_feedback_received r LEFT JOIN user_detail d ON r.feedback_from=d.userid LEFT JOIN system_module m ON r.moduleid=m.moduleid LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE f.isApproved=0 AND r.isRead = 0");
+	$stmt1 = $mysqli->query("SELECT DISTINCT r.feedbackid, d.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.studentno, d.degree, m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedbackid, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on, f.isApproved, r.isRead FROM user_feedback_received r LEFT JOIN user_detail d ON r.feedback_from=d.userid LEFT JOIN system_module m ON r.moduleid=m.moduleid LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE f.isApproved=0 AND r.isRead = 0");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -753,7 +753,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT f.feedbackid, f.feedback_subject, f.feedback_body, f.created_on f.moduleid, m.module_name, m.module_notes, m.module_url FROM user_feedback f WHERE f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_sent) AND u.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_received)");
+	$stmt1 = $mysqli->query("SELECT f.feedbackid, f.feedback_subject, f.feedback_body, f.created_on, f.moduleid, m.module_name, m.module_notes, m.module_url FROM user_feedback f WHERE f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_sent) AND u.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_received)");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -761,12 +761,11 @@ include 'includes/session.php';
     $userid = $row["userid"];
     $moduleid = $row["moduleid"];
 	$module_name = $row["module_name"];
-    $module_name = $row["module_name"];
+    $module_notes = $row["module_notes"];
+    $module_url = $row["module_url"];
 	$feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
     $created_on = $row["created_on"];
-    $isApproved = $row["isApproved"];
-    $isRead = $row["isRead"];
 
 	echo '<tr id="feedback-'.$feedbackid.'">
 
@@ -823,8 +822,6 @@ include 'includes/session.php';
 			<div class="modal-body">
 			<p><b>Feedback:</b> '.(empty($feedback_body) ? "-" : "$feedback_body").'</p>
 			<p><b>Submitted:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
-			<p><b>Approved:</b> '.($isApproved == 0 ? "No" : "Yes").'</p>
-			<p><b>Read:</b> '.($isRead == 0 ? "No" : "Yes").'</p>
 			</div>
 
 			<div class="modal-footer">
@@ -833,39 +830,6 @@ include 'includes/session.php';
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            <div id="approve-feedback-'.$feedbackid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="approve-feedback-question" class="text-center feedback-sad">Are you sure you want to approve '.$feedback_subject.'?</p>
-			<p id="approve-feedback-confirmation" style="display: none;" class="text-center feedback-happy">'.$feedback_subject.' has been approved successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="approve-feedback-hide">
-			<div class="pull-left">
-			<a id="approve-'.$feedbackid.'" class="btn btn-success btn-lg approve-feedback-button ladda-button" data-style="slide-up">Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="approve-feedback-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
