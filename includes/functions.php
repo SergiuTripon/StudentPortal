@@ -2655,7 +2655,7 @@ function DeleteReceivedFeedback () {
 
     $receivedFeedbackToDelete = filter_input(INPUT_POST, 'receivedFeedbackToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedbackid=? AND module_staff=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE feedbackid=? AND module_staff=?");
     $stmt1->bind_param('i', $receivedFeedbackToDelete, $session_userid);
     $stmt1->execute();
     $stmt1->close();
