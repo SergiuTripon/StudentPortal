@@ -207,6 +207,7 @@ CREATE TABLE `system_book` (
   `isReserved` TINYINT(1) NOT NULL,
   `isCollected` TINYINT(1) NOT NULL,
   `isLoaned` TINYINT(1) NOT NULL,
+  `isRequested` TINYINT(1) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME
 ) ENGINE = InnoDB;
@@ -215,12 +216,31 @@ CREATE TABLE `system_book` (
 CREATE TABLE `system_book_reserved` (
   `userid` INT(11) NOT NULL,
 	`bookid` INT(11) NOT NULL,
-	`book_class` VARCHAR(15) NOT NULL,
-	`reserved_on` DATE NOT NULL,
-	`toreturn_on` DATE NOT NULL,
+  `reservationid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	`tocollect_on` DATE NOT NULL,
+  `collected_on` DATE NOT NULL,
+	`isCollected` TINYINT(1) NOT NULL,
+  `reservation_status` VARCHAR(9) NOT NULL,
+  `created_on` DATE NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
+FOREIGN KEY (bookid)
+REFERENCES system_book(bookid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Library
+CREATE TABLE `system_book_loaned` (
+  `userid` INT(11) NOT NULL,
+  `bookid` INT(11) NOT NULL,
+  `reservationid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `book_class` VARCHAR(15) NOT NULL,
+  `toreturn_on` DATE NOT NULL,
   `returned_on` DATE NOT NULL,
-	`isReturned` TINYINT(1) NOT NULL,
-  `isRequested` TINYINT(1) NOT NULL,
+  `isReturned` TINYINT(1) NOT NULL,
+  `loan_status` VARCHAR(9) NOT NULL,
+  `created_on` DATE NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)
@@ -234,9 +254,10 @@ CREATE TABLE `system_book_requested` (
   `userid` INT(11) NOT NULL,
   `bookid` INT(11) NOT NULL,
   `requestid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `requested_on` DATE NOT NULL,
   `isRead` TINYINT(1) NOT NULL,
   `isApproved` TINYINT(1) NOT NULL,
+  `request_status` VARCHAR(9) NOT NULL,
+  `created_on` DATE NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)

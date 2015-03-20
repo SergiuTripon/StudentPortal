@@ -120,65 +120,6 @@ include 'includes/session.php';
 	</div><!-- /panel-default -->
 
 	<div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-  	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Request books</a>
-  	</h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-	<!-- Request books -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom book-table">
-
-	<thead>
-	<tr>
-	<th>Name</th>
-	<th>Author</th>
-	<th>Notes</th>
-	<th>Copy no.</th>
-	<th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<?php
-
-	$stmt1 = $mysqli->query("SELECT system_book.bookid, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_copy_no, system_book.book_status FROM system_book LEFT JOIN system_book_reserved ON system_book.bookid=system_book_reserved.bookid WHERE system_book.book_status = 'reserved' AND NOT system_book_reserved.userid = '$session_userid' AND NOT system_book_reserved.isReturned=1 AND NOT system_book_reserved.isRequested=1");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-	$bookid = $row["bookid"];
-	$book_name = $row["book_name"];
-	$book_author = $row["book_author"];
-	$book_notes = $row["book_notes"];
-	$book_copy_no = $row["book_copy_no"];
-	$book_status = $row["book_status"];
-	$book_status = ucfirst($book_status);
-
-	echo '<tr id="book-'.$bookid.'">
-
-			<td data-title="Name">'.$book_name.'</td>
-			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
-			<td data-title="Copy no.">'.$book_copy_no.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../library/request-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Request</span></a></td>
-			</tr>';
-	}
-
-	$stmt1->close();
-	?>
-	</tbody>
-
-	</table>
-	</section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
-
-	<div class="panel panel-default">
 
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
@@ -207,7 +148,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT system_book_reserved.bookid, DATE_FORMAT(system_book_reserved.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(system_book_reserved.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(system_book_reserved.returned_on,'%d %b %y') as returned_on, system_book_reserved.isReturned, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.userid = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT system_book_reserved.bookid, DATE_FORMAT(system_book_reserved.loaned_on,'%d %b %y') as loaned_on, DATE_FORMAT(system_book_reserved.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(system_book_reserved.returned_on,'%d %b %y') as returned_on, system_book_reserved.isReturned, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
