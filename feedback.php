@@ -414,6 +414,7 @@ include 'includes/session.php';
     $firstname = $row["firstname"];
     $surname = $row["surname"];
     $gender = $row["gender"];
+    $gender = ucfirst($gender);
     $dateofbirth = $row["dateofbirth"];
     $studentno = $row["studentno"];
     $degree = $row["degree"];
