@@ -62,7 +62,7 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-	$stmt1 = $mysqli->query("SELECT user_result.resultid, system_modules.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark, DATE_FORMAT(user_result.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_result.updated_on,'%d %b %y %H:%i') as updated_on FROM user_result LEFT JOIN system_modules ON user_result.moduleid=system_modules.moduleid WHERE user_result.userid = '$session_userid' AND system_modules.module_status='active'");
+	$stmt1 = $mysqli->query("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark, DATE_FORMAT(user_result.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_result.updated_on,'%d %b %y %H:%i') as updated_on FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid = '$session_userid' AND system_module.module_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -143,7 +143,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt3 = $mysqli->query("SELECT user_signin.userid, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE account_type = 'student'");
+	$stmt3 = $mysqli->query("SELECT user_signin.userid, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE account_type = 'student'");
 
 	while($row = $stmt3->fetch_assoc()) {
 

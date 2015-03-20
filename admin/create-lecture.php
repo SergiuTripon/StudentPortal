@@ -49,7 +49,7 @@ include '../includes/session.php';
     <select class="form-control" name="lecture_moduleid" id="lecture_moduleid" style="width: 100%;">
         <option></option>
     <?php
-    $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_modules WHERE module_status='active'");
+    $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_module WHERE module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -90,7 +90,7 @@ include '../includes/session.php';
 
     $lecturerid = $row["userid"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $lecturerid);
     $stmt2->execute();
     $stmt2->store_result();

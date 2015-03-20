@@ -99,7 +99,7 @@ include '../includes/session.php';
 
     $lectureid = $row["userid"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $lectureid);
     $stmt2->execute();
     $stmt2->store_result();
@@ -186,7 +186,7 @@ include '../includes/session.php';
 
     $lectureid = $row["userid"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $lectureid);
     $stmt2->execute();
     $stmt2->store_result();

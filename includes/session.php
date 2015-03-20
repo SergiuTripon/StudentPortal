@@ -20,7 +20,7 @@ if (isset($_SESSION['session_userid'])) {
     $session_userid = '';
 }
 
-$stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
 $stmt1->bind_param('i', $session_userid);
 $stmt1->execute();
 $stmt1->store_result();

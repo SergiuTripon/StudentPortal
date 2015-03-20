@@ -7,10 +7,10 @@ if (isset($_GET['id'])) {
 
     $stmt1 = $mysqli->prepare("SELECT
 
-system_modules.moduleid,
-system_modules.module_name,
-system_modules.module_notes,
-system_modules.module_url,
+system_module.moduleid,
+system_module.module_name,
+system_module.module_notes,
+system_module.module_url,
 
 system_lecture.lectureid,
 system_lecture.lecture_name,
@@ -44,13 +44,13 @@ DATE_FORMAT(exam_time,'%H:%i') AS exam_time,
 system_exam.exam_location,
 system_exam.exam_capacity
 
-FROM system_modules
+FROM system_module
 
-LEFT JOIN system_lecture  ON system_modules.moduleid=system_lecture.moduleid
-LEFT JOIN system_tutorial ON system_modules.moduleid=system_tutorial.moduleid
-LEFT JOIN system_exam     ON system_modules.moduleid=system_exam.moduleid
+LEFT JOIN system_lecture  ON system_module.moduleid=system_lecture.moduleid
+LEFT JOIN system_tutorial ON system_module.moduleid=system_tutorial.moduleid
+LEFT JOIN system_exam     ON system_module.moduleid=system_exam.moduleid
 
-WHERE system_modules.moduleid = ? LIMIT 1
+WHERE system_module.moduleid = ? LIMIT 1
 ");
     $stmt1->bind_param('i', $timetableToUpdate);
     $stmt1->execute();
@@ -151,7 +151,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
     <select class="selectpicker lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
-    $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$lecture_lecturer'");
+    $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_detail WHERE userid = '$lecture_lecturer'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -167,7 +167,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
         $other_lecturers = $row["userid"];
 
-        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
         $stmt3->bind_param('i', $other_lecturers);
         $stmt3->execute();
         $stmt3->store_result();
@@ -247,7 +247,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
     <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
     <select class="selectpicker tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
-    $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$tutorial_assistant'");
+    $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_detail WHERE userid = '$tutorial_assistant'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -263,7 +263,7 @@ WHERE system_modules.moduleid = ? LIMIT 1
 
         $other_tutorial_assistants = $row["userid"];
 
-        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
         $stmt3->bind_param('i', $other_tutorial_assistants);
         $stmt3->execute();
         $stmt3->store_result();

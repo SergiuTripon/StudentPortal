@@ -63,7 +63,7 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_modules m ON l.moduleid = m.moduleid LEFT JOIN user_details d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Monday'");
+	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Monday'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -126,7 +126,7 @@ include 'includes/session.php';
 
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_modules m ON t.moduleid = m.moduleid LEFT JOIN user_details d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Monday'");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Monday'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -224,7 +224,7 @@ include 'includes/session.php';
 
 	<tbody>
     <?php
-	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_modules m ON l.moduleid = m.moduleid LEFT JOIN user_details d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Tuesday'");
+	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Tuesday'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -287,7 +287,7 @@ include 'includes/session.php';
 
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_modules m ON t.moduleid = m.moduleid LEFT JOIN user_details d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Tuesday'");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Tuesday'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -385,7 +385,7 @@ include 'includes/session.php';
 
 	<tbody>
     <?php
-	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_modules m ON l.moduleid = m.moduleid LEFT JOIN user_details d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Wednesday'");
+	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Wednesday'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -448,7 +448,7 @@ include 'includes/session.php';
 
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_modules m ON t.moduleid = m.moduleid LEFT JOIN user_details d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Wednesday'");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Wednesday'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -546,7 +546,7 @@ include 'includes/session.php';
 
 	<tbody>
     <?php
-	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_modules m ON l.moduleid = m.moduleid LEFT JOIN user_details d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Thursday'");
+	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Thursday'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -609,7 +609,7 @@ include 'includes/session.php';
 
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_modules m ON t.moduleid = m.moduleid LEFT JOIN user_details d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Thursday'");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Thursday'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -707,7 +707,7 @@ include 'includes/session.php';
 
 	<tbody>
     <?php
-    $stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_modules m ON l.moduleid = m.moduleid LEFT JOIN user_details d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Friday'");
+    $stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Friday'");
 
     while($row = $stmt1->fetch_assoc()) {
 
@@ -770,7 +770,7 @@ include 'includes/session.php';
 
     $stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_modules m ON t.moduleid = m.moduleid LEFT JOIN user_details d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Friday'");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '3' AND t.tutorial_day = 'Friday'");
 
     while($row = $stmt2->fetch_assoc()) {
 
@@ -898,7 +898,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_modules m WHERE m.module_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m WHERE m.module_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -1076,7 +1076,7 @@ include 'includes/session.php';
     $lecture_location = $row["lecture_location"];
     $lecture_capacity = $row["lecture_capacity"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $lecture_lecturer);
     $stmt2->execute();
     $stmt2->store_result();
@@ -1259,7 +1259,7 @@ include 'includes/session.php';
     $tutorial_location = $row["tutorial_location"];
     $tutorial_capacity = $row["tutorial_capacity"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $tutorial_assistant);
     $stmt2->execute();
     $stmt2->store_result();
@@ -1427,7 +1427,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_modules m WHERE m.module_status = 'inactive'");
+	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m WHERE m.module_status = 'inactive'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -1601,7 +1601,7 @@ include 'includes/session.php';
     $lecture_location = $row["lecture_location"];
     $lecture_capacity = $row["lecture_capacity"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $lecture_lecturer);
     $stmt2->execute();
     $stmt2->store_result();
@@ -1782,7 +1782,7 @@ include 'includes/session.php';
     $tutorial_location = $row["tutorial_location"];
     $tutorial_capacity = $row["tutorial_capacity"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $tutorial_assistant);
     $stmt2->execute();
     $stmt2->store_result();

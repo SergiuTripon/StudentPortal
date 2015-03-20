@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
 
 	$userToUpdate = $_GET["id"];
 
-	$stmt1 = $mysqli->prepare("SELECT user_signin.account_type, user_signin.email, user_details.firstname, user_details.surname, user_details.gender, user_details.studentno, user_details.degree, user_details.nationality, user_details.dateofbirth, user_details.phonenumber, user_details.address1, user_details.address2, user_details.town, user_details.city, user_details.country, user_details.postcode FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt1 = $mysqli->prepare("SELECT user_signin.account_type, user_signin.email, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.studentno, user_detail.degree, user_detail.nationality, user_detail.dateofbirth, user_detail.phonenumber, user_detail.address1, user_detail.address2, user_detail.town, user_detail.city, user_detail.country, user_detail.postcode FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userToUpdate);
 	$stmt1->execute();
 	$stmt1->store_result();

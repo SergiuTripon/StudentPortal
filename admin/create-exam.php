@@ -49,7 +49,7 @@ include '../includes/session.php';
     <select class="form-control" name="exam_moduleid" id="exam_moduleid" style="width: 100%">
         <option></option>
     <?php
-    $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_modules WHERE module_status='active'");
+    $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_module WHERE module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
 

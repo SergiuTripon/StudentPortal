@@ -13,7 +13,7 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
-    $stmt = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt->bind_param('i', $session_userid);
     $stmt->execute();
     $stmt->store_result();

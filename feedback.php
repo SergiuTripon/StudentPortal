@@ -61,7 +61,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, l.lecture_lecturer, t.tutorial_assistant FROM system_modules m LEFT JOIN user_module u ON m.moduleid = u.moduleid LEFT JOIN system_lecture l ON m.moduleid = l.moduleid LEFT JOIN system_tutorial t ON m.moduleid = t.moduleid WHERE u.userid = '$session_userid' AND m.module_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, l.lecture_lecturer, t.tutorial_assistant FROM system_module m LEFT JOIN user_module u ON m.moduleid = u.moduleid LEFT JOIN system_lecture l ON m.moduleid = l.moduleid LEFT JOIN system_tutorial t ON m.moduleid = t.moduleid WHERE u.userid = '$session_userid' AND m.module_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -70,14 +70,14 @@ include 'includes/session.php';
 	$lecture_lecturer = $row["lecture_lecturer"];
     $tutorial_assistant = $row["tutorial_assistant"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
     $stmt2->bind_param('i', $lecture_lecturer);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+    $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
     $stmt3->bind_param('i', $tutorial_assistant);
     $stmt3->execute();
     $stmt3->store_result();
@@ -132,7 +132,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT system_modules.module_name, user_feedback.feedback_subject, user_feedback.feedback_body, DATE_FORMAT(user_feedback.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_sent LEFT JOIN system_modules ON user_feedback_sent.moduleid = system_modules.moduleid LEFT JOIN user_feedback ON user_feedback_sent.feedbackid = user_feedback.feedbackid WHERE user_feedback_sent.feedback_from = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT DISTINCT system_module.module_name, user_feedback.feedback_subject, user_feedback.feedback_body, DATE_FORMAT(user_feedback.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_sent LEFT JOIN system_module ON user_feedback_sent.moduleid = system_module.moduleid LEFT JOIN user_feedback ON user_feedback_sent.feedbackid = user_feedback.feedbackid WHERE user_feedback_sent.feedback_from = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -211,7 +211,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT user_feedback_sent.feedbackid, user_details.firstname, user_details.surname, system_modules.module_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_sent LEFT JOIN user_details ON user_feedback_sent.feedback_from=user_details.userid LEFT JOIN system_modules ON user_feedback_sent.moduleid=system_modules.moduleid LEFT JOIN user_feedback ON user_feedback_sent.feedbackid=user_feedback.feedbackid WHERE user_feedback_sent.module_staff = '$session_userid' AND user_feedback_sent.isApproved = 1");
+	$stmt1 = $mysqli->query("SELECT DISTINCT user_feedback_sent.feedbackid, user_detail.firstname, user_detail.surname, system_module.module_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_sent LEFT JOIN user_detail ON user_feedback_sent.feedback_from=user_detail.userid LEFT JOIN system_module ON user_feedback_sent.moduleid=system_module.moduleid LEFT JOIN user_feedback ON user_feedback_sent.feedbackid=user_feedback.feedbackid WHERE user_feedback_sent.module_staff = '$session_userid' AND user_feedback_sent.isApproved = 1");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -292,7 +292,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT user_feedback_sent.feedbackid, user_details.firstname, user_details.surname, system_modules.module_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_sent LEFT JOIN user_details ON user_feedback_sent.feedback_from=user_details.userid LEFT JOIN system_modules ON user_feedback_sent.moduleid=system_modules.moduleid LEFT JOIN user_feedback ON user_feedback_sent.feedbackid=user_feedback.feedbackid WHERE user_feedback_sent.isApproved=0 AND user_feedback_sent.isRead = 0");
+	$stmt1 = $mysqli->query("SELECT DISTINCT user_feedback_sent.feedbackid, user_detail.firstname, user_detail.surname, system_module.module_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_sent LEFT JOIN user_detail ON user_feedback_sent.feedback_from=user_detail.userid LEFT JOIN system_module ON user_feedback_sent.moduleid=system_module.moduleid LEFT JOIN user_feedback ON user_feedback_sent.feedbackid=user_feedback.feedbackid WHERE user_feedback_sent.isApproved=0 AND user_feedback_sent.isRead = 0");
 
 	while($row = $stmt1->fetch_assoc()) {
 

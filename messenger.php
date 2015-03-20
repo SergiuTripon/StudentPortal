@@ -58,7 +58,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE NOT user_signin.userid = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -111,7 +111,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_messages_received.message_from, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on, user_details.firstname, user_details.surname FROM user_messages_received LEFT JOIN user_messages ON user_messages_received.messageid=user_messages.messageid LEFT JOIN user_details as user_details ON user_messages_received.message_from=user_details.userid WHERE user_messages_received.message_to = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT user_message_received.message_from, user_message.message_subject, user_message.message_body, DATE_FORMAT(user_message.created_on,'%d %b %y %H:%i') as created_on, user_detail.firstname, user_detail.surname FROM user_message_received LEFT JOIN user_message ON user_message_received.messageid=user_message.messageid LEFT JOIN user_detail as user_detail ON user_message_received.message_from=user_detail.userid WHERE user_message_received.message_to = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -170,7 +170,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT user_messages_sent.message_to, user_messages_sent.isRead, user_messages.message_subject, user_messages.message_body, DATE_FORMAT(user_messages.created_on,'%d %b %y %H:%i') as created_on, user_details.firstname, user_details.surname FROM user_messages_sent LEFT JOIN user_messages ON user_messages_sent.messageid=user_messages.messageid LEFT JOIN user_details ON user_messages_sent.message_to=user_details.userid WHERE user_messages_sent.message_from = '$session_userid'");
+	$stmt4 = $mysqli->query("SELECT user_message_sent.message_to, user_message_sent.isRead, user_message.message_subject, user_message.message_body, DATE_FORMAT(user_message.created_on,'%d %b %y %H:%i') as created_on, user_detail.firstname, user_detail.surname FROM user_message_sent LEFT JOIN user_message ON user_message_sent.messageid=user_message.messageid LEFT JOIN user_detail ON user_message_sent.message_to=user_detail.userid WHERE user_message_sent.message_from = '$session_userid'");
 
 	while($row = $stmt4->fetch_assoc()) {
 

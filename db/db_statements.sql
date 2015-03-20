@@ -15,20 +15,20 @@ DROP TABLE user_exam;
 DROP TABLE system_exam;
 DROP TABLE user_result;
 DROP TABLE user_module;
-DROP TABLE system_modules;
-DROP TABLE system_books_reserved;
-DROP TABLE system_books_requested;
+DROP TABLE system_module;
+DROP TABLE system_book_reserved;
+DROP TABLE system_book_requested;
 DROP TABLE system_book;
-DROP TABLE user_tasks;
-DROP TABLE system_events_booked;
-DROP TABLE system_events;
-DROP TABLE user_messages_sent;
-DROP TABLE user_messages_received;
-DROP TABLE user_messages;
+DROP TABLE user_task;
+DROP TABLE system_event_booked;
+DROP TABLE system_event;
+DROP TABLE user_message_sent;
+DROP TABLE user_message_received;
+DROP TABLE user_message;
 DROP TABLE paypal_log;
-DROP TABLE user_fees; 
+DROP TABLE user_fee;
 DROP TABLE user_token;
-DROP TABLE user_details;
+DROP TABLE user_detail;
 DROP TABLE user_signin;
 
 #Sign in
@@ -43,7 +43,7 @@ CREATE TABLE `user_signin` (
 ) ENGINE = InnoDB;
 
 #User details
-CREATE TABLE `user_details` (
+CREATE TABLE `user_detail` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `firstname` VARCHAR(70) NOT NULL,
   `surname` VARCHAR(70) NOT NULL,
@@ -80,7 +80,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Fees
-CREATE TABLE `user_fees` (
+CREATE TABLE `user_fee` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `fee_amount` NUMERIC(15,2) NOT NULL,
   `isHalf` TINYINT(1) NOT NULL,
@@ -125,7 +125,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Messenger
-CREATE TABLE `user_messages` (
+CREATE TABLE `user_message` (
 	`messageid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`message_subject` VARCHAR(300) NOT NULL,
 	`message_body` VARCHAR(5000),
@@ -134,13 +134,13 @@ CREATE TABLE `user_messages` (
 ) ENGINE = InnoDB;
 
 #Messenger
-CREATE TABLE `user_messages_sent` (
+CREATE TABLE `user_message_sent` (
   `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
   `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (messageid)
-REFERENCES user_messages(messageid),
+REFERENCES user_message(messageid),
 FOREIGN KEY (message_from)
 REFERENCES user_signin(userid),
 FOREIGN KEY (message_to)
@@ -150,12 +150,12 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Messenger
-CREATE TABLE `user_messages_received` (
+CREATE TABLE `user_message_received` (
   `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
 FOREIGN KEY (messageid)
-REFERENCES user_messages(messageid),
+REFERENCES user_message(messageid),
 FOREIGN KEY (message_from)
 REFERENCES user_signin(userid),
 FOREIGN KEY (message_to)
@@ -165,7 +165,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Events
-CREATE TABLE `system_events` (
+CREATE TABLE `system_event` (
 	`eventid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`event_name` VARCHAR(300) NOT NULL,
 	`event_notes` VARCHAR(5000),
@@ -182,7 +182,7 @@ CREATE TABLE `system_events` (
 ) ENGINE = InnoDB;
 
 #Events
-CREATE TABLE `system_events_booked` (
+CREATE TABLE `system_event_booked` (
   `userid` INT(11) NOT NULL,
   `eventid` INT(11) NOT NULL,
 	`event_amount_paid` NUMERIC(15,2) NOT NULL,
@@ -191,7 +191,7 @@ CREATE TABLE `system_events_booked` (
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (eventid)
-REFERENCES system_events(eventid)
+REFERENCES system_event(eventid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -209,7 +209,7 @@ CREATE TABLE `system_book` (
 ) ENGINE = InnoDB;
 
 #Library
-CREATE TABLE `system_books_reserved` (
+CREATE TABLE `system_book_reserved` (
   `userid` INT(11) NOT NULL,
 	`bookid` INT(11) NOT NULL,
 	`book_class` VARCHAR(15) NOT NULL,
@@ -227,7 +227,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Library
-CREATE TABLE `system_books_requested` (
+CREATE TABLE `system_book_requested` (
   `userid` INT(11) NOT NULL,
   `bookid` INT(11) NOT NULL,
   `requestid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -243,7 +243,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Calendar
-CREATE TABLE `user_tasks` (
+CREATE TABLE `user_task` (
 	`userid` INT(11) NOT NULL,
 	`taskid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`task_name` VARCHAR(70) NOT NULL,
@@ -264,7 +264,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `system_modules` (
+CREATE TABLE `system_module` (
 	`moduleid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`module_name` VARCHAR(300) NOT NULL,
 	`module_notes` VARCHAR(5000),
@@ -292,7 +292,7 @@ CREATE TABLE `system_lecture` (
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
+REFERENCES system_module(moduleid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -315,7 +315,7 @@ CREATE TABLE `system_tutorial` (
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
+REFERENCES system_module(moduleid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -334,7 +334,7 @@ CREATE TABLE `system_exam` (
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
+REFERENCES system_module(moduleid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -346,7 +346,7 @@ CREATE TABLE `user_module` (
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
+REFERENCES system_module(moduleid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -402,7 +402,7 @@ CREATE TABLE `user_result` (
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
+REFERENCES system_module(moduleid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -416,7 +416,7 @@ CREATE TABLE `user_feedback` (
   `feedback_status` VARCHAR(9) NOT NULL,
   `created_on` DATETIME NOT NULL,
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid)
+REFERENCES system_module(moduleid)
 ) ENGINE = InnoDB;
 
 #Feedback
@@ -432,7 +432,7 @@ REFERENCES user_feedback(feedbackid),
 FOREIGN KEY (feedback_from)
 REFERENCES user_signin(userid),
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid),
+REFERENCES system_module(moduleid),
 FOREIGN KEY (module_staff)
 REFERENCES user_signin(userid)
 ON UPDATE CASCADE
@@ -450,7 +450,7 @@ REFERENCES user_feedback(feedbackid),
 FOREIGN KEY (feedback_from)
 REFERENCES user_signin(userid),
 FOREIGN KEY (moduleid)
-REFERENCES system_modules(moduleid),
+REFERENCES system_module(moduleid),
 FOREIGN KEY (module_staff)
 REFERENCES user_signin(userid)
 ON UPDATE CASCADE

@@ -3,7 +3,7 @@ include '../../session.php';
 
 header("Cache-Control: no-cache, must-revalidate");
 
-$sql = 'SELECT eventid, event_name, event_url, event_class, event_from, event_to FROM system_events WHERE event_status = "active"';
+$sql = 'SELECT eventid, event_name, event_url, event_class, event_from, event_to FROM system_event WHERE event_status = "active"';
 
 $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);

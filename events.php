@@ -87,7 +87,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_event WHERE event_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -152,7 +152,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT system_events.event_name, system_events_booked.event_amount_paid, system_events_booked.ticket_quantity, DATE_FORMAT(system_events_booked.booked_on,'%d %b %y %H:%i') as booked_on FROM system_events_booked LEFT JOIN system_events ON system_events_booked.eventid=system_events.eventid WHERE system_events_booked.userid = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT system_event.event_name, system_event_booked.event_amount_paid, system_event_booked.ticket_quantity, DATE_FORMAT(system_event_booked.booked_on,'%d %b %y %H:%i') as booked_on FROM system_event_booked LEFT JOIN system_event ON system_event_booked.eventid=system_event.eventid WHERE system_event_booked.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -275,7 +275,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_event WHERE event_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -373,7 +373,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE event_status = 'inactive'");
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_event WHERE event_status = 'inactive'");
 
 	while($row = $stmt1->fetch_assoc()) {
 

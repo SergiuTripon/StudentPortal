@@ -66,7 +66,7 @@ if (isset($_GET['id'])) {
     <label for="exam_moduleid">Module<span class="field-required">*</span></label>
     <select class="form-control" name="exam_moduleid" id="exam_moduleid" style="width: 100%;">
     <?php
-    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_modules m WHERE m.moduleid = '$moduleid' AND module_status='active'");
+    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_module m WHERE m.moduleid = '$moduleid' AND module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -78,7 +78,7 @@ if (isset($_GET['id'])) {
 
     ?>
     <?php
-    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_modules m WHERE NOT m.moduleid = '$moduleid' AND module_status='active'");
+    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_module m WHERE NOT m.moduleid = '$moduleid' AND module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
 

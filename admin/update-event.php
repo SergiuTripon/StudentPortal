@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
 
     $eventToUpdate = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category FROM system_events WHERE eventid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category FROM system_event WHERE eventid = ? LIMIT 1");
     $stmt1->bind_param('i', $eventToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
@@ -112,7 +112,7 @@ if (isset($_GET["id"])) {
     <label for="event_category">Category</label>
     <select class="selectpicker event_category" name="event_category" id="event_category">
         <?php
-        $stmt1 = $mysqli->query("SELECT event_category FROM system_events WHERE eventid = '$eventid' AND event_category = '$event_category'");
+        $stmt1 = $mysqli->query("SELECT event_category FROM system_event WHERE eventid = '$eventid' AND event_category = '$event_category'");
 
         while ($row = $stmt1->fetch_assoc()){
 

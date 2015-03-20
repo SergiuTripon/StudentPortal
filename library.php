@@ -83,7 +83,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT (system_book.bookid), system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_copy_no, system_book.book_status FROM system_book LEFT JOIN system_books_reserved ON system_book.bookid=system_book.bookid WHERE system_book.book_status = 'active' AND system_book.bookid NOT IN (SELECT DISTINCT(system_books_reserved.bookid) FROM system_books_reserved WHERE system_books_reserved.isRequested = '0')");
+	$stmt1 = $mysqli->query("SELECT DISTINCT (system_book.bookid), system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_copy_no, system_book.book_status FROM system_book LEFT JOIN system_book_reserved ON system_book.bookid=system_book.bookid WHERE system_book.book_status = 'active' AND system_book.bookid NOT IN (SELECT DISTINCT(system_book_reserved.bookid) FROM system_book_reserved WHERE system_book_reserved.isRequested = '0')");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -142,7 +142,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT system_book.bookid, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_copy_no, system_book.book_status FROM system_book LEFT JOIN system_books_reserved ON system_book.bookid=system_books_reserved.bookid WHERE system_book.book_status = 'reserved' AND NOT system_books_reserved.userid = '$session_userid' AND NOT system_books_reserved.isReturned=1 AND NOT system_books_reserved.isRequested=1");
+	$stmt1 = $mysqli->query("SELECT system_book.bookid, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_copy_no, system_book.book_status FROM system_book LEFT JOIN system_book_reserved ON system_book.bookid=system_book_reserved.bookid WHERE system_book.book_status = 'reserved' AND NOT system_book_reserved.userid = '$session_userid' AND NOT system_book_reserved.isReturned=1 AND NOT system_book_reserved.isRequested=1");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -204,7 +204,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT system_books_reserved.bookid, DATE_FORMAT(system_books_reserved.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(system_books_reserved.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(system_books_reserved.returned_on,'%d %b %y') as returned_on, system_books_reserved.isReturned, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_status FROM system_books_reserved LEFT JOIN system_book ON system_books_reserved.bookid=system_book.bookid WHERE system_books_reserved.userid = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT system_book_reserved.bookid, DATE_FORMAT(system_book_reserved.reserved_on,'%d %b %y') as reserved_on, DATE_FORMAT(system_book_reserved.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(system_book_reserved.returned_on,'%d %b %y') as returned_on, system_book_reserved.isReturned, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -271,7 +271,7 @@ include 'includes/session.php';
 	<tbody>
     <?php
 
-    $stmt2 = $mysqli->query("SELECT system_books_requested.bookid, DATE_FORMAT(system_books_requested.requested_on,'%d %b %y') as requested_on, system_books_requested.isRead, system_books_requested.isApproved, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_status FROM system_books_requested LEFT JOIN system_book ON system_books_requested.bookid=system_book.bookid  WHERE system_books_requested.userid = '$session_userid'");
+    $stmt2 = $mysqli->query("SELECT system_book_requested.bookid, DATE_FORMAT(system_book_requested.requested_on,'%d %b %y') as requested_on, system_book_requested.isRead, system_book_requested.isApproved, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_status FROM system_book_requested LEFT JOIN system_book ON system_book_requested.bookid=system_book.bookid  WHERE system_book_requested.userid = '$session_userid'");
 
     while($row = $stmt2->fetch_assoc()) {
 
@@ -721,7 +721,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_books_reserved r LEFT JOIN user_details d ON r.userid=d.userid LEFT JOIN system_book b ON r.bookid=b.bookid WHERE b.book_status = 'reserved'");
+	$stmt1 = $mysqli->query("SELECT r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_reserved r LEFT JOIN user_detail d ON r.userid=d.userid LEFT JOIN system_book b ON r.bookid=b.bookid WHERE b.book_status = 'reserved'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -884,7 +884,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT r.requestid, r.bookid, r.userid, r.isApproved, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_status FROM system_books_requested r LEFT JOIN system_book b ON r.bookid=b.bookid LEFT JOIN user_details d ON r.userid=d.userid WHERE r.isApproved = '0'");
+	$stmt1 = $mysqli->query("SELECT r.requestid, r.bookid, r.userid, r.isApproved, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_status FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid LEFT JOIN user_detail d ON r.userid=d.userid WHERE r.isApproved = '0'");
 
 	while($row = $stmt1->fetch_assoc()) {
 

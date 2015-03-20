@@ -66,7 +66,7 @@ if (isset($_GET['id'])) {
     <label for="lecture_moduleid">Module<span class="field-required">*</span></label>
     <select class="form-control" name="lecture_moduleid" id="lecture_moduleid" style="width: 100%;">
     <?php
-    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_modules m WHERE m.moduleid = '$moduleid' AND module_status='active'");
+    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_module m WHERE m.moduleid = '$moduleid' AND module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -78,7 +78,7 @@ if (isset($_GET['id'])) {
 
     ?>
     <?php
-    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_modules m WHERE NOT m.moduleid = '$moduleid' AND module_status='active'");
+    $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_module m WHERE NOT m.moduleid = '$moduleid' AND module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -105,7 +105,7 @@ if (isset($_GET['id'])) {
     <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
     <select class="form-control lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
-    $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_details WHERE userid = '$lecture_lecturer'");
+    $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_detail WHERE userid = '$lecture_lecturer'");
 
     while ($row = $stmt1->fetch_assoc()){
 
@@ -121,7 +121,7 @@ if (isset($_GET['id'])) {
 
         $other_lecturers = $row["userid"];
 
-        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
         $stmt3->bind_param('i', $other_lecturers);
         $stmt3->execute();
         $stmt3->store_result();

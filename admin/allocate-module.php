@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_module.userid) FROM user_module WHERE user_module.moduleid = '$moduleToAllocate') AND user_signin.account_type = 'student'");
+	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_module.userid) FROM user_module WHERE user_module.moduleid = '$moduleToAllocate') AND user_signin.account_type = 'student'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -153,7 +153,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_details.studentno, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_module.userid) FROM user_module WHERE user_module.moduleid = '$moduleToAllocate') AND user_signin.account_type = 'student'");
+	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_module.userid) FROM user_module WHERE user_module.moduleid = '$moduleToAllocate') AND user_signin.account_type = 'student'");
 
 	while($row = $stmt2->fetch_assoc()) {
 

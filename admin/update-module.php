@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
 
     $moduleToUpdate = $_GET['id'];
 
-    $stmt1 = $mysqli->prepare("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_modules m WHERE m.moduleid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m WHERE m.moduleid = ? LIMIT 1");
     $stmt1->bind_param('i', $moduleToUpdate);
     $stmt1->execute();
     $stmt1->store_result();

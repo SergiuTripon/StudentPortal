@@ -1,7 +1,7 @@
 <?php
 include '../session.php';
 
-	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_tasks WHERE userid = '$session_userid' AND task_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 

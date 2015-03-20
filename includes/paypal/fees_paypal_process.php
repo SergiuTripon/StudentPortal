@@ -36,7 +36,7 @@ $payment_status = 'pending';
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt = $mysqli->prepare("UPDATE user_details set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt = $mysqli->prepare("UPDATE user_detail set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
 		$stmt->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $session_userid);
 		$stmt->execute();
 		$stmt->close();

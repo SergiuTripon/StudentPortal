@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT u.userid, u.moduleid, m.module_name FROM user_module u LEFT JOIN system_modules m ON u.moduleid=m.moduleid LEFT JOIN user_result r ON u.moduleid=r.moduleid WHERE u.userid NOT IN (SELECT DISTINCT(r.userid) FROM user_result r WHERE r.userid = '$session_userid' AND r.result_status='active') AND m.module_status='active'");
+	$stmt1 = $mysqli->query("SELECT u.userid, u.moduleid, m.module_name FROM user_module u LEFT JOIN system_module m ON u.moduleid=m.moduleid LEFT JOIN user_result r ON u.moduleid=r.moduleid WHERE u.userid NOT IN (SELECT DISTINCT(r.userid) FROM user_result r WHERE r.userid = '$session_userid' AND r.result_status='active') AND m.module_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -117,7 +117,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_result.resultid, system_modules.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_modules ON user_result.moduleid=system_modules.moduleid WHERE user_result.userid = '$userToCreateResults' AND user_result.result_status='active'");
+	$stmt1 = $mysqli->query("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid = '$userToCreateResults' AND user_result.result_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -253,7 +253,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_result.resultid, system_modules.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_modules ON user_result.moduleid=system_modules.moduleid WHERE user_result.userid = '$userToCreateResults' AND user_result.result_status='inactive'");
+	$stmt1 = $mysqli->query("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid = '$userToCreateResults' AND user_result.result_status='inactive'");
 
 	while($row = $stmt1->fetch_assoc()) {
 

@@ -5,28 +5,28 @@ if (isset($_GET["id"])) {
 
     $moduleToFeedback = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT moduleid, module_name FROM system_modules WHERE system_modules.moduleid=?");
+    $stmt1 = $mysqli->prepare("SELECT moduleid, module_name FROM system_module WHERE system_module.moduleid=?");
     $stmt1->bind_param('i', $moduleToFeedback);
     $stmt1->execute();
     $stmt1->store_result();
     $stmt1->bind_result($moduleid, $module_name);
     $stmt1->fetch();
 
-    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, system_lecture.lecture_lecturer FROM system_lecture LEFT JOIN user_signin ON system_lecture.lecture_lecturer=user_signin.userid LEFT JOIN user_details ON system_lecture.lecture_lecturer=user_details.userid WHERE system_lecture.moduleid=?");
+    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, system_lecture.lecture_lecturer FROM system_lecture LEFT JOIN user_signin ON system_lecture.lecture_lecturer=user_signin.userid LEFT JOIN user_detail ON system_lecture.lecture_lecturer=user_detail.userid WHERE system_lecture.moduleid=?");
     $stmt2->bind_param('i', $moduleToFeedback);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($lecturer_feedback_to_email, $lecturer_feedback_to_firstname, $lecturer_feedback_to_surname, $lecture_lecturer);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, system_tutorial.tutorial_assistant FROM system_tutorial LEFT JOIN user_signin ON system_tutorial.tutorial_assistant=user_signin.userid LEFT JOIN user_details ON system_tutorial.tutorial_assistant=user_details.userid WHERE system_tutorial.moduleid=?");
+    $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, system_tutorial.tutorial_assistant FROM system_tutorial LEFT JOIN user_signin ON system_tutorial.tutorial_assistant=user_signin.userid LEFT JOIN user_detail ON system_tutorial.tutorial_assistant=user_detail.userid WHERE system_tutorial.moduleid=?");
     $stmt3->bind_param('i', $moduleToFeedback);
     $stmt3->execute();
     $stmt3->store_result();
     $stmt3->bind_result($tutorial_assistant_feedback_to_email, $tutorial_assistant_feedback_to_firstname, $tutorial_assistant_feedback_to_surname, $tutorial_assistant);
     $stmt3->fetch();
 
-    $stmt4 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt4 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt4->bind_param('i', $session_userid);
     $stmt4->execute();
     $stmt4->store_result();

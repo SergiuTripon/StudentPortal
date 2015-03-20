@@ -76,7 +76,7 @@ function SignIn() {
 	if ($stmt1->num_rows == 1) {
 
 	// Getting firstname and surname for the user
-	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
 	$stmt2->execute();
 	$stmt2->store_result();
@@ -182,7 +182,7 @@ function RegisterUser() {
     //Creating user details
     $user_status = 'active';
 
-	$stmt3 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, user_status, created_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt3 = $mysqli->prepare("INSERT INTO user_detail (firstname, surname, gender, user_status, created_on) VALUES (?, ?, ?, ?, ?)");
 	$stmt3->bind_param('sssss', $firstname, $surname, $gender, $user_status, $created_on);
 	$stmt3->execute();
 	$stmt3->close();
@@ -198,7 +198,7 @@ function RegisterUser() {
     //Creating user fees
 	$fee_amount = '9000.00';
 
-	$stmt6 = $mysqli->prepare("INSERT INTO user_fees (fee_amount, created_on) VALUES (?, ?)");
+	$stmt6 = $mysqli->prepare("INSERT INTO user_fee (fee_amount, created_on) VALUES (?, ?)");
 	$stmt6->bind_param('is', $fee_amount, $created_on);
 	$stmt6->execute();
 	$stmt6->close();
@@ -243,7 +243,7 @@ function SendPasswordToken() {
 		$passwordlink = "<a href=https://student-portal.co.uk/password-reset/?token=$token>here</a>";
 
         //Getting firstname, surname using userid
-        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
         $stmt3->bind_param('i', $userid);
         $stmt3->execute();
         $stmt3->store_result();
@@ -319,7 +319,7 @@ function ResetPassword() {
     } else {
 
     //Getting token from database
-	$stmt2 = $mysqli->prepare("SELECT user_token.token, user_details.firstname FROM user_token LEFT JOIN user_details ON user_token.userid=user_details.userid WHERE user_token.userid = ? LIMIT 1");
+	$stmt2 = $mysqli->prepare("SELECT user_token.token, user_detail.firstname FROM user_token LEFT JOIN user_detail ON user_token.userid=user_detail.userid WHERE user_token.userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
 	$stmt2->execute();
 	$stmt2->store_result();
@@ -431,14 +431,14 @@ function GetDashboardData() {
 
     $book_reserved = 'reserved';
 
-	$stmt5 = $mysqli->prepare("SELECT system_books_reserved.bookid FROM system_books_reserved LEFT JOIN system_book ON system_books_reserved.bookid=system_book.bookid  WHERE system_books_reserved.userid = ? AND system_book.book_status = ? AND isReturned = '0'");
+	$stmt5 = $mysqli->prepare("SELECT system_book_reserved.bookid FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid  WHERE system_book_reserved.userid = ? AND system_book.book_status = ? AND isReturned = '0'");
 	$stmt5->bind_param('is', $session_userid, $book_reserved);
 	$stmt5->execute();
 	$stmt5->store_result();
 	$stmt5->bind_result($bookid);
 	$stmt5->fetch();
 
-    $stmt6 = $mysqli->prepare("SELECT system_books_requested.bookid FROM system_books_requested LEFT JOIN system_book ON system_books_requested.bookid=system_book.bookid  WHERE system_book.book_status = ? AND system_books_requested.isRead = '0' AND system_books_requested.isApproved = '0'");
+    $stmt6 = $mysqli->prepare("SELECT system_book_requested.bookid FROM system_book_requested LEFT JOIN system_book ON system_book_requested.bookid=system_book.bookid  WHERE system_book.book_status = ? AND system_book_requested.isRead = '0' AND system_book_requested.isApproved = '0'");
 	$stmt6->bind_param('s', $book_reserved);
 	$stmt6->execute();
 	$stmt6->store_result();
@@ -447,14 +447,14 @@ function GetDashboardData() {
 
 	$task_status = 'active';
 
-	$stmt7 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE userid = ? AND task_status = ?");
+	$stmt7 = $mysqli->prepare("SELECT taskid FROM user_task WHERE userid = ? AND task_status = ?");
 	$stmt7->bind_param('is', $session_userid, $task_status);
 	$stmt7->execute();
 	$stmt7->store_result();
 	$stmt7->bind_result($taskid);
 	$stmt7->fetch();
 
-	$stmt8 = $mysqli->prepare("SELECT eventid FROM system_events_booked WHERE userid = ?");
+	$stmt8 = $mysqli->prepare("SELECT eventid FROM system_event_booked WHERE userid = ?");
 	$stmt8->bind_param('i', $session_userid);
 	$stmt8->execute();
 	$stmt8->store_result();
@@ -462,7 +462,7 @@ function GetDashboardData() {
 	$stmt8->fetch();
 
 	$isRead = '0';
-	$stmt9 = $mysqli->prepare("SELECT user_messages_received.messageid FROM user_messages_received LEFT JOIN user_messages_sent ON user_messages_received.messageid=user_messages_sent.messageid WHERE user_messages_received.message_to=? AND user_messages_sent.isRead=?");
+	$stmt9 = $mysqli->prepare("SELECT user_message_received.messageid FROM user_message_received LEFT JOIN user_message_sent ON user_message_received.messageid=user_message_sent.messageid WHERE user_message_received.message_to=? AND user_message_sent.isRead=?");
 	$stmt9->bind_param('ii', $session_userid, $isRead);
 	$stmt9->execute();
 	$stmt9->store_result();
@@ -531,7 +531,7 @@ function CreateModule() {
     $module_url = filter_input(INPUT_POST, 'create_module_url', FILTER_SANITIZE_STRING);
 
     // Check existing module name
-    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE module_name = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE module_name = ? LIMIT 1");
     $stmt1->bind_param('s', $module_name);
     $stmt1->execute();
     $stmt1->store_result();
@@ -546,7 +546,7 @@ function CreateModule() {
 
         $module_status = 'active';
 
-        $stmt2 = $mysqli->prepare("INSERT INTO system_modules (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
+        $stmt2 = $mysqli->prepare("INSERT INTO system_module (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
         $stmt2->bind_param('sssss', $module_name, $module_notes, $module_url, $module_status, $created_on);
         $stmt2->execute();
         $stmt2->close();
@@ -649,7 +649,7 @@ function UpdateModule() {
     $module_url = filter_input(INPUT_POST, 'update_module_url', FILTER_SANITIZE_STRING);
 
     //Check existing module name
-    $stmt1 = $mysqli->prepare("SELECT module_name FROM system_modules WHERE moduleid = ?");
+    $stmt1 = $mysqli->prepare("SELECT module_name FROM system_module WHERE moduleid = ?");
     $stmt1->bind_param('i', $moduleid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -657,13 +657,13 @@ function UpdateModule() {
     $stmt1->fetch();
 
     if ($db_module_name === $module_name) {
-        $stmt2 = $mysqli->prepare("UPDATE system_modules SET module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
+        $stmt2 = $mysqli->prepare("UPDATE system_module SET module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
         $stmt2->bind_param('sssi', $module_notes, $module_url, $updated_on, $moduleid);
         $stmt2->execute();
         $stmt2->close();
     } else {
 
-        $stmt3 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE module_name = ?");
+        $stmt3 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE module_name = ?");
         $stmt3->bind_param('s', $module_name);
         $stmt3->execute();
         $stmt3->store_result();
@@ -675,7 +675,7 @@ function UpdateModule() {
             header('HTTP/1.0 550 A module with the name entered already exists.');
             exit();
         } else {
-            $stmt4 = $mysqli->prepare("UPDATE system_modules SET module_name=?, module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
+            $stmt4 = $mysqli->prepare("UPDATE system_module SET module_name=?, module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
             $stmt4->bind_param('ssssi', $module_name, $module_notes, $module_url, $updated_on, $moduleid);
             $stmt4->execute();
             $stmt4->close();
@@ -801,7 +801,7 @@ function DeactivateModule() {
 
     $module_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_module SET module_status=?, updated_on=? WHERE moduleid=?");
     $stmt1->bind_param('ssi', $module_status, $updated_on, $moduleToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -878,7 +878,7 @@ function ReactivateModule() {
 
     $module_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_module SET module_status=?, updated_on=? WHERE moduleid=?");
     $stmt1->bind_param('ssi', $module_status, $updated_on, $moduleToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -992,7 +992,7 @@ function DeleteModule() {
     $stmt8->execute();
     $stmt8->close();
 
-    $stmt9 = $mysqli->prepare("DELETE FROM system_modules WHERE moduleid=?");
+    $stmt9 = $mysqli->prepare("DELETE FROM system_module WHERE moduleid=?");
     $stmt9->bind_param('i', $moduleToDelete);
     $stmt9->execute();
     $stmt9->close();
@@ -1398,12 +1398,12 @@ function ReserveBook() {
 	$isReturned = 0;
     $isRequested = 0;
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_books_requested WHERE bookid=? AND userid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_book_requested WHERE bookid=? AND userid=?");
     $stmt1->bind_param('ii', $bookid, $session_userid);
     $stmt1->execute();
     $stmt1->close();
 
-	$stmt2 = $mysqli->prepare("INSERT INTO system_books_reserved (userid, bookid, book_class, reserved_on, toreturn_on, isReturned, isRequested) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt2 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, book_class, reserved_on, toreturn_on, isReturned, isRequested) VALUES (?, ?, ?, ?, ?, ?, ?)");
 	$stmt2->bind_param('iisssii', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned, $isRequested);
 	$stmt2->execute();
 	$stmt2->close();
@@ -1415,7 +1415,7 @@ function ReserveBook() {
 	$stmt3->execute();
 	$stmt3->close();
 
-	$stmt4 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt4 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
 	$stmt4->bind_param('i', $session_userid);
 	$stmt4->execute();
 	$stmt4->store_result();
@@ -1467,19 +1467,19 @@ function RequestBook() {
     $isRead = 0;
     $isApproved = 0;
 
-    $stmt1 = $mysqli->prepare("INSERT INTO system_books_requested (userid, bookid, requested_on, isRead, isApproved) VALUES (?, ?, ?, ?, ?)");
+    $stmt1 = $mysqli->prepare("INSERT INTO system_book_requested (userid, bookid, requested_on, isRead, isApproved) VALUES (?, ?, ?, ?, ?)");
     $stmt1->bind_param('iisii', $session_userid, $bookToRequest, $created_on, $isRead, $isApproved);
     $stmt1->execute();
     $stmt1->close();
 
     $isRequested = 1;
 
-    $stmt3 = $mysqli->prepare("UPDATE system_books_reserved SET isRequested=? WHERE bookid =?");
+    $stmt3 = $mysqli->prepare("UPDATE system_book_reserved SET isRequested=? WHERE bookid =?");
     $stmt3->bind_param('ii', $isRequested, $bookToRequest);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt1 = $mysqli->prepare("SELECT system_books_reserved.userid, system_books_reserved.reserved_on, system_books_reserved.toreturn_on, system_book.book_name, system_book.book_author, system_book.book_status FROM system_books_reserved LEFT JOIN system_book ON system_books_reserved.bookid=system_book.bookid WHERE system_books_reserved.bookid=?");
+    $stmt1 = $mysqli->prepare("SELECT system_book_reserved.userid, system_book_reserved.reserved_on, system_book_reserved.toreturn_on, system_book.book_name, system_book.book_author, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.bookid=?");
     $stmt1->bind_param('i', $bookToRequest);
     $stmt1->execute();
     $stmt1->store_result();
@@ -1487,7 +1487,7 @@ function RequestBook() {
     $stmt1->fetch();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt2->bind_param('i', $userid);
     $stmt2->execute();
     $stmt2->store_result();
@@ -1495,7 +1495,7 @@ function RequestBook() {
     $stmt2->fetch();
     $stmt2->close();
 
-    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_details.studentno FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt2->bind_param('i', $session_userid);
     $stmt2->execute();
     $stmt2->store_result();
@@ -1542,7 +1542,7 @@ function SetRequestRead () {
 
     $isRead = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE system_books_requested SET isRead=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_book_requested SET isRead=?");
     $stmt1->bind_param('i', $isRead);
     $stmt1->execute();
     $stmt1->close();
@@ -1558,12 +1558,12 @@ function ApproveRequest() {
 
     $isApproved = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE system_books_requested SET isApproved=? WHERE requestid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_book_requested SET isApproved=? WHERE requestid=?");
     $stmt1->bind_param('ii', $isApproved, $requestToApprove);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("SELECT bookid FROM system_books_requested WHERE requestid=?");
+    $stmt2 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE requestid=?");
     $stmt2->bind_param('i', $requestToApprove);
     $stmt2->execute();
     $stmt2->store_result();
@@ -1579,7 +1579,7 @@ function ApproveRequest() {
 
     $isRequested = 0;
 
-    $stmt4 = $mysqli->prepare("UPDATE system_books_reserved SET isRequested=? WHERE bookid=?");
+    $stmt4 = $mysqli->prepare("UPDATE system_book_reserved SET isRequested=? WHERE bookid=?");
     $stmt4->bind_param('ii', $isRequested, $bookid);
     $stmt4->execute();
     $stmt4->close();
@@ -1598,7 +1598,7 @@ function ReturnBook() {
 
     $isReturned = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE system_books_reserved SET returned_on=?, isReturned=? WHERE bookid=? ORDER BY bookid DESC");
+    $stmt1 = $mysqli->prepare("UPDATE system_book_reserved SET returned_on=?, isReturned=? WHERE bookid=? ORDER BY bookid DESC");
     $stmt1->bind_param('sii', $updated_on, $isReturned, $bookToReturn);
     $stmt1->execute();
     $stmt1->close();
@@ -1714,7 +1714,7 @@ function DeleteBook() {
 
     $bookToDelete = filter_input(INPUT_POST, 'bookToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE bookid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_book_reserved WHERE bookid=?");
     $stmt1->bind_param('i', $bookToDelete);
     $stmt1->execute();
     $stmt1->close();
@@ -1873,7 +1873,7 @@ function CreateTask () {
     if ($task_category == 'other') { $task_class = 'event-success'; }
 
     // Check if task exists
-    $stmt1 = $mysqli->prepare("SELECT taskid FROM user_tasks WHERE task_name = ? AND userid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name = ? AND userid = ? LIMIT 1");
     $stmt1->bind_param('si', $task_name, $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -1890,7 +1890,7 @@ function CreateTask () {
 
         $task_status = 'active';
 
-	    $stmt2 = $mysqli->prepare("INSERT INTO user_tasks (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	    $stmt2 = $mysqli->prepare("INSERT INTO user_task (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	    $stmt2->bind_param('isssssssss', $session_userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
 	    $stmt2->execute();
 	    $stmt2->close();
@@ -1920,7 +1920,7 @@ function UpdateTask() {
 	if ($task_category == 'personal') { $task_class = 'event-warning'; }
 	if ($task_category == 'other') { $task_class = 'event-success'; }
 
-	$stmt1 = $mysqli->prepare("SELECT task_name from user_tasks where taskid = ?");
+	$stmt1 = $mysqli->prepare("SELECT task_name from user_task where taskid = ?");
 	$stmt1->bind_param('i', $taskid);
 	$stmt1->execute();
 	$stmt1->store_result();
@@ -1929,14 +1929,14 @@ function UpdateTask() {
 
 	if ($db_taskname == $task_name) {
 
-	    $stmt2 = $mysqli->prepare("UPDATE user_tasks SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+	    $stmt2 = $mysqli->prepare("UPDATE user_task SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
 	    $stmt2->bind_param('sssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
 	    $stmt2->execute();
 	    $stmt2->close();
 
 	} else {
 
-        $stmt3 = $mysqli->prepare("SELECT taskid from user_tasks where task_name = ? AND userid = ? LIMIT 1");
+        $stmt3 = $mysqli->prepare("SELECT taskid from user_task where task_name = ? AND userid = ? LIMIT 1");
         $stmt3->bind_param('si', $task_name, $userid);
         $stmt3->execute();
         $stmt3->store_result();
@@ -1951,7 +1951,7 @@ function UpdateTask() {
 
         } else {
 
-        $stmt4 = $mysqli->prepare("UPDATE user_tasks SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
+        $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
         $stmt4->bind_param('ssssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
         $stmt4->execute();
         $stmt4->close();
@@ -1969,12 +1969,12 @@ function CompleteTask() {
 	$taskToComplete = filter_input(INPUT_POST, 'taskToComplete', FILTER_SANITIZE_NUMBER_INT);
 	$task_status = 'completed';
 
-	$stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status = ?, updated_on = ? WHERE taskid = ? LIMIT 1");
+	$stmt1 = $mysqli->prepare("UPDATE user_task SET task_status = ?, updated_on = ? WHERE taskid = ? LIMIT 1");
 	$stmt1->bind_param('ssi', $task_status, $updated_on, $taskToComplete);
 	$stmt1->execute();
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_tasks where userid = '$session_userid' AND task_status = 'completed'");
+    $stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, task_category, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
 
     while($row = $stmt2->fetch_assoc()) {
 
@@ -2013,7 +2013,7 @@ function DeactivateTask() {
 
     $task_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status=?, updated_on=? WHERE taskid = ?");
+    $stmt1 = $mysqli->prepare("UPDATE user_task SET task_status=?, updated_on=? WHERE taskid = ?");
     $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -2029,7 +2029,7 @@ function ReactivateTask() {
 
     $task_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_tasks SET task_status=?, updated_on=? WHERE taskid = ?");
+    $stmt1 = $mysqli->prepare("UPDATE user_task SET task_status=?, updated_on=? WHERE taskid = ?");
     $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -2042,7 +2042,7 @@ function DeleteTask() {
 
     $taskToDelete = filter_input(INPUT_POST, 'taskToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_tasks WHERE taskid = ?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_task WHERE taskid = ?");
     $stmt1->bind_param('i', $taskToDelete);
     $stmt1->execute();
     $stmt1->close();
@@ -2081,12 +2081,12 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("INSERT INTO system_events_booked (userid, eventid, event_amount_paid, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?)");
+	$stmt2 = $mysqli->prepare("INSERT INTO system_event_booked (userid, eventid, event_amount_paid, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?)");
 	$stmt2->bind_param('iiiis', $userid, $item_number1, $product_amount, $quantity1, $created_on);
 	$stmt2->execute();
 	$stmt2->close();
 
-	$stmt3 = $mysqli->prepare("SELECT event_ticket_no from system_events where eventid = ?");
+	$stmt3 = $mysqli->prepare("SELECT event_ticket_no from system_event where eventid = ?");
 	$stmt3->bind_param('i', $item_number1);
 	$stmt3->execute();
 	$stmt3->store_result();
@@ -2096,7 +2096,7 @@ function EventsPaypalPaymentSuccess() {
 
 	$newquantity = $event_ticket_no - $quantity1;
 
-	$stmt4 = $mysqli->prepare("UPDATE system_events SET event_ticket_no=? WHERE eventid=?");
+	$stmt4 = $mysqli->prepare("UPDATE system_event SET event_ticket_no=? WHERE eventid=?");
 	$stmt4->bind_param('ii', $newquantity, $item_number1);
 	$stmt4->execute();
 	$stmt4->close();
@@ -2107,7 +2107,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt5->close();
 
     //Get name and email for sending email
-    $stmt6 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt6 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt6->bind_param('i', $userid);
     $stmt6->execute();
     $stmt6->store_result();
@@ -2151,7 +2151,7 @@ function EventTicketQuantityCheck () {
 	$eventid = filter_input(INPUT_POST, 'eventid', FILTER_SANITIZE_STRING);
 	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 
-	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_events WHERE eventid = ? LIMIT 1");
+	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_event WHERE eventid = ? LIMIT 1");
 	$stmt1->bind_param('i', $eventid);
 	$stmt1->execute();
 	$stmt1->store_result();
@@ -2186,7 +2186,7 @@ function CreateEvent() {
     if ($event_category == 'social') { $event_class = 'event-warning'; }
 
     // Check existing event name
-    $stmt1 = $mysqli->prepare("SELECT eventid FROM system_events WHERE event_name=? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT eventid FROM system_event WHERE event_name=? LIMIT 1");
     $stmt1->bind_param('s', $event_name);
     $stmt1->execute();
     $stmt1->store_result();
@@ -2202,7 +2202,7 @@ function CreateEvent() {
 
         $event_status = 'active';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_events (event_name, event_notes, event_url, event_class, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3 = $mysqli->prepare("INSERT INTO system_event (event_name, event_notes, event_url, event_class, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt3->bind_param('ssssssiisss', $event_name, $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
@@ -2232,7 +2232,7 @@ function UpdateEvent() {
     if ($event_category == 'social') { $event_class = 'event-warning'; }
 
     // Check if event name is different
-    $stmt1 = $mysqli->prepare("SELECT event_name FROM system_events WHERE eventid = ?");
+    $stmt1 = $mysqli->prepare("SELECT event_name FROM system_event WHERE eventid = ?");
     $stmt1->bind_param('i', $eventid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -2241,7 +2241,7 @@ function UpdateEvent() {
 
     if ($db_event_name === $event_name) {
 
-        $stmt2 = $mysqli->prepare("UPDATE system_events SET event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
+        $stmt2 = $mysqli->prepare("UPDATE system_event SET event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
         $stmt2->bind_param('sssssiissi', $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
         $stmt2->execute();
         $stmt2->close();
@@ -2249,7 +2249,7 @@ function UpdateEvent() {
     } else {
 
         // Check existing event name
-        $stmt3 = $mysqli->prepare("SELECT eventid FROM system_events WHERE event_name = ?");
+        $stmt3 = $mysqli->prepare("SELECT eventid FROM system_event WHERE event_name = ?");
         $stmt3->bind_param('s', $event_name);
         $stmt3->execute();
         $stmt3->store_result();
@@ -2261,7 +2261,7 @@ function UpdateEvent() {
             header('HTTP/1.0 550 An event with the name entered already exists.');
             exit();
         } else {
-            $stmt4 = $mysqli->prepare("UPDATE system_events SET event_name=?, event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
+            $stmt4 = $mysqli->prepare("UPDATE system_event SET event_name=?, event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
             $stmt4->bind_param('ssssssiissi', $event_name, $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
             $stmt4->execute();
             $stmt4->close();
@@ -2279,7 +2279,7 @@ function DeactivateEvent() {
 
     $event_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_events SET event_status=?, updated_on=? WHERE eventid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_event SET event_status=?, updated_on=? WHERE eventid=?");
     $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -2295,7 +2295,7 @@ function ReactivateEvent() {
 
     $event_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_events SET event_status=?, updated_on=? WHERE eventid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_event SET event_status=?, updated_on=? WHERE eventid=?");
     $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -2308,12 +2308,12 @@ function DeleteEvent() {
 
     $eventToDelete = filter_input(INPUT_POST, 'eventToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_events_booked WHERE eventid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_event_booked WHERE eventid=?");
     $stmt1->bind_param('i', $eventToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("DELETE FROM system_events WHERE eventid=?");
+    $stmt2 = $mysqli->prepare("DELETE FROM system_event WHERE eventid=?");
     $stmt2->bind_param('i', $eventToDelete);
     $stmt2->execute();
     $stmt2->close();
@@ -2557,7 +2557,7 @@ function ApproveFeedback () {
     $stmt5->fetch();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname FROM user_signin s LEFT JOIN user_details d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
+    $stmt6 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
     $stmt6->bind_param('i', $feedback_from);
     $stmt6->execute();
     $stmt6->store_result();
@@ -2626,19 +2626,19 @@ function MessageUser() {
 	$message_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
 	$message_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
 
-	$stmt1 = $mysqli->prepare("INSERT INTO user_messages (message_subject, message_body, created_on) VALUES (?, ?, ?)");
+	$stmt1 = $mysqli->prepare("INSERT INTO user_message (message_subject, message_body, created_on) VALUES (?, ?, ?)");
 	$stmt1->bind_param('sss', $message_subject, $message_body, $created_on);
 	$stmt1->execute();
 	$stmt1->close();
 
     $isRead = 0;
 
-    $stmt2 = $mysqli->prepare("INSERT INTO user_messages_sent (message_from, message_to, isRead) VALUES (?, ?, ?)");
+    $stmt2 = $mysqli->prepare("INSERT INTO user_message_sent (message_from, message_to, isRead) VALUES (?, ?, ?)");
     $stmt2->bind_param('iii', $session_userid, $message_to_userid, $isRead);
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("INSERT INTO user_messages_received (message_from, message_to) VALUES (?, ?)");
+    $stmt3 = $mysqli->prepare("INSERT INTO user_message_received (message_from, message_to) VALUES (?, ?)");
     $stmt3->bind_param('ii', $session_userid, $message_to_userid);
     $stmt3->execute();
     $stmt3->close();
@@ -2680,7 +2680,7 @@ function SetMessageRead () {
 	global $session_userid;
 
 	$isRead = 1;
-	$stmt1 = $mysqli->prepare("UPDATE user_messages_sent SET isRead=? WHERE message_to=?");
+	$stmt1 = $mysqli->prepare("UPDATE user_message_sent SET isRead=? WHERE message_to=?");
 	$stmt1->bind_param('ii', $isRead, $session_userid);
 	$stmt1->execute();
 	$stmt1->close();
@@ -2731,7 +2731,7 @@ function UpdateAccount() {
 
 	if ($db_email == $email) {
 
-	$stmt2 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
+	$stmt2 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
 	$stmt2->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
 	$stmt2->execute();
 	$stmt2->close();
@@ -2780,7 +2780,7 @@ function UpdateAccount() {
 	}
 	else {
 
-	$stmt4 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
+	$stmt4 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
 	$stmt4->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
 	$stmt4->execute();
 	$stmt4->close();
@@ -2853,7 +2853,7 @@ function ChangePassword() {
 	$stmt2->execute();
 	$stmt2->close();
 
-	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid WHERE user_signin.userid = ?");
+	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ?");
 	$stmt3->bind_param('i', $session_userid);
 	$stmt3->execute();
 	$stmt3->store_result();
@@ -2915,7 +2915,7 @@ function FeesPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_details.firstname, user_details.surname, user_fees.isHalf FROM user_signin LEFT JOIN user_details ON user_signin.userid=user_details.userid LEFT JOIN user_fees ON user_signin.userid=user_fees.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_fee.isHalf FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid LEFT JOIN user_fee ON user_signin.userid=user_fee.userid WHERE user_signin.userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
 	$stmt2->execute();
 	$stmt2->store_result();
@@ -2928,7 +2928,7 @@ function FeesPaypalPaymentSuccess() {
 	$full_fees = 0.00;
 	$updated_on = date("Y-m-d G:i:s");
 
-	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+	$stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
 	$stmt3->bind_param('isi', $full_fees, $updated_on, $userid);
 	$stmt3->execute();
 	$stmt3->close();
@@ -2940,7 +2940,7 @@ function FeesPaypalPaymentSuccess() {
 	$half_fees = 4500.00;
 	$isHalf = 1;
 
-	$stmt3 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
+	$stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
 	$stmt3->bind_param('iisi', $half_fees, $isHalf, $updated_on, $userid);
 	$stmt3->execute();
 	$stmt3->close();
@@ -2950,7 +2950,7 @@ function FeesPaypalPaymentSuccess() {
 	$full_fees = 0.00;
 	$updated_on = date("Y-m-d G:i:s");
 
-	$stmt4 = $mysqli->prepare("UPDATE user_fees SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+	$stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
 	$stmt4->bind_param('isi', $full_fees, $updated_on, $userid);
 	$stmt4->execute();
 	$stmt4->close();
@@ -3019,12 +3019,12 @@ function DeleteAccount() {
 
     $accountToDelete = filter_input(INPUT_POST, 'accountToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_messages_sent WHERE message_from = ?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_message_sent WHERE message_from = ?");
     $stmt1->bind_param('i', $accountToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("DELETE FROM user_messages_received WHERE message_to = ?");
+    $stmt2 = $mysqli->prepare("DELETE FROM user_message_received WHERE message_to = ?");
     $stmt2->bind_param('i', $accountToDelete);
     $stmt2->execute();
     $stmt2->close();
@@ -3044,12 +3044,12 @@ function DeleteAccount() {
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE userid = ?");
+    $stmt6 = $mysqli->prepare("DELETE FROM system_book_reserved WHERE userid = ?");
     $stmt6->bind_param('i', $accountToDelete);
     $stmt6->execute();
     $stmt6->close();
 
-    $stmt7 = $mysqli->prepare("DELETE FROM system_events_booked WHERE userid = ?");
+    $stmt7 = $mysqli->prepare("DELETE FROM system_event_booked WHERE userid = ?");
     $stmt7->bind_param('i', $accountToDelete);
     $stmt7->execute();
     $stmt7->close();
@@ -3101,7 +3101,7 @@ function CreateAnAccount() {
     }
 
     // Check existing studentno
-    $stmt1 = $mysqli->prepare("SELECT userid FROM user_details WHERE studentno = ? AND NOT studentno = '0' LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT userid FROM user_detail WHERE studentno = ? AND NOT studentno = '0' LIMIT 1");
     $stmt1->bind_param('i', $studentno);
     $stmt1->execute();
     $stmt1->store_result();
@@ -3153,7 +3153,7 @@ function CreateAnAccount() {
 
     $user_status = 'active';
 
-    $stmt5 = $mysqli->prepare("INSERT INTO user_details (firstname, surname, gender, studentno, degree, nationality, dateofbirth, phonenumber, address1, address2, town, city, country, postcode, user_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt5 = $mysqli->prepare("INSERT INTO user_detail (firstname, surname, gender, studentno, degree, nationality, dateofbirth, phonenumber, address1, address2, town, city, country, postcode, user_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt5->bind_param('sssissssssssssss', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $user_status, $created_on);
     $stmt5->execute();
     $stmt5->close();
@@ -3175,7 +3175,7 @@ function CreateAnAccount() {
     $fee_amount = '0.00';
     }
 
-    $stmt7 = $mysqli->prepare("INSERT INTO user_fees (fee_amount, created_on) VALUES (?, ?)");
+    $stmt7 = $mysqli->prepare("INSERT INTO user_fee (fee_amount, created_on) VALUES (?, ?)");
     $stmt7->bind_param('is', $fee_amount, $created_on);
     $stmt7->execute();
     $stmt7->close();
@@ -3235,7 +3235,7 @@ function UpdateAnAccount() {
 	$stmt2->execute();
 	$stmt2->close();
 
-	$stmt3 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
+	$stmt3 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
 	$stmt3->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
 	$stmt3->execute();
 	$stmt3->close();
@@ -3258,7 +3258,7 @@ function UpdateAnAccount() {
 	}
 	else {
 
-	$stmt5 = $mysqli->prepare("UPDATE user_details SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
+	$stmt5 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
 	$stmt5->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
 	$stmt5->execute();
 	$stmt5->close();
@@ -3318,7 +3318,7 @@ function DeactivateUser() {
 
     $user_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_details SET user_status=?, updated_on=? WHERE userid = ?");
+    $stmt1 = $mysqli->prepare("UPDATE user_detail SET user_status=?, updated_on=? WHERE userid = ?");
     $stmt1->bind_param('ssi', $user_status, $updated_on, $userToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -3334,7 +3334,7 @@ function ReactivateUser() {
 
     $user_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_details SET user_status=?, updated_on=? WHERE userid = ?");
+    $stmt1 = $mysqli->prepare("UPDATE user_detail SET user_status=?, updated_on=? WHERE userid = ?");
     $stmt1->bind_param('ssi', $user_status, $updated_on, $userToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -3347,12 +3347,12 @@ function DeleteUser() {
 
     $userToDelete = filter_input(INPUT_POST, 'userToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_messages_sent WHERE message_from = ?");
+    $stmt1 = $mysqli->prepare("DELETE FROM user_message_sent WHERE message_from = ?");
     $stmt1->bind_param('i', $userToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("DELETE FROM user_messages_received WHERE message_to = ?");
+    $stmt2 = $mysqli->prepare("DELETE FROM user_message_received WHERE message_to = ?");
     $stmt2->bind_param('i', $userToDelete);
     $stmt2->execute();
     $stmt2->close();
@@ -3367,12 +3367,12 @@ function DeleteUser() {
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM system_books_reserved WHERE userid = ?");
+    $stmt5 = $mysqli->prepare("DELETE FROM system_book_reserved WHERE userid = ?");
     $stmt5->bind_param('i', $userToDelete);
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM system_events_booked WHERE userid = ?");
+    $stmt6 = $mysqli->prepare("DELETE FROM system_event_booked WHERE userid = ?");
     $stmt6->bind_param('i', $userToDelete);
     $stmt6->execute();
     $stmt6->close();
