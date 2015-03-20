@@ -407,7 +407,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT s.feedbackid, d.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.studentno, d.degree, m.moduleid, m.module_name, f.feedbackid, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on, f.isApproved, f.isRead FROM user_feedback_sent s LEFT JOIN user_detail d ON s.feedback_from=d.userid LEFT JOIN system_module m ON s.moduleid=m.moduleid LEFT JOIN user_feedback f ON s.feedbackid=f.feedbackid WHERE s.isApproved=0 AND s.isRead = 0");
+	$stmt1 = $mysqli->query("SELECT DISTINCT s.feedbackid, d.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.studentno, d.degree, m.moduleid, m.module_name, f.feedbackid, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on, f.isApproved, f.isRead FROM user_feedback_sent s LEFT JOIN user_detail d ON s.feedback_from=d.userid LEFT JOIN system_module m ON s.moduleid=m.moduleid LEFT JOIN user_feedback f ON s.feedbackid=f.feedbackid WHERE f.isApproved=0 AND f.isRead = 0");
 
 	while($row = $stmt1->fetch_assoc()) {
 
