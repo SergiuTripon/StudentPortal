@@ -1607,7 +1607,7 @@ function CollectBook() {
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("SELECT r.userid, b.book_name, b.book_author FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE bookid=? ORDER BY bookid DESC LIMIT 1");
+    $stmt3 = $mysqli->prepare("SELECT r.userid, b.book_name, b.book_author FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.bookid=? ORDER BY r.bookid DESC LIMIT 1");
     $stmt3->bind_param('i', $bookToCollect);
     $stmt3->execute();
     $stmt3->store_result();
