@@ -706,8 +706,16 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'feedbackToApprove='+ feedbackToApprove,
 	success:function(){
-		$('#feedback-'+feedbackToApprove).hide();
-        location.reload();
+        $('#feedback-'+feedbackToApprove).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#approve-feedback-question').hide();
+        $('#approve-feedback-confirmation').show();
+        $('#approve-feedback-hide').hide();
+        $('#approve-feedback-success-button').show();
+        $("#approve-feedback-success-button").click(function () {
+            location.reload();
+        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
