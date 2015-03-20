@@ -1400,25 +1400,25 @@ function ReserveBook() {
     $isCollected = 0;
     $reservation_status = 'active';
 
-	$stmt2 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $created_on);
-	$stmt2->execute();
-	$stmt2->close();
+	$stmt1 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt1->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $created_on);
+	$stmt1->execute();
+	$stmt1->close();
 
 	$isReserved = 1;
 
-	$stmt3 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
-	$stmt3->bind_param('ii', $isReserved, $bookid);
-	$stmt3->execute();
-	$stmt3->close();
+	$stmt2 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
+	$stmt2->bind_param('ii', $isReserved, $bookid);
+	$stmt2->execute();
+	$stmt2->close();
 
-	$stmt4 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
-	$stmt4->bind_param('i', $session_userid);
-	$stmt4->execute();
-	$stmt4->store_result();
-	$stmt4->bind_result($email, $firstname, $surname, $studentno);
-	$stmt4->fetch();
-	$stmt4->close();
+	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt3->bind_param('i', $session_userid);
+	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($email, $firstname, $surname, $studentno);
+	$stmt3->fetch();
+	$stmt3->close();
 
 	$reservation_status = 'Completed';
 
