@@ -1629,8 +1629,8 @@ function CollectBook() {
 
     $isLoaned = 1;
 
-    $stmt2 = $mysqli->prepare("UPDATE system_book SET isLoaned=? WHERE bookid =?");
-    $stmt2->bind_param('ii', $isLoaned, $bookid);
+    $stmt2 = $mysqli->prepare("UPDATE system_book SET isLoaned=?, updated_on=? WHERE bookid =?");
+    $stmt2->bind_param('isi', $isLoaned, $updated_on, $bookToCollect);
     $stmt2->execute();
     $stmt2->close();
 
