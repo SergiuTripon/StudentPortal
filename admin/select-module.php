@@ -430,7 +430,7 @@ if (isset($_GET['id'])) {
         }
     });
 
-    //Deactivate record
+    //Deactivate result
     $("body").on("click", ".deactivate-button", function(e) {
     e.preventDefault();
 
@@ -461,7 +461,7 @@ if (isset($_GET['id'])) {
 	});
     });
 
-    //Reactivate record
+    //Reactivate result
     $("body").on("click", ".reactivate-button", function(e) {
     e.preventDefault();
 
@@ -492,7 +492,7 @@ if (isset($_GET['id'])) {
 	});
     });
 
-    //Delete record
+    //Delete result
     $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
 
