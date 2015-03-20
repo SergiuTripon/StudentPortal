@@ -335,6 +335,7 @@ include 'includes/session.php';
     $firstname = $row["firstname"];
     $surname = $row["surname"];
     $gender = $row["gender"];
+    $gender = ucfirst($gender);
     $dateofbirth = $row["dateofbirth"];
     $studentno = $row["studentno"];
     $degree = $row["degree"];
@@ -404,7 +405,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-            <div id="view--feedback-'.$feedbackid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-feedback-'.$feedbackid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
