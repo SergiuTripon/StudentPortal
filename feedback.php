@@ -176,7 +176,7 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Name"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
-			<td data-title="Subject"><a href="#view-feedback-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
+			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
 			<td data-title="Submitted on">'.$created_on.'</td>
 			</tr>
 
