@@ -540,7 +540,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-feedback-hide">
+			<div id="approve-feedback-hide">
 			<div class="pull-left">
 			<a id="approve-'.$feedbackid.'" class="btn btn-success btn-lg approve-feedback-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
