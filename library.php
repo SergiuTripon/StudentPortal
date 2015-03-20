@@ -147,7 +147,7 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-
+/*
 	$stmt2 = $mysqli->query("SELECT system_book_reserved.bookid, DATE_FORMAT(system_book_reserved.loaned_on,'%d %b %y') as loaned_on, DATE_FORMAT(system_book_reserved.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(system_book_reserved.returned_on,'%d %b %y') as returned_on, system_book_reserved.isReturned, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -176,7 +176,7 @@ include 'includes/session.php';
 	}
 
 	$stmt2->close();
-	?>
+	*/?>
 	</tbody>
 
 	</table>
@@ -214,7 +214,7 @@ include 'includes/session.php';
 
 	<tbody>
     <?php
-
+/*
     $stmt2 = $mysqli->query("SELECT system_book_requested.bookid, DATE_FORMAT(system_book_requested.requested_on,'%d %b %y') as requested_on, system_book_requested.isRead, system_book_requested.isApproved, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_status FROM system_book_requested LEFT JOIN system_book ON system_book_requested.bookid=system_book.bookid  WHERE system_book_requested.userid = '$session_userid'");
 
     while($row = $stmt2->fetch_assoc()) {
@@ -242,7 +242,7 @@ include 'includes/session.php';
     }
 
     $stmt2->close();
-    ?>
+    */?>
 	</tbody>
 
 	</table>
