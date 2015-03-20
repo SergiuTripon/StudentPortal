@@ -239,6 +239,7 @@ CREATE TABLE `system_book_loaned` (
   `toreturn_on` DATE NOT NULL,
   `returned_on` DATE NOT NULL,
   `isReturned` TINYINT(1) NOT NULL,
+  `isRequested` TINYINT(1) NOT NULL,
   `loan_status` VARCHAR(9) NOT NULL,
   `created_on` DATE NOT NULL,
 FOREIGN KEY (userid)
