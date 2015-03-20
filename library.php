@@ -138,7 +138,6 @@ include 'includes/session.php';
 	<tr>
 	<th>Name</th>
 	<th>Author</th>
-	<th>Notes</th>
 	<th>Reserved on</th>
 	<th>To collect by</th>
     <th>Collected on</th>
