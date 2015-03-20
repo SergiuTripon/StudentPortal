@@ -170,7 +170,7 @@ include 'includes/session.php';
     $isRead = $row["isRead"];
     $created_on = $row["created_on"];
 
-	echo '<tr id="feedback-'.$feedbackid.">
+	echo '<tr id="feedback-'.$feedbackid.'">
 
 			<td data-title="Name"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
