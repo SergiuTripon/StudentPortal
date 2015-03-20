@@ -1394,19 +1394,21 @@ function ReserveBook() {
 
 	$book_class = 'event-info';
     $bookreserved_from = '';
+
     $bookreserved_to = '';
-	$isReturned = 0;
+
+    $isReturned = 0;
     $isRequested = 0;
 
-	$stmt2 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, book_class, reserved_on, toreturn_on, isReturned, isRequested) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt2 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, book_class, loaned_on, toreturn_on, isReturned, isRequested) VALUES (?, ?, ?, ?, ?, ?, ?)");
 	$stmt2->bind_param('iisssii', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned, $isRequested);
 	$stmt2->execute();
 	$stmt2->close();
 
-	$book_status = 'reserved';
+	$isReserved = '1';
 
-	$stmt3 = $mysqli->prepare("UPDATE system_book SET book_status=? WHERE bookid =?");
-	$stmt3->bind_param('si', $book_status, $bookid);
+	$stmt3 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
+	$stmt3->bind_param('ii', $isReserved, $bookid);
 	$stmt3->execute();
 	$stmt3->close();
 
