@@ -126,7 +126,7 @@ if (isset($_GET['id'])) {
     </div>
 	
     </form>
-    <!-- End of Create book -->
+    <!-- End of Update result -->
 
 	</div> <!-- /container -->
 	
