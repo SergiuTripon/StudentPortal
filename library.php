@@ -168,7 +168,6 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
 			<td data-title="Reserved on">'.$created_on.'</td>
 			<td data-title="To collect by">'.$tocollect_on.'</td>
 			<td data-title="Collected on">'.(empty($collected_on) ? "Not yet" : "$collected_on").'</td>
