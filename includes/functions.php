@@ -1598,7 +1598,7 @@ function CollectBook() {
     $reservation_status = 'completed';
 
     $stmt1 = $mysqli->prepare("UPDATE system_book_reserved SET collected_on=?, isCollected=?, reservation_status=? WHERE bookid=? ORDER BY bookid DESC");
-    $stmt1->bind_param('siis', $updated_on, $isCollected, $reservation_status, $bookToCollect);
+    $stmt1->bind_param('sisi', $updated_on, $isCollected, $reservation_status, $bookToCollect);
     $stmt1->execute();
     $stmt1->close();
 
