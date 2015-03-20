@@ -327,7 +327,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT user_feedback_sent.feedbackid, user_detail.firstname, user_detail.surname, system_module.module_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_sent LEFT JOIN user_detail ON user_feedback_sent.feedback_from=user_detail.userid LEFT JOIN system_module ON user_feedback_sent.moduleid=system_module.moduleid LEFT JOIN user_feedback ON user_feedback_sent.feedbackid=user_feedback.feedbackid WHERE user_feedback_sent.module_staff = '$session_userid' AND user_feedback_sent.isApproved = 1");
+	$stmt1 = $mysqli->query("SELECT DISTINCT r.feedbackid, d.firstname, d.surname, m.module_name, f.feedback_subject, f.feedback_body FROM user_feedback_sent s LEFT JOIN user_detail d ON s.feedback_from=d.userid LEFT JOIN system_module m ON r.moduleid=m.moduleid LEFT JOIN user_feedback f ON r.feedbackid=d.feedbackid WHERE r.module_staff = '$session_userid' AND r.isApproved = 1");
 
 	while($row = $stmt1->fetch_assoc()) {
 
