@@ -694,7 +694,7 @@ include 'includes/session.php';
 	});
     });
 
-    $("body").on("click", ".approve-button", function(e) {
+    $("body").on("click", ".approve-feedback-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
