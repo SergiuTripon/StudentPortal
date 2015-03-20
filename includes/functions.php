@@ -1691,7 +1691,7 @@ function ReturnBook() {
     $stmt1->close();
 
     $stmt2 = $mysqli->prepare("UPDATE system_book SET isReturned=?, updated_on=? WHERE bookid=?");
-    $stmt2->bind_param('ssi', $isReturned, $updated_on, $bookToReturn);
+    $stmt2->bind_param('isi', $isReturned, $updated_on, $bookToReturn);
     $stmt2->execute();
     $stmt2->close();
 }
