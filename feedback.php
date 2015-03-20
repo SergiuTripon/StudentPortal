@@ -535,8 +535,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="approve-feedback-question" class="text-center feedback-sad">Are you sure you want to delete '.$feedback_subject.'?</p>
-			<p id="approve-feedback-confirmation" style="display: none;" class="text-center feedback-happy">'.$feedback_subject.' has been deleted successfully.</p>
+			<p id="approve-feedback-question" class="text-center feedback-sad">Are you sure you want to approve '.$feedback_subject.'?</p>
+			<p id="approve-feedback-confirmation" style="display: none;" class="text-center feedback-happy">'.$feedback_subject.' has been approved successfully.</p>
 			</div>
 
 			<div class="modal-footer">
