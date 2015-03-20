@@ -1645,7 +1645,7 @@ function CollectBook() {
     $loan_status = 'Ongoing';
 
     //Creating email
-    $subject = 'Reservation confirmation';
+    $subject = 'Loan confirmation';
 
     $message = '<html>';
     $message .= '<body>';
