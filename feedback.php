@@ -344,7 +344,7 @@ include 'includes/session.php';
 	echo '<tr id="feedback-'.$feedbackid.'">
 
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
-			<td data-title="Lecture name">'.$module_name.'</td>
+			<td data-title="Lecture name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject">'.$feedback_subject.'</td>
 			<td data-title="Feedback">'.$feedback_body.'</td>
 			</tr>
