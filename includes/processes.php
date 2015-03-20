@@ -488,6 +488,16 @@ elseif (isset($_POST["feedbackToDelete"])) {
     DeleteFeedback();
 }
 
+//Call DeleteSentFeedback function
+elseif (isset($_POST["sentFeedbackToDelete"])) {
+    DeleteSentFeedback();
+}
+
+//Call DeleteReceivedFeedback function
+elseif (isset($_POST["receivedFeedbackToDelete"])) {
+    DeleteReceivedFeedback();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Messenger functions

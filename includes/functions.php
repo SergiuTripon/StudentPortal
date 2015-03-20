@@ -2609,17 +2609,49 @@ function SetFeedbackRead () {
     $stmt1->close();
 }
 
-//SetMessageRed function
-function SetFeedbackRead () {
+//DeleteSentFeedback function
+function DeleteFeedback () {
 
     global $mysqli;
     global $session_userid;
 
-    $isRead = 1;
-    $isApproved = 1;
+    $feedbackToDelete = filter_input(INPUT_POST, 'feedbackToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback_sent SET isRead=? WHERE module_staff=? AND isApproved=?");
-    $stmt1->bind_param('iii', $isRead, $session_userid, $isApproved);
+    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedbackid=? AND feedback_from=?");
+    $stmt1->bind_param('ii', $feedbackToDelete, $session_userid);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE feedbackid=? AND feedback_from=?");
+    $stmt1->bind_param('ii', $feedbackToDelete, $session_userid);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeleteSentFeedback function
+function DeleteSentFeedback () {
+
+    global $mysqli;
+    global $session_userid;
+
+    $sentFeedbackToDelete = filter_input(INPUT_POST, 'sentFeedbackToDelete', FILTER_SANITIZE_STRING);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedbackid=? AND feedback_from=?");
+    $stmt1->bind_param('ii', $sentFeedbackToDelete, $session_userid);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeleteReceivedFeedback function
+function DeleteReceivedFeedback () {
+
+    global $mysqli;
+    global $session_userid;
+
+    $receivedFeedbackToDelete = filter_input(INPUT_POST, 'receivedFeedbackToDelete', FILTER_SANITIZE_STRING);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedbackid=? AND module_staff=?");
+    $stmt1->bind_param('i', $receivedFeedbackToDelete, $session_userid);
     $stmt1->execute();
     $stmt1->close();
 }
