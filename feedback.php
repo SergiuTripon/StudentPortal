@@ -173,7 +173,7 @@ include 'includes/session.php';
 
 	echo '<tr id="feedback-'.$feedbackid.'">
 
-			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
+			<td data-title="Module"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
 			<td data-title="Submitted on">'.$created_on.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
