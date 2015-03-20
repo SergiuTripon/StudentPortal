@@ -187,8 +187,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
-			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			<p><b>Description:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "-" : "$module_url").'</p>
 			</div>
 
 			<div class="modal-footer">
