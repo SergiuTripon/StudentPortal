@@ -684,7 +684,7 @@ include 'includes/session.php';
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a href="#return-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal">Return book</a>
+            <a href="#collect-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal">Mark collected</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -752,7 +752,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="return-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="collect-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -763,21 +763,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="return-question" class="text-center feedback-sad">Are you sure you want to return '.$book_name.'?</p>
-            <p id="return-confirmation" style="display: none;" class="text-center feedback-happy">'.$book_name.' has been returned successfully.</p>
+			<p id="collect-question" class="text-center feedback-sad">Are you sure you want to mark '.$book_name.' collected?</p>
+            <p id="collect-confirmation" style="display: none;" class="text-center feedback-happy">'.$book_name.' has been marked collected successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="return-hide">
+			<div id="collect-hide">
 			<div class="pull-left">
-			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="collect-'.$bookid.'" class="btn btn-success btn-lg collect-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="return-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="collect-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -1100,24 +1100,24 @@ include 'includes/session.php';
 	});
 
     //Return book ajax call
-    $("body").on("click", ".return-button", function(e) {
+    $("body").on("click", ".collect-button", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
-    var bookToReturn = clickedID[1];
+    var bookToCollect = clickedID[1];
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'bookToReturn='+ bookToReturn,
+	data:'bookToCollect='+ bookToCollect,
 	success:function(){
-        $('#book-'+bookToReturn).fadeOut();
+        $('#book-'+bookToCollect).fadeOut();
         $('.form-logo i').removeClass('fa-book');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('#return-question').hide();
-        $('#return-confirmation').show();
-        $('#return-hide').hide();
-        $('#return-success-button').show();
-        $("#return-success-button").click(function () {
+        $('#collect-question').hide();
+        $('#collect-confirmation').show();
+        $('#collect-hide').hide();
+        $('#collect-success-button').show();
+        $("#collect-success-button").click(function () {
             location.reload();
         });
 	},

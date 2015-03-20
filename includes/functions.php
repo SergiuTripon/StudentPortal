@@ -1591,19 +1591,18 @@ function ReturnBook() {
     global $updated_on;
 
     //Book
-    $bookToReturn = filter_input(INPUT_POST, 'bookToReturn', FILTER_SANITIZE_STRING);
+    $bookToCollect = filter_input(INPUT_POST, 'bookToCollect', FILTER_SANITIZE_STRING);
 
-    $isReturned = 1;
+    $isCollected = 1;
+    $reservation_status = 'completed';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_book_reserved SET returned_on=?, isReturned=? WHERE bookid=? ORDER BY bookid DESC");
-    $stmt1->bind_param('sii', $updated_on, $isReturned, $bookToReturn);
+    $stmt1 = $mysqli->prepare("UPDATE system_book_reserved SET collected_on=?, isCollected=?, reservation_status=? WHERE bookid=? ORDER BY bookid DESC");
+    $stmt1->bind_param('sii', $updated_on, $isCollected, $bookToCollect);
     $stmt1->execute();
     $stmt1->close();
 
-    $book_status = 'active';
-
-    $stmt2 = $mysqli->prepare("UPDATE system_book SET book_status=?, updated_on=? WHERE bookid=?");
-    $stmt2->bind_param('ssi', $book_status, $updated_on, $bookToReturn);
+    $stmt2 = $mysqli->prepare("UPDATE system_book SET isCollected=?, updated_on=? WHERE bookid=?");
+    $stmt2->bind_param('ssi', $isCollected, $updated_on, $bookToCollect);
     $stmt2->execute();
     $stmt2->close();
 
