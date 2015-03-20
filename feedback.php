@@ -770,18 +770,7 @@ include 'includes/session.php';
 
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
-            <td data-title="Action">
-            <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#approve-feedback-'.$feedbackid.'" data-toggle="modal">Approve</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
-            </ul>
-            </div>
-            </td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
 			<div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
