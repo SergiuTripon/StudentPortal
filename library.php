@@ -118,6 +118,71 @@ include 'includes/session.php';
 
 	<div class="panel panel-default">
 
+    <div class="panel-heading" role="tab" id="headingTwo">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Your reservations</a>
+  	</h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+  	<div class="panel-body">
+
+	<!-- Your reserved books -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Author</th>
+	<th>Reserved on</th>
+	<th>To collect by</th>
+    <th>Collected on</th>
+    <th>Collected</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt2 = $mysqli->query("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, DATE_FORMAT(r.tocollect_on,'%d %b %y') as tocollect_on, DATE_FORMAT(r.collected_on,'%d %b %y') as collected_on, r.isCollected, b.book_name, b.book_author, b.book_notes, b.book_status FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid = '$session_userid'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+    $book_name = $row["book_name"];
+    $book_author = $row["book_author"];
+    $book_notes = $row["book_notes"];
+    $created_on = $row["created_on"];
+    $tocollect_on = $row["tocollect_on"];
+    $collected_on = $row["collected_on"];
+	$book_status = $row["book_status"];
+    $isCollected = $row["isCollected"];
+
+	$book_status = ucfirst($book_status);
+
+	echo '<tr>
+
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Reserved on">'.$created_on.'</td>
+			<td data-title="To collect by">'.$tocollect_on.'</td>
+			<td data-title="Collected on">'.(empty($collected_on) ? "Not yet" : "$collected_on").'</td>
+			<td data-title="Collected">'.($isCollected === '0' ? "No" : "Yes").'</td>
+			</tr>';
+	}
+
+	$stmt2->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+    <div class="panel panel-default">
+
     <div class="panel-heading" role="tab" id="headingThree">
   	<h4 class="panel-title">
 	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree"> Your reservations</a>
