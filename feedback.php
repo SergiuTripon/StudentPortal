@@ -87,8 +87,8 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
-			<td data-title="Lecturer"><a href="#view-lecturer-'.$lecturer_userid.'" data-toggle="modal">'.$lecturer_fistname.' '.$lecturer_surname.'</a></td>
-			<td data-title="Tutorial assistant"><a href="#view-tutorial_assistant-'.$tutorial_assistant_userid.'" data-toggle="modal">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</a><</td>
+			<td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
+			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Submit feedback</span></a></a></td>
 			</tr>
 
