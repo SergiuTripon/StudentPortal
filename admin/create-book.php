@@ -184,7 +184,7 @@ include '../includes/session.php';
 
     var book_author = $("#book_author").val();
 	if(book_author === '') {
-        $("label[for='book_author']").empty().append("Please enter a name.");
+        $("label[for='book_author']").empty().append("Please enter an author.");
         $("label[for='book_author']").removeClass("feedback-happy");
         $("label[for='book_author']").addClass("feedback-sad");
         $("#book_author").removeClass("input-happy");
