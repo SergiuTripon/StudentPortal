@@ -1,4 +1,4 @@
-DROP TABLE system_map_markers;
+DROP TABLE system_map_marker;
 DROP TABLE cycle_hire_status_now;
 DROP TABLE tube_station_status_this_weekend;
 DROP TABLE tube_line_status_this_weekend;
@@ -510,7 +510,7 @@ CREATE TABLE `cycle_hire_status_now` (
 ) ENGINE = InnoDB;
 
 #University Map
-CREATE TABLE `system_map_markers` (
+CREATE TABLE `system_map_marker` (
   `markerid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `marker_name` VARCHAR (70) NOT NULL,
   `marker_notes` VARCHAR (10000),

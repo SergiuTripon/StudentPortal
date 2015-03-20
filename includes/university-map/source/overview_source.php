@@ -10,7 +10,7 @@ $parnode = $dom->appendChild($node);
 
 // Select all the rows in the markers table
 
-$stmt1 = $mysqli->query("SELECT * FROM system_map_markers WHERE 1");
+$stmt1 = $mysqli->query("SELECT * FROM system_map_marker WHERE 1");
 
 header("Content-type: text/xml");
 

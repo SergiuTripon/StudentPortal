@@ -80,7 +80,7 @@ include '../includes/session.php';
     <select class="selectpicker marker_category" name="marker_category" id="marker_category">
         <option data-hidden="true">Select an option</option>
     <?php
-    $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_markers WHERE marker_status = 'active' AND NOT marker_category=''");
+    $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_marker WHERE marker_status = 'active' AND NOT marker_category=''");
 
     while ($row = $stmt1->fetch_assoc()){
 

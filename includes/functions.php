@@ -2336,7 +2336,7 @@ function CreateLocation() {
     $marker_category = filter_input(INPUT_POST, 'marker_category', FILTER_SANITIZE_STRING);
 
     // Check existing location name
-    $stmt1 = $mysqli->prepare("SELECT markerid FROM system_map_markers WHERE marker_name=? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT markerid FROM system_map_marker WHERE marker_name=? LIMIT 1");
     $stmt1->bind_param('s', $marker_name);
     $stmt1->execute();
     $stmt1->store_result();
@@ -2351,7 +2351,7 @@ function CreateLocation() {
 
         $marker_status = 'active';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_map_markers (marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_marker (marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt3->bind_param('sssiisss', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $marker_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
@@ -2374,7 +2374,7 @@ function UpdateLocation() {
     $marker_category = filter_input(INPUT_POST, 'marker_category1', FILTER_SANITIZE_STRING);
 
     // Check if event name is different
-    $stmt1 = $mysqli->prepare("SELECT marker_name FROM system_map_markers WHERE markerid=? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT marker_name FROM system_map_marker WHERE markerid=? LIMIT 1");
     $stmt1->bind_param('i', $markerid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -2383,7 +2383,7 @@ function UpdateLocation() {
 
     if ($db_marker_name === $marker_name) {
 
-        $stmt2 = $mysqli->prepare("UPDATE system_map_markers SET marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
+        $stmt2 = $mysqli->prepare("UPDATE system_map_marker SET marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
         $stmt2->bind_param('ssiissi', $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
         $stmt2->execute();
         $stmt2->close();
@@ -2391,7 +2391,7 @@ function UpdateLocation() {
     } else {
 
         // Check existing event name
-        $stmt3 = $mysqli->prepare("SELECT markerid FROM system_map_markers WHERE marker_name = ?");
+        $stmt3 = $mysqli->prepare("SELECT markerid FROM system_map_marker WHERE marker_name = ?");
         $stmt3->bind_param('s', $marker_name);
         $stmt3->execute();
         $stmt3->store_result();
@@ -2403,7 +2403,7 @@ function UpdateLocation() {
             header('HTTP/1.0 550 A location with the name entered already exists.');
             exit();
         } else {
-            $stmt4 = $mysqli->prepare("UPDATE system_map_markers SET marker_name=?, marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
+            $stmt4 = $mysqli->prepare("UPDATE system_map_marker SET marker_name=?, marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
             $stmt4->bind_param('sssiissi', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
             $stmt4->execute();
             $stmt4->close();
@@ -2421,7 +2421,7 @@ function DeactivateLocation() {
 
     $marker_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_map_markers SET marker_status=?, updated_on=? WHERE markerid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_map_marker SET marker_status=?, updated_on=? WHERE markerid=?");
     $stmt1->bind_param('ssi', $marker_status, $updated_on, $locationToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -2438,7 +2438,7 @@ function ReactivateLocation() {
 
     $marker_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_map_markers SET marker_status=?, updated_on=? WHERE markerid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_map_marker SET marker_status=?, updated_on=? WHERE markerid=?");
     $stmt1->bind_param('ssi', $marker_status, $updated_on, $locationToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -2452,7 +2452,7 @@ function DeleteLocation() {
 
     $locationToDelete = filter_input(INPUT_POST, 'locationToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_map_markers WHERE markerid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_map_marker WHERE markerid=?");
     $stmt1->bind_param('i', $locationToDelete);
     $stmt1->execute();
     $stmt1->close();

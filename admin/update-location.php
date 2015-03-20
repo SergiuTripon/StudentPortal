@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
 
     $locationToUpdate = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT markerid, marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category FROM system_map_markers WHERE markerid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT markerid, marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category FROM system_map_marker WHERE markerid = ? LIMIT 1");
     $stmt1->bind_param('i', $locationToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
@@ -99,7 +99,7 @@ if (isset($_GET["id"])) {
     <select class="selectpicker marker_category" name="marker_category" id="marker_category">
         <option><?php echo $marker_category ?></option>
     <?php
-    $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_markers WHERE marker_status = 'active' AND NOT marker_category=''");
+    $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_marker WHERE marker_status = 'active' AND NOT marker_category=''");
 
     while ($row = $stmt1->fetch_assoc()){
 
