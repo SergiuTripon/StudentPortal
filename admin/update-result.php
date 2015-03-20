@@ -58,8 +58,8 @@ if (isset($_GET['id'])) {
 
 	<div id="hide">
 
-    <h4 class="text-center">Module</h4>
-    <hr class="hr-custom">
+    <h4 class="title-separator text-center">Module</h4>
+    <hr class="hr-separator">
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0" style="margin-bottom: 20px;">
@@ -68,8 +68,8 @@ if (isset($_GET['id'])) {
 	</div>
 	</div>
 
-	<h4 class="text-center">Student</h4>
-    <hr class="hr-custom">
+	<h4 class="title-separator text-center">Student</h4>
+    <hr class="hr-separator">
 
     <div class="form-group">
     <div class="col-xs-4 col-sm-4 full-width pl0" style="margin-bottom: 20px;">
@@ -86,8 +86,8 @@ if (isset($_GET['id'])) {
 	</div>
     </div>
 
-    <h4 class="text-center">Result</h4>
-    <hr class="hr-custom">
+    <h4 class="title-separator text-center">Result</h4>
+    <hr class="hr-separator">
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
