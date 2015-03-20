@@ -396,9 +396,8 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>From</th>
-	<th>Name</th>
+	<th>Module</th>
     <th>Subject</th>
-    <th>Feedback</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -423,9 +422,8 @@ include 'includes/session.php';
 	echo '<tr id="approve-'.$feedbackid.'">
 
 			<td data-title="From">'.$firstname.' '.$surname.'</td>
-			<td data-title="Lecture name">'.$module_name.'</td>
-			<td data-title="Subject">'.$feedback_subject.'</td>
-			<td data-title="Feedback">'.$feedback_body.'</td>
+			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
+			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
             <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
 			</tr>
 
