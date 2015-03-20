@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal | Create book</title>
+    <title>Student Portal | Update result</title>
 	
 </head>
 
@@ -45,10 +45,10 @@ if (isset($_GET['id'])) {
     <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../overview/">Overview</a></li>
 	<li><a href="../../results/">Results</a></li>
-    <li class="active">Update results</li>
+    <li class="active">Update result</li>
     </ol>
 
-    <!-- Create book -->
+    <!-- Update result -->
 	<form class="form-custom" style="max-width: 100%;" name="createresults_form" id="createresults_form" novalidate>
 
     <input type="hidden" name="result_resultid" id="result_resultid" value="<?php echo $resultToUpdate; ?>">
@@ -62,7 +62,7 @@ if (isset($_GET['id'])) {
     <hr class="hr-custom">
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0" style="margin-bottom: 20px;">
 	<label>Name</label>
     <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" readonly="readonly">
 	</div>
@@ -72,21 +72,21 @@ if (isset($_GET['id'])) {
     <hr class="hr-custom">
 
     <div class="form-group">
-    <div class="col-xs-4 col-sm-4 full-width pl0">
+    <div class="col-xs-4 col-sm-4 full-width pl0" style="margin-bottom: 20px;">
     <label>First name</label>
     <input class="form-control" type="text" name="student_firstname" id="student_firstname" value="<?php echo $student_firstname; ?>" readonly="readonly">
 	</div>
-    <div class="col-xs-4 col-sm-4 full-width">
+    <div class="col-xs-4 col-sm-4 full-width" style="margin-bottom: 20px;">
     <label>Surname</label>
     <input class="form-control" type="text" name="student_surname" id="student_surname" value="<?php echo $student_surname; ?>" readonly="readonly">
     </div>
-    <div class="col-xs-4 col-sm-4 full-width pr0">
+    <div class="col-xs-4 col-sm-4 full-width pr0" style="margin-bottom: 20px;">
     <label>Email address</label>
     <input class="form-control" type="email" name="student_email" id="student_email" value="<?php echo $student_email; ?>" readonly="readonly">
 	</div>
     </div>
 
-    <h4 class="text-center">Mark</h4>
+    <h4 class="text-center">Result</h4>
     <hr class="hr-custom">
 
     <div class="form-group">
