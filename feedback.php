@@ -320,6 +320,7 @@ include 'includes/session.php';
 	<th>From</th>
 	<th>Module</th>
     <th>Subject</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
