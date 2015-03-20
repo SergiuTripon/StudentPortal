@@ -139,10 +139,10 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Author</th>
 	<th>Notes</th>
-	<th>Booked on</th>
-	<th>Return on</th>
-    <th>Returned on</th>
-    <th>Returned</th>
+	<th>Reserved on</th>
+	<th>To collect by</th>
+    <th>Collected on</th>
+    <th>Collected</th>
 	</tr>
 	</thead>
 
