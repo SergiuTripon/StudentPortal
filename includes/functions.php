@@ -1677,7 +1677,6 @@ function CollectBook() {
 function ReturnBook() {
 
     global $mysqli;
-    global $created_on;
     global $updated_on;
 
     //Book
@@ -1686,7 +1685,7 @@ function ReturnBook() {
     $isReturned = 1;
     $loan_status = 'completed';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_book_loaned SET returned_on=?, isReturn=?, loan_status=? WHERE bookid=? ORDER BY bookid DESC");
+    $stmt1 = $mysqli->prepare("UPDATE system_book_loaned SET returned_on=?, isReturned=?, loan_status=? WHERE bookid=? ORDER BY bookid DESC");
     $stmt1->bind_param('sisi', $updated_on, $isReturned, $loan_status, $bookToReturn);
     $stmt1->execute();
     $stmt1->close();
