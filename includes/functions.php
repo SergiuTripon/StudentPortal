@@ -2613,17 +2613,16 @@ function SetFeedbackRead () {
 function DeleteFeedback () {
 
     global $mysqli;
-    global $session_userid;
 
     $feedbackToDelete = filter_input(INPUT_POST, 'feedbackToDelete', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedbackid=? AND feedback_from=?");
-    $stmt1->bind_param('ii', $feedbackToDelete, $session_userid);
+    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedbackid=?");
+    $stmt1->bind_param('i', $feedbackToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE feedbackid=? AND feedback_from=?");
-    $stmt1->bind_param('ii', $feedbackToDelete, $session_userid);
+    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE feedbackid=?");
+    $stmt1->bind_param('i', $feedbackToDelete);
     $stmt1->execute();
     $stmt1->close();
 }
