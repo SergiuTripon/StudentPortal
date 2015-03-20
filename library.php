@@ -191,7 +191,7 @@ include 'includes/session.php';
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
   	<div class="panel-body">
 
-	<!-- Your reserved books -->
+	<!-- Your loans -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -256,7 +256,7 @@ include 'includes/session.php';
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
   	<div class="panel-body">
 
-	<!-- Requested books -->
+	<!-- Your requests -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -264,18 +264,15 @@ include 'includes/session.php';
 	<tr>
     <th>Name</th>
     <th>Author</th>
-    <th>Notes</th>
     <th>Requested on</th>
     <th>Read</th>
     <th>Approved</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
 	<tbody>
     <?php
-/*
-    $stmt2 = $mysqli->query("SELECT system_book_requested.bookid, DATE_FORMAT(system_book_requested.requested_on,'%d %b %y') as requested_on, system_book_requested.isRead, system_book_requested.isApproved, system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_status FROM system_book_requested LEFT JOIN system_book ON system_book_requested.bookid=system_book.bookid  WHERE system_book_requested.userid = '$session_userid'");
+    $stmt2 = $mysqli->query("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, r.isRead, r.isApproved, b.book_name, b.book_author, b.book_notes, b.book_status FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid  WHERE r.userid = '$session_userid'");
 
     while($row = $stmt2->fetch_assoc()) {
 
@@ -283,26 +280,22 @@ include 'includes/session.php';
         $book_name = $row["book_name"];
         $book_author = $row["book_author"];
         $book_notes = $row["book_notes"];
-        $requested_on = $row["requested_on"];
+        $created_on = $row["created_on"];
         $isRead = $row["isRead"];
         $isApproved = $row["isApproved"];
-        $book_status = $row["book_status"];
-        $book_status = ucfirst($book_status);
 
         echo '<tr>
 
-			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
-			<td data-title="Requested on">'.$requested_on.'</td>
+			<td data-title="Requested on">'.$created_on.'</td>
 			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
 			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'</td>
-			<td data-title="Action">'.($isApproved === '1' ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "-").'</td>
 			</tr>';
     }
 
     $stmt2->close();
-    */?>
+    ?>
 	</tbody>
 
 	</table>
