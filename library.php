@@ -823,7 +823,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_reserved r LEFT JOIN user_detail d ON r.userid=d.userid LEFT JOIN system_book b ON r.bookid=b.bookid WHERE b.isReserved = '1' AND b.isCollected = '1' AND b.isLoaned = '1'");
+	$stmt1 = $mysqli->query("SELECT r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_reserved r LEFT JOIN user_detail d ON r.userid=d.userid LEFT JOIN system_book b ON r.bookid=b.bookid WHERE b.isReserved = '1' AND b.isCollected = '1' AND b.isLoaned = '1' AND b.isReturned='0'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -931,7 +931,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="collect-hide">
+			<div id="return-hide">
 			<div class="pull-left">
 			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
