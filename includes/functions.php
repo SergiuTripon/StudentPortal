@@ -2520,7 +2520,7 @@ function ApproveFeedback () {
 
     $isApproved = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback_sent SET isApproved=? WHERE feedbackid=?");
+    $stmt1 = $mysqli->prepare("UPDATE user_feedback SET isApproved=? WHERE feedbackid=?");
     $stmt1->bind_param('ii', $isApproved, $feedbackToApprove);
     $stmt1->execute();
     $stmt1->close();
@@ -2533,7 +2533,7 @@ function ApproveFeedback () {
     $stmt2->fetch();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("SELECT s.email FROM user_feedback_sent f LEFT JOIN user_signin s ON f.module_staff=s.userid WHERE f.feedbackid=? ORDER BY f.module_staff ASC LIMIT 1");
+    $stmt3 = $mysqli->prepare("SELECT s.email FROM user_feedback_received f LEFT JOIN user_signin s ON f.module_staff=s.userid WHERE f.feedbackid=? ORDER BY f.module_staff ASC LIMIT 1");
     $stmt3->bind_param('i', $feedbackToApprove);
     $stmt3->execute();
     $stmt3->store_result();
@@ -2541,7 +2541,7 @@ function ApproveFeedback () {
     $stmt3->fetch();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("SELECT s.email FROM user_feedback_sent f LEFT JOIN user_signin s ON f.module_staff=s.userid WHERE f.feedbackid=? ORDER BY f.module_staff DESC LIMIT 1");
+    $stmt4 = $mysqli->prepare("SELECT s.email FROM user_feedback_received f LEFT JOIN user_signin s ON f.module_staff=s.userid WHERE f.feedbackid=? ORDER BY f.module_staff DESC LIMIT 1");
     $stmt4->bind_param('i', $feedbackToApprove);
     $stmt4->execute();
     $stmt4->store_result();
@@ -2549,7 +2549,7 @@ function ApproveFeedback () {
     $stmt4->fetch();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("SELECT feedback_from FROM user_feedback_sent WHERE feedbackid = ? LIMIT 1");
+    $stmt5 = $mysqli->prepare("SELECT feedback_from FROM user_feedback_received WHERE feedbackid = ? LIMIT 1");
     $stmt5->bind_param('i', $feedbackToApprove);
     $stmt5->execute();
     $stmt5->store_result();
