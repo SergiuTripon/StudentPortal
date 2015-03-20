@@ -885,6 +885,8 @@ include 'includes/session.php';
     var clickedID = this.id.split('-');
     var receivedFeedbackToDelete = clickedID[1];
 
+    alert(receivedFeedbackToDelete);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
