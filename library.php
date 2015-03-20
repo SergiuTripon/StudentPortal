@@ -199,28 +199,28 @@ include 'includes/session.php';
 	<tr>
 	<th>Name</th>
 	<th>Author</th>
-	<th>Reserved on</th>
-	<th>To collect by</th>
-    <th>Collected on</th>
-    <th>Collected</th>
+	<th>Loaned on</th>
+	<th>To returned by</th>
+    <th>Returned on</th>
+    <th>Returned</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, DATE_FORMAT(r.tocollect_on,'%d %b %y') as tocollect_on, DATE_FORMAT(r.collected_on,'%d %b %y') as collected_on, r.isCollected, b.book_name, b.book_author, b.book_notes, b.book_status FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT l.bookid, DATE_FORMAT(l.created_on,'%d %b %y') as created_on, DATE_FORMAT(l.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(l.returned_on,'%d %b %y') as returned_on, l.isReturned, b.book_name, b.book_author, b.book_notes, b.book_status FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
     $book_name = $row["book_name"];
     $book_author = $row["book_author"];
     $book_notes = $row["book_notes"];
+    $book_status = $row["book_status"];
     $created_on = $row["created_on"];
-    $tocollect_on = $row["tocollect_on"];
-    $collected_on = $row["collected_on"];
-	$book_status = $row["book_status"];
-    $isCollected = $row["isCollected"];
+    $toreturn_on = $row["toreturn_on"];
+    $returned_on = $row["returned_on"];
+    $isReturned = $row["isReturned"];
 
 	$book_status = ucfirst($book_status);
 
@@ -228,10 +228,10 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Reserved on">'.$created_on.'</td>
-			<td data-title="To collect by">'.$tocollect_on.'</td>
-			<td data-title="Collected on">'.(empty($collected_on) ? "Not yet" : "$collected_on").'</td>
-			<td data-title="Collected">'.($isCollected === '0' ? "No" : "Yes").'</td>
+			<td data-title="Loaned on">'.$created_on.'</td>
+			<td data-title="To return by">'.$toreturn_on.'</td>
+			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
+			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
 			</tr>';
 	}
 
