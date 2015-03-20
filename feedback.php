@@ -220,8 +220,8 @@ include 'includes/session.php';
 			<div class="modal-body">
 			<p><b>Feedback:</b> '.(empty($feedback_body) ? "-" : "$feedback_body").'</p>
 			<p><b>Submitted:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
-			<p><b>Approved:</b> '.($isApproved === 0 ? "No" : "Yes").'</p>
-			<p><b>Read:</b> '.($isRead === 0 ? "No" : "Yes").'</p>
+			<p><b>Approved:</b> '.$isApproved.'</p>
+			<p><b>Read:</b> '.$isRead.'</p>
 			</div>
 
 			<div class="modal-footer">
