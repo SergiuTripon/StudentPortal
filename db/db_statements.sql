@@ -8,17 +8,17 @@ DROP TABLE user_feedback_sent;
 DROP TABLE user_feedback_received;
 DROP TABLE user_feedback;
 DROP TABLE user_lecture;
-DROP TABLE system_lectures;
+DROP TABLE system_lecture;
 DROP TABLE user_tutorial;
-DROP TABLE system_tutorials;
+DROP TABLE system_tutorial;
 DROP TABLE user_exam;
-DROP TABLE system_exams;
+DROP TABLE system_exam;
 DROP TABLE user_result;
 DROP TABLE user_module;
 DROP TABLE system_modules;
 DROP TABLE system_books_reserved;
 DROP TABLE system_books_requested;
-DROP TABLE system_books;
+DROP TABLE system_book;
 DROP TABLE user_tasks;
 DROP TABLE system_events_booked;
 DROP TABLE system_events;
@@ -197,7 +197,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Library
-CREATE TABLE `system_books` (
+CREATE TABLE `system_book` (
 	`bookid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`book_name` VARCHAR(300) NOT NULL,
 	`book_author` VARCHAR(300) NOT NULL,
@@ -221,7 +221,7 @@ CREATE TABLE `system_books_reserved` (
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)
-REFERENCES system_books(bookid)
+REFERENCES system_book(bookid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -237,7 +237,7 @@ CREATE TABLE `system_books_requested` (
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)
-REFERENCES system_books(bookid)
+REFERENCES system_book(bookid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -275,7 +275,7 @@ CREATE TABLE `system_modules` (
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `system_lectures` (
+CREATE TABLE `system_lecture` (
 	`moduleid` INT(11) NOT NULL,
 	`lectureid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`lecture_name` VARCHAR(300) NOT NULL,
@@ -298,7 +298,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `system_tutorials` (
+CREATE TABLE `system_tutorial` (
 	`moduleid` INT(11) NOT NULL,
 	`tutorialid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`tutorial_name` VARCHAR(300) NOT NULL,
@@ -321,7 +321,7 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
-CREATE TABLE `system_exams` (
+CREATE TABLE `system_exam` (
 	`moduleid` INT(11) NOT NULL,
 	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`exam_name` VARCHAR(300) NOT NULL,
@@ -358,7 +358,7 @@ CREATE TABLE `user_lecture` (
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (lectureid)
-REFERENCES system_lectures(lectureid)
+REFERENCES system_lecture(lectureid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -370,7 +370,7 @@ CREATE TABLE `user_tutorial` (
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (tutorialid)
-REFERENCES system_tutorials(tutorialid)
+REFERENCES system_tutorial(tutorialid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -382,7 +382,7 @@ CREATE TABLE `user_exam` (
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (examid)
-REFERENCES system_exams(examid)
+REFERENCES system_exam(examid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;

@@ -61,7 +61,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, l.lecture_lecturer, t.tutorial_assistant FROM system_modules m LEFT JOIN user_module u ON m.moduleid = u.moduleid LEFT JOIN system_lectures l ON m.moduleid = l.moduleid LEFT JOIN system_tutorials t ON m.moduleid = t.moduleid WHERE u.userid = '$session_userid' AND m.module_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, l.lecture_lecturer, t.tutorial_assistant FROM system_modules m LEFT JOIN user_module u ON m.moduleid = u.moduleid LEFT JOIN system_lecture l ON m.moduleid = l.moduleid LEFT JOIN system_tutorial t ON m.moduleid = t.moduleid WHERE u.userid = '$session_userid' AND m.module_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 

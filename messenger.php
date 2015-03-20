@@ -115,6 +115,7 @@ include 'includes/session.php';
 
 	while($row = $stmt2->fetch_assoc()) {
 
+    $messageid = $row["messageid"];
     $message_from = $row["message_from"];
 	$message_subject = $row["message_subject"];
 	$message_body = $row["message_body"];
@@ -122,7 +123,7 @@ include 'includes/session.php';
     $message_from_firstname = $row["firstname"];
     $message_from_surname = $row["surname"];
 
-	echo '<tr>
+	echo '<tr id="'.$messageid.'">
 
 			<td data-title="From">'.$message_from_firstname.' '.$message_from_surname.'</td>
 			<td data-title="Subject">'.$message_subject.'</td>
@@ -248,23 +249,13 @@ include 'includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
 	//DataTables
-    $('.user-table').dataTable({
+    $('.table-custom').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no users to display."
-		}
-	});
-
-	$('.message-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no messages to display."
+			"emptyTable": "There are no records to display."
 		}
 	});
 

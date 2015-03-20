@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
 
     $bookToUpdate = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no FROM system_books WHERE bookid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no FROM system_book WHERE bookid = ? LIMIT 1");
     $stmt1->bind_param('i', $bookToUpdate);
     $stmt1->execute();
     $stmt1->store_result();

@@ -12,43 +12,43 @@ system_modules.module_name,
 system_modules.module_notes,
 system_modules.module_url,
 
-system_lectures.lectureid,
-system_lectures.lecture_name,
-system_lectures.lecture_lecturer,
-system_lectures.lecture_notes,
-system_lectures.lecture_day,
+system_lecture.lectureid,
+system_lecture.lecture_name,
+system_lecture.lecture_lecturer,
+system_lecture.lecture_notes,
+system_lecture.lecture_day,
 DATE_FORMAT(lecture_from_time,'%H:%i') AS lecture_from_time,
 DATE_FORMAT(lecture_to_time,'%H:%i') AS lecture_to_time,
-system_lectures.lecture_from_date,
-system_lectures.lecture_to_date,
-system_lectures.lecture_location,
-system_lectures.lecture_capacity,
+system_lecture.lecture_from_date,
+system_lecture.lecture_to_date,
+system_lecture.lecture_location,
+system_lecture.lecture_capacity,
 
-system_tutorials.tutorialid,
-system_tutorials.tutorial_name,
-system_tutorials.tutorial_assistant,
-system_tutorials.tutorial_notes,
-system_tutorials.tutorial_day,
+system_tutorial.tutorialid,
+system_tutorial.tutorial_name,
+system_tutorial.tutorial_assistant,
+system_tutorial.tutorial_notes,
+system_tutorial.tutorial_day,
 DATE_FORMAT(tutorial_from_time,'%H:%i') AS tutorial_from_time,
 DATE_FORMAT(tutorial_to_time,'%H:%i') AS tutorial_to_time,
-system_tutorials.tutorial_from_date,
-system_tutorials.tutorial_to_date,
-system_tutorials.tutorial_location,
-system_tutorials.tutorial_capacity,
+system_tutorial.tutorial_from_date,
+system_tutorial.tutorial_to_date,
+system_tutorial.tutorial_location,
+system_tutorial.tutorial_capacity,
 
-system_exams.examid,
-system_exams.exam_name,
-system_exams.exam_notes,
-system_exams.exam_date,
+system_exam.examid,
+system_exam.exam_name,
+system_exam.exam_notes,
+system_exam.exam_date,
 DATE_FORMAT(exam_time,'%H:%i') AS exam_time,
-system_exams.exam_location,
-system_exams.exam_capacity
+system_exam.exam_location,
+system_exam.exam_capacity
 
 FROM system_modules
 
-LEFT JOIN system_lectures  ON system_modules.moduleid=system_lectures.moduleid
-LEFT JOIN system_tutorials ON system_modules.moduleid=system_tutorials.moduleid
-LEFT JOIN system_exams     ON system_modules.moduleid=system_exams.moduleid
+LEFT JOIN system_lecture  ON system_modules.moduleid=system_lecture.moduleid
+LEFT JOIN system_tutorial ON system_modules.moduleid=system_tutorial.moduleid
+LEFT JOIN system_exam     ON system_modules.moduleid=system_exam.moduleid
 
 WHERE system_modules.moduleid = ? LIMIT 1
 ");

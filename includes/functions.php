@@ -397,7 +397,7 @@ function GetDashboardData() {
 
     $lecture_status = 'active';
 
-	$stmt1 = $mysqli->prepare("SELECT l.lectureid FROM user_lecture u LEFT JOIN system_lectures l ON u.lectureid=l.lectureid WHERE u.userid=? AND l.lecture_status=?");
+	$stmt1 = $mysqli->prepare("SELECT l.lectureid FROM user_lecture u LEFT JOIN system_lecture l ON u.lectureid=l.lectureid WHERE u.userid=? AND l.lecture_status=?");
 	$stmt1->bind_param('is', $session_userid, $lecture_status);
 	$stmt1->execute();
 	$stmt1->store_result();
@@ -406,7 +406,7 @@ function GetDashboardData() {
 
     $tutorial_status = 'active';
 
-	$stmt2 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorials t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=?");
+	$stmt2 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorial t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=?");
 	$stmt2->bind_param('is', $session_userid, $tutorial_status);
 	$stmt2->execute();
 	$stmt2->store_result();
@@ -415,7 +415,7 @@ function GetDashboardData() {
 
     $exam_status = 'active';
 
-	$stmt3 = $mysqli->prepare("SELECT e.examid FROM user_exam u LEFT JOIN system_exams e ON u.examid=e.examid WHERE u.userid=? AND e.exam_status=?");
+	$stmt3 = $mysqli->prepare("SELECT e.examid FROM user_exam u LEFT JOIN system_exam e ON u.examid=e.examid WHERE u.userid=? AND e.exam_status=?");
 	$stmt3->bind_param('is', $session_userid, $exam_status);
 	$stmt3->execute();
 	$stmt3->store_result();
@@ -431,14 +431,14 @@ function GetDashboardData() {
 
     $book_reserved = 'reserved';
 
-	$stmt5 = $mysqli->prepare("SELECT system_books_reserved.bookid FROM system_books_reserved LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid  WHERE system_books_reserved.userid = ? AND system_books.book_status = ? AND isReturned = '0'");
+	$stmt5 = $mysqli->prepare("SELECT system_books_reserved.bookid FROM system_books_reserved LEFT JOIN system_book ON system_books_reserved.bookid=system_book.bookid  WHERE system_books_reserved.userid = ? AND system_book.book_status = ? AND isReturned = '0'");
 	$stmt5->bind_param('is', $session_userid, $book_reserved);
 	$stmt5->execute();
 	$stmt5->store_result();
 	$stmt5->bind_result($bookid);
 	$stmt5->fetch();
 
-    $stmt6 = $mysqli->prepare("SELECT system_books_requested.bookid FROM system_books_requested LEFT JOIN system_books ON system_books_requested.bookid=system_books.bookid  WHERE system_books.book_status = ? AND system_books_requested.isRead = '0' AND system_books_requested.isApproved = '0'");
+    $stmt6 = $mysqli->prepare("SELECT system_books_requested.bookid FROM system_books_requested LEFT JOIN system_book ON system_books_requested.bookid=system_book.bookid  WHERE system_book.book_status = ? AND system_books_requested.isRead = '0' AND system_books_requested.isApproved = '0'");
 	$stmt6->bind_param('s', $book_reserved);
 	$stmt6->execute();
 	$stmt6->store_result();
@@ -574,7 +574,7 @@ function CreateLecture() {
     $lecture_capacity = filter_input(INPUT_POST, 'create_lecture_capacity', FILTER_SANITIZE_STRING);
 
     // Check existing lecture name
-    $stmt1 = $mysqli->prepare("SELECT lectureid FROM system_lectures WHERE lecture_name = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE lecture_name = ? LIMIT 1");
     $stmt1->bind_param('s', $lecture_name);
     $stmt1->execute();
     $stmt1->store_result();
@@ -588,7 +588,7 @@ function CreateLecture() {
     } else {
         $lecture_status = 'active';
 
-        $stmt2 = $mysqli->prepare("INSERT INTO system_lectures (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2 = $mysqli->prepare("INSERT INTO system_lecture (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt2->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
         $stmt2->execute();
         $stmt2->close();
@@ -615,7 +615,7 @@ function CreateTutorial() {
     $tutorial_capacity = filter_input(INPUT_POST, 'create_tutorial_capacity', FILTER_SANITIZE_STRING);
 
     //Check existing tutorial name
-    $stmt1 = $mysqli->prepare("SELECT tutorialid FROM system_tutorials WHERE tutorial_name = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE tutorial_name = ? LIMIT 1");
     $stmt1->bind_param('s', $tutorial_name);
     $stmt1->execute();
     $stmt1->store_result();
@@ -630,7 +630,7 @@ function CreateTutorial() {
 
     $tutorial_status = 'active';
 
-    $stmt2 = $mysqli->prepare("INSERT INTO system_tutorials (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt2 = $mysqli->prepare("INSERT INTO system_tutorial (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt2->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
     $stmt2->execute();
     $stmt2->close();
@@ -704,7 +704,7 @@ function UpdateLecture() {
     $lecture_capacity = filter_input(INPUT_POST, 'update_lecture_capacity', FILTER_SANITIZE_STRING);
 
     //Lecture
-    $stmt1 = $mysqli->prepare("SELECT lecture_name FROM system_lectures WHERE lectureid = ?");
+    $stmt1 = $mysqli->prepare("SELECT lecture_name FROM system_lecture WHERE lectureid = ?");
     $stmt1->bind_param('i', $lectureid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -712,12 +712,12 @@ function UpdateLecture() {
     $stmt1->fetch();
 
     if ($db_lecture_name === $lecture_name) {
-        $stmt2 = $mysqli->prepare("UPDATE system_lectures SET moduleid=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
+        $stmt2 = $mysqli->prepare("UPDATE system_lecture SET moduleid=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
         $stmt2->bind_param('iisssssssisi', $moduleid, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $updated_on, $lectureid);
         $stmt2->execute();
         $stmt2->close();
     } else {
-        $stmt3 = $mysqli->prepare("SELECT lectureid FROM system_lectures WHERE lecture_name = ?");
+        $stmt3 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE lecture_name = ?");
         $stmt3->bind_param('s', $lecture_name);
         $stmt3->execute();
         $stmt3->store_result();
@@ -729,7 +729,7 @@ function UpdateLecture() {
             header('HTTP/1.0 550 A lecture with the name entered already exists.');
             exit();
         } else {
-            $stmt4 = $mysqli->prepare("UPDATE system_lectures SET moduleid=?, lecture_name=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
+            $stmt4 = $mysqli->prepare("UPDATE system_lecture SET moduleid=?, lecture_name=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
             $stmt4->bind_param('isisssssssisi', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $updated_on, $lectureid);
             $stmt4->execute();
             $stmt4->close();
@@ -758,7 +758,7 @@ function UpdateTutorial() {
     $tutorial_capacity = filter_input(INPUT_POST, 'update_tutorial_capacity', FILTER_SANITIZE_STRING);
 
     //Tutorial
-    $stmt1 = $mysqli->prepare("SELECT tutorial_name FROM system_tutorials WHERE tutorialid = ?");
+    $stmt1 = $mysqli->prepare("SELECT tutorial_name FROM system_tutorial WHERE tutorialid = ?");
     $stmt1->bind_param('i', $tutorialid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -766,12 +766,12 @@ function UpdateTutorial() {
     $stmt1->fetch();
 
     if ($db_tutorial_name === $tutorial_name) {
-        $stmt2 = $mysqli->prepare("UPDATE system_tutorials SET moduleid=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
+        $stmt2 = $mysqli->prepare("UPDATE system_tutorial SET moduleid=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
         $stmt2->bind_param('iisssssssisi', $moduleid, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
         $stmt2->execute();
         $stmt2->close();
     } else {
-        $stmt3 = $mysqli->prepare("SELECT tutorialid FROM system_tutorials WHERE tutorial_name = ?");
+        $stmt3 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE tutorial_name = ?");
         $stmt3->bind_param('s', $tutorial_name);
         $stmt3->execute();
         $stmt3->store_result();
@@ -783,7 +783,7 @@ function UpdateTutorial() {
             header('HTTP/1.0 550 A tutorial with the name entered already exists.');
             exit();
         } else {
-            $stmt4 = $mysqli->prepare("UPDATE system_tutorials SET moduleid=?, tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
+            $stmt4 = $mysqli->prepare("UPDATE system_tutorial SET moduleid=?, tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
             $stmt4->bind_param('isisssssssisi', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
             $stmt4->execute();
             $stmt4->close();
@@ -808,21 +808,21 @@ function DeactivateModule() {
 
     $lecture_status = 'inactive';
 
-    $stmt2 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
+    $stmt2 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE moduleid=?");
     $stmt2->bind_param('ssi', $lecture_status, $updated_on, $moduleToDeactivate);
     $stmt2->execute();
     $stmt2->close();
 
     $tutorial_status = 'inactive';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
+    $stmt3 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE moduleid=?");
     $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $moduleToDeactivate);
     $stmt3->execute();
     $stmt3->close();
 
     $exam_status = 'inactive';
 
-    $stmt4 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt4 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE moduleid=?");
     $stmt4->bind_param('ssi', $exam_status, $updated_on, $moduleToDeactivate);
     $stmt4->execute();
     $stmt4->close();
@@ -845,7 +845,7 @@ function DeactivateLecture() {
 
     $lecture_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE lectureid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
     $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -862,7 +862,7 @@ function DeactivateTutorial() {
 
     $tutorial_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
     $stmt1->bind_param('ssi', $tutorial_status, $updated_on, $tutorialToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -885,21 +885,21 @@ function ReactivateModule() {
 
     $lecture_status = 'active';
 
-    $stmt2 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
+    $stmt2 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE moduleid=?");
     $stmt2->bind_param('ssi', $lecture_status, $updated_on, $moduleToReactivate);
     $stmt2->execute();
     $stmt2->close();
 
     $tutorial_status = 'active';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
+    $stmt3 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE moduleid=?");
     $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $moduleToReactivate);
     $stmt3->execute();
     $stmt3->close();
 
     $exam_status = 'active';
 
-    $stmt4 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt4 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE moduleid=?");
     $stmt4->bind_param('ssi', $exam_status, $updated_on, $moduleToReactivate);
     $stmt4->execute();
     $stmt4->close();
@@ -922,7 +922,7 @@ function ReactivateLecture() {
 
     $lecture_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE lectureid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
     $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -938,7 +938,7 @@ function ReactivateTutorial() {
 
     $tutorial_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
     $stmt1->bind_param('ssi', $tutorial_status, $updated_on, $tutorialToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -972,17 +972,17 @@ function DeleteModule() {
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM system_exams WHERE moduleid=?");
+    $stmt5 = $mysqli->prepare("DELETE FROM system_exam WHERE moduleid=?");
     $stmt5->bind_param('i', $moduleToDelete);
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM system_tutorials WHERE moduleid=?");
+    $stmt6 = $mysqli->prepare("DELETE FROM system_tutorial WHERE moduleid=?");
     $stmt6->bind_param('i', $moduleToDelete);
     $stmt6->execute();
     $stmt6->close();
 
-    $stmt7 = $mysqli->prepare("DELETE FROM system_lectures WHERE moduleid=?");
+    $stmt7 = $mysqli->prepare("DELETE FROM system_lecture WHERE moduleid=?");
     $stmt7->bind_param('i', $moduleToDelete);
     $stmt7->execute();
     $stmt7->close();
@@ -1005,7 +1005,7 @@ function DeleteLecture() {
 
     $lectureToDelete = filter_input(INPUT_POST, 'lectureToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_lectures WHERE lectureid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_lecture WHERE lectureid=?");
     $stmt1->bind_param('i', $lectureToDelete);
     $stmt1->execute();
     $stmt1->close();
@@ -1025,7 +1025,7 @@ function DeleteTutorial() {
 
     $tutorialToDelete = filter_input(INPUT_POST, 'tutorialToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_tutorials WHERE tutorialid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_tutorial WHERE tutorialid=?");
     $stmt1->bind_param('i', $tutorialToDelete);
     $stmt1->execute();
     $stmt1->close();
@@ -1141,7 +1141,7 @@ function CreateExam() {
     $exam_capacity = filter_input(INPUT_POST, 'create_exam_capacity', FILTER_SANITIZE_STRING);
 
     //Check existing exam name
-    $stmt1 = $mysqli->prepare("SELECT examid FROM system_exams WHERE exam_name = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT examid FROM system_exam WHERE exam_name = ? LIMIT 1");
     $stmt1->bind_param('s', $exam_name);
     $stmt1->execute();
     $stmt1->store_result();
@@ -1156,7 +1156,7 @@ function CreateExam() {
 
     $exam_status = 'active';
 
-    $stmt2 = $mysqli->prepare("INSERT INTO system_exams (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt2 = $mysqli->prepare("INSERT INTO system_exam (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt2->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
     $stmt2->execute();
     $stmt2->close();
@@ -1179,7 +1179,7 @@ function UpdateExam() {
     $exam_capacity = filter_input(INPUT_POST, 'update_exam_capacity', FILTER_SANITIZE_STRING);
 
     //Exam
-    $stmt1 = $mysqli->prepare("SELECT exam_name FROM system_exams WHERE examid = ?");
+    $stmt1 = $mysqli->prepare("SELECT exam_name FROM system_exam WHERE examid = ?");
     $stmt1->bind_param('i', $examid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -1187,12 +1187,12 @@ function UpdateExam() {
     $stmt1->fetch();
 
     if ($db_exam_name === $exam_name) {
-        $stmt3 = $mysqli->prepare("UPDATE system_exams SET moduleid=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+        $stmt3 = $mysqli->prepare("UPDATE system_exam SET moduleid=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
         $stmt3->bind_param('issssssi', $moduleid, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
         $stmt3->execute();
         $stmt3->close();
     } else {
-        $stmt4 = $mysqli->prepare("SELECT examid FROM system_exams WHERE exam_name = ?");
+        $stmt4 = $mysqli->prepare("SELECT examid FROM system_exam WHERE exam_name = ?");
         $stmt4->bind_param('s', $exam_name);
         $stmt4->execute();
         $stmt4->store_result();
@@ -1204,7 +1204,7 @@ function UpdateExam() {
             header('HTTP/1.0 550 An exam with the name entered already exists.');
             exit();
         } else {
-            $stmt5 = $mysqli->prepare("UPDATE system_exams SET moduleid=?, exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+            $stmt5 = $mysqli->prepare("UPDATE system_exam SET moduleid=?, exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
             $stmt5->bind_param('isssssssi', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
             $stmt5->execute();
             $stmt5->close();
@@ -1223,7 +1223,7 @@ function DeactivateExam() {
 
     $exam_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE examid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE examid=?");
     $stmt1->bind_param('ssi', $exam_status, $updated_on, $examToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -1239,7 +1239,7 @@ function ReactivateExam() {
 
     $exam_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE examid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE examid=?");
     $stmt1->bind_param('ssi', $exam_status, $updated_on, $examToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -1252,7 +1252,7 @@ function DeleteExam() {
 
     $examToDelete = filter_input(INPUT_POST, 'examToDelete', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("DELETE FROM system_exams WHERE examid=?");
+    $stmt1 = $mysqli->prepare("DELETE FROM system_exam WHERE examid=?");
     $stmt1->bind_param('i', $examToDelete);
     $stmt1->execute();
     $stmt1->close();
@@ -1410,7 +1410,7 @@ function ReserveBook() {
 
 	$book_status = 'reserved';
 
-	$stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=? WHERE bookid =?");
+	$stmt3 = $mysqli->prepare("UPDATE system_book SET book_status=? WHERE bookid =?");
 	$stmt3->bind_param('si', $book_status, $bookid);
 	$stmt3->execute();
 	$stmt3->close();
@@ -1479,7 +1479,7 @@ function RequestBook() {
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt1 = $mysqli->prepare("SELECT system_books_reserved.userid, system_books_reserved.reserved_on, system_books_reserved.toreturn_on, system_books.book_name, system_books.book_author, system_books.book_status FROM system_books_reserved LEFT JOIN system_books ON system_books_reserved.bookid=system_books.bookid WHERE system_books_reserved.bookid=?");
+    $stmt1 = $mysqli->prepare("SELECT system_books_reserved.userid, system_books_reserved.reserved_on, system_books_reserved.toreturn_on, system_book.book_name, system_book.book_author, system_book.book_status FROM system_books_reserved LEFT JOIN system_book ON system_books_reserved.bookid=system_book.bookid WHERE system_books_reserved.bookid=?");
     $stmt1->bind_param('i', $bookToRequest);
     $stmt1->execute();
     $stmt1->store_result();
@@ -1572,7 +1572,7 @@ function ApproveRequest() {
 
     $book_status = 'requested';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt3 = $mysqli->prepare("UPDATE system_book SET book_status=?, updated_on=? WHERE bookid=?");
     $stmt3->bind_param('ssi', $book_status, $updated_on, $bookid);
     $stmt3->execute();
     $stmt3->close();
@@ -1605,7 +1605,7 @@ function ReturnBook() {
 
     $book_status = 'active';
 
-    $stmt2 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt2 = $mysqli->prepare("UPDATE system_book SET book_status=?, updated_on=? WHERE bookid=?");
     $stmt2->bind_param('ssi', $book_status, $updated_on, $bookToReturn);
     $stmt2->execute();
     $stmt2->close();
@@ -1626,7 +1626,7 @@ function CreateBook() {
     $book_copy_no = filter_input(INPUT_POST, 'book_copy_no', FILTER_SANITIZE_STRING);
 
     //If book exists, increase copy number
-    $stmt1 = $mysqli->prepare("SELECT bookid, book_copy_no FROM system_books WHERE book_name=? AND book_author=? ORDER BY bookid DESC LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT bookid, book_copy_no FROM system_book WHERE book_name=? AND book_author=? ORDER BY bookid DESC LIMIT 1");
     $stmt1->bind_param('ss', $book_name, $book_author);
     $stmt1->execute();
     $stmt1->store_result();
@@ -1638,7 +1638,7 @@ function CreateBook() {
         $book_status = 'active';
         $book_copy_no = $db_book_copy_no + 1;
 
-        $stmt5 = $mysqli->prepare("INSERT INTO system_books (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
         $stmt5->execute();
         $stmt5->close();
@@ -1647,7 +1647,7 @@ function CreateBook() {
 
         $book_status = 'active';
 
-        $stmt5 = $mysqli->prepare("INSERT INTO system_books (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
         $stmt5->execute();
         $stmt5->close();
@@ -1669,7 +1669,7 @@ function UpdateBook()
     $book_notes = filter_input(INPUT_POST, 'book_notes1', FILTER_SANITIZE_STRING);
     $book_copy_no = filter_input(INPUT_POST, 'book_copy_no1', FILTER_SANITIZE_STRING);
 
-    $stmt5 = $mysqli->prepare("UPDATE system_books SET book_name=?, book_author=?, book_notes=?, book_copy_no=?, updated_on=? WHERE bookid=?");
+    $stmt5 = $mysqli->prepare("UPDATE system_book SET book_name=?, book_author=?, book_notes=?, book_copy_no=?, updated_on=? WHERE bookid=?");
     $stmt5->bind_param('sssisi', $book_name, $book_author, $book_notes, $book_copy_no, $updated_on, $bookid);
     $stmt5->execute();
     $stmt5->close();
@@ -1685,7 +1685,7 @@ function DeactivateBook() {
 
     $book_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_book SET book_status=?, updated_on=? WHERE bookid=?");
     $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToDeactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -1701,7 +1701,7 @@ function ReactivateBook() {
 
     $book_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_books SET book_status=?, updated_on=? WHERE bookid=?");
+    $stmt1 = $mysqli->prepare("UPDATE system_book SET book_status=?, updated_on=? WHERE bookid=?");
     $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToReactivate);
     $stmt1->execute();
     $stmt1->close();
@@ -1719,7 +1719,7 @@ function DeleteBook() {
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("DELETE FROM system_books WHERE bookid=?");
+    $stmt2 = $mysqli->prepare("DELETE FROM system_book WHERE bookid=?");
     $stmt2->bind_param('i', $bookToDelete);
     $stmt2->execute();
     $stmt2->close();

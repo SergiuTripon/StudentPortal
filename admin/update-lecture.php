@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
 
     $lectureToUpdate = $_GET['id'];
 
-    $stmt1 = $mysqli->prepare("SELECT l.moduleid, l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') AS lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') AS lecture_to_time, l.lecture_from_date, l.lecture_to_date, l.lecture_location, l.lecture_capacity FROM system_lectures l WHERE l.lectureid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT l.moduleid, l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') AS lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') AS lecture_to_time, l.lecture_from_date, l.lecture_to_date, l.lecture_location, l.lecture_capacity FROM system_lecture l WHERE l.lectureid = ? LIMIT 1");
     $stmt1->bind_param('i', $lectureToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
