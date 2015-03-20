@@ -406,16 +406,19 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT s.feedbackid, d.firstname, d.surname, m.module_name, f.feedbackid, f.feedback_subject, f.feedback_body, f.isApproved, f.isRead FROM user_feedback_sent s LEFT JOIN user_detail d ON s.feedback_from=d.userid LEFT JOIN system_module m ON s.moduleid=m.moduleid LEFT JOIN user_feedback f ON s.feedbackid=f.feedbackid WHERE s.isApproved=0 AND s.isRead = 0");
+	$stmt1 = $mysqli->query("SELECT DISTINCT s.feedbackid, d.firstname, d.surname, m.moduleid, m.module_name, f.feedbackid, f.feedback_subject, f.feedback_body, f.isApproved, f.isRead FROM user_feedback_sent s LEFT JOIN user_detail d ON s.feedback_from=d.userid LEFT JOIN system_module m ON s.moduleid=m.moduleid LEFT JOIN user_feedback f ON s.feedbackid=f.feedbackid WHERE s.isApproved=0 AND s.isRead = 0");
 
 	while($row = $stmt1->fetch_assoc()) {
 
     $feedbackid = $row["feedbackid"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
+    $moduleid = $row["moduleid"];
 	$module_name = $row["module_name"];
 	$feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
+    $isApproved = $row["isApproved"];
+    $isRead = $row["isRead"];
 
 	echo '<tr id="approve-'.$feedbackid.'">
 
