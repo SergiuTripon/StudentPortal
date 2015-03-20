@@ -1387,25 +1387,25 @@ function ReserveBook() {
 
 	global $mysqli;
 	global $session_userid;
+    global $created_on;
 
 	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
 	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
 	$book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
 
-	$book_class = 'event-info';
-    $bookreserved_from = '';
+    $add14days = new DateTime($created_on);
+    $add14days->add(new DateInterval('P7D'));
+    $tocollect_on = $add14days->format('Y-m-d');
+    $collected_on = '';
+    $isCollected = 0;
+    $reservation_status = 'active';
 
-    $bookreserved_to = '';
-
-    $isReturned = 0;
-    $isRequested = 0;
-
-	$stmt2 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, book_class, loaned_on, toreturn_on, isReturned, isRequested) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('iisssii', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned, $isRequested);
+	$stmt2 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt2->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $created_on);
 	$stmt2->execute();
 	$stmt2->close();
 
-	$isReserved = '1';
+	$isReserved = 1;
 
 	$stmt3 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
 	$stmt3->bind_param('ii', $isReserved, $bookid);
@@ -1435,8 +1435,8 @@ function ReserveBook() {
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $studentno</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_name</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_author</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $bookreserved_from</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $bookreserved_to</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $created_on</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $tocollect_on</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Reservation status:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $reservation_status</td></tr>";
 	$message .= '</table>';
 	$message .= '</body>';
