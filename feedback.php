@@ -213,7 +213,7 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <div class="close"><i class="fa fa-check-square-o"></i></div>
             <h4 class="modal-title" id="modal-custom-label">'.$feedback_subject.'</h4>
 			</div>
 
