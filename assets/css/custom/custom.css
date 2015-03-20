@@ -985,11 +985,9 @@ form .field-required {
 .title-separator {
     color: #3FAD46;
     font-weight: 600;
-    margin-top: 20px;
 }
 .hr-separator {
     margin-top: 5px;
-    margin-bottom: 20px;
     border-color: #3FAD46;
     background: #3FAD46;
 }
