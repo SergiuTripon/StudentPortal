@@ -741,7 +741,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Return book</a>
+            <a href="#collect-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Mark collected</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
@@ -801,20 +801,20 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingFour">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"> Reserved books</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"> Loaned books</a>
   	</h4>
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
   	<div class="panel-body">
 
-	<!-- Reserved books -->
+	<!-- Loaned books -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
-    <th>Reserved by</th>
-	<th>Name</th>
+    <th>Loaned by</th>
+	<th>Book</th>
 	<th>Author</th>
     <th>Action</th>
 	</tr>
@@ -842,12 +842,12 @@ include 'includes/session.php';
 
 	echo '<tr id="book-'.$bookid.'">
 
-            <td data-title="Reserved by"><a href="#view-reserved-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
-			<td data-title="Name"><a href="#view-reserved-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
+            <td data-title="Loaned by"><a href="#view-loaned-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
+			<td data-title="Book"><a href="#view-loaned-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a href="#collect-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal">Mark collected</a>
+            <a href="#return-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal">Mark returned</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -859,7 +859,7 @@ include 'includes/session.php';
             </td>
 			</tr>
 
-            <div id="view-reserved-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-loaned-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -887,7 +887,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="view-reserved-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-loaned-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -904,7 +904,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Return book</a>
+            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Mark returned</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
@@ -915,7 +915,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="collect-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="return-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -926,21 +926,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="collect-question" class="text-center feedback-sad">Are you sure you want to mark '.$book_name.' collected?</p>
-            <p id="collect-confirmation" style="display: none;" class="text-center feedback-happy">'.$book_name.' has been marked collected successfully.</p>
+			<p id="return-question" class="text-center feedback-sad">Are you sure you want to mark '.$book_name.' returned?</p>
+            <p id="return-confirmation" style="display: none;" class="text-center feedback-happy">'.$book_name.' has been marked returned successfully.</p>
 			</div>
 
 			<div class="modal-footer">
 			<div id="collect-hide">
 			<div class="pull-left">
-			<a id="collect-'.$bookid.'" class="btn btn-success btn-lg collect-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="collect-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="return-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
