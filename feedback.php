@@ -892,8 +892,9 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'receivedFeedbackToDelete='+ receivedFeedbackToDelete,
-	success:function(){
-		$('#feedback-'+receivedFeedbackToDelete).hide();
+	success:function(receivedFeedbackToDelete){
+        alert(receivedFeedbackToDelete);
+        $('#feedback-'+receivedFeedbackToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#delete-feedback-question').hide();

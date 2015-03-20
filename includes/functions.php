@@ -2659,6 +2659,8 @@ function DeleteReceivedFeedback () {
     $stmt1->bind_param('i', $receivedFeedbackToDelete, $session_userid);
     $stmt1->execute();
     $stmt1->close();
+
+    echo $receivedFeedbackToDelete;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
