@@ -320,7 +320,6 @@ include 'includes/session.php';
 	<th>From</th>
 	<th>Module</th>
     <th>Subject</th>
-    <th>Feedback</th>
 	</tr>
 	</thead>
 
@@ -353,7 +352,7 @@ include 'includes/session.php';
 			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Module"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
-			<td data-title="Feedback">'.$feedback_body.'</td>
+            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
 			<div id="view-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">

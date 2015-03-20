@@ -2622,10 +2622,15 @@ function DeleteFeedback () {
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE feedbackid=?");
-    $stmt1->bind_param('i', $feedbackToDelete);
-    $stmt1->execute();
-    $stmt1->close();
+    $stmt2 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE feedbackid=?");
+    $stmt2->bind_param('i', $feedbackToDelete);
+    $stmt2->execute();
+    $stmt2->close();
+
+    $stmt3 = $mysqli->prepare("DELETE FROM user_feedback WHERE feedbackid=?");
+    $stmt3->bind_param('i', $feedbackToDelete);
+    $stmt3->execute();
+    $stmt3->close();
 }
 
 //DeleteSentFeedback function
@@ -2654,6 +2659,11 @@ function DeleteReceivedFeedback () {
     $stmt1->bind_param('i', $receivedFeedbackToDelete, $session_userid);
     $stmt1->execute();
     $stmt1->close();
+
+    $stmt2 = $mysqli->prepare("DELETE FROM user_feedback WHERE feedbackid=?");
+    $stmt2->bind_param('i', $receivedFeedbackToDelete);
+    $stmt2->execute();
+    $stmt2->close();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
