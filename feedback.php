@@ -86,11 +86,40 @@ include 'includes/session.php';
 
 	echo '<tr>
 
-			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
 			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Submit feedback</span></a></a></td>
-			</tr>';
+			</tr>
+
+            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#deactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
     $stmt2->close();
     $stmt3->close();
 	}
@@ -122,9 +151,8 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Module</th>
     <th>Subject</th>
-    <th>Feedback</th>
     <th>Submitted on</th>
 	</tr>
 	</thead>
@@ -132,22 +160,78 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT system_module.module_name, user_feedback.feedback_subject, user_feedback.feedback_body, DATE_FORMAT(user_feedback.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_sent LEFT JOIN system_module ON user_feedback_sent.moduleid = system_module.moduleid LEFT JOIN user_feedback ON user_feedback_sent.feedbackid = user_feedback.feedbackid WHERE user_feedback_sent.feedback_from = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedbackid, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_sent s LEFT JOIN system_module m ON s.moduleid = m.moduleid LEFT JOIN user_feedback f ON s.feedbackid = f.feedbackid WHERE s.feedback_from = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
+    $moduleid = $row["moduleid"];
 	$module_name = $row["module_name"];
-	$feedback_subject = $row["feedback_subject"];
+    $module_notes = $row["module_notes"];
+    $module_url = $row["module_url"];
+    $feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
     $created_on = $row["created_on"];
 
 	echo '<tr>
 
-			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject">'.$feedback_subject.'</td>
-			<td data-title="Feedback">'.$feedback_body.'</td>
 			<td data-title="Submitted on">'.$created_on.'</td>
-			</tr>';
+			</tr>
+
+            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            <div id="view-feedback-'.$feedbackid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$feedback_subject.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Feedback:</b> '.(empty($feedback_body) ? "-" : "$feedback_body").'</p>
+			<p><b>Submitted:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Approved:</b> '.($isApproved === 0 ? "No" : "Yes").'</p>
+			<p><b>Read:</b> '.($isRead === 0 ? "No" : "Yes").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt1->close();
