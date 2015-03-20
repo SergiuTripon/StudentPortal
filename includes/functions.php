@@ -2478,7 +2478,7 @@ function SubmitFeedback() {
     $feedback_status = 'active';
     $isApproved = 0;
 
-    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (moduleid, feedback_subject, feedback_body, feedback_status, isApproved, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (moduleid, feedback_subject, feedback_body, feedback_status, isApproved, created_on) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt1->bind_param('isssis', $feedback_moduleid, $feedback_subject, $feedback_body, $feedback_status, $isApproved, $created_on);
     $stmt1->execute();
     $stmt1->close();
