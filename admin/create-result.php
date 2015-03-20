@@ -100,21 +100,21 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Overall coursework mark (if any)<span class="field-required">*</span></label>
+	<label>Overall coursework mark (if any)</label>
     <input class="form-control" type="text" name="result_coursework_mark" id="result_coursework_mark" placeholder="Enter a mark">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Overall exam mark (if any)<span class="field-required">*</span></label>
+	<label>Overall exam mark (if any)</label>
     <input class="form-control" type="text" name="result_exam_mark" id="result_exam_mark" placeholder="Enter a mark">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Overall final mark<span class="field-required">*</span></label>
+	<label>Overall final mark</label>
     <input class="form-control" type="text" name="result_overall_mark" id="result_overall_mark" placeholder="Enter a mark">
 	</div>
 	</div>
