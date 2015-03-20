@@ -443,7 +443,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Gender:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
+			<p><b>Gender:</b> '.(empty($gender) ? "-" : "$gender").'</p>
 			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "-" : "$dateofbirth").'</p>
 			<p><b>Student number:</b> '.(empty($studentno) ? "-" : "$studentno").'</p>
 			<p><b>Degree:</b> '.(empty($degree) ? "-" : "$degree").'</p>
