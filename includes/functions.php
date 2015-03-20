@@ -2477,10 +2477,9 @@ function SubmitFeedback() {
 
     $feedback_status = 'active';
     $isApproved = 0;
-    $isRead = 0;
 
-    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (moduleid, feedback_subject, feedback_body, feedback_status, isApproved, isRead, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt1->bind_param('isssiis', $feedback_moduleid, $feedback_subject, $feedback_body, $feedback_status, $isApproved, $isRead, $created_on);
+    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (moduleid, feedback_subject, feedback_body, feedback_status, isApproved, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt1->bind_param('isssis', $feedback_moduleid, $feedback_subject, $feedback_body, $feedback_status, $isApproved, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
@@ -2490,13 +2489,15 @@ function SubmitFeedback() {
     $stmt2->bind_result($feedbackid);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
-    $stmt3->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer);
+    $isRead = 0;
+
+    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isRead) VALUES (?, ?, ?, ?, ?)");
+    $stmt3->bind_param('iiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer, $isRead);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
-    $stmt4->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant);
+    $stmt4 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isRead) VALUES (?, ?, ?, ?, ?)");
+    $stmt4->bind_param('iiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isRead);
     $stmt4->execute();
     $stmt4->close();
 
@@ -2602,10 +2603,9 @@ function SetFeedbackRead () {
     global $session_userid;
 
     $isRead = 1;
-    $isApproved = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback_sent SET isRead=? WHERE module_staff=? AND isApproved=?");
-    $stmt1->bind_param('iii', $isRead, $session_userid, $isApproved);
+    $stmt1 = $mysqli->prepare("UPDATE user_feedback_sent SET isRead=? WHERE module_staff=?");
+    $stmt1->bind_param('ii', $isRead, $session_userid);
     $stmt1->execute();
     $stmt1->close();
 }
