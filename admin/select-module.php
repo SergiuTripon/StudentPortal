@@ -136,7 +136,7 @@ if (isset($_GET['id'])) {
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="../update-results/?id='.$resultid.'">Update</a>
+            <a class="btn btn-primary" href="../update-result/?id='.$resultid.'">Update</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
