@@ -272,9 +272,9 @@ include 'includes/session.php';
 
 	<tbody>
     <?php
-    $stmt2 = $mysqli->query("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, r.isRead, r.isApproved, b.book_name, b.book_author, b.book_notes, b.book_status FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid  WHERE r.userid = '$session_userid'");
+    $stmt1 = $mysqli->query("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, r.isRead, r.isApproved, b.book_name, b.book_author, b.book_notes, b.book_status FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid  WHERE r.userid = '$session_userid'");
 
-    while($row = $stmt2->fetch_assoc()) {
+    while($row = $stmt1->fetch_assoc()) {
 
         $bookid = $row["bookid"];
         $book_name = $row["book_name"];
@@ -294,7 +294,7 @@ include 'includes/session.php';
 			</tr>';
     }
 
-    $stmt2->close();
+    $stmt1->close();
     ?>
 	</tbody>
 
