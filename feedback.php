@@ -885,15 +885,12 @@ include 'includes/session.php';
     var clickedID = this.id.split('-');
     var receivedFeedbackToDelete = clickedID[1];
 
-    alert(receivedFeedbackToDelete);
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'receivedFeedbackToDelete='+ receivedFeedbackToDelete,
-	success:function(receivedFeedbackToDelete){
-        alert(receivedFeedbackToDelete);
+	success:function(){
         $('#feedback-'+receivedFeedbackToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
