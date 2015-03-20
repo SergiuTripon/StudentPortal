@@ -149,6 +149,7 @@ include 'includes/session.php';
 	<th>Module</th>
     <th>Subject</th>
     <th>Submitted on</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -175,6 +176,7 @@ include 'includes/session.php';
 			<td data-title="Name"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
 			<td data-title="Submitted on">'.$created_on.'</td>
+			<td data-title="Submitted on"><a class="btn btn-primary" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal">Delete</a></td>
 			</tr>
 
             <div id="view-submitted-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -230,7 +232,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-            <div id="delete-feedback-'.$feedbackid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-sent-feedback-'.$feedbackid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -241,21 +243,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-feedback-question" class="text-center feedback-sad">Are you sure you want to delete '.$feedback_subject.'?</p>
-			<p id="delete-feedback-confirmation" style="display: none;" class="text-center feedback-happy">'.$feedback_subject.' has been deleted successfully.</p>
+			<p id="delete-sent-feedback-question" class="text-center feedback-sad">Are you sure you want to delete '.$feedback_subject.'?</p>
+			<p id="delete-sent-feedback-confirmation" style="display: none;" class="text-center feedback-happy">'.$feedback_subject.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-feedback-hide">
+			<div id="delete-sent-feedback-hide">
 			<div class="pull-left">
-			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-feedback-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-sent-feedback-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-sent-feedback-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
