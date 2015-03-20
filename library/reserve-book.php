@@ -20,12 +20,6 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
-    $bookreserved_from = date("Y-m-d");
-
-    $add14days = new DateTime($bookreserved_from);
-    $add14days->add(new DateInterval('P14D'));
-    $bookreserved_to = $add14days->format('Y-m-d');
-
 } else {
     header('Location: ../../library/');
 }
