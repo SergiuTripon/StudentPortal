@@ -1393,9 +1393,9 @@ function ReserveBook() {
 	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
 	$book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
 
-    $add14days = new DateTime($created_on);
-    $add14days->add(new DateInterval('P7D'));
-    $tocollect_on = $add14days->format('Y-m-d');
+    $add7days = new DateTime($created_on);
+    $add7days->add(new DateInterval('P7D'));
+    $tocollect_on = $add7days->format('Y-m-d');
     $collected_on = '';
     $isCollected = 0;
     $reservation_status = 'active';
@@ -1588,6 +1588,7 @@ function ApproveRequest() {
 function CollectBook() {
 
     global $mysqli;
+    global $created_on;
     global $updated_on;
 
     //Book
@@ -1605,6 +1606,71 @@ function CollectBook() {
     $stmt2->bind_param('ssi', $isCollected, $updated_on, $bookToCollect);
     $stmt2->execute();
     $stmt2->close();
+
+    $stmt3 = $mysqli->prepare("SELECT userid, book_name, book_author FROM system_book_reserved WHERE bookid=? ORDER BY bookid DESC");
+    $stmt3->bind_param('i', $bookToCollect);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($userid, $book_name, $book_author);
+    $stmt3->fetch();
+
+    $add14days = new DateTime($created_on);
+    $add14days->add(new DateInterval('P14D'));
+    $toreturn_on = $add14days->format('Y-m-d');
+    $returned_on = '';
+    $isReturned = 0;
+    $isRequested = 0;
+    $loan_status = 'active';
+
+    $stmt1 = $mysqli->prepare("INSERT INTO system_book_loaned (userid, bookid, toreturn_on, returned_on, isReturned, isRequested, loan_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt1->bind_param('iissiiss', $userid, $bookToCollect, $toreturn_on, $returned_on, $isReturned, $isRequested, $loan_status, $created_on);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $isLoaned = 1;
+
+    $stmt2 = $mysqli->prepare("UPDATE system_book SET isLoaned=? WHERE bookid =?");
+    $stmt2->bind_param('ii', $isLoaned, $bookid);
+    $stmt2->execute();
+    $stmt2->close();
+
+    $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt3->bind_param('i', $userid);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($email, $firstname, $surname, $studentno);
+    $stmt3->fetch();
+    $stmt3->close();
+
+    $loan_status = 'Ongoing';
+
+    //Creating email
+    $subject = 'Reservation confirmation';
+
+    $message = '<html>';
+    $message .= '<body>';
+    $message .= '<p>This is an email to let you know that your book loan has now started. Below, you can find the loan summary:</p>';
+    $message .= '<table rules="all" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$firstname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $surname</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $email</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $studentno</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_name</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_author</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Loan date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $created_on</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Return date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $toreturn_on</td></tr>";
+    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Loan status:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $loan_status</td></tr>";
+    $message .= '</table>';
+    $message .= '</body>';
+    $message .= '</html>';
+
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+    $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+    $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+    mail($email, $subject, $message, $headers);
 }
 
 //CreateBook function
