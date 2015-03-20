@@ -164,6 +164,7 @@ include 'includes/session.php';
 
 	while($row = $stmt1->fetch_assoc()) {
 
+    $feedbackid = $row["feedbackid"];
     $moduleid = $row["moduleid"];
 	$module_name = $row["module_name"];
     $module_notes = $row["module_notes"];
@@ -175,7 +176,7 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
-			<td data-title="Subject">'.$feedback_subject.'</td>
+			<td data-title="Subject"><a href="#view-feedback-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Submitted on">'.$created_on.'</td>
 			</tr>
 
