@@ -83,7 +83,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT (system_book.bookid), system_book.book_name, system_book.book_author, system_book.book_notes, system_book.book_copy_no, system_book.book_status FROM system_book LEFT JOIN system_book_reserved ON system_book.bookid=system_book.bookid WHERE system_book.book_status = 'active' AND system_book.bookid NOT IN (SELECT DISTINCT(system_book_reserved.bookid) FROM system_book_reserved WHERE system_book_reserved.isRequested = '0')");
+	$stmt1 = $mysqli->query("SELECT DISTINCT (b.bookid), b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved, r.isRequested FROM system_book b LEFT JOIN system_book_reserved r ON b.bookid=r.bookid WHERE b.book_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -94,6 +94,8 @@ include 'includes/session.php';
 	$book_copy_no = $row["book_copy_no"];
 	$book_status = $row["book_status"];
 	$book_status = ucfirst($book_status);
+    $isReserved = $row["isReserved"];
+    $isRequested = $row["isRequested"];
 
 	echo '<tr id="book-'.$bookid.'">
 
@@ -101,7 +103,8 @@ include 'includes/session.php';
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Notes">'.(empty($book_notes) ? "-" : "$book_notes").'</td>
 			<td data-title="Copy no.">'.$book_copy_no.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../library/reserve-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Reserve</span></a></td>
+			<td data-title="Action">'.($isReserved = 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id='.$bookid.'\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "Reserved").'</td>
+			<td data-title="Action">'.($isReserved = 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id='.$bookid.'\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "Requested").'</td>
 			</tr>';
 	}
 
