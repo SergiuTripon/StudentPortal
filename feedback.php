@@ -863,11 +863,42 @@ include 'includes/session.php';
 		$('#feedback-'+sentFeedbackToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-sent-feedback-question').hide();
-        $('#delete-sent-feedback-confirmation').show();
-        $('#delete-sent-feedback-hide').hide();
-        $('#delete-sent-feedback-success-button').show();
-        $("#delete-sent-feedback-success-button").click(function () {
+        $('#delete-feedback-question').hide();
+        $('#delete-feedback-confirmation').show();
+        $('#delete-feedback-hide').hide();
+        $('#delete-feedback-success-button').show();
+        $("#delete-feedback-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+       //Delete received feedback
+    $("body").on("click", ".delete-received-feedback-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var receivedFeedbackToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'receivedFeedbackToDelete='+ receivedFeedbackToDelete,
+	success:function(){
+		$('#feedback-'+receivedFeedbackToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-feedback-question').hide();
+        $('#delete-feedback-confirmation').show();
+        $('#delete-feedback-hide').hide();
+        $('#delete-feedback-success-button').show();
+        $("#delete-feedback-success-button").click(function () {
             location.reload();
         });
 	},
