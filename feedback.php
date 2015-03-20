@@ -176,7 +176,7 @@ include 'includes/session.php';
 			<td data-title="Name"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
 			<td data-title="Submitted on">'.$created_on.'</td>
-			<td data-title="Submitted on"><a class="btn btn-primary" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal">Delete</a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#delete-sent-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
             <div id="view-submitted-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
