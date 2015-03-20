@@ -406,7 +406,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT user_feedback_sent.feedbackid, user_detail.firstname, user_detail.surname, system_module.module_name, user_feedback.feedback_subject, user_feedback.feedback_body FROM user_feedback_sent LEFT JOIN user_detail ON user_feedback_sent.feedback_from=user_detail.userid LEFT JOIN system_module ON user_feedback_sent.moduleid=system_module.moduleid LEFT JOIN user_feedback ON user_feedback_sent.feedbackid=user_feedback.feedbackid WHERE user_feedback_sent.isApproved=0 AND user_feedback_sent.isRead = 0");
+	$stmt1 = $mysqli->query("SELECT DISTINCT s.feedbackid, d.firstname, d.surname, m.module_name, f.feedbackid, f.feedback_subject, f.feedback_body, f.isApproved, f.isRead FROM user_feedback_sent s LEFT JOIN user_detail d ON s.feedback_from=d.userid LEFT JOIN system_module m ON s.moduleid=m.moduleid LEFT JOIN user_feedback f ON s.feedbackid=f.feedbackid WHERE s.isApproved=0 AND s.isRead = 0");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -424,7 +424,93 @@ include 'includes/session.php';
 			<td data-title="Subject">'.$feedback_subject.'</td>
 			<td data-title="Feedback">'.$feedback_body.'</td>
             <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
-			</tr>';
+			</tr>
+
+			<div id="view-submitted-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa fa-check-square-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-close text-center">
+			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            <div id="view-submitted-feedback-'.$feedbackid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-check-square-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$feedback_subject.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Feedback:</b> '.(empty($feedback_body) ? "-" : "$feedback_body").'</p>
+			<p><b>Submitted:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Approved:</b> '.($isApproved == 0 ? "No" : "Yes").'</p>
+			<p><b>Read:</b> '.($isRead == 0 ? "No" : "Yes").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            <div id="delete-feedback-'.$feedbackid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-feedback-question" class="text-center feedback-sad">Are you sure you want to delete '.$feedback_subject.'?</p>
+			<p id="delete-feedback-confirmation" style="display: none;" class="text-center feedback-happy">'.$feedback_subject.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-feedback-hide">
+			<div class="pull-left">
+			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-feedback-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt1->close();
