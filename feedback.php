@@ -440,7 +440,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
             <div class="close"><i class="fa fa fa-check-square-o"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$firstname.' '.$firstname.'</h4>
+            <h4 class="modal-title" id="modal-custom-label">'.$firstname.' '.$surname.'</h4>
 			</div>
 
 			<div class="modal-body">
