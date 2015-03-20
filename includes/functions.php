@@ -472,7 +472,7 @@ function GetDashboardData() {
     $isRead = 0;
     $isApproved = 1;
 
-    $stmt10 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE r.module_staff=? AND f.isRead=? AND f.isApproved=?");
+    $stmt10 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE r.module_staff=? AND r.isRead=? AND f.isApproved=?");
     $stmt10->bind_param('iii', $session_userid, $isRead, $isApproved);
     $stmt10->execute();
     $stmt10->store_result();
@@ -481,7 +481,7 @@ function GetDashboardData() {
 
     $admin_isApproved = 0;
 
-    $stmt11 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE f.isApproved=? AND f.isRead=?");
+    $stmt11 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE f.isApproved=? AND r.isRead=?");
     $stmt11->bind_param('ii', $admin_isApproved, $isRead);
     $stmt11->execute();
     $stmt11->store_result();
