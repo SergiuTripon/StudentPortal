@@ -695,7 +695,7 @@ include 'includes/session.php';
 	});
     });
 
-   //Delete feedback
+    //Delete feedback
     $("body").on("click", ".delete-feedback-button", function(e) {
     e.preventDefault();
 
@@ -716,6 +716,37 @@ include 'includes/session.php';
         $('#delete-feedback-hide').hide();
         $('#delete-feedback-success-button').show();
         $("#delete-feedback-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+   //Delete sent feedback
+    $("body").on("click", ".delete-sent-feedback-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var sentFeedbackToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'sentFeedbackToDelete='+ sentFeedbackToDelete,
+	success:function(){
+		$('#feedback-'+sentFeedbackToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-sent-feedback-question').hide();
+        $('#delete-sent-feedback-confirmation').show();
+        $('#delete-sent-feedback-hide').hide();
+        $('#delete-sent-feedback-success-button').show();
+        $("#delete-sent-feedback-success-button").click(function () {
             location.reload();
         });
 	},
