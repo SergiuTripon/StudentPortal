@@ -405,13 +405,18 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT s.feedbackid, d.firstname, d.surname, m.moduleid, m.module_name, f.feedbackid, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on, s.isApproved, s.isRead FROM user_feedback_sent s LEFT JOIN user_detail d ON s.feedback_from=d.userid LEFT JOIN system_module m ON s.moduleid=m.moduleid LEFT JOIN user_feedback f ON s.feedbackid=f.feedbackid WHERE s.isApproved=0 AND s.isRead = 0");
+	$stmt1 = $mysqli->query("SELECT DISTINCT s.feedbackid, d.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.studentno, d.degree, m.moduleid, m.module_name, f.feedbackid, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on, s.isApproved, s.isRead FROM user_feedback_sent s LEFT JOIN user_detail d ON s.feedback_from=d.userid LEFT JOIN system_module m ON s.moduleid=m.moduleid LEFT JOIN user_feedback f ON s.feedbackid=f.feedbackid WHERE s.isApproved=0 AND s.isRead = 0");
 
 	while($row = $stmt1->fetch_assoc()) {
 
     $feedbackid = $row["feedbackid"];
+    $userid = $row["userid"];
     $firstname = $row["firstname"];
     $surname = $row["surname"];
+    $gender = $row["gender"];
+    $dateofbirth = $row["dateofbirth"];
+    $studentno = $row["studentno"];
+    $degree = $row["degree"];
     $moduleid = $row["moduleid"];
 	$module_name = $row["module_name"];
 	$feedback_subject = $row["feedback_subject"];
@@ -422,11 +427,37 @@ include 'includes/session.php';
 
 	echo '<tr id="approve-'.$feedbackid.'">
 
-			<td data-title="From">'.$firstname.' '.$surname.'</td>
+			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
             <td data-title="Action"><a id="approve-'.$feedbackid.'" class="btn btn-primary btn-md ladda-button approve-button" data-style="slide-up"><span class="ladda-label">Approve</span></a></a></td>
 			</tr>
+
+            <div id="view-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa fa-check-square-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$firstname.' '.$firstname.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Gender:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
+			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "-" : "$dateofbirth").'</p>
+			<p><b>Student number:</b> '.(empty($studentno) ? "-" : "$studentno").'</p>
+			<p><b>Degree:</b> '.(empty($degree) ? "-" : "$degree").'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-close text-center">
+			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
 
 			<div id="view-submitted-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
