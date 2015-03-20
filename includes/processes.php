@@ -301,7 +301,7 @@ elseif (isset($_POST["requestToApprove"])) {
     ApproveRequest();
 }
 
-//Call ReturnBook function
+//Call CollectBook function
 elseif (isset($_POST["bookToCollect"])) {
     CollectBook();
 }

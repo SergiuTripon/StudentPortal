@@ -1584,8 +1584,8 @@ function ApproveRequest() {
     $stmt2->close();
 }
 
-//ReturnBook function
-function ReturnBook() {
+//CollectBook function
+function CollectBook() {
 
     global $mysqli;
     global $updated_on;
@@ -1597,7 +1597,7 @@ function ReturnBook() {
     $reservation_status = 'completed';
 
     $stmt1 = $mysqli->prepare("UPDATE system_book_reserved SET collected_on=?, isCollected=?, reservation_status=? WHERE bookid=? ORDER BY bookid DESC");
-    $stmt1->bind_param('sii', $updated_on, $isCollected, $bookToCollect);
+    $stmt1->bind_param('siis', $updated_on, $isCollected, $bookToCollect, $reservation_status);
     $stmt1->execute();
     $stmt1->close();
 

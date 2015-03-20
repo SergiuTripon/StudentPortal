@@ -1104,6 +1104,7 @@ include 'includes/session.php';
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToCollect = clickedID[1];
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
