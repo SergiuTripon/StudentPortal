@@ -143,6 +143,7 @@ if (isset($_GET['id'])) {
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><a href="#deactivate-'.$resultid.'" data-toggle="modal" data-toggle="modal" data-toggle="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$resultid.'" data-toggle="modal" data-toggle="modal" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
             </td>
@@ -174,6 +175,39 @@ if (isset($_GET['id'])) {
 			</div>
 			<div class="text-center">
 			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            <div class="modal modal-custom fade" id="delete-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete this result for '.$module_name.'?</p>
+            <p id="delete-confirmation" style="display: none;" class="text-center feedback-happy">The result for '.$module_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$resultid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
