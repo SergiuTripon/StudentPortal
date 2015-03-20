@@ -743,7 +743,6 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>From</th>
 	<th>Module</th>
     <th>Subject</th>
     <th>Action</th>
@@ -769,7 +768,6 @@ include 'includes/session.php';
 
 	echo '<tr id="feedback-'.$feedbackid.'">
 
-			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
             <td data-title="Action">
