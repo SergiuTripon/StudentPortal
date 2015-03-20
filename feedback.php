@@ -752,7 +752,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT f.feedbackid, f.feedback_subject, f.feedback_body, f.created_on, f.moduleid, m.module_name, m.module_notes, m.module_url FROM user_feedback f WHERE f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_sent) AND u.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_received)");
+	$stmt1 = $mysqli->query("SELECT f.feedbackid, f.feedback_subject, f.feedback_body, f.created_on, f.moduleid, m.module_name, m.module_notes, m.module_url FROM user_feedback f LEFT JOIN system_module m ON f.moduleid=m.moduleid WHERE f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_sent) AND f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_received)");
 
 	while($row = $stmt1->fetch_assoc()) {
 
