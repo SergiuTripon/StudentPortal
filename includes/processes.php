@@ -483,6 +483,11 @@ elseif (isset($_POST["feedback_read"])) {
     SetFeedbackRead();
 }
 
+//Call DeleteFeedback function
+elseif (isset($_POST["feedbackToDelete"])) {
+    DeleteFeedback();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Messenger functions

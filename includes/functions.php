@@ -2608,6 +2608,21 @@ function SetFeedbackRead () {
     $stmt1->execute();
     $stmt1->close();
 }
+
+//SetMessageRed function
+function SetFeedbackRead () {
+
+    global $mysqli;
+    global $session_userid;
+
+    $isRead = 1;
+    $isApproved = 1;
+
+    $stmt1 = $mysqli->prepare("UPDATE user_feedback_sent SET isRead=? WHERE module_staff=? AND isApproved=?");
+    $stmt1->bind_param('iii', $isRead, $session_userid, $isApproved);
+    $stmt1->execute();
+    $stmt1->close();
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Messenger functions
