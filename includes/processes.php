@@ -306,6 +306,11 @@ elseif (isset($_POST["bookToCollect"])) {
     CollectBook();
 }
 
+//Call ReturnBook function
+elseif (isset($_POST["bookToReturn"])) {
+    ReturnBook();
+}
+
 //Call CreateBook function
 elseif (isset(
     $_POST['book_name'],

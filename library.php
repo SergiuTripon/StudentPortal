@@ -1262,7 +1262,24 @@ include 'includes/session.php';
 		}
 	});
 
-    //Return book ajax call
+    var request_read;
+    request_read = '1';
+
+    $("#request-read-trigger").click(function (e) {
+        e.preventDefault();
+
+        jQuery.ajax({
+            type: "POST",
+            url: "https://student-portal.co.uk/includes/processes.php",
+            data:'request_read=' + request_read,
+            success:function() {
+            },
+            error:function (xhr, ajaxOptions, thrownError) {
+            }
+        });
+    });
+
+    //Collect book
     $("body").on("click", ".collect-button", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
@@ -1292,21 +1309,34 @@ include 'includes/session.php';
 	});
     });
 
-    var request_read;
-    request_read = '1';
+    //Return book
+    $("body").on("click", ".return-button", function(e) {
+    e.preventDefault();
+    var clickedID = this.id.split('-');
+    var bookToReturn = clickedID[1];
 
-    $("#request-read-trigger").click(function (e) {
-        e.preventDefault();
-
-        jQuery.ajax({
-            type: "POST",
-            url: "https://student-portal.co.uk/includes/processes.php",
-            data:'request_read=' + request_read,
-            success:function() {
-            },
-            error:function (xhr, ajaxOptions, thrownError) {
-            }
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'bookToReturn='+ bookToReturn,
+	success:function(){
+        $('#book-'+bookToReturn).fadeOut();
+        $('.form-logo i').removeClass('fa-book');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#return-question').hide();
+        $('#return-confirmation').show();
+        $('#return-hide').hide();
+        $('#return-success-button').show();
+        $("#return-success-button").click(function () {
+            location.reload();
         });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
     });
 
     $("body").on("click", ".approve-button", function(e) {

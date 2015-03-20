@@ -1673,6 +1673,30 @@ function CollectBook() {
     mail($email, $subject, $message, $headers);
 }
 
+//CollectBook function
+function ReturnBook() {
+
+    global $mysqli;
+    global $created_on;
+    global $updated_on;
+
+    //Book
+    $bookToReturn = filter_input(INPUT_POST, 'bookToReturn', FILTER_SANITIZE_STRING);
+
+    $isReturned = 1;
+    $loan_status = 'completed';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_book_loaned SET returned_on=?, isReturn=?, loan_status=? WHERE bookid=? ORDER BY bookid DESC");
+    $stmt1->bind_param('sisi', $updated_on, $isReturned, $loan_status, $bookToReturn);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $stmt2 = $mysqli->prepare("UPDATE system_book SET isReturned=?, updated_on=? WHERE bookid=?");
+    $stmt2->bind_param('ssi', $isReturned, $updated_on, $bookToReturn);
+    $stmt2->execute();
+    $stmt2->close();
+}
+
 //CreateBook function
 function CreateBook() {
 
