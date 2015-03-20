@@ -127,7 +127,7 @@ if (isset($_GET['id'])) {
     $result_exam_mark = $row["result_exam_mark"];
     $result_overall_mark = $row["result_overall_mark"];
 
-	echo '<tr id="delete-'.$resultid.'">
+	echo '<tr id="result-'.$resultid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
@@ -263,7 +263,7 @@ if (isset($_GET['id'])) {
     $result_exam_mark = $row["result_exam_mark"];
     $result_overall_mark = $row["result_overall_mark"];
 
-	echo '<tr id="delete-'.$resultid.'">
+	echo '<tr id="result-'.$resultid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
 			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
