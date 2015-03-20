@@ -282,7 +282,7 @@ elseif (isset($_POST["resultToDelete"])) {
 
 //Call Library functions
 //Call ReserveBook function
-elseif (isset($_POST["bookid"], $_POST["book_name"], $_POST["book_author"], $_POST["book_notes"], $_POST["bookreserved_from"], $_POST["bookreserved_to"])) {
+elseif (isset($_POST["bookid"], $_POST["book_name"], $_POST["book_author"], $_POST["book_notes"])) {
     ReserveBook();
 }
 

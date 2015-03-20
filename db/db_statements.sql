@@ -204,6 +204,9 @@ CREATE TABLE `system_book` (
 	`book_notes` VARCHAR(5000),
 	`book_copy_no` INT(11) NOT NULL,
 	`book_status` VARCHAR(9) NOT NULL,
+  `isReserved` TINYINT(1) NOT NULL,
+  `isCollected` TINYINT(1) NOT NULL,
+  `isLoaned` TINYINT(1) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME
 ) ENGINE = InnoDB;

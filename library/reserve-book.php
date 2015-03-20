@@ -173,13 +173,11 @@ if (isset($_GET["id"])) {
     var book_name = $("#book_name").val();
     var book_author = $("#book_author").val();
     var book_notes = $("#book_notes").val();
-    var bookreserved_from = $("#bookreserved_from").val();
-    var bookreserved_to = $("#bookreserved_to").val();
 
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes + '&bookreserved_from=' + bookreserved_from + '&bookreserved_to=' + bookreserved_to,
+    data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes,
     success:function(){
         $("#error").hide();
         $("#hide").hide();

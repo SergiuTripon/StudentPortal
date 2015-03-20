@@ -1391,17 +1391,12 @@ function ReserveBook() {
 	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
 	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
 	$book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
-	$bookreserved_from = filter_input(INPUT_POST, 'bookreserved_from', FILTER_SANITIZE_STRING);
-	$bookreserved_to = filter_input(INPUT_POST, 'bookreserved_to', FILTER_SANITIZE_STRING);
 
 	$book_class = 'event-info';
+    $bookreserved_from = '';
+    $bookreserved_to = '';
 	$isReturned = 0;
     $isRequested = 0;
-
-    $stmt1 = $mysqli->prepare("DELETE FROM system_book_requested WHERE bookid=? AND userid=?");
-    $stmt1->bind_param('ii', $bookid, $session_userid);
-    $stmt1->execute();
-    $stmt1->close();
 
 	$stmt2 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, book_class, reserved_on, toreturn_on, isReturned, isRequested) VALUES (?, ?, ?, ?, ?, ?, ?)");
 	$stmt2->bind_param('iisssii', $session_userid, $bookid, $book_class, $bookreserved_from, $bookreserved_to, $isReturned, $isRequested);
@@ -1638,17 +1633,24 @@ function CreateBook() {
         $book_status = 'active';
         $book_copy_no = $db_book_copy_no + 1;
 
-        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
+        $isReserved = 0;
+        $isCollected = 0;
+        $isLoaned = 0;
+
+        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, isReserved, isCollected, isLoaned, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt5->bind_param('sssisiiis', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $isReserved, $isCollected, $isLoaned, $created_on);
         $stmt5->execute();
         $stmt5->close();
 
     } else {
 
         $book_status = 'active';
+        $isReserved = 0;
+        $isCollected = 0;
+        $isLoaned = 0;
 
-        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt5->bind_param('sssiss', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $created_on);
+        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, isReserved, isCollected, isLoaned created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt5->bind_param('sssisiiis', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $isReserved, $isCollected, $isLoaned, $created_on);
         $stmt5->execute();
         $stmt5->close();
 
