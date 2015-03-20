@@ -2475,11 +2475,12 @@ function SubmitFeedback() {
     $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
     $feedback_body = filter_input(INPUT_POST, 'feedback_body', FILTER_SANITIZE_STRING);
 
+    $feedback_status = 'active';
     $isApproved = 0;
     $isRead = 0;
 
-    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (moduleid, feedback_subject, feedback_body, isApproved, isRead, created_on) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt1->bind_param('issiis', $feedback_moduleid, $feedback_subject, $feedback_body, $isApproved, $isRead, $created_on);
+    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (moduleid, feedback_subject, feedback_body, feedback_status, isApproved, isRead, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt1->bind_param('isssiis', $feedback_moduleid, $feedback_subject, $feedback_body, $feedback_status, $isApproved, $isRead, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
