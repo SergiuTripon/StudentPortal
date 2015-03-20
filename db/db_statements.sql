@@ -414,6 +414,8 @@ CREATE TABLE `user_feedback` (
   `feedback_subject` VARCHAR(300) NOT NULL,
   `feedback_body` VARCHAR(5000) NOT NULL,
   `feedback_status` VARCHAR(9) NOT NULL,
+  `isRead` TINYINT(1) NOT NULL,
+  `isApproved` TINYINT(1) NOT NULL,
   `created_on` DATETIME NOT NULL,
 FOREIGN KEY (moduleid)
 REFERENCES system_module(moduleid)
@@ -425,8 +427,6 @@ CREATE TABLE `user_feedback_sent` (
   `feedback_from` INT(11) NOT NULL,
   `moduleid` INT(11) NOT NULL,
   `module_staff` INT(11) NOT NULL,
-  `isRead` TINYINT(1) NOT NULL,
-  `isApproved` TINYINT(1) NOT NULL,
 FOREIGN KEY (feedbackid)
 REFERENCES user_feedback(feedbackid),
 FOREIGN KEY (feedback_from)
