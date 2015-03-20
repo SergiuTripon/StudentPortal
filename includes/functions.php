@@ -1638,9 +1638,10 @@ function CreateBook() {
         $isReserved = 0;
         $isCollected = 0;
         $isLoaned = 0;
+        $isRequested = 0;
 
-        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, isReserved, isCollected, isLoaned, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt5->bind_param('sssisiiis', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $isReserved, $isCollected, $isLoaned, $created_on);
+        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, isReserved, isCollected, isLoaned, isRequested, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt5->bind_param('sssisiiiis', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $isReserved, $isCollected, $isLoaned, $isRequested, $created_on);
         $stmt5->execute();
         $stmt5->close();
 
@@ -1651,8 +1652,8 @@ function CreateBook() {
         $isCollected = 0;
         $isLoaned = 0;
 
-        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, isReserved, isCollected, isLoaned, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt5->bind_param('sssisiiis', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $isReserved, $isCollected, $isLoaned, $created_on);
+        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, isReserved, isCollected, isLoaned, isRequested, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt5->bind_param('sssisiiiis', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $isReserved, $isCollected, $isLoaned, $isRequested, $created_on);
         $stmt5->execute();
         $stmt5->close();
 
