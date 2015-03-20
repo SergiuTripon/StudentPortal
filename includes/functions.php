@@ -2475,8 +2475,11 @@ function SubmitFeedback() {
     $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
     $feedback_body = filter_input(INPUT_POST, 'feedback_body', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (moduleid, feedback_subject, feedback_body, created_on) VALUES (?, ?, ?, ?)");
-    $stmt1->bind_param('isss', $feedback_moduleid, $feedback_subject, $feedback_body, $created_on);
+    $isApproved = 0;
+    $isRead = 0;
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_feedback (moduleid, feedback_subject, feedback_body, isApproved, isRead, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt1->bind_param('issiis', $feedback_moduleid, $feedback_subject, $feedback_body, $isApproved, $isRead, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
@@ -2486,16 +2489,13 @@ function SubmitFeedback() {
     $stmt2->bind_result($feedbackid);
     $stmt2->fetch();
 
-    $isApproved = 0;
-    $isRead = 0;
-
-    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt3->bind_param('iiiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer, $isApproved, $isRead);
+    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?)");
+    $stmt3->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt4->bind_param('iiiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isApproved, $isRead);
+    $stmt4 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?)");
+    $stmt4->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant);
     $stmt4->execute();
     $stmt4->close();
 
