@@ -346,6 +346,7 @@ include 'includes/session.php';
     $feedbackid = $row["feedbackid"];
     $feedback_subject = $row["feedback_subject"];
     $feedback_body = $row["feedback_body"];
+    $created_on = $row["created_on"];
 
 	echo '<tr id="feedback-'.$feedbackid.'">
 
