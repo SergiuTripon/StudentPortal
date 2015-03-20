@@ -156,7 +156,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedbackid, f.feedback_subject, f.feedback_body, s.isApproved, s.isRead, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_sent s LEFT JOIN system_module m ON s.moduleid = m.moduleid LEFT JOIN user_feedback f ON s.feedbackid = f.feedbackid WHERE s.feedback_from = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedbackid, f.feedback_subject, f.feedback_body, f.isApproved, f.isRead, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_sent s LEFT JOIN system_module m ON s.moduleid = m.moduleid LEFT JOIN user_feedback f ON s.feedbackid = f.feedbackid WHERE s.feedback_from = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
