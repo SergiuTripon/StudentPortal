@@ -2489,12 +2489,12 @@ function SubmitFeedback() {
     $stmt2->bind_result($feedbackid);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?)");
+    $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
     $stmt3->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff, isApproved, isRead) VALUES (?, ?, ?, ?)");
+    $stmt4 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
     $stmt4->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant);
     $stmt4->execute();
     $stmt4->close();
