@@ -426,7 +426,7 @@ include 'includes/session.php';
     $isApproved = $row["isApproved"];
     $isRead = $row["isRead"];
 
-	echo '<tr id="approve-'.$feedbackid.'">
+	echo '<tr id="feedback-'.$feedbackid.'">
 
 			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
@@ -662,7 +662,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'feedbackToApprove='+ feedbackToApprove,
 	success:function(){
-		$('#approve-'+feedbackToApprove).hide();
+		$('#feedback-'+feedbackToApprove).hide();
         location.reload();
 	},
 	error:function (xhr, ajaxOptions, thrownError){
