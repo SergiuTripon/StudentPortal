@@ -1566,11 +1566,11 @@ function ApproveRequest() {
     $stmt1->execute();
     $stmt1->close();
 
-    $stmt2 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE requestid=?");
+    $stmt2 = $mysqli->prepare("SELECT userid, bookid FROM system_book_requested WHERE requestid=?");
     $stmt2->bind_param('i', $requestToApprove);
     $stmt2->execute();
     $stmt2->store_result();
-    $stmt2->bind_result($bookid);
+    $stmt2->bind_result($userid, $bookid);
     $stmt2->fetch();
 
     $isRequested = '0';
@@ -1588,7 +1588,7 @@ function ApproveRequest() {
     $reservation_status = 'active';
 
     $stmt4 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt4->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $updated_on);
+    $stmt4->bind_param('iississ', $userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $updated_on);
     $stmt4->execute();
     $stmt4->close();
 
