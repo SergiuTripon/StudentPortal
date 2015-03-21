@@ -881,7 +881,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid LEFT JOIN user_detail d ON r.userid=d.userid LEFT JOIN system_book b ON r.bookid=b.bookid WHERE b.isReserved = '1' AND r.isCollected = '1' AND b.isLoaned = '1' AND l.isReturned='0'");
+	$stmt1 = $mysqli->query("SELECT DISTINCT l.bookid, l.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_loaned l LEFT JOIN system_book_reserved r ON l.bookid=r.bookid LEFT JOIN user_detail d ON l.userid=d.userid LEFT JOIN system_book b ON l.bookid=b.bookid WHERE b.isReserved = '1' AND r.isCollected = '1' AND b.isLoaned = '1' AND l.isReturned='0'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
