@@ -1574,13 +1574,6 @@ function ApproveRequest() {
     $stmt2->fetch();
     $stmt2->close();
 
-    $isRequested = '0';
-
-    $stmt3 = $mysqli->prepare("UPDATE system_book SET isRequested=?, updated_on=? WHERE bookid=?");
-    $stmt3->bind_param('ssi', $isRequested, $updated_on, $bookid);
-    $stmt3->execute();
-    $stmt3->close();
-
     $add7days = new DateTime($updated_on);
     $add7days->add(new DateInterval('P7D'));
     $tocollect_on = $add7days->format('Y-m-d');
@@ -1610,6 +1603,13 @@ function CollectBook() {
 
     //Book
     $bookToCollect = filter_input(INPUT_POST, 'bookToCollect', FILTER_SANITIZE_STRING);
+
+    $isRequested = '0';
+
+    $stmt3 = $mysqli->prepare("UPDATE system_book SET isRequested=?, updated_on=? WHERE bookid=?");
+    $stmt3->bind_param('ssi', $isRequested, $updated_on, $bookid);
+    $stmt3->execute();
+    $stmt3->close();
 
     $isCollected = 1;
     $reservation_status = 'completed';
