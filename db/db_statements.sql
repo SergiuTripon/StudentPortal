@@ -207,6 +207,7 @@ CREATE TABLE `system_book` (
   `isReserved` TINYINT(1) NOT NULL,
   `isCollected` TINYINT(1) NOT NULL,
   `isLoaned` TINYINT(1) NOT NULL,
+  `isReturned` TINYINT(1) NOT NULL,
   `isRequested` TINYINT(1) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME
@@ -234,7 +235,7 @@ ON DELETE CASCADE
 CREATE TABLE `system_book_loaned` (
   `userid` INT(11) NOT NULL,
   `bookid` INT(11) NOT NULL,
-  `reservationid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `loanid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `book_class` VARCHAR(15) NOT NULL,
   `toreturn_on` DATE NOT NULL,
   `returned_on` DATE NOT NULL,
