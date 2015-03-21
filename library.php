@@ -82,7 +82,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved, b.isCollected, b.isLoaned, b.isRequested FROM system_book b LEFT JOIN system_book_reserved r ON b.bookid=r.bookid WHERE b.book_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT DISTINCT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved, b.isCollected, b.isLoaned, b.isRequested FROM system_book b LEFT JOIN system_book_reserved r ON b.bookid=r.bookid WHERE b.book_status = 'active' AND NOT r.userid = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -262,7 +262,7 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-    <th>Name</th>
+    <th>Book</th>
     <th>Author</th>
     <th>Requested on</th>
     <th>Read</th>
