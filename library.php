@@ -72,7 +72,7 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Book</th>
 	<th>Author</th>
 	<th>Reserve</th>
     <th>Request</th>
@@ -98,7 +98,7 @@ include 'includes/session.php';
 
 	echo '<tr id="book-'.$bookid.'">
 
-			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Reserve">'.($isReserved == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "Reserved").'</td>
 			<td data-title="Request">'.($isReserved == 0 ? "Not reserved" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
