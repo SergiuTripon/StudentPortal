@@ -1465,7 +1465,7 @@ function RequestBook() {
     $isApproved = 0;
 
     $stmt1 = $mysqli->prepare("INSERT INTO system_book_requested (userid, bookid, isRead, isApproved, created_on) VALUES (?, ?, ?, ?, ?)");
-    $stmt1->bind_param('iisii', $session_userid, $bookToRequest, $isRead, $isApproved, $created_on);
+    $stmt1->bind_param('iiiis', $session_userid, $bookToRequest, $isRead, $isApproved, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
