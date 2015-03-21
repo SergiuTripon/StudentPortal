@@ -1464,14 +1464,14 @@ function RequestBook() {
     $isRead = 0;
     $isApproved = 0;
 
-    $stmt1 = $mysqli->prepare("INSERT INTO system_book_requested (userid, bookid, requested_on, isRead, isApproved) VALUES (?, ?, ?, ?, ?)");
-    $stmt1->bind_param('iisii', $session_userid, $bookToRequest, $created_on, $isRead, $isApproved);
+    $stmt1 = $mysqli->prepare("INSERT INTO system_book_requested (userid, bookid, isRead, isApproved, created_on) VALUES (?, ?, ?, ?, ?)");
+    $stmt1->bind_param('iisii', $session_userid, $bookToRequest, $isRead, $isApproved, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
     $isRequested = 1;
 
-    $stmt3 = $mysqli->prepare("UPDATE system_book_reserved SET isRequested=? WHERE bookid =?");
+    $stmt3 = $mysqli->prepare("UPDATE system_book_loaned SET isRequested=? WHERE bookid =?");
     $stmt3->bind_param('ii', $isRequested, $bookToRequest);
     $stmt3->execute();
     $stmt3->close();
