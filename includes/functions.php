@@ -1588,17 +1588,17 @@ function ApproveRequest() {
     $isCollected = 0;
     $reservation_status = 'active';
 
-    $stmt1 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt1->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $updated_on);
-    $stmt1->execute();
-    $stmt1->close();
+    $stmt4 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt4->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $updated_on);
+    $stmt4->execute();
+    $stmt4->close();
 
     $isReserved = 1;
 
-    $stmt2 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
-    $stmt2->bind_param('ii', $isReserved, $bookid);
-    $stmt2->execute();
-    $stmt2->close();
+    $stmt5 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
+    $stmt5->bind_param('ii', $isReserved, $bookid);
+    $stmt5->execute();
+    $stmt5->close();
 }
 
 //CollectBook function
