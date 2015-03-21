@@ -1607,7 +1607,7 @@ function CollectBook() {
     $isRequested = '0';
 
     $stmt3 = $mysqli->prepare("UPDATE system_book SET isRequested=?, updated_on=? WHERE bookid=?");
-    $stmt3->bind_param('ssi', $isRequested, $updated_on, $bookid);
+    $stmt3->bind_param('ssi', $isRequested, $updated_on, $bookToCollect);
     $stmt3->execute();
     $stmt3->close();
 
