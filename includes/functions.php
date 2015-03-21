@@ -1559,7 +1559,7 @@ function ApproveRequest() {
     $requestToApprove = filter_input(INPUT_POST, 'requestToApprove', FILTER_SANITIZE_STRING);
 
     $isApproved = 1;
-    $request_status = 'active';
+    $request_status = 'completed';
 
     $stmt1 = $mysqli->prepare("UPDATE system_book_requested SET isApproved=?, request_status=? WHERE requestid=?");
     $stmt1->bind_param('isi', $isApproved, $request_status, $requestToApprove);
