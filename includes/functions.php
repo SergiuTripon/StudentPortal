@@ -1471,12 +1471,17 @@ function RequestBook() {
 
     $isRequested = 1;
 
+    $stmt2 = $mysqli->prepare("UPDATE system_book SET isRequested=? WHERE bookid =?");
+    $stmt2->bind_param('ii', $isRequested, $bookToRequest);
+    $stmt2->execute();
+    $stmt2->close();
+
     $stmt3 = $mysqli->prepare("UPDATE system_book_loaned SET isRequested=? WHERE bookid =?");
     $stmt3->bind_param('ii', $isRequested, $bookToRequest);
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt1 = $mysqli->prepare("SELECT system_book_reserved.userid, system_book_reserved.reserved_on, system_book_reserved.toreturn_on, system_book.book_name, system_book.book_author, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.bookid=?");
+    $stmt1 = $mysqli->prepare("SELECT system_book_reserved.userid, system_book_reserved.created_on, system_book_reserved.tocollect_on, system_book.book_name, system_book.book_author, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.bookid=?");
     $stmt1->bind_param('i', $bookToRequest);
     $stmt1->execute();
     $stmt1->store_result();
