@@ -200,7 +200,7 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>Author</th>
 	<th>Loaned on</th>
-	<th>To returned by</th>
+	<th>To return by</th>
     <th>Returned on</th>
     <th>Returned</th>
 	</tr>

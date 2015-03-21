@@ -1682,17 +1682,19 @@ function ReturnBook() {
     //Book
     $bookToReturn = filter_input(INPUT_POST, 'bookToReturn', FILTER_SANITIZE_STRING);
 
-    $isReserved = 0;
-    $isCollected = 0;
-    $isLoaned = 0;
-    $isReturned = 0;
-
     $loan_status = 'completed';
+
+    $isReturned = 1;
 
     $stmt1 = $mysqli->prepare("UPDATE system_book_loaned SET returned_on=?, isReturned=?, loan_status=? WHERE bookid=? ORDER BY bookid DESC");
     $stmt1->bind_param('sisi', $updated_on, $isReturned, $loan_status, $bookToReturn);
     $stmt1->execute();
     $stmt1->close();
+
+    $isReserved = 0;
+    $isCollected = 0;
+    $isLoaned = 0;
+    $isReturned = 0;
 
     $stmt2 = $mysqli->prepare("UPDATE system_book SET isReserved=?, isCollected=?, isLoaned=?, isReturned=?, updated_on=? WHERE bookid=?");
     $stmt2->bind_param('iiiisi', $isReserved, $isCollected, $isLoaned, $isReturned, $updated_on, $bookToReturn);
