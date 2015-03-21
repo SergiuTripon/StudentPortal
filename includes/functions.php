@@ -1559,9 +1559,10 @@ function ApproveRequest() {
     $requestToApprove = filter_input(INPUT_POST, 'requestToApprove', FILTER_SANITIZE_STRING);
 
     $isApproved = 1;
+    $request_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE system_book_requested SET isApproved=? WHERE requestid=?");
-    $stmt1->bind_param('ii', $isApproved, $requestToApprove);
+    $stmt1 = $mysqli->prepare("UPDATE system_book_requested SET isApproved=?, request_status=? WHERE requestid=?");
+    $stmt1->bind_param('isi', $isApproved, $request_status, $requestToApprove);
     $stmt1->execute();
     $stmt1->close();
 
@@ -1571,21 +1572,32 @@ function ApproveRequest() {
     $stmt2->store_result();
     $stmt2->bind_result($bookid);
     $stmt2->fetch();
+    $stmt2->close();
 
-    $book_status = 'requested';
+    $isRequested = '0';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_book SET book_status=?, updated_on=? WHERE bookid=?");
-    $stmt3->bind_param('ssi', $book_status, $updated_on, $bookid);
+    $stmt3 = $mysqli->prepare("UPDATE system_book SET isRequested=?, updated_on=? WHERE bookid=?");
+    $stmt3->bind_param('ssi', $isRequested, $updated_on, $bookid);
     $stmt3->execute();
     $stmt3->close();
 
-    $isRequested = 0;
+    $add7days = new DateTime($updated_on);
+    $add7days->add(new DateInterval('P7D'));
+    $tocollect_on = $add7days->format('Y-m-d');
+    $collected_on = '';
+    $isCollected = 0;
+    $reservation_status = 'active';
 
-    $stmt4 = $mysqli->prepare("UPDATE system_book_reserved SET isRequested=? WHERE bookid=?");
-    $stmt4->bind_param('ii', $isRequested, $bookid);
-    $stmt4->execute();
-    $stmt4->close();
+    $stmt1 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt1->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $updated_on);
+    $stmt1->execute();
+    $stmt1->close();
 
+    $isReserved = 1;
+
+    $stmt2 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
+    $stmt2->bind_param('ii', $isReserved, $bookid);
+    $stmt2->execute();
     $stmt2->close();
 }
 
