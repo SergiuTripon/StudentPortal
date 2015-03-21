@@ -1572,7 +1572,6 @@ function ApproveRequest() {
     $stmt2->store_result();
     $stmt2->bind_result($bookid);
     $stmt2->fetch();
-    $stmt2->close();
 
     $isRequested = '0';
 
@@ -1599,6 +1598,8 @@ function ApproveRequest() {
     $stmt5->bind_param('ii', $isReserved, $bookid);
     $stmt5->execute();
     $stmt5->close();
+
+    $stmt2->close();
 }
 
 //CollectBook function
