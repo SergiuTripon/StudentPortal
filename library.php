@@ -96,7 +96,7 @@ include 'includes/session.php';
     $isLoaned = $row["isLoaned"];
 
     $stmt2 = $mysqli->prepare("SELECT bookid FROM system_book_reserved WHERE bookid=? AND isCollected='0' AND reservation_status='active'");
-    $stmt2->bind_param('ii', $session_userid, $bookid);
+    $stmt2->bind_param('i', $bookid);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($db_reserved_bookid);
