@@ -74,7 +74,8 @@ include 'includes/session.php';
 	<tr>
 	<th>Book</th>
 	<th>Author</th>
-	<th>Action</th>
+	<th>Reserve</th>
+    <th>Request</th>
 	</tr>
 	</thead>
 
@@ -102,12 +103,20 @@ include 'includes/session.php';
     $stmt2->fetch();
     $stmt2->close();
 
+    $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE userid=? AND bookid=? AND isReturned='0' AND loan_status='active'");
+    $stmt3->bind_param('ii', $session_userid, $bookid);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($db_loaned_bookid);
+    $stmt3->fetch();
+    $stmt3->close();
+
 	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Action">'.($stmt1->num_rows == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
-            <td data-title="Action">'.($isLoaned == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
+			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "Reserved by you").'</td>
+            <td data-title="Request">'.($stmt3->num_rows == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "Requested by you").'</td>
 			</tr>';
 	}
 
