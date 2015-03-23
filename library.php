@@ -103,7 +103,7 @@ include 'includes/session.php';
     $stmt2->fetch();
 
     $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isReturned='0' AND loan_status='active'");
-    $stmt3->bind_param('ii', $session_userid, $bookid);
+    $stmt3->bind_param('i', $bookid);
     $stmt3->execute();
     $stmt3->store_result();
     $stmt3->bind_result($db_loaned_bookid);
@@ -113,7 +113,7 @@ include 'includes/session.php';
 
 			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">$stmt2->num_rows</span></a>" : "Reserved by you").'</td>
+			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">$stmt2->num_rows</span></a>" : "-").'</td>
             <td data-title="Request">'.($stmt3->num_rows == 0 ? "-" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">$stmt3->num_rows</span></a>").'</td>
 			</tr>';
 	}
