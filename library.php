@@ -75,7 +75,6 @@ include 'includes/session.php';
 	<th>Book</th>
 	<th>Author</th>
 	<th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -99,8 +98,7 @@ include 'includes/session.php';
 
 			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Action">'.($isReserved == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "-").'</td>
-			<td data-title="Action">'.($isReserved == 0 ? "-" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
+			<td data-title="Action">'.($isReserved == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
 			</tr>';
 	}
 
