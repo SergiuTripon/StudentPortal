@@ -1735,7 +1735,7 @@ function ReturnBook() {
     $isLoaned = 0;
     $isReturned = 0;
 
-    $stmt2 = $mysqli->prepare("UPDATE system_book SET isReserved=?, isCollected=?, isLoaned=?, isReturned=?, updated_on=? WHERE bookid=?");
+    $stmt2 = $mysqli->prepare("UPDATE system_book SET isReserved=?, isLoaned=?, updated_on=? WHERE bookid=?");
     $stmt2->bind_param('iiiisi', $isReserved, $isCollected, $isLoaned, $isReturned, $updated_on, $bookToReturn);
     $stmt2->execute();
     $stmt2->close();
