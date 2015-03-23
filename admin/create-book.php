@@ -321,7 +321,7 @@ include '../includes/session.php';
         $("#book_publisher_date").addClass("input-happy");
 	}
 
-    var book_publish_place = $("#book_publisher_place").val();
+    var book_publish_place = $("#book_publish_place").val();
 	if(book_publish_place === '') {
         $("label[for='book_publish_place']").empty().append("Please enter a name.");
         $("label[for='book_publish_place']").removeClass("feedback-happy");
