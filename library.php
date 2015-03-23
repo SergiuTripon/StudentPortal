@@ -107,33 +107,6 @@ include 'includes/session.php';
 
 	$stmt1->close();
 	?>
-    <?php
-
-    $stmt1 = $mysqli->query("SELECT DISTINCT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved, b.isCollected, b.isLoaned, b.isRequested FROM system_book b LEFT JOIN system_book_reserved r ON b.bookid=r.bookid LEFT JOIN system_book_loaned l ON b.bookid=l.bookid WHERE b.book_status = 'active' AND NOT EXISTS (SELECT r.userid FROM system_book b LEFT JOIN system_book_requested r ON b.bookid=r.bookid WHERE r.userid='$session_userid' AND b.isRequested = '1')");
-
-    while($row = $stmt1->fetch_assoc()) {
-
-        $bookid = $row["bookid"];
-        $book_name = $row["book_name"];
-        $book_author = $row["book_author"];
-        $book_notes = $row["book_notes"];
-        $book_copy_no = $row["book_copy_no"];
-        $book_status = $row["book_status"];
-        $book_status = ucfirst($book_status);
-        $isReserved = $row["isReserved"];
-        $isRequested = $row["isRequested"];
-
-        echo '<tr id="book-'.$bookid.'">
-
-			<td data-title="Book">'.$book_name.'</td>
-			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Action">'.($isReserved == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "-").'</td>
-			<td data-title="Action">'.($isReserved == 0 ? "-" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
-			</tr>';
-    }
-
-    $stmt1->close();
-    ?>
 	</tbody>
 
 	</table>
