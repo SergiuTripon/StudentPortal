@@ -82,7 +82,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved, b.isLoaned FROM system_book b WHERE b.book_status='active'");
+	$stmt1 = $mysqli->query("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved FROM system_book b WHERE b.book_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -94,7 +94,6 @@ include 'includes/session.php';
 	$book_status = $row["book_status"];
 	$book_status = ucfirst($book_status);
     $isReserved = $row["isReserved"];
-    $isRequested = $row["isRequested"];
 
 	echo '<tr id="book-'.$bookid.'">
 
