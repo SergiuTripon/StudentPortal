@@ -211,6 +211,9 @@ include '../includes/session.php';
 
 	<script>
 
+    // Date Time Picker
+    $('#book_publish_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select' });
+
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
