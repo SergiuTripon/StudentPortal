@@ -1797,7 +1797,7 @@ function UpdateBook()
     $book_language = filter_input(INPUT_POST, 'update_book_language', FILTER_SANITIZE_STRING);
 
     $stmt5 = $mysqli->prepare("UPDATE system_book SET book_name=?, book_notes=?, book_author=?, book_copy_no=?, book_location=?, book_publisher=?, book_publish_date=?, book_publish_place=?, book_page_amount=?, book_barcode=?, book_discipline=?, book_language=?, updated_on=? WHERE bookid=?");
-    $stmt5->bind_param('sssissssiisssi', $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $updated_on, $bookid);
+    $stmt5->bind_param('sssissssiisssi', $book_name, $book_notes, $book_author, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $updated_on, $bookid);
     $stmt5->execute();
     $stmt5->close();
 }

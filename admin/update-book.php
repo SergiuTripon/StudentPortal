@@ -427,7 +427,7 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'update_bookid='           + bookid +
+    data:'update_bookid='              + bookid +
          '&update_book_name='          + book_name +
          '&update_book_notes='         + book_notes +
          '&update_book_author='        + book_author +
