@@ -114,7 +114,7 @@ if (isset($_GET["id"])) {
     </div>
 
     </form>
-    <!-- End of Book event -->
+    <!-- End of Reserve book -->
 
     </div><!-- /container -->
 
