@@ -81,7 +81,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isLoaned FROM system_book b WHERE b.book_status='active'");
+	$stmt1 = $mysqli->query("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status FROM system_book b WHERE b.book_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -94,11 +94,20 @@ include 'includes/session.php';
 	$book_status = ucfirst($book_status);
     $isLoaned = $row["isLoaned"];
 
+    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_reserved WHERE userid=? AND bookid=? AND isCollected='0' AND reservation_status='active'");
+    $stmt1->bind_param('ii', $session_userid, $bookid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_reserved_bookid);
+    $stmt1->fetch();
+    $stmt1->close();
+
 	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Action">'.($isLoaned == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
+			<td data-title="Action">'.($stmt1->num_rows == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
+            <td data-title="Action">'.($isLoaned == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
 			</tr>';
 	}
 
