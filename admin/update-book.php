@@ -458,7 +458,6 @@ if (isset($_GET["id"])) {
 	return true;
 
 	});
-	});
 	</script>
 
 </body>
