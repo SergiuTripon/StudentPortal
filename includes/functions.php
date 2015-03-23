@@ -1638,13 +1638,6 @@ function CollectBook() {
     //Book
     $bookToCollect = filter_input(INPUT_POST, 'bookToCollect', FILTER_SANITIZE_STRING);
 
-    $isRequested = '0';
-
-    $stmt3 = $mysqli->prepare("UPDATE system_book SET isRequested=?, updated_on=? WHERE bookid=?");
-    $stmt3->bind_param('ssi', $isRequested, $updated_on, $bookToCollect);
-    $stmt3->execute();
-    $stmt3->close();
-
     $isCollected = 1;
     $reservation_status = 'completed';
 
@@ -1652,11 +1645,6 @@ function CollectBook() {
     $stmt1->bind_param('sisi', $updated_on, $isCollected, $reservation_status, $bookToCollect);
     $stmt1->execute();
     $stmt1->close();
-
-    $stmt2 = $mysqli->prepare("UPDATE system_book SET isCollected=?, updated_on=? WHERE bookid=?");
-    $stmt2->bind_param('ssi', $isCollected, $updated_on, $bookToCollect);
-    $stmt2->execute();
-    $stmt2->close();
 
     $stmt3 = $mysqli->prepare("SELECT r.userid, b.book_name, b.book_author FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.bookid=? ORDER BY r.bookid DESC LIMIT 1");
     $stmt3->bind_param('i', $bookToCollect);
