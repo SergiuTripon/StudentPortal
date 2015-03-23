@@ -82,7 +82,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved, b.isCollected, b.isLoaned, b.isRequested FROM system_book b LEFT JOIN system_book_reserved r ON b.bookid=r.bookid LEFT JOIN system_book_loaned l ON b.bookid=l.bookid WHERE b.book_status = 'active' AND NOT EXISTS (SELECT r.userid FROM system_book b LEFT JOIN system_book_reserved r ON b.bookid=r.bookid LEFT JOIN system_book_loaned l ON b.bookid=l.bookid WHERE r.userid='$session_userid' AND b.isReserved='1' OR l.isReturned = '0')");
+	$stmt1 = $mysqli->query("SELECT DISTINCT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved, b.isCollected, b.isLoaned, b.isRequested FROM system_book b LEFT JOIN system_book_reserved r ON b.bookid=r.bookid LEFT JOIN system_book_loaned l ON b.bookid=l.bookid WHERE b.book_status = 'active' AND NOT EXISTS (SELECT r.userid FROM system_book b LEFT JOIN system_book_reserved r ON b.bookid=r.bookid LEFT JOIN system_book_loaned l ON b.bookid=l.bookid WHERE r.userid='2' AND b.isReserved='1' OR l.isReturned = '0') AND NOT EXISTS (SELECT r.userid FROM system_book b LEFT JOIN system_book_requested r ON b.bookid=r.bookid WHERE r.userid='$session_userid' AND b.isRequested = '1')");
 
 	while($row = $stmt1->fetch_assoc()) {
 
