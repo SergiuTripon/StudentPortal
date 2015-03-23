@@ -429,19 +429,24 @@ function GetDashboardData() {
     $stmt4->bind_result($resultid);
     $stmt4->fetch();
 
+    $isReturned = 0;
+    $book_status = 'active';
     $loan_status = 'active';
 
-	$stmt5 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=? AND l.loan_status =? AND l.isReturned = '0'");
-	$stmt5->bind_param('is', $session_userid, $loan_status);
+	$stmt5 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=? AND l.isReturned=? AND b.book_status=? AND l.loan_status=?");
+	$stmt5->bind_param('iiss', $session_userid, $isReturned, $book_status, $loan_status);
 	$stmt5->execute();
 	$stmt5->store_result();
 	$stmt5->bind_result($bookid);
 	$stmt5->fetch();
 
+    $isRead = 0;
+    $isApproved = 0;
+    $book_status = 'active';
     $request_status = 'active';
 
-    $stmt6 = $mysqli->prepare("SELECT r.bookid FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid  WHERE r.request_status = ? AND r.isRead = '0' AND r.isApproved = '0'");
-	$stmt6->bind_param('s', $request_status);
+    $stmt6 = $mysqli->prepare("SELECT r.bookid FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.isRead = ? AND r.isApproved = ? AND b.book_status=? AND r.request_status = ?");
+	$stmt6->bind_param('iiss', $isRead, $isApproved, $book_status, $request_status);
 	$stmt6->execute();
 	$stmt6->store_result();
 	$stmt6->bind_result($bookid);
