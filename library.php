@@ -1409,8 +1409,16 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'requestToApprove='+ requestToApprove,
 	success:function(){
-		$('#book-'+requestToApprove).hide();
-        location.reload();
+        $('#book-'+requestToApprove).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#approve-question').hide();
+        $('#approve-confirmation').show();
+        $('#approve-hide').hide();
+        $('#approve-success-button').show();
+        $("#approve-success-button").click(function () {
+            location.reload();
+        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
