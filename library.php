@@ -95,7 +95,7 @@ include 'includes/session.php';
 	$book_status = ucfirst($book_status);
     $isLoaned = $row["isLoaned"];
 
-    $stmt2 = $mysqli->prepare("SELECT r.bookid FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid WHERE r.bookid=? AND r.isCollected='0' AND r.reservation_status='active' AND l.isReturned = '0' AND l.loan_status='active'");
+    $stmt2 = $mysqli->prepare("SELECT r.bookid FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid WHERE r.bookid=? AND ((r.isCollected='0' AND r.reservation_status='active') OR (l.isReturned = '0' AND l.loan_status='active'))");
     $stmt2->bind_param('i', $bookid);
     $stmt2->execute();
     $stmt2->store_result();
