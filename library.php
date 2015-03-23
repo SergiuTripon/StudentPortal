@@ -94,13 +94,13 @@ include 'includes/session.php';
 	$book_status = ucfirst($book_status);
     $isLoaned = $row["isLoaned"];
 
-    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_reserved WHERE userid=? AND bookid=? AND isCollected='0' AND reservation_status='active'");
-    $stmt1->bind_param('ii', $session_userid, $bookid);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_reserved_bookid);
-    $stmt1->fetch();
-    $stmt1->close();
+    $stmt2 = $mysqli->prepare("SELECT bookid FROM system_book_reserved WHERE userid=? AND bookid=? AND isCollected='0' AND reservation_status='active'");
+    $stmt2->bind_param('ii', $session_userid, $bookid);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($db_reserved_bookid);
+    $stmt2->fetch();
+    $stmt2->close();
 
 	echo '<tr id="book-'.$bookid.'">
 
