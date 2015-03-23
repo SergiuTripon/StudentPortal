@@ -1412,7 +1412,7 @@ function ReserveBook() {
     $isLoaned = '0';
     $loan_status = 'active';
 
-    $stmt2 = $mysqli->prepare("SELECT bookid FROM system_books_loaned WHERE userid=? AND bookid=? AND isReturned=? AND loan_status=?");
+    $stmt2 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE userid=? AND bookid=? AND isReturned=? AND loan_status=?");
     $stmt2->bind_param('iiis', $session_userid, $bookid, $isLoaned, $loan_status);
     $stmt2->execute();
     $stmt2->store_result();
