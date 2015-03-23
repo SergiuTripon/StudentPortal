@@ -1396,7 +1396,7 @@ function ReserveBook() {
     $isCollected = '0';
     $reservation_status = 'active';
 
-    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_books_reserved WHERE userid=? AND bookid=? AND isCollected=? AND reservation_status=?");
+    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_reserved WHERE userid=? AND bookid=? AND isCollected=? AND reservation_status=?");
     $stmt1->bind_param('iiis', $session_userid, $bookid, $isCollected, $reservation_status);
     $stmt1->execute();
     $stmt1->store_result();
