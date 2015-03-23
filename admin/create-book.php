@@ -43,29 +43,85 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="book_name">Book name<span class="field-required">*</span></label>
+	<label for="book_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_name" id="book_name" placeholder="Enter a name">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label>Description</label>
+    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" placeholder="Enter a description"></textarea>
 	</div>
 	</div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="book_author">Book author<span class="field-required">*</span></label>
+	<label for="book_author">Author<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_author" id="book_author" placeholder="Enter an author">
 	</div>
 	</div>
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Book notes</label>
-    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" placeholder="Enter notes"></textarea>
+	<label for="book_copy_no">Copy number<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_copy_no" id="book_copy_no" placeholder="Enter a number">
 	</div>
 	</div>
 
-	<div class="form-group">
+    <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="book_copy_no">Book copy number<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="book_copy_no" id="book_copy_no" placeholder="Enter a copy number">
+	<label for="book_location">Location<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_location" id="book_location" placeholder="Enter a location">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="book_publisher">Publisher<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_publisher" id="book_publisher" placeholder="Enter a publisher">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="book_publish_date">Publish date<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_publish_date" id="book_publish_date" placeholder="Select a date">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="book_publish_place">Publish place<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_publish_place" id="book_publish_place" placeholder="Enter a name">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="book_page_amount">Pages<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_page_amount" id="book_page_amount" placeholder="Enter a number">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="book_barcode">Barcode<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_barcode" id="book_barcode" placeholder="Enter a number">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="book_discipline">Discipline<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_discipline" id="book_discipline" placeholder="Enter a discipline">
+	</div>
+	</div>
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="book_language">Language<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_language" id="book_language" placeholder="Enter a language">
 	</div>
 	</div>
 
@@ -224,10 +280,18 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'book_name='     + book_name +
-         '&book_author='  + book_author +
-         '&book_notes='   + book_notes +
-         '&book_copy_no=' + book_copy_no,
+    data:'created_book_name='          + book_name +
+         '&create_book_notes='         + book_notes +
+         '&create_book_author='        + book_author +
+         '&create_book_copy_no='       + book_copy_no +
+         '&create_book_location='      + book_location +
+         '&create_book_publisher='     + book_publisher +
+         '&create_book_publish_date='  + book_publish_date +
+         '&create_book_publish_place=' + book_publish_place +
+         '&create_book_page_amount='   + book_page_amount +
+         '&create_book_barcode='       + book_barcode +
+         '&create_book_discipline='    + book_discipline +
+         '&create_book_language='      + book_language,
 
     success:function(){
 		$("#error").hide();
