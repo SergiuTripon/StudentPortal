@@ -1405,7 +1405,8 @@ function ReserveBook() {
 
     if ($stmt1->num_rows > 0) {
         $stmt1->close();
-        echo 'It seems like you already have an active reservation for this book. You cannot reserve it again.';
+        header('HTTP/1.0 550 It seems like you already have an active reservation for this book. You cannot reserve it again.');
+        exit();
     }
 
     $isLoaned = '0';
@@ -1420,7 +1421,8 @@ function ReserveBook() {
 
     if ($stmt2->num_rows > 0) {
         $stmt2->close();
-        echo 'It seems like you already have an active reservation for this book. You cannot reserve it again.';
+        header('HTTP/1.0 550 It seems like you already have an active reservation for this book. You cannot reserve it again.');
+        exit();
     }
 
     $add7days = new DateTime($created_on);
