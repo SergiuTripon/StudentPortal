@@ -416,7 +416,7 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'created_book_name='          + book_name +
+    data:'create_book_name='          + book_name +
          '&create_book_notes='         + book_notes +
          '&create_book_author='        + book_author +
          '&create_book_copy_no='       + book_copy_no +
