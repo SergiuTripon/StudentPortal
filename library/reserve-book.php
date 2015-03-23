@@ -118,6 +118,8 @@ if (isset($_GET["id"])) {
 
     </div><!-- /container -->
 
+
+
 	<?php include '../includes/footers/footer.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
