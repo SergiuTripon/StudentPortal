@@ -314,17 +314,17 @@ elseif (isset($_POST["bookToReturn"])) {
 //Call CreateBook function
 elseif (isset(
     $_POST['create_book_name'],
-    $_POST['book_notes'],
-    $_POST['book_author'],
-    $_POST['book_copy_no'],
-    $_POST['book_location'],
-    $_POST['book_publisher'],
-    $_POST['book_publish_date'],
-    $_POST['book_publish_place'],
-    $_POST['book_page_amount'],
-    $_POST['book_barcode'],
-    $_POST['book_discipline'],
-    $_POST['book_language'])) {
+    $_POST['create_book_notes'],
+    $_POST['create_book_author'],
+    $_POST['create_book_copy_no'],
+    $_POST['create_book_location'],
+    $_POST['create_book_publisher'],
+    $_POST['create_book_publish_date'],
+    $_POST['create_book_publish_place'],
+    $_POST['create_book_page_amount'],
+    $_POST['create_book_barcode'],
+    $_POST['create_book_discipline'],
+    $_POST['create_book_language'])) {
     CreateBook();
 }
 
