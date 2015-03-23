@@ -118,7 +118,28 @@ if (isset($_GET["id"])) {
 
     </div><!-- /container -->
 
+    <div id="modal-error" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
 
+    <div class="modal-header">
+    <div class="close"><i class="fa fa-book"></i></div>
+    <h4 class="modal-title" id="modal-custom-label">Error</h4>
+    </div>
+
+    <div class="modal-body">
+    <p></p>
+    </div>
+
+    <div class="modal-footer">
+    <div class="view-close text-center">
+    <a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+    </div>
+    </div>
+
+    </div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
 
 	<?php include '../includes/footers/footer.php'; ?>
 
