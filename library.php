@@ -81,7 +81,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved FROM system_book b WHERE b.book_status='active'");
+	$stmt1 = $mysqli->query("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isLoaned FROM system_book b WHERE b.book_status='active' AND b.isReserved='0' OR b.isLoaned ='0'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -92,13 +92,13 @@ include 'includes/session.php';
 	$book_copy_no = $row["book_copy_no"];
 	$book_status = $row["book_status"];
 	$book_status = ucfirst($book_status);
-    $isReserved = $row["isReserved"];
+    $isLoaned = $row["isLoaned"];
 
 	echo '<tr id="book-'.$bookid.'">
 
 			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Action">'.($isReserved == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
+			<td data-title="Action">'.($isLoaned == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
 			</tr>';
 	}
 
