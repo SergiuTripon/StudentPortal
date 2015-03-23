@@ -238,6 +238,8 @@ include '../includes/session.php';
         $("#book_name").addClass("input-happy");
 	}
 
+    var book_notes = $("#book_notes").val();
+
     var book_author = $("#book_author").val();
 	if(book_author === '') {
         $("label[for='book_author']").empty().append("Please enter an author.");
@@ -256,8 +258,6 @@ include '../includes/session.php';
         $("#book_author").addClass("input-happy");
 	}
 
-    var book_notes = $("#book_notes").val();
-
     var book_copy_no = $("#book_copy_no").val();
 	if(book_copy_no === '') {
         $("label[for='book_copy_no']").empty().append("Please enter a number.");
@@ -275,6 +275,151 @@ include '../includes/session.php';
         $("#book_copy_no").removeClass("input-sad");
         $("#book_copy_no").addClass("input-happy");
 	}
+
+    var book_location = $("#book_location").val();
+	if(book_location === '') {
+        $("label[for='book_location']").empty().append("Please enter a name.");
+        $("label[for='book_location']").removeClass("feedback-happy");
+        $("label[for='book_location']").addClass("feedback-sad");
+        $("#book_location").removeClass("input-happy");
+        $("#book_location").addClass("input-sad");
+        $("#book_location").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='book_location']").empty().append("All good!");
+        $("label[for='book_location']").removeClass("feedback-sad");
+        $("label[for='book_location']").addClass("feedback-happy");
+        $("#book_location").removeClass("input-sad");
+        $("#book_location").addClass("input-happy");
+	}
+
+    var book_publisher = $("#book_publisher").val();
+	if(book_publisher === '') {
+        $("label[for='book_publisher']").empty().append("Please enter a name.");
+        $("label[for='book_publisher']").removeClass("feedback-happy");
+        $("label[for='book_publisher']").addClass("feedback-sad");
+        $("#book_publisher").removeClass("input-happy");
+        $("#book_publisher").addClass("input-sad");
+        $("#book_publisher").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='book_publisher']").empty().append("All good!");
+        $("label[for='book_publisher']").removeClass("feedback-sad");
+        $("label[for='book_publisher']").addClass("feedback-happy");
+        $("#book_publisher").removeClass("input-sad");
+        $("#book_publisher").addClass("input-happy");
+	}
+
+    var book_publish_date = $("#book_publisher").val();
+	if(book_publish_date === '') {
+        $("label[for='book_publish_date']").empty().append("Please select a date.");
+        $("label[for='book_publish_date']").removeClass("feedback-happy");
+        $("label[for='book_publish_date']").addClass("feedback-sad");
+        $("#book_publish_date").removeClass("input-happy");
+        $("#book_publish_date").addClass("input-sad");
+        $("#book_publish_date").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='book_publisher_date']").empty().append("All good!");
+        $("label[for='book_publisher_date']").removeClass("feedback-sad");
+        $("label[for='book_publisher_date']").addClass("feedback-happy");
+        $("#book_publisher_date").removeClass("input-sad");
+        $("#book_publisher_date").addClass("input-happy");
+	}
+
+    var book_publish_place = $("#book_publisher_place").val();
+	if(book_publish_place === '') {
+        $("label[for='book_publish_place']").empty().append("Please enter a name.");
+        $("label[for='book_publish_place']").removeClass("feedback-happy");
+        $("label[for='book_publish_place']").addClass("feedback-sad");
+        $("#book_publish_place").removeClass("input-happy");
+        $("#book_publish_place").addClass("input-sad");
+        $("#book_publish_place").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='book_publish_place']").empty().append("All good!");
+        $("label[for='book_publish_place']").removeClass("feedback-sad");
+        $("label[for='book_publish_place']").addClass("feedback-happy");
+        $("#book_publish_place").removeClass("input-sad");
+        $("#book_publish_place").addClass("input-happy");
+	}
+
+    var book_page_amount = $("#book_page_amount").val();
+	if(book_page_amount === '') {
+        $("label[for='book_page_amount']").empty().append("Please enter a number.");
+        $("label[for='book_page_amount']").removeClass("feedback-happy");
+        $("label[for='book_page_amount']").addClass("feedback-sad");
+        $("#book_page_amount").removeClass("input-happy");
+        $("#book_page_amount").addClass("input-sad");
+        $("#book_page_amount").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='book_page_amount']").empty().append("All good!");
+        $("label[for='book_page_amount']").removeClass("feedback-sad");
+        $("label[for='book_page_amount']").addClass("feedback-happy");
+        $("#book_page_amount").removeClass("input-sad");
+        $("#book_page_amount").addClass("input-happy");
+	}
+
+    var book_barcode = $("#book_barcode").val();
+	if(book_barcode === '') {
+        $("label[for='book_barcode']").empty().append("Please enter a barcode.");
+        $("label[for='book_barcode']").removeClass("feedback-happy");
+        $("label[for='book_barcode']").addClass("feedback-sad");
+        $("#book_barcode").removeClass("input-happy");
+        $("#book_barcode").addClass("input-sad");
+        $("#book_barcode").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='book_barcode']").empty().append("All good!");
+        $("label[for='book_barcode']").removeClass("feedback-sad");
+        $("label[for='book_barcode']").addClass("feedback-happy");
+        $("#book_barcode").removeClass("input-sad");
+        $("#book_barcode").addClass("input-happy");
+	}
+
+    var book_discipline = $("#book_discipline").val();
+	if(book_discipline === '') {
+        $("label[for='book_discipline']").empty().append("Please enter a discipline.");
+        $("label[for='book_discipline']").removeClass("feedback-happy");
+        $("label[for='book_discipline']").addClass("feedback-sad");
+        $("#book_discipline").removeClass("input-happy");
+        $("#book_discipline").addClass("input-sad");
+        $("#book_discipline").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='book_discipline']").empty().append("All good!");
+        $("label[for='book_discipline']").removeClass("feedback-sad");
+        $("label[for='book_discipline']").addClass("feedback-happy");
+        $("#book_discipline").removeClass("input-sad");
+        $("#book_discipline").addClass("input-happy");
+	}
+
+    var book_language = $("#book_language").val();
+	if(book_language === '') {
+        $("label[for='book_language']").empty().append("Please enter a discipline.");
+        $("label[for='book_language']").removeClass("feedback-happy");
+        $("label[for='book_language']").addClass("feedback-sad");
+        $("#book_language").removeClass("input-happy");
+        $("#book_language").addClass("input-sad");
+        $("#book_language").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='book_language']").empty().append("All good!");
+        $("label[for='book_language']").removeClass("feedback-sad");
+        $("label[for='book_language']").addClass("feedback-happy");
+        $("#book_language").removeClass("input-sad");
+        $("#book_language").addClass("input-happy");
+	}
+
 
 	if(hasError == false){
     jQuery.ajax({
