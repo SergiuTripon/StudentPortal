@@ -1726,18 +1726,18 @@ function CreateBook() {
     global $created_on;
 
     //Book
-    $book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
-    $book_notes = filter_input(INPUT_POST, 'book_notes', FILTER_SANITIZE_STRING);
-    $book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
-    $book_copy_no = filter_input(INPUT_POST, 'book_copy_no', FILTER_SANITIZE_STRING);
-    $book_location = filter_input(INPUT_POST, 'book_location', FILTER_SANITIZE_STRING);
-    $book_publisher = filter_input(INPUT_POST, 'book_publisher', FILTER_SANITIZE_STRING);
-    $book_publish_date = filter_input(INPUT_POST, 'book_publish_date', FILTER_SANITIZE_STRING);
-    $book_publish_place = filter_input(INPUT_POST, 'book_publish_place', FILTER_SANITIZE_STRING);
-    $book_page_amount = filter_input(INPUT_POST, 'book_page_amount', FILTER_SANITIZE_STRING);
-    $book_barcode = filter_input(INPUT_POST, 'book_barcode', FILTER_SANITIZE_STRING);
-    $book_discipline = filter_input(INPUT_POST, 'book_discipline', FILTER_SANITIZE_STRING);
-    $book_language = filter_input(INPUT_POST, 'book_language', FILTER_SANITIZE_STRING);
+    $book_name = filter_input(INPUT_POST, 'create_book_name', FILTER_SANITIZE_STRING);
+    $book_notes = filter_input(INPUT_POST, 'create_book_notes', FILTER_SANITIZE_STRING);
+    $book_author = filter_input(INPUT_POST, 'create_book_author', FILTER_SANITIZE_STRING);
+    $book_copy_no = filter_input(INPUT_POST, 'create_book_copy_no', FILTER_SANITIZE_STRING);
+    $book_location = filter_input(INPUT_POST, 'create_book_location', FILTER_SANITIZE_STRING);
+    $book_publisher = filter_input(INPUT_POST, 'create_book_publisher', FILTER_SANITIZE_STRING);
+    $book_publish_date = filter_input(INPUT_POST, 'create_book_publish_date', FILTER_SANITIZE_STRING);
+    $book_publish_place = filter_input(INPUT_POST, 'create_book_publish_place', FILTER_SANITIZE_STRING);
+    $book_page_amount = filter_input(INPUT_POST, 'create_book_page_amount', FILTER_SANITIZE_STRING);
+    $book_barcode = filter_input(INPUT_POST, 'create_book_barcode', FILTER_SANITIZE_STRING);
+    $book_discipline = filter_input(INPUT_POST, 'create_book_discipline', FILTER_SANITIZE_STRING);
+    $book_language = filter_input(INPUT_POST, 'create_book_language', FILTER_SANITIZE_STRING);
 
     //If book exists, increase copy number
     $stmt1 = $mysqli->prepare("SELECT bookid, book_copy_no FROM system_book WHERE book_name=? AND book_author=? ORDER BY bookid DESC LIMIT 1");
