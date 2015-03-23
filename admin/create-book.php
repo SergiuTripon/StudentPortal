@@ -64,28 +64,22 @@ include '../includes/session.php';
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label for="book_copy_no">Copy number<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_copy_no" id="book_copy_no" placeholder="Enter a number">
 	</div>
-	</div>
-
-    <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="book_location">Location<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_location" id="book_location" placeholder="Enter a location">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label for="book_publisher">Publisher<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_publisher" id="book_publisher" placeholder="Enter a publisher">
 	</div>
-	</div>
-
-    <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="book_publish_date">Publish date<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_publish_date" id="book_publish_date" placeholder="Select a date">
 	</div>
@@ -99,28 +93,22 @@ include '../includes/session.php';
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label for="book_page_amount">Pages<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_page_amount" id="book_page_amount" placeholder="Enter a number">
 	</div>
-	</div>
-
-    <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="book_barcode">Barcode<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_barcode" id="book_barcode" placeholder="Enter a number">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-6 col-sm-6 full-width pl0">
 	<label for="book_discipline">Discipline<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_discipline" id="book_discipline" placeholder="Enter a discipline">
 	</div>
-	</div>
-
-    <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-6 col-sm-6 full-width pr0">
 	<label for="book_language">Language<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_language" id="book_language" placeholder="Enter a language">
 	</div>
