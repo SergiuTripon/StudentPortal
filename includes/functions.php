@@ -431,7 +431,7 @@ function GetDashboardData() {
 
     $loan_status = 'active';
 
-	$stmt5 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid  WHERE l.userid = 2 AND l.loan_status = 'active' AND l.isReturned = '0'");
+	$stmt5 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid  WHERE l.userid=? AND l.loan_status = 'active' AND l.isReturned = '0'");
 	$stmt5->bind_param('is', $session_userid, $loan_status);
 	$stmt5->execute();
 	$stmt5->store_result();
