@@ -95,14 +95,14 @@ include 'includes/session.php';
 	$book_status = ucfirst($book_status);
     $isLoaned = $row["isLoaned"];
 
-    $stmt2 = $mysqli->prepare("SELECT bookid FROM system_book_reserved WHERE userid=? AND bookid=? AND isCollected='0' AND reservation_status='active'");
+    $stmt2 = $mysqli->prepare("SELECT bookid FROM system_book_reserved WHERE bookid=? AND isCollected='0' AND reservation_status='active'");
     $stmt2->bind_param('ii', $session_userid, $bookid);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($db_reserved_bookid);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE userid=? AND bookid=? AND isReturned='0' AND loan_status='active'");
+    $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isReturned='0' AND loan_status='active'");
     $stmt3->bind_param('ii', $session_userid, $bookid);
     $stmt3->execute();
     $stmt3->store_result();
