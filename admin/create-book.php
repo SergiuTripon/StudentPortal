@@ -10,6 +10,7 @@ include '../includes/session.php';
 	<?php include '../assets/meta-tags.php'; ?>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Create book</title>
 	
@@ -206,9 +207,9 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
@@ -219,7 +220,6 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
-    //Modules
 	var book_name = $("#book_name").val();
 	if(book_name === '') {
         $("label[for='book_name']").empty().append("Please enter a name.");
@@ -456,7 +456,6 @@ include '../includes/session.php';
 
 	return true;
 
-	});
 	});
 	</script>
 
