@@ -1782,14 +1782,22 @@ function UpdateBook()
     global $updated_on;
 
     //Book
-    $bookid = filter_input(INPUT_POST, 'bookid1', FILTER_SANITIZE_STRING);
-    $book_name = filter_input(INPUT_POST, 'book_name1', FILTER_SANITIZE_STRING);
-    $book_author = filter_input(INPUT_POST, 'book_author1', FILTER_SANITIZE_STRING);
-    $book_notes = filter_input(INPUT_POST, 'book_notes1', FILTER_SANITIZE_STRING);
-    $book_copy_no = filter_input(INPUT_POST, 'book_copy_no1', FILTER_SANITIZE_STRING);
+    $bookid = filter_input(INPUT_POST, 'update_bookid', FILTER_SANITIZE_STRING);
+    $book_name = filter_input(INPUT_POST, 'update_book_name', FILTER_SANITIZE_STRING);
+    $book_notes = filter_input(INPUT_POST, 'update_book_notes', FILTER_SANITIZE_STRING);
+    $book_author = filter_input(INPUT_POST, 'update_book_author', FILTER_SANITIZE_STRING);
+    $book_copy_no = filter_input(INPUT_POST, 'update_book_copy_no', FILTER_SANITIZE_STRING);
+    $book_location = filter_input(INPUT_POST, 'update_book_location', FILTER_SANITIZE_STRING);
+    $book_publisher = filter_input(INPUT_POST, 'update_book_publisher', FILTER_SANITIZE_STRING);
+    $book_publish_date = filter_input(INPUT_POST, 'update_book_publish_date', FILTER_SANITIZE_STRING);
+    $book_publish_place = filter_input(INPUT_POST, 'update_book_publish_place', FILTER_SANITIZE_STRING);
+    $book_page_amount = filter_input(INPUT_POST, 'update_book_page_amount', FILTER_SANITIZE_STRING);
+    $book_barcode = filter_input(INPUT_POST, 'update_book_barcode', FILTER_SANITIZE_STRING);
+    $book_discipline = filter_input(INPUT_POST, 'update_book_discipline', FILTER_SANITIZE_STRING);
+    $book_language = filter_input(INPUT_POST, 'update_book_language', FILTER_SANITIZE_STRING);
 
-    $stmt5 = $mysqli->prepare("UPDATE system_book SET book_name=?, book_author=?, book_notes=?, book_copy_no=?, updated_on=? WHERE bookid=?");
-    $stmt5->bind_param('sssisi', $book_name, $book_author, $book_notes, $book_copy_no, $updated_on, $bookid);
+    $stmt5 = $mysqli->prepare("UPDATE system_book SET book_name=?, book_notes=?, book_author=?, book_copy_no=?, book_location=?, book_publisher=?, book_publish_date=?, book_publish_place=?, book_page_amount=?, book_barcode=?, book_discipline=?, book_language=?, updated_on=? WHERE bookid=?");
+    $stmt5->bind_param('sssissssiisssi', $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $updated_on, $bookid);
     $stmt5->execute();
     $stmt5->close();
 }
