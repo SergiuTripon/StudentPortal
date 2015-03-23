@@ -82,7 +82,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved, b.isLoaned FROM system_book b LEFT JOIN system_book_reserved r ON b.bookid=r.bookid LEFT JOIN system_book_loaned l ON b.bookid=l.bookid WHERE b.book_status = 'active' AND (b.isReserved = '0' OR b.isLoaned = '0' OR l.isRequested = '0')");
+	$stmt1 = $mysqli->query("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status, b.isReserved, b.isLoaned FROM system_book b WHERE b.book_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
