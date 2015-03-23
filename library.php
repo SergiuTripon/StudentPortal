@@ -101,7 +101,6 @@ include 'includes/session.php';
     $stmt2->store_result();
     $stmt2->bind_result($db_reserved_bookid);
     $stmt2->fetch();
-    $stmt2->close();
 
     $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE userid=? AND bookid=? AND isReturned='0' AND loan_status='active'");
     $stmt3->bind_param('ii', $session_userid, $bookid);
@@ -109,7 +108,6 @@ include 'includes/session.php';
     $stmt3->store_result();
     $stmt3->bind_result($db_loaned_bookid);
     $stmt3->fetch();
-    $stmt3->close();
 
 	echo '<tr id="book-'.$bookid.'">
 
