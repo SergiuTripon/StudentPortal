@@ -1400,38 +1400,6 @@ function ReserveBook() {
 	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
 	$book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
 
-    $isCollected = '0';
-    $reservation_status = 'active';
-
-    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_reserved WHERE userid=? AND bookid=? AND isCollected=? AND reservation_status=?");
-    $stmt1->bind_param('iiis', $session_userid, $bookid, $isCollected, $reservation_status);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_reserved_bookid);
-    $stmt1->fetch();
-
-    if ($stmt1->num_rows > 0) {
-        $stmt1->close();
-        header('HTTP/1.0 550 It seems like you already have an active reservation for this book. You cannot reserve it again.');
-        exit();
-    }
-
-    $isLoaned = '0';
-    $loan_status = 'active';
-
-    $stmt2 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE userid=? AND bookid=? AND isReturned=? AND loan_status=?");
-    $stmt2->bind_param('iiis', $session_userid, $bookid, $isLoaned, $loan_status);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($db_loaned_bookid);
-    $stmt2->fetch();
-
-    if ($stmt2->num_rows > 0) {
-        $stmt2->close();
-        header('HTTP/1.0 550 It seems like you already have an active loan for this book. You cannot reserve it again.');
-        exit();
-    }
-
     $add7days = new DateTime($created_on);
     $add7days->add(new DateInterval('P7D'));
     $tocollect_on = $add7days->format('Y-m-d');
@@ -1439,25 +1407,25 @@ function ReserveBook() {
     $isCollected = 0;
     $reservation_status = 'active';
 
-	$stmt3 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	$stmt3->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $created_on);
-	$stmt3->execute();
-	$stmt3->close();
+	$stmt1 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	$stmt1->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $created_on);
+	$stmt1->execute();
+	$stmt1->close();
 
 	$isReserved = 1;
 
-	$stmt4 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
-	$stmt4->bind_param('ii', $isReserved, $bookid);
-	$stmt4->execute();
-	$stmt4->close();
+	$stmt2 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
+	$stmt2->bind_param('ii', $isReserved, $bookid);
+	$stmt2->execute();
+	$stmt2->close();
 
-	$stmt5 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
-	$stmt5->bind_param('i', $session_userid);
-	$stmt5->execute();
-	$stmt5->store_result();
-	$stmt5->bind_result($email, $firstname, $surname, $studentno);
-	$stmt5->fetch();
-	$stmt5->close();
+	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt3->bind_param('i', $session_userid);
+	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($email, $firstname, $surname, $studentno);
+	$stmt3->fetch();
+	$stmt3->close();
 
 	$reservation_status = 'Pending';
 
