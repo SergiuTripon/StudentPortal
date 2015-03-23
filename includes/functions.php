@@ -1421,7 +1421,7 @@ function ReserveBook() {
 
     if ($stmt2->num_rows > 0) {
         $stmt2->close();
-        header('HTTP/1.0 550 It seems like you already have an active reservation for this book. You cannot reserve it again.');
+        header('HTTP/1.0 550 It seems like you already have an active loan for this book. You cannot reserve it again.');
         exit();
     }
 
