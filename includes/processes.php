@@ -313,20 +313,36 @@ elseif (isset($_POST["bookToReturn"])) {
 
 //Call CreateBook function
 elseif (isset(
-    $_POST['book_name'],
-    $_POST['book_author'],
+    $_POST['create_book_name'],
     $_POST['book_notes'],
-    $_POST['book_copy_no'])) {
+    $_POST['book_author'],
+    $_POST['book_copy_no'],
+    $_POST['book_location'],
+    $_POST['book_publisher'],
+    $_POST['book_publish_date'],
+    $_POST['book_publish_place'],
+    $_POST['book_page_amount'],
+    $_POST['book_barcode'],
+    $_POST['book_discipline'],
+    $_POST['book_language'])) {
     CreateBook();
 }
 
 //Call UpdateBook function
 elseif (isset(
-    $_POST['bookid1'],
-    $_POST['book_name1'],
-    $_POST['book_author1'],
-    $_POST['book_notes1'],
-    $_POST['book_copy_no1'])) {
+    $_POST['update_bookid'],
+    $_POST['update_book_name'],
+    $_POST['update_book_notes'],
+    $_POST['update_book_author'],
+    $_POST['update_book_copy_no'],
+    $_POST['update_book_location'],
+    $_POST['update_book_publisher'],
+    $_POST['update_book_publish_date'],
+    $_POST['update_book_publish_place'],
+    $_POST['update_book_page_amount'],
+    $_POST['update_book_barcode'],
+    $_POST['update_book_discipline'],
+    $_POST['update_book_language'])) {
     UpdateBook();
 }
 

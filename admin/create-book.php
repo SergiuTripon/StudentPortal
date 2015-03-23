@@ -404,7 +404,7 @@ include '../includes/session.php';
 
     var book_language = $("#book_language").val();
 	if(book_language === '') {
-        $("label[for='book_language']").empty().append("Please enter a discipline.");
+        $("label[for='book_language']").empty().append("Please enter a language.");
         $("label[for='book_language']").removeClass("feedback-happy");
         $("label[for='book_language']").addClass("feedback-sad");
         $("#book_language").removeClass("input-happy");

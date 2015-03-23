@@ -1727,9 +1727,17 @@ function CreateBook() {
 
     //Book
     $book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
-    $book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
     $book_notes = filter_input(INPUT_POST, 'book_notes', FILTER_SANITIZE_STRING);
+    $book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
     $book_copy_no = filter_input(INPUT_POST, 'book_copy_no', FILTER_SANITIZE_STRING);
+    $book_location = filter_input(INPUT_POST, 'book_location', FILTER_SANITIZE_STRING);
+    $book_publisher = filter_input(INPUT_POST, 'book_publisher', FILTER_SANITIZE_STRING);
+    $book_publish_date = filter_input(INPUT_POST, 'book_publish_date', FILTER_SANITIZE_STRING);
+    $book_publish_place = filter_input(INPUT_POST, 'book_publish_place', FILTER_SANITIZE_STRING);
+    $book_page_amount = filter_input(INPUT_POST, 'book_page_amount', FILTER_SANITIZE_STRING);
+    $book_barcode = filter_input(INPUT_POST, 'book_barcode', FILTER_SANITIZE_STRING);
+    $book_discipline = filter_input(INPUT_POST, 'book_discipline', FILTER_SANITIZE_STRING);
+    $book_language = filter_input(INPUT_POST, 'book_language', FILTER_SANITIZE_STRING);
 
     //If book exists, increase copy number
     $stmt1 = $mysqli->prepare("SELECT bookid, book_copy_no FROM system_book WHERE book_name=? AND book_author=? ORDER BY bookid DESC LIMIT 1");
@@ -1745,12 +1753,10 @@ function CreateBook() {
         $book_copy_no = $db_book_copy_no + 1;
 
         $isReserved = 0;
-        $isCollected = 0;
         $isLoaned = 0;
-        $isRequested = 0;
 
-        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, isReserved, isCollected, isLoaned, isRequested, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt5->bind_param('sssisiiiis', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $isReserved, $isCollected, $isLoaned, $isRequested, $created_on);
+        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_notes, book_author, book_copy_no, book_location, book_publisher, book_publish_date, book_publish_place, book_page_amount, book_barcode, book_discipline, book_language, book_status, isReserved, isLoaned, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt5->bind_param('sssissssiisssiis', $book_name, $book_notes, $book_author, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $book_status, $isReserved, $isLoaned, $created_on);
         $stmt5->execute();
         $stmt5->close();
 
@@ -1758,12 +1764,10 @@ function CreateBook() {
 
         $book_status = 'active';
         $isReserved = 0;
-        $isCollected = 0;
         $isLoaned = 0;
-        $isRequested = 0;
 
-        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_author, book_notes, book_copy_no, book_status, isReserved, isCollected, isLoaned, isRequested, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt5->bind_param('sssisiiiis', $book_name, $book_author, $book_notes, $book_copy_no, $book_status, $isReserved, $isCollected, $isLoaned, $isRequested, $created_on);
+        $stmt5 = $mysqli->prepare("INSERT INTO system_book (book_name, book_notes, book_author, book_copy_no, book_location, book_publisher, book_publish_date, book_publish_place, book_page_amount, book_barcode, book_discipline, book_language, book_status, isReserved, isLoaned, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt5->bind_param('sssissssiisssiis', $book_name, $book_notes, $book_author, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $book_status, $isReserved, $isLoaned, $created_on);
         $stmt5->execute();
         $stmt5->close();
 
