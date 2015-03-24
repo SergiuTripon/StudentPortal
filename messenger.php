@@ -103,7 +103,6 @@ include 'includes/session.php';
 	<tr>
 	<th>From</th>
 	<th>Subject</th>
-	<th>Message</th>
 	<th>Sent on</th>
 	</tr>
 	</thead>
@@ -128,7 +127,6 @@ include 'includes/session.php';
 
 			<td data-title="From">'.$message_from_firstname.' '.$message_from_surname.'</td>
 			<td data-title="Subject">'.$message_subject.'</td>
-			<td data-title="Message">'.$message_body.'</td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
 			</tr>
 
@@ -199,7 +197,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT s.messageid, s.message_to, s.isRead, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname FROM user_message_sent s LEFT JOIN user_message m ON s.messageid=m.messageid LEFT JOIN user_detail d ON s.message_to=d.userid WHERE s.message_from = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT s.messageid, s.message_to, r.isRead, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname FROM user_message_sent s LEFT JOIN user_message_received r ON s.messageid=r.messageid LEFT JOIN user_message m ON s.messageid=m.messageid LEFT JOIN user_detail d ON s.message_to=d.userid WHERE s.message_from = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
