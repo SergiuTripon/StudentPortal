@@ -197,7 +197,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT s.messageid, s.message_to, r.isRead, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname FROM user_message_sent s LEFT JOIN user_message_received r ON s.messageid=r.messageid LEFT JOIN user_message m ON s.messageid=m.messageid LEFT JOIN user_detail d ON s.message_to=d.userid WHERE s.message_from = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT s.messageid, s.message_to, r.isRead, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname, d.gender FROM user_message_sent s LEFT JOIN user_message_received r ON s.messageid=r.messageid LEFT JOIN user_message m ON s.messageid=m.messageid LEFT JOIN user_detail d ON s.message_to=d.userid WHERE s.message_from = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -210,6 +210,7 @@ include 'includes/session.php';
     $userid = $row["userid"];
     $message_to_firstname = $row["firstname"];
     $message_to_surname = $row["surname"];
+    $gender = $row["gender"];
 
 	echo '<tr id="'.$messageid.'">
 
@@ -217,6 +218,29 @@ include 'includes/session.php';
 			<td data-title="Subject"><a href="#view-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
 			</tr>
+
+			<div id="view-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa fa-check-square-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$message_to_firstname.' '.$message_to_surname.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Gender:</b> '.(empty($gender) ? "-" : "$gender").'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-close text-center">
+			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
 
 			<div id="view-'.$messageid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
