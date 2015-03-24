@@ -443,7 +443,7 @@ function GetDashboardData() {
     $isRead = 0;
     $isApproved = 0;
     $book_status = 'active';
-    $request_status = 'active';
+    $request_status = 'pending';
 
     $stmt6 = $mysqli->prepare("SELECT r.bookid FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.isRead = ? AND r.isApproved = ? AND b.book_status=? AND r.request_status = ?");
 	$stmt6->bind_param('iiss', $isRead, $isApproved, $book_status, $request_status);
