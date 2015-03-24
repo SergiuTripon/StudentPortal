@@ -136,6 +136,10 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
+    $(document).ready(function () {
+        //select2
+        $("#task_category").select2({placeholder: "Select an option"});
+    });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
