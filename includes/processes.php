@@ -365,12 +365,25 @@ elseif (isset($_POST["bookToDelete"])) {
 
 //Call Calendar functions
 //Call CreateTask function
-elseif (isset($_POST['task_name'], $_POST['task_notes'], $_POST['task_url'], $_POST['task_startdate'], $_POST['task_duedate'], $_POST['task_category'])) {
+elseif (isset(
+    $_POST['create_task_name'],
+    $_POST['create_task_notes'],
+    $_POST['create_task_url'],
+    $_POST['create_task_startdate'],
+    $_POST['create_task_duedate'],
+    $_POST['create_task_category'])) {
     CreateTask();
 }
 
 //Call UpdateTask function
-elseif (isset($_POST['taskid'], $_POST['task_name1'], $_POST['task_notes1'], $_POST['task_url1'], $_POST['task_startdate1'], $_POST['task_duedate1'], $_POST['task_category1'])) {
+elseif (isset(
+    $_POST['update_taskid'],
+    $_POST['update_task_name'],
+    $_POST['update_task_notes'],
+    $_POST['update_task_url'],
+    $_POST['update_task_startdate'],
+    $_POST['update_task_duedate'],
+    $_POST['update_task_category'])) {
     UpdateTask();
 }
 

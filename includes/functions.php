@@ -2027,12 +2027,12 @@ function CreateTask () {
 	global $session_userid;
 	global $created_on;
 
-	$task_name = filter_input(INPUT_POST, 'task_name', FILTER_SANITIZE_STRING);
-    $task_notes = filter_input(INPUT_POST, 'task_notes', FILTER_SANITIZE_STRING);
-    $task_url = filter_input(INPUT_POST, 'task_url', FILTER_SANITIZE_STRING);
-    $task_startdate = filter_input(INPUT_POST, 'task_startdate', FILTER_SANITIZE_STRING);
-    $task_duedate = filter_input(INPUT_POST, 'task_duedate', FILTER_SANITIZE_STRING);
-    $task_category = filter_input(INPUT_POST, 'task_category', FILTER_SANITIZE_STRING);
+	$task_name = filter_input(INPUT_POST, 'create_task_name', FILTER_SANITIZE_STRING);
+    $task_notes = filter_input(INPUT_POST, 'create_task_notes', FILTER_SANITIZE_STRING);
+    $task_url = filter_input(INPUT_POST, 'create_task_url', FILTER_SANITIZE_STRING);
+    $task_startdate = filter_input(INPUT_POST, 'create_task_startdate', FILTER_SANITIZE_STRING);
+    $task_duedate = filter_input(INPUT_POST, 'create_task_duedate', FILTER_SANITIZE_STRING);
+    $task_category = filter_input(INPUT_POST, 'create_task_category', FILTER_SANITIZE_STRING);
 
     $task_category = strtolower($task_category);
 
@@ -2073,13 +2073,13 @@ function UpdateTask() {
 	global $mysqli;
 	global $updated_on;
 
-	$taskid = filter_input(INPUT_POST, 'taskid', FILTER_SANITIZE_NUMBER_INT);
-	$task_name = filter_input(INPUT_POST, 'task_name1', FILTER_SANITIZE_STRING);
-    $task_notes = filter_input(INPUT_POST, 'task_notes1', FILTER_SANITIZE_STRING);
-	$task_url = filter_input(INPUT_POST, 'task_url1', FILTER_SANITIZE_STRING);
-	$task_startdate = filter_input(INPUT_POST, 'task_startdate1', FILTER_SANITIZE_STRING);
-	$task_duedate = filter_input(INPUT_POST, 'task_duedate1', FILTER_SANITIZE_STRING);
-	$task_category = filter_input(INPUT_POST, 'task_category1', FILTER_SANITIZE_STRING);
+	$taskid = filter_input(INPUT_POST, 'update_taskid', FILTER_SANITIZE_NUMBER_INT);
+	$task_name = filter_input(INPUT_POST, 'update_task_name', FILTER_SANITIZE_STRING);
+    $task_notes = filter_input(INPUT_POST, 'update_task_notes', FILTER_SANITIZE_STRING);
+	$task_url = filter_input(INPUT_POST, 'update_task_url', FILTER_SANITIZE_STRING);
+	$task_startdate = filter_input(INPUT_POST, 'update_task_startdate', FILTER_SANITIZE_STRING);
+	$task_duedate = filter_input(INPUT_POST, 'update_task_duedate', FILTER_SANITIZE_STRING);
+	$task_category = filter_input(INPUT_POST, 'update_task_category', FILTER_SANITIZE_STRING);
 
 	$task_category = strtolower($task_category);
 

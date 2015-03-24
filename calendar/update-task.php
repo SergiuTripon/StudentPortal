@@ -28,6 +28,7 @@ header('Location: ../calendar/');
 
     <title>Student Portal | Update task</title>
 
+    <?php include '../assets/css-paths/select2-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 	
@@ -136,46 +137,25 @@ header('Location: ../calendar/');
 	<?php endif; ?>
 
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/select2-js-path.php'; ?>
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
+    $(document).ready(function () {
+        //select2
+        $("#task_category").select2({placeholder: "Select an option"});
+    });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});	
 
 	//Date Time Picker
-	$(function () {
-	$('#task_startdate').datetimepicker({
-		dateFormat: "yy-mm-dd",
-        controlType: 'select'
-	});
-	$('#task_duedate').datetimepicker({
-		dateFormat: "yy-mm-dd",
-        controlType: 'select'
-	});
-	});
-
-	//Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480){
-			$('.btn-group').removeClass('btn-group-justified');
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		} else {
-			$('.btn-group').addClass('btn-group-justified');
-		}
-	})
-	.resize();//trigger the resize event on page load.
-
-	//Global variable
-	var task_category;
-
-	task_category = ($('.task_category.active').text().replace(/^\s+|\s+$/g,''));
-
-	//Setting variable value
-	$('.btn-group .task_category').click(function(){
-		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
-	});
+    $('#task_startdate').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
+    $('#task_duedate').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
@@ -242,30 +222,19 @@ header('Location: ../calendar/');
         $("#task_duedate").addClass("input-happy");
 	}
 
-	var task_category_check = $(".task_category");
-	if (task_category_check.hasClass('active')) {
-        $("label[for='task_category']").empty().append("All good!");
-        $("label[for='task_category']").removeClass("feedback-sad");
-        $(".task_category").removeClass("input-sad");
-        $("label[for='task_category']").addClass("feedback-happy");
-        $(".task_category").addClass("input-happy");
-	}
-	else {
-        $("label[for='task_category']").empty().append("Please select a category.");
-        $("label[for='task_category']").removeClass("feedback-happy");
-        $("#task_category").removeClass("input-happy");
-        $("label[for='task_category']").addClass("feedback-sad");
-        $("#task_category").addClass("input-sad");
-        $("#task_category").focus();
-        hasError = true;
-        return false;
-	}
+    var task_category = $("#task_category option:selected").html();
 	
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'taskid=' + taskid + '&task_name1=' + task_name + '&task_notes1=' + task_notes + '&task_url1=' + task_url + '&task_startdate1=' + task_startdate + '&task_duedate1=' + task_duedate + '&task_category1=' + task_category,
+    data:'update_taskid=' + taskid +
+         '&update_task_name=' + task_name +
+         '&update_task_notes=' + task_notes +
+         '&update_task_url=' + task_url +
+         '&update_task_startdate=' + task_startdate +
+         '&update_task_duedate=' + task_duedate +
+         '&update_task_category=' + task_category,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
