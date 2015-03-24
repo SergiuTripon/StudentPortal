@@ -338,14 +338,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Complete</a>
-            <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Archive</a>
-            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
-			</div>
-			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<div class="view-close text-center">
+			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -434,10 +428,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Complete</a>
-            <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Archive</a>
-            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#reactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Restore</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
