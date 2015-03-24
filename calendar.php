@@ -383,6 +383,7 @@ include 'includes/session.php';
 	<th>Task</th>
 	<th>Start</th>
 	<th>Due</th>
+    <th>Archived on</th>
     <th>Action</th>
 	</tr>
 	</thead>
