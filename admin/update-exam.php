@@ -226,7 +226,7 @@ if (isset($_GET['id'])) {
         format: 'YYYY/MM/DD HH:mm'
     });
     $('#exam_time').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'HH:mm'
     });
 
     //Ajax call

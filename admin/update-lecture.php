@@ -283,10 +283,10 @@ if (isset($_GET['id'])) {
 
     // Date Time Picker
     $('#lecture_from_time').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'HH:mm'
     });
     $('#lecture_to_time').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'HH:mm'
     });
     $('#lecture_from_date').datetimepicker({
         format: 'YYYY/MM/DD HH:mm'
