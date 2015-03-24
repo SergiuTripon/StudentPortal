@@ -160,14 +160,8 @@ include '../includes/session.php';
         $('#task_startdate').datepicker({
             format: "dd/mm/yyy"
         });
-        $('#task_starttime').datetimepicker({
-            controlType: 'select'
-        });
         $('#task_duedate').datepicker({
             format: "dd/mm/yyy"
-        });
-        $('#task_duetime').datetimepicker({
-            controlType: 'select'
         });
 	});
 
