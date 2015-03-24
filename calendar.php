@@ -179,10 +179,10 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="complete-hide">
 			<div class="pull-left">
-			<a id="complete-'.$taskid.'" class="btn btn-danger btn-lg complete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
@@ -212,10 +212,10 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="deactivate-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$taskid.'" class="btn btn-success btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
@@ -245,10 +245,10 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$taskid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
@@ -287,12 +287,9 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>URL</th>
+	<th>Task</th>
 	<th>Start</th>
 	<th>Due</th>
-	<th>Category</th>
     <th>Completed on</th>
 	</tr>
 	</thead>
@@ -316,14 +313,45 @@ include 'includes/session.php';
 
 	echo '<tr id="task-'.$taskid.'">
 
-	<td data-title="Name">'.$task_name.'</td>
-	<td data-title="Notes">'.($task_notes === '' ? "-" : "$task_notes").'</td>
-    <td data-title="URL">'.($task_url === '' ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
-	<td data-title="Start date">'.$task_startdate.'</td>
-	<td data-title="Due date">'.$task_duedate.'</td>
-	<td data-title="Category">'.$task_category.'</td>
-	<td data-title="Completed on">'.$updated_on.'</td>
-	</tr>';
+            <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
+            <td data-title="Start">'.$task_startdate.'</td>
+            <td data-title="Due">'.$task_duedate.'</td>
+            <td data-title="Completed on">'.$task_duedate.'</td>
+            </tr>
+
+	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-calendar"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$task_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Notes:</b> '.(empty($task_notes) ? "-" : "$task_notes").'</p>
+			<p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
+			<p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
+			<p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
+			<p><b>Category:</b> '.(empty($task_category) ? "-" : "$task_category").'</p>
+			<p><b>Completed on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Complete</a>
+            <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Archive</a>
+            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt2->close();
@@ -352,13 +380,9 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>URL</th>
+	<th>Task</th>
 	<th>Start</th>
 	<th>Due</th>
-	<th>Category</th>
-    <th>Archived on</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -382,27 +406,46 @@ include 'includes/session.php';
 
 	echo '<tr id="task-'.$taskid.'">
 
-			<td data-title="Name">'.$task_name.'</td>
-			<td data-title="Notes">'.($task_notes === '' ? "-" : "$task_notes").'</td>
-			<td data-title="URL">'.($task_url === '' ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
+			<td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
 			<td data-title="Start date">'.$task_startdate.'</td>
 			<td data-title="Due date">'.$task_duedate.'</td>
-			<td data-title="Category">'.$task_category.'</td>
 			<td data-title="Archived on">'.$updated_on.'</td>
-			<td data-title="Action">
-
-			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#reactivate-'.$taskid.'" data-toggle="modal">Restore</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
-            </ul>
-            </div>
-            </td>
+			<td data-title="Action"><a class="btn btn-md btn-primary ladda-button" data-style="slide-up" href="#reactivate-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Restore</span></a></td>
 			</tr>
+
+            <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-calendar"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$task_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Notes:</b> '.(empty($task_notes) ? "-" : "$task_notes").'</p>
+			<p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
+			<p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
+			<p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
+			<p><b>Category:</b> '.(empty($task_category) ? "-" : "$task_category").'</p>
+			<p><b>Archived on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Complete</a>
+            <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Archive</a>
+            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
 
             <div id="reactivate-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
