@@ -545,7 +545,6 @@ form {
 .form-control {
     color: #333333;
     font-size: 15px;
-    z-index: 30;
     background: #FFFFFF;
     border-color: #CCCCCC;
     height: auto;
