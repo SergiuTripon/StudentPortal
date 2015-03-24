@@ -1489,7 +1489,7 @@ function CollectBook() {
     $returned_on = '';
     $isReturned = 0;
     $isRequested = 0;
-    $loan_status = 'active';
+    $loan_status = 'ongoing';
 
     $stmt1 = $mysqli->prepare("INSERT INTO system_book_loaned (userid, bookid, toreturn_on, returned_on, isReturned, isRequested, loan_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt1->bind_param('iissiiss', $userid, $bookToCollect, $toreturn_on, $returned_on, $isReturned, $isRequested, $loan_status, $created_on);
@@ -1634,9 +1634,9 @@ function RequestBook() {
 
     $isRead = 0;
     $isApproved = 0;
-    $request_status = 'active';
+    $request_status = 'pending';
 
-    $stmt1 = $mysqli->prepare("INSERT INTO system_book_requested (userid, bookid, isRead, isApproved, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt1 = $mysqli->prepare("INSERT INTO system_book_requested (userid, bookid, isRead, isApproved, request_status, created_on) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt1->bind_param('iiiiss', $session_userid, $bookToRequest, $isRead, $isApproved, $request_status, $created_on);
     $stmt1->execute();
     $stmt1->close();
