@@ -225,7 +225,7 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa fa-check-square-o"></i></div>
+            <div class="close"><i class="fa fa fa-comments"></i></div>
             <h4 class="modal-title" id="modal-custom-label">'.$message_to_firstname.' '.$message_to_surname.'</h4>
 			</div>
 
