@@ -23,13 +23,13 @@ $out = array();
 foreach($res as $row) {
 
 if ($row->task_class === 'event-info') {
-    $pretitle = 'Book:';
+    $pretitle = 'Book: ';
 } else {
-    $pretitle = 'Task:';
+    $pretitle = 'Task: ';
 }
 
     $taskid = $row->taskid;
-    $task_name = $pretitle . '' . $row->task_name;
+    $task_name = $pretitle . $row->task_name;
     $task_url = $row->task_url;
     $task_class = $row->taskid;
     $task_startdate = $row->task_startdate;
