@@ -3,7 +3,7 @@ include '../../session.php';
 
 header("Cache-Control: no-cache, must-revalidate");
 
-$sql = 'SELECT system_book_reserved.bookid, system_book_reserved.book_class, system_book_reserved.reserved_on, system_book_reserved.toreturn_on, system_book.book_name FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.userid = "'.$session_userid.'" AND system_book_reserved.isReturned = "0" AND system_book.book_status = "reserved"';
+$sql = 'SELECT l.bookid, l.book_class, l.created_on, l.toreturn_on, b.book_name FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid = "'.$session_userid.'" AND l.isReturned = "0" AND system_book.book_status = "pending"';
 
 $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);
@@ -15,7 +15,7 @@ foreach($res as $row)
         'id'    => $row->bookid,
         'title' => $row->book_name,
         'class' => $row->book_class,
-        'start' => strtotime($row->reserved_on) . '000',
+        'start' => strtotime($row->created_on) . '000',
         'end'   => strtotime($row->toreturn_on) .'000'
     );
 }
