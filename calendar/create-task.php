@@ -154,10 +154,17 @@ include '../includes/session.php';
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
-    $(function () {
-
-        $('#task_starttime').timepicki();
-
+    $('#task_startdate').datetimepicker({
+        format: 'DD/MM/YYYY HH:mm'
+    });
+    $('#task_duedate').datetimepicker({
+        format: 'DD/MM/YYYY HH:mm'
+    });
+    $('#task_starttime').datetimepicker({
+        format: 'DD/MM/YYYY HH:mm'
+    });
+    $('#task_duetime').datetimepicker({
+        format: 'DD/MM/YYYY HH:mm'
     });
 
 	//Responsiveness
