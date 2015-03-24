@@ -153,13 +153,10 @@ include '../includes/session.php';
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $.fn.datepicker_custom = $.fn.datepicker;
-    delete $.fn.datepicker;
-
     // Date Time Picker
     $(function () {
-        $('#task_startdate').datepicker_custom({ format: "dd/mm/yy" });
-        $('#task_duedate').datepicker_custom({ format: "dd/mm/yy" });
+        $('#task_startdate').datetimepicker({ format: "dd/mm/yy" });
+        $('#task_duedate').datetimepicker({ format: "dd/mm/yy" });
         $('#task_starttime').timepicker({  });
         $('#task_duetime').timepicker({ format: "dd/mm/yy" });
     });
