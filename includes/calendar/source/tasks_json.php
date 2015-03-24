@@ -28,14 +28,21 @@ if ($row->task_class === 'event-info') {
     $pretitle = 'Task:';
 }
 
-  $out[] = array(
-    'id'    => $row->taskid,
-    'title' => ".$$pretitle." + $row->task_name,
-    'url'   => $row->task_url,
-	'class' => $row->task_class,
-    'start' => strtotime($row->task_startdate) . '000',
-    'end'   => strtotime($row->task_duedate) .'000'
-   );
+    $taskid = $row->taskid;
+    $task_name = $pretitle . $row->taskid;
+    $task_url = $row->task_url;
+    $task_class = $row->taskid;
+    $task_startdate = $row->task_startdate;
+    $task_duedate = $row->task_duedate;
+
+    $out[] = array(
+        'id'    => $taskid,
+        'title' => $task_name,
+        'url'   => $task_url,
+        'class' => $task_class,
+        'start' => strtotime($task_startdate) . '000',
+        'end'   => strtotime($task_duedate) .'000'
+    );
 }
 
 echo json_encode(array('success' => 1, 'result' => $out));
