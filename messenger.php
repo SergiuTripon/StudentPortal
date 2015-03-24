@@ -211,6 +211,7 @@ include 'includes/session.php';
     $message_to_firstname = $row["firstname"];
     $message_to_surname = $row["surname"];
     $gender = $row["gender"];
+    $gender = ucfirst($gender);
 
 	echo '<tr id="'.$messageid.'">
 
