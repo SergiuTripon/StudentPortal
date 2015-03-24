@@ -231,7 +231,7 @@ include '../includes/session.php';
         $("[aria-owns='select2-task_category-results']").addClass("input-happy");
     }
 
-    var task_category = $("#task_category option:selected").val();
+    var task_category = $("#task_category option:selected").html();
 
 	if(hasError == false){
     jQuery.ajax({
