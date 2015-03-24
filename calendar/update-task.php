@@ -63,7 +63,7 @@ header('Location: ../calendar/');
     <input class="form-control" type="text" name="task_name" id="task_name" value="<?php echo $task_name; ?>" placeholder="Enter a name">
 
     <label>Notes (Optional)</label>
-    <textarea class="form-control" rows="5" name="task_notes" id="task_notes" value="<?php echo $task_notes; ?>" placeholder="Notes"></textarea>
+    <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Notes"><?php echo $task_notes; ?></textarea>
 
 	<label>External URL (www.example.com)</label>
 	<input class="form-control" type="text" name="task_url" id="task_url" value="<?php echo $task_url; ?>" placeholder="Enter an external URL">
@@ -79,21 +79,16 @@ header('Location: ../calendar/');
 	</div>
 	</div>
 
-	<label for="task_category">Task category - select below<span class="field-required">*</span></label>
-	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default btn-lg task_category <?php if($task_category == "university") echo "active"; ?>">
-		<input type="radio" name="options" id="option1" autocomplete="off"> University
-	</label>
-	<label class="btn btn-default btn-lg task_category <?php if($task_category == "work") echo "active"; ?>">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Work
-	</label>
-	<label class="btn btn-default btn-lg task_category <?php if($task_category == "personal") echo "active"; ?>">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Personal
-	</label>
-	<label class="btn btn-default btn-lg task_category <?php if($task_category == "other") echo "active"; ?>">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Other
-	</label>
-	</div>
+	<div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="tutorial_day">Day<span class="field-required">*</span></label>
+    <select class="form-control" name="task_category" id="task_category" style="width: 100%;">
+        <option <?php if($task_category == "university") echo "selected"; ?>>Monday</option>
+        <option <?php if($task_category == "personal") echo "selected"; ?>>Tuesday</option>
+        <option <?php if($task_category == "other") echo "selected"; ?>>Wednesday</option>
+    </select>
+    </div>
+    </div>
 
 	<hr class="hr-custom">
 
