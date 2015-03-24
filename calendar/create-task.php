@@ -66,21 +66,10 @@ include '../includes/session.php';
 	<label for="task_startdate">Start date<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="task_starttime">Start time<span class="field-required">*</span></label>
-	<input type="text" class="form-control" name="task_starttime" id="task_starttime" placeholder="Select a start time">
-	</div>
-	</div>
-
-    <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
-	<label for="task_duedate">Due date<span class="field-required">*</span></label>
-	<input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date">
-	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
-	<label for="task_duetime">Due time<span class="field-required">*</span></label>
-	<input type="text" class="form-control" name="task_duetime" id="task_duetime" placeholder="Select a due time">
-	</div>
+    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <label for="task_duedate">Due date<span class="field-required">*</span></label>
+    <input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date">
+    </div>
 	</div>
 
 	<label for="task_category">Task category - select below<span class="field-required">*</span></label>
@@ -155,16 +144,10 @@ include '../includes/session.php';
 
     // Date Time Picker
     $('#task_startdate').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
+        format: 'YYYY/MM/DD HH:mm'
     });
     $('#task_duedate').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
-    });
-    $('#task_starttime').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
-    });
-    $('#task_duetime').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
+        format: 'YYYY/MM/DD HH:mm'
     });
 
 	//Responsiveness
