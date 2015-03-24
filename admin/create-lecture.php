@@ -303,7 +303,7 @@ include '../includes/session.php';
         $("#lecture_name").addClass("input-happy");
 	}
 
-    var lecture_lecturer_check = $('#lecture_lecturer :selected').html();
+    var lecture_lecturer_check = $('#lecture_lecturer:selected').html();
     if (lecture_lecturer_check === '') {
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");

@@ -72,19 +72,17 @@ include '../includes/session.php';
     </div>
 	</div>
 
-	<label for="task_category">Task category - select below<span class="field-required">*</span></label>
-	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default btn-lg task_category">
-		<input type="radio" name="options" id="option1" autocomplete="off"> University
-	</label>
-	<label class="btn btn-default btn-lg task_category">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Personal
-	</label>
-	<label class="btn btn-default btn-lg task_category">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Other
-	</label>
-	</div>
-	</div>
+	<div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="task_category">Category<span class="field-required">*</span></label>
+    <select class="form-control" name="task_category" id="task_category" style="width: 100%;">
+        <option></option>
+        <option>University</option>
+        <option>Personal</option>
+        <option>Other</option>
+    </select>
+    </div>
+    </div>
 
 	<hr class="hr-custom">
 
@@ -150,24 +148,6 @@ include '../includes/session.php';
         format: 'YYYY/MM/DD HH:mm'
     });
 
-	//Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480){
-			$('.btn-group').removeClass('btn-group-justified');
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		} else {
-			$('.btn-group').addClass('btn-group-justified');
-		}
-	}).resize();
-
-	//Global variable
-	var task_category;
-
-	//Setting variable value
-	$('.btn-group .task_category').click(function(){
-		task_category = ($(this).text().replace(/^\s+|\s+$/g,''))
-	});
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
@@ -232,24 +212,26 @@ include '../includes/session.php';
         $("#task_duedate").addClass("input-happy");
 	}
 
-	var task_category_check = $(".task_category");
-	if (task_category_check.hasClass('active')) {
-        $("label[for='task_category']").empty().append("All good!");
-        $("label[for='task_category']").removeClass("feedback-sad");
-        $(".task_category").removeClass("input-style-sad");
-        $("label[for='task_category']").addClass("feedback-happy");
-        $(".task_category").addClass("input-happy");
-	}
-	else {
+	var task_category_check = $('#task_category:selected').html();
+    if (task_category_check === '') {
         $("label[for='task_category']").empty().append("Please select a category.");
         $("label[for='task_category']").removeClass("feedback-happy");
-        $("#task_category").removeClass("input-style-happy");
         $("label[for='task_category']").addClass("feedback-sad");
-        $("#task_category").addClass("input-sad");
-        $("#task_category").focus();
-        hasError = true;
+        $("[aria-owns='select2-task_category-results']").removeClass("input-happy");
+        $("[aria-owns='select2-task_category-results']").addClass("input-sad");
+        $("[aria-owns='select2-task_category-results']").focus();
+        hasError  = true;
         return false;
-	}
+    }
+    else {
+        $("label[for='task_category']").empty().append("All good!");
+        $("label[for='task_category']").removeClass("feedback-sad");
+        $("label[for='task_category']").addClass("feedback-happy");
+        $("[aria-owns='select2-task_category-results']").removeClass("input-sad");
+        $("[aria-owns='select2-task_category-results']").addClass("input-happy");
+    }
+
+    var task_category = $("#task_category option:selected").val();
 
 	if(hasError == false){
     jQuery.ajax({

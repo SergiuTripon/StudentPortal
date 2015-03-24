@@ -381,7 +381,7 @@ include '../includes/session.php';
     // Date Time Picker
     var today = new Date();
 	$(function () {
-	$('#lecture_from_time').timepicker({ controlType: 'select' });
+	$('#lecture_from_time').datetimepicker({ controlType: 'select' });
     $('#lecture_to_time').timepicker({ controlType: 'select' });
     $('#lecture_from_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
     $('#lecture_to_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
