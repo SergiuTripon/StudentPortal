@@ -1574,7 +1574,7 @@ function ReturnBook() {
     $request_status = 'active';
 
     $stmt3 = $mysqli->prepare("SELECT requestid FROM system_book_requested WHERE bookid=? AND isApproved=? AND request_status=?");
-    $stmt3->bind_param('iis', $bookid, $isApproved, $request_status);
+    $stmt3->bind_param('iis', $bookToReturn, $isApproved, $request_status);
     $stmt3->execute();
     $stmt3->store_result();
     $stmt3->bind_result($requestid);
