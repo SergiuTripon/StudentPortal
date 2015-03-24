@@ -157,8 +157,8 @@ include '../includes/session.php';
     $(function () {
         $('#task_startdate').datepicker({ format: "dd/mm/yy" });
         $('#task_duedate').datepicker({ format: "dd/mm/yy" });
-        $('#task_starttime').timepicker();
-        $('#task_duetime').timepicker();
+        $('#task_starttime').timepicker({ minuteStep: 5, showInputs: false, disableFocus: true });
+        $('#task_duetime').timepicker({ minuteStep: 5, showInputs: false, disableFocus: true });
     });
 
 	//Responsiveness
