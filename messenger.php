@@ -111,7 +111,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT user_message_received.message_from, user_message.message_subject, user_message.message_body, DATE_FORMAT(user_message.created_on,'%d %b %y %H:%i') as created_on, user_detail.firstname, user_detail.surname FROM user_message_received LEFT JOIN user_message ON user_message_received.messageid=user_message.messageid LEFT JOIN user_detail as user_detail ON user_message_received.message_from=user_detail.userid WHERE user_message_received.message_to = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT r.message_from, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname FROM user_message_received r LEFT JOIN user_message m ON r.messageid=m.messageid LEFT JOIN user_detail d ON r.message_from=d.userid WHERE r.message_to = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -129,7 +129,38 @@ include 'includes/session.php';
 			<td data-title="Subject">'.$message_subject.'</td>
 			<td data-title="Message">'.$message_body.'</td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
-			</tr>';
+			</tr>
+
+			<div id="view-'.$messageid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-comments"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$message_subject.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>To:</b> '.$message_to_firstname.' '.$message_to_surname.'</p>
+			<p><b>Subject:</b> '.(empty($message_subject) ? "-" : "$message_subject").'</p>
+			<p><b>Message:</b> '.(empty($message_body) ? "-" : "$message_body").'</p>
+			<p><b>Read:</b> '.($message_isRead === '0' ? "No" : "Yes").'</p>
+			<p><b>Sent on:</b> '.(empty($message_sent_on) ? "-" : "$message_sent_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Send another</span></a>
+            <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up" data-toggle="modal" data-dismiss="modal">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt2->close();
