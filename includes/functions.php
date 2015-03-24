@@ -1579,7 +1579,6 @@ function ReturnBook() {
     $stmt3->bind_result($requestid);
     $stmt3->fetch();
 
-
     $isApproved = 1;
     $request_status = 'completed';
 
