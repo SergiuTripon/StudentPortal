@@ -202,7 +202,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>To:</b> '."$message_to_firstname $message_to_surname".'</p>
+			<p><b>To:</b> '.$message_to_firstname.' '.$message_to_surname.'</p>
 			<p><b>Subject:</b> '.(empty($message_subject) ? "-" : "$message_subject").'</p>
 			<p><b>Message:</b> '.(empty($message_body) ? "-" : "$message_body").'</p>
 			<p><b>Read:</b> '.($message_isRead === '0' ? "No" : "Yes").'</p>
