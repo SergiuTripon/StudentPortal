@@ -111,12 +111,9 @@ include 'includes/session.php';
 
 	echo '<tr id="task-'.$taskid.'">
 
-			<td data-title="Name">'.$task_name.'</td>
-			<td data-title="Notes">'.($task_notes === '' ? "-" : "$task_notes").'</td>
-			<td data-title="URL">'.($task_url === '' ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</td>
+			<td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
 			<td data-title="Start date">'.$task_startdate.'</td>
 			<td data-title="Due date">'.$task_duedate.'</td>
-			<td data-title="Category">'.$task_category.'</td>
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
@@ -145,7 +142,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p><b>Notes:</b> '.(empty($task_notes) ? "-" : "$task_notes").'</p>
-			<p><b>URL:</b> '.(empty($task_url) ? "-" : "$task_url").'</p>
+			<p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
 			<p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
 			<p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
 			<p><b>Category:</b> '.(empty($task_category) ? "-" : "$task_category").'</p>
