@@ -95,7 +95,7 @@ include 'includes/session.php';
 	$book_status = ucfirst($book_status);
     $isLoaned = $row["isLoaned"];
 
-    $stmt2 = $mysqli->prepare("SELECT r.bookid FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid WHERE r.bookid=? AND ((r.isCollected='0' AND r.reservation_status='active') OR (l.isReturned = '0' AND l.loan_status='active'))");
+    $stmt2 = $mysqli->prepare("SELECT r.bookid FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid WHERE r.bookid=? AND ((r.isCollected='0' AND r.reservation_status='active') OR (l.isReturned = '0' AND l.loan_status='active') OR (l.isRequested = '0'))");
     $stmt2->bind_param('i', $bookid);
     $stmt2->execute();
     $stmt2->store_result();
@@ -114,7 +114,7 @@ include 'includes/session.php';
 			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "Reserved").'</td>
-            <td data-title="Request">'.($stmt3->num_rows == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "Unavailable").'</td>
+            <td data-title="Request">'.($stmt3->num_rows == 1 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "Unavailable").'</td>
 			</tr>';
 	}
 
