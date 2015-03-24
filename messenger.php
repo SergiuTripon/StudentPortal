@@ -37,10 +37,10 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Send a message</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Send a message</a>
   	</h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
 	<!-- Send a message -->
@@ -89,7 +89,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a id="message-read-trigger" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Received messages</a>
+	<a id="message-read-trigger" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Received messages</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -170,10 +170,11 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT user_message_sent.message_to, user_message_sent.isRead, user_message.message_subject, user_message.message_body, DATE_FORMAT(user_message.created_on,'%d %b %y %H:%i') as created_on, user_detail.firstname, user_detail.surname FROM user_message_sent LEFT JOIN user_message ON user_message_sent.messageid=user_message.messageid LEFT JOIN user_detail ON user_message_sent.message_to=user_detail.userid WHERE user_message_sent.message_from = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT s.messageid, s.message_to, s.isRead, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.firstname, d.surname FROM user_message_sent s LEFT JOIN user_message m ON s.messageid=m.messageid LEFT JOIN user_detail d ON s.message_to=d.userid WHERE s.message_from = '$session_userid'");
 
-	while($row = $stmt4->fetch_assoc()) {
+	while($row = $stmt1->fetch_assoc()) {
 
+    $messageid = $row["messageid"];
     $message_to = $row["message_to"];
     $message_isRead = $row["isRead"];
 	$message_subject = $row["message_subject"];
@@ -182,17 +183,80 @@ include 'includes/session.php';
     $message_to_firstname = $row["firstname"];
     $message_to_surname = $row["surname"];
 
-	echo '<tr>
+	echo '<tr id="'.$messageid.'">
 
 			<td data-title="To">'.$message_to_firstname.' '.$message_to_surname.'</td>
 			<td data-title="Subject">'.$message_subject.'</td>
 			<td data-title="Message">'.$message_body.'</td>
 			<td data-title="Message">'.($message_isRead === '0' ? "No" : "Yes").'</td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
-			</tr>';
+			</tr>
+
+			<div id="view-'.$messageid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-calendar"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$message_subject.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>To:</b> '.(empty($task_notes) ? "-" : "$message_to_firstname $message_to_surname").'</p>
+			<p><b>Subject:</b> '.(empty($message_subject) ? "-" : "$message_subject").'</p>
+			<p><b>Message:</b> '.(empty($message_body) ? "-" : "$message_body").'</p>
+			<p><b>Read:</b> '.($message_isRead === '0' ? "No" : "Yes").'</p>
+			<p><b>Sent on:</b> '.(empty($message_sent_on) ? "-" : "$message_sent_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="#delete-'.$messageid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-'.$messageid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$message_subject.'?</p>
+			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
-	$stmt4->close();
+	$stmt1->close();
 	?>
 	</tbody>
 
