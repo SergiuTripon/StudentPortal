@@ -194,7 +194,7 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa-calendar"></i></div>
+            <div class="close"><i class="fa fa-comments"></i></div>
             <h4 class="modal-title" id="modal-custom-label">'.$message_subject.'</h4>
 			</div>
 
@@ -209,7 +209,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
             <div class="view-action pull-left">
             <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Send another</span></a>
-            <a href="#delete-'.$messageid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
