@@ -250,12 +250,17 @@ include '../includes/session.php';
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
-    var today = new Date();
-	$(function () {
-    $('#tutorial_from_time').timepicker({ controlType: 'select' });
-    $('#tutorial_to_time').timepicker({ controlType: 'select' });
-    $('#tutorial_from_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
-    $('#tutorial_to_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
+    $('#tutorial_from_time').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
+    $('#tutorial_to_time').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
+    $('#tutorial_from_date').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
+    $('#tutorial_to_date').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
 	});
 
     //Create timetable ajax call

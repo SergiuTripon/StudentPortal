@@ -283,52 +283,18 @@ if (isset($_GET['id'])) {
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
-    var today = new Date();
-	$(function () {
-	$('#lecture_from_time').timepicker({
-        controlType: 'select'
+    $('#tutorial_from_time').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
     });
-
-    $('#lecture_to_time').timepicker({
-        controlType: 'select'
+    $('#tutorial_to_time').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
     });
-
-    $('#lecture_from_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
+    $('#tutorial_from_date').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
     });
-    $('#lecture_to_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
+    $('#tutorial_to_date').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
     });
-
-    $('#tutorial_from_time').timepicker();
-    $('#tutorial_to_time').timepicker();
-
-    $('#tutorial_from_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-    });
-    $('#tutorial_to_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-    });
-
-    $('#exam_date').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
-    });
-
-    $('#exam_time').timepicker({
-        controlType: 'select'
-    });
-
-	});
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
