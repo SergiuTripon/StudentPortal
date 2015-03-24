@@ -1569,6 +1569,58 @@ function ReturnBook() {
     $stmt2->bind_param('iiiisi', $isReserved, $isCollected, $isLoaned, $isReturned, $updated_on, $bookToReturn);
     $stmt2->execute();
     $stmt2->close();
+
+    $isApproved = 1;
+    $request_status = 'active';
+
+    $stmt3 = $mysqli->prepare("SELECT requestid FROM system_book_requested WHERE bookid=? AND isApproved=? AND request_status=?");
+    $stmt3->bind_param('iis', $bookid, $isApproved, $request_status);
+    $stmt3->execute();
+    $stmt3->store_result();
+    $stmt3->bind_result($requestid);
+    $stmt3->fetch();
+
+    if ($stmt3->num_rows == 0) {
+        $stmt3->close();
+    }
+    else {
+
+        $isApproved = 1;
+        $request_status = 'completed';
+
+        $stmt4 = $mysqli->prepare("UPDATE system_book_requested SET isApproved=?, request_status=? WHERE requestid=?");
+        $stmt4->bind_param('isi', $isApproved, $request_status, $requestid);
+        $stmt4->execute();
+        $stmt4->close();
+
+        $stmt5 = $mysqli->prepare("SELECT userid, bookid FROM system_book_requested WHERE requestid=?");
+        $stmt5->bind_param('i', $requestToApprove);
+        $stmt5->execute();
+        $stmt5->store_result();
+        $stmt5->bind_result($userid, $bookid);
+        $stmt5->fetch();
+        $stmt5->close();
+
+        $add7days = new DateTime($updated_on);
+        $add7days->add(new DateInterval('P7D'));
+        $tocollect_on = $add7days->format('Y-m-d');
+        $collected_on = '';
+        $isCollected = 0;
+        $reservation_status = 'active';
+
+        $stmt6 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt6->bind_param('iississ', $userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $updated_on);
+        $stmt6->execute();
+        $stmt6->close();
+
+        $isReserved = 1;
+        $isRequested = 0;
+
+        $stmt7 = $mysqli->prepare("UPDATE system_book SET isReserved=?, isRequested=? WHERE bookid =?");
+        $stmt7->bind_param('iii', $isReserved, $isRequested, $bookid);
+        $stmt7->execute();
+        $stmt7->close();
+    }
 }
 
 //RequestBook function
@@ -1678,13 +1730,6 @@ function ApproveRequest() {
 
     $requestToApprove = filter_input(INPUT_POST, 'requestToApprove', FILTER_SANITIZE_STRING);
 
-    $isApproved = 1;
-    $request_status = 'completed';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_book_requested SET isApproved=?, request_status=? WHERE requestid=?");
-    $stmt1->bind_param('isi', $isApproved, $request_status, $requestToApprove);
-    $stmt1->execute();
-    $stmt1->close();
 
     $stmt2 = $mysqli->prepare("SELECT userid, bookid FROM system_book_requested WHERE requestid=?");
     $stmt2->bind_param('i', $requestToApprove);
