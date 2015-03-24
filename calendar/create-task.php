@@ -158,10 +158,10 @@ include '../includes/session.php';
     // Date Time Picker
 	$(function () {
         $('#task_startdate').datepicker({
-            format: "dd/mm/yyy"
+            format: "dd/mm/yyyy"
         });
         $('#task_duedate').datepicker({
-            format: "dd/mm/yyy"
+            format: "dd/mm/yyyy"
         });
 	});
 
