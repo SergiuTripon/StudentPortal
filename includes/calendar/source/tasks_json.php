@@ -3,7 +3,18 @@ include '../../session.php';
 
 header("Cache-Control: no-cache, must-revalidate");
 
-$sql = 'SELECT taskid, task_name, task_url, task_class, task_startdate, task_duedate FROM user_task WHERE userid = "'.$session_userid.'" AND task_status = "active"';
+$sql = 'SELECT t.taskid, t.task_name, t.task_class, t.task_startdate, t.task_duedate
+FROM user_task t
+JOIN user_detail d ON t.userid = d.userid
+WHERE t.userid = "'.$session_userid.'" AND t.task_status = "active"
+
+UNION ALL
+
+SELECT b.bookid, b.book_name, l.book_class, l.created_on, l.toreturn_on
+FROM system_book_loaned l
+JOIN system_book b ON l.bookid = b.bookid
+JOIN user_detail d ON l.userid = d.userid
+WHERE l.userid = "'.$session_userid.'" AND l.isReturned="active" AND l.loan_status = "active" AND b.book_status = "active"';
 
 $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);
