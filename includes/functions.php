@@ -1589,7 +1589,7 @@ function ReturnBook() {
         $stmt4->close();
 
         $stmt5 = $mysqli->prepare("SELECT userid, bookid FROM system_book_requested WHERE requestid=?");
-        $stmt5->bind_param('i', $requestToApprove);
+        $stmt5->bind_param('i', $requestid);
         $stmt5->execute();
         $stmt5->store_result();
         $stmt5->bind_result($userid, $bookid);
