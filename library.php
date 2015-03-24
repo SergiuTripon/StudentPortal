@@ -102,7 +102,7 @@ include 'includes/session.php';
     $stmt2->bind_result($db_reserved_bookid);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isReturned='0' AND loan_status='active' AND NOT userid = '$session_userid'");
+    $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isReturned='0' AND isRequested='0' AND loan_status='active' AND NOT userid = '$session_userid'");
     $stmt3->bind_param('i', $bookid);
     $stmt3->execute();
     $stmt3->store_result();
