@@ -234,8 +234,11 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<div class="view-action pull-left">
+            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Send another</span></a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
