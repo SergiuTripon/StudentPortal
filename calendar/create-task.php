@@ -155,10 +155,9 @@ include '../includes/session.php';
 
     // Date Time Picker
     $(function () {
-        $('#task_startdate').datepicker({ format: "dd/mm/yy" });
-        $('#task_duedate').datepicker({ format: "dd/mm/yy" });
+
         $('#task_starttime').timepicki();
-        $('#task_duetime').timepicker({addSliderAccess: true, sliderAccessArgs: { touchonly: false }});
+
     });
 
 	//Responsiveness
