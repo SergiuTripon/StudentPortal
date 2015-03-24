@@ -168,7 +168,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT s.messageid, s.message_to, s.isRead, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.firstname, d.surname FROM user_message_sent s LEFT JOIN user_message m ON s.messageid=m.messageid LEFT JOIN user_detail d ON s.message_to=d.userid WHERE s.message_from = '$session_userid'");
+	$stmt1 = $mysqli->query("SELECT s.messageid, s.message_to, s.isRead, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname FROM user_message_sent s LEFT JOIN user_message m ON s.messageid=m.messageid LEFT JOIN user_detail d ON s.message_to=d.userid WHERE s.message_from = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -178,6 +178,7 @@ include 'includes/session.php';
 	$message_subject = $row["message_subject"];
 	$message_body = $row["message_body"];
 	$message_sent_on = $row["created_on"];
+    $userid = $row["userid"];
     $message_to_firstname = $row["firstname"];
     $message_to_surname = $row["surname"];
 
@@ -208,6 +209,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
             <div class="view-action pull-left">
             <a href="#delete-'.$messageid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Send another</span></a></td>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
