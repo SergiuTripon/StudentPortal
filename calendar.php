@@ -83,12 +83,9 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
-	<th>Notes</th>
-	<th>URL</th>
+	<th>Task</th>
 	<th>Start</th>
 	<th>Due</th>
-	<th>Category</th>
 	<th>Action</th>
 	</tr>
 	</thead>
