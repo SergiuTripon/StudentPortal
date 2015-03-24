@@ -212,7 +212,7 @@ include 'includes/session.php';
             <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
