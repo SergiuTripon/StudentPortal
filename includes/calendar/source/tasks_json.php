@@ -20,11 +20,17 @@ $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);
 
 $out = array();
-foreach($res as $row) 
-{
+foreach($res as $row) {
+
+if ($row->task_class === 'event-info') {
+    $pretitle = 'Book:';
+} else {
+    $pretitle = 'Task:';
+}
+
   $out[] = array(
     'id'    => $row->taskid,
-    'title' => $row->task_name,
+    'title' => ".$$pretitle." + $row->task_name,
     'url'   => $row->task_url,
 	'class' => $row->task_class,
     'start' => strtotime($row->task_startdate) . '000',
