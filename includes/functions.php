@@ -1569,7 +1569,7 @@ function ReturnBook() {
     $stmt2->execute();
     $stmt2->close();
 
-    $isApproved = 1;
+    $isApproved = 0;
     $request_status = 'active';
 
     $stmt3 = $mysqli->prepare("SELECT requestid FROM system_book_requested WHERE bookid=? AND isApproved=? AND request_status=?");
@@ -1634,9 +1634,10 @@ function RequestBook() {
 
     $isRead = 0;
     $isApproved = 0;
+    $request_status = 'active';
 
-    $stmt1 = $mysqli->prepare("INSERT INTO system_book_requested (userid, bookid, isRead, isApproved, created_on) VALUES (?, ?, ?, ?, ?)");
-    $stmt1->bind_param('iiiis', $session_userid, $bookToRequest, $isRead, $isApproved, $created_on);
+    $stmt1 = $mysqli->prepare("INSERT INTO system_book_requested (userid, bookid, isRead, isApproved, created_on) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt1->bind_param('iiiiss', $session_userid, $bookToRequest, $isRead, $isApproved, $request_status, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
