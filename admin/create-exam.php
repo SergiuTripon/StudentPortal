@@ -195,11 +195,12 @@ include '../includes/session.php';
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
-    var today = new Date();
-	$(function () {
-    $('#exam_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select', minDate: today });
-    $('#exam_time').timepicker({ controlType: 'select' });
-	});
+    $('#exam_date').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
+    $('#exam_time').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
 
     //Create timetable ajax call
     $("#FormSubmit").click(function (e) {
