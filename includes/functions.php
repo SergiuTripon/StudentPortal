@@ -2901,7 +2901,7 @@ function SetMessageRead () {
 	global $session_userid;
 
 	$isRead = 1;
-	$stmt1 = $mysqli->prepare("UPDATE user_message_sent SET isRead=? WHERE message_to=?");
+	$stmt1 = $mysqli->prepare("UPDATE user_message_received SET isRead=? WHERE message_to=?");
 	$stmt1->bind_param('ii', $isRead, $session_userid);
 	$stmt1->execute();
 	$stmt1->close();
