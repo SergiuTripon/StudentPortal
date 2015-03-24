@@ -291,6 +291,7 @@ include 'includes/session.php';
 	<th>Start</th>
 	<th>Due</th>
     <th>Completed on</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -317,6 +318,7 @@ include 'includes/session.php';
             <td data-title="Start">'.$task_startdate.'</td>
             <td data-title="Due">'.$task_duedate.'</td>
             <td data-title="Completed on">'.$task_duedate.'</td>
+            <td data-title="Action"><a class="btn btn-md btn-primary ladda-button" data-style="slide-up" href="#reactivate-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Restore</span></a></td>
             </tr>
 
 	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
