@@ -161,8 +161,6 @@ include 'includes/session.php';
 	<tr>
 	<th>To</th>
 	<th>Subject</th>
-	<th>Message</th>
-	<th>Read</th>
 	<th>Sent on</th>
 	</tr>
 	</thead>
@@ -187,8 +185,6 @@ include 'includes/session.php';
 
 			<td data-title="To">'.$message_to_firstname.' '.$message_to_surname.'</td>
 			<td data-title="Subject"><a href="#view-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
-			<td data-title="Message">'.$message_body.'</td>
-			<td data-title="Message">'.($message_isRead === '0' ? "No" : "Yes").'</td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
 			</tr>
 
