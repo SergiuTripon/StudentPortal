@@ -120,6 +120,7 @@ include 'includes/session.php';
 	$message_subject = $row["message_subject"];
 	$message_body = $row["message_body"];
 	$message_sent_on = $row["created_on"];
+    $userid = $row["userid"];
     $message_from_firstname = $row["firstname"];
     $message_from_surname = $row["surname"];
 
@@ -141,16 +142,15 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>To:</b> '.$message_to_firstname.' '.$message_to_surname.'</p>
+			<p><b>To:</b> '.$message_from_firstname.' '.$message_from_surname.'</p>
 			<p><b>Subject:</b> '.(empty($message_subject) ? "-" : "$message_subject").'</p>
 			<p><b>Message:</b> '.(empty($message_body) ? "-" : "$message_body").'</p>
-			<p><b>Read:</b> '.($message_isRead === '0' ? "No" : "Yes").'</p>
 			<p><b>Sent on:</b> '.(empty($message_sent_on) ? "-" : "$message_sent_on").'</p>
 			</div>
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Send another</span></a>
+            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Reply</span></a>
             <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">

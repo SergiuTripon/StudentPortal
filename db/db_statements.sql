@@ -138,7 +138,6 @@ CREATE TABLE `user_message_sent` (
   `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
-  `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (messageid)
 REFERENCES user_message(messageid),
 FOREIGN KEY (message_from)
@@ -154,6 +153,7 @@ CREATE TABLE `user_message_received` (
   `messageid` INT(11) NOT NULL AUTO_INCREMENT,
   `message_from` INT(11) NOT NULL,
   `message_to` INT(11) NOT NULL,
+  `isRead` TINYINT(1) NOT NULL,
 FOREIGN KEY (messageid)
 REFERENCES user_message(messageid),
 FOREIGN KEY (message_from)
