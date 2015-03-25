@@ -3365,7 +3365,7 @@ function CreateAnAccount() {
 	$email = filter_input(INPUT_POST, 'create_account_email', FILTER_SANITIZE_STRING);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'create_account_password', FILTER_SANITIZE_STRING);
-    $fees = filter_input(INPUT_POST, 'fees', FILTER_SANITIZE_STRING);
+    $fees = filter_input(INPUT_POST, 'create_account_fees', FILTER_SANITIZE_STRING);
     $studentno = filter_input(INPUT_POST, 'create_account_studentno', FILTER_SANITIZE_STRING);
 	$degree = filter_input(INPUT_POST, 'create_account_degree', FILTER_SANITIZE_STRING);
     $nationality = filter_input(INPUT_POST, 'create_account_nationality', FILTER_SANITIZE_STRING);
