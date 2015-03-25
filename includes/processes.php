@@ -370,8 +370,7 @@ elseif (isset(
     $_POST['create_task_notes'],
     $_POST['create_task_url'],
     $_POST['create_task_startdate'],
-    $_POST['create_task_duedate'],
-    $_POST['create_task_category'])) {
+    $_POST['create_task_duedate'])) {
     CreateTask();
 }
 
@@ -382,8 +381,7 @@ elseif (isset(
     $_POST['update_task_notes'],
     $_POST['update_task_url'],
     $_POST['update_task_startdate'],
-    $_POST['update_task_duedate'],
-    $_POST['update_task_category'])) {
+    $_POST['update_task_duedate'])) {
     UpdateTask();
 }
 
