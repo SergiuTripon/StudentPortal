@@ -73,18 +73,6 @@ include '../includes/session.php';
     </div>
 	</div>
 
-	<div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="task_category">Category<span class="field-required">*</span></label>
-    <select class="form-control" name="task_category" id="task_category" style="width: 100%;">
-        <option></option>
-        <option>University</option>
-        <option>Personal</option>
-        <option>Other</option>
-    </select>
-    </div>
-    </div>
-
 	<hr class="hr-custom">
 
     <div class="text-center">
@@ -138,11 +126,6 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function () {
-        //select2
-        $("#task_category").select2({placeholder: "Select an option"});
-    });
-
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
@@ -153,7 +136,6 @@ include '../includes/session.php';
     $('#task_duedate').datetimepicker({
         format: 'YYYY/MM/DD HH:mm'
     });
-
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
@@ -218,32 +200,15 @@ include '../includes/session.php';
         $("#task_duedate").addClass("input-happy");
 	}
 
-	var task_category_check = $('#task_category:selected').html();
-    if (task_category_check === '') {
-        $("label[for='task_category']").empty().append("Please select a category.");
-        $("label[for='task_category']").removeClass("feedback-happy");
-        $("label[for='task_category']").addClass("feedback-sad");
-        $("[aria-owns='select2-task_category-results']").removeClass("input-happy");
-        $("[aria-owns='select2-task_category-results']").addClass("input-sad");
-        $("[aria-owns='select2-task_category-results']").focus();
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("label[for='task_category']").empty().append("All good!");
-        $("label[for='task_category']").removeClass("feedback-sad");
-        $("label[for='task_category']").addClass("feedback-happy");
-        $("[aria-owns='select2-task_category-results']").removeClass("input-sad");
-        $("[aria-owns='select2-task_category-results']").addClass("input-happy");
-    }
-
-    var task_category = $("#task_category option:selected").html();
-
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'task_name=' + task_name + '&task_notes=' + task_notes + '&task_url=' + task_url + '&task_startdate=' + task_startdate + '&task_duedate=' + task_duedate + '&task_category=' + task_category,
+    data:'task_name='       + task_name +
+         '&task_notes='     + task_notes +
+         '&task_url='       + task_url +
+         '&task_startdate=' + task_startdate +
+         '&task_duedate='   + task_duedate,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();

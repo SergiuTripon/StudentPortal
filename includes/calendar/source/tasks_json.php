@@ -29,8 +29,10 @@ foreach($res as $row) {
 
 if ($row->task_class === 'event-info') {
     $pretitle = 'Book: ';
-} else {
-    $pretitle = 'Task: ';
+}
+
+if ($row->task_class === 'event-info') {
+    $pretitle = 'Book: ';
 }
 
     $taskid = $row->taskid;
