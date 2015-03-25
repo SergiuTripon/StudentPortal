@@ -584,7 +584,24 @@ elseif (isset($_POST['accountToDelete'])) {
 
 //Call Admin Account functions
 //Call CreateAnAccount function
-elseif (isset($_POST['account_type'], $_POST['firstname2'], $_POST['surname2'], $_POST['gender2'], $_POST['studentno'], $_POST['degree'], $_POST['email5'], $_POST['password4'], $_POST['nationality1'], $_POST['dateofbirth1'], $_POST['phonenumber1'], $_POST['address11'], $_POST['address21'], $_POST['town1'], $_POST['city1'], $_POST['country1'], $_POST['postcode1'])) {
+elseif (isset(
+    $_POST['create_account_account_type'],
+    $_POST['create_account_firstname'],
+    $_POST['create_account_surname'],
+    $_POST['create_account_gender'],
+    $_POST['create_account_studentno'],
+    $_POST['create_account_degree'],
+    $_POST['create_account_email'],
+    $_POST['create_account_password'],
+    $_POST['create_account_nationality'],
+    $_POST['create_account_dateofbirth'],
+    $_POST['create_account_phonenumber'],
+    $_POST['create_account_address1'],
+    $_POST['create_account_address2'],
+    $_POST['create_account_town'],
+    $_POST['create_account_city'],
+    $_POST['create_account_country'],
+    $_POST['create_account_postcode'])) {
 	CreateAnAccount();
 }
 

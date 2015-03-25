@@ -3358,24 +3358,25 @@ function CreateAnAccount() {
     global $mysqli;
     global $created_on;
 
-    $account_type = filter_input(INPUT_POST, 'account_type', FILTER_SANITIZE_STRING);
-    $firstname = filter_input(INPUT_POST, 'firstname2', FILTER_SANITIZE_STRING);
-    $surname = filter_input(INPUT_POST, 'surname2', FILTER_SANITIZE_STRING);
-	$gender = filter_input(INPUT_POST, 'gender2', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email5', FILTER_SANITIZE_STRING);
+    $account_type = filter_input(INPUT_POST, 'create_account_account_type', FILTER_SANITIZE_STRING);
+    $firstname = filter_input(INPUT_POST, 'create_account_firstname', FILTER_SANITIZE_STRING);
+    $surname = filter_input(INPUT_POST, 'create_account_surname', FILTER_SANITIZE_STRING);
+	$gender = filter_input(INPUT_POST, 'create_account_gender', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'create_account_email', FILTER_SANITIZE_STRING);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$password = filter_input(INPUT_POST, 'password4', FILTER_SANITIZE_STRING);
-	$nationality = filter_input(INPUT_POST, 'nationality1', FILTER_SANITIZE_STRING);
-	$studentno = filter_input(INPUT_POST, 'studentno', FILTER_SANITIZE_STRING);
-	$degree = filter_input(INPUT_POST, 'degree', FILTER_SANITIZE_STRING);
-	$dateofbirth = filter_input(INPUT_POST, 'dateofbirth1', FILTER_SANITIZE_STRING);
-	$phonenumber = filter_input(INPUT_POST, 'phonenumber1', FILTER_SANITIZE_STRING);
-    $address1 = filter_input(INPUT_POST, 'address11', FILTER_SANITIZE_STRING);
-    $address2 = filter_input(INPUT_POST, 'address21', FILTER_SANITIZE_STRING);
-    $town = filter_input(INPUT_POST, 'town1', FILTER_SANITIZE_STRING);
-    $city = filter_input(INPUT_POST, 'city1', FILTER_SANITIZE_STRING);
-    $country = filter_input(INPUT_POST, 'country1', FILTER_SANITIZE_STRING);
-    $postcode = filter_input(INPUT_POST, 'postcode1', FILTER_SANITIZE_STRING);
+	$password = filter_input(INPUT_POST, 'create_account_password', FILTER_SANITIZE_STRING);
+    $fees = filter_input(INPUT_POST, 'fees', FILTER_SANITIZE_STRING);
+    $studentno = filter_input(INPUT_POST, 'create_account_studentno', FILTER_SANITIZE_STRING);
+	$degree = filter_input(INPUT_POST, 'create_account_degree', FILTER_SANITIZE_STRING);
+    $nationality = filter_input(INPUT_POST, 'create_account_nationality', FILTER_SANITIZE_STRING);
+    $dateofbirth = filter_input(INPUT_POST, 'create_account_dateofbirth', FILTER_SANITIZE_STRING);
+	$phonenumber = filter_input(INPUT_POST, 'create_account_phonenumber', FILTER_SANITIZE_STRING);
+    $address1 = filter_input(INPUT_POST, 'create_account_address1', FILTER_SANITIZE_STRING);
+    $address2 = filter_input(INPUT_POST, 'create_account_address2', FILTER_SANITIZE_STRING);
+    $town = filter_input(INPUT_POST, 'create_account_town', FILTER_SANITIZE_STRING);
+    $city = filter_input(INPUT_POST, 'create_account_city', FILTER_SANITIZE_STRING);
+    $country = filter_input(INPUT_POST, 'create_account_country', FILTER_SANITIZE_STRING);
+    $postcode = filter_input(INPUT_POST, 'create_account_postcode', FILTER_SANITIZE_STRING);
 
 	$gender = strtolower($gender);
 
@@ -3450,7 +3451,7 @@ function CreateAnAccount() {
     $stmt6->close();
 
     if ($account_type == 'student') {
-    $fee_amount = '9000.00';
+    $fee_amount = $fees;
     }
     elseif ($account_type == 'lecturer') {
     $fee_amount = '0.00';
