@@ -468,8 +468,6 @@ include '../includes/session.php';
     $('#account_type').on("change", function (e) {
         account_type = $('#account_type :selected').html();
 
-        alert(account_type);
-
         if(account_type === 'Student') {
             $('label[for="studentno"]').show();
             $('#studentno').show();
@@ -478,7 +476,7 @@ include '../includes/session.php';
             $('label[for="fees"]').show();
             $('#fees').show();
         }
-        if(account_type === 'Lecturer') {
+        if(account_type === 'Academic staff') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
             $('label[for="degree"]').hide();
@@ -486,7 +484,7 @@ include '../includes/session.php';
             $('label[for="fees"]').hide();
             $('#fees').hide();
         }
-        if(account_type === 'Admin') {
+        if(account_type === 'Administrator') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
             $('label[for="degree"]').hide();
