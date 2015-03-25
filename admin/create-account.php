@@ -43,18 +43,17 @@ include '../includes/session.php';
 
 	<div id="hide">
 
-	<label for="account_type">Account type - select below<span class="field-required">*</span></label>
-	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default btn-lg account_type">
-		<input type="radio" name="options" id="option1" autocomplete="off"> Student
-	</label>
-	<label class="btn btn-default btn-lg account_type">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Lecturer
-	</label>
-	<label class="btn btn-default btn-lg account_type">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Admin
-	</label>
-	</div>
+	<div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="account_type">Account type<span class="field-required">*</span></label>
+    <select class="form-control" name="account_type" id="account_type" style="width: 100%;">
+        <option></option>
+        <option>Student</option>
+        <option>Academic staff</option>
+        <option>Administrator</option>
+    </select>
+    </div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -67,22 +66,17 @@ include '../includes/session.php';
 	</div>
 	</div>
 
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="gender">Gender - select below<span class="field-required">*</span></label>
-	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default btn-lg gender">
-		<input type="radio" name="options" id="option1" autocomplete="off"> Male
-	</label>
-	<label class="btn btn-default btn-lg gender">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Female
-	</label>
-	<label class="btn btn-default btn-lg gender">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Other
-	</label>
-	</div>
-	</div>
-	</div>
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="gender">Gender<span class="field-required">*</span></label>
+    <select class="form-control" name="gender" id="gender" style="width: 100%;">
+        <option></option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select>
+    </div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -93,6 +87,11 @@ include '../includes/session.php';
 	<label for="degree">Programme of Study<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
 	</div>
+	</div>
+
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="fees">Course fee amount<span class="field-required">*</span></label>
+	<input class="form-control" type="text" name="fees" id="fees" value="" placeholder="Enter an amount">
 	</div>
 
 	<div class="form-group">
@@ -113,12 +112,206 @@ include '../includes/session.php';
 	</div>
 	</div>
 
-	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label>Nationality</label>
-    <input class="form-control" type="text" name="nationality" id="nationality" placeholder="Enter a country">
-	</div>
-	</div>
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="nationality">Nationality<span class="field-required">*</span></label>
+    <select class="form-control" name="nationality" id="nationality" style="width: 100%;">
+        <option></option>
+        <option value="afghan">Afghan</option>
+        <option value="albanian">Albanian</option>
+        <option value="algerian">Algerian</option>
+        <option value="american">American</option>
+        <option value="andorran">Andorran</option>
+        <option value="angolan">Angolan</option>
+        <option value="antiguans">Antiguans</option>
+        <option value="argentinean">Argentinean</option>
+        <option value="armenian">Armenian</option>
+        <option value="australian">Australian</option>
+        <option value="austrian">Austrian</option>
+        <option value="azerbaijani">Azerbaijani</option>
+        <option value="bahamian">Bahamian</option>
+        <option value="bahraini">Bahraini</option>
+        <option value="bangladeshi">Bangladeshi</option>
+        <option value="barbadian">Barbadian</option>
+        <option value="barbudans">Barbudans</option>
+        <option value="batswana">Batswana</option>
+        <option value="belarusian">Belarusian</option>
+        <option value="belgian">Belgian</option>
+        <option value="belizean">Belizean</option>
+        <option value="beninese">Beninese</option>
+        <option value="bhutanese">Bhutanese</option>
+        <option value="bolivian">Bolivian</option>
+        <option value="bosnian">Bosnian</option>
+        <option value="brazilian">Brazilian</option>
+        <option value="british">British</option>
+        <option value="bruneian">Bruneian</option>
+        <option value="bulgarian">Bulgarian</option>
+        <option value="burkinabe">Burkinabe</option>
+        <option value="burmese">Burmese</option>
+        <option value="burundian">Burundian</option>
+        <option value="cambodian">Cambodian</option>
+        <option value="cameroonian">Cameroonian</option>
+        <option value="canadian">Canadian</option>
+        <option value="cape verdean">Cape Verdean</option>
+        <option value="central african">Central African</option>
+        <option value="chadian">Chadian</option>
+        <option value="chilean">Chilean</option>
+        <option value="chinese">Chinese</option>
+        <option value="colombian">Colombian</option>
+        <option value="comoran">Comoran</option>
+        <option value="congolese">Congolese</option>
+        <option value="costa rican">Costa Rican</option>
+        <option value="croatian">Croatian</option>
+        <option value="cuban">Cuban</option>
+        <option value="cypriot">Cypriot</option>
+        <option value="czech">Czech</option>
+        <option value="danish">Danish</option>
+        <option value="djibouti">Djibouti</option>
+        <option value="dominican">Dominican</option>
+        <option value="dutch">Dutch</option>
+        <option value="east timorese">East Timorese</option>
+        <option value="ecuadorean">Ecuadorean</option>
+        <option value="egyptian">Egyptian</option>
+        <option value="emirian">Emirian</option>
+        <option value="equatorial guinean">Equatorial Guinean</option>
+        <option value="eritrean">Eritrean</option>
+        <option value="estonian">Estonian</option>
+        <option value="ethiopian">Ethiopian</option>
+        <option value="fijian">Fijian</option>
+        <option value="filipino">Filipino</option>
+        <option value="finnish">Finnish</option>
+        <option value="french">French</option>
+        <option value="gabonese">Gabonese</option>
+        <option value="gambian">Gambian</option>
+        <option value="georgian">Georgian</option>
+        <option value="german">German</option>
+        <option value="ghanaian">Ghanaian</option>
+        <option value="greek">Greek</option>
+        <option value="grenadian">Grenadian</option>
+        <option value="guatemalan">Guatemalan</option>
+        <option value="guinea-bissauan">Guinea-Bissauan</option>
+        <option value="guinean">Guinean</option>
+        <option value="guyanese">Guyanese</option>
+        <option value="haitian">Haitian</option>
+        <option value="herzegovinian">Herzegovinian</option>
+        <option value="honduran">Honduran</option>
+        <option value="hungarian">Hungarian</option>
+        <option value="icelander">Icelander</option>
+        <option value="indian">Indian</option>
+        <option value="indonesian">Indonesian</option>
+        <option value="iranian">Iranian</option>
+        <option value="iraqi">Iraqi</option>
+        <option value="irish">Irish</option>
+        <option value="israeli">Israeli</option>
+        <option value="italian">Italian</option>
+        <option value="ivorian">Ivorian</option>
+        <option value="jamaican">Jamaican</option>
+        <option value="japanese">Japanese</option>
+        <option value="jordanian">Jordanian</option>
+        <option value="kazakhstani">Kazakhstani</option>
+        <option value="kenyan">Kenyan</option>
+        <option value="kittian and nevisian">Kittian and Nevisian</option>
+        <option value="kuwaiti">Kuwaiti</option>
+        <option value="kyrgyz">Kyrgyz</option>
+        <option value="laotian">Laotian</option>
+        <option value="latvian">Latvian</option>
+        <option value="lebanese">Lebanese</option>
+        <option value="liberian">Liberian</option>
+        <option value="libyan">Libyan</option>
+        <option value="liechtensteiner">Liechtensteiner</option>
+        <option value="lithuanian">Lithuanian</option>
+        <option value="luxembourger">Luxembourger</option>
+        <option value="macedonian">Macedonian</option>
+        <option value="malagasy">Malagasy</option>
+        <option value="malawian">Malawian</option>
+        <option value="malaysian">Malaysian</option>
+        <option value="maldivan">Maldivan</option>
+        <option value="malian">Malian</option>
+        <option value="maltese">Maltese</option>
+        <option value="marshallese">Marshallese</option>
+        <option value="mauritanian">Mauritanian</option>
+        <option value="mauritian">Mauritian</option>
+        <option value="mexican">Mexican</option>
+        <option value="micronesian">Micronesian</option>
+        <option value="moldovan">Moldovan</option>
+        <option value="monacan">Monacan</option>
+        <option value="mongolian">Mongolian</option>
+        <option value="moroccan">Moroccan</option>
+        <option value="mosotho">Mosotho</option>
+        <option value="motswana">Motswana</option>
+        <option value="mozambican">Mozambican</option>
+        <option value="namibian">Namibian</option>
+        <option value="nauruan">Nauruan</option>
+        <option value="nepalese">Nepalese</option>
+        <option value="new zealander">New Zealander</option>
+        <option value="ni-vanuatu">Ni-Vanuatu</option>
+        <option value="nicaraguan">Nicaraguan</option>
+        <option value="nigerien">Nigerien</option>
+        <option value="north korean">North Korean</option>
+        <option value="northern irish">Northern Irish</option>
+        <option value="norwegian">Norwegian</option>
+        <option value="omani">Omani</option>
+        <option value="pakistani">Pakistani</option>
+        <option value="palauan">Palauan</option>
+        <option value="panamanian">Panamanian</option>
+        <option value="papua new guinean">Papua New Guinean</option>
+        <option value="paraguayan">Paraguayan</option>
+        <option value="peruvian">Peruvian</option>
+        <option value="polish">Polish</option>
+        <option value="portuguese">Portuguese</option>
+        <option value="qatari">Qatari</option>
+        <option value="romanian">Romanian</option>
+        <option value="russian">Russian</option>
+        <option value="rwandan">Rwandan</option>
+        <option value="saint lucian">Saint Lucian</option>
+        <option value="salvadoran">Salvadoran</option>
+        <option value="samoan">Samoan</option>
+        <option value="san marinese">San Marinese</option>
+        <option value="sao tomean">Sao Tomean</option>
+        <option value="saudi">Saudi</option>
+        <option value="scottish">Scottish</option>
+        <option value="senegalese">Senegalese</option>
+        <option value="serbian">Serbian</option>
+        <option value="seychellois">Seychellois</option>
+        <option value="sierra leonean">Sierra Leonean</option>
+        <option value="singaporean">Singaporean</option>
+        <option value="slovakian">Slovakian</option>
+        <option value="slovenian">Slovenian</option>
+        <option value="solomon islander">Solomon Islander</option>
+        <option value="somali">Somali</option>
+        <option value="south african">South African</option>
+        <option value="south korean">South Korean</option>
+        <option value="spanish">Spanish</option>
+        <option value="sri lankan">Sri Lankan</option>
+        <option value="sudanese">Sudanese</option>
+        <option value="surinamer">Surinamer</option>
+        <option value="swazi">Swazi</option>
+        <option value="swedish">Swedish</option>
+        <option value="swiss">Swiss</option>
+        <option value="syrian">Syrian</option>
+        <option value="taiwanese">Taiwanese</option>
+        <option value="tajik">Tajik</option>
+        <option value="tanzanian">Tanzanian</option>
+        <option value="thai">Thai</option>
+        <option value="togolese">Togolese</option>
+        <option value="tongan">Tongan</option>
+        <option value="trinidadian or tobagonian">Trinidadian or Tobagonian</option>
+        <option value="tunisian">Tunisian</option>
+        <option value="turkish">Turkish</option>
+        <option value="tuvaluan">Tuvaluan</option>
+        <option value="ugandan">Ugandan</option>
+        <option value="ukrainian">Ukrainian</option>
+        <option value="uruguayan">Uruguayan</option>
+        <option value="uzbekistani">Uzbekistani</option>
+        <option value="venezuelan">Venezuelan</option>
+        <option value="vietnamese">Vietnamese</option>
+        <option value="welsh">Welsh</option>
+        <option value="yemenite">Yemenite</option>
+        <option value="zambian">Zambian</option>
+        <option value="zimbabwean">Zimbabwean</option>
+    </select>
+    </div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
@@ -248,65 +441,26 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
+    //On load
+    $(document).ready(function () {
+        //select2
+        $("#account_type").select2({placeholder: "Select an option"});
+        $("#gender").select2({placeholder: "Select an option"});
+        $("#nationality").select2({placeholder: "Select an option"});
+
+    });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
-	$(function () {
-	$('#dateofbirth').datepicker({
-		dateFormat: "yy-mm-dd",
-		defaultDate: new Date(1993, 00, 01)
-	});
+	$('#dateofbirth').datetimepicker({
+        defaultDate: "2015-03-06"
 	});
 
-	//Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480){
-			$('.btn-group').removeClass('btn-group-justified');
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		} else {
-			$('.btn-group').addClass('btn-group-justified');
-		}
-	})
-	.resize();
-
-    //Global variable
-	var account_type;
-	var gender;
-	var studentno;
-	var degree;
-
-	//Setting variable value
-	$('.btn-group > .account_type').click(function(){
-		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
-
-		if(account_type === 'Student') {
-			$('label[for="studentno"]').show();
-			$('#studentno').show();
-			$('label[for="degree"]').show();
-			$('#degree').show();
-		}
-		if(account_type === 'Lecturer') {
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-		if(account_type === 'Admin') {
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-
-	});
-
-    //Setting variable value
-	$('.btn-group > .gender').click(function(){
-		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
-	});
+    var studentno;
+    var degree;
+    var fees;
 
 	//Creating record
     $("#FormSubmit").click(function (e) {
@@ -314,23 +468,26 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
-	var account_type_check = $(".account_type");
-	if (account_type_check.hasClass('active')) {
+    var account_type_check = $('#account_type:selected').html();
+    if (account_type_check === '') {
+        $("label[for='account_type']").empty().append("Please select an option.");
+        $("label[for='account_type']").removeClass("feedback-happy");
+        $("label[for='account_type']").addClass("feedback-sad");
+        $("[aria-owns='select2-account_type-results']").removeClass("input-happy");
+        $("[aria-owns='select2-account_type-results']").addClass("input-sad");
+        $("[aria-owns='select2-account_type-results']").focus();
+        hasError  = true;
+        return false;
+    }
+    else {
         $("label[for='account_type']").empty().append("All good!");
         $("label[for='account_type']").removeClass("feedback-sad");
         $("label[for='account_type']").addClass("feedback-happy");
-        $(".btn-group > .account_type").removeClass("input-sad");
-        $(".btn-group > .account_type").addClass("input-happy");
-	}
-	else {
-        $("label[for='account_type']").empty().append("Please select an account type.");
-        $("label[for='account_type']").removeClass("feedback-happy");
-        $("label[for='account_type']").addClass("feedback-sad");
-        $(".btn-group > .account_type").removeClass("input-happy");
-        $(".btn-group > .account_type").addClass("input-sad");
-		hasError  = true;
-		return false;
-	}
+        $("[aria-owns='select2-account_type-results']").removeClass("input-sad");
+        $("[aria-owns='select2-account_type-results']").addClass("input-happy");
+    }
+
+    var account_type = $('#account_type:selected').html();
 
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
@@ -368,27 +525,31 @@ include '../includes/session.php';
         $("#surname").addClass("input-happy");
 	}
 
-	var gender_check = $(".gender");
-	if (gender_check.hasClass('active')) {
+    var gender_check = $('#gender:selected').html();
+    if (gender_check === '') {
+        $("label[for='gender']").empty().append("Please select an option.");
+        $("label[for='gender']").removeClass("feedback-happy");
+        $("label[for='gender']").addClass("feedback-sad");
+        $("[aria-owns='select2-gender-results']").removeClass("input-happy");
+        $("[aria-owns='select2-gender-results']").addClass("input-sad");
+        $("[aria-owns='select2-gender-results']").focus();
+        hasError  = true;
+        return false;
+    }
+    else {
         $("label[for='gender']").empty().append("All good!");
         $("label[for='gender']").removeClass("feedback-sad");
         $("label[for='gender']").addClass("feedback-happy");
-        $(".btn-group > .gender").removeClass("input-sad");
-        $(".btn-group > .gender").addClass("input-happy");
-	}
-	else {
-        $("label[for='gender']").empty().append("Please select an gender.");
-        $("label[for='gender']").removeClass("feedback-happy");
-        $("label[for='gender']").addClass("feedback-sad");
-        $(".btn-group > .gender").removeClass("input-happy");
-        $(".btn-group > .gender").addClass("input-sad");
-		hasError  = true;
-		return false;
-	}
+        $("[aria-owns='select2-gender-results']").removeClass("input-sad");
+        $("[aria-owns='select2-gender-results']").addClass("input-happy");
+    }
+
+    var gender = $('#gender:selected').html();
 
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
+        fees = $("#fees").val();
 
 		if(studentno === '') {
             $("label[for='studentno']").empty().append("Please enter a student number.");
@@ -460,9 +621,26 @@ include '../includes/session.php';
             $("#degree").removeClass("input-sad");
             $("#degree").addClass("input-happy");
 		}
+        if(fees === '') {
+            $("label[for='fees']").empty().append("Please enter an amount.");
+            $("label[for='fees']").removeClass("feedback-happy");
+            $("label[for='fees']").addClass("feedback-sad");
+            $("#fees").removeClass("input-happy");
+            $("#fees").addClass("input-sad");
+            $("#fees").focus();
+            hasError  = true;
+            return false;
+        } else {
+            $("label[for='fees']").empty().append("All good!");
+            $("label[for='fees']").removeClass("feedback-sad");
+            $("label[for='fees']").addClass("feedback-happy");
+            $("#fees").removeClass("input-sad");
+            $("#fees").addClass("input-happy");
+        }
 	} else {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
+        fees = $("#fees").val();
 	}
 
 	var email = $("#email").val();
@@ -598,7 +776,24 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'account_type=' + account_type + '&firstname2=' + firstname + '&surname2=' + surname + '&gender2=' + gender + '&studentno=' + studentno + '&degree=' + degree + '&email5=' + email + '&password4=' + password + '&nationality1=' + nationality + '&dateofbirth1=' + dateofbirth + '&phonenumber1=' + phonenumber + '&address11=' + address1 + '&address21=' + address2 + '&town1=' + town + '&city1=' + city + '&country1=' + country + '&postcode1=' + postcode,
+    data:'create_account_type=' + account_type +
+         '&create_firstname='   + firstname +
+         '&create_surname='     + surname +
+         '&create_gender='      + gender +
+         '&create_studentno='   + studentno +
+         '&create_degree='      + degree +
+         '&create_fees='        + fees +
+         '&create_email='       + email +
+         '&create_password='    + password +
+         '&create_nationality=' + nationality +
+         '&create_dateofbirth=' + dateofbirth +
+         '&create_phonenumber=' + phonenumber +
+         '&create_address1='   + address1 +
+         '&create_address2='   + address2 +
+         '&create_town='       + town +
+         '&create_city='       + city +
+         '&create_country='    + country +
+         '&create_postcode='   + postcode,
     success:function(){
         $("#error1").hide();
 		$("#error").hide();

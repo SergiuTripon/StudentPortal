@@ -270,7 +270,6 @@ include '../includes/session.php';
 	var hasError = false;
 
     //Lectures
-
     var lecture_moduleid_check = $('#lecture_moduleid :selected').html();
     if (lecture_moduleid_check === '') {
         $("label[for='lecture_moduleid']").empty().append("Please select a module.");
