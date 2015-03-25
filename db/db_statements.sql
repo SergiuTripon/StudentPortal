@@ -174,7 +174,6 @@ CREATE TABLE `system_event` (
 	`event_to` DATETIME NOT NULL,
 	`event_amount` NUMERIC(15,2) NOT NULL,
 	`event_ticket_no` INT(11) NOT NULL,
-	`event_category` VARCHAR(10) NOT NULL,
 	`event_status` VARCHAR(10) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME
@@ -284,7 +283,6 @@ CREATE TABLE `user_task` (
 	`task_class` VARCHAR(15) NOT NULL,
 	`task_startdate` DATETIME NOT NULL,
 	`task_duedate` DATETIME NOT NULL,
-	`task_category` VARCHAR(10) NOT NULL,
 	`task_status` VARCHAR(10) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
