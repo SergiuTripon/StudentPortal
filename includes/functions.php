@@ -461,7 +461,7 @@ function GetDashboardData() {
 	$stmt7->bind_result($taskid);
 	$stmt7->fetch();
 
-	$stmt8 = $mysqli->prepare("SELECT eventid FROM system_event_booked WHERE userid = ?");
+	$stmt8 = $mysqli->prepare("SELECT eventid FROM system_event_booked WHERE userid = ? AND DATE(event_to) > DATE(NOW())");
 	$stmt8->bind_param('i', $session_userid);
 	$stmt8->execute();
 	$stmt8->store_result();
