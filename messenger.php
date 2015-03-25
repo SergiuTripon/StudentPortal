@@ -482,22 +482,22 @@ include 'includes/session.php';
 	});
 	});
 
-    //Delete sent message
-    $("body").on("click", ".delete-sent-message-button", function(e) {
+   //Delete received message
+    $("body").on("click", ".delete-received-message-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var sentMessageToDelete = clickedID[1];
+    var receivedMessageToDelete = clickedID[1];
 
-    alert(sentMessageToDelete);
+    alert(receivedMessageToDelete);
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'sentMessageToDelete='+ sentMessageToDelete,
+	data:'receivedMessageToDelete='+ receivedMessageToDelete,
 	success:function(){
-        $('#message-'+sentMessageToDelete).hide();
+        $('#message-'+receivedMessageToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#delete-question').hide();
@@ -515,22 +515,22 @@ include 'includes/session.php';
 	});
     });
 
-   //Delete received message
-    $("body").on("click", ".delete-received-message-button", function(e) {
+    //Delete sent message
+    $("body").on("click", ".delete-sent-message-button", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var receivedMessageToDelete = clickedID[1];
+    var sentMessageToDelete = clickedID[1];
 
-    alert(receivedMessageToDelete);
+    alert(sentMessageToDelete);
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'receivedMessageToDelete='+ receivedMessageToDelete,
+	data:'sentMessageToDelete='+ sentMessageToDelete,
 	success:function(){
-        $('#message-'+receivedMessageToDelete).hide();
+        $('#message-'+sentMessageToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#delete-question').hide();

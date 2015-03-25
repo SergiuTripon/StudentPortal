@@ -2907,21 +2907,6 @@ function SetMessageRead () {
 	$stmt1->close();
 }
 
-//DeleteSentMessage function
-function DeleteSentMessage () {
-
-    global $mysqli;
-    global $session_userid;
-
-    $sentMessageToDelete = filter_input(INPUT_POST, 'sentMessageToDelete', FILTER_SANITIZE_STRING);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM user_message_sent WHERE messageid=? AND message_from=?");
-    $stmt1->bind_param('ii', $sentMessageToDelete, $session_userid);
-    $stmt1->execute();
-    $stmt1->close();
-
-}
-
 //DeleteReceivedMessage function
 function DeleteReceivedMessage () {
 
@@ -2932,6 +2917,21 @@ function DeleteReceivedMessage () {
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_message_received WHERE messageid=? AND message_to=?");
     $stmt1->bind_param('ii', $receivedFeedbackToDelete, $session_userid);
+    $stmt1->execute();
+    $stmt1->close();
+
+}
+
+//DeleteSentMessage function
+function DeleteSentMessage () {
+
+    global $mysqli;
+    global $session_userid;
+
+    $sentMessageToDelete = filter_input(INPUT_POST, 'sentMessageToDelete', FILTER_SANITIZE_STRING);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_message_sent WHERE messageid=? AND message_from=?");
+    $stmt1->bind_param('ii', $sentMessageToDelete, $session_userid);
     $stmt1->execute();
     $stmt1->close();
 
