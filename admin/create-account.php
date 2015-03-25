@@ -475,13 +475,13 @@ include '../includes/session.php';
             $('label[for="degree"]').show();
             $('#degree').show();
         }
-        if(account_type === 'Lecturer') {
+        if(account_type === 'Academic staff') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
             $('label[for="degree"]').hide();
             $('#degree').hide();
         }
-        if(account_type === 'Admin') {
+        if(account_type === 'Administrator') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
             $('label[for="degree"]').hide();
