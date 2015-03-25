@@ -466,7 +466,7 @@ include '../includes/session.php';
     var fees;
 
     $('#account_type').on("change", function (e) {
-        account_type = $('#account_type:selected').html();
+        account_type = $('#account_type :selected').html();
 
         alert(account_type);
 
