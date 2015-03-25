@@ -500,7 +500,7 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
-    var account_type_check = $('#account_type:selected').html();
+    var account_type_check = $('#account_type :selected').html();
     if (account_type_check === '') {
         $("label[for='account_type']").empty().append("Please select an option.");
         $("label[for='account_type']").removeClass("feedback-happy");
@@ -519,7 +519,7 @@ include '../includes/session.php';
         $("[aria-owns='select2-account_type-results']").addClass("input-happy");
     }
 
-    var account_type = $('#account_type: selected').html();
+    var account_type = $('#account_type :selected').html();
 
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
@@ -557,7 +557,7 @@ include '../includes/session.php';
         $("#surname").addClass("input-happy");
 	}
 
-    var gender_check = $('#gender:selected').html();
+    var gender_check = $('#gender :selected').html();
     if (gender_check === '') {
         $("label[for='gender']").empty().append("Please select an option.");
         $("label[for='gender']").removeClass("feedback-happy");
@@ -576,7 +576,7 @@ include '../includes/session.php';
         $("[aria-owns='select2-gender-results']").addClass("input-happy");
     }
 
-    var gender = $('#gender:selected').html();
+    var gender = $('#gender :selected').html();
 
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
