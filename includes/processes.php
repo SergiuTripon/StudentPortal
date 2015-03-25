@@ -591,6 +591,7 @@ elseif (isset(
     $_POST['create_account_gender'],
     $_POST['create_account_studentno'],
     $_POST['create_account_degree'],
+    $_POST['create_account_fees'],
     $_POST['create_account_email'],
     $_POST['create_account_password'],
     $_POST['create_account_nationality'],

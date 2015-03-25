@@ -776,24 +776,24 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'create_account_type=' + account_type +
-         '&create_firstname='   + firstname +
-         '&create_surname='     + surname +
-         '&create_gender='      + gender +
-         '&create_studentno='   + studentno +
-         '&create_degree='      + degree +
-         '&create_fees='        + fees +
-         '&create_email='       + email +
-         '&create_password='    + password +
-         '&create_nationality=' + nationality +
-         '&create_dateofbirth=' + dateofbirth +
-         '&create_phonenumber=' + phonenumber +
-         '&create_address1='   + address1 +
-         '&create_address2='   + address2 +
-         '&create_town='       + town +
-         '&create_city='       + city +
-         '&create_country='    + country +
-         '&create_postcode='   + postcode,
+    data:'create_account_account_type=' + account_type +
+         '&create_account_firstname='   + firstname +
+         '&create_account_surname='     + surname +
+         '&create_account_gender='      + gender +
+         '&create_account_studentno='   + studentno +
+         '&create_account_degree='      + degree +
+         '&create_account_fees='        + fees +
+         '&create_account_email='       + email +
+         '&create_account_password='    + password +
+         '&create_account_nationality=' + nationality +
+         '&create_account_dateofbirth=' + dateofbirth +
+         '&create_account_phonenumber=' + phonenumber +
+         '&create_account_address1='    + address1 +
+         '&create_account_address2='    + address2 +
+         '&create_account_town='        + town +
+         '&create_account_city='        + city +
+         '&create_account_country='     + country +
+         '&create_account_postcode='    + postcode,
     success:function(){
         $("#error1").hide();
 		$("#error").hide();
