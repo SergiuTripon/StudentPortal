@@ -454,7 +454,7 @@ function GetDashboardData() {
 
 	$task_status = 'active';
 
-	$stmt7 = $mysqli->prepare("SELECT taskid FROM user_task WHERE userid = ? AND task_status = ?");
+	$stmt7 = $mysqli->prepare("SELECT taskid FROM user_task WHERE userid = ? AND task_status = ? AND DATE(task_duedate) > DATE(NOW())");
 	$stmt7->bind_param('is', $session_userid, $task_status);
 	$stmt7->execute();
 	$stmt7->store_result();
