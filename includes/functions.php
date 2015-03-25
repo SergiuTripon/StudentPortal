@@ -1483,6 +1483,7 @@ function CollectBook() {
     $stmt3->bind_result($userid, $book_name, $book_author);
     $stmt3->fetch();
 
+    $book_class = 'event-danger';
     $add14days = new DateTime($created_on);
     $add14days->add(new DateInterval('P14D'));
     $toreturn_on = $add14days->format('Y-m-d');
@@ -1491,8 +1492,8 @@ function CollectBook() {
     $isRequested = 0;
     $loan_status = 'ongoing';
 
-    $stmt1 = $mysqli->prepare("INSERT INTO system_book_loaned (userid, bookid, toreturn_on, returned_on, isReturned, isRequested, loan_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt1->bind_param('iissiiss', $userid, $bookToCollect, $toreturn_on, $returned_on, $isReturned, $isRequested, $loan_status, $created_on);
+    $stmt1 = $mysqli->prepare("INSERT INTO system_book_loaned (userid, bookid, book_class, toreturn_on, returned_on, isReturned, isRequested, loan_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt1->bind_param('iisssiiss', $userid, $bookToCollect, $book_class, $toreturn_on, $returned_on, $isReturned, $isRequested, $loan_status, $created_on);
     $stmt1->execute();
     $stmt1->close();
 
@@ -1616,6 +1617,49 @@ function ReturnBook() {
         $stmt7->execute();
         $stmt7->close();
 
+        $stmt8 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+        $stmt8->bind_param('i', $userid);
+        $stmt8->execute();
+        $stmt8->store_result();
+        $stmt8->bind_result($email, $firstname, $surname, $studentno);
+        $stmt8->fetch();
+        $stmt8->close();
+
+        $stmt9 = $mysqli->prepare("SELECT r.userid, b.book_name, b.book_author FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.bookid=? ORDER BY r.reservationid DESC LIMIT 1");
+        $stmt9->bind_param('i', $bookToReturn);
+        $stmt3->execute();
+        $stmt9->store_result();
+        $stmt9->bind_result($userid, $book_name, $book_author);
+        $stmt9->fetch();
+
+        //Creating email
+        $subject = 'Reservation confirmation';
+
+        $message = '<html>';
+        $message .= '<body>';
+        $message .= '<p>Just wanted to let you know that the book you requested has now been reserved! Below, you can find the reservation summary:</p>';
+        $message .= '<table rules="all" cellpadding="10" style="color: #333333; background-color: #F0F0F0; border: 1px solid #CCCCCC;">';
+        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$firstname</td></tr>";
+        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $surname</td></tr>";
+        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $email</td></tr>";
+        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $studentno</td></tr>";
+        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_name</td></tr>";
+        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_author</td></tr>";
+        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Reservation date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $updated_on</td></tr>";
+        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Collect by:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $tocollect_on</td></tr>";
+        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Reservation status:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $reservation_status</td></tr>";
+        $message .= '</table>';
+        $message .= '</body>';
+        $message .= '</html>';
+
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+        $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+        $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+        mail($email, $subject, $message, $headers);
+
     } else {
         $stmt3->close();
         exit();
@@ -1723,7 +1767,7 @@ function SetRequestRead () {
 }
 
 //ApproveRequest function
-function ApproveRequest() {
+/*function ApproveRequest() {
 
     global $mysqli;
     global $updated_on;
@@ -1758,7 +1802,7 @@ function ApproveRequest() {
     $stmt5->bind_param('iii', $isReserved, $isRequested, $bookid);
     $stmt5->execute();
     $stmt5->close();
-}
+}*/
 
 //CreateBook function
 function CreateBook() {
@@ -2032,13 +2076,6 @@ function CreateTask () {
     $task_url = filter_input(INPUT_POST, 'create_task_url', FILTER_SANITIZE_STRING);
     $task_startdate = filter_input(INPUT_POST, 'create_task_startdate', FILTER_SANITIZE_STRING);
     $task_duedate = filter_input(INPUT_POST, 'create_task_duedate', FILTER_SANITIZE_STRING);
-    $task_category = filter_input(INPUT_POST, 'create_task_category', FILTER_SANITIZE_STRING);
-
-    $task_category = strtolower($task_category);
-
-    if ($task_category == 'university') { $task_class = 'event-important'; }
-    if ($task_category == 'personal') { $task_class = 'event-warning'; }
-    if ($task_category == 'other') { $task_class = 'event-success'; }
 
     // Check if task exists
     $stmt1 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name = ? AND userid = ? LIMIT 1");
@@ -2056,10 +2093,11 @@ function CreateTask () {
 
     } else {
 
+        $task_class = 'event-important';
         $task_status = 'active';
 
-	    $stmt2 = $mysqli->prepare("INSERT INTO user_task (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_category, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-	    $stmt2->bind_param('isssssssss', $session_userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $task_status, $created_on);
+	    $stmt2 = $mysqli->prepare("INSERT INTO user_task (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	    $stmt2->bind_param('issssssss', $session_userid, $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_status, $created_on);
 	    $stmt2->execute();
 	    $stmt2->close();
 
@@ -2079,14 +2117,6 @@ function UpdateTask() {
 	$task_url = filter_input(INPUT_POST, 'update_task_url', FILTER_SANITIZE_STRING);
 	$task_startdate = filter_input(INPUT_POST, 'update_task_startdate', FILTER_SANITIZE_STRING);
 	$task_duedate = filter_input(INPUT_POST, 'update_task_duedate', FILTER_SANITIZE_STRING);
-	$task_category = filter_input(INPUT_POST, 'update_task_category', FILTER_SANITIZE_STRING);
-
-	$task_category = strtolower($task_category);
-
-	if ($task_category == 'university') { $task_class = 'event-important'; }
-	if ($task_category == 'work') { $task_class = 'event-info'; }
-	if ($task_category == 'personal') { $task_class = 'event-warning'; }
-	if ($task_category == 'other') { $task_class = 'event-success'; }
 
 	$stmt1 = $mysqli->prepare("SELECT task_name from user_task where taskid = ?");
 	$stmt1->bind_param('i', $taskid);
@@ -2097,8 +2127,10 @@ function UpdateTask() {
 
 	if ($db_taskname == $task_name) {
 
-	    $stmt2 = $mysqli->prepare("UPDATE user_task SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-	    $stmt2->bind_param('sssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
+        $task_class = 'event-important';
+
+	    $stmt2 = $mysqli->prepare("UPDATE user_task SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
+	    $stmt2->bind_param('ssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $updated_on, $taskid);
 	    $stmt2->execute();
 	    $stmt2->close();
 
@@ -2119,8 +2151,10 @@ function UpdateTask() {
 
         } else {
 
-        $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, task_category=?, updated_on=? WHERE taskid = ?");
-        $stmt4->bind_param('ssssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $task_category, $updated_on, $taskid);
+        $task_class = 'event-important';
+
+        $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
+        $stmt4->bind_param('sssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $updated_on, $taskid);
         $stmt4->execute();
         $stmt4->close();
 
@@ -2249,8 +2283,10 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("INSERT INTO system_event_booked (userid, eventid, event_amount_paid, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?)");
-	$stmt2->bind_param('iiiis', $userid, $item_number1, $product_amount, $quantity1, $created_on);
+    $event_class = 'event-success';
+
+	$stmt2 = $mysqli->prepare("INSERT INTO system_event_booked (userid, eventid, event_amount_paid, ticket_quantity, event_class, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt2->bind_param('iiiiss', $userid, $item_number1, $product_amount, $quantity1, $event_class, $created_on);
 	$stmt2->execute();
 	$stmt2->close();
 
