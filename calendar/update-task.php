@@ -5,11 +5,11 @@ if (isset($_GET["id"])) {
 
 $taskToUpdate = $_GET["id"];
 
-$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%Y-%m-%d %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%Y-%m-%d %H:%i') as task_duedate, task_category FROM user_task WHERE taskid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%Y-%m-%d %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%Y-%m-%d %H:%i') as task_duedate FROM user_task WHERE taskid = ? LIMIT 1");
 $stmt1->bind_param('i', $taskToUpdate);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($taskid, $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $task_category);
+$stmt1->bind_result($taskid, $task_name, $task_notes, $task_url, $task_startdate, $task_duedate);
 $stmt1->fetch();
 $stmt1->close();
 
@@ -80,17 +80,6 @@ header('Location: ../calendar/');
 	</div>
 	</div>
 
-	<div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="tutorial_day">Day<span class="field-required">*</span></label>
-    <select class="form-control" name="task_category" id="task_category" style="width: 100%;">
-        <option <?php if($task_category == "university") echo "selected"; ?>>Monday</option>
-        <option <?php if($task_category == "personal") echo "selected"; ?>>Tuesday</option>
-        <option <?php if($task_category == "other") echo "selected"; ?>>Wednesday</option>
-    </select>
-    </div>
-    </div>
-
 	<hr class="hr-custom">
 
     <div class="text-center">
@@ -141,10 +130,6 @@ header('Location: ../calendar/');
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function () {
-        //select2
-        $("#task_category").select2({placeholder: "Select an option"});
-    });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});	
@@ -221,8 +206,6 @@ header('Location: ../calendar/');
         $("label[for='task_duedate']").addClass("feedback-happy");
         $("#task_duedate").addClass("input-happy");
 	}
-
-    var task_category = $("#task_category option:selected").html();
 	
 	if(hasError == false){
     jQuery.ajax({
@@ -233,8 +216,7 @@ header('Location: ../calendar/');
          '&update_task_notes=' + task_notes +
          '&update_task_url=' + task_url +
          '&update_task_startdate=' + task_startdate +
-         '&update_task_duedate=' + task_duedate +
-         '&update_task_category=' + task_category,
+         '&update_task_duedate=' + task_duedate,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
