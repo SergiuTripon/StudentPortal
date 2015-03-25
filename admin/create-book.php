@@ -200,7 +200,9 @@ include '../includes/session.php';
 	<script>
 
     // Date Time Picker
-    $('#book_publish_date').datepicker({ dateFormat: "yy-mm-dd", controlType: 'select' });
+    $('#book_publish_date').datetimepicker({
+        format: 'YYYY/MM/DD'
+    });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
@@ -416,7 +418,7 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'create_book_name='          + book_name +
+    data:'create_book_name='           + book_name +
          '&create_book_notes='         + book_notes +
          '&create_book_author='        + book_author +
          '&create_book_copy_no='       + book_copy_no +
