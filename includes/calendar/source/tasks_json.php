@@ -5,7 +5,7 @@ header("Cache-Control: no-cache, must-revalidate");
 
 $sql = 'SELECT t.taskid, t.task_name, t.task_class, t.task_startdate, t.task_duedate
 FROM user_task t
-WHERE t.userid = "'.$session_userid.'" AND t.task_status = "active"
+WHERE t.userid = "'.$session_userid.'" AND t.task_status = "active" AND t.task_duedate > NOW()
 
 UNION ALL
 
