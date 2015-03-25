@@ -133,6 +133,7 @@ include 'includes/session.php';
 			<td data-title="Sent on">'.$message_sent_on.'</td>
 			<div class="btn-group btn-action">
             <td data-title="Action">
+            <div class="btn-group btn-action">
             <a class="btn btn-primary btn-md" href="../messenger/message-user?id='.$userid.'">Reply</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
