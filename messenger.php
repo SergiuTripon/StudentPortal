@@ -455,6 +455,68 @@ include 'includes/session.php';
     }
 	});
 	});
+
+    //Delete sent message
+    $("body").on("click", ".delete-sent-message-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var receivedMessageToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'receivedMessageToDelete='+ receivedMessageToDelete,
+	success:function(){
+        $('#message-'+receivedMessageToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-feedback-question').hide();
+        $('#delete-feedback-confirmation').show();
+        $('#delete-feedback-hide').hide();
+        $('#delete-feedback-success-button').show();
+        $("#delete-feedback-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+   //Delete received message
+    $("body").on("click", ".delete-received-message-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var receivedMessageToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'receivedMessageToDelete='+ receivedMessageToDelete,
+	success:function(){
+        $('#message-'+receivedMessageToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-message-question').hide();
+        $('#delete-message-confirmation').show();
+        $('#delete-message-hide').hide();
+        $('#delete-message-success-button').show();
+        $("#delete-message-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
 	</script>
 
 </body>

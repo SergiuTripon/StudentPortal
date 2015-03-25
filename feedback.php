@@ -1022,7 +1022,7 @@ include 'includes/session.php';
 	});
     });
 
-       //Delete received feedback
+   //Delete received feedback
     $("body").on("click", ".delete-received-feedback-button", function(e) {
     e.preventDefault();
 
