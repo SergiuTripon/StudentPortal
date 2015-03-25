@@ -487,24 +487,24 @@ include 'includes/session.php';
     e.preventDefault();
 
     var clickedID = this.id.split('-');
-    var receivedMessageToDelete = clickedID[1];
+    var sentMessageToDelete = clickedID[1];
 
-    alert(receivedMessageToDelete);
+    alert(sentMessageToDelete);
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'receivedMessageToDelete='+ receivedMessageToDelete,
+	data:'sentMessageToDelete='+ sentMessageToDelete,
 	success:function(){
-        $('#message-'+receivedMessageToDelete).hide();
+        $('#message-'+sentMessageToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-message-question').hide();
-        $('#delete-message-confirmation').show();
-        $('#delete-message-hide').hide();
-        $('#delete-message-success-button').show();
-        $("#delete-message-success-button").click(function () {
+        $('#delete-question').hide();
+        $('#delete-confirmation').show();
+        $('#delete-hide').hide();
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
             location.reload();
         });
 	},
@@ -522,6 +522,8 @@ include 'includes/session.php';
     var clickedID = this.id.split('-');
     var receivedMessageToDelete = clickedID[1];
 
+    alert(receivedMessageToDelete);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -531,11 +533,11 @@ include 'includes/session.php';
         $('#message-'+receivedMessageToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-message-question').hide();
-        $('#delete-message-confirmation').show();
-        $('#delete-message-hide').hide();
-        $('#delete-message-success-button').show();
-        $("#delete-message-success-button").click(function () {
+        $('#delete-question').hide();
+        $('#delete-confirmation').show();
+        $('#delete-hide').hide();
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
             location.reload();
         });
 	},
