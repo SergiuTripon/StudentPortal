@@ -67,7 +67,7 @@ include 'includes/session.php';
 	$firstname = $row["firstname"];
 	$surname = $row["surname"];
 
-	echo '<tr id="book-'.$userid.'">
+	echo '<tr>
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
@@ -126,7 +126,7 @@ include 'includes/session.php';
     $gender = $row["gender"];
     $gender = ucfirst($gender);
 
-	echo '<tr id="'.$messageid.'">
+	echo '<tr id="message-'.$messageid.'">
 
 			<td data-title="From"><a href="#view-'.$userid.'" data-toggle="modal">'.$message_from_firstname.' '.$message_from_surname.'</a></td>
 			<td data-title="Subject"><a href="#view-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
@@ -288,7 +288,7 @@ include 'includes/session.php';
     $gender = $row["gender"];
     $gender = ucfirst($gender);
 
-	echo '<tr id="'.$messageid.'">
+	echo '<tr id="message-'.$messageid.'">
 
 			<td data-title="To"><a href="#view-'.$userid.'" data-toggle="modal">'.$message_to_firstname.' '.$message_to_surname.'</a></td>
 			<td data-title="Subject"><a href="#view-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
@@ -488,6 +488,8 @@ include 'includes/session.php';
 
     var clickedID = this.id.split('-');
     var receivedMessageToDelete = clickedID[1];
+
+    alert(receivedMessageToDelete);
 
 	jQuery.ajax({
 	type: "POST",
