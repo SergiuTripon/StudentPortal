@@ -65,18 +65,16 @@ if ($dateofbirth == "0000-00-00") {
 
 	<input type="hidden" name="userid" id="userid" value="<?php echo $userToUpdate; ?>">
 
-	<label for="account_type">Account type - select below<span class="field-required">*</span></label>
-	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default btn-lg account_type <?php if($account_type == "student") echo "active"; ?>">
-		<input type="radio" name="options" id="option1" autocomplete="off"> Student
-	</label>
-	<label class="btn btn-default btn-lg account_type <?php if($account_type == "lecturer") echo "active"; ?>">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Lecturer
-	</label>
-	<label class="btn btn-default btn-lg account_type <?php if($account_type == "admin") echo "active"; ?>">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Admin
-	</label>
-	</div>
+	<div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="lecture_day">Account type<span class="field-required">*</span></label>
+    <select class="form-control" name="lecture_day" id="lecture_day" style="width: 100%;">
+        <option <?php if($account_type == "student") echo "selected"; ?>>Monday</option>
+        <option <?php if($account_type == "academic_staff") echo "selected"; ?>>Tuesday</option>
+        <option <?php if($account_type == "administrator") echo "selected"; ?>>Wednesday</option>
+    </select>
+    </div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width pl0">
