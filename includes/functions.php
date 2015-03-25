@@ -1485,7 +1485,7 @@ function CollectBook() {
     $stmt3->bind_result($userid, $book_name, $book_author);
     $stmt3->fetch();
 
-    $book_class = 'event-danger';
+    $book_class = 'event-success';
     $add14days = new DateTime($created_on);
     $add14days->add(new DateInterval('P14D'));
     $toreturn_on = $add14days->format('Y-m-d');
@@ -2095,7 +2095,7 @@ function CreateTask () {
 
     } else {
 
-        $task_class = 'event-important';
+        $task_class = 'event-info';
         $task_status = 'active';
 
 	    $stmt2 = $mysqli->prepare("INSERT INTO user_task (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -2285,7 +2285,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-    $event_class = 'event-success';
+    $event_class = 'event-danger';
 
 	$stmt2 = $mysqli->prepare("INSERT INTO system_event_booked (userid, eventid, event_amount_paid, ticket_quantity, event_class, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
 	$stmt2->bind_param('iiiiss', $userid, $item_number1, $product_amount, $quantity1, $event_class, $created_on);
