@@ -204,11 +204,11 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'task_name='       + task_name +
-         '&task_notes='     + task_notes +
-         '&task_url='       + task_url +
-         '&task_startdate=' + task_startdate +
-         '&task_duedate='   + task_duedate,
+    data:'create_task_name='       + task_name +
+         '&create_task_notes='     + task_notes +
+         '&create_task_url='       + task_url +
+         '&create_task_startdate=' + task_startdate +
+         '&create_task_duedate='   + task_duedate,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
