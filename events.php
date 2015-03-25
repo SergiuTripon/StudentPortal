@@ -87,7 +87,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_event WHERE event_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -99,7 +99,6 @@ include 'includes/session.php';
 	$event_to = $row["event_to"];
 	$event_amount = $row["event_amount"];
 	$event_ticket_no = $row["event_ticket_no"];
-	$event_category = ucfirst($row["event_category"]);
 
 	echo '<tr id="task-'.$row["eventid"].'">
 
@@ -110,7 +109,6 @@ include 'includes/session.php';
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
-			<td data-title="Category">'.$event_category.'</td>
 			<td data-title="Action">'.($event_ticket_no === '0' ? "Sold Out" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</span></a>").'</td>
 			</tr>';
 	}
@@ -275,7 +273,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_event WHERE event_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -285,7 +283,6 @@ include 'includes/session.php';
 	$event_to = $row["event_to"];
 	$event_amount = $row["event_amount"];
 	$event_ticket_no = $row["event_ticket_no"];
-	$event_category = ucfirst($row["event_category"]);
 
 	echo '<tr id="event-'.$row["eventid"].'">
 
@@ -294,7 +291,6 @@ include 'includes/session.php';
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
-			<td data-title="Category">'.$event_category.'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$eventid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#deactivate-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
 			</tr>
@@ -373,7 +369,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no, event_category FROM system_event WHERE event_status = 'inactive'");
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status = 'inactive'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -383,7 +379,6 @@ include 'includes/session.php';
 	$event_to = $row["event_to"];
 	$event_amount = $row["event_amount"];
 	$event_ticket_no = $row["event_ticket_no"];
-	$event_category = ucfirst($row["event_category"]);
 
 	echo '<tr id="event-'.$row["eventid"].'">
 
@@ -392,7 +387,6 @@ include 'includes/session.php';
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
-			<td data-title="Category">'.$event_category.'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#reactivate-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Reactivate</span></a></td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#delete-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Delete</span></a></td>
 			</tr>
