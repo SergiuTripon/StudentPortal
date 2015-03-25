@@ -463,7 +463,7 @@ function GetDashboardData() {
 
     $event_status = 'active';
 
-	$stmt8 = $mysqli->prepare("SELECT eventid FROM system_event_booked b LEFT JOIN system_event e ON b.eventid = e.eventid WHERE b.userid = ? AND e.event_status=? AND DATE(e.event_to) > DATE(NOW())");
+	$stmt8 = $mysqli->prepare("SELECT b.eventid FROM system_event_booked b LEFT JOIN system_event e ON b.eventid = e.eventid WHERE b.userid = ? AND e.event_status=? AND DATE(e.event_to) > DATE(NOW())");
 	$stmt8->bind_param('is', $session_userid, $event_status);
 	$stmt8->execute();
 	$stmt8->store_result();
