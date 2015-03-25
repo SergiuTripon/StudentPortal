@@ -17,6 +17,7 @@ DROP TABLE user_result;
 DROP TABLE user_module;
 DROP TABLE system_module;
 DROP TABLE system_book_reserved;
+DROP TABLE system_book_loaned;
 DROP TABLE system_book_requested;
 DROP TABLE system_book;
 DROP TABLE user_task;
