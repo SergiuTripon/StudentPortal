@@ -138,7 +138,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
             <div class="close"><i class="fa fa fa-comments"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$message_to_firstname.' '.$message_to_surname.'</h4>
+            <h4 class="modal-title" id="modal-custom-label">'.$message_from_firstname.' '.$message_from_surname.'</h4>
 			</div>
 
 			<div class="modal-body">
