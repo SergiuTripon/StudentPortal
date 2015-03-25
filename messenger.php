@@ -134,7 +134,7 @@ include 'includes/session.php';
 			<div class="btn-group btn-action">
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="/messenger/message-user?id='.$userid.'">Reply</a>
+            <a class="btn btn-primary" href="/messenger/message-user?id='.$userid.'">Allocate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -143,7 +143,7 @@ include 'includes/session.php';
             <li><a href="#delete-message-'.$messageid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-			</td>
+            </td>
 			</tr>
 
 			<div id="view-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
