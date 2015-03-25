@@ -111,7 +111,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT r.message_from, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname FROM user_message_received r LEFT JOIN user_message m ON r.messageid=m.messageid LEFT JOIN user_detail d ON r.message_from=d.userid WHERE r.message_to = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT r.message_from, m.messageid, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname FROM user_message_received r LEFT JOIN user_message m ON r.messageid=m.messageid LEFT JOIN user_detail d ON r.message_from=d.userid WHERE r.message_to = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
