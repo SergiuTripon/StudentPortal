@@ -188,7 +188,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-'.$messageid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-message-'.$messageid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -199,21 +199,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$message_subject.'?</p>
-			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
+			<p id="delete-message-question" class="text-center feedback-sad">Are you sure you want to delete '.$message_subject.'?</p>
+			<p id="delete-message-confirmation" class="text-center feedback-happy" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-hide">
+			<div id="delete-message-hide">
 			<div class="pull-left">
-			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-sent-message-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-message-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -338,7 +338,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-'.$messageid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-message-'.$messageid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -349,21 +349,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$message_subject.'?</p>
-			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
+			<p id="delete-message-question" class="text-center feedback-sad">Are you sure you want to delete '.$message_subject.'?</p>
+			<p id="delete-message-confirmation" class="text-center feedback-happy" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-hide">
+			<div id="delete-message-hide">
 			<div class="pull-left">
-			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-sent-message-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-message-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -472,11 +472,11 @@ include 'includes/session.php';
         $('#message-'+receivedMessageToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-feedback-question').hide();
-        $('#delete-feedback-confirmation').show();
-        $('#delete-feedback-hide').hide();
-        $('#delete-feedback-success-button').show();
-        $("#delete-feedback-success-button").click(function () {
+        $('#delete-message-question').hide();
+        $('#delete-message-confirmation').show();
+        $('#delete-message-hide').hide();
+        $('#delete-message-success-button').show();
+        $("#delete-message-success-button").click(function () {
             location.reload();
         });
 	},
