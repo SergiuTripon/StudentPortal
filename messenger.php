@@ -104,6 +104,7 @@ include 'includes/session.php';
 	<th>From</th>
 	<th>Subject</th>
 	<th>Sent on</th>
+    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -130,6 +131,18 @@ include 'includes/session.php';
 			<td data-title="From"><a href="#view-'.$userid.'" data-toggle="modal">'.$message_from_firstname.' '.$message_from_surname.'</a></td>
 			<td data-title="Subject"><a href="#view-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
+			<div class="btn-group btn-action">
+            <td data-title="Action">
+            <a class="btn btn-primary btn-md" href="../messenger/message-user?id='.$userid.'">Reply</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-message-'.$messageid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+			</td>
 			</tr>
 
 			<div id="view-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
