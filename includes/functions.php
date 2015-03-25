@@ -433,7 +433,7 @@ function GetDashboardData() {
     $book_status = 'active';
     $loan_status = 'ongoing';
 
-	$stmt5 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=? AND l.isReturned=? AND b.book_status=? AND l.loan_status=?");
+	$stmt5 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=? AND l.isReturned=? AND b.book_status=? AND l.loan_status=? AND DATE(l.toreturn_on) > DATE(NOW())");
 	$stmt5->bind_param('iiss', $session_userid, $isReturned, $book_status, $loan_status);
 	$stmt5->execute();
 	$stmt5->store_result();
@@ -461,7 +461,9 @@ function GetDashboardData() {
 	$stmt7->bind_result($taskid);
 	$stmt7->fetch();
 
-	$stmt8 = $mysqli->prepare("SELECT eventid FROM system_event_booked WHERE userid = ? AND DATE(event_to) > DATE(NOW())");
+    $event_status = 'active';
+
+	$stmt8 = $mysqli->prepare("SELECT eventid FROM system_event_booked WHERE userid = ? AND event_status=? AND DATE(event_to) > DATE(NOW())");
 	$stmt8->bind_param('i', $session_userid);
 	$stmt8->execute();
 	$stmt8->store_result();
