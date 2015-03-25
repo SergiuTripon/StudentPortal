@@ -460,9 +460,35 @@ include '../includes/session.php';
         defaultDate: "2015-03-06"
 	});
 
+    var account_type;
     var studentno;
     var degree;
     var fees;
+
+    //Setting variable value
+    $('#account_type').change(function(){
+        account_type = $('#account_type:selected').html();
+
+        if(account_type === 'Student') {
+            $('label[for="studentno"]').show();
+            $('#studentno').show();
+            $('label[for="degree"]').show();
+            $('#degree').show();
+        }
+        if(account_type === 'Lecturer') {
+            $('label[for="studentno"]').hide();
+            $('#studentno').hide();
+            $('label[for="degree"]').hide();
+            $('#degree').hide();
+        }
+        if(account_type === 'Admin') {
+            $('label[for="studentno"]').hide();
+            $('#studentno').hide();
+            $('label[for="degree"]').hide();
+            $('#degree').hide();
+        }
+
+    });
 
 	//Creating record
     $("#FormSubmit").click(function (e) {
