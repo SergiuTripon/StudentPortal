@@ -131,7 +131,6 @@ include 'includes/session.php';
 			<td data-title="From"><a href="#view-'.$userid.'" data-toggle="modal">'.$message_from_firstname.' '.$message_from_surname.'</a></td>
 			<td data-title="Subject"><a href="#view-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
-			<div class="btn-group btn-action">
             <td data-title="Action">
             <div class="btn-group btn-action">
             <a class="btn btn-primary" href="/messenger/message-user?id='.$userid.'">Allocate</a>
