@@ -12,7 +12,7 @@ UNION ALL
 SELECT b.bookid, b.book_name, l.book_class, l.created_on, l.toreturn_on
 FROM system_book_loaned l
 JOIN system_book b ON l.bookid = b.bookid
-WHERE l.userid = "'.$session_userid.'" AND l.isReturned="active" AND l.loan_status = "active" AND b.book_status = "active"
+WHERE l.userid = "'.$session_userid.'" AND l.isReturned="0" AND l.loan_status = "ongoing" AND b.book_status = "active" AND DATE(t.task_duedate) > DATE(NOW())
 
 UNION ALL
 
