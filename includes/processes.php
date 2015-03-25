@@ -545,6 +545,16 @@ elseif (isset($_POST["message_read"])) {
     SetMessageRead();
 }
 
+//Call DeleteSentMessage function
+elseif (isset($_POST["sentFeedbackToDelete"])) {
+    DeleteSentMessage();
+}
+
+//Call DeleteReceivedMessage function
+elseif (isset($_POST["receivedFeedbackToDelete"])) {
+    DeleteReceivedMessage();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Account functions
