@@ -122,13 +122,41 @@ include 'includes/session.php';
     $userid = $row["userid"];
     $message_from_firstname = $row["firstname"];
     $message_from_surname = $row["surname"];
+    $gender = $row["gender"];
+    $gender = ucfirst($gender);
 
 	echo '<tr id="'.$messageid.'">
 
-			<td data-title="From">'.$message_from_firstname.' '.$message_from_surname.'</td>
-			<td data-title="Subject">'.$message_subject.'</td>
+			<td data-title="From"><a href="#view-'.$userid.'" data-toggle="modal">'.$message_from_firstname.' '.$message_from_surname.'</a></td>
+			<td data-title="Subject"><a href="#view-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
 			</tr>
+
+			<div id="view-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa fa-comments"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$message_to_firstname.' '.$message_to_surname.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Gender:</b> '.(empty($gender) ? "-" : "$gender").'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-action pull-left">
+            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Send another</span></a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
 
 			<div id="view-'.$messageid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
