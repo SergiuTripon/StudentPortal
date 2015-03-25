@@ -519,7 +519,7 @@ include '../includes/session.php';
         $("[aria-owns='select2-account_type-results']").addClass("input-happy");
     }
 
-    var account_type = $('#account_type:selected').html();
+    var account_type = $('#account_type: selected').html();
 
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
