@@ -5,7 +5,6 @@ header("Cache-Control: no-cache, must-revalidate");
 
 $sql = 'SELECT t.taskid, t.task_name, t.task_class, t.task_startdate, t.task_duedate
 FROM user_task t
-JOIN user_detail d ON t.userid = d.userid
 WHERE t.userid = "'.$session_userid.'" AND t.task_status = "active"
 
 UNION ALL
@@ -13,8 +12,14 @@ UNION ALL
 SELECT b.bookid, b.book_name, l.book_class, l.created_on, l.toreturn_on
 FROM system_book_loaned l
 JOIN system_book b ON l.bookid = b.bookid
-JOIN user_detail d ON l.userid = d.userid
-WHERE l.userid = "'.$session_userid.'" AND l.isReturned="active" AND l.loan_status = "active" AND b.book_status = "active"';
+WHERE l.userid = "'.$session_userid.'" AND l.isReturned="active" AND l.loan_status = "active" AND b.book_status = "active"
+
+UNION ALL
+
+SELECT e.eventid, e.event_name, b.event_class, e.event_from, e.event_to
+FROM system_event_booked b
+JOIN system_event e ON b.eventid = e.eventid
+WHERE b.userid = "'.$session_userid.'" AND e.event_status = "active"';
 
 $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);

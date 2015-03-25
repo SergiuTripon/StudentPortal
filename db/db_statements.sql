@@ -170,7 +170,6 @@ CREATE TABLE `system_event` (
 	`event_name` VARCHAR(300) NOT NULL,
 	`event_notes` VARCHAR(5000),
 	`event_url` VARCHAR(70),
-	`event_class` VARCHAR(15) NOT NULL,
 	`event_from` DATETIME NOT NULL,
 	`event_to` DATETIME NOT NULL,
 	`event_amount` NUMERIC(15,2) NOT NULL,
@@ -185,6 +184,7 @@ CREATE TABLE `system_event` (
 CREATE TABLE `system_event_booked` (
   `userid` INT(11) NOT NULL,
   `eventid` INT(11) NOT NULL,
+  `event_class` VARCHAR(15) NOT NULL,
 	`event_amount_paid` NUMERIC(15,2) NOT NULL,
 	`ticket_quantity` INT(11) NOT NULL,
 	`booked_on` DATETIME NOT NULL,
