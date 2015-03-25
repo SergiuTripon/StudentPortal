@@ -1697,29 +1697,29 @@ function RequestBook() {
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt1 = $mysqli->prepare("SELECT system_book_reserved.userid, system_book_reserved.created_on, system_book_reserved.tocollect_on, system_book.book_name, system_book.book_author, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.bookid=?");
-    $stmt1->bind_param('i', $bookToRequest);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($userid, $bookreserved_from, $bookreserved_to, $book_name, $book_author, $book_status);
-    $stmt1->fetch();
-    $stmt1->close();
+    $stmt4 = $mysqli->prepare("SELECT system_book_reserved.userid, system_book_reserved.created_on, system_book_reserved.tocollect_on, system_book.book_name, system_book.book_author, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.bookid=?");
+    $stmt4->bind_param('i', $bookToRequest);
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($userid, $bookreserved_from, $bookreserved_to, $book_name, $book_author, $book_status);
+    $stmt4->fetch();
+    $stmt4->close();
 
-    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $userid);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($reservee_email, $reservee_firstname, $reservee_surname, $reservee_studentno);
-    $stmt2->fetch();
-    $stmt2->close();
+    $stmt5 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt5->bind_param('i', $userid);
+    $stmt5->execute();
+    $stmt5->store_result();
+    $stmt5->bind_result($reservee_email, $reservee_firstname, $reservee_surname, $reservee_studentno);
+    $stmt5->fetch();
+    $stmt5->close();
 
-    $stmt2 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $session_userid);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($requester_email, $requester_firstname, $requester_surname, $requester_studentno);
-    $stmt2->fetch();
-    $stmt2->close();
+    $stmt6 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt6->bind_param('i', $session_userid);
+    $stmt6->execute();
+    $stmt6->store_result();
+    $stmt6->bind_result($requester_email, $requester_firstname, $requester_surname, $requester_studentno);
+    $stmt6->fetch();
+    $stmt6->close();
 
     $book_status = ucfirst($book_status);
 
