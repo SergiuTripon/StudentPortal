@@ -139,7 +139,7 @@ include 'includes/session.php';
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-message-'.$messageid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            <li><a href="#delete-'.$messageid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
             </td>
@@ -301,7 +301,7 @@ include 'includes/session.php';
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-message-'.$messageid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            <li><a href="#delete-'.$messageid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
             </td>
