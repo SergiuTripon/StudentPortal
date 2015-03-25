@@ -134,7 +134,7 @@ include 'includes/session.php';
 			<div class="btn-group btn-action">
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary btn-md" href="../messenger/message-user?id='.$userid.'">Reply</a>
+            <a class="btn btn-primary" href="/messenger/message-user?id='.$userid.'">Reply</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
