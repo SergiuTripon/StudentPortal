@@ -465,8 +465,7 @@ include '../includes/session.php';
     var degree;
     var fees;
 
-    //Setting variable value
-    $('#account_type).select2().on("change", function(e) {
+    $('#account_type').on("change", function (e) {
         account_type = $('#account_type:selected').html();
 
         if(account_type === 'Student') {
@@ -474,43 +473,25 @@ include '../includes/session.php';
             $('#studentno').show();
             $('label[for="degree"]').show();
             $('#degree').show();
-        }
-        if(account_type === 'Academic staff') {
-            $('label[for="studentno"]').hide();
-            $('#studentno').hide();
-            $('label[for="degree"]').hide();
-            $('#degree').hide();
-        }
-        if(account_type === 'Administrator') {
-            $('label[for="studentno"]').hide();
-            $('#studentno').hide();
-            $('label[for="degree"]').hide();
-            $('#degree').hide();
-        }
-    })
-
-    $('#account_type').change(function(){
-        account_type = $('#account_type:selected').html();
-
-        if(account_type === 'Student') {
-            $('label[for="studentno"]').show();
-            $('#studentno').show();
-            $('label[for="degree"]').show();
-            $('#degree').show();
+            $('label[for="fees"]').show();
+            $('#fees').show();
         }
         if(account_type === 'Lecturer') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
             $('label[for="degree"]').hide();
             $('#degree').hide();
+            $('label[for="fees"]').hide();
+            $('#fees').hide();
         }
         if(account_type === 'Admin') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
             $('label[for="degree"]').hide();
             $('#degree').hide();
+            $('label[for="fees"]').hide();
+            $('#fees').hide();
         }
-
     });
 
 	//Creating record
