@@ -251,24 +251,25 @@ include '../includes/session.php';
 
     // Date Time Picker
     $('#tutorial_from_time').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'HH:mm'
     });
     $('#tutorial_to_time').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'HH:mm'
     });
     $('#tutorial_from_date').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'YYYY-MM-DD'
     });
     $('#tutorial_to_date').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'YYYY-MM-DD'
 	});
 
-    //Create timetable ajax call
+    //Create tutorial process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
+    //Validation
     var tutorial_moduleid_check = $('#tutorial_moduleid :selected').html();
     if (tutorial_moduleid_check === '') {
         $("label[for='tutorial_moduleid']").empty().append("Please select a module.");
@@ -288,7 +289,8 @@ include '../includes/session.php';
         $("[aria-owns='select2-tutorial_moduleid-results']").addClass("input-happy");
     }
 
-    //Tutorials
+    var tutorial_moduleid= $("#tutorial_moduleid :selected").val();
+
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
         $("label[for='tutorial_name']").empty().append("Please enter a tutorial name.");
@@ -326,6 +328,9 @@ include '../includes/session.php';
         $("[aria-owns='select2-tutorial_assistant-results']").addClass("input-happy");
     }
 
+    var tutorial_assistant = $("#tutorial_assistant :selected").val();
+    var tutorial_notes = $("#tutorial_notes").val();
+
     var tutorial_day_check = $('#tutorial_day :selected').html();
     if (tutorial_day_check === '') {
         $("label[for='tutorial_day']").empty().append("Please select a day.");
@@ -344,6 +349,8 @@ include '../includes/session.php';
         $("[aria-owns='select2-tutorial_day-results']").removeClass("input-sad");
         $("[aria-owns='select2-tutorial_day-results']").addClass("input-happy");
     }
+
+    var tutorial_day = $("#tutorial_day :selected").html();
 
     var tutorial_from_time = $("#tutorial_from_time").val();
 	if(tutorial_from_time === '') {
@@ -453,11 +460,7 @@ include '../includes/session.php';
         $("#tutorial_capacity").addClass("input-happy");
 	}
 
-    var tutorial_moduleid= $("#tutorial_moduleid option:selected").val();
-    var tutorial_notes = $("#tutorial_notes").val();
-    var tutorial_assistant = $("#tutorial_assistant option:selected").val();
-    var tutorial_day = $("#tutorial_day option:selected").html();
-
+    //Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
