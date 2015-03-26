@@ -3365,7 +3365,7 @@ function CreateAnAccount() {
 	$email = filter_input(INPUT_POST, 'create_account_email', FILTER_SANITIZE_STRING);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'create_account_password', FILTER_SANITIZE_STRING);
-    $fees = filter_input(INPUT_POST, 'create_account_fees', FILTER_SANITIZE_STRING);
+    $fee_amount = filter_input(INPUT_POST, 'create_account_fee_amount', FILTER_SANITIZE_STRING);
     $studentno = filter_input(INPUT_POST, 'create_account_studentno', FILTER_SANITIZE_STRING);
 	$degree = filter_input(INPUT_POST, 'create_account_degree', FILTER_SANITIZE_STRING);
     $nationality = filter_input(INPUT_POST, 'create_account_nationality', FILTER_SANITIZE_STRING);
@@ -3377,9 +3377,6 @@ function CreateAnAccount() {
     $city = filter_input(INPUT_POST, 'create_account_city', FILTER_SANITIZE_STRING);
     $country = filter_input(INPUT_POST, 'create_account_country', FILTER_SANITIZE_STRING);
     $postcode = filter_input(INPUT_POST, 'create_account_postcode', FILTER_SANITIZE_STRING);
-
-	$gender = strtolower($gender);
-    $nationality = strtolower($nationality);
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('HTTP/1.0 550 The email address you entered is invalid.');
@@ -3437,6 +3434,8 @@ function CreateAnAccount() {
         $dateofbirth = NULL;
     }
 
+    $gender = strtolower($gender);
+    $nationality = strtolower($nationality);
     $user_status = 'active';
 
     $stmt5 = $mysqli->prepare("INSERT INTO user_detail (firstname, surname, gender, studentno, degree, nationality, dateofbirth, phonenumber, address1, address2, town, city, country, postcode, user_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -3452,12 +3451,12 @@ function CreateAnAccount() {
     $stmt6->close();
 
     if ($account_type == 'student') {
-    $fee_amount = $fees;
+    $fee_amount = $fee_amount;
     }
-    elseif ($account_type == 'lecturer') {
+    elseif ($account_type == 'academic staff') {
     $fee_amount = '0.00';
     }
-    elseif ($account_type == 'admin') {
+    elseif ($account_type == 'administrator') {
     $fee_amount = '0.00';
     }
 
@@ -3480,7 +3479,7 @@ function UpdateAnAccount() {
     $gender = filter_input(INPUT_POST, 'update_account_gender', FILTER_SANITIZE_STRING);
     $studentno = filter_input(INPUT_POST, 'update_account_studentno', FILTER_SANITIZE_STRING);
     $degree = filter_input(INPUT_POST, 'update_account_degree', FILTER_SANITIZE_STRING);
-    $fees = filter_input(INPUT_POST, 'update_account_fee_amount', FILTER_SANITIZE_STRING);
+    $fee_amount = filter_input(INPUT_POST, 'update_account_fee_amount', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'update_account_email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$nationality = filter_input(INPUT_POST, 'update_account_nationality', FILTER_SANITIZE_STRING);
@@ -3492,9 +3491,6 @@ function UpdateAnAccount() {
 	$city = filter_input(INPUT_POST, 'update_account_city', FILTER_SANITIZE_STRING);
 	$country = filter_input(INPUT_POST, 'update_account_country', FILTER_SANITIZE_STRING);
 	$postcode = filter_input(INPUT_POST, 'update_account_postcode', FILTER_SANITIZE_STRING);
-
-	$gender = strtolower($gender);
-    $nationality = strtolower($nationality);
 
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
@@ -3521,6 +3517,9 @@ function UpdateAnAccount() {
 	$stmt2->bind_param('ssi', $account_type, $updated_on, $userid);
 	$stmt2->execute();
 	$stmt2->close();
+
+    $gender = strtolower($gender);
+    $nationality = strtolower($nationality);
 
 	$stmt3 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
 	$stmt3->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
@@ -3553,8 +3552,8 @@ function UpdateAnAccount() {
 	$stmt5->bind_result($db_userid);
 	$stmt5->fetch();
 
-	if ($stmt4->num_rows == 1) {
-        $stmt4->close();
+	if ($stmt5->num_rows == 1) {
+        $stmt5->close();
 		header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
 		exit();
 	}
