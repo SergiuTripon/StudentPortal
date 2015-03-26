@@ -3325,34 +3325,34 @@ function FeesPaypalPaymentSuccess() {
 	$stmt2->fetch();
 	$stmt2->close();
 
-	if ($product_amount == '9000.00' AND $isHalf == '0' ) {
+	if ($product_name == 'Full fees') {
 
-        $full_fees = 0.00;
+        $fee_amount = 0.00;
         $updated_on = date("Y-m-d G:i:s");
 
-        $stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
-        $stmt3->bind_param('isi', $full_fees, $updated_on, $userid);
+        $stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
+        $stmt3->bind_param('isi', $fee_amount, $updated_on, $userid);
         $stmt3->execute();
         $stmt3->close();
 
 	} else {
 
-        if ($product_amount == '4500.00' AND $isHalf == '0') {
+        if ($product_name == 'Half fees' AND $isHalf == '0') {
 
-            $half_fees = 4500.00;
+            $fee_amount = $product_amount / 2;
             $isHalf = 1;
 
             $stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
-            $stmt3->bind_param('iisi', $half_fees, $isHalf, $updated_on, $userid);
+            $stmt3->bind_param('iisi', $fee_amount, $isHalf, $updated_on, $userid);
             $stmt3->execute();
             $stmt3->close();
 
-        } else {
+        } elseif ($product_name == 'Half fees' AND $isHalf == '1') {
 
-            $full_fees = 0.00;
+            $fee_amount = 0.00;
             $updated_on = date("Y-m-d G:i:s");
 
-            $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+            $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
             $stmt4->bind_param('isi', $full_fees, $updated_on, $userid);
             $stmt4->execute();
             $stmt4->close();
@@ -3360,7 +3360,7 @@ function FeesPaypalPaymentSuccess() {
 	    }
     }
 
-	$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transactionid=?, payment_status =?, updated_on=?, completed_on=? WHERE invoiceid =?");
+	$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transactionid=?, payment_status=?, updated_on=?, completed_on=? WHERE invoiceid =?");
 	$stmt8->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
 	$stmt8->execute();
 	$stmt8->close();
