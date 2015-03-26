@@ -61,60 +61,62 @@ function SignIn() {
 	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	header('HTTP/1.0 550 The email address you entered is invalid.');
-	exit();
+        header('HTTP/1.0 550 The email address you entered is invalid.');
+        exit();
+
     } else {
 
-	// Getting user login details
-	$stmt1 = $mysqli->prepare("SELECT userid, account_type, password FROM user_signin WHERE email = ? LIMIT 1");
-	$stmt1->bind_param('s', $email);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($userid, $session_account_type, $db_password);
-	$stmt1->fetch();
+        // Getting user login details
+        $stmt1 = $mysqli->prepare("SELECT userid, account_type, password FROM user_signin WHERE email = ? LIMIT 1");
+        $stmt1->bind_param('s', $email);
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($userid, $session_account_type, $db_password);
+        $stmt1->fetch();
 
-	if ($stmt1->num_rows == 1) {
+        if ($stmt1->num_rows == 1) {
 
-	// Getting firstname and surname for the user
-	$stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $userid);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($firstname, $surname);
-	$stmt2->fetch();
-	$stmt2->close();
+            // Getting firstname and surname for the user
+            $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+            $stmt2->bind_param('i', $userid);
+            $stmt2->execute();
+            $stmt2->store_result();
+            $stmt2->bind_result($firstname, $surname);
+            $stmt2->fetch();
+            $stmt2->close();
 
-	if (password_verify($password, $db_password)) {
+        if (password_verify($password, $db_password)) {
 
-	$isSignedIn = 1;
+            $isSignedIn = 1;
 
-	$stmt3 = $mysqli->prepare("UPDATE user_signin SET isSignedIn=?, updated_on=? WHERE userid=? LIMIT 1");
-	$stmt3->bind_param('isi', $isSignedIn, $updated_on, $userid);
-	$stmt3->execute();
-	$stmt3->close();
+            $stmt3 = $mysqli->prepare("UPDATE user_signin SET isSignedIn=?, updated_on=? WHERE userid=? LIMIT 1");
+            $stmt3->bind_param('isi', $isSignedIn, $updated_on, $userid);
+            $stmt3->execute();
+            $stmt3->close();
 
-	// Setting a session variable
-	$_SESSION['signedIn'] = true;
+            // Setting a session variable
+            $_SESSION['signedIn'] = true;
 
-	$session_userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
+            $session_userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
 
- 	$_SESSION['session_userid'] = $session_userid;
-	$_SESSION['account_type'] = $session_account_type;
+            $_SESSION['session_userid'] = $session_userid;
+            $_SESSION['account_type'] = $session_account_type;
 
-	} else {
-    $stmt1->close();
-	header('HTTP/1.0 550 The password you entered is incorrect.');
-    exit();
-	}
+	    } else {
+            $stmt1->close();
+            header('HTTP/1.0 550 The password you entered is incorrect.');
+            exit();
+	    }
 
-	} else {
-    $stmt1->close();
-	header('HTTP/1.0 550 The email address you entered is incorrect.');
-	exit();
-	}
+        } else {
+            $stmt1->close();
+            header('HTTP/1.0 550 The email address you entered is incorrect.');
+            exit();
+        }
 
 	}
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //SignOut function
 function SignOut() {
@@ -150,57 +152,57 @@ function RegisterUser() {
 	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	header('HTTP/1.0 550 The email address you entered is invalid.');
-	exit();
+        header('HTTP/1.0 550 The email address you entered is invalid.');
+        exit();
     } else {
 
-	// Check existing e-mail address
-	$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
-	$stmt1->bind_param('s', $email);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($db_userid);
-	$stmt1->fetch();
+        // Check existing e-mail address
+        $stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
+        $stmt1->bind_param('s', $email);
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($db_userid);
+        $stmt1->fetch();
 
-	if ($stmt1->num_rows == 1) {
-        $stmt1->close();
-	    header('HTTP/1.0 550 An account with the email address entered already exists.');
-	    exit();
-	}
+        if ($stmt1->num_rows == 1) {
+            $stmt1->close();
+            header('HTTP/1.0 550 An account with the email address entered already exists.');
+            exit();
+        }
 
-	$account_type = 'student';
-	$password_hash = password_hash($password, PASSWORD_BCRYPT);
+        $account_type = 'student';
+        $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-    //Creating user
-	$stmt2 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
-	$stmt2->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
-	$stmt2->execute();
-	$stmt2->close();
+        //Creating user
+        $stmt2 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
+        $stmt2->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
+        $stmt2->execute();
+        $stmt2->close();
 
-    //Creating user details
-    $gender = strtolower($gender);
-    $user_status = 'active';
+        //Creating user details
+        $gender = strtolower($gender);
+        $user_status = 'active';
 
-	$stmt3 = $mysqli->prepare("INSERT INTO user_detail (firstname, surname, gender, user_status, created_on) VALUES (?, ?, ?, ?, ?)");
-	$stmt3->bind_param('sssss', $firstname, $surname, $gender, $user_status, $created_on);
-	$stmt3->execute();
-	$stmt3->close();
+        $stmt3 = $mysqli->prepare("INSERT INTO user_detail (firstname, surname, gender, user_status, created_on) VALUES (?, ?, ?, ?, ?)");
+        $stmt3->bind_param('sssss', $firstname, $surname, $gender, $user_status, $created_on);
+        $stmt3->execute();
+        $stmt3->close();
 
-    //Creating user token
-	$token = null;
+        //Creating user token
+        $token = null;
 
-	$stmt5 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
-	$stmt5->bind_param('s', $token);
-	$stmt5->execute();
-	$stmt5->close();
+        $stmt5 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
+        $stmt5->bind_param('s', $token);
+        $stmt5->execute();
+        $stmt5->close();
 
-    //Creating user fees
-	$fee_amount = '';
+        //Creating user fees
+        $fee_amount = '';
 
-	$stmt6 = $mysqli->prepare("INSERT INTO user_fee (fee_amount, created_on) VALUES (?, ?)");
-	$stmt6->bind_param('is', $fee_amount, $created_on);
-	$stmt6->execute();
-	$stmt6->close();
+        $stmt6 = $mysqli->prepare("INSERT INTO user_fee (fee_amount, created_on) VALUES (?, ?)");
+        $stmt6->bind_param('is', $fee_amount, $created_on);
+        $stmt6->execute();
+        $stmt6->close();
 
 	}
 }
