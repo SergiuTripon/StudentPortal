@@ -232,7 +232,7 @@ if ($fee_amount == "0.00") {
             $('#product_amount').val(new_fee_amount.toFixed(2));
         } else {
             fee_amount = $('#initial_fee_amount').val();
-            $('#product_amount').val(fee_amount.toFixed(2));
+            alert(fee_amount);
         }
     });
 
