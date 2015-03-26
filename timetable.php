@@ -2193,7 +2193,8 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'lectureToReactivate='+ lectureToReactivate,
-	success:function(){
+	success:function(errormsg){
+        alert(errormsg);
 		$('#lecture-'+lectureToReactivate).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
