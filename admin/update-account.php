@@ -71,7 +71,7 @@ if ($dateofbirth == "0000-00-00") {
     <label for="account_type">Account type<span class="field-required">*</span></label>
     <select class="form-control" name="account_type" id="account_type" style="width: 100%;">
         <option <?php if($account_type == "student") echo "selected"; ?>>Student</option>
-        <option <?php if($account_type == "academic_staff") echo "selected"; ?>>Academic staff</option>
+        <option <?php if($account_type == "academic staff") echo "selected"; ?>>Academic staff</option>
         <option <?php if($account_type == "administrator") echo "selected"; ?>>Administrator</option>
     </select>
     </div>
@@ -713,7 +713,7 @@ if ($dateofbirth == "0000-00-00") {
          '&update_account_gender='       + gender +
          '&update_account_studentno='    + studentno +
          '&update_account_degree='       + degree +
-         '&update_account_fee_amount='         + fee_amount +
+         '&update_account_fee_amount='   + fee_amount +
          '&update_account_email='        + email +
          '&update_account_nationality='  + nationality +
          '&update_account_dateofbirth='  + dateofbirth +
