@@ -613,6 +613,50 @@ function UpdateModule() {
     }
 }
 
+//DeactivateModule function
+function DeactivateModule() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $moduleToDeactivate = filter_input(INPUT_POST, 'moduleToDeactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $module_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_module SET module_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1->bind_param('ssi', $module_status, $updated_on, $moduleToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $lecture_status = 'inactive';
+
+    $stmt2 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE moduleid=?");
+    $stmt2->bind_param('ssi', $lecture_status, $updated_on, $moduleToDeactivate);
+    $stmt2->execute();
+    $stmt2->close();
+
+    $tutorial_status = 'inactive';
+
+    $stmt3 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE moduleid=?");
+    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $moduleToDeactivate);
+    $stmt3->execute();
+    $stmt3->close();
+
+    $exam_status = 'inactive';
+
+    $stmt4 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt4->bind_param('ssi', $exam_status, $updated_on, $moduleToDeactivate);
+    $stmt4->execute();
+    $stmt4->close();
+
+    $result_status = 'inactive';
+
+    $stmt5 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE moduleid=?");
+    $stmt5->bind_param('ssi', $result_status, $updated_on, $moduleToDeactivate);
+    $stmt5->execute();
+    $stmt5->close();
+}
+
 //CreateLecture function
 function CreateLecture() {
 
@@ -812,49 +856,6 @@ function UpdateTutorial() {
     }
 }
 
-//DeactivateModule function
-function DeactivateModule() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $moduleToDeactivate = filter_input(INPUT_POST, 'moduleToDeactivate', FILTER_SANITIZE_NUMBER_INT);
-
-    $module_status = 'inactive';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_module SET module_status=?, updated_on=? WHERE moduleid=?");
-    $stmt1->bind_param('ssi', $module_status, $updated_on, $moduleToDeactivate);
-    $stmt1->execute();
-    $stmt1->close();
-
-    $lecture_status = 'inactive';
-
-    $stmt2 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE moduleid=?");
-    $stmt2->bind_param('ssi', $lecture_status, $updated_on, $moduleToDeactivate);
-    $stmt2->execute();
-    $stmt2->close();
-
-    $tutorial_status = 'inactive';
-
-    $stmt3 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $moduleToDeactivate);
-    $stmt3->execute();
-    $stmt3->close();
-
-    $exam_status = 'inactive';
-
-    $stmt4 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE moduleid=?");
-    $stmt4->bind_param('ssi', $exam_status, $updated_on, $moduleToDeactivate);
-    $stmt4->execute();
-    $stmt4->close();
-
-    $result_status = 'inactive';
-
-    $stmt5 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE moduleid=?");
-    $stmt5->bind_param('ssi', $result_status, $updated_on, $moduleToDeactivate);
-    $stmt5->execute();
-    $stmt5->close();
-}
 
 //DeactivateLecture function
 function DeactivateLecture() {
