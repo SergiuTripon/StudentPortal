@@ -112,7 +112,7 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="fees">Course fee amount<span class="field-required">*</span></label>
-	<input class="form-control" type="text" name="fees" id="fees" value="<?php echo $fee_amount; ?>" placeholder="Enter an amount">
+	<input class="form-control" type="text" name="fee_amount" id="fee_amount" value="<?php echo $fee_amount; ?>" placeholder="Enter an amount">
 	</div>
 
 	<div class="form-group">
@@ -498,7 +498,7 @@ if ($dateofbirth == "0000-00-00") {
 	var account_type;
 	var studentno;
     var degree;
-    var fees;
+    var fee_amount;
 
     $('#account_type').on("change", function (e) {
         account_type = $('#account_type :selected').html();
@@ -536,7 +536,6 @@ if ($dateofbirth == "0000-00-00") {
 	var hasError = false;
 
 	var userid = $("#userid").val();
-
     var account_type = $('#account_type :selected').html();
 
 	var firstname = $("#firstname").val();
@@ -580,7 +579,7 @@ if ($dateofbirth == "0000-00-00") {
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
-        fees = $("#fees").val();
+        fee_amount = $("#fees").val();
 
 		if(studentno === '') {
             $("label[for='studentno']").empty().append("Please enter a student number.");
@@ -671,7 +670,7 @@ if ($dateofbirth == "0000-00-00") {
 	} else {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
-        fees = $("#fees").val();
+        fee_amount = $("#fees").val();
 	}
 
 	var email = $("#email").val();
