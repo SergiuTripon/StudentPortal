@@ -115,7 +115,7 @@ if (isset($_GET['id'])) {
         echo '<option value="'.$lecture_lecturer.'" selected>'.$lecturer_firstname.' '.$lecturer_surname.'</option>';
     }
 
-    $stmt2 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type='lecturer' AND NOT userid = '$lecture_lecturer'");
+    $stmt2 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type='academic staff' AND NOT userid = '$lecture_lecturer'");
 
     while ($row = $stmt2->fetch_assoc()){
 

@@ -84,7 +84,7 @@ include '../includes/session.php';
     <select class="form-control" name="lecture_lecturer" id="lecture_lecturer" style="width: 100%;">
         <option></option>
     <?php
-    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'lecturer'");
+    $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'academic staff'");
 
     while ($row = $stmt1->fetch_assoc()){
 
