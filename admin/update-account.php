@@ -579,7 +579,7 @@ if ($dateofbirth == "0000-00-00") {
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
-        fee_amount = $("#fees").val();
+        fee_amount = $("#fee_amount").val();
 
 		if(studentno === '') {
             $("label[for='studentno']").empty().append("Please enter a student number.");
@@ -670,7 +670,7 @@ if ($dateofbirth == "0000-00-00") {
 	} else {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
-        fee_amount = $("#fees").val();
+        fee_amount = $("#fee_amount").val();
 	}
 
 	var email = $("#email").val();
