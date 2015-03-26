@@ -112,12 +112,11 @@ if ($fee_amount == "0.00") {
     <input class="form-control" type="text" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code">
     </div>
     </div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="fee_type">Pay half or the full fee amount<span class="field-required">*</span></label>
-    <select class="form-control" name="fee_type" id="fee_type" style="width: 100%;">
+    <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
+    <select class="form-control" name="product_name" id="product_name" style="width: 100%;">
         <option></option>
         <option>Full fees</option>
         <option>Half fees</option>
@@ -212,9 +211,7 @@ if ($fee_amount == "0.00") {
     //On load
     $(document).ready(function () {
         //select2
-        $("#fee_type").select2({placeholder: "Select an option"});
-        var fee_type_check = $('#fee_type :selected').html();
-        alert(fee_type_check);
+        $("#product_name").select2({placeholder: "Select an option"});
     });
 
     //Ladda
@@ -226,7 +223,7 @@ if ($fee_amount == "0.00") {
     var new_fee_amount1;
 
     $('#fee_type').on("change", function (e) {
-        var fee_type = $('#fee_type :selected').html();
+        var fee_type = $('#product_name :selected').html();
 
         if(fee_type === 'Half fees') {
             fee_amount = $('#initial_fee_amount').val();
@@ -286,23 +283,23 @@ if ($fee_amount == "0.00") {
         $("label[for='payer_postcode']").addClass("feedback-happy");
 	}
 
-    var fee_type_check = $('#fee_type :selected').html();
+    var fee_type_check = $('#product_name :selected').html();
     if (fee_type_check === '') {
-        $("label[for='fee_type']").empty().append("Please select an option.");
-        $("label[for='fee_type']").removeClass("feedback-happy");
-        $("label[for='fee_type']").addClass("feedback-sad");
-        $("[aria-owns='select2-fee_type-results']").removeClass("input-happy");
-        $("[aria-owns='select2-fee_type-results']").addClass("input-sad");
-        $("[aria-owns='select2-fee_type-results']").focus();
+        $("label[for='product_name']").empty().append("Please select an option.");
+        $("label[for='product_name']").removeClass("feedback-happy");
+        $("label[for='product_name']").addClass("feedback-sad");
+        $("[aria-owns='select2-product_name-results']").removeClass("input-happy");
+        $("[aria-owns='select2-product_name-results']").addClass("input-sad");
+        $("[aria-owns='select2-product_name-results']").focus();
         hasError  = true;
         return false;
     }
     else {
-        $("label[for='fee_type']").empty().append("All good!");
-        $("label[for='fee_type']").removeClass("feedback-sad");
-        $("label[for='fee_type']").addClass("feedback-happy");
-        $("[aria-owns='select2-fee_type-results']").removeClass("input-sad");
-        $("[aria-owns='select2-fee_type-results']").addClass("input-happy");
+        $("label[for='product_name']").empty().append("All good!");
+        $("label[for='product_name']").removeClass("feedback-sad");
+        $("label[for='product_name']").addClass("feedback-happy");
+        $("[aria-owns='select2-product_name-results']").removeClass("input-sad");
+        $("[aria-owns='select2-product_name-results']").addClass("input-happy");
     }
 	
 	if(hasError == false) {
