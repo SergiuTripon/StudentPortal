@@ -219,6 +219,7 @@ if ($fee_amount == "0.00") {
     var fee_type;
     var fee_amount;
     var new_fee_amount;
+    var new_fee_amount1;
 
     $('#fee_type').on("change", function (e) {
         var fee_type = $('#fee_type :selected').html();
@@ -231,7 +232,7 @@ if ($fee_amount == "0.00") {
             fee_amount = $('#product_amount').val();
             new_fee_amount = fee_amount / 2;
             new_fee_amount1 = new_fee_amount * 2;
-            $('#product_amount').val(new_fee_amount.toFixed(2));
+            $('#product_amount').val(new_fee_amount1.toFixed(2));
         }
     });
 
