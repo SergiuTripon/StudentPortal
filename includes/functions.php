@@ -846,7 +846,7 @@ function UpdateLecture() {
     $lecture_capacity = filter_input(INPUT_POST, 'update_lecture_capacity', FILTER_SANITIZE_STRING);
 
     //Check if lecture name has been changed
-    $stmt1 = $mysqli->prepare("SELECT lecture_name FROM system_lecture WHERE lectureid = ?");
+    $stmt1 = $mysqli->prepare("SELECT lecture_name FROM system_lecture WHERE lectureid = ? LIMIT 1");
     $stmt1->bind_param('i', $lectureid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -855,10 +855,12 @@ function UpdateLecture() {
 
     //If the lecture name hasn't changed, do the following
     if ($db_lecture_name === $lecture_name) {
+
         $stmt2 = $mysqli->prepare("UPDATE system_lecture SET moduleid=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
         $stmt2->bind_param('iisssssssisi', $moduleid, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $updated_on, $lectureid);
         $stmt2->execute();
         $stmt2->close();
+
     //If the lecture name has changed, do the following
     } else {
         $stmt3 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE lecture_name = ?");
@@ -905,12 +907,38 @@ function ReactivateLecture() {
 
     $lectureToReactivate = filter_input(INPUT_POST, 'lectureToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
-    $lecture_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
-    $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToReactivate);
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_lecture WHERE lectureid = ?");
+    $stmt1->bind_param('i', $lectureToReactivate);
     $stmt1->execute();
-    $stmt1->close();
+    $stmt1->store_result();
+    $stmt1->bind_result($moduleid);
+    $stmt1->fetch();
+
+    $module_status = 'active';
+
+    $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE moduleid = ? AND module_status=?");
+    $stmt2->bind_param('is', $moduleid, $module_status);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($db_moduleid);
+    $stmt2->fetch();
+
+    if ($stmt2->num_rows > 0) {
+
+        $lecture_status = 'active';
+
+        $stmt3 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
+        $stmt3->bind_param('ssi', $lecture_status, $updated_on, $lectureToReactivate);
+        $stmt3->execute();
+        $stmt3->close();
+
+    } else {
+
+        $stmt2->close();
+        echo 'You cannot reactivate this lecture because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this lecture.';
+        exit();
+
+    }
 }
 
 //DeleteLecture function
