@@ -96,10 +96,10 @@ CREATE TABLE `user_fee` (
 #Paypal payment
 CREATE TABLE `paypal_log` (
 	`userid` INT(11) NOT NULL,
-	`payment_id` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-	`invoice_id` BIGINT(10) NOT NULL UNIQUE,
-	`transaction_id` VARCHAR(17) NOT NULL UNIQUE,
-	`product_id` INT(1) NOT NULL UNIQUE,
+	`paymentid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	`invoiceid` BIGINT(10) NOT NULL UNIQUE,
+	`transactionid` VARCHAR(17) NOT NULL UNIQUE,
+	`productid` INT(1) NOT NULL UNIQUE,
 	`product_name` VARCHAR(70) NOT NULL,
 	`product_quantity` INT(11) NOT NULL,
 	`product_amount` NUMERIC(15,2) NOT NULL,
