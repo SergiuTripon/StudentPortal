@@ -5,11 +5,11 @@ if (isset($_GET["id"])) {
 
 	$userToUpdate = $_GET["id"];
 
-	$stmt1 = $mysqli->prepare("SELECT user_signin.account_type, user_signin.email, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.studentno, user_detail.degree, user_detail.nationality, user_detail.dateofbirth, user_detail.phonenumber, user_detail.address1, user_detail.address2, user_detail.town, user_detail.city, user_detail.country, user_detail.postcode FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt1 = $mysqli->prepare("SELECT s.account_type, s.email, d.firstname, d.surname, d.gender, d.studentno, d.degree, d.fee_amount, d.nationality, d.dateofbirth, d.phonenumber, d.address1, d.address2, d.town, d.city, d.country, d.postcode FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid LEFT JOIN user_fee f ON s.userid=f.userid WHERE s.userid=? LIMIT 1");
 	$stmt1->bind_param('i', $userToUpdate);
 	$stmt1->execute();
 	$stmt1->store_result();
-	$stmt1->bind_result($account_type, $email, $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
+	$stmt1->bind_result($account_type, $email, $firstname, $surname, $gender, $studentno, $degree, $fee_amount, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode);
 	$stmt1->fetch();
 	$stmt1->close();
 
@@ -112,7 +112,7 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="fees">Course fee amount<span class="field-required">*</span></label>
-	<input class="form-control" type="text" name="fees" id="fees" value="" placeholder="Enter an amount">
+	<input class="form-control" type="text" name="fees" id="fees" value="<?php echo $fee_amount; ?>" placeholder="Enter an amount">
 	</div>
 
 	<div class="form-group">
