@@ -288,7 +288,7 @@ include 'includes/session.php';
 
     <?php endif; ?>
 
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'lecturer') : ?>
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'academic staff') : ?>
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
@@ -489,7 +489,7 @@ include 'includes/session.php';
 
     <?php endif; ?>
 
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'admin') : ?>
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
