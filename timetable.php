@@ -2254,17 +2254,23 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'tutorialToReactivate='+ tutorialToReactivate,
-	success:function(){
-		$('#tutorial-'+tutorialToReactivate).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#reactivate-tutorial-question').hide();
-        $('#reactivate-tutorial-confirmation').show();
-        $('#reactivate-tutorial-hide').hide();
-        $('#reactivate-tutorial-success-button').show();
-        $("#reactivate-tutorial-success-button").click(function () {
-            location.reload();
-        });
+	success:function(errormsg){
+        if (errormsg) {
+            $('.modal-custom').modal('hide');
+            $('#error-modal').modal('show');
+            $('#error-modal .modal-body p').empty().append(errormsg);
+        } else {
+            $('#tutorial-' + tutorialToReactivate).hide();
+            $('.form-logo i').removeClass('fa-trash');
+            $('.form-logo i').addClass('fa-check-square-o');
+            $('#reactivate-tutorial-question').hide();
+            $('#reactivate-tutorial-confirmation').show();
+            $('#reactivate-tutorial-hide').hide();
+            $('#reactivate-tutorial-success-button').show();
+            $("#reactivate-tutorial-success-button").click(function () {
+                location.reload();
+            });
+        }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
