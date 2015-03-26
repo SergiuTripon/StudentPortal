@@ -320,67 +320,67 @@ function ResetPassword() {
 
     } else {
 
-    //Getting token from database
-	$stmt2 = $mysqli->prepare("SELECT user_token.token, user_detail.firstname FROM user_token LEFT JOIN user_detail ON user_token.userid=user_detail.userid WHERE user_token.userid = ? LIMIT 1");
-	$stmt2->bind_param('i', $userid);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($db_token, $firstname);
-	$stmt2->fetch();
+        //Getting token from database
+        $stmt2 = $mysqli->prepare("SELECT user_token.token, user_detail.firstname FROM user_token LEFT JOIN user_detail ON user_token.userid=user_detail.userid WHERE user_token.userid = ? LIMIT 1");
+        $stmt2->bind_param('i', $userid);
+        $stmt2->execute();
+        $stmt2->store_result();
+        $stmt2->bind_result($db_token, $firstname);
+        $stmt2->fetch();
 
-    //Comparing client side token with database token
-    if ($token === $db_token) {
+        //Comparing client side token with database token
+        if ($token === $db_token) {
 
         //Hashing the password
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-        //Changing the password
-        $stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
-        $stmt4->bind_param('sss', $password_hash, $updated_on, $email);
-        $stmt4->execute();
-        $stmt4->close();
+            //Changing the password
+            $stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
+            $stmt4->bind_param('sss', $password_hash, $updated_on, $email);
+            $stmt4->execute();
+            $stmt4->close();
 
-        //Emptying token table
-        $empty_token = NULL;
-        $empty_created_on = NULL;
+            //Emptying token table
+            $empty_token = NULL;
+            $empty_created_on = NULL;
 
-        $stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
-        $stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
-        $stmt4->execute();
-        $stmt4->close();
+            $stmt4 = $mysqli->prepare("UPDATE user_token SET token = ?, created_on = ? WHERE userid = ? LIMIT 1");
+            $stmt4->bind_param('ssi', $empty_token, $empty_created_on, $userid);
+            $stmt4->execute();
+            $stmt4->close();
 
-        //Creating email
-        $subject = 'Password reset successfully';
+            //Creating email
+            $subject = 'Password reset successfully';
 
-        $message = '<html>';
-        $message .= '<head>';
-        $message .= '<title>Student Portal | Account</title>';
-        $message .= '</head>';
-        $message .= '<body>';
-        $message .= "<p>Dear $firstname,</p>";
-        $message .= '<p>Your password has been successfully reset.</p>';
-        $message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
-        $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-        $message .= '</body>';
-        $message .= '</html>';
+            $message = '<html>';
+            $message .= '<head>';
+            $message .= '<title>Student Portal | Account</title>';
+            $message .= '</head>';
+            $message .= '<body>';
+            $message .= "<p>Dear $firstname,</p>";
+            $message .= '<p>Your password has been successfully reset.</p>';
+            $message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
+            $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+            $message .= '</body>';
+            $message .= '</html>';
 
-        $headers = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-        $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-        $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+            $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+            $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
-        mail($email, $subject, $message, $headers);
-	} else {
-        header('HTTP/1.0 550 The password reset key is invalid.');
-        exit();
-    }
+            mail($email, $subject, $message, $headers);
+        } else {
+            header('HTTP/1.0 550 The password reset key is invalid.');
+            exit();
+        }
     }
 }
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-//Overview functions
+//Internal functions
+//Home functions
 //GetDashboardData function
 function GetDashboardData() {
 
@@ -525,23 +525,21 @@ function GetDashboardData() {
     $stmt11->close();
 
 }
-
 //////////////////////////////////////////////////////////////////////////////////////////
 
 //Timetable functions
-
-//CreateTimetable function
+//CreateModule function
 function CreateModule() {
 
     global $mysqli;
     global $created_on;
 
-    //Module
+    //Getting the data posted and assigning variables
     $module_name = filter_input(INPUT_POST, 'create_module_name', FILTER_SANITIZE_STRING);
     $module_notes = filter_input(INPUT_POST, 'create_module_notes', FILTER_SANITIZE_STRING);
     $module_url = filter_input(INPUT_POST, 'create_module_url', FILTER_SANITIZE_STRING);
 
-    // Check existing module name
+    // Check if there is an existing module name
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE module_name = ? LIMIT 1");
     $stmt1->bind_param('s', $module_name);
     $stmt1->execute();
@@ -555,6 +553,7 @@ function CreateModule() {
         exit();
     } else {
 
+        //Create the module record
         $module_status = 'active';
 
         $stmt2 = $mysqli->prepare("INSERT INTO system_module (module_name, module_notes, module_url, module_status, created_on) VALUES (?, ?, ?, ?, ?)");
@@ -562,7 +561,6 @@ function CreateModule() {
         $stmt2->execute();
         $stmt2->close();
     }
-
 }
 
 //CreateLecture function
@@ -571,7 +569,7 @@ function CreateLecture() {
     global $mysqli;
     global $created_on;
 
-    //Lecture
+    //Getting the data posted and assigning variables
     $moduleid = filter_input(INPUT_POST, 'create_lecture_moduleid', FILTER_SANITIZE_STRING);
     $lecture_name = filter_input(INPUT_POST, 'create_lecture_name', FILTER_SANITIZE_STRING);
     $lecture_lecturer = filter_input(INPUT_POST, 'create_lecture_lecturer', FILTER_SANITIZE_STRING);
@@ -584,7 +582,7 @@ function CreateLecture() {
     $lecture_location = filter_input(INPUT_POST, 'create_lecture_location', FILTER_SANITIZE_STRING);
     $lecture_capacity = filter_input(INPUT_POST, 'create_lecture_capacity', FILTER_SANITIZE_STRING);
 
-    // Check existing lecture name
+    // Check if there is an existing lecture name
     $stmt1 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE lecture_name = ? LIMIT 1");
     $stmt1->bind_param('s', $lecture_name);
     $stmt1->execute();
@@ -597,6 +595,8 @@ function CreateLecture() {
         header('HTTP/1.0 550 A lecture with the name entered already exists.');
         exit();
     } else {
+
+        //Create the lecture record
         $lecture_status = 'active';
 
         $stmt2 = $mysqli->prepare("INSERT INTO system_lecture (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -612,7 +612,7 @@ function CreateTutorial() {
     global $mysqli;
     global $created_on;
 
-    //Tutorial
+    //Getting the data posted and assigning variables
     $moduleid = filter_input(INPUT_POST, 'create_tutorial_moduleid', FILTER_SANITIZE_STRING);
     $tutorial_name = filter_input(INPUT_POST, 'create_tutorial_name', FILTER_SANITIZE_STRING);
     $tutorial_assistant = filter_input(INPUT_POST, 'create_tutorial_assistant', FILTER_SANITIZE_STRING);
@@ -625,7 +625,7 @@ function CreateTutorial() {
     $tutorial_location = filter_input(INPUT_POST, 'create_tutorial_location', FILTER_SANITIZE_STRING);
     $tutorial_capacity = filter_input(INPUT_POST, 'create_tutorial_capacity', FILTER_SANITIZE_STRING);
 
-    //Check existing tutorial name
+    //Check if there is an existing tutorial name
     $stmt1 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE tutorial_name = ? LIMIT 1");
     $stmt1->bind_param('s', $tutorial_name);
     $stmt1->execute();
@@ -637,14 +637,16 @@ function CreateTutorial() {
         $stmt1->close();
         header('HTTP/1.0 550 A tutorial with the name entered already exists.');
         exit();
+    } else {
+
+        //Create the tutorial record
+        $tutorial_status = 'active';
+
+        $stmt2 = $mysqli->prepare("INSERT INTO system_tutorial (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
+        $stmt2->execute();
+        $stmt2->close();
     }
-
-    $tutorial_status = 'active';
-
-    $stmt2 = $mysqli->prepare("INSERT INTO system_tutorial (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt2->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
-    $stmt2->execute();
-    $stmt2->close();
 }
 
 //UpdateModule function
@@ -653,13 +655,13 @@ function UpdateModule() {
     global $mysqli;
     global $updated_on;
 
-    //Module
+    //Getting the data posted and assigning variables
     $moduleid = filter_input(INPUT_POST, 'update_moduleid', FILTER_SANITIZE_STRING);
     $module_name = filter_input(INPUT_POST, 'update_module_name', FILTER_SANITIZE_STRING);
     $module_notes = filter_input(INPUT_POST, 'update_module_notes', FILTER_SANITIZE_STRING);
     $module_url = filter_input(INPUT_POST, 'update_module_url', FILTER_SANITIZE_STRING);
 
-    //Check existing module name
+    //Check if module name has been changed
     $stmt1 = $mysqli->prepare("SELECT module_name FROM system_module WHERE moduleid = ?");
     $stmt1->bind_param('i', $moduleid);
     $stmt1->execute();
@@ -667,11 +669,14 @@ function UpdateModule() {
     $stmt1->bind_result($db_module_name);
     $stmt1->fetch();
 
+    //If the module name hasn't changed, do the following
     if ($db_module_name === $module_name) {
         $stmt2 = $mysqli->prepare("UPDATE system_module SET module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
         $stmt2->bind_param('sssi', $module_notes, $module_url, $updated_on, $moduleid);
         $stmt2->execute();
         $stmt2->close();
+
+    //If the module name has changed, do the following
     } else {
 
         $stmt3 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE module_name = ?");
@@ -700,7 +705,7 @@ function UpdateLecture() {
     global $mysqli;
     global $updated_on;
 
-    //Lecture
+    //Getting the data posted and assigning variables
     $moduleid = filter_input(INPUT_POST, 'update_lecture_moduleid', FILTER_SANITIZE_STRING);
     $lectureid = filter_input(INPUT_POST, 'update_lectureid', FILTER_SANITIZE_STRING);
     $lecture_name = filter_input(INPUT_POST, 'update_lecture_name', FILTER_SANITIZE_STRING);
@@ -714,7 +719,7 @@ function UpdateLecture() {
     $lecture_location = filter_input(INPUT_POST, 'update_lecture_location', FILTER_SANITIZE_STRING);
     $lecture_capacity = filter_input(INPUT_POST, 'update_lecture_capacity', FILTER_SANITIZE_STRING);
 
-    //Lecture
+    //Check if lecture name has been changed
     $stmt1 = $mysqli->prepare("SELECT lecture_name FROM system_lecture WHERE lectureid = ?");
     $stmt1->bind_param('i', $lectureid);
     $stmt1->execute();
@@ -722,11 +727,13 @@ function UpdateLecture() {
     $stmt1->bind_result($db_lecture_name);
     $stmt1->fetch();
 
+    //If the lecture name hasn't changed, do the following
     if ($db_lecture_name === $lecture_name) {
         $stmt2 = $mysqli->prepare("UPDATE system_lecture SET moduleid=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
         $stmt2->bind_param('iisssssssisi', $moduleid, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $updated_on, $lectureid);
         $stmt2->execute();
         $stmt2->close();
+    //If the lecture name has changed, do the following
     } else {
         $stmt3 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE lecture_name = ?");
         $stmt3->bind_param('s', $lecture_name);
@@ -754,7 +761,7 @@ function UpdateTutorial() {
     global $mysqli;
     global $updated_on;
 
-    //Tutorial
+    //Getting the data posted and assigning variables
     $moduleid = filter_input(INPUT_POST, 'update_tutorial_moduleid', FILTER_SANITIZE_STRING);
     $tutorialid = filter_input(INPUT_POST, 'update_tutorialid', FILTER_SANITIZE_STRING);
     $tutorial_name = filter_input(INPUT_POST, 'update_tutorial_name', FILTER_SANITIZE_STRING);
@@ -768,7 +775,7 @@ function UpdateTutorial() {
     $tutorial_location = filter_input(INPUT_POST, 'update_tutorial_location', FILTER_SANITIZE_STRING);
     $tutorial_capacity = filter_input(INPUT_POST, 'update_tutorial_capacity', FILTER_SANITIZE_STRING);
 
-    //Tutorial
+    //Check if tutorial name has been changed
     $stmt1 = $mysqli->prepare("SELECT tutorial_name FROM system_tutorial WHERE tutorialid = ?");
     $stmt1->bind_param('i', $tutorialid);
     $stmt1->execute();
@@ -776,11 +783,14 @@ function UpdateTutorial() {
     $stmt1->bind_result($db_tutorial_name);
     $stmt1->fetch();
 
+    //If the tutorial name hasn't changed, do the following
     if ($db_tutorial_name === $tutorial_name) {
         $stmt2 = $mysqli->prepare("UPDATE system_tutorial SET moduleid=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
         $stmt2->bind_param('iisssssssisi', $moduleid, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
         $stmt2->execute();
         $stmt2->close();
+
+    //If the tutorial name has changed, do the following
     } else {
         $stmt3 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE tutorial_name = ?");
         $stmt3->bind_param('s', $tutorial_name);
