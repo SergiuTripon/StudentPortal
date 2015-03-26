@@ -13,8 +13,6 @@ if (isset($_GET["id"])) {
 	$stmt1->fetch();
 	$stmt1->close();
 
-    echo $fee_amount;
-
 } else {
 	header('Location: ../../account/');
 }
@@ -653,21 +651,21 @@ if ($dateofbirth == "0000-00-00") {
             $("#degree").removeClass("input-sad");
             $("#degree").addClass("input-happy");
 		}
-        if(fees === '') {
-            $("label[for='fees']").empty().append("Please enter an amount.");
-            $("label[for='fees']").removeClass("feedback-happy");
-            $("label[for='fees']").addClass("feedback-sad");
-            $("#fees").removeClass("input-happy");
-            $("#fees").addClass("input-sad");
-            $("#fees").focus();
+        if(fee_amount === '') {
+            $("label[for='fee_amount']").empty().append("Please enter an amount.");
+            $("label[for='fee_amount']").removeClass("feedback-happy");
+            $("label[for='fee_amount']").addClass("feedback-sad");
+            $("#fee_amount").removeClass("input-happy");
+            $("#fee_amount").addClass("input-sad");
+            $("#fee_amount").focus();
             hasError  = true;
             return false;
         } else {
-            $("label[for='fees']").empty().append("All good!");
-            $("label[for='fees']").removeClass("feedback-sad");
-            $("label[for='fees']").addClass("feedback-happy");
-            $("#fees").removeClass("input-sad");
-            $("#fees").addClass("input-happy");
+            $("label[for='fee_amount']").empty().append("All good!");
+            $("label[for='fee_amount']").removeClass("feedback-sad");
+            $("label[for='fee_amount']").addClass("feedback-happy");
+            $("#fee_amount").removeClass("input-sad");
+            $("#fee_amount").addClass("input-happy");
         }
 	} else {
 		studentno = $("#studentno").val();
