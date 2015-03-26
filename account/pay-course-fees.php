@@ -238,6 +238,7 @@ if ($fee_amount == "0.00") {
         }
         if(fee_type === 'Full fees') {
             fee_amount = $('#fee_amount).val();
+            $('#fee_amount).val(fee_amount);
         }
     });
 
