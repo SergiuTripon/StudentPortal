@@ -289,8 +289,7 @@ include '../includes/session.php';
         $("[aria-owns='select2-lecture_moduleid-results']").addClass("input-happy");
     }
 
-    var lecture_moduleid= $("#lecture_moduleid option :selected").val();
-    alert(lecture_moduleid);
+    var lecture_moduleid= $("#lecture_moduleid :selected").val();
 
     var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
@@ -329,7 +328,7 @@ include '../includes/session.php';
         $("[aria-owns='select2-lecture_lecturer-results']").addClass("input-happy");
     }
 
-    var lecture_lecturer = $("#lecture_lecturer option :selected").val();
+    var lecture_lecturer = $("#lecture_lecturer :selected").val();
     var lecture_notes = $("#lecture_notes").val();
 
     var lecture_day_check = $('#lecture_day :selected').html();
@@ -351,7 +350,7 @@ include '../includes/session.php';
         $("[aria-owns='select2-lecture_day-results']").addClass("input-happy");
     }
 
-    var lecture_day = $("#lecture_day option :selected").html();
+    var lecture_day = $("#lecture_day :selected").html();
 
     var lecture_from_time = $("#lecture_from_time").val();
 	if(lecture_from_time === '') {
