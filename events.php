@@ -234,7 +234,7 @@ include 'includes/session.php';
 
     <div class="container">
 
-	<ol class="breadcrumb breadcrumb-admin">
+	<ol class="breadcrumb breadcrumb-custom breadcrumb-admin">
     <li><a href="../overview/">Overview</a></li>
     <li class="active">Events</li>
     </ol>
