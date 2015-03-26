@@ -738,10 +738,7 @@ if ($dateofbirth == "0000-00-00") {
     }
 	});
     }
-
 	return true;
-
-	});
 	});
 	</script>
 
