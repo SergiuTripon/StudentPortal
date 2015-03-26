@@ -675,6 +675,8 @@ include '../includes/session.php';
         fee_amount = $("#fee_amount").val();
 	}
 
+    alert(fee_amount);
+
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
