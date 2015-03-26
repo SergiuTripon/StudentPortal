@@ -34,8 +34,8 @@ if ($fee_amount == "0.00") {
 
     <title>Student Portal | Pay Course Fees</title>
 
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/select2-css-path.php'; ?>
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
