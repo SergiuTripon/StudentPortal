@@ -196,10 +196,10 @@ include '../includes/session.php';
 
     // Date Time Picker
     $('#exam_date').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'YYYY-MM-DD'
     });
     $('#exam_time').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'HH:mm'
     });
 
     //Create timetable ajax call

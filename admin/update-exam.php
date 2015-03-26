@@ -223,20 +223,28 @@ if (isset($_GET['id'])) {
 
     // Date Time Picker
     $('#exam_date').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'YYYY-MM-DD'
     });
     $('#exam_time').datetimepicker({
         format: 'HH:mm'
     });
 
-    //Ajax call
+    //Update exam process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
+    //Validation and data gathering
 	var hasError = false;
 
-    //Exams
     var examid = $("#examid").val();
+
+    $("label[for='exam_moduleid']").empty().append("All good!");
+    $("label[for='exam_moduleid']").removeClass("feedback-sad");
+    $("label[for='exam_moduleid']").addClass("feedback-happy");
+    $("[aria-owns='select2-exam_moduleid-results']").removeClass("input-sad");
+    $("[aria-owns='select2-exam_moduleid-results']").addClass("input-happy");
+
+    var exam_moduleid = $("#exam_moduleid option:selected").val();
 
 	var exam_name = $("#exam_name").val();
 	if(exam_name === '') {
@@ -255,6 +263,8 @@ if (isset($_GET['id'])) {
         $("#exam_name").removeClass("input-sad");
         $("#exam_name").addClass("input-happy");
 	}
+
+    var exam_notes = $("#exam_notes").val();
 
     var exam_date = $("#exam_date").val();
 	if(exam_date === '') {
@@ -328,15 +338,7 @@ if (isset($_GET['id'])) {
         $("#exam_capacity").addClass("input-happy");
 	}
 
-    $("label[for='exam_moduleid']").empty().append("All good!");
-    $("label[for='exam_moduleid']").removeClass("feedback-sad");
-    $("label[for='exam_moduleid']").addClass("feedback-happy");
-    $("[aria-owns='select2-exam_moduleid-results']").removeClass("input-sad");
-    $("[aria-owns='select2-exam_moduleid-results']").addClass("input-happy");
-
-    var exam_moduleid = $("#exam_moduleid option:selected").val();
-    var exam_notes = $("#exam_notes").val();
-
+    //Ajax
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",

@@ -153,13 +153,13 @@ include '../includes/session.php';
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    //Create timetable ajax call
+    //Create module process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
+    //Validation and data gathering
 	var hasError = false;
 
-    //Modules
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
         $("label[for='module_name']").empty().append("Please enter a module name.");
@@ -181,6 +181,7 @@ include '../includes/session.php';
     var module_notes = $("#module_notes").val();
     var module_url = $("#module_url").val();
 
+    //Ajax
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",

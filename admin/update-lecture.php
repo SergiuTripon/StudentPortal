@@ -303,6 +303,13 @@ if (isset($_GET['id'])) {
 
     //Validation and data gathering
     var lectureid = $("#lectureid").val();
+
+    $("label[for='lecture_moduleid']").empty().append("All good!");
+    $("label[for='lecture_moduleid']").removeClass("feedback-sad");
+    $("label[for='lecture_moduleid']").addClass("feedback-happy");
+    $("[aria-owns='select2-lecture_moduleid-results']").removeClass("input-sad");
+    $("[aria-owns='select2-lecture_moduleid-results']").addClass("input-happy");
+
     var lecture_moduleid= $("#lecture_moduleid :selected").val();
 
 	var lecture_name = $("#lecture_name").val();
@@ -323,8 +330,28 @@ if (isset($_GET['id'])) {
         $("#lecture_name").addClass("input-happy");
 	}
 
+    $("label[for='lecture_lecturer']").empty().append("All good!");
+    $("label[for='lecture_lecturer']").removeClass("feedback-sad");
+    $("label[for='lecture_lecturer']").addClass("feedback-happy");
+    $("[aria-owns='select2-lecture_lecturer-results']").removeClass("input-sad");
+    $("[aria-owns='select2-lecture_lecturer-results']").addClass("input-happy");
+
     var lecture_lecturer = $("#lecture_lecturer :selected").val();
+
+    $("label[for='lecture_notes']").empty().append("All good!");
+    $("label[for='lecture_notes']").removeClass("feedback-sad");
+    $("label[for='lecture_notes']").addClass("feedback-happy");
+    $("[aria-owns='select2-lecture_notes-results']").removeClass("input-sad");
+    $("[aria-owns='select2-lecture_notes-results']").addClass("input-happy");
+
     var lecture_notes = $("#lecture_notes").val();
+
+    $("label[for='lecture_day']").empty().append("All good!");
+    $("label[for='lecture_day']").removeClass("feedback-sad");
+    $("label[for='lecture_day']").addClass("feedback-happy");
+    $("[aria-owns='select2-lecture_day-results']").removeClass("input-sad");
+    $("[aria-owns='select2-lecture_day-results']").addClass("input-happy");
+
     var lecture_day = $("#lecture_day :selected").html();
 
     var lecture_from_time = $("#lecture_from_time").val();

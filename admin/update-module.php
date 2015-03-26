@@ -168,13 +168,13 @@ if (isset($_GET['id'])) {
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    //Ajax call
+    //Update module process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
+    //Validation and data gathering
 	var hasError = false;
 
-    //Modules
     var moduleid = $("#moduleid").val();
 
 	var module_name = $("#module_name").val();
@@ -202,10 +202,10 @@ if (isset($_GET['id'])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'update_moduleid=' + moduleid +
-         '&update_module_name='   + module_name +
-         '&update_module_notes='  + module_notes +
-         '&update_module_url='    + module_url,
+    data:'update_moduleid='      + moduleid +
+         '&update_module_name='  + module_name +
+         '&update_module_notes=' + module_notes +
+         '&update_module_url='   + module_url,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
