@@ -2219,9 +2219,9 @@ include 'includes/session.php';
 	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(errormsg){
         if (errormsg) {
-            $('#reactivate-lecture'+lectureToReactivate).modal('hide');
+            $('.modal-custom').modal('hide');
             $('#error-modal').modal('show');
-            $('#error-modal .modal-body p').empty.append(errormsg);
+            $('#error-modal .modal-body p').empty().append(errormsg);
         } else {
             $('#lecture-'+lectureToReactivate).hide();
             $('.form-logo i').removeClass('fa-trash');
