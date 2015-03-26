@@ -713,7 +713,7 @@ if ($dateofbirth == "0000-00-00") {
          '&update_account_gender='       + gender +
          '&update_account_studentno='    + studentno +
          '&update_account_degree='       + degree +
-         '&update_account_fees='         + degree +
+         '&update_account_fee_amount='         + fee_amount +
          '&update_account_email='        + email +
          '&update_account_nationality='  + nationality +
          '&update_account_dateofbirth='  + dateofbirth +

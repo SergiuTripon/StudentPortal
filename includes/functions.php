@@ -3480,7 +3480,7 @@ function UpdateAnAccount() {
     $gender = filter_input(INPUT_POST, 'update_account_gender', FILTER_SANITIZE_STRING);
     $studentno = filter_input(INPUT_POST, 'update_account_studentno', FILTER_SANITIZE_STRING);
     $degree = filter_input(INPUT_POST, 'update_account_degree', FILTER_SANITIZE_STRING);
-    $fees = filter_input(INPUT_POST, 'update_account_fees', FILTER_SANITIZE_STRING);
+    $fees = filter_input(INPUT_POST, 'update_account_fee_amount', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'update_account_email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$nationality = filter_input(INPUT_POST, 'update_account_nationality', FILTER_SANITIZE_STRING);
