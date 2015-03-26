@@ -101,37 +101,37 @@ if ($fee_amount == "0.00") {
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label for="payer_address1">Address line 1</label>
+    <label for="payer_address1">Address line 1<span class="field-required">*</span></label>
     <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Address 1">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="payer_city">City</label>
+    <label for="payer_city">City<span class="field-required">*</span></label>
 	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="City">
     </div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Country</label>
+    <label>Country<span class="field-required">*</span></label>
     <input class="form-control" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Country" readonly="readonly">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label for="payer_postcode">Post code</label>
+    <label for="payer_postcode">Post code<span class="field-required">*</span></label>
     <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code">
     </div>
     </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
-	<label for="fees_type">Pay half or the full fee amount - select below</label>
-	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default btn-lg fees_type">
-		<input type="radio" name="options" id="option1" autocomplete="off"> Full fees
-	</label>
-	<label class="btn btn-default btn-lg fees_type">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Half fees
-	</label>
-	</div>
-    <p id="error3" class="feedback-sad text-center"></p>
+	<div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <label for="fee_type">Pay half or the full fee amount<span class="field-required">*</span></label>
+    <select class="form-control" name="fee_type" id="fee_type" style="width: 100%;">
+        <option></option>
+        <option>Full fees</option>
+        <option>Half fees</option>
+    </select>
+    </div>
+    </div>
 
     <hr class="hr-custom">
 
@@ -212,44 +212,34 @@ if ($fee_amount == "0.00") {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 	
 	<script>
+    //On load
     $(document).ready(function () {
+        //select2
+        $("#account_type").select2({placeholder: "Select an option"});
+        $("#gender").select2({placeholder: "Select an option"});
+        $("#nationality").select2({placeholder: "Select an option"});
+
+    });
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    var fees_type;
+    var fee_type;
+    var fee_amount;
+    var new_fee_amount;
 
-    //Setting variable value
-	$('.btn-group > .fees_type').click(function(){
-        fees_type = ($(this).text().replace(/^\s+|\s+$/g,''))
+    $('#account_type').on("change", function (e) {
+        fee_type = $('#fee_type :selected').html();
 
-		if(fees_type === 'Full fees') {
-            $('input[name=product_amount]').val('9000.00');
-            $('input[name=product_name]').val('Full Fees');
-		}
-		if(fees_type === 'Half fees') {
-            $('input[name=product_amount]').val('4500.00');
-            $('input[name=product_name]').val('Half Fees');
-		}
-
-	})
-
-    //Checks for empty values
-    var val;
-	val = $("#payer_firstname").val();
-	if(val === '') { $("#payer_firstname").css("border-color", "#FF5454"); }
-	val = $("#payer_surname").val();
-	if(val === '') { $("#payer_surname").css("border-color", "#FF5454"); }
-	val = $("#product_name").val();
-	if(val === '') { $("#product_name").css("border-color", "#FF5454"); }
-	val = $("#product_amount").val();
-	if(val === '') { $("#product_amount").css("border-color", "#FF5454"); }
-	val = $("#payer_address1").val();
-	if(val === '') { $("#payer_address1").css("border-color", "#FF5454"); }
-	val = $("#payer_city").val();
-	if(val === '') { $("#payer_city").css("border-color", "#FF5454"); }
-	val = $("#payer_postcode").val();
-	if(val === '') { $("#payer_postcode").css("border-color", "#FF5454"); }
+        if(fee_type === 'Half fees') {
+            fee_amount = $('#fee_amount).val();
+            var new_fee_amount = fee_amount/2;
+            alert(new_fee_amount)
+        }
+        if(fee_type === 'Full fees') {
+            fee_amount = $('#fee_amount).val();
+        }
+    });
 
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
@@ -321,7 +311,6 @@ if ($fee_amount == "0.00") {
 	
 	return true;
 	
-	});
 	});
 	</script>
 	
