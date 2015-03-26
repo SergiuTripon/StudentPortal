@@ -910,8 +910,8 @@ include 'includes/session.php';
 	echo '<tr id="module-'.$moduleid.'">
 
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
-			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
-            <td data-title="Moodle link">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
+			<td data-title="Notes">'.($module_notes === '' ? "-" : "$module_notes").'</td>
+            <td data-title="Moodle link">'.($module_url === '' ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
             <a class="btn btn-primary" href="/admin/allocate-module?id='.$moduleid.'">Allocate</a>
@@ -938,8 +938,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
-			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			<p><b>Description:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "-" : "$module_url").'</p>
 			</div>
 
 			<div class="modal-footer">
