@@ -125,7 +125,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="nationality">Nationality<span class="field-required">*</span></label>
+    <label for="nationality">Nationality</label>
     <select class="form-control" name="nationality" id="nationality" style="width: 100%;">
         <option></option>
         <option <?php if($nationality == "afghan") echo "selected"; ?>>Afghan</option>
