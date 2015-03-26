@@ -222,7 +222,7 @@ if ($fee_amount == "0.00") {
     var new_fee_amount;
     var new_fee_amount1;
 
-    $('#fee_type').on("change", function (e) {
+    $('#product_name').on("change", function (e) {
         var fee_type = $('#product_name :selected').html();
 
         if(fee_type === 'Half fees') {
