@@ -463,6 +463,7 @@ include '../includes/session.php';
     var account_type;
     var studentno;
     var degree;
+    var fees;
 
     $('#account_type').on("change", function (e) {
         account_type = $('#account_type :selected').html();
@@ -801,7 +802,6 @@ include '../includes/session.php';
 	var city = $("#city").val();
 	var country = $("#country").val();
 	var postcode = $("#postcode").val();
-
 	
 	if(hasError == false){
     jQuery.ajax({

@@ -496,6 +496,7 @@ if ($dateofbirth == "0000-00-00") {
 	var account_type;
 	var studentno;
     var degree;
+    var fees;
 
     $('#account_type').on("change", function (e) {
         account_type = $('#account_type :selected').html();
@@ -534,6 +535,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	var userid = $("#userid").val();
 
+    var account_type = $('#account_type :selected').html();
+
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
         $("label[for='firstname']").empty().append("Please enter a first name.");
@@ -570,9 +573,12 @@ if ($dateofbirth == "0000-00-00") {
         $("#surname").addClass("input-happy");
 	}
 
+    var gender = $('#gender :selected').html();
+
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
+        fees = $("#fees").val();
 
 		if(studentno === '') {
             $("label[for='studentno']").empty().append("Please enter a student number.");
@@ -644,9 +650,26 @@ if ($dateofbirth == "0000-00-00") {
             $("#degree").removeClass("input-sad");
             $("#degree").addClass("input-happy");
 		}
+        if(fees === '') {
+            $("label[for='fees']").empty().append("Please enter an amount.");
+            $("label[for='fees']").removeClass("feedback-happy");
+            $("label[for='fees']").addClass("feedback-sad");
+            $("#fees").removeClass("input-happy");
+            $("#fees").addClass("input-sad");
+            $("#fees").focus();
+            hasError  = true;
+            return false;
+        } else {
+            $("label[for='fees']").empty().append("All good!");
+            $("label[for='fees']").removeClass("feedback-sad");
+            $("label[for='fees']").addClass("feedback-happy");
+            $("#fees").removeClass("input-sad");
+            $("#fees").addClass("input-happy");
+        }
 	} else {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
+        fees = $("#fees").val();
 	}
 
 	var email = $("#email").val();
@@ -677,7 +700,6 @@ if ($dateofbirth == "0000-00-00") {
 	var country = $("#country").val();
 	var postcode = $("#postcode").val();
 
-
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
@@ -689,6 +711,7 @@ if ($dateofbirth == "0000-00-00") {
          '&update_account_gender='       + gender +
          '&update_account_studentno='    + studentno +
          '&update_account_degree='       + degree +
+         '&update_account_fees='         + degree +
          '&update_account_email='        + email +
          '&update_account_nationality='  + nationality +
          '&update_account_dateofbirth='  + dateofbirth +

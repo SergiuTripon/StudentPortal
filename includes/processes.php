@@ -616,6 +616,7 @@ elseif (isset(
     $_POST['update_account_email'],
     $_POST['update_account_studentno'],
     $_POST['update_account_degree'],
+    $_POST['update_account_fees'],
     $_POST['update_account_nationality'],
     $_POST['update_account_dateofbirth'],
     $_POST['update_account_phonenumber'],
