@@ -1117,7 +1117,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "-" : "$lecture_notes").'</p>
 			<p><b>Lecturer:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
 			<p><b>From:</b> '.$lecture_from_time.'</p>
 			<p><b>To:</b> '.$lecture_to_time.'</p>
@@ -1300,7 +1300,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "-" : "$lecture_notes").'</p>
 			<p><b>Lecturer:</b> '.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</p>
 			<p><b>From:</b> '.$tutorial_from_time.'</p>
 			<p><b>To:</b> '.$tutorial_to_time.'</p>
@@ -1465,8 +1465,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($module_notes) ? "No description" : "$module_notes").'</p>
-			<p><b>Moodle link:</b> '.(empty($module_url) ? "No link" : "$module_url").'</p>
+			<p><b>Description:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "-" : "$module_url").'</p>
 			</div>
 
 			<div class="modal-footer">
@@ -1640,7 +1640,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "-" : "$lecture_notes").'</p>
 			<p><b>Lecturer:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
 			<p><b>From:</b> '.$lecture_from_time.'</p>
 			<p><b>To:</b> '.$lecture_to_time.'</p>
@@ -1821,7 +1821,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($tutorial_notes) ? "No description" : "$tutorial_notes").'</p>
+			<p><b>Description:</b> '.(empty($tutorial_notes) ? "-" : "$tutorial_notes").'</p>
 			<p><b>Lecturer:</b> '.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</p>
 			<p><b>From:</b> '.$tutorial_from_time.'</p>
 			<p><b>To:</b> '.$tutorial_to_time.'</p>
