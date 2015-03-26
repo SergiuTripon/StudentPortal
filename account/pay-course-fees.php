@@ -227,9 +227,10 @@ if ($fee_amount == "0.00") {
             fee_amount = $('#product_amount').val();
             new_fee_amount = fee_amount / 2;
             $('#product_amount').val(new_fee_amount.toFixed(2));
-            alert(new_fee_amount);
         } else {
             fee_amount = $('#product_amount').val();
+            new_fee_amount = fee_amount * 2;
+            $('#product_amount').val(new_fee_amount.toFixed(2));
         }
     });
 
