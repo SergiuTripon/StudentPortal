@@ -2093,7 +2093,7 @@ include 'includes/session.php';
 	data:'moduleToDeactivate='+ moduleToDeactivate,
 	success:function(){
 		$('#module-'+moduleToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus');
+        $('.form-logo i').removeClass('fa-minus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-module-question').hide();
         $('#deactivate-module-confirmation').show();
@@ -2126,7 +2126,7 @@ include 'includes/session.php';
 	data:'lectureToDeactivate='+ lectureToDeactivate,
 	success:function(){
 		$('#lecture-'+lectureToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus');
+        $('.form-logo i').removeClass('fa-minus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-lecture-question').hide();
         $('#deactivate-lecture-confirmation').show();
@@ -2157,7 +2157,7 @@ include 'includes/session.php';
 	data:'tutorialToDeactivate='+ tutorialToDeactivate,
 	success:function(){
 		$('#tutorial-'+tutorialToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus');
+        $('.form-logo i').removeClass('fa-minus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-tutorial-question').hide();
         $('#deactivate-tutorial-confirmation').show();
@@ -2188,7 +2188,7 @@ include 'includes/session.php';
 	data:'moduleToReactivate='+ moduleToReactivate,
 	success:function(){
 		$('#module-'+moduleToReactivate).hide();
-        $('.form-logo i').removeClass('fa-plus');
+        $('.form-logo i').removeClass('fa-plus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#reactivate-module-question').hide();
         $('#reactivate-module-confirmation').show();
@@ -2224,7 +2224,7 @@ include 'includes/session.php';
             $('#error-modal .modal-body p').empty().append(errormsg);
         } else {
             $('#lecture-'+lectureToReactivate).hide();
-            $('.form-logo i').removeClass('fa-plus');
+            $('.form-logo i').removeClass('fa-plus-square-o');
             $('.form-logo i').addClass('fa-check-square-o');
             $('#reactivate-lecture-question').hide();
             $('#reactivate-lecture-confirmation').show();
@@ -2261,7 +2261,7 @@ include 'includes/session.php';
             $('#error-modal .modal-body p').empty().append(errormsg);
         } else {
             $('#tutorial-' + tutorialToReactivate).hide();
-            $('.form-logo i').removeClass('fa-plus');
+            $('.form-logo i').removeClass('fa-plus-square-o');
             $('.form-logo i').addClass('fa-check-square-o');
             $('#reactivate-tutorial-question').hide();
             $('#reactivate-tutorial-confirmation').show();
