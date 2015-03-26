@@ -624,7 +624,7 @@ include 'includes/session.php';
 	data:'userToReactivate='+ userToReactivate,
 	success:function(){
 		$('#user-'+userToReactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').removeClass('fa-user-times');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#reactivate-question').hide();
         $('#reactivate-confirmation').show();
