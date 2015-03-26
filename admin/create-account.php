@@ -463,7 +463,7 @@ include '../includes/session.php';
     var account_type;
     var studentno;
     var degree;
-    var fees;
+    var fee_amount;
 
     $('#account_type').on("change", function (e) {
         account_type = $('#account_type :selected').html();
@@ -581,7 +581,7 @@ include '../includes/session.php';
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
-        fees = $("#fee_amount").val();
+        fee_amount = $("#fee_amount").val();
 
 		if(studentno === '') {
             $("label[for='studentno']").empty().append("Please enter a student number.");
@@ -653,7 +653,7 @@ include '../includes/session.php';
             $("#degree").removeClass("input-sad");
             $("#degree").addClass("input-happy");
 		}
-        if(fees === '') {
+        if(fee_amount === '') {
             $("label[for='fee_amount']").empty().append("Please enter an amount.");
             $("label[for='fee_amount']").removeClass("feedback-happy");
             $("label[for='fee_amount']").addClass("feedback-sad");
@@ -672,7 +672,7 @@ include '../includes/session.php';
 	} else {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
-        fees = $("#fee_amount").val();
+        fee_amount = $("#fee_amount").val();
 	}
 
 	var email = $("#email").val();
@@ -813,7 +813,7 @@ include '../includes/session.php';
          '&create_account_gender='      + gender +
          '&create_account_studentno='   + studentno +
          '&create_account_degree='      + degree +
-         '&create_account_fee_amount='  + fees +
+         '&create_account_fee_amount='  + fee_amount +
          '&create_account_email='       + email +
          '&create_account_password='    + password +
          '&create_account_nationality=' + nationality +
