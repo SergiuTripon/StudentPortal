@@ -88,14 +88,14 @@ include '../includes/session.php';
 
     while ($row = $stmt1->fetch_assoc()){
 
-    $lecturerid = $row["userid"];
+        $lecturerid = $row["userid"];
 
-    $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lecturerid);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($firstname, $surname);
-    $stmt2->fetch();
+        $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+        $stmt2->bind_param('i', $lecturerid);
+        $stmt2->execute();
+        $stmt2->store_result();
+        $stmt2->bind_result($firstname, $surname);
+        $stmt2->fetch();
 
         echo '<option value="'.$lecturerid.'">'.$firstname.' '.$surname.'</option>';
     }
