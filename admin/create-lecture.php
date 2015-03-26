@@ -459,7 +459,6 @@ include '../includes/session.php';
     var lecture_day = $("#lecture_day option :selected").html();
 
     alert(lecture_moduleid);
-    alert(lecture_lecturer);
 
 	if(hasError == false){
     jQuery.ajax({
