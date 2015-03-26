@@ -963,7 +963,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-minus-square-o"></i>
+			<i class="fa fa-archive"></i>
 			</div>
 			</div>
 
@@ -1146,7 +1146,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-minus-square-o"></i>
+			<i class="fa fa-archive"></i>
 			</div>
 			</div>
 
@@ -1329,7 +1329,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-minus-square-o"></i>
+			<i class="fa fa-archive"></i>
 			</div>
 			</div>
 
@@ -2093,7 +2093,7 @@ include 'includes/session.php';
 	data:'moduleToDeactivate='+ moduleToDeactivate,
 	success:function(){
 		$('#module-'+moduleToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
+        $('.form-logo i').removeClass('fa-archive');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-module-question').hide();
         $('#deactivate-module-confirmation').show();
@@ -2126,7 +2126,7 @@ include 'includes/session.php';
 	data:'lectureToDeactivate='+ lectureToDeactivate,
 	success:function(){
 		$('#lecture-'+lectureToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
+        $('.form-logo i').removeClass('fa-archive');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-lecture-question').hide();
         $('#deactivate-lecture-confirmation').show();
@@ -2157,7 +2157,7 @@ include 'includes/session.php';
 	data:'tutorialToDeactivate='+ tutorialToDeactivate,
 	success:function(){
 		$('#tutorial-'+tutorialToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
+        $('.form-logo i').removeClass('fa-archive');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-tutorial-question').hide();
         $('#deactivate-tutorial-confirmation').show();
