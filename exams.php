@@ -583,8 +583,8 @@ include 'includes/session.php';
 	success:function(errormsg){
         if (errormsg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal').modal('show');
             $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
         } else {
             $('#exam-' + examToReactivate).hide();
             $('.form-logo i').removeClass('fa-minus-square-o');

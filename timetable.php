@@ -2220,8 +2220,8 @@ include 'includes/session.php';
 	success:function(errormsg){
         if (errormsg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal').modal('show');
             $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
         } else {
             $('#lecture-'+lectureToReactivate).hide();
             $('.form-logo i').removeClass('fa-plus-square-o');
@@ -2257,8 +2257,8 @@ include 'includes/session.php';
 	success:function(errormsg){
         if (errormsg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal').modal('show');
             $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
         } else {
             $('#tutorial-' + tutorialToReactivate).hide();
             $('.form-logo i').removeClass('fa-plus-square-o');
