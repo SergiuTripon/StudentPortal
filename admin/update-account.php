@@ -13,8 +13,6 @@ if (isset($_GET["id"])) {
 	$stmt1->fetch();
 	$stmt1->close();
 
-    echo $fee_amount;
-
 } else {
 	header('Location: ../../account/');
 }
