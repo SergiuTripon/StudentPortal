@@ -453,6 +453,11 @@ include '../includes/session.php';
         $("#lecture_capacity").addClass("input-happy");
 	}
 
+    alert(lecture_from_date);
+    alert(lecture_to_date);
+    alert(lecture_from_time);
+    alert(lecture_to_time);
+
     var lecture_moduleid= $("#lecture_moduleid option :selected").val();
     var lecture_notes = $("#lecture_notes").val();
     var lecture_lecturer = $("#lecture_lecturer option :selected").val();
