@@ -290,6 +290,7 @@ include '../includes/session.php';
     }
 
     var lecture_moduleid= $("#lecture_moduleid option :selected").val();
+    alert(lecture_moduleid);
 
     var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
