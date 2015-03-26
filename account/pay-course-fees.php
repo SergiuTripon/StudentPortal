@@ -286,20 +286,6 @@ if ($fee_amount == "0.00") {
         $("label[for='payer_postcode']").addClass("feedback-happy");
 	}
 
-    var fees_type_check = $(".fees_type");
-	if (fees_type_check.hasClass('active')) {
-        $("label[for='fees_type']").empty().append("All good!");
-        $("label[for='fees_type']").removeClass("feedback-sad");
-        $("label[for='fees_type']").addClass("feedback-happy");
-	}
-	else {
-        $("label[for='fees_type']").empty().append("Please select how you want to pay your fees.");
-        $("label[for='fees_type']").removeClass("feedback-happy");
-        $("label[for='fees_type']").addClass("feedback-sad");
-		hasError  = true;
-		return false;
-	}
-
     var fee_type_check = $('#fee_type :selected').html();
     if (fee_type_check === '') {
         $("label[for='fee_type']").empty().append("Please select an option.");
