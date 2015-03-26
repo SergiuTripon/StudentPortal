@@ -563,92 +563,6 @@ function CreateModule() {
     }
 }
 
-//CreateLecture function
-function CreateLecture() {
-
-    global $mysqli;
-    global $created_on;
-
-    //Getting the data posted and assigning variables
-    $moduleid = filter_input(INPUT_POST, 'create_lecture_moduleid', FILTER_SANITIZE_STRING);
-    $lecture_name = filter_input(INPUT_POST, 'create_lecture_name', FILTER_SANITIZE_STRING);
-    $lecture_lecturer = filter_input(INPUT_POST, 'create_lecture_lecturer', FILTER_SANITIZE_STRING);
-    $lecture_notes = filter_input(INPUT_POST, 'create_lecture_notes', FILTER_SANITIZE_STRING);
-    $lecture_day = filter_input(INPUT_POST, 'create_lecture_day', FILTER_SANITIZE_STRING);
-    $lecture_from_time = filter_input(INPUT_POST, 'create_lecture_from_time', FILTER_SANITIZE_STRING);
-    $lecture_to_time = filter_input(INPUT_POST, 'create_lecture_to_time', FILTER_SANITIZE_STRING);
-    $lecture_from_date = filter_input(INPUT_POST, 'create_lecture_from_date', FILTER_SANITIZE_STRING);
-    $lecture_to_date = filter_input(INPUT_POST, 'create_lecture_to_date', FILTER_SANITIZE_STRING);
-    $lecture_location = filter_input(INPUT_POST, 'create_lecture_location', FILTER_SANITIZE_STRING);
-    $lecture_capacity = filter_input(INPUT_POST, 'create_lecture_capacity', FILTER_SANITIZE_STRING);
-
-    // Check if there is an existing lecture name
-    $stmt1 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE lecture_name = ? LIMIT 1");
-    $stmt1->bind_param('s', $lecture_name);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_lectureid);
-    $stmt1->fetch();
-
-    if ($stmt1->num_rows == 1) {
-        $stmt1->close();
-        header('HTTP/1.0 550 A lecture with the name entered already exists.');
-        exit();
-    } else {
-
-        //Create the lecture record
-        $lecture_status = 'active';
-
-        $stmt2 = $mysqli->prepare("INSERT INTO system_lecture (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt2->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
-        $stmt2->execute();
-        $stmt2->close();
-    }
-}
-
-//CreateLecture function
-function CreateTutorial() {
-
-    global $mysqli;
-    global $created_on;
-
-    //Getting the data posted and assigning variables
-    $moduleid = filter_input(INPUT_POST, 'create_tutorial_moduleid', FILTER_SANITIZE_STRING);
-    $tutorial_name = filter_input(INPUT_POST, 'create_tutorial_name', FILTER_SANITIZE_STRING);
-    $tutorial_assistant = filter_input(INPUT_POST, 'create_tutorial_assistant', FILTER_SANITIZE_STRING);
-    $tutorial_notes = filter_input(INPUT_POST, 'create_tutorial_notes', FILTER_SANITIZE_STRING);
-    $tutorial_day = filter_input(INPUT_POST, 'create_tutorial_day', FILTER_SANITIZE_STRING);
-    $tutorial_from_time = filter_input(INPUT_POST, 'create_tutorial_from_time', FILTER_SANITIZE_STRING);
-    $tutorial_to_time = filter_input(INPUT_POST, 'create_tutorial_to_time', FILTER_SANITIZE_STRING);
-    $tutorial_from_date = filter_input(INPUT_POST, 'create_tutorial_from_date', FILTER_SANITIZE_STRING);
-    $tutorial_to_date = filter_input(INPUT_POST, 'create_tutorial_to_date', FILTER_SANITIZE_STRING);
-    $tutorial_location = filter_input(INPUT_POST, 'create_tutorial_location', FILTER_SANITIZE_STRING);
-    $tutorial_capacity = filter_input(INPUT_POST, 'create_tutorial_capacity', FILTER_SANITIZE_STRING);
-
-    //Check if there is an existing tutorial name
-    $stmt1 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE tutorial_name = ? LIMIT 1");
-    $stmt1->bind_param('s', $tutorial_name);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_tutorialid);
-    $stmt1->fetch();
-
-    if ($stmt1->num_rows == 1) {
-        $stmt1->close();
-        header('HTTP/1.0 550 A tutorial with the name entered already exists.');
-        exit();
-    } else {
-
-        //Create the tutorial record
-        $tutorial_status = 'active';
-
-        $stmt2 = $mysqli->prepare("INSERT INTO system_tutorial (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt2->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
-        $stmt2->execute();
-        $stmt2->close();
-    }
-}
-
 //UpdateModule function
 function UpdateModule() {
 
@@ -696,6 +610,49 @@ function UpdateModule() {
             $stmt4->execute();
             $stmt4->close();
         }
+    }
+}
+
+//CreateLecture function
+function CreateLecture() {
+
+    global $mysqli;
+    global $created_on;
+
+    //Getting the data posted and assigning variables
+    $moduleid = filter_input(INPUT_POST, 'create_lecture_moduleid', FILTER_SANITIZE_STRING);
+    $lecture_name = filter_input(INPUT_POST, 'create_lecture_name', FILTER_SANITIZE_STRING);
+    $lecture_lecturer = filter_input(INPUT_POST, 'create_lecture_lecturer', FILTER_SANITIZE_STRING);
+    $lecture_notes = filter_input(INPUT_POST, 'create_lecture_notes', FILTER_SANITIZE_STRING);
+    $lecture_day = filter_input(INPUT_POST, 'create_lecture_day', FILTER_SANITIZE_STRING);
+    $lecture_from_time = filter_input(INPUT_POST, 'create_lecture_from_time', FILTER_SANITIZE_STRING);
+    $lecture_to_time = filter_input(INPUT_POST, 'create_lecture_to_time', FILTER_SANITIZE_STRING);
+    $lecture_from_date = filter_input(INPUT_POST, 'create_lecture_from_date', FILTER_SANITIZE_STRING);
+    $lecture_to_date = filter_input(INPUT_POST, 'create_lecture_to_date', FILTER_SANITIZE_STRING);
+    $lecture_location = filter_input(INPUT_POST, 'create_lecture_location', FILTER_SANITIZE_STRING);
+    $lecture_capacity = filter_input(INPUT_POST, 'create_lecture_capacity', FILTER_SANITIZE_STRING);
+
+    // Check if there is an existing lecture name
+    $stmt1 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE lecture_name = ? LIMIT 1");
+    $stmt1->bind_param('s', $lecture_name);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_lectureid);
+    $stmt1->fetch();
+
+    if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+        header('HTTP/1.0 550 A lecture with the name entered already exists.');
+        exit();
+    } else {
+
+        //Create the lecture record
+        $lecture_status = 'active';
+
+        $stmt2 = $mysqli->prepare("INSERT INTO system_lecture (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('isisssssssiss', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $lecture_status, $created_on);
+        $stmt2->execute();
+        $stmt2->close();
     }
 }
 
@@ -752,6 +709,49 @@ function UpdateLecture() {
             $stmt4->execute();
             $stmt4->close();
         }
+    }
+}
+
+//CreateLecture function
+function CreateTutorial() {
+
+    global $mysqli;
+    global $created_on;
+
+    //Getting the data posted and assigning variables
+    $moduleid = filter_input(INPUT_POST, 'create_tutorial_moduleid', FILTER_SANITIZE_STRING);
+    $tutorial_name = filter_input(INPUT_POST, 'create_tutorial_name', FILTER_SANITIZE_STRING);
+    $tutorial_assistant = filter_input(INPUT_POST, 'create_tutorial_assistant', FILTER_SANITIZE_STRING);
+    $tutorial_notes = filter_input(INPUT_POST, 'create_tutorial_notes', FILTER_SANITIZE_STRING);
+    $tutorial_day = filter_input(INPUT_POST, 'create_tutorial_day', FILTER_SANITIZE_STRING);
+    $tutorial_from_time = filter_input(INPUT_POST, 'create_tutorial_from_time', FILTER_SANITIZE_STRING);
+    $tutorial_to_time = filter_input(INPUT_POST, 'create_tutorial_to_time', FILTER_SANITIZE_STRING);
+    $tutorial_from_date = filter_input(INPUT_POST, 'create_tutorial_from_date', FILTER_SANITIZE_STRING);
+    $tutorial_to_date = filter_input(INPUT_POST, 'create_tutorial_to_date', FILTER_SANITIZE_STRING);
+    $tutorial_location = filter_input(INPUT_POST, 'create_tutorial_location', FILTER_SANITIZE_STRING);
+    $tutorial_capacity = filter_input(INPUT_POST, 'create_tutorial_capacity', FILTER_SANITIZE_STRING);
+
+    //Check if there is an existing tutorial name
+    $stmt1 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE tutorial_name = ? LIMIT 1");
+    $stmt1->bind_param('s', $tutorial_name);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_tutorialid);
+    $stmt1->fetch();
+
+    if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+        header('HTTP/1.0 550 A tutorial with the name entered already exists.');
+        exit();
+    } else {
+
+        //Create the tutorial record
+        $tutorial_status = 'active';
+
+        $stmt2 = $mysqli->prepare("INSERT INTO system_tutorial (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('isisssssssiss', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $tutorial_status, $created_on);
+        $stmt2->execute();
+        $stmt2->close();
     }
 }
 
