@@ -1310,12 +1310,38 @@ function ReactivateExam() {
 
     $examToReactivate = filter_input(INPUT_POST, 'examToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
-    $exam_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE examid=?");
-    $stmt1->bind_param('ssi', $exam_status, $updated_on, $examToReactivate);
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_exams WHERE examid = ?");
+    $stmt1->bind_param('i', $examToReactivate);
     $stmt1->execute();
-    $stmt1->close();
+    $stmt1->store_result();
+    $stmt1->bind_result($moduleid);
+    $stmt1->fetch();
+
+    $module_status = 'active';
+
+    $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
+    $stmt2->bind_param('is', $moduleid, $module_status);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($db_moduleid);
+    $stmt2->fetch();
+
+    if ($stmt2->num_rows > 0) {
+
+        $exam_status = 'active';
+
+        $stmt3 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE examid=?");
+        $stmt3->bind_param('ssi', $exam_status, $updated_on, $examToReactivate);
+        $stmt3->execute();
+        $stmt3->close();
+
+    } else {
+
+        $stmt2->close();
+        echo 'You cannot reactivate this exam because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this exam.';
+        exit();
+
+    }
 }
 
 //DeleteTimetable function

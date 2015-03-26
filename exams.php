@@ -457,6 +457,30 @@ include 'includes/session.php';
 
     </div><!-- /container -->
 
+    <div id="error-modal" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <div class="modal-header">
+    <div class="form-logo text-center">
+    <i class="fa fa-exclamation"></i>
+    </div>
+    </div>
+
+    <div class="modal-body">
+    <p class="text-center feedback-sad"></p>
+    </div>
+
+    <div class="modal-footer">
+    <div class="view-close text-center">
+    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+    </div>
+    </div>
+
+    </div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
+
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<!-- Sign Out (Inactive) JS -->
@@ -556,17 +580,23 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'examToReactivate='+ examToReactivate,
-	success:function(){
-		$('#exam-'+examToReactivate).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#reactivate-exam-question').hide();
-        $('#reactivate-exam-confirmation').show();
-        $('#reactivate-exam-hide').hide();
-        $('#reactivate-exam-success-button').show();
-        $("#reactivate-exam-success-button").click(function () {
-            location.reload();
-        });
+	success:function(errormsg){
+        if (errormsg) {
+            $('.modal-custom').modal('hide');
+            $('#error-modal').modal('show');
+            $('#error-modal .modal-body p').empty().append(errormsg);
+        } else {
+            $('#exam-' + examToReactivate).hide();
+            $('.form-logo i').removeClass('fa-minus-square-o');
+            $('.form-logo i').addClass('fa-check-square-o');
+            $('#reactivate-exam-question').hide();
+            $('#reactivate-exam-confirmation').show();
+            $('#reactivate-exam-hide').hide();
+            $('#reactivate-exam-success-button').show();
+            $("#reactivate-exam-success-button").click(function () {
+                location.reload();
+            });
+        }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
