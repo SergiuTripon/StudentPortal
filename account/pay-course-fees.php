@@ -91,46 +91,39 @@ if ($fee_amount == "0.00") {
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
-    <label>Half or Full fees</label>
-    <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $fee_title; ?>" placeholder="Product Name" readonly="readonly">
-	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Amount due (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" placeholder="Amount" readonly="readonly">
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label for="payer_address1">Address line 1<span class="field-required">*</span></label>
-    <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Address 1">
+    <input class="form-control" type="text" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Address 1">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label for="payer_city">City<span class="field-required">*</span></label>
-	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="City">
+	<input class="form-control" type="text" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="City">
     </div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label>Country<span class="field-required">*</span></label>
-    <input class="form-control" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Country" readonly="readonly">
+    <input class="form-control" type="text" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Country" readonly="readonly">
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
     <label for="payer_postcode">Post code<span class="field-required">*</span></label>
-    <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code">
+    <input class="form-control" type="text" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code">
     </div>
     </div>
     <p id="error2" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-6 col-sm-6 full-width pl0">
     <label for="fee_type">Pay half or the full fee amount<span class="field-required">*</span></label>
     <select class="form-control" name="fee_type" id="fee_type" style="width: 100%;">
         <option></option>
         <option>Full fees</option>
         <option>Half fees</option>
     </select>
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <label>Amount due (&pound;)</label>
+    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" placeholder="Amount" readonly="readonly">
     </div>
     </div>
 

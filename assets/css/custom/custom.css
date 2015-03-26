@@ -632,7 +632,6 @@ form input[type=checkbox]:focus {
 }
 
 form input[type=text],
-form input[type=text]:disabled,
 form input[type=password],
 form input[type=email] {
     margin-bottom: 10px;
