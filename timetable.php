@@ -963,7 +963,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-minus"></i>
+			<i class="fa fa-minus-square-o"></i>
 			</div>
 			</div>
 
@@ -1146,7 +1146,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-minus"></i>
+			<i class="fa fa-minus-square-o"></i>
 			</div>
 			</div>
 
@@ -1329,7 +1329,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-minus"></i>
+			<i class="fa fa-minus-square-o"></i>
 			</div>
 			</div>
 
