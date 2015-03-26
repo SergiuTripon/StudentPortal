@@ -1,7 +1,7 @@
 <?php
 include '../includes/session.php';
 
-$stmt = $mysqli->prepare("SELECT user_signin.email, user_detail.studentno, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.dateofbirth, user_detail.phonenumber, user_detail.degree, user_detail.address1, user_detail.address2, user_detail.town, user_detail.city, user_detail.postcode, user_fee.fee_amount FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid LEFT JOIN user_fee ON user_signin.userid=user_fee.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt = $mysqli->prepare("SELECT s.email, d.studentno, d.firstname, d.surname, d.gender, d.dateofbirth, d.phonenumber, d.degree, d.address1, d.address2, d.town, d.city, d.postcode, f.fee_amount FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid LEFT JOIN user_fee f ON s.userid=f.userid WHERE s.userid = ? LIMIT 1");
 $stmt->bind_param('i', $session_userid);
 $stmt->execute();
 $stmt->store_result();
