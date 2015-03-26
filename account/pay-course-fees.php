@@ -224,21 +224,17 @@ if ($fee_amount == "0.00") {
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 
-    var fee_type;
-    var fee_amount;
-    var new_fee_amount;
 
-    $('#account_type').on("change", function (e) {
-        fee_type = $('#fee_type :selected').html();
+    $('#fee_type').on("change", function (e) {
+        var fee_type = $('#fee_type :selected').html();
 
         if(fee_type === 'Half fees') {
-            fee_amount = $('#fee_amount).val();
+            var fee_amount = $('#fee_amount).val();
             var new_fee_amount = fee_amount/2;
-            alert(new_fee_amount)
+            alert(new_fee_amount);
         }
         if(fee_type === 'Full fees') {
-            fee_amount = $('#fee_amount).val();
-            $('#fee_amount).val(fee_amount);
+            var fee_amount = $('#fee_amount).val();
         }
     });
 
