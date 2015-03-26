@@ -430,10 +430,10 @@ if (isset($_GET['id'])) {
         $("#lecture_capacity").addClass("input-happy");
 	}
 
-    var lecture_moduleid= $("#lecture_moduleid option:selected").val();
+    var lecture_moduleid= $("#lecture_moduleid option :selected").val();
     var lecture_notes = $("#lecture_notes").val();
-    var lecture_lecturer = $("#lecture_lecturer option:selected").val();
-    var lecture_day = $("#lecture_day option:selected").html();
+    var lecture_lecturer = $("#lecture_lecturer option :selected").val();
+    var lecture_day = $("#lecture_day option :selected").html();
 
     alert(lecture_lecturer);
 

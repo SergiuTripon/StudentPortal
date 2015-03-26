@@ -307,7 +307,7 @@ include '../includes/session.php';
         $("#lecture_name").addClass("input-happy");
 	}
 
-    var lecture_lecturer_check = $('#lecture_lecturer:selected').html();
+    var lecture_lecturer_check = $('#lecture_lecturer :selected').html();
     if (lecture_lecturer_check === '') {
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
@@ -453,10 +453,10 @@ include '../includes/session.php';
         $("#lecture_capacity").addClass("input-happy");
 	}
 
-    var lecture_moduleid= $("#lecture_moduleid option:selected").val();
+    var lecture_moduleid= $("#lecture_moduleid option :selected").val();
     var lecture_notes = $("#lecture_notes").val();
-    var lecture_lecturer = $("#lecture_lecturer option:selected").val();
-    var lecture_day = $("#lecture_day option:selected").html();
+    var lecture_lecturer = $("#lecture_lecturer option :selected").val();
+    var lecture_day = $("#lecture_day option :selected").html();
 
 	if(hasError == false){
     jQuery.ajax({
