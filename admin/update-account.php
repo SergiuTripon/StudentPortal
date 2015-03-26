@@ -68,8 +68,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="lecture_day">Account type<span class="field-required">*</span></label>
-    <select class="form-control" name="lecture_day" id="lecture_day" style="width: 100%;">
+    <label for="account_type">Account type<span class="field-required">*</span></label>
+    <select class="form-control" name="account_type" id="account_type" style="width: 100%;">
         <option <?php if($account_type == "student") echo "selected"; ?>>Student</option>
         <option <?php if($account_type == "academic_staff") echo "selected"; ?>>Academic staff</option>
         <option <?php if($account_type == "administrator") echo "selected"; ?>>Administrator</option>
@@ -90,8 +90,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	<div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-    <label for="lecture_day">Day<span class="field-required">*</span></label>
-    <select class="form-control" name="lecture_day" id="lecture_day" style="width: 100%;">
+    <label for="gender">Gender<span class="field-required">*</span></label>
+    <select class="form-control" name="gender" id="gender" style="width: 100%;">
         <option <?php if($gender == "male") echo "selected"; ?>>Male</option>
         <option <?php if($gender == "female") echo "selected"; ?>>Female</option>
         <option <?php if($gender == "other") echo "selected"; ?>>Other</option>
