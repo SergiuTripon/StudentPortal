@@ -294,6 +294,7 @@ include 'includes/session.php';
             <ul class="dropdown-menu" role="menu">
             <li><a href="/admin/change-password?id='.$userid.'">Change password</a></li>
             <li><a href="#deactivate-'.$userid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$userid.'" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
             </td>
@@ -325,6 +326,39 @@ include 'includes/session.php';
 			</div>
 			<div class="text-center">
 			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-'.$userid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-user-times"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-question" class="feedback-sad text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
+            <p id="delete-confirmation" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$userid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
