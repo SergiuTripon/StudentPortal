@@ -916,7 +916,7 @@ function ReactivateLecture() {
 
     $module_status = 'active';
 
-    $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_modules WHERE moduleid = ? AND module_status=?");
+    $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
     $stmt2->bind_param('is', $moduleid, $module_status);
     $stmt2->execute();
     $stmt2->store_result();
