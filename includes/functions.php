@@ -195,7 +195,7 @@ function RegisterUser() {
 	$stmt5->close();
 
     //Creating user fees
-	$fee_amount = '9000.00';
+	$fee_amount = '';
 
 	$stmt6 = $mysqli->prepare("INSERT INTO user_fee (fee_amount, created_on) VALUES (?, ?)");
 	$stmt6->bind_param('is', $fee_amount, $created_on);
