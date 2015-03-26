@@ -3309,7 +3309,7 @@ function FeesPaypalPaymentSuccess() {
 	$product_name = $_POST["item_name1"];
 	$product_amount = $_POST["mc_gross"];
 
-	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
+	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoiceid = ? LIMIT 1");
 	$stmt1->bind_param('i', $invoice_id);
 	$stmt1->execute();
 	$stmt1->store_result();
@@ -3317,7 +3317,7 @@ function FeesPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-	$stmt2 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_fee.isHalf FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid LEFT JOIN user_fee ON user_signin.userid=user_fee.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt2 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname, f.isHalf FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid LEFT JOIN user_fee f ON s.userid=f.userid WHERE s.userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
 	$stmt2->execute();
 	$stmt2->store_result();
@@ -3360,7 +3360,7 @@ function FeesPaypalPaymentSuccess() {
 	    }
     }
 
-	$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
+	$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transactionid=?, payment_status =?, updated_on=?, completed_on=? WHERE invoiceid =?");
 	$stmt8->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
 	$stmt8->execute();
 	$stmt8->close();
@@ -3408,7 +3408,7 @@ function PaypalPaymentCancel() {
 
 	$payment_status = 'cancelled';
 
-	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, updated_on=?, cancelled_on=? WHERE userid = ? ORDER BY payment_id DESC LIMIT 1");
+	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, updated_on=?, cancelled_on=? WHERE userid = ? ORDER BY paymentid DESC LIMIT 1");
 	$stmt5->bind_param('sssi', $payment_status, $updated_on, $cancelled_on, $session_userid);
 	$stmt5->execute();
 	$stmt5->close();

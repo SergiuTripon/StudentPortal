@@ -13,9 +13,9 @@ $payment = $_REQUEST["payment"];
 
 $cmd = '_cart';
 $currency_code = 'GBP';
-$invoice_id = rand(1111111111,9999999999);
+$invoiceid = rand(1111111111,9999999999);
 
-$product_id = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
+$productid = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
 $product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 $product_amount = filter_input(INPUT_POST, 'product_amount', FILTER_SANITIZE_STRING);
@@ -49,8 +49,8 @@ switch($payment){
 
         $transactionid = $transactionid + 1;
 
-		$stmt2 = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, transactionid, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt2->bind_param('iiiisiisssssssssssss', $session_userid, $invoice_id, $transactionid, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
+		$stmt2 = $mysqli->prepare("INSERT INTO paypal_log (userid, invoiceid, transactionid, productid, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt2->bind_param('iiiisiisssssssssssss', $session_userid, $invoiceid, $transactionid, $productid, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
 		$stmt2->execute();
 		$stmt2->close();
 		

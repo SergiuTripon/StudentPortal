@@ -99,7 +99,7 @@ CREATE TABLE `paypal_log` (
 	`paymentid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`invoiceid` BIGINT(10) NOT NULL UNIQUE,
 	`transactionid` VARCHAR(17) NOT NULL UNIQUE,
-	`productid` INT(1) NOT NULL UNIQUE,
+	`productid` INT(1) NOT NULL,
 	`product_name` VARCHAR(70) NOT NULL,
 	`product_quantity` INT(11) NOT NULL,
 	`product_amount` NUMERIC(15,2) NOT NULL,
