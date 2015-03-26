@@ -293,7 +293,7 @@ include 'includes/session.php';
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><a href="/admin/change-password?id='.$userid.'">Change password</a></li>
-            <li><a href="#deactivate-'.$userid.'" data-toggle="modal">Deactivate</a></li>
+            <li><a href="#deactivate-'.$userid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
             </td>
