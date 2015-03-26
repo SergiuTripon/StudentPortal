@@ -36,15 +36,23 @@ $payment_status = 'pending';
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt = $mysqli->prepare("UPDATE user_detail set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $session_userid);
-		$stmt->execute();
-		$stmt->close();
+		$stmt1 = $mysqli->prepare("UPDATE user_detail set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
+		$stmt1->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $session_userid);
+		$stmt1->execute();
+		$stmt1->close();
 
-		$stmt = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param('iiisiisssssssssssss', $session_userid, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
-		$stmt->execute();
-		$stmt->close();
+        $stmt1 = $mysqli->prepare("SELECT transactionid FROM paypal_log ORDER BY paymentid DESC");
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($transactionid);
+        $stmt1->fetch();
+
+        $transactionid = $transactionid + 1;
+
+		$stmt2 = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, transactionid, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt2->bind_param('iiiisiisssssssssssss', $session_userid, $invoice_id, $transactionid, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
+		$stmt2->execute();
+		$stmt2->close();
 		
 		$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 		
@@ -56,18 +64,18 @@ switch($payment){
 		$p->add_field('notify_url', $this_script.'?payment=ipn'); // Notify URL which received IPN (Instant Payment Notification)
 		$p->add_field('currency_code', $currency_code);
 		$p->add_field('invoice', $invoice_id);
-		$p->add_field('item_name_1', $_POST["product_name"]);
-		$p->add_field('item_number_1', $_POST["product_id"]);
-		$p->add_field('quantity_1', $_POST["product_quantity"]);
-		$p->add_field('amount_1', $_POST["product_amount"]);
-		$p->add_field('first_name', $_POST["payer_firstname"]);
-		$p->add_field('last_name', $_POST["payer_surname"]);
-		$p->add_field('email', $_POST["payer_email"]);
-		$p->add_field('night_phone_b', $_POST["payer_phonenumber"]);
-		$p->add_field('address1', $_POST["payer_address1"]);
-		$p->add_field('city', $_POST["payer_city"]);
-		$p->add_field('country', $_POST["payer_country"]);
-		$p->add_field('zip', $_POST["payer_postcode"]);
+		$p->add_field('item_name_1', $product_name);
+		$p->add_field('item_number_1', $product_id);
+		$p->add_field('quantity_1', $product_quantity);
+		$p->add_field('amount_1', $product_amount);
+		$p->add_field('first_name', $payer_firstname);
+		$p->add_field('last_name', $payer_surname);
+		$p->add_field('email', $payer_email);
+		$p->add_field('night_phone_b', $payer_phonenumber);
+		$p->add_field('address1', $payer_address1);
+		$p->add_field('city', $payer_city);
+		$p->add_field('country', $payer_country);
+		$p->add_field('zip', $payer_postcode);
 		$p->submit_paypal_post(); // POST it to paypal
 		//$p->dump_fields(); // Show the posted values for a reference, comment this line before app goes live
 	break;
