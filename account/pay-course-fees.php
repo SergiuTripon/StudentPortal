@@ -215,10 +215,7 @@ if ($fee_amount == "0.00") {
     //On load
     $(document).ready(function () {
         //select2
-        $("#account_type").select2({placeholder: "Select an option"});
-        $("#gender").select2({placeholder: "Select an option"});
-        $("#nationality").select2({placeholder: "Select an option"});
-
+        $("#fee_type").select2({placeholder: "Select an option"});
     });
 
     //Ladda
