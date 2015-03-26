@@ -289,10 +289,10 @@ if (isset($_GET['id'])) {
         format: 'HH:mm'
     });
     $('#lecture_from_date').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'YYYY/MM/DD'
     });
     $('#lecture_to_date').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'YYYY/MM/DD'
 	});
 
     //Ajax call

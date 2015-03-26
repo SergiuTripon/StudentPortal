@@ -463,7 +463,6 @@ include '../includes/session.php';
     var account_type;
     var studentno;
     var degree;
-    var fees;
 
     $('#account_type').on("change", function (e) {
         account_type = $('#account_type :selected').html();

@@ -109,6 +109,11 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 	</div>
 
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<label for="fees">Course fee amount<span class="field-required">*</span></label>
+	<input class="form-control" type="text" name="fees" id="fees" value="" placeholder="Enter an amount">
+	</div>
+
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
 	<label for="email">Email address<span class="field-required">*</span></label>
@@ -443,87 +448,83 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
+    //On load
+    $(document).ready(function () {
+        //select2
+        $("#account_type").select2({placeholder: "Select an option"});
+        $("#gender").select2({placeholder: "Select an option"});
+        $("#nationality").select2({placeholder: "Select an option"});
+
+        var account_type = $('#account_type :selected').html();
+
+        if(account_type === 'Student') {
+            $('label[for="studentno"]').show();
+            $('#studentno').show();
+            $('label[for="degree"]').show();
+            $('#degree').show();
+            $('label[for="fees"]').show();
+            $('#fees').show();
+        }
+        if(account_type === 'Academic staff') {
+            $('label[for="studentno"]').hide();
+            $('#studentno').hide();
+            $('label[for="degree"]').hide();
+            $('#degree').hide();
+            $('label[for="fees"]').hide();
+            $('#fees').hide();
+        }
+        if(account_type === 'Administrator') {
+            $('label[for="studentno"]').hide();
+            $('#studentno').hide();
+            $('label[for="degree"]').hide();
+            $('#degree').hide();
+            $('label[for="fees"]').hide();
+            $('#fees').hide();
+        }
+
+    });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-	//Date Time Picker
-	$(function () {
-	$('#dateofbirth').datepicker({
-		dateFormat: "yy-mm-dd",
-		defaultDate: new Date(1993, 00, 01)
-	});
-	});
-
-	//Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480){
-			$('.btn-group').removeClass('btn-group-justified');
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		} else {
-			$('.btn-group').addClass('btn-group-justified');
-		}
-	})
-	.resize();//trigger the resize event on page load.
+    // Date Time Picker
+    $('#lecture_from_date').datetimepicker({
+        format: 'YYYY/MM/DD'
+    });
 
     //Global variable
 	var account_type;
-	var gender;
 	var studentno;
     var degree;
 
-	account_type = ($('.account_type.active').text().replace(/^\s+|\s+$/g,''));
-	gender = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
+    $('#account_type').on("change", function (e) {
+        account_type = $('#account_type :selected').html();
 
-    if(account_type === 'Student') {
-			$('label[for="studentno"]').show();
-			$('#studentno').show();
-			$('label[for="degree"]').show();
-			$('#degree').show();
-    }
-    if(account_type === 'Lecturer') {
-        $('label[for="studentno"]').hide();
-        $('#studentno').hide();
-        $('label[for="degree"]').hide();
-        $('#degree').hide();
-    }
-    if(account_type === 'Admin') {
-        $('label[for="studentno"]').hide();
-        $('#studentno').hide();
-        $('label[for="degree"]').hide();
-        $('#degree').hide();
-    }
-
-	//Setting variable value
-	$('.btn-group > .account_type').click(function(){
-		account_type = ($(this).text().replace(/^\s+|\s+$/g,''))
-
-		if(account_type === 'Student') {
-			$('label[for="studentno"]').show();
-			$('#studentno').show();
-			$('label[for="degree"]').show();
-			$('#degree').show();
-		}
-		if(account_type === 'Lecturer') {
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-		if(account_type === 'Admin') {
-			$('label[for="studentno"]').hide();
-			$('#studentno').hide();
-			$('label[for="degree"]').hide();
-			$('#degree').hide();
-		}
-
-	});
-
-	$('.btn-group > .gender').click(function(){
-		gender = ($(this).text().replace(/^\s+|\s+$/g,''))
-	});
+        if(account_type === 'Student') {
+            $('label[for="studentno"]').show();
+            $('#studentno').show();
+            $('label[for="degree"]').show();
+            $('#degree').show();
+            $('label[for="fees"]').show();
+            $('#fees').show();
+        }
+        if(account_type === 'Academic staff') {
+            $('label[for="studentno"]').hide();
+            $('#studentno').hide();
+            $('label[for="degree"]').hide();
+            $('#degree').hide();
+            $('label[for="fees"]').hide();
+            $('#fees').hide();
+        }
+        if(account_type === 'Administrator') {
+            $('label[for="studentno"]').hide();
+            $('#studentno').hide();
+            $('label[for="degree"]').hide();
+            $('#degree').hide();
+            $('label[for="fees"]').hide();
+            $('#fees').hide();
+        }
+    });
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
@@ -681,7 +682,23 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid=' + userid + '&account_type1=' + account_type + '&firstname3=' + firstname + '&surname3=' + surname + '&gender3=' + gender + '&studentno1=' + studentno + '&degree1=' + degree + '&email6=' + email + '&nationality2=' + nationality + '&dateofbirth2=' + dateofbirth + '&phonenumber2=' + phonenumber + '&address12=' + address1 + '&address22=' + address2 + '&town2=' + town + '&city2=' + city + '&country2=' + country + '&postcode2=' + postcode,
+    data:'update_account_userid='        + userid +
+         '&update_account_account_type=' + account_type +
+         '&update_account_firstname='    + firstname +
+         '&update_account_surname='      + surname +
+         '&update_account_gender='       + gender +
+         '&update_account_studentno='    + studentno +
+         '&update_account_degree='       + degree +
+         '&update_account_email='        + email +
+         '&update_account_nationality='  + nationality +
+         '&update_account_dateofbirth='  + dateofbirth +
+         '&update_account_phonenumber='  + phonenumber +
+         '&update_account_address1='     + address1 +
+         '&update_account_address2='     + address2 +
+         '&update_account_town='         + town +
+         '&update_account_city='         + city +
+         '&update_account_country='      + country +
+         '&update_account_postcode='     + postcode,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();

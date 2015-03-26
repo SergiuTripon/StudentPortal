@@ -607,7 +607,24 @@ elseif (isset(
 }
 
 //Call UpdateAnAccount function
-elseif (isset($_POST['userid'], $_POST['account_type1'], $_POST['firstname3'], $_POST['surname3'], $_POST['gender3'], $_POST['email6'], $_POST['studentno1'], $_POST['degree1'], $_POST['nationality2'], $_POST['dateofbirth2'], $_POST['phonenumber2'], $_POST['address12'], $_POST['address22'], $_POST['town2'], $_POST['city2'], $_POST['country2'], $_POST['postcode2'])) {
+elseif (isset(
+    $_POST['update_account_userid'],
+    $_POST['update_account_account_type'],
+    $_POST['update_account_firstname'],
+    $_POST['update_account_surname'],
+    $_POST['update_account_gender'],
+    $_POST['update_account_email'],
+    $_POST['update_account_studentno'],
+    $_POST['update_account_degree'],
+    $_POST['update_account_nationality'],
+    $_POST['update_account_dateofbirth'],
+    $_POST['update_account_phonenumber'],
+    $_POST['update_account_address1'],
+    $_POST['update_account_address2'],
+    $_POST['update_account_town'],
+    $_POST['update_account_city'],
+    $_POST['update_account_country'],
+    $_POST['update_account_postcode'])) {
 	UpdateAnAccount();
 }
 

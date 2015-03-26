@@ -3379,6 +3379,7 @@ function CreateAnAccount() {
     $postcode = filter_input(INPUT_POST, 'create_account_postcode', FILTER_SANITIZE_STRING);
 
 	$gender = strtolower($gender);
+    $nationality = strtolower($nationality);
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('HTTP/1.0 550 The email address you entered is invalid.');
@@ -3470,29 +3471,29 @@ function CreateAnAccount() {
 function UpdateAnAccount() {
 
     global $mysqli;
-    global $userid;
     global $updated_on;
 
-    $userid = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_STRING);
-	$account_type = filter_input(INPUT_POST, 'account_type1', FILTER_SANITIZE_STRING);
-	$firstname = filter_input(INPUT_POST, 'firstname3', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname3', FILTER_SANITIZE_STRING);
-    $gender = filter_input(INPUT_POST, 'gender3', FILTER_SANITIZE_STRING);
-    $studentno = filter_input(INPUT_POST, 'studentno1', FILTER_SANITIZE_STRING);
-    $degree = filter_input(INPUT_POST, 'degree1', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email6', FILTER_SANITIZE_EMAIL);
+    $userid = filter_input(INPUT_POST, 'update_account_userid', FILTER_SANITIZE_STRING);
+	$account_type = filter_input(INPUT_POST, 'update_account_account_type', FILTER_SANITIZE_STRING);
+	$firstname = filter_input(INPUT_POST, 'update_account_firstname', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'update_account_surname', FILTER_SANITIZE_STRING);
+    $gender = filter_input(INPUT_POST, 'update_account_gender', FILTER_SANITIZE_STRING);
+    $studentno = filter_input(INPUT_POST, 'update_account_studentno', FILTER_SANITIZE_STRING);
+    $degree = filter_input(INPUT_POST, 'update_account_degree', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'update_account_email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$nationality = filter_input(INPUT_POST, 'nationality2', FILTER_SANITIZE_STRING);
-	$dateofbirth = filter_input(INPUT_POST, 'dateofbirth2', FILTER_SANITIZE_STRING);
-	$phonenumber = filter_input(INPUT_POST, 'phonenumber2', FILTER_SANITIZE_STRING);
-	$address1 = filter_input(INPUT_POST, 'address12', FILTER_SANITIZE_STRING);
-	$address2 = filter_input(INPUT_POST, 'address22', FILTER_SANITIZE_STRING);
-	$town = filter_input(INPUT_POST, 'town2', FILTER_SANITIZE_STRING);
-	$city = filter_input(INPUT_POST, 'city2', FILTER_SANITIZE_STRING);
-	$country = filter_input(INPUT_POST, 'country2', FILTER_SANITIZE_STRING);
-	$postcode = filter_input(INPUT_POST, 'postcode2', FILTER_SANITIZE_STRING);
+	$nationality = filter_input(INPUT_POST, 'update_account_nationality', FILTER_SANITIZE_STRING);
+	$dateofbirth = filter_input(INPUT_POST, 'update_account_dateofbirth', FILTER_SANITIZE_STRING);
+	$phonenumber = filter_input(INPUT_POST, 'update_account_phonenumber', FILTER_SANITIZE_STRING);
+	$address1 = filter_input(INPUT_POST, 'update_account_address1', FILTER_SANITIZE_STRING);
+	$address2 = filter_input(INPUT_POST, 'update_account_address2', FILTER_SANITIZE_STRING);
+	$town = filter_input(INPUT_POST, 'update_account_town', FILTER_SANITIZE_STRING);
+	$city = filter_input(INPUT_POST, 'update_account_city', FILTER_SANITIZE_STRING);
+	$country = filter_input(INPUT_POST, 'update_account_country', FILTER_SANITIZE_STRING);
+	$postcode = filter_input(INPUT_POST, 'update_account_postcode', FILTER_SANITIZE_STRING);
 
 	$gender = strtolower($gender);
+    $nationality = strtolower($nationality);
 
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
@@ -3525,33 +3526,63 @@ function UpdateAnAccount() {
 	$stmt3->execute();
 	$stmt3->close();
 
+    if ($account_type == 'student') {
+        $fee_amount = $fees;
+    }
+    elseif ($account_type == 'lecturer') {
+        $fee_amount = '0.00';
+    }
+    elseif ($account_type == 'admin') {
+        $fee_amount = '0.00';
+    }
+
+    $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=?");
+    $stmt4->bind_param('isi', $fee_amount, $updated_on, $userid);
+    $stmt4->execute();
+    $stmt4->close();
+
 	}
 
 	else {
 
-	$stmt4 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
-	$stmt4->bind_param('s', $email);
-	$stmt4->execute();
-	$stmt4->store_result();
-	$stmt4->bind_result($db_userid);
-	$stmt4->fetch();
+	$stmt5 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
+	$stmt5->bind_param('s', $email);
+	$stmt5->execute();
+	$stmt5->store_result();
+	$stmt5->bind_result($db_userid);
+	$stmt5->fetch();
 
 	if ($stmt4->num_rows == 1) {
+        $stmt4->close();
 		header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
 		exit();
-		$stmt3->close();
 	}
 	else {
 
-	$stmt5 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
-	$stmt5->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
-	$stmt5->execute();
-	$stmt5->close();
+    $stmt6 = $mysqli->prepare("UPDATE user_signin SET account_type=?, email=?, updated_on=? WHERE userid = ?");
+    $stmt6->bind_param('sssi', $account_type, $email, $updated_on, $userid);
+    $stmt6->execute();
+    $stmt6->close();
 
-	$stmt6 = $mysqli->prepare("UPDATE user_signin SET account_type=?, email=?, updated_on=? WHERE userid = ?");
-	$stmt6->bind_param('sssi', $account_type, $email, $updated_on, $userid);
-	$stmt6->execute();
-	$stmt6->close();
+	$stmt7 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
+	$stmt7->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+	$stmt7->execute();
+	$stmt7->close();
+
+    if ($account_type == 'student') {
+        $fee_amount = $fees;
+    }
+    elseif ($account_type == 'lecturer') {
+        $fee_amount = '0.00';
+    }
+    elseif ($account_type == 'admin') {
+        $fee_amount = '0.00';
+    }
+
+    $stmt8 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=?");
+    $stmt8->bind_param('isi', $fee_amount, $updated_on, $userid);
+    $stmt8->execute();
+    $stmt8->close();
 
 	}
 	}
