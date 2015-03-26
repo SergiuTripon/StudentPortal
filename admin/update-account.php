@@ -122,198 +122,198 @@ if ($dateofbirth == "0000-00-00") {
     <label for="nationality">Nationality<span class="field-required">*</span></label>
     <select class="form-control" name="nationality" id="nationality" style="width: 100%;">
         <option></option>
-        <option <?php if($gender == "afghan") echo "selected"; ?>>Afghan</option>
-        <option <?php if($gender == "albanian") echo "selected"; ?>>Albanian</option>
-        <option <?php if($gender == "algerian") echo "selected"; ?>>Algerian</option>
-        <option <?php if($gender == "american") echo "selected"; ?>>American</option>
-        <option <?php if($gender == "andorran") echo "selected"; ?>>Andorran</option>
-        <option <?php if($gender == "angolan") echo "selected"; ?>>Angolan</option>
-        <option <?php if($gender == "antiguans") echo "selected"; ?>>Antiguans</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Argentinean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Armenian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Australian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Austrian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Azerbaijani</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Bahamian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Bahraini</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Bangladeshi</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Barbadian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Barbudans</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Batswana</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Belarusian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Belgian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Belizean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Beninese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Bhutanese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Bolivian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Bosnian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Brazilian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>British</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Bruneian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Bulgarian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Burkinabe</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Burmese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Burundian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Cambodian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Cameroonian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Canadian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Cape Verdean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Central African</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Chadian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Chilean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Chinese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Colombian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Comoran</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Congolese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Costa Rican</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Croatian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Cuban</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Cypriot</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Czech</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Danish</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Djibouti</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Dominican</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Dutch</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>East Timorese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Ecuadorean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Egyptian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Emirian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Equatorial Guinean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Eritrean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Estonian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Ethiopian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Fijian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Filipino</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Finnish</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>French</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Gabonese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Gambian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Georgian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>German</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Ghanaian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Greek</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Grenadian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Guatemalan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Guinea-Bissauan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Guinean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Guyanese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Haitian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Herzegovinian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Honduran</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Hungarian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Icelander</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Indian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Indonesian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Iranian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Iraqi</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Irish</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Israeli</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Italian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Ivorian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Jamaican</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Japanese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Jordanian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Kazakhstani</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Kenyan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Kittian and Nevisian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Kuwaiti</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Kyrgyz</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Laotian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Latvian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Lebanese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Liberian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Libyan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Liechtensteiner</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Lithuanian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Luxembourger</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Macedonian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Malagasy</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Malawian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Malaysian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Maldivan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Malian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Maltese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Marshallese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Mauritanian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Mauritian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Mexican</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Micronesian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Moldovan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Monacan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Mongolian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Moroccan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Mosotho</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Motswana</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Mozambican</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Namibian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Nauruan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Nepalese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>New Zealander</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Ni-Vanuatu</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Nicaraguan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Nigerien</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>North Korean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Northern Irish</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Norwegian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Omani</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Pakistani</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Palauan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Panamanian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Papua New Guinean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Paraguayan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Peruvian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Polish</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Portuguese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Qatari</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Romanian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Russian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Rwandan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Saint Lucian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Salvadoran</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Samoan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>San Marinese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Sao Tomean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Saudi</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Scottish</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Senegalese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Serbian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Seychellois</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Sierra Leonean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Singaporean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Slovakian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Slovenian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Solomon Islander</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Somali</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>South African</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>South Korean</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Spanish</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Sri Lankan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Sudanese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Surinamer</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Swazi</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Swedish</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Swiss</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Syrian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Taiwanese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Tajik</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Tanzanian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Thai</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Togolese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Tongan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Trinidadian or Tobagonian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Tunisian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Turkish</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Tuvaluan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Ugandan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Ukrainian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Uruguayan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Uzbekistani</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Venezuelan</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Vietnamese</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Welsh</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Yemenite</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Zambian</option>
-        <option <?php if($gender == "argentinean") echo "selected"; ?>>Zimbabwean</option>
+        <option <?php if($nationality == "afghan") echo "selected"; ?>>Afghan</option>
+        <option <?php if($nationality == "albanian") echo "selected"; ?>>Albanian</option>
+        <option <?php if($nationality == "algerian") echo "selected"; ?>>Algerian</option>
+        <option <?php if($nationality == "american") echo "selected"; ?>>American</option>
+        <option <?php if($nationality == "andorran") echo "selected"; ?>>Andorran</option>
+        <option <?php if($nationality == "angolan") echo "selected"; ?>>Angolan</option>
+        <option <?php if($nationality == "antiguans") echo "selected"; ?>>Antiguans</option>
+        <option <?php if($nationality == "argentinean") echo "selected"; ?>>Argentinean</option>
+        <option <?php if($nationality == "armenian") echo "selected"; ?>>Armenian</option>
+        <option <?php if($nationality == "australian") echo "selected"; ?>>Australian</option>
+        <option <?php if($nationality == "austrian") echo "selected"; ?>>Austrian</option>
+        <option <?php if($nationality == "azerbaijani") echo "selected"; ?>>Azerbaijani</option>
+        <option <?php if($nationality == "bahamian") echo "selected"; ?>>Bahamian</option>
+        <option <?php if($nationality == "bahraini") echo "selected"; ?>>Bahraini</option>
+        <option <?php if($nationality == "bangladeshi") echo "selected"; ?>>Bangladeshi</option>
+        <option <?php if($nationality == "barbadian") echo "selected"; ?>>Barbadian</option>
+        <option <?php if($nationality == "barbudans") echo "selected"; ?>>Barbudans</option>
+        <option <?php if($nationality == "batswana") echo "selected"; ?>>Batswana</option>
+        <option <?php if($nationality == "belarusian") echo "selected"; ?>>Belarusian</option>
+        <option <?php if($nationality == "belgian") echo "selected"; ?>>Belgian</option>
+        <option <?php if($nationality == "belizean") echo "selected"; ?>>Belizean</option>
+        <option <?php if($nationality == "beninese") echo "selected"; ?>>Beninese</option>
+        <option <?php if($nationality == "bhutanese") echo "selected"; ?>>Bhutanese</option>
+        <option <?php if($nationality == "bolivian") echo "selected"; ?>>Bolivian</option>
+        <option <?php if($nationality == "bosnian") echo "selected"; ?>>Bosnian</option>
+        <option <?php if($nationality == "brazilian") echo "selected"; ?>>Brazilian</option>
+        <option <?php if($nationality == "british") echo "selected"; ?>>British</option>
+        <option <?php if($nationality == "bruneian") echo "selected"; ?>>Bruneian</option>
+        <option <?php if($nationality == "bulgarian") echo "selected"; ?>>Bulgarian</option>
+        <option <?php if($nationality == "burkinabe") echo "selected"; ?>>Burkinabe</option>
+        <option <?php if($nationality == "burmese") echo "selected"; ?>>Burmese</option>
+        <option <?php if($nationality == "burundian") echo "selected"; ?>>Burundian</option>
+        <option <?php if($nationality == "cambodian") echo "selected"; ?>>Cambodian</option>
+        <option <?php if($nationality == "cameroonian") echo "selected"; ?>>Cameroonian</option>
+        <option <?php if($nationality == "canadian") echo "selected"; ?>>Canadian</option>
+        <option <?php if($nationality == "cape verdean") echo "selected"; ?>>Cape Verdean</option>
+        <option <?php if($nationality == "central african") echo "selected"; ?>>Central African</option>
+        <option <?php if($nationality == "chadian") echo "selected"; ?>>Chadian</option>
+        <option <?php if($nationality == "chilean") echo "selected"; ?>>Chilean</option>
+        <option <?php if($nationality == "chinese") echo "selected"; ?>>Chinese</option>
+        <option <?php if($nationality == "colombian") echo "selected"; ?>>Colombian</option>
+        <option <?php if($nationality == "comoran") echo "selected"; ?>>Comoran</option>
+        <option <?php if($nationality == "congolese") echo "selected"; ?>>Congolese</option>
+        <option <?php if($nationality == "costa rican") echo "selected"; ?>>Costa Rican</option>
+        <option <?php if($nationality == "croatian") echo "selected"; ?>>Croatian</option>
+        <option <?php if($nationality == "cuban") echo "selected"; ?>>Cuban</option>
+        <option <?php if($nationality == "cypriot") echo "selected"; ?>>Cypriot</option>
+        <option <?php if($nationality == "czech") echo "selected"; ?>>Czech</option>
+        <option <?php if($nationality == "danish") echo "selected"; ?>>Danish</option>
+        <option <?php if($nationality == "djibouti") echo "selected"; ?>>Djibouti</option>
+        <option <?php if($nationality == "dominican") echo "selected"; ?>>Dominican</option>
+        <option <?php if($nationality == "dutch") echo "selected"; ?>>Dutch</option>
+        <option <?php if($nationality == "east Timorese") echo "selected"; ?>>East Timorese</option>
+        <option <?php if($nationality == "ecuadorean") echo "selected"; ?>>Ecuadorean</option>
+        <option <?php if($nationality == "egyptian") echo "selected"; ?>>Egyptian</option>
+        <option <?php if($nationality == "emirian") echo "selected"; ?>>Emirian</option>
+        <option <?php if($nationality == "equatorial guinean") echo "selected"; ?>>Equatorial Guinean</option>
+        <option <?php if($nationality == "eritrean") echo "selected"; ?>>Eritrean</option>
+        <option <?php if($nationality == "estonian") echo "selected"; ?>>Estonian</option>
+        <option <?php if($nationality == "ethiopian") echo "selected"; ?>>Ethiopian</option>
+        <option <?php if($nationality == "fijian") echo "selected"; ?>>Fijian</option>
+        <option <?php if($nationality == "filipino") echo "selected"; ?>>Filipino</option>
+        <option <?php if($nationality == "finnish") echo "selected"; ?>>Finnish</option>
+        <option <?php if($nationality == "french") echo "selected"; ?>>French</option>
+        <option <?php if($nationality == "gabonese") echo "selected"; ?>>Gabonese</option>
+        <option <?php if($nationality == "gambian") echo "selected"; ?>>Gambian</option>
+        <option <?php if($nationality == "georgian") echo "selected"; ?>>Georgian</option>
+        <option <?php if($nationality == "german") echo "selected"; ?>>German</option>
+        <option <?php if($nationality == "ghanaian") echo "selected"; ?>>Ghanaian</option>
+        <option <?php if($nationality == "greek") echo "selected"; ?>>Greek</option>
+        <option <?php if($nationality == "grenadian") echo "selected"; ?>>Grenadian</option>
+        <option <?php if($nationality == "guatemalan") echo "selected"; ?>>Guatemalan</option>
+        <option <?php if($nationality == "guinea-bissauan ") echo "selected"; ?>>Guinea-Bissauan</option>
+        <option <?php if($nationality == "guinean") echo "selected"; ?>>Guinean</option>
+        <option <?php if($nationality == "guyanese") echo "selected"; ?>>Guyanese</option>
+        <option <?php if($nationality == "haitian") echo "selected"; ?>>Haitian</option>
+        <option <?php if($nationality == "herzegovinian") echo "selected"; ?>>Herzegovinian</option>
+        <option <?php if($nationality == "honduran") echo "selected"; ?>>Honduran</option>
+        <option <?php if($nationality == "hungarian") echo "selected"; ?>>Hungarian</option>
+        <option <?php if($nationality == "icelander") echo "selected"; ?>>Icelander</option>
+        <option <?php if($nationality == "indian") echo "selected"; ?>>Indian</option>
+        <option <?php if($nationality == "indonesian") echo "selected"; ?>>Indonesian</option>
+        <option <?php if($nationality == "iranian") echo "selected"; ?>>Iranian</option>
+        <option <?php if($nationality == "iraqi") echo "selected"; ?>>Iraqi</option>
+        <option <?php if($nationality == "irish") echo "selected"; ?>>Irish</option>
+        <option <?php if($nationality == "israeli") echo "selected"; ?>>Israeli</option>
+        <option <?php if($nationality == "italian") echo "selected"; ?>>Italian</option>
+        <option <?php if($nationality == "ivorian") echo "selected"; ?>>Ivorian</option>
+        <option <?php if($nationality == "jamaican") echo "selected"; ?>>Jamaican</option>
+        <option <?php if($nationality == "japanese") echo "selected"; ?>>Japanese</option>
+        <option <?php if($nationality == "jordanian") echo "selected"; ?>>Jordanian</option>
+        <option <?php if($nationality == "kazakhstani") echo "selected"; ?>>Kazakhstani</option>
+        <option <?php if($nationality == "kenyan") echo "selected"; ?>>Kenyan</option>
+        <option <?php if($nationality == "kittian  and Nevisian") echo "selected"; ?>>Kittian and Nevisian</option>
+        <option <?php if($nationality == "kuwaiti") echo "selected"; ?>>Kuwaiti</option>
+        <option <?php if($nationality == "kyrgyz") echo "selected"; ?>>Kyrgyz</option>
+        <option <?php if($nationality == "laotian") echo "selected"; ?>>Laotian</option>
+        <option <?php if($nationality == "latvian") echo "selected"; ?>>Latvian</option>
+        <option <?php if($nationality == "lebanese") echo "selected"; ?>>Lebanese</option>
+        <option <?php if($nationality == "liberian") echo "selected"; ?>>Liberian</option>
+        <option <?php if($nationality == "libyan") echo "selected"; ?>>Libyan</option>
+        <option <?php if($nationality == "liechtensteiner") echo "selected"; ?>>Liechtensteiner</option>
+        <option <?php if($nationality == "lithuanian") echo "selected"; ?>>Lithuanian</option>
+        <option <?php if($nationality == "luxembourger") echo "selected"; ?>>Luxembourger</option>
+        <option <?php if($nationality == "macedonian") echo "selected"; ?>>Macedonian</option>
+        <option <?php if($nationality == "malagasy") echo "selected"; ?>>Malagasy</option>
+        <option <?php if($nationality == "malawian") echo "selected"; ?>>Malawian</option>
+        <option <?php if($nationality == "malaysian") echo "selected"; ?>>Malaysian</option>
+        <option <?php if($nationality == "maldivan") echo "selected"; ?>>Maldivan</option>
+        <option <?php if($nationality == "malian") echo "selected"; ?>>Malian</option>
+        <option <?php if($nationality == "maltese") echo "selected"; ?>>Maltese</option>
+        <option <?php if($nationality == "marshallese") echo "selected"; ?>>Marshallese</option>
+        <option <?php if($nationality == "mauritanian") echo "selected"; ?>>Mauritanian</option>
+        <option <?php if($nationality == "mauritian") echo "selected"; ?>>Mauritian</option>
+        <option <?php if($nationality == "mexican") echo "selected"; ?>>Mexican</option>
+        <option <?php if($nationality == "micronesian") echo "selected"; ?>>Micronesian</option>
+        <option <?php if($nationality == "moldovan") echo "selected"; ?>>Moldovan</option>
+        <option <?php if($nationality == "monacan") echo "selected"; ?>>Monacan</option>
+        <option <?php if($nationality == "mongolian") echo "selected"; ?>>Mongolian</option>
+        <option <?php if($nationality == "moroccan") echo "selected"; ?>>Moroccan</option>
+        <option <?php if($nationality == "mosotho") echo "selected"; ?>>Mosotho</option>
+        <option <?php if($nationality == "motswana") echo "selected"; ?>>Motswana</option>
+        <option <?php if($nationality == "mozambican") echo "selected"; ?>>Mozambican</option>
+        <option <?php if($nationality == "namibian") echo "selected"; ?>>Namibian</option>
+        <option <?php if($nationality == "nauruan") echo "selected"; ?>>Nauruan</option>
+        <option <?php if($nationality == "nepalese") echo "selected"; ?>>Nepalese</option>
+        <option <?php if($nationality == "new zealander") echo "selected"; ?>>New Zealander</option>
+        <option <?php if($nationality == "ni-vanuatu") echo "selected"; ?>>Ni-Vanuatu</option>
+        <option <?php if($nationality == "nicaraguan") echo "selected"; ?>>Nicaraguan</option>
+        <option <?php if($nationality == "nigerien") echo "selected"; ?>>Nigerien</option>
+        <option <?php if($nationality == "north korean") echo "selected"; ?>>North Korean</option>
+        <option <?php if($nationality == "northern irish") echo "selected"; ?>>Northern Irish</option>
+        <option <?php if($nationality == "norwegian") echo "selected"; ?>>Norwegian</option>
+        <option <?php if($nationality == "omani") echo "selected"; ?>>Omani</option>
+        <option <?php if($nationality == "pakistani") echo "selected"; ?>>Pakistani</option>
+        <option <?php if($nationality == "palauan") echo "selected"; ?>>Palauan</option>
+        <option <?php if($nationality == "panamanian") echo "selected"; ?>>Panamanian</option>
+        <option <?php if($nationality == "papua new guinean") echo "selected"; ?>>Papua New Guinean</option>
+        <option <?php if($nationality == "paraguayan") echo "selected"; ?>>Paraguayan</option>
+        <option <?php if($nationality == "peruvian") echo "selected"; ?>>Peruvian</option>
+        <option <?php if($nationality == "polish") echo "selected"; ?>>Polish</option>
+        <option <?php if($nationality == "portuguese") echo "selected"; ?>>Portuguese</option>
+        <option <?php if($nationality == "qatari") echo "selected"; ?>>Qatari</option>
+        <option <?php if($nationality == "romanian") echo "selected"; ?>>Romanian</option>
+        <option <?php if($nationality == "russian") echo "selected"; ?>>Russian</option>
+        <option <?php if($nationality == "rwandan") echo "selected"; ?>>Rwandan</option>
+        <option <?php if($nationality == "saint lucian") echo "selected"; ?>>Saint Lucian</option>
+        <option <?php if($nationality == "salvadoran") echo "selected"; ?>>Salvadoran</option>
+        <option <?php if($nationality == "samoan") echo "selected"; ?>>Samoan</option>
+        <option <?php if($nationality == "san marinese") echo "selected"; ?>>San Marinese</option>
+        <option <?php if($nationality == "sao tomean") echo "selected"; ?>>Sao Tomean</option>
+        <option <?php if($nationality == "saudi") echo "selected"; ?>>Saudi</option>
+        <option <?php if($nationality == "scottish") echo "selected"; ?>>Scottish</option>
+        <option <?php if($nationality == "senegalese") echo "selected"; ?>>Senegalese</option>
+        <option <?php if($nationality == "serbian") echo "selected"; ?>>Serbian</option>
+        <option <?php if($nationality == "seychellois") echo "selected"; ?>>Seychellois</option>
+        <option <?php if($nationality == "sierra leonean") echo "selected"; ?>>Sierra Leonean</option>
+        <option <?php if($nationality == "singaporean") echo "selected"; ?>>Singaporean</option>
+        <option <?php if($nationality == "slovakian") echo "selected"; ?>>Slovakian</option>
+        <option <?php if($nationality == "slovenian") echo "selected"; ?>>Slovenian</option>
+        <option <?php if($nationality == "solomon islander") echo "selected"; ?>>Solomon Islander</option>
+        <option <?php if($nationality == "somali") echo "selected"; ?>>Somali</option>
+        <option <?php if($nationality == "south african") echo "selected"; ?>>South African</option>
+        <option <?php if($nationality == "south korean") echo "selected"; ?>>South Korean</option>
+        <option <?php if($nationality == "spanish") echo "selected"; ?>>Spanish</option>
+        <option <?php if($nationality == "sri lankan") echo "selected"; ?>>Sri Lankan</option>
+        <option <?php if($nationality == "sudanese") echo "selected"; ?>>Sudanese</option>
+        <option <?php if($nationality == "surinamer") echo "selected"; ?>>Surinamer</option>
+        <option <?php if($nationality == "swazi") echo "selected"; ?>>Swazi</option>
+        <option <?php if($nationality == "swedish") echo "selected"; ?>>Swedish</option>
+        <option <?php if($nationality == "swiss") echo "selected"; ?>>Swiss</option>
+        <option <?php if($nationality == "syrian") echo "selected"; ?>>Syrian</option>
+        <option <?php if($nationality == "taiwanese") echo "selected"; ?>>Taiwanese</option>
+        <option <?php if($nationality == "tajik") echo "selected"; ?>>Tajik</option>
+        <option <?php if($nationality == "tanzanian") echo "selected"; ?>>Tanzanian</option>
+        <option <?php if($nationality == "thai") echo "selected"; ?>>Thai</option>
+        <option <?php if($nationality == "togolese") echo "selected"; ?>>Togolese</option>
+        <option <?php if($nationality == "tongan") echo "selected"; ?>>Tongan</option>
+        <option <?php if($nationality == "trinidadian or tobagonian") echo "selected"; ?>>Trinidadian or Tobagonian</option>
+        <option <?php if($nationality == "tunisian") echo "selected"; ?>>Tunisian</option>
+        <option <?php if($nationality == "turkish") echo "selected"; ?>>Turkish</option>
+        <option <?php if($nationality == "tuvaluan") echo "selected"; ?>>Tuvaluan</option>
+        <option <?php if($nationality == "ugandan") echo "selected"; ?>>Ugandan</option>
+        <option <?php if($nationality == "ukrainian") echo "selected"; ?>>Ukrainian</option>
+        <option <?php if($nationality == "uruguayan") echo "selected"; ?>>Uruguayan</option>
+        <option <?php if($nationality == "uzbekistani") echo "selected"; ?>>Uzbekistani</option>
+        <option <?php if($nationality == "venezuelan") echo "selected"; ?>>Venezuelan</option>
+        <option <?php if($nationality == "vietnamese") echo "selected"; ?>>Vietnamese</option>
+        <option <?php if($nationality == "welsh") echo "selected"; ?>>Welsh</option>
+        <option <?php if($nationality == "yemenite") echo "selected"; ?>>Yemenite</option>
+        <option <?php if($nationality == "zambian") echo "selected"; ?>>Zambian</option>
+        <option <?php if($nationality == "zimbabwean") echo "selected"; ?>>Zimbabwean</option>
     </select>
     </div>
     </div>
