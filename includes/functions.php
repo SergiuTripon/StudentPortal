@@ -1457,7 +1457,7 @@ function ReactivateResult() {
 
     $resultToReactivate = filter_input(INPUT_POST, 'resultToReactivate', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_result WHERE resultid = ?");
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM user_result WHERE resultid = ?");
     $stmt1->bind_param('i', $resultToReactivate);
     $stmt1->execute();
     $stmt1->store_result();
