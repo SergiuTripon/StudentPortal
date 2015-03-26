@@ -295,6 +295,25 @@ if ($fee_amount == "0.00") {
 		hasError  = true;
 		return false;
 	}
+
+    var fee_type_check = $('#fee_type :selected').html();
+    if (fee_type_check === '') {
+        $("label[for='fee_type']").empty().append("Please select an option.");
+        $("label[for='fee_type']").removeClass("feedback-happy");
+        $("label[for='fee_type']").addClass("feedback-sad");
+        $("[aria-owns='select2-fee_type-results']").removeClass("input-happy");
+        $("[aria-owns='select2-fee_type-results']").addClass("input-sad");
+        $("[aria-owns='select2-fee_type-results']").focus();
+        hasError  = true;
+        return false;
+    }
+    else {
+        $("label[for='fee_type']").empty().append("All good!");
+        $("label[for='fee_type']").removeClass("feedback-sad");
+        $("label[for='fee_type']").addClass("feedback-happy");
+        $("[aria-owns='select2-fee_type-results']").removeClass("input-sad");
+        $("[aria-owns='select2-fee_type-results']").addClass("input-happy");
+    }
 	
 	if(hasError == false) {
 	
