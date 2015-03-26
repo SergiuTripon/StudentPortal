@@ -69,6 +69,8 @@ if ($fee_amount == "0.00") {
     <p id="error" class="feedback-sad text-center"></p>
 
 	<!-- Hidden fields -->
+    <input type="hidden" name="initial_fee_amount" id="initial_fee_amount" value="<?php echo $fee_amount; ?>">
+
 	<input type="hidden" name="payment" value="process"/>
     <input type="hidden" name="product_id" id="product_id" value="1">
     <input type="hidden" name="product_quantity" id="product_quantity" value="1">
@@ -225,13 +227,12 @@ if ($fee_amount == "0.00") {
         var fee_type = $('#fee_type :selected').html();
 
         if(fee_type === 'Half fees') {
-            fee_amount = $('#product_amount').val();
+            fee_amount = $('#initial_fee_amount').val();
             new_fee_amount = fee_amount / 2;
             $('#product_amount').val(new_fee_amount.toFixed(2));
         } else {
-            fee_amount = $('#product_amount').val();
-            new_fee_amount = fee_amount / 2;
-            new_fee_amount1 = new_fee_amount * 2;
+            fee_amount = $('#initial_fee_amount').val();
+            new_fee_amount = new_fee_amount * 2;
             $('#product_amount').val(new_fee_amount1.toFixed(2));
         }
     });
