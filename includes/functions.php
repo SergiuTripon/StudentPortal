@@ -2990,22 +2990,20 @@ function UpdateAccount() {
 	global $session_userid;
 	global $updated_on;
 
-	$firstname = filter_input(INPUT_POST, 'firstname1', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname1', FILTER_SANITIZE_STRING);
-	$gender = filter_input(INPUT_POST, 'gender1', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email4', FILTER_SANITIZE_EMAIL);
+	$firstname = filter_input(INPUT_POST, 'update_firstname', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'update_surname', FILTER_SANITIZE_STRING);
+	$gender = filter_input(INPUT_POST, 'update_gender', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'update_email', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$nationality = filter_input(INPUT_POST, 'nationality', FILTER_SANITIZE_STRING);
-	$dateofbirth = filter_input(INPUT_POST, 'dateofbirth', FILTER_SANITIZE_STRING);
-	$phonenumber = filter_input(INPUT_POST, 'phonenumber', FILTER_SANITIZE_STRING);
-	$address1 = filter_input(INPUT_POST, 'address1', FILTER_SANITIZE_STRING);
-	$address2 = filter_input(INPUT_POST, 'address2', FILTER_SANITIZE_STRING);
-	$town = filter_input(INPUT_POST, 'town', FILTER_SANITIZE_STRING);
-	$city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
-	$country = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING);
-	$postcode = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
-
-	$gender = strtolower($gender);
+	$nationality = filter_input(INPUT_POST, 'update_nationality', FILTER_SANITIZE_STRING);
+	$dateofbirth = filter_input(INPUT_POST, 'update_dateofbirth', FILTER_SANITIZE_STRING);
+	$phonenumber = filter_input(INPUT_POST, 'update_phonenumber', FILTER_SANITIZE_STRING);
+	$address1 = filter_input(INPUT_POST, 'update_address1', FILTER_SANITIZE_STRING);
+	$address2 = filter_input(INPUT_POST, 'update_address2', FILTER_SANITIZE_STRING);
+	$town = filter_input(INPUT_POST, 'update_town', FILTER_SANITIZE_STRING);
+	$city = filter_input(INPUT_POST, 'update_city', FILTER_SANITIZE_STRING);
+	$country = filter_input(INPUT_POST, 'update_country', FILTER_SANITIZE_STRING);
+	$postcode = filter_input(INPUT_POST, 'update_postcode', FILTER_SANITIZE_STRING);
 
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
@@ -3017,103 +3015,106 @@ function UpdateAccount() {
 	}
 	else {
 
-	$stmt1 = $mysqli->prepare("SELECT email from user_signin where userid = ?");
-	$stmt1->bind_param('i', $session_userid);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($db_email);
-	$stmt1->fetch();
+        $stmt1 = $mysqli->prepare("SELECT email from user_signin where userid = ?");
+        $stmt1->bind_param('i', $session_userid);
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($db_email);
+        $stmt1->fetch();
 
-	if ($db_email == $email) {
+	    if ($db_email == $email) {
 
-	$stmt2 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
-	$stmt2->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
-	$stmt2->execute();
-	$stmt2->close();
+            $gender = strtolower($gender);
 
-	// subject
-	$subject = 'Account updated successfully';
+            $stmt2 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
+            $stmt2->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
+            $stmt2->execute();
+            $stmt2->close();
 
-	// message
-	$message = '<html>';
-	$message .= '<head>';
-	$message .= '<title>Student Portal | Account</title>';
-	$message .= '</head>';
-	$message .= '<body>';
-	$message .= "<p>Dear $firstname,</p>";
-	$message .= '<p>Your account has been updated succesfully.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here</a>.';
-	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-	$message .= '</body>';
-	$message .=	'</html>';
+            // subject
+            $subject = 'Account updated successfully';
 
-	// To send HTML mail, the Content-type header must be set
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            // message
+            $message = '<html>';
+            $message .= '<head>';
+            $message .= '<title>Student Portal | Account</title>';
+            $message .= '</head>';
+            $message .= '<body>';
+            $message .= "<p>Dear $firstname,</p>";
+            $message .= '<p>Your account has been updated succesfully.</p>';
+            $message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here</a>.';
+            $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+            $message .= '</body>';
+            $message .=	'</html>';
 
-	// Additional headers
-	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+            // To send HTML mail, the Content-type header must be set
+            $headers  = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	// Mail it
-	mail($email, $subject, $message, $headers);
-	}
+            // Additional headers
+            $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+            $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
-	else {
+            // Mail it
+            mail($email, $subject, $message, $headers);
 
-	$stmt3 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
-	$stmt3->bind_param('s', $email);
-	$stmt3->execute();
-	$stmt3->store_result();
-	$stmt3->bind_result($db_userid);
-	$stmt3->fetch();
+	    } else {
 
-	if ($stmt3->num_rows == 1) {
-        $stmt3->close();
-        header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
-		exit();
-	}
-	else {
+            $stmt3 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
+            $stmt3->bind_param('s', $email);
+            $stmt3->execute();
+            $stmt3->store_result();
+            $stmt3->bind_result($db_userid);
+            $stmt3->fetch();
 
-	$stmt4 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
-	$stmt4->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
-	$stmt4->execute();
-	$stmt4->close();
+            if ($stmt3->num_rows == 1) {
+                $stmt3->close();
+                header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
+                exit();
+            }
+            else {
 
-	$stmt5 = $mysqli->prepare("UPDATE user_signin SET email=?, updated_on=? WHERE userid = ?");
-	$stmt5->bind_param('ssi', $email, $updated_on, $session_userid);
-	$stmt5->execute();
-	$stmt5->close();
+                $gender = strtolower($gender);
 
-	// subject
-	$subject = 'Account updated successfully';
+                $stmt4 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
+                $stmt4->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
+                $stmt4->execute();
+                $stmt4->close();
 
-	// message
-	$message = '<html>';
-	$message .= '<head>';
-	$message .= '<title>Student Portal | Account</title>';
-	$message .= '</head>';
-	$message .= '<body>';
-	$message .= "<p>Dear $firstname,</p>";
-	$message .= '<p>Your account has been updated succesfully.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here</a>.';
-	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-	$message .= '</body>';
-	$message .=	'</html>';
+                $stmt5 = $mysqli->prepare("UPDATE user_signin SET email=?, updated_on=? WHERE userid = ?");
+                $stmt5->bind_param('ssi', $email, $updated_on, $session_userid);
+                $stmt5->execute();
+                $stmt5->close();
 
-	// To send HTML mail, the Content-type header must be set
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                // subject
+                $subject = 'Account updated successfully';
 
-	// Additional headers
-	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+                // message
+                $message = '<html>';
+                $message .= '<head>';
+                $message .= '<title>Student Portal | Account</title>';
+                $message .= '</head>';
+                $message .= '<body>';
+                $message .= "<p>Dear $firstname,</p>";
+                $message .= '<p>Your account has been updated succesfully.</p>';
+                $message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@student-portal.co.uk">here</a>.';
+                $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+                $message .= '</body>';
+                $message .=	'</html>';
 
-	// Mail it
-	mail($email, $subject, $message, $headers);
+                // To send HTML mail, the Content-type header must be set
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	}
-	}
+                // Additional headers
+                $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+                $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+                // Mail it
+                mail($email, $subject, $message, $headers);
+
+	        }
+	    }
 	}
 }
 
@@ -3135,54 +3136,55 @@ function ChangePassword() {
 	$stmt1->fetch();
 
 	if (password_verify($password, $db_password)) {
+
         $stmt1->close();
 		header('HTTP/1.0 550 This is your current password. Please enter a new password.');
 		exit();
 
 	} else {
 
-	$password_hash = password_hash($password, PASSWORD_BCRYPT);
+        $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-	$stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
-	$stmt2->bind_param('ssi', $password_hash, $updated_on, $session_userid);
-	$stmt2->execute();
-	$stmt2->close();
+        $stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
+        $stmt2->bind_param('ssi', $password_hash, $updated_on, $session_userid);
+        $stmt2->execute();
+        $stmt2->close();
 
-	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ?");
-	$stmt3->bind_param('i', $session_userid);
-	$stmt3->execute();
-	$stmt3->store_result();
-	$stmt3->bind_result($email, $firstname);
-	$stmt3->fetch();
+        $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ?");
+        $stmt3->bind_param('i', $session_userid);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($email, $firstname);
+        $stmt3->fetch();
 
-	// subject
-	$subject = 'Password changed successfully';
+        // subject
+        $subject = 'Password changed successfully';
 
-	// message
-	$message = '<html>';
-	$message .= '<head>';
-	$message .= '<title>Student Portal | Account</title>';
-	$message .= '</head>';
-	$message .= '<body>';
-	$message .= "<p>Dear $firstname,</p>";
-	$message .= '<p>Your password has been changed successfully.</p>';
-	$message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
-	$message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-	$message .= '</body>';
-	$message .= '</html>';
+        // message
+        $message = '<html>';
+        $message .= '<head>';
+        $message .= '<title>Student Portal | Account</title>';
+        $message .= '</head>';
+        $message .= '<body>';
+        $message .= "<p>Dear $firstname,</p>";
+        $message .= '<p>Your password has been changed successfully.</p>';
+        $message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
+        $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+        $message .= '</body>';
+        $message .= '</html>';
 
-	// To send HTML mail, the Content-type header must be set
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        // To send HTML mail, the Content-type header must be set
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	// Additional headers
-	$headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+        // Additional headers
+        $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+        $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
-	// Mail it
-	mail($email, $subject, $message, $headers);
+        // Mail it
+        mail($email, $subject, $message, $headers);
 
-	$stmt1->close();
+        $stmt1->close();
 	}
 }
 
@@ -3220,48 +3222,48 @@ function FeesPaypalPaymentSuccess() {
 
 	if ($product_amount == '9000.00' AND $isHalf == '0' ) {
 
-	$full_fees = 0.00;
-	$updated_on = date("Y-m-d G:i:s");
+        $full_fees = 0.00;
+        $updated_on = date("Y-m-d G:i:s");
 
-	$stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
-	$stmt3->bind_param('isi', $full_fees, $updated_on, $userid);
-	$stmt3->execute();
-	$stmt3->close();
-
-	} else {
-
-	if ($product_amount == '4500.00' AND $isHalf == '0') {
-
-	$half_fees = 4500.00;
-	$isHalf = 1;
-
-	$stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
-	$stmt3->bind_param('iisi', $half_fees, $isHalf, $updated_on, $userid);
-	$stmt3->execute();
-	$stmt3->close();
+        $stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+        $stmt3->bind_param('isi', $full_fees, $updated_on, $userid);
+        $stmt3->execute();
+        $stmt3->close();
 
 	} else {
 
-	$full_fees = 0.00;
-	$updated_on = date("Y-m-d G:i:s");
+        if ($product_amount == '4500.00' AND $isHalf == '0') {
 
-	$stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
-	$stmt4->bind_param('isi', $full_fees, $updated_on, $userid);
-	$stmt4->execute();
-	$stmt4->close();
+            $half_fees = 4500.00;
+            $isHalf = 1;
 
-	}
-	}
+            $stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
+            $stmt3->bind_param('iisi', $half_fees, $isHalf, $updated_on, $userid);
+            $stmt3->execute();
+            $stmt3->close();
+
+        } else {
+
+            $full_fees = 0.00;
+            $updated_on = date("Y-m-d G:i:s");
+
+            $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid = ? LIMIT 1");
+            $stmt4->bind_param('isi', $full_fees, $updated_on, $userid);
+            $stmt4->execute();
+            $stmt4->close();
+
+	    }
+    }
 
 	$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
 	$stmt8->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
 	$stmt8->execute();
 	$stmt8->close();
 
-	// subject
+	//subject
 	$subject = 'Payment confirmation';
 
-	// message
+	//message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
@@ -3390,91 +3392,90 @@ function CreateAnAccount() {
     $postcode = filter_input(INPUT_POST, 'create_account_postcode', FILTER_SANITIZE_STRING);
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header('HTTP/1.0 550 The email address you entered is invalid.');
-    exit();
+        header('HTTP/1.0 550 The email address you entered is invalid.');
+        exit();
+
+    } else {
+
+        // Check existing studentno
+        $stmt1 = $mysqli->prepare("SELECT userid FROM user_detail WHERE studentno = ? AND NOT studentno = '0' LIMIT 1");
+        $stmt1->bind_param('i', $studentno);
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($userid);
+        $stmt1->fetch();
+
+        if ($stmt1->num_rows == 1) {
+            $stmt1->close();
+            header('HTTP/1.0 550 An account with the student number entered already exists.');
+            exit();
+        }
+
+        // Check existing email
+        $stmt2 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
+        $stmt2->bind_param('s', $email);
+        $stmt2->execute();
+        $stmt2->store_result();
+        $stmt2->bind_result($userid);
+        $stmt2->fetch();
+
+        if ($stmt2->num_rows == 1) {
+            $stmt2->close();
+            header('HTTP/1.0 550 An account with the email address entered already exists.');
+            exit();
+        }
+
+        $stmt3 = $mysqli->prepare("SELECT userid FROM user_signin ORDER BY userid DESC LIMIT 1");
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($userid);
+        $stmt3->fetch();
+
+        if (empty($studentno)) {
+            $studentno = $userid + 1;
+        }
+
+        $password_hash = password_hash($password, PASSWORD_BCRYPT);
+
+        $account_type = strtolower($account_type);
+
+        $stmt4 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
+        $stmt4->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
+        $stmt4->execute();
+        $stmt4->close();
+
+        if (empty($dateofbirth)) {
+            $dateofbirth = NULL;
+        }
+
+        $gender = strtolower($gender);
+        $nationality = strtolower($nationality);
+        $user_status = 'active';
+
+        $stmt5 = $mysqli->prepare("INSERT INTO user_detail (firstname, surname, gender, studentno, degree, nationality, dateofbirth, phonenumber, address1, address2, town, city, country, postcode, user_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt5->bind_param('sssissssssssssss', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $user_status, $created_on);
+        $stmt5->execute();
+        $stmt5->close();
+
+        $token = null;
+
+        $stmt6 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
+        $stmt6->bind_param('s', $token);
+        $stmt6->execute();
+        $stmt6->close();
+
+        if ($account_type == 'academic staff') {
+            $fee_amount = '0.00';
+        }
+        elseif ($account_type == 'administrator') {
+            $fee_amount = '0.00';
+        }
+
+        $stmt7 = $mysqli->prepare("INSERT INTO user_fee (fee_amount, created_on) VALUES (?, ?)");
+        $stmt7->bind_param('is', $fee_amount, $created_on);
+        $stmt7->execute();
+        $stmt7->close();
     }
-
-    // Check existing studentno
-    $stmt1 = $mysqli->prepare("SELECT userid FROM user_detail WHERE studentno = ? AND NOT studentno = '0' LIMIT 1");
-    $stmt1->bind_param('i', $studentno);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($userid);
-    $stmt1->fetch();
-
-    if ($stmt1->num_rows == 1) {
-    $stmt1->close();
-    header('HTTP/1.0 550 An account with the student number entered already exists.');
-    exit();
-    }
-
-    // Check existing email
-    $stmt2 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
-    $stmt2->bind_param('s', $email);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($userid);
-    $stmt2->fetch();
-
-    if ($stmt2->num_rows == 1) {
-    $stmt2->close();
-    header('HTTP/1.0 550 An account with the email address entered already exists.');
-    exit();
-    }
-
-    $stmt3 = $mysqli->prepare("SELECT userid FROM user_signin ORDER BY userid DESC LIMIT 1");
-    $stmt3->execute();
-    $stmt3->store_result();
-    $stmt3->bind_result($userid);
-    $stmt3->fetch();
-
-    if (empty($studentno)) {
-        $studentno = $userid + 1;
-    }
-
-    $password_hash = password_hash($password, PASSWORD_BCRYPT);
-
-	$account_type = strtolower($account_type);
-
-    $stmt4 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
-    $stmt4->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
-    $stmt4->execute();
-    $stmt4->close();
-
-    if (empty($dateofbirth)) {
-        $dateofbirth = NULL;
-    }
-
-    $gender = strtolower($gender);
-    $nationality = strtolower($nationality);
-    $user_status = 'active';
-
-    $stmt5 = $mysqli->prepare("INSERT INTO user_detail (firstname, surname, gender, studentno, degree, nationality, dateofbirth, phonenumber, address1, address2, town, city, country, postcode, user_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt5->bind_param('sssissssssssssss', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $user_status, $created_on);
-    $stmt5->execute();
-    $stmt5->close();
-
-    $token = null;
-
-    $stmt6 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
-    $stmt6->bind_param('s', $token);
-    $stmt6->execute();
-    $stmt6->close();
-
-    if ($account_type == 'student') {
-    $fee_amount = $fee_amount;
-    }
-    elseif ($account_type == 'academic staff') {
-    $fee_amount = '0.00';
-    }
-    elseif ($account_type == 'administrator') {
-    $fee_amount = '0.00';
-    }
-
-    $stmt7 = $mysqli->prepare("INSERT INTO user_fee (fee_amount, created_on) VALUES (?, ?)");
-    $stmt7->bind_param('is', $fee_amount, $created_on);
-    $stmt7->execute();
-    $stmt7->close();
 }
 
 //UpdateAnAccount function
@@ -3503,100 +3504,90 @@ function UpdateAnAccount() {
 	$country = filter_input(INPUT_POST, 'update_account_country', FILTER_SANITIZE_STRING);
 	$postcode = filter_input(INPUT_POST, 'update_account_postcode', FILTER_SANITIZE_STRING);
 
-	if ($dateofbirth == '') {
-		$dateofbirth = NULL;
-	}
-
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
 		exit();
-	}
-	else {
+	} else {
 
-	$stmt1 = $mysqli->prepare("SELECT email from user_signin where userid = ?");
-	$stmt1->bind_param('i', $userid);
-	$stmt1->execute();
-	$stmt1->store_result();
-	$stmt1->bind_result($db_email);
-	$stmt1->fetch();
+        $stmt1 = $mysqli->prepare("SELECT email from user_signin where userid = ?");
+        $stmt1->bind_param('i', $userid);
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($db_email);
+        $stmt1->fetch();
 
-	if ($db_email == $email) {
+        if ($db_email == $email) {
 
-	$account_type = strtolower($account_type);
+            $account_type = strtolower($account_type);
 
-	$stmt2 = $mysqli->prepare("UPDATE user_signin SET account_type=?, updated_on=? WHERE userid = ?");
-	$stmt2->bind_param('ssi', $account_type, $updated_on, $userid);
-	$stmt2->execute();
-	$stmt2->close();
+            $stmt2 = $mysqli->prepare("UPDATE user_signin SET account_type=?, updated_on=? WHERE userid = ?");
+            $stmt2->bind_param('ssi', $account_type, $updated_on, $userid);
+            $stmt2->execute();
+            $stmt2->close();
 
-    $gender = strtolower($gender);
-    $nationality = strtolower($nationality);
+            $gender = strtolower($gender);
+            $nationality = strtolower($nationality);
 
-	$stmt3 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
-	$stmt3->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
-	$stmt3->execute();
-	$stmt3->close();
+            if ($dateofbirth == '') {
+                $dateofbirth = NULL;
+            }
 
-    if ($account_type == 'student') {
-        $fee_amount = $fees;
-    }
-    elseif ($account_type == 'lecturer') {
-        $fee_amount = '0.00';
-    }
-    elseif ($account_type == 'admin') {
-        $fee_amount = '0.00';
-    }
+            $stmt3 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
+            $stmt3->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+            $stmt3->execute();
+            $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=?");
-    $stmt4->bind_param('isi', $fee_amount, $updated_on, $userid);
-    $stmt4->execute();
-    $stmt4->close();
+            if ($account_type == 'lecturer') {
+                $fee_amount = '0.00';
+            }
+            elseif ($account_type == 'admin') {
+                $fee_amount = '0.00';
+            }
 
-	}
+            $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=?");
+            $stmt4->bind_param('isi', $fee_amount, $updated_on, $userid);
+            $stmt4->execute();
+            $stmt4->close();
 
-	else {
+	    } else {
 
-	$stmt5 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
-	$stmt5->bind_param('s', $email);
-	$stmt5->execute();
-	$stmt5->store_result();
-	$stmt5->bind_result($db_userid);
-	$stmt5->fetch();
+            $stmt5 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
+            $stmt5->bind_param('s', $email);
+            $stmt5->execute();
+            $stmt5->store_result();
+            $stmt5->bind_result($db_userid);
+            $stmt5->fetch();
 
-	if ($stmt5->num_rows == 1) {
-        $stmt5->close();
-		header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
-		exit();
-	}
-	else {
+            if ($stmt5->num_rows == 1) {
+                $stmt5->close();
+                header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
+                exit();
 
-    $stmt6 = $mysqli->prepare("UPDATE user_signin SET account_type=?, email=?, updated_on=? WHERE userid = ?");
-    $stmt6->bind_param('sssi', $account_type, $email, $updated_on, $userid);
-    $stmt6->execute();
-    $stmt6->close();
+            }  else {
 
-	$stmt7 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
-	$stmt7->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
-	$stmt7->execute();
-	$stmt7->close();
+                $stmt6 = $mysqli->prepare("UPDATE user_signin SET account_type=?, email=?, updated_on=? WHERE userid = ?");
+                $stmt6->bind_param('sssi', $account_type, $email, $updated_on, $userid);
+                $stmt6->execute();
+                $stmt6->close();
 
-    if ($account_type == 'student') {
-        $fee_amount = $fees;
-    }
-    elseif ($account_type == 'lecturer') {
-        $fee_amount = '0.00';
-    }
-    elseif ($account_type == 'admin') {
-        $fee_amount = '0.00';
-    }
+                $stmt7 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
+                $stmt7->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
+                $stmt7->execute();
+                $stmt7->close();
 
-    $stmt8 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=?");
-    $stmt8->bind_param('isi', $fee_amount, $updated_on, $userid);
-    $stmt8->execute();
-    $stmt8->close();
+                if ($account_type == 'lecturer') {
+                    $fee_amount = '0.00';
+                } elseif ($account_type == 'admin') {
+                    $fee_amount = '0.00';
+                }
 
-	}
-	}
+                $stmt8 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=?");
+                $stmt8->bind_param('isi', $fee_amount, $updated_on, $userid);
+                $stmt8->execute();
+                $stmt8->close();
+
+	        }
+	    }
 	}
 }
 
@@ -3624,14 +3615,14 @@ function ChangeAccountPassword() {
 
 	} else {
 
-    $password_hash = password_hash($password, PASSWORD_BCRYPT);
+        $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-    $stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
-    $stmt2->bind_param('ssi', $password_hash, $updated_on, $userid);
-    $stmt2->execute();
-    $stmt2->close();
+        $stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
+        $stmt2->bind_param('ssi', $password_hash, $updated_on, $userid);
+        $stmt2->execute();
+        $stmt2->close();
 
-	$stmt1->close();
+        $stmt1->close();
 	}
 }
 
