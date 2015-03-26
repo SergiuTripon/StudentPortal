@@ -1113,13 +1113,38 @@ function ReactivateTutorial() {
 
     $tutorialToReactivate = filter_input(INPUT_POST, 'tutorialToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
-    $tutorial_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
-    $stmt1->bind_param('ssi', $tutorial_status, $updated_on, $tutorialToReactivate);
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_tutorial WHERE tutorialid = ?");
+    $stmt1->bind_param('i', $tutorialToReactivate);
     $stmt1->execute();
-    $stmt1->close();
+    $stmt1->store_result();
+    $stmt1->bind_result($moduleid);
+    $stmt1->fetch();
 
+    $module_status = 'active';
+
+    $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
+    $stmt2->bind_param('is', $moduleid, $module_status);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($db_moduleid);
+    $stmt2->fetch();
+
+    if ($stmt2->num_rows > 0) {
+
+        $tutorial_status = 'active';
+
+        $stmt1 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
+        $stmt1->bind_param('ssi', $tutorial_status, $updated_on, $tutorialToReactivate);
+        $stmt1->execute();
+        $stmt1->close();
+
+    } else {
+
+        $stmt2->close();
+        echo 'You cannot reactivate this tutorial because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this tutorial.';
+        exit();
+
+    }
 }
 
 //DeleteTutorial function
