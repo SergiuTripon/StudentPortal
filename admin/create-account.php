@@ -91,8 +91,8 @@ include '../includes/session.php';
 	</div>
 
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="fees">Course fee amount<span class="field-required">*</span></label>
-	<input class="form-control" type="text" name="fees" id="fees" value="" placeholder="Enter an amount">
+	<label for="fee_amount">Course fee amount<span class="field-required">*</span></label>
+	<input class="form-control" type="text" name="fee_amount" id="fee_amount" value="" placeholder="Enter an amount">
 	</div>
 
 	<div class="form-group">
@@ -813,7 +813,7 @@ include '../includes/session.php';
          '&create_account_gender='      + gender +
          '&create_account_studentno='   + studentno +
          '&create_account_degree='      + degree +
-         '&create_account_fees='        + fees +
+         '&create_account_fee_amount='  + fees +
          '&create_account_email='       + email +
          '&create_account_password='    + password +
          '&create_account_nationality=' + nationality +
