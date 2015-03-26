@@ -295,14 +295,15 @@ if (isset($_GET['id'])) {
         format: 'YYYY/MM/DD'
 	});
 
-    //Ajax call
+    //Update lecture process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-    //Lectures
+    //Validation and data gathering
     var lectureid = $("#lectureid").val();
+    var lecture_moduleid= $("#lecture_moduleid :selected").val();
 
 	var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
@@ -321,6 +322,10 @@ if (isset($_GET['id'])) {
         $("#lecture_name").removeClass("input-sad");
         $("#lecture_name").addClass("input-happy");
 	}
+
+    var lecture_lecturer = $("#lecture_lecturer :selected").val();
+    var lecture_notes = $("#lecture_notes").val();
+    var lecture_day = $("#lecture_day :selected").html();
 
     var lecture_from_time = $("#lecture_from_time").val();
 	if(lecture_from_time === '') {
@@ -430,19 +435,13 @@ if (isset($_GET['id'])) {
         $("#lecture_capacity").addClass("input-happy");
 	}
 
-    var lecture_moduleid= $("#lecture_moduleid option :selected").val();
-    var lecture_notes = $("#lecture_notes").val();
-    var lecture_lecturer = $("#lecture_lecturer option :selected").val();
-    var lecture_day = $("#lecture_day option :selected").html();
-
-    alert(lecture_lecturer);
-
+    //Ajax
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'update_lecture_moduleid='    + lecture_moduleid +
-         '&update_lectureid='           + lectureid +
+         '&update_lectureid='          + lectureid +
          '&update_lecture_name='       + lecture_name +
          '&update_lecture_lecturer='   + lecture_lecturer +
          '&update_lecture_notes='      + lecture_notes +

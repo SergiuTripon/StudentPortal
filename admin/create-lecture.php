@@ -263,13 +263,13 @@ include '../includes/session.php';
         format: 'YYYY-MM-DD'
 	});
 
-    //Create timetable ajax call
+    //Create lecture process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-    //Lectures
+    //Validation and data gathering
     var lecture_moduleid_check = $('#lecture_moduleid :selected').html();
     if (lecture_moduleid_check === '') {
         $("label[for='lecture_moduleid']").empty().append("Please select a module.");
@@ -460,6 +460,7 @@ include '../includes/session.php';
         $("#lecture_capacity").addClass("input-happy");
 	}
 
+    //Ajax
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",

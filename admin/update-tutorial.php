@@ -290,20 +290,21 @@ if (isset($_GET['id'])) {
         format: 'HH:mm'
     });
     $('#tutorial_from_date').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'YYYY/MM/DD'
     });
     $('#tutorial_to_date').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'YYYY/MM/DD'
     });
 
-    //Ajax call
+    //Update tutorial process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-    //Tutorials
+    //Validation and data gathering
     var tutorialid = $("#tutorialid").val();
+    var tutorial_moduleid= $("#tutorial_moduleid :selected").val();
 
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
@@ -322,6 +323,10 @@ if (isset($_GET['id'])) {
         $("#tutorial_name").removeClass("input-sad");
         $("#tutorial_name").addClass("input-happy");
 	}
+
+    var tutorial_assistant = $("#tutorial_assistant :selected").val();
+    var tutorial_notes = $("#tutorial_notes").val();
+    var tutorial_day = $("#tutorial_day :selected").html();
 
     var tutorial_from_time = $("#tutorial_from_time").val();
 	if(tutorial_from_time === '') {
@@ -430,11 +435,6 @@ if (isset($_GET['id'])) {
         $("#tutorial_capacity").removeClass("input-sad");
         $("#tutorial_capacity").addClass("input-happy");
 	}
-
-    var tutorial_moduleid= $("#tutorial_moduleid option:selected").val();
-    var tutorial_notes = $("#tutorial_notes").val();
-    var tutorial_assistant = $("#tutorial_assistant option:selected").val();
-    var tutorial_day = $("#tutorial_day option:selected").html();
 
 	if(hasError == false){
     jQuery.ajax({

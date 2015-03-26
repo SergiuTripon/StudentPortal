@@ -460,7 +460,7 @@ include '../includes/session.php';
         $("#tutorial_capacity").addClass("input-happy");
 	}
 
-    //Ajax call
+    //Ajax
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
