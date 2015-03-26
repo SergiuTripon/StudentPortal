@@ -35,7 +35,7 @@ DROP TABLE user_signin;
 #Sign in
 CREATE TABLE `user_signin` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `account_type` VARCHAR(8) NOT NULL,
+  `account_type` VARCHAR(14) NOT NULL,
   `email` VARCHAR(300) NOT NULL UNIQUE,
   `password` CHAR(70) NOT NULL UNIQUE,
   `isSignedIn` TINYINT(1) NOT NULL,

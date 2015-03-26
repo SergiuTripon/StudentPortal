@@ -149,8 +149,6 @@ function RegisterUser() {
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
 
-	$gender = strtolower($gender);
-
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 	header('HTTP/1.0 550 The email address you entered is invalid.');
 	exit();
@@ -180,6 +178,7 @@ function RegisterUser() {
 	$stmt2->close();
 
     //Creating user details
+    $gender = strtolower($gender);
     $user_status = 'active';
 
 	$stmt3 = $mysqli->prepare("INSERT INTO user_detail (firstname, surname, gender, user_status, created_on) VALUES (?, ?, ?, ?, ?)");
