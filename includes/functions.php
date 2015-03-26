@@ -282,9 +282,10 @@ function SendPasswordToken() {
 
 		$stmt1->close();
 	}
-	else
+	else {
 		header('HTTP/1.0 550 The email address you entered is incorrect.');
-	exit();
+        exit();
+    }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
