@@ -1310,7 +1310,7 @@ function ReactivateExam() {
 
     $examToReactivate = filter_input(INPUT_POST, 'examToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_exams WHERE examid = ?");
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_exam WHERE examid = ?");
     $stmt1->bind_param('i', $examToReactivate);
     $stmt1->execute();
     $stmt1->store_result();
