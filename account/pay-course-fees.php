@@ -35,6 +35,7 @@ if ($fee_amount == "0.00") {
     <title>Student Portal | Pay Course Fees</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
+    <?php include '../assets/css-paths/select2-css-path.php'; ?>
 
 </head>
 
@@ -210,6 +211,7 @@ if ($fee_amount == "0.00") {
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/select2-js-path.php'; ?>
 	
 	<script>
     //On load
