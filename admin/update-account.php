@@ -111,7 +111,7 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
-	<label for="fees">Course fee amount<span class="field-required">*</span></label>
+	<label for="fee_amount">Course fee amount<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="fee_amount" id="fee_amount" value="<?php echo $fee_amount; ?>" placeholder="Enter an amount">
 	</div>
 
