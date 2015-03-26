@@ -2194,17 +2194,20 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(errormsg){
-        alert(errormsg);
-		$('#lecture-'+lectureToReactivate).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#reactivate-lecture-question').hide();
-        $('#reactivate-lecture-confirmation').show();
-        $('#reactivate-lecture-hide').hide();
-        $('#reactivate-lecture-success-button').show();
-        $("#reactivate-lecture-success-button").click(function () {
-            location.reload();
-        });
+        if (errormsg) {
+            alert(errormsg);
+        } else {
+            $('#lecture-'+lectureToReactivate).hide();
+            $('.form-logo i').removeClass('fa-trash');
+            $('.form-logo i').addClass('fa-check-square-o');
+            $('#reactivate-lecture-question').hide();
+            $('#reactivate-lecture-confirmation').show();
+            $('#reactivate-lecture-hide').hide();
+            $('#reactivate-lecture-success-button').show();
+            $("#reactivate-lecture-success-button").click(function () {
+                location.reload();
+            });
+        }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
