@@ -213,6 +213,8 @@ if ($fee_amount == "0.00") {
     $(document).ready(function () {
         //select2
         $("#fee_type").select2({placeholder: "Select an option"});
+        var fee_type_check = $('#fee_type :selected').html();
+        alert(fee_type_check);
     });
 
     //Ladda
