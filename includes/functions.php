@@ -657,6 +657,131 @@ function DeactivateModule() {
     $stmt5->close();
 }
 
+//ReactivateModule function
+function ReactivateModule() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $moduleToReactivate = filter_input(INPUT_POST, 'moduleToReactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $module_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_module SET module_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1->bind_param('ssi', $module_status, $updated_on, $moduleToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $lecture_status = 'active';
+
+    $stmt2 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE moduleid=?");
+    $stmt2->bind_param('ssi', $lecture_status, $updated_on, $moduleToReactivate);
+    $stmt2->execute();
+    $stmt2->close();
+
+    $tutorial_status = 'active';
+
+    $stmt3 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE moduleid=?");
+    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $moduleToReactivate);
+    $stmt3->execute();
+    $stmt3->close();
+
+    $exam_status = 'active';
+
+    $stmt4 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt4->bind_param('ssi', $exam_status, $updated_on, $moduleToReactivate);
+    $stmt4->execute();
+    $stmt4->close();
+
+    $result_status = 'active';
+
+    $stmt5 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE moduleid=?");
+    $stmt5->bind_param('ssi', $result_status, $updated_on, $moduleToReactivate);
+    $stmt5->execute();
+    $stmt5->close();
+}
+
+//DeleteModule function
+function DeleteModule() {
+
+    global $mysqli;
+
+    $moduleToDelete = filter_input(INPUT_POST, 'moduleToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE moduleid=?");
+    $stmt1->bind_param('i', $moduleToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $stmt2 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE moduleid=?");
+    $stmt2->bind_param('i', $moduleToDelete);
+    $stmt2->execute();
+    $stmt2->close();
+
+    $stmt3 = $mysqli->prepare("DELETE FROM user_feedback WHERE moduleid=?");
+    $stmt3->bind_param('i', $moduleToDelete);
+    $stmt3->execute();
+    $stmt3->close();
+
+    $stmt4 = $mysqli->prepare("DELETE FROM user_result WHERE moduleid=?");
+    $stmt4->bind_param('i', $moduleToDelete);
+    $stmt4->execute();
+    $stmt4->close();
+
+    $stmt5 = $mysqli->prepare("DELETE FROM system_exam WHERE moduleid=?");
+    $stmt5->bind_param('i', $moduleToDelete);
+    $stmt5->execute();
+    $stmt5->close();
+
+    $stmt6 = $mysqli->prepare("DELETE FROM system_tutorial WHERE moduleid=?");
+    $stmt6->bind_param('i', $moduleToDelete);
+    $stmt6->execute();
+    $stmt6->close();
+
+    $stmt7 = $mysqli->prepare("DELETE FROM system_lecture WHERE moduleid=?");
+    $stmt7->bind_param('i', $moduleToDelete);
+    $stmt7->execute();
+    $stmt7->close();
+
+    $stmt8 = $mysqli->prepare("DELETE FROM user_module WHERE moduleid=?");
+    $stmt8->bind_param('i', $moduleToDelete);
+    $stmt8->execute();
+    $stmt8->close();
+
+    $stmt9 = $mysqli->prepare("DELETE FROM system_module WHERE moduleid=?");
+    $stmt9->bind_param('i', $moduleToDelete);
+    $stmt9->execute();
+    $stmt9->close();
+}
+
+//AllocateModule function
+function AllocateModule() {
+
+    global $mysqli;
+
+    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
+    $moduleToAllocate = filter_input(INPUT_POST, 'moduleToAllocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_module (userid, moduleid) VALUES (?, ?)");
+    $stmt1->bind_param('ii', $userToAllocate, $moduleToAllocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeallocateModule function
+function DeallocateModule() {
+
+    global $mysqli;
+
+    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+    $moduleToDeallocate = filter_input(INPUT_POST, 'moduleToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_module WHERE userid=? AND moduleid=?");
+    $stmt1->bind_param('ii', $userToDeallocate, $moduleToDeallocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 //CreateLecture function
 function CreateLecture() {
 
@@ -756,7 +881,87 @@ function UpdateLecture() {
     }
 }
 
-//CreateLecture function
+//DeactivateLecture function
+function DeactivateLecture() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $lectureToDeactivate = filter_input(INPUT_POST, 'lectureToDeactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $lecture_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
+    $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//ReactivateLecture function
+function ReactivateLecture() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $lectureToReactivate = filter_input(INPUT_POST, 'lectureToReactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $lecture_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
+    $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeleteLecture function
+function DeleteLecture() {
+
+    global $mysqli;
+
+    $lectureToDelete = filter_input(INPUT_POST, 'lectureToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM system_lecture WHERE lectureid=?");
+    $stmt1->bind_param('i', $lectureToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $lectureid = '';
+
+    $stmt2 = $mysqli->prepare("DELETE FROM user_lecture WHERE lectureid=?");
+    $stmt2->bind_param('ii', $lectureid, $lectureToDelete);
+    $stmt2->execute();
+    $stmt2->close();
+}
+
+//AllocateLecture function
+function AllocateLecture() {
+
+    global $mysqli;
+
+    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
+    $lectureToAllocate = filter_input(INPUT_POST, 'lectureToAllocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_lecture (userid, lectureid) VALUES (?, ?)");
+    $stmt1->bind_param('ii', $userToAllocate, $lectureToAllocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeallocateLecture function
+function DeallocateLecture() {
+
+    global $mysqli;
+
+    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+    $lectureToDeallocate = filter_input(INPUT_POST, 'lectureToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_lecture WHERE userid=? AND lectureid=?");
+    $stmt1->bind_param('ii', $userToDeallocate, $lectureToDeallocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//CreateTutorial function
 function CreateTutorial() {
 
     global $mysqli;
@@ -856,24 +1061,6 @@ function UpdateTutorial() {
     }
 }
 
-
-//DeactivateLecture function
-function DeactivateLecture() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $lectureToDeactivate = filter_input(INPUT_POST, 'lectureToDeactivate', FILTER_SANITIZE_NUMBER_INT);
-
-    $lecture_status = 'inactive';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
-    $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToDeactivate);
-    $stmt1->execute();
-    $stmt1->close();
-
-}
-
 //DeactivateTutorial function
 function DeactivateTutorial() {
 
@@ -886,66 +1073,6 @@ function DeactivateTutorial() {
 
     $stmt1 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
     $stmt1->bind_param('ssi', $tutorial_status, $updated_on, $tutorialToDeactivate);
-    $stmt1->execute();
-    $stmt1->close();
-}
-
-//ReactivateModule function
-function ReactivateModule() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $moduleToReactivate = filter_input(INPUT_POST, 'moduleToReactivate', FILTER_SANITIZE_NUMBER_INT);
-
-    $module_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_module SET module_status=?, updated_on=? WHERE moduleid=?");
-    $stmt1->bind_param('ssi', $module_status, $updated_on, $moduleToReactivate);
-    $stmt1->execute();
-    $stmt1->close();
-
-    $lecture_status = 'active';
-
-    $stmt2 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE moduleid=?");
-    $stmt2->bind_param('ssi', $lecture_status, $updated_on, $moduleToReactivate);
-    $stmt2->execute();
-    $stmt2->close();
-
-    $tutorial_status = 'active';
-
-    $stmt3 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $moduleToReactivate);
-    $stmt3->execute();
-    $stmt3->close();
-
-    $exam_status = 'active';
-
-    $stmt4 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE moduleid=?");
-    $stmt4->bind_param('ssi', $exam_status, $updated_on, $moduleToReactivate);
-    $stmt4->execute();
-    $stmt4->close();
-
-    $result_status = 'active';
-
-    $stmt5 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE moduleid=?");
-    $stmt5->bind_param('ssi', $result_status, $updated_on, $moduleToReactivate);
-    $stmt5->execute();
-    $stmt5->close();
-}
-
-//ReactivateLecture function
-function ReactivateLecture() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $lectureToReactivate = filter_input(INPUT_POST, 'lectureToReactivate', FILTER_SANITIZE_NUMBER_INT);
-
-    $lecture_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
-    $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToReactivate);
     $stmt1->execute();
     $stmt1->close();
 }
@@ -967,80 +1094,7 @@ function ReactivateTutorial() {
 
 }
 
-//DeleteTimetable function
-function DeleteModule() {
-
-    global $mysqli;
-
-    $moduleToDelete = filter_input(INPUT_POST, 'moduleToDelete', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE moduleid=?");
-    $stmt1->bind_param('i', $moduleToDelete);
-    $stmt1->execute();
-    $stmt1->close();
-
-    $stmt2 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE moduleid=?");
-    $stmt2->bind_param('i', $moduleToDelete);
-    $stmt2->execute();
-    $stmt2->close();
-
-    $stmt3 = $mysqli->prepare("DELETE FROM user_feedback WHERE moduleid=?");
-    $stmt3->bind_param('i', $moduleToDelete);
-    $stmt3->execute();
-    $stmt3->close();
-
-    $stmt4 = $mysqli->prepare("DELETE FROM user_result WHERE moduleid=?");
-    $stmt4->bind_param('i', $moduleToDelete);
-    $stmt4->execute();
-    $stmt4->close();
-
-    $stmt5 = $mysqli->prepare("DELETE FROM system_exam WHERE moduleid=?");
-    $stmt5->bind_param('i', $moduleToDelete);
-    $stmt5->execute();
-    $stmt5->close();
-
-    $stmt6 = $mysqli->prepare("DELETE FROM system_tutorial WHERE moduleid=?");
-    $stmt6->bind_param('i', $moduleToDelete);
-    $stmt6->execute();
-    $stmt6->close();
-
-    $stmt7 = $mysqli->prepare("DELETE FROM system_lecture WHERE moduleid=?");
-    $stmt7->bind_param('i', $moduleToDelete);
-    $stmt7->execute();
-    $stmt7->close();
-
-    $stmt8 = $mysqli->prepare("DELETE FROM user_module WHERE moduleid=?");
-    $stmt8->bind_param('i', $moduleToDelete);
-    $stmt8->execute();
-    $stmt8->close();
-
-    $stmt9 = $mysqli->prepare("DELETE FROM system_module WHERE moduleid=?");
-    $stmt9->bind_param('i', $moduleToDelete);
-    $stmt9->execute();
-    $stmt9->close();
-}
-
-//DeleteLecture function
-function DeleteLecture() {
-
-    global $mysqli;
-
-    $lectureToDelete = filter_input(INPUT_POST, 'lectureToDelete', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM system_lecture WHERE lectureid=?");
-    $stmt1->bind_param('i', $lectureToDelete);
-    $stmt1->execute();
-    $stmt1->close();
-
-    $lectureid = '';
-
-    $stmt2 = $mysqli->prepare("DELETE FROM user_lecture WHERE lectureid=?");
-    $stmt2->bind_param('ii', $lectureid, $lectureToDelete);
-    $stmt2->execute();
-    $stmt2->close();
-}
-
-//DeleteTimetable function
+//DeleteTutorial function
 function DeleteTutorial() {
 
     global $mysqli;
@@ -1060,35 +1114,7 @@ function DeleteTutorial() {
     $stmt2->close();
 }
 
-//AssignTimetable function
-function AllocateModule() {
-
-    global $mysqli;
-
-    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
-    $moduleToAllocate = filter_input(INPUT_POST, 'moduleToAllocate', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("INSERT INTO user_module (userid, moduleid) VALUES (?, ?)");
-    $stmt1->bind_param('ii', $userToAllocate, $moduleToAllocate);
-    $stmt1->execute();
-    $stmt1->close();
-}
-
-//AllocateLecture function
-function AllocateLecture() {
-
-    global $mysqli;
-
-    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
-    $lectureToAllocate = filter_input(INPUT_POST, 'lectureToAllocate', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("INSERT INTO user_lecture (userid, lectureid) VALUES (?, ?)");
-    $stmt1->bind_param('ii', $userToAllocate, $lectureToAllocate);
-    $stmt1->execute();
-    $stmt1->close();
-}
-
-//AssignTimetable function
+//AllocateTutorial function
 function AllocateTutorial() {
 
     global $mysqli;
@@ -1102,35 +1128,7 @@ function AllocateTutorial() {
     $stmt1->close();
 }
 
-//DeallocateModule function
-function DeallocateModule() {
-
-    global $mysqli;
-
-    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
-    $moduleToDeallocate = filter_input(INPUT_POST, 'moduleToDeallocate', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM user_module WHERE userid=? AND moduleid=?");
-    $stmt1->bind_param('ii', $userToDeallocate, $moduleToDeallocate);
-    $stmt1->execute();
-    $stmt1->close();
-}
-
-//DeallocateLecture function
-function DeallocateLecture() {
-
-    global $mysqli;
-
-    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
-    $lectureToDeallocate = filter_input(INPUT_POST, 'lectureToDeallocate', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM user_lecture WHERE userid=? AND lectureid=?");
-    $stmt1->bind_param('ii', $userToDeallocate, $lectureToDeallocate);
-    $stmt1->execute();
-    $stmt1->close();
-}
-
-//DeallocateTimetable function
+//DeallocateTutorial function
 function DeallocateTutorial() {
 
     global $mysqli;
@@ -2536,7 +2534,7 @@ function DeleteEvent() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //University map function
-//CreateEvent function
+//CreateLocation function
 function CreateLocation() {
 
     global $mysqli;
@@ -2810,7 +2808,7 @@ function ApproveFeedback () {
     mail("$lecturer_feedback_to_email, $tutorial_assistant_feedback_to_email", $subject, $message, $headers);
 }
 
-//SetMessageRed function
+//SetFeedbackRead function
 function SetFeedbackRead () {
 
     global $mysqli;
@@ -2824,7 +2822,7 @@ function SetFeedbackRead () {
     $stmt1->close();
 }
 
-//DeleteSentFeedback function
+//DeleteFeedback function
 function DeleteFeedback () {
 
     global $mysqli;
@@ -2940,7 +2938,7 @@ function MessageUser() {
 
 }
 
-//SetMessageRed function
+//SetMessageRead function
 function SetMessageRead () {
 
 	global $mysqli;
