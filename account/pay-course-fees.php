@@ -320,9 +320,7 @@ if ($fee_amount == "0.00") {
     }
 	
 	if(hasError == false) {
-	
-	$("#paycoursefees_form").submit();
-	
+    	$("#paycoursefees_form").submit();
     }
 	
 	return true;
