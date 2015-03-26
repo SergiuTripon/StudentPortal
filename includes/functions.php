@@ -1457,12 +1457,38 @@ function ReactivateResult() {
 
     $resultToReactivate = filter_input(INPUT_POST, 'resultToReactivate', FILTER_SANITIZE_STRING);
 
-    $result_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE resultid=?");
-    $stmt1->bind_param('ssi', $result_status, $updated_on, $resultToReactivate);
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_result WHERE resultid = ?");
+    $stmt1->bind_param('i', $resultToReactivate);
     $stmt1->execute();
-    $stmt1->close();
+    $stmt1->store_result();
+    $stmt1->bind_result($moduleid);
+    $stmt1->fetch();
+
+    $module_status = 'active';
+
+    $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
+    $stmt2->bind_param('is', $moduleid, $module_status);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($db_moduleid);
+    $stmt2->fetch();
+
+    if ($stmt2->num_rows > 0) {
+
+        $result_status = 'active';
+
+        $stmt1 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE resultid=?");
+        $stmt1->bind_param('ssi', $result_status, $updated_on, $resultToReactivate);
+        $stmt1->execute();
+        $stmt1->close();
+
+    } else {
+
+        $stmt2->close();
+        echo 'You cannot reactivate this result because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this result.';
+        exit();
+
+    }
 }
 
 //DeleteResult function

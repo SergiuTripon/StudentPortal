@@ -551,7 +551,7 @@ include 'includes/session.php';
 	data:'examToDeactivate='+ examToDeactivate,
 	success:function(){
 		$('#exam-'+examToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').removeClass('fa-plus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('#deactivate-exam-question').hide();
         $('#deactivate-exam-confirmation').show();
