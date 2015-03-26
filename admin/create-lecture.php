@@ -289,6 +289,8 @@ include '../includes/session.php';
         $("[aria-owns='select2-lecture_moduleid-results']").addClass("input-happy");
     }
 
+    var lecture_moduleid= $("#lecture_moduleid option :selected").val();
+
     var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
         $("label[for='lecture_name']").empty().append("Please enter a lecture name.");
@@ -326,6 +328,9 @@ include '../includes/session.php';
         $("[aria-owns='select2-lecture_lecturer-results']").addClass("input-happy");
     }
 
+    var lecture_lecturer = $("#lecture_lecturer option :selected").val();
+    var lecture_notes = $("#lecture_notes").val();
+
     var lecture_day_check = $('#lecture_day :selected').html();
     if (lecture_day_check === '') {
         $("label[for='lecture_day']").empty().append("Please select a day.");
@@ -344,6 +349,8 @@ include '../includes/session.php';
         $("[aria-owns='select2-lecture_day-results']").removeClass("input-sad");
         $("[aria-owns='select2-lecture_day-results']").addClass("input-happy");
     }
+
+    var lecture_day = $("#lecture_day option :selected").html();
 
     var lecture_from_time = $("#lecture_from_time").val();
 	if(lecture_from_time === '') {
@@ -452,13 +459,6 @@ include '../includes/session.php';
         $("#lecture_capacity").removeClass("input-sad");
         $("#lecture_capacity").addClass("input-happy");
 	}
-
-    var lecture_moduleid= $("#lecture_moduleid option :selected").val();
-    var lecture_notes = $("#lecture_notes").val();
-    var lecture_lecturer = $("#lecture_lecturer option :selected").val();
-    var lecture_day = $("#lecture_day option :selected").html();
-
-    alert(lecture_moduleid);
 
 	if(hasError == false){
     jQuery.ajax({
