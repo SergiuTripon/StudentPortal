@@ -191,7 +191,12 @@ if (isset($_GET["id"])) {
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
-
+    $('#event_from').datetimepicker({
+        format: 'DD/MM/YYYY HH:mm'
+    });
+    $('#event_to').datetimepicker({
+        format: 'DD/MM/YYYY HH:mm'
+    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
