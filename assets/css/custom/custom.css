@@ -1003,6 +1003,7 @@ form .field-required {
 }
 /* End of Calendar portal */
 
+/* University Map portal */
 #university-map-portal .form-group {
     margin-bottom: 0;
 }
@@ -1079,7 +1080,7 @@ form .field-required {
 .marker-toggle #atm-checkbox {
     background-color: #EA46B1;
 }
-/* End of University map */
+/* End of University map portal */
 
 /* Lock page style */
 #showdate {
