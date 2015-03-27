@@ -3120,7 +3120,8 @@ function UpdateAccount() {
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
 	} else {
-        $dateofbirth = date("Y-m-d",strtotime("$dateofbirth"));
+        $dateofbirth = DateTime::createFromFormat('d/m/Y', $dateofbirth);
+        $dateofbirth = $dateofbirth->format('Y-m-d');
     }
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
