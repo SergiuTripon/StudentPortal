@@ -253,7 +253,7 @@ include 'includes/session.php';
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Event -->
+	<!-- Active events -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom event-table">
 
@@ -390,7 +390,7 @@ include 'includes/session.php';
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
   	<div class="panel-body">
 
-	<!-- Inactive event -->
+	<!-- Inactive events -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom event-table">
 
