@@ -435,8 +435,6 @@ if ($dateofbirth == "0000-00-00") {
     var country = $("#country").val();
     var postcode = $("#postcode").val();
 
-    alert(dateofbirth);
-
     if(hasError == false){
 
     jQuery.ajax({
@@ -454,7 +452,7 @@ if ($dateofbirth == "0000-00-00") {
          '&update_town='        + town +
          '&update_city='        + city +
          '&update_country='     + country +
-         '&update_postcode='     + postcode,
+         '&update_postcode='    + postcode,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
