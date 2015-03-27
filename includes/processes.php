@@ -421,8 +421,7 @@ elseif (isset(
     $_POST['event_from'],
     $_POST['event_to'],
     $_POST['event_amount'],
-    $_POST['event_ticket_no'],
-    $_POST['event_category'])) {
+    $_POST['event_ticket_no'])) {
     CreateEvent();
 }
 
