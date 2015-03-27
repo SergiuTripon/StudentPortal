@@ -52,7 +52,7 @@ include '../includes/session.php';
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width">
     <label for="confirmpwd">Confirm new password<span class="field-required">*</span></label>
-    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
+    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter the new password again">
 	</div>
 	</div>
 
@@ -184,7 +184,7 @@ include '../includes/session.php';
 
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-        $("label[for='confirmpwd']").empty().append("Please enter the new password confirmation.");
+        $("label[for='confirmpwd']").empty().append("Please enter the new password again.");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
         $("#confirmpwd").focus();
