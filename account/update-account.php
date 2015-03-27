@@ -52,11 +52,11 @@ if ($dateofbirth == "0000-00-00") {
 	<div id="hide">
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
     </div>
@@ -64,7 +64,7 @@ if ($dateofbirth == "0000-00-00") {
     <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
 	<label>Gender - select below</label>
 	<div class="btn-group btn-group-justified" data-toggle="buttons">
 	<label class="btn btn-default btn-lg gender <?php if($gender == "male") echo "active"; ?>">
@@ -81,7 +81,7 @@ if ($dateofbirth == "0000-00-00") {
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label>Email address</label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
     </div>
@@ -89,51 +89,51 @@ if ($dateofbirth == "0000-00-00") {
     <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label>Nationality</label>
     <input class="form-control" type="text" name="nationality" id="nationality" value="<?php echo $nationality; ?>" placeholder="Enter a country">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Date of Birth</label>
     <input type='text' class="form-control" type="text" name="dateofbirth" id="dateofbirth" data-date-format="YYYY-MM-DD" value="<?php echo $dateofbirth; ?>" placeholder="Select a date"/>
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Enter a phone number">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="<?php echo $address1; ?>" placeholder="Enter the address line 1">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Address 2 line (Optional)</label>
     <input class="form-control" type="text" name="address2" id="address2" value="<?php echo $address2; ?>" placeholder="Enter the address line 2 (Optional)">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Town</label>
     <input class="form-control" type="text" name="town" id="town" value="<?php echo $town; ?>" placeholder="Enter a town">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>City</label>
     <input class="form-control" type="text" name="city" id="city" value="<?php echo $city; ?>" placeholder="Enter a city">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Country</label>
     <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="<?php echo $postcode; ?>" placeholder="Enter a postcode">
     </div>

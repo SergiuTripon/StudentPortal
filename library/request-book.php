@@ -66,40 +66,40 @@ if (isset($_GET["id"])) {
     <input type="hidden" name="bookid" id="bookid" value="<?php echo $bookid; ?>">
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" value="<?php echo $email; ?>" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Name</label>
     <input class="form-control" type="text" name="book_name" id="book_name" value="<?php echo $book_name; ?>" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Author</label>
     <input class="form-control" type="text" name="book_author" id="book_author" value="<?php echo $book_author; ?>" readonly="readonly">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label>Notes</label>
     <textarea class="form-control" rows="5" name="book_notes" id="book_notes" readonly="readonly"><?php echo $book_notes; ?></textarea>
     </div>

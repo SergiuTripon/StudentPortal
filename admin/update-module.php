@@ -62,21 +62,21 @@ if (isset($_GET['id'])) {
     <input type="hidden" name="moduleid" id="moduleid" value="<?php echo $moduleid; ?>">
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="module_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="module_name" id="module_name" value="<?php echo $module_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Notes</label>
     <textarea class="form-control" rows="5" name="module_notes" id="module_notes" placeholder="Enter notes"><?php echo $module_notes; ?></textarea>
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Moodle URL</label>
     <input class="form-control" type="text" name="module_url" id="module_url" value="<?php echo $module_url; ?>" placeholder="Enter a moodle URL">
 	</div>

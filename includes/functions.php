@@ -16,12 +16,15 @@ function ContactUs() {
 		exit();
 	}
 
-	// subject
+    //Create email
+
+	//subject
 	$subject = 'New Message';
 
-	$to = 'contact@student-portal.co.uk';
+    //recipient
+    $to = 'contact@student-portal.co.uk';
 
-	// message
+	//message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>The following person contacted Student Portal:</p>';
@@ -34,15 +37,13 @@ function ContactUs() {
 	$message .= '</body>';
 	$message .= '</html>';
 
-	// To send HTML mail, the Content-type header must be set
+	//headers
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	// Additional headers
 	$headers .= 'From: Student Portal '.$email.'' . "\r\n";
 	$headers .= 'Reply-To: Student Portal '.$email.'' . "\r\n";
 
-	// Mail it
+	//Send the email
 	mail($to, $subject, $message, $headers);
 
 }
@@ -56,17 +57,19 @@ function SignIn() {
 	global $session_userid;
     global $updated_on;
 
+    //Gathering posted data and assigning variables
 	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
+    //Checking if email address is valid
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header('HTTP/1.0 550 The email address you entered is invalid.');
         exit();
 
     } else {
 
-        // Getting user login details
+        //Checking if email address exists in the system
         $stmt1 = $mysqli->prepare("SELECT userid, account_type, password FROM user_signin WHERE email = ? LIMIT 1");
         $stmt1->bind_param('s', $email);
         $stmt1->execute();
@@ -74,40 +77,37 @@ function SignIn() {
         $stmt1->bind_result($userid, $session_account_type, $db_password);
         $stmt1->fetch();
 
+        //If the email address exists, do the following
         if ($stmt1->num_rows == 1) {
 
-            // Getting firstname and surname for the user
-            $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
-            $stmt2->bind_param('i', $userid);
-            $stmt2->execute();
-            $stmt2->store_result();
-            $stmt2->bind_result($firstname, $surname);
-            $stmt2->fetch();
-            $stmt2->close();
-
+        //Checking if password entered matches the password in the database
         if (password_verify($password, $db_password)) {
 
             $isSignedIn = 1;
 
+            //Update database to set the signed in flag to 1
             $stmt3 = $mysqli->prepare("UPDATE user_signin SET isSignedIn=?, updated_on=? WHERE userid=? LIMIT 1");
             $stmt3->bind_param('isi', $isSignedIn, $updated_on, $userid);
             $stmt3->execute();
             $stmt3->close();
 
-            // Setting a session variable
+            //Setting sign in session variable to true
             $_SESSION['signedIn'] = true;
 
+            //Escaping the session variable
             $session_userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
 
+            //Assigning variables to session variables
             $_SESSION['session_userid'] = $session_userid;
             $_SESSION['account_type'] = $session_account_type;
 
+        //Otherwise, if password entered doesn't match the password in the database, do the following:
 	    } else {
             $stmt1->close();
             header('HTTP/1.0 550 The password you entered is incorrect.');
             exit();
 	    }
-
+        //Otherwise, if the email address doesn't exist, do the following
         } else {
             $stmt1->close();
             header('HTTP/1.0 550 The email address you entered is incorrect.');
@@ -125,15 +125,20 @@ function SignOut() {
     global $session_userid;
     global $updated_on;
 
+    //Setting sign in value to a variable
     $isSignedIn = 0;
 
+    //Update database to set the signed in flag to 0
     $stmt1 = $mysqli->prepare("UPDATE user_signin SET isSignedIn=?, updated_on=? WHERE userid=? LIMIT 1");
     $stmt1->bind_param('isi', $isSignedIn, $updated_on, $session_userid);
     $stmt1->execute();
     $stmt1->close();
 
+    //Unsetting the session
     session_unset();
+    //Destroying the session
     session_destroy();
+    //Redirecting to the Sign In page
     header('Location: /');
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////

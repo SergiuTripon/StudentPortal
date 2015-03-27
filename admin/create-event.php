@@ -44,50 +44,50 @@ include '../includes/session.php';
 	<div id="hide">
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="event_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="event_name" id="event_name" placeholder="Enter a name">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Notes</label>
     <textarea class="form-control" rows="5" name="event_notes" id="event_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>URL</label>
     <input class="form-control" type="text" name="event_url" id="event_url" placeholder="Enter a URL">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="event_from">From<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="event_from" id="event_from" placeholder="Select a date and time">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="event_to">To<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="event_to" id="event_to" placeholder="Select a date and time">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="event_amount">Price<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="event_amount" id="event_amount" placeholder="Enter an amount">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="event_ticket_no">Tickets available<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" placeholder="Enter a number">
 	</div>
 	</div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="event_category">Category<span class="field-required">*</span></label>
     <select class="selectpicker event_category" name="event_category" id="event_category">
         <option data-hidden="true">Select an option</option>

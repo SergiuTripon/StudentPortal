@@ -80,14 +80,14 @@ include 'includes/session.php';
     <p id="error" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="email">Email address</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="password">Password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
     </div>

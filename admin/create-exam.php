@@ -44,7 +44,7 @@ include '../includes/session.php';
 	<div id="hide">
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="exam_moduleid">Module<span class="field-required">*</span></label>
     <select class="form-control" name="exam_moduleid" id="exam_moduleid" style="width: 100%">
         <option></option>
@@ -65,36 +65,36 @@ include '../includes/session.php';
     </div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="exam_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="exam_name" id="exam_name" placeholder="Enter a name">
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="exam_notes">Notes</label>
     <textarea class="form-control" rows="5" name="exam_notes" id="exam_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="exam_date">Date<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_date" id="exam_date" placeholder="Select a date">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="exam_time">Time<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_time" id="exam_time" placeholder="Select a time">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="exam_location">Location<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_location" id="exam_location" placeholder="Enter a location">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="exam_capacity">Capacity<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_capacity" id="exam_capacity" placeholder="Enter a capacity">
 	</div>

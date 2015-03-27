@@ -102,14 +102,14 @@ if (isset($_GET["id"])) {
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="message_subject">Subject<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="message_subject" id="message_subject">
 	</div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="message_body">Message<span class="field-required">*</span></label>
     <textarea class="form-control" rows="5" name="message_body" id="message_body"></textarea>
     </div>

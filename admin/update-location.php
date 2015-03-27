@@ -62,39 +62,39 @@ if (isset($_GET["id"])) {
     <input class="form-control" type="hidden" name="markerid" id="markerid" value="<?php echo $markerid ?>">
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="marker_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="marker_name" id="marker_name" value="<?php echo $marker_name ?>" placeholder="Enter a name">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="marker_notes">Notes</label>
     <textarea class="form-control" rows="5" name="marker_notes" id="marker_notes" placeholder="Enter notes"><?php echo $marker_notes ?></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="marker_url">URL</label>
     <input class="form-control" type="text" name="marker_url" id="marker_url" value="<?php echo $marker_url ?>" placeholder="Enter a URL">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="marker_lat">Latitude<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="marker_lat" id="marker_lat" value="<?php echo $marker_lat ?>" placeholder="Enter latitude">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="marker_long">Longitude<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="marker_long" id="marker_long" value="<?php echo $marker_lat ?>" placeholder="Enter longitude">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
     <label for="marker_category">Category<span class="field-required">*</span></label>
     <select class="selectpicker marker_category" name="marker_category" id="marker_category">
         <option><?php echo $marker_category ?></option>

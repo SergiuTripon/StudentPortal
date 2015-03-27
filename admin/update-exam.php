@@ -62,7 +62,7 @@ if (isset($_GET['id'])) {
     <input type="hidden" name="examid" id="examid" value="<?php echo $examid; ?>">
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="exam_moduleid">Module<span class="field-required">*</span></label>
     <select class="form-control" name="exam_moduleid" id="exam_moduleid" style="width: 100%;">
     <?php
@@ -94,36 +94,36 @@ if (isset($_GET['id'])) {
     </div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="exam_name">Exam name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="exam_name" id="exam_name" value="<?php echo $exam_name; ?>" placeholder="Enter a name">
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Exam notes</label>
     <textarea class="form-control" rows="5" name="exam_notes" id="exam_notes" value="<?php echo $exam_notes; ?>" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="exam_date">Exam date<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_date" id="exam_date" value="<?php echo $exam_date; ?>" placeholder="Select a date">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="exam_time">Exam time<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_time" id="exam_time" value="<?php echo $exam_time; ?>" placeholder="Select a time">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="exam_location">Exam location<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_location" id="exam_location" value="<?php echo $exam_location; ?>" placeholder="Enter a location">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="exam_capacity">Exam capacity<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="exam_capacity" id="exam_capacity" value="<?php echo $exam_capacity; ?>" placeholder="Enter a capacity">
 	</div>

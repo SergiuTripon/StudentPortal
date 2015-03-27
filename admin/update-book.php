@@ -60,72 +60,72 @@ if (isset($_GET["id"])) {
     <input type="hidden" name="bookid" id="bookid" value="<?php echo $bookid; ?>">
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="book_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_name" id="book_name" value="<?php echo $book_name ?>" placeholder="Enter a name">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Description</label>
     <textarea class="form-control" rows="5" name="book_notes" id="book_notes" placeholder="Enter a description"><?php echo $book_notes ?></textarea>
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="book_author">Author<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_author" id="book_author" value="<?php echo $book_author ?>" placeholder="Enter an author">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="book_copy_no">Copy number<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_copy_no" id="book_copy_no" value="<?php echo $book_copy_no ?>" placeholder="Enter a number">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="book_location">Location<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_location" id="book_location" value="<?php echo $book_location ?>" placeholder="Enter a location">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="book_publisher">Publisher<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_publisher" id="book_publisher" value="<?php echo $book_publisher ?>" placeholder="Enter a publisher">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="book_publish_date">Publish date<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_publish_date" id="book_publish_date" value="<?php echo $book_publish_date ?>" placeholder="Select a date">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="book_publish_place">Publish place<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_publish_place" id="book_publish_place" value="<?php echo $book_publish_place ?>" placeholder="Enter a name">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="book_page_amount">Pages<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_page_amount" id="book_page_amount" value="<?php echo $book_page_amount ?>" placeholder="Enter a number">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="book_barcode">Barcode<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_barcode" id="book_barcode" value="<?php echo $book_barcode ?>" placeholder="Enter a number">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="book_discipline">Discipline<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_discipline" id="book_discipline" value="<?php echo $book_discipline ?>" placeholder="Enter a discipline">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="book_language">Language<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="book_language" id="book_language" value="<?php echo $book_language ?>" placeholder="Enter a language">
 	</div>

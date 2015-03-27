@@ -45,14 +45,14 @@ $stmt1->fetch();
 
     <div class="form-group">
     
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
     <label>First name</label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="First name" readonly="readonly">
 	<label>Student number</label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Student Number" readonly="readonly">
 	</div>
 
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
 	<label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Surname" readonly="readonly">
     <label>Email address</label>

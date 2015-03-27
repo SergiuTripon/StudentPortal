@@ -41,7 +41,7 @@ include '../includes/session.php';
 	<div id="hide">
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="task_name">Name<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
 	<p id="error1" class="feedback-sad text-center"></p>
@@ -49,25 +49,25 @@ include '../includes/session.php';
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label>Notes (Optional)</label>
     <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Enter notes"></textarea>
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
 	<label>External URL (www.example.com)</label>
 	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
     </div>
     </div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="task_startdate">Start date<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="task_duedate">Due date<span class="field-required">*</span></label>
     <input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date">
     </div>

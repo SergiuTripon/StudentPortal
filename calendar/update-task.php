@@ -70,11 +70,11 @@ header('Location: ../calendar/');
 	<input class="form-control" type="text" name="task_url" id="task_url" value="<?php echo $task_url; ?>" placeholder="Enter an external URL">
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="task_startdate">Start date and time<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="task_startdate" id="task_startdate" value="<?php echo $task_startdate; ?>" placeholder="Select a start date and time"/>
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="task_duedate">Due date and time<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="task_duedate" id="task_duedate"  value="<?php echo $task_duedate; ?>" placeholder="Select a due date and time"/>
 	</div>

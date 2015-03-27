@@ -68,7 +68,7 @@ include 'includes/session.php';
     <p id="error1" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<textarea class="form-control" rows="8" name="message" id="message" placeholder="Message"></textarea>
 	</div>
 	</div>
@@ -139,7 +139,7 @@ include 'includes/session.php';
     <p id="error1" class="feedback-sad text-center"></p>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<textarea class="form-control" rows="8" name="message" id="message" placeholder="Message"></textarea>
 	</div>
 	</div>

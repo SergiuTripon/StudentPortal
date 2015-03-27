@@ -73,69 +73,69 @@ if (isset($_GET["id"])) {
 	<!-- End of Hidden fields -->
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>First Name</label>
     <input class="form-control" type="text" name="payer_firstname" id="payer_firstname" value="<?php echo $firstname; ?>" placeholder="First Name" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Surname</label>
     <input class="form-control" type="text" name="payer_surname" id="payer_surname" value="<?php echo $surname; ?>" placeholder="Surname" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_address1">Address line 1<span class="field-required">*</span></label>
     <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Enter the first line of an address">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_city">City<span class="field-required">*</span></label>
 	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="Enter a city">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Country</label>
     <input class="form-control" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_postcode">Post code<span class="field-required">*</span></label>
     <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Enter a post code">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label>Name</label>
     <input class="form-control" type="text" name="product_name" id="product_name" value="<?php echo $event_name; ?>" placeholder="Name" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>From</label>
     <input class="form-control" type="text" name="event_from" id="event_from" value="<?php echo $event_from; ?>" placeholder="From" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>To</label>
     <input class="form-control" type="text" name="event_to" id="event_to" value="<?php echo $event_to; ?>" placeholder="To" readonly="readonly">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Price (&pound;)</label>
     <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $event_amount; ?>" placeholder="Amount" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="product_quantity">Quantity<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="product_quantity" id="product_quantity" placeholder="Quantity">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label>Total to pay (&pound;)</label>
     <input class="form-control" type="text" name="total_to_pay" id="total_to_pay" placeholder="Total to pay" readonly="readonly">
 	</div>

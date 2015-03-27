@@ -44,7 +44,7 @@ include '../includes/session.php';
 	<div id="hide">
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="lecture_moduleid">Module<span class="field-required">*</span></label>
     <select class="form-control" name="lecture_moduleid" id="lecture_moduleid" style="width: 100%;">
         <option></option>
@@ -65,21 +65,21 @@ include '../includes/session.php';
     </div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="lecture_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="lecture_name" id="lecture_name" placeholder="Enter a name">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Notes</label>
     <textarea class="form-control" rows="5" name="lecture_notes" id="lecture_notes" placeholder="Enter notes"></textarea>
 	</div>
 	</div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
     <select class="form-control" name="lecture_lecturer" id="lecture_lecturer" style="width: 100%;">
         <option></option>
@@ -107,7 +107,7 @@ include '../includes/session.php';
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="lecture_day">Day<span class="field-required">*</span></label>
     <select class="form-control" name="lecture_day" id="lecture_day" style="width: 100%;">
         <option></option>
@@ -121,33 +121,33 @@ include '../includes/session.php';
     </div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="lecture_from_time">From (time)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_from_time" id="lecture_from_time" placeholder="Select a time">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="lecture_to_time">To (time)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_to_time" id="lecture_to_time" placeholder="Select a time">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="lecture_from_date">From (date)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_from_date" id="lecture_from_date" placeholder="Select a date">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="lecture_to_date">To (date)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_to_date" id="lecture_to_date" placeholder="Select a date">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="lecture_location">Location<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_location" id="lecture_location" placeholder="Enter a location">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="lecture_capacity">Capacity<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="lecture_capacity" id="lecture_capacity" placeholder="Enter a capacity">
 	</div>

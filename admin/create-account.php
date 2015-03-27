@@ -45,7 +45,7 @@ include '../includes/session.php';
 	<div id="hide">
 
 	<div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="account_type">Account type<span class="field-required">*</span></label>
     <select class="form-control" name="account_type" id="account_type" style="width: 100%;">
         <option></option>
@@ -57,18 +57,18 @@ include '../includes/session.php';
     </div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
     <label for="firstname">First name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="" placeholder="Enter a first name">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="surname">Surname<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="surname" id="surname" value="" placeholder="Enter a surname">
 	</div>
 	</div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="gender">Gender<span class="field-required">*</span></label>
     <select class="form-control" name="gender" id="gender" style="width: 100%;">
         <option></option>
@@ -80,41 +80,41 @@ include '../includes/session.php';
     </div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="studentno">Student number<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="studentno" id="studentno" value="" placeholder="Enter a student number">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="degree">Programme of Study<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="degree" id="degree" value="" placeholder="Enter a programme of study">
 	</div>
 	</div>
 
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
 	<label for="fee_amount">Course fee amount<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="fee_amount" id="fee_amount" value="" placeholder="Enter an amount">
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label for="email">Email address<span class="field-required">*</span></label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter a email address">
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="password">Password<span class="field-required">*</span></label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="confirmpwd">Confirm password<span class="field-required">*</span></label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter a password confirmation">
 	</div>
 	</div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="nationality">Nationality</label>
     <select class="form-control" name="nationality" id="nationality" style="width: 100%;">
         <option></option>
@@ -315,44 +315,44 @@ include '../includes/session.php';
     </div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Date of Birth</label>
 	<input class="form-control" type="text" name="dateofbirth" id="dateofbirth" placeholder="Select the date of birth"/>
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Phone number</label>
     <input class="form-control" type="text" name="phonenumber" id="phonenumber" value="" placeholder="Enter a phone number">
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
     <label>Address line 1</label>
     <input class="form-control" type="text" name="address1" id="address1" value="" placeholder="Enter a address line 1">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
     <label>Address 2 line (Optional)</label>
     <input class="form-control" type="text" name="address2" id="address2" value="" placeholder="Enter a address line 2 (Optional)">
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
     <label>Town</label>
     <input class="form-control" type="text" name="town" id="town" value="" placeholder="Enter a town">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
     <label>City</label>
     <input class="form-control" type="text" name="city" id="city" value="" placeholder="Enter a city">
 	</div>
 	</div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
     <label>Country</label>
     <input class="form-control" type="text" name="country" id="country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     </div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Postcode</label>
     <input class="form-control" type="text" name="postcode" id="postcode" value="" placeholder="Enter a postcode">
 	</div>

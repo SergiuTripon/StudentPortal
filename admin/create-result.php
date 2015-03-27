@@ -99,28 +99,28 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <hr class="hr-separator">
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Overall coursework mark (if any)</label>
     <input class="form-control" type="text" name="result_coursework_mark" id="result_coursework_mark" placeholder="Enter a mark">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Overall exam mark (if any)</label>
     <input class="form-control" type="text" name="result_exam_mark" id="result_exam_mark" placeholder="Enter a mark">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Overall final mark</label>
     <input class="form-control" type="text" name="result_overall_mark" id="result_overall_mark" placeholder="Enter a mark">
 	</div>
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Notes</label>
     <textarea class="form-control" rows="5" name="result_notes" id="result_notes" placeholder="Enter notes"></textarea>
 	</div>

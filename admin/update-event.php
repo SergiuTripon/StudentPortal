@@ -62,7 +62,7 @@ if (isset($_GET["id"])) {
     <input type="hidden" name="eventid" id="eventid" value="<?php echo $eventid; ?>">
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Name</label>
     <input class="form-control" type="text" name="event_name" id="event_name" value="<?php echo $event_name; ?>" placeholder="Enter a name">
 	</div>
@@ -70,25 +70,25 @@ if (isset($_GET["id"])) {
 	<p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Notes</label>
     <textarea class="form-control" rows="5" name="event_notes" id="event_notes" placeholder="Enter notes"><?php echo $event_notes; ?></textarea>
 	</div>
     </div>
 
 	<div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+	<div class="col-xs-12 col-sm-12 full-width">
 	<label>URL</label>
     <input class="form-control" type="text" name="event_url" id="event_url" value="<?php echo $event_url; ?>" placeholder="Enter a URL">
 	</div>
     </div>
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label>From</label>
 	<input type="text" class="form-control" name="event_from" id="event_from" value="<?php echo $event_from; ?>" placeholder="Select a date and time">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label>To</label>
 	<input type="text" class="form-control" name="event_to" id="event_to" value="<?php echo $event_to; ?>" placeholder="Select a date and time">
 	</div>
@@ -96,11 +96,11 @@ if (isset($_GET["id"])) {
     <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width pl0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Price</label>
 	<input type="text" class="form-control" name="event_amount" id="event_amount" value="<?php echo $event_amount; ?>" placeholder="Enter an amount">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width pr0">
+	<div class="col-xs-6 col-sm-6 full-width">
 	<label>Ticket amount</label>
 	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" value="<?php echo $event_ticket_no; ?>" placeholder="Enter a number">
 	</div>
@@ -108,7 +108,7 @@ if (isset($_GET["id"])) {
     <p id="error3" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="event_category">Category</label>
     <select class="selectpicker event_category" name="event_category" id="event_category">
         <?php
@@ -124,7 +124,7 @@ if (isset($_GET["id"])) {
     </select>
 
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Category</label>
     <select class="selectpicker event_category" name="update_event_category" id="update_event_category">
         <option data-hidden="true">Select an option</option>

@@ -85,11 +85,11 @@ include 'includes/session.php';
     <div id="hide">
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="firstname">First name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Enter your first name">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="surname">Surname<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname">
     </div>
@@ -113,11 +113,11 @@ include 'includes/session.php';
     <p id="error3" class="feedback-sad text-center"></p>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="password">Password<span class="field-required">*</span></label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width">
 	<label for="confirmpwd">Confirm password<span class="field-required">*</span></label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter your password confirmation">
     </div>
