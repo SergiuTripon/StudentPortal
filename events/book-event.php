@@ -86,22 +86,22 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_address1">Address line 1<span class="field-required">*</span></label>
-    <input class="form-control" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Enter the first line of an address">
+    <input class="form-control" type="text" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Enter the first line of an address">
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_city">City<span class="field-required">*</span></label>
-	<input class="form-control" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="Enter a city">
+	<input class="form-control" type="text" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="Enter a city">
     </div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Country</label>
-    <input class="form-control" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
+    <input class="form-control" type="text" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Enter a country" readonly="readonly">
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_postcode">Post code<span class="field-required">*</span></label>
-    <input class="form-control" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Enter a post code">
+    <input class="form-control" type="text" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Enter a post code">
     </div>
     </div>
 
