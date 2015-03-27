@@ -1003,13 +1003,6 @@ form .field-required {
 }
 /* End of Calendar portal */
 
-/* University map */
-#university-map-portal form {
-    max-width: 100%;
-    padding: 10px;
-    background-color: #E9E5DC;
-}
-
 #university-map-portal .form-group {
     margin-bottom: 0;
 }
