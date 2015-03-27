@@ -14,7 +14,7 @@ include '../includes/session.php';
 
     <script src="https://maps.google.com/maps/api/js"></script>
 
-    <script src="https://student-portal.co.uk/assets/js/university-map/search.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/university-map/location-search.js"></script>
 
     <style>
 
