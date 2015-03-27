@@ -374,68 +374,18 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+        //select2
+        $("#gender").select2({placeholder: "Select an option"});
+        $("#nationality").select2({placeholder: "Select an option"});
+    });
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 1000});
 
     // Date Time Picker
-	$(function () {
-	$('#dateofbirth').datepicker({
-		dateFormat: "yy-mm-dd",
-		defaultDate: new Date(1993, 00, 01)
-	});
-	});
-
-    //Checking if fields are empty
-	var val;
-
-    val = $("#gender").val();
-	if(val === '') { $("#gender").addClass("input-sad"); }
-	val = $("#firstname").val();
-	if(val === '') { $("#firstname").addClass("input-sad"); }
-	val = $("#surname").val();
-	if(val === '') { $("#surname").addClass("input-sad"); }
-	val = $("#email").val();
-	if(val === '') { $("#email").addClass("input-sad"); }
-    val = $("#nationality").val();
-    if(val === '') { $("#nationality").addClass("input-sad"); }
-    val = $("#dateofbirth").val();
-    if(val === '') { $("#dateofbirth").addClass("input-sad"); }
-	val = $("#phonenumber").val();
-	if(val === '') { $("#phonenumber").addClass("input-sad"); }
-	val = $("#address1").val();
-	if(val === '') { $("#address1").addClass("input-sad"); }
-	val = $("#address2").val();
-	if(val === '') { $("#address2").addClass("input-sad"); }
-	val = $("#town").val();
-	if(val === '') { $("#town").addClass("input-sad"); }
-	val = $("#city").val();
-	if(val === '') { $("#city").addClass("input-sad"); }
-	val = $("#country").val();
-	if(val === '') { $("#country").addClass("input-sad"); }
-	val = $("#postcode").val();
-	if(val === '') { $("#postcode").addClass("input-sad"); }
-
-    //Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480){
-			$('.btn-group').removeClass('btn-group-justified');
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		} else {
-			$('.btn-group').addClass('btn-group-justified');
-		}
-	}).resize();
-
-    //Global variable
-    var gender;
-
-    gender = ($('.gender.active').text().replace(/^\s+|\s+$/g,''));
-
-    //Setting variable value
-    $('.btn-group .gender').click(function(){
-        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
+    $('#dateofbirth').datetimepicker({
+        format: 'YYYY/MM/DD'
     });
 
     //Ajax call
@@ -462,6 +412,8 @@ if ($dateofbirth == "0000-00-00") {
 		return false;
 	}
 
+    var gender = $('#gender :selected').html();
+
 	var email = $("#email").val();
 	if(email === '') {
 		$("#error2").show();
@@ -486,7 +438,19 @@ if ($dateofbirth == "0000-00-00") {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'firstname1=' + firstname + '&surname1=' + surname + '&gender1=' + gender + '&email4=' + email + '&nationality=' + nationality + '&dateofbirth=' + dateofbirth + '&phonenumber=' + phonenumber + '&address1=' + address1 + '&address2=' + address2 + '&town=' + town + '&city=' + city + '&country=' + country + '&postcode=' + postcode,
+    data:'update_firstname=' + firstname +
+         '&update_surname=' + surname +
+         '&update_gender=' + gender +
+         '&update_email=' + email +
+         '&update_nationality=' + nationality +
+         '&update_dateofbirth=' + dateofbirth +
+         '&update_phonenumber=' + phonenumber +
+         '&update_address1=' + address1 +
+         '&update_address2=' + address2 +
+         '&update_town=' + town +
+         '&update_city=' + city +
+         '&update_country=' + country +
+         '&updatepostcode=' + postcode,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -501,7 +465,6 @@ if ($dateofbirth == "0000-00-00") {
 
     return true;
 
-    });
     });
 	</script>
 
