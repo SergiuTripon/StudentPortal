@@ -175,10 +175,10 @@ include '../includes/session.php';
 
     // Date Time Picker
     $('#event_from').datetimepicker({
-        format: 'DD/MM/YYYY'
+        format: 'DD/MM/YYYY HH:mm'
     });
     $('#event_to').datetimepicker({
-        format: 'DD/MM/YYYY'
+        format: 'DD/MM/YYYY HH:mm'
     });
 
     //Create event ajax call
