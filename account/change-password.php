@@ -217,7 +217,7 @@ include '../includes/session.php';
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'change_oldpwd=' + oldpwd +
-         'change_password=' + password,
+         '&change_password=' + password,
     success:function(){
 		$("#hide").hide();
 		$("#error").hide();
