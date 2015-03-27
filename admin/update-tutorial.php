@@ -290,10 +290,10 @@ if (isset($_GET['id'])) {
         format: 'HH:mm'
     });
     $('#tutorial_from_date').datetimepicker({
-        format: 'YYYY/MM/DD'
+        format: 'DD/MM/YYYY'
     });
     $('#tutorial_to_date').datetimepicker({
-        format: 'YYYY/MM/DD'
+        format: 'DD/MM/YYYY'
     });
 
     //Update tutorial process
