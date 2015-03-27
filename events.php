@@ -265,7 +265,6 @@ include 'includes/session.php';
 	<th>Price</th>
 	<th>Tickets available</th>
 	<th>Action</th>
-    <th>Action</th>
 	</tr>
 	</thead>
 
@@ -283,15 +282,26 @@ include 'includes/session.php';
 	$event_amount = $row["event_amount"];
 	$event_ticket_no = $row["event_ticket_no"];
 
-	echo '<tr id="event-'.$row["eventid"].'">
+	echo '<tr id="event-'.$eventid.'">
 
 			<td data-title="Name">'.$event_name.'</td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Tickets available">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$eventid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#deactivate-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="../admin/update-event?id='.$eventid.'">Update</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#deactivate-'.$eventid.'" data-toggle="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$eventid.'" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
 			</tr>
 
 			<div class="modal modal-custom fade" id="deactivate-'.$eventid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">

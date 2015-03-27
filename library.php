@@ -421,7 +421,7 @@ include 'includes/session.php';
 
 			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td>
+			<td data-title="Action">
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="../admin/update-book?id='.$bookid.'">Update</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
