@@ -310,7 +310,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-minus-square-o"></i>
 			</div>
 			</div>
 
@@ -438,7 +438,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-plus-square-o"></i>
 			</div>
 			</div>
 
@@ -661,7 +661,7 @@ include 'includes/session.php';
 	data:'eventToDeactivate='+ eventToDeactivate,
 	success:function(){
 		$('#event-'+eventToDeactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').removeClass('fa-minus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
@@ -693,7 +693,7 @@ include 'includes/session.php';
 	data:'eventToReactivate='+ eventToReactivate,
 	success:function(){
 		$('#event-'+eventToReactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').removeClass('fa-plus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
