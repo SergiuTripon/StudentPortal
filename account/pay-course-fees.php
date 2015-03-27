@@ -8,6 +8,8 @@ $stmt->store_result();
 $stmt->bind_result($email, $studentno, $firstname, $surname, $gender, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $postcode, $fee_amount);
 $stmt->fetch();
 
+global $fee_amount_paid;
+
 ?>
 
 
@@ -99,6 +101,19 @@ $stmt->fetch();
     </div>
     </div>
 
+    <?php
+    $stmt1 = $mysqli->query("SELECT fee_amount FROM user_fee WHERE userid='$session_userid'");
+
+    while ($row = $stmt1->fetch_assoc()){
+
+        $fee_amount = $row["fee_amount"];
+
+        if ($fee_amount !== '0.00') {
+            $fee_amount_paid = 'true';
+        }
+    }
+
+    ?>
 	<div id="product_name-hide" class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
@@ -112,6 +127,8 @@ $stmt->fetch();
 
             if ($isHalf === 1) {
                 echo '<option selected>Half fees</option>';
+            } elseif ($fee_amount_paid === 'true') {
+                echo '<option disabled>Nothing to pay</option>';
             } else {
                 echo '<option></option>';
                 echo '<option>Full fees</option>';
