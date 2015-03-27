@@ -63,9 +63,9 @@ switch($payment){
 		$p->add_field('cancel_return', $this_script.'?payment=cancel'); // cancel URL if the trasaction was cancelled during half of the transaction
 		$p->add_field('notify_url', $this_script.'?payment=ipn'); // Notify URL which received IPN (Instant Payment Notification)
 		$p->add_field('currency_code', $currency_code);
-		$p->add_field('invoice', $invoice_id);
+		$p->add_field('invoice', $invoiceid);
 		$p->add_field('item_name_1', $product_name);
-		$p->add_field('item_number_1', $product_id);
+		$p->add_field('item_number_1', $productid);
 		$p->add_field('quantity_1', $product_quantity);
 		$p->add_field('amount_1', $product_amount);
 		$p->add_field('first_name', $payer_firstname);
