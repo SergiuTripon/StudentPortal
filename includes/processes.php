@@ -415,13 +415,13 @@ elseif (isset($_POST["eventid"], $_POST["product_quantity"])) {
 
 //Call CreateEvent function
 elseif (isset(
-    $_POST['event_name'],
-    $_POST['event_notes'],
-    $_POST['event_url'],
-    $_POST['event_from'],
-    $_POST['event_to'],
-    $_POST['event_amount'],
-    $_POST['event_ticket_no'])) {
+    $_POST['create_event_name'],
+    $_POST['create_event_notes'],
+    $_POST['create_event_url'],
+    $_POST['create_event_from'],
+    $_POST['create_event_to'],
+    $_POST['create_event_amount'],
+    $_POST['create_event_ticket_no'])) {
     CreateEvent();
 }
 

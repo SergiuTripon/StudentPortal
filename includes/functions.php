@@ -2522,14 +2522,14 @@ function CreateEvent() {
     global $mysqli;
     global $created_on;
 
-    $event_name = filter_input(INPUT_POST, 'event_name', FILTER_SANITIZE_STRING);
-    $event_notes = filter_input(INPUT_POST, 'event_notes', FILTER_SANITIZE_STRING);
-    $event_url = filter_input(INPUT_POST, 'event_url', FILTER_SANITIZE_STRING);
-    $event_from = filter_input(INPUT_POST, 'event_from', FILTER_SANITIZE_STRING);
-    $event_to = filter_input(INPUT_POST, 'event_to', FILTER_SANITIZE_STRING);
-    $event_amount = filter_input(INPUT_POST, 'event_amount', FILTER_SANITIZE_STRING);
-    $event_ticket_no = filter_input(INPUT_POST, 'event_ticket_no', FILTER_SANITIZE_STRING);
-    $event_category = filter_input(INPUT_POST, 'event_category', FILTER_SANITIZE_STRING);
+    $event_name = filter_input(INPUT_POST, 'create_event_name', FILTER_SANITIZE_STRING);
+    $event_notes = filter_input(INPUT_POST, 'create_event_notes', FILTER_SANITIZE_STRING);
+    $event_url = filter_input(INPUT_POST, 'create_event_url', FILTER_SANITIZE_STRING);
+    $event_from = filter_input(INPUT_POST, 'create_event_from', FILTER_SANITIZE_STRING);
+    $event_to = filter_input(INPUT_POST, 'create_event_to', FILTER_SANITIZE_STRING);
+    $event_amount = filter_input(INPUT_POST, 'create_event_amount', FILTER_SANITIZE_STRING);
+    $event_ticket_no = filter_input(INPUT_POST, 'create_event_ticket_no', FILTER_SANITIZE_STRING);
+    $event_category = filter_input(INPUT_POST, 'create_event_category', FILTER_SANITIZE_STRING);
 
     // Check existing event name
     $stmt1 = $mysqli->prepare("SELECT eventid FROM system_event WHERE event_name=? LIMIT 1");
@@ -2562,20 +2562,15 @@ function UpdateEvent() {
     global $mysqli;
     global $updated_on;
 
-    $eventid = filter_input(INPUT_POST, 'eventid1', FILTER_SANITIZE_STRING);
-    $event_name = filter_input(INPUT_POST, 'event_name1', FILTER_SANITIZE_STRING);
-    $event_notes = filter_input(INPUT_POST, 'event_notes1', FILTER_SANITIZE_STRING);
-    $event_url = filter_input(INPUT_POST, 'event_url1', FILTER_SANITIZE_STRING);
-    $event_from = filter_input(INPUT_POST, 'event_from1', FILTER_SANITIZE_STRING);
-    $event_to = filter_input(INPUT_POST, 'event_to1', FILTER_SANITIZE_STRING);
-    $event_amount = filter_input(INPUT_POST, 'event_amount1', FILTER_SANITIZE_STRING);
-    $event_ticket_no = filter_input(INPUT_POST, 'event_ticket_no1', FILTER_SANITIZE_STRING);
-    $event_category = filter_input(INPUT_POST, 'event_category1', FILTER_SANITIZE_STRING);
-
-    $event_category = strtolower($event_category);
-
-    if ($event_category == 'careers') { $event_class = 'event-important'; }
-    if ($event_category == 'social') { $event_class = 'event-warning'; }
+    $eventid = filter_input(INPUT_POST, 'update_eventid', FILTER_SANITIZE_STRING);
+    $event_name = filter_input(INPUT_POST, 'update_event_name', FILTER_SANITIZE_STRING);
+    $event_notes = filter_input(INPUT_POST, 'update_event_notes', FILTER_SANITIZE_STRING);
+    $event_url = filter_input(INPUT_POST, 'update_event_url', FILTER_SANITIZE_STRING);
+    $event_from = filter_input(INPUT_POST, 'update_event_from', FILTER_SANITIZE_STRING);
+    $event_to = filter_input(INPUT_POST, 'update_event_to', FILTER_SANITIZE_STRING);
+    $event_amount = filter_input(INPUT_POST, 'update_event_amount', FILTER_SANITIZE_STRING);
+    $event_ticket_no = filter_input(INPUT_POST, 'update_event_ticket_no', FILTER_SANITIZE_STRING);
+    $event_category = filter_input(INPUT_POST, 'update_event_category', FILTER_SANITIZE_STRING);
 
     // Check if event name is different
     $stmt1 = $mysqli->prepare("SELECT event_name FROM system_event WHERE eventid = ?");
@@ -2587,8 +2582,8 @@ function UpdateEvent() {
 
     if ($db_event_name === $event_name) {
 
-        $stmt2 = $mysqli->prepare("UPDATE system_event SET event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
-        $stmt2->bind_param('sssssiissi', $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
+        $stmt2 = $mysqli->prepare("UPDATE system_event SET event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
+        $stmt2->bind_param('ssssiissi', $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
         $stmt2->execute();
         $stmt2->close();
 
@@ -2607,8 +2602,8 @@ function UpdateEvent() {
             header('HTTP/1.0 550 An event with the name entered already exists.');
             exit();
         } else {
-            $stmt4 = $mysqli->prepare("UPDATE system_event SET event_name=?, event_notes=?, event_url=?, event_class=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
-            $stmt4->bind_param('ssssssiissi', $event_name, $event_notes, $event_url, $event_class, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
+            $stmt4 = $mysqli->prepare("UPDATE system_event SET event_name=?, event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
+            $stmt4->bind_param('sssssiissi', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
             $stmt4->execute();
             $stmt4->close();
         }
