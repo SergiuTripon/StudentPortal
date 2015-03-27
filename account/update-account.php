@@ -387,8 +387,8 @@ if ($dateofbirth == "0000-00-00") {
 
     // Date Time Picker
     $('#dateofbirth').datetimepicker({
-        format: 'YYYY-MM-DD',
-        defaultDate: "1993-01-01"
+        format: 'DD/MM/YYYY',
+        defaultDate: "01/01/1993"
     });
 
     //Ajax call
