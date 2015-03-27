@@ -354,13 +354,13 @@ include 'includes/session.php';
     Ladda.bind('.ladda-button', {timeout: 2000});
 
     //DataTables
-    $('.location-table').dataTable({
+    $('.table-custom').dataTable({
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
         "info": false,
         "language": {
-            "emptyTable": "There are no locations to display."
+            "emptyTable": "There are no records to display."
         }
     });
 
@@ -383,9 +383,9 @@ include 'includes/session.php';
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The location has been deactivated successfully.');
-        $('#hide-deactivate').hide();
-        $('#success-button-deactivate').show();
-        $("#success-button-deactivate").click(function () {
+        $('#deactivate-hide').hide();
+        $('#deactivate-success-button').show();
+        $("#deactivate-success-button").click(function () {
             location.reload();
         });
 	},
@@ -415,9 +415,9 @@ include 'includes/session.php';
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The location has been reactivated successfully.');
-        $('#hide-reactivate').hide();
-        $('#success-button-reactivate').show();
-        $("#success-button-reactivate").click(function () {
+        $('#reactivate-hide').hide();
+        $('#reactivate-success-button').show();
+        $("#reactivate-success-button").click(function () {
             location.reload();
         });
 	},
@@ -447,9 +447,9 @@ include 'includes/session.php';
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The location has been deleted successfully.');
-        $('#hide-delete').hide();
-        $('#success-button-delete').show();
-        $("#success-button-delete").click(function () {
+        $('#delete-hide').hide();
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
             location.reload();
         });
 	},
