@@ -317,7 +317,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p><b>Description:</b> '.(empty($event_notes) ? "-" : "$event_notes").'</p>
-			<p><b>URL:</b> '.$event_url.'</p>
+			<p><b>URL:</b> '.(empty($event_url) ? "-" : "$event_url").'</p>
 			<p><b>From:</b> '.$event_from.'</p>
 			<p><b>To:</b> '.$event_to.'</p>
 			<p><b>Price:</b> '.$event_amount.'</p>
