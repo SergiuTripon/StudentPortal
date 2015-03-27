@@ -8,18 +8,10 @@ $stmt->store_result();
 $stmt->bind_result($email, $studentno, $firstname, $surname, $gender, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $postcode, $fee_amount);
 $stmt->fetch();
 
-if ($fee_amount == "9000.00") {
-    $fee_title = 'Full Fees';
-}
-
-if ($fee_amount == "4500.00") {
-    $fee_title = 'Half Fees';
-    $conditional_style = "<style> .checkbox { display: none !important; }</style>";
-}
 
 if ($fee_amount == "0.00") {
     $fee_title = 'Nothing to pay';
-    $conditional_style = "<style> .checkbox { display: none !important; } .btn-custom { display: none !important; }</style>";
+    $conditional_style = "<style> #product_name, label[for=product_name] { display: none !important; } .btn-custom { display: none !important; }</style>";
 }
 
 ?>
@@ -118,6 +110,18 @@ if ($fee_amount == "0.00") {
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
     <select class="form-control" name="product_name" id="product_name" style="width: 100%;">
         <option></option>
+        <?php
+        $stmt1 = $mysqli->query("SELECT isHalf FROM user_fee WHERE userid='$session_userid'");
+
+        while ($row = $stmt1->fetch_assoc()){
+
+            $moduleid = $row["moduleid"];
+            $module_name = $row["module_name"];
+
+            echo '<option value="'.$moduleid.'">'.$module_name.'</option>';
+        }
+
+        ?>
         <option>Full fees</option>
         <option>Half fees</option>
     </select>
