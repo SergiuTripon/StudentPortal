@@ -129,7 +129,7 @@ if ($fee_amount == "0.00") {
         ?>
     </select>
     </div>
-    <div id="conditional_script" class="col-xs-6 col-sm-6 full-width pr0">
+    <div class="col-xs-6 col-sm-6 full-width pr0">
     <label>Amount due (&pound;)</label>
     <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" placeholder="Amount" readonly="readonly">
     </div>
