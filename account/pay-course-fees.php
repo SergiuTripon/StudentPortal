@@ -10,6 +10,17 @@ $stmt->fetch();
 
 global $fee_amount_paid;
 
+$stmt1 = $mysqli->query("SELECT fee_amount FROM user_fee WHERE userid='$session_userid'");
+
+while ($row = $stmt1->fetch_assoc()){
+
+    $fee_amount = $row["fee_amount"];
+
+    if ($fee_amount === '0.00') {
+        $fee_amount_paid = 'true';
+    }
+}
+
 ?>
 
 
@@ -101,19 +112,6 @@ global $fee_amount_paid;
     </div>
     </div>
 
-    <?php
-    $stmt1 = $mysqli->query("SELECT fee_amount FROM user_fee WHERE userid='$session_userid'");
-
-    while ($row = $stmt1->fetch_assoc()){
-
-        $fee_amount = $row["fee_amount"];
-
-        if ($fee_amount === '0.00') {
-            $fee_amount_paid = 'true';
-        }
-    }
-
-    ?>
 	<div id="product_name-hide" class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
