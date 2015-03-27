@@ -108,7 +108,7 @@ global $fee_amount_paid;
 
         $fee_amount = $row["fee_amount"];
 
-        if ($fee_amount !== '0.00') {
+        if ($fee_amount === '0.00') {
             $fee_amount_paid = 'true';
         }
     }
