@@ -73,13 +73,10 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Notes</th>
-	<th>External URL</th>
 	<th>From</th>
 	<th>To</th>
 	<th>Price</th>
-	<th>Tickets</th>
-	<th>Category</th>
+	<th>Tickets available</th>
 	<th>Action</th>
 	</tr>
 	</thead>
@@ -103,12 +100,10 @@ include 'includes/session.php';
 	echo '<tr id="task-'.$eventid.'">
 
 			<td data-title="Name"><a href="#view-'.$eventid.'" data-toggle="modal" data-dismiss="modal">'.$event_name.'</a></td>
-			<td data-title="Notes">'.$event_notes.'</td>
-			<td data-title="External URL">'.(empty($event_url) ? "" : "<a target=\"_blank\" href=\"//$url\">Link</a>").'</td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
-			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
+			<td data-title="Ticket available">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
 			<td data-title="Action">'.($event_ticket_no === '0' ? "<a class=\"btn btn-primary btn-md btn-disabled ladda-button\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</span></a>" : "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</span></a>").'</td>
 			</tr>
 
@@ -179,11 +174,19 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT system_event.event_name, system_event_booked.event_amount_paid, system_event_booked.ticket_quantity, DATE_FORMAT(system_event_booked.booked_on,'%d %b %y %H:%i') as booked_on FROM system_event_booked LEFT JOIN system_event ON system_event_booked.eventid=system_event.eventid WHERE system_event_booked.userid = '$session_userid'");
+	$stmt2 = $mysqli->query("SELECT e.eventid, e.event_name, e.event_notes, e.event_url, e.event_from, e.event_to, e.event_amount, e.event_ticket_no, b.event_amount_paid, b.ticket_quantity, DATE_FORMAT(b.booked_on,'%d %b %y %H:%i') as booked_on FROM system_event_booked b LEFT JOIN system_event e ON b.eventid=e.eventid WHERE b.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
 
+    $eventid = $row["eventid"];
     $event_name = $row["event_name"];
+    $event_notes = $row["event_notes"];
+    $event_url = $row["event_url"];
+    $event_from = $row["event_from"];
+    $event_to = $row["event_to"];
+    $event_amount = $row["event_amount"];
+    $event_ticket_no = $row["event_ticket_no"];
+
     $event_amount_paid = $row["event_amount_paid"];
     $ticket_quantity = $row["ticket_quantity"];
     $booked_on = $row["booked_on"];
@@ -194,7 +197,36 @@ include 'includes/session.php';
 			<td data-title="Total paid">'.$event_amount_paid.'</td>
 			<td data-title="Quantity">'.$ticket_quantity.'</td>
 			<td data-title="Booked on">'.$booked_on.'</td>
-			</tr>';
+			</tr>
+
+			<div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-ticket"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$event_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($event_notes) ? "-" : "$event_notes").'</p>
+			<p><b>URL:</b> '.(empty($event_url) ? "-" : "$event_url").'</p>
+			<p><b>From:</b> '.$event_from.'</p>
+			<p><b>To:</b> '.$event_to.'</p>
+			<p><b>Price (&pound;):</b> '.$event_amount.'</p>
+			<p><b>Ticket available:</b> '.$event_ticket_no.'</p>
+			</div>
+
+			<div class="modal-footer">
+            '.($event_ticket_no === '0' ? "<div class=\"view-action pull-left\"><a href=\"/events/book-event?id='.$eventid.'\" class=\"btn btn-primary btn-sm ladda-button\" data-style=\"slide-up\">Book</a></div>" : "").'
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt2->close();
