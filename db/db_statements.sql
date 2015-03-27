@@ -168,6 +168,7 @@ ON DELETE CASCADE
 #Events
 CREATE TABLE `system_event` (
 	`eventid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `event_class` VARCHAR(15) NOT NULL,
 	`event_name` VARCHAR(300) NOT NULL,
 	`event_notes` VARCHAR(5000),
 	`event_url` VARCHAR(70),
