@@ -404,7 +404,7 @@ function GetDashboardData() {
 
     $lecture_status = 'active';
 
-	$stmt1 = $mysqli->prepare("SELECT l.lectureid FROM user_lecture u LEFT JOIN system_lecture l ON u.lectureid=l.lectureid WHERE u.userid=? AND l.lecture_status=? AND DATE(l.lecture_to_date) > DATE(NOW()");
+	$stmt1 = $mysqli->prepare("SELECT l.lectureid FROM user_lecture u LEFT JOIN system_lecture l ON u.lectureid=l.lectureid WHERE u.userid=? AND l.lecture_status=? AND DATE(l.lecture_to_date) > DATE(NOW())");
 	$stmt1->bind_param('is', $session_userid, $lecture_status);
 	$stmt1->execute();
 	$stmt1->store_result();
@@ -413,7 +413,7 @@ function GetDashboardData() {
 
     $tutorial_status = 'active';
 
-	$stmt2 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorial t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=? AND DATE(t.tutorial_to_date) > DATE(NOW()");
+	$stmt2 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorial t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=? AND DATE(t.tutorial_to_date) > DATE(NOW())");
 	$stmt2->bind_param('is', $session_userid, $tutorial_status);
 	$stmt2->execute();
 	$stmt2->store_result();
