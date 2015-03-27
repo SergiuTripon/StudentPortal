@@ -271,12 +271,14 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
 	$eventid = $row["eventid"];
 	$event_name = $row["event_name"];
+    $event_notes = $row["event_notes"];
+    $event_url = $row["event_url"];
 	$event_from = $row["event_from"];
 	$event_to = $row["event_to"];
 	$event_amount = $row["event_amount"];
@@ -303,6 +305,35 @@ include 'includes/session.php';
             </div>
             </td>
 			</tr>
+
+			<div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$event_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($event_notes) ? "-" : "$event_notes").'</p>
+			<p><b>URL:</b> '.$event_url.'</p>
+			<p><b>From:</b> '.$event_from.'</p>
+			<p><b>To:</b> '.$event_to.'</p>
+			<p><b>Price:</b> '.$event_amount.'</p>
+			<p><b>Tickets available:</b> '.$event_ticket_no.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#deactivate-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#delete-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
 
 			<div class="modal modal-custom fade" id="deactivate-'.$eventid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
