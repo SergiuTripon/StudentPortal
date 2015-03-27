@@ -179,10 +179,14 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/select2-js-path.php'; ?>
 
 	<script>
+    //On load
+    $(document).ready(function () {
+        //select2
+        $("#marker_category").select2({placeholder: "Select an option"});
+    });
+
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
-
-    $('#marker_category').select2();
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
@@ -299,7 +303,6 @@ include '../includes/session.php';
 
 	return true;
 
-	});
 	});
 	</script>
 
