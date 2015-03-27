@@ -262,7 +262,7 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>From</th>
 	<th>To</th>
-	<th>Price</th>
+	<th>Price(&pound;)</th>
 	<th>Tickets available</th>
 	<th>Action</th>
 	</tr>
@@ -399,7 +399,7 @@ include 'includes/session.php';
 	<th>Event</th>
 	<th>From</th>
 	<th>To</th>
-	<th>Price</th>
+	<th>Price(&pound;)</th>
 	<th>Tickets available</th>
     <th>Action</th>
 	</tr>
