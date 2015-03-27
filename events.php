@@ -126,7 +126,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-            '.($event_ticket_no === '0' ? "" : "<div class=\"view-action pull-left\"><a href=\"/events/book-event?id='.$eventid.'\" class=\"btn btn-primary btn-sm ladda-button\" data-style=\"slide-up\">Book</a></div>").'
+            '.($event_ticket_no === '0' ? "" : "<div class=\"view-action pull-left\"><a href=\"/events/book-event?id=$eventid\" class=\"btn btn-primary btn-sm ladda-button\" data-style=\"slide-up\">Book</a></div>").'
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
 			</div>
@@ -218,7 +218,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-            '.($event_ticket_no === '0' ? "" : "<div class=\"view-action pull-left\"><a href=\"/events/book-event?id='.$eventid.'\" class=\"btn btn-primary btn-sm ladda-button\" data-style=\"slide-up\">Book</a></div>").'
+            '.($event_ticket_no === '0' ? "" : "<div class=\"view-action pull-left\"><a href=\"/events/book-event?id=$eventid\" class=\"btn btn-primary btn-sm ladda-button\" data-style=\"slide-up\">Book</a></div>").'
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
 			</div>
