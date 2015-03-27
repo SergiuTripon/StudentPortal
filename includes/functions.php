@@ -862,6 +862,11 @@ function UpdateLecture() {
     $stmt1->bind_result($db_lecture_name);
     $stmt1->fetch();
 
+    $lecture_from_date = DateTime::createFromFormat('d/m/Y', $lecture_from_date);
+    $lecture_from_date = $lecture_from_date->format('Y-m-d');
+    $lecture_to_date = DateTime::createFromFormat('d/m/Y', $lecture_to_date);
+    $lecture_to_date = $lecture_to_date->format('Y-m-d');
+
     //If the lecture name hasn't changed, do the following
     if ($db_lecture_name === $lecture_name) {
 
@@ -1073,6 +1078,11 @@ function UpdateTutorial() {
     $stmt1->bind_result($db_tutorial_name);
     $stmt1->fetch();
 
+    $tutorial_from_date = DateTime::createFromFormat('d/m/Y', $tutorial_from_date);
+    $tutorial_from_date = $tutorial_from_date->format('Y-m-d');
+    $tutorial_to_date = DateTime::createFromFormat('d/m/Y', $tutorial_to_date);
+    $tutorial_to_date = $tutorial_to_date->format('Y-m-d');
+
     //If the tutorial name hasn't changed, do the following
     if ($db_tutorial_name === $tutorial_name) {
         $stmt2 = $mysqli->prepare("UPDATE system_tutorial SET moduleid=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
@@ -1274,6 +1284,9 @@ function UpdateExam() {
     $stmt1->store_result();
     $stmt1->bind_result($db_exam_name);
     $stmt1->fetch();
+
+    $exam_date = DateTime::createFromFormat('d/m/Y', $exam_date);
+    $exam_date = $exam_date->format('Y-m-d');
 
     if ($db_exam_name === $exam_name) {
         $stmt3 = $mysqli->prepare("UPDATE system_exam SET moduleid=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
