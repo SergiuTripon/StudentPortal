@@ -113,7 +113,7 @@ while ($row = $stmt1->fetch_assoc()){
     </div>
 
 	<div id="product_name-hide" class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
         <?php
         $stmt1 = $mysqli->query("SELECT isHalf FROM user_fee WHERE userid='$session_userid'");
@@ -141,10 +141,7 @@ while ($row = $stmt1->fetch_assoc()){
 
         ?>
     </div>
-    </div>
-
-    <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width">
+    <div class="col-xs-6 col-sm-6 full-width">
         <label>Amount due (&pound;)</label>
         <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" placeholder="Amount" readonly="readonly">
     </div>
