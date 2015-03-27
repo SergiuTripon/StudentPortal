@@ -3376,8 +3376,8 @@ function FeesPaypalPaymentSuccess() {
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$firstname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $surname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $invoice_id</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Transaction ID:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $transaction_id</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $invoiceid</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Transaction ID:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $transactionid</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Payment:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $product_name</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Amount paid (&pound;):</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> &pound;$product_amount</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Payment time and date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $payment_date</td></tr>";
