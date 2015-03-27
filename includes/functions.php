@@ -2430,7 +2430,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
-    $event_class = 'event-danger';
+    $event_class = 'event-important';
 
 	$stmt2 = $mysqli->prepare("INSERT INTO system_event_booked (userid, eventid, event_amount_paid, ticket_quantity, event_class, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
 	$stmt2->bind_param('iiiiss', $userid, $item_number1, $product_amount, $quantity1, $event_class, $created_on);
@@ -2547,7 +2547,7 @@ function CreateEvent() {
 
         //Creating event record
 
-        $event_class = 'event-danger';
+        $event_class = 'event-important';
         $event_from = DateTime::createFromFormat('d/m/Y H:i', $event_from);
         $event_from = $event_from->format('Y-m-d H:i');
         $event_to = DateTime::createFromFormat('d/m/Y H:i', $event_to);
