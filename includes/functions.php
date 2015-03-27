@@ -3115,6 +3115,7 @@ function UpdateAccount() {
 	$country = filter_input(INPUT_POST, 'update_country', FILTER_SANITIZE_STRING);
 	$postcode = filter_input(INPUT_POST, 'update_postcode', FILTER_SANITIZE_STRING);
 
+    $gender = strtolower($gender);
     $dateofbirth = date("Y-m-d",strtotime("$dateofbirth"));
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -3131,8 +3132,6 @@ function UpdateAccount() {
         $stmt1->fetch();
 
 	    if ($db_email == $email) {
-
-            $gender = strtolower($gender);
 
             $stmt2 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
             $stmt2->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
@@ -3181,8 +3180,6 @@ function UpdateAccount() {
                 exit();
             }
             else {
-
-                $gender = strtolower($gender);
 
                 $stmt4 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
                 $stmt4->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
