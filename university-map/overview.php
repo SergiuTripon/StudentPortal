@@ -40,9 +40,10 @@ include '../includes/session.php';
         <input type="checkbox" checked="checked" onclick="toggleGroup('building');"> Buildings
     </label>
     </div>
-    <div id="student-centre-checkbox">
-    <label for="student_centre" class="checkbox-inline">Student centre</label>
-        <input class="checkbox-master" type="checkbox" checked="checked" name="student_centre" id="student_centre" onclick="toggleGroup('student_centre');">
+    <div id="student-centre-checkbox" class="checkbox-master">
+    <label class="checkbox-inline">
+        <input type="checkbox" checked="checked" onclick="toggleGroup('student_centre');"> Student centre
+    </label>
     </div>
     <div id="lecture-theatre-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
