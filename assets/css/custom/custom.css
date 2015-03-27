@@ -1014,6 +1014,10 @@ form .field-required {
     margin-bottom: 0;
 }
 
+#university-map-portal .form-horizontal .checkbox-inline {
+    padding-top: 0;
+}
+
 #university-map-portal #map-search {
     margin: 10px 0 10px 0;
     padding-bottom: 10px;
