@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
 
     $tutorialToUpdate = $_GET['id'];
 
-    $stmt1 = $mysqli->prepare("SELECT t.moduleid, t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(tutorial_from_time,'%H:%i') AS tutorial_from_time, DATE_FORMAT(tutorial_to_time,'%H:%i') AS tutorial_to_time, t.tutorial_from_date, t.tutorial_to_date, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorialid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT t.moduleid, t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(tutorial_from_time,'%H:%i') AS tutorial_from_time, DATE_FORMAT(tutorial_to_time,'%H:%i') AS tutorial_to_time, DATE_FORMAT(t.tutorial_from_date,'%d/%m/%Y %H:%i') as tutorial_from_date, DATE_FORMAT(t.tutorial_to_date,'%d/%m/%Y %H:%i') as tutorial_to_date, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorialid = ? LIMIT 1");
     $stmt1->bind_param('i', $tutorialToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
