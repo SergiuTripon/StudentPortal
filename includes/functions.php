@@ -3267,10 +3267,11 @@ function ChangePassword() {
         $stmt3->bind_result($email, $firstname);
         $stmt3->fetch();
 
-        // subject
+        //Create email
+        //subject
         $subject = 'Password changed successfully';
 
-        // message
+        //message
         $message = '<html>';
         $message .= '<head>';
         $message .= '<title>Student Portal | Account</title>';
@@ -3283,15 +3284,13 @@ function ChangePassword() {
         $message .= '</body>';
         $message .= '</html>';
 
-        // To send HTML mail, the Content-type header must be set
+        //headers
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-        // Additional headers
         $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
         $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
 
-        // Mail it
+        //Send email
         mail($email, $subject, $message, $headers);
 
         $stmt1->close();
