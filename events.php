@@ -102,9 +102,9 @@ include 'includes/session.php';
 
 	echo '<tr id="task-'.$row["eventid"].'">
 
-			<td data-title="Name">'.$event_name.'</td>
+			<td data-title="Name"><a href="#view-'.$eventid.'" data-toggle="modal" data-dismiss="modal">'.$event_name.'</a></td>
 			<td data-title="Notes">'.$event_notes.'</td>
-			<td data-title="External URL">'.($event_url === '' ? "" : "<a target=\"_blank\" href=\"//$url\">Link</a>").'</td>
+			<td data-title="External URL">'.((empty($event_url) ? "" : "<a target=\"_blank\" href=\"//$url\">Link</a>").'</td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
