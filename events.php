@@ -355,7 +355,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="deactivate-hide">
+			<div id="hide-deactivate">
 			<div class="pull-left">
 			<a id="deactivate-'.$eventid.'" class="btn btn-success btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -388,7 +388,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-hide">
+			<div id="hide-delete">
 			<div class="pull-left">
 			<a id="delete-'.$eventid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
