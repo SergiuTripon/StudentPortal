@@ -1375,7 +1375,17 @@ div.dataTables_length label {
 }
 }
 /* End of No More Responsive Table*/
-s
+
+/* Table sorting */
+table.dataTable thead th.sorting:after {
+    color: #5D5D5D;
+}
+
+table.dataTable thead .sorting:after {
+    opacity: 0.4;
+}
+/* End of Tables sorting */
+
 /* Transport Panel */
 .transport-panel {
     text-align: center;
