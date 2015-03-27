@@ -257,10 +257,10 @@ include '../includes/session.php';
         format: 'HH:mm'
     });
     $('#tutorial_from_date').datetimepicker({
-        format: 'YYYY-MM-DD'
+        format: 'DDD-MM-YYYY'
     });
     $('#tutorial_to_date').datetimepicker({
-        format: 'YYYY-MM-DD'
+        format: 'DD-MM-YYYY'
 	});
 
     //Create tutorial process
