@@ -36,7 +36,7 @@ include '../includes/session.php';
         <li class="active">Location search</li>
     </ol>
 
-    <form class="form-horizontal form-custom">
+    <form class="form-horizontal form-custom" style="max-width: 100px;">
 
     <p id="error" class="feedback-sad text-center"></p>
 
