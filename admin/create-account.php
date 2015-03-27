@@ -90,10 +90,12 @@ include '../includes/session.php';
 	</div>
 	</div>
 
+    <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
 	<label for="fee_amount">Course fee amount<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="fee_amount" id="fee_amount" value="" placeholder="Enter an amount">
 	</div>
+    </div>
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width">
