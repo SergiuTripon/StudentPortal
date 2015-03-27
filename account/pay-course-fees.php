@@ -97,7 +97,7 @@ while ($row = $stmt1->fetch_assoc()){
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_city">City<span class="field-required">*</span></label>
-	<input class="form-control" type="text" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="City">
+	<input class="form-control" type="text" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="City" <?php if($fee_amount_paid === "true") echo 'readonly="readonly"'; ?>>
     </div>
     </div>
 
@@ -108,7 +108,7 @@ while ($row = $stmt1->fetch_assoc()){
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_postcode">Post code<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code">
+    <input class="form-control" type="text" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code" <?php if($fee_amount_paid === "true") echo 'readonly="readonly"'; ?>>
     </div>
     </div>
 
