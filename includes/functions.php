@@ -404,7 +404,7 @@ function GetDashboardData() {
 
     $lecture_status = 'active';
 
-	$stmt1 = $mysqli->prepare("SELECT l.lectureid FROM user_lecture u LEFT JOIN system_lecture l ON u.lectureid=l.lectureid WHERE u.userid=? AND l.lecture_status=?");
+	$stmt1 = $mysqli->prepare("SELECT l.lectureid FROM user_lecture u LEFT JOIN system_lecture l ON u.lectureid=l.lectureid WHERE u.userid=? AND l.lecture_status=? AND DATE(l.lecture_to_date) > DATE(NOW()");
 	$stmt1->bind_param('is', $session_userid, $lecture_status);
 	$stmt1->execute();
 	$stmt1->store_result();
@@ -413,7 +413,7 @@ function GetDashboardData() {
 
     $tutorial_status = 'active';
 
-	$stmt2 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorial t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=?");
+	$stmt2 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorial t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=? AND DATE(t.tutorial_to_date) > DATE(NOW()");
 	$stmt2->bind_param('is', $session_userid, $tutorial_status);
 	$stmt2->execute();
 	$stmt2->store_result();
@@ -440,7 +440,7 @@ function GetDashboardData() {
     $book_status = 'active';
     $loan_status = 'ongoing';
 
-	$stmt5 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=? AND l.isReturned=? AND b.book_status=? AND l.loan_status=? AND DATE(l.toreturn_on) > DATE(NOW())");
+	$stmt5 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=? AND l.isReturned=? AND b.book_status=? AND l.loan_status=?");
 	$stmt5->bind_param('iiss', $session_userid, $isReturned, $book_status, $loan_status);
 	$stmt5->execute();
 	$stmt5->store_result();
@@ -461,7 +461,7 @@ function GetDashboardData() {
 
 	$task_status = 'active';
 
-	$stmt7 = $mysqli->prepare("SELECT taskid FROM user_task WHERE userid = ? AND task_status = ? AND DATE(task_duedate) > DATE(NOW())");
+	$stmt7 = $mysqli->prepare("SELECT taskid FROM user_task WHERE userid = ? AND task_status = ?");
 	$stmt7->bind_param('is', $session_userid, $task_status);
 	$stmt7->execute();
 	$stmt7->store_result();
