@@ -54,11 +54,11 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
-    <label>First name</label>
+    <label>First name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
-    <label>Surname</label>
+    <label>Surname<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
     </div>
     </div>
@@ -76,7 +76,7 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
-    <label>Email address</label>
+    <label>Email address<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
     </div>
     </div>
