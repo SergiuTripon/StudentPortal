@@ -3300,17 +3300,18 @@ function FeesPaypalPaymentSuccess() {
 	global $updated_on;
 	global $completed_on;
 
-	$transaction_id  = $_POST["txn_id"];
-	$payment_status = strtolower($_POST["payment_status"]);
+    $invoiceid = $_POST["invoice"];
+	$transactionid  = $_POST["txn_id"];
+	$payment_status = $_POST["payment_status"];
+    $payment_status = strtolower($payment_status);
 	$payment_status1 = ($_POST["payment_status"]);
-	$invoice_id = $_POST["invoice"];
 	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
 
 	$product_name = $_POST["item_name1"];
 	$product_amount = $_POST["mc_gross"];
 
 	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoiceid = ? LIMIT 1");
-	$stmt1->bind_param('i', $invoice_id);
+	$stmt1->bind_param('i', $invoiceid);
 	$stmt1->execute();
 	$stmt1->store_result();
 	$stmt1->bind_result($userid);
@@ -3353,7 +3354,7 @@ function FeesPaypalPaymentSuccess() {
             $updated_on = date("Y-m-d G:i:s");
 
             $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
-            $stmt4->bind_param('isi', $full_fees, $updated_on, $userid);
+            $stmt4->bind_param('isi', $fee_amount, $updated_on, $userid);
             $stmt4->execute();
             $stmt4->close();
 
@@ -3361,7 +3362,7 @@ function FeesPaypalPaymentSuccess() {
     }
 
 	$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transactionid=?, payment_status=?, updated_on=?, completed_on=? WHERE invoiceid =?");
-	$stmt8->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
+	$stmt8->bind_param('ssssi', $transactionid, $payment_status, $updated_on, $completed_on, $invoiceid);
 	$stmt8->execute();
 	$stmt8->close();
 
