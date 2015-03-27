@@ -7,7 +7,7 @@ include '../includes/session.php';
 
     <?php include '../assets/meta-tags.php'; ?>
 
-    <title>University map | Search</title>
+    <title>University map | Location search</title>
 
     <?php include '../assets/css-paths/select2-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
@@ -33,7 +33,7 @@ include '../includes/session.php';
     <ol class="breadcrumb breadcrumb-custom">
         <li><a href="../../home/">Home</a></li>
         <li><a href="/university-map/">University Map</a></li>
-        <li class="active">Search</li>
+        <li class="active">Location search</li>
     </ol>
 
     <form class="form-horizontal form-custom">
@@ -57,7 +57,7 @@ include '../includes/session.php';
     <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up"><span class="ladda-label">Search</span></a>
     </div>
 
-    <div id="map-search-results" class="mt10">
+    <div id="map-search-results" style="margin-top: 10px; margin-bottom: 10px;">
     <select class="form-control" id="locationSelect" style="width:100%; display: none;">
         <option></option>
     </select>
