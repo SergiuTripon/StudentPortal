@@ -97,7 +97,7 @@ global $transport_status_last_updated;
 	<div class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Station status</a>
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Disrupted stations</a>
     <a class="pull-right"><i class="fa fa-clock-o"></i> <?php echo $transport_status_last_updated ?></a>
     </h4>
     </div>
