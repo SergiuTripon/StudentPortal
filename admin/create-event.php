@@ -281,39 +281,17 @@ include '../includes/session.php';
         $("#event_ticket_no").addClass("input-happy");
 	}
 
-    var event_category_check = $("#event_category option:selected").html();
-    if (event_category_check === 'Select an option') {
-        $("label[for='event_category']").empty().append("Please select an option.");
-        $("label[for='event_category']").removeClass("feedback-happy");
-        $("label[for='event_category']").addClass("feedback-sad");
-        $(".event_category > .selectpicker").removeClass("input-happy");
-        $(".event_category > .selectpicker").addClass("input-sad");
-        hasError  = true;
-        return false;
-    }
-    else {
-        $("label[for='event_category']").empty().append("All good!");
-        $("label[for='event_category']").removeClass("feedback-sad");
-        $("label[for='event_category']").addClass("feedback-happy");
-        $(".event_category > .selectpicker").removeClass("input-sad");
-        $(".event_category > .selectpicker").addClass("input-happy");
-    }
-
-    var event_category = $("#event_category option:selected").val();
-
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'event_name='       + event_name +
-         '&event_notes='     + event_notes +
-         '&event_url='       + event_url +
-         '&event_from='      + event_from +
-         '&event_to='        + event_to +
-         '&event_amount='    + event_amount +
-         '&event_ticket_no=' + event_ticket_no +
-         '&event_category='  + event_category,
-
+    data:'create_event_name='       + event_name +
+         '&create_event_notes='     + event_notes +
+         '&create_event_url='       + event_url +
+         '&create_event_from='      + event_from +
+         '&create_event_to='        + event_to +
+         '&create_event_amount='    + event_amount +
+         '&create_event_ticket_no=' + event_ticket_no,
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
