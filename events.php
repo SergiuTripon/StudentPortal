@@ -263,8 +263,7 @@ include 'includes/session.php';
 	<th>From</th>
 	<th>To</th>
 	<th>Price</th>
-	<th>Tickets</th>
-	<th>Category</th>
+	<th>Tickets available</th>
 	<th>Action</th>
     <th>Action</th>
 	</tr>
@@ -290,7 +289,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
-			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
+			<td data-title="Tickets available">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
 			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-event/?id='.$eventid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
             <td data-title="Action"><a class="btn btn-primary btn-md ladda-button delete-trigger" href="#deactivate-'.$eventid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
 			</tr>
