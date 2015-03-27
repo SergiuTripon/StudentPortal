@@ -743,9 +743,9 @@ include 'includes/session.php';
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The event has been reactivated successfully.');
-        $('#hide-reactivate').hide();
-        $('#success-button-reactivate').show();
-        $("#success-button-reactivate").click(function () {
+        $('#reactivate-hide').hide();
+        $('#reactivate-success-button').show();
+        $("#reactivate-success-button").click(function () {
             location.reload();
         });
 	},
@@ -776,8 +776,8 @@ include 'includes/session.php';
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The event has been deleted successfully.');
         $('#hide-delete').hide();
-        $('#success-button-delete').show();
-        $("#success-button-delete").click(function () {
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
             location.reload();
         });
 	},
