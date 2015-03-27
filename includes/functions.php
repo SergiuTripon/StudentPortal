@@ -3228,16 +3228,18 @@ function UpdateAccount() {
 	}
 }
 
+
 //ChangePassword function
 function ChangePassword() {
 
-    global $mysqli;
-    global $session_userid;
+	global $mysqli;
+	global $session_userid;
     global $updated_on;
 
-    $new_password = filter_input(INPUT_POST, 'change_password', FILTER_SANITIZE_STRING);
+    //Gathering posted data and assigning variables
+	$new_password = filter_input(INPUT_POST, 'change_password', FILTER_SANITIZE_EMAIL);
 
-    // Getting user login details
+    //Checking if email address exists in the system
     $stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
     $stmt1->bind_param('i', $session_userid);
     $stmt1->execute();
@@ -3245,57 +3247,20 @@ function ChangePassword() {
     $stmt1->bind_result($db_password);
     $stmt1->fetch();
 
+    //Checking if password entered matches the password in the database
     if (password_verify($new_password, $db_password)) {
-
         $stmt1->close();
-        header('HTTP/1.0 550 This is your current password. Please enter a new password.');
+        header('HTTP/1.0 550 The password you entered is correct.');
         exit();
 
+    //Otherwise, if password entered doesn't match the password in the database, do the following:
     } else {
-
-        $password_hash = password_hash($new_password, PASSWORD_BCRYPT);
-
-        $stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
-        $stmt2->bind_param('ssi', $password_hash, $updated_on, $session_userid);
-        $stmt2->execute();
-        $stmt2->close();
-
-        $stmt3 = $mysqli->prepare("SELECT s.email, d.firstname FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
-        $stmt3->bind_param('i', $session_userid);
-        $stmt3->execute();
-        $stmt3->store_result();
-        $stmt3->bind_result($email, $firstname);
-        $stmt3->fetch();
-
-        //Create email
-        //subject
-        $subject = 'Password changed successfully';
-
-        //message
-        $message = '<html>';
-        $message .= '<head>';
-        $message .= '<title>Student Portal | Account</title>';
-        $message .= '</head>';
-        $message .= '<body>';
-        $message .= "<p>Dear $firstname,</p>";
-        $message .= '<p>Your password has been changed successfully.</p>';
-        $message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
-        $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
-        $message .= '</body>';
-        $message .= '</html>';
-
-        //headers
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-        $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
-
-        //Send email
-        mail($email, $subject, $message, $headers);
-
         $stmt1->close();
+        header('HTTP/1.0 550 The password you entered is incorrect.');
+        exit();
     }
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //PaypalPaymentSuccess function
 function FeesPaypalPaymentSuccess() {
