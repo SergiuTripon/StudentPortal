@@ -36,7 +36,7 @@ include '../includes/session.php';
         <li class="active">Location search</li>
     </ol>
 
-    <form class="form-horizontal form-custom" style="max-width: 100px;">
+    <form class="form-horizontal form-custom" style="max-width: 100%;">
 
     <p id="error" class="feedback-sad text-center"></p>
 
@@ -46,7 +46,7 @@ include '../includes/session.php';
     <input class="form-control" type="text" name="addressInput" id="addressInput" placeholder="Enter a location"/>
 
     <label for="radiusSelect">Radius<span class="field-required">*</span></label>
-    <select class="form-control" id="radiusSelect">
+    <select class="form-control" id="radiusSelect" style="width: 100%">
         <option></option>
         <option value="25">25mi</option>
         <option value="100">100mi</option>
