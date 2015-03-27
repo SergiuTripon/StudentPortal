@@ -109,16 +109,20 @@ if ($fee_amount == "0.00") {
     <div class="col-xs-6 col-sm-6 full-width pl0">
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
     <select class="form-control" name="product_name" id="product_name" style="width: 100%;">
-        <option></option>
         <?php
         $stmt1 = $mysqli->query("SELECT isHalf FROM user_fee WHERE userid='$session_userid'");
 
         while ($row = $stmt1->fetch_assoc()){
 
-            $moduleid = $row["moduleid"];
-            $module_name = $row["module_name"];
+            $isHalf = $row["isHalf"];
 
-            echo '<option value="'.$moduleid.'">'.$module_name.'</option>';
+            if ($isHalf = 1) {
+                echo '<option selected>Half fees</option>';
+            } else {
+                echo '<option></option>';
+                echo '<option>Full fees</option>';
+                echo '<option>Half fees</option>';
+            }
         }
 
         ?>
