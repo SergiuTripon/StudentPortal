@@ -2529,7 +2529,6 @@ function CreateEvent() {
     $event_to = filter_input(INPUT_POST, 'create_event_to', FILTER_SANITIZE_STRING);
     $event_amount = filter_input(INPUT_POST, 'create_event_amount', FILTER_SANITIZE_STRING);
     $event_ticket_no = filter_input(INPUT_POST, 'create_event_ticket_no', FILTER_SANITIZE_STRING);
-    $event_category = filter_input(INPUT_POST, 'create_event_category', FILTER_SANITIZE_STRING);
 
     // Check existing event name
     $stmt1 = $mysqli->prepare("SELECT eventid FROM system_event WHERE event_name=? LIMIT 1");
@@ -2548,14 +2547,15 @@ function CreateEvent() {
 
         //Creating event record
 
+        $event_class = 'event-danger';
         $event_from = DateTime::createFromFormat('d/m/Y H:i', $event_from);
         $event_from = $event_from->format('Y-m-d H:i');
         $event_to = DateTime::createFromFormat('d/m/Y H:i', $event_to);
         $event_to = $event_to->format('Y-m-d H:i');
         $event_status = 'active';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_event (event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssssiiss', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_status, $created_on);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_event (event_class, event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('ssssssiiss', $event_class, $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
 
@@ -2576,7 +2576,6 @@ function UpdateEvent() {
     $event_to = filter_input(INPUT_POST, 'update_event_to', FILTER_SANITIZE_STRING);
     $event_amount = filter_input(INPUT_POST, 'update_event_amount', FILTER_SANITIZE_STRING);
     $event_ticket_no = filter_input(INPUT_POST, 'update_event_ticket_no', FILTER_SANITIZE_STRING);
-    $event_category = filter_input(INPUT_POST, 'update_event_category', FILTER_SANITIZE_STRING);
 
     // Check if event name is different
     $stmt1 = $mysqli->prepare("SELECT event_name FROM system_event WHERE eventid = ?");
