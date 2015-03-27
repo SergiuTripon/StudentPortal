@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
 
     $timetableToUpdate = $_GET['id'];
 
-    $stmt1 = $mysqli->prepare("SELECT e.moduleid, e.examid, e.exam_name, e.exam_notes, e.exam_date, DATE_FORMAT(e.exam_time,'%H:%i') AS exam_time, e.exam_location, e.exam_capacity FROM system_exam e WHERE e.examid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT e.moduleid, e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d/%m/%Y') AS exam_date, DATE_FORMAT(e.exam_time,'%H:%i') AS exam_time, e.exam_location, e.exam_capacity FROM system_exam e WHERE e.examid = ? LIMIT 1");
     $stmt1->bind_param('i', $timetableToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
