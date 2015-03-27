@@ -3248,7 +3248,7 @@ function ChangePassword() {
     $stmt1->fetch();
 
     //Checking if password entered matches the password in the database
-    if (password_verify($new_password, $db_password)) {
+    if ($new_password === $db_password) {
         $stmt1->close();
         header('HTTP/1.0 550 The password you entered is correct.');
         exit();
