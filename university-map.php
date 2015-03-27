@@ -74,7 +74,7 @@ include 'includes/session.php';
     <li class="active">University map</li>
     </ol>
 
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../admin/create-location/"><span class="ladda-label">Create location</span></a>
+    <a class="btn btn-success btn-lg btn-admin ladda-button" data-style="slide-up" href="../admin/create-location/"><span class="ladda-label">Create location</span></a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
