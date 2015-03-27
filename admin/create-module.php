@@ -59,7 +59,7 @@ include '../includes/session.php';
 
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width">
-	<label>Moodle link</label>
+	<label>Moodle URL</label>
     <input class="form-control" type="text" name="module_url" id="module_url" placeholder="Enter a URL">
 	</div>
 	</div>

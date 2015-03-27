@@ -116,7 +116,6 @@ include '../includes/session.php';
         <option>Thursday</option>
         <option>Friday</option>
     </select>
-
     </div>
     </div>
 

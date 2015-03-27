@@ -75,25 +75,25 @@ include '../includes/session.php';
 	</div>
 
     <div class="form-group">
-	<div class="col-xs-12 col-sm-12 full-width">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="marker_category">Category<span class="field-required">*</span></label>
-    <select class="selectpicker marker_category" name="marker_category" id="marker_category">
-        <option data-hidden="true">Select an option</option>
-    <?php
-    $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_marker WHERE marker_status = 'active' AND NOT marker_category=''");
+    <select class="form-control" name="marker_category" id="marker_category" style="width: 100%;">
+        <option></option>
+        <?php
+            $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_marker WHERE marker_status = 'active' AND NOT marker_category=''");
 
-    while ($row = $stmt1->fetch_assoc()){
+            while ($row = $stmt1->fetch_assoc()){
 
-    $marker_category = $row["marker_category"];
-    $marker_category = ucfirst($marker_category);
+            $marker_category = $row["marker_category"];
+            $marker_category = ucfirst($marker_category);
 
-        echo '<option>'.$marker_category.'</option>';
-    }
+                echo '<option>'.$marker_category.'</option>';
+            }
 
-    ?>
+        ?>
     </select>
-	</div>
-	</div>
+    </div>
+    </div>
 
 	</div>
 
@@ -179,18 +179,10 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/select2-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
-
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $('.selectpicker').selectpicker();
-
-    $(".filter-option").css("color", "gray");
-
-    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
-        $(".filter-option").css("cssText", "color: #333333 !important;");
-    });
+    $('#marker_category').select2();
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
@@ -256,7 +248,7 @@ include '../includes/session.php';
         $("#marker_long").addClass("input-happy");
 	}
 
-    var marker_category_check = $("#marker_category option:selected").html();
+    var marker_category_check = $("#marker_category :selected").html();
     if (marker_category_check === 'Select an option') {
         $("label[for='marker_category']").empty().append("Please select an option.");
         $("label[for='marker_category']").removeClass("feedback-happy");
@@ -276,7 +268,7 @@ include '../includes/session.php';
     }
 
 
-    var marker_category = $("#marker_category option:selected").val();
+    var marker_category = $("#marker_category :selected").val();
 
 	if(hasError == false){
     jQuery.ajax({
