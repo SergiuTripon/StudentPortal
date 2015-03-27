@@ -53,7 +53,7 @@ if (isset($_GET["id"])) {
 	<div class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Home</a></li>
+    <li><a href="../../home/">Home</a></li>
 	<li><a href="../../events/">Events</a></li>
     <li class="active">Book event</li>
     </ol>
@@ -176,7 +176,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-orange btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-orange btn-lg ladda-button" data-style="slide-up" href="/home/"><span class="ladda-label">Home</span></a>
     </div>
 
     </form>

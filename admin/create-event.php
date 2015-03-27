@@ -29,7 +29,7 @@ include '../includes/session.php';
 	<div id="admin-timetable-portal" class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Home</a></li>
+    <li><a href="../../home/">Home</a></li>
 	<li><a href="../../events/">Events</a></li>
     <li class="active">Create event</li>
     </ol>
@@ -124,7 +124,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/home/"><span class="ladda-label">Home</span></a>
     </div>
 
     </form>

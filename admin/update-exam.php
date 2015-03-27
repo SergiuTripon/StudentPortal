@@ -46,7 +46,7 @@ if (isset($_GET['id'])) {
 	<div id="admin-timetable-portal" class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Home</a></li>
+    <li><a href="../../home/">Home</a></li>
 	<li><a href="../../exams/">Exams</a></li>
     <li class="active">Update exam</li>
     </ol>
@@ -165,7 +165,7 @@ if (isset($_GET['id'])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/home/"><span class="ladda-label">Home</span></a>
     </div>
 
     </form>

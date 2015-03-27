@@ -174,7 +174,7 @@ include 'includes/session.php';
     data:'email=' + email + '&password=' + password,
     success:function(){
         $("#error").show();
-		window.location = '../overview/';
+		window.location = '../home/';
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#success").hide();

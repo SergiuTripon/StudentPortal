@@ -7,7 +7,7 @@ include '../includes/session.php';
 
     <?php include '../assets/meta-tags.php'; ?>
 
-    <title>University map | Home</title>
+    <title>University map | Location overview</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/select2-css-path.php'; ?>
@@ -27,7 +27,7 @@ include '../includes/session.php';
     <div id="university-map-portal" class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-        <li><a href="../../overview/">Home</a></li>
+        <li><a href="../../home/">Home</a></li>
         <li><a href="../../university-map/">University Map</a></li>
         <li class="active">Home</li>
     </ol>

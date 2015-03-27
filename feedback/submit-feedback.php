@@ -62,7 +62,7 @@ if (isset($_GET["id"])) {
 	<div id="feedback-portal" class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Home</a></li>
+    <li><a href="../../home/">Home</a></li>
 	<li><a href="../../feedback/">Feedback</a></li>
     <li class="active">Submit feedback</li>
     </ol>

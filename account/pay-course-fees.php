@@ -57,7 +57,7 @@ while ($row = $stmt1->fetch_assoc()){
     <div class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Home</a></li>
+    <li><a href="../../home/">Home</a></li>
 	<li><a href="../../account/">Account</a></li>
     <li class="active">Pay course fees</li>
     </ol>
@@ -192,7 +192,7 @@ while ($row = $stmt1->fetch_assoc()){
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/home/"><span class="ladda-label">Home</span></a>
     </div>
 
     </form>

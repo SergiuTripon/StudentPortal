@@ -231,7 +231,7 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'email=' + email + '&password=' + password,
     success:function(){
-		window.location = '../overview/';
+		window.location = '../home/';
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();

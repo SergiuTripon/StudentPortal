@@ -50,7 +50,7 @@ if ($dateofbirth == "0000-00-00") {
 	<div class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Home</a></li>
+    <li><a href="../../home/">Home</a></li>
 	<li><a href="../../account/">Account</a></li>
     <li class="active">Update account</li>
     </ol>
@@ -406,7 +406,7 @@ if ($dateofbirth == "0000-00-00") {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/home/"><span class="ladda-label">Home</span></a>
     </div>
 
     </form>
