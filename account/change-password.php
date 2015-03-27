@@ -41,7 +41,7 @@ include '../includes/session.php';
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width">
     <label for="oldpwd">Old password<span class="field-required">*</span></label>
-    <input class="form-control" type="password" name="oldpwd" id="oldpwd" placeholder="Enter a password">
+    <input class="form-control" type="password" name="oldpwd" id="oldpwd" placeholder="Enter your old password">
 	</div>
 	</div>
 
@@ -117,7 +117,7 @@ include '../includes/session.php';
 
     var oldpwd = $("#oldpwd").val();
 	if(oldpwd === '') {
-        $("label[for='oldpwd']").empty().append("Please enter the old password.");
+        $("label[for='oldpwd']").empty().append("Please enter your old password.");
         $("label[for='oldpwd']").removeClass("feedback-happy");
         $("label[for='oldpwd']").addClass("feedback-sad");
         $("#oldpwd").focus();
