@@ -87,6 +87,10 @@ include '../includes/session.php';
             $marker_category = $row["marker_category"];
             $marker_category = ucfirst($marker_category);
 
+            if ($marker_category = 'Atm') {
+                $marker_category = strtoupper($marker_category);
+            }
+
                 echo '<option>'.$marker_category.'</option>';
             }
 
