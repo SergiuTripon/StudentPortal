@@ -37,7 +37,7 @@ include '../includes/session.php';
     <div class="marker-toggle">
     <div id="building-checkbox" class="checkbox-master">
     <label class="checkbox-inline">
-        <input type="checkbox" checked="checked" onclick="toggleGroup('building');"> Buildings
+        <input class="building-checkbox" type="checkbox" checked="checked" onclick="toggleGroup('building');"> Buildings
     </label>
     </div>
     <div id="student-centre-checkbox" class="checkbox-master">
@@ -128,6 +128,8 @@ include '../includes/session.php';
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
+
+    $('.building-checkbox').iCheck();
 
     </script>
 
