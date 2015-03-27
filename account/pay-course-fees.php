@@ -134,13 +134,11 @@ if ($fee_amount == "0.00") {
         <label>Amount due (&pound;)</label>
         <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" placeholder="Amount" readonly="readonly">
     </div>
+    </div>
+
     <div class="form-group">
 
     <hr class="hr-custom">
-
-    <div class="text-center">
-    <button></button>
-    </div>
 
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mr5" data-style="slide-up"><span class="ladda-label">Pay with PayPal</span></button>
