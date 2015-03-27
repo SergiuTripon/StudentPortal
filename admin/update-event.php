@@ -13,7 +13,7 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
-    echo $dateofbirth;
+    echo $event_to;
 
 } else {
     header('Location: ../../events/');
