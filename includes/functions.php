@@ -3260,7 +3260,7 @@ function ChangePassword() {
         $stmt2->execute();
         $stmt2->close();
 
-        $stmt3 = $mysqli->prepare("SELECT s.email, d.firstname FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ?");
+        $stmt3 = $mysqli->prepare("SELECT s.email, d.firstname FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
         $stmt3->bind_param('i', $session_userid);
         $stmt3->execute();
         $stmt3->store_result();
