@@ -2568,7 +2568,7 @@ function UpdateEvent() {
     global $mysqli;
     global $updated_on;
 
-    $eventid = filter_input(INPUT_POST, 'update_update_eventid', FILTER_SANITIZE_STRING);
+    $eventid = filter_input(INPUT_POST, 'update_eventid', FILTER_SANITIZE_STRING);
     $event_name = filter_input(INPUT_POST, 'update_event_name', FILTER_SANITIZE_STRING);
     $event_notes = filter_input(INPUT_POST, 'update_event_notes', FILTER_SANITIZE_STRING);
     $event_url = filter_input(INPUT_POST, 'update_event_url', FILTER_SANITIZE_STRING);
