@@ -690,8 +690,8 @@ include 'includes/session.php';
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The event has been deactivated successfully.');
         $('#deactivate-hide').hide();
-        $('#deactivate-button-success').show();
-        $("#deactivate-button-success").click(function () {
+        $('#deactivate-success-button').show();
+        $("#deactivate-success-button").click(function () {
             location.reload();
         });
 	},
@@ -722,8 +722,8 @@ include 'includes/session.php';
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The event has been reactivated successfully.');
         $('#reactivate-hide').hide();
-        $('#reactivate-button-success').show();
-        $("#reactivate-button-success").click(function () {
+        $('#reactivate-success-button').show();
+        $("#reactivate-success-button").click(function () {
             location.reload();
         });
 	},
@@ -754,8 +754,8 @@ include 'includes/session.php';
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The event has been deleted successfully.');
         $('#hide-delete').hide();
-        $('#delete-button-success').show();
-        $("#delete-button-success").click(function () {
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
             location.reload();
         });
 	},
