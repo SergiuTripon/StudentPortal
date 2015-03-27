@@ -556,7 +556,20 @@ elseif (isset($_POST["sentMessageToDelete"])) {
 
 //Call Account functions
 //Call UpdateAccount function
-elseif (isset($_POST['firstname1'], $_POST['surname1'], $_POST['gender1'], $_POST['email4'], $_POST['nationality'], $_POST['dateofbirth'], $_POST['phonenumber'], $_POST['address1'], $_POST['address2'], $_POST['town'], $_POST['city'], $_POST['country'], $_POST['postcode'])) {
+elseif (isset(
+    $_POST['update_firstname'],
+    $_POST['update_surname'],
+    $_POST['update_gender'],
+    $_POST['update_email'],
+    $_POST['update_nationality'],
+    $_POST['update_dateofbirth'],
+    $_POST['update_phonenumber'],
+    $_POST['update_address1'],
+    $_POST['update_address2'],
+    $_POST['update_town'],
+    $_POST['update_city'],
+    $_POST['update_country'],
+    $_POST['update_postcode'])) {
 	UpdateAccount();
 }
 
