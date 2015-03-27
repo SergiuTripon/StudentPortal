@@ -11,7 +11,7 @@ $stmt->fetch();
 
 if ($fee_amount == "0.00") {
     $fee_title = 'Nothing to pay';
-    $conditional_style = "<style> #product_name, label[for=product_name], [aria-owns='select2-product_name-results'] { display: none !important; } .btn-custom { display: none !important; }</style>";
+    $conditional_style = "<style> #product_name, label[for=product_name], [aria-owns='select2-product_name-results'] { display: none !important; } .btn { display: none !important; }</style>";
 }
 
 ?>
