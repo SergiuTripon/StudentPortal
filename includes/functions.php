@@ -3117,6 +3117,7 @@ function UpdateAccount() {
 
     $gender = strtolower($gender);
     $dateofbirth = date("Y-m-d",strtotime("$dateofbirth"));
+    echo $dateofbirth;
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');

@@ -453,7 +453,8 @@ if ($dateofbirth == "0000-00-00") {
          '&update_city='        + city +
          '&update_country='     + country +
          '&updatepostcode='     + postcode,
-    success:function(){
+    success:function(errormsg){
+        alert(errormsg);
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").empty().append('Your personal details have been updated successfully.');
