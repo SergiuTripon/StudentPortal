@@ -129,7 +129,7 @@ global $fee_amount_paid;
                 echo '<option selected>Half fees</option>';
                 echo '</select>';
             } elseif ($fee_amount_paid === 'true') {
-                echo '<select class="form-control" name="product_name" id="product_name" style="width: 100%;" disabled>';
+                echo '<select class="form-control" name="product_name" id="product_name" style="width: 100%;" readonly>';
                 echo '<option disabled>Nothing to pay</option>';
                 echo '</select>';
             } else {
