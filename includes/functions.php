@@ -3562,6 +3562,9 @@ function CreateAnAccount() {
 
         if (empty($dateofbirth)) {
             $dateofbirth = NULL;
+        } else {
+            $dateofbirth = DateTime::createFromFormat('d/m/Y', $dateofbirth);
+            $dateofbirth = $dateofbirth->format('Y-m-d');
         }
 
         $gender = strtolower($gender);
