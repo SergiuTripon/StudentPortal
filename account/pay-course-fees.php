@@ -136,12 +136,22 @@ if ($fee_amount == "0.00") {
         <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" placeholder="Amount" readonly="readonly">
     </div>
     </div>
+        <?php
+        $stmt1 = $mysqli->query("SELECT fee_amount FROM user_fee WHERE userid='$session_userid'");
 
-    <hr class="hr-custom">
+        while ($row = $stmt1->fetch_assoc()){
 
-    <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Pay with PayPal</span></button>
-	</div>
+            $fee_amount = $row["fee_amount"];
+
+            if ($fee_amount !== '0.00') {
+                echo '<hr class="hr-custom">
+                      <div class="text-center">
+                      <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Pay with PayPal</span></button>
+                      </div>';
+            }
+        }
+
+        ?>
 
     </form>
     <!-- End of Pay course fees -->
