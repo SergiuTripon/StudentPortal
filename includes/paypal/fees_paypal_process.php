@@ -14,18 +14,7 @@ $payment = $_REQUEST["payment"];
 $cmd = '_cart';
 $currency_code = 'GBP';
 $invoiceid = rand(1111111111,9999999999);
-function generateRandomString($length = 17) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
-}
-
-$transactionid = generateRandomString();
-
+$transactionid = rand(1111111111,9999999999);
 
 $productid = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
