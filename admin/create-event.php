@@ -76,7 +76,7 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
-	<label for="event_amount">Price<span class="field-required">*</span></label>
+	<label for="event_amount">Price (&pound;)<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="event_amount" id="event_amount" placeholder="Enter an amount">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width">
