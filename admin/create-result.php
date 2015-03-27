@@ -51,7 +51,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	<div class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Overview</a></li>
+    <li><a href="../../overview/">Home</a></li>
 	<li><a href="../../results/">Results</a></li>
     <li class="active">Create result</li>
     </ol>
@@ -165,7 +165,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Home</span></a>
     </div>
 
     </form>

@@ -37,7 +37,7 @@
     <hr>
     
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="../../overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="../../overview/"><span class="ladda-label">Home</span></a>
 	</div>
 	
     </form>

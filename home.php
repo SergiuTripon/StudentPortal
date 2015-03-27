@@ -27,7 +27,7 @@ include 'includes/functions.php';
 
     <?php include 'assets/meta-tags.php'; ?>
 
-    <title>Student Portal | Overview</title>
+    <title>Student Portal | Home</title>
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 

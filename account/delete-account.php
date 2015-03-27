@@ -35,7 +35,7 @@ $stmt1->fetch();
     <div class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Overview</a></li>
+    <li><a href="../../overview/">Home</a></li>
 	<li><a href="../../account/">Account</a></li>
     <li class="active">Delete account</li>
     </ol>

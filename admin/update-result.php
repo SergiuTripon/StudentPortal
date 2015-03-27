@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
 	<div id="results-portal" class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Overview</a></li>
+    <li><a href="../../overview/">Home</a></li>
 	<li><a href="../../results/">Results</a></li>
     <li class="active">Update result</li>
     </ol>
@@ -152,7 +152,7 @@ if (isset($_GET['id'])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Home</span></a>
     </div>
 
     </form>

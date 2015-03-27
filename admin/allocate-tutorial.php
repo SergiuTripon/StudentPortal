@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
 	<div class="container">
 
 	<ol class="breadcrumb breadcrumb-custom">
-		<li><a href="../../overview/">Overview</a></li>
+		<li><a href="../../overview/">Home</a></li>
         <li><a href="../../timetable/">Timetable</a></li>
 		<li class="active">Allocate tutorial</li>
 	</ol>

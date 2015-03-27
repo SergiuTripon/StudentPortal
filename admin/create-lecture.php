@@ -30,7 +30,7 @@ include '../includes/session.php';
 	<div class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Overview</a></li>
+    <li><a href="../../overview/">Home</a></li>
 	<li><a href="../../timetable/">Timetable</a></li>
     <li class="active">Create lecture</li>
     </ol>
@@ -192,7 +192,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Overview</span></a>
+    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/overview/"><span class="ladda-label">Home</span></a>
     </div>
 
     </form>

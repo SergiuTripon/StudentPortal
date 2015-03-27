@@ -50,7 +50,7 @@ if (isset($_GET["id"])) {
 	<div id="messenger-portal" class="container">
 
     <ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../../overview/">Overview</a></li>
+    <li><a href="../../overview/">Home</a></li>
 	<li><a href="../../messenger/">Messenger</a></li>
     <li class="active">Send a message</li>
     </ol>
