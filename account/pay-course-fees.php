@@ -116,7 +116,7 @@ if ($fee_amount == "0.00") {
 
             $isHalf = $row["isHalf"];
 
-            if ($isHalf = 1) {
+            if ($isHalf === 1) {
                 echo '<option selected>Half fees</option>';
             } else {
                 echo '<option></option>';
