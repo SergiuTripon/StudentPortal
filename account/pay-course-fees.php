@@ -12,7 +12,7 @@ $stmt->fetch();
 if ($fee_amount == "0.00") {
     $fee_title = 'Nothing to pay';
     $conditional_style = "<style> #product_name, label[for=product_name], [aria-owns='select2-product_name-results'] { display: none !important; } .btn { display: none !important; }</style>";
-    $conditional_script = "<script>$(\"#conditional_script']\").removeClass(\"col-xs-6, col-sm-6\"); $(\"#conditional_script']\").addClass(\"col-xs-12, col-sm-12, pr0\");</script>";
+    $conditional_script = "$(\"#conditional_script']\").removeClass(\"col-xs-6, col-sm-6\"); $(\"#conditional_script']\").addClass(\"col-xs-12, col-sm-12, pr0\");";
 }
 
 ?>
@@ -29,6 +29,12 @@ if ($fee_amount == "0.00") {
 
     <?php include '../assets/css-paths/select2-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
+
+    <?php
+    if (!empty($conditional_style)) {
+        echo $conditional_style;
+    }
+    ?>
 
 </head>
 
@@ -52,15 +58,6 @@ if ($fee_amount == "0.00") {
 	
 	<!-- Pay course fees -->
     <form class="form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/paypal/fees_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
-
-    <?php
-    if (!empty($conditional_style)) {
-		echo $conditional_style;
-    }
-    if (!empty($conditional_script)) {
-        echo $conditional_script;
-    }
-    ?>
 
     <p id="error" class="feedback-sad text-center"></p>
 
@@ -223,6 +220,12 @@ if ($fee_amount == "0.00") {
         //select2
         $("#product_name").select2({placeholder: "Select an option"});
     });
+
+    <?php
+    if (!empty($conditional_script)) {
+        echo $conditional_script;
+    }
+    ?>
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
