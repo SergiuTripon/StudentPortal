@@ -3118,7 +3118,7 @@ function UpdateAccount() {
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
 	} else {
-        $dateofbirth = date("Y-m-d H:i",strtotime("$dateofbirth"));
+        $dateofbirth = date("Y-m-d",strtotime("$dateofbirth"));
     }
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
