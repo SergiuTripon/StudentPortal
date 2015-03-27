@@ -211,6 +211,8 @@ include '../includes/session.php';
         $("label[for='confirmpwd']").addClass("feedback-happy");
         $("#error1").hide();
 	}
+
+    alert(oldpwd);
 	
 	if(hasError == false){
     jQuery.ajax({
