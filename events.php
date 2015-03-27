@@ -320,7 +320,7 @@ include 'includes/session.php';
 			<p><b>URL:</b> '.(empty($event_url) ? "-" : "$event_url").'</p>
 			<p><b>From:</b> '.$event_from.'</p>
 			<p><b>To:</b> '.$event_to.'</p>
-			<p><b>Price:</b> '.$event_amount.'</p>
+			<p><b>Price (&pound;):</b> '.$event_amount.'</p>
 			<p><b>Ticket available:</b> '.$event_ticket_no.'</p>
 			</div>
 
