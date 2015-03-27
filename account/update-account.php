@@ -1,7 +1,7 @@
 <?php
 include '../includes/session.php';
 
-$stmt1 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname, d.gender, d.nationality, d.dateofbirth, d.phonenumber, d.address1, d.address2, d.town, d.city, d.postcode FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname, d.gender, d.nationality, DATE_FORMAT(d.dateofbirth,'%d %b %y') as dateofbirth, d.phonenumber, d.address1, d.address2, d.town, d.city, d.postcode FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $session_userid);
 $stmt1->execute();
 $stmt1->store_result();
@@ -11,8 +11,6 @@ $stmt1->fetch();
 if ($dateofbirth == "0000-00-00") {
     $dateofbirth = '';
 }
-
-echo $dateofbirth;
 ?>
 
 <!DOCTYPE html>
