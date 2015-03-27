@@ -3115,11 +3115,7 @@ function UpdateAccount() {
 	$country = filter_input(INPUT_POST, 'update_country', FILTER_SANITIZE_STRING);
 	$postcode = filter_input(INPUT_POST, 'update_postcode', FILTER_SANITIZE_STRING);
 
-	if ($dateofbirth == '') {
-		$dateofbirth = NULL;
-	} else {
-        $dateofbirth = date("Y-m-d",strtotime("$dateofbirth"));
-    }
+    $dateofbirth = date("Y-m-d",strtotime("$dateofbirth"));
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
