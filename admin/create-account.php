@@ -457,7 +457,7 @@ include '../includes/session.php';
 
     // Date Time Picker
 	$('#dateofbirth').datetimepicker({
-        format: 'DD/MM/YYYY',
+        format: 'DD/MM/YYYY'
 	});
 
     var account_type;
