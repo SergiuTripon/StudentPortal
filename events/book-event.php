@@ -220,20 +220,9 @@ if (isset($_GET["id"])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    $(document).ready(function () {
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
-
-    //Checks for empty values
-    var payer_address1 = $("#payer_address1").val();
-	if(payer_address1 === '') { $("#payer_address1").addClass("input-sad"); }
-    var payer_city = $("#payer_city").val();
-	if(payer_city === '') { $("#payer_city").addClass("input-sad"); }
-    var payer_postcode = $("#payer_postcode").val();
-	if(payer_postcode === '') { $("#payer_postcode").addClass("input-sad"); }
-    var product_quantity = $("#product_quantity").val();
-    if(product_quantity === '') { $("#product_quantity").addClass("input-sad"); }
 
     $('#product_quantity').keyup(function() {
         var quantity = $("#product_quantity").val();
@@ -344,7 +333,6 @@ if (isset($_GET["id"])) {
 
 	return true;
 
-	});
 	});
 	</script>
 
