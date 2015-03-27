@@ -1032,6 +1032,10 @@ function CreateTutorial() {
     } else {
 
         //Create the tutorial record
+        $tutorial_from_date = DateTime::createFromFormat('d/m/Y', $tutorial_from_date);
+        $tutorial_from_date = $tutorial_from_date->format('Y-m-d');
+        $tutorial_to_date = DateTime::createFromFormat('d/m/Y', $tutorial_to_date);
+        $tutorial_to_date = $tutorial_to_date->format('Y-m-d');
         $tutorial_status = 'active';
 
         $stmt2 = $mysqli->prepare("INSERT INTO system_tutorial (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -1236,6 +1240,9 @@ function CreateExam() {
         exit();
     }
 
+    //Create the exam record
+    $exam_date = DateTime::createFromFormat('d/m/Y', $tutorial_to_date);
+    $exam_date = $tutorial_to_date->format('Y-m-d');
     $exam_status = 'active';
 
     $stmt2 = $mysqli->prepare("INSERT INTO system_exam (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
