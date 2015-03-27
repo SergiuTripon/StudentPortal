@@ -427,15 +427,15 @@ elseif (isset(
 
 //Call UpdateEvent function
 elseif (isset(
-    $_POST['eventid1'],
-    $_POST['event_name1'],
-    $_POST['event_notes1'],
-    $_POST['event_url1'],
-    $_POST['event_from1'],
-    $_POST['event_to1'],
-    $_POST['event_amount1'],
-    $_POST['event_ticket_no1'],
-    $_POST['event_category1'])) {
+    $_POST['update_eventid'],
+    $_POST['update_event_name'],
+    $_POST['update_event_notes'],
+    $_POST['update_event_url'],
+    $_POST['update_event_from'],
+    $_POST['update_event_to'],
+    $_POST['update_event_amount'],
+    $_POST['update_event_ticket_no'],
+    $_POST['update_event_category'])) {
     UpdateEvent();
 }
 
