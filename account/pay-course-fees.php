@@ -105,7 +105,7 @@ if ($fee_amount == "0.00") {
     </div>
 
 	<div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width pl0">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
     <select class="form-control" name="product_name" id="product_name" style="width: 100%;">
         <?php
@@ -127,11 +127,14 @@ if ($fee_amount == "0.00") {
         ?>
     </select>
     </div>
-    <div class="col-xs-6 col-sm-6 full-width pr0">
-    <label>Amount due (&pound;)</label>
-    <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" placeholder="Amount" readonly="readonly">
     </div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
+        <label>Amount due (&pound;)</label>
+        <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" placeholder="Amount" readonly="readonly">
     </div>
+    <div class="form-group">
 
     <hr class="hr-custom">
 
