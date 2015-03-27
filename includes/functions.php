@@ -3117,7 +3117,9 @@ function UpdateAccount() {
 
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
-	}
+	} else {
+        $dateofbirth = preg_replace('#(\d{2})/(\d{2})/(\d{4})\s(.*)#', '$3-$2-$1 $4', $dateofbirth);
+    }
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
