@@ -262,7 +262,7 @@ include 'includes/session.php';
 	<th>Name</th>
 	<th>From</th>
 	<th>To</th>
-	<th>Price(&pound;)</th>
+	<th>Price (&pound;)</th>
 	<th>Tickets available</th>
 	<th>Action</th>
 	</tr>
@@ -289,7 +289,7 @@ include 'includes/session.php';
 			<td data-title="Name"><a href="#view-'.$eventid.'" data-toggle="modal">'.$event_name.'</a></td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
-			<td data-title="Price">'.$event_amount.'</td>
+			<td data-title="Price (&pound;)">'.$event_amount.'</td>
 			<td data-title="Tickets available">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
@@ -401,7 +401,7 @@ include 'includes/session.php';
 	<th>Event</th>
 	<th>From</th>
 	<th>To</th>
-	<th>Price(&pound;)</th>
+	<th>Price (&pound;)</th>
 	<th>Tickets available</th>
     <th>Action</th>
 	</tr>
@@ -426,7 +426,7 @@ include 'includes/session.php';
 			<td data-title="Event">'.$event_name.'</td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
-			<td data-title="Price">'.$event_amount.'</td>
+			<td data-title="Price (&pound;)">'.$event_amount.'</td>
 			<td data-title="Tickets available">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
             <td data-title="Action">
 			<div class="btn-group btn-action">
