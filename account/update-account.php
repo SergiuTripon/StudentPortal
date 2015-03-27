@@ -435,6 +435,8 @@ if ($dateofbirth == "0000-00-00") {
     var country = $("#country").val();
     var postcode = $("#postcode").val();
 
+    alert(dateofbirth);
+
     if(hasError == false){
 
     jQuery.ajax({
