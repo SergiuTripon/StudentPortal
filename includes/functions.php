@@ -2586,6 +2586,11 @@ function UpdateEvent() {
     $stmt1->bind_result($db_event_name);
     $stmt1->fetch();
 
+    $event_from = DateTime::createFromFormat('d/m/Y H:i', $event_from);
+    $event_from = $event_from->format('Y-m-d H:i');
+    $event_to = DateTime::createFromFormat('d/m/Y H:i', $event_to);
+    $event_to = $event_to->format('Y-m-d H:i');
+
     if ($db_event_name === $event_name) {
 
         $stmt2 = $mysqli->prepare("UPDATE system_event SET event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, updated_on=? WHERE eventid=?");
