@@ -3106,7 +3106,7 @@ function UpdateAccount() {
 	$email = filter_input(INPUT_POST, 'update_email', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$nationality = filter_input(INPUT_POST, 'update_nationality', FILTER_SANITIZE_STRING);
-	$dateofbirth = $_POST['update_dateofbirth'];
+	$dateofbirth = filter_input(INPUT_POST, 'update_dateofbirth', FILTER_SANITIZE_STRING);
 	$phonenumber = filter_input(INPUT_POST, 'update_phonenumber', FILTER_SANITIZE_STRING);
 	$address1 = filter_input(INPUT_POST, 'update_address1', FILTER_SANITIZE_STRING);
 	$address2 = filter_input(INPUT_POST, 'update_address2', FILTER_SANITIZE_STRING);
@@ -3116,8 +3116,11 @@ function UpdateAccount() {
 	$postcode = filter_input(INPUT_POST, 'update_postcode', FILTER_SANITIZE_STRING);
 
     $gender = strtolower($gender);
-    echo $dateofbirth;
-
+	if ($dateofbirth == '') {
+		$dateofbirth = NULL;
+	} else {
+        $dateofbirth = date("Y-m-d",strtotime("$dateofbirth"));
+    }
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
