@@ -28,7 +28,7 @@ include 'includes/session.php';
 	<div id="university-map-portal" class="container">
 
 	<ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../overview/">Overview</a></li>
+    <li><a href="../home/">Home</a></li>
 	<li class="active">University Map</li>
     </ol>
 
@@ -70,7 +70,7 @@ include 'includes/session.php';
     <div id="university-map-portal" class="container">
 
 	<ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../overview/">Overview</a></li>
+    <li><a href="../home/">Home</a></li>
     <li class="active">University map</li>
     </ol>
 

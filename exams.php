@@ -29,7 +29,7 @@ include 'includes/session.php';
 	<div id="exams-portal" class="container">
 
 	<ol class="breadcrumb breadcrumb-custom">
-    <li><a href="../overview/">Overview</a></li>
+    <li><a href="../home/">Home</a></li>
 	<li class="active">Exams</li>
     </ol>
 
@@ -112,7 +112,7 @@ include 'includes/session.php';
     <div class="container">
 
 	<ol class="breadcrumb breadcrumb-custom breadcrumb-admin">
-    <li><a href="../overview/">Overview</a></li>
+    <li><a href="../home/">Home</a></li>
 	<li class="active">Exams</li>
     </ol>
 
