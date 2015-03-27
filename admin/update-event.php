@@ -51,8 +51,8 @@ if (isset($_GET["id"])) {
     <li class="active">Update event</li>
     </ol>
 
-    <!-- Update book -->
-	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updatebook_form" id="updatebook_form" novalidate>
+    <!-- Update event -->
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updateevent_form" id="updateevent_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -93,7 +93,6 @@ if (isset($_GET["id"])) {
 	<input type="text" class="form-control" name="event_to" id="event_to" value="<?php echo $event_to; ?>" placeholder="Select a date and time">
 	</div>
 	</div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
@@ -105,36 +104,6 @@ if (isset($_GET["id"])) {
 	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" value="<?php echo $event_ticket_no; ?>" placeholder="Enter a number">
 	</div>
 	</div>
-    <p id="error3" class="feedback-sad text-center"></p>
-
-    <div class="form-group">
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label for="event_category">Category</label>
-    <select class="selectpicker event_category" name="event_category" id="event_category">
-        <?php
-        $stmt1 = $mysqli->query("SELECT event_category FROM system_event WHERE eventid = '$eventid' AND event_category = '$event_category'");
-
-        while ($row = $stmt1->fetch_assoc()){
-
-        $event_category = $row["event_category"];
-
-            echo '<option>'.$event_category.'</option>';
-        }
-        ?>
-    </select>
-
-    </div>
-    <div class="col-xs-6 col-sm-6 full-width">
-    <label>Category</label>
-    <select class="selectpicker event_category" name="update_event_category" id="update_event_category">
-        <option data-hidden="true">Select an option</option>
-        <option>Social</option>
-        <option>Careers</option>
-    </select>
-
-    </div>
-    </div>
-    <p id="error4" class="feedback-sad text-center"></p>
 
 	<hr>
 
