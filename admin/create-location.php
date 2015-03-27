@@ -86,8 +86,9 @@ include '../includes/session.php';
 
             $marker_category = $row["marker_category"];
             $marker_category = ucfirst($marker_category);
+            $marker_category_uppercase = strtoupper($marker_category);
 
-                echo '<option>'.($marker_category === 'Atm' ? "'.strtoupper($marker_category)." : "$marker_category").'</option>';
+                echo '<option>'.($marker_category === 'Atm' ? "strtoupper($marker_category_uppercase)." : "$marker_category").'</option>';
             }
 
         ?>
