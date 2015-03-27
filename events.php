@@ -396,7 +396,7 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Event</th>
 	<th>From</th>
 	<th>To</th>
 	<th>Price</th>
@@ -421,7 +421,7 @@ include 'includes/session.php';
 
 	echo '<tr id="event-'.$row["eventid"].'">
 
-			<td data-title="Name">'.$event_name.'</td>
+			<td data-title="Event">'.$event_name.'</td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
