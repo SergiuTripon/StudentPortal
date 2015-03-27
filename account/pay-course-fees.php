@@ -126,8 +126,6 @@ if ($fee_amount == "0.00") {
         }
 
         ?>
-        <option>Full fees</option>
-        <option>Half fees</option>
     </select>
     </div>
     <div class="col-xs-6 col-sm-6 full-width pr0">
