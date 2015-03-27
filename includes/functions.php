@@ -3235,7 +3235,7 @@ function ChangePassword() {
     global $session_userid;
     global $updated_on;
 
-    $password = filter_input(INPUT_POST, 'change_password', FILTER_SANITIZE_STRING);
+    $new_password = filter_input(INPUT_POST, 'change_password', FILTER_SANITIZE_STRING);
 
     // Getting user login details
     $stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
@@ -3245,7 +3245,7 @@ function ChangePassword() {
     $stmt1->bind_result($db_password);
     $stmt1->fetch();
 
-    if (password_verify($password, $db_password)) {
+    if (password_verify($new_password, $db_password)) {
 
         $stmt1->close();
         header('HTTP/1.0 550 This is your current password. Please enter a new password.');
@@ -3253,14 +3253,14 @@ function ChangePassword() {
 
     } else {
 
-        $password_hash = password_hash($password, PASSWORD_BCRYPT);
+        $password_hash = password_hash($new_password, PASSWORD_BCRYPT);
 
         $stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
         $stmt2->bind_param('ssi', $password_hash, $updated_on, $session_userid);
         $stmt2->execute();
         $stmt2->close();
 
-        $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ?");
+        $stmt3 = $mysqli->prepare("SELECT s.email, d.firstname FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ?");
         $stmt3->bind_param('i', $session_userid);
         $stmt3->execute();
         $stmt3->store_result();
