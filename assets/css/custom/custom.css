@@ -1376,6 +1376,10 @@ div.dataTables_length label {
 }
 /* End of No More Responsive Table*/
 
+table.dataTable thead th.sorting:after {
+    color: #333333;
+}
+
 
 /* Transport Panel */
 .transport-panel {
