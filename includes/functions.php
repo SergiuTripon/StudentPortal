@@ -1250,10 +1250,7 @@ function CreateExam() {
         exit();
     }
 
-    //Create the exam record
-    $exam_date = DateTime::createFromFormat('d/m/Y', $exam_date);
-    $exam_date = $exam_date->format('Y-m-d');
-    $exam_status = 'active';
+
 
     $stmt2 = $mysqli->prepare("INSERT INTO system_exam (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt2->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
