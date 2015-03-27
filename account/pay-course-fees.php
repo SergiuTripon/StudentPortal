@@ -11,7 +11,9 @@ $stmt->fetch();
 
 if ($fee_amount == "0.00") {
     $fee_title = 'Nothing to pay';
-    $conditional_style = "<style> #product_name-hide { display: none !important; } .btn-primary { display: none !important; }</style>";}
+    $conditional_style = "<style> #product_name-hide { display: none !important; } .btn-primary { display: none !important; }</style>";
+    $conditional_script = "$('#payer_address1, payer_city, payer_postocode').prop('readonly', true);";
+}
 
 ?>
 
