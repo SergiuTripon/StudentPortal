@@ -73,40 +73,40 @@ if ($fee_amount == "0.00") {
 	<!-- End of Hidden fields -->
 	
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>First Name</label>
     <input class="form-control" type="text" name="payer_firstname" id="payer_firstname" value="<?php echo $firstname; ?>" placeholder="First Name" readonly="readonly">
 	</div>
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Surname</label>
     <input class="form-control" type="text" name="payer_surname" id="payer_surname" value="<?php echo $surname; ?>" placeholder="Surname" readonly="readonly">
 	</div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_address1">Address line 1<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="payer_address1" id="payer_address1" value="<?php echo $address1; ?>" placeholder="Address 1">
     </div>
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_city">City<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="payer_city" id="payer_city" value="<?php echo $city; ?>" placeholder="City">
     </div>
     </div>
 
     <div class="form-group">
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label>Country<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="payer_country" id="payer_country" value="United Kingdom" placeholder="Country" readonly="readonly">
     </div>
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-6 full-width">
     <label for="payer_postcode">Post code<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="payer_postcode" id="payer_postcode" value="<?php echo $postcode; ?>" placeholder="Post Code">
     </div>
     </div>
 
 	<div id="product_name-hide" class="form-group">
-    <div class="col-xs-12 col-sm-12">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
     <select class="form-control" name="product_name" id="product_name" style="width: 100%;">
         <?php
@@ -131,7 +131,7 @@ if ($fee_amount == "0.00") {
     </div>
 
     <div class="form-group">
-    <div class="col-xs-12 col-sm-12">
+    <div class="col-xs-12 col-sm-12 full-width">
         <label>Amount due (&pound;)</label>
         <input class="form-control" type="text" name="product_amount" id="product_amount" value="<?php echo $fee_amount; ?>" placeholder="Amount" readonly="readonly">
     </div>
