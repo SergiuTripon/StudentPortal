@@ -492,7 +492,7 @@ if ($dateofbirth == "0000-00-00") {
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
-    $('#lecture_from_date').datetimepicker({
+    $('#dateofbirth').datetimepicker({
         format: 'DD/MM/YYYY'
     });
 
