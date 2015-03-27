@@ -355,7 +355,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-deactivate">
+			<div id="deactivate-hide">
 			<div class="pull-left">
 			<a id="deactivate-'.$eventid.'" class="btn btn-success btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -388,7 +388,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-delete">
+			<div id="delete-hide">
 			<div class="pull-left">
 			<a id="delete-'.$eventid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -492,7 +492,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-reactivate">
+			<div id="reactivate-hide">
 			<div class="pull-left">
 			<a id="reactivate-'.$eventid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -501,7 +501,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-reactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-button-success" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -524,7 +524,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-delete">
+			<div id="delete-hide">
 			<div class="pull-left">
 			<a id="delete-'.$eventid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -533,7 +533,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-delete" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-button-success" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
