@@ -11,7 +11,7 @@ $stmt->fetch();
 
 if ($fee_amount == "0.00") {
     $fee_title = 'Nothing to pay';
-    $conditional_style = "<style> #product_name, label[for=product_name], [aria-owns='select2-product_name-results'] { display: none !important; } .btn { display: none !important; }</style>";}
+    $conditional_style = "<style> #product_name_hide { display: none !important; } .btn { display: none !important; }</style>";}
 
 ?>
 
@@ -104,7 +104,7 @@ if ($fee_amount == "0.00") {
     </div>
     </div>
 
-	<div class="form-group">
+	<div id="product_name-hide" class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pr0 pl0">
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
     <select class="form-control" name="product_name" id="product_name" style="width: 100%;">
