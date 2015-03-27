@@ -372,7 +372,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-lecture-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$eventid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -383,21 +383,21 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-lecture-question" class="text-center feedback-sad">Are you sure you want to delete '.$lecture_name.'?</p>
-			<p id="delete-lecture-confirmation" style="display: none;" class="text-center feedback-happy">'.$lecture_name.' has been deleted successfully.</p>
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$event_name.'?</p>
+			<p id="delete-confirmation" style="display: none;" class="text-center feedback-happy">'.$event_name.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-lecture-hide">
+			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$eventid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
