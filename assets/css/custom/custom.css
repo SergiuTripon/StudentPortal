@@ -490,6 +490,10 @@ form {
     border: 1px solid #B8B8B8;
 }
 
+.form-group {
+    margin-bottom: 0;
+}
+
 .form-control {
     color: #333333;
     font-size: 15px;
