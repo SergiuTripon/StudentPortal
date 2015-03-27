@@ -10,7 +10,7 @@
     <span class="icon-bar"></span>
     </button>
     <!-- End of Toggle -->
-    <a class="navbar-brand" href=""><i class="fa fa-graduation-cap"></i> Student Portal</a>
+    <a class="navbar-brand" href="/"><i class="fa fa-graduation-cap"></i> Student Portal</a>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
