@@ -2554,8 +2554,8 @@ function CreateEvent() {
         $event_to = $event_to->format('Y-m-d H:i');
         $event_status = 'active';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_event (event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt3->bind_param('ssssssiisss', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
+        $stmt3 = $mysqli->prepare("INSERT INTO system_event (event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('sssssiiss', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
 
