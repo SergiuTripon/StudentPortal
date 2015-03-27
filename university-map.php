@@ -129,8 +129,19 @@ include 'includes/session.php';
 			<td data-title="Category">'.$marker_category.'</td>
 			<td data-title="Created on">'.$created_on.'</td>
 			<td data-title="Updated on">'.$updated_on.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../admin/update-location/?id='.$markerid.'" data-style="slide-up"><span class="ladda-label">Update</span></a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deactivate-'.$markerid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deactivate</span></a></td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="../admin/update-location/?id='.$markerid.'">Update</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#deactivate-'.$markerid.'" data-toggle="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$markerid.'" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
 			</tr>
 
 			<div class="modal modal-custom fade" id="deactivate-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -158,6 +169,38 @@ include 'includes/session.php';
 			</div>
 			<div class="text-center">
 			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div class="modal modal-custom fade" id="delete-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-sad">Are you sure you want to delete '.$marker_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -377,7 +420,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'locationToDeactivate='+ locationToDeactivate,
 	success:function(){
-		$('#location-'+locationToDeactivate).fadeOut();
+		$('#location-'+locationToDeactivate).hide();
         $('.form-logo i').removeClass('fa-minus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
@@ -409,7 +452,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'locationToReactivate='+ locationToReactivate,
 	success:function(){
-		$('#location-'+locationToReactivate).fadeOut();
+		$('#location-'+locationToReactivate).hide();
         $('.form-logo i').removeClass('fa-plus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
@@ -441,7 +484,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'locationToDelete='+ locationToDelete,
 	success:function(){
-		$('#location-'+locationToDelete).fadeOut();
+		$('#location-'+locationToDelete).hide();
         $('.form-logo i').removeClass('fa-trash');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
