@@ -491,7 +491,7 @@ if ($dateofbirth == "0000-00-00") {
 
     // Date Time Picker
     $('#lecture_from_date').datetimepicker({
-        format: 'YYYY/MM/DD'
+        format: 'DD/MM/YYYY'
     });
 
     //Global variable
