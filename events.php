@@ -400,9 +400,7 @@ include 'includes/session.php';
 	<th>From</th>
 	<th>To</th>
 	<th>Price</th>
-	<th>Tickets</th>
-	<th>Category</th>
-	<th>Action</th>
+	<th>Tickets available</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -427,7 +425,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
-			<td data-title="Tickets">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
+			<td data-title="Tickets available">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
             <td data-title="Action">
 			<div class="btn-group btn-action">
             <li><a href="#reactivate-'.$eventid.'" data-toggle="modal">Reactivate</a></li>
