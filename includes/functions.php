@@ -2414,16 +2414,16 @@ function EventsPaypalPaymentSuccess() {
 	$product_name = $_POST["item_name1"];
 	$product_amount = $_POST["mc_gross"];
 
-	$invoice_id = $_POST["invoice"];
-	$transaction_id  = $_POST["txn_id"];
+	$invoiceid = $_POST["invoice"];
+	$transactionid  = $_POST["txn_id"];
 
 	$payment_status = strtolower($_POST["payment_status"]);
 	$payment_status1 = ($_POST["payment_status"]);
 	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
 
     //Get userid by using invoice_id
-	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoice_id = ? LIMIT 1");
-	$stmt1->bind_param('i', $invoice_id);
+	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoiceid = ? LIMIT 1");
+	$stmt1->bind_param('i', $invoiceid);
 	$stmt1->execute();
 	$stmt1->store_result();
 	$stmt1->bind_result($userid);
@@ -2437,7 +2437,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt2->execute();
 	$stmt2->close();
 
-	$stmt3 = $mysqli->prepare("SELECT event_ticket_no from system_event where eventid = ?");
+	$stmt3 = $mysqli->prepare("SELECT event_ticket_no from system_event where eventid=? LIMIT 1");
 	$stmt3->bind_param('i', $item_number1);
 	$stmt3->execute();
 	$stmt3->store_result();
@@ -2453,7 +2453,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt4->close();
 
 	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
-	$stmt5->bind_param('ssssi', $transaction_id, $payment_status, $updated_on, $completed_on, $invoice_id);
+	$stmt5->bind_param('ssssi', $transactionid, $payment_status, $updated_on, $completed_on, $invoiceid);
 	$stmt5->execute();
 	$stmt5->close();
 
@@ -2476,8 +2476,8 @@ function EventsPaypalPaymentSuccess() {
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$firstname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $surname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $invoice_id</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Transaction ID:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $transaction_id</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Invoice ID:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $invoiceid</td></tr>";
+	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Transaction ID:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $transactionid</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Payment:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $product_name</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Amount paid (&pound;):</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> &pound;$product_amount</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Payment time and date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $payment_date</td></tr>";
