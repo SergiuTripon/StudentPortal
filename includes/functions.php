@@ -3235,8 +3235,7 @@ function ChangePassword() {
     global $session_userid;
     global $updated_on;
 
-    $old_password = filter_input(INPUT_POST, 'change_oldpwd', FILTER_SANITIZE_STRING);
-    $new_password = filter_input(INPUT_POST, 'change_password', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password3', FILTER_SANITIZE_STRING);
 
     // Getting user login details
     $stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
@@ -3246,7 +3245,7 @@ function ChangePassword() {
     $stmt1->bind_result($db_password);
     $stmt1->fetch();
 
-    if (password_verify($old_password, $db_password)) {
+    if (password_verify($password, $db_password)) {
 
         $stmt1->close();
         header('HTTP/1.0 550 This is your current password. Please enter a new password.');
@@ -3254,9 +3253,48 @@ function ChangePassword() {
 
     } else {
 
+        $password_hash = password_hash($password, PASSWORD_BCRYPT);
+
+        $stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
+        $stmt2->bind_param('ssi', $password_hash, $updated_on, $session_userid);
+        $stmt2->execute();
+        $stmt2->close();
+
+        $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ?");
+        $stmt3->bind_param('i', $session_userid);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($email, $firstname);
+        $stmt3->fetch();
+
+        // subject
+        $subject = 'Password changed successfully';
+
+        // message
+        $message = '<html>';
+        $message .= '<head>';
+        $message .= '<title>Student Portal | Account</title>';
+        $message .= '</head>';
+        $message .= '<body>';
+        $message .= "<p>Dear $firstname,</p>";
+        $message .= '<p>Your password has been changed successfully.</p>';
+        $message .= '<p>If this action wasn\'t performed by you, please contact Student Portal as soon as possible, by clicking <a href="mailto:contact@sergiu-tripon.co.uk">here</a>.';
+        $message .= '<p>Kind Regards,<br>The Student Portal Team</p>';
+        $message .= '</body>';
+        $message .= '</html>';
+
+        // To send HTML mail, the Content-type header must be set
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+        // Additional headers
+        $headers .= 'From: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+        $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>' . "\r\n";
+
+        // Mail it
+        mail($email, $subject, $message, $headers);
+
         $stmt1->close();
-        header('HTTP/1.0 550 This is your current password. Please enter a new password.');
-        exit();
     }
 }
 
