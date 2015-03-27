@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
 
     $eventToUpdate = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE eventid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d/%b/%Y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE eventid = ? LIMIT 1");
     $stmt1->bind_param('i', $eventToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
@@ -186,54 +186,12 @@ if (isset($_GET["id"])) {
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
-    $('.selectpicker').selectpicker();
-
-    $(".filter-option").css("color", "gray");
-
-    $( ".bootstrap-select .dropdown-menu > li > a" ).click(function() {
-        $(".filter-option").css("cssText", "color: #333333 !important;");
-    });
-
     // Date Time Picker
-    var today = new Date();
-	$(function () {
 
-    $('#event_from').datetimepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_to_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
-    $('#event_to').datetimepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today,
-        changeMonth: true,
-        numberOfMonths: 2,
-        onClose: function(selectedDate) {
-            $("#tutorial_from_date").datepicker( "option", "minDate", selectedDate);
-        }
-    });
-
-	});
-
-    $("#update_event_category").change(function() {
-        var new_event_category = $("#update_event_category option:selected").text();
-        var new_event_category1 = $("#update_event_category option:selected").val();
-        $("label[for='event_category']").empty().append("New category");
-        $('#event_category option:selected').text(new_event_category);
-        $('#event_category option:selected').val(new_event_category1);
-        $('#event_category').selectpicker('refresh');
-    });
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
@@ -329,7 +287,6 @@ if (isset($_GET["id"])) {
 
 	return true;
 
-	});
 	});
 	</script>
 
