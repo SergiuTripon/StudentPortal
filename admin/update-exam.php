@@ -223,7 +223,7 @@ if (isset($_GET['id'])) {
 
     // Date Time Picker
     $('#exam_date').datetimepicker({
-        format: 'YYYY-MM-DD'
+        format: 'DD/MM/YYYY'
     });
     $('#exam_time').datetimepicker({
         format: 'HH:mm'
