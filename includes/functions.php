@@ -2554,7 +2554,7 @@ function CreateEvent() {
         $event_to = $event_to->format('Y-m-d H:i');
         $event_status = 'active';
 
-        $stmt3 = $mysqli->prepare("INSERT INTO system_event (event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3 = $mysqli->prepare("INSERT INTO system_event (event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt3->bind_param('ssssssiisss', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $event_status, $created_on);
         $stmt3->execute();
         $stmt3->close();
@@ -2588,8 +2588,8 @@ function UpdateEvent() {
 
     if ($db_event_name === $event_name) {
 
-        $stmt2 = $mysqli->prepare("UPDATE system_event SET event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
-        $stmt2->bind_param('ssssiissi', $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
+        $stmt2 = $mysqli->prepare("UPDATE system_event SET event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, updated_on=? WHERE eventid=?");
+        $stmt2->bind_param('ssssiisi', $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $updated_on, $eventid);
         $stmt2->execute();
         $stmt2->close();
 
@@ -2608,8 +2608,8 @@ function UpdateEvent() {
             header('HTTP/1.0 550 An event with the name entered already exists.');
             exit();
         } else {
-            $stmt4 = $mysqli->prepare("UPDATE system_event SET event_name=?, event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, event_category=?, updated_on=? WHERE eventid=?");
-            $stmt4->bind_param('sssssiissi', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category, $updated_on, $eventid);
+            $stmt4 = $mysqli->prepare("UPDATE system_event SET event_name=?, event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, updated_on=? WHERE eventid=?");
+            $stmt4->bind_param('sssssiisi', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $updated_on, $eventid);
             $stmt4->execute();
             $stmt4->close();
         }
