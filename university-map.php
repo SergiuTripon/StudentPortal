@@ -76,7 +76,7 @@ include 'includes/session.php';
 
     <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../admin/create-location/"><span class="ladda-label">Create location</span></a>
 
-    <div class="panel-group book-view" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
 
@@ -94,7 +94,7 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Location</th>
 	<th>Latitude</th>
 	<th>Longitude</th>
 	<th>Category</th>
@@ -123,7 +123,7 @@ include 'includes/session.php';
 
 	echo '<tr id="location-'.$markerid.'">
 
-			<td data-title="Name">'.$marker_name.'</td>
+			<td data-title="Location">'.$marker_name.'</td>
 			<td data-title="Latitude">'.$marker_lat.'</td>
 			<td data-title="Longitude">'.$marker_long.'</td>
 			<td data-title="Category">'.$marker_category.'</td>
@@ -193,7 +193,7 @@ include 'includes/session.php';
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Location</th>
 	<th>Latitude</th>
 	<th>Longitude</th>
 	<th>Category</th>
@@ -222,7 +222,7 @@ include 'includes/session.php';
 
 	echo '<tr id="location-'.$markerid.'">
 
-			<td data-title="Name">'.$marker_name.'</td>
+			<td data-title="Location">'.$marker_name.'</td>
 			<td data-title="Latitude">'.$marker_lat.'</td>
 			<td data-title="Longitude">'.$marker_long.'</td>
 			<td data-title="Category">'.$marker_category.'</td>
