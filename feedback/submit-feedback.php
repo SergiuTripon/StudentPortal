@@ -68,7 +68,7 @@ if (isset($_GET["id"])) {
     </ol>
 
 	<!-- Message user -->
-    <form class="form-custom" style="max-width: 100%;" method="post" name="submitfeedaback_form" id="submitfeedaback_form" novalidate>
+    <form class="form-horizontal form-custom" style="max-width: 100%;" method="post" name="submitfeedaback_form" id="submitfeedaback_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
     <p id="error1" class="feedback-sad text-center"></p>
@@ -181,7 +181,7 @@ if (isset($_GET["id"])) {
 
     <div class="container">
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>

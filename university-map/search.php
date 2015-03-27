@@ -36,7 +36,7 @@ include '../includes/session.php';
         <li class="active">Search</li>
     </ol>
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
     <p id="error" class="feedback-sad text-center"></p>
 
@@ -82,7 +82,7 @@ include '../includes/session.php';
 
     <div class="container">
 
-	<form class="form-custom">
+	<form class="form-horizontal form-custom">
 
     <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>

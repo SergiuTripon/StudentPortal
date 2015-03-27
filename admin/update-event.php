@@ -52,7 +52,7 @@ if (isset($_GET["id"])) {
     </ol>
 
     <!-- Update book -->
-	<form class="form-custom" style="max-width: 100%;" name="updatebook_form" id="updatebook_form" novalidate>
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updatebook_form" id="updatebook_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -160,7 +160,7 @@ if (isset($_GET["id"])) {
 
     <div class="container">
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
@@ -190,7 +190,7 @@ if (isset($_GET["id"])) {
 
     <div class="container">
 	
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>

@@ -36,7 +36,7 @@ include '../includes/session.php';
     </ol>
 
     <!-- Create tutorial -->
-	<form class="form-custom" style="max-width: 100%;" name="createtutorial_form" id="createtutorial_form" novalidate>
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="createtutorial_form" id="createtutorial_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -181,7 +181,7 @@ include '../includes/session.php';
 
     <div class="container">
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
@@ -211,7 +211,7 @@ include '../includes/session.php';
 
     <div class="container">
 	
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>

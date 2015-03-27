@@ -41,7 +41,7 @@ include 'includes/session.php';
     <h1 class="text-center">Contact</h1>
     <hr class="hr-small">
 
-	<form class="form-custom" style="max-width: 700px;">
+	<form class="form-horizontal form-custom" style="max-width: 700px;">
 
     <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
@@ -112,7 +112,7 @@ include 'includes/session.php';
     <h1 class="text-center">Contact</h1>
     <hr class="hr-small">
 
-	<form class="form-custom" style="max-width: 700px;">
+	<form class="form-horizontal form-custom" style="max-width: 700px;">
 
     <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>

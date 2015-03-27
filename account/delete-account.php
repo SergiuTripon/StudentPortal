@@ -41,7 +41,7 @@ $stmt1->fetch();
     </ol>
 	
     <!-- Delete account -->
-	<form class="form-custom" style="max-width: 100%;" name="deleteaccount_form">
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="deleteaccount_form">
 
     <div class="form-group">
     
@@ -116,7 +116,7 @@ $stmt1->fetch();
 
     <div class="container">
 	
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>

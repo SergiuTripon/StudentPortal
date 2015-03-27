@@ -49,7 +49,7 @@ if (isset($_GET['id'])) {
     </ol>
 
     <!-- Update result -->
-	<form class="form-custom" style="max-width: 100%;" name="createresults_form" id="createresults_form" novalidate>
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="createresults_form" id="createresults_form" novalidate>
 
     <input type="hidden" name="result_resultid" id="result_resultid" value="<?php echo $resultToUpdate; ?>">
 
@@ -141,7 +141,7 @@ if (isset($_GET['id'])) {
 
     <div class="container">
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
@@ -171,7 +171,7 @@ if (isset($_GET['id'])) {
 
     <div class="container">
 	
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>

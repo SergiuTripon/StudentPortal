@@ -32,7 +32,7 @@ include '../includes/session.php';
         <li class="active">Overview</li>
     </ol>
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
     <div class="marker-toggle">
     <div id="building-checkbox" class="checkbox-master">
@@ -94,7 +94,7 @@ include '../includes/session.php';
 
     <div class="container">
 
-	<form class="form-custom">
+	<form class="form-horizontal form-custom">
 
     <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>

@@ -51,7 +51,7 @@ header('Location: ../calendar/');
 	
 	<!-- Update a task -->
     
-	<form class="form-custom" style="max-width: 100%;" name="updatetask_form" id="updatetask_form">
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updatetask_form" id="updatetask_form">
 	
     <p id="error" class="feedback-sad text-center"></p>
 	<p id="success" class="feedback-happy text-center"></p>
@@ -103,7 +103,7 @@ header('Location: ../calendar/');
 
     <div class="container">
 	
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>

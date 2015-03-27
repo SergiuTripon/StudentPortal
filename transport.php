@@ -496,7 +496,7 @@ global $transport_status_last_updated;
     <?php include 'includes/menus/menu.php'; ?>
 
     <div class="container">
-	<form class="form-custom">
+	<form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
 	<i class="fa fa-graduation-cap"></i>

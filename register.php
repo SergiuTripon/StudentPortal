@@ -35,7 +35,7 @@ include 'includes/session.php';
 
     <div class="container">
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
                 
 	<div class="form-logo text-center">
     <i class="fa fa-check-square-o"></i>
@@ -70,7 +70,7 @@ include 'includes/session.php';
 
     <div class="container">
 
-    <form class="form-custom" style="max-width: 600px;" id="register_form" name="register_form">
+    <form class="form-horizontal form-custom" style="max-width: 600px;" id="register_form" name="register_form">
 
     <div class="form-logo text-center">
 	<i class="fa fa-check-square-o"></i>

@@ -28,7 +28,7 @@ global $token;
 
     <div class="container">
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
     <div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
@@ -61,7 +61,7 @@ global $token;
 
     <div class="container">
 
-    <form class="form-custom" name="signin_form" id="signin_form">
+    <form class="form-horizontal form-custom" name="signin_form" id="signin_form">
 
     <div class="form-logo text-center">
 	<i class="fa fa-lock"></i>

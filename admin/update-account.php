@@ -56,7 +56,7 @@ if ($dateofbirth == "0000-00-00") {
     </ol>
 
 	<!-- Update an account -->
-	<form class="form-custom" style="max-width: 100%;" name="updateanaccount_form" id="updateanaccount_form" novalidate>
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updateanaccount_form" id="updateanaccount_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
     <p id="error1" class="feedback-sad text-center"></p>
@@ -391,7 +391,7 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="container">
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
@@ -423,7 +423,7 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="container">
 
-    <form class="form-custom">
+    <form class="form-horizontal form-custom">
 
 	<div class="form-logo text-center">
     <i class="fa fa-graduation-cap"></i>
