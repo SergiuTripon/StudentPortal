@@ -11,6 +11,8 @@ $stmt1->fetch();
 if ($dateofbirth == "0000-00-00") {
     $dateofbirth = '';
 }
+
+echo $dateofbirth;
 ?>
 
 <!DOCTYPE html>
