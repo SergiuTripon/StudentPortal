@@ -56,7 +56,7 @@ if ($fee_amount == "0.00") {
     </ol>
 	
 	<!-- Pay course fees -->
-    <form class="form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/paypal/fees_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
+    <form class="form-horizontal form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/paypal/fees_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
     <p id="error" class="feedback-sad text-center"></p>
 
@@ -137,13 +137,7 @@ if ($fee_amount == "0.00") {
     </div>
     </div>
 
-    <div class="form-group">
-
     <hr class="hr-custom">
-
-    <div class="text-center">
-    <a class="btn btn-success btn-lg ladda-button" href="/overview" data-style="slide-up"><span class="ladda-label">Back to Home</span></a>
-    </div>
 
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Pay with PayPal</span></button>
