@@ -131,11 +131,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
-			</div>
+            '.($event_ticket_no === '0' ? "<div class=\"view-action pull-left\"><a href=\"/events/book-event?id='.$eventid.'\" class=\"btn btn-primary btn-sm ladda-button\" data-style=\"slide-up\">Book</a></div>" : "").'
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
 			</div>
