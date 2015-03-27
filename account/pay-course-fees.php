@@ -57,6 +57,9 @@ if ($fee_amount == "0.00") {
     if (!empty($conditional_style)) {
 		echo $conditional_style;
     }
+    if (!empty($conditional_script)) {
+        echo $conditional_script;
+    }
     ?>
 
     <p id="error" class="feedback-sad text-center"></p>
