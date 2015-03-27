@@ -325,7 +325,7 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'create_exam_moduleid='      + exam_moduleid +
+    data:'create_exam_moduleid='  + exam_moduleid +
          '&create_exam_name='     + exam_name +
          '&create_exam_notes='    + exam_notes +
          '&create_exam_date='     + exam_date +
