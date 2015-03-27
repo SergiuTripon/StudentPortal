@@ -689,7 +689,7 @@ include 'includes/session.php';
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The event has been deactivated successfully.');
-        $('#hide-deactivate').hide();
+        $('#deactivate-hide').hide();
         $('#deactivate-success-button').show();
         $("#deactivate-success-button").click(function () {
             location.reload();
