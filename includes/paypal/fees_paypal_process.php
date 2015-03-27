@@ -14,7 +14,7 @@ $payment = $_REQUEST["payment"];
 $cmd = '_cart';
 $currency_code = 'GBP';
 $invoiceid = rand(1111111111,9999999999);
-$transactionid = rand(1111111111,9999999999);
+$transactionid = substr(str_shuffle(MD5(microtime())), 0, 17);
 
 $productid = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
