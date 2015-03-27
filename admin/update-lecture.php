@@ -85,7 +85,7 @@ if (isset($_GET['id'])) {
         $moduleid = $row["moduleid"];
         $module_name = $row["module_name"];
 
-        echo '<option value="'.$moduleid.'" selected>'.$module_name.'</option>';
+        echo '<option value="'.$moduleid.'">'.$module_name.'</option>';
     }
 
     ?>

@@ -8,12 +8,6 @@ $stmt->store_result();
 $stmt->bind_result($email, $studentno, $firstname, $surname, $gender, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $postcode, $fee_amount);
 $stmt->fetch();
 
-
-if ($fee_amount == "0.00") {
-    $conditional_style = "<style> #product_name-hide { display: none !important; } .btn-primary { display: none !important; }</style>";
-    $conditional_script = "$(\"#payer_address1,#payer_city,#payer_postcode\").each(function(){ $(this).prop('readonly', true); });";
-}
-
 ?>
 
 
