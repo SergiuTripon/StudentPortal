@@ -65,6 +65,8 @@ include '../includes/session.php';
 
     </div>
 
+    <hr>
+
     <div id="map"></div>
 
     </form>
