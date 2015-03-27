@@ -299,8 +299,8 @@ include 'includes/session.php';
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="#deactivate-'.$eventid.'" data-toggle="modal">Deactivate</a></li>
-            <li><a href="#delete-'.$eventid.'" data-toggle="modal">Delete</a></li>
+            <li><a href="#deactivate-'.$eventid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$eventid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
             </td>
