@@ -458,7 +458,7 @@ include 'includes/session.php';
 
 	echo '<tr id="event-'.$row["eventid"].'">
 
-			<td data-title="Event">'.$event_name.'</td>
+			<td data-title="Event"><a href="#view-'.$eventid.'" data-toggle="modal" data-dismiss="modal">'.$event_name.'</a></td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price (&pound;)">'.$event_amount.'</td>
@@ -476,6 +476,39 @@ include 'includes/session.php';
             </div>
             </td>
 			</tr>
+
+			<div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$event_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($event_notes) ? "-" : "$event_notes").'</p>
+			<p><b>URL:</b> '.(empty($event_url) ? "-" : "$event_url").'</p>
+			<p><b>From:</b> '.$event_from.'</p>
+			<p><b>To:</b> '.$event_to.'</p>
+			<p><b>Price (&pound;):</b> '.$event_amount.'</p>
+			<p><b>Ticket available:</b> '.$event_ticket_no.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#deactivate-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#delete-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
 
 			<div class="modal modal-custom fade" id="reactivate-'.$eventid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -501,7 +534,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="reactivate-button-success" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -533,7 +566,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-button-success" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
