@@ -428,7 +428,7 @@ include 'includes/session.php';
 			<td data-title="Tickets available">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
             <td data-title="Action">
 			<div class="btn-group btn-action">
-            <a href="#reactivate-'.$eventid.'" data-toggle="modal">Reactivate</a>
+            <a class="btn btn-primary" href="#delete-'.$eventid.'" data-toggle="modal">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
