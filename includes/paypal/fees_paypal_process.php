@@ -37,15 +37,15 @@ $payment_status = 'pending';
 switch($payment){
 	case "process": // case process insert the form data in DB and process to the paypal
 
-		$stmt1 = $mysqli->prepare("UPDATE user_detail set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
-		$stmt1->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $session_userid);
-		$stmt1->execute();
-		$stmt1->close();
+        $stmt1 = $mysqli->prepare("UPDATE user_detail set address1=?, city=?, postcode=?, country=?, updated_on=? WHERE userid = ? LIMIT 1");
+        $stmt1->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $session_userid);
+        $stmt1->execute();
+        $stmt1->close();
 
-		$stmt2 = $mysqli->prepare("INSERT INTO paypal_log (userid, invoiceid, transactionid, productid, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt2->bind_param('iiiisiisssssssssssss', $session_userid, $invoiceid, $transactionid, $productid, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
-		$stmt2->execute();
-		$stmt2->close();
+        $stmt2 = $mysqli->prepare("INSERT INTO paypal_log (userid, invoice_id, product_id, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param('iiisiisssssssssssss', $session_userid, $invoice_id, $product_id, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
+        $stmt2->execute();
+        $stmt2->close();
 		
 		$this_script = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 		
