@@ -100,7 +100,7 @@ include 'includes/session.php';
 	$event_amount = $row["event_amount"];
 	$event_ticket_no = $row["event_ticket_no"];
 
-	echo '<tr id="task-'.$row["eventid"].'">
+	echo '<tr id="task-'.$eventid.'">
 
 			<td data-title="Name"><a href="#view-'.$eventid.'" data-toggle="modal" data-dismiss="modal">'.$event_name.'</a></td>
 			<td data-title="Notes">'.$event_notes.'</td>
@@ -117,7 +117,7 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <div class="close"><i class="fa fa-tickets"></i></div>
             <h4 class="modal-title" id="modal-custom-label">'.$event_name.'</h4>
 			</div>
 
@@ -344,7 +344,7 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <div class="close"><i class="fa fa-tickets"></i></div>
             <h4 class="modal-title" id="modal-custom-label">'.$event_name.'</h4>
 			</div>
 
@@ -515,7 +515,7 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <div class="close"><i class="fa fa-tickets"></i></div>
             <h4 class="modal-title" id="modal-custom-label">'.$event_name.'</h4>
 			</div>
 
