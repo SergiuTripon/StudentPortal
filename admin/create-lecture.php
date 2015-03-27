@@ -257,10 +257,10 @@ include '../includes/session.php';
         format: 'HH:mm'
     });
     $('#lecture_from_date').datetimepicker({
-        format: 'YYYY-MM-DD'
+        format: 'DD/MM/YYYY'
     });
     $('#lecture_to_date').datetimepicker({
-        format: 'YYYY-MM-DD'
+        format: 'DD/MM/YYYY'
 	});
 
     //Create lecture process
