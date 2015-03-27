@@ -11,7 +11,7 @@ $stmt->fetch();
 
 if ($fee_amount == "0.00") {
     $fee_title = 'Nothing to pay';
-    $conditional_style = "<style> #product_name-hide { display: none !important; } .btn { display: none !important; }</style>";}
+    $conditional_style = "<style> #product_name-hide { display: none !important; } .btn-primary { display: none !important; }</style>";}
 
 ?>
 
