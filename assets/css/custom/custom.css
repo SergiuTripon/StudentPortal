@@ -1375,16 +1375,7 @@ div.dataTables_length label {
 }
 }
 /* End of No More Responsive Table*/
-
-table.dataTable thead th.sorting:after {
-    color: #5D5D5D;
-}
-
-table.dataTable thead .sorting:after {
-    opacity: 0.4;
-}
-
-
+s
 /* Transport Panel */
 .transport-panel {
     text-align: center;
