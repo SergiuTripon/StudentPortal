@@ -57,7 +57,7 @@ include '../includes/session.php';
     <a class="btn btn-primary btn-lg ladda-button" onclick="searchLocations()" data-style="slide-up"><span class="ladda-label">Search</span></a>
     </div>
 
-    <div id="map-search-results" style="margin-top: 10px; margin-bottom: 10px;">
+    <div id="map-search-results" style="margin-top: 10px; margin-bottom: 0;">
     <select class="form-control" id="locationSelect" style="width:100%; display: none;">
         <option></option>
     </select>
