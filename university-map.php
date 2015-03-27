@@ -139,7 +139,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-minus-square-o"></i>
 			</div>
 			</div>
 
@@ -148,7 +148,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-deactivate">
+			<div id="deactivate-hide">
 			<div class="pull-left">
 			<a id="deactivate-'.$markerid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -157,7 +157,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-deactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -238,7 +238,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-plus-square-o"></i>
 			</div>
 			</div>
 
@@ -247,7 +247,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-reactivate">
+			<div id="reactivate-hide">
 			<div class="pull-left">
 			<a id="reactivate-'.$markerid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -256,7 +256,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-reactivate" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -279,7 +279,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div id="hide-delete">
+			<div id="delete-hide">
 			<div class="pull-left">
 			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
 			</div>
@@ -288,7 +288,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="success-button-delete" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
 			</div>
 			</div>
 
@@ -378,7 +378,7 @@ include 'includes/session.php';
 	data:'locationToDeactivate='+ locationToDeactivate,
 	success:function(){
 		$('#location-'+locationToDeactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').removeClass('fa-minus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
@@ -410,7 +410,7 @@ include 'includes/session.php';
 	data:'locationToReactivate='+ locationToReactivate,
 	success:function(){
 		$('#location-'+locationToReactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').removeClass('fa-plus-square-o');
         $('.form-logo i').addClass('fa-check-square-o');
         $('.modal-body p').removeClass('feedback-sad');
         $('.modal-body p').addClass('feedback-happy');
