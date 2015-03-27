@@ -1,16 +1,18 @@
 <?php
 include '../includes/session.php';
 
-$stmt1 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth, user_detail.phonenumber, user_detail.address1, user_detail.address2, user_detail.town, user_detail.city, user_detail.postcode, user_fee.fee_amount FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid LEFT JOIN user_fee ON user_signin.userid=user_fee.userid WHERE user_signin.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname, d.gender, d.nationality, d.dateofbirth, d.phonenumber, d.address1, d.address2, d.town, d.city, d.postcode FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $session_userid);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($email, $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $postcode, $fee_amount);
+$stmt1->bind_result($email, $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $postcode);
 $stmt1->fetch();
 
 if ($dateofbirth == "0000-00-00") {
     $dateofbirth = '';
 }
+
+echo $dateofbirth;
 ?>
 
 <!DOCTYPE html>
