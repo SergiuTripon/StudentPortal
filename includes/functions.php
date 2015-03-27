@@ -3116,6 +3116,7 @@ function UpdateAccount() {
 	$postcode = filter_input(INPUT_POST, 'update_postcode', FILTER_SANITIZE_STRING);
 
     $gender = strtolower($gender);
+    $nationality = strtolower($nationality);
 	if ($dateofbirth == '') {
 		$dateofbirth = NULL;
 	} else {
