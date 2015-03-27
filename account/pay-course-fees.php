@@ -117,7 +117,6 @@ global $fee_amount_paid;
 	<div id="product_name-hide" class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
-    <select class="form-control" name="product_name" id="product_name" style="width: 100%;">
         <?php
         $stmt1 = $mysqli->query("SELECT isHalf FROM user_fee WHERE userid='$session_userid'");
 
@@ -126,18 +125,23 @@ global $fee_amount_paid;
             $isHalf = $row["isHalf"];
 
             if ($isHalf === 1) {
+                echo '<select class="form-control" name="product_name" id="product_name" style="width: 100%;">';
                 echo '<option selected>Half fees</option>';
+                echo '</select>';
             } elseif ($fee_amount_paid === 'true') {
+                echo '<select class="form-control" name="product_name" id="product_name" style="width: 100%;" disabled>';
                 echo '<option disabled>Nothing to pay</option>';
+                echo '</select>';
             } else {
+                echo '<select class="form-control" name="product_name" id="product_name" style="width: 100%;">';
                 echo '<option></option>';
                 echo '<option>Full fees</option>';
                 echo '<option>Half fees</option>';
+                echo '</select>';
             }
         }
 
         ?>
-    </select>
     </div>
     </div>
 
