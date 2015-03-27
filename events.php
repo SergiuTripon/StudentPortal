@@ -670,28 +670,6 @@ include 'includes/session.php';
 	})
 	.resize();
 
-	//Book event form submit
-	$("body").on("click", ".book-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#book-event-form-" + DbNumberID).submit();
-
-	});
-
-    //Update event form submit
-	$("body").on("click", ".update-button", function(e) {
-    e.preventDefault();
-
-	var clickedID = this.id.split('-');
-    var DbNumberID = clickedID[1];
-
-	$("#update-event-form-" + DbNumberID).submit();
-
-	});
-
     //Deactivate event
     $("body").on("click", ".deactivate-button", function(e) {
     e.preventDefault();
@@ -712,8 +690,8 @@ include 'includes/session.php';
         $('.modal-body p').addClass('feedback-happy');
         $('.modal-body p').empty().append('The event has been deactivated successfully.');
         $('#hide-deactivate').hide();
-        $('#success-button-deactivate').show();
-        $("#success-button-deactivate").click(function () {
+        $('#deactivate-success-button').show();
+        $("#deactivate-success-button").click(function () {
             location.reload();
         });
 	},
