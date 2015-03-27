@@ -3343,28 +3343,28 @@ function FeesPaypalPaymentSuccess() {
             $fee_amount = $product_amount / 2;
             $isHalf = 1;
 
-            $stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
-            $stmt3->bind_param('iisi', $fee_amount, $isHalf, $updated_on, $userid);
-            $stmt3->execute();
-            $stmt3->close();
+            $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
+            $stmt4->bind_param('iisi', $fee_amount, $isHalf, $updated_on, $userid);
+            $stmt4->execute();
+            $stmt4->close();
 
         } elseif ($product_name == 'Half fees' AND $isHalf == '1') {
 
             $fee_amount = 0.00;
             $updated_on = date("Y-m-d G:i:s");
 
-            $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
-            $stmt4->bind_param('isi', $fee_amount, $updated_on, $userid);
-            $stmt4->execute();
-            $stmt4->close();
+            $stmt5 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
+            $stmt5->bind_param('isi', $fee_amount, $updated_on, $userid);
+            $stmt5->execute();
+            $stmt5->close();
 
 	    }
     }
 
-	$stmt8 = $mysqli->prepare("UPDATE paypal_log SET transactionid=?, payment_status=?, updated_on=?, completed_on=? WHERE invoiceid =?");
-	$stmt8->bind_param('ssssi', $transactionid, $payment_status, $updated_on, $completed_on, $invoiceid);
-	$stmt8->execute();
-	$stmt8->close();
+	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transactionid=?, payment_status=?, updated_on=?, completed_on=? WHERE invoiceid =?");
+	$stmt6->bind_param('ssssi', $transactionid, $payment_status, $updated_on, $completed_on, $invoiceid);
+	$stmt6->execute();
+	$stmt6->close();
 
 	//subject
 	$subject = 'Payment confirmation';
