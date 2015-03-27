@@ -3247,10 +3247,6 @@ function ChangePassword() {
     $stmt1->fetch();
 
     if (password_verify($old_password, $db_password)) {
-        $stmt1->close();
-        header('HTTP/1.0 550 The old password you entered is incorrect.');
-        exit();
-    } else {
         if (password_verify($new_password, $db_password)) {
             $stmt1->close();
             header('HTTP/1.0 550 The new password you entered is your current password. Please enter a new password.');
@@ -3300,6 +3296,10 @@ function ChangePassword() {
 
             $stmt1->close();
         }
+    } else {
+        $stmt1->close();
+        header('HTTP/1.0 550 The old password you entered is incorrect.');
+        exit();
     }
 }
 
