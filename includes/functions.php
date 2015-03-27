@@ -3649,6 +3649,9 @@ function UpdateAnAccount() {
 
             if ($dateofbirth == '') {
                 $dateofbirth = NULL;
+            } else {
+                $dateofbirth = DateTime::createFromFormat('d/m/Y', $dateofbirth);
+                $dateofbirth = $dateofbirth->format('Y-m-d');
             }
 
             $stmt3 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
