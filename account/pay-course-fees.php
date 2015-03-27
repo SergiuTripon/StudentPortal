@@ -12,7 +12,7 @@ $stmt->fetch();
 if ($fee_amount == "0.00") {
     $fee_title = 'Nothing to pay';
     $conditional_style = "<style> #product_name, label[for=product_name], [aria-owns='select2-product_name-results'] { display: none !important; } .btn { display: none !important; }</style>";
-    $conditional_script = "$(\"#conditional_script']\").removeClass(\"col-xs-6, col-sm-6\"); $(\"#conditional_script']\").addClass(\"col-xs-12, col-sm-12, pr0\");";
+    $conditional_script = "$(\"#conditional_script\").removeClass(\"col-xs-6, col-sm-6\"); $(\"#conditional_script\").addClass(\"col-xs-12, col-sm-12, pr0\");";
 }
 
 ?>
