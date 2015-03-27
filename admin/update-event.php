@@ -5,11 +5,11 @@ if (isset($_GET["id"])) {
 
     $eventToUpdate = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_category FROM system_event WHERE eventid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE eventid = ? LIMIT 1");
     $stmt1->bind_param('i', $eventToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($eventid, $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $event_category);
+    $stmt1->bind_result($eventid, $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no);
     $stmt1->fetch();
     $stmt1->close();
 
