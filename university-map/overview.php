@@ -29,7 +29,7 @@ include '../includes/session.php';
     <ol class="breadcrumb breadcrumb-custom">
         <li><a href="../../home/">Home</a></li>
         <li><a href="../../university-map/">University Map</a></li>
-        <li class="active">Home</li>
+        <li class="active">Location overview</li>
     </ol>
 
     <form class="form-horizontal form-custom">
