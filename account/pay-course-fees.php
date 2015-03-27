@@ -229,7 +229,6 @@ if ($fee_amount == "0.00") {
     var fee_type;
     var fee_amount;
     var new_fee_amount;
-    var new_fee_amount1;
 
     $('#product_name').on("change", function (e) {
         var fee_type = $('#product_name :selected').html();
