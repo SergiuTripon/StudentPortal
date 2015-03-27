@@ -9,7 +9,6 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <?php include '../assets/css-paths/select2-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
@@ -85,17 +84,6 @@ include '../includes/session.php';
 	<input type="text" class="form-control" name="event_ticket_no" id="event_ticket_no" placeholder="Enter a number">
 	</div>
 	</div>
-
-    <div class="form-group">
-    <div class="col-xs-12 col-sm-12 full-width">
-    <label for="event_category">Category<span class="field-required">*</span></label>
-    <select class="selectpicker event_category" name="event_category" id="event_category">
-        <option data-hidden="true">Select an option</option>
-        <option>Social</option>
-        <option>Careers</option>
-    </select>
-    </div>
-    </div>
 
 	</div>
 
@@ -178,38 +166,20 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/select2-js-path.php'; ?>
     <?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-    $(document).ready(function(){
-    //Select box
-    $(".bootstrap-select > .selectpicker").css("cssText", "color: gray !important;");
-
-    $(".selectpicker .dropdown-menu > li > a").click(function () {
-        $(".selectpicker").css("cssText", "color: #333333 !important;");
-    });
-    });
 
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
-    var today = new Date();
-	$(function () {
-
-    $('#event_from').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
+    $('#event_from').datetimepicker({
+        format: 'DD/MM/YYYY'
     });
-    $('#event_to').datepicker({
-        dateFormat: "yy-mm-dd",
-        controlType: 'select',
-        minDate: today
+    $('#event_to').datetimepicker({
+        format: 'DD/MM/YYYY'
     });
-
-	});
 
     //Create event ajax call
     $("#FormSubmit").click(function (e) {
