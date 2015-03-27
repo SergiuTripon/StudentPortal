@@ -473,24 +473,24 @@ include '../includes/session.php';
             $('#studentno').show();
             $('label[for="degree"]').show();
             $('#degree').show();
-            $('label[for="fees"]').show();
-            $('#fees').show();
+            $('label[for="fee_amount"]').show();
+            $('#fee_amount').show();
         }
         if(account_type === 'Academic staff') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
             $('label[for="degree"]').hide();
             $('#degree').hide();
-            $('label[for="fees"]').hide();
-            $('#fees').hide();
+            $('label[for="fee_amount"]').hide();
+            $('#fee_amount').hide();
         }
         if(account_type === 'Administrator') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
             $('label[for="degree"]').hide();
             $('#degree').hide();
-            $('label[for="fees"]').hide();
-            $('#fees').hide();
+            $('label[for="fee_amount"]').hide();
+            $('#fee_amount').hide();
         }
     });
 
