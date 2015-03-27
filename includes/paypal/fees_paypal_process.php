@@ -14,6 +14,7 @@ $payment = $_REQUEST["payment"];
 $cmd = '_cart';
 $currency_code = 'GBP';
 $invoiceid = rand(1111111111,9999999999);
+$transactionid = rand(1111111111,9999999999);
 
 $productid = filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_STRING);
 $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
@@ -40,14 +41,6 @@ switch($payment){
 		$stmt1->bind_param('sssssi', $payer_address1, $payer_city, $payer_postcode, $payer_country, $updated_on, $session_userid);
 		$stmt1->execute();
 		$stmt1->close();
-
-        $stmt1 = $mysqli->prepare("SELECT transactionid FROM paypal_log ORDER BY paymentid DESC");
-        $stmt1->execute();
-        $stmt1->store_result();
-        $stmt1->bind_result($transactionid);
-        $stmt1->fetch();
-
-        $transactionid = $transactionid + 1;
 
 		$stmt2 = $mysqli->prepare("INSERT INTO paypal_log (userid, invoiceid, transactionid, productid, product_name, product_quantity, product_amount, payer_firstname, payer_surname, payer_email, payer_phonenumber, payer_address1, payer_address2, payer_town, payer_city, payer_country, payer_postcode, payment_type, payment_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$stmt2->bind_param('iiiisiisssssssssssss', $session_userid, $invoiceid, $transactionid, $productid, $product_name, $product_quantity, $product_amount, $payer_firstname, $payer_surname, $payer_email, $payer_phonenumber, $payer_address1, $payer_address2, $payer_town, $payer_city, $payer_country, $payer_postcode, $payment_type, $payment_status, $created_on);
