@@ -1004,9 +1004,12 @@ form .field-required {
 /* End of Calendar portal */
 
 /* University Map portal */
-
 #university-map-portal .form-horizontal .checkbox-inline {
     padding-top: 0;
+}
+
+#university-map-portal #map-search-button {
+    margin-top: 10px;
 }
 
 #university-map-portal #map {
@@ -1014,12 +1017,6 @@ form .field-required {
     width: 100%;
     border-radius: 3px;
     border: 2px solid #8A8A8A;
-}
-
-@media (max-width: 480px) {
-#university-map-portal #map-search-button {
-    text-align: center !important;
-}
 }
 
 .marker-toggle {
