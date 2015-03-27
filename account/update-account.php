@@ -448,7 +448,7 @@ if ($dateofbirth == "0000-00-00") {
          '&update_dateofbirth=' + dateofbirth +
          '&update_phonenumber=' + phonenumber +
          '&update_address1='    + address1 +
-         '&update_address2='    + address1 +
+         '&update_address2='    + address2 +
          '&update_town='        + town +
          '&update_city='        + city +
          '&update_country='     + country +
