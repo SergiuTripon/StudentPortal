@@ -286,7 +286,7 @@ include 'includes/session.php';
 
 	echo '<tr id="event-'.$eventid.'">
 
-			<td data-title="Name">'.$event_name.'</td>
+			<td data-title="Name"><a href="#view-'.$eventid.'" data-toggle="modal">'.$event_name.'</a></td>
 			<td data-title="From">'.$event_from.'</td>
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
