@@ -90,7 +90,7 @@ include 'includes/session.php';
 
 	<!-- Locations -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom location-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -127,7 +127,7 @@ include 'includes/session.php';
 			<td data-title="Longitude">'.$marker_long.'</td>
 			<td data-title="Category">'.$marker_category.'</td>
 			<td data-title="Created on">'.$created_on.'</td>
-			<td data-title="Updated on">'.$updated_on.'</td>
+			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="../admin/update-location/?id='.$markerid.'">Update</a>
@@ -231,7 +231,7 @@ include 'includes/session.php';
 
 	<!-- Inactive locations -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom location-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -268,7 +268,7 @@ include 'includes/session.php';
 			<td data-title="Longitude">'.$marker_long.'</td>
 			<td data-title="Category">'.$marker_category.'</td>
 			<td data-title="Created on">'.$created_on.'</td>
-			<td data-title="Updated on">'.$updated_on.'</td>
+			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="#reactivate-'.$markerid.'" data-toggle="modal">Reactivate</a>
