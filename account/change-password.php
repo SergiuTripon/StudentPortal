@@ -115,9 +115,23 @@ include '../includes/session.php';
 	
 	var hasError = false;
 
+    var oldpwd = $("#oldpwd").val();
+	if(oldpwd === '') {
+        $("label[for='oldpwd']").empty().append("Please enter the old password.");
+        $("label[for='oldpwd']").removeClass("feedback-happy");
+        $("label[for='oldpwd']").addClass("feedback-sad");
+        $("#oldpwd").focus();
+		hasError  = true;
+		return false;
+    } else {
+        $("label[for='oldpwd']").empty().append("All good!");
+        $("label[for='oldpwd']").removeClass("feedback-sad");
+        $("label[for='oldpwd']").addClass("feedback-happy");
+	}
+
 	var password = $("#password").val();
 	if(password === '') {
-        $("label[for='password']").empty().append("Please enter a password.");
+        $("label[for='password']").empty().append("Please enter a new password.");
         $("label[for='password']").removeClass("feedback-happy");
         $("label[for='password']").addClass("feedback-sad");
         $("#password").focus();
@@ -170,7 +184,7 @@ include '../includes/session.php';
 
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
-        $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
+        $("label[for='confirmpwd']").empty().append("Please enter the new password confirmation.");
         $("label[for='confirmpwd']").removeClass("feedback-happy");
         $("label[for='confirmpwd']").addClass("feedback-sad");
         $("#confirmpwd").focus();
