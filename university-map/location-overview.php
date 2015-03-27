@@ -32,7 +32,7 @@ include '../includes/session.php';
         <li class="active">Location overview</li>
     </ol>
 
-    <form class="form-horizontal form-custom">
+    <form class="form-horizontal form-custom" style="max-width: 100%;">
 
     <div class="marker-toggle">
     <div id="building-checkbox" class="checkbox-master">
