@@ -12,7 +12,7 @@ include '../includes/session.php';
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
     <?php include '../assets/css-paths/select2-css-path.php'; ?>
 
-    <script src="https://maps.google.com/maps/api/js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBZqpd0qUhUHcqsLP3e57xFyMexKebN9M"></script>
 
     <script src="https://student-portal.co.uk/assets/js/university-map/location-overview.js"></script>
 
