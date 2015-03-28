@@ -574,6 +574,8 @@ form label.feedback-happy {
 }
 
 /* Sets the padding for input widths */
+form .col-xs-4,
+form .col-xs-4,
 form .col-xs-6,
 form .col-sm-6,
 form .col-xs-12,
