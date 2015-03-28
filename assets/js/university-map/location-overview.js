@@ -1,26 +1,26 @@
     var customIcons = {
-        building: {
+        'building': {
             icon: 'https://student-portal.co.uk/assets/img/university-map/building_icon.png'
         },
-        student_centre: {
+        'student centre': {
             icon: 'https://student-portal.co.uk/assets/img/university-map/student_centre_icon.png'
         },
-        lecture_theatre: {
+        'lecture theatre': {
             icon: 'https://student-portal.co.uk/assets/img/university-map/lecture_theatre_icon.png'
         },
-        computer_lab: {
+        'computer lab': {
             icon: 'https://student-portal.co.uk/assets/img/university-map/computer_lab_icon.png'
         },
-        library: {
+        'library': {
             icon: 'https://student-portal.co.uk/assets/img/university-map/library_icon.png'
         },
-        cycle_hire: {
+        'cycle hire': {
             icon: 'https://student-portal.co.uk/assets/img/university-map/cycle_hire_icon.png'
         },
-        cycle_parking: {
+        'cycle parking': {
             icon: 'https://student-portal.co.uk/assets/img/university-map/cycle_parking_icon.png'
         },
-        atm: {
+        'atm': {
             icon: 'https://student-portal.co.uk/assets/img/university-map/atm_icon.png'
         }
     };
