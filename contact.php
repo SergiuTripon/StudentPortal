@@ -49,13 +49,13 @@ include 'includes/session.php';
     <div id="hide">
 
 	<div class="form-group">
-	<div class="col-xs-4 col-sm-4 full-width pl0">
+	<div class="col-xs-4 col-sm-4 full-width">
 	<input class="form-control" type="text" name="firstname" id="firstname" placeholder="First name">
     </div>
 	<div class="col-xs-4 col-sm-4 full-width">
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Surname">
 	</div>
-	<div class="col-xs-4 col-sm-4 full-width pr0">
+	<div class="col-xs-4 col-sm-4 full-width">
     <input class="form-control" type="email" name="email" id="email" placeholder="E-mail address">
 	</div>
 	</div>
@@ -113,13 +113,13 @@ include 'includes/session.php';
     <div id="hide">
 
 	<div class="form-group">
-	<div class="col-xs-4 col-sm-4 full-width pl0">
+	<div class="col-xs-4 col-sm-4 full-width">
 	<input class="form-control" type="text" name="firstname" id="firstname" placeholder="First name">
     </div>
 	<div class="col-xs-4 col-sm-4 full-width">
     <input class="form-control" type="text" name="surname" id="surname" placeholder="Surname">
 	</div>
-	<div class="col-xs-4 col-sm-4 full-width pr0">
+	<div class="col-xs-4 col-sm-4 full-width">
     <input class="form-control" type="email" name="email" id="email" placeholder="E-mail address">
 	</div>
 	</div>
