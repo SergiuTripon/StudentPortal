@@ -1864,7 +1864,7 @@ function RenewBook() {
             $toreturn_on = $add14days->format('Y-m-d');
             $isRenewed = $isRenewed + 1;
 
-            $stmt4 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on, isRenewed=?, updated_on=? WHERE bookid =?");
+            $stmt4 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, isRenewed=?, updated_on=? WHERE bookid =?");
             $stmt4->bind_param('sis', $toreturn_on, $isRenewed, $updated_on);
             $stmt4->execute();
             $stmt4->close();
