@@ -201,7 +201,7 @@ include '../includes/session.php';
 
     // Date Time Picker
     $('#book_publish_date').datetimepicker({
-        format: 'YYYY/MM/DD'
+        format: 'DD/MM/YYYY'
     });
 
 	//Ladda

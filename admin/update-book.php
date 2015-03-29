@@ -211,6 +211,11 @@ if (isset($_GET["id"])) {
 
 	<script>
 
+    //Date Time Picker
+    $('#book_publish_date').datetimepicker({
+        format: 'DD/MM/YYYY'
+    });
+
 	//Ladda
 	Ladda.bind('.ladda-button', {timeout: 2000});
 
