@@ -1442,6 +1442,8 @@ include 'includes/session.php';
     var clickedID = this.id.split('-');
     var bookToRenew = clickedID[1];
 
+    alert(bookToRenew);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
