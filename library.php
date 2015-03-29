@@ -1412,6 +1412,27 @@ include 'includes/session.php';
 	});
     });
 
+    //Renew book
+    $("body").on("click", ".renew-button", function(e) {
+    e.preventDefault();
+    var clickedID = this.id.split('-');
+    var bookToRenew = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'bookToRenew='+ bookToRenew,
+	success:function(){
+        window.location.replace("http://student-portal.co.uk/library/renew-book?id="bookToRenew"");
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
     $("body").on("click", ".approve-button", function(e) {
     e.preventDefault();
 
