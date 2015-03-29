@@ -1449,7 +1449,9 @@ include 'includes/session.php';
 	data:'bookToRenew='+ bookToRenew,
 	success:function(errormsg){
         if (errormsg) {
-
+            $('.modal-custom').modal('hide');
+            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
         } else {
             window.location.replace("http://student-portal.co.uk/library/renew-book?id="bookToRenew"");
         }
