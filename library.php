@@ -1450,7 +1450,7 @@ include 'includes/session.php';
 	success:function(errormsg){
         if (errormsg) {
             alert(errormsg);
-            $('.modal-custom').modal('hide');
+
             $('#error-modal .modal-body p').empty().append(errormsg);
             $('#error-modal').modal('show');
         } else {
