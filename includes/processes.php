@@ -296,11 +296,6 @@ elseif (isset($_POST["request_read"])) {
     SetRequestRead();
 }
 
-//Call ApproveRequest function
-elseif (isset($_POST["requestToApprove"])) {
-    ApproveRequest();
-}
-
 //Call CollectBook function
 elseif (isset($_POST["bookToCollect"])) {
     CollectBook();
