@@ -311,6 +311,11 @@ elseif (isset($_POST["bookToReturn"])) {
     ReturnBook();
 }
 
+//Call RenewBook function
+elseif (isset($_POST["bookToRenew"])) {
+    RenewBook();
+}
+
 //Call CreateBook function
 elseif (isset(
     $_POST['create_book_name'],
