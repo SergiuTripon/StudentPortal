@@ -1453,7 +1453,7 @@ include 'includes/session.php';
             $('#error-modal .modal-body p').empty().append(errormsg);
             $('#error-modal').modal('show');
         } else {
-            window.location.replace("'http://student-portal.co.uk/library/renew-book?id=' + bookToRenew");
+            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
