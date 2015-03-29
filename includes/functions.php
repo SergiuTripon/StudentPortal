@@ -1979,6 +1979,9 @@ function CreateBook() {
     $stmt1->bind_result($db_bookid, $db_book_copy_no);
     $stmt1->fetch();
 
+    $book_publish_date = DateTime::createFromFormat('d/m/Y', $book_publish_date);
+    $book_publish_date = $book_publish_date->format('Y-m-d');
+
     if ($stmt1->num_rows == 1) {
 
         $book_status = 'active';
@@ -2028,10 +2031,45 @@ function UpdateBook()
     $book_discipline = filter_input(INPUT_POST, 'update_book_discipline', FILTER_SANITIZE_STRING);
     $book_language = filter_input(INPUT_POST, 'update_book_language', FILTER_SANITIZE_STRING);
 
-    $stmt5 = $mysqli->prepare("UPDATE system_book SET book_name=?, book_notes=?, book_author=?, book_copy_no=?, book_location=?, book_publisher=?, book_publish_date=?, book_publish_place=?, book_page_amount=?, book_barcode=?, book_discipline=?, book_language=?, updated_on=? WHERE bookid=?");
-    $stmt5->bind_param('sssissssiisssi', $book_name, $book_notes, $book_author, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $updated_on, $bookid);
-    $stmt5->execute();
-    $stmt5->close();
+    // Check if event name is different
+    $stmt1 = $mysqli->prepare("SELECT book_name FROM system_book WHERE bookid = ?");
+    $stmt1->bind_param('i', $bookid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_book_name);
+    $stmt1->fetch();
+
+    $book_publish_date = DateTime::createFromFormat('d/m/Y', $book_publish_date);
+    $book_publish_date = $book_publish_date->format('Y-m-d');
+
+    if ($book_name === $db_book_name) {
+
+        $stmt2 = $mysqli->prepare("UPDATE system_book SET book_notes=?, book_author=?, book_copy_no=?, book_location=?, book_publisher=?, book_publish_date=?, book_publish_place=?, book_page_amount=?, book_barcode=?, book_discipline=?, book_language=?, updated_on=? WHERE bookid=?");
+        $stmt2->bind_param('ssissssiisssi', $book_notes, $book_author, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $updated_on, $bookid);
+        $stmt2->execute();
+        $stmt2->close();
+
+    } else {
+
+        // Check existing book name
+        $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book WHERE book_name = ?");
+        $stmt3->bind_param('s', $event_name);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($db_bookid);
+        $stmt3->fetch();
+
+        if ($stmt3->num_rows == 1) {
+            $stmt3->close();
+            header('HTTP/1.0 550 An event with the name entered already exists.');
+            exit();
+        } else {
+            $stmt5 = $mysqli->prepare("UPDATE system_book SET book_name=?, book_notes=?, book_author=?, book_copy_no=?, book_location=?, book_publisher=?, book_publish_date=?, book_publish_place=?, book_page_amount=?, book_barcode=?, book_discipline=?, book_language=?, updated_on=? WHERE bookid=?");
+            $stmt5->bind_param('sssissssiisssi', $book_name, $book_notes, $book_author, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $updated_on, $bookid);
+            $stmt5->execute();
+            $stmt5->close();
+        }
+    }
 }
 
 //DeactivateBook function
