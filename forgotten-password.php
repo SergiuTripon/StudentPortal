@@ -36,7 +36,7 @@ include 'includes/session.php';
     <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="overview/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="home/"><span class="ladda-label">Home</span></a>
     </div>
 
     <div class="text-right">
