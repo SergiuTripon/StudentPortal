@@ -2006,7 +2006,7 @@ function CreateBook() {
     $book_publish_date = DateTime::createFromFormat('d/m/Y', $book_publish_date);
     $book_publish_date = $book_publish_date->format('Y-m-d');
 
-    if ($stmt1->num_rows == 1) {
+    if ($stmt1->num_rows > 0) {
 
         $book_status = 'active';
         $book_copy_no = $db_book_copy_no + 1;
