@@ -229,7 +229,8 @@ CREATE TABLE `system_book_reserved` (
   `collected_on` DATE NOT NULL,
 	`isCollected` TINYINT(1) NOT NULL,
   `reservation_status` VARCHAR(9) NOT NULL,
-  `created_on` DATE NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)
@@ -248,8 +249,10 @@ CREATE TABLE `system_book_loaned` (
   `returned_on` DATE NOT NULL,
   `isReturned` TINYINT(1) NOT NULL,
   `isRequested` TINYINT(1) NOT NULL,
+  `isRenewed` TINYINT(1) NOT NULL,
   `loan_status` VARCHAR(9) NOT NULL,
   `created_on` DATE NOT NULL,
+  `updated_on` DATETIME NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)
@@ -266,7 +269,8 @@ CREATE TABLE `system_book_requested` (
   `isRead` TINYINT(1) NOT NULL,
   `isApproved` TINYINT(1) NOT NULL,
   `request_status` VARCHAR(9) NOT NULL,
-  `created_on` DATE NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),
 FOREIGN KEY (bookid)
