@@ -305,7 +305,7 @@ include '../includes/session.php';
         $("#book_publisher").addClass("input-happy");
 	}
 
-    var book_publish_date = $("#book_publisher").val();
+    var book_publish_date = $("#book_publish_date").val();
 	if(book_publish_date === '') {
         $("label[for='book_publish_date']").empty().append("Please select a date.");
         $("label[for='book_publish_date']").removeClass("feedback-happy");
