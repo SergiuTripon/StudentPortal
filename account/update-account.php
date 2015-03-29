@@ -91,7 +91,7 @@ echo $dateofbirth;
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
-	<label for="fee_amount">Course fee amount<span class="field-required">*</span></label>
+	<label for="fee_amount">Course fee amount (&pound;)<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="fee_amount" id="fee_amount" value="<?php echo $fee_amount; ?>" placeholder="Enter an amount" readonly="readonly">
 	</div>
     </div>
