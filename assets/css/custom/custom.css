@@ -721,7 +721,7 @@ form .field-required {
     padding-left: 5px;
 }
 
-.big-tile p {
+.large-tile p {
     color: #FFFFFF;
     font-weight: 600;
     cursor: pointer;
@@ -730,11 +730,11 @@ form .field-required {
 }
 
 @media (max-width: 992px) {
-.big-tile {
+.large-tile {
     height: 150px;
 }
 
-.big-tile i {
+.large-tile i {
     font-size: 80px;
     margin-top: 23px;
     margin-bottom: 23px;
@@ -742,11 +742,11 @@ form .field-required {
 }
 
 @media (min-width: 992px) {
-.big-tile {
+.large-tile {
     height: 310px;
 }
 
-.big-tile i {
+.large-tile i {
     font-size: 120px;
     margin-top: 83px;
     margin-bottom: 83px;

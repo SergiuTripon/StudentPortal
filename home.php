@@ -48,7 +48,7 @@ include 'includes/functions.php';
 
     <a href="../timetable/">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div class="tile big-tile">
+    <div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable<span class="badge"><?php echo ($timetable_count == '0' ? "" : "$timetable_count"); ?></span></p>
     </div>
@@ -255,7 +255,7 @@ include 'includes/functions.php';
 
     <a href="../timetable/">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div class="tile big-tile">
+    <div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable</p>
     </div>
