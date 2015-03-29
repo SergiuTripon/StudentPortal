@@ -1816,6 +1816,53 @@ function ReturnBook() {
 //RenewBook function
 function RenewBook() {
 
+    global $mysqli;
+    global $updated_on;
+
+    //Book to
+    $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
+
+    $isApproved = 0;
+
+    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE bookid=? AND isApproved=? ORDER BY requestid DESC LIMIT 1");
+    $stmt1->bind_param('ii', $bookToRenew, $isApproved);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_bookid);
+    $stmt1->fetch();
+    $stmt1->close();
+
+    if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+        echo 'You cannot renew this book at this time. Another user requested this book. Once the book is collected and loaned again, you will be able to request it.';
+        exit();
+    } else {
+
+        $isRenewed = 3;
+
+        $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isRenewed=? ORDER BY loanid DESC LIMIT 1");
+        $stmt1->bind_param('ii', $bookToRenew, $isRenewed);
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($db_bookid);
+        $stmt1->fetch();
+        $stmt1->close();
+
+        if ($stmt1->num_rows == 1) {
+            $stmt1->close();
+            echo 'You cannot renew this book at this time. You have already renewed it 3 times, which is the maximum renewal limit.';
+            exit();
+        } else {
+            $stmt1 = $mysqli->prepare("SELECT toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
+            $stmt1->bind_param('ii', $bookToRenew, $isRenewed);
+            $stmt1->execute();
+            $stmt1->store_result();
+            $stmt1->bind_result($db_bookid);
+            $stmt1->fetch();
+            $stmt1->close();
+        }
+    }
+
 }
 
 //RequestBook function
