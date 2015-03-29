@@ -1830,7 +1830,6 @@ function RenewBook() {
     $stmt1->store_result();
     $stmt1->bind_result($db_bookid);
     $stmt1->fetch();
-    $stmt1->close();
 
     if ($stmt1->num_rows > 0) {
         $stmt1->close();
@@ -1846,7 +1845,6 @@ function RenewBook() {
         $stmt2->store_result();
         $stmt2->bind_result($db_bookid);
         $stmt2->fetch();
-        $stmt2->close();
 
         if ($stmt2->num_rows > 0) {
             $stmt2->close();
