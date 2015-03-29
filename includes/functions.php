@@ -1840,26 +1840,36 @@ function RenewBook() {
 
         $isRenewed = 3;
 
-        $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isRenewed=? ORDER BY loanid DESC LIMIT 1");
-        $stmt1->bind_param('ii', $bookToRenew, $isRenewed);
-        $stmt1->execute();
-        $stmt1->store_result();
-        $stmt1->bind_result($db_bookid);
-        $stmt1->fetch();
-        $stmt1->close();
+        $stmt2 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isRenewed=? ORDER BY loanid DESC LIMIT 1");
+        $stmt2->bind_param('ii', $bookToRenew, $isRenewed);
+        $stmt2->execute();
+        $stmt2->store_result();
+        $stmt2->bind_result($db_bookid);
+        $stmt2->fetch();
+        $stmt2->close();
 
-        if ($stmt1->num_rows == 1) {
-            $stmt1->close();
+        if ($stmt2->num_rows == 1) {
+            $stmt2->close();
             echo 'You cannot renew this book at this time. You have already renewed it 3 times, which is the maximum renewal limit.';
             exit();
         } else {
-            $stmt1 = $mysqli->prepare("SELECT toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
-            $stmt1->bind_param('ii', $bookToRenew, $isRenewed);
-            $stmt1->execute();
-            $stmt1->store_result();
-            $stmt1->bind_result($db_bookid);
-            $stmt1->fetch();
-            $stmt1->close();
+            $stmt3 = $mysqli->prepare("SELECT toreturn_on, isRenewed FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
+            $stmt3->bind_param('ii', $bookToRenew, $isRenewed);
+            $stmt3->execute();
+            $stmt3->store_result();
+            $stmt3->bind_result($toreturn_on);
+            $stmt3->fetch();
+            $stmt3->close();
+
+            $add14days = new DateTime($toreturn_on);
+            $add14days->add(new DateInterval('P14D'));
+            $toreturn_on = $add14days->format('Y-m-d');
+            $isRenewed = $isRenewed + 1;
+
+            $stmt2 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on, isRenewed=? WHERE bookid =?");
+            $stmt2->bind_param('si', $toreturn_on, $isRenewed);
+            $stmt2->execute();
+            $stmt2->close();
         }
     }
 
