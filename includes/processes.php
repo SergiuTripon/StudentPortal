@@ -308,7 +308,7 @@ elseif (isset($_POST["bookToReturn"])) {
 
 //Call RenewBook function
 elseif (isset($_POST["bookToRenew"])) {
-    RenewBook();
+    RenewBookCheck();
 }
 
 //Call CreateBook function
