@@ -1,11 +1,11 @@
 <?php
 include '../includes/session.php';
 
-$stmt1 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname, d.gender, d.nationality, DATE_FORMAT(d.dateofbirth,'%d/%m/%Y') as dateofbirth, d.phonenumber, d.address1, d.address2, d.town, d.city, d.postcode FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
+$stmt1 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname, d.gender, d.studentno, d.degree, f.fee_amount, d.nationality, DATE_FORMAT(d.dateofbirth,'%d/%m/%Y') as dateofbirth, d.phonenumber, d.address1, d.address2, d.town, d.city, d.postcode FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $session_userid);
 $stmt1->execute();
 $stmt1->store_result();
-$stmt1->bind_result($email, $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $postcode);
+$stmt1->bind_result($email, $firstname, $surname, $gender, $studentno, $degree, $fee_amount, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $postcode);
 $stmt1->fetch();
 
 if ($dateofbirth == "0000-00-00") {
@@ -76,6 +76,24 @@ echo $dateofbirth;
         <option <?php if($gender == "other") echo "selected"; ?>>Other</option>
     </select>
     </div>
+    </div>
+
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width">
+	<label for="studentno">Student number<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="studentno" id="studentno" value="<?php echo $studentno; ?>" placeholder="Enter a student number" readonly="readonly">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width">
+	<label for="degree">Programme of Study<span class="field-required">*</span></label>
+	<input class="form-control" type="text" name="degree" id="degree" value="<?php echo $degree; ?>" placeholder="Enter a programme of study" readonly="readonly">
+	</div>
+	</div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width">
+	<label for="fee_amount">Course fee amount<span class="field-required">*</span></label>
+	<input class="form-control" type="text" name="fee_amount" id="fee_amount" value="<?php echo $fee_amount; ?>" placeholder="Enter an amount" readonly="readonly">
+	</div>
     </div>
 
     <div class="form-group">
