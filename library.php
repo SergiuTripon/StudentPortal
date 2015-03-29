@@ -246,7 +246,7 @@ include 'includes/session.php';
 			<td data-title="To return by">'.$toreturn_on.'</td>
 			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
 			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../library/renew-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Renew</span></a></td>
+            <td data-title="Action"><a id='.$bookid.' class="btn btn-primary btn-md ladda-button renew-button" href="../library/renew-book?id='.$bookid.'" data-style="slide-up"><span class="ladda-label">Renew</span></a></td>
 			</tr>';
 	}
 
