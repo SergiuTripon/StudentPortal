@@ -1813,6 +1813,11 @@ function ReturnBook() {
     }
 }
 
+//RenewBook function
+function RenewBook() {
+
+}
+
 //RequestBook function
 function RequestBook() {
 
