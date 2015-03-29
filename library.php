@@ -365,7 +365,7 @@ include 'includes/session.php';
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
 
@@ -1233,10 +1233,34 @@ include 'includes/session.php';
 
     </div><!-- /container -->
 
+    <div id="error-modal" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <div class="modal-header">
+    <div class="form-logo text-center">
+    <i class="fa fa-exclamation"></i>
+    </div>
+    </div>
+
+    <div class="modal-body">
+    <p class="text-center feedback-sad"></p>
+    </div>
+
+    <div class="modal-footer">
+    <div class="view-close text-center">
+    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+    </div>
+    </div>
+
+    </div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
+
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
 
@@ -1423,8 +1447,12 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'bookToRenew='+ bookToRenew,
-	success:function(){
-        window.location.replace("http://student-portal.co.uk/library/renew-book?id="bookToRenew"");
+	success:function(errormsg){
+        if (errormsg) {
+
+        } else {
+            window.location.replace("http://student-portal.co.uk/library/renew-book?id="bookToRenew"");
+        }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();

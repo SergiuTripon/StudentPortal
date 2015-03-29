@@ -604,7 +604,7 @@ include 'includes/session.php';
 	<?php include 'includes/footers/footer.php'; ?>
 		
 	<!-- Sign Out (Inactive) JS -->
-    <script src="../assets/js/custom/sign-out-inactive.js"></script>
+    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
 
