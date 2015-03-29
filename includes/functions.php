@@ -1832,7 +1832,7 @@ function RenewBook() {
     $stmt1->fetch();
     $stmt1->close();
 
-    if ($stmt1->num_rows == 1) {
+    if ($stmt1->num_rows > 0) {
         $stmt1->close();
         echo 'You cannot renew this book at this time. Another user requested this book. Once the book is collected and loaned again, you will be able to request it.';
         exit();
@@ -1848,7 +1848,7 @@ function RenewBook() {
         $stmt2->fetch();
         $stmt2->close();
 
-        if ($stmt2->num_rows == 1) {
+        if ($stmt2->num_rows > 0) {
             $stmt2->close();
             echo 'You cannot renew this book at this time. You have already renewed it 3 times, which is the maximum renewal limit.';
             exit();
