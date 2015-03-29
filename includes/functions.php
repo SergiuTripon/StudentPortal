@@ -1848,7 +1848,7 @@ function RenewBook() {
 
         if ($stmt2->num_rows > 0) {
             $stmt2->close();
-            echo 'You cannot renew this book at this time. You have already renewed it 3 times, which is the maximum renewal limit.';
+            echo 'You cannot renew this book now. You have already renewed it 3 times, which is the maximum renewal limit.';
             exit();
         } else {
             $stmt3 = $mysqli->prepare("SELECT bookid, toreturn_on, isRenewed FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
