@@ -178,7 +178,7 @@ include 'includes/session.php';
     <h4 class="title-separator">Perform actions against other accounts</h4>
     <hr class="hr-separator">
 
-    <a class="btn btn-success btn-lg ladda-button" style="margin-bottom: 10px;" data-style="slide-up" href="/admin/create-account/"><span class="ladda-label">Create account</span></a>
+    <a class="btn btn-success btn-lg btn-admin ladda-button" data-style="slide-up" href="/admin/create-account/"><span class="ladda-label">Create account</span></a>
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
