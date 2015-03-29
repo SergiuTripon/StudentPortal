@@ -94,14 +94,14 @@ include 'includes/session.php';
 	$book_status = $row["book_status"];
 	$book_status = ucfirst($book_status);
 
-    $stmt2 = $mysqli->prepare("SELECT r.bookid FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid WHERE r.bookid=? AND ((r.isCollected='0' AND r.reservation_status='active') OR (l.isReturned = '0' AND l.loan_status='active') OR (l.isRequested = '0'))");
+    $stmt2 = $mysqli->prepare("SELECT r.bookid FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid WHERE r.bookid=? AND ((r.isCollected='0' AND r.reservation_status='ongoing') OR (l.isReturned = '0' AND l.loan_status='ongoing') OR (l.isRequested = '0'))");
     $stmt2->bind_param('i', $bookid);
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($db_reserved_bookid);
     $stmt2->fetch();
 
-    $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isReturned='0' AND isRequested='0' AND loan_status='active' AND NOT userid = '$session_userid'");
+    $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isReturned='0' AND isRequested='0' AND loan_status='ongoing' AND NOT userid = '$session_userid'");
     $stmt3->bind_param('i', $bookid);
     $stmt3->execute();
     $stmt3->store_result();
