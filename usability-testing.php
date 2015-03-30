@@ -180,7 +180,6 @@ include 'includes/session.php';
     </div>
     </section>
 
-
     </div><!-- /.container -->
 
     <?php include 'includes/footers/footer.php'; ?>
