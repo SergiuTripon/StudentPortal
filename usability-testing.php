@@ -176,7 +176,7 @@ include 'includes/session.php';
 
     <section class="usability-testing-section">
     <div class="embed-responsive embed-responsive-16by9">
-    <iframe width="1280" height="720" src="https://www.youtube.com/embed/IAkrF44858k" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/IAkrF44858k" frameborder="0" allowfullscreen></iframe>
     </div>
     </section>
 
