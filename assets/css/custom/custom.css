@@ -482,8 +482,8 @@ ul.external-pages-links {
 
 /* Usability testing showcase */
 
-#usability-testing-showcase {
-
+.usability-testing-showcase {
+    padding: 50px 0;
 }
 
 /* Form */

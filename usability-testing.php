@@ -171,7 +171,7 @@ include 'includes/session.php';
 
     <div class="container"><!-- container -->
 
-    <h1 class="text-center">Features</h1>
+    <h1 class="text-center">Usability testing</h1>
     <hr class="hr-small">
 
     <section class="usability-testing-showcase">
