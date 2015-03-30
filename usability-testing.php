@@ -177,14 +177,14 @@ include 'includes/session.php';
 	<p class="text-left">Click to watch the videos</p>
 
     <div class="row">
+    <a href="https://www.youtube.com/watch?v=IAkrF44858k" data-toggle="lightbox">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-    <div id="timetable">
 	<div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable</p>
-    </div>
 	</div>
 	</div>
+    </a>
 
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div id="exams">
