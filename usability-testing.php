@@ -169,12 +169,23 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <div id="features-showcase" class="container"><!-- container -->
+    <div class="container"><!-- container -->
 
     <h1 class="text-center">Features</h1>
     <hr class="hr-small">
 
-
+    <section class="usability-testing-showcase">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12 text-center">
+    <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
+    <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
+    </div>
+    </div>
+    <!-- /.row -->
+    </div>
+    <!-- /.container -->
+    </section>
 
 
     </div><!-- /.container -->
