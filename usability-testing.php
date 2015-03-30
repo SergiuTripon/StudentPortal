@@ -281,7 +281,6 @@ include 'includes/session.php';
     </div>
 
     <div class="modal-body">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/IAkrF44858k" frameborder="0" allowfullscreen></iframe>
     </div>
 
 	<div class="modal-footer">
@@ -310,7 +309,7 @@ include 'includes/session.php';
         $('.modal-custom').modal('show');
         $('.modal-custom #modal-custom-label').empty().append("Timetable");
         $('.modal-custom .close').empty().append("<i class=\"fa fa-table\"></i>");
-        $('.modal-custom .modal-body').empty().append("<p class=\"feedback-custom text-justify\">No one likes 9am lectures, especially when hungover from the night before. An easily accessible timetable will help you organise yourself better as you roll out of bed in the morning‏.</p>");
+        $('.modal-custom .modal-body').empty().append("<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/IAkrF44858k\" frameborder=\"0\" allowfullscreen></iframe>");
     });
     $( "#exams" ).click(function() {
         $('.modal-custom').modal('show');
