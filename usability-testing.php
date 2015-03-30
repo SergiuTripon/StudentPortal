@@ -175,10 +175,13 @@ include 'includes/session.php';
     <hr class="hr-small">
 
     <section class="usability-testing-section">
+    <div class="col-lg-10">
     <div class="embed-responsive embed-responsive-16by9">
-    <iframe src="https://www.youtube.com/embed/IAkrF44858k" frameborder="0" allowfullscreen></iframe>
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/IAkrF44858k" frameborder="0" allowfullscreen></iframe>
+    </div>
     </div>
     </section>
+
 
     </div><!-- /.container -->
 
