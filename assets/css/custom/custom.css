@@ -481,8 +481,19 @@ ul.external-pages-links {
 /* End of Social showcase */
 
 /* Usability testing showcase */
+#usability-testing-showcase h1 {
+    color: #449D44;
+}
 
-.usability-testing-showcase {
+#usability-testing-showcase hr {
+    max-width: 300px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-color: #449D44;
+    background: #449D44;
+}
+
+.usability-testing-section {
     padding: 50px 0;
 }
 
