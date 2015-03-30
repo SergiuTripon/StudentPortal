@@ -246,7 +246,9 @@ include 'includes/session.php';
     <script>
     $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
         event.preventDefault();
-        $(this).ekkoLightbox();
+        $(this).ekkoLightbox({
+            always_show_close: false
+        });
     });
     </script>
 
