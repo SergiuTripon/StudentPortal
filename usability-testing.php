@@ -171,10 +171,10 @@ include 'includes/session.php';
 
     <div id="usability-testing-showcase" class="container">
 
-    <h1 class="text-center">Features</h1>
+    <h1 class="text-center">Usability testing</h1>
     <hr class="hr-small">
 
-	<p class="text-left">Click and discover</p>
+	<p class="text-left">Click to watch the videos</p>
 
     <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
@@ -268,7 +268,7 @@ include 'includes/session.php';
 	</div>
 	</div><!-- /.row -->
 
-    <section id="about" class="usability-testing-section">
+    <section class="usability-testing-section">
     <div class="col-lg-12">
     <div class="embed-responsive embed-responsive-16by9">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/IAkrF44858k" allowfullscreen></iframe>
