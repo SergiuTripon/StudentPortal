@@ -10,20 +10,9 @@ include 'includes/session.php';
     <?php include 'assets/meta-tags.php'; ?>
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
+    <?php include 'assets/css-paths/ekko-lightbox-css-path.php'; ?>
 
-    <title>Student Portal | Features</title>
-
-    <style>
-    #features {
-        background-color: #735326;
-    }
-    #features a {
-        color: #FFFFFF;
-    }
-    #features a:focus, #features a:hover {
-        color: #FFFFFF;
-    }
-    </style>
+    <title>Student Portal | Usability testing</title>
 
 </head>
 
@@ -35,7 +24,7 @@ include 'includes/session.php';
 
      <?php include 'includes/menus/portal_menu.php'; ?>
 
-    <div id="features-showcase" class="container"><!-- container -->
+    <div id="usability-testing-showcase" class="container">
 
     <h1 class="text-center">Features</h1>
     <hr class="hr-small">
@@ -135,30 +124,6 @@ include 'includes/session.php';
 	</div><!-- /.row -->
 
     </div><!-- /.container -->
-
-    <!-- Feature Modal -->
-    <div class="modal fade modal-custom" id="modal-features" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-
-	<div class="modal-header">
-    <div class="close"></div>
-    <h4 class="modal-title" id="modal-custom-label"></h4>
-    </div>
-
-    <div class="modal-body">
-    </div>
-
-	<div class="modal-footer">
-	<div class="text-center">
-    <button type="button" class="btn btn-danger btn-lg" data-style="slide-up" data-dismiss="modal">Close</button>
-	</div>
-	</div>
-
-	</div><!-- /modal -->
-    </div><!-- /modal-dialog -->
-    </div><!-- /modal-content -->
-	<!-- End of Feature Modal -->
 
     <?php include 'includes/footers/footer.php'; ?>
 
@@ -276,7 +241,7 @@ include 'includes/session.php';
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-    <?php include 'assets/js-paths/easing-js-path.php'; ?>
+    <?php include 'assets/js-paths/ekko-lightbox-js-path.php'; ?>
 
 </body>
 </html>
