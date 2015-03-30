@@ -179,7 +179,7 @@ include 'includes/session.php';
     <div class="row">
     <div class="col-lg-12 text-center">
     <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/IAkrF44858k allowfullscreen"></iframe>
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/IAkrF44858k" frameborder="0" allowfullscreen></iframe>
     </div>
     </div>
     </div><!-- /.row -->
