@@ -270,6 +270,7 @@ include 'includes/session.php';
 
     <section id="about" class="usability-testing-section">
     <div class="col-lg-12">
+
     </div>
     </section>
 
