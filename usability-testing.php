@@ -243,5 +243,12 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
     <?php include 'assets/js-paths/ekko-lightbox-js-path.php'; ?>
 
+    <script>
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
+    </script>
+
 </body>
 </html>
