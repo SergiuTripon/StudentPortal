@@ -178,13 +178,12 @@ include 'includes/session.php';
     <div class="container">
     <div class="row">
     <div class="col-lg-12 text-center">
-    <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-    <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
+    <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/IAkrF44858k allowfullscreen"></iframe>
     </div>
     </div>
-    <!-- /.row -->
-    </div>
-    <!-- /.container -->
+    </div><!-- /.row -->
+    </div><!-- /.container -->
     </section>
 
 
