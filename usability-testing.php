@@ -169,12 +169,12 @@ include 'includes/session.php';
 
     <?php include 'includes/menus/menu.php'; ?>
 
-    <div class="container"><!-- container -->
+    <div id="usability-testing-showcase" class="container">
 
     <h1 class="text-center">Usability testing</h1>
     <hr class="hr-small">
 
-    <section class="usability-testing-showcase">
+    <section class="usability-testing-section">
     <div class="container">
     <div class="row">
     <div class="col-lg-12 text-center">
