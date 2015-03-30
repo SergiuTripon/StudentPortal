@@ -142,7 +142,7 @@ include 'includes/session.php';
 	<p class="text-left">Click to watch the videos</p>
 
     <div class="row">
-    <a href="https://www.youtube.com/watch?v=IAkrF44858k" data-toggle="lightbox" data-type="youtube">
+    <a href="https://www.youtube.com/watch?v=IAkrF44858k" data-toggle="lightbox" data-type="youtube" data-title="Timetable">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
