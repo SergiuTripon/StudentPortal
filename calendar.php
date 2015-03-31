@@ -862,7 +862,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+	<a id="signin-button" class="btn btn-primary btn-lg" href="/" data-loading-text="Loading..." autocomplete="off">Sign in</a>
     </div>
 
     </form>
@@ -875,8 +875,9 @@ include 'includes/session.php';
 
     <script>
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+    $('#signin-button').on('click', function () {
+        var $btn = $(this).button('loading');
+    });
 
     </script>
 
