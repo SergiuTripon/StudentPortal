@@ -2515,7 +2515,7 @@ function CompleteTask() {
     $stmt3->close();
 
     $array = array(
-        'due-tasks'=>$due_tasks
+        'due_tasks'=>$due_tasks
     );
 
     echo json_encode($array);
