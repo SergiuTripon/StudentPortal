@@ -713,7 +713,7 @@ include 'includes/session.php';
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
             $('#complete-question').addClass('hide');
-            $('#complete-confirmation').show();
+            $('#complete-confirmation').addClass('');
             $('#complete-hide').hide();
             $('#complete-success-button').show();
             $("#complete-success-button").click(function () {

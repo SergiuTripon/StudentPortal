@@ -1552,3 +1552,7 @@ table.dataTable thead .sorting:after {
     background: none !important;
 }
 /* End of Tube Lines colour definition */
+
+.show {
+    display: block;
+}
