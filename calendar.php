@@ -698,10 +698,9 @@ include 'includes/session.php';
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
-        if (data) {
             alert(data.due_tasks);
             $('#due-tasks-content').empty();
             $(".table-due-tasks").dataTable().fnDestroy();
@@ -719,7 +718,6 @@ include 'includes/session.php';
             $('#complete-confirmation').show();
             $('#complete-hide').hide();
             $('#complete-success-button').show();
-        }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
