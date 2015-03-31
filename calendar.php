@@ -164,7 +164,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-square-o"></i>
 			</div>
 			</div>
 
