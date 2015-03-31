@@ -707,6 +707,8 @@ include 'includes/session.php';
             $(".table-completed-tasks").dataTable().fnDestroy();
             $('#completed-tasks-content').append(updatedcontent);
             $(".table-completed-tasks").dataTable(settings);
+            $(".table-due-tasks").dataTable().fnDestroy();
+            $(".table-due-tasks").dataTable(settings);
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
             $('#complete-question').hide();
