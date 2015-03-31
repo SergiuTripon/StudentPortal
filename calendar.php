@@ -700,8 +700,8 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'taskToComplete='+ taskToComplete,
-	success:function(results){
-            alert(results.arg1);
+	success:function(data){
+            alert(data.due_tasks);
             $('#due-tasks-content').empty();
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#due-tasks-content').append(results.arg1);
