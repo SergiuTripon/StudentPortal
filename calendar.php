@@ -718,9 +718,9 @@ include 'includes/session.php';
             $('#complete-success-button').show();
             $("#complete-success-button").click(function () {
                 $('#complete-'+taskToComplete).modal('toggle');
+                $('.form-logo i').removeClass('fa-check');
+                $('.form-logo i').addClass('fa-question');
             });
-            $('.form-logo i').removeClass('fa-check');
-            $('.form-logo i').addClass('fa-question');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
