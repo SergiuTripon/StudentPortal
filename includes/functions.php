@@ -2680,8 +2680,8 @@ function CompleteTask() {
     $stmt2->close();
 
     $arr = array(
-        'due_tasks'=>"'.$due_tasks.'",
-        'completed_tasks'=>"'.$completed_tasks.'",
+        'due_tasks'=>$due_tasks,
+        'completed_tasks'=>$completed_tasks,
     );
 
     echo json_encode($arr);
