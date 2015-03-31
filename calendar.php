@@ -701,8 +701,8 @@ include 'includes/session.php';
 	dataType:"json",
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
-            $(".table-due-tasks").dataTable().fnDestroy();
             $('#due-tasks-content').empty();
+            $(".table-due-tasks").dataTable().fnDestroy();
 
             $('#completed-tasks-content').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
