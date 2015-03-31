@@ -79,7 +79,7 @@ include 'includes/session.php';
 
 	<!-- Due tasks -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-due-tasks">
 
 	<thead>
 	<tr>
@@ -402,7 +402,7 @@ include 'includes/session.php';
 
 	<!-- Archived tasks -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-archived-tasks">
 
 	<thead>
 	<tr>
@@ -672,7 +672,9 @@ include 'includes/session.php';
     };
 
     //DataTables
+    $('.table-due-tasks').dataTable(settings);
     $('.table-completed-tasks').dataTable(settings);
+    $('.table-archived-tasks').dataTable(settings);
 
     //Responsiveness
 	$(window).resize(function(){
