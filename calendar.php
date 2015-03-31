@@ -197,7 +197,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-question"></i>
 			</div>
 			</div>
 
@@ -230,7 +230,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-question"></i>
 			</div>
 			</div>
 
@@ -352,7 +352,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-question"></i>
 			</div>
 			</div>
 
@@ -487,7 +487,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-question"></i>
 			</div>
 			</div>
 
@@ -520,7 +520,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-question"></i>
 			</div>
 			</div>
 
@@ -698,8 +698,8 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(){
 		$('#task-'+taskToComplete).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
+        $('.form-logo i').removeClass('fa-question');
+        $('.form-logo i').addClass('fa-check');
         $('#complete-question').hide();
         $('#complete-confirmation').show();
         $('#complete-hide').hide();
@@ -730,8 +730,8 @@ include 'includes/session.php';
 	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(){
 		$('#task-'+taskToDeactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
+        $('.form-logo i').removeClass('fa-question');
+        $('.form-logo i').addClass('fa-check');
         $('#deactivate-question').hide();
         $('#deactivate-confirmation').show();
         $('#deactivate-hide').hide();
@@ -761,8 +761,8 @@ include 'includes/session.php';
 	data:'taskToReactivate='+ taskToReactivate,
 	success:function(){
 		$('#task-'+taskToReactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
+        $('.form-logo i').removeClass('fa-question');
+        $('.form-logo i').addClass('fa-check');
         $('#reactivate-question').hide();
         $('#reactivate-confirmation').show();
         $('#reactivate-hide').hide();
@@ -792,8 +792,8 @@ include 'includes/session.php';
 	data:'taskToDelete='+ taskToDelete,
 	success:function(){
 		$('#task-'+taskToDelete).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
+        $('.form-logo i').removeClass('fa-question');
+        $('.form-logo i').addClass('fa-check');
         $('#delete-question').hide();
         $('#delete-confirmation').show();
         $('#delete-hide').hide();
