@@ -151,6 +151,7 @@ include 'includes/session.php';
 	</div>
     </a>
 
+    <a href="https://youtu.be/AJoGdJwocQ8?t=1m50s" data-toggle="lightbox" data-type="youtube" data-title="Exams">
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
     <div id="exams">
 	<div class="tile">
@@ -159,6 +160,7 @@ include 'includes/session.php';
     </div>
 	</div>
 	</div>
+    </a>
 
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div id="library">
