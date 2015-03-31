@@ -721,7 +721,7 @@ include 'includes/session.php';
                 $('.form-logo i').removeClass('fa-check');
                 $('.form-logo i').addClass('fa-question');
                 $('#complete-question').show();
-                $('#complete-confirmation').hide();
+                $('#complete-confirmation').addClass('hide');
                 $('#complete-hide').show();
             });
 	},
