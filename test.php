@@ -185,6 +185,6 @@ $array = array(
     'completed_tasks'=>$completed_tasks
 );
 
-echo $duetasks;
+echo $due_tasks;
 
 echo json_encode($array);
