@@ -876,7 +876,7 @@ include 'includes/session.php';
     <script>
 
     $('#signin-button').on('click', function () {
-        var $btn = $(this).button('loading');
+        $(this).button('loading');
     });
 
     </script>
