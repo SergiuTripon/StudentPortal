@@ -704,7 +704,7 @@ include 'includes/session.php';
             alert(data.due_tasks);
             $('#due-tasks-content').empty();
             $(".table-due-tasks").dataTable().fnDestroy();
-            $('#due-tasks-content').append(data.due-tasks);
+            $('#due-tasks-content').append(data.due_tasks);
             $(".table-due-tasks").dataTable(settings);
 
             alert(data.completed_tasks);
