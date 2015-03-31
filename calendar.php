@@ -198,7 +198,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="text-center">
-			<a id="complete-confirmation-button" class="btn btn-primary btn-lg" style="display: none;">Continue</a>
+			<a id="complete-confirmation-button" class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
 			</div>
 			</div>
 
