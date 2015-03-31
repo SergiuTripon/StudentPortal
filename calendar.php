@@ -691,6 +691,18 @@ include 'includes/session.php';
 
 
     //Complete record
+
+    $("#complete-button").click(function () {
+        $('.form-logo i').removeClass('fa-check');
+        $('.form-logo i').addClass('fa-question');
+        $('#complete-question').removeClass('hide');
+        $('#complete-question').addClass('show');
+        $('#complete-confirmation').removeClass('show');
+        $('#complete-confirmation').addClass('hide');
+        $('#complete-hide').removeClass('hide');
+        $('#complete-hide').addClass('show');
+    });
+
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
 
