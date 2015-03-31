@@ -700,15 +700,18 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'taskToComplete='+ taskToComplete,
-	success:function(updatedcontent){
-        if (updatedcontent) {
+	success:function(results){
+        if (results) {
             $('#task-'+taskToComplete).fadeOut();
+            $('#due-tasks-content').empty();
+            $(".table-due-tasks").dataTable().fnDestroy();
+            $('#due-tasks-content').append(results.args1);
+            $(".table-due-tasks").dataTable(settings);
+
             $('#completed-tasks-content').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
-            $('#completed-tasks-content').append(updatedcontent);
+            $('#completed-tasks-content').append(results.args2);
             $(".table-completed-tasks").dataTable(settings);
-            $(".table-due-tasks").dataTable().fnDestroy();
-            $(".table-due-tasks").dataTable(settings);
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
             $('#complete-question').hide();
