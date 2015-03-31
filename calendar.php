@@ -720,6 +720,9 @@ include 'includes/session.php';
                 $('#complete-'+taskToComplete).modal('toggle');
                 $('.form-logo i').removeClass('fa-check');
                 $('.form-logo i').addClass('fa-question');
+                $('#complete-question').show();
+                $('#complete-confirmation').hide();
+                $('#complete-hide').show();
             });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
