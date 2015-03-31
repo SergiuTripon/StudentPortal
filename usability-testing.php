@@ -142,8 +142,8 @@ include 'includes/session.php';
 	<p class="text-left">Click to watch the videos</p>
 
     <div class="row">
-    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable</p>
@@ -151,13 +151,20 @@ include 'includes/session.php';
 	</div>
     </a>
 
-    <a href="https://youtu.be/AJoGdJwocQ8?t=1m50s" data-toggle="lightbox" data-type="youtube" data-title="Exams">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div id="exams">
+    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8?t=1m50s" data-toggle="lightbox" data-type="youtube" data-title="Exams (1:50)">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
 	<i class="fa fa-pencil"></i>
 	<p>Exams</p>
-    </div>
+	</div>
+	</div>
+    </a>
+
+    <a href="https://youtu.be/AJoGdJwocQ8?t=1m50s" data-toggle="lightbox" data-type="youtube" data-title="Results (2:50)">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+	<div class="tile">
+	<i class="fa fa-pencil"></i>
+	<p>Results</p>
 	</div>
 	</div>
     </a>
