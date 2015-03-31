@@ -2436,7 +2436,7 @@ function CompleteTask() {
 	$task_startdate = $row["task_startdate"];
 	$task_duedate = $row["task_duedate"];
 
-    $results['args1'] = '<tr id="task-'.$taskid.'">
+    $due_tasks = '<tr id="task-'.$taskid.'">
 
 			<td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
 			<td data-title="Start date">'.$task_startdate.'</td>
@@ -2604,7 +2604,7 @@ function CompleteTask() {
         $task_url = $row["task_url"];
         $updated_on = $row["updated_on"];
 
-    $results['args2'] = '<tr id="task-'.$taskid.'">
+    $completed_tasks = '<tr id="task-'.$taskid.'">
 
             <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
             <td data-title="Start">'.$task_startdate.'</td>
@@ -2679,7 +2679,12 @@ function CompleteTask() {
 
     $stmt2->close();
 
-    echo json_encode($results);
+    $arr = array(
+        'due_tasks'=>"'.$due_tasks.'",
+        'completed_tasks'=>"'.$completed_tasks.'",
+    );
+
+    echo json_encode($arr);
 }
 
 //DeactivateTask function
