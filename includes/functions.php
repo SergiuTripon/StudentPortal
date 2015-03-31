@@ -2681,10 +2681,6 @@ function CompleteTask() {
 
     $stmt3->close();
 
-    if (empty($due_tasks)) {
-        $due_tasks = '';
-    }
-
     $array = array(
         'due_tasks'=>$due_tasks,
         'completed_tasks'=>$completed_tasks
