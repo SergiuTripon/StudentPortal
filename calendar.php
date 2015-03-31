@@ -717,7 +717,7 @@ include 'includes/session.php';
             $('#complete-hide').hide();
             $('#complete-success-button').show();
             $("#complete-success-button").click(function () {
-                location.reload();
+                $('.modal-custom').modal('toggle');
             });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
