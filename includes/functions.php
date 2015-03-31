@@ -2590,8 +2590,6 @@ function CompleteTask() {
 			</div><!-- /modal-content -->';
 	}
 
-	$stmt2->close();
-
     $stmt3 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
 
     while($row = $stmt3->fetch_assoc()) {
@@ -2677,14 +2675,15 @@ function CompleteTask() {
 			</div><!-- /modal-content -->';
     }
 
-    $stmt2->close();
-
     $arr = array(
         'due_tasks'=>$due_tasks,
         'completed_tasks'=>$completed_tasks,
     );
 
     echo json_encode($arr);
+
+    $stmt2->close();
+    $stmt3->close();
 }
 
 //DeactivateTask function
