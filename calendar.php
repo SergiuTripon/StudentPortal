@@ -702,6 +702,8 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
             $('#due-tasks-content').empty();
+            $(".table-due-tasks").dataTable().fnDestroy();
+
 
             $('#completed-tasks-content').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
