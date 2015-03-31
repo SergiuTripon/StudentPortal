@@ -707,10 +707,10 @@ include 'includes/session.php';
             $('#due-tasks-content').append(data.due-tasks);
             $(".table-due-tasks").dataTable(settings);
 
-            alert(results.args2);
+            alert(data.completed_tasks);
             $('#completed-tasks-content').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
-            $('#completed-tasks-content').append(results.args2);
+            $('#completed-tasks-content').append(data.completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
