@@ -2416,6 +2416,8 @@ function CompleteTask() {
     global $session_userid;
     global $updated_on;
     global $completed_on;
+    global $due_tasks;
+    global $completed_tasks;
 
 	$taskToComplete = filter_input(INPUT_POST, 'taskToComplete', FILTER_SANITIZE_NUMBER_INT);
 	$task_status = 'completed';
@@ -2437,7 +2439,7 @@ function CompleteTask() {
         $task_url = $row["task_url"];
         $updated_on = $row["updated_on"];
 
-    $results['args2'] = '<tr id="task-'.$taskid.'">
+    $due_tasks = '<tr id="task-'.$taskid.'">
 
             <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
             <td data-title="Start">'.$task_startdate.'</td>
@@ -2512,7 +2514,11 @@ function CompleteTask() {
 
     $stmt3->close();
 
-    echo json_encode($results);
+    $array = array(
+        'due-tasks'=>$due_tasks
+    );
+
+    echo json_encode($array);
 }
 
 //DeactivateTask function
