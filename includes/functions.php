@@ -2420,7 +2420,7 @@ function CompleteTask() {
 	$taskToComplete = filter_input(INPUT_POST, 'taskToComplete', FILTER_SANITIZE_NUMBER_INT);
 	$task_status = 'completed';
 
-	$stmt1 = $mysqli->prepare("UPDATE user_task SET task_status = ?, updated_on = ?, comleted_on=? WHERE taskid = ? LIMIT 1");
+	$stmt1 = $mysqli->prepare("UPDATE user_task SET task_status = ?, updated_on = ?, completed_on=? WHERE taskid = ? LIMIT 1");
 	$stmt1->bind_param('sssi', $task_status, $updated_on, $completed_on, $taskToComplete);
 	$stmt1->execute();
 	$stmt1->close();
