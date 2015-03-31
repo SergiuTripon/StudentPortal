@@ -2427,28 +2427,40 @@ function CompleteTask() {
 	$stmt1->execute();
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'active'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
 
-    while($row = $stmt2->fetch_assoc()) {
+	while($row = $stmt1->fetch_assoc()) {
 
-        $taskid = $row["taskid"];
-        $task_name = $row["task_name"];
-        $task_notes = $row["task_notes"];
-        $task_startdate = $row["task_startdate"];
-        $task_duedate = $row["task_duedate"];
-        $task_url = $row["task_url"];
-        $updated_on = $row["updated_on"];
+	$taskid = $row["taskid"];
+	$task_name = $row["task_name"];
+	$task_notes = $row["task_notes"];
+    $task_url = $row["task_url"];
+	$task_startdate = $row["task_startdate"];
+	$task_duedate = $row["task_duedate"];
 
-    $due_tasks = '<tr id="task-'.$taskid.'">
+	$due_tasks = '<tr id="task-'.$taskid.'">
 
-            <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
-            <td data-title="Start">'.$task_startdate.'</td>
-            <td data-title="Due">'.$task_duedate.'</td>
-            <td data-title="Completed on">'.$task_duedate.'</td>
-            <td data-title="Action"><a class="btn btn-md btn-primary ladda-button" data-style="slide-up" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
-            </tr>
+			<td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
+			<td data-title="Start date">'.$task_startdate.'</td>
+			<td data-title="Due date">'.$task_duedate.'</td>
+			<td data-title="Action">
 
-	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="#complete-'.$taskid.'" data-toggle="modal">Complete</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="../calendar/update-task?id='.$taskid.'" data-toggle="modal" data-toggle="modal">Update</a></li>
+            <li><a href="#deactivate-'.$taskid.'" data-toggle="modal" data-toggle="modal">Archive</a></li>
+            <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -2462,15 +2474,83 @@ function CompleteTask() {
 			<p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
 			<p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
 			<p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
-			<p><b>Completed on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
 			</div>
 
 			<div class="modal-footer">
-			<div class="view-action pull-left">
+            <div class="view-action pull-left">
+            <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
+            <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Complete</a>
+            <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Archive</a>
             <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            <div id="complete-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-question"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="complete-question" class="text-center feedback-sad">Are you sure you want to complete '.$task_name.'?</p>
+			<p id="complete-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been completed successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="complete-hide">
+			<div class="pull-left">
+			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="complete-success-button" class="btn btn-primary btn-lg" data-dismiss="modal" style="display: none;">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="deactivate-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-question"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to archive '.$task_name.'?</p>
+			<p id="deactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been archived successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="deactivate-hide">
+			<div class="pull-left">
+			<a id="deactivate-'.$taskid.'" class="btn btn-success btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg" data-dismiss="modal" style="display: none;">Continue</a>
 			</div>
 			</div>
 
@@ -2510,9 +2590,9 @@ function CompleteTask() {
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-    }
+	}
 
-    $stmt2->close();
+	$stmt2->close();
 
     $stmt3 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
 
