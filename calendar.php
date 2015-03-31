@@ -714,7 +714,7 @@ include 'includes/session.php';
             $('#complete-hide').hide();
             $('#complete-success-button').show();
             $("#complete-success-button").click(function () {
-                $('#task-'+taskToComplete).modal('hide');
+                $('#view-'+taskToComplete).modal('hide');
             });
         }
 	},
