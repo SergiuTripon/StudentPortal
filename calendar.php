@@ -112,7 +112,7 @@ include 'includes/session.php';
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#complete-'.$taskid.'" data-toggle="modal">Complete</a>
+            <a id="complete-button" class="btn btn-primary" href="#complete-'.$taskid.'" data-toggle="modal">Complete</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -688,6 +688,8 @@ include 'includes/session.php';
         }
 	}).resize();
 
+
+
     //Complete record
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
@@ -710,14 +712,6 @@ include 'includes/session.php';
             $(".table-completed-tasks").dataTable().fnDestroy();
             $('#completed-tasks-content').append(data.completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
-            $('.form-logo i').removeClass('fa-check');
-            $('.form-logo i').addClass('fa-question');
-            $('#complete-question').removeClass('hide');
-            $('#complete-question').addClass('show');
-            $('#complete-confirmation').removeClass('show');
-            $('#complete-confirmation').addClass('hide');
-            $('#complete-hide').removeClass('hide');
-            $('#complete-hide').addClass('show');
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
             $('#complete-question').removeClass('show');
