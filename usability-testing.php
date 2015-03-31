@@ -151,7 +151,7 @@ include 'includes/session.php';
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8?t=1m50s" data-toggle="lightbox" data-type="youtube" data-title="Exams (1:50)">
+    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Exams (1:50)">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
 	<i class="fa fa-pencil"></i>
@@ -160,7 +160,7 @@ include 'includes/session.php';
 	</div>
     </a>
 
-    <a href="https://youtu.be/AJoGdJwocQ8?t=1m50s" data-toggle="lightbox" data-type="youtube" data-title="Results (2:50)">
+    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Results (2:50)">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
 	<i class="fa fa-pencil"></i>
@@ -169,77 +169,77 @@ include 'includes/session.php';
 	</div>
     </a>
 
-    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-	<div id="library">
-	<div class="tile">
-    <i class="fa fa-book"></i>
-	<p>Library</p>
-	</div>
-	</div>
-	</div>
-
+    <a href="https://www.youtube.com/embed/vSVTuCNUWXM" data-toggle="lightbox" data-type="youtube" data-title="Transport">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div id="transport">
 	<div class="tile">
     <i class="fa fa-bus"></i>
 	<p>Transport</p>
     </div>
 	</div>
-	</div>
+	</a>
 
+    <a href="https://www.youtube.com/embed/Ntq0qCIr7Qo" data-toggle="lightbox" data-type="youtube" data-title="Library">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+	<div class="tile">
+    <i class="fa fa-book"></i>
+	<p>Library</p>
+	</div>
+	</div>
+    </a>
+
+    <a href="https://www.youtube.com/embed/pjyUITZScrU" data-toggle="lightbox" data-type="youtube" data-title="Calendar">
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div id="calendar1">
 	<div class="tile">
 	<i class="fa fa-calendar"></i>
 	<p>Calendar</p>
 	</div>
 	</div>
-	</div>
+	</a>
 
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div id="events">
-	<div class="tile">
-	<i class="fa fa-ticket"></i>
-	<p>Events</p>
-	</div>
-	</div>
-	</div>
-
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div id="university-map">
+    <a href="https://www.youtube.com/embed/jWVqzzC1d3o" data-toggle="lightbox" data-type="youtube" data-title="University map">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p>University Map</p>
 	</div>
 	</div>
-	</div>
+    </a>
 
+    <a href="https://www.youtube.com/embed/vnF_P613aPs" data-toggle="lightbox" data-type="youtube" data-title="Events">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
-    <div id="feedback">
+	<div class="tile">
+	<i class="fa fa-ticket"></i>
+	<p>Events</p>
+	</div>
+	</div>
+    </a>
+
+    <a href="https://www.youtube.com/embed/_TVZ9sqyvho" data-toggle="lightbox" data-type="youtube" data-title="Feedback">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile">
     <i class="fa fa-check-square-o"></i>
 	<p>Feedback</p>
 	</div>
 	</div>
-	</div>
+    </a>
 
+    <a href="https://www.youtube.com/embed/e2u27XFd36M" data-toggle="lightbox" data-type="youtube" data-title="Messenger">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-    <div id="messenger">
 	<div class="tile">
     <i class="fa fa-comments"></i>
 	<p>Messenger</p>
 	</div>
 	</div>
-	</div>
+    </a>
 
+    <a href="https://www.youtube.com/watch?v=sH_HzsFCb1Y" data-toggle="lightbox" data-type="youtube" data-title="Account">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<div id="account">
 	<div class="tile">
     <i class="fa fa-user"></i>
 	<p>Account</p>
 	</div>
 	</div>
-	</div>
+    </a>
 	</div><!-- /.row -->
 
     </div><!-- /.container -->
