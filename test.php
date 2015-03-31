@@ -1,4 +1,5 @@
 <?php
+include 'includes/session.php';
 
 global $due_tasks;
 
