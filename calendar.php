@@ -718,6 +718,10 @@ include 'includes/session.php';
 	dataType:"json",
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
+
+            $('#complete-question-'+taskToComplete).modal('toggle');
+            $('#complete-confirmation-'+taskToComplete).modal('toggle');
+
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#due-tasks-content').empty();
             $('#due-tasks-content').append(data.due_tasks);
@@ -727,9 +731,6 @@ include 'includes/session.php';
             $(".table-completed-tasks").dataTable().fnDestroy();
             $('#completed-tasks-content').append(data.completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
-
-            $('#complete-question-'+taskToComplete).modal('toggle');
-            $('#complete-confirmation-'+taskToComplete).modal('toggle');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
