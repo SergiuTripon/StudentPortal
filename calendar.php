@@ -702,7 +702,6 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(results){
         if (results) {
-            $('#task-'+taskToComplete).fadeOut();
             $('#due-tasks-content').empty();
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#due-tasks-content').append(results.args1);
