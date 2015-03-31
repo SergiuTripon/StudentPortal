@@ -712,7 +712,7 @@ include 'includes/session.php';
             $(".table-completed-tasks").dataTable(settings);
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
-            $('#complete-question').hide();
+            $('#complete-question').addClass('hide');
             $('#complete-confirmation').show();
             $('#complete-hide').hide();
             $('#complete-success-button').show();
