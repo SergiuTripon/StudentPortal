@@ -2677,7 +2677,7 @@ function CompleteTask() {
 
     $arr = array(
         'completed_tasks'=>$completed_tasks,
-        'completed_tasks'=>$completed_tasks,
+        'completed_tasks'=>$completed_tasks
     );
 
     echo json_encode($arr);
