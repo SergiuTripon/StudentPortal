@@ -701,10 +701,10 @@ include 'includes/session.php';
 	dataType:"json",
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
-            alert(data.due_tasks);
+            alert(data.due-tasks);
             $('#due-tasks-content').empty();
             $(".table-due-tasks").dataTable().fnDestroy();
-            $('#due-tasks-content').append(results.arg1);
+            $('#due-tasks-content').append(data.due-tasks);
             $(".table-due-tasks").dataTable(settings);
 
             alert(results.args2);
