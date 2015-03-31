@@ -151,7 +151,7 @@
     var currentLocation = new showCurrentLocation(currentLocationDiv, map);
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(currentLocationDiv);
 
-    downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
+    downloadUrl("../../includes/university-map/source/location_overview_source.php", function(data) {
     var xml = data.responseXML;
     var markers = xml.documentElement.getElementsByTagName("marker");
     for (var i = 0; i < markers.length; i++) {
