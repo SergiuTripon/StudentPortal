@@ -696,17 +696,21 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'taskToComplete='+ taskToComplete,
-	success:function(){
-		$('#task-'+taskToComplete).fadeOut();
-        $('.form-logo i').removeClass('fa-question');
-        $('.form-logo i').addClass('fa-check');
-        $('#complete-question').hide();
-        $('#complete-confirmation').show();
-        $('#complete-hide').hide();
-        $('#complete-success-button').show();
-        $("#complete-success-button").click(function () {
-            location.reload();
-        });
+	success:function(updatedcontent){
+        if (updatedcontent) {
+            alert (updatedcontent);
+        } else {
+            $('#task-'+taskToComplete).fadeOut();
+            $('.form-logo i').removeClass('fa-question');
+            $('.form-logo i').addClass('fa-check');
+            $('#complete-question').hide();
+            $('#complete-confirmation').show();
+            $('#complete-hide').hide();
+            $('#complete-success-button').show();
+            $("#complete-success-button").click(function () {
+                location.reload();
+            });
+        }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
