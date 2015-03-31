@@ -280,7 +280,7 @@ include 'includes/session.php';
 
 	<!-- Completed tasks -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-completed-tasks">
 
 	<thead>
 	<tr>
@@ -662,13 +662,13 @@ include 'includes/session.php';
 	}(jQuery));
 
     //DataTables
-    $('.table-custom').dataTable({
+    $('.table-completed-tasks').dataTable({
         "iDisplayLength": 10,
 		"paging": true,
 		"ordering": true,
 		"info": false,
 		"language": {
-			"emptyTable": "There are no tasks to display at the moment."
+			"emptyTable": "There are no records to display at the moment."
 		}
 	});
 
