@@ -702,11 +702,13 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(results){
         if (results) {
+            alert(results.args1);
             $('#due-tasks-content').empty();
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#due-tasks-content').append(results.args2);
             $(".table-due-tasks").dataTable(settings);
 
+            alert(results.args2);
             $('#completed-tasks-content').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
             $('#completed-tasks-content').append(results.args1);
