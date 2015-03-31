@@ -292,7 +292,7 @@ include 'includes/session.php';
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="completed-tasks-content">
 	<?php
 
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
@@ -699,6 +699,7 @@ include 'includes/session.php';
 	success:function(updatedcontent){
         if (updatedcontent) {
             alert (updatedcontent);
+            $('#completed-tasks-content').empty().append(updatedcontent);
         } else {
             $('#task-'+taskToComplete).fadeOut();
             $('.form-logo i').removeClass('fa-question');
