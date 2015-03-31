@@ -183,7 +183,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="complete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="complete-success-button" class="btn btn-primary btn-lg" data-dismiss="modal" style="display: none;">Continue</a>
 			</div>
 			</div>
 
