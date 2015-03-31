@@ -183,7 +183,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="complete-success-button" class="btn btn-primary btn-lg" data-dismiss="modal" style="display: none;">Continue</a>
+			<a id="complete-success-button" class="btn btn-primary btn-lg" style="display: none;">Continue</a>
 			</div>
 			</div>
 
@@ -716,6 +716,9 @@ include 'includes/session.php';
             $('#complete-confirmation').show();
             $('#complete-hide').hide();
             $('#complete-success-button').show();
+            $("#complete-success-button").click(function () {
+                location.reload();
+            });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
