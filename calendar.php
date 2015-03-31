@@ -661,16 +661,18 @@ include 'includes/session.php';
 	});
 	}(jQuery));
 
-    //DataTables
-    $('.table-completed-tasks').dataTable({
+    var settings = {
         "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no records to display at the moment."
-		}
-	});
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display at the moment."
+        }
+    };
+
+    //DataTables
+    $('.table-completed-tasks').dataTable(settings);
 
     //Responsiveness
 	$(window).resize(function(){
@@ -699,7 +701,10 @@ include 'includes/session.php';
 	success:function(updatedcontent){
         if (updatedcontent) {
             alert (updatedcontent);
-            $('#completed-tasks-content').empty().append(updatedcontent);
+            $('#completed-tasks-content').empty();
+            $(".table-completed-tasks").dataTable().fnDestroy();
+            $('#completed-tasks-content').append(updatedcontent);
+            $(".table-completed-tasks").dataTable(settings);
         } else {
             $('#task-'+taskToComplete).fadeOut();
             $('.form-logo i').removeClass('fa-question');
