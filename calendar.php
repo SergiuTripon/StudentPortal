@@ -713,16 +713,16 @@ include 'includes/session.php';
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
             $('#complete-question').addClass('hide');
-            $('#complete-confirmation').addClass('');
+            $('#complete-confirmation').addClass('show');
             $('#complete-hide').hide();
             $('#complete-success-button').show();
             $("#complete-success-button").click(function () {
                 $('#complete-'+taskToComplete).modal('toggle');
                 $('.form-logo i').removeClass('fa-check');
                 $('.form-logo i').addClass('fa-question');
-                $('#complete-question').show();
+                $('#complete-question').addClass('show');
                 $('#complete-confirmation').addClass('hide');
-                $('#complete-hide').show();
+                $('#complete-hide').addClass('show');
             });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
