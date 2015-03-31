@@ -702,13 +702,11 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(updatedcontent){
         if (updatedcontent) {
-            alert (updatedcontent);
+            $('#task-'+taskToComplete).fadeOut();
             $('#completed-tasks-content').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
             $('#completed-tasks-content').append(updatedcontent);
             $(".table-completed-tasks").dataTable(settings);
-        } else {
-            $('#task-'+taskToComplete).fadeOut();
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
             $('#complete-question').hide();
@@ -716,7 +714,7 @@ include 'includes/session.php';
             $('#complete-hide').hide();
             $('#complete-success-button').show();
             $("#complete-success-button").click(function () {
-                location.reload();
+                $('.modal-custom').modal('show');
             });
         }
 	},
