@@ -704,12 +704,12 @@ include 'includes/session.php';
         if (results) {
             $('#due-tasks-content').empty();
             $(".table-due-tasks").dataTable().fnDestroy();
-            $('#due-tasks-content').append(results.args1);
+            $('#due-tasks-content').append(results.args2);
             $(".table-due-tasks").dataTable(settings);
 
             $('#completed-tasks-content').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
-            $('#completed-tasks-content').append(results.args2);
+            $('#completed-tasks-content').append(results.args1);
             $(".table-completed-tasks").dataTable(settings);
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
