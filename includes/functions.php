@@ -2436,7 +2436,7 @@ function CompleteTask() {
 	$task_startdate = $row["task_startdate"];
 	$task_duedate = $row["task_duedate"];
 
-    $completed_tasks1 = '<tr id="task-'.$taskid.'">
+    $results['args1'] = '<tr id="task-'.$taskid.'">
 
 			<td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
 			<td data-title="Start date">'.$task_startdate.'</td>
@@ -2590,6 +2590,8 @@ function CompleteTask() {
 			</div><!-- /modal-content -->';
 	}
 
+	$stmt2->close();
+
     $stmt3 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
 
     while($row = $stmt3->fetch_assoc()) {
@@ -2602,7 +2604,7 @@ function CompleteTask() {
         $task_url = $row["task_url"];
         $updated_on = $row["updated_on"];
 
-    $completed_tasks = '<tr id="task-'.$taskid.'">
+    $results['args2'] = '<tr id="task-'.$taskid.'">
 
             <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
             <td data-title="Start">'.$task_startdate.'</td>
@@ -2675,15 +2677,9 @@ function CompleteTask() {
 			</div><!-- /modal-content -->';
     }
 
-    $arr = array(
-        'completed_tasks1'=>$completed_tasks1,
-        'completed_tasks'=>$completed_tasks
-    );
-
-    echo json_encode($arr);
-
     $stmt2->close();
-    $stmt3->close();
+
+    echo json_encode($results);
 }
 
 //DeactivateTask function
