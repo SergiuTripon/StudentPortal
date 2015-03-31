@@ -12,14 +12,14 @@ UNION ALL
 SELECT b.bookid, b.book_name, l.book_class, l.created_on, l.toreturn_on
 FROM system_book_loaned l
 JOIN system_book b ON l.bookid = b.bookid
-WHERE l.userid = "'.$session_userid.'" AND l.isReturned="0" AND l.loan_status = "ongoing" AND b.book_status = "active" AND DATE(l.toreturn_on) > DATE(NOW())
+WHERE l.userid = "'.$session_userid.'" AND l.isReturned="0" AND l.loan_status = "ongoing" AND b.book_status = "active"
 
 UNION ALL
 
 SELECT e.eventid, e.event_name, b.event_class, e.event_from, e.event_to
 FROM system_event_booked b
 JOIN system_event e ON b.eventid = e.eventid
-WHERE b.userid = "'.$session_userid.'" AND e.event_status = "active"';
+WHERE b.userid = "'.$session_userid.'" AND e.event_status = "active" AND DATE(e.event_to) > DATE(NOW())';
 
 $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);
