@@ -216,7 +216,7 @@ include 'includes/session.php';
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg" data-dismiss="modal" style="display: none;">Continue</a>
 			</div>
 			</div>
 
@@ -713,9 +713,6 @@ include 'includes/session.php';
             $('#complete-confirmation').show();
             $('#complete-hide').hide();
             $('#complete-success-button').show();
-            $("#complete-success-button").click(function () {
-                $('#view-'+taskToComplete).modal('hide');
-            });
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
