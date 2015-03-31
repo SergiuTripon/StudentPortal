@@ -606,44 +606,12 @@ include 'includes/session.php';
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php endif; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+    <?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
-	<?php else : ?>
-
-	<?php include 'includes/menus/menu.php'; ?>
-
-    <div class="container">
-
-	<form class="form-horizontal form-custom">
-
-    <div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-
-    <hr>
-
-    <div class="text-center">
-	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
-    </div>
-
-    </form>
-     
-	</div>
-
-	<?php include 'includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
-
-	<script>
+    <script>
     $(document).ready(function () {
         $("#calendar-toggle").hide();
         $(".task-tile").addClass("tile-selected");
@@ -870,6 +838,47 @@ include 'includes/session.php';
 		$(".calendar-tile p").addClass("tile-text-selected");
 		$(".calendar-tile i").addClass("tile-text-selected");
 	});
+
+	</script>
+
+    <?php endif; ?>
+
+	<?php else : ?>
+
+	<?php include 'includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+	<form class="form-horizontal form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+    </div>
+
+    </form>
+     
+	</div>
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<?php endif; ?>
+
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+
+	<script>
+
+    //Ladda
+    Ladda.bind('.ladda-button', {timeout: 2000});
 
 	</script>
 
