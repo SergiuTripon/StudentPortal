@@ -712,9 +712,12 @@ include 'includes/session.php';
             $(".table-completed-tasks").dataTable(settings);
             $('.form-logo i').removeClass('fa-question');
             $('.form-logo i').addClass('fa-check');
+            $('#complete-question').removeClass('show');
             $('#complete-question').addClass('hide');
+            $('#complete-confirmation').removeClass('hide');
             $('#complete-confirmation').addClass('show');
-            $('#complete-hide').hide();
+            $('#complete-hide').removeClass('show');
+            $('#complete-hide').addClass('hide');
             $('#complete-success-button').show();
             $("#complete-success-button").click(function () {
                 $('#complete-'+taskToComplete).modal('toggle');
