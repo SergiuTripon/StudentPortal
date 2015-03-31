@@ -703,8 +703,8 @@ include 'includes/session.php';
 	success:function(data){
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#due-tasks-content').empty();
-            $(".table-due-tasks").dataTable(settings);
             $('#due-tasks-content').append(data.due_tasks);
+            $(".table-due-tasks").dataTable(settings);
 
             $('#completed-tasks-content').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
