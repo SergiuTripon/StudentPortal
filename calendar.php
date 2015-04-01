@@ -227,7 +227,7 @@ include 'includes/session.php';
 			<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
-            <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Deactivate</a>
+            <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Archive</a>
 			</div>
 			</div>
 
@@ -449,7 +449,7 @@ include 'includes/session.php';
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="archived-tasks-content">
 	<?php
 
 	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task WHERE userid = '$session_userid' AND task_status = 'inactive'");
@@ -773,17 +773,21 @@ include 'includes/session.php';
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'taskToDeactivate='+ taskToDeactivate,
-	success:function(){
-		$('#task-'+taskToDeactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-question');
-        $('.form-logo i').addClass('fa-check');
-        $('#deactivate-question').hide();
-        $('#deactivate-confirmation').show();
-        $('#deactivate-hide').hide();
-        $('#deactivate-success-button').show();
-        $("#deactivate-success-button").click(function () {
-            location.reload();
-        });
+	success:function(data){
+
+        $('#deactivate-confirmation-'+taskToComplete).modal('hide');
+
+        $(".table-due-tasks").dataTable().fnDestroy();
+        $('#due-tasks-content').empty();
+        $('#due-tasks-content').append(data.due_tasks);
+        $(".table-due-tasks").dataTable(settings);
+
+        $('#archived-tasks-content').empty();
+        $(".table-archived-tasks").dataTable().fnDestroy();
+        $('#archived-tasks-content').append(data.archived_tasks);
+        $(".table-archived-tasks").dataTable(settings);
+
+        $('#deactivate-success-'+taskToComplete).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
