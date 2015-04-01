@@ -579,12 +579,12 @@ include 'includes/session.php';
 	<div class="panel-group panel-custom calendar-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div id="calendar-toggle" class="panel panel-default">
-	<div class="panel-heading" role="tab" id="headingThree">
+	<div class="panel-heading" role="tab" id="headingFour">
 	<h4 class="panel-title">
-	<a data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Calendar - click to minimize or maximize</a>
+	<a class="accordion-toggle" data-toggle="collapse" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Calendar - click to minimize or maximize</a>
 	</h4>
 	</div>
-	<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+	<div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
 	<div class="panel-body">
 
 	<div class="calendar-buttons text-right">
