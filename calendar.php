@@ -719,8 +719,7 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
 
-            $('#complete-question-'+taskToComplete).alert();
-            $('#complete-confirmation-'+taskToComplete).alert();
+            alert(taskToComplete);
 
             $('#complete-question-'+taskToComplete).modal('hide');
             $('#complete-confirmation-'+taskToComplete).modal('show');
