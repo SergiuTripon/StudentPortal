@@ -188,17 +188,21 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-tick"></i>
+			<i class="fa fa-question"></i>
 			</div>
 			</div>
 
 			<div class="modal-body">
-			<p id="complete-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been completed successfully.</p>
-			</div>
+			<p id="complete-question" class="text-center feedback-sad">Are you sure you want to complete '.$task_name.'?</p></div>
 
 			<div class="modal-footer">
-			<div class="text-center">
-			<a id="complete-confirmation-button" class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
+			<div id="complete-hide">
+			<div class="pull-left">
+			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			</div>
 			</div>
 			</div>
 
