@@ -172,10 +172,10 @@ include 'includes/session.php';
 			<p class="text-center feedback-happy">Are you sure you want to complete '.$task_name.'?</p></div>
 
 			<div class="modal-footer">
-			<div class="text-left">
+			<div class="pull-left">
 			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
 			</div>
-			<div class="pull-right">
+			<div class="text-right">
 			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Complete</a>
 			</div>
 			</div>
@@ -223,10 +223,10 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div class="text-left">
+			<div class="pull-left">
 			<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
 			</div>
-			<div class="pull-right">
+			<div class="text-right">
             <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Deactivate</a>
 			</div>
 			</div>
