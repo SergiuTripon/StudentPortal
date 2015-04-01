@@ -119,8 +119,8 @@ include 'includes/session.php';
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><a href="../calendar/update-task?id='.$taskid.'" data-toggle="modal" data-toggle="modal">Update</a></li>
-            <li><a href="#deactivate-'.$taskid.'" data-toggle="modal" data-toggle="modal">Archive</a></li>
-            <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
+            <li><a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-toggle="modal">Archive</a></li>
+            <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
             </td>
@@ -145,9 +145,9 @@ include 'includes/session.php';
 			<div class="modal-footer">
             <div class="view-action pull-left">
             <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Complete</a>
-            <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Archive</a>
-            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Complete</a>
+            <a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Archive</a>
+            <a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
@@ -172,7 +172,7 @@ include 'includes/session.php';
 			<p class="text-center feedback-happy">Are you sure you want to complete '.$task_name.'?</p></div>
 
 			<div class="modal-footer">
-			<div class="pull-left">
+			<div class="text-left">
 			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="pull-right">
@@ -208,7 +208,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="deactivate-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="deactivate-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -219,21 +219,39 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to archive '.$task_name.'?</p>
-			<p id="deactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been archived successfully.</p>
+			<p class="text-center feedback-sad">Are you sure you want to archive '.$task_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="deactivate-hide">
-			<div class="pull-left">
-			<a id="deactivate-'.$taskid.'" class="btn btn-success btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<div class="text-left">
+			<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
 			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<div class="pull-right">
+            <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Deactivate</a>
 			</div>
 			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="deactivate-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-check"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-happy">All done! '.$task_name.' has been archived.</p>
+			</div>
+
+			<div class="modal-footer">
 			<div class="text-center">
-			<a id="deactivate-success-button" class="btn btn-primary btn-lg" data-dismiss="modal" style="display: none;">Continue</a>
+			<a class="btn btn-primary btn-lg" data-dismiss="modal" style="display: none;">Continue</a>
 			</div>
 			</div>
 
