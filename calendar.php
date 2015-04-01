@@ -727,10 +727,6 @@ include 'includes/session.php';
 
             $('#complete-question-'+taskToComplete).modal('hide');
 
-            $('#complete-question-'+taskToComplete).on('hidden.bs.modal', function () {
-                $('#complete-confirmation-'+taskToComplete).modal('show');
-            });
-
             $("#complete-confirmation-button").click(function () {
 
                 $(".table-due-tasks").dataTable().fnDestroy();
@@ -743,6 +739,8 @@ include 'includes/session.php';
                 $('#completed-tasks-content').append(data.completed_tasks);
                 $(".table-completed-tasks").dataTable(settings);
             });
+
+            $('#complete-confirmation-'+taskToComplete).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
