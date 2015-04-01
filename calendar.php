@@ -169,16 +169,12 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="complete-confirmation" class="text-center feedback-sad">Are you sure you want to complete '.$task_name.'?</p></div>
+			<p class="text-center feedback-sad">Complete '.$task_name.'?</p></div>
 
 			<div class="modal-footer">
-			<div id="complete-hide">
-			<div class="pull-left">
+			<div class="text-center">
 			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Complete</a>
-			</div>
-			<div class="text-right">
 			<button type="button" class="btn btn-default btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</button>
-			</div>
 			</div>
 			</div>
 
