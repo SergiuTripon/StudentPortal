@@ -2940,7 +2940,7 @@ function DeactivateTask() {
         $task_url = $row["task_url"];
         $updated_on = $row["updated_on"];
 
-        $archived_tasks = '<tr id="task-'.$taskid.'">
+    $archived_tasks = '<tr id="task-'.$taskid.'">
 
 			<td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
 			<td data-title="Start date">'.$task_startdate.'</td>

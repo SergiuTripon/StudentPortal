@@ -775,6 +775,9 @@ include 'includes/session.php';
 	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(data){
 
+        alert(data.due_tasks);
+        alert(data.archived_tasks);
+
         $('#deactivate-confirmation-'+taskToDeactivate).modal('hide');
 
         $(".table-due-tasks").dataTable().fnDestroy();
