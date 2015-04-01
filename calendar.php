@@ -723,19 +723,17 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
 
-            alert(taskToComplete);
-
             $('#complete-question-'+taskToComplete).modal('hide');
 
-                $(".table-due-tasks").dataTable().fnDestroy();
-                $('#due-tasks-content').empty();
-                $('#due-tasks-content').append(data.due_tasks);
-                $(".table-due-tasks").dataTable(settings);
+            $(".table-due-tasks").dataTable().fnDestroy();
+            $('#due-tasks-content').empty();
+            $('#due-tasks-content').append(data.due_tasks);
+            $(".table-due-tasks").dataTable(settings);
 
-                $('#completed-tasks-content').empty();
-                $(".table-completed-tasks").dataTable().fnDestroy();
-                $('#completed-tasks-content').append(data.completed_tasks);
-                $(".table-completed-tasks").dataTable(settings);
+            $('#completed-tasks-content').empty();
+            $(".table-completed-tasks").dataTable().fnDestroy();
+            $('#completed-tasks-content').append(data.completed_tasks);
+            $(".table-completed-tasks").dataTable(settings);
 
             $('#complete-confirmation-'+taskToComplete).modal('show');
 	},
