@@ -727,8 +727,6 @@ include 'includes/session.php';
 
             $('#complete-question-'+taskToComplete).modal('hide');
 
-            $("#complete-confirmation-button").click(function () {
-
                 $(".table-due-tasks").dataTable().fnDestroy();
                 $('#due-tasks-content').empty();
                 $('#due-tasks-content').append(data.due_tasks);
@@ -738,7 +736,6 @@ include 'includes/session.php';
                 $(".table-completed-tasks").dataTable().fnDestroy();
                 $('#completed-tasks-content').append(data.completed_tasks);
                 $(".table-completed-tasks").dataTable(settings);
-            });
 
             $('#complete-confirmation-'+taskToComplete).modal('show');
 	},
