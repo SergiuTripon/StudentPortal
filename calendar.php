@@ -628,6 +628,8 @@ include 'includes/session.php';
 
     <script>
     $(document).ready(function () {
+        $('#complete-question-'+6).modal('show');
+
         $("#calendar-toggle").hide();
         $(".task-tile").addClass("tile-selected");
         $(".task-tile p").addClass("tile-text-selected");
