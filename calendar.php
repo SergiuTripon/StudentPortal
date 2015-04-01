@@ -112,7 +112,7 @@ include 'includes/session.php';
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
-            <a id="complete-button" class="btn btn-primary" href="#complete-question-'.$taskid.'" data-toggle="modal">Complete</a>
+            <a id="complete-button" class="btn btn-primary" href="#complete-confirmation-'.$taskid.'" data-toggle="modal">Complete</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
