@@ -173,8 +173,8 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="text-center">
-			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Complete</a>
 			<a class="btn btn-default btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
+			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Complete</a>
 			</div>
 			</div>
 
