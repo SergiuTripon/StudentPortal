@@ -197,7 +197,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="complete-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been completed successfully.</p>
+			<p id="complete-confirmation" class="text-center feedback-happy">'.$task_name.' has been completed successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -731,7 +731,7 @@ include 'includes/session.php';
                 $('#complete-confirmation-'+taskToComplete).modal('show');
             });
 
-            $("#complete-success-button").click(function () {
+            $("#complete-confirmation-button").click(function () {
 
                 $(".table-due-tasks").dataTable().fnDestroy();
                 $('#due-tasks-content').empty();
