@@ -775,7 +775,7 @@ include 'includes/session.php';
 	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(data){
 
-        $('#deactivate-confirmation-'+taskToComplete).modal('hide');
+        $('#deactivate-confirmation-'+taskToDeactivate).modal('hide');
 
         $(".table-due-tasks").dataTable().fnDestroy();
         $('#due-tasks-content').empty();
@@ -787,7 +787,7 @@ include 'includes/session.php';
         $('#archived-tasks-content').append(data.archived_tasks);
         $(".table-archived-tasks").dataTable(settings);
 
-        $('#deactivate-success-'+taskToComplete).modal('show');
+        $('#deactivate-success-'+taskToDeactivate).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
