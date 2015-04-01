@@ -112,7 +112,7 @@ include 'includes/session.php';
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
-            <a id="complete-button" class="btn btn-primary" href="#complete-confirmation-'.$taskid.'" data-toggle="modal">Complete</a>
+            <a id="complete-button" class="btn btn-primary" href="#complete-question-'.$taskid.'" data-toggle="modal">Complete</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -182,27 +182,27 @@ include 'includes/session.php';
 			</div>
 			</div>
 
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
 			<div id="complete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-question"></i>
+			<i class="fa fa-tick"></i>
 			</div>
 			</div>
 
 			<div class="modal-body">
-			<p id="complete-question" class="text-center feedback-sad">Are you sure you want to complete '.$task_name.'?</p></div>
+			<p id="complete-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been completed successfully.</p>
+			</div>
 
 			<div class="modal-footer">
-			<div id="complete-hide">
-			<div class="pull-left">
-			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
-			</div>
+			<div class="text-center">
+			<a id="complete-confirmation-button" class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
 			</div>
 			</div>
 
@@ -632,8 +632,6 @@ include 'includes/session.php';
 
     <script>
     $(document).ready(function () {
-        $('#complete-confirmation-6').modal('show');
-
         $("#calendar-toggle").hide();
         $(".task-tile").addClass("tile-selected");
         $(".task-tile p").addClass("tile-text-selected");
