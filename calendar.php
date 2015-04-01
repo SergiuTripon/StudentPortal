@@ -581,7 +581,7 @@ include 'includes/session.php';
 	<div id="calendar-toggle" class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingFour">
 	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Calendar - click to minimize or maximize</a>
+	<a class="accordion-toggle" data-toggle="collapse" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"> Calendar</a>
 	</h4>
 	</div>
 	<div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
