@@ -723,7 +723,7 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
 
-            $('#complete-question-'+taskToComplete).modal('hide');
+            $('#complete-confirmation-'+taskToComplete).modal('hide');
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#due-tasks-content').empty();
@@ -735,7 +735,7 @@ include 'includes/session.php';
             $('#completed-tasks-content').append(data.completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
 
-            $('#complete-confirmation-'+taskToComplete).modal('show');
+            $('#complete-success-'+taskToComplete).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
