@@ -723,9 +723,9 @@ include 'includes/session.php';
 
             $('#complete-question-'+taskToComplete).modal('hide');
 
-            $('#complete-question-'+taskToComplete).on('hidden.bs.modal', function (e) {
+            $('#complete-question-'+taskToComplete).on('hidden.bs.modal', function () {
                 $('#complete-confirmation-'+taskToComplete).modal('show');
-            })
+            });
 
             $("#complete-success-button").click(function () {
 
