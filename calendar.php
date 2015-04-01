@@ -112,7 +112,7 @@ include 'includes/session.php';
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#complete-'.$taskid.'" data-toggle="modal">Complete</a>
+            <a id="complete-button" class="btn btn-primary" href="#complete-question-'.$taskid.'" data-toggle="modal">Complete</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -158,7 +158,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-            <div id="complete-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="complete-question-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -169,9 +169,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="complete-question" class="text-center feedback-sad">Are you sure you want to complete '.$task_name.'?</p>
-			<p id="complete-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been completed successfully.</p>
-			</div>
+			<p id="complete-question" class="text-center feedback-sad">Are you sure you want to complete '.$task_name.'?</p></div>
 
 			<div class="modal-footer">
 			<div id="complete-hide">
@@ -182,8 +180,25 @@ include 'includes/session.php';
 			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
 			</div>
 			</div>
+			</div>
+
+			<div id="complete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-tick"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="complete-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been completed successfully.</p>
+			</div>
+
+			<div class="modal-footer">
 			<div class="text-center">
-			<a id="complete-success-button" class="btn btn-primary btn-lg" style="display: none;">Continue</a>
+			<a id="complete-confirmation-button" class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
 			</div>
 			</div>
 
@@ -688,6 +703,8 @@ include 'includes/session.php';
         }
 	}).resize();
 
+
+
     //Complete record
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
@@ -701,34 +718,20 @@ include 'includes/session.php';
 	dataType:"json",
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
-            $(".table-due-tasks").dataTable().fnDestroy();
-            $('#due-tasks-content').empty();
-            $('#due-tasks-content').append(data.due_tasks);
-            $(".table-due-tasks").dataTable(settings);
+            $('#complete-question-'+taskToComplete).modal('toggle');
+            $('#complete-confirmation-' + taskToComplete).modal('toggle');
 
-            $('#completed-tasks-content').empty();
-            $(".table-completed-tasks").dataTable().fnDestroy();
-            $('#completed-tasks-content').append(data.completed_tasks);
-            $(".table-completed-tasks").dataTable(settings);
-            $('.form-logo i').removeClass('fa-question');
-            $('.form-logo i').addClass('fa-check');
-            $('#complete-question').removeClass('show');
-            $('#complete-question').addClass('hide');
-            $('#complete-confirmation').removeClass('hide');
-            $('#complete-confirmation').addClass('show');
-            $('#complete-hide').removeClass('show');
-            $('#complete-hide').addClass('hide');
-            $('#complete-success-button').show();
             $("#complete-success-button").click(function () {
-                $('#complete-'+taskToComplete).modal('toggle');
-                $('.form-logo i').removeClass('fa-check');
-                $('.form-logo i').addClass('fa-question');
-                $('#complete-question').removeClass('hide');
-                $('#complete-question').addClass('show');
-                $('#complete-confirmation').removeClass('show');
-                $('#complete-confirmation').addClass('hide');
-                $('#complete-hide').removeClass('hide');
-                $('#complete-hide').addClass('show');
+
+                $(".table-due-tasks").dataTable().fnDestroy();
+                $('#due-tasks-content').empty();
+                $('#due-tasks-content').append(data.due_tasks);
+                $(".table-due-tasks").dataTable(settings);
+
+                $('#completed-tasks-content').empty();
+                $(".table-completed-tasks").dataTable().fnDestroy();
+                $('#completed-tasks-content').append(data.completed_tasks);
+                $(".table-completed-tasks").dataTable(settings);
             });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
