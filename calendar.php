@@ -719,7 +719,7 @@ include 'includes/session.php';
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
             $('#complete-question-'+taskToComplete).modal('toggle');
-            $('#complete-confirmation-' + taskToComplete).modal('toggle');
+            $('#complete-confirmation-'+taskToComplete).modal('toggle');
 
             $("#complete-success-button").click(function () {
 
