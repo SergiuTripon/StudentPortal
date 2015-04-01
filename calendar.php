@@ -771,12 +771,9 @@ include 'includes/session.php';
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(data){
-
-        alert(data.due_tasks);
-        alert(data.archived_tasks);
 
         $('#deactivate-confirmation-'+taskToDeactivate).modal('hide');
 
