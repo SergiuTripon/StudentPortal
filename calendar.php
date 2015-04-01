@@ -722,7 +722,10 @@ include 'includes/session.php';
             alert(taskToComplete);
 
             $('#complete-question-'+taskToComplete).modal('hide');
-            $('#complete-confirmation-'+taskToComplete).modal('show');
+
+            $('#complete-question-'+taskToComplete).on('hidden.bs.modal', function (e) {
+                $('#complete-confirmation-'+taskToComplete).modal('show');
+            })
 
             $("#complete-success-button").click(function () {
 
