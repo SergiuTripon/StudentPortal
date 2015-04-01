@@ -193,7 +193,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="complete-success" class="text-center feedback-happy">All done! '.$task_name.' has been completed.</p>
+			<p class="text-center feedback-happy">All done! '.$task_name.' has been completed.</p>
 			</div>
 
 			<div class="modal-footer">
