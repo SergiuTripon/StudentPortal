@@ -169,7 +169,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Complete '.$task_name.'?</p></div>
+			<p class="text-center feedback-happy">Complete '.$task_name.'?</p></div>
 
 			<div class="modal-footer">
 			<div class="text-center">
