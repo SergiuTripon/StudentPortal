@@ -718,8 +718,12 @@ include 'includes/session.php';
 	dataType:"json",
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
-            $('#complete-question-'+taskToComplete).modal('toggle');
-            $('#complete-confirmation-'+taskToComplete).modal('toggle');
+
+            $('#complete-question-'+taskToComplete).alert();
+            $('#complete-confirmation-'+taskToComplete).alert();
+
+            $('#complete-question-'+taskToComplete).modal('hide');
+            $('#complete-confirmation-'+taskToComplete).modal('show');
 
             $("#complete-success-button").click(function () {
 
