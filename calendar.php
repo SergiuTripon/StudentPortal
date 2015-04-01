@@ -172,8 +172,10 @@ include 'includes/session.php';
 			<p class="text-center feedback-happy">Are you sure you want to complete '.$task_name.'?</p></div>
 
 			<div class="modal-footer">
-			<div class="text-center">
+			<div class="pull-left">
 			<a class="btn btn-default btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
+			</div>
+			<div class="pull-right">
 			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Complete</a>
 			</div>
 			</div>
