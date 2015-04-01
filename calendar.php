@@ -192,7 +192,7 @@ include 'includes/session.php';
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-tick"></i>
+			<i class="fa fa-check"></i>
 			</div>
 			</div>
 
