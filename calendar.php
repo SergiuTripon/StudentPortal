@@ -327,6 +327,8 @@ global $session_userid;
 	$stmt1->close();
 	?>
 
+    </div>
+
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
