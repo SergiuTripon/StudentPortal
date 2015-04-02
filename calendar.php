@@ -764,7 +764,8 @@ global $session_userid;
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
-
+            $('#content-due-tasks').append(data.due_tasks);
+            $(".table-due-tasks").dataTable(settings);
 
             $('#content-completed-tasks').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
@@ -797,8 +798,8 @@ global $session_userid;
 
         $('#deactivate-confirmation-'+taskToDeactivate).modal('hide');
 
-        $('#content-due-tasks').empty();
         $(".table-due-tasks").dataTable().fnDestroy();
+        $('#content-due-tasks').empty();
         $('#content-due-tasks').append(data.due_tasks);
         $(".table-due-tasks").dataTable(settings);
 
@@ -832,8 +833,8 @@ global $session_userid;
 
         $('#reactivate-confirmation-'+taskToReactivate).modal('hide');
 
-        $('#content-archived-tasks').empty();
         $(".table-archived-tasks").dataTable().fnDestroy();
+        $('#content-archived-tasks').empty();
         $('#content-archived-tasks').append(data.archived_tasks);
         $(".table-archived-tasks").dataTable(settings);
 
