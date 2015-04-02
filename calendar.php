@@ -570,7 +570,7 @@ global $session_userid;
 			</div>
 
 			<div class="modal-footer">
-			<div id="reactivate-hide">
+			<div>
 			<div class="pull-left">
 			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
@@ -595,21 +595,12 @@ global $session_userid;
 			</div>
 
 			<div class="modal-body">
-			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to restore '.$task_name.'?</p>
-			<p id="reactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$task_name.' has been restored successfully.</p>
+			<p id="reactivate-confirmation" class="text-center feedback-happy">All done! '.$task_name.' has been restored.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="reactivate-hide">
-			<div class="pull-left">
-			<a id="reactivate-'.$taskid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
-			</div>
-			</div>
 			<div class="text-center">
-			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a class="btn btn-primary btn-lg">Continue</a>
 			</div>
 			</div>
 
