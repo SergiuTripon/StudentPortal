@@ -355,26 +355,24 @@ global $session_userid;
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
   	<div class="panel-body">
 
-    <div id="content-completed-tasks">
+    <!-- Completed tasks -->
+    <section id="no-more-tables">
+    <div id="modal-completed-tasks">
+    <?php
 
-	<?php
+    $stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
 
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
+    while($row = $stmt2->fetch_assoc()) {
 
-	while($row = $stmt2->fetch_assoc()) {
+        $taskid = $row["taskid"];
+        $task_name = $row["task_name"];
+        $task_notes = $row["task_notes"];
+        $task_startdate = $row["task_startdate"];
+        $task_duedate = $row["task_duedate"];
+        $task_url = $row["task_url"];
+        $updated_on = $row["updated_on"];
 
-    $taskid = $row["taskid"];
-    $task_name = $row["task_name"];
-    $task_notes = $row["task_notes"];
-    $task_startdate = $row["task_startdate"];
-    $task_duedate = $row["task_duedate"];
-    $task_url = $row["task_url"];
-    $updated_on = $row["updated_on"];
-
-	echo '
-
-        <!-- Completed tasks -->
-        <section id="no-more-tables">
+    echo '
 
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
@@ -457,22 +455,41 @@ global $session_userid;
 
         </div><!-- /modal -->
         </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
+        </div><!-- /modal-content -->';
+    }
+    $stmt2->close();
+    ?>
+    </div>
 
-        <table class="table table-condensed table-custom table-completed-tasks">
+    <table class="table table-condensed table-custom table-completed-tasks">
 
-        <thead>
-        <tr>
+    <thead>
+    <tr>
         <th>Task</th>
         <th>Start</th>
         <th>Due</th>
         <th>Completed on</th>
         <th>Action</th>
-        </tr>
-        </thead>
+    </tr>
+    </thead>
 
-        <tbody>
+    <tbody id="table-completed-tasks">
 
+	<?php
+
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+    $taskid = $row["taskid"];
+    $task_name = $row["task_name"];
+    $task_notes = $row["task_notes"];
+    $task_startdate = $row["task_startdate"];
+    $task_duedate = $row["task_duedate"];
+    $task_url = $row["task_url"];
+    $updated_on = $row["updated_on"];
+
+	echo '
         <tr id="task-'.$taskid.'">
 
         <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
@@ -485,6 +502,11 @@ global $session_userid;
 
 	$stmt2->close();
 	?>
+
+    </tbody>
+
+    </table>
+    </section
 
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
