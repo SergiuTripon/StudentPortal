@@ -835,14 +835,14 @@ global $session_userid;
         $(".table-due-tasks").dataTable().fnDestroy();
         $('#table-due-tasks').empty();
         $('#modal-due-tasks').empty();
-        $('#table-due-tasks').append(html.table_due_tasks);
-        $('#modal-due-tasks').append(html.modal_due_tasks);
+        $('#table-due-tasks').html(html.table_due_tasks);
+        $('#table-due-tasks').html(html.modal_due_tasks);
         $(".table-due-tasks").dataTable(settings);
 
         $(".table-completed-tasks").dataTable().fnDestroy();
         $('#table-completed-tasks').empty();
-        $('#table-completed-tasks').append(html.table_completed_tasks);
-        $('#table-completed-tasks').append(html.modal_completed_tasks);
+        $('#table-completed-tasks').html(html.table_completed_tasks);
+        $('#table-completed-tasks').html(html.modal_completed_tasks);
         $(".table-completed-tasks").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
