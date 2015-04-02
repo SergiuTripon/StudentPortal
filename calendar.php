@@ -70,7 +70,9 @@ global $session_userid;
 
 	<div class="panel-group panel-custom task-view" id="accordion" role="tablist" aria-multiselectable="true">
 
-    	<?php
+    <div id="modal-due-tasks">
+
+    <?php
 
 	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
 
@@ -84,8 +86,6 @@ global $session_userid;
 	$task_duedate = $row["task_duedate"];
 
 	echo '
-        <div id="modal-due-tasks">
-
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
@@ -268,13 +268,13 @@ global $session_userid;
 
         </div><!-- /modal -->
         </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
-        </div>';
+        </div><!-- /modal-content -->';
 	}
 
 	$stmt1->close();
 	?>
+
+    </div>
 
 	<div id="duetasks-toggle" class="panel panel-default">
 
@@ -534,6 +534,8 @@ global $session_userid;
     </div><!-- /panel-collapse -->
 	</div><!-- /panel-default -->
 
+    <div id="modal-completed-tasks">
+
     <?php
 
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
@@ -549,7 +551,6 @@ global $session_userid;
     $updated_on = $row["updated_on"];
 
 	echo '
-        <div id="modal-completed-tasks">
 
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
@@ -632,13 +633,13 @@ global $session_userid;
 
         </div><!-- /modal -->
         </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
-        </div>';
+        </div><!-- /modal-content -->';
 	}
 
 	$stmt2->close();
 	?>
+
+    </div>
 
     <div id="completedtasks-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
@@ -786,6 +787,8 @@ global $session_userid;
     </div><!-- /panel-collapse -->
   	</div><!-- /panel-default -->
 
+    <div id="modal-archived-tasks">
+
     <?php
 
 	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task WHERE userid = '$session_userid' AND task_status = 'inactive'");
@@ -801,9 +804,6 @@ global $session_userid;
     $updated_on = $row["updated_on"];
 
 	echo '
-
-        <div id="modal-archived-tasks">
-
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
@@ -937,13 +937,13 @@ global $session_userid;
 
         </div><!-- /modal -->
         </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
-        </div>';
+        </div><!-- /modal-content -->';
 	}
 
 	$stmt1->close();
     ?>
+
+    </div>
 
     <div id="archivedtasks-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
@@ -1161,10 +1161,23 @@ global $session_userid;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
+        $('#complete-confirmation-'+taskToComplete).modal('hide');
+
+        $(".table-due-tasks").dataTable().fnDestroy();
         $('#table-due-tasks').empty();
+        $('#modal-due-tasks').empty();
+        $('#table-due-tasks').html(data.table_due_tasks);
+        $('#modal-due-tasks').html(data.modal_due_tasks);
+        $(".table-due-tasks").dataTable(settings);
+
+        $(".table-completed-tasks").dataTable().fnDestroy();
         $('#table-completed-tasks').empty();
-        $('#table-completed-tasks').append(html.table_completed_tasks);
-        $('#table-completed-tasks').append(html.modal_completed_tasks);
+        $('#modal-completed-tasks').empty();
+        $('#table-completed-tasks').html(data.table_completed_tasks);
+        $('#modal-completed-tasks').html(data.modal_completed_tasks);
+        $(".table-completed-tasks").dataTable(settings);
+
+        $('#complete-success-'+taskToComplete).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
