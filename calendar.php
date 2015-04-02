@@ -121,7 +121,7 @@ global $session_userid;
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="../calendar/update-task?id='.$taskid.'" data-toggle="modal" data-dismiss="modal">Update</a></li>
+            <li><a href="../calendar/update-task?id='.$taskid.'">Update</a></li>
             <li><a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Archive</a></li>
             <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
@@ -369,7 +369,7 @@ global $session_userid;
             <td data-title="Start">'.$task_startdate.'</td>
             <td data-title="Due">'.$task_duedate.'</td>
             <td data-title="Completed on">'.$task_duedate.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-confirmation-'.$taskid.'" data-toggle="modal">Delete</a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></td>
             </tr>
 
 	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -511,13 +511,13 @@ global $session_userid;
 			<td data-title="Archived on">'.$updated_on.'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#reactivate-confirmation-'.$taskid.'" data-toggle="modal">Restore</a>
+            <a class="btn btn-primary" href="#reactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Restore</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
+            <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
             </td>
@@ -543,11 +543,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#reactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Restore</a>
-            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#reactivate-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Restore</a>
+            <a href="#delete-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -595,7 +595,7 @@ global $session_userid;
 			</div>
 
 			<div class="modal-body">
-			<p id="reactivate-confirmation" class="text-center feedback-happy">All done! '.$task_name.' has been restored.</p>
+			<p class="feedback-happy text-center">All done! '.$task_name.' has been restored.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -619,12 +619,12 @@ global $session_userid;
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$task_name.'?</p>
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$task_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="pull-left">
-			<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
+			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
 			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Delete</a>
@@ -651,7 +651,7 @@ global $session_userid;
 
 			<div class="modal-footer">
 			<div class="text-center">
-			<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Continue</a>
+			<a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
 			</div>
 			</div>
 
