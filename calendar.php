@@ -305,7 +305,7 @@ global $session_userid;
 
 			<div class="modal-footer">
 			<div class="text-center">
-			<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up">Continue</a>
+			<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Continue</a>
 			</div>
 			</div>
 
