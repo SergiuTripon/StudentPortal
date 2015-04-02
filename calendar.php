@@ -1,5 +1,6 @@
 <?php
 include 'includes/session.php';
+include 'includes/functions.php';
 
 global $mysqli;
 global $session_userid;
@@ -70,7 +71,9 @@ global $session_userid;
 
 	<div class="panel-group panel-custom task-view" id="accordion" role="tablist" aria-multiselectable="true">
 
-
+    <?php
+    loadDueTasks();
+    ?>
 
     <div id="completedtasks-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
