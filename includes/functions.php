@@ -3115,10 +3115,6 @@ function ReactivateTask() {
 function DeleteTask() {
 
     global $mysqli;
-    global $session_userid;
-    global $due_tasks;
-    global $archived_tasks;
-    global $completed_tasks;
 
     $taskToDelete = filter_input(INPUT_POST, 'taskToDelete', FILTER_SANITIZE_NUMBER_INT);
 
@@ -3126,6 +3122,13 @@ function DeleteTask() {
     $stmt1->bind_param('i', $taskToDelete);
     $stmt1->execute();
     $stmt1->close();
+}
+
+function calendarUpdate() {
+
+    global $mysqli;
+    global $session_userid;
+
 
     $stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
 
