@@ -93,13 +93,13 @@ global $session_userid;
     </tr>
     </thead>
 
-    <tbody id="table-due-tasks">
+    <tbody id="content-due-tasks">
 
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
+	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
 
-	while($row = $stmt2->fetch_assoc()) {
+	while($row = $stmt1->fetch_assoc()) {
 
 	$taskid = $row["taskid"];
 	$task_name = $row["task_name"];
@@ -315,7 +315,7 @@ global $session_userid;
         </tr>';
 	}
 
-	$stmt2->close();
+	$stmt1->close();
 	?>
 
     </tbody>
@@ -349,13 +349,13 @@ global $session_userid;
     </tr>
     </thead>
 
-    <tbody id="table-completed-tasks">
+    <tbody id="content-completed-tasks">
 
 	<?php
 
-	$stmt4 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
+	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
 
-	while($row = $stmt4->fetch_assoc()) {
+	while($row = $stmt2->fetch_assoc()) {
 
     $taskid = $row["taskid"];
     $task_name = $row["task_name"];
@@ -459,7 +459,7 @@ global $session_userid;
         </tr>';
 	}
 
-	$stmt4->close();
+	$stmt2->close();
 	?>
 
     </tbody>
@@ -497,9 +497,9 @@ global $session_userid;
 	<tbody id="content-archived-tasks">
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task WHERE userid = '$session_userid' AND task_status = 'inactive'");
+	$stmt3 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task WHERE userid = '$session_userid' AND task_status = 'inactive'");
 
-	while($row = $stmt1->fetch_assoc()) {
+	while($row = $stmt3->fetch_assoc()) {
 
 	$taskid = $row["taskid"];
 	$task_name = $row["task_name"];
@@ -664,7 +664,7 @@ global $session_userid;
 			</tr>';
 	}
 
-	$stmt1->close();
+	$stmt3->close();
 	?>
 	</tbody>
 
