@@ -2520,7 +2520,7 @@ function calendarUpdate() {
         $task_startdate = $row["task_startdate"];
         $task_duedate = $row["task_duedate"];
 
-        echo '
+    $due_tasks = '
 
         <!-- Due tasks -->
         <section id="no-more-tables">
@@ -2763,7 +2763,7 @@ function calendarUpdate() {
         $task_url = $row["task_url"];
         $updated_on = $row["updated_on"];
 
-        echo '
+    $completed_tasks = '
 
         <!-- Completed tasks -->
         <section id="no-more-tables">
