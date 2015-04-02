@@ -519,12 +519,12 @@ function GetDashboardData() {
     $stmt13->bind_result($feedbackid);
     $stmt13->fetch();
 
-	$student_lectures_count         = $stmt1->num_rows;
-	$student_tutorials_count        = $stmt2->num_rows;
-    $academic_staff_lectures_count  = $stmt3->num_rows;
+	$student_lecture_count          = $stmt1->num_rows;
+    $academic_staff_lectures_count  = $stmt2->num_rows;
+    $student_tutorial_count         = $stmt3->num_rows;
     $academic_staff_tutorials_count = $stmt4->num_rows;
 
-    $student_timetable_count  = $student_lectures_count + $student_tutorials_count;
+    $student_timetable_count  = $student_lecture_count + $student_tutorial_count;
     $academic_staff_timetable_count = $academic_staff_lectures_count + $academic_staff_tutorials_count;
 
     $exams_count          = $stmt5->num_rows;
