@@ -2946,7 +2946,7 @@ function calendarUpdate() {
 
 			<div class="modal-footer">
 			<div class="text-center">
-			<a class="btn btn-primary btn-lg">Continue</a>
+			<a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
 			</div>
 			</div>
 
