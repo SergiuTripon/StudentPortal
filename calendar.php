@@ -92,7 +92,6 @@ global $session_userid;
 	<th>Action</th>
 	</tr>
 	</thead>
-
 	<tbody id="content-due-tasks">
 	<?php
 
@@ -128,6 +127,10 @@ global $session_userid;
             </div>
             </td>
 			</tr>
+
+			</tbody>
+	        </table>
+	        </section>
 
             <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -316,10 +319,6 @@ global $session_userid;
 
 	$stmt1->close();
 	?>
-	</tbody>
-
-	</table>
-	</section>
 
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
