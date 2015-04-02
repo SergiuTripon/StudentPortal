@@ -141,6 +141,7 @@ include '../includes/session.php';
     $('.btn').on('click', function () {
         var $btn = $(this);
         $btn.button('loading');
+        $btn.button('reset');
     });
 
 	//Ajax call
