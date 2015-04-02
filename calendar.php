@@ -841,9 +841,8 @@ global $session_userid;
 
         $(".table-completed-tasks").dataTable().fnDestroy();
         $('#table-completed-tasks').empty();
-        $('#modal-completed-tasks').empty();
         $('#table-completed-tasks').append(html.table_completed_tasks);
-        $('#modal-completed-tasks').append(html.modal_completed_tasks);
+        $('#table-completed-tasks').append(html.modal_completed_tasks);
         $(".table-completed-tasks").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
