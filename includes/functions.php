@@ -2460,7 +2460,7 @@ function CompleteTask() {
         $task_startdate = $row["task_startdate"];
         $task_duedate = $row["task_duedate"];
 
-        $due_tasks = '<tr id="task-'.$taskid.'">
+    $due_tasks = '<tr id="task-'.$taskid.'">
 
 			<td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
 			<td data-title="Start date">'.$task_startdate.'</td>
