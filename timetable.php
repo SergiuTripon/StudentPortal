@@ -888,6 +888,7 @@ include 'includes/session.php';
 	<th>From</th>
     <th>To</th>
     <th>Location</th>
+    <th>Capacity</th>
 	</tr>
 	</thead>
 
@@ -913,6 +914,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
+			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
 			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -970,6 +972,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$tutorial_from_time.'</td>
 			<td data-title="To">'.$tutorial_to_time.'</td>
 			<td data-title="Location">'.$tutorial_location.'</td>
+			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
 			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1036,6 +1039,7 @@ include 'includes/session.php';
 	<th>From</th>
     <th>To</th>
     <th>Location</th>
+    <th>Capacity</th>
 	</tr>
 	</thead>
 
@@ -1061,6 +1065,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
+			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
 			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1118,6 +1123,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$tutorial_from_time.'</td>
 			<td data-title="To">'.$tutorial_to_time.'</td>
 			<td data-title="Location">'.$tutorial_location.'</td>
+			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
 			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1184,6 +1190,7 @@ include 'includes/session.php';
 	<th>From</th>
     <th>To</th>
     <th>Location</th>
+    <th>Capacity</th>
 	</tr>
 	</thead>
 
@@ -1209,6 +1216,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
+			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
 			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1266,6 +1274,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$tutorial_from_time.'</td>
 			<td data-title="To">'.$tutorial_to_time.'</td>
 			<td data-title="Location">'.$tutorial_location.'</td>
+			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
 			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1332,6 +1341,7 @@ include 'includes/session.php';
 	<th>From</th>
     <th>To</th>
     <th>Location</th>
+    <th>Capacity</th>
 	</tr>
 	</thead>
 
@@ -1357,6 +1367,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
+			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
 			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1414,6 +1425,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$tutorial_from_time.'</td>
 			<td data-title="To">'.$tutorial_to_time.'</td>
 			<td data-title="Location">'.$tutorial_location.'</td>
+			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
 			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1480,6 +1492,7 @@ include 'includes/session.php';
 	<th>From</th>
     <th>To</th>
     <th>Location</th>
+    <th>Capacity</th>
 	</tr>
 	</thead>
 
@@ -1505,6 +1518,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
+			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
 			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1562,6 +1576,7 @@ include 'includes/session.php';
 			<td data-title="From">'.$tutorial_from_time.'</td>
 			<td data-title="To">'.$tutorial_to_time.'</td>
 			<td data-title="Location">'.$tutorial_location.'</td>
+			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
 			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
