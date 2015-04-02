@@ -829,10 +829,8 @@ global $session_userid;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
-        alert(html.modal_due_tasks);
-        alert(html.modal_completed_tasks);
-
         $('#table-completed-tasks').empty();
+        $('#table-completed-tasks').html(html.table_completed_tasks);
         $('#table-completed-tasks').html(html.modal_completed_tasks);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
