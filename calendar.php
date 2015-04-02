@@ -824,12 +824,12 @@ global $session_userid;
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
-            $('#content-due-tasks').html(html.due_tasks);
+            $('#content-due-tasks').append(html.due_tasks);
             $(".table-due-tasks").dataTable(settings);
 
             $(".table-completed-tasks").dataTable().fnDestroy();
             $('#content-completed-tasks').empty();
-            $('#content-completed-tasks').html(html.completed_tasks);
+            $('#content-completed-tasks').append(html.completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
 
             $('#complete-success-'+taskToComplete).modal('show');
