@@ -2447,7 +2447,7 @@ function CompleteTask() {
 	$stmt1->execute();
 	$stmt1->close();
 
-    calendarUpdate();
+    loadDueTasks();
 }
 
 //DeactivateTask function
