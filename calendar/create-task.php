@@ -134,11 +134,11 @@ include '../includes/session.php';
         format: 'YYYY/MM/DD HH:mm'
     });
 
+    var $btn;
+
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-
-    var $btn;
 
     $('.btn').on('click', function () {
         $btn = $(this);
