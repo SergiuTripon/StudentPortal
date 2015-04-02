@@ -1166,15 +1166,15 @@ global $session_userid;
         $(".table-due-tasks").dataTable().fnDestroy();
         $('#table-due-tasks').empty();
         $('#modal-due-tasks').empty();
-        $('#table-due-tasks').html(data.table_due_tasks);
-        $('#modal-due-tasks').html(data.modal_due_tasks);
+        $('#table-due-tasks').html(html.table_due_tasks);
+        $('#modal-due-tasks').html(html.modal_due_tasks);
         $(".table-due-tasks").dataTable(settings);
 
         $(".table-completed-tasks").dataTable().fnDestroy();
         $('#table-completed-tasks').empty();
         $('#modal-completed-tasks').empty();
-        $('#table-completed-tasks').html(data.table_completed_tasks);
-        $('#modal-completed-tasks').html(data.modal_completed_tasks);
+        $('#table-completed-tasks').html(html.table_completed_tasks);
+        $('#modal-completed-tasks').html(html.modal_completed_tasks);
         $(".table-completed-tasks").dataTable(settings);
 
         $('#complete-success-'+taskToComplete).modal('show');
