@@ -31,7 +31,7 @@
     <hr>
     
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="../../home/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-primary btn-lg" href="../../home/"><span class="ladda-label">Home</span></a>
 	</div>
 	
     </form>
@@ -58,7 +58,7 @@
     <hr>
     
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     </form>

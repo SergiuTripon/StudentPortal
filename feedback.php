@@ -89,7 +89,7 @@ include 'includes/session.php';
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
 			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="../feedback/submit-feedback?id='.$moduleid.'" data-style="slide-up"><span class="ladda-label">Submit feedback</span></a></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md" href="../feedback/submit-feedback?id='.$moduleid.'" ><span class="ladda-label">Submit feedback</span></a></a></td>
 			</tr>
 
             <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -108,7 +108,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -176,7 +176,7 @@ include 'includes/session.php';
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
 			<td data-title="Submitted on">'.$created_on.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
             <div id="view-submitted-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -195,7 +195,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -221,10 +221,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -250,14 +250,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-feedback-hide">
 			<div class="pull-left">
-			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-sent-feedback-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-sent-feedback-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -353,7 +353,7 @@ include 'includes/session.php';
 			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Module"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
 			<div id="view-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -374,7 +374,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -398,7 +398,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -422,10 +422,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -451,14 +451,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-feedback-hide">
 			<div class="pull-left">
-			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-received-feedback-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-received-feedback-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -588,7 +588,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -612,7 +612,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -638,10 +638,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -667,14 +667,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="approve-feedback-hide">
 			<div class="pull-left">
-			<a id="approve-'.$feedbackid.'" class="btn btn-success btn-lg approve-feedback-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="approve-'.$feedbackid.'" class="btn btn-success btn-lg approve-feedback-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="approve-feedback-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="approve-feedback-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -700,14 +700,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-feedback-hide">
 			<div class="pull-left">
-			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-feedback-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-feedback-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -770,7 +770,7 @@ include 'includes/session.php';
 
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md ladda-button" data-style="slide-up" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
 			</tr>
 
 			<div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -789,7 +789,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -813,10 +813,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -842,14 +842,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-feedback-hide">
 			<div class="pull-left">
-			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-feedback-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-feedback-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -899,7 +899,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     </form>

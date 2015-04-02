@@ -74,7 +74,7 @@ include 'includes/session.php';
     <li class="active">University map</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin ladda-button" data-style="slide-up" href="../admin/create-location/"><span class="ladda-label">Create location</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-location/"><span class="ladda-label">Create location</span></a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -160,14 +160,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="deactivate-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$markerid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$markerid.'" class="btn btn-danger btn-lg deactivate-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -192,14 +192,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -300,14 +300,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="reactivate-hide">
 			<div class="pull-left">
-			<a id="reactivate-'.$markerid.'" class="btn btn-danger btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$markerid.'" class="btn btn-danger btn-lg reactivate-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -332,14 +332,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -384,7 +384,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     </form>

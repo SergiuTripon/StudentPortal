@@ -64,7 +64,7 @@ $stmt1->fetch();
     <hr class="hr-custom">
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-toggle="modal" href="#deleteaccount-modal"><span class="ladda-label">Delete account</span></a>
+    <a class="btn btn-primary btn-lg" data-toggle="modal" href="#deleteaccount-modal"><span class="ladda-label">Delete account</span></a>
     </div>
 
     </form>
@@ -91,10 +91,10 @@ $stmt1->fetch();
 	<div class="modal-footer">
     
 	<div class="pull-left">
-    <button id="FormSubmit" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" type="submit"><span class="ladda-label">Yes</span></button>
+    <button id="FormSubmit" class="btn btn-danger btn-lg" type="submit"><span class="ladda-label">Yes</span></button>
     </div>
     <div class="text-right">
-	<button class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal"><span class="ladda-label">No</span></button>
+	<button class="btn btn-success btn-lg" data-dismiss="modal"><span class="ladda-label">No</span></button>
 	</div>
     
 	</div>
@@ -127,7 +127,7 @@ $stmt1->fetch();
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
 	</div>
 	
     </form>

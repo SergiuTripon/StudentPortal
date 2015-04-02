@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#allocate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Allocate</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md" href="#allocate-'.$userid.'" data-toggle="modal" ><span class="ladda-label">Allocate</span></a></td>
 			</tr>
 
 			<div id="allocate-'.$userid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -102,14 +102,14 @@ if (isset($_GET['id'])) {
 			<div class="modal-footer">
 			<div id="allocate-hide">
 			<div class="pull-left">
-			<a id="allocate-'.$userid.'" class="btn btn-danger btn-lg allocate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="allocate-'.$userid.'" class="btn btn-danger btn-lg allocate-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="allocate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="allocate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -166,7 +166,7 @@ if (isset($_GET['id'])) {
 
 			<td data-title="First name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md ladda-button" href="#deallocate-'.$userid.'" data-toggle="modal" data-style="slide-up"><span class="ladda-label">Deallocate</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md" href="#deallocate-'.$userid.'" data-toggle="modal" ><span class="ladda-label">Deallocate</span></a></td>
 			</tr>
 
 			<div id="deallocate-'.$userid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -187,14 +187,14 @@ if (isset($_GET['id'])) {
 			<div class="modal-footer">
 			<div id="deallocate-hide">
 			<div class="pull-left">
-			<a id="deallocate-'.$userid.'" class="btn btn-danger btn-lg deallocate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deallocate-'.$userid.'" class="btn btn-danger btn-lg deallocate-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deallocate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deallocate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -241,7 +241,7 @@ if (isset($_GET['id'])) {
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     </form>

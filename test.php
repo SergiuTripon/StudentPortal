@@ -24,7 +24,7 @@ while($row = $stmt2->fetch_assoc()) {
             <td data-title="Start">'.$task_startdate.'</td>
             <td data-title="Due">'.$task_duedate.'</td>
             <td data-title="Completed on">'.$task_duedate.'</td>
-            <td data-title="Action"><a class="btn btn-md btn-primary ladda-button" data-style="slide-up" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-md btn-primary" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
             </tr>
 
 	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -46,10 +46,10 @@ while($row = $stmt2->fetch_assoc()) {
 
 			<div class="modal-footer">
 			<div class="view-action pull-left">
-            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -75,14 +75,14 @@ while($row = $stmt2->fetch_assoc()) {
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$taskid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$taskid.'" class="btn btn-success btn-lg delete-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -111,7 +111,7 @@ while($row = $stmt3->fetch_assoc()) {
             <td data-title="Start">'.$task_startdate.'</td>
             <td data-title="Due">'.$task_duedate.'</td>
             <td data-title="Completed on">'.$task_duedate.'</td>
-            <td data-title="Action"><a class="btn btn-md btn-primary ladda-button" data-style="slide-up" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-md btn-primary" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
             </tr>
 
 	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -133,10 +133,10 @@ while($row = $stmt3->fetch_assoc()) {
 
 			<div class="modal-footer">
 			<div class="view-action pull-left">
-            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -162,14 +162,14 @@ while($row = $stmt3->fetch_assoc()) {
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$taskid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$taskid.'" class="btn btn-success btn-lg delete-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 

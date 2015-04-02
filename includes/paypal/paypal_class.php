@@ -106,7 +106,7 @@ class paypal_class {
 		echo "<hr>\n";
 
 		echo "<div class=\"text-center\">\n";
-		echo "<button type=\"submit\" class=\"btn btn-primary btn-lg ladda-button\" data-style=\"slide-up\"><span class=\"ladda-label\">Click here</span></button>\n";
+		echo "<button type=\"submit\" class=\"btn btn-primary btn-lg\" data-style=\"slide-up\"><span class=\"ladda-label\">Click here</span></button>\n";
 		echo "</div>\n";
 
 		echo "</form>\n";

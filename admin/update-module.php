@@ -85,7 +85,7 @@ if (isset($_GET['id'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Update module</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg" ><span class="ladda-label">Update module</span></button>
     </div>
 
     </div>
@@ -117,7 +117,7 @@ if (isset($_GET['id'])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/home/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-primary btn-lg" href="/home/"><span class="ladda-label">Home</span></a>
     </div>
 
     </form>
@@ -148,7 +148,7 @@ if (isset($_GET['id'])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
 	</div>
 	
     </form>

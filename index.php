@@ -47,11 +47,11 @@ include 'includes/session.php';
     <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="home/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-success btn-lg" href="home/"><span class="ladda-label">Home</span></a>
     </div>
 	
     <div class="text-right">
-    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="sign-out/"><span class="ladda-label">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg" href="sign-out/"><span class="ladda-label">Sign Out</span></a>
     </div>
 
     </form>
@@ -100,11 +100,11 @@ include 'includes/session.php';
     <hr>
 
     <div class="pull-left">
-    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="register/"><span class="ladda-label">Register</span></a>
+    <a class="btn btn-info btn-lg" href="register/"><span class="ladda-label">Register</span></a>
     </div>
 
     <div class="text-right">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Sign in</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg" ><span class="ladda-label">Sign in</span></button>
 	</div>
 
     </form>

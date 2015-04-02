@@ -112,8 +112,8 @@ include 'includes/session.php';
 
 			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md disabled ladda-button\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
-            <td data-title="Request">'.($stmt3->num_rows == 1 ? "<a class=\"btn btn-primary btn-md ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a class=\"btn btn-primary btn-md disabled ladda-button\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
+			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
+            <td data-title="Request">'.($stmt3->num_rows == 1 ? "<a class=\"btn btn-primary btn-md\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
 			</tr>';
 	}
 
@@ -246,7 +246,7 @@ include 'includes/session.php';
 			<td data-title="To return by">'.$toreturn_on.'</td>
 			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
 			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
-            <td data-title="Action"><a id="book-'.$bookid.'" class="btn btn-primary btn-md ladda-button renew-button" data-style="slide-up"><span class="ladda-label">Renew</span></a></td>
+            <td data-title="Action"><a id="book-'.$bookid.'" class="btn btn-primary btn-md renew-button" ><span class="ladda-label">Renew</span></a></td>
 			</tr>';
 	}
 
@@ -378,7 +378,7 @@ include 'includes/session.php';
 
     <div class="modal-footer">
     <div class="view-close text-center">
-    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+    <a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
     </div>
     </div>
 
@@ -404,7 +404,7 @@ include 'includes/session.php';
     <li class="active">Library</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin ladda-button" data-style="slide-up" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -480,12 +480,12 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-book?id='.$bookid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="/admin/update-book?id='.$bookid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#deactivate-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
+            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -511,14 +511,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="deactivate-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$bookid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$bookid.'" class="btn btn-danger btn-lg deactivate-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -544,14 +544,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$bookid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$bookid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -641,11 +641,11 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#reactivate-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Reactivate</a>
-            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#reactivate-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Reactivate</a>
+            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -671,14 +671,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="reactivate-hide">
 			<div class="pull-left">
-			<a id="reactivate-'.$bookid.'" class="btn btn-success btn-lg reactivate-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$bookid.'" class="btn btn-success btn-lg reactivate-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="reactivate-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -704,14 +704,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$bookid.'" class="btn btn-success btn-lg delete-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$bookid.'" class="btn btn-success btn-lg delete-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -810,10 +810,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Message user</a>
+            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm" >Message user</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -838,10 +838,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#collect-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Mark collected</a>
+            <a href="#collect-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Mark collected</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -867,14 +867,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="collect-hide">
 			<div class="pull-left">
-			<a id="collect-'.$bookid.'" class="btn btn-success btn-lg collect-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="collect-'.$bookid.'" class="btn btn-success btn-lg collect-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="collect-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="collect-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -973,10 +973,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Message user</a>
+            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm" >Message user</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1001,10 +1001,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Mark returned</a>
+            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Mark returned</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1030,14 +1030,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="return-hide">
 			<div class="pull-left">
-			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="return-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="return-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -1136,10 +1136,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Message user</a>
+            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm" >Message user</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1164,10 +1164,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Return book</a>
+            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Return book</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1193,14 +1193,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="return-hide">
 			<div class="pull-left">
-			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="return-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="return-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -1226,14 +1226,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="approve-hide">
 			<div class="pull-left">
-			<a id="approve-'.$requestid.'" class="btn btn-success btn-lg approve-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="approve-'.$requestid.'" class="btn btn-success btn-lg approve-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="approve-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="approve-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -1281,7 +1281,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     </form>

@@ -36,11 +36,11 @@ include 'includes/session.php';
     <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="home/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-success btn-lg" href="home/"><span class="ladda-label">Home</span></a>
     </div>
 
     <div class="text-right">
-    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="sign-out/"><span class="ladda-label">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg" href="sign-out/"><span class="ladda-label">Sign Out</span></a>
     </div>
 
     </form>
@@ -81,15 +81,15 @@ include 'includes/session.php';
     <hr>
 
     <div id="extra-button" class="pull-left">
-    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-info btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     <div id="extra-button" class="text-right">
-    <button id="FormSubmit" class="btn btn-lg btn-primary ladda-button" data-style="slide-up"><span class="ladda-label">Continue</span></button>
+    <button id="FormSubmit" class="btn btn-lg btn-primary" ><span class="ladda-label">Continue</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Continue</span></a>
+    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Continue</span></a>
     </div>
 
     </form>

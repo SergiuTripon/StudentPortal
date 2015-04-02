@@ -83,7 +83,7 @@ header('Location: ../calendar/');
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button mt10" data-style="slide-up"><span class="ladda-label">Update task</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg mt10" ><span class="ladda-label">Update task</span></button>
     </div>
 
 	</div>
@@ -114,7 +114,7 @@ header('Location: ../calendar/');
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
 	</div>
 	
     </form>

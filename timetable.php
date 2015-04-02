@@ -114,12 +114,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -177,12 +177,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -275,12 +275,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -338,12 +338,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -436,12 +436,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -499,12 +499,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -597,12 +597,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -660,12 +660,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -758,12 +758,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -821,12 +821,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
+			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm">Messenger</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -941,11 +941,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -999,11 +999,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1092,11 +1092,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1150,11 +1150,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1243,11 +1243,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1301,11 +1301,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1394,11 +1394,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1452,11 +1452,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1545,11 +1545,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1603,11 +1603,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1649,9 +1649,9 @@ global $session_userid;
     <li class="active">Timetable</li>
     </ol>
 
-    <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-module/"><span class="ladda-label">Create module</span></a>
-    <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-lecture/"><span class="ladda-label">Create lecture</span></a>
-    <a class="btn btn-success btn-lg ladda-button btn-admin" data-style="slide-up" href="/admin/create-tutorial/"><span class="ladda-label">Create tutorial</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-module/"><span class="ladda-label">Create module</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-lecture/"><span class="ladda-label">Create lecture</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-tutorial/"><span class="ladda-label">Create tutorial</span></a>
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
@@ -1725,12 +1725,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#deactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
+            <a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1756,14 +1756,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="deactivate-module-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$moduleid.'" class="btn btn-success btn-lg deactivate-module-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$moduleid.'" class="btn btn-success btn-lg deactivate-module-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-module-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-module-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -1789,14 +1789,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="delete-module-hide">
 			<div class="pull-left">
-			<a id="delete-'.$moduleid.'" class="btn btn-success btn-lg delete-module-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$moduleid.'" class="btn btn-success btn-lg delete-module-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-module-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-module-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -1908,12 +1908,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
+            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1939,14 +1939,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="deactivate-lecture-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$lectureid.'" class="btn btn-success btn-lg deactivate-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$lectureid.'" class="btn btn-success btn-lg deactivate-lecture-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-lecture-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -1972,14 +1972,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="delete-lecture-hide">
 			<div class="pull-left">
-			<a id="delete-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -2091,12 +2091,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$tutorialid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="/admin/update-timetable?id='.$tutorialid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#deactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
+            <a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -2122,14 +2122,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="deactivate-tutorial-hide">
 			<div class="pull-left">
-			<a id="deactivate-'.$tutorialid.'" class="btn btn-success btn-lg deactivate-tutorial-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="deactivate-'.$tutorialid.'" class="btn btn-success btn-lg deactivate-tutorial-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="deactivate-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="deactivate-tutorial-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -2155,14 +2155,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="delete-tutorial-hide">
 			<div class="pull-left">
-			<a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg delete-tutorial-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg delete-tutorial-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-tutorial-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -2252,10 +2252,10 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#reactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
+            <a href="#reactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -2281,14 +2281,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="reactivate-module-hide">
 			<div class="pull-left">
-			<a id="reactivate-'.$moduleid.'" class="btn btn-success btn-lg reactivate-module-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$moduleid.'" class="btn btn-success btn-lg reactivate-module-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="reactivate-module-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-module-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -2314,14 +2314,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="delete-module-hide">
 			<div class="pull-left">
-			<a id="delete-'.$moduleid.'" class="btn btn-success btn-lg delete-module-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$moduleid.'" class="btn btn-success btn-lg delete-module-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-module-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-module-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -2431,12 +2431,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
+            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -2462,14 +2462,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="reactivate-lecture-hide">
 			<div class="pull-left">
-			<a id="reactivate-'.$lectureid.'" class="btn btn-success btn-lg reactivate-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$lectureid.'" class="btn btn-success btn-lg reactivate-lecture-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="reactivate-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-lecture-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -2495,14 +2495,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="delete-lecture-hide">
 			<div class="pull-left">
-			<a id="delete-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -2612,12 +2612,12 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$tutorialid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#deactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Deactivate</a>
-            <a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="/admin/update-timetable?id='.$tutorialid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#deactivate-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
+            <a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -2643,14 +2643,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="reactivate-tutorial-hide">
 			<div class="pull-left">
-			<a id="reactivate-'.$tutorialid.'" class="btn btn-success btn-lg reactivate-tutorial-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="reactivate-'.$tutorialid.'" class="btn btn-success btn-lg reactivate-tutorial-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="reactivate-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="reactivate-tutorial-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -2676,14 +2676,14 @@ global $session_userid;
 			<div class="modal-footer">
 			<div id="delete-tutorial-hide">
 			<div class="pull-left">
-			<a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg delete-tutorial-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg delete-tutorial-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-tutorial-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-tutorial-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -2723,7 +2723,7 @@ global $session_userid;
 
     <div class="modal-footer">
     <div class="view-close text-center">
-    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+    <a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
     </div>
     </div>
 
@@ -2757,7 +2757,7 @@ global $session_userid;
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     </form>

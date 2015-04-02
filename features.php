@@ -151,7 +151,7 @@ include 'includes/session.php';
 
 	<div class="modal-footer">
 	<div class="text-center">
-    <button type="button" class="btn btn-danger btn-lg" data-style="slide-up" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Close</button>
 	</div>
 	</div>
 
@@ -285,7 +285,7 @@ include 'includes/session.php';
 
 	<div class="modal-footer">
 	<div class="text-center">
-    <button type="button" class="btn btn-danger btn-lg" data-style="slide-up" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Close</button>
 	</div>
 	</div>
 

@@ -147,13 +147,13 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Update</a>
-            <a href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Complete</a>
-            <a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Archive</a>
-            <a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Complete</a>
+            <a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Archive</a>
+            <a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -176,10 +176,10 @@ global $session_userid;
 
 			<div class="modal-footer">
 			<div class="pull-left">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
-			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button ladda-button" data-style="slide-up">Complete</a>
+			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button" >Complete</a>
 			</div>
 			</div>
 
@@ -227,10 +227,10 @@ global $session_userid;
 
 			<div class="modal-footer">
 			<div class="pull-left">
-			<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
+			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
-            <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button ladda-button" data-style="slide-up">Archive</a>
+            <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button" >Archive</a>
 			</div>
 			</div>
 
@@ -278,10 +278,10 @@ global $session_userid;
 
 			<div class="modal-footer">
 			<div class="pull-left">
-			<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
+			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
-			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Delete</a>
+			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
 			</div>
 			</div>
 
@@ -305,7 +305,7 @@ global $session_userid;
 
 			<div class="modal-footer">
 			<div class="text-center">
-			<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Continue</a>
+			<a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
 			</div>
 			</div>
 
@@ -377,7 +377,9 @@ global $session_userid;
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa-calendar"></i></div>
+            <div class="close">
+            <i class="fa fa-calendar"></i>
+            </div>
             <h4 class="modal-title" id="modal-custom-label">'.$task_name.'</h4>
 			</div>
 
@@ -391,10 +393,10 @@ global $session_userid;
 
 			<div class="modal-footer">
 			<div class="view-action pull-left">
-            <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Delete</a>
+            <a href="#delete-confirmation-'.$taskid.'" class="btn btn-primary btn-sm" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -413,15 +415,15 @@ global $session_userid;
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$task_name.'?</p>
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$task_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="pull-left">
-			<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
+			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
-			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Delete</a>
+			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
 			</div>
 			</div>
 
@@ -445,7 +447,7 @@ global $session_userid;
 
 			<div class="modal-footer">
 			<div class="text-center">
-			<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Continue</a>
+			<a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
 			</div>
 			</div>
 
@@ -543,11 +545,11 @@ global $session_userid;
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#reactivate-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Restore</a>
-            <a href="#delete-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+            <a href="#reactivate-confirmation-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Restore</a>
+            <a href="#delete-confirmation-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -627,7 +629,7 @@ global $session_userid;
 			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
-			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Delete</a>
+			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
 			</div>
 			</div>
 

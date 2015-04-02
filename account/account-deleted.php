@@ -37,11 +37,11 @@ include '../includes/session.php';
 	<hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="../../home/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-success btn-lg" href="../../home/"><span class="ladda-label">Home</span></a>
     </div>
 
     <div class="text-right">
-    <a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" href="../delete-account/"><span class="ladda-label">Delete account</span></a>
+    <a class="btn btn-danger btn-lg" href="../delete-account/"><span class="ladda-label">Delete account</span></a>
     </div>
 
 	</form>
@@ -74,11 +74,11 @@ include '../includes/session.php';
     <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-success btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
 	</div>
 
     <div class="text-right">
-    <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/register"><span class="ladda-label">Register</span></a>
+    <a class="btn btn-success btn-lg" href="/register"><span class="ladda-label">Register</span></a>
 
 	</div>
 

@@ -71,7 +71,7 @@ include 'includes/session.php';
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Message</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Message</span></a></td>
 			</tr>';
 	}
 	$stmt1->close();
@@ -160,10 +160,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-action pull-left">
-            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Send another</span></a>
+            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Send another</span></a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -189,11 +189,11 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Reply</span></a>
-            <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up" data-toggle="modal" data-dismiss="modal">Delete</a>
+            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Reply</span></a>
+            <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -219,14 +219,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-received-message-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-received-message-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -322,10 +322,10 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-action pull-left">
-            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Send another</span></a>
+            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Send another</span></a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -352,11 +352,11 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a class="btn btn-primary ladda-button btn-md message-button" href="../messenger/message-user?id='.$userid.'" data-style="slide-up"><span class="ladda-label">Send another</span></a>
-            <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up" data-toggle="modal" data-dismiss="modal">Delete</a>
+            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Send another</span></a>
+            <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -382,14 +382,14 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div id="delete-hide">
 			<div class="pull-left">
-			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-sent-message-button ladda-button" data-style="slide-up">Yes</a>
+			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-sent-message-button" >Yes</a>
 			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">No</button>
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
 			</div>
 			</div>
 			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg ladda-button" style="display: none;" data-style="slide-up">Continue</a>
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -435,7 +435,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 
     </form>
