@@ -824,8 +824,6 @@ global $session_userid;
 
             $('#content-due-tasks').empty();
             $(".table-due-tasks").dataTable().fnDestroy();
-            $('#content-due-tasks').append(html.due_tasks);
-
 
             $('#complete-success-'+taskToComplete).modal('show');
 	},
