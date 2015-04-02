@@ -123,9 +123,6 @@ include 'includes/session.php';
             <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
-
             <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
@@ -255,7 +252,9 @@ include 'includes/session.php';
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+            </td>
+			</tr>';
 	}
 
 	$stmt1->close();
