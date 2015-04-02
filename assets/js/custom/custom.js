@@ -3,9 +3,8 @@
 	});
 
     function buttonLoad () {
-        $('.btn').button({
-            loadingText: 'Loading...'
-        });
+        $('.btn').data('loading-text', 'Loading...');
+        $('.btn').button('loading');
     }
 
     function buttonReset () {
