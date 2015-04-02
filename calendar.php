@@ -97,7 +97,6 @@ global $session_userid;
         $task_duedate = $row["task_duedate"];
 
         echo '
-
             <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
@@ -373,7 +372,6 @@ global $session_userid;
         $updated_on = $row["updated_on"];
 
     echo '
-
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
@@ -506,7 +504,7 @@ global $session_userid;
     </tbody>
 
     </table>
-    </section
+    </section>
 
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
