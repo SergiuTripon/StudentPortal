@@ -44,7 +44,7 @@ include 'includes/session.php';
     </div>
 	</div>
     </a>
-	
+
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
 	<div id="task-button">
     <div class="tile task-tile">
@@ -53,7 +53,7 @@ include 'includes/session.php';
     </div>
     </div>
 	</div>
-	
+
 	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
 	<div id="calendar-button">
 	<div class="tile calendar-tile">
@@ -62,7 +62,7 @@ include 'includes/session.php';
     </div>
     </div>
 	</div>
-	
+
 	</div><!-- /row -->
 
 	<div class="panel-group panel-custom task-view" id="accordion" role="tablist" aria-multiselectable="true">
@@ -312,10 +312,8 @@ include 'includes/session.php';
             <td data-title="Start">'.$task_startdate.'</td>
             <td data-title="Due">'.$task_duedate.'</td>
             <td data-title="Completed on">'.$task_duedate.'</td>
-            <td data-title="Action"><a class="btn btn-md btn-primary ladda-button" data-style="slide-up" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
-            </tr>
-
-	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <td data-title="Action"><a class="btn btn-md btn-primary ladda-button" data-style="slide-up" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a>
+            <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -376,7 +374,9 @@ include 'includes/session.php';
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+            </td>
+            </tr>';
 	}
 
 	$stmt2->close();
@@ -597,11 +597,11 @@ include 'includes/session.php';
 	</div><!-- /panel-default -->
 
 	</div><!-- /panel-group -->
-	
+
     </div><!-- /container -->
-	
+
 	<?php include 'includes/footers/footer.php'; ?>
-		
+
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
