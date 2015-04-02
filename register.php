@@ -130,12 +130,16 @@ include 'includes/session.php';
 	</div>
 
     <hr>
-	
-    <div id="register-button" class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Register</span></button>
+
+	<div id="register-button" class="pull-left">
+    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 	
-	<div id="success-button" class="text-center" style="display:none;">
+    <div id="register-button" class="text-right">
+    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up" data-spinner-color="#333333"><span class="ladda-label">Register</span></button>
+    </div>
+	
+	<div id="success-button" class="text-center" style="display:none">
     <a class="btn btn-success btn-lg ladda-button" data-style="slide-up" href="/"><span class="ladda-label">Sign in</span></a>
     </div>
 	

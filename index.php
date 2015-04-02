@@ -99,7 +99,11 @@ include 'includes/session.php';
 
     <hr>
 
-    <div class="text-center">
+    <div class="pull-left">
+    <a class="btn btn-info btn-lg ladda-button" data-style="slide-up" href="register/"><span class="ladda-label">Register</span></a>
+    </div>
+
+    <div class="text-right">
     <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Sign in</span></button>
 	</div>
 
