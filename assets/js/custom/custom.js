@@ -6,6 +6,10 @@
         $('.btn').button('loading');
     }
 
+    function buttonReset () {
+        $('.btn').button('reset');
+    }
+
 	// Disables the background of a cell that contains Victoria in the Station Status table
 	$(".table-stationstatus td").filter(function() { return $.trim($(this).text()) === "Victoria"; }).
 	closest('tr').addClass( "no-background" );
