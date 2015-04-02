@@ -221,7 +221,7 @@ include '../includes/session.php';
 		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
-        $('.btn').button('loading');
+        $('.btn').button('reset');
     }
 	});
     }
