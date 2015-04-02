@@ -71,9 +71,11 @@ global $session_userid;
 
 	<div class="panel-group panel-custom task-view" id="accordion" role="tablist" aria-multiselectable="true">
 
+    <div id="content-due-tasks">
     <?php
     loadDueTasks();
     ?>
+    </div>
 
     <div id="completedtasks-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
@@ -705,18 +707,9 @@ global $session_userid;
         $('#complete-confirmation-'+taskToComplete).modal('hide');
 
         $(".table-due-tasks").dataTable().fnDestroy();
-        $('#table-due-tasks').empty();
-        $('#modal-due-tasks').empty();
-        $('#table-due-tasks').html(html.table_due_tasks);
-        $('#modal-due-tasks').html(html.modal_due_tasks);
+        $('#content-due-tasks').empty();
+        $('#content-due-tasks').html(html);
         $(".table-due-tasks").dataTable(settings);
-
-        $(".table-completed-tasks").dataTable().fnDestroy();
-        $('#table-completed-tasks').empty();
-        $('#modal-completed-tasks').empty();
-        $('#table-completed-tasks').html(html.table_completed_tasks);
-        $('#modal-completed-tasks').html(html.modal_completed_tasks);
-        $(".table-completed-tasks").dataTable(settings);
 
         $('#complete-success-'+taskToComplete).modal('show');
 	},

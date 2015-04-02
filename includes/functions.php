@@ -2530,42 +2530,6 @@ function loadDueTasks() {
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
         <div class="panel-body">
 
-        <!-- Due tasks -->
-        <section id="no-more-tables">
-        <table class="table table-condensed table-custom table-due-tasks">
-
-        <thead>
-        <tr>
-        <th>Task</th>
-        <th>Start</th>
-        <th>Due</th>
-        <th>Action</th>
-        </tr>
-        </thead>
-        <tbody id="table-due-tasks">
-
-	    <tr id="task-'.$taskid.'">
-
-        <td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
-        <td data-title="Start date">'.$task_startdate.'</td>
-        <td data-title="Due date">'.$task_duedate.'</td>
-        <td data-title="Action">
-
-        <div class="btn-group btn-action">
-        <a id="complete-button" class="btn btn-primary" href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Complete</a>
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-        <span class="fa fa-caret-down"></span>
-        <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-        <li><a href="../calendar/update-task?id='.$taskid.'">Update</a></li>
-        <li><a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Archive</a></li>
-        <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
-        </ul>
-        </div>
-        </td>
-        </tr>
-
         <div id="modal-due-tasks">
 
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -2753,6 +2717,42 @@ function loadDueTasks() {
         </div><!-- /modal-content -->
 
         </div>
+
+        <!-- Due tasks -->
+        <section id="no-more-tables">
+        <table class="table table-condensed table-custom table-due-tasks">
+
+        <thead>
+        <tr>
+        <th>Task</th>
+        <th>Start</th>
+        <th>Due</th>
+        <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+	    <tr id="task-'.$taskid.'">
+
+        <td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
+        <td data-title="Start date">'.$task_startdate.'</td>
+        <td data-title="Due date">'.$task_duedate.'</td>
+        <td data-title="Action">
+
+        <div class="btn-group btn-action">
+        <a id="complete-button" class="btn btn-primary" href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Complete</a>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <span class="fa fa-caret-down"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+        <li><a href="../calendar/update-task?id='.$taskid.'">Update</a></li>
+        <li><a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Archive</a></li>
+        <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+        </ul>
+        </div>
+        </td>
+        </tr>
 
         </tbody>
         </table>
