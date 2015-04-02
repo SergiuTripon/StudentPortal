@@ -18,6 +18,8 @@ include 'includes/functions.php';
 
     GetDashboardData();
 
+    echo $academic_staff_timetable_count;
+
 ?>
 
 
