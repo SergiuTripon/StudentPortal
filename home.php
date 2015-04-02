@@ -4,7 +4,8 @@ include 'includes/functions.php';
 
     global $mysqli;
     global $session_userid;
-    global $timetable_count;
+    global $student_timetable_count;
+    global $academic_staff_timetable_count;
     global $exams_count;
     global $results_count;
     global $library_count;
@@ -50,7 +51,7 @@ include 'includes/functions.php';
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
     <div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
-	<p>Timetable<span class="badge"><?php echo ($timetable_count == '0' ? "" : "$timetable_count"); ?></span></p>
+	<p>Timetable<span class="badge"><?php echo ($student_timetable_count == '0' ? "" : "$student_timetable_count"); ?></span></p>
     </div>
 	</div>
     </a>
@@ -163,20 +164,47 @@ include 'includes/functions.php';
     <div id="overview-portal" class="container">
     <div class="row">
 
-    <a href="../library/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-	<div class="tile">
-    <i class="fa fa-book"></i>
-	<p>Library<span class="badge"><?php echo ($library_count == '0' ? "" : "$library_count"); ?></p>
+    <a href="../timetable/">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="tile large-tile">
+    <i class="fa fa-clock-o"></i>
+	<p>Timetable<span class="badge"><?php echo ($academic_staff_timetable_count == '0' ? "" : "$academic_staff_timetable_count"); ?></span></p>
+    </div>
+	</div>
+    </a>
+
+    <a href="../exams/">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+    <div class="tile">
+    <i class="fa fa-pencil"></i>
+	<p>Exams<span class="badge"><?php echo ($exams_count == '0' ? "" : "$exams_count"); ?></span></p>
+    </div>
+	</div>
+    </a>
+
+    <a href="../results/">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="tile">
+	<i class="fa fa-trophy"></i>
+	<p>Results<span class="badge"><?php echo ($results_count == '0' ? "" : "$results_count"); ?></span></p>
     </div>
 	</div>
     </a>
 
     <a href="../transport/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-subway"></i>
 	<p>Transport</p>
+    </div>
+	</div>
+    </a>
+
+    <a href="../library/">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+	<div class="tile">
+    <i class="fa fa-book"></i>
+	<p>Library<span class="badge"><?php echo ($library_count == '0' ? "" : "$library_count"); ?></span></p>
     </div>
 	</div>
     </a>
@@ -190,15 +218,6 @@ include 'includes/functions.php';
 	</div>
     </a>
 
-    <a href="../events/">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-    <div class="tile">
-	<i class="fa fa-ticket"></i>
-	<p>Events<span class="badge"><?php echo ($events_count == '0' ? "" : "$events_count"); ?></span></p>
-    </div>
-	</div>
-    </a>
-
     <a href="../university-map/">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="tile">
@@ -208,11 +227,20 @@ include 'includes/functions.php';
 	</div>
     <a>
 
+    <a href="../events/">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="tile">
+	<i class="fa fa-ticket"></i>
+	<p>Events<span class="badge"><?php echo ($events_count == '0' ? "" : "$events_count"); ?></span></p>
+    </div>
+	</div>
+    </a>
+
 	<a href="../feedback/">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-check-square-o"></i>
-    <p>Feedback<span class="badge"><?php echo ($feedback_count == '0' ? "" : "$feedback_count"); ?></span></p>
+	<p>Feedback</p>
     </div>
 	</div>
     </a>

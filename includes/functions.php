@@ -391,7 +391,8 @@ function GetDashboardData() {
 
 	global $mysqli;
 	global $session_userid;
-	global $timetable_count;
+    global $student_timetable_count;
+	global $academic_staff_timetable_count;
 	global $exams_count;
     global $results_count;
 	global $library_count;
@@ -411,111 +412,130 @@ function GetDashboardData() {
 	$stmt1->bind_result($lectureid);
 	$stmt1->fetch();
 
+    $stmt2 = $mysqli->prepare("SELECT l.lectureid FROM system_lecture l WHERE l.lecture_lecturer=? AND l.lecture_status=? AND DATE(l.lecture_to_date) > DATE(NOW())");
+    $stmt2->bind_param('is', $session_userid, $lecture_status);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($lectureid);
+    $stmt2->fetch();
+
     $tutorial_status = 'active';
 
-	$stmt2 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorial t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=? AND DATE(t.tutorial_to_date) > DATE(NOW())");
-	$stmt2->bind_param('is', $session_userid, $tutorial_status);
-	$stmt2->execute();
-	$stmt2->store_result();
-	$stmt2->bind_result($tutorialid);
-	$stmt2->fetch();
+	$stmt3 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorial t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=? AND DATE(t.tutorial_to_date) > DATE(NOW())");
+	$stmt3->bind_param('is', $session_userid, $tutorial_status);
+	$stmt3->execute();
+	$stmt3->store_result();
+	$stmt3->bind_result($tutorialid);
+	$stmt3->fetch();
+
+    $stmt4 = $mysqli->prepare("SELECT t.tutorialid FROM system_tutorial t WHERE t.tutorial_assistant=? AND t.tutorial_status=? AND DATE(t.tutorial_to_date) > DATE(NOW())");
+    $stmt4->bind_param('is', $session_userid, $tutorial_status);
+    $stmt4->execute();
+    $stmt4->store_result();
+    $stmt4->bind_result($tutorialid);
+    $stmt4->fetch();
 
     $exam_status = 'active';
 
-	$stmt3 = $mysqli->prepare("SELECT e.examid FROM user_exam u LEFT JOIN system_exam e ON u.examid=e.examid WHERE u.userid=? AND e.exam_status=?");
-	$stmt3->bind_param('is', $session_userid, $exam_status);
-	$stmt3->execute();
-	$stmt3->store_result();
-	$stmt3->bind_result($examid);
-	$stmt3->fetch();
+	$stmt5 = $mysqli->prepare("SELECT e.examid FROM user_exam u LEFT JOIN system_exam e ON u.examid=e.examid WHERE u.userid=? AND e.exam_status=?");
+	$stmt5->bind_param('is', $session_userid, $exam_status);
+	$stmt5->execute();
+	$stmt5->store_result();
+	$stmt5->bind_result($examid);
+	$stmt5->fetch();
 
-    $stmt4 = $mysqli->prepare("SELECT resultid FROM user_result WHERE userid=?");
-    $stmt4->bind_param('i', $session_userid);
-    $stmt4->execute();
-    $stmt4->store_result();
-    $stmt4->bind_result($resultid);
-    $stmt4->fetch();
+    $stmt6 = $mysqli->prepare("SELECT resultid FROM user_result WHERE userid=?");
+    $stmt6->bind_param('i', $session_userid);
+    $stmt6->execute();
+    $stmt6->store_result();
+    $stmt6->bind_result($resultid);
+    $stmt6->fetch();
 
     $isReturned = 0;
     $book_status = 'active';
     $loan_status = 'ongoing';
 
-	$stmt5 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=? AND l.isReturned=? AND b.book_status=? AND l.loan_status=?");
-	$stmt5->bind_param('iiss', $session_userid, $isReturned, $book_status, $loan_status);
-	$stmt5->execute();
-	$stmt5->store_result();
-	$stmt5->bind_result($bookid);
-	$stmt5->fetch();
+	$stmt7 = $mysqli->prepare("SELECT l.bookid FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=? AND l.isReturned=? AND b.book_status=? AND l.loan_status=?");
+	$stmt7->bind_param('iiss', $session_userid, $isReturned, $book_status, $loan_status);
+	$stmt7->execute();
+	$stmt7->store_result();
+	$stmt7->bind_result($bookid);
+	$stmt7->fetch();
 
     $isRead = 0;
     $isApproved = 0;
     $book_status = 'active';
     $request_status = 'pending';
 
-    $stmt6 = $mysqli->prepare("SELECT r.bookid FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.isRead = ? AND r.isApproved = ? AND b.book_status=? AND r.request_status = ?");
-	$stmt6->bind_param('iiss', $isRead, $isApproved, $book_status, $request_status);
-	$stmt6->execute();
-	$stmt6->store_result();
-	$stmt6->bind_result($bookid);
-	$stmt6->fetch();
+    $stmt8 = $mysqli->prepare("SELECT r.bookid FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.isRead = ? AND r.isApproved = ? AND b.book_status=? AND r.request_status = ?");
+	$stmt8->bind_param('iiss', $isRead, $isApproved, $book_status, $request_status);
+	$stmt8->execute();
+	$stmt8->store_result();
+	$stmt8->bind_result($bookid);
+	$stmt8->fetch();
 
 	$task_status = 'active';
 
-	$stmt7 = $mysqli->prepare("SELECT taskid FROM user_task WHERE userid = ? AND task_status = ?");
-	$stmt7->bind_param('is', $session_userid, $task_status);
-	$stmt7->execute();
-	$stmt7->store_result();
-	$stmt7->bind_result($taskid);
-	$stmt7->fetch();
+	$stmt9 = $mysqli->prepare("SELECT taskid FROM user_task WHERE userid = ? AND task_status = ?");
+	$stmt9->bind_param('is', $session_userid, $task_status);
+	$stmt9->execute();
+	$stmt9->store_result();
+	$stmt9->bind_result($taskid);
+	$stmt9->fetch();
 
     $event_status = 'active';
 
-	$stmt8 = $mysqli->prepare("SELECT b.eventid FROM system_event_booked b LEFT JOIN system_event e ON b.eventid = e.eventid WHERE b.userid = ? AND e.event_status=? AND DATE(e.event_to) > DATE(NOW())");
-	$stmt8->bind_param('is', $session_userid, $event_status);
-	$stmt8->execute();
-	$stmt8->store_result();
-	$stmt8->bind_result($eventid);
-	$stmt8->fetch();
+	$stmt10 = $mysqli->prepare("SELECT b.eventid FROM system_event_booked b LEFT JOIN system_event e ON b.eventid = e.eventid WHERE b.userid = ? AND e.event_status=? AND DATE(e.event_to) > DATE(NOW())");
+	$stmt10->bind_param('is', $session_userid, $event_status);
+	$stmt10->execute();
+	$stmt10->store_result();
+	$stmt10->bind_result($eventid);
+	$stmt10->fetch();
 
 	$isRead = '0';
-	$stmt9 = $mysqli->prepare("SELECT r.messageid FROM user_message_received r WHERE r.message_to=? AND r.isRead=?");
-	$stmt9->bind_param('ii', $session_userid, $isRead);
-	$stmt9->execute();
-	$stmt9->store_result();
-	$stmt9->bind_result($messageid);
-	$stmt9->fetch();
+	$stmt11 = $mysqli->prepare("SELECT r.messageid FROM user_message_received r WHERE r.message_to=? AND r.isRead=?");
+	$stmt11->bind_param('ii', $session_userid, $isRead);
+	$stmt11->execute();
+	$stmt11->store_result();
+	$stmt11->bind_result($messageid);
+	$stmt11->fetch();
 
     $isRead = 0;
     $isApproved = 1;
 
-    $stmt10 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE r.module_staff=? AND r.isRead=? AND f.isApproved=?");
-    $stmt10->bind_param('iii', $session_userid, $isRead, $isApproved);
-    $stmt10->execute();
-    $stmt10->store_result();
-    $stmt10->bind_result($feedbackid);
-    $stmt10->fetch();
+    $stmt12 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE r.module_staff=? AND r.isRead=? AND f.isApproved=?");
+    $stmt12->bind_param('iii', $session_userid, $isRead, $isApproved);
+    $stmt12->execute();
+    $stmt12->store_result();
+    $stmt12->bind_result($feedbackid);
+    $stmt12->fetch();
 
     $admin_isApproved = 0;
 
-    $stmt11 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE f.isApproved=? AND r.isRead=?");
-    $stmt11->bind_param('ii', $admin_isApproved, $isRead);
-    $stmt11->execute();
-    $stmt11->store_result();
-    $stmt11->bind_result($feedbackid);
-    $stmt11->fetch();
+    $stmt13 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE f.isApproved=? AND r.isRead=?");
+    $stmt13->bind_param('ii', $admin_isApproved, $isRead);
+    $stmt13->execute();
+    $stmt13->store_result();
+    $stmt13->bind_result($feedbackid);
+    $stmt13->fetch();
 
-	$lectures_count = $stmt1->num_rows;
-	$tutorials_count = $stmt2->num_rows;
-	$timetable_count = $lectures_count + $tutorials_count;
-	$exams_count = $stmt3->num_rows;
-    $results_count = $stmt4->num_rows;
-	$library_count = $stmt5->num_rows;
-    $library_admin_count = $stmt6->num_rows;
-	$calendar_count = $stmt7->num_rows;
-	$events_count = $stmt8->num_rows;
-	$messenger_count = $stmt9->num_rows;
-    $feedback_count = $stmt10->num_rows;
-    $feedback_admin_count = $stmt11->num_rows;
+	$student_lectures_count         = $stmt1->num_rows;
+	$student_tutorials_count        = $stmt2->num_rows;
+    $academic_staff_lectures_count  = $stmt3->num_rows;
+    $academic_staff_tutorials_count = $stmt4->num_rows;
+
+    $student_timetable_count  = $student_lectures_count + $student_tutorials_count;
+    $academic_staff_timetable_count = $academic_staff_lectures_count + $academic_staff_tutorials_count;
+
+    $exams_count          = $stmt5->num_rows;
+    $results_count        = $stmt6->num_rows;
+	$library_count        = $stmt7->num_rows;
+    $library_admin_count  = $stmt8->num_rows;
+	$calendar_count       = $stmt9->num_rows;
+	$events_count         = $stmt10->num_rows;
+	$messenger_count      = $stmt11->num_rows;
+    $feedback_count       = $stmt12->num_rows;
+    $feedback_admin_count = $stmt13->num_rows;
 
 	$stmt1->close();
 	$stmt2->close();
@@ -528,6 +548,8 @@ function GetDashboardData() {
     $stmt9->close();
     $stmt10->close();
     $stmt11->close();
+    $stmt12->close();
+    $stmt13->close();
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
