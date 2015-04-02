@@ -71,7 +71,7 @@ include 'includes/session.php';
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Message</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" >Message</span></a></td>
 			</tr>';
 	}
 	$stmt1->close();
@@ -160,7 +160,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-action pull-left">
-            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Send another</span></a>
+            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" >Send another</span></a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -189,7 +189,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Reply</span></a>
+            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" >Reply</span></a>
             <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
@@ -322,7 +322,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-action pull-left">
-            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Send another</span></a>
+            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" >Send another</span></a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -352,7 +352,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" ><span class="ladda-label">Send another</span></a>
+            <a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" >Send another</span></a>
             <a href="#delete-'.$messageid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
@@ -435,7 +435,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
     </div>
 
     </form>

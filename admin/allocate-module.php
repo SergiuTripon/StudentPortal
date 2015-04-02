@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md" href="#allocate-'.$userid.'" data-toggle="modal" ><span class="ladda-label">Allocate</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md" href="#allocate-'.$userid.'" data-toggle="modal" >Allocate</span></a></td>
 			</tr>
 
 			<div id="allocate-'.$userid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -166,7 +166,7 @@ if (isset($_GET['id'])) {
 
 			<td data-title="First name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md" href="#deallocate-'.$userid.'" data-toggle="modal" ><span class="ladda-label">Deallocate</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md" href="#deallocate-'.$userid.'" data-toggle="modal" >Deallocate</span></a></td>
 			</tr>
 
 			<div id="deallocate-'.$userid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -241,7 +241,7 @@ if (isset($_GET['id'])) {
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
     </div>
 
     </form>

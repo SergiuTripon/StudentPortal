@@ -116,7 +116,7 @@ include 'includes/session.php';
 	<li class="active">Exams</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-exam/"><span class="ladda-label">Create exam</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-exam/">Create exam</span></a>
 
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
@@ -202,7 +202,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-lg" data-dismiss="modal"><span class="ladda-label">Close</span></a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</span></a>
 			</div>
 			</div>
 
@@ -367,7 +367,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-lg" data-dismiss="modal"><span class="ladda-label">Close</span></a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</span></a>
 			</div>
 			</div>
 
@@ -507,7 +507,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
     </div>
 
     </form>

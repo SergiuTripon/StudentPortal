@@ -246,7 +246,7 @@ include 'includes/session.php';
 			<td data-title="To return by">'.$toreturn_on.'</td>
 			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
 			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
-            <td data-title="Action"><a id="book-'.$bookid.'" class="btn btn-primary btn-md renew-button" ><span class="ladda-label">Renew</span></a></td>
+            <td data-title="Action"><a id="book-'.$bookid.'" class="btn btn-primary btn-md renew-button" >Renew</span></a></td>
 			</tr>';
 	}
 
@@ -404,7 +404,7 @@ include 'includes/session.php';
     <li class="active">Library</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-book/"><span class="ladda-label">Create book</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-book/">Create book</span></a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -1281,7 +1281,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
     </div>
 
     </form>

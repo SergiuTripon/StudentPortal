@@ -300,7 +300,7 @@ include 'includes/session.php';
     <li class="active">Events</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-event/"><span class="ladda-label">Create event</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-event/">Create event</span></a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -675,7 +675,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
     </div>
 
     </form>

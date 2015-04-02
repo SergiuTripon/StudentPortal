@@ -54,7 +54,7 @@ include '../includes/session.php';
     </select>
 
     <div id="map-search-button" class="text-center">
-    <a class="btn btn-primary btn-lg" onclick="searchLocations()" ><span class="ladda-label">Search</span></a>
+    <a class="btn btn-primary btn-lg" onclick="searchLocations()" >Search</span></a>
     </div>
 
     <div id="map-search-results">
@@ -97,7 +97,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
     </div>
 
     </form>

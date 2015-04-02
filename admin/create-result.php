@@ -131,11 +131,11 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" ><span class="ladda-label">Create result</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg" >Create result</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg" href=""><span class="ladda-label">Create another</span></a>
+	<a class="btn btn-success btn-lg" href="">Create another</span></a>
 	</div>
 	
     </form>
@@ -165,7 +165,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/home/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-primary btn-lg" href="/home/">Home</span></a>
     </div>
 
     </form>
@@ -195,7 +195,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
 	</div>
 	
     </form>

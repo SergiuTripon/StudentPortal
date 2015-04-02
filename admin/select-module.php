@@ -76,7 +76,7 @@ if (isset($_GET['id'])) {
 	echo '<tr id="allocate-'.$userid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md" href="../create-result/?userid='.$userid.'&moduleid='.$moduleid.'" ><span class="ladda-label">Select</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md" href="../create-result/?userid='.$userid.'&moduleid='.$moduleid.'" >Select</span></a></td>
 			</tr>';
     }
 	$stmt1->close();
@@ -413,7 +413,7 @@ if (isset($_GET['id'])) {
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
     </div>
 
     </form>

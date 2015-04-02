@@ -59,7 +59,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg mt10 mr5" ><span class="ladda-label">Change password</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg mt10 mr5" >Change password</span></button>
     </div>
 
     </div>
@@ -90,7 +90,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
 	</div>
 	
     </form>

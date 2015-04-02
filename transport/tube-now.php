@@ -170,7 +170,7 @@ global $transport_status_last_updated;
 	<hr>
 
 	<div class="text-center">
-	<a class="btn btn-custom btn-lg" data-spinner-color="#FFA500" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-custom btn-lg" data-spinner-color="#FFA500" href="/">Sign in</span></a>
 	</div>
 
 	</form>

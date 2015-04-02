@@ -24,7 +24,7 @@ while($row = $stmt2->fetch_assoc()) {
             <td data-title="Start">'.$task_startdate.'</td>
             <td data-title="Due">'.$task_duedate.'</td>
             <td data-title="Completed on">'.$task_duedate.'</td>
-            <td data-title="Action"><a class="btn btn-md btn-primary" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-md btn-primary" href="#delete-'.$taskid.'" data-toggle="modal">Delete</span></a></td>
             </tr>
 
 	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -111,7 +111,7 @@ while($row = $stmt3->fetch_assoc()) {
             <td data-title="Start">'.$task_startdate.'</td>
             <td data-title="Due">'.$task_duedate.'</td>
             <td data-title="Completed on">'.$task_duedate.'</td>
-            <td data-title="Action"><a class="btn btn-md btn-primary" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-md btn-primary" href="#delete-'.$taskid.'" data-toggle="modal">Delete</span></a></td>
             </tr>
 
 	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">

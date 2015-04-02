@@ -70,7 +70,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" ><span class="ladda-label">Contact us</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg" >Contact us</span></button>
 	</div>
 
     </div>
@@ -134,7 +134,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" ><span class="ladda-label">Contact us</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg" >Contact us</span></button>
 	</div>
 
     </div>

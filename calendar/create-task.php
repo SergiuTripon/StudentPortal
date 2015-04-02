@@ -109,7 +109,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
 	</div>
 	
     </form>

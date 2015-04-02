@@ -156,7 +156,7 @@ while ($row = $stmt1->fetch_assoc()){
             if ($fee_amount !== '0.00') {
                 echo '<hr class="hr-custom">
                       <div class="text-center">
-                      <button id="FormSubmit" class="btn btn-primary btn-lg" ><span class="ladda-label">Pay with PayPal</span></button>
+                      <button id="FormSubmit" class="btn btn-primary btn-lg" >Pay with PayPal</span></button>
                       </div>';
             }
         }
@@ -192,7 +192,7 @@ while ($row = $stmt1->fetch_assoc()){
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/home/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-primary btn-lg" href="/home/">Home</span></a>
     </div>
 
     </form>
@@ -222,7 +222,7 @@ while ($row = $stmt1->fetch_assoc()){
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
 	</div>
 	
     </form>

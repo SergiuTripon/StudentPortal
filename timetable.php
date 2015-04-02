@@ -1649,9 +1649,9 @@ global $session_userid;
     <li class="active">Timetable</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-module/"><span class="ladda-label">Create module</span></a>
-    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-lecture/"><span class="ladda-label">Create lecture</span></a>
-    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-tutorial/"><span class="ladda-label">Create tutorial</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-module/">Create module</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-lecture/">Create lecture</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-tutorial/">Create tutorial</span></a>
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
@@ -2757,7 +2757,7 @@ global $session_userid;
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
     </div>
 
     </form>

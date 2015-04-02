@@ -89,7 +89,7 @@ include 'includes/session.php';
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
 			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md" href="../feedback/submit-feedback?id='.$moduleid.'" ><span class="ladda-label">Submit feedback</span></a></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md" href="../feedback/submit-feedback?id='.$moduleid.'" >Submit feedback</span></a></a></td>
 			</tr>
 
             <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -176,7 +176,7 @@ include 'includes/session.php';
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
 			<td data-title="Submitted on">'.$created_on.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal">Delete</span></a></td>
 			</tr>
 
             <div id="view-submitted-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -353,7 +353,7 @@ include 'includes/session.php';
 			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Module"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal">Delete</span></a></td>
 			</tr>
 
 			<div id="view-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -770,7 +770,7 @@ include 'includes/session.php';
 
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
-            <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal">Delete</span></a></td>
 			</tr>
 
 			<div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -899,7 +899,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
     </div>
 
     </form>

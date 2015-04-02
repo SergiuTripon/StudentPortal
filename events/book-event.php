@@ -144,7 +144,7 @@ if (isset($_GET["id"])) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" ><span class="ladda-label">Pay with PayPal</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg" >Pay with PayPal</span></button>
 	</div>
 
     </form>
@@ -176,7 +176,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-orange btn-lg" href="/home/"><span class="ladda-label">Home</span></a>
+    <a class="btn btn-orange btn-lg" href="/home/">Home</span></a>
     </div>
 
     </form>
@@ -206,7 +206,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/"><span class="ladda-label">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
 	</div>
 
     </form>
