@@ -831,7 +831,6 @@ global $session_userid;
 
         $('#table-completed-tasks').empty();
         $('#table-completed-tasks').html(html.table_completed_tasks);
-        $('#table-completed-tasks').html(html.modal_completed_tasks);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
