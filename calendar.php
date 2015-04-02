@@ -92,7 +92,7 @@ global $session_userid;
 	<th>Action</th>
 	</tr>
 	</thead>
-	<tbody id="content-due-tasks">
+	<tbody id="table-due-tasks">
 	<?php
 
 	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
@@ -127,6 +127,8 @@ global $session_userid;
             </div>
             </td>
 			</tr>
+
+            <div id="modal-due-tasks">
 
             <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -310,7 +312,9 @@ global $session_userid;
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+			</div>';
 	}
 
 	$stmt1->close();
