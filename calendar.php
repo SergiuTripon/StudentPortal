@@ -820,15 +820,9 @@ global $session_userid;
 
             $('#complete-confirmation-'+taskToComplete).modal('hide');
 
-            $(".table-due-tasks").dataTable().fnDestroy();
-            $('#content-due-tasks').empty();
-            $('#content-due-tasks').html(data.due_tasks);
-            $(".table-due-tasks").dataTable(settings);
+            $('#content-due-tasks').remove();
 
-            $(".table-completed-tasks").dataTable().fnDestroy();
-            $('#content-completed-tasks').empty();
-            $('#content-completed-tasks').html(data.completed_tasks);
-            $(".table-completed-tasks").dataTable(settings);
+            $('#content-completed-tasks').remove();
 
             $('#complete-success-'+taskToComplete).modal('show');
 	},
