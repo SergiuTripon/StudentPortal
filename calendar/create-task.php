@@ -125,8 +125,6 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
 
     // Date Time Picker
     $('#task_startdate').datetimepicker({
@@ -141,7 +139,6 @@ include '../includes/session.php';
     $('.btn').on('click', function () {
         $btn = $(this);
         $btn.button('loading');
-        $btn.button('reset');
     });
 
 	//Ajax call
