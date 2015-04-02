@@ -2438,9 +2438,6 @@ function CompleteTask() {
 	global $mysqli;
     global $updated_on;
     global $completed_on;
-    global $session_userid;
-    global $due_tasks;
-    global $completed_tasks;
 
 	$taskToComplete = filter_input(INPUT_POST, 'taskToComplete', FILTER_SANITIZE_NUMBER_INT);
 	$task_status = 'completed';
@@ -2449,6 +2446,69 @@ function CompleteTask() {
 	$stmt1->bind_param('sssi', $task_status, $updated_on, $completed_on, $taskToComplete);
 	$stmt1->execute();
 	$stmt1->close();
+
+    calendarUpdate();
+}
+
+//DeactivateTask function
+function DeactivateTask() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $taskToDeactivate = filter_input(INPUT_POST, 'taskToDeactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $task_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_task SET task_status=?, updated_on=? WHERE taskid = ?");
+    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+    calendarUpdate();
+}
+
+//ReactivateTask function
+function ReactivateTask() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $taskToReactivate = filter_input(INPUT_POST, 'taskToReactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $task_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE user_task SET task_status=?, updated_on=? WHERE taskid = ?");
+    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+    calendarUpdate();
+}
+
+//DeleteTask function
+function DeleteTask() {
+
+    global $mysqli;
+
+    $taskToDelete = filter_input(INPUT_POST, 'taskToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_task WHERE taskid = ?");
+    $stmt1->bind_param('i', $taskToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
+    calendarUpdate();
+}
+
+function calendarUpdate() {
+
+    global $mysqli;
+    global $session_userid;
+    global $due_tasks;
+    global $completed_tasks;
+    global $archived_tasks;
+
 
     $stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
 
@@ -2776,74 +2836,6 @@ function CompleteTask() {
     }
 
     $stmt3->close();
-
-    $array = array(
-        'due_tasks'=>$due_tasks,
-        'completed_tasks'=>$completed_tasks
-    );
-
-    echo json_encode($array);
-}
-
-//DeactivateTask function
-function DeactivateTask() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $taskToDeactivate = filter_input(INPUT_POST, 'taskToDeactivate', FILTER_SANITIZE_NUMBER_INT);
-
-    $task_status = 'inactive';
-
-    $stmt1 = $mysqli->prepare("UPDATE user_task SET task_status=?, updated_on=? WHERE taskid = ?");
-    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToDeactivate);
-    $stmt1->execute();
-    $stmt1->close();
-
-    calendarUpdate();
-}
-
-//ReactivateTask function
-function ReactivateTask() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $taskToReactivate = filter_input(INPUT_POST, 'taskToReactivate', FILTER_SANITIZE_NUMBER_INT);
-
-    $task_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE user_task SET task_status=?, updated_on=? WHERE taskid = ?");
-    $stmt1->bind_param('ssi', $task_status, $updated_on, $taskToReactivate);
-    $stmt1->execute();
-    $stmt1->close();
-
-    calendarUpdate();
-}
-
-//DeleteTask function
-function DeleteTask() {
-
-    global $mysqli;
-
-    $taskToDelete = filter_input(INPUT_POST, 'taskToDelete', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM user_task WHERE taskid = ?");
-    $stmt1->bind_param('i', $taskToDelete);
-    $stmt1->execute();
-    $stmt1->close();
-
-    calendarUpdate();
-}
-
-function calendarUpdate() {
-
-    global $mysqli;
-    global $session_userid;
-    global $due_tasks;
-    global $completed_tasks;
-    global $archived_tasks;
-
 
     $stmt4 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task WHERE userid = '$session_userid' AND task_status = 'inactive'");
 
