@@ -75,11 +75,11 @@ include '../includes/session.php';
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg ladda-button" data-style="slide-up"><span class="ladda-label">Create task</span></button>
+    <a id="FormSubmit" class="btn btn-primary btn-lg">Create task</a>
     </div>
 
-	<div id="success-button" class="text-center" style="display:none">
-	<a class="btn btn-primary btn-lg ladda-button" data-style="slide-up" href=""><span class="ladda-label">Create another</span></a>
+	<div id="success-button" class="text-center" style="display:none;">
+	<a class="btn btn-primary btn-lg" href="">Create another</a>
 	</div>
 	
     </form>
@@ -134,16 +134,9 @@ include '../includes/session.php';
         format: 'YYYY/MM/DD HH:mm'
     });
 
-    var $btn;
-
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-
-    $('.btn').on('click', function () {
-        $btn = $(this);
-        $btn.button('loading');
-    });
 	
 	var hasError = false;
 
@@ -155,7 +148,6 @@ include '../includes/session.php';
         $("label[for='task_name']").addClass("feedback-sad");
         $("#task_name").addClass("input-sad");
         $("#task_name").focus();
-        $btn.button('reset');
         hasError = true;
         return false;
     } else {
@@ -164,7 +156,6 @@ include '../includes/session.php';
         $("#task_name").removeClass("input-style-sad");
         $("label[for='task_name']").addClass("feedback-happy");
         $("#task_name").addClass("input-happy");
-        $btn.button('reset');
 	}
 	
 	var task_notes = $("#task_notes").val();
@@ -178,7 +169,6 @@ include '../includes/session.php';
         $("label[for='task_startdate']").addClass("feedback-sad");
         $("#task_startdate").addClass("input-sad");
         $("#task_startdate").focus();
-        $btn.button('reset');
         hasError = true;
         return false;
 	} else {
@@ -187,7 +177,6 @@ include '../includes/session.php';
         $("#task_startdate").removeClass("input-style-sad");
         $("label[for='task_startdate']").addClass("feedback-happy");
         $("#task_startdate").addClass("input-happy");
-        $btn.button('reset');
 	}
 
 	var task_duedate = $("#task_duedate").val();
@@ -198,7 +187,6 @@ include '../includes/session.php';
         $("label[for='task_duedate']").addClass("feedback-sad");
         $("#task_duedate").addClass("input-sad");
         $("#task_duedate").focus();
-        $btn.button('reset');
         hasError = true;
         return false;
     } else {
@@ -207,7 +195,6 @@ include '../includes/session.php';
         $("#task_duedate").removeClass("input-style-sad");
         $("label[for='task_duedate']").addClass("feedback-happy");
         $("#task_duedate").addClass("input-happy");
-        $btn.button('reset');
 	}
 
 	if(hasError == false){
