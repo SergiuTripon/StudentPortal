@@ -2438,6 +2438,7 @@ function CompleteTask() {
 	global $mysqli;
     global $updated_on;
     global $completed_on;
+    global $session_userid;
     global $due_tasks;
     global $completed_tasks;
 
