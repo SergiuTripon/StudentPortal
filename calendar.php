@@ -336,22 +336,7 @@ global $session_userid;
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-  	<div class="panel-body">
-
-    <!-- Completed tasks -->
-    <section id="no-more-tables">
-    <table class="table table-condensed table-custom table-completed-tasks">
-
-    <thead>
-    <tr>
-    <th>Task</th>
-    <th>Start</th>
-    <th>Due</th>
-    <th>Completed on</th>
-    <th>Action</th>
-    </tr>
-    </thead>
-    <tbody id="content-completed-tasks">
+  	<div id="content-completed-tasks" class="panel-body">
 
 	<?php
 
@@ -368,6 +353,22 @@ global $session_userid;
         $updated_on = $row["updated_on"];
 
         echo '
+
+        <!-- Completed tasks -->
+        <section id="no-more-tables">
+        <table class="table table-condensed table-custom table-completed-tasks">
+
+        <thead>
+        <tr>
+        <th>Task</th>
+        <th>Start</th>
+        <th>Due</th>
+        <th>Completed on</th>
+        <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
         <tr id="task-'.$taskid.'">
         <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
         <td data-title="Start">'.$task_startdate.'</td>
@@ -379,8 +380,6 @@ global $session_userid;
         </tbody>
         </table>
         </section>
-
-        <div id="content-completed-tasks">
 
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
@@ -463,9 +462,7 @@ global $session_userid;
 
         </div><!-- /modal -->
         </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
-        </div>';
+        </div><!-- /modal-content -->';
 	}
 
 	$stmt2->close();
