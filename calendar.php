@@ -79,21 +79,6 @@ global $session_userid;
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
-
-	<!-- Due tasks -->
-	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-due-tasks">
-
-	<thead>
-	<tr>
-	<th>Task</th>
-	<th>Start</th>
-	<th>Due</th>
-	<th>Action</th>
-	</tr>
-	</thead>
-
-	<tbody id="content-due-tasks">
 	<?php
 
 	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
@@ -107,7 +92,22 @@ global $session_userid;
 	$task_startdate = $row["task_startdate"];
 	$task_duedate = $row["task_duedate"];
 
-	echo '<tr id="task-'.$taskid.'">
+	echo '<!-- Due tasks -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom table-due-tasks">
+
+	<thead>
+	<tr>
+	<th>Task</th>
+	<th>Start</th>
+	<th>Due</th>
+	<th>Action</th>
+	</tr>
+	</thead>
+
+	<tbody id="content-due-tasks">
+
+	        <tr id="task-'.$taskid.'">
 
 			<td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
 			<td data-title="Start date">'.$task_startdate.'</td>
@@ -128,8 +128,12 @@ global $session_userid;
             </div>
             </td>
 			</tr>
+    </tbody>
 
-			<div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+	</table>
+	</section>
+
+            <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -164,10 +168,6 @@ global $session_userid;
 
 	$stmt1->close();
 	?>
-	</tbody>
-
-	</table>
-	</section>
 
   	</div><!-- /panel-body -->
     </div><!-- /panel-collapse -->
