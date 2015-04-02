@@ -403,6 +403,7 @@ function GetDashboardData() {
     global $feedback_count;
     global $feedback_admin_count;
 
+    //Getting number of lectures the student is taking
     $lecture_status = 'active';
 
 	$stmt1 = $mysqli->prepare("SELECT l.lectureid FROM user_lecture u LEFT JOIN system_lecture l ON u.lectureid=l.lectureid WHERE u.userid=? AND l.lecture_status=? AND DATE(l.lecture_to_date) > DATE(NOW())");
