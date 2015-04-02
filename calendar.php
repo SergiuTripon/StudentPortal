@@ -822,12 +822,12 @@ global $session_userid;
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
-            $('#content-due-tasks').append(data.due_tasks);
+            $('#content-due-tasks').html(data.due_tasks);
             $(".table-due-tasks").dataTable(settings);
 
             $(".table-completed-tasks").dataTable().fnDestroy();
             $('#content-completed-tasks').empty();
-            $('#content-completed-tasks').append(data.completed_tasks);
+            $('#content-completed-tasks').html(data.completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
 
             $('#complete-success-'+taskToComplete).modal('show');
