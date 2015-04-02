@@ -2763,8 +2763,6 @@ function calendarUpdate() {
 
     $modal_completed_tasks = '
 
-        <div id="modal-completed-tasks">
-
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
