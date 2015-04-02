@@ -2508,6 +2508,8 @@ function loadDueTasks() {
 
 	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
 
+    if ($stmt1->num_rows > 0) {
+
 	while($row = $stmt1->fetch_assoc()) {
 
 	$taskid = $row["taskid"];
@@ -2759,8 +2761,27 @@ function loadDueTasks() {
         </div><!-- /panel-body -->
         </div><!-- /panel-collapse -->
         </div><!-- /panel-default -->';
-	}
-	$stmt1->close();
+    }
+    $stmt1->close();
+
+    } else {
+
+    echo '
+
+        <div id="duetasks-toggle" class="panel panel-default">
+
+        <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Due tasks</a>
+        </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+
+        </div><!-- /panel-body -->
+        </div><!-- /panel-collapse -->
+        </div><!-- /panel-default -->';
+    }
 }
 
 function calendarUpdate() {
