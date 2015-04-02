@@ -139,7 +139,7 @@ include '../includes/session.php';
     var $btn;
 
     $('.btn').on('click', function () {
-        var $btn = $(this);
+        $btn = $(this);
         $btn.button('loading');
         $btn.button('reset');
     });
