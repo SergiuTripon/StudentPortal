@@ -3,7 +3,7 @@
 	});
 
     function buttonLoad () {
-        $('.btn').button('Loading');
+        $('.btn').button('loading');
     }
 
     function buttonReset () {
