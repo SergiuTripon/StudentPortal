@@ -818,15 +818,17 @@ global $session_userid;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(data){
 
-        $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').empty();
-        $('#content-due-tasks').html(data.due_tasks);
-        $(".table-due-tasks").dataTable(settings);
+            $('#complete-confirmation-'+taskToComplete).modal('hide');
 
-        $(".table-completed-tasks").dataTable().fnDestroy();
-        $('#content-completed-tasks').empty();
-        $('#content-completed-tasks').html(data.completed_tasks);
-        $(".table-completed-tasks").dataTable(settings);
+            $(".table-due-tasks").dataTable().fnDestroy();
+            $('#content-due-tasks').replaceWith(data.due_tasks);
+            $(".table-due-tasks").dataTable(settings);
+
+            $(".table-completed-tasks").dataTable().fnDestroy();
+            $('#content-completed-tasks').replaceWith(data.completed_tasks);
+            $(".table-completed-tasks").dataTable(settings);
+
+            $('#complete-success-'+taskToComplete).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
