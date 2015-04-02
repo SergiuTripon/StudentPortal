@@ -351,7 +351,7 @@ global $session_userid;
 	</tr>
 	</thead>
 
-	<tbody id="content-completed-tasks">
+	<tbody id="table-completed-tasks">
 	<?php
 
 	$stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
@@ -374,6 +374,8 @@ global $session_userid;
             <td data-title="Completed on">'.$task_duedate.'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></td>
             </tr>
+
+            <div id="modal-completed-tasks">
 
 	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -456,7 +458,9 @@ global $session_userid;
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+			</div>';
 	}
 
 	$stmt2->close();
@@ -493,7 +497,7 @@ global $session_userid;
 	</tr>
 	</thead>
 
-	<tbody id="content-archived-tasks">
+	<tbody id="table-archived-tasks">
 	<?php
 
 	$stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task WHERE userid = '$session_userid' AND task_status = 'inactive'");
@@ -528,6 +532,8 @@ global $session_userid;
             </td>
 			</td>
 			</tr>
+
+			<div id="modal-archived-tasks">
 
             <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -662,7 +668,9 @@ global $session_userid;
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+			</div>';
 	}
 
 	$stmt1->close();
@@ -821,12 +829,19 @@ global $session_userid;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
-            $('#complete-confirmation-'+taskToComplete).modal('hide');
+        $(".table-due-tasks").dataTable().fnDestroy();
+        $('#table-due-tasks').empty();
+        $('#modal-due-tasks').empty();
+        $('#table-due-tasks').append(html.table_due_tasks);
+        $('#modal-due-tasks').append(html.modal_due_tasks);
+        $(".table-due-tasks").dataTable(settings);
 
-            $('#table-due-tasks').empty();
-            $('#modal-due-tasks').empty();
-
-            $('#complete-success-'+taskToComplete).modal('show');
+        $(".table-completed-tasks").dataTable().fnDestroy();
+        $('#table-completed-tasks').empty();
+        $('#modal-completed-tasks').empty();
+        $('#table-completed-tasks').append(html.table_completed_tasks);
+        $('#modal-completed-tasks').append(html.modal_completed_tasks);
+        $(".table-completed-tasks").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
