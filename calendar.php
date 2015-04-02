@@ -825,8 +825,8 @@ global $session_userid;
             $('#content-due-tasks').append(data.due_tasks);
             $(".table-due-tasks").dataTable(settings);
 
-            $('#content-completed-tasks').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
+            $('#content-completed-tasks').empty();
             $('#content-completed-tasks').append(data.completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
 
