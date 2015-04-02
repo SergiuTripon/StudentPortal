@@ -127,7 +127,39 @@ global $session_userid;
             </ul>
             </div>
             </td>
-			</tr>';
+			</tr>
+
+			<div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close">
+            <i class="fa fa-calendar"></i>
+            </div>
+            <h4 class="modal-title" id="modal-custom-label">'.$task_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Notes:</b> '.(empty($task_notes) ? "-" : "$task_notes").'</p>
+			<p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
+			<p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
+			<p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
+			<p><b>Completed on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-action pull-left">
+            <a href="#delete-confirmation-'.$taskid.'" class="btn btn-primary btn-sm" data-toggle="modal" data-dismiss="modal">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt1->close();
