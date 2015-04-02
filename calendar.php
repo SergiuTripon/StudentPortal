@@ -157,9 +157,9 @@ global $session_userid;
 			</div>
 			</div>
 
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
+			</div><!--/modal -->
+			</div><!--/modal-dialog-->
+			</div><!--/modal-content-->
 
             <div id="complete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -179,7 +179,7 @@ global $session_userid;
 			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
-			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button" >Complete</a>
+			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button">Complete</a>
 			</div>
 			</div>
 
@@ -230,7 +230,7 @@ global $session_userid;
 			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
-            <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button" >Archive</a>
+            <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button">Archive</a>
 			</div>
 			</div>
 
@@ -365,7 +365,7 @@ global $session_userid;
 
 	echo '<tr id="task-'.$taskid.'">
 
-            <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
+            <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
             <td data-title="Start">'.$task_startdate.'</td>
             <td data-title="Due">'.$task_duedate.'</td>
             <td data-title="Completed on">'.$task_duedate.'</td>
@@ -1004,7 +1004,7 @@ global $session_userid;
     <hr>
 
     <div class="text-center">
-	<a id="signin-button" class="btn btn-primary btn-lg" href="/" data-loading-text="Loading..." autocomplete="off">Sign in</a>
+	<a id="signin-button" class="btn btn-primary btn-lg" href="/">Sign in</a>
     </div>
 
     </form>
