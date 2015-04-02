@@ -763,9 +763,6 @@ global $session_userid;
             $('#complete-confirmation-'+taskToComplete).modal('hide');
 
             $('#content-due-tasks').empty();
-            $(".table-due-tasks").dataTable().fnDestroy();
-            $('#content-due-tasks').append(data.due_tasks);
-            $(".table-due-tasks").dataTable(settings);
 
             $('#content-completed-tasks').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
