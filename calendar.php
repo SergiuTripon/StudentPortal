@@ -129,7 +129,89 @@ global $session_userid;
             </td>
 			</tr>
 
-            <div id="deactivate-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-calendar"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$task_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Notes:</b> '.(empty($task_notes) ? "-" : "$task_notes").'</p>
+			<p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
+			<p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
+			<p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Complete</a>
+            <a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Archive</a>
+            <a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!--/modal -->
+			</div><!--/modal-dialog-->
+			</div><!--/modal-content-->
+
+            <div id="complete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-question"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-happy">Are you sure you want to complete '.$task_name.'?</p></div>
+
+			<div class="modal-footer">
+			<div class="pull-left">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+			</div>
+			<div class="text-right">
+			<a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button">Complete</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="complete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-check"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-happy">All done! '.$task_name.' has been completed.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-center">
+			<a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="deactivate-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -168,6 +250,57 @@ global $session_userid;
 
 			<div class="modal-body">
 			<p class="text-center feedback-happy">All done! '.$task_name.' has been archived.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-center">
+			<a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-question"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-sad">Are you sure you want to delete '.$task_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="pull-left">
+			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+			</div>
+			<div class="text-right">
+			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-check"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-happy text-center">All done! '.$task_name.' has been deleted.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -422,6 +555,110 @@ global $session_userid;
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            <div id="reactivate-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-question"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-sad">Are you sure you want to restore '.$task_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div>
+			<div class="pull-left">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+			</div>
+			<div class="text-right">
+			<a id="reactivate-'.$taskid.'" class="btn btn-success btn-lg reactivate-button">Reactivate</a>
+			</div>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="reactivate-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-check"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-happy text-center">All done! '.$task_name.' has been restored.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-center">
+			<a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-question"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$task_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="pull-left">
+			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+			</div>
+			<div class="text-right">
+			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-check"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-happy text-center">All done! '.$task_name.' has been deleted.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-center">
+			<a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
 	}
 
@@ -585,13 +822,9 @@ global $session_userid;
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
-            $('#content-due-tasks').append(data.due_tasks);
-            $(".table-due-tasks").dataTable(settings);
 
             $('#content-completed-tasks').empty();
             $(".table-completed-tasks").dataTable().fnDestroy();
-            $('#content-completed-tasks').append(data.completed_tasks);
-            $(".table-completed-tasks").dataTable(settings);
 
             $('#complete-success-'+taskToComplete).modal('show');
 	},
