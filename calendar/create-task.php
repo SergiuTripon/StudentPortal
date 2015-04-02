@@ -136,6 +136,11 @@ include '../includes/session.php';
         format: 'YYYY/MM/DD HH:mm'
     });
 
+    $('.btn').on('click', function () {
+        var $btn = $(this);
+        $btn.button('loading');
+    });
+
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
