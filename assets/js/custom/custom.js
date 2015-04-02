@@ -2,6 +2,12 @@
 		$(".preloader").fadeOut("slow");
 	});
 
+    function buttonLoad () {
+        $('.btn').on('click', function () {
+            $(this).button('loading');
+        });
+    }
+
 	// Disables the background of a cell that contains Victoria in the Station Status table
 	$(".table-stationstatus td").filter(function() { return $.trim($(this).text()) === "Victoria"; }).
 	closest('tr').addClass( "no-background" );

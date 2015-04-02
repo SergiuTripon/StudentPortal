@@ -198,6 +198,9 @@ include '../includes/session.php';
 	}
 
 	if(hasError == false){
+
+    buttonLoad();
+
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
