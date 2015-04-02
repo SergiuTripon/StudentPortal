@@ -128,6 +128,14 @@ global $session_userid;
             </td>
 			</tr>
 
+			</tbody>
+    </table>
+    </section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
             <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
@@ -315,14 +323,6 @@ global $session_userid;
 
 	$stmt1->close();
 	?>
-
-    </tbody>
-    </table>
-    </section>
-
-  	</div><!-- /panel-body -->
-    </div><!-- /panel-collapse -->
-	</div><!-- /panel-default -->
 
     <div id="completedtasks-toggle" class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
