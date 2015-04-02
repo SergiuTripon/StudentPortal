@@ -873,8 +873,8 @@ global $session_userid;
             $(".table-completed-tasks").dataTable().fnDestroy();
             $('#modal-completed-tasks').empty();
             $('#table-completed-tasks').empty();
-            $('#modal-completed-tasks').html(data.modal_completed_tasks);
-            $('#table-completed-tasks').html(data.table_completed_tasks);
+            $('#modal-completed-tasks').html(html.modal_completed_tasks);
+            $('#table-completed-tasks').html(html.table_completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
 
             $('#complete-success-'+taskToComplete).modal('show');
