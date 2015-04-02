@@ -829,6 +829,9 @@ global $session_userid;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
+        alert(html.modal_due_tasks);
+        alert(html.modal_completed_tasks);
+
         $(".table-due-tasks").dataTable().fnDestroy();
         $('#table-due-tasks').empty();
         $('#modal-due-tasks').empty();
