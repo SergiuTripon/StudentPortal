@@ -3096,7 +3096,10 @@ function DeactivateTask() {
 function ReactivateTask() {
 
     global $mysqli;
+    global $session_userid;
     global $updated_on;
+    global $due_tasks;
+    global $archived_tasks;
 
     $taskToReactivate = filter_input(INPUT_POST, 'taskToReactivate', FILTER_SANITIZE_NUMBER_INT);
 

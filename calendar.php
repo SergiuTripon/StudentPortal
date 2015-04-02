@@ -762,8 +762,8 @@ global $session_userid;
 
             $('#complete-confirmation-'+taskToComplete).modal('hide');
 
-            $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
+            $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').append(data.due_tasks);
             $(".table-due-tasks").dataTable(settings);
 
@@ -798,8 +798,8 @@ global $session_userid;
 
         $('#deactivate-confirmation-'+taskToDeactivate).modal('hide');
 
-        $(".table-due-tasks").dataTable().fnDestroy();
         $('#content-due-tasks').empty();
+        $(".table-due-tasks").dataTable().fnDestroy();
         $('#content-due-tasks').append(data.due_tasks);
         $(".table-due-tasks").dataTable(settings);
 
@@ -827,19 +827,23 @@ global $session_userid;
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'taskToReactivate='+ taskToReactivate,
-	success:function(){
-		$('#task-'+taskToReactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-question');
-        $('.form-logo i').addClass('fa-check');
-        $('#reactivate-question').hide();
-        $('#reactivate-confirmation').show();
-        $('#reactivate-hide').hide();
-        $('#reactivate-success-button').show();
-        $("#reactivate-success-button").click(function () {
-            location.reload();
-        });
+	success:function(data){
+
+        $('#reactivate-confirmation-'+taskToReactivate).modal('hide');
+
+        $('#content-archived-tasks').empty();
+        $(".table-archived-tasks").dataTable().fnDestroy();
+        $('#content-archived-tasks').append(data.archived_tasks);
+        $(".table-archived-tasks").dataTable(settings);
+
+        $('#content-due-tasks').empty();
+        $(".table-due-tasks").dataTable().fnDestroy();
+        $('#content-due-tasks').append(data.due_tasks);
+        $(".table-due-tasks").dataTable(settings);
+
+        $('#reactivate-success-'+taskToReactivate).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -864,8 +868,8 @@ global $session_userid;
 
         $('#delete-confirmation-'+taskToDelete).modal('hide');
 
-        $(".table-due-tasks").dataTable().fnDestroy();
         $('#content-due-tasks').empty();
+        $(".table-due-tasks").dataTable().fnDestroy();
         $('#content-due-tasks').append(data.due_tasks);
         $(".table-due-tasks").dataTable(settings);
 
