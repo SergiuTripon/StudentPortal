@@ -44,7 +44,6 @@ include '../includes/session.php';
     <div class="col-xs-12 col-sm-12 full-width">
     <label for="task_name">Name<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
-	<p id="error1" class="feedback-sad text-center"></p>
     </div>
     </div>
 
@@ -151,6 +150,7 @@ include '../includes/session.php';
         $("label[for='task_name']").addClass("feedback-sad");
         $("#task_name").addClass("input-sad");
         $("#task_name").focus();
+        $btn.button('reset');
         hasError = true;
         return false;
     } else {
@@ -159,6 +159,7 @@ include '../includes/session.php';
         $("#task_name").removeClass("input-style-sad");
         $("label[for='task_name']").addClass("feedback-happy");
         $("#task_name").addClass("input-happy");
+        $btn.button('reset');
 	}
 	
 	var task_notes = $("#task_notes").val();
@@ -172,6 +173,7 @@ include '../includes/session.php';
         $("label[for='task_startdate']").addClass("feedback-sad");
         $("#task_startdate").addClass("input-sad");
         $("#task_startdate").focus();
+        $btn.button('reset');
         hasError = true;
         return false;
 	} else {
@@ -180,6 +182,7 @@ include '../includes/session.php';
         $("#task_startdate").removeClass("input-style-sad");
         $("label[for='task_startdate']").addClass("feedback-happy");
         $("#task_startdate").addClass("input-happy");
+        $btn.button('reset');
 	}
 
 	var task_duedate = $("#task_duedate").val();
@@ -190,6 +193,7 @@ include '../includes/session.php';
         $("label[for='task_duedate']").addClass("feedback-sad");
         $("#task_duedate").addClass("input-sad");
         $("#task_duedate").focus();
+        $btn.button('reset');
         hasError = true;
         return false;
     } else {
@@ -198,6 +202,7 @@ include '../includes/session.php';
         $("#task_duedate").removeClass("input-style-sad");
         $("label[for='task_duedate']").addClass("feedback-happy");
         $("#task_duedate").addClass("input-happy");
+        $btn.button('reset');
 	}
 
 	if(hasError == false){

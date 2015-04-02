@@ -3,7 +3,8 @@
 	});
 
     $('.btn').on('click', function () {
-        $(this).button('loading');
+        var $btn = $(this);
+        $btn.button('loading');
     });
 
 	// Disables the background of a cell that contains Victoria in the Station Status table
