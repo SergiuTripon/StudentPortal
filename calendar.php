@@ -278,7 +278,7 @@ global $session_userid;
 
 			<div class="modal-footer">
 			<div class="pull-left">
-			<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</button>
+			<a class="btn btn-success btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Cancel</a>
 			</div>
 			<div class="text-right">
 			<a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button ladda-button" data-style="slide-up">Delete</a>
