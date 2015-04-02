@@ -115,15 +115,15 @@ global $session_userid;
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
-            <a id="complete-button" class="btn btn-primary" href="#complete-confirmation-'.$taskid.'" data-toggle="modal">Complete</a>
+            <a id="complete-button" class="btn btn-primary" href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Complete</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="../calendar/update-task?id='.$taskid.'" data-toggle="modal" data-toggle="modal">Update</a></li>
-            <li><a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-toggle="modal">Archive</a></li>
-            <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
+            <li><a href="../calendar/update-task?id='.$taskid.'" data-toggle="modal" data-dismiss="modal">Update</a></li>
+            <li><a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Archive</a></li>
+            <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
             </td>
@@ -369,7 +369,7 @@ global $session_userid;
             <td data-title="Start">'.$task_startdate.'</td>
             <td data-title="Due">'.$task_duedate.'</td>
             <td data-title="Completed on">'.$task_duedate.'</td>
-            <td data-title="Action"><a class="btn btn-md btn-primary ladda-button" data-style="slide-up" href="#delete-'.$taskid.'" data-toggle="modal"><span class="ladda-label">Delete</span></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-confirmation-'.$taskid.'" data-toggle="modal">Delete</a></td>
             </tr>
 
 	        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -511,13 +511,13 @@ global $session_userid;
 			<td data-title="Archived on">'.$updated_on.'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#restore-'.$taskid.'" data-toggle="modal">Restore</a>
+            <a class="btn btn-primary" href="#reactivate-confirmation-'.$taskid.'" data-toggle="modal">Restore</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
+            <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
             </td>
