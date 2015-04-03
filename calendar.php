@@ -776,6 +776,11 @@ global $session_userid;
             $('#content-archived-tasks').html(html.archived_tasks);
             $(".table-archived-tasks").dataTable(settings);
 
+            $('#content-completed-tasks').empty();
+            $(".table-completed-tasks").dataTable().fnDestroy();
+            $('#content-completed-tasks').html(html.completed_tasks);
+            $(".table-completed-tasks").dataTable(settings);
+
             $('#content-due-tasks').empty();
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').html(html.due_tasks);
