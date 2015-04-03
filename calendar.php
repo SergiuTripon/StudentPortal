@@ -333,19 +333,17 @@ global $archived_tasks;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
-            alert(html.due_tasks);
+        alert(html.due_tasks);
 
-            $('.modal-custom').on('hidden.bs.modal', function () {
-                $(".table-due-tasks").dataTable().fnDestroy();
-                $('#content-due-tasks').empty();
-                $('#content-due-tasks').html(html.due_tasks);
-                $(".table-due-tasks").dataTable(settings);
+        $(".table-due-tasks").dataTable().fnDestroy();
+        $('#content-due-tasks').empty();
+        $('#content-due-tasks').html(html.due_tasks);
+        $(".table-due-tasks").dataTable(settings);
 
-                $(".table-completed-tasks").dataTable().fnDestroy();
-                $('#content-completed-tasks').empty();
-                $('#content-completed-tasks').html(html.completed_tasks);
-                $(".table-completed-tasks").dataTable(settings);
-            });
+        $(".table-completed-tasks").dataTable().fnDestroy();
+        $('#content-completed-tasks').empty();
+        $('#content-completed-tasks').html(html.completed_tasks);
+        $(".table-completed-tasks").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
