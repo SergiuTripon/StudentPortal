@@ -231,8 +231,6 @@ function Test() {
         </td>
         </tr>';
         }
-
-        $due_tasks = implode(' ', $due_tasks);
     }
     $stmt1->close();
 
