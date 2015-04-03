@@ -291,6 +291,10 @@ function calendarUpdate($isUpdate = '0') {
 
     if ($isUpdate == 1) {
 
+        global $due_tasks;
+        global $completed_tasks;
+        global $archived_tasks;
+
         $array = array(
             'due_tasks'=>$due_tasks,
             'completed_tasks'=>$completed_tasks,
