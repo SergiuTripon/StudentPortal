@@ -1,9 +1,9 @@
 <?php
 include 'includes/session.php';
 
-calendarUpdate($isUpdate = '1');
+calendarUpdate($isUpdate = 1);
 
-function calendarUpdate($isUpdate = '0') {
+function calendarUpdate($isUpdate = 0) {
 
     global $mysqli;
     global $session_userid;
@@ -296,5 +296,7 @@ function calendarUpdate($isUpdate = '0') {
         global $archived_tasks;
 
         echo $due_tasks;
+        echo $completed_tasks;
+        echo $archived_tasks;
     }
 }
