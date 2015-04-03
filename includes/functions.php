@@ -2509,7 +2509,7 @@ function DeleteTask() {
     calendarUpdate($isUpdate);
 }
 
-function calendarUpdate($isUpdate = 0) {
+function calendarUpdate($isUpdate) {
 
     global $mysqli;
     global $session_userid;
