@@ -653,7 +653,7 @@ global $session_userid;
 	$("body").on("click", ".btn-complete", function(e) {
     e.preventDefault();
 
-    $("#target").click(function() {
+    $(".btn-confirmation-confirm").click(function() {
         $(this).buttonLoad();
     });
 
