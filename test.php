@@ -289,7 +289,7 @@ function calendarUpdate($isUpdate = '0') {
 
     $stmt3->close();
 
-    if ($isUpdate == 1) {
+    if ($isUpdate === 1) {
 
         global $due_tasks;
         global $completed_tasks;
