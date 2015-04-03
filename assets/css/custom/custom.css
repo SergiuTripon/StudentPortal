@@ -724,8 +724,11 @@ form .field-required {
 /* End of Success message */
 
 /* Confirmation message */
-.confirmation-text {
+.confirmation-default {
     color: #826644;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
 }
 /* End of Confrimation message */
 
