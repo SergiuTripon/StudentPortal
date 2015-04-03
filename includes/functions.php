@@ -2627,30 +2627,6 @@ function calendarUpdate() {
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="deactivate-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-
-        <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-check"></i>
-        </div>
-        </div>
-
-        <div class="modal-body">
-        <p class="text-center feedback-happy">All done! '.$task_name.' has been archived.</p>
-        </div>
-
-        <div class="modal-footer">
-        <div class="text-center">
-        <a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
-        </div>
-        </div>
-
-        </div><!-- /modal -->
-        </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
         <div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
@@ -2671,30 +2647,6 @@ function calendarUpdate() {
         </div>
         <div class="text-right">
         <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
-        </div>
-        </div>
-
-        </div><!-- /modal -->
-        </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
-        <div id="delete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-
-        <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-check"></i>
-        </div>
-        </div>
-
-        <div class="modal-body">
-        <p class="feedback-happy text-center">All done! '.$task_name.' has been deleted.</p>
-        </div>
-
-        <div class="modal-footer">
-        <div class="text-center">
-        <a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
         </div>
         </div>
 
@@ -2810,30 +2762,6 @@ function calendarUpdate() {
         </div><!-- /modal -->
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
-
-        <div id="delete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-
-        <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-check"></i>
-        </div>
-        </div>
-
-        <div class="modal-body">
-        <p class="feedback-happy text-center">All done! '.$task_name.' has been deleted.</p>
-        </div>
-
-        <div class="modal-footer">
-        <div class="text-center">
-        <a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
-        </div>
-        </div>
-
-        </div><!-- /modal -->
-        </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
         </td>
         </tr>';
         }
@@ -2932,30 +2860,6 @@ function calendarUpdate() {
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="reactivate-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-
-        <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-check"></i>
-        </div>
-        </div>
-
-        <div class="modal-body">
-        <p class="feedback-happy text-center">All done! '.$task_name.' has been restored.</p>
-        </div>
-
-        <div class="modal-footer">
-        <div class="text-center">
-        <a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
-        </div>
-        </div>
-
-        </div><!-- /modal -->
-        </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
         <div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
@@ -2976,30 +2880,6 @@ function calendarUpdate() {
         </div>
         <div class="text-right">
         <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
-        </div>
-        </div>
-
-        </div><!-- /modal -->
-        </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
-        <div id="delete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-
-        <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-check"></i>
-        </div>
-        </div>
-
-        <div class="modal-body">
-        <p class="feedback-happy text-center">All done! '.$task_name.' has been deleted.</p>
-        </div>
-
-        <div class="modal-footer">
-        <div class="text-center">
-        <a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
         </div>
         </div>
 
