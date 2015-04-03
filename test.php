@@ -338,6 +338,7 @@ function calendarUpdate()
 
     $stmt2->close();
 
+    echo $due_tasks;
     echo $completed_tasks;
 }
 
