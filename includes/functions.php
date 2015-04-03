@@ -2538,7 +2538,7 @@ function calendarUpdate() {
         <td data-title="Action">
 
         <div class="btn-group btn-action">
-        <a id="complete-'.$tasksid.'" class="btn btn-primary btn-complete" >Complete</a>
+        <a id="complete-'.$taskid.'" class="btn btn-primary btn-complete">Complete</a>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="fa fa-caret-down"></span>
         <span class="sr-only">Toggle Dropdown</span>
