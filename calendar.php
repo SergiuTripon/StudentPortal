@@ -167,9 +167,8 @@ global $session_userid;
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close"><i class="fa fa-question"></i></div>
+        <h4 class="modal-title" id="modal-custom-label">Complete task?</h4>
         </div>
 
         <div class="modal-body">
