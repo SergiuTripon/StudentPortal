@@ -85,6 +85,10 @@ hr {
 /* Buttons */
 .btn {
     border-radius: 3px;
+    -webkit-transition: background-color ease-in-out 1s;
+    -moz-transition: background-color ease-in-out 1s;
+    -o-transition: background-color ease-in-out 1s;
+    transition: background-color ease-in-out 1s;
 }
 
 .btn, .btn:focus, .btn:hover, .btn:focus, .btn:active, .btn.active {
