@@ -297,6 +297,6 @@ function calendarUpdate($isUpdate = 0) {
             'archived_tasks'=>$archived_tasks
         );
 
-        echo $array;
+        echo json_encode($array);
     }
 }
