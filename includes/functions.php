@@ -2668,18 +2668,7 @@ function calendarUpdate() {
         <td data-title="Start">'.$task_startdate.'</td>
         <td data-title="Due">'.$task_duedate.'</td>
         <td data-title="Completed on">'.$task_duedate.'</td>
-        <td data-title="Action">
-        <div class="btn-group btn-action">
-        <a class="btn btn-primary" href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a>
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-        <span class="fa fa-caret-down"></span>
-        <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-        <li><a href="#reactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Move to Due tasks</a></li>
-        </ul>
-        </div>
-
+        <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a>
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
@@ -2705,30 +2694,6 @@ function calendarUpdate() {
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
-        </div>
-        </div>
-
-        </div><!-- /modal -->
-        </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
-        <div id="reactivate-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-
-        <div class="modal-header">
-        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-        <h4 class="modal-title" id="modal-custom-label">Move task?</h4>
-        </div>
-
-        <div class="modal-body">
-        <p class="confirmation-default text-center">Are you sure you want to move "'.$task_name.'" to Due tasks?</p>
-        </div>
-
-        <div class="modal-footer">
-        <div class="text-right">
-        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
-        <a id="reactivate-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-reactivate">Confirm</a>
         </div>
         </div>
 
