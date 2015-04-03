@@ -190,21 +190,18 @@ global $session_userid;
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title text-left" id="modal-custom-label">Archive task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-sad">Are you sure you want to archive '.$task_name.'?</p>
+        <p class="confirmation-default text-left">Are you sure you want to archive '.$task_name.'?</p>
         </div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="deactivate-'.$taskid.'" class="btn btn-primary btn-lg deactivate-button">Confirm</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="deactivate-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-deactivate">Confirm</a>
         </div>
         </div>
 
@@ -217,21 +214,18 @@ global $session_userid;
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title text-left" id="modal-custom-label">Delete task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-sad">Are you sure you want to delete '.$task_name.'?</p>
+        <p class="confirmation-default text-left">Are you sure you want to delete '.$task_name.'?</p>
         </div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg delete-button" >Confirm</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-delete">Confirm</a>
         </div>
         </div>
 
@@ -352,7 +346,7 @@ global $session_userid;
         <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         <div class="text-right">
-        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
+        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg btn-delete" >Delete</a>
         </div>
         </div>
 
