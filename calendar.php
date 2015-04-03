@@ -653,10 +653,6 @@ global $session_userid;
 	$("body").on("click", ".btn-complete", function(e) {
     e.preventDefault();
 
-    $(".btn-confirmation-confirm").click(function() {
-        $(this).buttonLoad();
-    });
-
 	var clickedID = this.id.split('-');
     var taskToComplete = clickedID[1];
 
@@ -669,7 +665,7 @@ global $session_userid;
 
             $('.modal-custom').modal('hide');
 
-            $('.modal-custom').on('hidden.bs.modal', function (e) {
+            $('.modal-custom').on('hidden.bs.modal', function () {
                 $(".table-due-tasks").dataTable().fnDestroy();
                 $('#content-due-tasks').empty();
                 $('#content-due-tasks').html(html.due_tasks);
@@ -703,17 +699,19 @@ global $session_userid;
 	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(html){
 
-        $('#deactivate-'+taskToDeactivate).modal('hide');
+        $('.modal-custom').modal('hide');
 
-        $('#content-due-tasks').empty();
-        $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').html(html.due_tasks);
-        $(".table-due-tasks").dataTable(settings);
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            $('#content-due-tasks').empty();
+            $(".table-due-tasks").dataTable().fnDestroy();
+            $('#content-due-tasks').html(html.due_tasks);
+            $(".table-due-tasks").dataTable(settings);
 
-        $('#content-archived-tasks').empty();
-        $(".table-archived-tasks").dataTable().fnDestroy();
-        $('#content-archived-tasks').html(html.archived_tasks);
-        $(".table-archived-tasks").dataTable(settings);
+            $('#content-archived-tasks').empty();
+            $(".table-archived-tasks").dataTable().fnDestroy();
+            $('#content-archived-tasks').html(html.archived_tasks);
+            $(".table-archived-tasks").dataTable(settings);
+        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -736,17 +734,19 @@ global $session_userid;
 	data:'taskToReactivate='+ taskToReactivate,
 	success:function(html){
 
-        $('#reactivate-'+taskToReactivate).modal('toggle');
+        $('.modal-custom').modal('hide');
 
-        $('#content-archived-tasks').empty();
-        $(".table-archived-tasks").dataTable().fnDestroy();
-        $('#content-archived-tasks').html(html.archived_tasks);
-        $(".table-archived-tasks").dataTable(settings);
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            $('#content-archived-tasks').empty();
+            $(".table-archived-tasks").dataTable().fnDestroy();
+            $('#content-archived-tasks').html(html.archived_tasks);
+            $(".table-archived-tasks").dataTable(settings);
 
-        $('#content-due-tasks').empty();
-        $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').html(html.due_tasks);
-        $(".table-due-tasks").dataTable(settings);
+            $('#content-due-tasks').empty();
+            $(".table-due-tasks").dataTable().fnDestroy();
+            $('#content-due-tasks').html(html.due_tasks);
+            $(".table-due-tasks").dataTable(settings);
+        });
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -770,22 +770,24 @@ global $session_userid;
 	data:'taskToDelete='+ taskToDelete,
 	success:function(html){
 
-        $('#delete-'+taskToDelete).modal('toggle');
+        $('.modal-custom').modal('hide');
 
-        $('#content-due-tasks').empty();
-        $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').html(html.due_tasks);
-        $(".table-due-tasks").dataTable(settings);
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            $('#content-due-tasks').empty();
+            $(".table-due-tasks").dataTable().fnDestroy();
+            $('#content-due-tasks').html(html.due_tasks);
+            $(".table-due-tasks").dataTable(settings);
 
-        $('#content-completed-tasks').empty();
-        $(".table-completed-tasks").dataTable().fnDestroy();
-        $('#content-completed-tasks').html(html.completed_tasks);
-        $(".table-completed-tasks").dataTable(settings);
+            $('#content-completed-tasks').empty();
+            $(".table-completed-tasks").dataTable().fnDestroy();
+            $('#content-completed-tasks').html(html.completed_tasks);
+            $(".table-completed-tasks").dataTable(settings);
 
-        $('#content-archived-tasks').empty();
-        $(".table-archived-tasks").dataTable().fnDestroy();
-        $('#content-archived-tasks').html(html.archived_tasks);
-        $(".table-archived-tasks").dataTable(settings);
+            $('#content-archived-tasks').empty();
+            $(".table-archived-tasks").dataTable().fnDestroy();
+            $('#content-archived-tasks').html(html.archived_tasks);
+            $(".table-archived-tasks").dataTable(settings);
+        });
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
