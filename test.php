@@ -344,5 +344,11 @@ function Test() {
     $stmt2->close();
 
     echo $due_tasks;
+
+    $array = array(
+        'due_tasks'=>$due_tasks,
+    );
+
+    echo json_encode($array);
 }
 
