@@ -822,6 +822,9 @@ global $session_userid;
 
             $('#complete-confirmation-'+taskToComplete).modal('hide');
 
+            alert(html.due_tasks);
+            alert(html.completed_tasks);
+
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
             $('#content-due-tasks').html(html.due_tasks);
