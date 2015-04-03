@@ -653,7 +653,9 @@ global $session_userid;
 	$("body").on("click", ".btn-complete", function(e) {
     e.preventDefault();
 
-    buttonLoad();
+    $("#target").click(function() {
+        $(this).buttonLoad();
+    });
 
 	var clickedID = this.id.split('-');
     var taskToComplete = clickedID[1];
