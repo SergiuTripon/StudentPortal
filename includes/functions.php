@@ -2846,7 +2846,6 @@ function calendarUpdate() {
 
     $stmt3->close();
 
-
     $array = array(
         'due_tasks'=>$due_tasks,
         'completed_tasks'=>$completed_tasks,

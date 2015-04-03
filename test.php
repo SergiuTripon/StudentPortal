@@ -11,6 +11,7 @@ function calendarUpdate1() {
     global $due_tasks;
     global $completed_tasks;
     global $archived_tasks;
+    global $array;
 
     $task_status = 'active';
 
@@ -348,13 +349,4 @@ function calendarUpdate1() {
     }
 
     $stmt3->close();
-
-
-    $array = array(
-        'due_tasks'=>$due_tasks,
-        'completed_tasks'=>$completed_tasks,
-        'archived_tasks'=>$archived_tasks
-    );
-
-    echo json_encode($array);
 }
