@@ -2840,8 +2840,6 @@ function calendarUpdate() {
 
     $stmt2->close();
 
-    //echo $due_tasks;
-
     $array = array(
         'due_tasks'=>$due_tasks,
         'completed_tasks'=>$completed_tasks
