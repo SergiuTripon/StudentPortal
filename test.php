@@ -23,8 +23,8 @@ function Test() {
 
         while ($stmt1->fetch()) {
 
-        $due_tasks = '';
-        $due_tasks .=
+        $due_tasks = array();
+        $due_tasks[] =
 
         '<tr id="task-'.$taskid .'">
 
@@ -231,6 +231,8 @@ function Test() {
         </td>
         </tr>';
         }
+
+        $due_tasks = implode(' ', $due_tasks);
     }
     $stmt1->close();
 
