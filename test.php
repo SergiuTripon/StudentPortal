@@ -295,12 +295,6 @@ function calendarUpdate($isUpdate = '0') {
         global $completed_tasks;
         global $archived_tasks;
 
-        $array = array(
-            'due_tasks'=>$due_tasks,
-            'completed_tasks'=>$completed_tasks,
-            'archived_tasks'=>$archived_tasks
-        );
-
-        echo $array;
+        echo $due_tasks;
     }
 }
