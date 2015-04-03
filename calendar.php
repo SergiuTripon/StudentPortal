@@ -116,11 +116,11 @@ global $session_userid;
             $task_duedate = $data["task_duedate"];
 
             echo '
-        <tr id="task-' . $taskid . '">
+        <tr id="task-'.$taskid .'">
 
-        <td data-title="Name"><a href="#view-' . $taskid . '" data-toggle="modal">' . $task_name . '</a></td>
-        <td data-title="Start date">' . $task_startdate . '</td>
-        <td data-title="Due date">' . $task_duedate . '</td>
+        <td data-title="Name"><a href="#view-'.$taskid .'" data-toggle="modal">'.$task_name.'</a></td>
+        <td data-title="Start date">'. $task_startdate .'</td>
+        <td data-title="Due date">'.$task_duedate.'</td>
         <td data-title="Action">
 
         <div class="btn-group btn-action">
