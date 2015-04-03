@@ -333,8 +333,6 @@ global $archived_tasks;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
-            $('.modal-custom').modal('hide');
-
             alert(html.due_tasks);
 
             $('.modal-custom').on('hidden.bs.modal', function () {
