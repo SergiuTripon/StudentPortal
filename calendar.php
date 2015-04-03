@@ -176,10 +176,8 @@ global $session_userid;
         <p class="text-center feedback-happy">Are you sure you want to complete '.$task_name.'?</p></div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
+        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
         <a id="complete-'.$taskid.'" class="btn btn-primary btn-lg complete-button">Confirm</a>
         </div>
         </div>
