@@ -683,7 +683,7 @@ global $session_userid;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
-            $('#complete-confirmation-'+taskToComplete).modal('hide');
+            $('#complete-'+taskToComplete).modal('hide');
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
@@ -694,8 +694,6 @@ global $session_userid;
             $('#content-completed-tasks').empty();
             $('#content-completed-tasks').html(html.completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
-
-            $('#complete-success-'+taskToComplete).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -717,21 +715,19 @@ global $session_userid;
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'taskToDeactivate='+ taskToDeactivate,
-	success:function(data){
+	success:function(html){
 
-        $('#deactivate-confirmation-'+taskToDeactivate).modal('hide');
+        $('#deactivate-'+taskToDeactivate).modal('hide');
 
-        $(".table-due-tasks").dataTable().fnDestroy();
         $('#content-due-tasks').empty();
-        $('#content-due-tasks').append(data.due_tasks);
+        $(".table-due-tasks").dataTable().fnDestroy();
+        $('#content-due-tasks').html(html.due_tasks);
         $(".table-due-tasks").dataTable(settings);
 
         $('#content-archived-tasks').empty();
         $(".table-archived-tasks").dataTable().fnDestroy();
-        $('#content-archived-tasks').append(data.archived_tasks);
+        $('#content-archived-tasks').html(html.archived_tasks);
         $(".table-archived-tasks").dataTable(settings);
-
-        $('#deactivate-success-'+taskToDeactivate).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -752,21 +748,20 @@ global $session_userid;
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'taskToReactivate='+ taskToReactivate,
-	success:function(data){
+	success:function(html){
 
-        $('#reactivate-confirmation-'+taskToReactivate).modal('hide');
+        $('#reactivate-'+taskToReactivate).modal('toggle');
 
-        $(".table-archived-tasks").dataTable().fnDestroy();
         $('#content-archived-tasks').empty();
-        $('#content-archived-tasks').append(data.archived_tasks);
+        $(".table-archived-tasks").dataTable().fnDestroy();
+        $('#content-archived-tasks').html(html.archived_tasks);
         $(".table-archived-tasks").dataTable(settings);
 
         $('#content-due-tasks').empty();
         $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').append(data.due_tasks);
+        $('#content-due-tasks').html(html.due_tasks);
         $(".table-due-tasks").dataTable(settings);
 
-        $('#reactivate-success-'+taskToReactivate).modal('show');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -787,26 +782,24 @@ global $session_userid;
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'taskToDelete='+ taskToDelete,
-	success:function(data){
+	success:function(html){
 
-        $('#delete-confirmation-'+taskToDelete).modal('hide');
+        $('#delete-'+taskToDelete).modal('toggle');
 
         $('#content-due-tasks').empty();
         $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').append(data.due_tasks);
+        $('#content-due-tasks').html(html.due_tasks);
         $(".table-due-tasks").dataTable(settings);
 
         $('#content-completed-tasks').empty();
         $(".table-completed-tasks").dataTable().fnDestroy();
-        $('#content-completed-tasks').append(data.completed_tasks);
+        $('#content-completed-tasks').html(html.completed_tasks);
         $(".table-completed-tasks").dataTable(settings);
 
         $('#content-archived-tasks').empty();
         $(".table-archived-tasks").dataTable().fnDestroy();
-        $('#content-archived-tasks').append(data.archived_tasks);
+        $('#content-archived-tasks').html(html.archived_tasks);
         $(".table-archived-tasks").dataTable(settings);
-
-        $('#delete-success-'+taskToDelete).modal('show');
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
