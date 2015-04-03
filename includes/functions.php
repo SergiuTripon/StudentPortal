@@ -2447,7 +2447,7 @@ function CompleteTask() {
 	$stmt1->execute();
 	$stmt1->close();
 
-    $isUpdate = 1;
+    $isUpdate = '1';
 
     calendarUpdate($isUpdate);
 }
@@ -2467,7 +2467,7 @@ function DeactivateTask() {
     $stmt1->execute();
     $stmt1->close();
 
-    $isUpdate = 1;
+    $isUpdate = '1';
 
     calendarUpdate($isUpdate);
 }
@@ -2487,7 +2487,7 @@ function ReactivateTask() {
     $stmt1->execute();
     $stmt1->close();
 
-    $isUpdate = 1;
+    $isUpdate = '1';
 
     calendarUpdate($isUpdate);
 }
@@ -2504,12 +2504,12 @@ function DeleteTask() {
     $stmt1->execute();
     $stmt1->close();
 
-    $isUpdate = 1;
+    $isUpdate = '1';
 
     calendarUpdate($isUpdate);
 }
 
-function calendarUpdate($isUpdate) {
+function calendarUpdate($isUpdate = '0') {
 
     global $mysqli;
     global $session_userid;
@@ -2795,7 +2795,7 @@ function calendarUpdate($isUpdate) {
 
     $stmt3->close();
 
-    if ($isUpdate === 1) {
+    if ($isUpdate == 1) {
 
         $array = array(
             'due_tasks'=>$due_tasks,
