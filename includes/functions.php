@@ -2447,7 +2447,9 @@ function CompleteTask() {
 	$stmt1->execute();
 	$stmt1->close();
 
-    calendarUpdate();
+    $isUpdate = 1;
+
+    calendarUpdate($isUpdate);
 }
 
 //DeactivateTask function
@@ -2847,7 +2849,7 @@ function calendarBefore() {
     $stmt3->close();
 }
 
-function calendarUpdate() {
+function calendarUpdate($isUpdate) {
 
     global $mysqli;
     global $session_userid;
@@ -3198,7 +3200,9 @@ function calendarUpdate() {
         'archived_tasks'=>$archived_tasks
     );
 
-    echo json_encode($array);
+    if ($isUpdate = 1) {
+        echo json_encode($array);
+    }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
