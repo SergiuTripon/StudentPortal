@@ -160,7 +160,7 @@ hr {
     border-color: #826644;
     background-color: #826644;
 }
-.btn-confirmation:focus, .btn-danger:hover {
+.btn-confirmation:focus, .btn-confirmation:hover {
     color: #FFFFFF;
     border-color: #A88459;
     background-color: #A88459;
