@@ -167,7 +167,7 @@ global $session_userid;
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="close"><i class="fa fa-question"></i></div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
         <h4 class="modal-title text-left" id="modal-custom-label">Complete task?</h4>
         </div>
 
