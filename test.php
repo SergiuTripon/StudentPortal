@@ -1,7 +1,7 @@
 <?php
 include 'includes/session.php';
 
-calendarUpdate();
+calendarUpdate($isUpdate = '1');
 
 function calendarUpdate($isUpdate = '0') {
 
@@ -24,9 +24,9 @@ function calendarUpdate($isUpdate = '0') {
 
         while ($stmt1->fetch()) {
 
-            $due_tasks .=
+        $due_tasks .=
 
-                '<tr>
+        '<tr>
         <td data-title="Name"><a href="#view-'.$taskid .'" data-toggle="modal">'.$task_name.'</a></td>
         <td data-title="Start date">'. $task_startdate .'</td>
         <td data-title="Due date">'.$task_duedate.'</td>
