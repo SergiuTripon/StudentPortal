@@ -177,8 +177,8 @@ hr {
 }
 .btn-confirmation-cancel:focus, .btn-confirmation-cancel:hover {
     color: #FFFFFF;
-    border-color: #AF8E66;
-    background-color: #AF8E66;
+    border-color: #B59773;
+    background-color: #B59773;
 }
 
 .btn-action.btn-group {
