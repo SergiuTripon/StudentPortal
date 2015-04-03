@@ -23,7 +23,8 @@ function Test() {
 
         while ($stmt1->fetch()) {
 
-        $due_tasks =
+        $due_tasks = '';
+        $due_tasks .=
 
         '<tr id="task-'.$taskid .'">
 
