@@ -176,8 +176,8 @@ global $session_userid;
 
         <div class="modal-footer">
         <div class="text-right">
-        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-        <a id="complete-'.$taskid.'" class="btn btn-confirmation btn-lg complete-button">Confirm</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="complete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-complete">Confirm</a>
         </div>
         </div>
 
