@@ -5,7 +5,9 @@ include 'includes/functions.php';
 global $mysqli;
 global $session_userid;
 
-calendarBefore();
+$isUpdate = 0;
+
+calendarUpdate($isUpdate);
 
 global $due_tasks;
 global $completed_tasks;
