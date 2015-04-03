@@ -326,6 +326,8 @@ global $archived_tasks;
 	var clickedID = this.id.split('-');
     var taskToComplete = clickedID[1];
 
+        alert(taskToComplete);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -333,7 +335,7 @@ global $archived_tasks;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
-        alert(html.due_tasks);
+        alert(taskToComplete);
 
         $(".table-due-tasks").dataTable().fnDestroy();
         $('#content-due-tasks').empty();
