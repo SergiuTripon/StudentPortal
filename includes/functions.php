@@ -2516,7 +2516,6 @@ function calendarUpdate($isUpdate) {
     global $due_tasks;
     global $completed_tasks;
     global $archived_tasks;
-    global $isUpdate;
 
     $task_status = 'active';
 
