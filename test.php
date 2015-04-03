@@ -2,9 +2,9 @@
 include 'includes/session.php';
 include 'includes/functions.php';
 
-Test();
+calendarUpdate1();
 
-function Test() {
+function calendarUpdate1() {
 
     global $mysqli;
     global $session_userid;
@@ -23,9 +23,9 @@ function Test() {
 
         while ($stmt1->fetch()) {
 
-        $due_tasks .=
+            $due_tasks .=
 
-        '<tr id="task-'.$taskid .'">
+                '<tr id="task-'.$taskid .'">
 
         <td data-title="Name"><a href="#view-'.$taskid .'" data-toggle="modal">'.$task_name.'</a></td>
         <td data-title="Start date">'. $task_startdate .'</td>
@@ -245,9 +245,9 @@ function Test() {
 
         if ($stmt2->num_rows > 0) {
 
-        $completed_tasks .=
+            $completed_tasks .=
 
-        '<tr id="task-'.$taskid.'">
+                '<tr id="task-'.$taskid.'">
 
         <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
         <td data-title="Start">'.$task_startdate.'</td>
@@ -342,8 +342,6 @@ function Test() {
     }
 
     $stmt2->close();
-
-    //echo $due_tasks;
 
     $array = array(
         'due_tasks'=>$due_tasks,
