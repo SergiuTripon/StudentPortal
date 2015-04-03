@@ -2,7 +2,7 @@
 include 'includes/session.php';
 include 'includes/functions.php';
 
-$isUpdate = '1';
+$isUpdate = '0';
 
 calendarUpdate1($isUpdate);
 
