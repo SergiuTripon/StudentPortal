@@ -12,9 +12,8 @@
     }
 
     $(".btn-confirmation-confirm").click(function() {
-        var $btn = $(this);
-        $btn.data('loading-text', 'Loading...');
-        $btn.button('loading');
+        $(this).data('loading-text', 'Loading...');
+        $(this).button('loading');
     });
 
 	// Disables the background of a cell that contains Victoria in the Station Status table
