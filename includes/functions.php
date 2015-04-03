@@ -2509,7 +2509,7 @@ function DeleteTask() {
     calendarUpdate($isUpdate);
 }
 
-function calendarUpdate($isUpdate) {
+function calendarUpdate() {
 
     global $mysqli;
     global $session_userid;
@@ -2853,17 +2853,6 @@ function calendarUpdate($isUpdate) {
     }
 
     $stmt3->close();
-
-    if ($isUpdate = 1) {
-
-        $array = array(
-            'due_tasks'=>$due_tasks,
-            'completed_tasks'=>$completed_tasks,
-            'archived_tasks'=>$archived_tasks
-        );
-
-        echo json_encode($array);
-    }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
