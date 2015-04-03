@@ -653,6 +653,8 @@ global $session_userid;
 	$("body").on("click", ".complete-button", function(e) {
     e.preventDefault();
 
+    buttonLoad();
+
 	var clickedID = this.id.split('-');
     var taskToComplete = clickedID[1];
 
@@ -663,7 +665,9 @@ global $session_userid;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
-            $('#complete-'+taskToComplete).modal('hide');
+            buttonReset();
+
+            $('.modal-custom').modal('hide');
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
