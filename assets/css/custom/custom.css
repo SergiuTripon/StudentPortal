@@ -821,6 +821,7 @@ form .field-required {
     outline: none !important;
 }
 .modal-custom .modal-header {
+    text-align: left;
     border-color: #9F8170;
 }
 
@@ -835,6 +836,7 @@ form .field-required {
 
 .modal-custom .modal-body {
     color: #735326;
+    text-align: left;
 }
 
 .modal-custom .modal-body .feedback-sad,
