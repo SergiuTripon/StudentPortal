@@ -177,10 +177,10 @@ global $session_userid;
 
         <div class="modal-footer">
         <div class="pull-left">
-        <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         <div class="text-right">
-        <a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button">Complete</a>
+        <a id="complete-'.$taskid.'" class="btn btn-primary btn-lg complete-button">Confirm</a>
         </div>
         </div>
 
@@ -204,10 +204,10 @@ global $session_userid;
 
         <div class="modal-footer">
         <div class="pull-left">
-        <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         <div class="text-right">
-        <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button">Archive</a>
+        <a id="deactivate-'.$taskid.'" class="btn btn-primary btn-lg deactivate-button">Confirm</a>
         </div>
         </div>
 
@@ -231,10 +231,10 @@ global $session_userid;
 
         <div class="modal-footer">
         <div class="pull-left">
-        <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+        <a class="btn btn-cancel btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         <div class="text-right">
-        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
+        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg delete-button" >Confirm</a>
         </div>
         </div>
 
