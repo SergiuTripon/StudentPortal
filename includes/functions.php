@@ -2731,6 +2731,8 @@ function calendarUpdate() {
 
     $stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
 
+    $completed_tasks = array();
+
     while($row = $stmt2->fetch_assoc()) {
 
         $taskid = $row["taskid"];
@@ -2741,7 +2743,7 @@ function calendarUpdate() {
         $task_duedate = $row["task_duedate"];
         $updated_on = $row["updated_on"];
 
-    $completed_tasks = '
+    $completed_tasks[] = '
         <tr id="task-'.$taskid.'">
 
         <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
@@ -2837,7 +2839,7 @@ function calendarUpdate() {
 
     $stmt2->close();
 
-    echo $completed_tasks;
+    echo implode(', ', $tags);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
