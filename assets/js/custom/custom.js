@@ -7,14 +7,15 @@
         $('.btn').button('loading');
     }
 
-    $.fn.buttonLoad = function(){
-        $('.btn').data('loading-text', 'Loading...');
-        $('.btn').button('loading');
-    };
-
     function buttonReset () {
         $('.btn').button('reset');
     }
+
+    $(".btn-confirmation-confirm").click(function() {
+        var $btn = $(this);
+        $btn.data('loading-text', 'Loading...');
+        $btn.button('loading');
+    });
 
 	// Disables the background of a cell that contains Victoria in the Station Status table
 	$(".table-stationstatus td").filter(function() { return $.trim($(this).text()) === "Victoria"; }).
