@@ -332,21 +332,18 @@ global $session_userid;
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title text-left" id="modal-custom-label">Delete task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="feedback-sad text-center">Are you sure you want to delete '.$task_name.'?</p>
+        <p class="confirmation-default text-center">Are you sure you want to delete '.$task_name.'?</p>
         </div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg btn-delete" >Delete</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-delete">Confirm</a>
         </div>
         </div>
 
@@ -446,8 +443,8 @@ global $session_userid;
 
         <div class="modal-footer">
         <div class="view-action pull-left">
-        <a href="#reactivate-confirmation-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Restore</a>
-        <a href="#delete-confirmation-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+        <a href="#reactivate-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Restore</a>
+        <a href="#delete-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -458,14 +455,13 @@ global $session_userid;
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="reactivate-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="reactivate-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title text-left" id="modal-custom-label">Restore task?</h4>
         </div>
 
         <div class="modal-body">
@@ -473,13 +469,9 @@ global $session_userid;
         </div>
 
         <div class="modal-footer">
-        <div>
-        <div class="pull-left">
-        <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="reactivate-'.$taskid.'" class="btn btn-success btn-lg reactivate-button">Reactivate</a>
-        </div>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="reactivate-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-reactivate">Confirm</a>
         </div>
         </div>
 
@@ -487,26 +479,23 @@ global $session_userid;
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title text-left" id="modal-custom-label">Delete task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="feedback-sad text-center">Are you sure you want to delete '.$task_name.'?</p>
+        <p class="confirmation-default text-left">Are you sure you want to delete '.$task_name.'?</p>
         </div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-delete">Confirm</a>
         </div>
         </div>
 
