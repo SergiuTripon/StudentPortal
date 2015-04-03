@@ -823,14 +823,11 @@ global $session_userid;
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
             $('#complete-confirmation-'+taskToComplete).modal('hide');
-
-            alert(html.due_tasks);
-            alert(html.completed_tasks);
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
