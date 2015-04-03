@@ -23,7 +23,6 @@ function Test() {
 
         while ($stmt1->fetch()) {
 
-        $due_tasks = array();
         $due_tasks[] =
 
         '<tr id="task-'.$taskid .'">
