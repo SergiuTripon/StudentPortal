@@ -231,7 +231,7 @@ global $session_userid;
 
         <div class="modal-footer">
         <div class="pull-left">
-        <a class="btn btn-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         <div class="text-right">
         <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg delete-button" >Confirm</a>
