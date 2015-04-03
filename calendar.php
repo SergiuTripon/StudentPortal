@@ -119,39 +119,39 @@ global $session_userid;
         <td data-title="Action">
 
         <div class="btn-group btn-action">
-        <a id="complete-button" class="btn btn-primary" href="#complete-confirmation-' . $taskid . '" data-toggle="modal" data-dismiss="modal">Complete</a>
+        <a id="complete-button" class="btn btn-primary" href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Complete</a>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="fa fa-caret-down"></span>
         <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu">
-        <li><a href="../calendar/update-task?id=' . $taskid . '">Update</a></li>
-        <li><a href="#deactivate-confirmation-' . $taskid . '" data-toggle="modal" data-dismiss="modal">Archive</a></li>
-        <li><a href="#delete-confirmation-' . $taskid . '" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+        <li><a href="../calendar/update-task?id='.$taskid.'">Update</a></li>
+        <li><a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Archive</a></li>
+        <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
         </ul>
         </div>
-        <div id="view-' . $taskid . '" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
         <div class="modal-header">
         <div class="close"><i class="fa fa-calendar"></i></div>
-        <h4 class="modal-title" id="modal-custom-label">' . $task_name . '</h4>
+        <h4 class="modal-title" id="modal-custom-label">'.$task_name.'</h4>
         </div>
 
         <div class="modal-body">
-        <p><b>Notes:</b> ' . (empty($task_notes) ? "-" : "$task_notes") . '</p>
-        <p><b>URL:</b> ' . (empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>") . '</p>
-        <p><b>Start date and time:</b> ' . (empty($task_startdate) ? "-" : "$task_startdate") . '</p>
-        <p><b>Due date and time:</b> ' . (empty($task_duedate) ? "-" : "$task_duedate") . '</p>
+        <p><b>Notes:</b> '.(empty($task_notes) ? "-" : "$task_notes").'</p>
+        <p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
+        <p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
+        <p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
         </div>
 
         <div class="modal-footer">
         <div class="view-action pull-left">
-        <a href="/calendar/update-task?id=' . $taskid . '" class="btn btn-primary btn-sm" >Update</a>
-        <a href="#complete-confirmation-' . $taskid . '" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Complete</a>
-        <a href="#deactivate-confirmation-' . $taskid . '" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Archive</a>
-        <a href="#delete-confirmation-' . $taskid . '" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+        <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm" >Update</a>
+        <a href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Complete</a>
+        <a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Archive</a>
+        <a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
@@ -162,7 +162,7 @@ global $session_userid;
         </div><!--/modal-dialog-->
         </div><!--/modal-content-->
 
-        <div id="complete-confirmation-' . $taskid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="complete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -173,14 +173,14 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-happy">Are you sure you want to complete ' . $task_name . '?</p></div>
+        <p class="text-center feedback-happy">Are you sure you want to complete '.$task_name.'?</p></div>
 
         <div class="modal-footer">
         <div class="pull-left">
         <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         <div class="text-right">
-        <a id="complete-' . $taskid . '" class="btn btn-success btn-lg complete-button">Complete</a>
+        <a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button">Complete</a>
         </div>
         </div>
 
@@ -188,7 +188,7 @@ global $session_userid;
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="complete-success-' . $taskid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="complete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -199,7 +199,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-happy">All done! ' . $task_name . ' has been completed.</p>
+        <p class="text-center feedback-happy">All done! '.$task_name.' has been completed.</p>
         </div>
 
         <div class="modal-footer">
@@ -212,7 +212,7 @@ global $session_userid;
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="deactivate-confirmation-' . $taskid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="deactivate-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -223,7 +223,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-sad">Are you sure you want to archive ' . $task_name . '?</p>
+        <p class="text-center feedback-sad">Are you sure you want to archive '.$task_name.'?</p>
         </div>
 
         <div class="modal-footer">
@@ -231,7 +231,7 @@ global $session_userid;
         <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         <div class="text-right">
-        <a id="deactivate-' . $taskid . '" class="btn btn-danger btn-lg deactivate-button">Archive</a>
+        <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button">Archive</a>
         </div>
         </div>
 
@@ -239,7 +239,7 @@ global $session_userid;
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="deactivate-success-' . $taskid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="deactivate-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -250,7 +250,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-happy">All done! ' . $task_name . ' has been archived.</p>
+        <p class="text-center feedback-happy">All done! '.$task_name.' has been archived.</p>
         </div>
 
         <div class="modal-footer">
@@ -263,7 +263,7 @@ global $session_userid;
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="delete-confirmation-' . $taskid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -274,7 +274,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-sad">Are you sure you want to delete ' . $task_name . '?</p>
+        <p class="text-center feedback-sad">Are you sure you want to delete '.$task_name.'?</p>
         </div>
 
         <div class="modal-footer">
@@ -282,7 +282,7 @@ global $session_userid;
         <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         <div class="text-right">
-        <a id="delete-' . $taskid . '" class="btn btn-danger btn-lg delete-button" >Delete</a>
+        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
         </div>
         </div>
 
@@ -290,7 +290,7 @@ global $session_userid;
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="delete-success-' . $taskid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -301,7 +301,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="feedback-happy text-center">All done! ' . $task_name . ' has been deleted.</p>
+        <p class="feedback-happy text-center">All done! '.$task_name.' has been deleted.</p>
         </div>
 
         <div class="modal-footer">
@@ -369,14 +369,14 @@ global $session_userid;
 
         echo
 
-        '<tr id="task-' . $taskid . '">
+        '<tr id="task-'.$taskid.'">
 
-        <td data-title="Task"><a href="#view-' . $taskid . '" data-toggle="modal" data-dismiss="modal">' . $task_name . '</a></td>
-        <td data-title="Start">' . $task_startdate . '</td>
-        <td data-title="Due">' . $task_duedate . '</td>
-        <td data-title="Completed on">' . $task_duedate . '</td>
-        <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-confirmation-' . $taskid . '" data-toggle="modal" data-dismiss="modal">Delete</a>
-        <div id="view-' . $taskid . '" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
+        <td data-title="Start">'.$task_startdate.'</td>
+        <td data-title="Due">'.$task_duedate.'</td>
+        <td data-title="Completed on">'.$task_duedate.'</td>
+        <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a>
+        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -384,20 +384,20 @@ global $session_userid;
         <div class="close">
         <i class="fa fa-calendar"></i>
         </div>
-        <h4 class="modal-title" id="modal-custom-label">' . $task_name . '</h4>
+        <h4 class="modal-title" id="modal-custom-label">'.$task_name.'</h4>
         </div>
 
         <div class="modal-body">
-        <p><b>Notes:</b> ' . (empty($task_notes) ? "-" : "$task_notes") . '</p>
-        <p><b>URL:</b> ' . (empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>") . '</p>
-        <p><b>Start date and time:</b> ' . (empty($task_startdate) ? "-" : "$task_startdate") . '</p>
-        <p><b>Due date and time:</b> ' . (empty($task_duedate) ? "-" : "$task_duedate") . '</p>
-        <p><b>Completed on:</b> ' . (empty($updated_on) ? "-" : "$updated_on") . '</p>
+        <p><b>Notes:</b> '.(empty($task_notes) ? "-" : "$task_notes").'</p>
+        <p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
+        <p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
+        <p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
+        <p><b>Completed on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
         </div>
 
         <div class="modal-footer">
         <div class="view-action pull-left">
-        <a href="#delete-confirmation-' . $taskid . '" class="btn btn-primary btn-sm" data-toggle="modal" data-dismiss="modal">Delete</a>
+        <a href="#delete-confirmation-'.$taskid.'" class="btn btn-primary btn-sm" data-toggle="modal" data-dismiss="modal">Delete</a>
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -408,7 +408,7 @@ global $session_userid;
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="delete-confirmation-' . $taskid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -419,7 +419,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="feedback-sad text-center">Are you sure you want to delete ' . $task_name . '?</p>
+        <p class="feedback-sad text-center">Are you sure you want to delete '.$task_name.'?</p>
         </div>
 
         <div class="modal-footer">
@@ -427,7 +427,7 @@ global $session_userid;
         <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         <div class="text-right">
-        <a id="delete-' . $taskid . '" class="btn btn-danger btn-lg delete-button" >Delete</a>
+        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
         </div>
         </div>
 
@@ -435,7 +435,7 @@ global $session_userid;
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="delete-success-' . $taskid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -446,7 +446,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="feedback-happy text-center">All done! ' . $task_name . ' has been deleted.</p>
+        <p class="feedback-happy text-center">All done! '.$task_name.' has been deleted.</p>
         </div>
 
         <div class="modal-footer">
@@ -833,12 +833,12 @@ global $session_userid;
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
-            $('#content-due-tasks').appendTo(html.due_tasks);
+            $('#content-due-tasks').html(html.due_tasks);
             $(".table-due-tasks").dataTable(settings);
 
             $(".table-completed-tasks").dataTable().fnDestroy();
             $('#content-completed-tasks').empty();
-            $('#content-completed-tasks').appendTo(html.completed_tasks);
+            $('#content-completed-tasks').html(html.completed_tasks);
             $(".table-completed-tasks").dataTable(settings);
 
             $('#complete-success-'+taskToComplete).modal('show');

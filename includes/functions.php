@@ -2507,24 +2507,25 @@ function calendarUpdate() {
     global $session_userid;
     global $due_tasks;
     global $completed_tasks;
-    global $archived_tasks;
 
-    $stmt1 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid = '$session_userid' AND task_status = 'active'");
+    $task_status = 'active';
 
-    while($row = $stmt1->fetch_assoc()) {
+    $stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid=? AND task_status=?");
+    $stmt1->bind_param('is', $session_userid, $task_status);
+    $stmt1->execute();
+    $stmt1->bind_result($taskid, $task_name, $task_notes, $task_url, $task_startdate, $task_duedate);
+    $stmt1->store_result();
 
-        $taskid = $row["taskid"];
-        $task_name = $row["task_name"];
-        $task_notes = $row["task_notes"];
-        $task_url = $row["task_url"];
-        $task_startdate = $row["task_startdate"];
-        $task_duedate = $row["task_duedate"];
+    if ($stmt1->num_rows > 0) {
 
-    $due_tasks = '
-        <tr id="task-'.$taskid.'">
+        while ($stmt1->fetch()) {
 
-        <td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
-        <td data-title="Start date">'.$task_startdate.'</td>
+        $due_tasks .=
+
+        '<tr id="task-'.$taskid .'">
+
+        <td data-title="Name"><a href="#view-'.$taskid .'" data-toggle="modal">'.$task_name.'</a></td>
+        <td data-title="Start date">'. $task_startdate .'</td>
         <td data-title="Due date">'.$task_duedate.'</td>
         <td data-title="Action">
 
@@ -2725,31 +2726,32 @@ function calendarUpdate() {
         </div><!-- /modal-content -->
         </td>
         </tr>';
+        }
     }
-
     $stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid = '$session_userid' AND task_status = 'completed'");
+    $task_status = 'completed';
 
-    while($row = $stmt2->fetch_assoc()) {
+    $stmt2 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid=? AND task_status=?");
+    $stmt2->bind_param('is', $session_userid, $task_status);
+    $stmt2->execute();
+    $stmt2->bind_result($taskid, $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on);
+    $stmt2->store_result();
 
-        $taskid = $row["taskid"];
-        $task_name = $row["task_name"];
-        $task_notes = $row["task_notes"];
-        $task_url = $row["task_url"];
-        $task_startdate = $row["task_startdate"];
-        $task_duedate = $row["task_duedate"];
-        $updated_on = $row["updated_on"];
+    while($stmt2->fetch()) {
 
-    echo '
-        <tr id="task-'.$taskid.'">
+        if ($stmt2->num_rows > 0) {
+
+        $completed_tasks .=
+
+        '<tr id="task-'.$taskid.'">
 
         <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
         <td data-title="Start">'.$task_startdate.'</td>
         <td data-title="Due">'.$task_duedate.'</td>
         <td data-title="Completed on">'.$task_duedate.'</td>
         <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a>
-        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="view-'.$taskid .'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -2833,13 +2835,19 @@ function calendarUpdate() {
         </div><!-- /modal-content -->
         </td>
         </tr>';
+        }
     }
 
-    $completed_tasks = $stmt2->free();
-
-    echo $completed_tasks;
-
     $stmt2->close();
+
+    //echo $due_tasks;
+
+    $array = array(
+        'due_tasks'=>$due_tasks,
+        'completed_tasks'=>$completed_tasks
+    );
+
+    echo json_encode($array);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
