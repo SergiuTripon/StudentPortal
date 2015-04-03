@@ -172,7 +172,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-default text-left">Are you sure you want to complete '.$task_name.'?</p></div>
+        <p class="confirmation-default text-left">Are you sure you want to complete "'.$task_name.'"?</p></div>
 
         <div class="modal-footer">
         <div class="text-right">
@@ -195,7 +195,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-default text-left">Are you sure you want to archive '.$task_name.'?</p>
+        <p class="confirmation-default text-left">Are you sure you want to archive "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
@@ -219,7 +219,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-default text-left">Are you sure you want to delete '.$task_name.'?</p>
+        <p class="confirmation-default text-left">Are you sure you want to delete "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
@@ -337,7 +337,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-default text-center">Are you sure you want to delete '.$task_name.'?</p>
+        <p class="confirmation-default text-center">Are you sure you want to delete "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
@@ -465,7 +465,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-default text-center">Are you sure you want to restore '.$task_name.'?</p>
+        <p class="confirmation-default text-center">Are you sure you want to restore "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
@@ -489,7 +489,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-default text-left">Are you sure you want to delete '.$task_name.'?</p>
+        <p class="confirmation-default text-left">Are you sure you want to delete "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
