@@ -829,7 +829,7 @@ form .field-required {
 
 .modal-custom .close, .close:hover, .close:focus {
     opacity: 1;
-    color: #735326;
+    color: #826644;
     font-size: 30px;
     cursor: pointer;
     text-shadow: none;
@@ -841,7 +841,7 @@ form .field-required {
 }
 
 .modal-custom .modal-title {
-    color: #735326;
+    color: #826644;
     font-weight: 600;
 }
 
