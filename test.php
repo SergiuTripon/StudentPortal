@@ -346,14 +346,12 @@ function Test() {
     echo $due_tasks;
     echo $completed_tasks;
 
-    //$array = array(
-    //    'modal_due_tasks'=>$modal_due_tasks,
-    //    'table_due_tasks'=>$table_due_tasks,
-    //    'modal_completed_tasks'=>$modal_completed_tasks,
-    //    'table_completed_tasks'=>$table_completed_tasks
-    //);
+    $array = array(
+        'due_tasks'=>$due_tasks,
+        'completed_tasks'=>$completed_tasks
+    );
 
-    //echo json_encode($array);
+    echo json_encode($array);
 
 }
 
