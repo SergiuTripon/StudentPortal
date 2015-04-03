@@ -2837,12 +2837,7 @@ function calendarUpdate() {
 
     $stmt2->close();
 
-    $array = array(
-        'due_tasks'=>$due_tasks,
-        'completed_tasks'=>$completed_tasks
-    );
-
-    echo json_encode($array);
+    echo $completed_tasks;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
