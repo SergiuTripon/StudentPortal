@@ -2522,9 +2522,9 @@ function calendarUpdate($isUpdate = 0) {
 
         while ($stmt1->fetch()) {
 
-        $due_tasks .=
+            $due_tasks .=
 
-       '<tr>
+                '<tr>
         <td data-title="Name"><a href="#view-'.$taskid .'" data-toggle="modal">'.$task_name.'</a></td>
         <td data-title="Start date">'. $task_startdate .'</td>
         <td data-title="Due date">'.$task_duedate.'</td>
@@ -2615,9 +2615,9 @@ function calendarUpdate($isUpdate = 0) {
 
         if ($stmt2->num_rows > 0) {
 
-        $completed_tasks .=
+            $completed_tasks .=
 
-       '<tr>
+                '<tr>
         <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
         <td data-title="Start">'.$task_startdate.'</td>
         <td data-title="Due">'.$task_duedate.'</td>
@@ -2704,13 +2704,13 @@ function calendarUpdate($isUpdate = 0) {
     $stmt3->bind_result($taskid, $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on);
     $stmt3->store_result();
 
-        if ($stmt3->num_rows > 0) {
+    if ($stmt3->num_rows > 0) {
 
         while($stmt3->fetch()) {
 
-        $archived_tasks .=
+            $archived_tasks .=
 
-       '<tr>
+                '<tr>
         <td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
         <td data-title="Start date">'.$task_startdate.'</td>
         <td data-title="Due date">'.$task_duedate.'</td>
