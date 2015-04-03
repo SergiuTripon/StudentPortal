@@ -164,10 +164,21 @@ hr {
     border-color: #826644;
     background-color: #826644;
 }
-.btn-confirmation:focus, .btn-confirmation:hover {
+.btn-confirmation-confirm:focus, .btn-confirmation:hover {
+    color: #FFFFFF;
+    border-color: #8F704B;
+    background-color: #8F704B;
+}
+
+.btn-confirmation-cancel {
     color: #FFFFFF;
     border-color: #A88459;
     background-color: #A88459;
+}
+.btn-confirmation:focus, .btn-confirmation:hover {
+    color: #FFFFFF;
+    border-color: #AF8E66;
+    background-color: #AF8E66;
 }
 
 .btn-action.btn-group {
