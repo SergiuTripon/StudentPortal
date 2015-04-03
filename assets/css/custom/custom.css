@@ -155,6 +155,17 @@ hr {
     background-color: #C9302C;
 }
 
+.btn-confirmation {
+    color: #FFFFFF;
+    border-color: #826644;
+    background-color: #826644;
+}
+.btn-confirmation:focus, .btn-danger:hover {
+    color: #FFFFFF;
+    border-color: #A88459;
+    background-color: #A88459;
+}
+
 .btn-action.btn-group {
     margin-bottom: 0;
 }
