@@ -245,7 +245,7 @@ function Test() {
 
         if ($stmt2->num_rows > 0) {
 
-        $completed_tasks =
+        $completed_tasks .=
 
         '<tr id="task-'.$taskid.'">
 
@@ -347,6 +347,7 @@ function Test() {
 
     $array = array(
         'due_tasks'=>$due_tasks,
+        'completed_tasks'=>$completed_tasks
     );
 
     echo json_encode($array);
