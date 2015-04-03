@@ -341,8 +341,6 @@ function Test() {
         }
     }
 
-    $stmt2->close();
-
     echo $due_tasks;
     echo $completed_tasks;
 
@@ -352,6 +350,8 @@ function Test() {
     );
 
     echo json_encode($array);
+
+    $stmt2->close();
 
 }
 
