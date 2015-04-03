@@ -845,10 +845,6 @@ form .field-required {
     font-weight: 600;
 }
 
-.modal-custom .modal-header .form-logo i {
-    color: #826644;
-}
-
 .modal-custom .modal-body {
     color: #735326;
     text-align: left;
