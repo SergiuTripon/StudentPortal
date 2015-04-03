@@ -295,13 +295,13 @@ global $session_userid;
         <td data-title="Completed on">'.$task_duedate.'</td>
         <td data-title="Action">
         <div class="btn-group btn-action">
-        <a class="btn btn-primary" href="#reactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Move to Due</a>
+        <a class="btn btn-primary" href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="fa fa-caret-down"></span>
         <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu">
-        <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+        <li><a href="#reactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Move to Due tasks</a></li>
         </ul>
         </div>
 
