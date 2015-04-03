@@ -721,8 +721,13 @@ form .field-required {
 .input-happy {
     border-color: #449D44 !important;
 }
-
 /* End of Success message */
+
+/* Confirmation message */
+.confirmation-text {
+    color: #826644;
+}
+/* End of Confrimation message */
 
 /* Tiles style */
 .tile {
