@@ -344,6 +344,7 @@ function Test() {
     $stmt2->close();
 
     echo $due_tasks;
+    echo $completed_tasks;
 
     //$array = array(
     //    'modal_due_tasks'=>$modal_due_tasks,
