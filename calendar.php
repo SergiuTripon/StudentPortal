@@ -650,7 +650,7 @@ global $session_userid;
 
 
     //Complete record
-	$("body").on("click", ".complete-button", function(e) {
+	$("body").on("click", ".btn-complete", function(e) {
     e.preventDefault();
 
     buttonLoad();
@@ -688,7 +688,7 @@ global $session_userid;
     });
 
     //Deactivate record
-    $("body").on("click", ".deactivate-button", function(e) {
+    $("body").on("click", ".btn-deactivate", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -721,7 +721,7 @@ global $session_userid;
     });
 
     //Reactivate record
-    $("body").on("click", ".reactivate-button", function(e) {
+    $("body").on("click", ".btn-reactivate", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -755,7 +755,7 @@ global $session_userid;
     });
 
     //Delete record
-    $("body").on("click", ".delete-button", function(e) {
+    $("body").on("click", ".btn-delete", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
