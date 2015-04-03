@@ -7,6 +7,11 @@
         $('.btn').button('loading');
     }
 
+    $.fn.buttonLoad = function(){
+        $('.btn').data('loading-text', 'Loading...');
+        $('.btn').button('loading');
+    };
+
     function buttonReset () {
         $('.btn').button('reset');
     }
