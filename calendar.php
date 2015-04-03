@@ -335,6 +335,8 @@ global $archived_tasks;
 
             $('.modal-custom').modal('hide');
 
+            alert(html.due_tasks);
+
             $('.modal-custom').on('hidden.bs.modal', function () {
                 $(".table-due-tasks").dataTable().fnDestroy();
                 $('#content-due-tasks').empty();
