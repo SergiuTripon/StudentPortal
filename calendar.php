@@ -111,8 +111,7 @@ global $session_userid;
 
         echo
 
-        '<tr id="task-'.$taskid .'">
-
+       '<tr>
         <td data-title="Name"><a href="#view-'.$taskid .'" data-toggle="modal">'.$task_name.'</a></td>
         <td data-title="Start date">'. $task_startdate .'</td>
         <td data-title="Due date">'.$task_duedate.'</td>
@@ -288,8 +287,7 @@ global $session_userid;
 
         echo
 
-        '<tr id="task-'.$taskid.'">
-
+       '<tr>
         <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
         <td data-title="Start">'.$task_startdate.'</td>
         <td data-title="Due">'.$task_duedate.'</td>
@@ -407,7 +405,7 @@ global $session_userid;
 
 	    echo
 
-        '<tr id="task-'.$taskid.'">
+       '<tr>
 
         <td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
         <td data-title="Start date">'.$task_startdate.'</td>

@@ -2523,23 +2523,22 @@ function calendarUpdate() {
 
         $due_tasks .=
 
-        '<tr id="task-'.$taskid .'">
-
+       '<tr>
         <td data-title="Name"><a href="#view-'.$taskid .'" data-toggle="modal">'.$task_name.'</a></td>
         <td data-title="Start date">'. $task_startdate .'</td>
         <td data-title="Due date">'.$task_duedate.'</td>
         <td data-title="Action">
 
         <div class="btn-group btn-action">
-        <a id="complete-button" class="btn btn-primary" href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Complete</a>
+        <a id="complete-button" class="btn btn-primary" href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Complete</a>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="fa fa-caret-down"></span>
         <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu">
         <li><a href="../calendar/update-task?id='.$taskid.'">Update</a></li>
-        <li><a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Archive</a></li>
-        <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+        <li><a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Archive</a></li>
+        <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
         </ul>
         </div>
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -2561,9 +2560,9 @@ function calendarUpdate() {
         <div class="modal-footer">
         <div class="view-action pull-left">
         <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm" >Update</a>
-        <a href="#complete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Complete</a>
-        <a href="#deactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Archive</a>
-        <a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+        <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Complete</a>
+        <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Archive</a>
+        <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
@@ -2574,25 +2573,22 @@ function calendarUpdate() {
         </div><!--/modal-dialog-->
         </div><!--/modal-content-->
 
-        <div id="complete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="complete-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title" id="modal-custom-label">Complete task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-happy">Are you sure you want to complete '.$task_name.'?</p></div>
+        <p class="confirmation-default text-left">Are you sure you want to complete "'.$task_name.'"?</p></div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="complete-'.$taskid.'" class="btn btn-success btn-lg complete-button">Complete</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="complete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-complete">Confirm</a>
         </div>
         </div>
 
@@ -2600,26 +2596,23 @@ function calendarUpdate() {
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="deactivate-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="deactivate-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title" id="modal-custom-label">Archive task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-sad">Are you sure you want to archive '.$task_name.'?</p>
+        <p class="confirmation-default text-left">Are you sure you want to archive "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="deactivate-'.$taskid.'" class="btn btn-danger btn-lg deactivate-button">Archive</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="deactivate-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-deactivate">Confirm</a>
         </div>
         </div>
 
@@ -2627,26 +2620,23 @@ function calendarUpdate() {
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title" id="modal-custom-label">Delete task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-sad">Are you sure you want to delete '.$task_name.'?</p>
+        <p class="confirmation-default text-left">Are you sure you want to delete "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-delete">Confirm</a>
         </div>
         </div>
 
@@ -2673,14 +2663,13 @@ function calendarUpdate() {
 
         $completed_tasks .=
 
-        '<tr id="task-'.$taskid.'">
-
+       '<tr>
         <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
         <td data-title="Start">'.$task_startdate.'</td>
         <td data-title="Due">'.$task_duedate.'</td>
         <td data-title="Completed on">'.$task_duedate.'</td>
-        <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a>
-        <div id="view-'.$taskid .'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a>
+        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -2712,50 +2701,23 @@ function calendarUpdate() {
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="complete-success-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-
-        <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-check"></i>
-        </div>
-        </div>
-
-        <div class="modal-body">
-        <p class="text-center feedback-happy">All done! '.$task_name.' has been completed.</p>
-        </div>
-
-        <div class="modal-footer">
-        <div class="text-center">
-        <a class="btn btn-primary btn-lg" data-dismiss="modal">Continue</a>
-        </div>
-        </div>
-
-        </div><!-- /modal -->
-        </div><!-- /modal-dialog -->
-        </div><!-- /modal-content -->
-
         <div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title" id="modal-custom-label">Delete task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="feedback-sad text-center">Are you sure you want to delete '.$task_name.'?</p>
+        <p class="confirmation-default text-center">Are you sure you want to delete "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-delete">Confirm</a>
         </div>
         </div>
 
@@ -2783,21 +2745,20 @@ function calendarUpdate() {
 
         $archived_tasks .=
 
-        '<tr id="task-'.$taskid.'">
-
+       '<tr>
         <td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
         <td data-title="Start date">'.$task_startdate.'</td>
         <td data-title="Due date">'.$task_duedate.'</td>
         <td data-title="Archived on">'.$updated_on.'</td>
         <td data-title="Action">
         <div class="btn-group btn-action">
-        <a class="btn btn-primary" href="#reactivate-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Restore</a>
+        <a class="btn btn-primary" href="#reactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Restore</a>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="fa fa-caret-down"></span>
         <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu">
-        <li><a href="#delete-confirmation-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+        <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
         </ul>
         </div>
         <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -2819,8 +2780,8 @@ function calendarUpdate() {
 
         <div class="modal-footer">
         <div class="view-action pull-left">
-        <a href="#reactivate-confirmation-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Restore</a>
-        <a href="#delete-confirmation-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+        <a href="#reactivate-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Restore</a>
+        <a href="#delete-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -2831,28 +2792,23 @@ function calendarUpdate() {
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="reactivate-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="reactivate-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title" id="modal-custom-label">Restore task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-sad">Are you sure you want to restore '.$task_name.'?</p>
+        <p class="confirmation-default text-center">Are you sure you want to restore "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
-        <div>
-        <div class="pull-left">
-        <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="reactivate-'.$taskid.'" class="btn btn-success btn-lg reactivate-button">Reactivate</a>
-        </div>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="reactivate-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-reactivate">Confirm</a>
         </div>
         </div>
 
@@ -2860,26 +2816,23 @@ function calendarUpdate() {
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="delete-confirmation-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
         <div class="modal-header">
-        <div class="form-logo text-center">
-        <i class="fa fa-question"></i>
-        </div>
+        <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+        <h4 class="modal-title" id="modal-custom-label">Delete task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="feedback-sad text-center">Are you sure you want to delete '.$task_name.'?</p>
+        <p class="confirmation-default text-left">Are you sure you want to delete "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
-        <div class="pull-left">
-        <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-        </div>
         <div class="text-right">
-        <a id="delete-'.$taskid.'" class="btn btn-danger btn-lg delete-button" >Delete</a>
+        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-delete">Confirm</a>
         </div>
         </div>
 
