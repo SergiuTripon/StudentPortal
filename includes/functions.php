@@ -2795,7 +2795,7 @@ function calendarUpdate($isUpdate = '0') {
 
     $stmt3->close();
 
-    if ($isUpdate == 1) {
+    if ($isUpdate === 1) {
 
         $array = array(
             'due_tasks'=>$due_tasks,
