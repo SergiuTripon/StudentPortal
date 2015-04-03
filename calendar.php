@@ -173,7 +173,7 @@ global $session_userid;
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-text text-left">Are you sure you want to complete '.$task_name.'?</p></div>
+        <p class="confirmation-default text-left">Are you sure you want to complete '.$task_name.'?</p></div>
 
         <div class="modal-footer">
         <div class="text-right">
