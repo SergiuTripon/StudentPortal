@@ -2509,13 +2509,14 @@ function DeleteTask() {
     calendarUpdate($isUpdate);
 }
 
-function calendarUpdate() {
+function calendarUpdate($isUpdate = 0) {
 
     global $mysqli;
     global $session_userid;
     global $due_tasks;
     global $completed_tasks;
     global $archived_tasks;
+    global $isUpdate;
 
     $task_status = 'active';
 
@@ -2793,6 +2794,17 @@ function calendarUpdate() {
     }
 
     $stmt3->close();
+
+    if ($isUpdate = 1) {
+
+        $array = array(
+            'due_tasks'=>$due_tasks,
+            'completed_tasks'=>$completed_tasks,
+            'archived_tasks'=>$archived_tasks
+        );
+
+        echo json_encode($array);
+    }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
