@@ -98,6 +98,9 @@ global $due_tasks;
     <tbody id="content-due-tasks">
 
 	<?php
+
+    calendarBefore();
+
     echo $due_tasks;
 	?>
 
