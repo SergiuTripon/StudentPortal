@@ -168,7 +168,7 @@ global $session_userid;
 
         <div class="modal-header">
         <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-        <h4 class="modal-title text-left" id="modal-custom-label">Complete task?</h4>
+        <h4 class="modal-title" id="modal-custom-label">Complete task?</h4>
         </div>
 
         <div class="modal-body">
@@ -191,7 +191,7 @@ global $session_userid;
 
         <div class="modal-header">
         <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-        <h4 class="modal-title text-left" id="modal-custom-label">Archive task?</h4>
+        <h4 class="modal-title" id="modal-custom-label">Archive task?</h4>
         </div>
 
         <div class="modal-body">
@@ -215,7 +215,7 @@ global $session_userid;
 
         <div class="modal-header">
         <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-        <h4 class="modal-title text-left" id="modal-custom-label">Delete task?</h4>
+        <h4 class="modal-title" id="modal-custom-label">Delete task?</h4>
         </div>
 
         <div class="modal-body">
@@ -333,7 +333,7 @@ global $session_userid;
 
         <div class="modal-header">
         <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-        <h4 class="modal-title text-left" id="modal-custom-label">Delete task?</h4>
+        <h4 class="modal-title" id="modal-custom-label">Delete task?</h4>
         </div>
 
         <div class="modal-body">
@@ -461,11 +461,11 @@ global $session_userid;
 
         <div class="modal-header">
         <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-        <h4 class="modal-title text-left" id="modal-custom-label">Restore task?</h4>
+        <h4 class="modal-title" id="modal-custom-label">Restore task?</h4>
         </div>
 
         <div class="modal-body">
-        <p class="text-center feedback-sad">Are you sure you want to restore '.$task_name.'?</p>
+        <p class="confirmation-default text-center">Are you sure you want to restore '.$task_name.'?</p>
         </div>
 
         <div class="modal-footer">
@@ -485,7 +485,7 @@ global $session_userid;
 
         <div class="modal-header">
         <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-        <h4 class="modal-title text-left" id="modal-custom-label">Delete task?</h4>
+        <h4 class="modal-title" id="modal-custom-label">Delete task?</h4>
         </div>
 
         <div class="modal-body">
