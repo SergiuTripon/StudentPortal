@@ -816,7 +816,7 @@ global $session_userid;
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"json",
+	dataType:"text",
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
