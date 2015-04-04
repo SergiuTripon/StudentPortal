@@ -46,7 +46,7 @@ global $archived_tasks;
 
 	<div class="row">
 
-    <a href="/calendar/create-task/">
+    <a href="#create-task-modal" data-toggle="modal">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-plus"></i>
@@ -229,6 +229,81 @@ global $archived_tasks;
 	</div><!-- /panel-group -->
 	
     </div><!-- /container -->
+
+    <div id="create-task-modal" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <div class="modal-header">
+    <div class="form-logo text-center">
+    <i class="fa fa-exclamation"></i>
+    </div>
+    </div>
+
+    <div class="modal-body">
+    	<!-- Create a task -->
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="createtask_form" id="createtask_form">
+
+	<p id="success" class="feedback-happy text-center"></p>
+	<p id="error" class="feedback-sad text-center"></p>
+
+	<div id="hide">
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width">
+    <label for="task_name">Name<span class="field-required">*</span></label>
+	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width">
+    <label>Notes (Optional)</label>
+    <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Enter notes"></textarea>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width">
+	<label>External URL (www.example.com)</label>
+	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
+    </div>
+    </div>
+
+	<div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width">
+	<label for="task_startdate">Start date<span class="field-required">*</span></label>
+	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date">
+	</div>
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label for="task_duedate">Due date<span class="field-required">*</span></label>
+    <input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date">
+    </div>
+	</div>
+
+	<hr class="hr-custom">
+
+    <div class="text-center">
+    <a id="FormSubmit" class="btn btn-primary btn-lg">Create task</a>
+    </div>
+
+	<div id="success-button" class="text-center" style="display:none;">
+	<a class="btn btn-primary btn-lg" href="">Create another</a>
+	</div>
+
+    </form>
+    <!-- End of Create a task -->
+    </div>
+
+    <div class="modal-footer">
+    <div class="view-close text-center">
+    <a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
+    </div>
+    </div>
+
+    </div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
 	
 	<?php include 'includes/footers/footer.php'; ?>
 		
