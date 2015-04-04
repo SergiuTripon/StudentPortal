@@ -118,8 +118,6 @@ class paypal_class {
 		echo "<script src=\"https://student-portal.co.uk/assets/js/ladda/ladda.min.js\"></script>\n";
         echo "<script src=\"https://student-portal.co.uk/assets/js/custom/custom.js\"></script>\n";
 
-		echo "<script>Ladda.bind('.ladda-button', {timeout: 20000});</script>\n";
-
 		echo "</body>\n";
 		echo "</html>\n";
 	}

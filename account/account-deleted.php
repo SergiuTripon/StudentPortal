@@ -91,10 +91,6 @@ include '../includes/session.php';
     <?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-	
-	<script>
-	Ladda.bind( '.ladda-button', { timeout: 2000 } );
-	</script>
 
 </body>
 </html>

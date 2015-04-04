@@ -719,9 +719,6 @@ echo $dateofbirth;
         $("#nationality").select2({placeholder: "Select an option"});
     });
 
-
-    Ladda.bind('.ladda-button', {timeout: 1000});
-
     // Date Time Picker
     $('#dateofbirth').datetimepicker({
         format: 'DD/MM/YYYY'

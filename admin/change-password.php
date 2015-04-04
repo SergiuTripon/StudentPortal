@@ -148,11 +148,7 @@ if (isset($_GET["id"])) {
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-	Ladda.bind('.ladda-button', {timeout: 1000});
-	</script>
 
-	<script>
-	$(document).ready(function() {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
@@ -245,7 +241,6 @@ if (isset($_GET["id"])) {
 
 	return true;
 
-	});
 	});
 	</script>
 
