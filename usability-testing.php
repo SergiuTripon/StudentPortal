@@ -283,8 +283,6 @@ if (isset($_GET["video"])) {
         if (video_selector === 'account') {
             $("a [data-title='Account']").ekkoLightbox(options);
         }
-
-
     });
 
 
