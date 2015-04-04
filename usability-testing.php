@@ -190,7 +190,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/watch?v=IAkrF44858k" data-toggle="lightbox" data-type="youtube" data-title="Forgotten your password (1:17)" id="video-forgotten-password">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 	<div class="tile">
     <i class="fa fa-lock"></i>
 	<p>Forgotten your password</p>
