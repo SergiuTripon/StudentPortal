@@ -3,17 +3,12 @@
 	});
 
     function buttonLoad () {
-        $('.btn').data('loading-text', 'Loading...');
-        $('.btn').button('loading');
+        $('.btn-confirmation-confirm').data('loading-text', 'Loading...').button('loading');
     }
 
     function buttonReset () {
-        $('.btn').button('reset');
+        $(".btn-confirmation-confirm").button('reset');
     }
-
-    $("body").on("click", ".btn-confirmation-confirm", function() {
-        $(this).data('loading-text', 'Loading...').button('loading');
-    });
 
 	// Disables the background of a cell that contains Victoria in the Station Status table
 	$(".table-stationstatus td").filter(function() { return $.trim($(this).text()) === "Victoria"; }).
