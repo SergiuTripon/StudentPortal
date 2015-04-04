@@ -170,7 +170,7 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=s-l2RMIoKMo" data-toggle="lightbox" data-type="youtube" data-title="Register (0:00)" id="video-sign-in">
+    <a href="https://www.youtube.com/watch?v=s-l2RMIoKMo" data-toggle="lightbox" data-type="youtube" data-title="Sign In" id="video-sign-in">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-sign-in"></i>
@@ -208,7 +208,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)" id="video-timetable">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable</p>
@@ -235,7 +235,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/embed/vSVTuCNUWXM" data-toggle="lightbox" data-type="youtube" data-title="Transport" id="video-transport">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-bus"></i>
 	<p>Transport</p>
@@ -262,7 +262,7 @@ if (isset($_GET["video"])) {
 	</a>
 
     <a href="https://www.youtube.com/embed/jWVqzzC1d3o" data-toggle="lightbox" data-type="youtube" data-title="University map" id="video-university-map">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p>University Map</p>
@@ -271,7 +271,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/embed/vnF_P613aPs" data-toggle="lightbox" data-type="youtube" data-title="Events" id="video-events">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
 	<i class="fa fa-ticket"></i>
 	<p>Events</p>
@@ -280,7 +280,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/embed/_TVZ9sqyvho" data-toggle="lightbox" data-type="youtube" data-title="Feedback" id="video-feedback">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-check-square-o"></i>
 	<p>Feedback</p>
