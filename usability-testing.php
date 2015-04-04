@@ -160,7 +160,7 @@ if (isset($_GET["video"])) {
     <div id="video-selector" style="display: none;"><?php echo $video_selector ?></div>
 
     <div class="row">
-    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)">
+    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)" id="video-timetable">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile large-tile">
     <i class="fa fa-clock-o"></i>
@@ -169,7 +169,7 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Exams (1:50)">
+    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Exams (1:50)" id="video-exams">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
 	<i class="fa fa-pencil"></i>
@@ -178,7 +178,7 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Results (2:50)">
+    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Results (2:50)" id="video-results">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
 	<i class="fa fa-pencil"></i>
@@ -187,7 +187,7 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/embed/vSVTuCNUWXM" data-toggle="lightbox" data-type="youtube" data-title="Transport">
+    <a href="https://www.youtube.com/embed/vSVTuCNUWXM" data-toggle="lightbox" data-type="youtube" data-title="Transport" id="video-transport">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile">
     <i class="fa fa-bus"></i>
@@ -196,7 +196,7 @@ if (isset($_GET["video"])) {
 	</div>
 	</a>
 
-    <a href="https://www.youtube.com/embed/Ntq0qCIr7Qo" data-toggle="lightbox" data-type="youtube" data-title="Library">
+    <a href="https://www.youtube.com/embed/Ntq0qCIr7Qo" data-toggle="lightbox" data-type="youtube" data-title="Library" id="video-library">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-book"></i>
@@ -205,7 +205,7 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/embed/pjyUITZScrU" data-toggle="lightbox" data-type="youtube" data-title="Calendar">
+    <a href="https://www.youtube.com/embed/pjyUITZScrU" data-toggle="lightbox" data-type="youtube" data-title="Calendar" id="video-calendar">
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<div class="tile">
 	<i class="fa fa-calendar"></i>
@@ -214,7 +214,7 @@ if (isset($_GET["video"])) {
 	</div>
 	</a>
 
-    <a href="https://www.youtube.com/embed/jWVqzzC1d3o" data-toggle="lightbox" data-type="youtube" data-title="University map">
+    <a href="https://www.youtube.com/embed/jWVqzzC1d3o" data-toggle="lightbox" data-type="youtube" data-title="University map" id="video-university-map">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<div class="tile">
     <i class="fa fa-map-marker"></i>
@@ -223,7 +223,7 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/embed/vnF_P613aPs" data-toggle="lightbox" data-type="youtube" data-title="Events">
+    <a href="https://www.youtube.com/embed/vnF_P613aPs" data-toggle="lightbox" data-type="youtube" data-title="Events" id="video-events">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile">
 	<i class="fa fa-ticket"></i>
@@ -232,7 +232,7 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/embed/_TVZ9sqyvho" data-toggle="lightbox" data-type="youtube" data-title="Feedback">
+    <a href="https://www.youtube.com/embed/_TVZ9sqyvho" data-toggle="lightbox" data-type="youtube" data-title="Feedback" id="video-feedback">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile">
     <i class="fa fa-check-square-o"></i>
@@ -241,7 +241,7 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/embed/e2u27XFd36M" data-toggle="lightbox" data-type="youtube" data-title="Messenger">
+    <a href="https://www.youtube.com/embed/e2u27XFd36M" data-toggle="lightbox" data-type="youtube" data-title="Messenger" id="video-messenger">
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-comments"></i>
@@ -280,7 +280,27 @@ if (isset($_GET["video"])) {
         var video_selector;
         video_selector = $('#video-selector').html();
 
-        if (video_selector === 'account') {
+        if (video_selector === 'timetable') {
+            $('#video-timetable').ekkoLightbox(options);
+        } else if (video_selector === 'exams') {
+            $('#video-exams').ekkoLightbox(options);
+        } else if (video_selector === 'results') {
+            $('#video-results').ekkoLightbox(options);
+        } else if (video_selector === 'transport') {
+            $('#video-transport').ekkoLightbox(options);
+        } else if (video_selector === 'library') {
+            $('#video-library').ekkoLightbox(options);
+        } else if (video_selector === 'calendar') {
+            $('#video-calendar').ekkoLightbox(options);
+        } else if (video_selector === 'universitymap') {
+            $('#video-university-map').ekkoLightbox(options);
+        } else if (video_selector === 'events') {
+            $('#video-events').ekkoLightbox(options);
+        } else if (video_selector === 'feedback') {
+            $('#video-feedback').ekkoLightbox(options);
+        } else if (video_selector === 'messenger') {
+            $('#video-messenger').ekkoLightbox(options);
+        } else if (video_selector === 'account') {
             $('#video-account').ekkoLightbox(options);
         }
     });
