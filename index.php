@@ -168,6 +168,9 @@ include 'includes/session.php';
 	}
 	
 	if(hasError == false){
+
+    buttonLoad();
+
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -180,6 +183,7 @@ include 'includes/session.php';
         $("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
+        buttonReset();
     }
 	});
     }
