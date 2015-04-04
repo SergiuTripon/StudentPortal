@@ -181,7 +181,7 @@ if (isset($_GET["video"])) {
 
 
     <a href="https://www.youtube.com/watch?v=IAkrF44858k" data-toggle="lightbox" data-type="youtube" data-title="Register (0:00)" id="video-register">
-    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+    <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-user-plus"></i>
 	<p>Register</p>
