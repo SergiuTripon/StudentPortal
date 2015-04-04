@@ -161,11 +161,47 @@ if (isset($_GET["video"])) {
 
     <div class="row">
 
-    <a href="https://www.youtube.com/watch?v=9GPDNgL1WP0" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)" id="video-timetable">
+    <a href="https://www.youtube.com/watch?v=9GPDNgL1WP0" data-toggle="lightbox" data-type="youtube" data-title="Full video" id="video-full-video">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-youtube-play"></i>
 	<p>Full video</p>
+	</div>
+	</div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=l2RMIoKMo" data-toggle="lightbox" data-type="youtube" data-title="Sign In" id="video-sign-in">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+	<div class="tile">
+    <i class="fa fa-sign-in"></i>
+	<p>Sign In</p>
+	</div>
+	</div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=IAkrF44858k" data-toggle="lightbox" data-type="youtube" data-title="Register (0:00)" id="video-register">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+	<div class="tile">
+    <i class="fa fa-user-plus"></i>
+	<p>Register</p>
+	</div>
+	</div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=IAkrF44858k" data-toggle="lightbox" data-type="youtube" data-title="Forgotten your password (1:17)" id="video-forgotten-password">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+	<div class="tile">
+    <i class="fa fa-lock"></i>
+	<p>Forgotten your password</p>
+	</div>
+	</div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=IAkrF44858k" data-toggle="lightbox" data-type="youtube" data-title="Password reset (3:01)" id="video-password-reset">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+	<div class="tile">
+    <i class="fa fa-unlock"></i>
+	<p>Password reset</p>
 	</div>
 	</div>
     </a>
@@ -290,8 +326,16 @@ if (isset($_GET["video"])) {
         var video_selector;
         video_selector = $('#video-selector').html();
 
-        if (video_selector === 'timetable') {
-            $('#video-full').ekkoLightbox(options);
+        if (video_selector === 'full-video') {
+            $('#video-full-video').ekkoLightbox(options);
+        } else if (video_selector === 'sign-in') {
+            $('#video-sign-in').ekkoLightbox(options);
+        } else if (video_selector === 'register') {
+            $('#video-register').ekkoLightbox(options);
+        } else if (video_selector === 'forgotten-password') {
+            $('#video-forgotten-password').ekkoLightbox(options);
+        } else if (video_selector === 'password-reset') {
+            $('#video-password-reset').ekkoLightbox(options);
         }
         else if (video_selector === 'timetable') {
             $('#video-timetable').ekkoLightbox(options);
