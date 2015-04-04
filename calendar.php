@@ -235,9 +235,8 @@ global $archived_tasks;
     <div class="modal-content">
 
     <div class="modal-header">
-    <div class="form-logo text-center">
-    <i class="fa fa-exclamation"></i>
-    </div>
+    <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+    <h4 class="modal-title" id="modal-custom-label">Create a task</h4>
     </div>
 
     <div class="modal-body">
