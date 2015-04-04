@@ -241,12 +241,10 @@ global $archived_tasks;
 
     <div class="modal-body">
 	<!-- Create a task -->
-	<form class="form-horizontal form-custom" style="max-width: 100%;" name="createtask_form" id="createtask_form">
+	<form class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none;" name="createtask_form" id="createtask_form">
 
 	<p id="success" class="feedback-happy text-center"></p>
 	<p id="error" class="feedback-sad text-center"></p>
-
-	<div id="hide">
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
