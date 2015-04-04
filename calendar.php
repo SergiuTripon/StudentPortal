@@ -463,13 +463,17 @@ global $archived_tasks;
          '&create_task_url='       + task_url +
          '&create_task_startdate=' + task_startdate +
          '&create_task_duedate='   + task_duedate,
-    success:function(){
-		$("#error").hide();
-		$("#hide").hide();
-		$("#FormSubmit").hide();
-		$("#success").show();
-		$("#success").empty().append('Task created successfully.');
-		$("#success-button").show();
+    success:function(html){
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+
+            $(".table-due-tasks").dataTable().fnDestroy();
+            $('#content-due-tasks').empty();
+            $('#content-due-tasks').html(html.due_tasks);
+            $(".table-due-tasks").dataTable(settings);
+        });
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
