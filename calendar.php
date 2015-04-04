@@ -284,6 +284,8 @@ global $archived_tasks;
 	<div id="success-button" class="text-center" style="display:none;">
 	<a class="btn btn-primary btn-lg" href="">Create another</a>
 	</div>
+    </form>
+    <!-- End of Create a task -->
     </div>
 
     <div class="modal-footer">
@@ -292,9 +294,6 @@ global $archived_tasks;
     <a id="FormSubmit" class="btn btn-primary btn-lg">Create task</a>
     </div>
     </div>
-
-    </form>
-    <!-- End of Create a task -->
 
     </div><!-- /modal -->
     </div><!-- /modal-dialog -->
