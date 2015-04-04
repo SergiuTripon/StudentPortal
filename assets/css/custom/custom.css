@@ -876,41 +876,22 @@ form .field-required {
 
 /* Modal form */
 .modal-form .modal-content {
-    border: none;
-    border-radius: 3px;
     background: #F0F0F0;
 }
 
-.modal-form .modal-header .close {
-    margin-top: -4px;
-}
-
 .modal-form .close, .close:hover, .close:focus {
-    opacity: 1;
     color: #5D5D5D;
-    font-size: 30px;
-    cursor: pointer;
-    text-shadow: none;
-    outline: none !important;
 }
 .modal-form .modal-header {
-    text-align: left;
     border-color: #8A8A8A;
 }
 
 .modal-form .modal-title {
     color: #5D5D5D;
-    font-weight: 600;
 }
 
 .modal-form .modal-body {
     color: #5D5D5D;
-    text-align: left;
-}
-
-.modal-form .modal-body .feedback-sad,
-.modal-form .modal-body .feedback-happy, {
-    margin-bottom: 0;
 }
 
 .modal-form .modal-footer {
