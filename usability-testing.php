@@ -250,7 +250,7 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=sH_HzsFCb1Y" data-toggle="lightbox" data-type="youtube" data-title="Account">
+    <a href="https://www.youtube.com/watch?v=sH_HzsFCb1Y" data-toggle="lightbox" data-type="youtube" data-title="Account" id="video-account">
     <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-user"></i>
@@ -281,7 +281,7 @@ if (isset($_GET["video"])) {
         video_selector = $('#video-selector').html();
 
         if (video_selector === 'account') {
-            alert('happy');
+            $('#video-account').ekkoLightbox(options);
         }
     });
 
