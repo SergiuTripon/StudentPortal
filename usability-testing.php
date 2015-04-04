@@ -244,7 +244,7 @@ if (isset($_GET["video"])) {
 	</a>
 
     <a href="https://www.youtube.com/embed/Ntq0qCIr7Qo" data-toggle="lightbox" data-type="youtube" data-title="Library" id="video-library">
-    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-book"></i>
 	<p>Library</p>
@@ -253,7 +253,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/embed/pjyUITZScrU" data-toggle="lightbox" data-type="youtube" data-title="Calendar" id="video-calendar">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
 	<i class="fa fa-calendar"></i>
 	<p>Calendar</p>
