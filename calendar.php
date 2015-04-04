@@ -464,9 +464,9 @@ global $archived_tasks;
          '&create_task_duedate='   + task_duedate,
     success:function(html){
 
-        $('.modal-custom').modal('hide');
+        $('.modal-form').modal('hide');
 
-        $('.modal-custom').on('hidden.bs.modal', function () {
+        $('.modal-form').on('hidden.bs.modal', function () {
 
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
