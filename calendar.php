@@ -23,6 +23,7 @@ global $archived_tasks;
 	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
 	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
+    <?php include 'assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Calendar</title>
 
@@ -302,6 +303,8 @@ global $archived_tasks;
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
     <?php include 'assets/js-paths/datatables-js-path.php'; ?>
     <?php include 'assets/js-paths/calendar-js-path.php'; ?>
+    <?php include 'assets/js-paths/datetimepicker-js-path.php'; ?>
+
 
     <script>
     $(document).ready(function () {
@@ -311,8 +314,7 @@ global $archived_tasks;
         $(".task-tile i").addClass("tile-text-selected");
     });
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
 
     //Calendar
 	(function($) {
@@ -363,22 +365,123 @@ global $archived_tasks;
         }
     };
 
-    //DataTables
-    $('.table-due-tasks').dataTable(settings);
-    $('.table-completed-tasks').dataTable(settings);
-    $('.table-archived-tasks').dataTable(settings);
-
     //Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 550){
-			$('.calendar-buttons .btn-group').addClass('btn-group-vertical full-width');
+    $(window).resize(function(){
+        var width = $(window).width();
+        if(width <= 550){
+            $('.calendar-buttons .btn-group').addClass('btn-group-vertical full-width');
             $('#calendar-buttons2').addClass("mt10");
         } else {
             $('.calendar-buttons .btn-group').removeClass('btn-group-vertical full-width');
             $('#calendar-buttons2').removeClass("mt10");
         }
-	}).resize();
+    }).resize();
+
+    // Date Time Picker
+    $('#task_startdate').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
+    $('#task_duedate').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
+
+    //DataTables
+    $('.table-due-tasks').dataTable(settings);
+    $('.table-completed-tasks').dataTable(settings);
+    $('.table-archived-tasks').dataTable(settings);
+
+    //Creating record
+    //Ajax call
+    $("#FormSubmit").click(function (e) {
+    e.preventDefault();
+
+	var hasError = false;
+
+	var task_name = $("#task_name").val();
+	if(task_name === '') {
+        $("label[for='task_name']").empty().append("Please enter a name.");
+        $("label[for='task_name']").removeClass("feedback-happy");
+        $("#task_name").removeClass("input-style-happy");
+        $("label[for='task_name']").addClass("feedback-sad");
+        $("#task_name").addClass("input-sad");
+        $("#task_name").focus();
+        hasError = true;
+        return false;
+    } else {
+        $("label[for='task_name']").empty().append("All good!");
+        $("label[for='task_name']").removeClass("feedback-sad");
+        $("#task_name").removeClass("input-style-sad");
+        $("label[for='task_name']").addClass("feedback-happy");
+        $("#task_name").addClass("input-happy");
+	}
+
+	var task_notes = $("#task_notes").val();
+	var task_url = $("#task_url").val();
+
+	var task_startdate = $("#task_startdate").val();
+	if(task_startdate === '') {
+        $("label[for='task_startdate']").empty().append("Please select a date and time.");
+        $("label[for='task_startdate']").removeClass("feedback-happy");
+        $("#task_startdate").removeClass("input-style-happy");
+        $("label[for='task_startdate']").addClass("feedback-sad");
+        $("#task_startdate").addClass("input-sad");
+        $("#task_startdate").focus();
+        hasError = true;
+        return false;
+	} else {
+        $("label[for='task_startdate']").empty().append("All good!");
+        $("label[for='task_startdate']").removeClass("feedback-sad");
+        $("#task_startdate").removeClass("input-style-sad");
+        $("label[for='task_startdate']").addClass("feedback-happy");
+        $("#task_startdate").addClass("input-happy");
+	}
+
+	var task_duedate = $("#task_duedate").val();
+	if(task_duedate === '') {
+        $("label[for='task_duedate']").empty().append("Please select a date and time.");
+        $("label[for='task_duedate']").removeClass("feedback-happy");
+        $("#task_duedate").removeClass("input-style-happy");
+        $("label[for='task_duedate']").addClass("feedback-sad");
+        $("#task_duedate").addClass("input-sad");
+        $("#task_duedate").focus();
+        hasError = true;
+        return false;
+    } else {
+        $("label[for='task_duedate']").empty().append("All good!");
+        $("label[for='task_duedate']").removeClass("feedback-sad");
+        $("#task_duedate").removeClass("input-style-sad");
+        $("label[for='task_duedate']").addClass("feedback-happy");
+        $("#task_duedate").addClass("input-happy");
+	}
+
+	if(hasError == false){
+    jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'create_task_name='       + task_name +
+         '&create_task_notes='     + task_notes +
+         '&create_task_url='       + task_url +
+         '&create_task_startdate=' + task_startdate +
+         '&create_task_duedate='   + task_duedate,
+    success:function(html){
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            $(".table-due-tasks").dataTable().fnDestroy();
+            $('#content-due-tasks').empty();
+            $('#content-due-tasks').html(html.due_tasks);
+            $(".table-due-tasks").dataTable(settings);
+        }
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
+    }
+	return true;
+	});
 
     //Complete record
 	$("body").on("click", ".btn-complete", function(e) {

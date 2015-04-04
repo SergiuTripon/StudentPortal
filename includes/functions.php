@@ -2373,6 +2373,8 @@ function CreateTask () {
 
 	    $stmt1->close();
     }
+
+    calendarUpdate($isUpdate = 1);
 }
 
 //UpdateTask function
