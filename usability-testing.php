@@ -170,11 +170,11 @@ if (isset($_GET["video"])) {
 	</div>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=s-l2RMIoKMo" data-toggle="lightbox" data-type="youtube" data-title="Register (0:00)" id="video-register">
+    <a href="https://www.youtube.com/watch?v=s-l2RMIoKMo" data-toggle="lightbox" data-type="youtube" data-title="Register (0:00)" id="video-sign-in">
     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
-    <i class="fa fa-user-plus"></i>
-	<p>Register</p>
+    <i class="fa fa-sign-in"></i>
+	<p>Sign In</p>
 	</div>
 	</div>
     </a>
