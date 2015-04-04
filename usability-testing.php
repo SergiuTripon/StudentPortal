@@ -162,7 +162,7 @@ if (isset($_GET["video"])) {
     <div class="row">
 
     <a href="https://www.youtube.com/watch?v=9GPDNgL1WP0" data-toggle="lightbox" data-type="youtube" data-title="Full video" id="video-full-video">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-youtube-play"></i>
 	<p>Full video</p>
