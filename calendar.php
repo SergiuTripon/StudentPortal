@@ -326,8 +326,6 @@ global $archived_tasks;
 	var clickedID = this.id.split('-');
     var taskToComplete = clickedID[1];
 
-        alert(taskToComplete);
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -335,17 +333,19 @@ global $archived_tasks;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
-        alert(taskToComplete);
+            $('.modal-custom').modal('hide');
 
-        $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').empty();
-        $('#content-due-tasks').html(html.due_tasks);
-        $(".table-due-tasks").dataTable(settings);
+            $('.modal-custom').on('hidden.bs.modal', function () {
+                $(".table-due-tasks").dataTable().fnDestroy();
+                $('#content-due-tasks').empty();
+                $('#content-due-tasks').html(html.due_tasks);
+                $(".table-due-tasks").dataTable(settings);
 
-        $(".table-completed-tasks").dataTable().fnDestroy();
-        $('#content-completed-tasks').empty();
-        $('#content-completed-tasks').html(html.completed_tasks);
-        $(".table-completed-tasks").dataTable(settings);
+                $(".table-completed-tasks").dataTable().fnDestroy();
+                $('#content-completed-tasks').empty();
+                $('#content-completed-tasks').html(html.completed_tasks);
+                $(".table-completed-tasks").dataTable(settings);
+            });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
