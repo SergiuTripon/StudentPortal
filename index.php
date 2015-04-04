@@ -166,7 +166,7 @@ include 'includes/session.php';
 	
 	if(hasError == false){
 
-        $('.btn-primary').data('loading-text', 'Loading...').button('loading');
+    $('.btn-primary').data('loading-text', 'Loading...').button('loading');
 
     jQuery.ajax({
 	type: "POST",
