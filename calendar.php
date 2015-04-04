@@ -241,6 +241,8 @@ global $archived_tasks;
     </div>
 
     <div class="modal-body">
+    <!-- Create a task -->
+	<form class="form-horizontal form-custom" style="max-width: 100%; background: transparent;" name="createtask_form" id="createtask_form">
 
 	<p id="success" class="feedback-happy text-center"></p>
 	<p id="error" class="feedback-sad text-center"></p>
@@ -279,24 +281,20 @@ global $archived_tasks;
     </div>
 	</div>
 
-	<hr class="hr-custom">
-
-    <div class="text-center">
-    <a id="FormSubmit" class="btn btn-primary btn-lg">Create task</a>
-    </div>
-
 	<div id="success-button" class="text-center" style="display:none;">
 	<a class="btn btn-primary btn-lg" href="">Create another</a>
 	</div>
-
-    <!-- End of Create a task -->
     </div>
 
     <div class="modal-footer">
-    <div class="view-close text-center">
-    <a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
+    <div class="view-close text-right">
+    <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+    <a id="FormSubmit" class="btn btn-primary btn-lg">Create task</a>
     </div>
     </div>
+
+    </form>
+    <!-- End of Create a task -->
 
     </div><!-- /modal -->
     </div><!-- /modal-dialog -->
