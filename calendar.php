@@ -281,9 +281,6 @@ global $archived_tasks;
     </div>
 	</div>
 
-	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-primary btn-lg" href="">Create another</a>
-	</div>
     </form>
     <!-- End of Create a task -->
     </div>
