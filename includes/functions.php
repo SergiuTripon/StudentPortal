@@ -2846,13 +2846,17 @@ function calendarUpdate($isUpdate = 0) {
 
     $stmt3->close();
 
-    $array = array(
-        'due_tasks'=>$due_tasks,
-        'completed_tasks'=>$completed_tasks,
-        'archived_tasks'=>$archived_tasks
-    );
+    if ($isUpdate === 1) {
 
-    echo json_encode($array);
+        $array = array(
+            'due_tasks'=>$due_tasks,
+            'completed_tasks'=>$completed_tasks,
+            'archived_tasks'=>$archived_tasks
+        );
+
+        echo json_encode($array);
+
+    }
 
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
