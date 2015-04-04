@@ -389,7 +389,6 @@ global $archived_tasks;
     $('.table-archived-tasks').dataTable(settings);
 
     //Creating record
-    //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
@@ -461,6 +460,7 @@ global $archived_tasks;
          '&create_task_url='       + task_url +
          '&create_task_startdate=' + task_startdate +
          '&create_task_duedate='   + task_duedate,
+
     success:function(html){
 
         $('.modal-custom').modal('hide');
