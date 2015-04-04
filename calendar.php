@@ -453,8 +453,6 @@ global $archived_tasks;
 
 	if(hasError == false){
 
-    buttonLoad();
-
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -480,7 +478,6 @@ global $archived_tasks;
 		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
-        buttonReset();
     }
 	});
     }
