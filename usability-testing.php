@@ -38,8 +38,6 @@ if (isset($_GET["video"])) {
 
 	<p class="text-left">Click to watch the videos</p>
 
-    <div id="video-selector"><?php echo $video_selector ?></div>
-
     <div class="row">
     <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
@@ -158,6 +156,8 @@ if (isset($_GET["video"])) {
     <hr class="hr-small">
 
 	<p class="text-left">Click to watch the videos</p>
+
+    <div id="video-selector"><?php echo $video_selector ?></div>
 
     <div class="row">
     <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)">
