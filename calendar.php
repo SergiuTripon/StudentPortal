@@ -388,7 +388,7 @@ global $archived_tasks;
     $('.table-completed-tasks').dataTable(settings);
     $('.table-archived-tasks').dataTable(settings);
 
-    	//Ajax call
+    //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
