@@ -11,7 +11,7 @@
         $('.btn').button('reset');
     }
 
-    $("body").on("click", ".btn-primary", function() {
+    $("body").on("click", ".btn-perform", function() {
         $(this).data('loading-text', 'Loading...').button('loading');
     });
 
