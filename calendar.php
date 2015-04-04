@@ -365,19 +365,15 @@ global $archived_tasks;
 	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(html){
 
-        $('.modal-custom').modal('hide');
+        $('#content-due-tasks').empty();
+        $(".table-due-tasks").dataTable().fnDestroy();
+        $('#content-due-tasks').html(html.due_tasks);
+        $(".table-due-tasks").dataTable(settings);
 
-        $('.modal-custom').on('hidden.bs.modal', function () {
-            $('#content-due-tasks').empty();
-            $(".table-due-tasks").dataTable().fnDestroy();
-            $('#content-due-tasks').html(html.due_tasks);
-            $(".table-due-tasks").dataTable(settings);
-
-            $('#content-archived-tasks').empty();
-            $(".table-archived-tasks").dataTable().fnDestroy();
-            $('#content-archived-tasks').html(html.archived_tasks);
-            $(".table-archived-tasks").dataTable(settings);
-        });
+        $('#content-archived-tasks').empty();
+        $(".table-archived-tasks").dataTable().fnDestroy();
+        $('#content-archived-tasks').html(html.archived_tasks);
+        $(".table-archived-tasks").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -400,19 +396,15 @@ global $archived_tasks;
 	data:'taskToReactivate='+ taskToReactivate,
 	success:function(html){
 
-        $('.modal-custom').modal('hide');
+        $('#content-archived-tasks').empty();
+        $(".table-archived-tasks").dataTable().fnDestroy();
+        $('#content-archived-tasks').html(html.archived_tasks);
+        $(".table-archived-tasks").dataTable(settings);
 
-        $('.modal-custom').on('hidden.bs.modal', function () {
-            $('#content-archived-tasks').empty();
-            $(".table-archived-tasks").dataTable().fnDestroy();
-            $('#content-archived-tasks').html(html.archived_tasks);
-            $(".table-archived-tasks").dataTable(settings);
-
-            $('#content-due-tasks').empty();
-            $(".table-due-tasks").dataTable().fnDestroy();
-            $('#content-due-tasks').html(html.due_tasks);
-            $(".table-due-tasks").dataTable(settings);
-        });
+        $('#content-due-tasks').empty();
+        $(".table-due-tasks").dataTable().fnDestroy();
+        $('#content-due-tasks').html(html.due_tasks);
+        $(".table-due-tasks").dataTable(settings);
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
