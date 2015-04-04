@@ -235,7 +235,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/embed/vSVTuCNUWXM" data-toggle="lightbox" data-type="youtube" data-title="Transport" id="video-transport">
-    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile">
     <i class="fa fa-bus"></i>
 	<p>Transport</p>
