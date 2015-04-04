@@ -317,8 +317,6 @@ global $archived_tasks;
         }
 	}).resize();
 
-
-
     //Complete record
 	$("body").on("click", ".btn-complete", function(e) {
     e.preventDefault();
