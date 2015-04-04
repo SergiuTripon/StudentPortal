@@ -458,14 +458,13 @@ global $archived_tasks;
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
+    dataType:"json",
     data:'create_task_name='       + task_name +
          '&create_task_notes='     + task_notes +
          '&create_task_url='       + task_url +
          '&create_task_startdate=' + task_startdate +
          '&create_task_duedate='   + task_duedate,
     success:function(html){
-
-        alert(html.due_tasks);
 
         $('.modal-custom').modal('hide');
 
