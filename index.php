@@ -169,7 +169,7 @@ include 'includes/session.php';
 	
 	if(hasError == false){
 
-    buttonLoad();
+        $('.btn-primary').data('loading-text', 'Loading...').button('loading');
 
     jQuery.ajax({
 	type: "POST",
@@ -183,7 +183,7 @@ include 'includes/session.php';
         $("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
-        buttonReset();
+        $('.btn-primary').button('reset');
     }
 	});
     }
