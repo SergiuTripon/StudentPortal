@@ -163,6 +163,16 @@ if (isset($_GET["video"])) {
     <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)" id="video-timetable">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile">
+    <i class="fa fa-sign-in"></i>
+	<p>Full video</p>
+	</div>
+	</div>
+    </a>
+
+    <div class="row">
+    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)" id="video-timetable">
+    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+	<div class="tile">
     <i class="fa fa-clock-o"></i>
 	<p>Timetable</p>
 	</div>
