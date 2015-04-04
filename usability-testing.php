@@ -1,5 +1,12 @@
 <?php
 include 'includes/session.php';
+
+global $video_selector;
+
+if (isset($_GET["video"])) {
+    $video_selector = $_GET["video"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +37,8 @@ include 'includes/session.php';
     <hr class="hr-small">
 
 	<p class="text-left">Click to watch the videos</p>
+
+    <div id="video-selector"><?php echo $video_selector ?></div>
 
     <div class="row">
     <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)">
@@ -262,11 +271,26 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/ekko-lightbox-js-path.php'; ?>
 
     <script>
+
+    var options = {
+        always_show_close: false
+    };
+
+    $( document ).ready(function() {
+        var video_selector;
+        video_selector = $('#video-selector').html();
+
+        if (video_selector === 'account') {
+            $("a [data-title='Account']").ekkoLightbox(options);
+        }
+
+
+    });
+
+
     $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
         event.preventDefault();
-        $(this).ekkoLightbox({
-            always_show_close: false
-        });
+        $(this).ekkoLightbox(options);
     });
     </script>
 

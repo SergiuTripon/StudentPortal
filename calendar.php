@@ -353,16 +353,6 @@ global $archived_tasks;
 	});
 	}(jQuery));
 
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display at the moment."
-        }
-    };
-
     //Responsiveness
     $(window).resize(function(){
         var width = $(window).width();
@@ -382,6 +372,16 @@ global $archived_tasks;
     $('#task_duedate').datetimepicker({
         format: 'YYYY/MM/DD HH:mm'
     });
+
+    var settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display at the moment."
+        }
+    };
 
     //DataTables
     $('.table-due-tasks').dataTable(settings);
