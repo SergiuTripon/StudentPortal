@@ -231,7 +231,7 @@ global $archived_tasks;
     </div><!-- /container -->
 
     <div id="create-task-modal" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
     <div class="modal-header">
