@@ -314,8 +314,6 @@ global $archived_tasks;
         $(".task-tile i").addClass("tile-text-selected");
     });
 
-
-
     //Calendar
 	(function($) {
 
