@@ -478,6 +478,7 @@ global $archived_tasks;
 		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
+        buttonReset();
     }
 	});
     }
