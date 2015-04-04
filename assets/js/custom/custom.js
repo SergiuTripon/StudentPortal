@@ -2,9 +2,6 @@
 		$(".preloader").fadeOut("slow");
 	});
 
-    //Ladda
-
-
     function buttonLoad () {
         $('.btn').data('loading-text', 'Loading...');
         $('.btn').button('loading');
