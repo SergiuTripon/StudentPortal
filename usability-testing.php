@@ -292,7 +292,7 @@ if (isset($_GET["video"])) {
             $('#video-library').ekkoLightbox(options);
         } else if (video_selector === 'calendar') {
             $('#video-calendar').ekkoLightbox(options);
-        } else if (video_selector === 'universitymap') {
+        } else if (video_selector === 'university-map') {
             $('#video-university-map').ekkoLightbox(options);
         } else if (video_selector === 'events') {
             $('#video-events').ekkoLightbox(options);
