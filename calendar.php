@@ -286,7 +286,7 @@ global $archived_tasks;
     <div class="modal-footer">
     <div class="text-right">
     <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-    <a id="FormSubmit" class="btn btn-primary btn-lg btn-confirmation-confirm">Create task</a>
+    <a id="FormSubmit" class="btn btn-primary btn-lg">Create task</a>
     </div>
     </div>
 
