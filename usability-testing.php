@@ -190,7 +190,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/watch?v=IAkrF44858k" data-toggle="lightbox" data-type="youtube" data-title="Forgotten your password (1:17)" id="video-forgotten-password">
-    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 	<div class="tile">
     <i class="fa fa-lock"></i>
 	<p>Forgotten your password</p>
@@ -253,7 +253,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/embed/pjyUITZScrU" data-toggle="lightbox" data-type="youtube" data-title="Calendar" id="video-calendar">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
 	<i class="fa fa-calendar"></i>
 	<p>Calendar</p>
@@ -262,7 +262,7 @@ if (isset($_GET["video"])) {
 	</a>
 
     <a href="https://www.youtube.com/embed/jWVqzzC1d3o" data-toggle="lightbox" data-type="youtube" data-title="University map" id="video-university-map">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-map-marker"></i>
 	<p>University Map</p>
@@ -289,7 +289,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/embed/e2u27XFd36M" data-toggle="lightbox" data-type="youtube" data-title="Messenger" id="video-messenger">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-comments"></i>
 	<p>Messenger</p>
@@ -298,7 +298,7 @@ if (isset($_GET["video"])) {
     </a>
 
     <a href="https://www.youtube.com/watch?v=sH_HzsFCb1Y" data-toggle="lightbox" data-type="youtube" data-title="Account" id="video-account">
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 	<div class="tile">
     <i class="fa fa-user"></i>
 	<p>Account</p>
