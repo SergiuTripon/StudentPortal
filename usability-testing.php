@@ -160,10 +160,10 @@ if (isset($_GET["video"])) {
     <div id="video-selector" style="display: none;"><?php echo $video_selector ?></div>
 
     <div class="row">
-    <a href="https://www.youtube.com/watch?v=AJoGdJwocQ8" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)" id="video-timetable">
+    <a href="https://www.youtube.com/watch?v=9GPDNgL1WP0" data-toggle="lightbox" data-type="youtube" data-title="Timetable (0:00)" id="video-full">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
 	<div class="tile">
-    <i class="fa fa-sign-in"></i>
+    <i class="fa fa-youtube-play"></i>
 	<p>Full video</p>
 	</div>
 	</div>
@@ -291,6 +291,9 @@ if (isset($_GET["video"])) {
         video_selector = $('#video-selector').html();
 
         if (video_selector === 'timetable') {
+            $('#video-full').ekkoLightbox(options);
+        }
+        else if (video_selector === 'timetable') {
             $('#video-timetable').ekkoLightbox(options);
         } else if (video_selector === 'exams') {
             $('#video-exams').ekkoLightbox(options);
