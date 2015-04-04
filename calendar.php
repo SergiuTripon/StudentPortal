@@ -472,11 +472,11 @@ global $archived_tasks;
             $('#content-due-tasks').empty();
             $('#content-due-tasks').html(html.due_tasks);
             $(".table-due-tasks").dataTable(settings);
+            $(this).find('form')[0].reset();
         });
 
-        $('#createtask_form').reset();
-
         buttonReset();
+
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
