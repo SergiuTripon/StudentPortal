@@ -603,6 +603,8 @@ global $archived_tasks;
 	data:'taskToDelete='+ taskToDelete,
 	success:function(html){
 
+        buttonLoad();
+
         $('.modal-custom').modal('hide');
 
         $('.modal-custom').on('hidden.bs.modal', function () {
@@ -624,6 +626,7 @@ global $archived_tasks;
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
