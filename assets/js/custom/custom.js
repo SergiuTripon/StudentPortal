@@ -11,7 +11,7 @@
         $('.btn').button('reset');
     }
 
-    $("body").on("click", ".btn-confirmation-confirm", function() {
+    $("body").on("click", ".btn-primary", function() {
         $(this).data('loading-text', 'Loading...').button('loading');
     });
 
