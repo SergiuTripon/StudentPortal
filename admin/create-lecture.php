@@ -246,8 +246,8 @@ include '../includes/session.php';
         $("#lecture_day").select2({placeholder: "Select an option"});
     });
 
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     // Date Time Picker
     $('#lecture_from_time').datetimepicker({

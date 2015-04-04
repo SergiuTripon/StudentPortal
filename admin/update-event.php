@@ -188,8 +188,8 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     // Date Time Picker
     $('#event_from').datetimepicker({

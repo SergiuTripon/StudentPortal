@@ -280,8 +280,8 @@ if (isset($_GET['id'])) {
     });
 
 
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     // Date Time Picker
     $('#tutorial_from_time').datetimepicker({

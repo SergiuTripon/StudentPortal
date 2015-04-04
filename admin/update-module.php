@@ -165,8 +165,8 @@ if (isset($_GET['id'])) {
 
 	<script>
 
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     //Update module process
     $("#FormSubmit").click(function (e) {

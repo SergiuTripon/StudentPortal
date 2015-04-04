@@ -2836,8 +2836,8 @@ global $session_userid;
         }
     });
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
 	//DataTables
     $('.class-table').dataTable({

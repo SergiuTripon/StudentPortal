@@ -100,7 +100,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="pull-left">
-    <a class="btn btn-info btn-lg" href="register/">Register</span></a>
+    <a class="btn btn-info btn-lg ladda-button" href="register/">Register</span></a>
     </div>
 
     <div class="text-right">
@@ -122,10 +122,7 @@ include 'includes/session.php';
 	<script>
     $(document).ready(function() {
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
-
-    //Ajax call
+    //Sign In
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 

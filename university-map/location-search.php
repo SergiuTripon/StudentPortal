@@ -119,8 +119,8 @@ include '../includes/session.php';
     $("#radiusSelect").select2({placeholder: "Select an option"});
     });
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
     </script>
 
 </body>

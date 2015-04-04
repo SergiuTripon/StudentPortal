@@ -128,7 +128,7 @@ global $token;
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
 	<script>
-    //Ladda
+
     Ladda.bind('.ladda-button', {timeout: 1000});
 
     //Ajax call

@@ -700,8 +700,8 @@ include 'includes/session.php';
         $(".task-tile i").addClass("tile-text-selected");
     });
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
 	//Sets calendar options
 	(function($) {

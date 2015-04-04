@@ -155,8 +155,8 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     //Request book ajax call
     $("#FormSubmit").click(function (e) {

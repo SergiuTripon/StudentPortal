@@ -451,8 +451,8 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
 	//DataTables
     $('.table-custom').dataTable({

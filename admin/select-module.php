@@ -430,8 +430,8 @@ if (isset($_GET['id'])) {
 
 	<script>
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     //DataTables
     $('.module-table').dataTable({

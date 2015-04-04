@@ -426,7 +426,7 @@ include 'includes/functions.php';
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
 	<script>
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
 	</script>
 
 </body>

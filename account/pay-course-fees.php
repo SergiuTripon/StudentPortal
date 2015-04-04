@@ -249,8 +249,8 @@ while ($row = $stmt1->fetch_assoc()){
     }
     ?>
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     var fee_type;
     var fee_amount;

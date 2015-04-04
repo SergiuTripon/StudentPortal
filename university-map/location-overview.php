@@ -128,8 +128,8 @@ include '../includes/session.php';
         loadMap();
     });
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     </script>
 

@@ -191,8 +191,8 @@ include '../includes/session.php';
         $("#exam_moduleid").select2({placeholder: "Select an option"});
     });
 
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     // Date Time Picker
     $('#exam_date').datetimepicker({

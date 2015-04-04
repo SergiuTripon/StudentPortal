@@ -186,8 +186,8 @@ include '../includes/session.php';
         $("#marker_category").select2({placeholder: "Select an option"});
     });
 
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     //Ajax call
     $("#FormSubmit").click(function (e) {

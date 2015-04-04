@@ -488,8 +488,8 @@ if ($dateofbirth == "0000-00-00") {
 
     });
 
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     // Date Time Picker
     $('#dateofbirth').datetimepicker({

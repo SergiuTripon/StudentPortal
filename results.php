@@ -218,8 +218,8 @@ include 'includes/session.php';
 	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
 	<script>
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
 	//DataTables
     $('.result-table').dataTable({

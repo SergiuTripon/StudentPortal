@@ -521,7 +521,7 @@ global $transport_status_last_updated;
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
 	</script>
 
 </body>

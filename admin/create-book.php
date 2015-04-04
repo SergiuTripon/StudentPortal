@@ -204,8 +204,8 @@ include '../includes/session.php';
         format: 'DD/MM/YYYY'
     });
 
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     //Ajax call
     $("#FormSubmit").click(function (e) {

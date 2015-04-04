@@ -106,7 +106,7 @@ include '../includes/session.php';
 	<script>
 	$(document).ready(function() {
 
-	//Ladda
+
 	Ladda.bind('.ladda-button', {timeout: 1000});
 
 	//Ajax call

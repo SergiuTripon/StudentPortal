@@ -210,8 +210,8 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
 	<script>
 
-	//Ladda
-	Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     //Ajax call
     $("#FormSubmit").click(function (e) {

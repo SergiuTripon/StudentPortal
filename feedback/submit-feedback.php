@@ -208,8 +208,8 @@ if (isset($_GET["id"])) {
 	<script>
     $(document).ready(function () {
 
-    //Ladda
-    Ladda.bind('.ladda-button', {timeout: 2000});
+
+
 
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
