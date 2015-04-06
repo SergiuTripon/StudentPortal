@@ -1346,29 +1346,29 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
     $stmt1->close();
 
-    $stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l WHERE l.lecture_status = 'active'");
+    $lecture_status = 'active';
 
-    while($row = $stmt1->fetch_assoc()) {
+    $stmt2 = $mysqli->prepare("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l WHERE l.lecture_status=?");
+    $stmt2->bind_param('s', $lecture_status);
+    $stmt2->execute();
+    $stmt2->bind_result($lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_location, $lecture_capacity);
+    $stmt2->store_result();
 
-        $lectureid = $row["lectureid"];
-        $lecture_name = $row["lecture_name"];
-        $lecture_lecturer = $row["lecture_lecturer"];
-        $lecture_notes = $row["lecture_notes"];
-        $lecture_day = $row["lecture_day"];
-        $lecture_from_time = $row["lecture_from_time"];
-        $lecture_to_time = $row["lecture_to_time"];
-        $lecture_location = $row["lecture_location"];
-        $lecture_capacity = $row["lecture_capacity"];
+    if ($stmt2->num_rows > 0) {
 
-        $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
-        $stmt2->bind_param('i', $lecture_lecturer);
-        $stmt2->execute();
-        $stmt2->store_result();
-        $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
-        $stmt2->fetch();
-        $stmt2->close();
+        while ($stmt2->fetch()) {
 
-        echo '<tr id="lecture-'.$lectureid.'">
+            $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+            $stmt2->bind_param('i', $lecture_lecturer);
+            $stmt2->execute();
+            $stmt2->store_result();
+            $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
+            $stmt2->fetch();
+            $stmt2->close();
+
+            $active_lectures = '
+
+            <tr>
 
 			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
             <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
@@ -1456,9 +1456,10 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
+        }
     }
 
-    $stmt1->close();
+    $stmt2->close();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
