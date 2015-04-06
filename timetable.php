@@ -2275,7 +2275,7 @@ global $inactive_tutorial;
 	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(html){
 
-        if (html === 'error') {
+        if (html == 'error') {
             $('.modal-custom').modal('hide');
             $('#error-modal .modal-body p').empty().append('You cannot reactivate this lecture because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this lecture.');
             $('#error-modal').modal('show');
@@ -2312,7 +2312,7 @@ global $inactive_tutorial;
 	data:'tutorialToReactivate='+ tutorialToReactivate,
 	success:function(html){
 
-        if (html === 'error') {
+        if (html == 'error') {
             $('.modal-custom').modal('hide');
             $('#error-modal .modal-body p').empty().append('You cannot reactivate this tutorial because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this tutorial.');
             $('#error-modal').modal('show');
