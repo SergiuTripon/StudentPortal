@@ -1614,7 +1614,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			<td data-title="Time">'.$exam_time.'</td>
 			<td data-title="Location">'.$exam_location.'</td>
 			<td data-title="Action">
-			<div class="btn-group btn-action">
+            <div class="btn-group btn-action">
             <a class="btn btn-primary" href="/admin/allocate-exam?id='.$examid.'">Allocate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
@@ -1626,6 +1626,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
+
+
             </td>
 			</tr>
 
