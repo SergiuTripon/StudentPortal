@@ -323,9 +323,6 @@ AdminTimetableUpdate();
             $('#error-modal').modal('show');
         } else {
             $(".table-inactive-exam").dataTable().fnDestroy();
-            $('#content-inactive-exam').empty();
-
-
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
