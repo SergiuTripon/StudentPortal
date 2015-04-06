@@ -273,7 +273,7 @@ AdminTimetableUpdate();
     $('.table-inactive-exam').dataTable(settings);
 
     //Deactivate module
-    $("body").on("click", ".deactivate-exam-button", function(e) {
+    $("body").on("click", ".btn-deactivate-exam", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -305,7 +305,7 @@ AdminTimetableUpdate();
     });
 
     //Reactivate module
-    $("body").on("click", ".reactivate-exam-button", function(e) {
+    $("body").on("click", ".btn-reactivate-exam", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -341,7 +341,7 @@ AdminTimetableUpdate();
     });
 
     //Delete module
-    $("body").on("click", ".delete-exam-button", function(e) {
+    $("body").on("click", ".btn-delete-exam", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
