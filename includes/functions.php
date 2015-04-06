@@ -978,9 +978,8 @@ function ReactivateLecture() {
         $stmt3->close();
 
     } else {
-        $stmt2->close();
         echo 'error';
-        exit();
+        $stmt2->close();
     }
 
     AdminTimetableUpdate($isUpdate = 1);
@@ -1197,9 +1196,8 @@ function ReactivateTutorial() {
         $stmt1->close();
 
     } else {
-        $stmt2->close();
         echo 'error';
-        exit();
+        $stmt2->close();
     }
 
     AdminTimetableUpdate($isUpdate = 1);
