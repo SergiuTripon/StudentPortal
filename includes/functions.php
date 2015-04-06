@@ -683,6 +683,8 @@ function DeactivateModule() {
     $stmt5->bind_param('ssi', $result_status, $updated_on, $moduleToDeactivate);
     $stmt5->execute();
     $stmt5->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //ReactivateModule function
@@ -727,6 +729,8 @@ function ReactivateModule() {
     $stmt5->bind_param('ssi', $result_status, $updated_on, $moduleToReactivate);
     $stmt5->execute();
     $stmt5->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //DeleteModule function
@@ -780,6 +784,8 @@ function DeleteModule() {
     $stmt9->bind_param('i', $moduleToDelete);
     $stmt9->execute();
     $stmt9->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //AllocateModule function
@@ -934,6 +940,8 @@ function DeactivateLecture() {
     $stmt1->bind_param('ssi', $lecture_status, $updated_on, $lectureToDeactivate);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //ReactivateLecture function
@@ -970,12 +978,12 @@ function ReactivateLecture() {
         $stmt3->close();
 
     } else {
-
         $stmt2->close();
         echo 'You cannot reactivate this lecture because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this lecture.';
         exit();
-
     }
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //DeleteLecture function
@@ -996,6 +1004,8 @@ function DeleteLecture() {
     $stmt2->bind_param('ii', $lectureid, $lectureToDelete);
     $stmt2->execute();
     $stmt2->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //AllocateLecture function
@@ -1149,6 +1159,8 @@ function DeactivateTutorial() {
     $stmt1->bind_param('ssi', $tutorial_status, $updated_on, $tutorialToDeactivate);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //ReactivateTutorial function
@@ -1185,12 +1197,12 @@ function ReactivateTutorial() {
         $stmt1->close();
 
     } else {
-
         $stmt2->close();
         echo 'You cannot reactivate this tutorial because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this tutorial.';
         exit();
-
     }
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //DeleteTutorial function
@@ -1211,6 +1223,9 @@ function DeleteTutorial() {
     $stmt2->bind_param('ii', $tutorialid, $tutorialToDelete);
     $stmt2->execute();
     $stmt2->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
+
 }
 
 //AllocateTutorial function
@@ -1854,6 +1869,21 @@ function AdminTimetableUpdate($isUpdate = 0) {
 	}
 
     $stmt6->close();
+
+    if ($isUpdate === 1) {
+
+        $array = array(
+            'due_tasks'=>$active_modules,
+            'active_lectures'=>$active_lectures,
+            'active_tutorials'=>$active_tutorials,
+            'inactive_modules'=>$inactive_modules,
+            'inactive_lectures'=>$inactive_lectures,
+            'inactive_tutorials'=>$inactive_tutorials
+        );
+
+        echo json_encode($array);
+
+    }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
