@@ -1,10 +1,12 @@
 <?php
 include '../includes/session.php';
 
+global $session_userid;
+global $mysqli;
+
 global $userToCreateResults;
 global $active_result;
 global $inactive_result;
-
 
 if (isset($_GET['id'])) {
     $userToCreateResults = $_GET['id'];
