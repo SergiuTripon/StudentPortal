@@ -1840,7 +1840,7 @@ global $inactive_tutorial;
 
 	<tbody id="content-active-module">
 	<?php
-    echo $active_modules;
+    echo $active_module;
 	?>
 	</tbody>
 
@@ -1877,7 +1877,7 @@ global $inactive_tutorial;
 
 	<tbody id="content-active-lecture">
     <?php
-    echo $active_lectures;
+    echo $active_lecture;
 	?>
 	</tbody>
 
@@ -1914,7 +1914,7 @@ global $inactive_tutorial;
 
 	<tbody id="content-active-tutorial">
     <?php
-    echo $active_tutorials;
+    echo $active_tutorial;
 	?>
 	</tbody>
 
@@ -1950,7 +1950,7 @@ global $inactive_tutorial;
 
 	<tbody id="content-inactive-module">
 	<?php
-    echo $inactive_modules;
+    echo $inactive_module;
 	?>
 	</tbody>
 
@@ -1987,7 +1987,7 @@ global $inactive_tutorial;
 
 	<tbody id="content-inactive-lecture">
     <?php
-    echo $inactive_lectures;
+    echo $inactive_lecture;
 	?>
 	</tbody>
 
@@ -2024,7 +2024,7 @@ global $inactive_tutorial;
 
 	<tbody id="content-inactive-tutorial">
     <?php
-    echo $inactive_tutorials;
+    echo $inactive_tutorial;
 	?>
 	</tbody>
 
