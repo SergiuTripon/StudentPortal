@@ -62,7 +62,7 @@ if (isset($_GET['id'])) {
 
 	<!-- Modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom table-active-module">
 
 	<thead>
 	<tr>
@@ -223,7 +223,7 @@ if (isset($_GET['id'])) {
         }
     };
 
-    $('.table-custom').dataTable(settings);
+    $('.table-active-module').dataTable(settings);
     $('.table-active-result').dataTable(settings);
     $('.table-inactive-result').dataTable(settings);
 
