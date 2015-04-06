@@ -2120,8 +2120,10 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
+            </td>
+			</tr>
 
-                        <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -2171,10 +2173,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            </td>
-			</tr>';
+			</div><!-- /modal-content -->';
         }
 	}
 
