@@ -1607,25 +1607,24 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
             $active_exam .=
 
-           '<tr id="exam-'.$examid.'">
-
+           '<tr>
 			<td data-title="Name"><a href="#view-exam-'.$examid.'" data-toggle="modal">'.$exam_name.'</a></td>
 			<td data-title="Date">'.$exam_date.'</td>
 			<td data-title="Time">'.$exam_time.'</td>
 			<td data-title="Location">'.$exam_location.'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#reactivate-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
+            <a class="btn btn-primary" href="/admin/allocate-exam?id='.$examid.'">Allocate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/update-exam?id='.$examid.'">Update</a></li>
+            <li><a id="deactivate-'.$examid.'" class="btn-deactivate-exam">Deactivate</a></li>
             <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
             <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -1654,39 +1653,6 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="reactivate-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="reactivate-exam-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$exam_name.'?</p>
-            <p id="reactivate-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been reactivated successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="reactivate-exam-hide">
-			<div class="pull-left">
-			<a id="reactivate-'.$examid.'" class="btn btn-success btn-lg reactivate-exam-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="reactivate-exam-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
 			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
@@ -1698,27 +1664,22 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-exam-question" class="text-center feedback-sad">Are you sure you want to delete '.$exam_name.'?</p>
-			<p id="delete-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been deleted successfully.</p>
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$exam_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-exam-hide">
-			<div class="pull-left">
-			<a id="delete-'.$examid.'" class="btn btn-success btn-lg delete-exam-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-exam-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$examid.'" class="btn btn-success btn-lg btn-delete-exam">Confirm</a>
 			</div>
 			</div>
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
 	}
 

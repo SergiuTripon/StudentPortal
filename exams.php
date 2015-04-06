@@ -159,7 +159,7 @@ AdminTimetableUpdate();
 
 	<!-- Active exams -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-active-exam">
+	<table class="table table-condensed table-custom table-active-exam">
 
 	<thead>
 	<tr>
@@ -196,7 +196,7 @@ AdminTimetableUpdate();
 
 	<!-- Inactive exams -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-inactive-exam">
+	<table class="table table-condensed table-custom table-inactive-exam">
 
 	<thead>
 	<tr>
