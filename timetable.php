@@ -7,12 +7,12 @@ global $session_userid;
 
 AdminTimetableUpdate();
 
-global $active_modules;
-global $active_lectures;
-global $active_tutorials;
-global $inactive_modules;
-global $inactive_lectures;
-global $inactive_tutorials;
+global $active_module;
+global $active_lecture;
+global $active_tutorial;
+global $inactive_module;
+global $inactive_lecture;
+global $inactive_tutorial;
 
 ?>
 
@@ -1827,7 +1827,7 @@ global $inactive_tutorials;
 
 	<!-- Active modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom table-active-module">
 
 	<thead>
 	<tr>
@@ -1838,7 +1838,7 @@ global $inactive_tutorials;
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-active-module">
 	<?php
     echo $active_modules;
 	?>
@@ -1862,7 +1862,7 @@ global $inactive_tutorials;
 
 	<!-- Active lectures -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-active-lecture">
 
 	<thead>
 	<tr>
@@ -1875,7 +1875,7 @@ global $inactive_tutorials;
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-active-lecture">
     <?php
     echo $active_lectures;
 	?>
@@ -1899,7 +1899,7 @@ global $inactive_tutorials;
 
 	<!-- Active tutorials -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-active-tutorial">
 
 	<thead>
 	<tr>
@@ -1912,7 +1912,7 @@ global $inactive_tutorials;
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-active-tutorial">
     <?php
     echo $active_tutorials;
 	?>
@@ -1937,7 +1937,7 @@ global $inactive_tutorials;
 
 	<!-- Inactive modules -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-inactive-module">
 
 	<thead>
 	<tr>
@@ -1948,7 +1948,7 @@ global $inactive_tutorials;
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-inactive-module">
 	<?php
     echo $inactive_modules;
 	?>
@@ -1972,7 +1972,7 @@ global $inactive_tutorials;
 
 	<!-- Inactive lectures -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-inactive-lecture">
 
 	<thead>
 	<tr>
@@ -1985,7 +1985,7 @@ global $inactive_tutorials;
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-inactive-lecture">
     <?php
     echo $inactive_lectures;
 	?>
@@ -2009,7 +2009,7 @@ global $inactive_tutorials;
 
 	<!-- Inactive tutorials -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-inactive-tutorial">
 
 	<thead>
 	<tr>
@@ -2022,7 +2022,7 @@ global $inactive_tutorials;
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-inactive-tutorial">
     <?php
     echo $inactive_tutorials;
 	?>
@@ -2075,17 +2075,17 @@ global $inactive_tutorials;
         "ordering": true,
         "info": false,
         "language": {
-            "emptyTable": "You have no classes on this day."
+            "emptyTable": "There are no records to display."
         }
     };
 
 	//DataTables
-    $('.table-active-modules').dataTable(admin_settings);
-    $('.table-active-lectures').dataTable(admin_settings);
-    $('.table-active-tutorials').dataTable(admin_settings);
-    $('.table-inactive-modules').dataTable(admin_settings);
-    $('.table-inactive-lectures').dataTable(admin_settings);
-    $('.table-inactive-tutorials').dataTable(admin_settings);
+    $('.table-active-module').dataTable(admin_settings);
+    $('.table-active-lecture').dataTable(admin_settings);
+    $('.table-active-tutorial').dataTable(admin_settings);
+    $('.table-inactive-module').dataTable(admin_settings);
+    $('.table-inactive-lecture').dataTable(admin_settings);
+    $('.table-inactive-tutorial').dataTable(admin_settings);
 
     //Deactivate module
     $("body").on("click", ".btn-deactivate-module", function(e) {
@@ -2097,19 +2097,19 @@ global $inactive_tutorials;
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'moduleToDeactivate='+ moduleToDeactivate,
-	success:function(){
-		$('#module-'+moduleToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-module-question').hide();
-        $('#deactivate-module-confirmation').show();
-        $('#deactivate-module-hide').hide();
-        $('#deactivate-module-success-button').show();
-        $("#deactivate-module-success-button").click(function () {
-            location.reload();
-        });
+	success:function(html){
+
+        $(".table-active-module").dataTable().fnDestroy();
+        $('#content-active-module').empty();
+        $('#content-active-module').html(html.active_module);
+        $(".table-active-module").dataTable(admin_settings);
+
+        $(".table-inactive-module").dataTable().fnDestroy();
+        $('#content-inactive-module').empty();
+        $('#content-inactive-module').html(html.inactive_module);
+        $(".table-inactive-module").dataTable(admin_settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2130,19 +2130,19 @@ global $inactive_tutorials;
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'lectureToDeactivate='+ lectureToDeactivate,
-	success:function(){
-		$('#lecture-'+lectureToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-lecture-question').hide();
-        $('#deactivate-lecture-confirmation').show();
-        $('#deactivate-lecture-hide').hide();
-        $('#deactivate-lecture-success-button').show();
-        $("#deactivate-lecture-success-button").click(function () {
-            location.reload();
-        });
+	success:function(html){
+
+        $(".table-active-lecture").dataTable().fnDestroy();
+        $('#content-active-lecture').empty();
+        $('#content-active-lecture').html(html.active_lecture);
+        $(".table-active-lecture").dataTable(admin_settings);
+
+        $(".table-inactive-lecture").dataTable().fnDestroy();
+        $('#content-inactive-lecture').empty();
+        $('#content-inactive-lecture').html(html.inactive_lecture);
+        $(".table-inactive-lecture").dataTable(admin_settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2161,19 +2161,19 @@ global $inactive_tutorials;
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'tutorialToDeactivate='+ tutorialToDeactivate,
-	success:function(){
-		$('#tutorial-'+tutorialToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-tutorial-question').hide();
-        $('#deactivate-tutorial-confirmation').show();
-        $('#deactivate-tutorial-hide').hide();
-        $('#deactivate-tutorial-success-button').show();
-        $("#deactivate-tutorial-success-button").click(function () {
-            location.reload();
-        });
+	success:function(html){
+
+        $(".table-active-tutorial").dataTable().fnDestroy();
+        $('#content-active-tutorial').empty();
+        $('#content-active-tutorial').html(html.active_tutorial);
+        $(".table-active-tutorial").dataTable(admin_settings);
+
+        $(".table-inactive-tutorial").dataTable().fnDestroy();
+        $('#content-inactive-tutorial').empty();
+        $('#content-inactive-tutorial').html(html.inactive_tutorial);
+        $(".table-inactive-tutorial").dataTable(admin_settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2192,19 +2192,19 @@ global $inactive_tutorials;
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'moduleToReactivate='+ moduleToReactivate,
-	success:function(){
-		$('#module-'+moduleToReactivate).hide();
-        $('.form-logo i').removeClass('fa-plus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#reactivate-module-question').hide();
-        $('#reactivate-module-confirmation').show();
-        $('#reactivate-module-hide').hide();
-        $('#reactivate-module-success-button').show();
-        $("#reactivate-module-success-button").click(function () {
-            location.reload();
-        });
+	success:function(html){
+
+        $(".table-inactive-module").dataTable().fnDestroy();
+        $('#content-inactive-module').empty();
+        $('#content-inactive-module').html(html.inactive_module);
+        $(".table-inactive-module").dataTable(admin_settings);
+
+        $(".table-active-module").dataTable().fnDestroy();
+        $('#content-active-module').empty();
+        $('#content-active-module').html(html.active_module);
+        $(".table-active-module").dataTable(admin_settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2225,22 +2225,21 @@ global $inactive_tutorials;
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'lectureToReactivate='+ lectureToReactivate,
-	success:function(errormsg){
-        if (errormsg) {
+	success:function(html){
+        if (html) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal .modal-body p').empty().append(html);
             $('#error-modal').modal('show');
         } else {
-            $('#lecture-'+lectureToReactivate).hide();
-            $('.form-logo i').removeClass('fa-plus-square-o');
-            $('.form-logo i').addClass('fa-check-square-o');
-            $('#reactivate-lecture-question').hide();
-            $('#reactivate-lecture-confirmation').show();
-            $('#reactivate-lecture-hide').hide();
-            $('#reactivate-lecture-success-button').show();
-            $("#reactivate-lecture-success-button").click(function () {
-                location.reload();
-            });
+            $(".table-inactive-lecture").dataTable().fnDestroy();
+            $('#content-inactive-lecture').empty();
+            $('#content-inactive-lecture').html(html.inactive_lecture);
+            $(".table-inactive-lecture").dataTable(admin_settings);
+
+            $(".table-active-lecture").dataTable().fnDestroy();
+            $('#content-active-lecture').empty();
+            $('#content-active-lecture').html(html.active_lecture);
+            $(".table-active-lecture").dataTable(admin_settings);
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -2268,16 +2267,15 @@ global $inactive_tutorials;
             $('#error-modal .modal-body p').empty().append(errormsg);
             $('#error-modal').modal('show');
         } else {
-            $('#tutorial-' + tutorialToReactivate).hide();
-            $('.form-logo i').removeClass('fa-plus-square-o');
-            $('.form-logo i').addClass('fa-check-square-o');
-            $('#reactivate-tutorial-question').hide();
-            $('#reactivate-tutorial-confirmation').show();
-            $('#reactivate-tutorial-hide').hide();
-            $('#reactivate-tutorial-success-button').show();
-            $("#reactivate-tutorial-success-button").click(function () {
-                location.reload();
-            });
+            $(".table-inactive-tutorial").dataTable().fnDestroy();
+            $('#content-inactive-tutorial').empty();
+            $('#content-inactive-tutorial').html(html.inactive_tutorial);
+            $(".table-inactive-tutorial").dataTable(admin_settings);
+
+            $(".table-active-tutorial").dataTable().fnDestroy();
+            $('#content-active-tutorial').empty();
+            $('#content-active-tutorial').html(html.active_tutorial);
+            $(".table-active-tutorial").dataTable(admin_settings);
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -2300,16 +2298,16 @@ global $inactive_tutorials;
 	dataType:"text",
 	data:'moduleToDelete='+ moduleToDelete,
 	success:function(){
-		$('#module-'+moduleToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-module-question').hide();
-        $('#delete-module-confirmation').show();
-        $('#delete-module-hide').hide();
-        $('#delete-module-success-button').show();
-        $("#delete-module-success-button").click(function () {
-            location.reload();
-        });
+
+        $(".table-active-module").dataTable().fnDestroy();
+        $('#content-active-module').empty();
+        $('#content-active-module').html(html.active_module);
+        $(".table-active-module").dataTable(admin_settings);
+
+        $(".table-inactive-module").dataTable().fnDestroy();
+        $('#content-inactive-module').empty();
+        $('#content-inactive-module').html(html.inactive_module);
+        $(".table-inactive-module").dataTable(admin_settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2331,16 +2329,15 @@ global $inactive_tutorials;
 	dataType:"text",
 	data:'lectureToDelete='+ lectureToDelete,
 	success:function(){
-		$('#lecture-'+lectureToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-lecture-question').hide();
-        $('#delete-lecture-confirmation').show();
-        $('#delete-lecture-hide').hide();
-        $('#delete-lecture-success-button').show();
-        $("#delete-lecture-success-button").click(function () {
-            location.reload();
-        });
+        $(".table-active-lecture").dataTable().fnDestroy();
+        $('#content-active-lecture').empty();
+        $('#content-active-lecture').html(html.active_lecture);
+        $(".table-active-lecture").dataTable(admin_settings);
+
+        $(".table-inactive-lecture").dataTable().fnDestroy();
+        $('#content-inactive-lecture').empty();
+        $('#content-inactive-lecture').html(html.inactive_lecture);
+        $(".table-inactive-lecture").dataTable(admin_settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2362,16 +2359,15 @@ global $inactive_tutorials;
 	dataType:"text",
 	data:'tutorialToDelete='+ tutorialToDelete,
 	success:function(){
-		$('#tutorial-'+tutorialToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-tutorial-question').hide();
-        $('#delete-tutorial-confirmation').show();
-        $('#delete-tutorial-hide').hide();
-        $('#delete-tutorial-success-button').show();
-        $("#delete-tutorial-success-button").click(function () {
-            location.reload();
-        });
+        $(".table-active-tutorial").dataTable().fnDestroy();
+        $('#content-active-tutorial').empty();
+        $('#content-active-tutorial').html(html.active_tutorial);
+        $(".table-active-tutorial").dataTable(admin_settings);
+
+        $(".table-inactive-tutorial").dataTable().fnDestroy();
+        $('#content-inactive-tutorial').empty();
+        $('#content-inactive-tutorial').html(html.inactive_tutorial);
+        $(".table-inactive-tutorial").dataTable(admin_settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();

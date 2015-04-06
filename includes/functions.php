@@ -1259,12 +1259,12 @@ function DeallocateTutorial() {
 function AdminTimetableUpdate($isUpdate = 0) {
 
     global $mysqli;
-    global $active_modules;
-    global $active_lectures;
-    global $active_tutorials;
-    global $inactive_modules;
-    global $inactive_lectures;
-    global $inactive_tutorials;
+    global $active_module;
+    global $active_lecture;
+    global $active_tutorial;
+    global $inactive_module;
+    global $inactive_lecture;
+    global $inactive_tutorial;
 
     $module_status = 'active';
 
@@ -1278,7 +1278,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
         while ($stmt1->fetch()) {
 
-            $active_modules .=
+            $active_module .=
 
            '<tr>
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
@@ -1378,7 +1378,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt3->fetch();
             $stmt3->close();
 
-            $active_lectures =
+            $active_lecture =
 
            '<tr>
 			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
@@ -1486,7 +1486,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt2->fetch();
             $stmt2->close();
 
-            $active_tutorials = '
+            $active_tutorial = '
 
             <tr>
 			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
@@ -1585,7 +1585,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
         while ($stmt4->fetch()) {
 
-            $inactive_modules =
+            $inactive_module =
 
            '<tr>
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
@@ -1681,7 +1681,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt2->fetch();
             $stmt2->close();
 
-            $inactive_lectures = 
+            $inactive_lecture =
                 
            '<tr>
 			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
@@ -1786,7 +1786,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt2->fetch();
             $stmt2->close();
 
-            $inactive_tutorials =
+            $inactive_tutorial =
 
            '<tr>
 			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
@@ -1873,12 +1873,12 @@ function AdminTimetableUpdate($isUpdate = 0) {
     if ($isUpdate === 1) {
 
         $array = array(
-            'due_tasks'=>$active_modules,
-            'active_lectures'=>$active_lectures,
-            'active_tutorials'=>$active_tutorials,
-            'inactive_modules'=>$inactive_modules,
-            'inactive_lectures'=>$inactive_lectures,
-            'inactive_tutorials'=>$inactive_tutorials
+            'active_module'=>$active_module,
+            'active_lecture'=>$active_lecture,
+            'active_tutorial'=>$active_tutorial,
+            'inactive_module'=>$inactive_module,
+            'inactive_lecture'=>$inactive_lecture,
+            'inactive_tutorial'=>$inactive_tutorial
         );
 
         echo json_encode($array);
