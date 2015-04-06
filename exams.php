@@ -256,6 +256,9 @@ AdminTimetableUpdate();
         }
     };
 
+    $(".table-active-exam").dataTable(settings);
+    $(".table-inactive-exam").dataTable(settings);
+
     //Deactivate exam
     $("body").on("click", ".btn-deactivate-exam", function(e) {
     e.preventDefault();
