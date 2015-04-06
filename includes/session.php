@@ -7,12 +7,13 @@ if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
 
 include 'db_connection.php';
 
-global $mysqli;
-
 if (session_status() == PHP_SESSION_NONE) {
 	session_cache_limiter('none');
     session_start();
 }
+
+global $mysqli;
+global $session_userid;
 
 if (isset($_SESSION['session_userid'])) {
     $session_userid = $_SESSION['session_userid'];
