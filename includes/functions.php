@@ -1691,7 +1691,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <td data-title="Location">'.$lecture_location.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a id="reactivate-'.$lectureid.'" class="btn btn-primary btn-reactivate-module">Reactivate</a>
+            <a id="reactivate-'.$lectureid.'" class="btn btn-primary btn-reactivate-lecture">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
