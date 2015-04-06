@@ -4,14 +4,15 @@ include 'includes/functions.php';
 
 global $mysqli;
 global $session_userid;
+
+AdminTimetableUpdate();
+
 global $active_module;
 global $active_lecture;
 global $active_tutorial;
 global $inactive_module;
 global $inactive_lecture;
 global $inactive_tutorial;
-
-AdminTimetableUpdate();
 
 ?>
 
