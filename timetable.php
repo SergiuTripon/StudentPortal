@@ -2310,9 +2310,12 @@ global $inactive_tutorial;
 	dataType:"json",
 	data:'tutorialToReactivate='+ tutorialToReactivate,
 	success:function(html){
+
+        alert(html.error_msg);
+
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal .modal-body p').empty().append(html.errormsg);
             $('#error-modal').modal('show');
         } else {
             $(".table-inactive-tutorial").dataTable().fnDestroy();
