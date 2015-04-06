@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
 		<li class="active">Select modules</li>
 	</ol>
 
-    <div id="userid" style="display: none;"><?php echo $userToCreateResults; ?></div>
+    <div id="userid" style="display: none;"><?php echo $userToCreateResult; ?></div>
 
 	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -237,7 +237,7 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var resultToDeactivate = clickedID[1];
-    var userToCreateResult = $('#userid').val();
+    var userToCreateResult = $('#userid').html();
 
 	jQuery.ajax({
 	type: "POST",
@@ -272,7 +272,7 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var resultToReactivate = clickedID[1];
-    var userToCreateResult = $('userid').html();
+    var userToCreateResult = $('#userid').html();
 
 	jQuery.ajax({
 	type: "POST",
