@@ -2217,6 +2217,9 @@ function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
             'inactive_exam'=>$inactive_exam,
             'inactive_result'=>$inactive_result
         );
+
+        echo json_encode($array);
+
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
