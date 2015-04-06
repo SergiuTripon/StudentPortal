@@ -1270,7 +1270,7 @@ function DeallocateTutorial() {
     $stmt1->close();
 }
 
-function AdminTimetableUpdate($isUpdate = 0) {
+function AdminTimetableUpdate($isUpdate = 0, $userToCreateResults = '') {
 
     global $mysqli;
     global $active_module;
