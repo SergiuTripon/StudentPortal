@@ -111,7 +111,7 @@ if (isset($_GET['id'])) {
 
 	<!-- Active results -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom results-table">
+	<table class="table table-condensed table-custom table-active-result">
 
 	<thead>
 	<tr>
@@ -123,7 +123,7 @@ if (isset($_GET['id'])) {
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-active-result">
     <?php
     echo $active_result;
 	?>
@@ -148,7 +148,7 @@ if (isset($_GET['id'])) {
 
 	<!-- Inactive results -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom results-table">
+	<table class="table table-condensed table-custom table-inactive-result">
 
 	<thead>
 	<tr>
@@ -160,7 +160,7 @@ if (isset($_GET['id'])) {
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-inactive-result">
     <?php
     echo $inactive_result;
 	?>
@@ -223,10 +223,11 @@ if (isset($_GET['id'])) {
         }
     };
 
-    $('.results-table').dataTable(settings);
+    $('.table-active-result').dataTable(settings);
+    $('.table-inactive-result').dataTable(settings);
 
     //Deactivate result
-    $("body").on("click", ".deactivate-button", function(e) {
+    $("body").on("click", ".btn-deactivate-result", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -235,19 +236,20 @@ if (isset($_GET['id'])) {
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'resultToDeactivate='+ resultToDeactivate,
-	success:function(){
-        $('#result-'+resultToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-question').hide();
-        $('#deactivate-confirmation').show();
-        $('#deactivate-hide').hide();
-        $('#deactivate-success-button').show();
-        $("#deactivate-success-button").click(function () {
-            location.reload();
-        });
+	success:function(html){
+
+        $(".table-active-result").dataTable().fnDestroy();
+        $('#content-active-result').empty();
+        $('#content-active-result').html(html.active_result);
+        $(".table-active-result").dataTable(settings);
+
+        $(".table-inactive-result").dataTable().fnDestroy();
+        $('#content-inactive-result').empty();
+        $('#content-inactive-result').html(html.inactive_result);
+        $(".table-inactive-result").dataTable(settings);
+
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -257,7 +259,7 @@ if (isset($_GET['id'])) {
     });
 
     //Reactivate result
-    $("body").on("click", ".reactivate-button", function(e) {
+    $("body").on("click", ".btn-reactivate-result", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -266,24 +268,23 @@ if (isset($_GET['id'])) {
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'resultToReactivate='+ resultToReactivate,
-	success:function(errormsg){
-        if (errormsg) {
+	success:function(html){
+        if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
         } else {
-            $('#result-' + resultToReactivate).hide();
-            $('.form-logo i').removeClass('fa-plus-square-o');
-            $('.form-logo i').addClass('fa-check-square-o');
-            $('#reactivate-question').hide();
-            $('#reactivate-confirmation').show();
-            $('#reactivate-hide').hide();
-            $('#reactivate-success-button').show();
-            $("#reactivate-success-button").click(function () {
-                location.reload();
-            });
+            $(".table-inactive-result").dataTable().fnDestroy();
+            $('#content-inactive-result').empty();
+            $('#content-inactive-result').html(html.inactive_result);
+            $(".table-inactive-result").dataTable(settings);
+
+            $(".table-active-result").dataTable().fnDestroy();
+            $('#content-active-result').empty();
+            $('#content-active-result').html(html.active_result);
+            $(".table-active-result").dataTable(settings);
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -294,7 +295,7 @@ if (isset($_GET['id'])) {
     });
 
     //Delete result
-    $("body").on("click", ".delete-button", function(e) {
+    $("body").on("click", ".btn-delete-result", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -303,18 +304,22 @@ if (isset($_GET['id'])) {
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'resultToDelete='+ resultToDelete,
-	success:function(){
-		$('#result-'+resultToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-question').hide();
-        $('#delete-confirmation').show();
-        $('#delete-hide').hide();
-        $('#delete-success-button').show();
-        $("#delete-success-button").click(function () {
-            location.reload();
+	success:function(html){
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            $(".table-active-result").dataTable().fnDestroy();
+            $('#content-active-result').empty();
+            $('#content-active-result').html(html.active_result);
+            $(".table-active-result").dataTable(settings);
+
+            $(".table-inactive-result").dataTable().fnDestroy();
+            $('#content-inactive-result').empty();
+            $('#content-inactive-result').html(html.inactive_result);
+            $(".table-inactive-result").dataTable(settings);
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){

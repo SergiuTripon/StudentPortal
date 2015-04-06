@@ -2114,32 +2114,32 @@ AdminTimetableUpdate();
         $(".table-active-module").dataTable().fnDestroy();
         $('#content-active-module').empty();
         $('#content-active-module').html(html.active_module);
-        $(".table-active-module").dataTable(admin_settings);
+        $(".table-active-module").dataTable(settings);
 
         $(".table-active-lecture").dataTable().fnDestroy();
         $('#content-active-lecture').empty();
         $('#content-active-lecture').html(html.active_lecture);
-        $(".table-active-lecture").dataTable(admin_settings);
+        $(".table-active-lecture").dataTable(settings);
 
         $(".table-active-tutorial").dataTable().fnDestroy();
         $('#content-active-tutorial').empty();
         $('#content-active-tutorial').html(html.active_tutorial);
-        $(".table-active-tutorial").dataTable(admin_settings);
+        $(".table-active-tutorial").dataTable(settings);
 
         $(".table-inactive-module").dataTable().fnDestroy();
         $('#content-inactive-module').empty();
         $('#content-inactive-module').html(html.inactive_module);
-        $(".table-inactive-module").dataTable(admin_settings);
+        $(".table-inactive-module").dataTable(settings);
 
         $(".table-inactive-lecture").dataTable().fnDestroy();
         $('#content-inactive-lecture').empty();
         $('#content-inactive-lecture').html(html.inactive_lecture);
-        $(".table-inactive-lecture").dataTable(admin_settings);
+        $(".table-inactive-lecture").dataTable(settings);
 
         $(".table-inactive-tutorial").dataTable().fnDestroy();
         $('#content-inactive-tutorial').empty();
         $('#content-inactive-tutorial').html(html.inactive_tutorial);
-        $(".table-inactive-tutorial").dataTable(admin_settings);
+        $(".table-inactive-tutorial").dataTable(settings);
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -2166,12 +2166,12 @@ AdminTimetableUpdate();
         $(".table-active-lecture").dataTable().fnDestroy();
         $('#content-active-lecture').empty();
         $('#content-active-lecture').html(html.active_lecture);
-        $(".table-active-lecture").dataTable(admin_settings);
+        $(".table-active-lecture").dataTable(settings);
 
         $(".table-inactive-lecture").dataTable().fnDestroy();
         $('#content-inactive-lecture').empty();
         $('#content-inactive-lecture').html(html.inactive_lecture);
-        $(".table-inactive-lecture").dataTable(admin_settings);
+        $(".table-inactive-lecture").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2197,12 +2197,12 @@ AdminTimetableUpdate();
         $(".table-active-tutorial").dataTable().fnDestroy();
         $('#content-active-tutorial').empty();
         $('#content-active-tutorial').html(html.active_tutorial);
-        $(".table-active-tutorial").dataTable(admin_settings);
+        $(".table-active-tutorial").dataTable(settings);
 
         $(".table-inactive-tutorial").dataTable().fnDestroy();
         $('#content-inactive-tutorial').empty();
         $('#content-inactive-tutorial').html(html.inactive_tutorial);
-        $(".table-inactive-tutorial").dataTable(admin_settings);
+        $(".table-inactive-tutorial").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2228,32 +2228,32 @@ AdminTimetableUpdate();
         $(".table-inactive-tutorial").dataTable().fnDestroy();
         $('#content-inactive-tutorial').empty();
         $('#content-inactive-tutorial').html(html.inactive_tutorial);
-        $(".table-inactive-tutorial").dataTable(admin_settings);
+        $(".table-inactive-tutorial").dataTable(settings);
 
         $(".table-inactive-lecture").dataTable().fnDestroy();
         $('#content-inactive-lecture').empty();
         $('#content-inactive-lecture').html(html.inactive_lecture);
-        $(".table-inactive-lecture").dataTable(admin_settings);
+        $(".table-inactive-lecture").dataTable(settings);
 
         $(".table-inactive-module").dataTable().fnDestroy();
         $('#content-inactive-module').empty();
         $('#content-inactive-module').html(html.inactive_module);
-        $(".table-inactive-module").dataTable(admin_settings);
+        $(".table-inactive-module").dataTable(settings);
 
         $(".table-active-tutorial").dataTable().fnDestroy();
         $('#content-active-tutorial').empty();
         $('#content-active-tutorial').html(html.active_tutorial);
-        $(".table-active-tutorial").dataTable(admin_settings);
+        $(".table-active-tutorial").dataTable(settings);
 
         $(".table-active-lecture").dataTable().fnDestroy();
         $('#content-active-lecture').empty();
         $('#content-active-lecture').html(html.active_lecture);
-        $(".table-active-lecture").dataTable(admin_settings);
+        $(".table-active-lecture").dataTable(settings);
 
         $(".table-active-module").dataTable().fnDestroy();
         $('#content-active-module').empty();
         $('#content-active-module').html(html.active_module);
-        $(".table-active-module").dataTable(admin_settings);
+        $(".table-active-module").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2284,12 +2284,12 @@ AdminTimetableUpdate();
             $(".table-inactive-lecture").dataTable().fnDestroy();
             $('#content-inactive-lecture').empty();
             $('#content-inactive-lecture').html(html.inactive_lecture);
-            $(".table-inactive-lecture").dataTable(admin_settings);
+            $(".table-inactive-lecture").dataTable(settings);
 
             $(".table-active-lecture").dataTable().fnDestroy();
             $('#content-active-lecture').empty();
             $('#content-active-lecture').html(html.active_lecture);
-            $(".table-active-lecture").dataTable(admin_settings);
+            $(".table-active-lecture").dataTable(settings);
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -2321,12 +2321,12 @@ AdminTimetableUpdate();
             $(".table-inactive-tutorial").dataTable().fnDestroy();
             $('#content-inactive-tutorial').empty();
             $('#content-inactive-tutorial').html(html.inactive_tutorial);
-            $(".table-inactive-tutorial").dataTable(admin_settings);
+            $(".table-inactive-tutorial").dataTable(settings);
 
             $(".table-active-tutorial").dataTable().fnDestroy();
             $('#content-active-tutorial').empty();
             $('#content-active-tutorial').html(html.active_tutorial);
-            $(".table-active-tutorial").dataTable(admin_settings);
+            $(".table-active-tutorial").dataTable(settings);
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -2356,32 +2356,32 @@ AdminTimetableUpdate();
             $(".table-active-module").dataTable().fnDestroy();
             $('#content-active-module').empty();
             $('#content-active-module').html(html.active_module);
-            $(".table-active-module").dataTable(admin_settings);
+            $(".table-active-module").dataTable(settings);
 
             $(".table-active-lecture").dataTable().fnDestroy();
             $('#content-active-lecture').empty();
             $('#content-active-lecture').html(html.active_lecture);
-            $(".table-active-lecture").dataTable(admin_settings);
+            $(".table-active-lecture").dataTable(settings);
 
             $(".table-active-tutorial").dataTable().fnDestroy();
             $('#content-active-tutorial').empty();
             $('#content-active-tutorial').html(html.active_tutorial);
-            $(".table-active-tutorial").dataTable(admin_settings);
+            $(".table-active-tutorial").dataTable(settings);
 
             $(".table-inactive-module").dataTable().fnDestroy();
             $('#content-inactive-module').empty();
             $('#content-inactive-module').html(html.inactive_module);
-            $(".table-inactive-module").dataTable(admin_settings);
+            $(".table-inactive-module").dataTable(settings);
 
             $(".table-inactive-lecture").dataTable().fnDestroy();
             $('#content-inactive-lecture').empty();
             $('#content-inactive-lecture').html(html.inactive_lecture);
-            $(".table-inactive-lecture").dataTable(admin_settings);
+            $(".table-inactive-lecture").dataTable(settings);
 
             $(".table-inactive-tutorial").dataTable().fnDestroy();
             $('#content-inactive-tutorial').empty();
             $('#content-inactive-tutorial').html(html.inactive_tutorial);
-            $(".table-inactive-tutorial").dataTable(admin_settings);
+            $(".table-inactive-tutorial").dataTable(settings);
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -2411,12 +2411,12 @@ AdminTimetableUpdate();
             $(".table-active-lecture").dataTable().fnDestroy();
             $('#content-active-lecture').empty();
             $('#content-active-lecture').html(html.active_lecture);
-            $(".table-active-lecture").dataTable(admin_settings);
+            $(".table-active-lecture").dataTable(settings);
 
             $(".table-inactive-lecture").dataTable().fnDestroy();
             $('#content-inactive-lecture').empty();
             $('#content-inactive-lecture').html(html.inactive_lecture);
-            $(".table-inactive-lecture").dataTable(admin_settings);
+            $(".table-inactive-lecture").dataTable(settings);
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -2446,12 +2446,12 @@ AdminTimetableUpdate();
             $(".table-active-tutorial").dataTable().fnDestroy();
             $('#content-active-tutorial').empty();
             $('#content-active-tutorial').html(html.active_tutorial);
-            $(".table-active-tutorial").dataTable(admin_settings);
+            $(".table-active-tutorial").dataTable(settings);
 
             $(".table-inactive-tutorial").dataTable().fnDestroy();
             $('#content-inactive-tutorial').empty();
             $('#content-inactive-tutorial').html(html.inactive_tutorial);
-            $(".table-inactive-tutorial").dataTable(admin_settings);
+            $(".table-inactive-tutorial").dataTable(settings);
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
