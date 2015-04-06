@@ -11,7 +11,6 @@ global $inactive_result;
 
 if (isset($_GET['id'])) {
 
-
     AdminTimetableUpdate($userToCreateResults = $_GET['id']);
 
 } else {
