@@ -16,6 +16,7 @@ if (isset($_GET['id'])) {
 }
 
 AdminTimetableUpdate();
+
 ?>
 
 <!DOCTYPE html>
