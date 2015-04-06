@@ -2,6 +2,9 @@
 include 'includes/session.php';
 include 'includes/functions.php';
 
+global $mysqli;
+global $session_userid;
+
 global $active_exam;
 global $inactive_exam;
 
@@ -153,7 +156,7 @@ AdminTimetableUpdate();
 
 	<tbody>
 	<?php
-    echo $active_exams;
+    echo $active_exam;
 	?>
 	</tbody>
 
