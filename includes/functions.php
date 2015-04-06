@@ -2254,6 +2254,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             'inactive_module'=>$inactive_module,
             'inactive_lecture'=>$inactive_lecture,
             'inactive_tutorial'=>$inactive_tutorial,
+            'inactive_exam'=>$inactive_exam,
             'inactive_result'=>$inactive_result
         );
 
