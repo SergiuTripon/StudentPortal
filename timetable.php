@@ -2451,7 +2451,7 @@ global $inactive_tutorial;
             $('#content-inactive-tutorial').empty();
             $('#content-inactive-tutorial').html(html.inactive_tutorial);
             $(".table-inactive-tutorial").dataTable(admin_settings);
-        }
+        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
