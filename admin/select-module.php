@@ -11,12 +11,11 @@ global $inactive_result;
 
 if (isset($_GET['id'])) {
     $userToCreateResults = $_GET['id'];
-
-    AdminTimetableUpdate();
-
 } else {
     header('Location: ../../results/');
 }
+
+AdminTimetableUpdate();
 ?>
 
 <!DOCTYPE html>
