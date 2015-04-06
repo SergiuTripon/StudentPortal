@@ -2142,14 +2142,14 @@ function AdminTimetableUpdate($isUpdate = 0) {
     $result_status = 'inactive';
 
     $stmt10 = $mysqli->query("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid=? AND user_result.result_status=?");
-    $stmt9->bind_param('is', $userToCreateResults, $result_status);
-    $stmt9->execute();
-    $stmt9->bind_result($resultid, $module_name, $result_coursework_mark, $result_exam_mark, $result_overall_mark);
-    $stmt9->store_result();
+    $stmt10->bind_param('is', $userToCreateResults, $result_status);
+    $stmt10->execute();
+    $stmt10->bind_result($resultid, $module_name, $result_coursework_mark, $result_exam_mark, $result_overall_mark);
+    $stmt10->store_result();
 
-    if ($stmt9->num_rows > 0) {
+    if ($stmt10->num_rows > 0) {
 
-        while ($stmt9->fetch()) {
+        while ($stmt10->fetch()) {
 
             $inactive_result .=
 
