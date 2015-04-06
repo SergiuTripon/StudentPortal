@@ -2369,10 +2369,19 @@ function ReactivateExam() {
     } else {
 
         $stmt2->close();
-        echo 'You cannot reactivate this exam because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this exam.';
+        $error_msg = 'You cannot reactivate this exam because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this exam.';
+
+        $array = array(
+            'error_msg'=>$error_msg
+        );
+
+        echo json_encode($array);
+
         exit();
 
     }
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //DeleteTimetable function
@@ -2516,10 +2525,18 @@ function ReactivateResult() {
     } else {
 
         $stmt2->close();
-        echo 'You cannot reactivate this result because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this result.';
-        exit();
+        $error_msg = 'You cannot reactivate this result because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this result.';
 
+        $array = array(
+            'error_msg'=>$error_msg
+        );
+
+        echo json_encode($array);
+
+        exit();
     }
+
+    AdminTimetableUpdate($isUpdated = 1);
 }
 
 //DeleteResult function
