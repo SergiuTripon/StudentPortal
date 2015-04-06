@@ -2120,10 +2120,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
-            <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+                        <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -2161,19 +2159,22 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$exam_name.'?</p>
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$exam_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</button>
+			<a type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
             <a id="delete-'.$examid.'" class="btn btn-success btn-lg btn-delete-exam">Confirm</a>
 			</div>
 			</div>
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
 	}
 
