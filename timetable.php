@@ -865,6 +865,9 @@ global $inactive_tutorial;
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
     <script>
     $( document ).ready(function() {
         var today = $('#today').html();
@@ -1722,6 +1725,9 @@ global $inactive_tutorial;
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
     <script>
     $( document ).ready(function() {
         var today = $('#today').html();
@@ -2068,6 +2074,9 @@ global $inactive_tutorial;
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
     <script>
     admin_settings = {
         "iDisplayLength": 10,
@@ -2408,12 +2417,6 @@ global $inactive_tutorial;
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-    <?php include 'assets/js-paths/select2-js-path.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
 
 </body>
 </html>
