@@ -865,6 +865,82 @@ global $inactive_tutorials;
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <script>
+    $( document ).ready(function() {
+        var today = $('#today').html();
+
+        if (today == 'Monday') {
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#collapseFive').removeClass("in");
+            $('#panel-monday').removeClass("collapsed");
+            $('#collapseOne').addClass("in");
+        } else if (today == 'Tuesday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#collapseFive').removeClass("in");
+            $('#panel-tuesday').removeClass("collapsed");
+            $('#collapseTwo').addClass("in");
+        } else if (today == 'Wednesday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#collapseFive').removeClass("in");
+            $('#panel-wednesday').removeClass("collapsed");
+            $('#collapseThree').addClass("in");
+        } else if (today == 'Thursday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFive').removeClass("in");
+            $('#panel-thursday').removeClass("collapsed");
+            $('#collapseFour').addClass("in");
+        } else if (today == 'Friday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#panel-friday').removeClass("collapsed");
+            $('#collapseFive').addClass("in");
+        }
+    });
+
+    student_settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "You have no classes on this day."
+        }
+    };
+
+    //DataTables
+    $('.class-table').dataTable(student_settings);
+    </script>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'academic staff') : ?>
@@ -1646,6 +1722,82 @@ global $inactive_tutorials;
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <script>
+    $( document ).ready(function() {
+        var today = $('#today').html();
+
+        if (today == 'Monday') {
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#collapseFive').removeClass("in");
+            $('#panel-monday').removeClass("collapsed");
+            $('#collapseOne').addClass("in");
+        } else if (today == 'Tuesday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#collapseFive').removeClass("in");
+            $('#panel-tuesday').removeClass("collapsed");
+            $('#collapseTwo').addClass("in");
+        } else if (today == 'Wednesday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#collapseFive').removeClass("in");
+            $('#panel-wednesday').removeClass("collapsed");
+            $('#collapseThree').addClass("in");
+        } else if (today == 'Thursday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFive').removeClass("in");
+            $('#panel-thursday').removeClass("collapsed");
+            $('#collapseFour').addClass("in");
+        } else if (today == 'Friday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#panel-friday').removeClass("collapsed");
+            $('#collapseFive').addClass("in");
+        }
+    });
+
+    student_settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "You have no classes on this day."
+        }
+    };
+
+    //DataTables
+    $('.class-table').dataTable(student_settings);
+    </script>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
@@ -1916,6 +2068,319 @@ global $inactive_tutorials;
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <script>
+    admin_settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "You have no classes on this day."
+        }
+    };
+
+	//DataTables
+    $('.table-active-modules').dataTable(admin_settings);
+    $('.table-active-lectures').dataTable(admin_settings);
+    $('.table-active-tutorials').dataTable(admin_settings);
+    $('.table-inactive-modules').dataTable(admin_settings);
+    $('.table-inactive-lectures').dataTable(admin_settings);
+    $('.table-inactive-tutorials').dataTable(admin_settings);
+
+    //Deactivate module
+    $("body").on("click", ".btn-deactivate-module", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var moduleToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'moduleToDeactivate='+ moduleToDeactivate,
+	success:function(){
+		$('#module-'+moduleToDeactivate).hide();
+        $('.form-logo i').removeClass('fa-minus-square-o');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-module-question').hide();
+        $('#deactivate-module-confirmation').show();
+        $('#deactivate-module-hide').hide();
+        $('#deactivate-module-success-button').show();
+        $("#deactivate-module-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Deactivate lecture
+    $("body").on("click", ".btn-deactivate-lecture", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var lectureToDeactivate = clickedID[1];
+
+    alert(lectureToDeactivate);
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'lectureToDeactivate='+ lectureToDeactivate,
+	success:function(){
+		$('#lecture-'+lectureToDeactivate).hide();
+        $('.form-logo i').removeClass('fa-minus-square-o');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-lecture-question').hide();
+        $('#deactivate-lecture-confirmation').show();
+        $('#deactivate-lecture-hide').hide();
+        $('#deactivate-lecture-success-button').show();
+        $("#deactivate-lecture-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Deactivate tutorial
+    $("body").on("click", ".btn-deactivate-tutorial", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var tutorialToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'tutorialToDeactivate='+ tutorialToDeactivate,
+	success:function(){
+		$('#tutorial-'+tutorialToDeactivate).hide();
+        $('.form-logo i').removeClass('fa-minus-square-o');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-tutorial-question').hide();
+        $('#deactivate-tutorial-confirmation').show();
+        $('#deactivate-tutorial-hide').hide();
+        $('#deactivate-tutorial-success-button').show();
+        $("#deactivate-tutorial-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate module
+    $("body").on("click", ".btn-reactivate-module", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var moduleToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'moduleToReactivate='+ moduleToReactivate,
+	success:function(){
+		$('#module-'+moduleToReactivate).hide();
+        $('.form-logo i').removeClass('fa-plus-square-o');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#reactivate-module-question').hide();
+        $('#reactivate-module-confirmation').show();
+        $('#reactivate-module-hide').hide();
+        $('#reactivate-module-success-button').show();
+        $("#reactivate-module-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate lecture
+    $("body").on("click", ".btn-reactivate-lecture", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var lectureToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'lectureToReactivate='+ lectureToReactivate,
+	success:function(errormsg){
+        if (errormsg) {
+            $('.modal-custom').modal('hide');
+            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
+        } else {
+            $('#lecture-'+lectureToReactivate).hide();
+            $('.form-logo i').removeClass('fa-plus-square-o');
+            $('.form-logo i').addClass('fa-check-square-o');
+            $('#reactivate-lecture-question').hide();
+            $('#reactivate-lecture-confirmation').show();
+            $('#reactivate-lecture-hide').hide();
+            $('#reactivate-lecture-success-button').show();
+            $("#reactivate-lecture-success-button").click(function () {
+                location.reload();
+            });
+        }
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate tutorial
+    $("body").on("click", ".btn-reactivate-tutorial", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var tutorialToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'tutorialToReactivate='+ tutorialToReactivate,
+	success:function(errormsg){
+        if (errormsg) {
+            $('.modal-custom').modal('hide');
+            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
+        } else {
+            $('#tutorial-' + tutorialToReactivate).hide();
+            $('.form-logo i').removeClass('fa-plus-square-o');
+            $('.form-logo i').addClass('fa-check-square-o');
+            $('#reactivate-tutorial-question').hide();
+            $('#reactivate-tutorial-confirmation').show();
+            $('#reactivate-tutorial-hide').hide();
+            $('#reactivate-tutorial-success-button').show();
+            $("#reactivate-tutorial-success-button").click(function () {
+                location.reload();
+            });
+        }
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete module
+    $("body").on("click", ".btn-delete-module", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var moduleToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'moduleToDelete='+ moduleToDelete,
+	success:function(){
+		$('#module-'+moduleToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-module-question').hide();
+        $('#delete-module-confirmation').show();
+        $('#delete-module-hide').hide();
+        $('#delete-module-success-button').show();
+        $("#delete-module-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete lecture
+    $("body").on("click", ".btn-delete-lecture", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var lectureToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'lectureToDelete='+ lectureToDelete,
+	success:function(){
+		$('#lecture-'+lectureToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-lecture-question').hide();
+        $('#delete-lecture-confirmation').show();
+        $('#delete-lecture-hide').hide();
+        $('#delete-lecture-success-button').show();
+        $("#delete-lecture-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete tutorial
+    $("body").on("click", ".btn-delete-tutorial", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var tutorialToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'tutorialToDelete='+ tutorialToDelete,
+	success:function(){
+		$('#tutorial-'+tutorialToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-tutorial-question').hide();
+        $('#delete-tutorial-confirmation').show();
+        $('#delete-tutorial-hide').hide();
+        $('#delete-tutorial-success-button').show();
+        $("#delete-tutorial-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+    </script>
+
     <?php endif; ?>
 
     <?php else : ?>
@@ -1953,386 +2418,6 @@ global $inactive_tutorials;
     <?php include 'assets/js-paths/select2-js-path.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
-	<script>
-    $( document ).ready(function() {
-
-        var today = $('#today').html();
-
-        if (today == 'Monday') {
-            $('#panel-tuesday').addClass("collapsed");
-            $('#panel-wednesday').addClass("collapsed");
-            $('#panel-thursday').addClass("collapsed");
-            $('#panel-friday').addClass("collapsed");
-            $('#collapseTwo').removeClass("in");
-            $('#collapseThree').removeClass("in");
-            $('#collapseFour').removeClass("in");
-            $('#collapseFive').removeClass("in");
-            $('#panel-monday').removeClass("collapsed");
-            $('#collapseOne').addClass("in");
-        } else if (today == 'Tuesday') {
-            $('#panel-monday').addClass("collapsed");
-            $('#panel-wednesday').addClass("collapsed");
-            $('#panel-thursday').addClass("collapsed");
-            $('#panel-friday').addClass("collapsed");
-            $('#collapseOne').removeClass("in");
-            $('#collapseThree').removeClass("in");
-            $('#collapseFour').removeClass("in");
-            $('#collapseFive').removeClass("in");
-            $('#panel-tuesday').removeClass("collapsed");
-            $('#collapseTwo').addClass("in");
-        } else if (today == 'Wednesday') {
-            $('#panel-monday').addClass("collapsed");
-            $('#panel-tuesday').addClass("collapsed");
-            $('#panel-thursday').addClass("collapsed");
-            $('#panel-friday').addClass("collapsed");
-            $('#collapseOne').removeClass("in");
-            $('#collapseTwo').removeClass("in");
-            $('#collapseFour').removeClass("in");
-            $('#collapseFive').removeClass("in");
-            $('#panel-wednesday').removeClass("collapsed");
-            $('#collapseThree').addClass("in");
-        } else if (today == 'Thursday') {
-            $('#panel-monday').addClass("collapsed");
-            $('#panel-tuesday').addClass("collapsed");
-            $('#panel-wednesday').addClass("collapsed");
-            $('#panel-friday').addClass("collapsed");
-            $('#collapseOne').removeClass("in");
-            $('#collapseTwo').removeClass("in");
-            $('#collapseThree').removeClass("in");
-            $('#collapseFive').removeClass("in");
-            $('#panel-thursday').removeClass("collapsed");
-            $('#collapseFour').addClass("in");
-        } else if (today == 'Friday') {
-            $('#panel-monday').addClass("collapsed");
-            $('#panel-tuesday').addClass("collapsed");
-            $('#panel-wednesday').addClass("collapsed");
-            $('#panel-thursday').addClass("collapsed");
-            $('#collapseOne').removeClass("in");
-            $('#collapseTwo').removeClass("in");
-            $('#collapseThree').removeClass("in");
-            $('#collapseFour').removeClass("in");
-            $('#panel-friday').removeClass("collapsed");
-            $('#collapseFive').addClass("in");
-        }
-    });
-
-
-
-
-	//DataTables
-    $('.class-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "You have no classes on this day."
-		}
-	});
-
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no records to display."
-		}
-	});
-
-    //Deactivate module
-    $("body").on("click", ".deactivate-module-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var moduleToDeactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'moduleToDeactivate='+ moduleToDeactivate,
-	success:function(){
-		$('#module-'+moduleToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-module-question').hide();
-        $('#deactivate-module-confirmation').show();
-        $('#deactivate-module-hide').hide();
-        $('#deactivate-module-success-button').show();
-        $("#deactivate-module-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Deactivate lecture
-    $("body").on("click", ".deactivate-lecture-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var lectureToDeactivate = clickedID[1];
-
-    alert(lectureToDeactivate);
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'lectureToDeactivate='+ lectureToDeactivate,
-	success:function(){
-		$('#lecture-'+lectureToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-lecture-question').hide();
-        $('#deactivate-lecture-confirmation').show();
-        $('#deactivate-lecture-hide').hide();
-        $('#deactivate-lecture-success-button').show();
-        $("#deactivate-lecture-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Deactivate tutorial
-    $("body").on("click", ".deactivate-tutorial-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var tutorialToDeactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'tutorialToDeactivate='+ tutorialToDeactivate,
-	success:function(){
-		$('#tutorial-'+tutorialToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-tutorial-question').hide();
-        $('#deactivate-tutorial-confirmation').show();
-        $('#deactivate-tutorial-hide').hide();
-        $('#deactivate-tutorial-success-button').show();
-        $("#deactivate-tutorial-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Reactivate module
-    $("body").on("click", ".reactivate-module-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var moduleToReactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'moduleToReactivate='+ moduleToReactivate,
-	success:function(){
-		$('#module-'+moduleToReactivate).hide();
-        $('.form-logo i').removeClass('fa-plus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#reactivate-module-question').hide();
-        $('#reactivate-module-confirmation').show();
-        $('#reactivate-module-hide').hide();
-        $('#reactivate-module-success-button').show();
-        $("#reactivate-module-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Reactivate lecture
-    $("body").on("click", ".reactivate-lecture-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var lectureToReactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'lectureToReactivate='+ lectureToReactivate,
-	success:function(errormsg){
-        if (errormsg) {
-            $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
-            $('#error-modal').modal('show');
-        } else {
-            $('#lecture-'+lectureToReactivate).hide();
-            $('.form-logo i').removeClass('fa-plus-square-o');
-            $('.form-logo i').addClass('fa-check-square-o');
-            $('#reactivate-lecture-question').hide();
-            $('#reactivate-lecture-confirmation').show();
-            $('#reactivate-lecture-hide').hide();
-            $('#reactivate-lecture-success-button').show();
-            $("#reactivate-lecture-success-button").click(function () {
-                location.reload();
-            });
-        }
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Reactivate tutorial
-    $("body").on("click", ".reactivate-tutorial-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var tutorialToReactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'tutorialToReactivate='+ tutorialToReactivate,
-	success:function(errormsg){
-        if (errormsg) {
-            $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
-            $('#error-modal').modal('show');
-        } else {
-            $('#tutorial-' + tutorialToReactivate).hide();
-            $('.form-logo i').removeClass('fa-plus-square-o');
-            $('.form-logo i').addClass('fa-check-square-o');
-            $('#reactivate-tutorial-question').hide();
-            $('#reactivate-tutorial-confirmation').show();
-            $('#reactivate-tutorial-hide').hide();
-            $('#reactivate-tutorial-success-button').show();
-            $("#reactivate-tutorial-success-button").click(function () {
-                location.reload();
-            });
-        }
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Delete module
-    $("body").on("click", ".delete-module-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var moduleToDelete = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'moduleToDelete='+ moduleToDelete,
-	success:function(){
-		$('#module-'+moduleToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-module-question').hide();
-        $('#delete-module-confirmation').show();
-        $('#delete-module-hide').hide();
-        $('#delete-module-success-button').show();
-        $("#delete-module-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Delete lecture
-    $("body").on("click", ".delete-lecture-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var lectureToDelete = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'lectureToDelete='+ lectureToDelete,
-	success:function(){
-		$('#lecture-'+lectureToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-lecture-question').hide();
-        $('#delete-lecture-confirmation').show();
-        $('#delete-lecture-hide').hide();
-        $('#delete-lecture-success-button').show();
-        $("#delete-lecture-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Delete tutorial
-    $("body").on("click", ".delete-tutorial-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var tutorialToDelete = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'tutorialToDelete='+ tutorialToDelete,
-	success:function(){
-		$('#tutorial-'+tutorialToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-tutorial-question').hide();
-        $('#delete-tutorial-confirmation').show();
-        $('#delete-tutorial-hide').hide();
-        $('#delete-tutorial-success-button').show();
-        $("#delete-tutorial-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-	</script>
 
 </body>
 </html>
