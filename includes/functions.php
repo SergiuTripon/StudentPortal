@@ -2492,6 +2492,8 @@ function DeactivateResult() {
     $stmt1->bind_param('ssi', $result_status, $updated_on, $resultToDeactivate);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //ReactivateResult function
