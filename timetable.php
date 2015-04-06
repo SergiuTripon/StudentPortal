@@ -2274,7 +2274,7 @@ global $inactive_tutorial;
 	dataType:"text",
 	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(html){
-        if (html) {
+        if (html.error_msg) {
             $('.modal-custom').modal('hide');
             $('#error-modal .modal-body p').empty().append(html);
             $('#error-modal').modal('show');
@@ -2309,8 +2309,8 @@ global $inactive_tutorial;
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'tutorialToReactivate='+ tutorialToReactivate,
-	success:function(errormsg){
-        if (errormsg) {
+	success:function(html){
+        if (html.error_msg) {
             $('.modal-custom').modal('hide');
             $('#error-modal .modal-body p').empty().append(errormsg);
             $('#error-modal').modal('show');

@@ -979,7 +979,14 @@ function ReactivateLecture() {
 
     } else {
         $stmt2->close();
-        echo 'You cannot reactivate this lecture because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this lecture.';
+        $error_msg = 'You cannot reactivate this lecture because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this lecture.';
+
+        $array = array(
+            'error_msg'=>$error_msg
+        );
+
+        echo json_encode($array);
+
         exit();
     }
 
@@ -1198,7 +1205,14 @@ function ReactivateTutorial() {
 
     } else {
         $stmt2->close();
-        echo 'You cannot reactivate this tutorial because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this tutorial.';
+        $error_msg = 'You cannot reactivate this tutorial because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this tutorial.';
+
+        $array = array(
+            'error_msg'=>$error_msg
+        );
+
+        echo json_encode($array);
+
         exit();
     }
 
