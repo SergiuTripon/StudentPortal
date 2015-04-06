@@ -206,65 +206,24 @@ if (isset($_GET['id'])) {
 	<!-- Sign Out (Inactive) JS -->
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
-	<?php else : ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
-	<?php include '../includes/menus/menu.php'; ?>
-
-    <div class="container">
-
-	<form class="form-horizontal form-custom">
-
-    <div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-
-    <hr>
-
-    <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
-    </div>
-
-    </form>
-
-	</div>
-
-	<?php include '../includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-	<?php include '../assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
-
-	<script>
-
-
-
+    <script>
 
     //DataTables
-    $('.module-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no modules to display."
-		}
-	});
-
-    $('.results-table').dataTable({
+    settings = {
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
         "info": false,
         "language": {
-            "emptyTable": "There are no results to display."
+            "emptyTable": "There are no records to display."
         }
-    });
+    };
+
+    $('.results-table').dataTable(settings);
 
     //Deactivate result
     $("body").on("click", ".deactivate-button", function(e) {
@@ -365,6 +324,36 @@ if (isset($_GET['id'])) {
 	});
     });
 	</script>
+
+	<?php else : ?>
+
+	<?php include '../includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+	<form class="form-horizontal form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    </div>
+
+    </form>
+
+	</div>
+
+	<?php include '../includes/footers/footer.php'; ?>
+
+	<?php endif; ?>
 
 </body>
 </html>
