@@ -1245,6 +1245,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
     global $mysqli;
     global $active_modules;
+    global $active_lectures;
 
     $module_status = 'active';
 
@@ -1297,8 +1298,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			<div class="modal-footer">
             <div class="view-action pull-left">
             <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm" >Update</a>
-            <a href="#deactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
-            <a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+            <a id="deactivate-'.$moduleid.'" class="btn btn-primary btn-sm btn-deactivate-module">Deactivate</a>
+            <a id="delete-'.$moduleid.'" class="btn btn-primary btn-sm btn-deactivate-module">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
@@ -1320,21 +1321,13 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-module-question" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
-			<p id="delete-module-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deleted successfully.</p>
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$module_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-module-hide">
-			<div class="pull-left">
-			<a id="delete-'.$moduleid.'" class="btn btn-success btn-lg delete-module-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-module-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			<a type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$moduleid.'" class="btn btn-success btn-lg btn-delete-module">Confirm</a>
 			</div>
 			</div>
 
@@ -1358,18 +1351,17 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
         while ($stmt2->fetch()) {
 
-            $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
-            $stmt2->bind_param('i', $lecture_lecturer);
-            $stmt2->execute();
-            $stmt2->store_result();
-            $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
-            $stmt2->fetch();
-            $stmt2->close();
+            $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+            $stmt3->bind_param('i', $lecture_lecturer);
+            $stmt3->execute();
+            $stmt3->store_result();
+            $stmt3->bind_result($lecturer_fistname, $lecturer_surname);
+            $stmt3->fetch();
+            $stmt3->close();
 
-            $active_lectures = '
+            $active_lectures =
 
-            <tr>
-
+           '<tr>
 			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
             <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
             <td data-title="From">'.$lecture_from_time.'</td>
@@ -1401,6 +1393,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			<div class="modal-body">
 			<p><b>Description:</b> '.(empty($lecture_notes) ? "-" : "$lecture_notes").'</p>
 			<p><b>Lecturer:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
+			<p><b>Day:</b> '.$lecture_day.'</p>
 			<p><b>From:</b> '.$lecture_from_time.'</p>
 			<p><b>To:</b> '.$lecture_to_time.'</p>
 			<p><b>Location:</b> '.$lecture_location.'</p>
@@ -1409,9 +1402,9 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm" >Update</a>
-            <a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
-            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm">Update</a>
+            <a id="deactivate-'.$lectureid.'" class="btn btn-primary btn-sm btn-deactivate-lecture">Deactivate</a>
+            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-sm btn-deactivate-lecture">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
@@ -1433,21 +1426,13 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-lecture-question" class="text-center feedback-sad">Are you sure you want to delete '.$lecture_name.'?</p>
-			<p id="delete-lecture-confirmation" style="display: none;" class="text-center feedback-happy">'.$lecture_name.' has been deleted successfully.</p>
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$lecture_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-lecture-hide">
-			<div class="pull-left">
-			<a id="delete-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button">Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$lectureid.'" class="btn btn-success btn-lg btn-delete-lecture">Confirm</a>
 			</div>
 			</div>
 
@@ -1461,6 +1446,113 @@ function AdminTimetableUpdate($isUpdate = 0) {
     }
 
     $stmt2->close();
+
+    $tutorial_status = 'active';
+
+    $stmt3 = $mysqli->prepare("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorial_status=?");
+    $stmt3->bind_param('s', $tutorial_status);
+    $stmt3->execute();
+    $stmt3->bind_result($tutorialid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_location, $tutorial_capacity);
+    $stmt3->store_result();
+
+    if ($stmt3->num_rows > 0) {
+
+        while ($stmt3->fetch()) {
+
+            $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+            $stmt2->bind_param('i', $tutorial_assistant);
+            $stmt2->execute();
+            $stmt2->store_result();
+            $stmt2->bind_result($tutorial_assistant_fistname, $tutorial_assistant_surname);
+            $stmt2->fetch();
+            $stmt2->close();
+
+            $active_tutorials = '
+
+            <tr>
+			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
+            <td data-title="Lecturer">'.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</td>
+            <td data-title="From">'.$tutorial_from_time.'</td>
+            <td data-title="To">'.$tutorial_to_time.'</td>
+            <td data-title="Location">'.$tutorial_location.'</td>
+            <td data-title="Action">
+            <div class="btn-group btn-action">
+            <a class="btn btn-primary" href="/admin/allocate-tutorial?id='.$tutorialid.'">Allocate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/update-tutorial?id='.$tutorialid.'">Update</a></li>
+            <li><a id="deactivate-'.$tutorialid.'" class="btn-deactivate-tutorial">Deactivate</a></li>
+            <li><a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$tutorial_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "-" : "$lecture_notes").'</p>
+			<p><b>Lecturer:</b> '.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</p>
+			<p><b>Day:</b> '.$tutorial_day.'</p>
+			<p><b>From:</b> '.$tutorial_from_time.'</p>
+			<p><b>To:</b> '.$tutorial_to_time.'</p>
+			<p><b>Location:</b> '.$tutorial_location.'</p>
+			<p><b>Capacity:</b> '.$tutorial_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-timetable?id='.$tutorialid.'" class="btn btn-primary btn-sm">Update</a>
+            <a id="deactivate-'.$tutorialid.'" class="btn btn-primary btn-sm btn-deactivate-tutorial">Deactivate</a>
+            <a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$tutorial_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg btn-delete-tutorial">Confirm</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+        }
+    }
+
+    $stmt3->close();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
