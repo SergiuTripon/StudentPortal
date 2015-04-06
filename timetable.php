@@ -2115,10 +2115,31 @@ global $inactive_tutorial;
         $('#content-active-module').html(html.active_module);
         $(".table-active-module").dataTable(admin_settings);
 
+        $(".table-active-lecture").dataTable().fnDestroy();
+        $('#content-active-lecture').empty();
+        $('#content-active-lecture').html(html.active_lecture);
+        $(".table-active-lecture").dataTable(admin_settings);
+
+        $(".table-active-tutorial").dataTable().fnDestroy();
+        $('#content-active-tutorial').empty();
+        $('#content-active-tutorial').html(html.active_tutorial);
+        $(".table-active-tutorial").dataTable(admin_settings);
+
         $(".table-inactive-module").dataTable().fnDestroy();
         $('#content-inactive-module').empty();
         $('#content-inactive-module').html(html.inactive_module);
         $(".table-inactive-module").dataTable(admin_settings);
+
+        $(".table-inactive-lecture").dataTable().fnDestroy();
+        $('#content-inactive-lecture').empty();
+        $('#content-inactive-lecture').html(html.inactive_lecture);
+        $(".table-inactive-lecture").dataTable(admin_settings);
+
+        $(".table-inactive-tutorial").dataTable().fnDestroy();
+        $('#content-inactive-tutorial').empty();
+        $('#content-inactive-tutorial').html(html.inactive_tutorial);
+        $(".table-inactive-tutorial").dataTable(admin_settings);
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -2203,25 +2224,25 @@ global $inactive_tutorial;
 	data:'moduleToReactivate='+ moduleToReactivate,
 	success:function(html){
 
-        $(".table-inactive-module").dataTable().fnDestroy();
-        $('#content-inactive-module').empty();
-        $('#content-inactive-module').html(html.inactive_module);
-        $(".table-inactive-module").dataTable(admin_settings);
-
         $(".table-inactive-tutorial").dataTable().fnDestroy();
         $('#content-inactive-tutorial').empty();
         $('#content-inactive-tutorial').html(html.inactive_tutorial);
         $(".table-inactive-tutorial").dataTable(admin_settings);
 
-        $(".table-active-tutorial").dataTable().fnDestroy();
-        $('#content-active-tutorial').empty();
-        $('#content-active-tutorial').html(html.active_tutorial);
-        $(".table-active-tutorial").dataTable(admin_settings);
-
         $(".table-inactive-lecture").dataTable().fnDestroy();
         $('#content-inactive-lecture').empty();
         $('#content-inactive-lecture').html(html.inactive_lecture);
         $(".table-inactive-lecture").dataTable(admin_settings);
+
+        $(".table-inactive-module").dataTable().fnDestroy();
+        $('#content-inactive-module').empty();
+        $('#content-inactive-module').html(html.inactive_module);
+        $(".table-inactive-module").dataTable(admin_settings);
+
+        $(".table-active-tutorial").dataTable().fnDestroy();
+        $('#content-active-tutorial').empty();
+        $('#content-active-tutorial').html(html.active_tutorial);
+        $(".table-active-tutorial").dataTable(admin_settings);
 
         $(".table-active-lecture").dataTable().fnDestroy();
         $('#content-active-lecture').empty();
