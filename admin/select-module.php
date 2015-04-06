@@ -1,6 +1,8 @@
 <?php
 include '../includes/session.php';
 
+global $userToCreateResults;
+
 if (isset($_GET['id'])) {
 
     $userToCreateResults = $_GET['id'];

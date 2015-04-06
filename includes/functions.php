@@ -1276,9 +1276,13 @@ function AdminTimetableUpdate($isUpdate = 0) {
     global $active_module;
     global $active_lecture;
     global $active_tutorial;
+    global $active_exam;
+    global $active_result;
     global $inactive_module;
     global $inactive_lecture;
     global $inactive_tutorial;
+    global $inactive_exam;
+    global $inactive_result;
 
     $module_status = 'active';
 
@@ -1311,10 +1315,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <li><a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
-            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+                        <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1366,7 +1368,10 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
     }
 
@@ -1392,7 +1397,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt3->fetch();
             $stmt3->close();
 
-            $active_lecture =
+            $active_lecture .=
 
            '<tr>
 			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
@@ -1500,9 +1505,9 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt2->fetch();
             $stmt2->close();
 
-            $active_tutorial = '
+            $active_tutorial .=
 
-            <tr>
+           '<tr>
 			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
             <td data-title="Lecturer">'.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</td>
             <td data-title="From">'.$tutorial_from_time.'</td>
@@ -1521,8 +1526,6 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <li><a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
             <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -1581,25 +1584,185 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
     }
 
     $stmt3->close();
 
-    $module_status = 'inactive';
+    $exam_status = 'active';
 
-    $stmt4 = $mysqli->prepare("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m WHERE m.module_status=?");
-    $stmt4->bind_param('s', $module_status);
+    $stmt4 = $mysqli->prepare("SELECT e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e WHERE e.exam_status=?");
+    $stmt4->bind_param('s', $exam_status);
     $stmt4->execute();
-    $stmt4->bind_result($moduleid, $module_name, $module_notes, $module_url);
+    $stmt4->bind_result($examid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity);
     $stmt4->store_result();
 
     if ($stmt4->num_rows > 0) {
 
         while ($stmt4->fetch()) {
 
-            $inactive_module =
+            $active_exam .=
+
+           '<tr>
+			<td data-title="Name"><a href="#view-exam-'.$examid.'" data-toggle="modal">'.$exam_name.'</a></td>
+			<td data-title="Date">'.$exam_date.'</td>
+			<td data-title="Time">'.$exam_time.'</td>
+			<td data-title="Location">'.$exam_location.'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="/admin/allocate-exam?id='.$examid.'">Allocate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/update-exam?id='.$examid.'">Update</a></li>
+            <li><a id="deactivate-'.$examid.'" class="btn-deactivate-exam">Deactivate</a></li>
+            <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+
+            <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-pencil"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$exam_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($exam_notes) ? "No description" : "$exam_notes").'</p>
+			<p><b>Date:</b> '.$exam_date.'</p>
+			<p><b>Time:</b> '.$exam_time.'</p>
+			<p><b>Location:</b> '.$exam_location.'</p>
+			<p><b>Capacity:</b> '.$exam_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</span></a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$exam_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$examid.'" class="btn btn-success btn-lg btn-delete-exam">Confirm</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
+        }
+	}
+
+	$stmt4->close();
+
+    $result_status = 'active';
+
+    $stmt5 = $mysqli->prepare("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid=? AND user_result.result_status=?");
+    $stmt5->bind_param('is', $userToCreateResults, $result_status);
+    $stmt5->execute();
+    $stmt5->bind_result($resultid, $module_name, $result_coursework_mark, $result_exam_mark, $result_overall_mark);
+    $stmt5->store_result();
+
+    if ($stmt5->num_rows > 0) {
+
+        while ($stmt5->fetch()) {
+
+            $active_result .=
+
+           '<tr>
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
+			<td data-title="Exam mark">'.$result_exam_mark.'</td>
+			<td data-title="Overall mark">'.$result_overall_mark.'</td>
+			<td data-title="Action">
+
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="../update-result/?id='.$resultid.'">Update</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a id="deactivate-'.$resultid.'" class="btn-deactivate-result">Deactivate</a></li>
+            <li><a href="#delete-'.$resultid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+
+            <div class="modal modal-custom fade" id="delete-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete this result for '.$module_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+			<a type="button" class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$resultid.'" class="btn btn-danger btn-lg btn-delete-result">Confirm</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
+        }
+    }
+    
+	$stmt5->close();
+
+    $module_status = 'inactive';
+
+    $stmt6 = $mysqli->prepare("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m WHERE m.module_status=?");
+    $stmt6->bind_param('s', $module_status);
+    $stmt6->execute();
+    $stmt6->bind_result($moduleid, $module_name, $module_notes, $module_url);
+    $stmt6->store_result();
+
+    if ($stmt6->num_rows > 0) {
+
+        while ($stmt6->fetch()) {
+
+            $inactive_module .=
 
            '<tr>
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
@@ -1616,10 +1779,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <li><a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
-            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+                        <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1669,23 +1830,26 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
 	}
 
-    $stmt4->close();
+    $stmt6->close();
 
     $lecture_status = 'inactive';
 
-    $stmt5 = $mysqli->prepare("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l WHERE l.lecture_status=?");
-    $stmt5->bind_param('s', $lecture_status);
-    $stmt5->execute();
-    $stmt5->bind_result($lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_location, $lecture_capacity);
-    $stmt5->store_result();
+    $stmt7 = $mysqli->prepare("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l WHERE l.lecture_status=?");
+    $stmt7->bind_param('s', $lecture_status);
+    $stmt7->execute();
+    $stmt7->bind_result($lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_location, $lecture_capacity);
+    $stmt7->store_result();
 
-    if ($stmt5->num_rows > 0) {
+    if ($stmt7->num_rows > 0) {
 
-        while ($stmt5->fetch()) {
+        while ($stmt7->fetch()) {
             
             $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
             $stmt2->bind_param('i', $lecture_lecturer);
@@ -1695,7 +1859,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt2->fetch();
             $stmt2->close();
 
-            $inactive_lecture =
+            $inactive_lecture .=
                 
            '<tr>
 			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
@@ -1714,8 +1878,6 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <li><a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
             <div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -1773,24 +1935,26 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
 	}
 
-    $stmt5->close();
+    $stmt7->close();
 
     $tutorial_status = 'active';
 
-    $stmt6 = $mysqli->prepare("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorial_status=?");
-    $stmt6->bind_param('s', $tutorial_status);
-    $stmt6->execute();
-    $stmt6->bind_result($lectureid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_location, $tutorial_capacity);
-    $stmt6->store_result();
+    $stmt8 = $mysqli->prepare("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorial_status=?");
+    $stmt8->bind_param('s', $tutorial_status);
+    $stmt8->execute();
+    $stmt8->bind_result($lectureid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_location, $tutorial_capacity);
+    $stmt8->store_result();
 
-    if ($stmt6->num_rows > 0) {
+    if ($stmt8->num_rows > 0) {
 
-        while ($stmt6->fetch()) {
-
+        while ($stmt8->fetch()) {
 
             $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
             $stmt2->bind_param('i', $tutorial_assistant);
@@ -1800,7 +1964,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt2->fetch();
             $stmt2->close();
 
-            $inactive_tutorial =
+            $inactive_tutorial .=
 
            '<tr>
 			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
@@ -1819,10 +1983,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <li><a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
-            <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+                        <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1878,11 +2040,103 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
+        }
+	}
+
+    $stmt8->close();
+
+    $exam_status = 'inactive';
+
+    $stmt9 = $mysqli->query("SELECT e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e WHERE e.exam_status=?");
+    $stmt9->bind_param('s', $exam_status);
+    $stmt9->execute();
+    $stmt9->bind_result($examid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity);
+    $stmt9->store_result();
+
+    if ($stmt9->num_rows > 0) {
+
+        while ($stmt9->fetch()) {
+
+            $inactive_exam .=
+
+           '<tr>
+			<td data-title="Name"><a href="#view-exam-'.$examid.'" data-toggle="modal">'.$exam_name.'</a></td>
+			<td data-title="Date">'.$exam_date.'</td>
+			<td data-title="Time">'.$exam_time.'</td>
+			<td data-title="Location">'.$exam_location.'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a id="reactivate-'.$examid.'" class="btn btn-primary btn-reactivate-exam">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-pencil"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$exam_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($exam_notes) ? "No description" : "$exam_notes").'</p>
+			<p><b>Date:</b> '.$exam_date.'</p>
+			<p><b>Time:</b> '.$exam_time.'</p>
+			<p><b>Location:</b> '.$exam_location.'</p>
+			<p><b>Capacity:</b> '.$exam_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</span></a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-exam-question" class="text-center feedback-sad">Are you sure you want to delete '.$exam_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+			<a type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$examid.'" class="btn btn-success btn-lg btn-delete-exam">Confirm</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
         }
 	}
 
-    $stmt6->close();
+	$stmt9->close();
 
     if ($isUpdate === 1) {
 
@@ -1890,9 +2144,11 @@ function AdminTimetableUpdate($isUpdate = 0) {
             'active_module'=>$active_module,
             'active_lecture'=>$active_lecture,
             'active_tutorial'=>$active_tutorial,
+            'active_exam'=>$active_exam,
             'inactive_module'=>$inactive_module,
             'inactive_lecture'=>$inactive_lecture,
-            'inactive_tutorial'=>$inactive_tutorial
+            'inactive_tutorial'=>$inactive_tutorial,
+            'inactive_exam'=>$inactive_exam
         );
 
         echo json_encode($array);
