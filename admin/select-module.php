@@ -239,6 +239,8 @@ if (isset($_GET['id'])) {
     var resultToDeactivate = clickedID[1];
     var userToCreateResult = $('userid').html();
 
+    alert(userToCreateResult);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
