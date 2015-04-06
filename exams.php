@@ -116,6 +116,20 @@ AdminTimetableUpdate();
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
     <?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
+    <script>
+    settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
+    $(".table-custom").dataTable(settings);
+    </script>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
