@@ -2277,7 +2277,7 @@ global $inactive_tutorial;
 
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(html);
+            $('#error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
         } else {
             $(".table-inactive-lecture").dataTable().fnDestroy();
@@ -2314,7 +2314,7 @@ global $inactive_tutorial;
 
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(html.errormsg);
+            $('#error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
         } else {
             $(".table-inactive-tutorial").dataTable().fnDestroy();
