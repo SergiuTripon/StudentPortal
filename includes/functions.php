@@ -1273,7 +1273,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><a href="/admin/update-module?id='.$moduleid.'">Update</a></li>
-            <li><a href="#deactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+            <li><a id="deactivate-'.$moduleid.'" class="btn-deactivate-module">Deactivate</a></li>
             <li><a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
@@ -1342,6 +1342,120 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
         }
+    }
+
+    $stmt1->close();
+
+    $stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l WHERE l.lecture_status = 'active'");
+
+    while($row = $stmt1->fetch_assoc()) {
+
+        $lectureid = $row["lectureid"];
+        $lecture_name = $row["lecture_name"];
+        $lecture_lecturer = $row["lecture_lecturer"];
+        $lecture_notes = $row["lecture_notes"];
+        $lecture_day = $row["lecture_day"];
+        $lecture_from_time = $row["lecture_from_time"];
+        $lecture_to_time = $row["lecture_to_time"];
+        $lecture_location = $row["lecture_location"];
+        $lecture_capacity = $row["lecture_capacity"];
+
+        $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+        $stmt2->bind_param('i', $lecture_lecturer);
+        $stmt2->execute();
+        $stmt2->store_result();
+        $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
+        $stmt2->fetch();
+        $stmt2->close();
+
+        echo '<tr id="lecture-'.$lectureid.'">
+
+			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
+            <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
+            <td data-title="From">'.$lecture_from_time.'</td>
+            <td data-title="To">'.$lecture_to_time.'</td>
+            <td data-title="Location">'.$lecture_location.'</td>
+            <td data-title="Action">
+            <div class="btn-group btn-action">
+            <a class="btn btn-primary" href="/admin/allocate-lecture?id='.$lectureid.'">Allocate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/update-lecture?id='.$lectureid.'">Update</a></li>
+            <li><a id="deactivate-'.$lectureid.'" class="btn-deactivate-lecture">Deactivate</a></li>
+            <li><a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$lecture_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "-" : "$lecture_notes").'</p>
+			<p><b>Lecturer:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
+			<p><b>From:</b> '.$lecture_from_time.'</p>
+			<p><b>To:</b> '.$lecture_to_time.'</p>
+			<p><b>Location:</b> '.$lecture_location.'</p>
+			<p><b>Capacity:</b> '.$lecture_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#deactivate-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
+            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-lecture-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-lecture-question" class="text-center feedback-sad">Are you sure you want to delete '.$lecture_name.'?</p>
+			<p id="delete-lecture-confirmation" style="display: none;" class="text-center feedback-happy">'.$lecture_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-lecture-hide">
+			<div class="pull-left">
+			<a id="delete-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-lecture-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
     }
 
     $stmt1->close();
