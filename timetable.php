@@ -4,6 +4,12 @@ include 'includes/session.php';
 global $mysqli;
 global $session_userid;
 
+AdminTimetableUpdate();
+
+global $active_modules;
+global $active_lectures;
+global $active_tutorials;
+
 ?>
 
 <!DOCTYPE html>
@@ -1678,134 +1684,7 @@ global $session_userid;
 
 	<tbody>
 	<?php
-
-	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m WHERE m.module_status = 'active'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-    $moduleid = $row["moduleid"];
-	$module_name = $row["module_name"];
-	$module_notes = $row["module_notes"];
-	$module_url = $row["module_url"];
-
-	echo '<tr id="module-'.$moduleid.'">
-
-			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
-			<td data-title="Notes">'.($module_notes === '' ? "-" : "$module_notes").'</td>
-            <td data-title="Moodle link">'.($module_url === '' ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
-            <td data-title="Action">
-            <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="/admin/allocate-module?id='.$moduleid.'">Allocate</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="/admin/update-module?id='.$moduleid.'">Update</a></li>
-            <li><a href="#deactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
-            <li><a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
-            </ul>
-            </div>
-            </td>
-			</tr>
-
-            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-clock-o"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
-			</div>
-
-			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
-			<p><b>Moodle link:</b> '.(empty($module_url) ? "-" : "$module_url").'</p>
-			</div>
-
-			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm" >Update</a>
-            <a href="#deactivate-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
-            <a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
-			</div>
-			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="deactivate-module-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-minus-square-o"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="deactivate-module-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$module_name.'?</p>
-            <p id="deactivate-module-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deactivated successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="deactivate-module-hide">
-			<div class="pull-left">
-			<a id="deactivate-'.$moduleid.'" class="btn btn-success btn-lg deactivate-module-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="deactivate-module-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="delete-module-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="delete-module-question" class="text-center feedback-sad">Are you sure you want to delete '.$module_name.'?</p>
-			<p id="delete-module-confirmation" style="display: none;" class="text-center feedback-happy">'.$module_name.' has been deleted successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="delete-module-hide">
-			<div class="pull-left">
-			<a id="delete-'.$moduleid.'" class="btn btn-success btn-lg delete-module-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-module-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
-	}
-
-    $stmt1->close();
+    echo $active_modules;
 	?>
 	</tbody>
 
