@@ -1246,6 +1246,10 @@ function AdminTimetableUpdate($isUpdate = 0) {
     global $mysqli;
     global $active_modules;
     global $active_lectures;
+    global $active_tutorials;
+    global $inactive_modules;
+    global $inactive_lectures;
+    global $inactive_tutorials;
 
     $module_status = 'active';
 
@@ -1297,7 +1301,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm">Update</a>
             <a id="deactivate-'.$moduleid.'" class="btn btn-primary btn-sm btn-deactivate-module">Deactivate</a>
             <a id="delete-'.$moduleid.'" class="btn btn-primary btn-sm btn-deactivate-module">Delete</a>
 			</div>
@@ -1404,7 +1408,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <div class="view-action pull-left">
             <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm">Update</a>
             <a id="deactivate-'.$lectureid.'" class="btn btn-primary btn-sm btn-deactivate-lecture">Deactivate</a>
-            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-sm btn-deactivate-lecture">Delete</a>
+            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
@@ -1553,6 +1557,303 @@ function AdminTimetableUpdate($isUpdate = 0) {
     }
 
     $stmt3->close();
+
+    $module_status = 'inactive';
+
+    $stmt4 = $mysqli->prepare("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m WHERE m.module_status=?");
+    $stmt4->bind_param('s', $module_status);
+    $stmt4->execute();
+    $stmt4->bind_result($moduleid, $module_name, $module_notes, $module_url);
+    $stmt4->store_result();
+
+    if ($stmt4->num_rows > 0) {
+
+        while ($stmt4->fetch()) {
+
+            $inactive_modules =
+
+           '<tr>
+			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
+			<td data-title="Notes">'.($module_notes === '' ? "No notes" : "$module_notes").'</td>
+            <td data-title="Moodle link">'.($module_url === '' ? "No link" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
+            <td data-title="Action">
+            <div class="btn-group btn-action">
+            <a id="reactivate-'.$moduleid.'" class="btn btn-primary btn-reactivate-module">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
+			<p><b>Moodle link:</b> '.(empty($module_url) ? "-" : "$module_url").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a id="reactivate-'.$moduleid.'" class="btn btn-primary btn-sm btn-reactivate-module">Reactivate</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-module-'.$moduleid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$module_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+			<a type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$moduleid.'" class="btn btn-success btn-lg btn-delete-module">Confirm</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+        }
+	}
+
+    $stmt4->close();
+
+    $lecture_status = 'inactive';
+
+    $stmt5 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l WHERE l.lecture_status=?");
+    $stmt5->bind_param('s', $lecture_status);
+    $stmt5->execute();
+    $stmt5->bind_result($lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_location, $lecture_capacity);
+    $stmt5->store_result();
+
+    if ($stmt5->num_rows > 0) {
+
+        while ($stmt5->fetch()) {
+            
+            $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+            $stmt2->bind_param('i', $lecture_lecturer);
+            $stmt2->execute();
+            $stmt2->store_result();
+            $stmt2->bind_result($lecturer_fistname, $lecturer_surname);
+            $stmt2->fetch();
+            $stmt2->close();
+
+            $inactive_lectures = 
+                
+           '<tr>
+			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
+            <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
+            <td data-title="From">'.$lecture_from_time.'</td>
+            <td data-title="To">'.$lecture_to_time.'</td>
+            <td data-title="Location">'.$lecture_location.'</td>
+            <td data-title="Action">
+            <div class="btn-group btn-action">
+            <a id="reactivate-'.$lectureid.'" class="btn btn-primary btn-reactivate-module">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$lecture_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "-" : "$lecture_notes").'</p>
+			<p><b>Lecturer:</b> '.$lecturer_fistname.' '.$lecturer_surname.'</p>
+			<p><b>From:</b> '.$lecture_from_time.'</p>
+			<p><b>To:</b> '.$lecture_to_time.'</p>
+			<p><b>Location:</b> '.$lecture_location.'</p>
+			<p><b>Capacity:</b> '.$lecture_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a id="reactivate-'.$lectureid.'" class="btn btn-primary btn-sm btn-reactivate-lecture">Reactivate</a>
+            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-lecture-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$lecture_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</button>
+            <a id="delete-'.$lectureid.'" class="btn btn-success btn-lg btn-delete-lecture">Confirm</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+        }
+	}
+
+    $stmt5->close();
+
+    $tutorial_status = 'active';
+
+    $stmt6 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorial_status=?");
+    $stmt6->bind_param('s', $tutorial_status);
+    $stmt6->execute();
+    $stmt6->bind_result($lectureid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_location, $tutorial_capacity);
+    $stmt6->store_result();
+
+    if ($stmt6->num_rows > 0) {
+
+        while ($stmt6->fetch()) {
+
+
+            $stmt2 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+            $stmt2->bind_param('i', $tutorial_assistant);
+            $stmt2->execute();
+            $stmt2->store_result();
+            $stmt2->bind_result($tutorial_assistant_fistname, $tutorial_assistant_surname);
+            $stmt2->fetch();
+            $stmt2->close();
+
+            $inactive_tutorials =
+
+           '<tr>
+			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
+            <td data-title="Lecturer">'.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</td>
+            <td data-title="From">'.$tutorial_from_time.'</td>
+            <td data-title="To">'.$tutorial_to_time.'</td>
+            <td data-title="Location">'.$tutorial_location.'</td>
+            <td data-title="Action">
+            <div class="btn-group btn-action">
+            <a id="reactivate-'.$tutorialid.'" class="btn btn-primary btn-reactivate-tutorial">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$tutorial_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($tutorial_notes) ? "-" : "$tutorial_notes").'</p>
+			<p><b>Lecturer:</b> '.$tutorial_assistant_fistname.' '.$tutorial_assistant_surname.'</p>
+			<p><b>Day:</b> '.$tutorial_day.'</p>
+			<p><b>From:</b> '.$tutorial_from_time.'</p>
+			<p><b>To:</b> '.$tutorial_to_time.'</p>
+			<p><b>Location:</b> '.$tutorial_location.'</p>
+			<p><b>Capacity:</b> '.$tutorial_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a id="reactivate-'.$tutorialid.'" class="btn btn-primary btn-sm btn-reactivate-tutorial">Reactivate</a>
+            <a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$tutorial_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg btn-delete-tutorial">Confirm</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+        }
+	}
+
+    $stmt6->close();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
