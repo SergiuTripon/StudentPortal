@@ -1167,7 +1167,7 @@ function DeactivateTutorial() {
     $stmt1->execute();
     $stmt1->close();
 
-    AdminTimetableUpdate($isUpdate = 1);
+
 }
 
 //ReactivateTutorial function
@@ -1270,7 +1270,7 @@ function DeallocateTutorial() {
     $stmt1->close();
 }
 
-function AdminTimetableUpdate($isUpdate = 0, $userToCreateResults = '') {
+function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
 
     global $mysqli;
     global $active_module;
@@ -1283,7 +1283,7 @@ function AdminTimetableUpdate($isUpdate = 0, $userToCreateResults = '') {
     global $inactive_tutorial;
     global $inactive_exam;
     global $inactive_result;
-    global $userToCreateResults;
+    global $userid;
 
     $module_status = 'active';
 
@@ -1689,7 +1689,7 @@ function AdminTimetableUpdate($isUpdate = 0, $userToCreateResults = '') {
     $result_status = 'active';
 
     $stmt5 = $mysqli->prepare("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid=? AND user_result.result_status=?");
-    $stmt5->bind_param('is', $userToCreateResults, $result_status);
+    $stmt5->bind_param('is', $userid, $result_status);
     $stmt5->execute();
     $stmt5->bind_result($resultid, $module_name, $result_coursework_mark, $result_exam_mark, $result_overall_mark);
     $stmt5->store_result();
@@ -2143,7 +2143,7 @@ function AdminTimetableUpdate($isUpdate = 0, $userToCreateResults = '') {
     $result_status = 'inactive';
 
     $stmt10 = $mysqli->prepare("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid=? AND user_result.result_status=?");
-    $stmt10->bind_param('is', $userToCreateResults, $result_status);
+    $stmt10->bind_param('is', $userid, $result_status);
     $stmt10->execute();
     $stmt10->bind_result($resultid, $module_name, $result_coursework_mark, $result_exam_mark, $result_overall_mark);
     $stmt10->store_result();
@@ -2485,6 +2485,7 @@ function DeactivateResult() {
     global $updated_on;
 
     $resultToDeactivate = filter_input(INPUT_POST, 'resultToDeactivate', FILTER_SANITIZE_STRING);
+    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $result_status = 'inactive';
 
@@ -2493,7 +2494,7 @@ function DeactivateResult() {
     $stmt1->execute();
     $stmt1->close();
 
-    AdminTimetableUpdate($isUpdate = 1);
+    AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
 }
 
 //ReactivateResult function
@@ -2503,6 +2504,7 @@ function ReactivateResult() {
     global $updated_on;
 
     $resultToReactivate = filter_input(INPUT_POST, 'resultToReactivate', FILTER_SANITIZE_STRING);
+    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM user_result WHERE resultid = ?");
     $stmt1->bind_param('i', $resultToReactivate);
@@ -2543,7 +2545,7 @@ function ReactivateResult() {
         exit();
     }
 
-    AdminTimetableUpdate($isUpdated = 1);
+    AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
 }
 
 //DeleteResult function
@@ -2552,11 +2554,14 @@ function DeleteResult() {
     global $mysqli;
 
     $resultToDelete = filter_input(INPUT_POST, 'resultToDelete', FILTER_SANITIZE_STRING);
+    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_result WHERE resultid=?");
     $stmt1->bind_param('i', $resultToDelete);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

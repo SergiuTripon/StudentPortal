@@ -13,6 +13,8 @@ if (isset($_GET['id'])) {
 
     AdminTimetableUpdate($userToCreateResults = $_GET['id']);
 
+    $userToCreateResults = $_GET['id'];
+
 } else {
     header('Location: ../../results/');
 }
@@ -47,6 +49,8 @@ if (isset($_GET['id'])) {
         <li><a href="../../results/">Results</a></li>
 		<li class="active">Select modules</li>
 	</ol>
+
+    <div id="userid" style="display: none;"><?php echo $userToCreateResults; ?></div>
 
 	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -233,12 +237,13 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var resultToDeactivate = clickedID[1];
+    var userToCreateResult = $('userid').html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
-	data:'resultToDeactivate='+ resultToDeactivate,
+	data:'resultToDeactivate='+ resultToDeactivate + '&userToCreateResult' + userToCreateResult,
 	success:function(html){
 
         alert(html.inactive_result);
@@ -267,12 +272,13 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var resultToReactivate = clickedID[1];
+    var userToCreateResult = $('userid').html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
-	data:'resultToReactivate='+ resultToReactivate,
+	data:'resultToReactivate='+ resultToReactivate + '&userToCreateResult' + userToCreateResult,
 	success:function(html){
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
@@ -303,12 +309,13 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var resultToDelete = clickedID[1];
+    var userToCreateResult = $('userid').html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
-	data:'resultToDelete='+ resultToDelete,
+	data:'resultToDelete='+ resultToDelete + '&userToCreateResult' + userToCreateResult,
 	success:function(html){
 
         $('.modal-custom').modal('hide');
