@@ -1317,7 +1317,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-                        <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -2162,7 +2162,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			<td data-title="Action">
 
 			<div class="btn-group btn-action">
-            <a id="reactivate-'.$resultid.'" class="btn btn-primary reactivate-button">Reactivate</a>
+            <a id="reactivate-'.$resultid.'" class="btn btn-primary btn-reactivate-result">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
