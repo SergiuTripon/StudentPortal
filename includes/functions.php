@@ -1388,8 +1388,6 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <li><a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
             <div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -1442,7 +1440,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			<div class="modal-footer">
 			<div id="delete-lecture-hide">
 			<div class="pull-left">
-			<a id="delete-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button" >Yes</a>
+			<a id="delete-'.$lectureid.'" class="btn btn-success btn-lg delete-lecture-button">Yes</a>
 			</div>
 			<div class="text-right">
 			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
@@ -1455,7 +1453,10 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
     }
 
