@@ -1,14 +1,5 @@
 <?php
 include 'includes/session.php';
-include 'includes/functions.php';
-
-global $mysqli;
-global $session_userid;
-
-global $active_exam;
-global $inactive_exam;
-
-AdminTimetableUpdate();
 
 ?>
 
@@ -112,24 +103,6 @@ AdminTimetableUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
-    <script>
-    settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
-    //DataTables
-    $('.table-custom').dataTable(settings);
-	</script>
-
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
@@ -145,6 +118,7 @@ AdminTimetableUpdate();
 
     <a class="btn btn-success btn-lg btn-admin" href="/admin/create-exam/">Create exam</span></a>
 
+
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
@@ -159,7 +133,7 @@ AdminTimetableUpdate();
 
 	<!-- Active exams -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-active-exam">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -171,9 +145,139 @@ AdminTimetableUpdate();
 	</tr>
 	</thead>
 
-	<tbody id="content-active-exam">
+	<tbody>
 	<?php
-    echo $active_exam;
+
+	$stmt1 = $mysqli->query("SELECT e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e WHERE e.exam_status='active'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $examid = $row["examid"];
+    $exam_name = $row["exam_name"];
+    $exam_notes = $row["exam_notes"];
+    $exam_date = $row["exam_date"];
+    $exam_time = $row["exam_time"];
+    $exam_location = $row["exam_location"];
+    $exam_capacity = $row["exam_capacity"];
+
+
+	echo '<tr id="exam-'.$examid.'">
+
+			<td data-title="Name"><a href="#view-exam-'.$examid.'" data-toggle="modal">'.$exam_name.'</a></td>
+			<td data-title="Date">'.$exam_date.'</td>
+			<td data-title="Time">'.$exam_time.'</td>
+			<td data-title="Location">'.$exam_location.'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="/admin/allocate-exam?id='.$examid.'">Allocate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/update-exam?id='.$examid.'">Update</a></li>
+            <li><a href="#deactivate-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+            <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+			<div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-pencil"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$exam_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($exam_notes) ? "No description" : "$exam_notes").'</p>
+			<p><b>Date:</b> '.$exam_date.'</p>
+			<p><b>Time:</b> '.$exam_time.'</p>
+			<p><b>Location:</b> '.$exam_location.'</p>
+			<p><b>Capacity:</b> '.$exam_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</span></a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="deactivate-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="deactivate-exam-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$exam_name.'?</p>
+            <p id="deactivate-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been deactivated successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="deactivate-exam-hide">
+			<div class="pull-left">
+			<a id="deactivate-'.$examid.'" class="btn btn-success btn-lg deactivate-exam-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="deactivate-exam-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-exam-question" class="text-center feedback-sad">Are you sure you want to delete '.$exam_name.'?</p>
+			<p id="delete-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-exam-hide">
+			<div class="pull-left">
+			<a id="delete-'.$examid.'" class="btn btn-success btn-lg delete-exam-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-exam-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
 	?>
 	</tbody>
 
@@ -196,7 +300,7 @@ AdminTimetableUpdate();
 
 	<!-- Inactive exams -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-inactive-exam">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -208,9 +312,137 @@ AdminTimetableUpdate();
 	</tr>
 	</thead>
 
-	<tbody id="content-inactive-exam">
+	<tbody>
 	<?php
-    echo $inactive_exam;
+
+	$stmt1 = $mysqli->query("SELECT e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e WHERE e.exam_status='inactive'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $examid = $row["examid"];
+    $exam_name = $row["exam_name"];
+    $exam_notes = $row["exam_notes"];
+    $exam_date = $row["exam_date"];
+    $exam_time = $row["exam_time"];
+    $exam_location = $row["exam_location"];
+    $exam_capacity = $row["exam_capacity"];
+
+
+	echo '<tr id="exam-'.$examid.'">
+
+			<td data-title="Name"><a href="#view-exam-'.$examid.'" data-toggle="modal">'.$exam_name.'</a></td>
+			<td data-title="Date">'.$exam_date.'</td>
+			<td data-title="Time">'.$exam_time.'</td>
+			<td data-title="Location">'.$exam_location.'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="#reactivate-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-pencil"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$exam_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($exam_notes) ? "No description" : "$exam_notes").'</p>
+			<p><b>Date:</b> '.$exam_date.'</p>
+			<p><b>Time:</b> '.$exam_time.'</p>
+			<p><b>Location:</b> '.$exam_location.'</p>
+			<p><b>Capacity:</b> '.$exam_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</span></a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="reactivate-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="reactivate-exam-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$exam_name.'?</p>
+            <p id="reactivate-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been reactivated successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="reactivate-exam-hide">
+			<div class="pull-left">
+			<a id="reactivate-'.$examid.'" class="btn btn-success btn-lg reactivate-exam-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="reactivate-exam-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-exam-question" class="text-center feedback-sad">Are you sure you want to delete '.$exam_name.'?</p>
+			<p id="delete-exam-confirmation" style="display: none;" class="text-center feedback-happy">'.$exam_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-exam-hide">
+			<div class="pull-left">
+			<a id="delete-'.$examid.'" class="btn btn-success btn-lg delete-exam-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-exam-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
 	?>
 	</tbody>
 
@@ -254,124 +486,6 @@ AdminTimetableUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
-    <script>
-    settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
-    //DataTables
-    $('.table-active-exam').dataTable(settings);
-    $('.table-inactive-exam').dataTable(settings);
-
-    //Deactivate module
-    $("body").on("click", ".btn-deactivate-exam", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var examToDeactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"json",
-	data:'examToDeactivate='+ examToDeactivate,
-	success:function(html){
-
-        $(".table-active-exam").dataTable().fnDestroy();
-        $('#content-active-exam').empty();
-        $('#content-active-exam').html(html.active_exam);
-        $(".table-active-exam").dataTable(settings);
-
-        $(".table-inactive-exam").dataTable().fnDestroy();
-        $('#content-inactive-exam').empty();
-        $('#content-inactive-exam').html(html.inactive_exam);
-        $(".table-inactive-exam").dataTable(settings);
-
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Reactivate module
-    $("body").on("click", ".btn-reactivate-exam", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var examToReactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"json",
-	data:'examToReactivate='+ examToReactivate,
-	success:function(html){
-        if (html.error_msg) {
-            $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(html.error_msg);
-            $('#error-modal').modal('show');
-        } else {
-            $(".table-inactive-exam").dataTable().fnDestroy();
-        }
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Delete module
-    $("body").on("click", ".btn-delete-exam", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var examToDelete = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"json",
-	data:'examToDelete='+ examToDelete,
-	success:function(html){
-        $('.modal-custom').modal('hide');
-
-        $('.modal-custom').on('hidden.bs.modal', function () {
-
-            $(".table-active-exam").dataTable().fnDestroy();
-            $('#content-active-exam').empty();
-            $('#content-active-exam').html(html.active_exam);
-            $(".table-active-exam").dataTable(settings);
-
-            $(".table-inactive-exam").dataTable().fnDestroy();
-            $('#content-inactive-exam').empty();
-            $('#content-inactive-exam').html(html.inactive_exam);
-            $(".table-inactive-exam").dataTable(settings);
-        });
-
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-	</script>
-
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
     <?php endif; ?>
 
 	<?php else : ?>
@@ -403,6 +517,125 @@ AdminTimetableUpdate();
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
+
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+	<script>
+
+
+
+    //DataTables
+    $('.table-custom').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no records to display."
+		}
+	});
+
+    //Deactivate module
+    $("body").on("click", ".deactivate-exam-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var examToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'examToDeactivate='+ examToDeactivate,
+	success:function(){
+		$('#exam-'+examToDeactivate).hide();
+        $('.form-logo i').removeClass('fa-plus-square-o');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-exam-question').hide();
+        $('#deactivate-exam-confirmation').show();
+        $('#deactivate-exam-hide').hide();
+        $('#deactivate-exam-success-button').show();
+        $("#deactivate-exam-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate module
+    $("body").on("click", ".reactivate-exam-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var examToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'examToReactivate='+ examToReactivate,
+	success:function(errormsg){
+        if (errormsg) {
+            $('.modal-custom').modal('hide');
+            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
+        } else {
+            $('#exam-' + examToReactivate).hide();
+            $('.form-logo i').removeClass('fa-minus-square-o');
+            $('.form-logo i').addClass('fa-check-square-o');
+            $('#reactivate-exam-question').hide();
+            $('#reactivate-exam-confirmation').show();
+            $('#reactivate-exam-hide').hide();
+            $('#reactivate-exam-success-button').show();
+            $("#reactivate-exam-success-button").click(function () {
+                location.reload();
+            });
+        }
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete module
+    $("body").on("click", ".delete-exam-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var examToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'examToDelete='+ examToDelete,
+	success:function(){
+		$('#exam-'+examToDelete).hide();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-exam-question').hide();
+        $('#delete-exam-confirmation').show();
+        $('#delete-exam-hide').hide();
+        $('#delete-exam-success-button').show();
+        $("#delete-exam-success-button").click(function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+	</script>
 
 </body>
 </html>
