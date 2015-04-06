@@ -319,7 +319,7 @@ AdminTimetableUpdate();
 	success:function(html){
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(error_msg);
+            $('#error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
         } else {
             $(".table-inactive-exam").dataTable().fnDestroy();
