@@ -324,8 +324,7 @@ AdminTimetableUpdate();
         } else {
             $(".table-inactive-exam").dataTable().fnDestroy();
             $('#content-inactive-exam').empty();
-            $('#content-inactive-exam').html(html.inactive_exam);
-            $(".table-inactive-exam").dataTable(settings);
+
 
         }
 	},
