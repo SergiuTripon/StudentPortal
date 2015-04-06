@@ -2332,6 +2332,8 @@ function DeactivateExam() {
     $stmt1->bind_param('ssi', $exam_status, $updated_on, $examToDeactivate);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //ReactivateExam function
@@ -2403,6 +2405,8 @@ function DeleteExam() {
     $stmt2->bind_param('ii', $examid, $examToDelete);
     $stmt2->execute();
     $stmt2->close();
+
+    AdminTimetableUpdate($isUpdate = 1);
 }
 
 //AllocateExam function
