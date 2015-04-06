@@ -2275,6 +2275,8 @@ global $inactive_tutorial;
 	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(html){
 
+        alert(html);
+
         if (html == 'error') {
             $('.modal-custom').modal('hide');
             $('#error-modal .modal-body p').empty().append('You cannot reactivate this lecture because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this lecture.');
