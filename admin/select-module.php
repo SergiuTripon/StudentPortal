@@ -5,15 +5,15 @@ include '../includes/functions.php';
 global $session_userid;
 global $mysqli;
 
-global $userToCreateResults;
+global $userToCreateResult;
 global $active_result;
 global $inactive_result;
 
 if (isset($_GET['id'])) {
 
-    AdminTimetableUpdate($userToCreateResults = $_GET['id']);
+    AdminTimetableUpdate($userid = $_GET['id']);
 
-    $userToCreateResults = $_GET['id'];
+    $userToCreateResult = $_GET['id'];
 
 } else {
     header('Location: ../../results/');
