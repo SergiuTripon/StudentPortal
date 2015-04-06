@@ -279,19 +279,19 @@ AdminTimetableUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'examToDeactivate='+ examToDeactivate,
-	success:function(){
+	success:function(html){
 
         $(".table-active-exam").dataTable().fnDestroy();
         $('#content-active-exam').empty();
-        $('#content-active-exam').html(html.inactive_module);
-        $(".table-active-exam").dataTable(admin_settings);
+        $('#content-active-exam').html(html.active_exam);
+        $(".table-active-exam").dataTable(settings);
 
         $(".table-inactive-exam").dataTable().fnDestroy();
         $('#content-inactive-exam').empty();
         $('#content-inactive-exam').html(html.inactive_exam);
-        $(".table-inactive-exam").dataTable(admin_settings);
+        $(".table-inactive-exam").dataTable(settings);
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -311,24 +311,23 @@ AdminTimetableUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'examToReactivate='+ examToReactivate,
-	success:function(errormsg){
-        if (errormsg) {
+	success:function(html){
+        if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal .modal-body p').empty().append(error_msg);
             $('#error-modal').modal('show');
         } else {
-            $('#exam-' + examToReactivate).hide();
-            $('.form-logo i').removeClass('fa-minus-square-o');
-            $('.form-logo i').addClass('fa-check-square-o');
-            $('#reactivate-exam-question').hide();
-            $('#reactivate-exam-confirmation').show();
-            $('#reactivate-exam-hide').hide();
-            $('#reactivate-exam-success-button').show();
-            $("#reactivate-exam-success-button").click(function () {
-                location.reload();
-            });
+            $(".table-inactive-exam").dataTable().fnDestroy();
+            $('#content-inactive-exam').empty();
+            $('#content-inactive-exam').html(html.inactive_exam);
+            $(".table-inactive-exam").dataTable(settings);
+
+            $(".table-active-exam").dataTable().fnDestroy();
+            $('#content-active-exam').empty();
+            $('#content-active-exam').html(html.active_exam);
+            $(".table-active-exam").dataTable(settings);
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -348,19 +347,24 @@ AdminTimetableUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'examToDelete='+ examToDelete,
-	success:function(){
-		$('#exam-'+examToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-exam-question').hide();
-        $('#delete-exam-confirmation').show();
-        $('#delete-exam-hide').hide();
-        $('#delete-exam-success-button').show();
-        $("#delete-exam-success-button").click(function () {
-            location.reload();
+	success:function(html){
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+
+            $(".table-active-exam").dataTable().fnDestroy();
+            $('#content-active-exam').empty();
+            $('#content-active-exam').html(html.active_exam);
+            $(".table-active-exam").dataTable(settings);
+
+            $(".table-inactive-exam").dataTable().fnDestroy();
+            $('#content-inactive-exam').empty();
+            $('#content-inactive-exam').html(html.inactive_exam);
+            $(".table-inactive-exam").dataTable(settings);
         });
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
