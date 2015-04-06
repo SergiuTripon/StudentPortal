@@ -304,7 +304,7 @@ AdminTimetableUpdate();
 	dataType:"json",
 	data:'examToReactivate='+ examToReactivate,
 	success:function(html){
-        if (html) {
+        if (html.error_msg) {
             $('.modal-custom').modal('hide');
             $('#error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
