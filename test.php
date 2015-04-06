@@ -8,6 +8,7 @@ echo $array['active_result'];
 echo $array['inactive_result'];
 
 $userid = '3';
+$result_status = 'inactive';
 
 $stmt10 = $mysqli->prepare("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid=? AND user_result.result_status=?");
 $stmt10->bind_param('is', $userid, $result_status);
