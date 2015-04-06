@@ -2381,7 +2381,6 @@ function ReactivateExam() {
         echo json_encode($array);
 
         exit();
-
     }
 
     AdminTimetableUpdate($isUpdate = 1);
