@@ -67,3 +67,5 @@ if ($stmt10->num_rows > 0) {
     }
 }
 $stmt10->close();
+
+echo $inactive_result;
