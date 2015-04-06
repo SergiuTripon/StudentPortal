@@ -2494,6 +2494,8 @@ function DeactivateResult() {
     $stmt1->execute();
     $stmt1->close();
 
+    echo "$userToCreateResult";
+
     AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
 }
 
