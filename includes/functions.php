@@ -1607,27 +1607,24 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
             $active_exam .=
 
-           '<tr id="exam-'.$examid.'">
-
-			<td data-title="Name"><a href="#view-exam-'.$examid.'" data-toggle="modal">'.$exam_name.'</a></td>
-			<td data-title="Date">'.$exam_date.'</td>
-			<td data-title="Time">'.$exam_time.'</td>
-			<td data-title="Location">'.$exam_location.'</td>
-			<td data-title="Action">
+           '<tr>
+			<td data-title="Exam"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$exam_name.'</a></td>
+            <td data-title="Date">'.$exam_date.'</td>
+            <td data-title="Time">'.$exam_time.'</td>
+            <td data-title="Location">'.$exam_location.'</td>
+            <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="/admin/allocate-exam?id='.$examid.'">Allocate</a>
+            <a class="btn btn-primary" href="/admin/allocate-tutorial?id='.$examid.'">Allocate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="/admin/update-exam?id='.$examid.'">Update</a></li>
-            <li><a href="#deactivate-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
-            <li><a href="#delete-exam-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            <li><a href="/admin/update-tutorial?id='.$examid.'">Update</a></li>
+            <li><a id="deactivate-'.$examid.'" class="btn-deactivate-tutorial">Deactivate</a></li>
+            <li><a href="#delete-tutorial-'.$examid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
-
-
             </td>
 			</tr>
 
