@@ -2271,7 +2271,7 @@ global $inactive_tutorial;
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(html){
 
