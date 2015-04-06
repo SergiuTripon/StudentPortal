@@ -2274,6 +2274,9 @@ global $inactive_tutorial;
 	dataType:"text",
 	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(html){
+
+        alert(html.error_msg);
+
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
             $('#error-modal .modal-body p').empty().append(html);
@@ -2310,8 +2313,6 @@ global $inactive_tutorial;
 	dataType:"json",
 	data:'tutorialToReactivate='+ tutorialToReactivate,
 	success:function(html){
-
-        alert(html.error_msg);
 
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
