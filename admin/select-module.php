@@ -223,6 +223,7 @@ if (isset($_GET['id'])) {
         }
     };
 
+    $('.table-custom').dataTable(settings);
     $('.table-active-result').dataTable(settings);
     $('.table-inactive-result').dataTable(settings);
 
