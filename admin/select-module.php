@@ -237,7 +237,7 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var resultToDeactivate = clickedID[1];
-    var userToCreateResult = $('userid').html();
+    var userToCreateResult = $('userid').val();
 
     alert(userToCreateResult);
 
