@@ -112,6 +112,24 @@ AdminTimetableUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+    <script>
+    settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
+    //DataTables
+    $('.table-custom').dataTable(settings);
+	</script>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
@@ -127,7 +145,6 @@ AdminTimetableUpdate();
 
     <a class="btn btn-success btn-lg btn-admin" href="/admin/create-exam/">Create exam</span></a>
 
-
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
@@ -142,7 +159,7 @@ AdminTimetableUpdate();
 
 	<!-- Active exams -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-active-exam">
 
 	<thead>
 	<tr>
@@ -154,7 +171,7 @@ AdminTimetableUpdate();
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-active-exam">
 	<?php
     echo $active_exam;
 	?>
@@ -179,7 +196,7 @@ AdminTimetableUpdate();
 
 	<!-- Inactive exams -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-inactive-exam">
 
 	<thead>
 	<tr>
@@ -191,7 +208,7 @@ AdminTimetableUpdate();
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-inactive-exam">
 	<?php
     echo $inactive_exam;
 	?>
@@ -237,56 +254,20 @@ AdminTimetableUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php endif; ?>
-
-	<?php else : ?>
-
-	<?php include 'includes/menus/menu.php'; ?>
-
-    <div class="container">
-
-	<form class="form-horizontal form-custom">
-
-    <div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-
-    <hr>
-
-    <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
-    </div>
-
-    </form>
-
-	</div>
-
-	<?php include 'includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
-	<script>
-
-
+    <script>
+    settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
 
     //DataTables
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no records to display."
-		}
-	});
+    $('.table-active-exam').dataTable(settings);
+    $('.table-inactive-exam').dataTable(settings);
 
     //Deactivate module
     $("body").on("click", ".deactivate-exam-button", function(e) {
@@ -301,16 +282,17 @@ AdminTimetableUpdate();
 	dataType:"text",
 	data:'examToDeactivate='+ examToDeactivate,
 	success:function(){
-		$('#exam-'+examToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-plus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-exam-question').hide();
-        $('#deactivate-exam-confirmation').show();
-        $('#deactivate-exam-hide').hide();
-        $('#deactivate-exam-success-button').show();
-        $("#deactivate-exam-success-button").click(function () {
-            location.reload();
-        });
+
+        $(".table-active-exam").dataTable().fnDestroy();
+        $('#content-active-exam').empty();
+        $('#content-active-exam').html(html.inactive_module);
+        $(".table-active-exam").dataTable(admin_settings);
+
+        $(".table-inactive-exam").dataTable().fnDestroy();
+        $('#content-inactive-exam').empty();
+        $('#content-inactive-exam').html(html.inactive_exam);
+        $(".table-inactive-exam").dataTable(admin_settings);
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -387,6 +369,41 @@ AdminTimetableUpdate();
 	});
     });
 	</script>
+
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+    <?php endif; ?>
+
+	<?php else : ?>
+
+	<?php include 'includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+	<form class="form-horizontal form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    </div>
+
+    </form>
+
+	</div>
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<?php endif; ?>
 
 </body>
 </html>

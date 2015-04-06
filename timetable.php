@@ -64,7 +64,7 @@ AdminTimetableUpdate();
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-student-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -225,7 +225,7 @@ AdminTimetableUpdate();
 
 	<!-- Tuesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-student-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -386,7 +386,7 @@ AdminTimetableUpdate();
 
 	<!-- Wednesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-student-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -547,7 +547,7 @@ AdminTimetableUpdate();
 
 	<!-- Thursday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-student-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -708,7 +708,7 @@ AdminTimetableUpdate();
 
 	<!-- Friday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-student-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -931,7 +931,7 @@ AdminTimetableUpdate();
         }
     });
 
-    student_settings = {
+    settings = {
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
@@ -942,7 +942,7 @@ AdminTimetableUpdate();
     };
 
     //DataTables
-    $('.table-student-class').dataTable(student_settings);
+    $('.table-custom').dataTable(settings);
     </script>
 
     <?php endif; ?>
@@ -974,7 +974,7 @@ AdminTimetableUpdate();
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-academic-staff-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1125,7 +1125,7 @@ AdminTimetableUpdate();
 
 	<!-- Tuesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-academic-staff-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1276,7 +1276,7 @@ AdminTimetableUpdate();
 
 	<!-- Wednesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-academic-staff-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1427,7 +1427,7 @@ AdminTimetableUpdate();
 
 	<!-- Thursday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-academic-staff-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1578,7 +1578,7 @@ AdminTimetableUpdate();
 
 	<!-- Friday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-academic-staff-class">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -1791,7 +1791,7 @@ AdminTimetableUpdate();
         }
     });
 
-    academic_staff_settings = {
+    settings = {
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
@@ -1802,7 +1802,7 @@ AdminTimetableUpdate();
     };
 
     //DataTables
-    $('.table-academic-staff-class').dataTable(academic_staff_settings);
+    $('.table-custom').dataTable(settings);
     </script>
 
     <?php endif; ?>
@@ -2079,7 +2079,7 @@ AdminTimetableUpdate();
     <?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
-    admin_settings = {
+    settings = {
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
@@ -2090,12 +2090,12 @@ AdminTimetableUpdate();
     };
 
 	//DataTables
-    $('.table-active-module').dataTable(admin_settings);
-    $('.table-active-lecture').dataTable(admin_settings);
-    $('.table-active-tutorial').dataTable(admin_settings);
-    $('.table-inactive-module').dataTable(admin_settings);
-    $('.table-inactive-lecture').dataTable(admin_settings);
-    $('.table-inactive-tutorial').dataTable(admin_settings);
+    $('.table-active-module').dataTable(settings);
+    $('.table-active-lecture').dataTable(settings);
+    $('.table-active-tutorial').dataTable(settings);
+    $('.table-inactive-module').dataTable(settings);
+    $('.table-inactive-lecture').dataTable(settings);
+    $('.table-inactive-tutorial').dataTable(settings);
 
     //Deactivate module
     $("body").on("click", ".btn-deactivate-module", function(e) {
