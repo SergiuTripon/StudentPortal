@@ -248,7 +248,7 @@ if (isset($_GET['id'])) {
 	data:'resultToDeactivate='+ resultToDeactivate + '&userToCreateResult' + userToCreateResult,
 	success:function(html){
 
-        alert(html.inactive_result);
+        alert(html);
 
         $(".table-active-result").dataTable().fnDestroy();
         $('#content-active-result').empty();
