@@ -272,8 +272,6 @@ AdminTimetableUpdate();
 	data:'examToDeactivate='+ examToDeactivate,
 	success:function(html){
 
-        alert(html);
-
         $(".table-active-exam").dataTable().fnDestroy();
         $('#content-active-exam').empty();
         $('#content-active-exam').html(html.active_exam);
