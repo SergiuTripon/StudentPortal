@@ -112,6 +112,10 @@ AdminTimetableUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
@@ -126,7 +130,6 @@ AdminTimetableUpdate();
     </ol>
 
     <a class="btn btn-success btn-lg btn-admin" href="/admin/create-exam/">Create exam</span></a>
-
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -237,6 +240,125 @@ AdminTimetableUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+    <script>
+
+    settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
+    //Deactivate exam
+    $("body").on("click", ".btn-deactivate-exam", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var examToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"json",
+	data:'examToDeactivate='+ examToDeactivate,
+	success:function(html){
+
+        $(".table-active-exam").dataTable().fnDestroy();
+        $('#content-active-exam').empty();
+        $('#content-active-exam').html(html.active_exam);
+        $(".table-active-exam").dataTable(settings);
+
+        $(".table-inactive-exam").dataTable().fnDestroy();
+        $('#content-inactive-exam').empty();
+        $('#content-inactive-exam').html(html.inactive_exam);
+        $(".table-inactive-exam").dataTable(settings);
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate exam
+    $("body").on("click", ".btn-reactivate-exam", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var examToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"json",
+	data:'examToReactivate='+ examToReactivate,
+	success:function(html){
+        if (html) {
+            $('.modal-custom').modal('hide');
+            $('#error-modal .modal-body p').empty().append(html.errormsg);
+            $('#error-modal').modal('show');
+        } else {
+            $(".table-inactive-exam").dataTable().fnDestroy();
+            $('#content-inactive-exam').empty();
+            $('#content-inactive-exam').html(html.inactive_exam);
+            $(".table-inactive-exam").dataTable(settings);
+
+            $(".table-active-exam").dataTable().fnDestroy();
+            $('#content-active-exam').empty();
+            $('#content-active-exam').html(html.active_exam);
+            $(".table-active-exam").dataTable(settings);
+        }
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete exam
+    $("body").on("click", ".btn-delete-exam", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var examToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"json",
+	data:'examToDelete='+ examToDelete,
+	success:function(html){
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            $(".table-active-exam").dataTable().fnDestroy();
+            $('#content-active-exam').empty();
+            $('#content-active-exam').html(html.active_exam);
+            $(".table-active-exam").dataTable(settings);
+
+            $(".table-inactive-exam").dataTable().fnDestroy();
+            $('#content-inactive-exam').empty();
+            $('#content-inactive-exam').html(html.inactive_exam);
+            $(".table-inactive-exam").dataTable(settings);
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+	</script>
+
     <?php endif; ?>
 
 	<?php else : ?>
@@ -268,125 +390,6 @@ AdminTimetableUpdate();
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
-	<script>
-
-
-
-    //DataTables
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no records to display."
-		}
-	});
-
-    //Deactivate module
-    $("body").on("click", ".deactivate-exam-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var examToDeactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'examToDeactivate='+ examToDeactivate,
-	success:function(){
-		$('#exam-'+examToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-plus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-exam-question').hide();
-        $('#deactivate-exam-confirmation').show();
-        $('#deactivate-exam-hide').hide();
-        $('#deactivate-exam-success-button').show();
-        $("#deactivate-exam-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Reactivate module
-    $("body").on("click", ".reactivate-exam-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var examToReactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'examToReactivate='+ examToReactivate,
-	success:function(errormsg){
-        if (errormsg) {
-            $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
-            $('#error-modal').modal('show');
-        } else {
-            $('#exam-' + examToReactivate).hide();
-            $('.form-logo i').removeClass('fa-minus-square-o');
-            $('.form-logo i').addClass('fa-check-square-o');
-            $('#reactivate-exam-question').hide();
-            $('#reactivate-exam-confirmation').show();
-            $('#reactivate-exam-hide').hide();
-            $('#reactivate-exam-success-button').show();
-            $("#reactivate-exam-success-button").click(function () {
-                location.reload();
-            });
-        }
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Delete module
-    $("body").on("click", ".delete-exam-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var examToDelete = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'examToDelete='+ examToDelete,
-	success:function(){
-		$('#exam-'+examToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-exam-question').hide();
-        $('#delete-exam-confirmation').show();
-        $('#delete-exam-hide').hide();
-        $('#delete-exam-success-button').show();
-        $("#delete-exam-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-	</script>
 
 </body>
 </html>
