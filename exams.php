@@ -245,7 +245,6 @@ AdminTimetableUpdate();
     <?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
-
     settings = {
         "iDisplayLength": 10,
         "paging": true,
