@@ -63,7 +63,7 @@ global $inactive_tutorials;
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-student-class">
 
 	<thead>
 	<tr>
@@ -224,7 +224,7 @@ global $inactive_tutorials;
 
 	<!-- Tuesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-student-class">
 
 	<thead>
 	<tr>
@@ -385,7 +385,7 @@ global $inactive_tutorials;
 
 	<!-- Wednesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-student-class">
 
 	<thead>
 	<tr>
@@ -546,7 +546,7 @@ global $inactive_tutorials;
 
 	<!-- Thursday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-student-class">
 
 	<thead>
 	<tr>
@@ -707,7 +707,7 @@ global $inactive_tutorials;
 
 	<!-- Friday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-student-class">
 
 	<thead>
 	<tr>
@@ -938,7 +938,7 @@ global $inactive_tutorials;
     };
 
     //DataTables
-    $('.class-table').dataTable(student_settings);
+    $('.table-student-class').dataTable(student_settings);
     </script>
 
     <?php endif; ?>
@@ -970,7 +970,7 @@ global $inactive_tutorials;
 
 	<!-- Monday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-academic-staff-class">
 
 	<thead>
 	<tr>
@@ -1121,7 +1121,7 @@ global $inactive_tutorials;
 
 	<!-- Tuesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-academic-staff-class">
 
 	<thead>
 	<tr>
@@ -1272,7 +1272,7 @@ global $inactive_tutorials;
 
 	<!-- Wednesday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-academic-staff-class">
 
 	<thead>
 	<tr>
@@ -1423,7 +1423,7 @@ global $inactive_tutorials;
 
 	<!-- Thursday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-academic-staff-class">
 
 	<thead>
 	<tr>
@@ -1574,7 +1574,7 @@ global $inactive_tutorials;
 
 	<!-- Friday -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-academic-staff-class">
 
 	<thead>
 	<tr>
@@ -1784,18 +1784,18 @@ global $inactive_tutorials;
         }
     });
 
-    student_settings = {
+    academic_staff_settings = {
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
         "info": false,
         "language": {
-            "emptyTable": "You have no classes on this day."
+            "emptyTable": "There are no records to display."
         }
     };
 
     //DataTables
-    $('.class-table').dataTable(student_settings);
+    $('.table-academic-staff-class').dataTable(academic_staff_settings);
     </script>
 
     <?php endif; ?>
