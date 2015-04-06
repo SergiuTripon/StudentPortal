@@ -2,7 +2,10 @@
 include 'includes/session.php';
 include 'includes/functions.php';
 
+global $active_exam;
+global $inactive_exam;
 
+AdminTimetableUpdate();
 
 ?>
 
