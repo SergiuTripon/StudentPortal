@@ -1,5 +1,6 @@
 <?php
 include 'includes/session.php';
+include 'includes/functions.php';
 
 global $mysqli;
 global $session_userid;
