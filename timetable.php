@@ -2134,8 +2134,6 @@ global $inactive_tutorial;
     var clickedID = this.id.split('-');
     var lectureToDeactivate = clickedID[1];
 
-    alert(lectureToDeactivate);
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
