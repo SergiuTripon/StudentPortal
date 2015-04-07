@@ -69,6 +69,9 @@ AdminUniversityMapUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+
 	<?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
@@ -170,6 +173,130 @@ AdminUniversityMapUpdate();
 
     <?php include 'includes/footers/footer.php'; ?>
 
+    <!-- Sign Out (Inactive) JS -->
+    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
+
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+    <script>
+
+    //DataTables
+    var settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
+    $('.table-active-location').dataTable(settings);
+    $('.table-inactive-location').dataTable(settings);
+
+    //Deactivate location
+    $("body").on("click", ".btn-deactivate-location", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var locationToDeactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'locationToDeactivate='+ locationToDeactivate,
+	success:function(html){
+
+        $(".table-active-location").dataTable().fnDestroy();
+        $('#content-active-location').empty();
+        $('#content-active-location').html(html.active_location);
+        $(".table-active-location").dataTable(settings);
+
+        $(".table-inactive-location").dataTable().fnDestroy();
+        $('#content-inactive-location').empty();
+        $('#content-inactive-location').html(html.inactive_location);
+        $(".table-inactive-location").dataTable(settings);
+
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Reactivate location
+    $("body").on("click", ".reactivate-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var locationToReactivate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"json",
+	data:'locationToReactivate='+ locationToReactivate,
+	success:function(html){
+
+        $(".table-active-location").dataTable().fnDestroy();
+        $('#content-active-location').empty();
+        $('#content-active-location').html(html.active_location);
+        $(".table-active-location").dataTable(settings);
+
+        $(".table-inactive-location").dataTable().fnDestroy();
+        $('#content-inactive-location').empty();
+        $('#content-inactive-location').html(html.inactive_location);
+        $(".table-inactive-location").dataTable(settings);
+
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete location
+    $("body").on("click", ".btn-delete-location", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var locationToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"json",
+	data:'locationToDelete='+ locationToDelete,
+	success:function(html){
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            $(".table-active-location").dataTable().fnDestroy();
+            $('#content-active-location').empty();
+            $('#content-active-location').html(html.active_location);
+            $(".table-active-location").dataTable(settings);
+
+            $(".table-inactive-location").dataTable().fnDestroy();
+            $('#content-inactive-location').empty();
+            $('#content-inactive-location').html(html.inactive_location);
+            $(".table-inactive-location").dataTable(settings);
+        });
+
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    </script>
+
     <?php endif; ?>
 
     <?php else : ?>
@@ -199,124 +326,6 @@ AdminUniversityMapUpdate();
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
-
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
-    <script>
-
-
-
-
-    //DataTables
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    });
-
-    //Deactivate location
-    $("body").on("click", ".deactivate-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var locationToDeactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'locationToDeactivate='+ locationToDeactivate,
-	success:function(){
-		$('#location-'+locationToDeactivate).hide();
-        $('.form-logo i').removeClass('fa-minus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The location has been deactivated successfully.');
-        $('#deactivate-hide').hide();
-        $('#deactivate-success-button').show();
-        $("#deactivate-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Reactivate location
-    $("body").on("click", ".reactivate-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var locationToReactivate = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'locationToReactivate='+ locationToReactivate,
-	success:function(){
-		$('#location-'+locationToReactivate).hide();
-        $('.form-logo i').removeClass('fa-plus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The location has been reactivated successfully.');
-        $('#reactivate-hide').hide();
-        $('#reactivate-success-button').show();
-        $("#reactivate-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Delete location
-    $("body").on("click", ".delete-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var locationToDelete = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'locationToDelete='+ locationToDelete,
-	success:function(){
-		$('#location-'+locationToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The location has been deleted successfully.');
-        $('#delete-hide').hide();
-        $('#delete-success-button').show();
-        $("#delete-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    </script>
 
 </body>
 </html>
