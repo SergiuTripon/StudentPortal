@@ -4286,7 +4286,7 @@ function DeactivateEvent() {
     $stmt1->execute();
     $stmt1->close();
 
-    echo 'blah';
+    AdminEventUpdate($isUpdate = 1);
 }
 
 //ReactivateEvent function
