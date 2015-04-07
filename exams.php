@@ -225,23 +225,23 @@ AdminExamUpdate();
 
     </div><!-- /container -->
 
-    <div id="error-modal" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal fade modal-custom modal-error" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
     <div class="modal-header">
     <div class="form-logo text-center">
-    <i class="fa fa-exclamation"></i>
+    <i class="fa fa-ban"></i>
     </div>
     </div>
 
     <div class="modal-body">
-    <p class="text-center feedback-sad"></p>
+    <p class="text-center"></p>
     </div>
 
     <div class="modal-footer">
     <div class="view-close text-center">
-    <a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
+    <a class="btn btn-default btn-lg" data-dismiss="modal">Close</a>
     </div>
     </div>
 
@@ -323,8 +323,8 @@ AdminExamUpdate();
 	success:function(html){
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(html.error_msg);
-            $('#error-modal').modal('show');
+            $('#modal-error .modal-body p').empty().append(html.error_msg);
+            $('#modal-error').modal('show');
         } else {
 
             showPreloader();
