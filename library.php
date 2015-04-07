@@ -560,9 +560,6 @@ AdminLibraryUpdate();
 	</thead>
 
 	<tbody id="content-active-book">
-	<?php
-    echo $active_book;
-	?>
 	</tbody>
 
 	</table>
@@ -595,9 +592,6 @@ AdminLibraryUpdate();
 	</thead>
 
 	<tbody id="content-inactive-book">
-    <?php
-    echo $inactive_book;
-	?>
 	</tbody>
 
 	</table>
