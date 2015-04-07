@@ -1548,7 +1548,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete '.$lecture_name.'?</p>
+			<p class="text-left">Are you sure you want to delete '.$lecture_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -1652,7 +1652,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete '.$lecture_name.'?</p>
+			<p class="text-left">Are you sure you want to delete '.$lecture_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -1749,24 +1749,23 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete tutorial?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p class="feedback-sad text-center">Are you sure you want to delete '.$tutorial_name.'?</p>
+			<p class="text-left">Are you sure you want to delete '.$tutorial_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg btn-delete-tutorial">Confirm</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$tutorialid.'" class="btn btn-primary btn-lg btn-delete-tutorial btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -1854,24 +1853,23 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-tutorial-'.$tutorialid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete tutorial?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p class="feedback-sad text-center">Are you sure you want to delete '.$tutorial_name.'?</p>
+			<p class="text-left">Are you sure you want to delete '.$tutorial_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$tutorialid.'" class="btn btn-success btn-lg btn-delete-tutorial">Confirm</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$tutorialid.'" class="btn btn-primary btn-lg btn-delete-tutorial btn-load">Confirm</a>
 			</div>
 			</div>
 
