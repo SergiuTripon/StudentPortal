@@ -1313,7 +1313,15 @@ AdminLibraryUpdate();
 	data:'bookToReactivate='+ bookToReactivate,
 	success:function(html){
 
-        alert('hello');
+        $('#content-active-book').empty();
+        $(".table-active-book").dataTable().fnDestroy();
+        $('#content-active-book').html(html.active_book);
+        $(".table-active-book").dataTable(settings);
+
+        $('#content-inactive-book').empty();
+        $(".table-inactive-book").dataTable().fnDestroy();
+        $('#content-inactive-book').html(html.inactive_book);
+        $(".table-inactive-book").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -1323,25 +1331,31 @@ AdminLibraryUpdate();
     });
 
     //Delete book
-    $("body").on("click", ".btn-delete-", function(e) {
+    $("body").on("click", ".btn-delete-book", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToDelete = clickedID[1];
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'bookToDelete='+ bookToDelete,
-	success:function(){
-		$('#book-'+bookToDelete).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-question').hide();
-        $('#delete-confirmation').show();
-        $('#delete-hide').hide();
-        $('#delete-success-button').show();
-        $("#delete-success-button").click(function () {
-            location.reload();
+	success:function(html){
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+
+            $('#content-active-book').empty();
+            $(".table-active-book").dataTable().fnDestroy();
+            $('#content-active-book').html(html.active_book);
+            $(".table-active-book").dataTable(settings);
+
+            $('#content-inactive-book').empty();
+            $(".table-inactive-book").dataTable().fnDestroy();
+            $('#content-inactive-book').html(html.inactive_book);
+            $(".table-inactive-book").dataTable(settings);
+
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
