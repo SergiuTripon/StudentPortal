@@ -2444,10 +2444,8 @@ function DeleteResult() {
 function AdminResultUpdate($isUpdate = 0) {
 
     global $mysqli;
-    global $session_userid;
-    global $due_task;
-    global $completed_task;
-    global $archived_task;
+    global $active_result;
+    global $inactive_result;
 
     $result_status = 'active';
 
