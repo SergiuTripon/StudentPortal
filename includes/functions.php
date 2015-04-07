@@ -4693,8 +4693,6 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
     $stmt1->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
     $stmt1->store_result();
 
-    $marker_category = ucfirst($mark_category);
-
     if ($stmt1->num_rows > 0) {
 
         while ($stmt1->fetch()) {
@@ -4705,7 +4703,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 			<td data-title="Location">'.$marker_name.'</td>
 			<td data-title="Latitude">'.$marker_lat.'</td>
 			<td data-title="Longitude">'.$marker_long.'</td>
-			<td data-title="Category">'.$marker_category.'</td>
+			<td data-title="Category">'.ucfirst($marker_category).'</td>
 			<td data-title="Created on">'.$created_on.'</td>
 			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
 			<td data-title="Action">
@@ -4760,8 +4758,6 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
     $stmt2->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
     $stmt2->store_result();
 
-    $marker_category = ucfirst($mark_category);
-
     if ($stmt2->num_rows > 0) {
 
         while ($stmt2->fetch()) {
@@ -4772,7 +4768,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 			<td data-title="Location">'.$marker_name.'</td>
 			<td data-title="Latitude">'.$marker_lat.'</td>
 			<td data-title="Longitude">'.$marker_long.'</td>
-			<td data-title="Category">'.$marker_category.'</td>
+			<td data-title="Category">'.ucfirst($marker_category).'</td>
 			<td data-title="Created on">'.$created_on.'</td>
 			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
 			<td data-title="Action">
