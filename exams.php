@@ -278,7 +278,7 @@ AdminExamUpdate();
     var clickedID = this.id.split('-');
     var examToDeactivate = clickedID[1];
 
-    showPreloader();
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -287,7 +287,7 @@ AdminExamUpdate();
 	data:'examToDeactivate='+ examToDeactivate,
 	success:function(html){
 
-        showPreloader();
+        togglePreloader();
 
         $(".table-active-exam").dataTable().fnDestroy();
         $('#content-active-exam').empty();
@@ -313,7 +313,7 @@ AdminExamUpdate();
     var clickedID = this.id.split('-');
     var examToReactivate = clickedID[1];
 
-    showPreloader();
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -327,7 +327,7 @@ AdminExamUpdate();
             $('#modal-error').modal('show');
         } else {
 
-            showPreloader();
+            togglePreloader();
 
             $(".table-inactive-exam").dataTable().fnDestroy();
             $('#content-inactive-exam').empty();

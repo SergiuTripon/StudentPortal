@@ -2103,7 +2103,7 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var moduleToDeactivate = clickedID[1];
 
-    showPreloader();
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -2112,7 +2112,7 @@ AdminTimetableUpdate();
 	data:'moduleToDeactivate='+ moduleToDeactivate,
 	success:function(html){
 
-        showPreloader();
+        togglePreloader();
 
         $(".table-active-module").dataTable().fnDestroy();
         $('#content-active-module').empty();
@@ -2159,7 +2159,7 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var lectureToDeactivate = clickedID[1];
 
-    showPreloader();
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -2168,7 +2168,7 @@ AdminTimetableUpdate();
 	data:'lectureToDeactivate='+ lectureToDeactivate,
 	success:function(html){
 
-        showPreloader();
+        togglePreloader();
 
         $(".table-active-lecture").dataTable().fnDestroy();
         $('#content-active-lecture').empty();
@@ -2194,7 +2194,7 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var tutorialToDeactivate = clickedID[1];
 
-    showPreloader();
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -2203,7 +2203,7 @@ AdminTimetableUpdate();
 	data:'tutorialToDeactivate='+ tutorialToDeactivate,
 	success:function(html){
 
-        showPreloader();
+        togglePreloader();
 
         $(".table-active-tutorial").dataTable().fnDestroy();
         $('#content-active-tutorial').empty();
@@ -2229,7 +2229,7 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var moduleToReactivate = clickedID[1];
 
-    showPreloader();
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -2238,7 +2238,7 @@ AdminTimetableUpdate();
 	data:'moduleToReactivate='+ moduleToReactivate,
 	success:function(html){
 
-        showPreloader();
+        togglePreloader();
 
         $(".table-inactive-tutorial").dataTable().fnDestroy();
         $('#content-inactive-tutorial').empty();
@@ -2284,7 +2284,7 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var lectureToReactivate = clickedID[1];
 
-    showPreloader();
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -2293,7 +2293,7 @@ AdminTimetableUpdate();
 	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(html){
 
-        showPreloader();
+        togglePreloader();
 
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
@@ -2325,7 +2325,7 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var tutorialToReactivate = clickedID[1];
 
-    showPreloader();
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -2334,7 +2334,7 @@ AdminTimetableUpdate();
 	data:'tutorialToReactivate='+ tutorialToReactivate,
 	success:function(html){
 
-        showPreloader();
+        togglePreloader();
 
         if (html.error_msg) {
             $('.modal-custom').modal('hide');

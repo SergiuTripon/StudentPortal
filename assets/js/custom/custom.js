@@ -2,7 +2,7 @@
 		$(".preloader").fadeOut("slow");
 	});
 
-    function showPreloader() {
+    function togglePreloader() {
         $('.preloader').toggle();
     }
 
