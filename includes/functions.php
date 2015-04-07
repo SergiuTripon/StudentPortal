@@ -2121,7 +2121,7 @@ function DeallocateExam() {
     $stmt1->close();
 }
 
-function AdminExamUpdate($isUpdate = 1) {
+function AdminExamUpdate($isUpdate = 0) {
 
     global $mysqli;
     global $active_exam;
