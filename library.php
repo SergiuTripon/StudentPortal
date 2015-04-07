@@ -401,6 +401,131 @@ AdminLibraryUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
+	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+	<script>
+	$(document).ready(function () {
+        //Book view/Calendar view toggle
+        $("#calendar-content").hide();
+        $(".book-tile").addClass("tile-selected");
+        $(".book-tile p").addClass("tile-text-selected");
+        $(".book-tile i").addClass("tile-text-selected");
+    });
+
+	//Sets calendar options
+	(function($) {
+
+	"use strict";
+
+	var options = {
+		events_source: 'https://student-portal.co.uk/includes/calendar/source/reservedbooks_json.php',
+		view: 'month',
+		tmpl_path: '../assets/tmpls/',
+		tmpl_cache: false,
+		onAfterViewLoad: function(view) {
+			$('.page-header h3').text(this.getTitle());
+			$('.btn-group button').removeClass('active');
+			$('button[data-calendar-view="' + view + '"]').addClass('active');
+		},
+		classes: {
+			months: {
+				general: 'label'
+			}
+		}
+	};
+
+	var calendar = $('#calendar').calendar(options);
+
+	$('.btn-group button[data-calendar-nav]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.navigate($this.data('calendar-nav'));
+		});
+	});
+
+	$('.btn-group button[data-calendar-view]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.view($this.data('calendar-view'));
+		});
+	});
+	}(jQuery));
+
+	//DataTables
+    var settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
+    $('.table-custom').dataTable(settings);
+
+
+    //Renew book
+    $("body").on("click", ".renew-button", function(e) {
+    e.preventDefault();
+    var clickedID = this.id.split('-');
+    var bookToRenew = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'bookToRenew='+ bookToRenew,
+	success:function(errormsg){
+        if (errormsg) {
+            $('.modal-custom').modal('hide');
+            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
+        } else {
+            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
+        }
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+	$("#books-toggle").click(function (e) {
+    e.preventDefault();
+        $(".calendar-view").hide();
+		$("#calendar-content").hide();
+        $(".book-view").show();
+		$("#books-content").show();
+		$("#reservedbooks-content").show();
+		$(".calendar-tile").removeClass("tile-selected");
+		$(".calendar-tile p").removeClass("tile-text-selected");
+		$(".calendar-tile i").removeClass("tile-text-selected");
+		$(".book-tile").addClass("tile-selected");
+		$(".book-tile p").addClass("tile-text-selected");
+		$(".book-tile i").addClass("tile-text-selected");
+	});
+
+	$("#calendar-toggle").click(function (e) {
+    e.preventDefault();
+        $(".book-view").hide();
+		$("#books-content").hide();
+		$("#reservedbooks-content").hide();
+        $(".calendar-view").show();
+		$("#calendar-content").show();
+		$(".book-tile").removeClass("tile-selected");
+		$(".book-tile p").removeClass("tile-text-selected");
+		$(".book-tile i").removeClass("tile-text-selected");
+		$(".calendar-tile").addClass("tile-selected");
+		$(".calendar-tile p").addClass("tile-text-selected");
+		$(".calendar-tile i").addClass("tile-text-selected");
+	});
+	</script>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
@@ -1018,102 +1143,27 @@ AdminLibraryUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php endif; ?>
-
-	<?php else : ?>
-
-	<?php include 'includes/menus/menu.php'; ?>
-
-    <div class="container">
-
-	<form class="form-horizontal form-custom">
-
-    <div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-    <hr>
-
-    <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
-    </div>
-
-    </form>
-
-	</div>
-
-	<?php include 'includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
 	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
 	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
-        //Event view/Calendar view toggle
-        $("#calendar-content").hide();
-        $(".book-tile").addClass("tile-selected");
-        $(".book-tile p").addClass("tile-text-selected");
-        $(".book-tile i").addClass("tile-text-selected");
-    });
-
-
-
-
-	//Sets calendar options
-	(function($) {
-
-	"use strict";
-
-	var options = {
-		events_source: 'https://student-portal.co.uk/includes/calendar/source/reservedbooks_json.php',
-		view: 'month',
-		tmpl_path: '../assets/tmpls/',
-		tmpl_cache: false,
-		onAfterViewLoad: function(view) {
-			$('.page-header h3').text(this.getTitle());
-			$('.btn-group button').removeClass('active');
-			$('button[data-calendar-view="' + view + '"]').addClass('active');
-		},
-		classes: {
-			months: {
-				general: 'label'
-			}
-		}
-	};
-
-	var calendar = $('#calendar').calendar(options);
-
-	$('.btn-group button[data-calendar-nav]').each(function() {
-		var $this = $(this);
-		$this.click(function() {
-			calendar.navigate($this.data('calendar-nav'));
-		});
-	});
-
-	$('.btn-group button[data-calendar-view]').each(function() {
-		var $this = $(this);
-		$this.click(function() {
-			calendar.view($this.data('calendar-view'));
-		});
-	});
-	}(jQuery));
 
 	//DataTables
-    $('.table-custom').dataTable({
+    var settings = {
         "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no records to display."
-		}
-	});
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+        "emptyTable": "There are no records to display."
+        }
+    };
+
+
+    $('.table-active-book').dataTable(settings);
+    $('.table-inactive-book').dataTable(settings);
 
     var request_read;
     request_read = '1';
@@ -1192,33 +1242,7 @@ AdminLibraryUpdate();
 	});
     });
 
-    //Renew book
-    $("body").on("click", ".renew-button", function(e) {
-    e.preventDefault();
-    var clickedID = this.id.split('-');
-    var bookToRenew = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'bookToRenew='+ bookToRenew,
-	success:function(errormsg){
-        if (errormsg) {
-            $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
-            $('#error-modal').modal('show');
-        } else {
-            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
-        }
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
+    //Approve request
     $("body").on("click", ".approve-button", function(e) {
     e.preventDefault();
 
@@ -1249,7 +1273,7 @@ AdminLibraryUpdate();
 	});
     });
 
-    //Deactivate book ajax call
+    //Deactivate book
     $("body").on("click", ".deactivate-button", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
@@ -1279,7 +1303,7 @@ AdminLibraryUpdate();
 	});
     });
 
-    //Reactivate book ajax call
+    //Reactivate
     $("body").on("click", ".reactivate-button", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
@@ -1309,7 +1333,7 @@ AdminLibraryUpdate();
 	});
     });
 
-    //Delete book ajax call
+    //Delete book
     $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
@@ -1337,37 +1361,37 @@ AdminLibraryUpdate();
 	}
 	});
     });
-
-	$("#books-toggle").click(function (e) {
-    e.preventDefault();
-        $(".calendar-view").hide();
-		$("#calendar-content").hide();
-        $(".book-view").show();
-		$("#books-content").show();
-		$("#reservedbooks-content").show();
-		$(".calendar-tile").removeClass("tile-selected");
-		$(".calendar-tile p").removeClass("tile-text-selected");
-		$(".calendar-tile i").removeClass("tile-text-selected");
-		$(".book-tile").addClass("tile-selected");
-		$(".book-tile p").addClass("tile-text-selected");
-		$(".book-tile i").addClass("tile-text-selected");
-	});
-
-	$("#calendar-toggle").click(function (e) {
-    e.preventDefault();
-        $(".book-view").hide();
-		$("#books-content").hide();
-		$("#reservedbooks-content").hide();
-        $(".calendar-view").show();
-		$("#calendar-content").show();
-		$(".book-tile").removeClass("tile-selected");
-		$(".book-tile p").removeClass("tile-text-selected");
-		$(".book-tile i").removeClass("tile-text-selected");
-		$(".calendar-tile").addClass("tile-selected");
-		$(".calendar-tile p").addClass("tile-text-selected");
-		$(".calendar-tile i").addClass("tile-text-selected");
-	});
 	</script>
+
+    <?php endif; ?>
+
+	<?php else : ?>
+
+	<?php include 'includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+	<form class="form-horizontal form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    </div>
+
+    </form>
+
+	</div>
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<?php endif; ?>
 
 </body>
 </html>
