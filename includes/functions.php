@@ -1270,7 +1270,7 @@ function DeallocateTutorial() {
     $stmt1->close();
 }
 
-function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
+function AdminTimetableUpdate($isUpdate = 0) {
 
     global $mysqli;
     global $active_module;
@@ -1300,7 +1300,7 @@ function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
             <td data-title="Moodle link">'.($module_url === '' ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary" href="/admin/allocate-module?id='.$moduleid.'">Allocate</a>
+            <a class="btn btn-primary btn-load" href="/admin/allocate-module?id='.$moduleid.'">Allocate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
