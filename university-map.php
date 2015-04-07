@@ -228,7 +228,7 @@ AdminUniversityMapUpdate();
     });
 
     //Reactivate location
-    $("body").on("click", ".reactivate-button", function(e) {
+    $("body").on("click", ".btn-reactivate-location", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
