@@ -4770,7 +4770,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#reactivate-'.$markerid.'" data-toggle="modal">Reactivate</a>
+            <a id="reactivate-'.$markerid.'" cclass="btn btn-primary btn-reactivate-location">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -4782,39 +4782,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
             </td>
 			</tr>
 
-			<div class="modal modal-custom fade" id="reactivate-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-plus-square-o"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to reactivate '.$marker_name.'?</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="reactivate-hide">
-			<div class="pull-left">
-			<a id="reactivate-'.$markerid.'" class="btn btn-danger btn-lg reactivate-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="reactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div class="modal modal-custom fade" id="delete-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$markerid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -4825,20 +4793,13 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$marker_name.'?</p>
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$marker_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-hide">
-			<div class="pull-left">
-			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">Cancel</button>
+            <a id="delete-'.$markerid.'" class="btn btn-danger btn-lg btn-delete-location">Confirm</a>
 			</div>
 			</div>
 
