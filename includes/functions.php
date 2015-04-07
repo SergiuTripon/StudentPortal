@@ -4687,7 +4687,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 
     $marker_status = 'active';
 
-    $stmt1 = $mysqli->prepare("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status='active'");
+    $stmt1 = $mysqli->prepare("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status=?");
     $stmt1->bind_param('s', $marker_status);
     $stmt1->execute();
     $stmt1->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
