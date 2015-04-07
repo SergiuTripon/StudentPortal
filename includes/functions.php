@@ -2488,7 +2488,7 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete this result for "'.$module_name.'"?</p>
+			<p class="text-left">Are you sure you want to delete this result for "'.$module_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -2551,7 +2551,7 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete this result for "'.$module_name.'"?</p>
+			<p class="text-left">Are you sure you want to delete this result for "'.$module_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
