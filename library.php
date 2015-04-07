@@ -5,6 +5,7 @@ include 'includes/functions.php';
 global $mysqli;
 global $session_userid;
 global $active_book;
+global $inactive_book;
 
 AdminLibraryUpdate();
 ?>
@@ -474,131 +475,6 @@ AdminLibraryUpdate();
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_book WHERE book_status = 'inactive'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-	$bookid = $row["bookid"];
-	$book_name = $row["book_name"];
-	$book_author = $row["book_author"];
-	$book_notes = $row["book_notes"];
-	$book_copy_no = $row["book_copy_no"];
-
-	echo '<tr id="book-'.$bookid.'">
-
-			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
-			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Action">
-			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#reactivate-'.$bookid.'" data-toggle="modal">Reactivate</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-'.$bookid.'" data-toggle="modal">Delete</a></li>
-            </ul>
-            </div>
-            </td>
-			</tr>
-
-            <div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-book"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
-			</div>
-
-			<div class="modal-body">
-			<p><b>Author:</b> '.$book_author.'</p>
-			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
-			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
-			</div>
-
-			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a href="#reactivate-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Reactivate</a>
-            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
-			</div>
-			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div class="modal modal-custom fade" id="reactivate-'.$bookid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$book_name.'?</p>
-			<p id="reactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$book_name.' has been reactivated successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="reactivate-hide">
-			<div class="pull-left">
-			<a id="reactivate-'.$bookid.'" class="btn btn-success btn-lg reactivate-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="reactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            <div id="delete-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$book_name.'?</p>
-			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$book_name.' has been deleted successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="delete-hide">
-			<div class="pull-left">
-			<a id="delete-'.$bookid.'" class="btn btn-success btn-lg delete-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
-	}
-
-	$stmt1->close();
 	?>
 	</tbody>
 
