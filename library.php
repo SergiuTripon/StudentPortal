@@ -554,7 +554,7 @@ AdminLibraryUpdate();
 
 	<!-- Active books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-active-book">
 
 	<thead>
 	<tr>
@@ -564,7 +564,7 @@ AdminLibraryUpdate();
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-active-book">
 	<?php
     echo $active_book;
 	?>
@@ -589,7 +589,7 @@ AdminLibraryUpdate();
 
 	<!-- Inactive books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-inactive-book">
 
 	<thead>
 	<tr>
@@ -599,7 +599,7 @@ AdminLibraryUpdate();
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-inactive-book">
     <?php
     echo $inactive_book;
 	?>
