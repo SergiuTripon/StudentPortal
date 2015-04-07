@@ -2079,7 +2079,7 @@ AdminTimetableUpdate();
     <?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
-    settings = {
+    var settings = {
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
