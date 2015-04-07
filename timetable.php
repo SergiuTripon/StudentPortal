@@ -2317,6 +2317,9 @@ AdminTimetableUpdate();
             $('.modal-error .modal-body p').empty().append(html.error_msg);
             $('.modal-error').modal('show');
         } else {
+
+            alert(html.inactive_tutorial);
+
             $(".table-inactive-tutorial").dataTable().fnDestroy();
             $('#content-inactive-tutorial').empty();
             $('#content-inactive-tutorial').html(html.inactive_tutorial);
