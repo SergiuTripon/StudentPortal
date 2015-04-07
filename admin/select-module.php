@@ -256,7 +256,7 @@ if (isset($_GET['id'])) {
         $('#content-inactive-result').html(html.inactive_result);
         $(".table-inactive-result").dataTable(settings);
 
-        alert(html.inactive_result);
+        location.reload();
 
     },
 	error:function (xhr, ajaxOptions, thrownError){
@@ -285,10 +285,6 @@ if (isset($_GET['id'])) {
             $('#error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
         } else {
-
-            alert(html.active_result);
-            alert(html.inactive_result);
-
             $(".table-inactive-result").dataTable().fnDestroy();
             $('#content-inactive-result').empty();
             $('#content-inactive-result').html(html.inactive_result);
@@ -298,6 +294,8 @@ if (isset($_GET['id'])) {
             $('#content-active-result').empty();
             $('#content-active-result').html(html.active_result);
             $(".table-active-result").dataTable(settings);
+
+            location.reload();
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -334,6 +332,8 @@ if (isset($_GET['id'])) {
             $('#content-inactive-result').empty();
             $('#content-inactive-result').html(html.inactive_result);
             $(".table-inactive-result").dataTable(settings);
+
+            location.reload();
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
