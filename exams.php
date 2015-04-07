@@ -143,7 +143,7 @@ AdminExamUpdate();
 	<li class="active">Exams</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-exam/">Create exam</span></a>
+    <a class="btn btn-success btn-lg btn-admin btn-load" href="/admin/create-exam/">Create exam</span></a>
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -278,12 +278,16 @@ AdminExamUpdate();
     var clickedID = this.id.split('-');
     var examToDeactivate = clickedID[1];
 
+    showPreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'examToDeactivate='+ examToDeactivate,
 	success:function(html){
+
+        showPreloader();
 
         $(".table-active-exam").dataTable().fnDestroy();
         $('#content-active-exam').empty();
@@ -309,6 +313,8 @@ AdminExamUpdate();
     var clickedID = this.id.split('-');
     var examToReactivate = clickedID[1];
 
+    showPreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -320,6 +326,9 @@ AdminExamUpdate();
             $('#error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
         } else {
+
+            showPreloader();
+
             $(".table-inactive-exam").dataTable().fnDestroy();
             $('#content-inactive-exam').empty();
             $('#content-inactive-exam').html(html.inactive_exam);
