@@ -533,7 +533,7 @@ AdminEventUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'eventToDeactivate='+ eventToDeactivate,
 	success:function(html){
 
