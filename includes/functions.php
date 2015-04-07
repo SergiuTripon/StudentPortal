@@ -4324,7 +4324,7 @@ function DeleteEvent() {
     $stmt2->execute();
     $stmt2->close();
 
-    AdminEventUpdate($isUpdate = 1);
+    echo 'blah';
 }
 
 function AdminEventUpdate($isUpdate = 0) {
