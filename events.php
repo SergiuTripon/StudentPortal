@@ -533,19 +533,11 @@ AdminEventUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"json",
+	dataType:"text",
 	data:'eventToDeactivate='+ eventToDeactivate,
 	success:function(html){
 
-        $(".table-active-event").dataTable().fnDestroy();
-        $('#content-active-event').empty();
-        $('#content-active-event').html(html.active_event);
-        $(".table-active-event").dataTable(settings);
-
-        $(".table-inactive-event").dataTable().fnDestroy();
-        $('#content-inactive-event').empty();
-        $('#content-inactive-event').html(html.inactive_event);
-        $(".table-inactive-event").dataTable(settings);
+        alert(html);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
