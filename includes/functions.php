@@ -1,6 +1,5 @@
 <?php
 include 'session.php';
-include '../admin/select-module.php';
 
 //External functions
 //ContactUs function
@@ -2495,7 +2494,7 @@ function DeactivateResult() {
     $stmt1->execute();
     $stmt1->close();
 
-    AdminTimetableUpdate($isUpdate = 1, $userid = 4);
+    AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
 }
 
 //ReactivateResult function
@@ -2546,7 +2545,7 @@ function ReactivateResult() {
         exit();
     }
 
-    AdminTimetableUpdate($isUpdate = 1, $userid = 4);
+    AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
 }
 
 //DeleteResult function
@@ -2562,7 +2561,7 @@ function DeleteResult() {
     $stmt1->execute();
     $stmt1->close();
 
-    AdminTimetableUpdate($isUpdate = 1, $userid = 4);
+    AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
