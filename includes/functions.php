@@ -2179,24 +2179,23 @@ function AdminExamUpdate($isUpdate = 0) {
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete exam?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p class="feedback-sad text-center">Are you sure you want to delete '.$exam_name.'?</p>
+			<p class="text-left">Are you sure you want to delete "'.$exam_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$examid.'" class="btn btn-success btn-lg btn-delete-exam">Confirm</a>
+			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam">Confirm</a>
 			</div>
 			</div>
 
@@ -2269,24 +2268,23 @@ function AdminExamUpdate($isUpdate = 0) {
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-exam-'.$examid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete exam?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p class="feedback-sad text-center">Are you sure you want to delete '.$exam_name.'?</p>
+			<p class="text-left">Are you sure you want to delete "'.$exam_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$examid.'" class="btn btn-success btn-lg btn-delete-exam">Confirm</a>
+			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam">Confirm</a>
 			</div>
 			</div>
 
