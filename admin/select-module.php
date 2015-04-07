@@ -246,8 +246,6 @@ if (isset($_GET['id'])) {
 	data:'resultToDeactivate='+ resultToDeactivate + '&userToCreateResult' + userToCreateResult,
 	success:function(html){
 
-        alert(html.active_module);
-
         $(".table-active-result").dataTable().fnDestroy();
         $('#content-active-result').empty();
         $('#content-active-result').html(html.active_result);
@@ -255,8 +253,10 @@ if (isset($_GET['id'])) {
 
         $(".table-inactive-result").dataTable().fnDestroy();
         $('#content-inactive-result').empty();
-        $('#content-inactive-result').html(html.active_module);
+        $('#content-inactive-result').html(html.inactive_result);
         $(".table-inactive-result").dataTable(settings);
+
+        alert(html.active_result);
 
     },
 	error:function (xhr, ajaxOptions, thrownError){
