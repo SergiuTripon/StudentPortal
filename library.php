@@ -1,5 +1,15 @@
 <?php
 include 'includes/session.php';
+include 'includes/functions.php';
+
+global $mysqli;
+global $session_userid;
+
+global $active_book;
+global $inactive_book;
+
+AdminLibraryUpdate();
+
 ?>
 
 <!DOCTYPE html>
