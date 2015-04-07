@@ -1,5 +1,6 @@
 <?php
 include 'session.php';
+include '../admin/select-module.php';
 
 //External functions
 //ContactUs function
