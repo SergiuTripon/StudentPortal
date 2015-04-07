@@ -244,17 +244,7 @@ if (isset($_GET['id'])) {
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'resultToDeactivate='+ resultToDeactivate + '&userToCreateResult' + userToCreateResult,
-	success:function(html){
-
-        $(".table-active-result").dataTable().fnDestroy();
-        $('#content-active-result').empty();
-        $('#content-active-result').html(html.active_result);
-        $(".table-active-result").dataTable(settings);
-
-        $(".table-inactive-result").dataTable().fnDestroy();
-        $('#content-inactive-result').empty();
-        $('#content-inactive-result').html(html.inactive_result);
-        $(".table-inactive-result").dataTable(settings);
+	success:function(){
 
         location.reload();
 
@@ -285,16 +275,6 @@ if (isset($_GET['id'])) {
             $('.modal-error .modal-body p').empty().append(html.error_msg);
             $('.modal-error').modal('show');
         } else {
-            $(".table-inactive-result").dataTable().fnDestroy();
-            $('#content-inactive-result').empty();
-            $('#content-inactive-result').html(html.inactive_result);
-            $(".table-inactive-result").dataTable(settings);
-
-            $(".table-active-result").dataTable().fnDestroy();
-            $('#content-active-result').empty();
-            $('#content-active-result').html(html.active_result);
-            $(".table-active-result").dataTable(settings);
-
             location.reload();
         }
 	},
@@ -316,23 +296,13 @@ if (isset($_GET['id'])) {
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"json",
+	dataType:"text",
 	data:'resultToDelete='+ resultToDelete + '&userToCreateResult' + userToCreateResult,
-	success:function(html){
+	success:function(){
 
         $('.modal-custom').modal('hide');
 
         $('.modal-custom').on('hidden.bs.modal', function () {
-            $(".table-active-result").dataTable().fnDestroy();
-            $('#content-active-result').empty();
-            $('#content-active-result').html(html.active_result);
-            $(".table-active-result").dataTable(settings);
-
-            $(".table-inactive-result").dataTable().fnDestroy();
-            $('#content-inactive-result').empty();
-            $('#content-inactive-result').html(html.inactive_result);
-            $(".table-inactive-result").dataTable(settings);
-
             location.reload();
         });
 	},
