@@ -2,7 +2,7 @@
 		$(".preloader").fadeOut("slow");
 	});
 
-    $(".btn-load").click(function() {
+    $('body').on('click', '.btn-load', function() {
         $(this).data('loading-text', 'Loading...').button('loading');
     });
 
