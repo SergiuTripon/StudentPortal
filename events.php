@@ -510,7 +510,7 @@ AdminEventUpdate();
 
     <script>
     //DataTables
-    settings = {
+    var settings = {
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,

@@ -303,8 +303,6 @@ global $archived_tasks;
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
     <?php include 'assets/js-paths/datatables-js-path.php'; ?>
     <?php include 'assets/js-paths/calendar-js-path.php'; ?>
-    <?php include 'assets/js-paths/datetimepicker-js-path.php'; ?>
-
 
     <script>
     $(document).ready(function () {
