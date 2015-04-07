@@ -248,7 +248,8 @@ if (isset($_GET['id'])) {
 	data:'resultToDeactivate='+ resultToDeactivate + '&userToCreateResult' + userToCreateResult,
 	success:function(html){
 
-        alert(html);
+        alert(html.active_result);
+        alert(html.inactive_result);
 
         $(".table-active-result").dataTable().fnDestroy();
         $('#content-active-result').empty();
@@ -276,8 +277,6 @@ if (isset($_GET['id'])) {
     var resultToReactivate = clickedID[1];
     var userToCreateResult = $('#userid').html();
 
-    alert(userToCreateResult);
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -289,6 +288,10 @@ if (isset($_GET['id'])) {
             $('#error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
         } else {
+
+            alert(html.active_result);
+            alert(html.inactive_result);
+
             $(".table-inactive-result").dataTable().fnDestroy();
             $('#content-inactive-result').empty();
             $('#content-inactive-result').html(html.inactive_result);
