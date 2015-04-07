@@ -538,14 +538,6 @@ AdminEventUpdate();
 	success:function(html){
 
         $(".table-active-event").dataTable().fnDestroy();
-        $('#content-active-event').empty();
-        $('#content-active-event').html(html.active_event);
-        $(".table-active-event").dataTable(settings);
-
-        $(".table-inactive-event").dataTable().fnDestroy();
-        $('#content-inactive-event').empty();
-        $('#content-inactive-event').html(html.inactive_event);
-        $(".table-inactive-event").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
