@@ -2365,7 +2365,6 @@ function DeactivateResult() {
     global $updated_on;
 
     $resultToDeactivate = filter_input(INPUT_POST, 'resultToDeactivate', FILTER_SANITIZE_STRING);
-    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $result_status = 'inactive';
 
@@ -2384,7 +2383,6 @@ function ReactivateResult() {
     global $updated_on;
 
     $resultToReactivate = filter_input(INPUT_POST, 'resultToReactivate', FILTER_SANITIZE_STRING);
-    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM user_result WHERE resultid = ?");
     $stmt1->bind_param('i', $resultToReactivate);
@@ -2434,7 +2432,6 @@ function DeleteResult() {
     global $mysqli;
 
     $resultToDelete = filter_input(INPUT_POST, 'resultToDelete', FILTER_SANITIZE_STRING);
-    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_result WHERE resultid=?");
     $stmt1->bind_param('i', $resultToDelete);
@@ -2447,8 +2444,10 @@ function DeleteResult() {
 function AdminResultUpdate($isUpdate = 0) {
 
     global $mysqli;
-    global $active_result;
-    global $inactive_result;
+    global $session_userid;
+    global $due_task;
+    global $completed_task;
+    global $archived_task;
 
     $result_status = 'active';
 
@@ -2587,6 +2586,7 @@ function AdminResultUpdate($isUpdate = 0) {
         );
 
         echo json_encode($array);
+
     }
 }
 
