@@ -209,6 +209,8 @@ AdminUniversityMapUpdate();
 	data:'locationToDeactivate='+ locationToDeactivate,
 	success:function(html){
 
+        alert(html.active_location);
+
         $(".table-active-location").dataTable().fnDestroy();
         $('#content-active-location').empty();
         $('#content-active-location').html(html.active_location);
