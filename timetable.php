@@ -2277,8 +2277,8 @@ AdminTimetableUpdate();
 
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('.error-modal .modal-body p').empty().append(html.error_msg);
-            $('.error-modal').modal('show');
+            $('.modal-error .modal-body p').empty().append(html.error_msg);
+            $('.modal-error').modal('show');
         } else {
             $(".table-inactive-lecture").dataTable().fnDestroy();
             $('#content-inactive-lecture').empty();
@@ -2314,8 +2314,8 @@ AdminTimetableUpdate();
 
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('.error-modal .modal-body p').empty().append(html.error_msg);
-            $('.error-modal').modal('show');
+            $('.modal-error .modal-body p').empty().append(html.error_msg);
+            $('.modal-error').modal('show');
         } else {
             $(".table-inactive-tutorial").dataTable().fnDestroy();
             $('#content-inactive-tutorial').empty();
