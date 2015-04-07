@@ -4087,6 +4087,147 @@ function DeleteEvent() {
     $stmt2->close();
 }
 
+function AdminCalendarUpdate() {
+
+    global $mysqli;
+
+    $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status = 'active'");
+    $stmt1->bind_param('s', $module_status);
+    $stmt1->execute();
+    $stmt1->bind_result($eventid, $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no);
+    $stmt1->store_result();
+
+    if ($stmt1->num_rows > 0) {
+
+        while ($stmt1->fetch()) {
+
+        $active_event .=
+
+       '<tr id="event-' . $eventid . '">
+        <td data-title="Name"><a href="#view-' . $eventid . '" data-toggle="modal" data-dismiss="modal">' . $event_name . '</a></td>
+        <td data-title="From">' . $event_from . '</td>
+        <td data-title="To">' . $event_to . '</td>
+        <td data-title="Price (&pound;)">' . $event_amount . '</td>
+        <td data-title="Tickets available">' . ($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no") . '</td>
+        <td data-title="Action">
+        <div class="btn-group btn-action">
+        <a class="btn btn-primary" href="../admin/update-event?id=' . $eventid . '">Update</a>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <span class="fa fa-caret-down"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+        <li><a href="#deactivate-' . $eventid . '" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+        <li><a href="#delete-' . $eventid . '" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+        </ul>
+        </div>
+        </td>
+        </tr>
+
+        <div id="view-' . $eventid . '" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+
+        <div class="modal-header">
+        <div class="close"><i class="fa fa-ticket"></i></div>
+        <h4 class="modal-title" id="modal-custom-label">' . $event_name . '</h4>
+        </div>
+
+        <div class="modal-body">
+        <p><b>Description:</b> ' . (empty($event_notes) ? "-" : "$event_notes") . '</p>
+        <p><b>URL:</b> ' . (empty($event_url) ? "-" : "$event_url") . '</p>
+        <p><b>From:</b> ' . $event_from . '</p>
+        <p><b>To:</b> ' . $event_to . '</p>
+        <p><b>Price (&pound;):</b> ' . $event_amount . '</p>
+        <p><b>Ticket available:</b> ' . $event_ticket_no . '</p>
+        </div>
+
+        <div class="modal-footer">
+        <div class="view-action pull-left">
+        <a href="/admin/update-event?id=' . $eventid . '" class="btn btn-primary btn-sm" >Update</a>
+        <a href="#deactivate-' . $eventid . '" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
+        <a href="#delete-' . $eventid . '" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+        </div>
+        <div class="view-close pull-right">
+        <a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+        </div>
+        </div>
+
+        </div><!-- /modal -->
+        </div><!-- /modal-dialog -->
+        </div><!-- /modal-content -->
+
+        <div id="deactivate-' . $eventid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+
+        <div class="modal-header">
+        <div class="form-logo text-center">
+        <i class="fa fa-minus-square-o"></i>
+        </div>
+        </div>
+
+        <div class="modal-body">
+        <p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to deactivate ' . $event_name . '?</p>
+        <p id="deactivate-confirmation" style="display: none;" class="text-center feedback-happy">' . $event_name . ' has been deactivated successfully.</p>
+        </div>
+
+        <div class="modal-footer">
+        <div id="deactivate-hide">
+        <div class="pull-left">
+        <a id="deactivate-' . $eventid . '" class="btn btn-success btn-lg deactivate-button" >Yes</a>
+        </div>
+        <div class="text-right">
+        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
+        </div>
+        </div>
+        <div class="text-center">
+        <a id="deactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+        </div>
+        </div>
+
+        </div><!-- /modal -->
+        </div><!-- /modal-dialog -->
+        </div><!-- /modal-content -->
+
+        <div id="delete-' . $eventid . '" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+
+        <div class="modal-header">
+        <div class="form-logo text-center">
+        <i class="fa fa-trash"></i>
+        </div>
+        </div>
+
+        <div class="modal-body">
+        <p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete ' . $event_name . '?</p>
+        <p id="delete-confirmation" style="display: none;" class="text-center feedback-happy">' . $event_name . ' has been deleted successfully.</p>
+        </div>
+
+        <div class="modal-footer">
+        <div id="delete-hide">
+        <div class="pull-left">
+        <a id="delete-' . $eventid . '" class="btn btn-success btn-lg delete-button" >Yes</a>
+        </div>
+        <div class="text-right">
+        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
+        </div>
+        </div>
+        <div class="text-center">
+        <a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+        </div>
+        </div>
+
+        </div><!-- /modal -->
+        </div><!-- /modal-dialog -->
+        </div><!-- /modal-content -->';
+    }
+
+    $stmt1->close();
+
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //University map function
