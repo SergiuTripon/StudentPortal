@@ -1347,7 +1347,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-header">
 			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
+			<i class="fa fa-exclamation"></i>
 			</div>
 			</div>
 
