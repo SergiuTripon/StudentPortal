@@ -69,10 +69,10 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Create module</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create module</span></button>
     </div>
 
-	<div id="success-button" class="text-center" style="display:none">
+	<div id="success-button" class="text-center" style="display:none;">
 	<a class="btn btn-success btn-lg" href="">Create another</span></a>
 	</div>
 	
@@ -149,9 +149,6 @@ include '../includes/session.php';
 	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
-
-
-
 
     //Create module process
     $("#FormSubmit").click(function (e) {
