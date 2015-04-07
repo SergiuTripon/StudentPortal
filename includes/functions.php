@@ -4198,10 +4198,10 @@ function AdminEventUpdate($isUpdate = 0) {
 
     $event_status = 'active';
 
-    $stmt2 = $mysqli->prepare("SELECT eventid, event_name, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status=?");
+    $stmt2 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status=?");
     $stmt2->bind_param('s', $event_status);
     $stmt2->execute();
-    $stmt2->bind_result($eventid, $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no);
+    $stmt2->bind_result($eventid, $event_name, $event_notes, $event_url, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no);
     $stmt2->store_result();
 
     if ($stmt2->num_rows > 0) {
