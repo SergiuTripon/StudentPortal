@@ -399,6 +399,71 @@ AdminLibraryUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/calendar-js-path.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+    <script>
+    $(document).ready(function () {
+        //Event view/Calendar view toggle
+        $("#calendar-content").hide();
+        $(".book-tile").addClass("tile-selected");
+        $(".book-tile p").addClass("tile-text-selected");
+        $(".book-tile i").addClass("tile-text-selected");
+    });
+
+	//Sets calendar options
+	(function($) {
+
+	"use strict";
+
+	var options = {
+		events_source: 'https://student-portal.co.uk/includes/calendar/source/reservedbooks_json.php',
+		view: 'month',
+		tmpl_path: '../assets/tmpls/',
+		tmpl_cache: false,
+		onAfterViewLoad: function(view) {
+			$('.page-header h3').text(this.getTitle());
+			$('.btn-group button').removeClass('active');
+			$('button[data-calendar-view="' + view + '"]').addClass('active');
+		},
+		classes: {
+			months: {
+				general: 'label'
+			}
+		}
+	};
+
+	var calendar = $('#calendar').calendar(options);
+
+	$('.btn-group button[data-calendar-nav]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.navigate($this.data('calendar-nav'));
+		});
+	});
+
+	$('.btn-group button[data-calendar-view]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.view($this.data('calendar-view'));
+		});
+	});
+	}(jQuery));
+
+	//DataTables
+    $('.table-custom').dataTable({
+        "iDisplayLength": 10,
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no records to display."
+		}
+	});
+    </script>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
@@ -427,7 +492,7 @@ AdminLibraryUpdate();
 
 	<!-- Active books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-active-book">
 
 	<thead>
 	<tr>
@@ -437,7 +502,7 @@ AdminLibraryUpdate();
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-active-book">
 	<?php
     echo $active_book;
 	?>
@@ -462,7 +527,7 @@ AdminLibraryUpdate();
 
 	<!-- Inactive books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-inactive-book">
 
 	<thead>
 	<tr>
@@ -472,7 +537,7 @@ AdminLibraryUpdate();
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-inactive-book">
     <?php
     echo $inactive_book;
 	?>
@@ -1052,63 +1117,19 @@ AdminLibraryUpdate();
 	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
-	$(document).ready(function () {
-        //Event view/Calendar view toggle
-        $("#calendar-content").hide();
-        $(".book-tile").addClass("tile-selected");
-        $(".book-tile p").addClass("tile-text-selected");
-        $(".book-tile i").addClass("tile-text-selected");
-    });
-
-	//Sets calendar options
-	(function($) {
-
-	"use strict";
-
-	var options = {
-		events_source: 'https://student-portal.co.uk/includes/calendar/source/reservedbooks_json.php',
-		view: 'month',
-		tmpl_path: '../assets/tmpls/',
-		tmpl_cache: false,
-		onAfterViewLoad: function(view) {
-			$('.page-header h3').text(this.getTitle());
-			$('.btn-group button').removeClass('active');
-			$('button[data-calendar-view="' + view + '"]').addClass('active');
-		},
-		classes: {
-			months: {
-				general: 'label'
-			}
-		}
-	};
-
-	var calendar = $('#calendar').calendar(options);
-
-	$('.btn-group button[data-calendar-nav]').each(function() {
-		var $this = $(this);
-		$this.click(function() {
-			calendar.navigate($this.data('calendar-nav'));
-		});
-	});
-
-	$('.btn-group button[data-calendar-view]').each(function() {
-		var $this = $(this);
-		$this.click(function() {
-			calendar.view($this.data('calendar-view'));
-		});
-	});
-	}(jQuery));
-
 	//DataTables
-    $('.table-custom').dataTable({
+
+    var settings = {
         "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no records to display."
-		}
-	});
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
+    $('.table-custom').dataTable(settings);
 
     var request_read;
     request_read = '1';
