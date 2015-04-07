@@ -1,13 +1,5 @@
 <?php
 include 'includes/session.php';
-include 'includes/functions.php';
-
-global $mysqli;
-global $session_userid;
-global $active_book;
-global $inactive_book;
-
-AdminLibraryUpdate();
 ?>
 
 <!DOCTYPE html>
@@ -399,128 +391,6 @@ AdminLibraryUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/calendar-js-path.php'; ?>
-    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
-    <script>
-    $(document).ready(function () {
-        //Book view/Calendar view toggle
-        $("#calendar-content").hide();
-        $(".book-tile").addClass("tile-selected");
-        $(".book-tile p").addClass("tile-text-selected");
-        $(".book-tile i").addClass("tile-text-selected");
-    });
-
-	//Sets calendar options
-	(function($) {
-
-	"use strict";
-
-	var options = {
-		events_source: 'https://student-portal.co.uk/includes/calendar/source/reservedbooks_json.php',
-		view: 'month',
-		tmpl_path: '../assets/tmpls/',
-		tmpl_cache: false,
-		onAfterViewLoad: function(view) {
-			$('.page-header h3').text(this.getTitle());
-			$('.btn-group button').removeClass('active');
-			$('button[data-calendar-view="' + view + '"]').addClass('active');
-		},
-		classes: {
-			months: {
-				general: 'label'
-			}
-		}
-	};
-
-	var calendar = $('#calendar').calendar(options);
-
-	$('.btn-group button[data-calendar-nav]').each(function() {
-		var $this = $(this);
-		$this.click(function() {
-			calendar.navigate($this.data('calendar-nav'));
-		});
-	});
-
-	$('.btn-group button[data-calendar-view]').each(function() {
-		var $this = $(this);
-		$this.click(function() {
-			calendar.view($this.data('calendar-view'));
-		});
-	});
-	}(jQuery));
-
-	//DataTables
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no records to display."
-		}
-	});
-
-    //Renew book
-    $("body").on("click", ".renew-button", function(e) {
-    e.preventDefault();
-    var clickedID = this.id.split('-');
-    var bookToRenew = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'bookToRenew='+ bookToRenew,
-	success:function(errormsg){
-        if (errormsg) {
-            $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
-            $('#error-modal').modal('show');
-        } else {
-            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
-        }
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    	$("#books-toggle").click(function (e) {
-    e.preventDefault();
-        $(".calendar-view").hide();
-		$("#calendar-content").hide();
-        $(".book-view").show();
-		$("#books-content").show();
-		$("#reservedbooks-content").show();
-		$(".calendar-tile").removeClass("tile-selected");
-		$(".calendar-tile p").removeClass("tile-text-selected");
-		$(".calendar-tile i").removeClass("tile-text-selected");
-		$(".book-tile").addClass("tile-selected");
-		$(".book-tile p").addClass("tile-text-selected");
-		$(".book-tile i").addClass("tile-text-selected");
-	});
-
-	$("#calendar-toggle").click(function (e) {
-    e.preventDefault();
-        $(".book-view").hide();
-		$("#books-content").hide();
-		$("#reservedbooks-content").hide();
-        $(".calendar-view").show();
-		$("#calendar-content").show();
-		$(".book-tile").removeClass("tile-selected");
-		$(".book-tile p").removeClass("tile-text-selected");
-		$(".book-tile i").removeClass("tile-text-selected");
-		$(".calendar-tile").addClass("tile-selected");
-		$(".calendar-tile p").addClass("tile-text-selected");
-		$(".calendar-tile i").addClass("tile-text-selected");
-	});
-    </script>
-
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
@@ -539,7 +409,6 @@ AdminLibraryUpdate();
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
-
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active books</a>
@@ -550,7 +419,7 @@ AdminLibraryUpdate();
 
 	<!-- Active books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-active-book">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -560,7 +429,139 @@ AdminLibraryUpdate();
 	</tr>
 	</thead>
 
-	<tbody id="content-active-book">
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_book WHERE book_status = 'active' OR book_status='reserved' OR book_status='requested'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+	$book_name = $row["book_name"];
+	$book_author = $row["book_author"];
+	$book_notes = $row["book_notes"];
+	$book_copy_no = $row["book_copy_no"];
+	$book_status = $row["book_status"];
+	$book_status = ucfirst($book_status);
+
+	echo '<tr id="book-'.$bookid.'">
+
+			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="../admin/update-book?id='.$bookid.'">Update</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#deactivate-'.$bookid.'" data-toggle="modal">Deactivate</a></li>
+            <li><a href="#delete-'.$bookid.'" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+			<div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-book"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Author:</b> '.$book_author.'</p>
+			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
+			<p><b>Copy number</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-book?id='.$bookid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="#deactivate-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Deactivate</a>
+            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div class="modal modal-custom fade" id="deactivate-'.$bookid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="deactivate-question" class="text-center feedback-sad">Are you sure you want to deactivate '.$book_name.'?</p>
+			<p id="deactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$book_name.' has been deactivated successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="deactivate-hide">
+			<div class="pull-left">
+			<a id="deactivate-'.$bookid.'" class="btn btn-danger btn-lg deactivate-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="deactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$book_name.'?</p>
+			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$book_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$bookid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
+	?>
 	</tbody>
 
 	</table>
@@ -571,9 +572,10 @@ AdminLibraryUpdate();
 	</div><!-- /panel-default -->
 
     <div class="panel panel-default">
+
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Inactive books</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Inactive books</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -581,7 +583,7 @@ AdminLibraryUpdate();
 
 	<!-- Inactive books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-inactive-book">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -591,7 +593,135 @@ AdminLibraryUpdate();
 	</tr>
 	</thead>
 
-	<tbody id="content-inactive-book">
+	<tbody>
+    <?php
+
+	$stmt1 = $mysqli->query("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_book WHERE book_status = 'inactive'");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+	$bookid = $row["bookid"];
+	$book_name = $row["book_name"];
+	$book_author = $row["book_author"];
+	$book_notes = $row["book_notes"];
+	$book_copy_no = $row["book_copy_no"];
+
+	echo '<tr id="book-'.$bookid.'">
+
+			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="#reactivate-'.$bookid.'" data-toggle="modal">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-'.$bookid.'" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-book"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Author:</b> '.$book_author.'</p>
+			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
+			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="#reactivate-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Reactivate</a>
+            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div class="modal modal-custom fade" id="reactivate-'.$bookid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="reactivate-question" class="text-center feedback-sad">Are you sure you want to reactivate '.$book_name.'?</p>
+			<p id="reactivate-confirmation" class="text-center feedback-happy" style="display: none;">'.$book_name.' has been reactivated successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="reactivate-hide">
+			<div class="pull-left">
+			<a id="reactivate-'.$bookid.'" class="btn btn-success btn-lg reactivate-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            <div id="delete-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$book_name.'?</p>
+			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$book_name.' has been deleted successfully.</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$bookid.'" class="btn btn-success btn-lg delete-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
+	?>
 	</tbody>
 
 	</table>
@@ -1132,24 +1262,102 @@ AdminLibraryUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+    <?php endif; ?>
 
-    <script>
+	<?php else : ?>
+
+	<?php include 'includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+	<form class="form-horizontal form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    </div>
+
+    </form>
+
+	</div>
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<?php endif; ?>
+
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
+	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+	<script>
+	$(document).ready(function () {
+        //Event view/Calendar view toggle
+        $("#calendar-content").hide();
+        $(".book-tile").addClass("tile-selected");
+        $(".book-tile p").addClass("tile-text-selected");
+        $(".book-tile i").addClass("tile-text-selected");
+    });
+
+
+
+
+	//Sets calendar options
+	(function($) {
+
+	"use strict";
+
+	var options = {
+		events_source: 'https://student-portal.co.uk/includes/calendar/source/reservedbooks_json.php',
+		view: 'month',
+		tmpl_path: '../assets/tmpls/',
+		tmpl_cache: false,
+		onAfterViewLoad: function(view) {
+			$('.page-header h3').text(this.getTitle());
+			$('.btn-group button').removeClass('active');
+			$('button[data-calendar-view="' + view + '"]').addClass('active');
+		},
+		classes: {
+			months: {
+				general: 'label'
+			}
+		}
+	};
+
+	var calendar = $('#calendar').calendar(options);
+
+	$('.btn-group button[data-calendar-nav]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.navigate($this.data('calendar-nav'));
+		});
+	});
+
+	$('.btn-group button[data-calendar-view]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.view($this.data('calendar-view'));
+		});
+	});
+	}(jQuery));
+
 	//DataTables
-
-    var settings = {
+    $('.table-custom').dataTable({
         "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
-    $('.table-active-book').dataTable(settings);
-    $('.table-inactive-book').dataTable(settings);
+		"paging": true,
+		"ordering": true,
+		"info": false,
+		"language": {
+			"emptyTable": "There are no records to display."
+		}
+	});
 
     var request_read;
     request_read = '1';
@@ -1228,6 +1436,33 @@ AdminLibraryUpdate();
 	});
     });
 
+    //Renew book
+    $("body").on("click", ".renew-button", function(e) {
+    e.preventDefault();
+    var clickedID = this.id.split('-');
+    var bookToRenew = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'bookToRenew='+ bookToRenew,
+	success:function(errormsg){
+        if (errormsg) {
+            $('.modal-custom').modal('hide');
+            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
+        } else {
+            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
+        }
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
     $("body").on("click", ".approve-button", function(e) {
     e.preventDefault();
 
@@ -1259,7 +1494,7 @@ AdminLibraryUpdate();
     });
 
     //Deactivate book ajax call
-    $("body").on("click", ".btn-deactivate-book", function(e) {
+    $("body").on("click", ".deactivate-button", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToDeactivate = clickedID[1];
@@ -1267,20 +1502,19 @@ AdminLibraryUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"json",
+	dataType:"text",
 	data:'bookToDeactivate='+ bookToDeactivate,
-	success:function(html){
-
-        $('#content-active-book').empty();
-        $(".table-active-book").dataTable().fnDestroy();
-        $('#content-active-book').html(html.active_book);
-        $(".table-active-book").dataTable(settings);
-
-        $('#content-inactive-book').empty();
-        $(".table-inactive-book").dataTable().fnDestroy();
-        $('#content-inactive-book').html(html.inactive_book);
-        $(".table-inactive-book").dataTable(settings);
-
+	success:function(){
+		$('#book-'+bookToDeactivate).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#deactivate-question').hide();
+        $('#deactivate-confirmation').show();
+        $('#deactivate-hide').hide();
+        $('#deactivate-success-button').show();
+        $("#deactivate-success-button").click(function () {
+            location.reload();
+        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -1290,7 +1524,7 @@ AdminLibraryUpdate();
     });
 
     //Reactivate book ajax call
-    $("body").on("click", ".btn-reactivate-book", function(e) {
+    $("body").on("click", ".reactivate-button", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToReactivate = clickedID[1];
@@ -1301,17 +1535,16 @@ AdminLibraryUpdate();
 	dataType:"text",
 	data:'bookToReactivate='+ bookToReactivate,
 	success:function(){
-
-        $('#content-inactive-book').empty();
-        $(".table-inactive-book").dataTable().fnDestroy();
-        $('#content-inactive-book').html(html.inactive_book);
-        $(".table-inactive-book").dataTable(settings);
-
-        $('#content-active-book').empty();
-        $(".table-active-book").dataTable().fnDestroy();
-        $('#content-active-book').html(html.active_book);
-        $(".table-active-book").dataTable(settings);
-
+		$('#book-'+bookToReactivate).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#reactivate-question').hide();
+        $('#reactivate-confirmation').show();
+        $('#reactivate-hide').hide();
+        $('#reactivate-success-button').show();
+        $("#reactivate-success-button").click(function () {
+            location.reload();
+        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -1321,7 +1554,7 @@ AdminLibraryUpdate();
     });
 
     //Delete book ajax call
-    $("body").on("click", ".btn-delete-book", function(e) {
+    $("body").on("click", ".delete-button", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToDelete = clickedID[1];
@@ -1331,21 +1564,16 @@ AdminLibraryUpdate();
 	dataType:"text",
 	data:'bookToDelete='+ bookToDelete,
 	success:function(){
-
-        $('.modal-custom').modal('hide');
-
-        $('.modal-custom').on('hidden.bs.modal', function () {
-            $('#content-active-book').empty();
-            $(".table-active-book").dataTable().fnDestroy();
-            $('#content-active-book').html(html.active_book);
-            $(".table-active-book").dataTable(settings);
-
-            $('#content-inactive-book').empty();
-            $(".table-inactive-book").dataTable().fnDestroy();
-            $('#content-inactive-book').html(html.inactive_book);
-            $(".table-inactive-book").dataTable(settings);
+		$('#book-'+bookToDelete).fadeOut();
+        $('.form-logo i').removeClass('fa-trash');
+        $('.form-logo i').addClass('fa-check-square-o');
+        $('#delete-question').hide();
+        $('#delete-confirmation').show();
+        $('#delete-hide').hide();
+        $('#delete-success-button').show();
+        $("#delete-success-button").click(function () {
+            location.reload();
         });
-
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -1353,42 +1581,37 @@ AdminLibraryUpdate();
 	}
 	});
     });
+
+	$("#books-toggle").click(function (e) {
+    e.preventDefault();
+        $(".calendar-view").hide();
+		$("#calendar-content").hide();
+        $(".book-view").show();
+		$("#books-content").show();
+		$("#reservedbooks-content").show();
+		$(".calendar-tile").removeClass("tile-selected");
+		$(".calendar-tile p").removeClass("tile-text-selected");
+		$(".calendar-tile i").removeClass("tile-text-selected");
+		$(".book-tile").addClass("tile-selected");
+		$(".book-tile p").addClass("tile-text-selected");
+		$(".book-tile i").addClass("tile-text-selected");
+	});
+
+	$("#calendar-toggle").click(function (e) {
+    e.preventDefault();
+        $(".book-view").hide();
+		$("#books-content").hide();
+		$("#reservedbooks-content").hide();
+        $(".calendar-view").show();
+		$("#calendar-content").show();
+		$(".book-tile").removeClass("tile-selected");
+		$(".book-tile p").removeClass("tile-text-selected");
+		$(".book-tile i").removeClass("tile-text-selected");
+		$(".calendar-tile").addClass("tile-selected");
+		$(".calendar-tile p").addClass("tile-text-selected");
+		$(".calendar-tile i").addClass("tile-text-selected");
+	});
 	</script>
-
-    <?php endif; ?>
-
-	<?php else : ?>
-
-	<?php include 'includes/menus/menu.php'; ?>
-
-    <div class="container">
-
-	<form class="form-horizontal form-custom">
-
-    <div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-    <hr>
-
-    <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
-    </div>
-
-    </form>
-
-	</div>
-
-	<?php include 'includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
-	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 </body>
 </html>
