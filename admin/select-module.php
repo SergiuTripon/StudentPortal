@@ -256,7 +256,7 @@ if (isset($_GET['id'])) {
         $('#content-inactive-result').html(html.inactive_result);
         $(".table-inactive-result").dataTable(settings);
 
-        alert(html.active_result);
+        alert(html.inactive_result);
 
     },
 	error:function (xhr, ajaxOptions, thrownError){
