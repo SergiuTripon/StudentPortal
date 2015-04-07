@@ -462,6 +462,33 @@ AdminLibraryUpdate();
 			"emptyTable": "There are no records to display."
 		}
 	});
+
+    //Renew book
+    $("body").on("click", ".renew-button", function(e) {
+    e.preventDefault();
+    var clickedID = this.id.split('-');
+    var bookToRenew = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'bookToRenew='+ bookToRenew,
+	success:function(errormsg){
+        if (errormsg) {
+            $('.modal-custom').modal('hide');
+            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal').modal('show');
+        } else {
+            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
+        }
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
     </script>
 
     <?php endif; ?>
@@ -1200,33 +1227,6 @@ AdminLibraryUpdate();
         $("#return-success-button").click(function () {
             location.reload();
         });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Renew book
-    $("body").on("click", ".renew-button", function(e) {
-    e.preventDefault();
-    var clickedID = this.id.split('-');
-    var bookToRenew = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'bookToRenew='+ bookToRenew,
-	success:function(errormsg){
-        if (errormsg) {
-            $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
-            $('#error-modal').modal('show');
-        } else {
-            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
-        }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
