@@ -537,8 +537,6 @@ AdminEventUpdate();
 	data:'eventToDeactivate='+ eventToDeactivate,
 	success:function(html){
 
-        alert(html);
-
         $(".table-active-event").dataTable().fnDestroy();
         $('#content-active-event').empty();
         $('#content-active-event').html(html.active_event);
