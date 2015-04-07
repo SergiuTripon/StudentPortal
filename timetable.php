@@ -2103,12 +2103,16 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var moduleToDeactivate = clickedID[1];
 
+    $('.preloader').show();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'moduleToDeactivate='+ moduleToDeactivate,
 	success:function(html){
+
+        $('.preloader').hide();
 
         $(".table-active-module").dataTable().fnDestroy();
         $('#content-active-module').empty();
