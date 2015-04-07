@@ -256,7 +256,7 @@ if (isset($_GET['id'])) {
 
         $(".table-inactive-result").dataTable().fnDestroy();
         $('#content-inactive-result').empty();
-        $('#content-inactive-result').html(html.inactive_result);
+        $('#content-inactive-result').html(html.inactive_module);
         $(".table-inactive-result").dataTable(settings);
 
     },
