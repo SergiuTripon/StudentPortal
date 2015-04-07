@@ -1351,7 +1351,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-left">Are you sure you want to delete '.$module_name.'?</p><br>
+			<p class="text-left">Are you sure you want to delete "'.$module_name.'"?</p><br>
 			<p>Warning: Please note that this module and all the lectures, tutorials, exams and results linked to it will be deleted.</p>
 			</div>
 
@@ -1440,7 +1440,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-left">Are you sure you want to delete '.$module_name.'?</p><br>
+			<p class="text-left">Are you sure you want to delete "'.$module_name.'"?</p><br>
 			<p>Warning: Please note that this module and all the lectures, tutorials, exams and results linked to it will be deleted.</p>
 			</div>
 
@@ -1548,7 +1548,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-left">Are you sure you want to delete '.$lecture_name.'?</p>
+			<p class="text-left">Are you sure you want to delete "'.$lecture_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -1652,7 +1652,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-left">Are you sure you want to delete '.$lecture_name.'?</p>
+			<p class="text-left">Are you sure you want to delete "'.$lecture_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -1759,7 +1759,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-left">Are you sure you want to delete '.$tutorial_name.'?</p>
+			<p class="text-left">Are you sure you want to delete "'.$tutorial_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -1863,7 +1863,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-left">Are you sure you want to delete '.$tutorial_name.'?</p>
+			<p class="text-left">Are you sure you want to delete "'.$tutorial_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
