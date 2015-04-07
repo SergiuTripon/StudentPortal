@@ -2200,6 +2200,7 @@ function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
 			</tr>';
         }
     }
+
 	$stmt10->close();
 
     if ($isUpdate === 1) {
