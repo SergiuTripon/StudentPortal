@@ -2318,6 +2318,7 @@ AdminTimetableUpdate();
             $('.modal-error').modal('show');
         } else {
 
+            alert(html.active_tutorial);
             alert(html.inactive_tutorial);
 
             $(".table-inactive-tutorial").dataTable().fnDestroy();
