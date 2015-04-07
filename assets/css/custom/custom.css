@@ -935,7 +935,7 @@ form .field-required {
     border-color: #5D5D5D;
 }
 
-.modal-warning .form-logo i {
+.modal-warning .modal-header .form-logo i {
     color: #5D5D5D;
 }
 
