@@ -241,15 +241,15 @@ AdminUniversityMapUpdate();
 	data:'locationToReactivate='+ locationToReactivate,
 	success:function(html){
 
-        $(".table-active-location").dataTable().fnDestroy();
-        $('#content-active-location').empty();
-        $('#content-active-location').html(html.active_location);
-        $(".table-active-location").dataTable(settings);
-
         $(".table-inactive-location").dataTable().fnDestroy();
         $('#content-inactive-location').empty();
         $('#content-inactive-location').html(html.inactive_location);
         $(".table-inactive-location").dataTable(settings);
+
+        $(".table-active-location").dataTable().fnDestroy();
+        $('#content-active-location').empty();
+        $('#content-active-location').html(html.active_location);
+        $(".table-active-location").dataTable(settings);
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
