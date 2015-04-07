@@ -89,7 +89,7 @@ if (isset($_GET['id'])) {
 	echo '<tr id="allocate-'.$userid.'">
 
 			<td data-title="Name">'.$module_name.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md" href="../create-result/?userid='.$userid.'&moduleid='.$moduleid.'" >Select</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md" href="../create-result/?userid='.$userid.'&moduleid='.$moduleid.'">Create</span></a></td>
 			</tr>';
     }
 	$stmt1->close();
@@ -119,7 +119,7 @@ if (isset($_GET['id'])) {
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Module</th>
     <th>Coursework mark</th>
     <th>Exam mark</th>
     <th>Overall mark</th>
@@ -156,7 +156,7 @@ if (isset($_GET['id'])) {
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Module</th>
     <th>Coursework mark</th>
     <th>Exam mark</th>
     <th>Overall mark</th>
@@ -181,23 +181,23 @@ if (isset($_GET['id'])) {
 
     </div><!-- /container -->
 
-    <div id="error-modal" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal fade modal-custom modal-error" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
     <div class="modal-header">
     <div class="form-logo text-center">
-    <i class="fa fa-exclamation"></i>
+    <i class="fa fa-ban"></i>
     </div>
     </div>
 
     <div class="modal-body">
-    <p class="text-center feedback-sad"></p>
+    <p class="text-center"></p>
     </div>
 
     <div class="modal-footer">
     <div class="view-close text-center">
-    <a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
+    <a class="btn btn-default btn-lg" data-dismiss="modal">Close</a>
     </div>
     </div>
 
@@ -217,7 +217,7 @@ if (isset($_GET['id'])) {
     <script>
 
     //DataTables
-    settings = {
+    var settings = {
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
@@ -282,8 +282,8 @@ if (isset($_GET['id'])) {
 	success:function(html){
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(html.error_msg);
-            $('#error-modal').modal('show');
+            $('.modal-error .modal-body p').empty().append(html.error_msg);
+            $('.modal-error').modal('show');
         } else {
             $(".table-inactive-result").dataTable().fnDestroy();
             $('#content-inactive-result').empty();
