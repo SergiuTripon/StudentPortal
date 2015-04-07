@@ -1283,7 +1283,6 @@ function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
     global $inactive_tutorial;
     global $inactive_exam;
     global $inactive_result;
-    global $userid;
 
     $module_status = 'active';
 
