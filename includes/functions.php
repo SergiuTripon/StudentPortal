@@ -1783,7 +1783,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
     $stmt5->close();
 
-    $tutorial_status = 'active';
+    $tutorial_status = 'inactive';
 
     $stmt6 = $mysqli->prepare("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorial_status=?");
     $stmt6->bind_param('s', $tutorial_status);
