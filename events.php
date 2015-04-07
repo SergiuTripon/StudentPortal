@@ -432,7 +432,7 @@ AdminEventUpdate();
 
 	<!-- Active events -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom event-table">
+	<table class="table table-condensed table-custom table-active-event">
 
 	<thead>
 	<tr>
@@ -445,7 +445,7 @@ AdminEventUpdate();
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-active-event">
 	<?php
     echo $active_event;
 	?>
@@ -470,7 +470,7 @@ AdminEventUpdate();
 
 	<!-- Inactive events -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom event-table">
+	<table class="table table-condensed table-custom table-inactive-event">
 
 	<thead>
 	<tr>
@@ -483,7 +483,7 @@ AdminEventUpdate();
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-inactive-event">
 	<?php
     echo $inactive_event;
 	?>
@@ -533,20 +533,18 @@ AdminEventUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'eventToDeactivate='+ eventToDeactivate,
-	success:function(){
-		$('#event-'+eventToDeactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-minus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The event has been deactivated successfully.');
-        $('#deactivate-hide').hide();
-        $('#deactivate-success-button').show();
-        $("#deactivate-success-button").click(function () {
-            location.reload();
-        });
+	success:function(html){
+        $('#content-active-event').empty();
+        $(".table-active-event").dataTable().fnDestroy();
+        $('#content-active-event').html(html.active_event);
+        $(".table-active-event").dataTable(settings);
+
+        $('#content-inactive-event').empty();
+        $(".table-inactive-event").dataTable().fnDestroy();
+        $('#content-inactive-event').html(html.inactive_event);
+        $(".table-inactive-event").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -565,20 +563,19 @@ AdminEventUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'eventToReactivate='+ eventToReactivate,
-	success:function(){
-		$('#event-'+eventToReactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-plus-square-o');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The event has been reactivated successfully.');
-        $('#reactivate-hide').hide();
-        $('#reactivate-success-button').show();
-        $("#reactivate-success-button").click(function () {
-            location.reload();
-        });
+	success:function(html){
+
+        $('#content-inactive-event').empty();
+        $(".table-inactive-event").dataTable().fnDestroy();
+        $('#content-inactive-event').html(html.inactive_event);
+        $(".table-inactive-event").dataTable(settings);
+
+        $('#content-active-event').empty();
+        $(".table-active-event").dataTable().fnDestroy();
+        $('#content-active-event').html(html.active_event);
+        $(".table-active-event").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -600,16 +597,19 @@ AdminEventUpdate();
 	dataType:"text",
 	data:'eventToDelete='+ eventToDelete,
 	success:function(){
-		$('#event-'+eventToDelete).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('.modal-body p').removeClass('feedback-sad');
-        $('.modal-body p').addClass('feedback-happy');
-        $('.modal-body p').empty().append('The event has been deleted successfully.');
-        $('#hide-delete').hide();
-        $('#delete-success-button').show();
-        $("#delete-success-button").click(function () {
-            location.reload();
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            $('#content-active-event').empty();
+            $(".table-active-event").dataTable().fnDestroy();
+            $('#content-active-event').html(html.active_event);
+            $(".table-active-event").dataTable(settings);
+
+            $('#content-inactive-event').empty();
+            $(".table-inactive-event").dataTable().fnDestroy();
+            $('#content-inactive-event').html(html.inactive_event);
+            $(".table-inactive-event").dataTable(settings);
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){

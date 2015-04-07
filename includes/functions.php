@@ -2219,7 +2219,6 @@ function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
         );
 
         echo json_encode($array);
-
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4087,9 +4086,10 @@ function DeleteEvent() {
     $stmt2->close();
 }
 
-function AdminEventUpdate($isUpdated = 0) {
+function AdminEventUpdate($isUpdate = 0) {
 
     global $mysqli;
+    global $isUpdate;
     global $active_event;
     global $inactive_event;
 
@@ -4283,6 +4283,16 @@ function AdminEventUpdate($isUpdated = 0) {
 	}
 
 	$stmt2->close();
+
+    if ($isUpdate === 1) {
+
+        $array = array(
+            'active_event'=>$active_event,
+            'inactive_event'=>$inactive_event
+        );
+
+        echo json_encode($array);
+    }
 
 }
 
