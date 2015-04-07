@@ -14,7 +14,6 @@ global $inactive_tutorial;
 
 AdminTimetableUpdate();
 
-
 ?>
 
 <!DOCTYPE html>
