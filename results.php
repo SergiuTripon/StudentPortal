@@ -156,7 +156,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$firstname.' '.$surname.'</td>
             <td data-title="Student number">'.$studentno.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md assign-button" href="/admin/select-module?id='.$userid.'" >Select</span></a></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md assign-button btn-load" href="/admin/select-module?id='.$userid.'">Select</span></a></a></td>
 			</tr>';
 	}
 
