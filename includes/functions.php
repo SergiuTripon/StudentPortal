@@ -2438,7 +2438,7 @@ function DeleteResult() {
     AdminResultUpdate($isUpdate = 1);
 }
 
-function AdminResultUpdate($isUpdate = 0, $userid) {
+function AdminResultUpdate($isUpdate = 0, $userid = '') {
 
     global $mysqli;
     global $active_result;
