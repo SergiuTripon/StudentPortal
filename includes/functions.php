@@ -3250,27 +3250,6 @@ function DeleteBook() {
 function AdminLibraryUpdate($isUpdate = 0) {
 
     global $mysqli;
-    global $isUpdate;
-    global $active_book;
-    global $inactive_book;
-
-
-
-    if ($isUpdate === 1) {
-
-        $array = array(
-            'active_book'=>$active_book,
-            'inactive_book'=>$inactive_book
-        );
-
-        echo json_encode($array);
-    }
-
-}
-
-function AdminLibraryUpdate($isUpdate = 0) {
-
-    global $mysqli;
     global $active_book;
     global $inactive_book;
 
