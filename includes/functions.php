@@ -4331,7 +4331,6 @@ function AdminEventUpdate($isUpdate = 0) {
     global $mysqli;
     global $active_event;
     global $inactive_event;
-    global $archived_task;
 
     $event_status = 'active';
 
@@ -4536,28 +4535,6 @@ function AdminEventUpdate($isUpdate = 0) {
         echo json_encode($array);
 
     }
-}
-
-
-function AdminEventUpdate($isUpdate = 0) {
-
-    global $mysqli;
-    global $isUpdate;
-    global $active_event;
-    global $inactive_event;
-
-
-
-    if ($isUpdate === 1) {
-
-        $array = array(
-            'active_event'=>$active_event,
-            'inactive_event'=>$inactive_event
-        );
-
-        echo json_encode($array);
-    }
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
