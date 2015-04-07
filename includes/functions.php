@@ -4461,8 +4461,6 @@ function AdminEventUpdate($isUpdate = 0) {
             <li><a href="#delete-'.$eventid.'" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-            </tr>
 
             <div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
@@ -4520,7 +4518,10 @@ function AdminEventUpdate($isUpdate = 0) {
 
             </div><!-- /modal -->
             </div><!-- /modal-dialog -->
-            </div><!-- /modal-content -->';
+            </div><!-- /modal-content -->
+
+            </td>
+            </tr>';
         }
 	}
 
