@@ -205,7 +205,7 @@ AdminUniversityMapUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'locationToDeactivate='+ locationToDeactivate,
 	success:function(html){
 
