@@ -539,6 +539,7 @@ AdminLibraryUpdate();
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
 	<div class="panel panel-default">
+
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
 	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Active books</a>
@@ -570,10 +571,9 @@ AdminLibraryUpdate();
 	</div><!-- /panel-default -->
 
     <div class="panel panel-default">
-
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Inactive books</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Inactive books</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
