@@ -524,7 +524,7 @@ AdminEventUpdate();
     $('.table-inactive-event').dataTable(settings);
 
     //Deactivate event
-    $("body").on("click", ".deactivate-button", function(e) {
+    $("body").on("click", ".btn-deactivate-event", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -554,7 +554,7 @@ AdminEventUpdate();
     });
 
     //Reactivate event process
-    $("body").on("click", ".reactivate-button", function(e) {
+    $("body").on("click", ".btn-reactivate-event", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -585,7 +585,7 @@ AdminEventUpdate();
     });
 
     //Cancel event process
-    $("body").on("click", ".delete-button", function(e) {
+    $("body").on("click", ".btn-delete-event", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
