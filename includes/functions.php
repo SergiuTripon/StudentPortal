@@ -4196,7 +4196,7 @@ function AdminEventUpdate($isUpdate = 0) {
 
     $stmt1->close();
 
-    $event_status = 'active';
+    $event_status = 'inactive';
 
     $stmt2 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status=?");
     $stmt2->bind_param('s', $event_status);
