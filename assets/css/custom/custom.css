@@ -902,6 +902,10 @@ form .field-required {
     border-color: #FFFFFF;
 }
 
+.modal-error .form-logo i {
+    color: #FFFFFF;
+}
+
 .modal-error .modal-title {
     color: #FFFFFF;
 }
