@@ -929,13 +929,13 @@ form .field-required {
 }
 
 .modal-warning .close, .close:hover, .close:focus {
-    color: #FFFFFF;
+    color: #5D5D5D;
 }
 .modal-warning .modal-header {
     border-color: #5D5D5D;
 }
 
-.modal-warning .modal-header .form-logo i {
+.modal-warning .form-logo i {
     color: #5D5D5D;
 }
 
