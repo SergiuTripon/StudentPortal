@@ -489,6 +489,36 @@ AdminLibraryUpdate();
 	}
 	});
     });
+
+    	$("#books-toggle").click(function (e) {
+    e.preventDefault();
+        $(".calendar-view").hide();
+		$("#calendar-content").hide();
+        $(".book-view").show();
+		$("#books-content").show();
+		$("#reservedbooks-content").show();
+		$(".calendar-tile").removeClass("tile-selected");
+		$(".calendar-tile p").removeClass("tile-text-selected");
+		$(".calendar-tile i").removeClass("tile-text-selected");
+		$(".book-tile").addClass("tile-selected");
+		$(".book-tile p").addClass("tile-text-selected");
+		$(".book-tile i").addClass("tile-text-selected");
+	});
+
+	$("#calendar-toggle").click(function (e) {
+    e.preventDefault();
+        $(".book-view").hide();
+		$("#books-content").hide();
+		$("#reservedbooks-content").hide();
+        $(".calendar-view").show();
+		$("#calendar-content").show();
+		$(".book-tile").removeClass("tile-selected");
+		$(".book-tile p").removeClass("tile-text-selected");
+		$(".book-tile i").removeClass("tile-text-selected");
+		$(".calendar-tile").addClass("tile-selected");
+		$(".calendar-tile p").addClass("tile-text-selected");
+		$(".calendar-tile i").addClass("tile-text-selected");
+	});
     </script>
 
     <?php endif; ?>
@@ -1108,42 +1138,7 @@ AdminLibraryUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php endif; ?>
-
-	<?php else : ?>
-
-	<?php include 'includes/menus/menu.php'; ?>
-
-    <div class="container">
-
-	<form class="form-horizontal form-custom">
-
-    <div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-    <hr>
-
-    <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
-    </div>
-
-    </form>
-
-	</div>
-
-	<?php include 'includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
-	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
-	<script>
+    	<script>
 	//DataTables
 
     var settings = {
@@ -1266,7 +1261,7 @@ AdminLibraryUpdate();
     });
 
     //Deactivate book ajax call
-    $("body").on("click", ".deactivate-button", function(e) {
+    $("body").on("click", ".btn-deactivate-book", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToDeactivate = clickedID[1];
@@ -1274,19 +1269,20 @@ AdminLibraryUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'bookToDeactivate='+ bookToDeactivate,
-	success:function(){
-		$('#book-'+bookToDeactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-question').hide();
-        $('#deactivate-confirmation').show();
-        $('#deactivate-hide').hide();
-        $('#deactivate-success-button').show();
-        $("#deactivate-success-button").click(function () {
-            location.reload();
-        });
+	success:function(html){
+
+        $('#content-active-book').empty();
+        $(".table-active-book").dataTable().fnDestroy();
+        $('#content-active-book').html(html.active_book);
+        $(".table-active-book").dataTable(settings);
+
+        $('#content-inactive-book').empty();
+        $(".table-inactive-book").dataTable().fnDestroy();
+        $('#content-inactive-book').html(html.inactive_book);
+        $(".table-inactive-book").dataTable(settings);
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -1296,7 +1292,7 @@ AdminLibraryUpdate();
     });
 
     //Reactivate book ajax call
-    $("body").on("click", ".reactivate-button", function(e) {
+    $("body").on("click", ".btn-reactivate-book", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToReactivate = clickedID[1];
@@ -1307,16 +1303,17 @@ AdminLibraryUpdate();
 	dataType:"text",
 	data:'bookToReactivate='+ bookToReactivate,
 	success:function(){
-		$('#book-'+bookToReactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#reactivate-question').hide();
-        $('#reactivate-confirmation').show();
-        $('#reactivate-hide').hide();
-        $('#reactivate-success-button').show();
-        $("#reactivate-success-button").click(function () {
-            location.reload();
-        });
+
+        $('#content-inactive-book').empty();
+        $(".table-inactive-book").dataTable().fnDestroy();
+        $('#content-inactive-book').html(html.inactive_book);
+        $(".table-inactive-book").dataTable(settings);
+
+        $('#content-active-book').empty();
+        $(".table-active-book").dataTable().fnDestroy();
+        $('#content-active-book').html(html.active_book);
+        $(".table-active-book").dataTable(settings);
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -1326,7 +1323,7 @@ AdminLibraryUpdate();
     });
 
     //Delete book ajax call
-    $("body").on("click", ".delete-button", function(e) {
+    $("body").on("click", ".btn-delete-book", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToDelete = clickedID[1];
@@ -1336,16 +1333,21 @@ AdminLibraryUpdate();
 	dataType:"text",
 	data:'bookToDelete='+ bookToDelete,
 	success:function(){
-		$('#book-'+bookToDelete).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-question').hide();
-        $('#delete-confirmation').show();
-        $('#delete-hide').hide();
-        $('#delete-success-button').show();
-        $("#delete-success-button").click(function () {
-            location.reload();
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            $('#content-active-book').empty();
+            $(".table-active-book").dataTable().fnDestroy();
+            $('#content-active-book').html(html.active_book);
+            $(".table-active-book").dataTable(settings);
+
+            $('#content-inactive-book').empty();
+            $(".table-inactive-book").dataTable().fnDestroy();
+            $('#content-inactive-book').html(html.inactive_book);
+            $(".table-inactive-book").dataTable(settings);
         });
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -1353,37 +1355,42 @@ AdminLibraryUpdate();
 	}
 	});
     });
-
-	$("#books-toggle").click(function (e) {
-    e.preventDefault();
-        $(".calendar-view").hide();
-		$("#calendar-content").hide();
-        $(".book-view").show();
-		$("#books-content").show();
-		$("#reservedbooks-content").show();
-		$(".calendar-tile").removeClass("tile-selected");
-		$(".calendar-tile p").removeClass("tile-text-selected");
-		$(".calendar-tile i").removeClass("tile-text-selected");
-		$(".book-tile").addClass("tile-selected");
-		$(".book-tile p").addClass("tile-text-selected");
-		$(".book-tile i").addClass("tile-text-selected");
-	});
-
-	$("#calendar-toggle").click(function (e) {
-    e.preventDefault();
-        $(".book-view").hide();
-		$("#books-content").hide();
-		$("#reservedbooks-content").hide();
-        $(".calendar-view").show();
-		$("#calendar-content").show();
-		$(".book-tile").removeClass("tile-selected");
-		$(".book-tile p").removeClass("tile-text-selected");
-		$(".book-tile i").removeClass("tile-text-selected");
-		$(".calendar-tile").addClass("tile-selected");
-		$(".calendar-tile p").addClass("tile-text-selected");
-		$(".calendar-tile i").addClass("tile-text-selected");
-	});
 	</script>
+
+    <?php endif; ?>
+
+	<?php else : ?>
+
+	<?php include 'includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+	<form class="form-horizontal form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    </div>
+
+    </form>
+
+	</div>
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<?php endif; ?>
+
+	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
+	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 </body>
 </html>
