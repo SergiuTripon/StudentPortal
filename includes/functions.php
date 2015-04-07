@@ -3269,7 +3269,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
             $active_book .=
 
-                '<tr>
+           '<tr>
 			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Action">
@@ -4676,6 +4676,189 @@ function DeleteLocation() {
     $stmt1->execute();
     $stmt1->close();
 
+}
+
+
+function AdminUniversityMapUpdate($isUpdate = 0) {
+
+    global $mysqli;
+    global $active_location;
+    global $inactive_location;
+
+    $stmt1 = $mysqli->prepare("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status='active'");
+    $stmt1->bind_param('s', $event_status);
+    $stmt1->execute();
+    $stmt1->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
+    $stmt1->store_result();
+
+    if ($stmt1->num_rows > 0) {
+
+        while ($stmt1->fetch()) {
+
+
+	        $active_location .=
+
+           '<tr>
+			<td data-title="Location">'.$marker_name.'</td>
+			<td data-title="Latitude">'.$marker_lat.'</td>
+			<td data-title="Longitude">'.$marker_long.'</td>
+			<td data-title="Category">'.$marker_category.'</td>
+			<td data-title="Created on">'.$created_on.'</td>
+			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="../admin/update-location/?id='.$markerid.'">Update</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a id="deactivate-'.$markerid.'" class="btn-deactivate-location">Deactivate</a></li>
+            <li><a href="#delete-'.$markerid.'" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+			<div id="delete-'.$markerid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$marker_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">Cancel</button>
+            <a id="delete-'.$markerid.'" class="btn btn-danger btn-lg btn-delete-location" >Confirm</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt1->close();
+
+    $stmt2 = $mysqli->query("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status='inactive'");
+    $stmt2->bind_param('s', $event_status);
+    $stmt2->execute();
+    $stmt2->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
+    $stmt2->store_result();
+
+    if ($stmt2->num_rows > 0) {
+
+        while ($stmt2->fetch()) {
+
+        }
+	        $inactive_location =
+
+           '<tr>
+			<td data-title="Location">'.$marker_name.'</td>
+			<td data-title="Latitude">'.$marker_lat.'</td>
+			<td data-title="Longitude">'.$marker_long.'</td>
+			<td data-title="Category">'.$marker_category.'</td>
+			<td data-title="Created on">'.$created_on.'</td>
+			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="#reactivate-'.$markerid.'" data-toggle="modal">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-'.$markerid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+			<div class="modal modal-custom fade" id="reactivate-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-plus-square-o"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-sad">Are you sure you want to reactivate '.$marker_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="reactivate-hide">
+			<div class="pull-left">
+			<a id="reactivate-'.$markerid.'" class="btn btn-danger btn-lg reactivate-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="reactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div class="modal modal-custom fade" id="delete-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="text-center feedback-sad">Are you sure you want to delete '.$marker_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div id="delete-hide">
+			<div class="pull-left">
+			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
+			</div>
+			<div class="text-right">
+			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
+			</div>
+			</div>
+			<div class="text-center">
+			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt2->close();
+
+    if ($isUpdate === 1) {
+
+        $array = array(
+            'active_location'=>$active_location,
+            'inactive_location'=>$inactive_location
+        );
+
+        echo json_encode($array);
+
+    }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

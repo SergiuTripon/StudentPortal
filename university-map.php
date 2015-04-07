@@ -90,7 +90,7 @@ include 'includes/session.php';
 
 	<!-- Locations -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-active-location">
 
 	<thead>
 	<tr>
@@ -104,111 +104,9 @@ include 'includes/session.php';
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-active-location">
 	<?php
-
-	$stmt1 = $mysqli->query("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status='active'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-	$markerid = $row["markerid"];
-    $marker_name = $row["marker_name"];
-    $marker_lat = $row["marker_lat"];
-    $marker_long = $row["marker_long"];
-    $marker_category = ucfirst($row["marker_category"]);
-    $created_on = $row["created_on"];
-    $updated_on = $row["updated_on"];
-
-
-	echo '<tr id="location-'.$markerid.'">
-
-			<td data-title="Location">'.$marker_name.'</td>
-			<td data-title="Latitude">'.$marker_lat.'</td>
-			<td data-title="Longitude">'.$marker_long.'</td>
-			<td data-title="Category">'.$marker_category.'</td>
-			<td data-title="Created on">'.$created_on.'</td>
-			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
-			<td data-title="Action">
-			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="../admin/update-location/?id='.$markerid.'">Update</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="#deactivate-'.$markerid.'" data-toggle="modal">Deactivate</a></li>
-            <li><a href="#delete-'.$markerid.'" data-toggle="modal">Delete</a></li>
-            </ul>
-            </div>
-            </td>
-			</tr>
-
-			<div class="modal modal-custom fade" id="deactivate-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-minus-square-o"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="success" class="text-center feedback-sad">Are you sure you want to deactivate '.$marker_name.'?</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="deactivate-hide">
-			<div class="pull-left">
-			<a id="deactivate-'.$markerid.'" class="btn btn-danger btn-lg deactivate-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="deactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div class="modal modal-custom fade" id="delete-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$marker_name.'?</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="delete-hide">
-			<div class="pull-left">
-			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
-	}
-
-	$stmt1->close();
+    echo $active_location;
 	?>
 	</tbody>
 
@@ -247,108 +145,7 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-
-	$stmt1 = $mysqli->query("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status='inactive'");
-
-	while($row = $stmt1->fetch_assoc()) {
-
-	$markerid = $row["markerid"];
-    $marker_name = $row["marker_name"];
-    $marker_lat = $row["marker_lat"];
-    $marker_long = $row["marker_long"];
-    $marker_category = ucfirst($row["marker_category"]);
-    $created_on = $row["created_on"];
-    $updated_on = $row["updated_on"];
-
-
-	echo '<tr id="location-'.$markerid.'">
-
-			<td data-title="Location">'.$marker_name.'</td>
-			<td data-title="Latitude">'.$marker_lat.'</td>
-			<td data-title="Longitude">'.$marker_long.'</td>
-			<td data-title="Category">'.$marker_category.'</td>
-			<td data-title="Created on">'.$created_on.'</td>
-			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
-			<td data-title="Action">
-			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#reactivate-'.$markerid.'" data-toggle="modal">Reactivate</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-'.$markerid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
-            </ul>
-            </div>
-            </td>
-			</tr>
-
-			<div class="modal modal-custom fade" id="reactivate-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-plus-square-o"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to reactivate '.$marker_name.'?</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="reactivate-hide">
-			<div class="pull-left">
-			<a id="reactivate-'.$markerid.'" class="btn btn-danger btn-lg reactivate-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="reactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div class="modal modal-custom fade" id="delete-'.$markerid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$marker_name.'?</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="delete-hide">
-			<div class="pull-left">
-			<a id="delete-'.$markerid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
-	}
-
-	$stmt1->close();
+    echo $inactive_location;
 	?>
 	</tbody>
 
