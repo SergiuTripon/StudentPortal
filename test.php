@@ -2,4 +2,4 @@
 include 'includes/session.php';
 include 'includes/functions.php';
 
-AdminEventUpdate($isUpdate = 1);
+AdminResultUpdate($userid = 1);
