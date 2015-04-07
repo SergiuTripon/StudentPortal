@@ -2,17 +2,13 @@
 		$(".preloader").fadeOut("slow");
 	});
 
-    $('body').on('click', '.btn-load', function() {
+    $("body").on('click', '.btn-load', function() {
         $(this).data('loading-text', 'Loading...').button('loading');
     });
 
     function buttonReset () {
         $('.btn-load').button('reset');
     }
-
-    $("body").on("click", ".btn-perform", function() {
-        $(this).data('loading-text', 'Loading...').button('loading');
-    });
 
 	// Disables the background of a cell that contains Victoria in the Station Status table
 	$(".table-stationstatus td").filter(function() { return $.trim($(this).text()) === "Victoria"; }).

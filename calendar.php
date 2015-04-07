@@ -694,14 +694,6 @@ global $archived_task;
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
-    <script>
-
-    $('#signin-button').on('click', function () {
-        $(this).button('loading');
-    });
-
-    </script>
-
 	<?php endif; ?>
 
 </body>
