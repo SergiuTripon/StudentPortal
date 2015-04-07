@@ -7,9 +7,9 @@ global $session_userid;
 
 calendarUpdate();
 
-global $due_tasks;
-global $completed_tasks;
-global $archived_tasks;
+global $due_task;
+global $completed_task;
+global $archived_task;
 
 ?>
 
@@ -104,7 +104,7 @@ global $archived_tasks;
     <tbody id="content-due-tasks">
 
 	<?php
-    echo $due_tasks;
+    echo $due_task;
 	?>
 
     </tbody>
@@ -141,7 +141,7 @@ global $archived_tasks;
     <tbody id="content-completed-tasks">
 
 	<?php
-    echo $completed_tasks;
+    echo $completed_task;
 	?>
 
     </tbody>
@@ -178,7 +178,7 @@ global $archived_tasks;
 
 	<tbody id="content-archived-tasks">
 	<?php
-    echo $archived_tasks;
+    echo $archived_task;
 	?>
 	</tbody>
 
@@ -502,15 +502,15 @@ global $archived_tasks;
 	data:'taskToComplete='+ taskToComplete,
 	success:function(html){
 
-        $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').empty();
-        $('#content-due-tasks').html(html.due_tasks);
-        $(".table-due-tasks").dataTable(settings);
+        $(".table-due-task").dataTable().fnDestroy();
+        $('#content-due-task').empty();
+        $('#content-due-task').html(html.due_task);
+        $(".table-due-task").dataTable(settings);
 
-        $(".table-completed-tasks").dataTable().fnDestroy();
-        $('#content-completed-tasks').empty();
-        $('#content-completed-tasks').html(html.completed_tasks);
-        $(".table-completed-tasks").dataTable(settings);
+        $(".table-completed-task").dataTable().fnDestroy();
+        $('#content-completed-task').empty();
+        $('#content-completed-task').html(html.completed_task);
+        $(".table-completed-task").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -534,15 +534,15 @@ global $archived_tasks;
 	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(html){
 
-        $('#content-due-tasks').empty();
-        $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').html(html.due_tasks);
-        $(".table-due-tasks").dataTable(settings);
+        $('#content-due-task').empty();
+        $(".table-due-task").dataTable().fnDestroy();
+        $('#content-due-task').html(html.due_task);
+        $(".table-due-task").dataTable(settings);
 
-        $('#content-archived-tasks').empty();
-        $(".table-archived-tasks").dataTable().fnDestroy();
-        $('#content-archived-tasks').html(html.archived_tasks);
-        $(".table-archived-tasks").dataTable(settings);
+        $('#content-archived-task').empty();
+        $(".table-archived-task").dataTable().fnDestroy();
+        $('#content-archived-task').html(html.archived_task);
+        $(".table-archived-task").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -565,20 +565,20 @@ global $archived_tasks;
 	data:'taskToReactivate='+ taskToReactivate,
 	success:function(html){
 
-        $('#content-archived-tasks').empty();
-        $(".table-archived-tasks").dataTable().fnDestroy();
-        $('#content-archived-tasks').html(html.archived_tasks);
-        $(".table-archived-tasks").dataTable(settings);
+        $('#content-archived-task').empty();
+        $(".table-archived-task").dataTable().fnDestroy();
+        $('#content-archived-task').html(html.archived_task);
+        $(".table-archived-task").dataTable(settings);
 
-        $('#content-completed-tasks').empty();
-        $(".table-completed-tasks").dataTable().fnDestroy();
-        $('#content-completed-tasks').html(html.completed_tasks);
-        $(".table-completed-tasks").dataTable(settings);
+        $('#content-completed-task').empty();
+        $(".table-completed-task").dataTable().fnDestroy();
+        $('#content-completed-task').html(html.completed_task);
+        $(".table-completed-task").dataTable(settings);
 
-        $('#content-due-tasks').empty();
-        $(".table-due-tasks").dataTable().fnDestroy();
-        $('#content-due-tasks').html(html.due_tasks);
-        $(".table-due-tasks").dataTable(settings);
+        $('#content-due-task').empty();
+        $(".table-due-task").dataTable().fnDestroy();
+        $('#content-due-task').html(html.due_tasks);
+        $(".table-due-task").dataTable(settings);
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -602,25 +602,23 @@ global $archived_tasks;
 	data:'taskToDelete='+ taskToDelete,
 	success:function(html){
 
-        buttonLoad();
-
         $('.modal-custom').modal('hide');
 
         $('.modal-custom').on('hidden.bs.modal', function () {
-            $('#content-due-tasks').empty();
-            $(".table-due-tasks").dataTable().fnDestroy();
-            $('#content-due-tasks').html(html.due_tasks);
-            $(".table-due-tasks").dataTable(settings);
+            $('#content-due-task').empty();
+            $(".table-due-task").dataTable().fnDestroy();
+            $('#content-due-task').html(html.due_task);
+            $(".table-due-task").dataTable(settings);
 
-            $('#content-completed-tasks').empty();
-            $(".table-completed-tasks").dataTable().fnDestroy();
-            $('#content-completed-tasks').html(html.completed_tasks);
-            $(".table-completed-tasks").dataTable(settings);
+            $('#content-completed-task').empty();
+            $(".table-completed-task").dataTable().fnDestroy();
+            $('#content-completed-task').html(html.completed_task);
+            $(".table-completed-task").dataTable(settings);
 
-            $('#content-archived-tasks').empty();
-            $(".table-archived-tasks").dataTable().fnDestroy();
-            $('#content-archived-tasks').html(html.archived_tasks);
-            $(".table-archived-tasks").dataTable(settings);
+            $('#content-archived-task').empty();
+            $(".table-archived-task").dataTable().fnDestroy();
+            $('#content-archived-task').html(html.archived_task);
+            $(".table-archived-task").dataTable(settings);
         });
 
 	},
