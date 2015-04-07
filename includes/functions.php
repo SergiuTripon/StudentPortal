@@ -2478,7 +2478,7 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
             </ul>
             </div>
 
-            <div id="delete-'.$resultid.'" class="modal fade modal-custom modal-error" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-'.$resultid.'" class="modal fade modal-custom modal-warning" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -2541,7 +2541,7 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
             </ul>
             </div>
 
-            <div id="delete-'.$resultid.'" class="modal fade modal-custom modal-error" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-'.$resultid.'" class="modal fade modal-custom modal-warning" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
