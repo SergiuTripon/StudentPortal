@@ -4263,7 +4263,7 @@ function AdminCalendarUpdate() {
             </div><!-- /modal-dialog -->
             </div><!-- /modal-content -->
     
-            <div class="modal modal-custom fade" id="delete-'.$eventid.'" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-'.$eventid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
     
