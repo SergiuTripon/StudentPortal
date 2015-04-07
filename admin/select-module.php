@@ -252,7 +252,7 @@ if (isset($_GET['id'])) {
         $(".table-active-result").dataTable().fnDestroy();
         $('#content-active-result').empty();
         $('#content-active-result').html(html.active_result);
-        $(".table-active-result").dataTable(settings);
+        $(".table-active-result").dataTable(settings).delay(4000);
 
         $(".table-inactive-result").dataTable().fnDestroy();
         $('#content-inactive-result').empty();
