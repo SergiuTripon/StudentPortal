@@ -4695,8 +4695,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 
         while ($stmt1->fetch()) {
 
-
-	        $active_location .=
+            $active_location .=
 
            '<tr>
 			<td data-title="Location">'.$marker_name.'</td>
@@ -4744,7 +4743,8 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-	}
+        }
+    }
 
 	$stmt1->close();
 
@@ -4758,8 +4758,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 
         while ($stmt2->fetch()) {
 
-        }
-	        $inactive_location =
+            $inactive_location .=
 
            '<tr>
 			<td data-title="Location">'.$marker_name.'</td>
@@ -4806,6 +4805,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
+        }
 	}
 
 	$stmt2->close();

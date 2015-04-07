@@ -1,5 +1,13 @@
 <?php
 include 'includes/session.php';
+include 'includes/functions.php';
+
+global $mysqli;
+global $active_location;
+global $inactive_location;
+
+AdminUniversityMapUpdate();
+
 ?>
 
 <!DOCTYPE html>
