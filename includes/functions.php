@@ -4050,6 +4050,8 @@ function DeactivateEvent() {
     $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToDeactivate);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminEventUpdate($isUpdate = 1);
 }
 
 //ReactivateEvent function
@@ -4066,6 +4068,8 @@ function ReactivateEvent() {
     $stmt1->bind_param('ssi', $event_status, $updated_on, $eventToReactivate);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminEventUpdate($isUpdate = 1);
 }
 
 //DeleteEvent function
@@ -4084,6 +4088,8 @@ function DeleteEvent() {
     $stmt2->bind_param('i', $eventToDelete);
     $stmt2->execute();
     $stmt2->close();
+
+    AdminEventUpdate($isUpdate = 1);
 }
 
 function AdminEventUpdate($isUpdate = 0) {
