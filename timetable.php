@@ -2366,16 +2366,12 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var moduleToDelete = clickedID[1];
 
-    showPreloader();
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'moduleToDelete='+ moduleToDelete,
 	success:function(html){
-
-        showPreloader();
 
         $('.modal-custom').modal('hide');
 
@@ -2425,16 +2421,12 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var lectureToDelete = clickedID[1];
 
-    showPreloader();
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'lectureToDelete='+ lectureToDelete,
 	success:function(html){
-
-        showPreloader();
 
         $('.modal-custom').modal('hide');
 
@@ -2464,16 +2456,12 @@ AdminTimetableUpdate();
     var clickedID = this.id.split('-');
     var tutorialToDelete = clickedID[1];
 
-    showPreloader();
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'tutorialToDelete='+ tutorialToDelete,
 	success:function(html){
-
-        showPreloader();
 
         $('.modal-custom').modal('hide');
 
