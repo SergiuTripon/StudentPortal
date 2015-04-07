@@ -537,7 +537,7 @@ AdminEventUpdate();
 	data:'eventToDeactivate='+ eventToDeactivate,
 	success:function(html){
 
-        alert(html);
+        alert(html.active_event);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
