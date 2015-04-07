@@ -1301,7 +1301,7 @@ AdminLibraryUpdate();
     });
 
     //Reactivate
-    $("body").on("click", ".reactivate-button", function(e) {
+    $("body").on("click", ".btn-reactivate-book", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToReactivate = clickedID[1];
@@ -1309,19 +1309,19 @@ AdminLibraryUpdate();
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
+	dataType:"json",
 	data:'bookToReactivate='+ bookToReactivate,
-	success:function(){
-		$('#book-'+bookToReactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#reactivate-question').hide();
-        $('#reactivate-confirmation').show();
-        $('#reactivate-hide').hide();
-        $('#reactivate-success-button').show();
-        $("#reactivate-success-button").click(function () {
-            location.reload();
-        });
+	success:function(html){
+
+        $('#content-active-book').empty();
+        $(".table-active-book").dataTable().fnDestroy();
+        $('#content-active-book').html(html.active_book);
+        $(".table-active-book").dataTable(settings);
+
+        $('#content-inactive-book').empty();
+        $(".table-inactive-book").dataTable().fnDestroy();
+        $('#content-inactive-book').html(html.inactive_book);
+        $(".table-inactive-book").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
