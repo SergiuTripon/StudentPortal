@@ -2195,7 +2195,7 @@ function AdminExamUpdate($isUpdate = 0) {
 			<div class="modal-footer">
 			<div class="text-right">
 			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam">Confirm</a>
+            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -2284,7 +2284,7 @@ function AdminExamUpdate($isUpdate = 0) {
 			<div class="modal-footer">
 			<div class="text-right">
 			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam">Confirm</a>
+            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam btn-load">Confirm</a>
 			</div>
 			</div>
 
