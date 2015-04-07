@@ -140,7 +140,7 @@ AdminUniversityMapUpdate();
 
 	<!-- Inactive locations -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-inactive-location">
 
 	<thead>
 	<tr>
@@ -154,7 +154,7 @@ AdminUniversityMapUpdate();
 	</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="content-inactive-location">
 	<?php
     echo $inactive_location;
 	?>
