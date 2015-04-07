@@ -1908,6 +1908,219 @@ function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Exams
+//CreateExam function
+function CreateExam() {
+
+    global $mysqli;
+    global $created_on;
+
+    //Exam
+    $moduleid = filter_input(INPUT_POST, 'create_exam_moduleid', FILTER_SANITIZE_STRING);
+    $exam_name = filter_input(INPUT_POST, 'create_exam_name', FILTER_SANITIZE_STRING);
+    $exam_notes = filter_input(INPUT_POST, 'create_exam_notes', FILTER_SANITIZE_STRING);
+    $exam_date = filter_input(INPUT_POST, 'create_exam_date', FILTER_SANITIZE_STRING);
+    $exam_time = filter_input(INPUT_POST, 'create_exam_time', FILTER_SANITIZE_STRING);
+    $exam_location = filter_input(INPUT_POST, 'create_exam_location', FILTER_SANITIZE_STRING);
+    $exam_capacity = filter_input(INPUT_POST, 'create_exam_capacity', FILTER_SANITIZE_STRING);
+
+    //Check existing exam name
+    $stmt1 = $mysqli->prepare("SELECT examid FROM system_exam WHERE exam_name = ? LIMIT 1");
+    $stmt1->bind_param('s', $exam_name);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_examid);
+    $stmt1->fetch();
+
+    if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+        header('HTTP/1.0 550 An exam with the name entered already exists.');
+        exit();
+    }
+
+    //Create the exam record
+    $exam_date = DateTime::createFromFormat('d/m/Y', $exam_date);
+    $exam_date = $exam_date->format('Y-m-d');
+    $exam_status = 'active';
+
+    $stmt2 = $mysqli->prepare("INSERT INTO system_exam (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt2->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
+    $stmt2->execute();
+    $stmt2->close();
+}
+
+//UpdateExam function
+function UpdateExam() {
+
+    global $mysqli;
+    global $updated_on;
+
+    //Exam
+    $moduleid = filter_input(INPUT_POST, 'update_exam_moduleid', FILTER_SANITIZE_STRING);
+    $examid = filter_input(INPUT_POST, 'update_examid', FILTER_SANITIZE_STRING);
+    $exam_name = filter_input(INPUT_POST, 'update_exam_name', FILTER_SANITIZE_STRING);
+    $exam_notes = filter_input(INPUT_POST, 'update_exam_notes', FILTER_SANITIZE_STRING);
+    $exam_date = filter_input(INPUT_POST, 'update_exam_date', FILTER_SANITIZE_STRING);
+    $exam_time = filter_input(INPUT_POST, 'update_exam_time', FILTER_SANITIZE_STRING);
+    $exam_location = filter_input(INPUT_POST, 'update_exam_location', FILTER_SANITIZE_STRING);
+    $exam_capacity = filter_input(INPUT_POST, 'update_exam_capacity', FILTER_SANITIZE_STRING);
+
+    //Exam
+    $stmt1 = $mysqli->prepare("SELECT exam_name FROM system_exam WHERE examid = ?");
+    $stmt1->bind_param('i', $examid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_exam_name);
+    $stmt1->fetch();
+
+    $exam_date = DateTime::createFromFormat('d/m/Y', $exam_date);
+    $exam_date = $exam_date->format('Y-m-d');
+
+    if ($db_exam_name === $exam_name) {
+        $stmt3 = $mysqli->prepare("UPDATE system_exam SET moduleid=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+        $stmt3->bind_param('issssssi', $moduleid, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
+        $stmt3->execute();
+        $stmt3->close();
+    } else {
+        $stmt4 = $mysqli->prepare("SELECT examid FROM system_exam WHERE exam_name = ?");
+        $stmt4->bind_param('s', $exam_name);
+        $stmt4->execute();
+        $stmt4->store_result();
+        $stmt4->bind_result($db_examid);
+        $stmt4->fetch();
+
+        if ($stmt4->num_rows == 1) {
+            $stmt4->close();
+            header('HTTP/1.0 550 An exam with the name entered already exists.');
+            exit();
+        } else {
+            $stmt5 = $mysqli->prepare("UPDATE system_exam SET moduleid=?, exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
+            $stmt5->bind_param('isssssssi', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
+            $stmt5->execute();
+            $stmt5->close();
+        }
+    }
+
+}
+
+//DeactivateExam function
+function DeactivateExam() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $examToDeactivate = filter_input(INPUT_POST, 'examToDeactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $exam_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE examid=?");
+    $stmt1->bind_param('ssi', $exam_status, $updated_on, $examToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+    AdminExamUpdate($isUpdate = 1);
+}
+
+//ReactivateExam function
+function ReactivateExam() {
+
+    global $mysqli;
+    global $updated_on;
+
+    $examToReactivate = filter_input(INPUT_POST, 'examToReactivate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_exam WHERE examid = ?");
+    $stmt1->bind_param('i', $examToReactivate);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($moduleid);
+    $stmt1->fetch();
+
+    $module_status = 'active';
+
+    $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
+    $stmt2->bind_param('is', $moduleid, $module_status);
+    $stmt2->execute();
+    $stmt2->store_result();
+    $stmt2->bind_result($db_moduleid);
+    $stmt2->fetch();
+
+    if ($stmt2->num_rows > 0) {
+
+        $exam_status = 'active';
+
+        $stmt3 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE examid=?");
+        $stmt3->bind_param('ssi', $exam_status, $updated_on, $examToReactivate);
+        $stmt3->execute();
+        $stmt3->close();
+
+    } else {
+
+        $stmt2->close();
+        $error_msg = 'You cannot reactivate this exam because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this exam.';
+
+        $array = array(
+            'error_msg'=>$error_msg
+        );
+
+        echo json_encode($array);
+
+        exit();
+    }
+
+    AdminExamUpdate($isUpdate = 1);
+}
+
+//DeleteTimetable function
+function DeleteExam() {
+
+    global $mysqli;
+
+    $examToDelete = filter_input(INPUT_POST, 'examToDelete', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM system_exam WHERE examid=?");
+    $stmt1->bind_param('i', $examToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $examid = '';
+
+    $stmt2 = $mysqli->prepare("DELETE FROM user_exam WHERE examid=?");
+    $stmt2->bind_param('ii', $examid, $examToDelete);
+    $stmt2->execute();
+    $stmt2->close();
+
+    AdminExamUpdate($isUpdate = 1);
+}
+
+//AllocateExam function
+function AllocateExam() {
+
+    global $mysqli;
+
+    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
+    $examToAllocate = filter_input(INPUT_POST, 'examToAllocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("INSERT INTO user_exam (userid, examid) VALUES (?, ?)");
+    $stmt1->bind_param('ii', $userToAllocate, $examToAllocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+//DeallocateExam function
+function DeallocateExam() {
+
+    global $mysqli;
+
+    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+    $examToDeallocate = filter_input(INPUT_POST, 'examToDeallocate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("DELETE FROM user_exam WHERE userid=? AND examid=?");
+    $stmt1->bind_param('ii', $userToDeallocate, $examToDeallocate);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
 function AdminExamsUpdate($isUpdate = 1) {
 
     global $mysqli;
@@ -2106,219 +2319,6 @@ function AdminExamsUpdate($isUpdate = 1) {
         echo json_encode($array);
     }
 
-}
-
-//Exams
-//CreateExam function
-function CreateExam() {
-
-    global $mysqli;
-    global $created_on;
-
-    //Exam
-    $moduleid = filter_input(INPUT_POST, 'create_exam_moduleid', FILTER_SANITIZE_STRING);
-    $exam_name = filter_input(INPUT_POST, 'create_exam_name', FILTER_SANITIZE_STRING);
-    $exam_notes = filter_input(INPUT_POST, 'create_exam_notes', FILTER_SANITIZE_STRING);
-    $exam_date = filter_input(INPUT_POST, 'create_exam_date', FILTER_SANITIZE_STRING);
-    $exam_time = filter_input(INPUT_POST, 'create_exam_time', FILTER_SANITIZE_STRING);
-    $exam_location = filter_input(INPUT_POST, 'create_exam_location', FILTER_SANITIZE_STRING);
-    $exam_capacity = filter_input(INPUT_POST, 'create_exam_capacity', FILTER_SANITIZE_STRING);
-
-    //Check existing exam name
-    $stmt1 = $mysqli->prepare("SELECT examid FROM system_exam WHERE exam_name = ? LIMIT 1");
-    $stmt1->bind_param('s', $exam_name);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_examid);
-    $stmt1->fetch();
-
-    if ($stmt1->num_rows == 1) {
-        $stmt1->close();
-        header('HTTP/1.0 550 An exam with the name entered already exists.');
-        exit();
-    }
-
-    //Create the exam record
-    $exam_date = DateTime::createFromFormat('d/m/Y', $exam_date);
-    $exam_date = $exam_date->format('Y-m-d');
-    $exam_status = 'active';
-
-    $stmt2 = $mysqli->prepare("INSERT INTO system_exam (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt2->bind_param('issssssss', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $exam_status, $created_on);
-    $stmt2->execute();
-    $stmt2->close();
-}
-
-//UpdateExam function
-function UpdateExam() {
-
-    global $mysqli;
-    global $updated_on;
-
-    //Exam
-    $moduleid = filter_input(INPUT_POST, 'update_exam_moduleid', FILTER_SANITIZE_STRING);
-    $examid = filter_input(INPUT_POST, 'update_examid', FILTER_SANITIZE_STRING);
-    $exam_name = filter_input(INPUT_POST, 'update_exam_name', FILTER_SANITIZE_STRING);
-    $exam_notes = filter_input(INPUT_POST, 'update_exam_notes', FILTER_SANITIZE_STRING);
-    $exam_date = filter_input(INPUT_POST, 'update_exam_date', FILTER_SANITIZE_STRING);
-    $exam_time = filter_input(INPUT_POST, 'update_exam_time', FILTER_SANITIZE_STRING);
-    $exam_location = filter_input(INPUT_POST, 'update_exam_location', FILTER_SANITIZE_STRING);
-    $exam_capacity = filter_input(INPUT_POST, 'update_exam_capacity', FILTER_SANITIZE_STRING);
-
-    //Exam
-    $stmt1 = $mysqli->prepare("SELECT exam_name FROM system_exam WHERE examid = ?");
-    $stmt1->bind_param('i', $examid);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_exam_name);
-    $stmt1->fetch();
-
-    $exam_date = DateTime::createFromFormat('d/m/Y', $exam_date);
-    $exam_date = $exam_date->format('Y-m-d');
-
-    if ($db_exam_name === $exam_name) {
-        $stmt3 = $mysqli->prepare("UPDATE system_exam SET moduleid=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
-        $stmt3->bind_param('issssssi', $moduleid, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
-        $stmt3->execute();
-        $stmt3->close();
-    } else {
-        $stmt4 = $mysqli->prepare("SELECT examid FROM system_exam WHERE exam_name = ?");
-        $stmt4->bind_param('s', $exam_name);
-        $stmt4->execute();
-        $stmt4->store_result();
-        $stmt4->bind_result($db_examid);
-        $stmt4->fetch();
-
-        if ($stmt4->num_rows == 1) {
-            $stmt4->close();
-            header('HTTP/1.0 550 An exam with the name entered already exists.');
-            exit();
-        } else {
-            $stmt5 = $mysqli->prepare("UPDATE system_exam SET moduleid=?, exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
-            $stmt5->bind_param('isssssssi', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
-            $stmt5->execute();
-            $stmt5->close();
-        }
-    }
-
-}
-
-//DeactivateExam function
-function DeactivateExam() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $examToDeactivate = filter_input(INPUT_POST, 'examToDeactivate', FILTER_SANITIZE_NUMBER_INT);
-
-    $exam_status = 'inactive';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE examid=?");
-    $stmt1->bind_param('ssi', $exam_status, $updated_on, $examToDeactivate);
-    $stmt1->execute();
-    $stmt1->close();
-
-    AdminExamsUpdate($isUpdate = 1);
-}
-
-//ReactivateExam function
-function ReactivateExam() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $examToReactivate = filter_input(INPUT_POST, 'examToReactivate', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_exam WHERE examid = ?");
-    $stmt1->bind_param('i', $examToReactivate);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($moduleid);
-    $stmt1->fetch();
-
-    $module_status = 'active';
-
-    $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
-    $stmt2->bind_param('is', $moduleid, $module_status);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($db_moduleid);
-    $stmt2->fetch();
-
-    if ($stmt2->num_rows > 0) {
-
-        $exam_status = 'active';
-
-        $stmt3 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE examid=?");
-        $stmt3->bind_param('ssi', $exam_status, $updated_on, $examToReactivate);
-        $stmt3->execute();
-        $stmt3->close();
-
-    } else {
-
-        $stmt2->close();
-        $error_msg = 'You cannot reactivate this exam because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this exam.';
-
-        $array = array(
-            'error_msg'=>$error_msg
-        );
-
-        echo json_encode($array);
-
-        exit();
-    }
-
-    AdminExamsUpdate($isUpdate = 1);
-}
-
-//DeleteTimetable function
-function DeleteExam() {
-
-    global $mysqli;
-
-    $examToDelete = filter_input(INPUT_POST, 'examToDelete', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM system_exam WHERE examid=?");
-    $stmt1->bind_param('i', $examToDelete);
-    $stmt1->execute();
-    $stmt1->close();
-
-    $examid = '';
-
-    $stmt2 = $mysqli->prepare("DELETE FROM user_exam WHERE examid=?");
-    $stmt2->bind_param('ii', $examid, $examToDelete);
-    $stmt2->execute();
-    $stmt2->close();
-
-    AdminExamsUpdate($isUpdate = 1);
-}
-
-//AllocateExam function
-function AllocateExam() {
-
-    global $mysqli;
-
-    $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
-    $examToAllocate = filter_input(INPUT_POST, 'examToAllocate', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("INSERT INTO user_exam (userid, examid) VALUES (?, ?)");
-    $stmt1->bind_param('ii', $userToAllocate, $examToAllocate);
-    $stmt1->execute();
-    $stmt1->close();
-}
-
-//DeallocateExam function
-function DeallocateExam() {
-
-    global $mysqli;
-
-    $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
-    $examToDeallocate = filter_input(INPUT_POST, 'examToDeallocate', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM user_exam WHERE userid=? AND examid=?");
-    $stmt1->bind_param('ii', $userToDeallocate, $examToDeallocate);
-    $stmt1->execute();
-    $stmt1->close();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
