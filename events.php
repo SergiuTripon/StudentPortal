@@ -296,6 +296,113 @@ AdminEventUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/calendar-js-path.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+    <script>
+    $(document).ready(function () {
+        //Event view/Calendar view toggle
+        $("#calendar-toggle").hide();
+        $(".task-tile").addClass("tile-selected");
+        $(".task-tile p").addClass("tile-text-selected");
+        $(".task-tile i").addClass("tile-text-selected");
+    });
+
+    //DataTables
+    settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
+    $('.table-custom').dataTable(settings);
+
+	//Sets calendar options
+	(function($) {
+
+	"use strict";
+
+	var options = {
+		events_source: '../../includes/calendar/source/events_json.php',
+		view: 'month',
+		tmpl_path: '../assets/tmpls/',
+		tmpl_cache: false,
+		onAfterViewLoad: function(view) {
+			$('.page-header h3').text(this.getTitle());
+			$('.btn-group button').removeClass('active');
+			$('button[data-calendar-view="' + view + '"]').addClass('active');
+		},
+		classes: {
+			months: {
+				general: 'label'
+			}
+		}
+	};
+
+	var calendar = $('#calendar').calendar(options);
+
+	$('.btn-group button[data-calendar-nav]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.navigate($this.data('calendar-nav'));
+		});
+	});
+
+	$('.btn-group button[data-calendar-view]').each(function() {
+		var $this = $(this);
+		$this.click(function() {
+			calendar.view($this.data('calendar-view'));
+		});
+	});
+	}(jQuery));
+
+    //Responsiveness
+    $(window).resize(function(){
+        var width = $(window).width();
+        if(width <= 480){
+            $('.btn-group').addClass('btn-group-vertical full-width');
+        } else {
+            $('.btn-group').removeClass('btn-group-vertical full-width');
+        }
+    }).resize();
+
+    $("#task-button").click(function (e) {
+    e.preventDefault();
+        $(".calendar-view").hide();
+		$("#calendar-toggle").hide();
+        $(".event-view").show();
+		$("#events-toggle").show();
+		$("#bookedevents-toggle").show();
+		$(".calendar-tile").removeClass("tile-selected");
+		$(".calendar-tile p").removeClass("tile-text-selected");
+		$(".calendar-tile i").removeClass("tile-text-selected");
+		$(".task-tile").addClass("tile-selected");
+		$(".task-tile p").addClass("tile-text-selected");
+		$(".task-tile i").addClass("tile-text-selected");
+	});
+
+	$("#calendar-button").click(function (e) {
+    e.preventDefault();
+		$("#events-toggle").hide();
+		$("#bookedevents-toggle").hide();
+        $(".event-view").hide();
+        $(".calendar-view").show();
+		$("#calendar-toggle").show();
+		$(".task-tile").removeClass("tile-selected");
+		$(".task-tile p").removeClass("tile-text-selected");
+		$(".task-tile i").removeClass("tile-text-selected");
+		$(".calendar-tile").addClass("tile-selected");
+		$(".calendar-tile p").addClass("tile-text-selected");
+		$(".calendar-tile i").addClass("tile-text-selected");
+	});
+    </script>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
@@ -398,113 +505,23 @@ AdminEventUpdate();
 	<!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-    <?php endif; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
-	<?php else : ?>
-
-	<?php include 'includes/menus/menu.php'; ?>
-
-    <div class="container">
-
-	<form class="form-horizontal form-custom">
-
-    <div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-    <hr>
-
-    <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
-    </div>
-
-    </form>
-
-	</div>
-
-	<?php include 'includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/calendar-js-path.php'; ?>
-	<?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
-	<script>
-	$(document).ready(function () {
-        //Event view/Calendar view toggle
-        $("#calendar-toggle").hide();
-        $(".task-tile").addClass("tile-selected");
-        $(".task-tile p").addClass("tile-text-selected");
-        $(".task-tile i").addClass("tile-text-selected");
-    });
-
-
-
-
-	//Sets calendar options
-	(function($) {
-
-	"use strict";
-
-	var options = {
-		events_source: '../../includes/calendar/source/events_json.php',
-		view: 'month',
-		tmpl_path: '../assets/tmpls/',
-		tmpl_cache: false,
-		onAfterViewLoad: function(view) {
-			$('.page-header h3').text(this.getTitle());
-			$('.btn-group button').removeClass('active');
-			$('button[data-calendar-view="' + view + '"]').addClass('active');
-		},
-		classes: {
-			months: {
-				general: 'label'
-			}
-		}
-	};
-
-	var calendar = $('#calendar').calendar(options);
-
-	$('.btn-group button[data-calendar-nav]').each(function() {
-		var $this = $(this);
-		$this.click(function() {
-			calendar.navigate($this.data('calendar-nav'));
-		});
-	});
-
-	$('.btn-group button[data-calendar-view]').each(function() {
-		var $this = $(this);
-		$this.click(function() {
-			calendar.view($this.data('calendar-view'));
-		});
-	});
-	}(jQuery));
-
-	//DataTables
-    $('.event-table').dataTable({
+    <script>
+    //DataTables
+    settings = {
         "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no events to display."
-		}
-	});
-
-    //Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480){
-			$('.btn-group').addClass('btn-group-vertical full-width');
-        } else {
-            $('.btn-group').removeClass('btn-group-vertical full-width');
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
         }
-	})
-	.resize();
+    };
+
+    $('.table-active-event').dataTable(settings);
+    $('.table-inactive-event').dataTable(settings);
 
     //Deactivate event
     $("body").on("click", ".deactivate-button", function(e) {
@@ -601,37 +618,37 @@ AdminEventUpdate();
 	}
 	});
     });
+    </script>
 
-	$("#task-button").click(function (e) {
-    e.preventDefault();
-        $(".calendar-view").hide();
-		$("#calendar-toggle").hide();
-        $(".event-view").show();
-		$("#events-toggle").show();
-		$("#bookedevents-toggle").show();
-		$(".calendar-tile").removeClass("tile-selected");
-		$(".calendar-tile p").removeClass("tile-text-selected");
-		$(".calendar-tile i").removeClass("tile-text-selected");
-		$(".task-tile").addClass("tile-selected");
-		$(".task-tile p").addClass("tile-text-selected");
-		$(".task-tile i").addClass("tile-text-selected");
-	});
+    <?php endif; ?>
 
-	$("#calendar-button").click(function (e) {
-    e.preventDefault();
-		$("#events-toggle").hide();
-		$("#bookedevents-toggle").hide();
-        $(".event-view").hide();
-        $(".calendar-view").show();
-		$("#calendar-toggle").show();
-		$(".task-tile").removeClass("tile-selected");
-		$(".task-tile p").removeClass("tile-text-selected");
-		$(".task-tile i").removeClass("tile-text-selected");
-		$(".calendar-tile").addClass("tile-selected");
-		$(".calendar-tile p").addClass("tile-text-selected");
-		$(".calendar-tile i").addClass("tile-text-selected");
-	});
-	</script>
+	<?php else : ?>
+
+	<?php include 'includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+	<form class="form-horizontal form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    </div>
+
+    </form>
+
+	</div>
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<?php endif; ?>
 
 </body>
 </html>
