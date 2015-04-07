@@ -1151,7 +1151,8 @@ AdminLibraryUpdate();
         }
     };
 
-    $('.table-custom').dataTable(settings);
+    $('.table-active-book').dataTable(settings);
+    $('.table-inactive-book').dataTable(settings);
 
     var request_read;
     request_read = '1';
