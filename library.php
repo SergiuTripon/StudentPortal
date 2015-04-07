@@ -406,7 +406,7 @@ AdminLibraryUpdate();
 
     <script>
     $(document).ready(function () {
-        //Event view/Calendar view toggle
+        //Book view/Calendar view toggle
         $("#calendar-content").hide();
         $(".book-tile").addClass("tile-selected");
         $(".book-tile p").addClass("tile-text-selected");
