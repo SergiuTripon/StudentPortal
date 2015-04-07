@@ -4449,6 +4449,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
     global $mysqli;
     global $isUpdate;
     global $active_book;
+    global $inactive_book;
 
     $book_status1 = 'active';
     $book_status2 = 'reserved';
@@ -4542,6 +4543,95 @@ function AdminLibraryUpdate($isUpdate = 0) {
 	}
 
 	$stmt1->close();
+
+    $book_status = 'inactive';
+
+    $stmt2 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_book WHERE book_status=?");
+    $stmt2->bind_param('sss', $book_status1, $book_status2, $book_status3);
+    $stmt2->execute();
+    $stmt2->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no, $book_status);
+    $stmt2->store_result();
+
+    if ($stmt2->num_rows > 0) {
+
+        while ($stmt2->fetch()) {
+
+            $inactive_book .=
+
+           '<tr>
+			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a id="reactivate-'.$bookid.'" class="btn btn-primary btn-reactivate-book">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-'.$bookid.'" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+            </td>
+			</tr>
+
+            <div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-book"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Author:</b> '.$book_author.'</p>
+			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
+			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a id="reactivate-'.$bookid.'" class="btn btn-primary btn-sm btn-reactivate-book">Reactivate</a>
+            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            <div id="delete-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p class="feedback-sad text-center">Are you sure you want to delete '.$book_name.'?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$bookid.'" class="btn btn-success btn-lg btn-delete-book">Confirm</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+        }
+	}
+
+	$stmt2->close();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

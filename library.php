@@ -474,7 +474,7 @@ AdminLibraryUpdate();
 
 	<tbody>
     <?php
-
+    echo $inactive_book;
 	?>
 	</tbody>
 
