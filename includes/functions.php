@@ -4632,6 +4632,17 @@ function AdminLibraryUpdate($isUpdate = 0) {
 	}
 
 	$stmt2->close();
+
+    if ($isUpdate === 1) {
+
+        $array = array(
+            'active_book'=>$active_book,
+            'inactive_book'=>$inactive_book
+        );
+
+        echo json_encode($array);
+    }
+
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
