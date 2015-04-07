@@ -2,8 +2,8 @@
 include '../includes/session.php';
 include '../includes/functions.php';
 
-global $session_userid;
 global $mysqli;
+global $session_userid;
 
 global $userToCreateResult;
 global $active_result;
