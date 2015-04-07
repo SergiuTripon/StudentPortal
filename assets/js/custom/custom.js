@@ -2,6 +2,10 @@
 		$(".preloader").fadeOut("slow");
 	});
 
+    function showPreloader() {
+        $('.preloader').toggle();
+    }
+
     $("body").on('click', '.btn-load', function() {
         $(this).data('loading-text', 'Loading...').button('loading');
     });
