@@ -4645,6 +4645,8 @@ function DeactivateLocation() {
     $stmt1->execute();
     $stmt1->close();
 
+    AdminUniversityMapUpdate($isUpdate = 1);
+
 }
 
 //ReactivateLocation function
@@ -4662,6 +4664,8 @@ function ReactivateLocation() {
     $stmt1->execute();
     $stmt1->close();
 
+    AdminUniversityMapUpdate($isUpdate = 1);
+
 }
 
 //DeleteLocation function
@@ -4675,6 +4679,8 @@ function DeleteLocation() {
     $stmt1->bind_param('i', $locationToDelete);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminUniversityMapUpdate($isUpdate = 1);
 
 }
 
