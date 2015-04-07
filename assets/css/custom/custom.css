@@ -932,19 +932,19 @@ form .field-required {
     color: #FFFFFF;
 }
 .modal-warning .modal-header {
-    border-color: #FFFFFF;
+    border-color: #5D5D5D;
 }
 
 .modal-warning .form-logo i {
-    color: #FFFFFF;
+    color: #5D5D5D;
 }
 
 .modal-warning .modal-title {
-    color: #FFFFFF;
+    color: #5D5D5D;
 }
 
 .modal-warning .modal-body {
-    color: #FFFFFF;
+    color: #5D5D5D;
 }
 
 .modal-warning .modal-body p {
@@ -952,7 +952,7 @@ form .field-required {
 }
 
 .modal-warning .modal-footer {
-    border-color: #FFFFFF;
+    border-color: #5D5D5D;
 }
 /* End of Modal warning */
 
