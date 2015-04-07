@@ -1353,7 +1353,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-body">
 			<p class="text-left">Are you sure you want to delete '.$module_name.'?</p><br>
-			<p>Note: This module and all the lectures, tutorials, exams and results linked to it will be deleted.</p>
+			<p>Warning: Please note that this module and all the lectures, tutorials, exams and results linked to it will be deleted.</p>
 			</div>
 
 			<div class="modal-footer">
