@@ -2494,7 +2494,7 @@ function DeactivateResult() {
     $stmt1->execute();
     $stmt1->close();
 
-    AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
+    AdminTimetableUpdate($isUpdate = 1, $userid = 4);
 }
 
 //ReactivateResult function
@@ -2545,7 +2545,7 @@ function ReactivateResult() {
         exit();
     }
 
-    AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
+    AdminTimetableUpdate($isUpdate = 1, $userid = 4);
 }
 
 //DeleteResult function
@@ -2561,7 +2561,7 @@ function DeleteResult() {
     $stmt1->execute();
     $stmt1->close();
 
-    AdminTimetableUpdate($isUpdate = 1, $userid = $userToCreateResult);
+    AdminTimetableUpdate($isUpdate = 1, $userid = 4);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
