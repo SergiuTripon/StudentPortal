@@ -4286,7 +4286,7 @@ function DeactivateEvent() {
     $stmt1->execute();
     $stmt1->close();
 
-    AdminEventUpdate($isUpdate = 1);
+    echo 'blah';
 }
 
 //ReactivateEvent function
@@ -4304,7 +4304,7 @@ function ReactivateEvent() {
     $stmt1->execute();
     $stmt1->close();
 
-    AdminEventUpdate($isUpdate = 1);
+    echo 'blah';
 }
 
 //DeleteEvent function
@@ -4324,7 +4324,7 @@ function DeleteEvent() {
     $stmt2->execute();
     $stmt2->close();
 
-    echo 'blah';
+    AdminEventUpdate($isUpdate = 1);
 }
 
 function AdminEventUpdate($isUpdate = 0) {
