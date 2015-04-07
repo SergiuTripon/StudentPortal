@@ -4087,7 +4087,7 @@ function DeleteEvent() {
     $stmt2->close();
 }
 
-function AdminCalendarUpdate() {
+function AdminEventUpdate($isUpdated = 0) {
 
     global $mysqli;
     global $active_event;

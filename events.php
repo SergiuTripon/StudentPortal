@@ -1,5 +1,14 @@
 <?php
 include 'includes/session.php';
+include 'includes/functions.php';
+
+global $mysqli;
+global $session_userid;
+global $active_event;
+global $inactive_event;
+
+AdminEventUpdate();
+
 ?>
 
 <!DOCTYPE html>
@@ -331,7 +340,7 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-    echo $active_events;
+    echo $active_event;
 	?>
 	</tbody>
 
