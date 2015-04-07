@@ -3178,6 +3178,8 @@ function DeactivateBook() {
     $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToDeactivate);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminLibraryUpdate($isUpdate = 1);
 }
 
 //DeactivateBook function
@@ -3194,6 +3196,8 @@ function ReactivateBook() {
     $stmt1->bind_param('ssi', $book_status, $updated_on, $bookToReactivate);
     $stmt1->execute();
     $stmt1->close();
+
+    AdminLibraryUpdate($isUpdate = 1);
 }
 
 //DeleteBook function
@@ -3212,6 +3216,8 @@ function DeleteBook() {
     $stmt2->bind_param('i', $bookToDelete);
     $stmt2->execute();
     $stmt2->close();
+
+    AdminLibraryUpdate($isUpdate = 1);
 }
 
 function AdminLibraryUpdate($isUpdate = 0) {
@@ -3252,10 +3258,8 @@ function AdminLibraryUpdate($isUpdate = 0) {
             <li><a href="#delete-'.$bookid.'" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
-			<div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            			<div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -3308,7 +3312,10 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
 	}
 
@@ -3342,8 +3349,6 @@ function AdminLibraryUpdate($isUpdate = 0) {
             <li><a href="#delete-'.$bookid.'" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
             <div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -3397,7 +3402,10 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
 	}
 
