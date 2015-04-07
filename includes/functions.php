@@ -4206,7 +4206,7 @@ function AdminEventUpdate($isUpdate = 0) {
 
     if ($stmt2->num_rows > 0) {
 
-        while ($stmt1->fetch()) {
+        while ($stmt2->fetch()) {
 
             $inactive_event .=
 
