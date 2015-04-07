@@ -2,10 +2,9 @@
 		$(".preloader").fadeOut("slow");
 	});
 
-    function buttonLoad () {
-        $('.btn').data('loading-text', 'Loading...');
-        $('.btn').button('loading');
-    }
+    $(".btn-load").click(function() {
+        $(this).data('loading-text', 'Loading...').button('loading');
+    });
 
     function buttonReset () {
         $('.btn').button('reset');
