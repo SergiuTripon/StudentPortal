@@ -73,7 +73,7 @@ include '../includes/session.php';
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg" href="">Create another</span></a>
+	<a class="btn btn-success btn-lg btn-load" href="">Create another</span></a>
 	</div>
 	
     </form>
