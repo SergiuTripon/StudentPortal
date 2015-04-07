@@ -947,6 +947,10 @@ form .field-required {
     color: #FFFFFF;
 }
 
+.modal-warning .modal-body p {
+    font-weight: 600;
+}
+
 .modal-warning .modal-footer {
     border-color: #FFFFFF;
 }
