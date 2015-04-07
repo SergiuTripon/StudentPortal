@@ -4148,9 +4148,9 @@ function AdminCalendarUpdate() {
 
             <div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-sm" >Update</a>
+            <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-sm">Update</a>
             <a id="deactivate-'.$eventid.'" class="btn btn-primary btn-sm btn-deactivate-event">Deactivate</a>
-            <a href="#delete-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+            <a href="#delete-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
             </div>
             <div class="view-close pull-right">
             <a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
@@ -4172,21 +4172,13 @@ function AdminCalendarUpdate() {
             </div>
 
             <div class="modal-body">
-            <p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$event_name.'?</p>
-            <p id="delete-confirmation" style="display: none;" class="text-center feedback-happy">'.$event_name.' has been deleted successfully.</p>
+            <p class="feedback-sad text-center">Are you sure you want to delete '.$event_name.'?</p>
             </div>
 
             <div class="modal-footer">
-            <div id="delete-hide">
-            <div class="pull-left">
-            <a id="delete-'.$eventid.'" class="btn btn-success btn-lg delete-button" >Yes</a>
-            </div>
             <div class="text-right">
-            <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-            </div>
-            </div>
-            <div class="text-center">
-            <a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$eventid.'" class="btn btn-success btn-lg btn-delete-event">Confirm</a>
             </div>
             </div>
 
@@ -4274,12 +4266,12 @@ function AdminCalendarUpdate() {
             </div>
     
             <div class="modal-body">
-            <p class="text-center feedback-sad">Are you sure you want to delete '.$event_name.'?</p>
+            <p class="feedback-sad text-center">Are you sure you want to delete '.$event_name.'?</p>
             </div>
     
             <div class="modal-footer">
             <div class="text-right">
-            <a type="button" class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+            <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
             <a id="delete-'.$eventid.'" class="btn btn-danger btn-lg btn-delete-event">Confirm</a>
             </div>
             </div>
