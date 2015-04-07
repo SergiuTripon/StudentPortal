@@ -2051,7 +2051,7 @@ AdminTimetableUpdate();
 
     <div class="modal-header">
     <div class="form-logo text-center">
-    <i class="fa fa-exclamation"></i>
+    <i class="fa fa-ban"></i>
     </div>
     </div>
 
