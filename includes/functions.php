@@ -4303,7 +4303,7 @@ function ReactivateEvent() {
     $stmt1->execute();
     $stmt1->close();
 
-    echo 'blah';
+    AdminEventUpdate($isUpdate = 1);
 }
 
 //DeleteEvent function
