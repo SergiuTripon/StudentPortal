@@ -2056,7 +2056,7 @@ AdminTimetableUpdate();
     </div>
 
     <div class="modal-body">
-    <p class="text-center feedback-sad"></p>
+    <p class="text-left"></p>
     </div>
 
     <div class="modal-footer">
