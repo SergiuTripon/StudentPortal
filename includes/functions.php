@@ -1300,14 +1300,14 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <td data-title="Moodle link">'.($module_url === '' ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$module_url\">Link</a>").'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
-            <a class="btn btn-primary btn-load" href="/admin/allocate-module?id='.$moduleid.'">Allocate</a>
+            <a class="btn btn-primary" href="/admin/allocate-module?id='.$moduleid.'">Allocate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><a href="/admin/update-module?id='.$moduleid.'">Update</a></li>
-            <li><a id="deactivate-'.$moduleid.'" class="btn-deactivate-module btn-load">Deactivate</a></li>
+            <li><a id="deactivate-'.$moduleid.'" class="btn-deactivate-module">Deactivate</a></li>
             <li><a href="#delete-module-'.$moduleid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
@@ -1328,9 +1328,9 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm btn-load">Update</a>
-            <a id="deactivate-'.$moduleid.'" class="btn btn-primary btn-sm btn-deactivate-module btn-load">Deactivate</a>
-            <a id="delete-'.$moduleid.'" class="btn btn-primary btn-sm btn-deactivate-module btn-load">Delete</a>
+            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-sm">Update</a>
+            <a id="deactivate-'.$moduleid.'" class="btn btn-primary btn-sm btn-deactivate-module">Deactivate</a>
+            <a id="delete-'.$moduleid.'" class="btn btn-primary btn-sm btn-deactivate-module">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
