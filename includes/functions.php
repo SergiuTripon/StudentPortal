@@ -2365,6 +2365,7 @@ function DeactivateResult() {
     global $updated_on;
 
     $resultToDeactivate = filter_input(INPUT_POST, 'resultToDeactivate', FILTER_SANITIZE_STRING);
+    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $result_status = 'inactive';
 
@@ -2383,6 +2384,7 @@ function ReactivateResult() {
     global $updated_on;
 
     $resultToReactivate = filter_input(INPUT_POST, 'resultToReactivate', FILTER_SANITIZE_STRING);
+    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM user_result WHERE resultid = ?");
     $stmt1->bind_param('i', $resultToReactivate);
@@ -2432,6 +2434,7 @@ function DeleteResult() {
     global $mysqli;
 
     $resultToDelete = filter_input(INPUT_POST, 'resultToDelete', FILTER_SANITIZE_STRING);
+    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_result WHERE resultid=?");
     $stmt1->bind_param('i', $resultToDelete);
@@ -2584,7 +2587,6 @@ function AdminResultUpdate($isUpdate = 0) {
         );
 
         echo json_encode($array);
-
     }
 }
 
@@ -3248,73 +3250,43 @@ function DeleteBook() {
 function AdminLibraryUpdate($isUpdate = 0) {
 
     global $mysqli;
-    global $isUpdate;
-    global $active_book;
-    global $inactive_book;
+    global $active_result;
+    global $inactive_result;
 
-    $book_status1 = 'active';
-    $book_status2 = 'reserved';
-    $book_status3 = 'requested';
+    $result_status = 'active';
 
-    $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_book WHERE book_status=? OR book_status=? OR book_status=?");
-    $stmt1->bind_param('sss', $book_status1, $book_status2, $book_status3);
+    $stmt1 = $mysqli->prepare("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid=? AND user_result.result_status=?");
+    $stmt1->bind_param('is', $userid, $result_status);
     $stmt1->execute();
-    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no, $book_status);
+    $stmt1->bind_result($resultid, $module_name, $result_coursework_mark, $result_exam_mark, $result_overall_mark);
     $stmt1->store_result();
 
     if ($stmt1->num_rows > 0) {
 
         while ($stmt1->fetch()) {
 
-            $active_book .=
+            $active_result .=
 
            '<tr>
-			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
-			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
+			<td data-title="Exam mark">'.$result_exam_mark.'</td>
+			<td data-title="Overall mark">'.$result_overall_mark.'</td>
 			<td data-title="Action">
+
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="../admin/update-book?id='.$bookid.'">Update</a>
+            <a class="btn btn-primary" href="../update-result/?id='.$resultid.'">Update</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a id="deactivate-'.$bookid.'" class="btn-deactivate-book">Deactivate</a></li>
-            <li><a href="#delete-'.$bookid.'" data-toggle="modal">Delete</a></li>
+            <li><a id="deactivate-'.$resultid.'" class="btn-deactivate-result">Deactivate</a></li>
+            <li><a href="#delete-'.$resultid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
             </ul>
             </div>
 
-            			<div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-book"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
-			</div>
-
-			<div class="modal-body">
-			<p><b>Author:</b> '.$book_author.'</p>
-			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
-			<p><b>Copy number</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
-			</div>
-
-			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a href="/admin/update-book?id='.$bookid.'" class="btn btn-primary btn-sm">Update</a>
-            <a id="deactivate-'.$bookid.'" class="btn btn-primary btn-sm btn-deactivate-book">Deactivate</a>
-            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
-			</div>
-			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="delete-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div class="modal modal-custom fade" id="delete-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -3325,13 +3297,13 @@ function AdminLibraryUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$book_name.'?</p>
+			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete this result for '.$module_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$bookid.'" class="btn btn-danger btn-lg btn-delete-book">Confirm</a>
+			<a type="button" class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$resultid.'" class="btn btn-danger btn-lg btn-delete-result">Confirm</a>
 			</div>
 			</div>
 
@@ -3342,69 +3314,43 @@ function AdminLibraryUpdate($isUpdate = 0) {
             </td>
 			</tr>';
         }
-	}
+    }
 
 	$stmt1->close();
 
-    $book_status = 'inactive';
+    $result_status = 'inactive';
 
-    $stmt2 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_book WHERE book_status=?");
-    $stmt2->bind_param('s', $book_status);
+    $stmt2 = $mysqli->prepare("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid=? AND user_result.result_status=?");
+    $stmt2->bind_param('is', $userid, $result_status);
     $stmt2->execute();
-    $stmt2->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no, $book_status);
+    $stmt2->bind_result($resultid, $module_name, $result_coursework_mark, $result_exam_mark, $result_overall_mark);
     $stmt2->store_result();
 
     if ($stmt2->num_rows > 0) {
 
         while ($stmt2->fetch()) {
 
-            $inactive_book .=
+            $inactive_result .=
 
            '<tr>
-			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
-			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
+			<td data-title="Exam mark">'.$result_exam_mark.'</td>
+			<td data-title="Overall mark">'.$result_overall_mark.'</td>
 			<td data-title="Action">
+
 			<div class="btn-group btn-action">
-            <a id="reactivate-'.$bookid.'" class="btn btn-primary btn-reactivate-book">Reactivate</a>
+            <a id="reactivate-'.$resultid.'" class="btn btn-primary btn-reactivate-result">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-'.$bookid.'" data-toggle="modal">Delete</a></li>
+            <li><a href="#delete-'.$resultid.'" data-dismiss="modal" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
 
-            <div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-book"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
-			</div>
-
-			<div class="modal-body">
-			<p><b>Author:</b> '.$book_author.'</p>
-			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
-			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
-			</div>
-
-			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a id="reactivate-'.$bookid.'" class="btn btn-primary btn-sm btn-reactivate-book">Reactivate</a>
-            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
-			</div>
-			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            <div id="delete-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div class="modal modal-custom fade" id="delete-'.$resultid.'" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -3415,13 +3361,13 @@ function AdminLibraryUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-body">
-			<p class="feedback-sad text-center">Are you sure you want to delete '.$book_name.'?</p>
+			<p class="feedback-sad text-center">Are you sure you want to delete this result for '.$module_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$bookid.'" class="btn btn-success btn-lg btn-delete-book">Confirm</a>
+			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$resultid.'" class="btn btn-danger btn-lg btn-delete-result">Confirm</a>
 			</div>
 			</div>
 
@@ -3432,20 +3378,20 @@ function AdminLibraryUpdate($isUpdate = 0) {
             </td>
 			</tr>';
         }
-	}
+    }
 
 	$stmt2->close();
 
     if ($isUpdate === 1) {
 
         $array = array(
-            'active_book'=>$active_book,
-            'inactive_book'=>$inactive_book
+            'active_result'=>$active_result,
+            'inactive_result'=>$inactive_result
         );
 
         echo json_encode($array);
-    }
 
+    }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
