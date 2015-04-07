@@ -3749,9 +3749,9 @@ function calendarUpdate($isUpdate = 0) {
 
     global $mysqli;
     global $session_userid;
-    global $due_tasks;
-    global $completed_tasks;
-    global $archived_tasks;
+    global $due_task;
+    global $completed_task;
+    global $archived_task;
 
     $task_status = 'active';
 
@@ -3765,7 +3765,7 @@ function calendarUpdate($isUpdate = 0) {
 
         while ($stmt1->fetch()) {
 
-        $due_tasks .=
+        $due_task .=
 
        '<tr>
         <td data-title="Name"><a href="#view-'.$taskid .'" data-toggle="modal">'.$task_name.'</a></td>
@@ -3859,7 +3859,7 @@ function calendarUpdate($isUpdate = 0) {
 
         if ($stmt2->num_rows > 0) {
 
-        $completed_tasks .=
+        $completed_task .=
 
        '<tr>
         <td data-title="Task"><a href="#view-'.$taskid.'" data-toggle="modal" data-dismiss="modal">'.$task_name.'</a></td>
@@ -3953,7 +3953,7 @@ function calendarUpdate($isUpdate = 0) {
 
         while($stmt3->fetch()) {
 
-        $archived_tasks .=
+        $archived_task .=
 
        '<tr>
         <td data-title="Name"><a href="#view-'.$taskid.'" data-toggle="modal">'.$task_name.'</a></td>
@@ -4037,15 +4037,14 @@ function calendarUpdate($isUpdate = 0) {
     if ($isUpdate === 1) {
 
         $array = array(
-            'due_tasks'=>$due_tasks,
-            'completed_tasks'=>$completed_tasks,
-            'archived_tasks'=>$archived_tasks
+            'due_task'=>$due_task,
+            'completed_task'=>$completed_task,
+            'archived_task'=>$archived_task
         );
 
         echo json_encode($array);
 
     }
-
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -4330,9 +4329,9 @@ function DeleteEvent() {
 function AdminEventUpdate($isUpdate = 0) {
 
     global $mysqli;
-    global $isUpdate;
     global $active_event;
     global $inactive_event;
+    global $archived_task;
 
     $event_status = 'active';
 
@@ -4347,7 +4346,7 @@ function AdminEventUpdate($isUpdate = 0) {
         while ($stmt1->fetch()) {
 
             $active_event .=
-    
+
             '<tr>
             <td data-title="Name"><a href="#view-'.$eventid.'" data-toggle="modal" data-dismiss="modal">'.$event_name.'</a></td>
             <td data-title="From">'.$event_from.'</td>
@@ -4464,16 +4463,16 @@ function AdminEventUpdate($isUpdate = 0) {
             </div>
             </td>
             </tr>
-    
+
             <div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
-    
+
             <div class="modal-header">
             <div class="close"><i class="fa fa-ticket"></i></div>
             <h4 class="modal-title" id="modal-custom-label">'.$event_name.'</h4>
             </div>
-    
+
             <div class="modal-body">
             <p><b>Description:</b> '.(empty($event_notes) ? "-" : "$event_notes").'</p>
             <p><b>URL:</b> '.(empty($event_url) ? "-" : "$event_url").'</p>
@@ -4482,7 +4481,7 @@ function AdminEventUpdate($isUpdate = 0) {
             <p><b>Price (&pound;):</b> '.$event_amount.'</p>
             <p><b>Ticket available:</b> '.$event_ticket_no.'</p>
             </div>
-    
+
             <div class="modal-footer">
             <div class="view-action pull-left">
             <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-sm" >Update</a>
@@ -4493,32 +4492,32 @@ function AdminEventUpdate($isUpdate = 0) {
             <a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
             </div>
             </div>
-    
+
             </div><!-- /modal -->
             </div><!-- /modal-dialog -->
             </div><!-- /modal-content -->
-    
+
             <div id="delete-'.$eventid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
-    
+
             <div class="modal-header">
             <div class="form-logo text-center">
             <i class="fa fa-trash"></i>
             </div>
             </div>
-    
+
             <div class="modal-body">
             <p class="feedback-sad text-center">Are you sure you want to delete '.$event_name.'?</p>
             </div>
-    
+
             <div class="modal-footer">
             <div class="text-right">
             <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
             <a id="delete-'.$eventid.'" class="btn btn-danger btn-lg btn-delete-event">Confirm</a>
             </div>
             </div>
-    
+
             </div><!-- /modal -->
             </div><!-- /modal-dialog -->
             </div><!-- /modal-content -->';
@@ -4526,6 +4525,28 @@ function AdminEventUpdate($isUpdate = 0) {
 	}
 
 	$stmt2->close();
+
+    if ($isUpdate === 1) {
+
+        $array = array(
+            'active_event'=>$active_event,
+            'inactive_event'=>$inactive_event
+        );
+
+        echo json_encode($array);
+
+    }
+}
+
+
+function AdminEventUpdate($isUpdate = 0) {
+
+    global $mysqli;
+    global $isUpdate;
+    global $active_event;
+    global $inactive_event;
+
+
 
     if ($isUpdate === 1) {
 
