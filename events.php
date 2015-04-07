@@ -539,13 +539,13 @@ AdminEventUpdate();
 
         alert(html.active_event);
 
-        $('#content-active-event').empty();
         $(".table-active-event").dataTable().fnDestroy();
+        $('#content-active-event').empty();
         $('#content-active-event').html(html.active_event);
         $(".table-active-event").dataTable(settings);
 
-        $('#content-inactive-event').empty();
         $(".table-inactive-event").dataTable().fnDestroy();
+        $('#content-inactive-event').empty();
         $('#content-inactive-event').html(html.inactive_event);
         $(".table-inactive-event").dataTable(settings);
 	},
@@ -570,13 +570,13 @@ AdminEventUpdate();
 	data:'eventToReactivate='+ eventToReactivate,
 	success:function(html){
 
-        $('#content-inactive-event').empty();
         $(".table-inactive-event").dataTable().fnDestroy();
+        $('#content-inactive-event').empty();
         $('#content-inactive-event').html(html.inactive_event);
         $(".table-inactive-event").dataTable(settings);
 
-        $('#content-active-event').empty();
         $(".table-active-event").dataTable().fnDestroy();
+        $('#content-active-event').empty();
         $('#content-active-event').html(html.active_event);
         $(".table-active-event").dataTable(settings);
 	},
@@ -604,13 +604,13 @@ AdminEventUpdate();
         $('.modal-custom').modal('hide');
 
         $('.modal-custom').on('hidden.bs.modal', function () {
-            $('#content-active-event').empty();
             $(".table-active-event").dataTable().fnDestroy();
+            $('#content-active-event').empty();
             $('#content-active-event').html(html.active_event);
             $(".table-active-event").dataTable(settings);
 
-            $('#content-inactive-event').empty();
             $(".table-inactive-event").dataTable().fnDestroy();
+            $('#content-inactive-event').empty();
             $('#content-inactive-event').html(html.inactive_event);
             $(".table-inactive-event").dataTable(settings);
         });
