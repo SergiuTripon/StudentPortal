@@ -845,6 +845,10 @@ form .field-required {
     text-align: left;
 }
 
+.modal-custom .modal-body p {
+    margin-bottom: 0;
+}
+
 .modal-custom .modal-body .feedback-sad,
 .modal-custom .modal-body .feedback-happy, {
     margin-bottom: 0;
