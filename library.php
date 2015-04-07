@@ -1161,7 +1161,6 @@ AdminLibraryUpdate();
         }
     };
 
-
     $('.table-active-book').dataTable(settings);
     $('.table-inactive-book').dataTable(settings);
 
