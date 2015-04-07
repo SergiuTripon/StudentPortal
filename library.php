@@ -1313,15 +1313,7 @@ AdminLibraryUpdate();
 	data:'bookToReactivate='+ bookToReactivate,
 	success:function(html){
 
-        $('#content-active-book').empty();
-        $(".table-active-book").dataTable().fnDestroy();
-        $('#content-active-book').html(html.active_book);
-        $(".table-active-book").dataTable(settings);
-
-        $('#content-inactive-book').empty();
-        $(".table-inactive-book").dataTable().fnDestroy();
-        $('#content-inactive-book').html(html.inactive_book);
-        $(".table-inactive-book").dataTable(settings);
+        alert('hello');
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -1331,7 +1323,7 @@ AdminLibraryUpdate();
     });
 
     //Delete book
-    $("body").on("click", ".delete-button", function(e) {
+    $("body").on("click", ".btn-delete-", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToDelete = clickedID[1];
