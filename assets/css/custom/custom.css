@@ -820,7 +820,6 @@ form .field-required {
 .modal-custom .modal-content {
     border: none;
     border-radius: 3px;
-    background: #E9DDC6 url(../../img/bg/background.png);
 }
 
 .modal-custom .modal-header .close {
@@ -829,7 +828,6 @@ form .field-required {
 
 .modal-custom .close, .close:hover, .close:focus {
     opacity: 1;
-    color: #826644;
     font-size: 30px;
     cursor: pointer;
     text-shadow: none;
@@ -837,16 +835,13 @@ form .field-required {
 }
 .modal-custom .modal-header {
     text-align: left;
-    border-color: #9F8170;
 }
 
 .modal-custom .modal-title {
-    color: #826644;
     font-weight: 600;
 }
 
 .modal-custom .modal-body {
-    color: #735326;
     text-align: left;
 }
 
@@ -854,23 +849,19 @@ form .field-required {
 .modal-custom .modal-body .feedback-happy, {
     margin-bottom: 0;
 }
-
-.modal-custom .modal-footer {
-    border-color: #9F8170;
-}
 /* End of Modal custom */
 
 /* View buttons */
 @media (max-width: 480px) {
-    .modal-custom .modal-footer .view-action {
-        float: none !important;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .modal-custom .modal-footer .view-close {
-        float: none !important;
-        text-align: center;
-    }
+.modal-custom .modal-footer .view-action {
+    float: none !important;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.modal-custom .modal-footer .view-close {
+    float: none !important;
+    text-align: center;
+}
 }
 /* End of view buttons */
 
@@ -896,6 +887,31 @@ form .field-required {
 
 .modal-form .modal-footer {
     border-color: #8A8A8A;
+}
+/* End of Modal form */
+
+/* Modal Error */
+.modal-error .modal-content {
+    background: #D9534F;
+}
+
+.modal-error .close, .close:hover, .close:focus {
+    color: #FFFFFF;
+}
+.modal-error .modal-header {
+    border-color: #FFFFFF;
+}
+
+.modal-error .modal-title {
+    color: #FFFFFF;
+}
+
+.modal-error .modal-body {
+    color: #FFFFFF;
+}
+
+.modal-error .modal-footer {
+    border-color: #FFFFFF;
 }
 /* End of Modal form */
 

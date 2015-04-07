@@ -2045,7 +2045,7 @@ AdminTimetableUpdate();
 
     </div><!-- /container -->
 
-    <div id="error-modal" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal fade modal-custom modal-error" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
@@ -2277,7 +2277,7 @@ AdminTimetableUpdate();
 
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(html.error_msg);
+            $('.error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
         } else {
             $(".table-inactive-lecture").dataTable().fnDestroy();
@@ -2314,7 +2314,7 @@ AdminTimetableUpdate();
 
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(html.error_msg);
+            $('.error-modal .modal-body p').empty().append(html.error_msg);
             $('#error-modal').modal('show');
         } else {
             $(".table-inactive-tutorial").dataTable().fnDestroy();
