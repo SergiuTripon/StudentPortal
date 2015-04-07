@@ -2438,7 +2438,7 @@ function DeleteResult() {
     AdminResultUpdate($isUpdate = 1);
 }
 
-function AdminResultUpdate($isUpdate = 0) {
+function AdminResultUpdate($isUpdate = 0, $userid) {
 
     global $mysqli;
     global $active_result;
@@ -2524,7 +2524,7 @@ function AdminResultUpdate($isUpdate = 0) {
             $inactive_result .=
 
            '<tr>
-			<td data-title="Name">'.$module_name.'</td>
+			<td data-title="Module">'.$module_name.'</td>
 			<td data-title="Coursework mark">'.$result_coursework_mark.'</td>
 			<td data-title="Exam mark">'.$result_exam_mark.'</td>
 			<td data-title="Overall mark">'.$result_overall_mark.'</td>
