@@ -8,7 +8,7 @@ global $session_userid;
 global $active_exam;
 global $inactive_exam;
 
-AdminTimetableUpdate();
+AdminExamUpdate();
 
 ?>
 
