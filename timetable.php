@@ -1817,9 +1817,9 @@ AdminTimetableUpdate();
     <li class="active">Timetable</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-module/">Create module</span></a>
-    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-lecture/">Create lecture</span></a>
-    <a class="btn btn-success btn-lg btn-admin" href="/admin/create-tutorial/">Create tutorial</span></a>
+    <a class="btn btn-success btn-lg btn-admin btn-load" href="/admin/create-module/">Create module</span></a>
+    <a class="btn btn-success btn-lg btn-admin btn-load" href="/admin/create-lecture/">Create lecture</span></a>
+    <a class="btn btn-success btn-lg btn-admin btn-load" href="/admin/create-tutorial/">Create tutorial</span></a>
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 	<div class="panel panel-default">
