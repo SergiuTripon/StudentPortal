@@ -4693,6 +4693,8 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
     $stmt1->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
     $stmt1->store_result();
 
+    $marker_category = ucfirst($mark_category);
+
     if ($stmt1->num_rows > 0) {
 
         while ($stmt1->fetch()) {
@@ -4757,6 +4759,8 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
     $stmt2->execute();
     $stmt2->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
     $stmt2->store_result();
+
+    $marker_category = ucfirst($mark_category);
 
     if ($stmt2->num_rows > 0) {
 
