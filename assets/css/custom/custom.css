@@ -900,7 +900,7 @@ form .field-required {
 }
 
 .modal-error .close, .close:hover, .close:focus {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 .modal-error .modal-header {
     border-color: #FFFFFF;
@@ -929,7 +929,7 @@ form .field-required {
 }
 
 .modal-warning .close, .close:hover, .close:focus {
-    color: #5D5D5D;
+    color: #5D5D5D !important;
 }
 .modal-warning .modal-header {
     border-color: #5D5D5D;
