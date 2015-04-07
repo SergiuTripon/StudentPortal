@@ -537,7 +537,9 @@ AdminEventUpdate();
 	data:'eventToDeactivate='+ eventToDeactivate,
 	success:function(html){
 
-        $(".table-active-event").dataTable().fnDestroy();
+        if (html) {
+            alert('Hello!');
+        }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
