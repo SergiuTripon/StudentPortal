@@ -890,7 +890,7 @@ form .field-required {
 }
 /* End of Modal form */
 
-/* Modal Error */
+/* Modal error */
 .modal-error .modal-content {
     background: #D9534F;
 }
@@ -917,7 +917,36 @@ form .field-required {
 .modal-error .modal-footer {
     border-color: #FFFFFF;
 }
-/* End of Modal form */
+/* End of Modal error */
+
+/* Modal warning */
+.modal-warning .modal-content {
+    background: #F0AD4E;
+}
+
+.modal-warning .close, .close:hover, .close:focus {
+    color: #FFFFFF;
+}
+.modal-warning .modal-header {
+    border-color: #FFFFFF;
+}
+
+.modal-warning .form-logo i {
+    color: #FFFFFF;
+}
+
+.modal-warning .modal-title {
+    color: #FFFFFF;
+}
+
+.modal-warning .modal-body {
+    color: #FFFFFF;
+}
+
+.modal-warning .modal-footer {
+    border-color: #FFFFFF;
+}
+/* End of Modal error */
 
 /* Modal Ekko Lightbox */
 .ekko-lightbox .modal-content {

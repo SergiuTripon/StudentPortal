@@ -1341,7 +1341,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-module-'.$moduleid.'" class="modal fade modal-custom modal-error" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-module-'.$moduleid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1352,7 +1352,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-body">
-			<p class="feedback-sad text-center">Are you sure you want to delete '.$module_name.'?</p>
+			<p class="text-left">Are you sure you want to delete '.$module_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
