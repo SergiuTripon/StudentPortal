@@ -1276,13 +1276,9 @@ function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
     global $active_module;
     global $active_lecture;
     global $active_tutorial;
-    global $active_exam;
-    global $active_result;
     global $inactive_module;
     global $inactive_lecture;
     global $inactive_tutorial;
-    global $inactive_exam;
-    global $inactive_result;
 
     $module_status = 'active';
 
@@ -1464,7 +1460,7 @@ function AdminTimetableUpdate($isUpdate = 0, $userid = '') {
         }
 	}
 
-    $stmt3->close();
+    $stmt2->close();
 
     $lecture_status = 'active';
 
