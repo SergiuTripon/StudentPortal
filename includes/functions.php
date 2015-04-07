@@ -1346,10 +1346,9 @@ function AdminTimetableUpdate($isUpdate = 0) {
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-exclamation"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete task?</h4>
+            </div>
 
 			<div class="modal-body">
 			<p class="text-left">Are you sure you want to delete '.$module_name.'?</p><br>
