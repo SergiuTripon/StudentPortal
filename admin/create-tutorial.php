@@ -160,8 +160,8 @@ include '../includes/session.php';
     <button id="FormSubmit" class="btn btn-primary btn-lg" >Create tutorial</span></button>
     </div>
 
-	<div id="success-button" class="text-center" style="display:none">
-	<a class="btn btn-success btn-lg" href="">Create another</span></a>
+	<div id="success-button" class="text-center" style="display:none;">
+	<a class="btn btn-success btn-lg btn-load" href="">Create another</span></a>
 	</div>
 	
     </form>
