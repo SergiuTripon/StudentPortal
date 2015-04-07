@@ -7,7 +7,7 @@
     });
 
     function buttonReset () {
-        $('.btn').button('reset');
+        $('.btn-load').button('reset');
     }
 
     $("body").on("click", ".btn-perform", function() {
