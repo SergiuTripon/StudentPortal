@@ -398,7 +398,7 @@ global $archived_task;
 
 	var hasError = false;
 
-	var create_task_name = $("#task_name").val();
+	var create_task_name = $("#create_task_name").val();
 	if(create_task_name === '') {
         $("label[for='create_task_name']").empty().append("Please enter a name.");
         $("label[for='create_task_name']").removeClass("feedback-happy");
@@ -580,6 +580,9 @@ global $archived_task;
         $("label[for='update_task_duedate']").addClass("feedback-happy");
         $("#update_task_duedate").addClass("input-happy");
 	}
+
+    alert(update_task_startdate);
+    alert(update_task_duedate);
 
 	if(hasError == false){
     jQuery.ajax({
