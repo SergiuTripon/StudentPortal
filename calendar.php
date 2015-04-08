@@ -585,6 +585,7 @@ global $archived_task;
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
+    dataType:"json",
     data:'update_taskid='           + update_taskid +
          '&update_task_name='       + update_task_name +
          '&update_task_notes='      + update_task_notes +
