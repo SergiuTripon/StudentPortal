@@ -3809,7 +3809,7 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-body">
         <p><b>Notes:</b> '.(empty($task_notes) ? "-" : "$task_notes").'</p>
-        <p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
+        <p><b>URL:</b> '.(empty($task_url) ? "-" : "<a href=\"//$task_url\" target=\"_blank\">Link</a>").'</p>
         <p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
         <p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
         </div>
