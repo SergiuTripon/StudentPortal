@@ -539,6 +539,12 @@ form {
     vertical-align: inherit;
 }
 
+.form-horizontal .form-control {
+    display: block;
+    width: 100%;
+    vertical-align: inherit;
+}
+
 .form-group {
     margin-bottom: 0;
 }
