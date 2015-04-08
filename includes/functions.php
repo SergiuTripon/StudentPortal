@@ -3957,7 +3957,7 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-body">
         <p><b>Notes:</b> '.(empty($task_notes) ? "-" : "$task_notes").'</p>
-        <p><b>URL:</b> '.(empty($task_url) ? "-" : "<a class=\"btn btn-primary btn-md\" target=\"_blank\" href=\"//$task_url\">Link</a>").'</p>
+        <p><b>URL:</b> '.(empty($task_url) ? "-" : "<a href=\"//$task_url\" target=\"_blank\">Link</a>").'</p>
         <p><b>Start date and time:</b> '.(empty($task_startdate) ? "-" : "$task_startdate").'</p>
         <p><b>Due date and time:</b> '.(empty($task_duedate) ? "-" : "$task_duedate").'</p>
         <p><b>Completed on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
@@ -3965,6 +3965,7 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-footer">
         <div class="view-action pull-left">
+        <a id="#reactivate-'.$taskid.'" class="btn btn-primary btn-md btn-reactivate-task">Restore</a>
         <a href="#delete-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
         </div>
         <div class="view-close pull-right">
