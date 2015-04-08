@@ -956,6 +956,40 @@ form .field-required {
 }
 /* End of Modal warning */
 
+/* Modal info */
+.modal-info .modal-content {
+    background: #5BC0DE;
+}
+
+.modal-info .close, .close:hover, .close:focus {
+    color: #5D5D5D !important;
+}
+.modal-info .modal-header {
+    border-color: #5D5D5D;
+}
+
+.modal-info .form-logo i {
+    color: #5D5D5D;
+}
+
+.modal-info .modal-title {
+    color: #5D5D5D;
+}
+
+.modal-info .modal-body {
+    color: #5D5D5D;
+}
+
+.modal-info .modal-body p {
+    font-weight: 600;
+}
+
+.modal-info .modal-footer {
+    border-color: #5D5D5D;
+}
+/* End of Modal info */
+
+
 /* Modal Ekko Lightbox */
 .ekko-lightbox .modal-content {
     border: none;
