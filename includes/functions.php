@@ -1328,9 +1328,9 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-md btn-load">Update</a>
-            <a id="deactivate-'.$moduleid.'" class="btn btn-primary btn-md btn-deactivate-module btn-load">Deactivate</a>
-            <a href="#delete-module-'.$moduleid.'" class="btn btn-primary btn-md btn-load" data-toggle="modal" data-dismiss="modal">Delete</a>
+            <a href="/admin/update-module?id='.$moduleid.'" class="btn btn-primary btn-md">Update</a>
+            <a id="deactivate-'.$moduleid.'" class="btn btn-primary btn-md btn-deactivate-module">Deactivate</a>
+            <a href="#delete-module-'.$moduleid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -1419,7 +1419,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a id="reactivate-'.$moduleid.'" class="btn btn-primary btn-sm btn-reactivate-module">Reactivate</a>
+            <a id="reactivate-'.$moduleid.'" class="btn btn-primary btn-md btn-reactivate-module">Reactivate</a>
+            <a href="#delete-module-'.$moduleid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
