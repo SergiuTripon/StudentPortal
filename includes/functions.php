@@ -3802,10 +3802,10 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-footer">
         <div class="view-action pull-left">
-        <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm" >Update</a>
+        <a href="#" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Update</a>
         <a href="#complete-'.$taskid.'" class="btn btn-primary btn-md btn-complete-task">Complete</a>
         <a id="#deactivate-'.$taskid.'" class="btn btn-primary btn-md btn-deactivate-task">Archive</a>
-        <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md">Delete</a>
+        <a href="#delete-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -3815,6 +3815,8 @@ function calendarUpdate($isUpdate = 0) {
         </div><!--/modal -->
         </div><!--/modal-dialog-->
         </div><!--/modal-content-->
+
+
 
         <div id="delete-'.$taskid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
@@ -3839,6 +3841,7 @@ function calendarUpdate($isUpdate = 0) {
         </div><!-- /modal -->
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
+
         </td>
         </tr>';
         }

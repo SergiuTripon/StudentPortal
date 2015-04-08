@@ -231,10 +231,6 @@ global $archived_task;
 	
     </div><!-- /container -->
 
-    <div id="content-create-task" style="display: none;">
-
-    </div>
-
     <div id="create-task-modal" class="modal fade modal-custom modal-form" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -295,41 +291,6 @@ global $archived_task;
     </div><!-- /modal -->
     </div><!-- /modal-dialog -->
     </div><!-- /modal-content -->
-
-    <!-- Update a task -->
-	<form class="form-horizontal form-custom" style="max-width: 100%;" name="update-task_form" id="update-task_form">
-
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
-
-    <label for="task_name">Name<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
-
-    <label>Notes (Optional)</label>
-    <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Notes"></textarea>
-
-	<label>External URL (www.example.com)</label>
-	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
-
-	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
-	<label for="task_startdate">Start date and time<span class="field-required">*</span></label>
-	<input class="form-control" type="text" name="task_startdate" id="task_startdate" placeholder="Select a start date and time"/>
-	</div>
-	<div class="col-xs-6 col-sm-6 full-width">
-	<label for="task_duedate">Due date and time<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="task_duedate" id="task_duedate" placeholder="Select a due date and time"/>
-	</div>
-	</div>
-
-	<hr class="hr-custom">
-
-    <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg mt10" >Update task</span></button>
-    </div>
-
-    </form>
-    <!-- End of Update a task -->
 	
 	<?php include 'includes/footers/footer.php'; ?>
 		
