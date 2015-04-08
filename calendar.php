@@ -576,7 +576,7 @@ global $archived_task;
 
         $(".table-due-task").dataTable().fnDestroy();
         $('#content-due-task').empty();
-        $('#content-due-task').html(html.due_tasks);
+        $('#content-due-task').html(html.due_task);
         $(".table-due-task").dataTable(settings);
 
 	},
