@@ -466,10 +466,10 @@ global $archived_task;
         $('.modal-form').modal('hide');
 
         $('.modal-form').on('hidden.bs.modal', function () {
-            $(".table-due-tasks").dataTable().fnDestroy();
-            $('#content-due-tasks').empty();
-            $('#content-due-tasks').html(html.due_task);
-            $(".table-due-tasks").dataTable(settings);
+            $(".table-due-task").dataTable().fnDestroy();
+            $('#content-due-task').empty();
+            $('#content-due-task').html(html.due_task);
+            $(".table-due-task").dataTable(settings);
             $(this).find('form')[0].reset();
         });
 
