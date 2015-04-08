@@ -454,9 +454,6 @@ include '../includes/session.php';
 
     });
 
-
-
-
     // Date Time Picker
 	$('#dateofbirth').datetimepicker({
         format: 'DD/MM/YYYY'
@@ -833,7 +830,7 @@ include '../includes/session.php';
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Account created successfully.');
+		$("#success").empty().append('All done! The account has been created.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
