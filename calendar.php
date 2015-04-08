@@ -47,7 +47,7 @@ global $archived_task;
 
 	<div class="row">
 
-    <a href="/calendar/create-task/">
+    <a href="create-task-modal" data-toggle="modal">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-plus"></i>
