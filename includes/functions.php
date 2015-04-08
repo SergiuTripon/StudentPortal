@@ -4724,24 +4724,23 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
             </td>
 			</tr>
 
-			<div id="delete-'.$markerid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$markerid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete location?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p class="feedback-sad text-center">Are you sure you want to delete '.$marker_name.'?</p>
+			<p class="text-center">Are you sure you want to delete '.$marker_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">Cancel</button>
-            <a id="delete-'.$markerid.'" class="btn btn-danger btn-lg btn-delete-location" >Confirm</a>
+			<button type="button" class="btn btn-success btn-md" data-dismiss="modal">Cancel</button>
+            <a id="delete-'.$markerid.'" class="btn btn-danger btn-md btn-delete-location btn-load" >Confirm</a>
 			</div>
 			</div>
 
@@ -4788,24 +4787,23 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
             </td>
 			</tr>
 
-			<div id="delete-'.$markerid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$markerid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete location?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p class="feedback-sad text-center">Are you sure you want to delete '.$marker_name.'?</p>
+			<p class="text-center">Are you sure you want to delete '.$marker_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
 			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">Cancel</button>
-            <a id="delete-'.$markerid.'" class="btn btn-danger btn-lg btn-delete-location">Confirm</a>
+            <a id="delete-'.$markerid.'" class="btn btn-danger btn-lg btn-delete-location btn-load">Confirm</a>
 			</div>
 			</div>
 
