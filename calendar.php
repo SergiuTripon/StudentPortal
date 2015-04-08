@@ -231,6 +231,7 @@ global $archived_task;
 	
     </div><!-- /container -->
 
+    <div id="content-create-task">
     <!-- Create a task -->
 	<form class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;" name="create_task_form" id="create_task_form">
 
@@ -271,6 +272,7 @@ global $archived_task;
 
     </form>
     <!-- End of Create a task -->
+    </div>
 
     <div id="create-task-modal" class="modal fade modal-custom modal-form" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -307,11 +309,17 @@ global $archived_task;
     <?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
     <script>
+
+    var content_create_task;
+
     $(document).ready(function () {
         $("#calendar-toggle").hide();
         $(".task-tile").addClass("tile-selected");
         $(".task-tile p").addClass("tile-text-selected");
         $(".task-tile i").addClass("tile-text-selected");
+
+        content_create_task = $("#content-create-task").html();
+        $("#create-task-modal .modal-body").append(content_create_task);
     });
 
     //Calendar
@@ -471,7 +479,8 @@ global $archived_task;
             $('#content-due-task').empty();
             $('#content-due-task').html(html.due_task);
             $(".table-due-task").dataTable(settings);
-            $(this).find('form')[0].reset();
+            content_create_task = $("#content-create-task").html();
+            $("#create-task-modal .modal-body").append(content_create_task);
         });
 
         buttonReset();
