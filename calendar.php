@@ -516,6 +516,98 @@ global $archived_task;
 	return true;
 	});
 
+    //Ajax call
+    $("#FormSubmit").click(function (e) {
+    e.preventDefault();
+
+	var hasError = false;
+
+	var taskid = $("#taskid").val();
+
+	var task_name = $("#task_name").val();
+	if(task_name === '') {
+        $("label[for='task_name']").empty().append("Please enter a name.");
+        $("label[for='task_name']").removeClass("feedback-happy");
+        $("#task_name").removeClass("input-happy");
+        $("label[for='task_name']").addClass("feedback-sad");
+        $("#task_name").addClass("input-sad");
+        $("#task_name").focus();
+        hasError = true;
+        return false;
+    } else {
+        $("label[for='task_name']").empty().append("All good!");
+        $("label[for='task_name']").removeClass("feedback-sad");
+        $("#task_name").removeClass("input-sad");
+        $("label[for='task_name']").addClass("feedback-happy");
+        $("#task_name").addClass("input-happy");
+	}
+
+	var task_notes = $("#task_notes").val();
+	var task_url = $("#task_url").val();
+
+	var task_startdate = $("#task_startdate").val();
+	if(task_startdate === '') {
+        $("label[for='task_startdate']").empty().append("Please select a date and time.");
+        $("label[for='task_startdate']").removeClass("feedback-happy");
+        $("#task_startdate").removeClass("input-happy");
+        $("label[for='task_startdate']").addClass("feedback-sad");
+        $("#task_startdate").addClass("input-sad");
+        $("#task_startdate").focus();
+        hasError = true;
+        return false;
+	} else {
+        $("label[for='task_startdate']").empty().append("All good!");
+        $("label[for='task_startdate']").removeClass("feedback-sad");
+        $("#task_startdate").removeClass("input-sad");
+        $("label[for='task_startdate']").addClass("feedback-happy");
+        $("#task_startdate").addClass("input-happy");
+	}
+
+	var task_duedate = $("#task_duedate").val();
+	if(task_duedate === '') {
+        $("label[for='task_duedate']").empty().append("Please select a date and time.");
+        $("label[for='task_duedate']").removeClass("feedback-happy");
+        $("#task_duedate").removeClass("input-happy");
+        $("label[for='task_duedate']").addClass("feedback-sad");
+        $("#task_duedate").addClass("input-sad");
+        $("#task_duedate").focus();
+        hasError = true;
+        return false;
+    } else {
+        $("label[for='task_duedate']").empty().append("All good!");
+        $("label[for='task_duedate']").removeClass("feedback-sad");
+        $("#task_duedate").removeClass("input-sad");
+        $("label[for='task_duedate']").addClass("feedback-happy");
+        $("#task_duedate").addClass("input-happy");
+	}
+
+	if(hasError == false){
+    jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'update_taskid=' + taskid +
+         '&update_task_name=' + task_name +
+         '&update_task_notes=' + task_notes +
+         '&update_task_url=' + task_url +
+         '&update_task_startdate=' + task_startdate +
+         '&update_task_duedate=' + task_duedate,
+    success:function(){
+		$("#error").hide();
+		$("#hide").hide();
+		$("#success").empty().append('Task updated successfully.');
+		$('#updatetask_form').trigger("reset");
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
+    }
+
+	return true;
+
+	});
+
     //Complete record
 	$("body").on("click", ".btn-complete-task", function(e) {
     e.preventDefault();

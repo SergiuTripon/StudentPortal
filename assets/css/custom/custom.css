@@ -545,6 +545,10 @@ form {
     vertical-align: inherit;
 }
 
+.bootstrap-datetimepicker-widget {
+    display: block !important;
+}
+
 .form-group {
     margin-bottom: 0;
 }
