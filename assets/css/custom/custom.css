@@ -958,26 +958,26 @@ form .field-required {
 
 /* Modal info */
 .modal-info .modal-content {
-    background: #5BC0DE;
+    background: #9BD8EB;
 }
 
 .modal-info .close, .close:hover, .close:focus {
-    color: #5D5D5D !important;
+    color: #1D7892 !important;
 }
 .modal-info .modal-header {
-    border-color: #5D5D5D;
+    border-color: #1D7892;
 }
 
 .modal-info .form-logo i {
-    color: #5D5D5D;
+    color: #1D7892;
 }
 
 .modal-info .modal-title {
-    color: #5D5D5D;
+    color: #1D7892;
 }
 
 .modal-info .modal-body {
-    color: #5D5D5D;
+    color: #1D7892;
 }
 
 .modal-info .modal-body p {
@@ -985,7 +985,7 @@ form .field-required {
 }
 
 .modal-info .modal-footer {
-    border-color: #5D5D5D;
+    border-color: #1D7892;
 }
 /* End of Modal info */
 
