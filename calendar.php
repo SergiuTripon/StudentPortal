@@ -232,7 +232,20 @@ global $archived_task;
     </div><!-- /container -->
 
     <div id="content-create-task" style="display: none;">
-    <!-- Create a task -->
+
+    </div>
+
+    <div id="create-task-modal" class="modal fade modal-custom modal-form" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+    <div class="modal-header">
+    <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+    <h4 class="modal-title" id="modal-custom-label">Create a task</h4>
+    </div>
+
+    <div class="modal-body">
+        <!-- Create a task -->
 	<form class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;" name="createtask_form" id="createtask_form">
 
 	<p id="success" class="feedback-happy text-center"></p>
@@ -272,18 +285,6 @@ global $archived_task;
 
     </form>
     <!-- End of Create a task -->
-    </div>
-
-    <div id="create-task-modal" class="modal fade modal-custom modal-form" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-    <div class="modal-header">
-    <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-    <h4 class="modal-title" id="modal-custom-label">Create a task</h4>
-    </div>
-
-    <div class="modal-body">
     </div>
 
     <div class="modal-footer">
