@@ -364,10 +364,16 @@ global $archived_task;
     }).resize();
 
     // Date Time Picker
-    $('#task_startdate').datetimepicker({
+    $('#create_task_startdate').datetimepicker({
         format: 'YYYY/MM/DD HH:mm'
     });
-    $('#task_duedate').datetimepicker({
+    $('#create_task_duedate').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
+    $('#update_task_duedate').datetimepicker({
+        format: 'YYYY/MM/DD HH:mm'
+    });
+    $('#update_task_duedate').datetimepicker({
         format: 'YYYY/MM/DD HH:mm'
     });
 
