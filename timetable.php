@@ -2296,10 +2296,16 @@ AdminTimetableUpdate();
         togglePreloader();
 
         if (html.error_msg) {
-            $('.modal-custom').modal('hide');
+
+            togglePreloader();
+
             $('.modal-error .modal-body p').empty().append(html.error_msg);
             $('.modal-error').modal('show');
+
         } else {
+
+            togglePreloader();
+
             $(".table-inactive-lecture").dataTable().fnDestroy();
             $('#content-inactive-lecture').empty();
             $('#content-inactive-lecture').html(html.inactive_lecture);
@@ -2339,9 +2345,9 @@ AdminTimetableUpdate();
 
             togglePreloader();
 
-            $('.modal-custom').modal('hide');
             $('.modal-error .modal-body p').empty().append(html.error_msg);
             $('.modal-error').modal('show');
+
         } else {
 
             togglePreloader();
