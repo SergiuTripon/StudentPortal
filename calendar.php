@@ -363,21 +363,17 @@ global $archived_task;
         }
     }).resize();
 
-    // Date Time Picker
-    $('#create_task_startdate').datetimepicker({
+    var datetimepicker = {
         format: 'DD/MM/YYYY HH:mm'
-    });
-    $('#create_task_duedate').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
-    });
-    $('#update_task_startdate').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
-    });
-    $('#update_task_duedate').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
-    });
+    };
 
-    var settings = {
+    // Date Time Picker
+    $('#create_task_startdate').datetimepicker(datetimepicker);
+    $('#create_task_duedate').datetimepicker(datetimepicker);
+    $('#update_task_startdate').datetimepicker(datetimepicker);
+    $('#update_task_duedate').datetimepicker(datetimepicker);
+
+    var datatables = {
         "iDisplayLength": 10,
         "paging": true,
         "ordering": true,
@@ -388,9 +384,9 @@ global $archived_task;
     };
 
     //DataTables
-    $('.table-due-task').dataTable(settings);
-    $('.table-completed-task').dataTable(settings);
-    $('.table-archived-task').dataTable(settings);
+    $('.table-due-task').dataTable(datatables);
+    $('.table-completed-task').dataTable(datatables);
+    $('.table-archived-task').dataTable(datatables);
 
     //Ajax call
     $("#create-task-submit").click(function (e) {
@@ -474,9 +470,7 @@ global $archived_task;
             $(".table-due-task").dataTable().fnDestroy();
             $('#content-due-task').empty();
             $('#content-due-task').html(html.due_task);
-            $(".table-due-task").dataTable(settings);
-            var content_create_task = $("#content-create-task").html();
-            $("#create-task-form").append(content_create_task);
+            $(".table-due-task").dataTable(datatables);
 
             $("label[for='task_name']").removeClass("feedback-happy");
             $("label[for='task_name']").removeClass("feedback-sad");
@@ -500,9 +494,13 @@ global $archived_task;
             $("#success").hide();
 
             $('#create-task-form').trigger("reset");
-        });
 
-        buttonReset();
+            $('#update_task_startdate').datetimepicker(datetimepicker);
+            $('#update_task_duedate').datetimepicker(datetimepicker);
+
+            buttonReset();
+
+        });
 
     },
     error:function (xhr, ajaxOptions, thrownError){
@@ -600,7 +598,7 @@ global $archived_task;
             $(".table-due-task").dataTable().fnDestroy();
             $('#content-due-task').empty();
             $('#content-due-task').html(html.due_task);
-            $(".table-due-task").dataTable(settings);
+            $(".table-due-task").dataTable(datatables);
 
             $("label[for='update_task_name']").removeClass("feedback-happy");
             $("label[for='update_task_name']").removeClass("feedback-sad");
@@ -623,12 +621,18 @@ global $archived_task;
             $("#error").hide();
             $("#success").hide();
 
+            $('#update_task_startdate').datetimepicker(datetimepicker);
+            $('#update_task_duedate').datetimepicker(datetimepicker);
+
+            buttonReset();
+
         });
 
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
         $("#error").empty().append(thrownError);
+        buttonReset();
     }
 	});
     }
@@ -654,12 +658,16 @@ global $archived_task;
         $(".table-due-task").dataTable().fnDestroy();
         $('#content-due-task').empty();
         $('#content-due-task').html(html.due_task);
-        $(".table-due-task").dataTable(settings);
+        $(".table-due-task").dataTable(datatables);
 
         $(".table-completed-task").dataTable().fnDestroy();
         $('#content-completed-task').empty();
         $('#content-completed-task').html(html.completed_task);
-        $(".table-completed-task").dataTable(settings);
+        $(".table-completed-task").dataTable(datatables);
+
+        $('#update_task_startdate').datetimepicker(datetimepicker);
+        $('#update_task_duedate').datetimepicker(datetimepicker);
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -686,12 +694,16 @@ global $archived_task;
         $(".table-due-task").dataTable().fnDestroy();
         $('#content-due-task').empty();
         $('#content-due-task').html(html.due_task);
-        $(".table-due-task").dataTable(settings);
+        $(".table-due-task").dataTable(datatables);
 
         $(".table-archived-task").dataTable().fnDestroy();
         $('#content-archived-task').empty();
         $('#content-archived-task').html(html.archived_task);
-        $(".table-archived-task").dataTable(settings);
+        $(".table-archived-task").dataTable(datatables);
+
+        $('#update_task_startdate').datetimepicker(datetimepicker);
+        $('#update_task_duedate').datetimepicker(datetimepicker);
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -717,17 +729,20 @@ global $archived_task;
         $(".table-archived-task").dataTable().fnDestroy();
         $('#content-archived-task').empty();
         $('#content-archived-task').html(html.archived_task);
-        $(".table-archived-task").dataTable(settings);
+        $(".table-archived-task").dataTable(datatables);
 
         $(".table-completed-task").dataTable().fnDestroy();
         $('#content-completed-task').empty();
         $('#content-completed-task').html(html.completed_task);
-        $(".table-completed-task").dataTable(settings);
+        $(".table-completed-task").dataTable(datatables);
 
         $(".table-due-task").dataTable().fnDestroy();
         $('#content-due-task').empty();
         $('#content-due-task').html(html.due_task);
-        $(".table-due-task").dataTable(settings);
+        $(".table-due-task").dataTable(datatables);
+
+        $('#update_task_startdate').datetimepicker(datetimepicker);
+        $('#update_task_duedate').datetimepicker(datetimepicker);
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -757,17 +772,23 @@ global $archived_task;
             $('#content-due-task').empty();
             $(".table-due-task").dataTable().fnDestroy();
             $('#content-due-task').html(html.due_task);
-            $(".table-due-task").dataTable(settings);
+            $(".table-due-task").dataTable(datatables);
 
             $('#content-completed-task').empty();
             $(".table-completed-task").dataTable().fnDestroy();
             $('#content-completed-task').html(html.completed_task);
-            $(".table-completed-task").dataTable(settings);
+            $(".table-completed-task").dataTable(datatables);
 
             $('#content-archived-task').empty();
             $(".table-archived-task").dataTable().fnDestroy();
             $('#content-archived-task').html(html.archived_task);
-            $(".table-archived-task").dataTable(settings);
+            $(".table-archived-task").dataTable(datatables);
+
+            $('#update_task_startdate').datetimepicker(datetimepicker);
+            $('#update_task_duedate').datetimepicker(datetimepicker);
+
+            buttonReset();
+
         });
 
 	},
