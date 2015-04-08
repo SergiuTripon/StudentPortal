@@ -90,7 +90,7 @@ global $archived_task;
 
     <!-- Due tasks -->
     <section id="no-more-tables">
-    <table class="table table-condensed table-custom table-due-tasks">
+    <table class="table table-condensed table-custom table-due-task">
 
     <thead>
     <tr>
@@ -101,7 +101,7 @@ global $archived_task;
     </tr>
     </thead>
 
-    <tbody id="content-due-tasks">
+    <tbody id="content-due-task">
 
 	<?php
     echo $due_task;
@@ -127,7 +127,7 @@ global $archived_task;
 
     <!-- Completed tasks -->
     <section id="no-more-tables">
-    <table class="table table-condensed table-custom table-completed-tasks">
+    <table class="table table-condensed table-custom table-completed-task">
     <thead>
     <tr>
     <th>Task</th>
@@ -138,7 +138,7 @@ global $archived_task;
     </tr>
     </thead>
 
-    <tbody id="content-completed-tasks">
+    <tbody id="content-completed-task">
 
 	<?php
     echo $completed_task;
@@ -164,7 +164,7 @@ global $archived_task;
 
 	<!-- Archived tasks -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-archived-tasks">
+	<table class="table table-condensed table-custom table-archived-task">
 
 	<thead>
 	<tr>
@@ -176,7 +176,7 @@ global $archived_task;
 	</tr>
 	</thead>
 
-	<tbody id="content-archived-tasks">
+	<tbody id="content-archived-task">
 	<?php
     echo $archived_task;
 	?>
@@ -488,7 +488,7 @@ global $archived_task;
 	});
 
     //Complete record
-	$("body").on("click", ".btn-complete", function(e) {
+	$("body").on("click", ".btn-complete-task", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -520,7 +520,7 @@ global $archived_task;
     });
 
     //Deactivate record
-    $("body").on("click", ".btn-deactivate", function(e) {
+    $("body").on("click", ".btn-deactivate-task", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -551,7 +551,7 @@ global $archived_task;
     });
 
     //Reactivate record
-    $("body").on("click", ".btn-reactivate", function(e) {
+    $("body").on("click", ".btn-reactivate-task", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -588,7 +588,7 @@ global $archived_task;
     });
 
     //Delete record
-    $("body").on("click", ".btn-delete", function(e) {
+    $("body").on("click", ".btn-delete-task", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');

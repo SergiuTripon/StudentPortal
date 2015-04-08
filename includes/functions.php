@@ -3772,14 +3772,14 @@ function calendarUpdate($isUpdate = 0) {
         <td data-title="Action">
 
         <div class="btn-group btn-action">
-        <a id="complete-'.$taskid.'" class="btn btn-primary btn-complete">Complete</a>
+        <a id="complete-'.$taskid.'" class="btn btn-primary btn-complete-task">Complete</a>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="fa fa-caret-down"></span>
         <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu">
         <li><a href="../calendar/update-task?id='.$taskid.'">Update</a></li>
-        <li><a id="deactivate-'.$taskid.'" class="btn-deactivate">Archive</a></li>
+        <li><a id="deactivate-'.$taskid.'" class="btn-deactivate-task">Archive</a></li>
         <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
         </ul>
         </div>
@@ -3803,9 +3803,9 @@ function calendarUpdate($isUpdate = 0) {
         <div class="modal-footer">
         <div class="view-action pull-left">
         <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm" >Update</a>
-        <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md>Complete</a>
-        <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md">Archive</a>
-        <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+        <a href="#complete-'.$taskid.'" class="btn btn-primary btn-md btn-complete-task">Complete</a>
+        <a id="#deactivate-'.$taskid.'" class="btn btn-primary btn-md btn-deactivate-task">Archive</a>
+        <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md">Delete</a>
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -3867,7 +3867,7 @@ function calendarUpdate($isUpdate = 0) {
         <td data-title="Action">
 
         <div class="btn-group btn-action">
-        <a id="reactivate-'.$taskid.'" class="btn btn-primary btn-reactivate">Restore</a>
+        <a id="reactivate-'.$taskid.'" class="btn btn-primary btn-reactivate-task">Restore</a>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="fa fa-caret-down"></span>
         <span class="sr-only">Toggle Dropdown</span>
@@ -3898,7 +3898,7 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-footer">
         <div class="view-action pull-left">
-        <a href="#delete-confirmation-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+        <a href="#delete-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -3925,7 +3925,7 @@ function calendarUpdate($isUpdate = 0) {
         <div class="modal-footer">
         <div class="text-right">
         <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete btn-load">Confirm</a>
+        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete-task btn-load">Confirm</a>
         </div>
         </div>
 
