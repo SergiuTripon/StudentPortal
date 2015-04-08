@@ -3643,7 +3643,6 @@ function UpdateTask() {
 
 	if ($db_taskname == $task_name) {
 
-        $task_class = 'event-important';
         $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
         $task_startdate = $task_startdate->format('Y-m-d H:i');
         $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
@@ -3671,7 +3670,6 @@ function UpdateTask() {
 
         } else {
 
-        $task_class = 'event-important';
         $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
         $task_startdate = $task_startdate->format('Y-m-d H:i');
         $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
