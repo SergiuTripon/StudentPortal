@@ -412,8 +412,8 @@ global $archived_task;
         $("#create_task_name").addClass("input-happy");
 	}
 
-	var create_task_notes = $("#task_notes").val();
-	var create_task_url = $("#task_url").val();
+	var create_task_notes = $("#create_task_notes").val();
+	var create_task_url = $("#create_task_url").val();
 
 	var create_task_startdate = $("#create_task_startdate").val();
 	if(create_task_startdate === '') {
