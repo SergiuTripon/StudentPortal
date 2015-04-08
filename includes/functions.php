@@ -3874,7 +3874,7 @@ function calendarUpdate($isUpdate = 0) {
         <div class="modal-footer">
         <div class="text-right">
         <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-        <a id="create-form-submit" class="btn btn-primary btn-lg btn-load">Update task</a>
+        <a id="update-task-submit" class="btn btn-primary btn-lg btn-load">Update task</a>
         </div>
         </div>
 

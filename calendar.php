@@ -393,7 +393,7 @@ global $archived_task;
     $('.table-archived-task').dataTable(settings);
 
     //Ajax call
-    $("#create-form-submit").click(function (e) {
+    $("#create-task-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
