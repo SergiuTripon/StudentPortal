@@ -3778,7 +3778,7 @@ function calendarUpdate($isUpdate = 0) {
         <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu">
-        <li><a href="#update-modal" data-toggle="modal" data-dismiss="modal">Update</a></li>
+        <li><a href="#update-task-modal" data-toggle="modal" data-dismiss="modal">Update</a></li>
         <li><a id="deactivate-'.$taskid.'" class="btn-deactivate-task">Archive</a></li>
         <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
         </ul>
