@@ -533,13 +533,13 @@ global $archived_task;
 	data:'taskToDeactivate='+ taskToDeactivate,
 	success:function(html){
 
-        $('#content-due-task').empty();
         $(".table-due-task").dataTable().fnDestroy();
+        $('#content-due-task').empty();
         $('#content-due-task').html(html.due_task);
         $(".table-due-task").dataTable(settings);
 
-        $('#content-archived-task').empty();
         $(".table-archived-task").dataTable().fnDestroy();
+        $('#content-archived-task').empty();
         $('#content-archived-task').html(html.archived_task);
         $(".table-archived-task").dataTable(settings);
 	},
@@ -564,18 +564,18 @@ global $archived_task;
 	data:'taskToReactivate='+ taskToReactivate,
 	success:function(html){
 
-        $('#content-archived-task').empty();
         $(".table-archived-task").dataTable().fnDestroy();
+        $('#content-archived-task').empty();
         $('#content-archived-task').html(html.archived_task);
         $(".table-archived-task").dataTable(settings);
 
-        $('#content-completed-task').empty();
         $(".table-completed-task").dataTable().fnDestroy();
+        $('#content-completed-task').empty();
         $('#content-completed-task').html(html.completed_task);
         $(".table-completed-task").dataTable(settings);
 
-        $('#content-due-task').empty();
         $(".table-due-task").dataTable().fnDestroy();
+        $('#content-due-task').empty();
         $('#content-due-task').html(html.due_tasks);
         $(".table-due-task").dataTable(settings);
 
