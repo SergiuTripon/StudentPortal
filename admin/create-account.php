@@ -622,7 +622,7 @@ include '../includes/session.php';
 		}
 		if (studentno.length != 9) {
 			$("#error1").show();
-			$("#error1").empty().append("The student number entered is invalid.<br>The student number must exactly 9 digits in length.");
+			$("#error1").empty().append("The student number entered is invalid.<br>The student number must be exactly 9 digits in length.");
             $("label[for='studentno']").empty().append("Wait a minute!");
             $("label[for='studentno']").removeClass("feedback-happy");
             $("label[for='studentno']").addClass("feedback-sad");
