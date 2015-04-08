@@ -1423,7 +1423,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             <a href="#delete-module-'.$moduleid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1447,8 +1447,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a type="button" class="btn btn-default btn-md" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$moduleid.'" class="btn btn-primary btn-md btn-delete-module btn-load">Confirm</a>
+			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$moduleid.'" class="btn btn-primary btn-lg btn-delete-module btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -1554,8 +1554,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a class="btn btn-default btn-md" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-md btn-delete-lecture btn-load">Confirm</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-lg btn-delete-lecture btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -1630,7 +1630,6 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-md" >Update</a>
             <a id="reactivate-'.$lectureid.'" class="btn btn-primary btn-md btn-reactivate-lecture">Reactivate</a>
             <a href="#delete-lecture-'.$lectureid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
@@ -1658,8 +1657,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a class="btn btn-default btn-md" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-md btn-delete-lecture btn-load">Confirm</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-lg btn-delete-lecture btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -1716,7 +1715,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-            <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1737,12 +1736,12 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$tutorialid.'" class="btn btn-primary btn-sm">Update</a>
-            <a id="deactivate-'.$tutorialid.'" class="btn btn-primary btn-sm btn-deactivate-tutorial">Deactivate</a>
-            <a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+            <a href="/admin/update-timetable?id='.$tutorialid.'" class="btn btn-primary btn-md">Update</a>
+            <a id="deactivate-'.$tutorialid.'" class="btn btn-primary btn-md btn-deactivate-tutorial">Deactivate</a>
+            <a href="#delete-tutorial-'.$tutorialid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1821,7 +1820,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-            <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1842,11 +1841,11 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a id="reactivate-'.$tutorialid.'" class="btn btn-primary btn-sm btn-reactivate-tutorial">Reactivate</a>
-            <a href="#delete-tutorial-'.$tutorialid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+            <a id="reactivate-'.$tutorialid.'" class="btn btn-primary btn-md btn-reactivate-tutorial">Reactivate</a>
+            <a href="#delete-tutorial-'.$tutorialid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -2153,7 +2152,7 @@ function AdminExamUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-            <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-exam-'.$examid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -2171,8 +2170,12 @@ function AdminExamUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-footer">
+			<div class="view-action pull-left">
+			<a id="reactivate-'.$examid.'" class="btn btn-primary btn-md btn-deactivate-exam">Deactivate</a>
+            <a href="#delete-exam-'.$examid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+            </div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</span></a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</span></a>
 			</div>
 			</div>
 
@@ -2242,7 +2245,7 @@ function AdminExamUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-            <div id="view-exam-'.$examid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-exam-'.$examid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -2260,8 +2263,12 @@ function AdminExamUpdate($isUpdate = 0) {
 			</div>
 
 			<div class="modal-footer">
+			<div class="view-action pull-left">
+			<a id="reactivate-'.$examid.'" class="btn btn-primary btn-md btn-deactivate-exam">Deactivate</a>
+            <a href="#delete-exam-'.$examid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+            </div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</span></a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</span></a>
 			</div>
 			</div>
 
