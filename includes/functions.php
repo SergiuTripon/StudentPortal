@@ -3851,7 +3851,7 @@ function calendarUpdate($isUpdate = 0) {
         <input class="form-control" type="text" name="update_task_name" id="update_task_name" value="'.$task_name.'" placeholder="Enter a name">
 
         <label>Notes (Optional)</label>
-        <textarea class="form-control" rows="5" name="update_task_notes" id="task_notes" placeholder="Notes">'.$task_notes.'</textarea>
+        <textarea class="form-control" rows="5" name="update_task_notes" id="update_task_notes" placeholder="Notes">'.$task_notes.'</textarea>
 
         <label>External URL (www.example.com)</label>
         <input class="form-control" type="text" name="update_task_url" id="update_task_url" value="'.$task_url.'" placeholder="Enter an external URL">
