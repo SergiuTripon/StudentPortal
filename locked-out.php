@@ -174,9 +174,6 @@ include 'includes/session.php';
 
     });
 
-
-
-	
 	$("#after").hide();
     $("#unlock-button").click(function (e) {
 	$("#before").hide();
