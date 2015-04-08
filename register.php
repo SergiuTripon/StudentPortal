@@ -132,7 +132,7 @@ include 'includes/session.php';
     <hr>
 
 	<div id="register-button" class="pull-left">
-    <a class="btn btn-info btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-info btn-lg btn-load" href="/">Sign in</span></a>
     </div>
 	
     <div id="register-button" class="text-right">
