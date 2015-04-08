@@ -480,7 +480,7 @@ global $archived_task;
             $('#content-due-task').html(html.due_task);
             $(".table-due-task").dataTable(settings);
             content_create_task = $("#content-create-task").html();
-            $("#create-task-modal .modal-body").append(content_create_task);
+            $("#create-task-modal").find(".modal-body").append(content_create_task);
         });
 
         buttonReset();
