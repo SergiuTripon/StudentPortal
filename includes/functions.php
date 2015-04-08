@@ -3826,8 +3826,8 @@ function calendarUpdate($isUpdate = 0) {
         </div>
 
         <div class="modal-body">
-            <!-- Create a task -->
-        <form class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;" name="create-task-form" id="create-task-form">
+        <!-- Create a task -->
+        <form id="create-task-form" name="create-task-form" class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;">
         <p id="success" class="feedback-happy text-center"></p>
         <p id="error" class="feedback-sad text-center"></p>
 
