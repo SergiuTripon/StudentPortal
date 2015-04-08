@@ -468,7 +468,7 @@ global $archived_task;
         $('.modal-form').on('hidden.bs.modal', function () {
             $(".table-due-tasks").dataTable().fnDestroy();
             $('#content-due-tasks').empty();
-            $('#content-due-tasks').html(html.due_tasks);
+            $('#content-due-tasks').html(html.due_task);
             $(".table-due-tasks").dataTable(settings);
             $(this).find('form')[0].reset();
         });
