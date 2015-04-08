@@ -900,32 +900,32 @@ form .field-required {
 }
 
 .modal-error .close, .close:hover, .close:focus {
-    color: #FFFFFF !important;
+    color: #932320 !important;
 }
 .modal-error .modal-header {
-    border-color: #FFFFFF;
+    border-color: #932320;
 }
 
 .modal-error .form-logo i {
-    color: #FFFFFF;
+    color: #932320;
 }
 
 .modal-error .modal-title {
-    color: #FFFFFF;
+    color: #932320;
 }
 
 .modal-error .modal-body {
-    color: #FFFFFF;
+    color: #932320;
 }
 
 .modal-error .modal-footer {
-    border-color: #FFFFFF;
+    border-color: #932320;
 }
 
 .modal-error .btn {
-    color: #82510B;
-    border-color: #82510B;
-    background-color: #F2B866;
+    color: #932320;
+    border-color: #932320;
+    background-color: #E0736F;
 }
 /* End of Modal error */
 
@@ -1030,7 +1030,7 @@ form .field-required {
 .modal-info .btn {
     color: #1D7892;
     border-color: #1D7892;
-    background: #9BD8EB;
+    background-color: #9BD8EB;
 }
 /* End of Modal info */
 
