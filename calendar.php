@@ -383,9 +383,9 @@ global $archived_task;
     };
 
     //DataTables
-    $('.table-due-tasks').dataTable(settings);
-    $('.table-completed-tasks').dataTable(settings);
-    $('.table-archived-tasks').dataTable(settings);
+    $('.table-due-task').dataTable(settings);
+    $('.table-completed-task').dataTable(settings);
+    $('.table-archived-task').dataTable(settings);
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
