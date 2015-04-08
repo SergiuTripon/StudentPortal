@@ -3326,7 +3326,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete '.$book_name.'?</p>
+			<p class="text-center">Are you sure you want to delete "'.$book_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -3415,7 +3415,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete '.$book_name.'?</p>
+			<p class="text-center">Are you sure you want to delete "'.$book_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -4406,7 +4406,7 @@ function AdminEventUpdate($isUpdate = 0) {
             </div>
 
             <div class="modal-body">
-            <p class="text-center">Are you sure you want to delete '.$event_name.'?</p>
+            <p class="text-center">Are you sure you want to delete "'.$event_name.'"?</p>
             </div>
 
             <div class="modal-footer">
@@ -4502,7 +4502,7 @@ function AdminEventUpdate($isUpdate = 0) {
             </div>
 
             <div class="modal-body">
-            <p class="text-center">Are you sure you want to delete '.$event_name.'?</p>
+            <p class="text-center">Are you sure you want to delete "'.$event_name.'"?</p>
             </div>
 
             <div class="modal-footer">
@@ -4734,7 +4734,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete '.$marker_name.'?</p>
+			<p class="text-center">Are you sure you want to delete "'.$marker_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -4797,7 +4797,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete '.$marker_name.'?</p>
+			<p class="text-center">Are you sure you want to delete "'.$marker_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
