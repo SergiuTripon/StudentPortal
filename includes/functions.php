@@ -3286,7 +3286,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-            <div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -3303,12 +3303,12 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-book?id='.$bookid.'" class="btn btn-primary btn-sm">Update</a>
-            <a id="deactivate-'.$bookid.'" class="btn btn-primary btn-sm btn-deactivate-book">Deactivate</a>
-            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+            <a href="/admin/update-book?id='.$bookid.'" class="btn btn-primary btn-md">Update</a>
+            <a id="deactivate-'.$bookid.'" class="btn btn-primary btn-md btn-deactivate-book">Deactivate</a>
+            <a href="#delete-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -3316,24 +3316,23 @@ function AdminLibraryUpdate($isUpdate = 0) {
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$bookid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete book?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p class="text-center feedback-sad">Are you sure you want to delete '.$book_name.'?</p>
+			<p class="text-center">Are you sure you want to delete '.$book_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
 			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$bookid.'" class="btn btn-danger btn-lg btn-delete-book">Confirm</a>
+            <a id="delete-'.$bookid.'" class="btn btn-danger btn-lg btn-delete-book btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -3362,7 +3361,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
             $inactive_book .=
 
-                '<tr>
+           '<tr>
 			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Action">
@@ -3377,7 +3376,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-            <div id="view-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -3394,11 +3393,11 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a id="reactivate-'.$bookid.'" class="btn btn-primary btn-sm btn-reactivate-book">Reactivate</a>
-            <a href="#delete-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+            <a id="reactivate-'.$bookid.'" class="btn btn-primary btn-md btn-reactivate-book">Reactivate</a>
+            <a href="#delete-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -3406,24 +3405,23 @@ function AdminLibraryUpdate($isUpdate = 0) {
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-            <div id="delete-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-'.$bookid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete book?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p class="feedback-sad text-center">Are you sure you want to delete '.$book_name.'?</p>
+			<p class="text-center">Are you sure you want to delete '.$book_name.'?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
 			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$bookid.'" class="btn btn-success btn-lg btn-delete-book">Confirm</a>
+            <a id="delete-'.$bookid.'" class="btn btn-success btn-lg btn-delete-book btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -4365,7 +4363,7 @@ function AdminEventUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-                        <div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-'.$eventid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
 
@@ -4385,12 +4383,12 @@ function AdminEventUpdate($isUpdate = 0) {
 
             <div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-sm">Update</a>
-            <a id="deactivate-'.$eventid.'" class="btn btn-primary btn-sm btn-deactivate-event">Deactivate</a>
-            <a href="#delete-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+            <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-md">Update</a>
+            <a id="deactivate-'.$eventid.'" class="btn btn-primary btn-md btn-deactivate-event">Deactivate</a>
+            <a href="#delete-'.$eventid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
             </div>
             <div class="view-close pull-right">
-            <a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+            <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
             </div>
             </div>
 
@@ -4403,19 +4401,18 @@ function AdminEventUpdate($isUpdate = 0) {
             <div class="modal-content">
 
             <div class="modal-header">
-            <div class="form-logo text-center">
-            <i class="fa fa-trash"></i>
-            </div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete event?</h4>
             </div>
 
             <div class="modal-body">
-            <p class="feedback-sad text-center">Are you sure you want to delete '.$event_name.'?</p>
+            <p class="text-center">Are you sure you want to delete '.$event_name.'?</p>
             </div>
 
             <div class="modal-footer">
             <div class="text-right">
             <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$eventid.'" class="btn btn-success btn-lg btn-delete-event">Confirm</a>
+            <a id="delete-'.$eventid.'" class="btn btn-success btn-lg btn-delete-event btn-load">Confirm</a>
             </div>
             </div>
 
@@ -4462,7 +4459,7 @@ function AdminEventUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-            <div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-'.$eventid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
 
@@ -4482,12 +4479,12 @@ function AdminEventUpdate($isUpdate = 0) {
 
             <div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-sm" >Update</a>
-            <a id="reactivate-'.$eventid.'" class="btn btn-primary btn-sm btn-reactivate-event">Reactivate</a>
-            <a href="#delete-'.$eventid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+            <a href="/admin/update-event?id='.$eventid.'" class="btn btn-primary btn-md" >Update</a>
+            <a id="reactivate-'.$eventid.'" class="btn btn-primary btn-md btn-reactivate-event">Reactivate</a>
+            <a href="#delete-'.$eventid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
             </div>
             <div class="view-close pull-right">
-            <a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+            <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
             </div>
             </div>
 
@@ -4495,24 +4492,23 @@ function AdminEventUpdate($isUpdate = 0) {
             </div><!-- /modal-dialog -->
             </div><!-- /modal-content -->
 
-            <div id="delete-'.$eventid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-'.$eventid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
 
             <div class="modal-header">
-            <div class="form-logo text-center">
-            <i class="fa fa-trash"></i>
-            </div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete event?</h4>
             </div>
 
             <div class="modal-body">
-            <p class="feedback-sad text-center">Are you sure you want to delete '.$event_name.'?</p>
+            <p class="text-center">Are you sure you want to delete '.$event_name.'?</p>
             </div>
 
             <div class="modal-footer">
             <div class="text-right">
             <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$eventid.'" class="btn btn-danger btn-lg btn-delete-event">Confirm</a>
+            <a id="delete-'.$eventid.'" class="btn btn-danger btn-lg btn-delete-event btn-load">Confirm</a>
             </div>
             </div>
 
