@@ -231,7 +231,7 @@ global $archived_task;
 	
     </div><!-- /container -->
 
-    <div id="content-create-task">
+    <div id="content-create-task" style="display: none;">
     <!-- Create a task -->
 	<form class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;" name="create_task_form" id="create_task_form">
 
