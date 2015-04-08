@@ -496,6 +496,8 @@ global $archived_task;
             $("label[for='task_duedate']").empty().append('Due date<span class="field-required">*</span>');
             $("#task_duedate").removeClass("input-happy");
             $("#task_duedate").removeClass("input-sad");
+
+            $("#create-task-form").reset();
         });
 
         buttonReset();
