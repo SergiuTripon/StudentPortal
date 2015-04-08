@@ -955,10 +955,16 @@ form .field-required {
     border-color: #82510B;
 }
 
-.modal-warning .btn {
+.modal-warning .btn-primary {
     color: #82510B;
     border-color: #82510B;
     background-color: #F2B866;
+}
+
+.modal-warning .btn-default {
+    color: #F2B866;
+    border-color: #F2B866;
+    background-color: #82510B;
 }
 /* End of Modal warning */
 
