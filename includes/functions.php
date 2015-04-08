@@ -3961,7 +3961,7 @@ function calendarUpdate($isUpdate = 0) {
         <td data-title="Action">
 
         <div class="btn-group btn-action">
-        <a id="reactivate-'.$taskid.'" class="btn btn-primary btn-reactivate">Restore</a>
+        <a id="reactivate-'.$taskid.'" class="btn btn-primary btn-reactivate-task">Restore</a>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <span class="fa fa-caret-down"></span>
         <span class="sr-only">Toggle Dropdown</span>
@@ -3990,7 +3990,7 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-footer">
         <div class="view-action pull-left">
-        <a href="#reactivate-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Restore</a>
+        <a id="#reactivate-'.$taskid.'" class="btn btn-primary btn-md btn-reactivate">Restore</a>
         <a href="#delete-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
         </div>
         <div class="view-close pull-right">
@@ -4002,7 +4002,7 @@ function calendarUpdate($isUpdate = 0) {
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="delete-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-'.$taskid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -4012,13 +4012,13 @@ function calendarUpdate($isUpdate = 0) {
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-default text-left">Are you sure you want to delete "'.$task_name.'"?</p>
+        <p class="text-left">Are you sure you want to delete "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
         <div class="text-right">
-        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
-        <a id="delete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-delete">Confirm</a>
+        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete btn-load">Confirm</a>
         </div>
         </div>
 
