@@ -579,6 +579,8 @@ global $archived_task;
         $("#update_task_duedate").addClass("input-happy");
 	}
 
+    alert(update_task_notes)
+
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
