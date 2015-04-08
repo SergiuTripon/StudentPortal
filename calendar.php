@@ -253,32 +253,32 @@ global $archived_task;
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
     <label for="task_name">Name<span class="field-required">*</span></label>
-	<input class="form-control" type="text" name="task_name" id="task_name" placeholder="Enter a name">
+	<input class="form-control" type="text" name="create_task_name" id="create_task_name" placeholder="Enter a name">
     </div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
     <label>Notes (Optional)</label>
-    <textarea class="form-control" rows="5" name="task_notes" id="task_notes" placeholder="Enter notes"></textarea>
+    <textarea class="form-control" rows="5" name="create_task_notes" id="create_task_notes" placeholder="Enter notes"></textarea>
     </div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
 	<label>External URL (www.example.com)</label>
-	<input class="form-control" type="text" name="task_url" id="task_url" placeholder="Enter an external URL">
+	<input class="form-control" type="text" name="create_task_url" id="create_task_url" placeholder="Enter an external URL">
     </div>
     </div>
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
 	<label for="task_startdate">Start date<span class="field-required">*</span></label>
-	<input type="text" class="form-control" name="task_startdate" id="task_startdate" placeholder="Select a start date">
+	<input type="text" class="form-control" name="create_task_startdate" id="create_task_startdate" placeholder="Select a start date">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label for="task_duedate">Due date<span class="field-required">*</span></label>
-    <input type="text" class="form-control" name="task_duedate" id="task_duedate" placeholder="Select a due date">
+    <input type="text" class="form-control" name="create_task_duedate" id="create_task_duedate" placeholder="Select a due date">
     </div>
 	</div>
     </form>
@@ -288,7 +288,7 @@ global $archived_task;
     <div class="modal-footer">
     <div class="text-right">
     <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-    <a id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create task</a>
+    <a id="create-form-submit" class="btn btn-primary btn-lg btn-load">Create task</a>
     </div>
     </div>
 
@@ -308,9 +308,6 @@ global $archived_task;
     <?php include 'assets/js-paths/calendar-js-path.php'; ?>
 
     <script>
-
-    var content_create_task;
-
     $(document).ready(function () {
         $("#calendar-toggle").hide();
         $(".task-tile").addClass("tile-selected");
@@ -394,66 +391,66 @@ global $archived_task;
     $('.table-archived-task').dataTable(settings);
 
     //Ajax call
-    $("#FormSubmit").click(function (e) {
+    $("#create-form-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
-	var task_name = $("#task_name").val();
-	if(task_name === '') {
-        $("label[for='task_name']").empty().append("Please enter a name.");
-        $("label[for='task_name']").removeClass("feedback-happy");
-        $("#task_name").removeClass("input-style-happy");
-        $("label[for='task_name']").addClass("feedback-sad");
-        $("#task_name").addClass("input-sad");
-        $("#task_name").focus();
+	var create_task_name = $("#task_name").val();
+	if(create_task_name === '') {
+        $("label[for='create_task_name']").empty().append("Please enter a name.");
+        $("label[for='create_task_name']").removeClass("feedback-happy");
+        $("#create_task_name").removeClass("input-style-happy");
+        $("label[for='create_task_name']").addClass("feedback-sad");
+        $("#create_task_name").addClass("input-sad");
+        $("#create_task_name").focus();
         hasError = true;
         return false;
     } else {
-        $("label[for='task_name']").empty().append("All good!");
-        $("label[for='task_name']").removeClass("feedback-sad");
-        $("#task_name").removeClass("input-style-sad");
-        $("label[for='task_name']").addClass("feedback-happy");
-        $("#task_name").addClass("input-happy");
+        $("label[for='create_task_name']").empty().append("All good!");
+        $("label[for='create_task_name']").removeClass("feedback-sad");
+        $("#create_task_name").removeClass("input-style-sad");
+        $("label[for='create_task_name']").addClass("feedback-happy");
+        $("#create_task_name").addClass("input-happy");
 	}
 
-	var task_notes = $("#task_notes").val();
-	var task_url = $("#task_url").val();
+	var create_task_notes = $("#task_notes").val();
+	var create_task_url = $("#task_url").val();
 
-	var task_startdate = $("#task_startdate").val();
-	if(task_startdate === '') {
-        $("label[for='task_startdate']").empty().append("Please select a date and time.");
-        $("label[for='task_startdate']").removeClass("feedback-happy");
-        $("#task_startdate").removeClass("input-style-happy");
-        $("label[for='task_startdate']").addClass("feedback-sad");
-        $("#task_startdate").addClass("input-sad");
-        $("#task_startdate").focus();
+	var create_task_startdate = $("#create_task_startdate").val();
+	if(create_task_startdate === '') {
+        $("label[for='create_task_startdate']").empty().append("Please select a date and time.");
+        $("label[for='create_task_startdate']").removeClass("feedback-happy");
+        $("#create_task_startdate").removeClass("input-style-happy");
+        $("label[for='create_task_startdate']").addClass("feedback-sad");
+        $("#create_task_startdate").addClass("input-sad");
+        $("#create_task_startdate").focus();
         hasError = true;
         return false;
 	} else {
-        $("label[for='task_startdate']").empty().append("All good!");
-        $("label[for='task_startdate']").removeClass("feedback-sad");
+        $("label[for='create_task_startdate']").empty().append("All good!");
+        $("label[for='create_task_startdate']").removeClass("feedback-sad");
         $("#task_startdate").removeClass("input-style-sad");
-        $("label[for='task_startdate']").addClass("feedback-happy");
-        $("#task_startdate").addClass("input-happy");
+        $("label[for='create_task_startdate']").addClass("feedback-happy");
+        $("#create_task_startdate").addClass("input-happy");
 	}
 
-	var task_duedate = $("#task_duedate").val();
-	if(task_duedate === '') {
-        $("label[for='task_duedate']").empty().append("Please select a date and time.");
-        $("label[for='task_duedate']").removeClass("feedback-happy");
-        $("#task_duedate").removeClass("input-style-happy");
-        $("label[for='task_duedate']").addClass("feedback-sad");
-        $("#task_duedate").addClass("input-sad");
-        $("#task_duedate").focus();
+	var create_task_duedate = $("#create_task_duedate").val();
+	if(create_task_duedate === '') {
+        $("label[for='create_task_duedate']").empty().append("Please select a date and time.");
+        $("label[for='create_task_duedate']").removeClass("feedback-happy");
+        $("#create_task_duedate").removeClass("input-style-happy");
+        $("label[for='create_task_duedate']").addClass("feedback-sad");
+        $("#create_task_duedate").addClass("input-sad");
+        $("#create_task_duedate").focus();
         hasError = true;
         return false;
     } else {
-        $("label[for='task_duedate']").empty().append("All good!");
-        $("label[for='task_duedate']").removeClass("feedback-sad");
-        $("#task_duedate").removeClass("input-style-sad");
-        $("label[for='task_duedate']").addClass("feedback-happy");
-        $("#task_duedate").addClass("input-happy");
+        $("label[for='create_task_duedate']").empty().append("All good!");
+        $("label[for='create_task_duedate']").removeClass("feedback-sad");
+        $("#create_task_duedate").removeClass("input-style-sad");
+        $("label[for='create_task_duedate']").addClass("feedback-happy");
+        $("#create_task_duedate").addClass("input-happy");
 	}
 
 	if(hasError == false){
@@ -462,11 +459,11 @@ global $archived_task;
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     dataType:"json",
-    data:'create_task_name='       + task_name +
-         '&create_task_notes='     + task_notes +
-         '&create_task_url='       + task_url +
-         '&create_task_startdate=' + task_startdate +
-         '&create_task_duedate='   + task_duedate,
+    data:'create_task_name='       + create_task_name +
+         '&create_task_notes='     + create_task_notes +
+         '&create_task_url='       + create_task_url +
+         '&create_task_startdate=' + create_task_startdate +
+         '&create_task_duedate='   + create_task_duedate,
     success:function(html){
 
         $('.modal-form').modal('hide');
@@ -476,7 +473,7 @@ global $archived_task;
             $('#content-due-task').empty();
             $('#content-due-task').html(html.due_task);
             $(".table-due-task").dataTable(settings);
-            content_create_task = $("#content-create-task").html();
+            var content_create_task = $("#content-create-task").html();
             $("#create-task-form").append(content_create_task);
 
             $("label[for='task_name']").removeClass("feedback-happy");
