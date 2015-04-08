@@ -3604,6 +3604,10 @@ function CreateTask () {
     } else {
 
         $task_class = 'event-info';
+        $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
+        $task_startdate = $task_startdate->format('Y-m-d H:i');
+        $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
+        $task_duedate = $task_duedate->format('Y-m-d H:i');
         $task_status = 'active';
 
 	    $stmt2 = $mysqli->prepare("INSERT INTO user_task (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -3640,6 +3644,10 @@ function UpdateTask() {
 	if ($db_taskname == $task_name) {
 
         $task_class = 'event-important';
+        $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
+        $task_startdate = $task_startdate->format('Y-m-d H:i');
+        $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
+        $task_duedate = $task_duedate->format('Y-m-d H:i');
 
 	    $stmt2 = $mysqli->prepare("UPDATE user_task SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
 	    $stmt2->bind_param('ssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $updated_on, $taskid);
@@ -3664,6 +3672,10 @@ function UpdateTask() {
         } else {
 
         $task_class = 'event-important';
+        $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
+        $task_startdate = $task_startdate->format('Y-m-d H:i');
+        $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
+        $task_duedate = $task_duedate->format('Y-m-d H:i');
 
         $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
         $stmt4->bind_param('sssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $updated_on, $taskid);
@@ -3672,6 +3684,8 @@ function UpdateTask() {
 
         }
 	}
+
+    calendarUpdate($isUpdate = 1);
 }
 
 //CompleteTask function

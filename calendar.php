@@ -371,7 +371,7 @@ global $archived_task;
         format: 'DD/MM/YYYY HH:mm'
     });
     $('#update_task_startdate').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm',
+        format: 'DD/MM/YYYY HH:mm'
     });
     $('#update_task_duedate').datetimepicker({
         format: 'DD/MM/YYYY HH:mm'
@@ -522,80 +522,108 @@ global $archived_task;
 
 	var hasError = false;
 
-	var taskid = $("#taskid").val();
+	var update_taskid = $("#update_taskid").val();
 
-	var task_name = $("#task_name").val();
-	if(task_name === '') {
-        $("label[for='task_name']").empty().append("Please enter a name.");
-        $("label[for='task_name']").removeClass("feedback-happy");
-        $("#task_name").removeClass("input-happy");
-        $("label[for='task_name']").addClass("feedback-sad");
-        $("#task_name").addClass("input-sad");
-        $("#task_name").focus();
+	var update_task_name = $("#update_task_name").val();
+	if(update_task_name === '') {
+        $("label[for='update_task_name']").empty().append("Please enter a name.");
+        $("label[for='update_task_name']").removeClass("feedback-happy");
+        $("#update_task_name").removeClass("input-happy");
+        $("label[for='update_task_name']").addClass("feedback-sad");
+        $("#update_task_name").addClass("input-sad");
+        $("#update_task_name").focus();
         hasError = true;
         return false;
     } else {
-        $("label[for='task_name']").empty().append("All good!");
-        $("label[for='task_name']").removeClass("feedback-sad");
-        $("#task_name").removeClass("input-sad");
-        $("label[for='task_name']").addClass("feedback-happy");
-        $("#task_name").addClass("input-happy");
+        $("label[for='update_task_name']").empty().append("All good!");
+        $("label[for='update_task_name']").removeClass("feedback-sad");
+        $("#update_task_name").removeClass("input-sad");
+        $("label[for='update_task_name']").addClass("feedback-happy");
+        $("#update_task_name").addClass("input-happy");
 	}
 
-	var task_notes = $("#task_notes").val();
-	var task_url = $("#task_url").val();
+	var update_task_notes = $("#update_task_notes").val();
+	var update_task_url = $("#update_task_url").val();
 
-	var task_startdate = $("#task_startdate").val();
-	if(task_startdate === '') {
-        $("label[for='task_startdate']").empty().append("Please select a date and time.");
-        $("label[for='task_startdate']").removeClass("feedback-happy");
-        $("#task_startdate").removeClass("input-happy");
-        $("label[for='task_startdate']").addClass("feedback-sad");
-        $("#task_startdate").addClass("input-sad");
-        $("#task_startdate").focus();
+	var update_task_startdate = $("#update_task_startdate").val();
+	if(update_task_startdate === '') {
+        $("label[for='update_task_startdate']").empty().append("Please select a date and time.");
+        $("label[for='update_task_startdate']").removeClass("feedback-happy");
+        $("#update_task_startdate").removeClass("input-happy");
+        $("label[for='update_task_startdate']").addClass("feedback-sad");
+        $("#update_task_startdate").addClass("input-sad");
+        $("#update_task_startdate").focus();
         hasError = true;
         return false;
 	} else {
-        $("label[for='task_startdate']").empty().append("All good!");
-        $("label[for='task_startdate']").removeClass("feedback-sad");
-        $("#task_startdate").removeClass("input-sad");
-        $("label[for='task_startdate']").addClass("feedback-happy");
-        $("#task_startdate").addClass("input-happy");
+        $("label[for='update_task_startdate']").empty().append("All good!");
+        $("label[for='update_task_startdate']").removeClass("feedback-sad");
+        $("#update_task_startdate").removeClass("input-sad");
+        $("label[for='update_task_startdate']").addClass("feedback-happy");
+        $("#update_task_startdate").addClass("input-happy");
 	}
 
-	var task_duedate = $("#task_duedate").val();
-	if(task_duedate === '') {
-        $("label[for='task_duedate']").empty().append("Please select a date and time.");
-        $("label[for='task_duedate']").removeClass("feedback-happy");
-        $("#task_duedate").removeClass("input-happy");
-        $("label[for='task_duedate']").addClass("feedback-sad");
-        $("#task_duedate").addClass("input-sad");
-        $("#task_duedate").focus();
+	var update_task_duedate = $("#task_duedate").val();
+	if(update_task_duedate === '') {
+        $("label[for='update_task_duedate']").empty().append("Please select a date and time.");
+        $("label[for='update_task_duedate']").removeClass("feedback-happy");
+        $("#update_task_duedate").removeClass("input-happy");
+        $("label[for='update_task_duedate']").addClass("feedback-sad");
+        $("#update_task_duedate").addClass("input-sad");
+        $("#update_task_duedate").focus();
         hasError = true;
         return false;
     } else {
-        $("label[for='task_duedate']").empty().append("All good!");
-        $("label[for='task_duedate']").removeClass("feedback-sad");
-        $("#task_duedate").removeClass("input-sad");
-        $("label[for='task_duedate']").addClass("feedback-happy");
-        $("#task_duedate").addClass("input-happy");
+        $("label[for='update_task_duedate']").empty().append("All good!");
+        $("label[for='update_task_duedate']").removeClass("feedback-sad");
+        $("#update_task_duedate").removeClass("input-sad");
+        $("label[for='update_task_duedate']").addClass("feedback-happy");
+        $("#update_task_duedate").addClass("input-happy");
 	}
 
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'update_taskid=' + taskid +
-         '&update_task_name=' + task_name +
-         '&update_task_notes=' + task_notes +
-         '&update_task_url=' + task_url +
-         '&update_task_startdate=' + task_startdate +
-         '&update_task_duedate=' + task_duedate,
-    success:function(){
-		$("#error").hide();
-		$("#hide").hide();
-		$("#success").empty().append('Task updated successfully.');
-		$('#updatetask_form').trigger("reset");
+    data:'update_taskid='           + update_taskid +
+         '&update_task_name='       + update_task_name +
+         '&update_task_notes='      + update_task_notes +
+         '&update_task_url='        + update_task_url +
+         '&update_task_startdate='  + update_task_startdate +
+         '&update_task_duedate='    + update_task_duedate,
+    success:function(html){
+
+        $('.modal-form').modal('hide');
+
+        $('.modal-form').on('hidden.bs.modal', function () {
+            $(".table-due-task").dataTable().fnDestroy();
+            $('#content-due-task').empty();
+            $('#content-due-task').html(html.due_task);
+            $(".table-due-task").dataTable(settings);
+
+            $("label[for='update_task_name']").removeClass("feedback-happy");
+            $("label[for='update_task_name']").removeClass("feedback-sad");
+            $("label[for='update_task_name']").empty().append('Name<span class="field-required">*</span>');
+            $("#update_task_name").removeClass("input-happy");
+            $("#update_task_name").removeClass("input-sad");
+
+            $("label[for='update_task_startdate']").removeClass("feedback-happy");
+            $("label[for='update_task_startdate']").removeClass("feedback-sad");
+            $("label[for='update_task_startdate']").empty().append('Start date<span class="field-required">*</span>');
+            $("#update_task_startdate").removeClass("input-happy");
+            $("#update_task_startdate").removeClass("input-sad");
+
+            $("label[for='update_task_duedate']").removeClass("feedback-happy");
+            $("label[for='update_task_duedate']").removeClass("feedback-sad");
+            $("label[for='update_task_duedate']").empty().append('Due date<span class="field-required">*</span>');
+            $("#update_task_duedate").removeClass("input-happy");
+            $("#update_task_duedate").removeClass("input-sad");
+
+            $("#error").hide();
+            $("#success").hide();
+
+        });
+
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
