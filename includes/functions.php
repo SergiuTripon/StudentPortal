@@ -3784,7 +3784,7 @@ function calendarUpdate($isUpdate = 0) {
         </ul>
         </div>
 
-        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="view-'.$taskid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -3803,12 +3803,12 @@ function calendarUpdate($isUpdate = 0) {
         <div class="modal-footer">
         <div class="view-action pull-left">
         <a href="/calendar/update-task?id='.$taskid.'" class="btn btn-primary btn-sm" >Update</a>
-        <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Complete</a>
-        <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Archive</a>
-        <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Delete</a>
+        <a href="#complete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md>Complete</a>
+        <a href="#deactivate-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md">Archive</a>
+        <a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
         </div>
         <div class="view-close pull-right">
-        <a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+        <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
         </div>
         </div>
 
@@ -3816,7 +3816,7 @@ function calendarUpdate($isUpdate = 0) {
         </div><!--/modal-dialog-->
         </div><!--/modal-content-->
 
-        <div id="delete-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-'.$taskid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -3826,13 +3826,13 @@ function calendarUpdate($isUpdate = 0) {
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-default text-left">Are you sure you want to delete "'.$task_name.'"?</p>
+        <p class="text-left">Are you sure you want to delete "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
         <div class="text-right">
-        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
-        <a id="delete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-delete">Confirm</a>
+        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete btn-load">Confirm</a>
         </div>
         </div>
 
@@ -3877,7 +3877,7 @@ function calendarUpdate($isUpdate = 0) {
         </ul>
         </div>
 
-        <div id="view-'.$taskid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="view-'.$taskid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -3898,7 +3898,7 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-footer">
         <div class="view-action pull-left">
-        <a href="#delete-confirmation-'.$taskid.'" class="btn btn-primary btn-sm" data-toggle="modal" data-dismiss="modal">Delete</a>
+        <a href="#delete-confirmation-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
         </div>
         <div class="view-close pull-right">
         <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
@@ -3909,7 +3909,7 @@ function calendarUpdate($isUpdate = 0) {
         </div><!-- /modal-dialog -->
         </div><!-- /modal-content -->
 
-        <div id="delete-'.$taskid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+        <div id="delete-'.$taskid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
 
@@ -3919,13 +3919,13 @@ function calendarUpdate($isUpdate = 0) {
         </div>
 
         <div class="modal-body">
-        <p class="confirmation-default text-center">Are you sure you want to delete "'.$task_name.'"?</p>
+        <p class="text-center">Are you sure you want to delete "'.$task_name.'"?</p>
         </div>
 
         <div class="modal-footer">
         <div class="text-right">
-        <a class="btn btn-confirmation-cancel btn-lg" data-dismiss="modal">Cancel</a>
-        <a id="delete-'.$taskid.'" class="btn btn-confirmation-confirm btn-lg btn-delete">Confirm</a>
+        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete btn-load">Confirm</a>
         </div>
         </div>
 
