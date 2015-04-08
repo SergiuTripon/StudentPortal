@@ -365,16 +365,16 @@ global $archived_task;
 
     // Date Time Picker
     $('#create_task_startdate').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'DD/MM/YYYY HH:mm'
     });
     $('#create_task_duedate').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'DD/MM/YYYY HH:mm'
     });
     $('#update_task_startdate').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm',
+        format: 'DD/MM/YYYY HH:mm',
     });
     $('#update_task_duedate').datetimepicker({
-        format: 'YYYY/MM/DD HH:mm'
+        format: 'DD/MM/YYYY HH:mm'
     });
 
     var settings = {
@@ -517,7 +517,7 @@ global $archived_task;
 	});
 
     //Ajax call
-    $("#FormSubmit").click(function (e) {
+    $("#update-task-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
