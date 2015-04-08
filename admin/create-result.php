@@ -52,7 +52,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
     <ol class="breadcrumb breadcrumb-custom">
     <li><a href="../../home/">Home</a></li>
-	<li><a href="../../results/">Results</a></li>
+	<li><a href="../../results/?id=<?php echo $result_userid ?>">Results</a></li>
     <li class="active">Create result</li>
     </ol>
 
