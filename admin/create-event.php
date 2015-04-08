@@ -90,11 +90,11 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Create event</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load" >Create event</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg" href="">Create another</span></a>
+	<a class="btn btn-success btn-lg btn-load" href="">Create another</span></a>
 	</div>
 	
     </form>

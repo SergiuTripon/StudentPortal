@@ -109,7 +109,7 @@ if (isset($_GET["id"])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update event</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Update event</span></button>
     </div>
 
     </div>
@@ -316,7 +316,7 @@ if (isset($_GET["id"])) {
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
-		$("#success").empty().append('Event updated successfully.');
+		$("#success").empty().append('All done! Event has been updated.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
