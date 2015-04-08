@@ -925,26 +925,26 @@ form .field-required {
 
 /* Modal warning */
 .modal-warning .modal-content {
-    background: #F0AD4E;
+    background: #F2B866;
 }
 
 .modal-warning .close, .close:hover, .close:focus {
-    color: #5D5D5D !important;
+    color: #82510B !important;
 }
 .modal-warning .modal-header {
-    border-color: #5D5D5D;
+    border-color: #82510B;
 }
 
 .modal-warning .form-logo i {
-    color: #5D5D5D;
+    color: #82510B;
 }
 
 .modal-warning .modal-title {
-    color: #5D5D5D;
+    color: #82510B;
 }
 
 .modal-warning .modal-body {
-    color: #5D5D5D;
+    color: #82510B;
 }
 
 .modal-warning .modal-body p {
@@ -952,7 +952,13 @@ form .field-required {
 }
 
 .modal-warning .modal-footer {
-    border-color: #5D5D5D;
+    border-color: #82510B;
+}
+
+.modal-warning .btn {
+    color: #82510B;
+    border-color: #82510B;
+    background-color: #F2B866;
 }
 /* End of Modal warning */
 
