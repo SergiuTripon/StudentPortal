@@ -50,7 +50,6 @@ header('Location: ../calendar/');
     </ol>
 	
 	<!-- Update a task -->
-    
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updatetask_form" id="updatetask_form">
 	
     <p id="error" class="feedback-sad text-center"></p>
@@ -89,7 +88,8 @@ header('Location: ../calendar/');
 	</div>
 	
     </form>
-            
+    <!-- End of Update a task -->
+
 	</div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
