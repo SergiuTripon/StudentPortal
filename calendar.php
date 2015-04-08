@@ -479,12 +479,23 @@ global $archived_task;
             content_create_task = $("#content-create-task").html();
             $("#create-task-form").append(content_create_task);
 
+            $("label[for='task_name']").removeClass("feedback-happy");
+            $("label[for='task_name']").removeClass("feedback-sad");
             $("label[for='task_name']").empty().append('Name<span class="field-required">*</span>');
             $("#task_name").removeClass("input-happy");
+            $("#task_name").removeClass("input-sad");
+
+            $("label[for='task_startdate']").removeClass("feedback-happy");
+            $("label[for='task_startdate']").removeClass("feedback-sad");
             $("label[for='task_startdate']").empty().append('Start date<span class="field-required">*</span>');
             $("#task_startdate").removeClass("input-happy");
+            $("#task_startdate").removeClass("input-sad");
+
+            $("label[for='task_duedate']").removeClass("feedback-happy");
+            $("label[for='task_duedate']").removeClass("feedback-sad");
             $("label[for='task_duedate']").empty().append('Due date<span class="field-required">*</span>');
             $("#task_duedate").removeClass("input-happy");
+            $("#task_duedate").removeClass("input-sad");
         });
 
         buttonReset();
