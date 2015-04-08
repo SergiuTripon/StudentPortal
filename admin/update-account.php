@@ -375,7 +375,7 @@ if ($dateofbirth == "0000-00-00") {
 	</div>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update account</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Update account</span></button>
     </div>
 
     </form>
@@ -730,7 +730,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('The account has been updated successfully.');
+		$("#success").empty().append('All done! Account has been updated.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
