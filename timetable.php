@@ -2293,8 +2293,6 @@ AdminTimetableUpdate();
 	data:'lectureToReactivate='+ lectureToReactivate,
 	success:function(html){
 
-        togglePreloader();
-
         if (html.error_msg) {
 
             togglePreloader();
