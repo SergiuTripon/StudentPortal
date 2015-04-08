@@ -372,7 +372,7 @@ global $archived_task;
     });
     $('#update_task_startdate').datetimepicker({
         format: 'YYYY/MM/DD',
-        keepOpen: true
+        debug:true
     });
     $('#update_task_duedate').datetimepicker({
         format: 'YYYY/MM/DD HH:mm'
