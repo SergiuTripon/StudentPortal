@@ -987,6 +987,27 @@ form .field-required {
 .modal-warning fieldset[disabled] .active.btn-primary {
     background-color: #82510B;
 }
+
+.modal-warning .disabled.btn-default,
+.modal-warning [disabled].btn-default,
+.modal-warning fieldset[disabled] .btn-default,
+.modal-warning .disabled.btn-default:hover,
+.modal-warning [disabled].btn-default:hover,
+.modal-warning fieldset[disabled] .btn-default:hover,
+.modal-warning .disabled.btn-default:focus,
+.modal-warning [disabled].btn-default:focus,
+.modal-warning fieldset[disabled] .btn-default:focus,
+.modal-warning .focus.disabled.btn-default,
+.modal-warning [disabled].focus.btn-default,
+.modal-warning fieldset[disabled] .focus.btn-default,
+.modal-warning .disabled.btn-default:active,
+.modal-warning [disabled].btn-default:active,
+.modal-warning fieldset[disabled] .btn-default:active,
+.modal-warning .active.disabled.btn-default,
+.modal-warning [disabled].active.btn-default,
+.modal-warning fieldset[disabled] .active.btn-default {
+    background-color: #F2B866;
+}
 /* End of Modal warning */
 
 /* Modal info */
