@@ -77,7 +77,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a id="unlock-button" class="btn btn-primary btn-lg" >Unlock</span></a>
+    <a id="unlock-button" class="btn btn-primary btn-lg btn-load">Unlock</span></a>
 	</div>
 
     </form>
@@ -102,7 +102,6 @@ include 'includes/session.php';
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter an email address" autocomplete="no">
     </div>
     </div>
-    <p id="error1" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pl0">
@@ -110,7 +109,6 @@ include 'includes/session.php';
     <input class="form-control" type="password" name="password" id="password" placeholder="Enter a password" autocomplete="no">
     </div>
     </div>
-    <p id="error2" class="feedback-sad text-center"></p>
 
     <div class="text-right">
     <a class="forgot-password" href="../forgotten-password/">Forgotten your password?</a>
@@ -123,7 +121,7 @@ include 'includes/session.php';
     </div>
 
     <div class="text-right">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Sign in</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load" >Sign in</span></button>
 	</div>
 
     </form>
