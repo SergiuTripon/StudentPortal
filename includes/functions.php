@@ -1609,7 +1609,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             </ul>
             </div>
 
-            <div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1629,12 +1629,12 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-sm" >Update</a>
-            <a id="reactivate-'.$lectureid.'" class="btn btn-primary btn-sm btn-reactivate-lecture">Reactivate</a>
-            <a href="#delete-lecture-'.$lectureid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm">Delete</a>
+            <a href="/admin/update-timetable?id='.$lectureid.'" class="btn btn-primary btn-md" >Update</a>
+            <a id="reactivate-'.$lectureid.'" class="btn btn-primary btn-md btn-reactivate-lecture">Reactivate</a>
+            <a href="#delete-lecture-'.$lectureid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1657,8 +1657,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-lg btn-delete-lecture btn-load">Confirm</a>
+			<a class="btn btn-default btn-md" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-md btn-delete-lecture btn-load">Confirm</a>
 			</div>
 			</div>
 
