@@ -702,7 +702,7 @@ AdminLibraryUpdate();
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="view-reserved-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-reserved-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -719,10 +719,10 @@ AdminLibraryUpdate();
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#collect-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Mark collected</a>
+            <a href="#collect-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md">Mark collected</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
