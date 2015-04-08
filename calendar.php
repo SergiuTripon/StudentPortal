@@ -563,7 +563,7 @@ global $archived_task;
         $("#update_task_startdate").addClass("input-happy");
 	}
 
-	var update_task_duedate = $("#task_duedate").val();
+	var update_task_duedate = $("#update_task_duedate").val();
 	if(update_task_duedate === '') {
         $("label[for='update_task_duedate']").empty().append("Please select a date and time.");
         $("label[for='update_task_duedate']").removeClass("feedback-happy");
@@ -580,9 +580,6 @@ global $archived_task;
         $("label[for='update_task_duedate']").addClass("feedback-happy");
         $("#update_task_duedate").addClass("input-happy");
 	}
-
-    alert(update_task_startdate);
-    alert(update_task_duedate);
 
 	if(hasError == false){
     jQuery.ajax({
