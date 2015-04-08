@@ -136,7 +136,7 @@ include 'includes/session.php';
     </div>
 	
     <div id="register-button" class="text-right">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" data-spinner-color="#333333">Register</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Register</span></button>
     </div>
 	
 	<div id="success-button" class="text-center" style="display:none">
