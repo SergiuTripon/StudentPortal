@@ -58,7 +58,7 @@ header('Location: ../calendar/');
 	<div id="hide">
 
 	<input type="hidden" name="taskid" id="taskid" value="<?php echo $taskid; ?>" />
-	
+
     <label for="task_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="task_name" id="task_name" value="<?php echo $task_name; ?>" placeholder="Enter a name">
 

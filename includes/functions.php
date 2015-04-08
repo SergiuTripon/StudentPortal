@@ -3834,14 +3834,26 @@ function calendarUpdate($isUpdate = 0) {
 
         <input type="hidden" name="update_taskid" id="update_taskid" value="<?php echo $taskid; ?>" />
 
+        <div class="form-group">
+        <div class="col-xs-12 col-sm-12 full-width">
         <label for="task_name">Name<span class="field-required">*</span></label>
         <input class="form-control" type="text" name="update_task_name" id="update_task_name" value="<?php echo $task_name; ?>" placeholder="Enter a name">
+        </div>
+        </div>
 
+        <div class="form-group">
+        <div class="col-xs-12 col-sm-12 full-width">
         <label>Notes (Optional)</label>
         <textarea class="form-control" rows="5" name="update_task_notes" id="update_task_notes" placeholder="Notes"><?php echo $task_notes; ?></textarea>
+        </div>
+        </div>
 
+        <div class="form-group">
+        <div class="col-xs-12 col-sm-12 full-width">
         <label>External URL (www.example.com)</label>
         <input class="form-control" type="text" name="update_task_url" id="update_task_url" value="<?php echo $task_url; ?>" placeholder="Enter an external URL">
+        </div>
+        </div>
 
         <div class="form-group">
         <div class="col-xs-6 col-sm-6 full-width">
