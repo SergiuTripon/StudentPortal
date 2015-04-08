@@ -497,7 +497,10 @@ global $archived_task;
             $("#task_duedate").removeClass("input-happy");
             $("#task_duedate").removeClass("input-sad");
 
-            $("#create-task-form").reset();
+            $("#error").hide();
+            $("#success").hide();
+
+            $('#create-task-form').trigger("reset");
         });
 
         buttonReset();
