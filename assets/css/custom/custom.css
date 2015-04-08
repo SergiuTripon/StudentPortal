@@ -534,6 +534,11 @@ form {
     border: 1px solid #B8B8B8;
 }
 
+.form-horizontal .form-group {
+    display: block;
+    vertical-align: inherit;
+}
+
 .form-group {
     margin-bottom: 0;
 }
