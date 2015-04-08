@@ -140,7 +140,7 @@ include 'includes/session.php';
     </div>
 	
 	<div id="success-button" class="text-center" style="display:none">
-    <a class="btn btn-success btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-success btn-lg btn-load" href="/">Sign in</span></a>
     </div>
 	
     </form>
