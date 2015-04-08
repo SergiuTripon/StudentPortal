@@ -624,7 +624,7 @@ AdminLibraryUpdate();
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-reserved-books">
+	<table class="table table-condensed table-custom table-reserved-book">
 
 	<thead>
 	<tr>
@@ -787,7 +787,7 @@ AdminLibraryUpdate();
 
 	<!-- Loaned books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-loaned-books">
+	<table class="table table-condensed table-custom table-loaned-book">
 
 	<thead>
 	<tr>
@@ -950,7 +950,7 @@ AdminLibraryUpdate();
 
 	<!-- Requested books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom table-requested-books">
+	<table class="table table-condensed table-custom table-requested-book">
 
 	<thead>
 	<tr>
