@@ -730,7 +730,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('All done! Account has been updated.');
+		$("#success").empty().append('All done! The account has been updated.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();

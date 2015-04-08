@@ -309,7 +309,7 @@ if (isset($_GET["id"])) {
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Location updated successfully.');
+		$("#success").empty().append('All done! The location has been updated.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){

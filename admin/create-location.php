@@ -291,7 +291,7 @@ include '../includes/session.php';
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Location created successfully.');
+		$("#success").empty().append('All done! The location has been created.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){

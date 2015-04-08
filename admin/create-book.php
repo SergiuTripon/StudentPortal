@@ -436,7 +436,7 @@ include '../includes/session.php';
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Book created successfully.');
+		$("#success").empty().append('All done! The book has been created.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){

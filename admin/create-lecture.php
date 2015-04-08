@@ -482,7 +482,7 @@ include '../includes/session.php';
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Lecture created successfully.');
+		$("#success").empty().append('The lecture has been created.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){

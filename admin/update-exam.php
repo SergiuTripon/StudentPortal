@@ -355,7 +355,7 @@ if (isset($_GET['id'])) {
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
-		$("#success").empty().append('Timetable updated successfully.');
+		$("#success").empty().append('All done! The exam has been updated.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();

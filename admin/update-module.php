@@ -210,7 +210,7 @@ if (isset($_GET['id'])) {
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
-		$("#success").empty().append('Module updated successfully.');
+		$("#success").empty().append('All done! The module has been updated.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();

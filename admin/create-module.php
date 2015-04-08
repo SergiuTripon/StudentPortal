@@ -191,7 +191,7 @@ include '../includes/session.php';
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Module created successfully.');
+		$("#success").empty().append('All done! The module has been created.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){

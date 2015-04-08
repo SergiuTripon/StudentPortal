@@ -316,7 +316,7 @@ if (isset($_GET["id"])) {
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
-		$("#success").empty().append('All done! Event has been updated.');
+		$("#success").empty().append('All done! The event has been updated.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();

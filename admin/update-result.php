@@ -225,7 +225,7 @@ if (isset($_GET['id'])) {
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Result updated successfully.');
+		$("#success").empty().append('All done! The result has been updated.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();

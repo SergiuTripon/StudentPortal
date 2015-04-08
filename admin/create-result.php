@@ -240,7 +240,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 		$("#hide").hide();
 		$("#FormSubmit").hide();
 		$("#success").show();
-		$("#success").empty().append('Result created successfully.');
+		$("#success").empty().append('All done! The result has been created.');
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
