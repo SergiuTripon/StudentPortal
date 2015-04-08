@@ -624,7 +624,7 @@ AdminLibraryUpdate();
 
 	<!-- Reserved books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-reserved-books">
 
 	<thead>
 	<tr>
@@ -787,7 +787,7 @@ AdminLibraryUpdate();
 
 	<!-- Loaned books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-loaned-books">
 
 	<thead>
 	<tr>
@@ -950,7 +950,7 @@ AdminLibraryUpdate();
 
 	<!-- Requested books -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom">
+	<table class="table table-condensed table-custom table-requested-books">
 
 	<thead>
 	<tr>
@@ -1161,6 +1161,9 @@ AdminLibraryUpdate();
 
     $('.table-active-book').dataTable(settings);
     $('.table-inactive-book').dataTable(settings);
+    $('.table-reserved-book').dataTable(settings);
+    $('.table-loaned-book').dataTable(settings);
+    $('.table-requested-book').dataTable(settings);
 
     var request_read;
     request_read = '1';
