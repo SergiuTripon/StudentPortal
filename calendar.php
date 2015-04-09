@@ -419,6 +419,7 @@ global $archived_task;
     //Date Time Picker
     var datetimepicker = {
         format: 'DD/MM/YYYY HH:mm',
+        useCurrent: false,
         showTodayButton: true,
         showClear: true,
         showClose: true
@@ -552,10 +553,7 @@ global $archived_task;
 
             $("#create_task_error").hide();
 
-            $('#create-task-form').trigger('reset');
-
-            $('#create_task_startdate').datetimepicker(datetimepicker);
-            $('#create_task_duedate').datetimepicker(datetimepicker);
+            $('#create-task-form').trigger("reset");
 
             buttonReset();
 
