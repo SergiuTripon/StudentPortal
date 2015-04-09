@@ -3644,7 +3644,7 @@ function GetTaskDetails() {
         'task_duedate'=>$task_duedate
     );
 
-    echo json_encode($array);
+    echo json_encode($array, JSON_UNESCAPED_SLASHES);
 }
 
 //UpdateTask function
