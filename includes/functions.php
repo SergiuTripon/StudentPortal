@@ -3689,23 +3689,19 @@ function UpdateTask() {
         $stmt3->fetch();
 
 	    if ($stmt3->num_rows > 0) {
-
-        $stmt3->close();
-        header('HTTP/1.0 550 A task with the name entered already exists.');
-        exit();
-
+            $stmt3->close();
+            header('HTTP/1.0 550 A task with the name entered already exists.');
+            exit();
         } else {
+            $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
+            $task_startdate = $task_startdate->format('Y-m-d H:i');
+            $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
+            $task_duedate = $task_duedate->format('Y-m-d H:i');
 
-        $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
-        $task_startdate = $task_startdate->format('Y-m-d H:i');
-        $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
-        $task_duedate = $task_duedate->format('Y-m-d H:i');
-
-        $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
-        $stmt4->bind_param('ssssssi', $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on, $taskid);
-        $stmt4->execute();
-        $stmt4->close();
-
+            $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
+            $stmt4->bind_param('ssssssi', $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on, $taskid);
+            $stmt4->execute();
+            $stmt4->close();
         }
 	}
 
