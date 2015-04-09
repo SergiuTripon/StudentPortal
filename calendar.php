@@ -583,7 +583,7 @@ global $archived_task;
 
         $("#update-task-modal").modal('show');
 
-        $('update-task-modal').on('show.bs.modal', function () {
+        $('#update-task-modal').on('show.bs.modal', function () {
             $("#update_taskid").val(html.taskid);
             $("#update_task_name").val(html.task_name);
             $("#update_task_notes").html(html.task_notes);
