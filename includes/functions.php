@@ -3651,6 +3651,7 @@ function GetTaskDetails() {
 function UpdateTask() {
 
 	global $mysqli;
+    global $session_userid;
 	global $updated_on;
 
 	$taskid = filter_input(INPUT_POST, 'update_taskid', FILTER_SANITIZE_NUMBER_INT);
