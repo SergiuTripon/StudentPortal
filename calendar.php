@@ -366,6 +366,8 @@ global $archived_task;
     });
 
     //Calendar
+    var calendar;
+
 	(function($) {
 
 	"use strict";
@@ -387,7 +389,7 @@ global $archived_task;
 		}
 	};
 
-	var calendar = $('#calendar').calendar(options);
+    calendar = $('#calendar').calendar(options);
 
 	$('.btn-group button[data-calendar-nav]').each(function() {
 		var $this = $(this);
@@ -547,6 +549,8 @@ global $archived_task;
             $('#create-task-form').trigger("reset");
 
             buttonReset();
+
+            calendar.view();
 
         });
 
