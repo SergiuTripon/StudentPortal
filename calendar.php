@@ -303,7 +303,7 @@ global $archived_task;
     <div class="modal-body">
     <!-- Update a task -->
     <form id="update-task-form" name="update-task-form" class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;">
-    <p id="create_task_error" class="feedback-sad text-center"></p>
+    <p id="update_task_error" class="feedback-sad text-center"></p>
 
     <input type="hidden" name="update_taskid" id="update_taskid" />
 
