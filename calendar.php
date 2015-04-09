@@ -243,8 +243,7 @@ global $archived_task;
     <div class="modal-body">
     <!-- Create a task -->
 	<form class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;" name="create-task-form" id="create-task-form">
-    <p id="success" class="feedback-happy text-center"></p>
-	<p id="error" class="feedback-sad text-center"></p>
+	<p id="create_task_error" class="feedback-sad text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
@@ -304,8 +303,7 @@ global $archived_task;
     <div class="modal-body">
     <!-- Update a task -->
     <form id="update-task-form" name="update-task-form" class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;">
-    <p id="success" class="feedback-happy text-center"></p>
-    <p id="error" class="feedback-sad text-center"></p>
+    <p id="create_task_error" class="feedback-sad text-center"></p>
 
     <input type="hidden" name="update_taskid" id="update_taskid" />
 
@@ -545,8 +543,7 @@ global $archived_task;
             $("#create_task_duedate").removeClass("input-happy");
             $("#create_task_duedate").removeClass("input-sad");
 
-            $("#error").hide();
-            $("#success").hide();
+            $("#create_task_error").hide();
 
             $('#create-task-form').trigger("reset");
 
@@ -558,9 +555,8 @@ global $archived_task;
 
     },
     error:function (xhr, ajaxOptions, thrownError){
-		$("#success").hide();
-		$("#error").show();
-        $("#error").empty().append(thrownError);
+		$("#create_task_error").show();
+        $("#create_task_error").empty().append(thrownError);
         buttonReset();
     }
 	});
@@ -711,8 +707,7 @@ global $archived_task;
             $("#update_task_duedate").removeClass("input-happy");
             $("#update_task_duedate").removeClass("input-sad");
 
-            $("#error").hide();
-            $("#success").hide();
+            $("#update_task_error").hide();
 
             buttonReset();
 
@@ -720,8 +715,8 @@ global $archived_task;
 
     },
     error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-        $("#error").empty().append(thrownError);
+		$("#update_task_error").show();
+        $("#update_task_error").empty().append(thrownError);
         buttonReset();
     }
 	});
