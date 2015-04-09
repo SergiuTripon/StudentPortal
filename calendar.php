@@ -47,7 +47,7 @@ global $archived_task;
 
 	<div class="row">
 
-    <a href="#create-task-modal" data-toggle="modal">
+    <a id="create-task-button">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <div class="tile">
     <i class="fa fa-plus"></i>
@@ -420,6 +420,10 @@ global $archived_task;
     var datetimepicker = {
         format: 'DD/MM/YYYY HH:mm'
     };
+
+    $("#create-task-button").click(function() {
+        $('#create-task-modal').modal('show');
+    });
 
     $('#create-task-modal').on('hidden.bs.modal', function () {
         $('#create_task_startdate').datetimepicker(datetimepicker);
