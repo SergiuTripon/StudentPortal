@@ -1357,8 +1357,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$moduleid.'" class="btn btn-primary btn-lg btn-delete-module btn-load">Confirm</a>
+            <a id="delete-'.$moduleid.'" class="btn btn-primary btn-lg btn-delete-module btn-load">Delete</a>
+            <a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
@@ -1447,8 +1447,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$moduleid.'" class="btn btn-primary btn-lg btn-delete-module btn-load">Delete</a>
 			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$moduleid.'" class="btn btn-primary btn-lg btn-delete-module btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -1554,8 +1554,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-lg btn-delete-lecture btn-load">Delete</a>
 			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-lg btn-delete-lecture btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -1657,8 +1657,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-lg btn-delete-lecture btn-load">Delete</a>
 			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$lectureid.'" class="btn btn-primary btn-lg btn-delete-lecture btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -1764,8 +1764,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$tutorialid.'" class="btn btn-primary btn-lg btn-delete-tutorial btn-load">Delete</a>
 			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$tutorialid.'" class="btn btn-primary btn-lg btn-delete-tutorial btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -1868,8 +1868,8 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$tutorialid.'" class="btn btn-primary btn-lg btn-delete-tutorial btn-load">Delete</a>
 			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$tutorialid.'" class="btn btn-primary btn-lg btn-delete-tutorial btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -2198,8 +2198,8 @@ function AdminExamUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam btn-load">Delete</a>
 			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -2291,8 +2291,8 @@ function AdminExamUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam btn-load">Delete</a>
 			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$examid.'" class="btn btn-primary btn-lg btn-delete-exam btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -2501,8 +2501,8 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$resultid.'" class="btn btn-primary btn-lg btn-delete-result btn-load">Delete</a>
 			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$resultid.'" class="btn btn-primary btn-lg btn-delete-result btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -2564,8 +2564,8 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$resultid.'" class="btn btn-primary btn-lg btn-delete-result btn-load">Delete</a>
 			<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$resultid.'" class="btn btn-primary btn-lg btn-delete-result btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -3331,8 +3331,8 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$bookid.'" class="btn btn-danger btn-lg btn-delete-book btn-load">Delete</a>
 			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$bookid.'" class="btn btn-danger btn-lg btn-delete-book btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -3420,8 +3420,8 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
+            <a id="delete-'.$bookid.'" class="btn btn-success btn-lg btn-delete-book btn-load">Delete</a>
 			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$bookid.'" class="btn btn-success btn-lg btn-delete-book btn-load">Confirm</a>
 			</div>
 			</div>
 
@@ -3895,8 +3895,8 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-footer">
         <div class="text-right">
+        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete-task btn-load">Delete</a>
         <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
-        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete-task btn-load">Confirm</a>
         </div>
         </div>
 
@@ -3990,8 +3990,8 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-footer">
         <div class="text-right">
-        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
         <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete-task btn-load">Confirm</a>
+        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         </div>
 
@@ -4083,8 +4083,8 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-footer">
         <div class="text-right">
-        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
         <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete-task btn-load">Confirm</a>
+        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         </div>
 
@@ -4462,7 +4462,7 @@ function AdminEventUpdate($isUpdate = 0) {
             </div><!-- /modal-dialog -->
             </div><!-- /modal-content -->
 
-            <div id="delete-'.$eventid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-'.$eventid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
 
@@ -4477,8 +4477,9 @@ function AdminEventUpdate($isUpdate = 0) {
 
             <div class="modal-footer">
             <div class="text-right">
+            <a id="delete-'.$eventid.'" class="btn btn-success btn-lg btn-delete-event btn-load">Delete</a>
             <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$eventid.'" class="btn btn-success btn-lg btn-delete-event btn-load">Confirm</a>
+
             </div>
             </div>
 
@@ -4573,8 +4574,8 @@ function AdminEventUpdate($isUpdate = 0) {
 
             <div class="modal-footer">
             <div class="text-right">
+            <a id="delete-'.$eventid.'" class="btn btn-danger btn-lg btn-delete-event btn-load">Delete</a>
             <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-            <a id="delete-'.$eventid.'" class="btn btn-danger btn-lg btn-delete-event btn-load">Confirm</a>
             </div>
             </div>
 
@@ -4805,8 +4806,8 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-md" data-dismiss="modal">Cancel</button>
-            <a id="delete-'.$markerid.'" class="btn btn-danger btn-md btn-delete-location btn-load" >Confirm</a>
+            <a id="delete-'.$markerid.'" class="btn btn-danger btn-md btn-delete-location btn-load">Delete</a>
+			<a class="btn btn-success btn-md" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
@@ -4868,8 +4869,8 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">Cancel</button>
-            <a id="delete-'.$markerid.'" class="btn btn-danger btn-lg btn-delete-location btn-load">Confirm</a>
+            <a id="delete-'.$markerid.'" class="btn btn-danger btn-lg btn-delete-location btn-load">Delete</a>
+			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
