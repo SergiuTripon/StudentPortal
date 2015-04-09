@@ -418,7 +418,11 @@ global $archived_task;
 
     //Date Time Picker
     var datetimepicker = {
-        format: 'DD/MM/YYYY HH:mm'
+        format: 'DD/MM/YYYY HH:mm',
+        useCurrent: false,
+        showTodayButton: true,
+        showClear: true,
+        showClose: true
     };
 
     $("#create-task-button").click(function() {
