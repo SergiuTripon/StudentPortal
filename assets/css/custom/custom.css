@@ -885,7 +885,9 @@ form .field-required {
     background: #F0F0F0;
 }
 
-.modal-form .close, .close:hover, .close:focus {
+.modal-form .close,
+.modal-form .close:hover,
+.modal-form .close:focus {
     color: #5D5D5D;
 }
 .modal-form .modal-header {
@@ -910,7 +912,9 @@ form .field-required {
     background-color: #E0736F;
 }
 
-.modal-error .close, .close:hover, .close:focus {
+.modal-error .close,
+.modal-error .close:hover,
+.modal-error .close:focus {
     color: #932320 !important;
 }
 .modal-error .modal-header {
@@ -945,7 +949,9 @@ form .field-required {
     background-color: #F2B866;
 }
 
-.modal-warning .close, .close:hover, .close:focus {
+.modal-warning .close,
+.modal-warning .close:hover,
+.modal-warning .close:focus {
     color: #82510B !important;
 }
 .modal-warning .modal-header {
@@ -1011,7 +1017,9 @@ form .field-required {
     background-color: #9BD8EB;
 }
 
-.modal-info .close, .close:hover, .close:focus {
+.modal-info .close,
+.modal-info .close:hover,
+.modal-info .close:focus {
     color: #1D7892 !important;
 }
 .modal-info .modal-header {
@@ -1057,7 +1065,9 @@ form .field-required {
     margin-top: -4px;
 }
 
-.ekko-lightbox .close, .close:hover, .close:focus {
+.ekko-lightbox .close,
+.ekko-lightbox .close:hover,
+.ekko-lightbox.close:focus {
     opacity: 1;
     color: #735326;
     font-size: 30px;
