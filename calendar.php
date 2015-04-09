@@ -423,6 +423,9 @@ global $archived_task;
         format: 'DD/MM/YYYY HH:mm'
     };
 
+    $('#create_task_startdate').datetimepicker(datetimepicker);
+    $('#create_task_duedate').datetimepicker(datetimepicker);
+
     var datatables = {
         "iDisplayLength": 10,
         "paging": true,
@@ -441,9 +444,6 @@ global $archived_task;
     //Ajax call
     $("#create-task-submit").click(function (e) {
     e.preventDefault();
-
-    $('#create_task_startdate').datetimepicker(datetimepicker);
-    $('#create_task_duedate').datetimepicker(datetimepicker);
 
     var hasError = false;
 
