@@ -429,9 +429,6 @@ global $archived_task;
     });
 
     $('#create-task-modal').on('shown.bs.modal', function () {
-        $("#create_task_startdate").val('');
-        $("#create_task_duedate").val('');
-
         $('#create_task_startdate').datetimepicker(datetimepicker);
         $('#create_task_duedate').datetimepicker(datetimepicker);
     });
@@ -555,7 +552,11 @@ global $archived_task;
 
             $("#create_task_error").hide();
 
-            $('#create-task-form').trigger('reset');
+            $("#create_task_name").val('');
+            $("#create_task_notes").val('');
+            $("#create_task_url").val('');
+            $("#create_task_startdate").val('');
+            $("#create_task_duedate").val('');
 
             buttonReset();
 
