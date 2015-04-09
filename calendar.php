@@ -572,7 +572,7 @@ global $archived_task;
     var taskToUpdate = clickedID[1];
 
 	jQuery.ajax({
-	type: "POST",
+	type: "GET",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'taskToUpdate='+ taskToUpdate,
