@@ -423,8 +423,6 @@ global $archived_task;
     // Date Time Picker
     $('#create_task_startdate').datetimepicker(datetimepicker);
     $('#create_task_duedate').datetimepicker(datetimepicker);
-    $('#update_task_startdate').datetimepicker(datetimepicker);
-    $('#update_task_duedate').datetimepicker(datetimepicker);
 
     var datatables = {
         "iDisplayLength": 10,
@@ -588,6 +586,9 @@ global $archived_task;
             $("#update_task_startdate").val(html.task_startdate);
             $("#update_task_duedate").val(html.task_duedate);
             $('#update-task-modal .modal-title').html('Update ' + '"' + html.task_name + '"');
+
+            $('#update_task_startdate').datetimepicker(datetimepicker);
+            $('#update_task_duedate').datetimepicker(datetimepicker);
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
