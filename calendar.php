@@ -709,6 +709,8 @@ global $archived_task;
 	var clickedID = this.id.split('-');
     var taskToComplete = clickedID[1];
 
+    togglePreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -726,8 +728,7 @@ global $archived_task;
         $('#content-completed-task').html(html.completed_task);
         $(".table-completed-task").dataTable(datatables);
 
-        $('#update_task_startdate').datetimepicker(datetimepicker);
-        $('#update_task_duedate').datetimepicker(datetimepicker);
+        togglePreloader();
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -744,6 +745,8 @@ global $archived_task;
 
 	var clickedID = this.id.split('-');
     var taskToDeactivate = clickedID[1];
+
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -762,8 +765,7 @@ global $archived_task;
         $('#content-archived-task').html(html.archived_task);
         $(".table-archived-task").dataTable(datatables);
 
-        $('#update_task_startdate').datetimepicker(datetimepicker);
-        $('#update_task_duedate').datetimepicker(datetimepicker);
+        togglePreloader();
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -779,6 +781,8 @@ global $archived_task;
 
 	var clickedID = this.id.split('-');
     var taskToReactivate = clickedID[1];
+
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -805,6 +809,8 @@ global $archived_task;
         $('#update_task_startdate').datetimepicker(datetimepicker);
         $('#update_task_duedate').datetimepicker(datetimepicker);
 
+        togglePreloader();
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -819,6 +825,8 @@ global $archived_task;
 
 	var clickedID = this.id.split('-');
     var taskToDelete = clickedID[1];
+
+    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -845,10 +853,9 @@ global $archived_task;
             $('#content-archived-task').html(html.archived_task);
             $(".table-archived-task").dataTable(datatables);
 
-            $('#update_task_startdate').datetimepicker(datetimepicker);
-            $('#update_task_duedate').datetimepicker(datetimepicker);
-
             buttonReset();
+
+            togglePreloader();
 
         });
 
