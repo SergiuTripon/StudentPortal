@@ -3681,14 +3681,14 @@ function UpdateTask() {
 
 	} else {
 
-        $stmt3 = $mysqli->prepare("SELECT taskid from user_task where task_name = ? AND userid = ? LIMIT 1");
+        $stmt3 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name=? AND userid=? LIMIT 1");
         $stmt3->bind_param('si', $task_name, $userid);
         $stmt3->execute();
         $stmt3->store_result();
         $stmt3->bind_result($db_taskid);
         $stmt3->fetch();
 
-	    if ($stmt3->num_rows == 1) {
+	    if ($stmt3->num_rows > 0) {
 
         $stmt3->close();
         header('HTTP/1.0 550 A task with the name entered already exists.');
