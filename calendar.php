@@ -307,6 +307,8 @@ global $archived_task;
     <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
 
+    <input type="hidden" name="update_taskid" id="update_taskid" />
+
     <label for="update_task_name">Name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="update_task_name" id="update_task_name" placeholder="Enter a name">
 
@@ -579,15 +581,17 @@ global $archived_task;
 	data:'taskToUpdate='+ taskToUpdate,
 	success:function(html){
 
-        $("#update_task_name").val(html.task_name);
-        $("#update_task_notes").html(html.task_notes);
-        $("#update_task_url").val(html.task_url);
-        $("#update_task_startdate").val(html.task_startdate);
-        $("#update_task_duedate").val(html.task_duedate);
-        $('#update-task-modal .modal-title').html('Update '+html.task_name);
-
         $("#update-task-modal").modal('show');
 
+        $('update-task-modal').on('show.bs.modal', function () {
+            $("#update_taskid").val(html.taskid);
+            $("#update_task_name").val(html.task_name);
+            $("#update_task_notes").html(html.task_notes);
+            $("#update_task_url").val(html.task_url);
+            $("#update_task_startdate").val(html.task_startdate);
+            $("#update_task_duedate").val(html.task_duedate);
+            $('#update-task-modal .modal-title').html('Update ' + html.task_name);
+        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();

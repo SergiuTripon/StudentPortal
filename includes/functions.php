@@ -3627,15 +3627,16 @@ function GetTaskDetails() {
 
     $taskid = filter_input(INPUT_POST, 'taskToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d/%m/%Y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d/%m/%Y %H:%i') as task_duedate FROM user_task WHERE taskid=? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d/%m/%Y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d/%m/%Y %H:%i') as task_duedate FROM user_task WHERE taskid=? LIMIT 1");
     $stmt1->bind_param('i', $taskid);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($task_name, $task_notes, $task_url, $task_startdate, $task_duedate);
+    $stmt1->bind_result($taskid, $task_name, $task_notes, $task_url, $task_startdate, $task_duedate);
     $stmt1->fetch();
     $stmt1->close();
 
     $array = array(
+        'taskid'=>$taskid,
         'task_name'=>$task_name,
         'task_notes'=>$task_notes,
         'task_url'=>$task_url,
