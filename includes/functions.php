@@ -3667,17 +3667,12 @@ function UpdateTask() {
     $stmt3->bind_result($db_taskid);
     $stmt3->fetch();
 
-    if ($stmt3->num_rows > 0) {
-
     $array = array(
         'error_msg'=>$task_name
     );
 
     echo json_encode($array);
 
-    exit();
-
-    }
 
     calendarUpdate($isUpdate = 1);
 }
