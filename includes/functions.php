@@ -3660,7 +3660,7 @@ function UpdateTask() {
 	$task_startdate = filter_input(INPUT_POST, 'update_task_startdate', FILTER_SANITIZE_STRING);
 	$task_duedate = filter_input(INPUT_POST, 'update_task_duedate', FILTER_SANITIZE_STRING);
 
-	$stmt1 = $mysqli->prepare("SELECT task_name from user_task where taskid = ?");
+	$stmt1 = $mysqli->prepare("SELECT task_name FROM user_task WHERE taskid=? LIMIT 1");
 	$stmt1->bind_param('i', $taskid);
 	$stmt1->execute();
 	$stmt1->store_result();
