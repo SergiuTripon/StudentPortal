@@ -423,8 +423,10 @@ global $archived_task;
         format: 'DD/MM/YYYY HH:mm'
     };
 
-    $('#create_task_startdate').datetimepicker(datetimepicker);
-    $('#create_task_duedate').datetimepicker(datetimepicker);
+    $('#create-task-modal').on('hidden.bs.modal', function () {
+        $('#create_task_startdate').datetimepicker(datetimepicker);
+        $('#create_task_duedate').datetimepicker(datetimepicker);
+    });
 
     var datatables = {
         "iDisplayLength": 10,
