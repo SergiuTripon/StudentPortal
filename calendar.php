@@ -548,9 +548,6 @@ global $archived_task;
 
             $('#create-task-form').trigger("reset");
 
-            $('#update_task_startdate').datetimepicker(datetimepicker);
-            $('#update_task_duedate').datetimepicker(datetimepicker);
-
             buttonReset();
 
         });
@@ -590,7 +587,7 @@ global $archived_task;
             $("#update_task_url").val(html.task_url);
             $("#update_task_startdate").val(html.task_startdate);
             $("#update_task_duedate").val(html.task_duedate);
-            $('#update-task-modal .modal-title').html('Update ' + html.task_name);
+            $('#update-task-modal .modal-title').html('Update ' + '"' + html.task_name + '"');
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
