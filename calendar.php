@@ -579,7 +579,13 @@ global $archived_task;
 	data:'taskToUpdate='+ taskToUpdate,
 	success:function(html){
 
-        alert(html.task_name);
+        $("#update_task_name").val(html.task_name);
+        $("#update_task_notes").val(html.task_notes);
+        $("#update_task_url").val(html.task_url);
+        $("#update_task_startdate").val(html.task_startdate);
+        $("#update_task_duedate").val(html.task_duedate);
+
+        $("#update-task-modal").show('modal');
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
