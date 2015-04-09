@@ -374,6 +374,11 @@ elseif (isset(
     CreateTask();
 }
 
+//Call GetTaskDetails function
+elseif (isset($_POST["taskToUpdate"])) {
+    GetTaskDetails();
+}
+
 //Call UpdateTask function
 elseif (isset(
     $_POST['update_taskid'],

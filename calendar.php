@@ -565,7 +565,32 @@ global $archived_task;
 	return true;
 	});
 
-    //Ajax call
+    //Update task
+	$("body").on("click", ".btn-update-task", function(e) {
+    e.preventDefault();
+
+	var clickedID = this.id.split('-');
+    var taskToUpdate = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"json",
+	data:'taskToUpdate='+ taskToUpdate,
+	success:function(html){
+
+        alert(html.task_name);
+
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+
+    });
+
+    //Update task
     $("#update-task-submit").click(function (e) {
     e.preventDefault();
 
@@ -629,8 +654,6 @@ global $archived_task;
         $("label[for='update_task_duedate']").addClass("feedback-happy");
         $("#update_task_duedate").addClass("input-happy");
 	}
-
-    alert(update_task_notes);
 
 	if(hasError == false){
     jQuery.ajax({

@@ -3621,6 +3621,31 @@ function CreateTask () {
     calendarUpdate($isUpdate = 1);
 }
 
+function GetTaskDetails() {
+
+    global $mysqli;
+
+    $taskid = filter_input(INPUT_POST, 'taskToUpdate', FILTER_SANITIZE_NUMBER_INT);
+
+    $stmt1 = $mysqli->prepare("SELECT task_name, task_notes, task_url, task_startdate, task_duedate FROM user_task WHERE taskid=? LIMIT 1");
+    $stmt1->bind_param('i', $taskid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($task_name, $task_notes, $task_url, $task_startdate, $task_duedate);
+    $stmt1->fetch();
+    $stmt1->close();
+
+    $array = array(
+        'task_name'=>$task_name,
+        'task_notes'=>$task_notes,
+        'task_url'=>$task_url,
+        'task_startdate'=>$task_startdate,
+        'task_duedate'=>$task_duedate
+    );
+
+    echo json_encode($array);
+}
+
 //UpdateTask function
 function UpdateTask() {
 
@@ -3790,7 +3815,7 @@ function calendarUpdate($isUpdate = 0) {
         <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu">
-        <li><a href="#update-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Update</a></li>
+        <li><a id="#update-'.$taskid.'" class="btn-update-task">Update</a></li>
         <li><a id="deactivate-'.$taskid.'" class="btn-deactivate-task">Archive</a></li>
         <li><a href="#delete-'.$taskid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
         </ul>
