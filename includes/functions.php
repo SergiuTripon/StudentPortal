@@ -3682,7 +3682,7 @@ function UpdateTask() {
 	} else {
 
         $stmt3 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name=? AND userid=? LIMIT 1");
-        $stmt3->bind_param('si', $task_name, $userid);
+        $stmt3->bind_param('si', $task_name, $session_userid);
         $stmt3->execute();
         $stmt3->store_result();
         $stmt3->bind_result($db_taskid);
