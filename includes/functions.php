@@ -3627,7 +3627,7 @@ function GetTaskDetails() {
 
     $taskid = filter_input(INPUT_POST, 'taskToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt1 = $mysqli->prepare("SELECT task_name, task_notes, task_url, task_startdate, task_duedate FROM user_task WHERE taskid=? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d/%m/%Y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d/%m/%Y %H:%i') as task_duedate FROM user_task WHERE taskid=? LIMIT 1");
     $stmt1->bind_param('i', $taskid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -3673,8 +3673,8 @@ function UpdateTask() {
         $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
         $task_duedate = $task_duedate->format('Y-m-d H:i');
 
-	    $stmt2 = $mysqli->prepare("UPDATE user_task SET task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
-	    $stmt2->bind_param('ssssssi', $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $updated_on, $taskid);
+	    $stmt2 = $mysqli->prepare("UPDATE user_task SET task_notes=?, task_url=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
+	    $stmt2->bind_param('sssssi', $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on, $taskid);
 	    $stmt2->execute();
 	    $stmt2->close();
 
@@ -3700,8 +3700,8 @@ function UpdateTask() {
         $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
         $task_duedate = $task_duedate->format('Y-m-d H:i');
 
-        $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_class=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
-        $stmt4->bind_param('sssssssi', $task_name, $task_notes, $task_url, $task_class, $task_startdate, $task_duedate, $updated_on, $taskid);
+        $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
+        $stmt4->bind_param('ssssssi', $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on, $taskid);
         $stmt4->execute();
         $stmt4->close();
 
@@ -3790,7 +3790,7 @@ function calendarUpdate($isUpdate = 0) {
 
     $task_status = 'active';
 
-    $stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d/%m/%Y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d/%m/%Y %H:%i') as task_duedate FROM user_task WHERE userid=? AND task_status=?");
+    $stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid=? AND task_status=?");
     $stmt1->bind_param('is', $session_userid, $task_status);
     $stmt1->execute();
     $stmt1->bind_result($taskid, $task_name, $task_notes, $task_url, $task_startdate, $task_duedate);
