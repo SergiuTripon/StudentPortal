@@ -585,7 +585,7 @@ global $archived_task;
         $("#update_task_startdate").val(html.task_startdate);
         $("#update_task_duedate").val(html.task_duedate);
 
-        $("#update-task-modal").show('modal');
+        $("#update-task-modal").toggle('modal');
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
