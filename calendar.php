@@ -687,30 +687,6 @@ global $archived_task;
             $('#content-due-task').html(html.due_task);
             $(".table-due-task").dataTable(datatables);
 
-            $("label[for='update_task_name']").removeClass("feedback-happy");
-            $("label[for='update_task_name']").removeClass("feedback-sad");
-            $("label[for='update_task_name']").empty().append('Name<span class="field-required">*</span>');
-            $("#update_task_name").removeClass("input-happy");
-            $("#update_task_name").removeClass("input-sad");
-
-            $("label[for='update_task_startdate']").removeClass("feedback-happy");
-            $("label[for='update_task_startdate']").removeClass("feedback-sad");
-            $("label[for='update_task_startdate']").empty().append('Start date<span class="field-required">*</span>');
-            $("#update_task_startdate").removeClass("input-happy");
-            $("#update_task_startdate").removeClass("input-sad");
-
-            $("label[for='update_task_duedate']").removeClass("feedback-happy");
-            $("label[for='update_task_duedate']").removeClass("feedback-sad");
-            $("label[for='update_task_duedate']").empty().append('Due date<span class="field-required">*</span>');
-            $("#update_task_duedate").removeClass("input-happy");
-            $("#update_task_duedate").removeClass("input-sad");
-
-            $("#error").hide();
-            $("#success").hide();
-
-            $('#update_task_startdate').datetimepicker(datetimepicker);
-            $('#update_task_duedate').datetimepicker(datetimepicker);
-
             buttonReset();
 
         });
