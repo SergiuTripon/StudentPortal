@@ -311,7 +311,7 @@ global $archived_task;
     <input class="form-control" type="text" name="update_task_name" id="update_task_name" placeholder="Enter a name">
 
     <label>Notes (Optional)</label>
-    <textarea class="form-control" rows="5" name="update_task_notes" id="update_task_notes" placeholder="Notes">'.$task_notes.'</textarea>
+    <textarea class="form-control" rows="5" name="update_task_notes" id="update_task_notes" placeholder="Notes"></textarea>
 
     <label>External URL (www.example.com)</label>
     <input class="form-control" type="text" name="update_task_url" id="update_task_url" placeholder="Enter an external URL">
@@ -580,12 +580,12 @@ global $archived_task;
 	success:function(html){
 
         $("#update_task_name").val(html.task_name);
-        $("#update_task_notes").val(html.task_notes);
+        $("#update_task_notes").html(html.task_notes);
         $("#update_task_url").val(html.task_url);
         $("#update_task_startdate").val(html.task_startdate);
         $("#update_task_duedate").val(html.task_duedate);
 
-        $("#update-task-modal").toggle('modal');
+        $("#update-task-modal").modal('show');
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
