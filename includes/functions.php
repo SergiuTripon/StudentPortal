@@ -3672,7 +3672,7 @@ function UpdateTask() {
     $stmt3->close();
 
     $array = array(
-        'error_msg'=>$stmt3->num_rows
+        'error_msg'=>$task_name
     );
 
     echo json_encode($array);
