@@ -3588,7 +3588,7 @@ function CreateTask () {
     $task_duedate = filter_input(INPUT_POST, 'create_task_duedate', FILTER_SANITIZE_STRING);
 
     // Check if task exists
-    $stmt1 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name = ? AND userid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name=? AND userid=? LIMIT 1");
     $stmt1->bind_param('si', $task_name, $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
@@ -3667,7 +3667,7 @@ function UpdateTask() {
 	$stmt1->bind_result($db_taskname);
 	$stmt1->fetch();
 
-	if ($db_taskname == $task_name) {
+	if ($task_name === $db_taskname) {
 
         $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
         $task_startdate = $task_startdate->format('Y-m-d H:i');
