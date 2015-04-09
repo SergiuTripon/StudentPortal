@@ -582,6 +582,8 @@ global $archived_task;
 	data:'taskToUpdate='+ taskToUpdate,
 	success:function(html){
 
+        alert(html.error_msg);
+
         $("#update-task-modal").modal('show');
 
         $('#update-task-modal').on('shown.bs.modal', function () {

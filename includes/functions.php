@@ -3670,7 +3670,13 @@ function UpdateTask() {
     if ($stmt3->num_rows > 0) {
 
     $stmt3->close();
-    header('HTTP/1.0 550 A task with the name entered already exists.');
+
+    $array = array(
+        'error_msg'=>$stmt3->num_rows
+    );
+
+    echo json_encode($array);
+
     exit();
 
     }
