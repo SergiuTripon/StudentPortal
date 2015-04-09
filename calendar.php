@@ -248,7 +248,7 @@ global $archived_task;
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
-    <label for="task_name">Name<span class="field-required">*</span></label>
+    <label for="create_task_name">Name<span class="field-required">*</span></label>
 	<input class="form-control" type="text" name="create_task_name" id="create_task_name" placeholder="Enter a name">
     </div>
     </div>
@@ -269,11 +269,11 @@ global $archived_task;
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
-	<label for="task_startdate">Start date<span class="field-required">*</span></label>
+	<label for="create_task_startdate">Start date<span class="field-required">*</span></label>
 	<input type="text" class="form-control" name="create_task_startdate" id="create_task_startdate" placeholder="Select a start date">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width">
-    <label for="task_duedate">Due date<span class="field-required">*</span></label>
+    <label for="create_task_duedate">Due date<span class="field-required">*</span></label>
     <input type="text" class="form-control" name="create_task_duedate" id="create_task_duedate" placeholder="Select a due date">
     </div>
 	</div>
