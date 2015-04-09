@@ -425,7 +425,7 @@ global $archived_task;
         $('#create-task-modal').modal('show');
     });
 
-    $('#create-task-modal').on('hidden.bs.modal', function () {
+    $('#create-task-modal').on('shown.bs.modal', function () {
         $('#create_task_startdate').datetimepicker(datetimepicker);
         $('#create_task_duedate').datetimepicker(datetimepicker);
     });
