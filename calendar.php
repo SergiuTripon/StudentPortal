@@ -418,13 +418,10 @@ global $archived_task;
         }
     }).resize();
 
+    //Date Time Picker
     var datetimepicker = {
         format: 'DD/MM/YYYY HH:mm'
     };
-
-    // Date Time Picker
-    $('#create_task_startdate').datetimepicker(datetimepicker);
-    $('#create_task_duedate').datetimepicker(datetimepicker);
 
     var datatables = {
         "iDisplayLength": 10,
@@ -445,7 +442,10 @@ global $archived_task;
     $("#create-task-submit").click(function (e) {
     e.preventDefault();
 
-	var hasError = false;
+    $('#create_task_startdate').datetimepicker(datetimepicker);
+    $('#create_task_duedate').datetimepicker(datetimepicker);
+
+    var hasError = false;
 
 	var create_task_name = $("#create_task_name").val();
 	if(create_task_name === '') {
