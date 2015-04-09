@@ -291,7 +291,58 @@ global $archived_task;
     </div><!-- /modal -->
     </div><!-- /modal-dialog -->
     </div><!-- /modal-content -->
-	
+
+    <div id="update-task-modal" class="modal fade modal-custom modal-form" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+    <div class="modal-header">
+    <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+    <h4 class="modal-title" id="modal-custom-label">Update '.$task_name.'</h4>
+    </div>
+
+    <div class="modal-body">
+    <!-- Update a task -->
+    <form id="update-task-form" name="update-task-form" class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;">
+    <p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-sad text-center"></p>
+
+    <label for="update_task_name">Name<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="update_task_name" id="update_task_name" placeholder="Enter a name">
+
+    <label>Notes (Optional)</label>
+    <textarea class="form-control" rows="5" name="update_task_notes" id="update_task_notes" placeholder="Notes">'.$task_notes.'</textarea>
+
+    <label>External URL (www.example.com)</label>
+    <input class="form-control" type="text" name="update_task_url" id="update_task_url" placeholder="Enter an external URL">
+
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label for="update_task_startdate">Start date and time<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="update_task_startdate" id="update_task_startdate" placeholder="Select a start date and time"/>
+    </div>
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label for="update_task_duedate">Due date and time<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="update_task_duedate" id="update_task_duedate" placeholder="Select a due date and time"/>
+    </div>
+    </div>
+
+    </form>
+    <!-- End of Update a task -->
+    </div>
+
+    <div class="modal-footer">
+    <div class="text-right">
+    <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+    <a id="update-task-submit" class="btn btn-primary btn-lg btn-load">Update task</a>
+    </div>
+    </div>
+
+    </div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
+
+
 	<?php include 'includes/footers/footer.php'; ?>
 		
 	<!-- Sign Out (Inactive) JS -->
@@ -638,9 +689,7 @@ global $archived_task;
     }
 	});
     }
-
 	return true;
-
 	});
 
     //Complete record
