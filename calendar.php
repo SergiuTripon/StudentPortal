@@ -298,7 +298,7 @@ global $archived_task;
 
     <div class="modal-header">
     <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-    <h4 class="modal-title" id="modal-custom-label">Update '.$task_name.'</h4>
+    <h4 class="modal-title" id="modal-custom-label"></h4>
     </div>
 
     <div class="modal-body">
