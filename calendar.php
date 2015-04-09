@@ -552,6 +552,8 @@ global $archived_task;
 
             $("#create_task_error").hide();
 
+            $('#create-task-form').reset();
+
             buttonReset();
 
             calendar.view();
