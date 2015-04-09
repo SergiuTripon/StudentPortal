@@ -582,8 +582,6 @@ global $archived_task;
 	data:'taskToUpdate='+ taskToUpdate,
 	success:function(html){
 
-        alert(html.error_msg);
-
         $("#update-task-modal").modal('show');
 
         $('#update-task-modal').on('shown.bs.modal', function () {
@@ -684,6 +682,8 @@ global $archived_task;
          '&update_task_startdate='  + update_task_startdate +
          '&update_task_duedate='    + update_task_duedate,
     success:function(html){
+
+        alert(html.error_msg);
 
         $('.modal-form').modal('hide');
 
