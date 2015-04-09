@@ -753,6 +753,8 @@ global $archived_task;
 
         togglePreloader();
 
+        calendar.view();
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -789,6 +791,8 @@ global $archived_task;
         $(".table-archived-task").dataTable(datatables);
 
         togglePreloader();
+
+        calendar.view();
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -829,10 +833,9 @@ global $archived_task;
         $('#content-due-task').html(html.due_task);
         $(".table-due-task").dataTable(datatables);
 
-        $('#update_task_startdate').datetimepicker(datetimepicker);
-        $('#update_task_duedate').datetimepicker(datetimepicker);
-
         togglePreloader();
+
+        calendar.view();
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
@@ -875,6 +878,8 @@ global $archived_task;
             $(".table-archived-task").dataTable(datatables);
 
             buttonReset();
+
+            calendar.view();
 
         });
 
