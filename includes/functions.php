@@ -3660,24 +3660,54 @@ function UpdateTask() {
 	$task_startdate = filter_input(INPUT_POST, 'update_task_startdate', FILTER_SANITIZE_STRING);
 	$task_duedate = filter_input(INPUT_POST, 'update_task_duedate', FILTER_SANITIZE_STRING);
 
-    $stmt3 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name=? AND userid=? LIMIT 1");
-    $stmt3->bind_param('si', $task_name, $userid);
-    $stmt3->execute();
-    $stmt3->store_result();
-    $stmt3->bind_result($db_taskid);
-    $stmt3->fetch();
+	$stmt1 = $mysqli->prepare("SELECT task_name FROM user_task WHERE taskid=? LIMIT 1");
+	$stmt1->bind_param('i', $taskid);
+	$stmt1->execute();
+	$stmt1->store_result();
+	$stmt1->bind_result($db_taskname);
+	$stmt1->fetch();
 
-    if ($stmt3->num_rows > 0) {
+	if ($task_name === $db_taskname) {
 
-    $stmt3->close();
+        $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
+        $task_startdate = $task_startdate->format('Y-m-d H:i');
+        $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
+        $task_duedate = $task_duedate->format('Y-m-d H:i');
 
-    $array = array(
-        'error_msg'=>'Hello'
-    );
+	    $stmt2 = $mysqli->prepare("UPDATE user_task SET task_notes=?, task_url=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
+	    $stmt2->bind_param('sssssi', $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on, $taskid);
+	    $stmt2->execute();
+	    $stmt2->close();
 
-    exit();
+	} else {
 
-    }
+        $stmt3 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name=? AND userid=? LIMIT 1");
+        $stmt3->bind_param('si', $task_name, $userid);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($db_taskid);
+        $stmt3->fetch();
+
+	    if ($stmt3->num_rows > 0) {
+
+        $stmt3->close();
+        header('HTTP/1.0 550 A task with the name entered already exists.');
+        exit();
+
+        } else {
+
+        $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
+        $task_startdate = $task_startdate->format('Y-m-d H:i');
+        $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
+        $task_duedate = $task_duedate->format('Y-m-d H:i');
+
+        $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
+        $stmt4->bind_param('ssssssi', $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on, $taskid);
+        $stmt4->execute();
+        $stmt4->close();
+
+        }
+	}
 
     calendarUpdate($isUpdate = 1);
 }
