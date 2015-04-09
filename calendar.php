@@ -847,8 +847,6 @@ global $archived_task;
 	var clickedID = this.id.split('-');
     var taskToDelete = clickedID[1];
 
-    togglePreloader();
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -875,8 +873,6 @@ global $archived_task;
             $(".table-archived-task").dataTable(datatables);
 
             buttonReset();
-
-            togglePreloader();
 
         });
 
