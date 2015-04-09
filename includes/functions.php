@@ -3669,8 +3669,6 @@ function UpdateTask() {
 
     if ($stmt3->num_rows > 0) {
 
-    $stmt3->close();
-
     $array = array(
         'error_msg'=>$task_name
     );
