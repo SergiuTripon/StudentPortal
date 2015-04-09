@@ -552,7 +552,7 @@ global $archived_task;
 
             $("#create_task_error").hide();
 
-            $('#create-task-form').reset();
+            $('#create-task-form').trigger('reset');
 
             buttonReset();
 
