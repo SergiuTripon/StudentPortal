@@ -134,7 +134,7 @@ AdminExamUpdate();
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'academic staff') : ?>
 
-        <?php include 'includes/menus/portal_menu.php'; ?>
+    <?php include 'includes/menus/portal_menu.php'; ?>
 
 	<div id="exams-portal" class="container">
 
