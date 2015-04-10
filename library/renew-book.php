@@ -32,11 +32,11 @@ if (isset($_GET["id"])) {
     $stmt->fetch();
 
     $created_on = new DateTime($created_on);
-    $created_on = $created_on->format('d-m-Y');
+    $created_on = $created_on->format('d/m/Y');
 
     $add7days = new DateTime($updated_on);
     $add7days->add(new DateInterval('P7D'));
-    $toreturn_on = $add7days->format('d-m-Y');
+    $toreturn_on = $add7days->format('d/m/Y');
 
 } else {
     header('Location: ../../library/');
