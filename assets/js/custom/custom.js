@@ -18,17 +18,15 @@
     $(window).resize(function(){
         var width = $(window).width();
         if(width <= 480){
-            $('.view-action .btn').addClass('btn-block');
-            $('.view-action').removeClass('pull-left');
-            $('.view-close .btn').addClass('btn-block');
-            $('.view-close').removeClass('pull-right');
-            $('.view-close').css('cssText', 'margin-top: 5px;');
+            $('.modal-info .view-action .btn').addClass('btn-block');
+            $('.modal-info .view-action').removeClass('pull-left');
+            $('.modal-info .view-close .btn').addClass('btn-block');
+            $('.modal-info .view-close').removeClass('pull-right').css('cssText', 'margin-top: 5px;');
         } else {
-            $('.view-action .btn').removeClass('btn-block');
-            $('.view-action').addClass('pull-left');
-            $('.view-close .btn').removeClass('btn-block');
-            $('.view-close').addClass('pull-right');
-            $('.view-close').css('cssText', 'margin-top: 0px;');
+            $('.modal-info .view-action .btn').removeClass('btn-block');
+            $('.modal-info .view-action').addClass('pull-left');
+            $('.modal-info .view-close .btn').removeClass('btn-block');
+            $('.modal-info .view-close').addClass('pull-right').css('cssText', 'margin-top: 0px;');
         }
     }).resize();
 
