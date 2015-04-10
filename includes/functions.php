@@ -2901,7 +2901,7 @@ function RenewBookCheck () {
 }
 
 //RenewBook function
-function RenewBook() {
+function RenewBook($isCheck = 0) {
 
     global $mysqli;
     global $updated_on;
@@ -2909,19 +2909,21 @@ function RenewBook() {
     //Book to
     $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
 
-    $isApproved = 0;
+    if ($isCheck == 1) {
+        $isApproved = 0;
 
-    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE bookid=? AND isApproved=? ORDER BY requestid DESC LIMIT 1");
-    $stmt1->bind_param('ii', $bookToRenew, $isApproved);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_bookid);
-    $stmt1->fetch();
+        $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE bookid=? AND isApproved=? ORDER BY requestid DESC LIMIT 1");
+        $stmt1->bind_param('ii', $bookToRenew, $isApproved);
+        $stmt1->execute();
+        $stmt1->store_result();
+        $stmt1->bind_result($db_bookid);
+        $stmt1->fetch();
 
-    if ($stmt1->num_rows > 0) {
-        $stmt1->close();
-        echo 'You cannot renew this book at this time. Another user requested this book. Once the book is collected and loaned again, you will be able to request it.';
-        exit();
+        if ($stmt1->num_rows > 0) {
+            $stmt1->close();
+            echo 'You cannot renew this book at this time. Another user requested this book. Once the book is collected and loaned again, you will be able to request it.';
+            exit();
+        }
     } else {
         $stmt3 = $mysqli->prepare("SELECT bookid, toreturn_on, isRenewed FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
         $stmt3->bind_param('i', $bookToRenew);
