@@ -25,9 +25,9 @@
             $('.view-close').css('cssText', 'margin-top: 5px;');
         } else {
             $('.view-action .btn').removeClass('btn-block');
-            $('.view-action').removeClass('pull-left');
+            $('.view-action').addClass('pull-left');
             $('.view-close .btn').removeClass('btn-block');
-            $('.view-close').removeClass('pull-right');
+            $('.view-close').addClass('pull-right');
             $('.view-close').css('cssText', 'margin-top: 0px;');
         }
     }).resize();
