@@ -919,6 +919,43 @@ form .field-required {
 }
 /* End of Modal error */
 
+/* Modal success */
+.modal-success .modal-content {
+    background-color: #6EC74;
+}
+
+.modal-success .close,
+.modal-success .close:hover,
+.modal-success .close:focus {
+    color: #932320 !important;
+}
+.modal-success .modal-header {
+    border-color: #932320;
+}
+
+.modal-success .form-logo i {
+    color: #932320;
+}
+
+.modal-success .modal-title {
+    color: #932320;
+}
+
+.modal-success .modal-body {
+    color: #932320;
+}
+
+.modal-successerror .modal-footer {
+    border-color: #932320;
+}
+
+.modal-success .btn {
+    color: #932320;
+    border-color: #932320;
+    background-color: #E0736F;
+}
+/* End of Modal error */
+
 /* Modal warning */
 .modal-warning .modal-content {
     background-color: #F2B866;

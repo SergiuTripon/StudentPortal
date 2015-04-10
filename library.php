@@ -724,18 +724,17 @@ AdminLibraryUpdate();
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="collect-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="collect-'.$bookid.'" class="modal fade modal-custom modal-success" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Mark book as collected?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p id="collect-question" class="text-center feedback-sad">Are you sure you want to mark '.$book_name.' collected?</p>
+			<p class="text-left">Are you sure you want to mark '.$book_name.' collected?</p>
 			</div>
 
 			<div class="modal-footer">
