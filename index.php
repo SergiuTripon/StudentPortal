@@ -26,6 +26,7 @@ include 'includes/session.php';
 
 <body>
 
+	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
@@ -64,9 +65,9 @@ include 'includes/session.php';
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
-    <?php else : ?>
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+
+    <?php else : ?>
 
     <?php include 'includes/menus/menu.php'; ?>
 
@@ -115,7 +116,7 @@ include 'includes/session.php';
     </div>
 
     <?php include 'includes/footers/footer.php'; ?>
-
+    
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
