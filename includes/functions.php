@@ -2925,11 +2925,11 @@ function RenewBook($isCheck = 0) {
             exit();
         }
     } else {
-        $stmt3 = $mysqli->prepare("SELECT bookid, toreturn_on, isRenewed FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
+        $stmt3 = $mysqli->prepare("SELECT bookid, toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
         $stmt3->bind_param('i', $bookToRenew);
         $stmt3->execute();
         $stmt3->store_result();
-        $stmt3->bind_result($db_bookid, $toreturn_on, $isRenewed);
+        $stmt3->bind_result($db_bookid, $toreturn_on);
         $stmt3->fetch();
         $stmt3->close();
 
@@ -2937,8 +2937,8 @@ function RenewBook($isCheck = 0) {
         $add14days->add(new DateInterval('P14D'));
         $toreturn_on = $add14days->format('Y-m-d');
 
-        $stmt4 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, isRenewed=?, updated_on=? WHERE bookid =?");
-        $stmt4->bind_param('sis', $toreturn_on, $isRenewed, $updated_on);
+        $stmt4 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, updated_on=? WHERE bookid =?");
+        $stmt4->bind_param('si', $toreturn_on, $updated_on);
         $stmt4->execute();
         $stmt4->close();
     }

@@ -185,22 +185,12 @@ if (isset($_GET["id"])) {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    var bookid = $("#bookid").val();
-    var book_name = $("#book_name").val();
-    var book_author = $("#book_author").val();
-    var book_notes = $("#book_notes").val();
-    var renew_book_from = $("#renew_book_from").val();
-    var renew_book_to = $("#renew_book_to").val();
+    var bookToRenew = $("#bookid").val();
 
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'renew_bookid='       + bookid +
-         '&renew_book_name='   + book_name +
-         '&renew_book_author=' + book_author +
-         '&renew_book_notes='  + book_notes +
-        '&renew_book_from='    + renew_book_from +
-        '&renew_book_to='      + renew_book_to,
+    data:'bookToRenew='+ bookToRenew,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
