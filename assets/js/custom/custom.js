@@ -22,13 +22,13 @@
             $('.view-action').removeClass('pull-left');
             $('.view-close .btn').addClass('btn-block');
             $('.view-close').removeClass('pull-right');
-            $('.view-close').cssText('margin-top: 5px;');
+            $('.view-close').css('cssText', 'margin-top: 5px;');
         } else {
             $('.view-action .btn').removeClass('btn-block');
             $('.view-action').removeClass('pull-left');
             $('.view-close .btn').removeClass('btn-block');
             $('.view-close').removeClass('pull-right');
-            $('.view-close').cssText('margin-top: 0px;');
+            $('.view-close').css('cssText', 'margin-top: 0px;');
         }
     }).resize();
 
