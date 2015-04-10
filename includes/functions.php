@@ -3836,13 +3836,13 @@ function calendarUpdate($isUpdate = 0) {
         </div>
 
         <div class="modal-footer">
-        <div class="view-action pull-left">
+        <div class="view-buttons pull-left">
         <a id="#update-'.$taskid.'" class="btn btn-primary btn-md btn-update-task">Update</a>
         <a id="#complete-'.$taskid.'" class="btn btn-primary btn-md btn-complete-task">Complete</a>
         <a id="#deactivate-'.$taskid.'" class="btn btn-primary btn-md btn-deactivate-task">Archive</a>
         <a href="#delete-'.$taskid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
         </div>
-        <div class="view-close pull-right">
+        <div class="view-buttons pull-right">
         <a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
         </div>
         </div>
@@ -3865,10 +3865,8 @@ function calendarUpdate($isUpdate = 0) {
         </div>
 
         <div class="modal-footer">
-        <div class="pull-left">
+        <div class="pull-right">
         <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete-task btn-load">Delete</a>
-        </div>
-        <div class="text-right">
         <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
         </div>
         </div>
