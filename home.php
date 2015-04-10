@@ -279,13 +279,6 @@ include 'includes/functions.php';
     <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div id="overview-portal" class="container">
-
-        <ol class="breadcrumb breadcrumb-custom">
-            <li><a href="../../home/">Home</a></li>
-            <li><a href="../../account/">Account</a></li>
-            <li class="active">Update account</li>
-        </ol>
-
     <div class="row">
 
     <a href="../timetable/">
