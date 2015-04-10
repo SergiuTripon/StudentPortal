@@ -1168,16 +1168,9 @@ AdminLibraryUpdate();
 	dataType:"text",
 	data:'bookToCollect='+ bookToCollect,
 	success:function(){
-        $('#book-'+bookToCollect).fadeOut();
-        $('.form-logo i').removeClass('fa-book');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#collect-question').hide();
-        $('#collect-confirmation').show();
-        $('#collect-hide').hide();
-        $('#collect-success-button').show();
-        $("#collect-success-button").click(function () {
+            $('.modal-custom').modal("hide");
+
             location.reload();
-        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
