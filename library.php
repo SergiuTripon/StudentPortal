@@ -475,9 +475,13 @@ AdminLibraryUpdate();
 	data:'bookToRenewCheck='+ bookToRenewCheck,
 	success:function(errormsg){
         if (errormsg) {
+
             $('.modal-custom').modal('hide');
             $('#error-modal .modal-body p').empty().append(errormsg);
             $('#error-modal').modal('show');
+
+            buttonReset();
+
         } else {
             window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
         }
@@ -485,7 +489,8 @@ AdminLibraryUpdate();
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
-	}
+	    buttonReset();
+    }
 	});
     });
 
