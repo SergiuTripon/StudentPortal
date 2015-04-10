@@ -739,7 +739,7 @@ AdminLibraryUpdate();
 
 			<div class="modal-footer">
 			<div class="text-right">
-            <a id="collect-'.$bookid.'" class="btn btn-primary btn-lg collect-button">Mark collected</a>
+            <a id="collect-'.$bookid.'" class="btn btn-primary btn-lg btn-collect-book btn-load">Mark collected</a>
 			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
@@ -874,32 +874,24 @@ AdminLibraryUpdate();
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="return-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="return-'.$bookid.'" class="modal fade modal-custom modal-success" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Mark "'.$book_name.'" as returned?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p id="return-question" class="text-center feedback-sad">Are you sure you want to mark '.$book_name.' returned?</p>
-            <p id="return-confirmation" style="display: none;" class="text-center feedback-happy">'.$book_name.' has been marked returned successfully.</p>
+			<p class="text-center">Are you sure you want to mark "'.$book_name.'" as returned?</p>
+			<p>Note: The system will also check to see if there are any requests pending on the book. If there are, the system will automatically create a reservation for the user that requested the book.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="return-hide">
-			<div class="pull-left">
-			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="return-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a id="return-'.$bookid.'" class="btn btn-primary btn-lg btn-return-book btn-load">Mark returned</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
@@ -960,18 +952,7 @@ AdminLibraryUpdate();
             <td data-title="Requested by"><a href="#view-requested-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Name"><a href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
-            <td data-title="Action">
-			<div class="btn-group btn-action">
-            <a href="#approve-'.$requestid.'" class="btn btn-primary btn-md" data-toggle="modal">Approve request</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a></li>
-            </ul>
-            </div>
-            </td>
+            <td data-title="Action"><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a></td>
 			</tr>
 
             <div id="view-requested-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -1023,72 +1004,6 @@ AdminLibraryUpdate();
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="return-'.$bookid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="return-question" class="text-center feedback-sad">Are you sure you want to return '.$book_name.'?</p>
-            <p id="return-confirmation" style="display: none;" class="text-center feedback-happy">'.$book_name.' has been returned successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="return-hide">
-			<div class="pull-left">
-			<a id="return-'.$bookid.'" class="btn btn-success btn-lg return-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="return-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            <div id="approve-'.$requestid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="approve-question" class="text-center feedback-sad">Are you sure you want to approve a request for '.$book_name.'?</p>
-            <p id="approve-confirmation" style="display: none;" class="text-center feedback-happy">The request for '.$book_name.' has been approved successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="approve-hide">
-			<div class="pull-left">
-			<a id="approve-'.$requestid.'" class="btn btn-success btn-lg approve-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="approve-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
 			</div>
 			</div>
 
@@ -1157,7 +1072,7 @@ AdminLibraryUpdate();
     });
 
     //Collect book
-    $("body").on("click", ".collect-button", function(e) {
+    $("body").on("click", ".btn-collect-book", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToCollect = clickedID[1];
