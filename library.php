@@ -818,7 +818,7 @@ AdminLibraryUpdate();
             </td>
 			</tr>
 
-            <div id="view-loaned-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-loaned-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -835,10 +835,10 @@ AdminLibraryUpdate();
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm" >Message user</a>
+            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -846,7 +846,7 @@ AdminLibraryUpdate();
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="view-loaned-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-loaned-book-'.$bookid.'" class="modal fade modal-custom modal-info tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -863,10 +863,10 @@ AdminLibraryUpdate();
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Mark returned</a>
+            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md" >Mark returned</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -885,7 +885,7 @@ AdminLibraryUpdate();
 
 			<div class="modal-body">
 			<p class="text-left">Are you sure you want to mark "'.$book_name.'" as returned?</p><br>
-			<p>Note: The system will also check to see if there are any requests pending on the book. If there are, the system will automatically create a reservation for the user that requested the book.</p>
+			<p><b>Note:</b> The system will also check to see if there are any requests pending on the book. If there are, the system will automatically create a reservation for the user that requested the book.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -955,7 +955,7 @@ AdminLibraryUpdate();
             <td data-title="Action"><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a></td>
 			</tr>
 
-            <div id="view-requested-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-requested-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -972,7 +972,7 @@ AdminLibraryUpdate();
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-sm" >Message user</a>
+            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md" >Message user</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
@@ -983,7 +983,7 @@ AdminLibraryUpdate();
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="view-requested-book-'.$bookid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-requested-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1000,10 +1000,10 @@ AdminLibraryUpdate();
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="#return-'.$bookid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-sm" >Return book</a>
+            <a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a>
 			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -1096,7 +1096,7 @@ AdminLibraryUpdate();
     });
 
     //Return book
-    $("body").on("click", ".return-button", function(e) {
+    $("body").on("click", ".btn-return-book", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
     var bookToReturn = clickedID[1];
@@ -1107,47 +1107,10 @@ AdminLibraryUpdate();
 	dataType:"text",
 	data:'bookToReturn='+ bookToReturn,
 	success:function(){
-        $('#book-'+bookToReturn).fadeOut();
-        $('.form-logo i').removeClass('fa-book');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#return-question').hide();
-        $('#return-confirmation').show();
-        $('#return-hide').hide();
-        $('#return-success-button').show();
-        $("#return-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
 
-    //Approve request
-    $("body").on("click", ".approve-button", function(e) {
-    e.preventDefault();
+        $('.modal-custom').modal("hide");
+        location.reload();
 
-    var clickedID = this.id.split('-');
-    var requestToApprove = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'requestToApprove='+ requestToApprove,
-	success:function(){
-        $('#book-'+requestToApprove).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#approve-question').hide();
-        $('#approve-confirmation').show();
-        $('#approve-hide').hide();
-        $('#approve-success-button').show();
-        $("#approve-success-button").click(function () {
-            location.reload();
-        });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
