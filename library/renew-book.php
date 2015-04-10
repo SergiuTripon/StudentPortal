@@ -16,11 +16,11 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
-    $stmt1 = $mysqli->prepare("SELECT toreturn_on FROM system_book_loaned WHERE bookid=? AND userid=? ORDER BY loanid DESC LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT DATE_FORMAT(toreturn_on,'%d/%m/%Y') as toreturn_on FROM system_book_loaned WHERE bookid=? AND userid=? ORDER BY loanid DESC LIMIT 1");
     $stmt1->bind_param('ii', $bookToRenew, $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($toreturn_on);
+    $stmt1->bind_result($toreturn_on_old);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -31,10 +31,7 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
-    $toreturn_on = new DateTime($toreturn_on);
-    $toreturn_on = $toreturn_on->format('d/m/Y');
-
-    $add7days = new DateTime($toreturn_on);
+    $add7days = new DateTime($toreturn_on_old);
     $add7days->add(new DateInterval('P7D'));
     $toreturn_on_new = $add7days->format('d/m/Y');
 
