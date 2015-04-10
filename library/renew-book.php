@@ -33,8 +33,9 @@ if (isset($_GET["id"])) {
 
     $add7days = new DateTime($toreturn_on_old);
     $add7days->add(new DateInterval('P7D'));
+    $toreturn_on_new = $add7days->format('d/m/Y');
 
-    echo $add7days;
+    echo $toreturn_on_new;
 
 } else {
     header('Location: ../../library/');
