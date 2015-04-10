@@ -256,7 +256,7 @@ AdminLibraryUpdate();
 			<td data-title="To return by">'.$toreturn_on.'</td>
 			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
 			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
-            <td data-title="Action">'.($isReturned == 0 ? "<a id=\"book-'.$bookid.'\" class=\"btn btn-primary btn-md btn-renew-book btn-load\">Renew</a>" : "<a id=\"book-'.$bookid.'\" class=\"btn btn-primary btn-md disabled btn-renew-book btn-load\">Renew</a>").'</td>
+            <td data-title="Action">'.($isReturned == 0 ? "<a id=\"book-$bookid\" class=\"btn btn-primary btn-md btn-renew-book btn-load\">Renew</a>" : "<a id=\"book-$bookid\" class=\"btn btn-primary btn-md disabled btn-renew-book btn-load\">Renew</a>").'</td>
 			</tr>';
 	}
 
