@@ -70,7 +70,7 @@ AdminUniversityMapUpdate();
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+
 
 	<?php endif; ?>
 

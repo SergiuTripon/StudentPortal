@@ -65,11 +65,9 @@ include 'includes/session.php';
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
-    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+
 
     <?php else : ?>
-
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <?php include 'includes/menus/menu.php'; ?>
 
@@ -119,9 +117,8 @@ include 'includes/session.php';
 
     <?php include 'includes/footers/footer.php'; ?>
 
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
-
-    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
     <script>
 
