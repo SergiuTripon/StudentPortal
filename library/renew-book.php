@@ -16,7 +16,7 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
-    $stmt1 = $mysqli->prepare("SELECT created_on FROM system_book_loaned WHERE bookid=? AND userid=? LIMIT 1 ORDER BY loanid DESC");
+    $stmt1 = $mysqli->prepare("SELECT created_on FROM system_book_loaned WHERE bookid=? AND userid=? ORDER BY loanid DESC LIMIT 1");
     $stmt1->bind_param('ii', $bookToRenew, $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
