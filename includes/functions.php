@@ -2887,9 +2887,10 @@ function RenewBook($isCheck = 0) {
         $bookToRenewCheck = filter_input(INPUT_POST, 'bookToRenewCheck', FILTER_SANITIZE_STRING);
 
         $isApproved = 0;
+        $request_status = 'pending';
 
-        $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE bookid=? AND isApproved=? ORDER BY requestid DESC LIMIT 1");
-        $stmt1->bind_param('ii', $bookToRenew, $isApproved);
+        $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE bookid=? AND isApproved=? AND request_status=? ORDER BY requestid DESC LIMIT 1");
+        $stmt1->bind_param('iis', $bookToRenewCheck, $isApproved, $request_status);
         $stmt1->execute();
         $stmt1->store_result();
         $stmt1->bind_result($db_bookid);
