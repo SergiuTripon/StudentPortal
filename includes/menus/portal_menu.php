@@ -1,3 +1,8 @@
+<?php
+global $session_firstname;
+global $session_surname;
+?>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -30,3 +35,17 @@
     </div><!--/.container -->
     </nav>
     <!-- End of Navigation -->
+
+    <script>
+    var timeOut;
+    function reset() {
+        window.clearTimeout(timeOut);
+        timeOut = window.setTimeout( "redir()" , 900000 );
+    }
+    function redir() {
+        window.location = "../../../sign-out-inactive.php";
+    }
+    window.onload = function() { setTimeout("redir()" , 900000 ) };
+    window.onmousemove = reset;
+    window.onkeypress = reset;
+    </script>
