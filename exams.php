@@ -132,6 +132,108 @@ AdminExamUpdate();
 
     <?php endif; ?>
 
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
+
+        <?php include 'includes/menus/portal_menu.php'; ?>
+
+	<div id="exams-portal" class="container">
+
+	<ol class="breadcrumb breadcrumb-custom">
+    <li><a href="../home/">Home</a></li>
+	<li class="active">Exams</li>
+    </ol>
+
+	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
+
+	<div class="panel panel-default">
+
+    <div class="panel-heading" role="tab" id="headingOne">
+  	<h4 class="panel-title">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Exams</a>
+  	</h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+  	<div class="panel-body">
+
+	<!-- Exams -->
+	<section id="no-more-tables">
+	<table class="table table-condensed table-custom">
+
+	<thead>
+	<tr>
+	<th>Name</th>
+	<th>Date</th>
+    <th>Time</th>
+    <th>Location</th>
+    <th>Capacity</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php
+
+	$stmt1 = $mysqli->query("SELECT DISTINCT e.exam_name, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e LEFT JOIN system_lecture l ON e.moduleid=l.moduleid LEFT JOIN system_tutorial ON e.moduleid=t.moduleid WHERE e.exam_status='active' AND (l.lecture_lecturer='$session_userid' OR t.tutorial_assistant='$session_userid')");
+
+	while($row = $stmt1->fetch_assoc()) {
+
+    $exam_name = $row["exam_name"];
+    $exam_date = $row["exam_date"];
+    $exam_time = $row["exam_time"];
+    $exam_location = $row["exam_location"];
+    $exam_capacity = $row["exam_capacity"];
+
+
+	echo '<tr>
+
+			<td data-title="Name">'.$exam_name.'</td>
+			<td data-title="Date">'.$exam_date.'</td>
+			<td data-title="Time">'.$exam_time.'</td>
+			<td data-title="Location">'.$exam_location.'</td>
+			<td data-title="Capacity">'.$exam_capacity.'</td>
+			</tr>';
+	}
+
+	$stmt1->close();
+	?>
+	</tbody>
+
+	</table>
+	</section>
+
+  	</div><!-- /panel-body -->
+    </div><!-- /panel-collapse -->
+	</div><!-- /panel-default -->
+
+	</div><!-- /.panel-group -->
+
+    </div><!-- /container -->
+
+	<?php include 'includes/footers/footer.php'; ?>
+
+	<!-- Sign Out (Inactive) JS -->
+    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
+
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
+
+    <script>
+     var settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
+    $(".table-custom").dataTable(settings);
+    </script>
+
+
+    <?php endif; ?>
+
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
 
     <?php include 'includes/menus/portal_menu.php'; ?>
