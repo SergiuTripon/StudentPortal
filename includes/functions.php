@@ -463,13 +463,17 @@ function GetDashboardData() {
 	$stmt7->bind_result($bookid);
 	$stmt7->fetch();
 
+    $book_status = 'active';
+    $isCollected = 0;
+    $reservation_status = 'pending';
+    $isReturned = 0;
+    $loan_status = 'ongoing';
     $isRead = 0;
     $isApproved = 0;
-    $book_status = 'active';
     $request_status = 'pending';
 
-    $stmt8 = $mysqli->prepare("SELECT r.bookid FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.isRead = ? AND r.isApproved = ? AND b.book_status=? AND r.request_status = ?");
-	$stmt8->bind_param('iiss', $isRead, $isApproved, $book_status, $request_status);
+    $stmt8 = $mysqli->prepare("SELECT re.bookid FROM system_book b LEFT JOIN system_book_reserved re ON b.bookid=re.bookid LEFT JOIN system_book_loaned l ON b.bookid=l.bookid LEFT JOIN system_book_requested r ON b.bookid=r.bookid WHERE b.book_status='active' AND ((re.isCollected='0' AND re.reservation_status = 'pending') OR (l.isReturned = '0' AND l.loan_status = 'ongoing') OR (r.isRead = '0' AND r.isApproved = '0' AND r.request_status = 'pending'))");
+	$stmt8->bind_param('sisisiis', $book_status, $isCollected, $reservation_status, $isReturned, $loan_status, $isRead, $isApproved, $request_status);
 	$stmt8->execute();
 	$stmt8->store_result();
 	$stmt8->bind_result($bookid);
