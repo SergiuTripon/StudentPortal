@@ -736,20 +736,12 @@ AdminLibraryUpdate();
 
 			<div class="modal-body">
 			<p id="collect-question" class="text-center feedback-sad">Are you sure you want to mark '.$book_name.' collected?</p>
-            <p id="collect-confirmation" style="display: none;" class="text-center feedback-happy">'.$book_name.' has been marked collected successfully.</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="collect-hide">
-			<div class="pull-left">
-			<a id="collect-'.$bookid.'" class="btn btn-success btn-lg collect-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="collect-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a id="collect-'.$bookid.'" class="btn btn-success btn-lg collect-button">Mark collected</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
