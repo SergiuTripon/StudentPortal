@@ -2780,7 +2780,7 @@ function ReturnBook() {
     $stmt2->close();
 
     $isApproved = 0;
-    $request_status = 'active';
+    $request_status = 'pending';
 
     $stmt3 = $mysqli->prepare("SELECT requestid FROM system_book_requested WHERE bookid=? AND isApproved=? AND request_status=?");
     $stmt3->bind_param('iis', $bookToReturn, $isApproved, $request_status);
