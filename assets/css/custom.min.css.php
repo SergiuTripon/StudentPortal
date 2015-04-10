@@ -2,8 +2,8 @@
 header('Content-type: text/css');
 ob_start("compress");
 
-function compress($minify)
-{
+function compress($minify) {
+
     /* remove comments */
     $minify = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $minify);
 
