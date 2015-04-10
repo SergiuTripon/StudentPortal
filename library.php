@@ -739,8 +739,8 @@ AdminLibraryUpdate();
 
 			<div class="modal-footer">
 			<div class="text-right">
-            <a id="collect-'.$bookid.'" class="btn btn-success btn-lg collect-button">Mark collected</a>
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="collect-'.$bookid.'" class="btn btn-primary btn-lg collect-button">Mark collected</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
