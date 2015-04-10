@@ -1,6 +1,8 @@
 <?php
 include '../includes/session.php';
 
+global $mysqli;
+
 $stmt1 = $mysqli->prepare("SELECT user_signin.email, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid = user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $session_userid);
 $stmt1->execute();
@@ -18,14 +20,14 @@ $stmt1->fetch();
 
     <?php include '../assets/meta-tags.php'; ?>
 
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | Delete Account</title>
 
 </head>
 
 <body>
-	
+
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
+
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>

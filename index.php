@@ -11,8 +11,6 @@ include 'includes/session.php';
 
     <title>Student Portal</title>
 
-    <?php include 'assets/css-paths/common-css-paths.php'; ?>
-
     <style>
     #signin a {
         color: #FFFFFF;
@@ -31,6 +29,8 @@ include 'includes/session.php';
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
+
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <?php include 'includes/menus/portal_menu.php'; ?>
 
@@ -63,7 +63,13 @@ include 'includes/session.php';
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
 
-	<?php else : ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/easing-js-path.php'; ?>
+    <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
+
+    <?php else : ?>
+
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
     <?php include 'includes/menus/menu.php'; ?>
 
@@ -113,14 +119,11 @@ include 'includes/session.php';
 
     <?php include 'includes/footers/footer.php'; ?>
 
-	<?php endif; ?>
-
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
     <?php include 'assets/js-paths/easing-js-path.php'; ?>
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
-	<script>
-    $(document).ready(function() {
+    <script>
 
     //Sign In
     $("#FormSubmit").click(function (e) {
@@ -145,7 +148,7 @@ include 'includes/session.php';
         $("#email").removeClass("input-sad");
         $("#email").addClass("input-happy");
 	}
-	
+
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a password.");
@@ -163,7 +166,7 @@ include 'includes/session.php';
         $("#password").removeClass("input-sad");
         $("#password").addClass("input-happy");
 	}
-	
+
 	if(hasError == false){
 
     $('.btn-primary').data('loading-text', 'Loading...').button('loading');
@@ -184,12 +187,13 @@ include 'includes/session.php';
     }
 	});
     }
-	
+
 	return true;
-	
-	});
+
 	});
 	</script>
+
+	<?php endif; ?>
 
 </body>
 </html>

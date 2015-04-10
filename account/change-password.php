@@ -9,13 +9,14 @@ include '../includes/session.php';
 	
 	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | Change password</title>
 	
 </head>
 
 <body>
+
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
+
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
@@ -73,43 +74,15 @@ include '../includes/session.php';
     <!-- Sign Out (Inactive) JS -->
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
-	<?php else : ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
-	<?php include '../includes/menus/menu.php'; ?>
-
-    <div class="container">
-	
-    <form class="form-horizontal form-custom">
-
-	<div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-    <hr>
-
-    <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
-	</div>
-	
-    </form>
-
-    </div>
-
-	<?php include '../includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-
-	<script>
+    <script>
 	$(document).ready(function() {
 
 	//Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
 	var hasError = false;
 
     var oldpwd = $("#oldpwd").val();
@@ -208,7 +181,7 @@ include '../includes/session.php';
         $("label[for='confirmpwd']").addClass("feedback-happy");
         $("#error1").hide();
 	}
-	
+
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
@@ -227,12 +200,42 @@ include '../includes/session.php';
     }
 	});
     }
-	
+
 	return true;
-	
+
 	});
 	});
 	</script>
+
+	<?php else : ?>
+
+	<?php include '../includes/menus/menu.php'; ?>
+
+    <div class="container">
+	
+    <form class="form-horizontal form-custom">
+
+	<div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <hr>
+
+    <div class="text-center">
+    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+	</div>
+	
+    </form>
+
+    </div>
+
+	<?php include '../includes/footers/footer.php'; ?>
+
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+    <?php endif; ?>
 
 </body>
 </html>
