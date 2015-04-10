@@ -4,5 +4,5 @@
     <!-- open-sans-font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
 
-    <!-- everything else -->
+    <!-- everything CSS -->
     <link href="https://student-portal.co.uk/assets/css/custom.min.css.php" rel="stylesheet">
