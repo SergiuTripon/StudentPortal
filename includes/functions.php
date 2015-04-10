@@ -2906,10 +2906,10 @@ function RenewBook($isCheck = 0) {
     global $mysqli;
     global $updated_on;
 
-    //Book to
-    $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
-
     if ($isCheck == 1) {
+
+        $bookToRenewCheck = filter_input(INPUT_POST, 'bookToRenewCheck', FILTER_SANITIZE_STRING);
+
         $isApproved = 0;
 
         $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE bookid=? AND isApproved=? ORDER BY requestid DESC LIMIT 1");
@@ -2925,6 +2925,9 @@ function RenewBook($isCheck = 0) {
             exit();
         }
     } else {
+
+        $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
+
         $stmt3 = $mysqli->prepare("SELECT bookid, toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
         $stmt3->bind_param('i', $bookToRenew);
         $stmt3->execute();
