@@ -108,7 +108,7 @@ if (isset($_GET["id"])) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Reserve book</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Reserve book</button>
 	</div>
 
     </div>
@@ -177,12 +177,8 @@ if (isset($_GET["id"])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    $(document).ready(function () {
 
-
-
-
-    //Pay course fees form submit
+    //Reserve book
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
@@ -198,17 +194,14 @@ if (isset($_GET["id"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('Book reserved successfully.');
+        $("#success").empty().append('All done! Book has been reserved.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
 	});
-
 	return true;
-
-	});
 	});
 	</script>
 

@@ -155,7 +155,7 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    //Request book ajax call
+    //Request book
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
