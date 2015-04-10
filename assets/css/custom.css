@@ -14,7 +14,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     margin-bottom: 60px;
-    background: #E9DDC6 url(../../img/bg/background.png);
+    background: #E9DDC6 url(../img/bg/background.png);
 }
 
 /* Some more spacing */
@@ -32,7 +32,7 @@ body > .container {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url('../../img/preloader/preloader.gif') 50% 50% no-repeat rgb(249,249,249);
+    background: url('../img/preloader/preloader.gif') 50% 50% no-repeat rgb(249,249,249);
 }
 /* End of Preloader */
 
@@ -1072,7 +1072,7 @@ form .field-required {
 .ekko-lightbox .modal-content {
     border: none;
     border-radius: 3px;
-    background: #E9DDC6 url(../../img/bg/background.png);
+    background: #E9DDC6 url(../img/bg/background.png);
 }
 
 .ekko-lightbox .modal-header .close {
