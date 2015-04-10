@@ -8,13 +8,13 @@ include '../includes/session.php';
 
     <?php include '../assets/meta-tags.php'; ?>
 
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | Account deleted</title>
 
 </head>
 
 <body>
+
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <div class="preloader"></div>
 
@@ -53,7 +53,9 @@ include '../includes/session.php';
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
 
-	<?php else : ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+    <?php else : ?>
 
     <?php include '../includes/menus/menu.php'; ?>
 
@@ -88,10 +90,9 @@ include '../includes/session.php';
 
     <?php include '../includes/footers/footer.php'; ?>
 
-    <?php endif; ?>
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
+    <?php endif; ?>
 </body>
 </html>
 
