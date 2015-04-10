@@ -1,15 +1,8 @@
+#Source: http://alexcican.com/post/how-to-remove-php-html-htm-extensions-with-htaccess/
+
 Options -MultiViews
 Options -Indexes
 RewriteEngine On
-
-#Redirecting from www to non-www
-RewriteBase /
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-#Redirecting from HTTP to HTTPS
-RewriteCond %{HTTPS} !on
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 #Removing .php extension and adding trailing slash
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -20,8 +13,23 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
 RewriteRule (.*)$ /$1/ [R=301,L]
 
+#Source: http://stackoverflow.com/questions/234723/generic-htaccess-redirect-www-to-non-www
+
+#Redirecting from www to non-www
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+#Redirecting from HTTP to HTTPS
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+#Source: https://support.godaddy.com/help/article/6946/enabling-mod_deflate-with-your-hosting-account
+
 #Compress content
 AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+
+#Source: https://github.com/EnlightenAgency/Server-Setup-MIME-Types-Headers/blob/master/font-mimetypes.txt
 
 #Fixes Chrome "Resource interpreted as Font but transferred with MIME type font/x-woff" warnings
 AddType application/vnd.ms-fontobject .eot
@@ -32,7 +40,7 @@ AddType application/x-font-opentype .otf
 AddType application/octet-stream .otf .ttf
 
 
-#Taken from: http://www.paulund.co.uk/set-expire-headers-in-htaccess
+#Source: http://www.paulund.co.uk/set-expire-headers-in-htaccess
 
 # ----------------------------------------------------------------------
 # Expires headers (for better cache control)
