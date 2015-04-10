@@ -14,7 +14,7 @@
     <link href="https://student-portal.co.uk/assets/css/ladda/ladda-themeless.min.css" rel="stylesheet">
 
     <!-- custom -->
-    <link href="https://student-portal.co.uk/assets/css/custom/custom.css" rel="stylesheet">
+    <link href="https://student-portal.co.uk/assets/css/custom/custom.min.css.php" rel="stylesheet">
 
     <!--[if lt IE 9]>
     <script src="https://student-portal.co.uk/js/html5shiv/html5shiv.min.js"></script>
