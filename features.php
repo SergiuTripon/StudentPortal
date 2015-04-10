@@ -300,7 +300,7 @@ include 'includes/session.php';
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
-    <?php include 'assets/js-paths/easing-js-path.php'; ?>
+
 
 	<script>
     $(document).ready(function() {

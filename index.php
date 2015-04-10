@@ -64,7 +64,7 @@ include 'includes/session.php';
     <script src="../assets/js/sign-out-inactive.js"></script>
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/easing-js-path.php'; ?>
+
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
     <?php else : ?>
@@ -120,7 +120,7 @@ include 'includes/session.php';
     <?php include 'includes/footers/footer.php'; ?>
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/easing-js-path.php'; ?>
+
     <?php include 'assets/js-paths/tilejs-js-path.php'; ?>
 
     <script>

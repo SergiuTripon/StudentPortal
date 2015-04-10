@@ -69,7 +69,6 @@ include 'includes/session.php';
 	<?php endif; ?>
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/easing-js-path.php'; ?>
 
 </body>
 </html>
