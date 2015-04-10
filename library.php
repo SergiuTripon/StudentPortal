@@ -837,7 +837,7 @@ AdminLibraryUpdate();
 			</div>
 
 			<div class="modal-body">
-			<p><b>Author:</b> '.$gender.'</p>
+			<p><b>Author:</b> '.ucfirst($gender).'</p>
 			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "-" : "$dateofbirth").'</p>
 			<p><b>Nationality:</b> '.(empty($nationality) ? "-" : "$nationality").'</p>
 			</div>
@@ -954,7 +954,13 @@ AdminLibraryUpdate();
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT r.requestid, r.bookid, r.userid, r.isApproved, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_status FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid LEFT JOIN user_detail d ON r.userid=d.userid WHERE r.isApproved = '0'");
+    $isApproved = 0;
+
+	$stmt1 = $mysqli->prepare("SELECT r.requestid, r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid LEFT JOIN user_detail d ON r.userid=d.userid WHERE r.isApproved = '0'");
+    $stmt1->bind_param('i', $isApproved);
+    $stmt1->execute();
+    $stmt1->bind_result($requestid, $bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no);
+    $stmt1->store_result();
 
 	while($row = $stmt1->fetch_assoc()) {
 
@@ -1000,7 +1006,7 @@ AdminLibraryUpdate();
 			</div>
 
 			<div class="modal-body">
-			<p><b>Author:</b> '.$gender.'</p>
+			<p><b>Author:</b> '.ucfirst($gender).'</p>
 			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "-" : "$dateofbirth").'</p>
 			<p><b>Nationality:</b> '.(empty($nationality) ? "-" : "$nationality").'</p>
 			</div>
