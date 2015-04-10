@@ -2876,30 +2876,6 @@ function ReturnBook() {
     }
 }
 
-function RenewBookCheck () {
-
-    global $mysqli;
-
-    //Book to
-    $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
-
-    $isApproved = 0;
-    $request_status = 'pending';
-
-    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE bookid=? AND isApproved=? AND request_status=? ORDER BY requestid DESC LIMIT 1");
-    $stmt1->bind_param('iis', $bookToRenew, $isApproved, $request_status);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_bookid);
-    $stmt1->fetch();
-
-    if ($stmt1->num_rows > 0) {
-        $stmt1->close();
-        echo 'You cannot renew this book at this time. Another user requested this book. Once the book is collected and loaned again, you will be able to request it.';
-        exit();
-    }
-}
-
 //RenewBook function
 function RenewBook($isCheck = 0) {
 
