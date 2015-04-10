@@ -32,6 +32,8 @@ AddType application/x-font-opentype .otf
 AddType application/octet-stream .otf .ttf
 
 
+#Taken from: http://www.paulund.co.uk/set-expire-headers-in-htaccess
+
 # ----------------------------------------------------------------------
 # Expires headers (for better cache control)
 # ----------------------------------------------------------------------
