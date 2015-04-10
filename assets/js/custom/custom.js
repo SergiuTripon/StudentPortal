@@ -19,9 +19,11 @@
         var width = $(window).width();
         if(width <= 480){
             $('.view-action .btn').addClass('btn-block');
+            $('.view-action').removeClass('pull-left');
             $('.view-close .btn').addClass('btn-block');
+            $('.view-close').removeClass('pull-right');
         } else {
-            $('.view-action .btn').addClass('btn-block');
+            $('.view-action .btn').removeClass('btn-block');
             $('.view-close .btn').removeClass('btn-block');
         }
     }).resize();
