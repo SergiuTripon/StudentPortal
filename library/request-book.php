@@ -108,7 +108,7 @@ if (isset($_GET["id"])) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Request book</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Request book</span></button>
 	</div>
 
     </div>
@@ -155,9 +155,6 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-
-
-
     //Request book ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
@@ -171,7 +168,7 @@ if (isset($_GET["id"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('Book requested successfully.');
+        $("#success").empty().append('All done! Book has been requested.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
