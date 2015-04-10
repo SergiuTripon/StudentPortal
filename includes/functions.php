@@ -2785,7 +2785,8 @@ function ReturnBook() {
     $stmt3->bind_result($requestid);
     $stmt3->fetch();
 
-    if ($stmt3->num_rows == 1) {
+    if ($stmt3->num_rows > 0) {
+
         $isApproved = 1;
         $request_status = 'completed';
 
