@@ -6,7 +6,7 @@ global $session_userid;
 
 if (isset($_GET["id"])) {
 
-    $bookToReserve = $_GET["id"];
+    $bookToRenew = $_GET["id"];
 
     $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes FROM system_book WHERE bookid = ? LIMIT 1");
     $stmt1->bind_param('i', $bookToReserve);
@@ -16,11 +16,11 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
-    $stmt1 = $mysqli->prepare("SELECT created_on FROM system_book WHERE bookid = ? AND userid=? LIMIT 1");
-    $stmt1->bind_param('i', $bookToReserve, $session_userid);
+    $stmt1 = $mysqli->prepare("SELECT created_on FROM system_book_loaned WHERE bookid=? AND userid=? LIMIT 1 ORDER BY loanid DESC");
+    $stmt1->bind_param('ii', $bookToRenew, $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes);
+    $stmt1->bind_result($created_on);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -120,6 +120,17 @@ if (isset($_GET["id"])) {
     </div>
     </div>
 
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label>From</label>
+    <input class="form-control" type="text" name="renew_book_from" id="renew_book_from" value="<?php echo $created_on; ?>" readonly="readonly">
+	</div>
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label>To</label>
+    <input class="form-control" type="text" name="renew_book_to" id="renew_book_to" value="<?php echo $toreturn_on; ?>" readonly="readonly">
+    </div>
+    </div>
+
     <hr class="hr-custom">
 
     <div class="text-center">
@@ -179,7 +190,10 @@ if (isset($_GET["id"])) {
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes,
+    data:'renew_bookid='        + bookid +
+         '&update_book_name='   + book_name +
+         '&update_book_author=' + book_author +
+         '&update_book_notes='  + book_notes,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
