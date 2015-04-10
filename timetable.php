@@ -26,7 +26,7 @@ AdminTimetableUpdate();
     <title>Student Portal | Timetable</title>
 
     <?php include 'assets/css-paths/select2-css-path.php'; ?>
-    <?php include 'assets/css-paths/datatables-css-path.php'; ?>
+
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>

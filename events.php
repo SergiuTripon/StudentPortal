@@ -18,9 +18,9 @@ AdminEventUpdate();
 
 	<?php include 'assets/meta-tags.php'; ?>
 
-	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
+
 	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
+
 
     <title>Student Portal | Events</title>
 

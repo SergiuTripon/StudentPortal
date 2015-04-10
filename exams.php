@@ -21,7 +21,7 @@ AdminExamUpdate();
 
     <title>Student Portal | Exams</title>
 
-    <?php include 'assets/css-paths/datatables-css-path.php'; ?>
+
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>

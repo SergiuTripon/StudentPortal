@@ -20,17 +20,15 @@ global $archived_task;
 
 	<?php include 'assets/meta-tags.php'; ?>
 
-	<?php include 'assets/css-paths/datatables-css-path.php'; ?>
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-	<?php include 'assets/css-paths/calendar-css-path.php'; ?>
-    <?php include 'assets/css-paths/datetimepicker-css-path.php'; ?>
-
     <title>Student Portal | Calendar</title>
 
 </head>
 
 <body>
-<div class="preloader"></div>
+
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
+
+    <div class="preloader"></div>
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
