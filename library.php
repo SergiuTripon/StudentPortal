@@ -678,7 +678,7 @@ AdminLibraryUpdate();
 			</div>
 
 			<div class="modal-body">
-			<p><b>Author:</b> '.$gender.'</p>
+			<p><b>Author:</b> '.ucfirst($gender).'</p>
 			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "-" : "$dateofbirth").'</p>
 			<p><b>Nationality:</b> '.(empty($nationality) ? "-" : "$nationality").'</p>
 			</div>
@@ -795,22 +795,18 @@ AdminLibraryUpdate();
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT l.bookid, l.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_loaned l LEFT JOIN system_book_reserved r ON l.bookid=r.bookid LEFT JOIN user_detail d ON l.userid=d.userid LEFT JOIN system_book b ON l.bookid=b.bookid WHERE b.isReserved = '1' AND r.isCollected = '1' AND b.isLoaned = '1' AND l.isReturned='0'");
+    $isReserved = 1;
+    $isColelcted = 1;
+    $isLoaned = 1;
+    $isReturned = 0;
 
-	while($row = $stmt1->fetch_assoc()) {
+	$stmt1 = $mysqli->prepare("SELECT DISTINCT l.bookid, l.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_loaned l LEFT JOIN system_book_reserved r ON l.bookid=r.bookid LEFT JOIN user_detail d ON l.userid=d.userid LEFT JOIN system_book b ON l.bookid=b.bookid WHERE b.isReserved = '1' AND r.isCollected = '1' AND b.isLoaned = '1' AND l.isReturned='0'");
+    $stmt1->bind_param('iiii', $isReserved, $isColelcted, $isLoaned, $isReturned);
+    $stmt1->execute();
+    $stmt1->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no);
+    $stmt1->store_result();
 
-	$bookid = $row["bookid"];
-    $userid = $row["userid"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
-    $gender = $row["gender"];
-    $gender = ucfirst($gender);
-    $dateofbirth = $row["dateofbirth"];
-    $nationality = $row["nationality"];
-	$book_name = $row["book_name"];
-	$book_author = $row["book_author"];
-    $book_notes = $row["book_notes"];
-    $book_copy_no = $row["book_copy_no"];
+    while ($stmt1->fetch()) {
 
 	echo '<tr id="book-'.$bookid.'">
 
