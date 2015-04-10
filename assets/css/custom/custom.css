@@ -855,20 +855,6 @@ form .field-required {
 }
 /* End of Modal custom */
 
-/* View buttons */
-@media (max-width: 480px) {
-.modal-custom .modal-footer .view-action {
-    float: none !important;
-    text-align: center;
-    margin-bottom: 10px;
-}
-.modal-custom .modal-footer .view-close {
-    float: none !important;
-    text-align: center;
-}
-}
-/* End of view buttons */
-
 /* Modal form */
 .modal-form .modal-content {
     background: #F0F0F0;
