@@ -25,8 +25,7 @@ include 'includes/session.php';
 </head>
 
 <body>
-	
-	<div class="preloader"></div>
+
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
