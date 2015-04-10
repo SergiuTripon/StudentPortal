@@ -1168,9 +1168,10 @@ AdminLibraryUpdate();
 	dataType:"text",
 	data:'bookToCollect='+ bookToCollect,
 	success:function(){
-            $('.modal-custom').modal("hide");
 
+            $('.modal-custom').modal("hide");
             location.reload();
+
 	},
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
