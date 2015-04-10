@@ -123,7 +123,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
     <label>From</label>
-    <input class="form-control" type="text" name="renew_book_from" id="renew_book_from" value="<?php echo $toreturn_on; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="renew_book_from" id="renew_book_from" value="<?php echo $toreturn_on_old; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>To</label>
