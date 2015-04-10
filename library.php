@@ -730,11 +730,11 @@ AdminLibraryUpdate();
 
 			<div class="modal-header">
             <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">Mark book as collected?</h4>
+            <h4 class="modal-title" id="modal-custom-label">Mark "'.$book_name.'" as collected?</h4>
             </div>
 
 			<div class="modal-body">
-			<p class="text-left">Are you sure you want to mark '.$book_name.' collected?</p>
+			<p class="text-left">Are you sure you want to mark "'.$book_name.'" collected?</p>
 			</div>
 
 			<div class="modal-footer">
