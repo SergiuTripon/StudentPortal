@@ -2812,7 +2812,7 @@ function ReturnBook() {
         $tocollect_on = $add7days->format('Y-m-d');
         $collected_on = '';
         $isCollected = 0;
-        $reservation_status = 'active';
+        $reservation_status = 'pending';
 
         $stmt6 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt6->bind_param('iississ', $userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $updated_on);
