@@ -16,11 +16,11 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
-    $stmt1 = $mysqli->prepare("SELECT created_on FROM system_book_loaned WHERE bookid=? AND userid=? ORDER BY loanid DESC LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT toreturn_on FROM system_book_loaned WHERE bookid=? AND userid=? ORDER BY loanid DESC LIMIT 1");
     $stmt1->bind_param('ii', $bookToRenew, $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($created_on);
+    $stmt1->bind_result($toreturn_on);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -31,12 +31,12 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
-    $created_on = new DateTime($created_on);
-    $created_on = $created_on->format('d/m/Y');
+    $toreturn_on = new DateTime($toreturn_on);
+    $toreturn_on = $toreturn_on->format('d/m/Y');
 
-    $add7days = new DateTime($updated_on);
+    $add7days = new DateTime($toreturn_on);
     $add7days->add(new DateInterval('P7D'));
-    $toreturn_on = $add7days->format('d/m/Y');
+    $toreturn_on_new = $add7days->format('d/m/Y');
 
 } else {
     header('Location: ../../library/');
@@ -126,11 +126,11 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
     <label>From</label>
-    <input class="form-control" type="text" name="renew_book_from" id="renew_book_from" value="<?php echo $created_on; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="renew_book_from" id="renew_book_from" value="<?php echo $toreturn_on; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>To</label>
-    <input class="form-control" type="text" name="renew_book_to" id="renew_book_to" value="<?php echo $toreturn_on; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="renew_book_to" id="renew_book_to" value="<?php echo $toreturn_on_new; ?>" readonly="readonly">
     </div>
     </div>
 
