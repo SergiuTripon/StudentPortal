@@ -372,7 +372,7 @@ AdminLibraryUpdate();
 
     </div><!-- /container -->
 
-    <div id="error-modal" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div id="error-modal" class="modal fade modal-custom modal-error" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
@@ -383,7 +383,7 @@ AdminLibraryUpdate();
     </div>
 
     <div class="modal-body">
-    <p class="text-center feedback-sad"></p>
+    <p class="text-center"></p>
     </div>
 
     <div class="modal-footer">
