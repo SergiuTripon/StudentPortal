@@ -31,9 +31,6 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
-    $add7days = new DateTime($toreturn_on_old);
-    $add7days->add(new DateInterval('P7D'));
-    $toreturn_on_new = $add7days->format('d/m/Y');
 
 } else {
     header('Location: ../../library/');
