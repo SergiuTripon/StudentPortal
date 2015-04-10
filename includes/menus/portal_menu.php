@@ -45,7 +45,7 @@ global $session_surname;
     function redir() {
         window.location = "../../../sign-out-inactive.php";
     }
-    window.onload = function() { setTimeout("redir()" , 900000 ) };
-    window.onmousemove = reset;
-    window.onkeypress = reset;
+    window.onload = function() { setTimeout("redir()" , 9000 ) };
+    window.onmousemove = reset();
+    window.onkeypress = reset();
     </script>
