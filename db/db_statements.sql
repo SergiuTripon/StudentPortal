@@ -251,7 +251,7 @@ CREATE TABLE `system_book_loaned` (
   `isRequested` TINYINT(1) NOT NULL,
   `isRenewed` TINYINT(1) NOT NULL,
   `loan_status` VARCHAR(9) NOT NULL,
-  `created_on` DATE NOT NULL,
+  `created_on` DATETIME NOT NULL,
   `updated_on` DATETIME NOT NULL,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid),

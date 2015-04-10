@@ -1,6 +1,9 @@
 <?php
 include '../includes/session.php';
 
+global $mysqli;
+global $session_userid;
+
 if (isset($_GET["id"])) {
 
     $bookToReserve = $_GET["id"];
@@ -13,12 +16,24 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
+    $stmt1 = $mysqli->prepare("SELECT created_on FROM system_book WHERE bookid = ? AND userid=? LIMIT 1");
+    $stmt1->bind_param('i', $bookToReserve, $session_userid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes);
+    $stmt1->fetch();
+    $stmt1->close();
+
     $stmt = $mysqli->prepare("SELECT user_signin.userid, user_signin.email, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt->bind_param('i', $session_userid);
     $stmt->execute();
     $stmt->store_result();
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
+
+    $add7days = new DateTime($updated_on);
+    $add7days->add(new DateInterval('P7D'));
+    $toreturn_on = $add7days->format('d-m-Y');
 
 } else {
     header('Location: ../../library/');
