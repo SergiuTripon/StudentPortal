@@ -644,7 +644,7 @@ AdminLibraryUpdate();
 	$stmt1 = $mysqli->prepare("SELECT r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_reserved r LEFT JOIN user_detail d ON r.userid=d.userid LEFT JOIN system_book b ON r.bookid=b.bookid WHERE b.isReserved=? AND r.isCollected=?");
     $stmt1->bind_param('ii', $isReserved, $isCollected);
     $stmt1->execute();
-    $stmt1->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author $book_notes, $book_copy_no);
+    $stmt1->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no);
     $stmt1->store_result();
 
 	while ($stmt1->fetch()) {
