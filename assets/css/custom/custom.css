@@ -950,15 +950,15 @@ form .field-required {
 }
 
 .modal-success .btn-primary {
-    color: #256529;
-    border-color: #256529;
-    background-color: #5CC362;
-}
-
-.modal-success .btn-default {
     color: #5CC362;
     border-color: #5CC362;
     background-color: #256529;
+}
+
+.modal-success .btn-default {
+    color: #256529;
+    border-color: #256529;
+    background-color: #5CC362;
 }
 /* End of Modal error */
 
