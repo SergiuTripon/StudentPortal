@@ -3,6 +3,20 @@ global $session_firstname;
 global $session_surname;
 ?>
 
+    <script>
+    var timeOut;
+    function reset() {
+        window.clearTimeout(timeOut);
+        timeOut = window.setTimeout( "redir()" , 900000 );
+    }
+    function redir() {
+        window.location = "../../../sign-out-inactive.php";
+    }
+    window.onload = function() { setTimeout("redir()" , 900000 ) };
+    window.onmousemove = reset();
+    window.onkeypress = reset();
+    </script>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -35,17 +49,3 @@ global $session_surname;
     </div><!--/.container -->
     </nav>
     <!-- End of Navigation -->
-
-    <script>
-    var timeOut;
-    function reset() {
-        window.clearTimeout(timeOut);
-        timeOut = window.setTimeout( "redir()" , 900000 );
-    }
-    function redir() {
-        window.location = "../../../sign-out-inactive.php";
-    }
-    window.onload = function() { setTimeout("redir()" , 900000 ) };
-    window.onmousemove = reset();
-    window.onkeypress = reset();
-    </script>
