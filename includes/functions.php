@@ -3866,8 +3866,8 @@ function calendarUpdate($isUpdate = 0) {
 
         <div class="modal-footer">
         <div class="text-right">
-        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete-task btn-load">Delete</a>
-        <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+        <a id="delete-'.$taskid.'" class="btn btn-primary btn-lg btn-delete-task btn-load btn-block">Delete</a>
+        <a class="btn btn-default btn-lg btn-block" data-dismiss="modal">Cancel</a>
         </div>
         </div>
 
