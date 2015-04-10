@@ -56,8 +56,8 @@ if (isset($_GET["id"])) {
     <li class="active">Renew book</li>
     </ol>
 
-	<!-- Request event -->
-    <form class="form-horizontal form-custom" style="max-width: 100%;" method="post" name="renewbook_form" id="renewtbook_form" novalidate>
+	<!-- Renew book -->
+    <form class="form-horizontal form-custom" style="max-width: 100%;" method="post" name="renewbook_form" id="renewbook_form" novalidate>
 
     <p id="success" class="feedback-happy text-center"></p>
     <p id="error" class="feedback-sad text-center"></p>
@@ -108,15 +108,38 @@ if (isset($_GET["id"])) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Request book</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Renew book</button>
 	</div>
 
     </div>
 
     </form>
-    <!-- End of Request book -->
+    <!-- End of Reserve book -->
 
     </div><!-- /container -->
+
+    <div id="modal-error" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <div class="modal-header">
+    <div class="close"><i class="fa fa-book"></i></div>
+    <h4 class="modal-title" id="modal-custom-label">Error</h4>
+    </div>
+
+    <div class="modal-body">
+    <p></p>
+    </div>
+
+    <div class="modal-footer">
+    <div class="view-close text-center">
+    <a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+    </div>
+    </div>
+
+    </div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
 
 	<?php include '../includes/footers/footer.php'; ?>
 
@@ -155,20 +178,23 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    //Request book
+    //Reserve book
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    var bookToRequest = $("#bookid").val();
+    var bookid = $("#bookid").val();
+    var book_name = $("#book_name").val();
+    var book_author = $("#book_author").val();
+    var book_notes = $("#book_notes").val();
 
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'bookToRequest=' + bookToRequest,
+    data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes,
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('All done! Book has been requested.');
+        $("#success").empty().append('All done! Book has been reserved.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
