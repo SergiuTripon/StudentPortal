@@ -884,7 +884,7 @@ AdminLibraryUpdate();
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to mark "'.$book_name.'" as returned?</p>
+			<p class="text-left">Are you sure you want to mark "'.$book_name.'" as returned?</p><br>
 			<p>Note: The system will also check to see if there are any requests pending on the book. If there are, the system will automatically create a reservation for the user that requested the book.</p>
 			</div>
 
