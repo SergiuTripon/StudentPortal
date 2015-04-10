@@ -1033,7 +1033,6 @@ AdminLibraryUpdate();
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
-	<?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
 
