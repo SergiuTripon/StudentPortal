@@ -388,7 +388,7 @@ AdminLibraryUpdate();
 
     <div class="modal-footer">
     <div class="view-close text-center">
-    <a class="btn btn-danger btn-lg btn-block" data-dismiss="modal">Close</a>
+    <a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
     </div>
     </div>
 
