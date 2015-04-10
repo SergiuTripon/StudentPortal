@@ -962,20 +962,7 @@ AdminLibraryUpdate();
     $stmt1->bind_result($requestid, $bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no);
     $stmt1->store_result();
 
-	while($row = $stmt1->fetch_assoc()) {
-
-    $requestid = $row["requestid"];
-	$bookid = $row["bookid"];
-    $userid = $row["userid"];
-    $isApproved = $row["isApproved"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
-    $gender = $row["gender"];
-    $gender = ucfirst($gender);
-    $dateofbirth = $row["dateofbirth"];
-    $nationality = $row["nationality"];
-	$book_name = $row["book_name"];
-	$book_author = $row["book_author"];
+    while ($stmt1->fetch()) {
 
 	echo '<tr id="book-'.$requestid.'">
 
