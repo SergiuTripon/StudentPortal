@@ -16,12 +16,12 @@ function compress($minify) {
 /* css files for combining */
 include('bootstrap.min.css');
 include('calendar.min.css');
-include('custom.css');
 include('dataTables.bootstrap.css');
 include('dataTables.fontAwesome.css');
 include('bootstrap-datetimepicker.min.css');
 include('ekko-lightbox.min.css');
 include('font-awesome.min.css');
 include('select2.min.css');
+include('custom.css');
 
 ob_end_flush();
