@@ -23,5 +23,6 @@ include('bootstrap-datetimepicker.min.css');
 include('ekko-lightbox.min.css');
 include('font-awesome.min.css');
 include('select2.min.css');
+include('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
 ob_end_flush();
