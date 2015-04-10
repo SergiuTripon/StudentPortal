@@ -2610,7 +2610,7 @@ function ReserveBook() {
     $tocollect_on = $add7days->format('Y-m-d');
     $collected_on = '';
     $isCollected = 0;
-    $reservation_status = 'active';
+    $reservation_status = 'ongoing';
 
 	$stmt1 = $mysqli->prepare("INSERT INTO system_book_reserved (userid, bookid, tocollect_on, collected_on, isCollected, reservation_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
 	$stmt1->bind_param('iississ', $session_userid, $bookid, $tocollect_on, $collected_on, $isCollected, $reservation_status, $created_on);
