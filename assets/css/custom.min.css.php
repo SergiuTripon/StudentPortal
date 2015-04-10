@@ -14,14 +14,14 @@ function compress($minify) {
 }
 
 /* css files for combining */
-include('bootstrap.min.css');
-include('calendar.min.css');
-include('dataTables.bootstrap.css');
-include('dataTables.fontAwesome.css');
-include('bootstrap-datetimepicker.min.css');
-include('ekko-lightbox.min.css');
-include('font-awesome.min.css');
-include('select2.min.css');
-include('custom.css');
+include('files/bootstrap.min.css');
+include('files/calendar.min.css');
+include('files/dataTables.bootstrap.css');
+include('files/dataTables.fontAwesome.css');
+include('files/bootstrap-datetimepicker.min.css');
+include('files/ekko-lightbox.min.css');
+include('files/font-awesome.min.css');
+include('files/select2.min.css');
+include('files/custom.css');
 
 ob_end_flush();
