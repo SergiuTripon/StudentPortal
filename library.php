@@ -122,8 +122,8 @@ AdminLibraryUpdate();
 
 			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/reserve-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Reserve</span></a>").'</td>
-            <td data-title="Request">'.($stmt3->num_rows == 1 ? "<a class=\"btn btn-primary btn-md\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/request-book?id=$bookid\" data-style=\"slide-up\"><span class=\"ladda-label\">Request</span></a>").'</td>
+			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md btn-load\" href=\"../library/reserve-book?id=$bookid\">Reserve</a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/reserve-book?id=$bookid\">Reserve</a>").'</td>
+            <td data-title="Request">'.($stmt3->num_rows == 1 ? "<a class=\"btn btn-primary btn-md btn-load\" href=\"../library/request-book?id=$bookid\">Request</a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/request-book?id=$bookid\">Request</a>").'</td>
 			</tr>';
 	}
 
