@@ -1,3 +1,6 @@
+
+#-----------------------------------------------------------------------------------------------------------------------------------------
+
 #Source: http://alexcican.com/post/how-to-remove-php-html-htm-extensions-with-htaccess/
 
 Options -MultiViews
@@ -13,6 +16,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
 RewriteRule (.*)$ /$1/ [R=301,L]
 
+#-----------------------------------------------------------------------------------------------------------------------------------------
+
 #Source: http://stackoverflow.com/questions/234723/generic-htaccess-redirect-www-to-non-www
 
 #Redirecting from www to non-www
@@ -24,10 +29,14 @@ RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 RewriteCond %{HTTPS} !on
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
+#-----------------------------------------------------------------------------------------------------------------------------------------
+
 #Source: https://support.godaddy.com/help/article/6946/enabling-mod_deflate-with-your-hosting-account
 
 #Compress content
 AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+
+#-----------------------------------------------------------------------------------------------------------------------------------------
 
 #Source: https://github.com/EnlightenAgency/Server-Setup-MIME-Types-Headers/blob/master/font-mimetypes.txt
 
@@ -39,6 +48,7 @@ AddType image/svg+xml .svg
 AddType application/x-font-opentype .otf
 AddType application/octet-stream .otf .ttf
 
+#-----------------------------------------------------------------------------------------------------------------------------------------
 
 #Source: http://www.paulund.co.uk/set-expire-headers-in-htaccess
 
@@ -113,3 +123,5 @@ AddType application/octet-stream .otf .ttf
   </IfModule>
 
 </IfModule>
+
+#-----------------------------------------------------------------------------------------------------------------------------------------
