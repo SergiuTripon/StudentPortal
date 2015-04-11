@@ -31,12 +31,7 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
-    $toreturn_on_old1 = DateTime::createFromFormat('d-m-Y', $toreturn_on_old);
-    $toreturn_on_old2 = $toreturn_on_old1->format('d/m/Y');
-
-    $add14days = new DateTime($toreturn_on_old);
-    $add14days->add(new DateInterval('P14D'));
-    $toreturn_on_new = $add14days->format('d/m/Y');
+    echo $toreturn_on_old;
 
 } else {
     header('Location: ../../library/');
