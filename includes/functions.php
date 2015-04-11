@@ -2914,7 +2914,7 @@ function RenewBook() {
         $toreturn_on = $add14days->format('Y-m-d');
 
         $stmt3 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, updated_on=? WHERE loanid=?");
-        $stmt3->bind_param('i', $db_loanid);
+        $stmt3->bind_param('ssi', $toreturn_on, $updated_on, $db_loanid);
         $stmt3->execute();
         $stmt3->close();
     }
