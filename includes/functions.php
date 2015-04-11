@@ -2913,8 +2913,8 @@ function RenewBook() {
         $add14days->add(new DateInterval('P14D'));
         $toreturn_on = $add14days->format('Y-m-d');
 
-        $stmt3 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, updated_on=? WHERE bookid =?");
-        $stmt3->bind_param('ss', $toreturn_on, $updated_on);
+        $stmt3 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, updated_on=? WHERE bookid=?");
+        $stmt3->bind_param('ssi', $toreturn_on, $updated_on, $bookToRenew);
         $stmt3->execute();
         $stmt3->close();
     }
