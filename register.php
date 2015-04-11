@@ -48,11 +48,11 @@ include 'includes/session.php';
 	<hr>
                 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg" href="../home/">Home</span></a>
+    <a class="btn btn-success btn-lg" href="../home/">Home</a>
     </div>
 	
     <div class="text-right">
-    <a class="btn btn-danger btn-lg" href="../sign-out/">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg" href="../sign-out/">Sign Out</a>
     </div>
     
 	</form>
@@ -132,7 +132,7 @@ include 'includes/session.php';
     <hr>
 
 	<div id="register-button" class="pull-left">
-    <a class="btn btn-info btn-lg btn-load" href="/">Sign in</span></a>
+    <a class="btn btn-info btn-lg btn-load" href="/">Sign in</a>
     </div>
 	
     <div id="register-button" class="text-right">
@@ -140,7 +140,7 @@ include 'includes/session.php';
     </div>
 	
 	<div id="success-button" class="text-center" style="display:none">
-    <a class="btn btn-success btn-lg btn-load" href="/">Sign in</span></a>
+    <a class="btn btn-success btn-lg btn-load" href="/">Sign in</a>
     </div>
 	
     </form>
