@@ -35,8 +35,8 @@ if (isset($_GET["id"])) {
     $add14days->add(new DateInterval('P14D'));
     $toreturn_on_new = $add14days->format('d/m/Y');
 
-    $toreturn_on_old = DateTime::createFromFormat('d/m/Y', $toreturn_on_old);
-    $toreturn_on_old = $toreturn_on_old->format('Y-m-d');
+    $toreturn_on_old = DateTime::createFromFormat('d-m-Y', $toreturn_on_old);
+    $toreturn_on_old = $toreturn_on_old->format('d/m/Y');
 
 } else {
     header('Location: ../../library/');
