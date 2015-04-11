@@ -483,7 +483,7 @@ AdminLibraryUpdate();
             buttonReset();
 
         } else {
-            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
+            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenewCheck);
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
