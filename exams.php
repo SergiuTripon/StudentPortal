@@ -172,7 +172,7 @@ AdminExamUpdate();
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT e.exam_name, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e LEFT JOIN system_lecture l ON e.moduleid=l.moduleid LEFT JOIN system_tutorial ON e.moduleid=t.moduleid WHERE e.exam_status='active' AND (l.lecture_lecturer='$session_userid' OR t.tutorial_assistant='$session_userid')");
+	$stmt1 = $mysqli->query("SELECT DISTINCT e.exam_name, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e LEFT JOIN system_lecture l ON e.moduleid=l.moduleid LEFT JOIN system_tutorial t ON e.moduleid=t.moduleid WHERE e.exam_status='active' AND (l.lecture_lecturer='$session_userid' OR t.tutorial_assistant='$session_userid')");
 
 	while($row = $stmt1->fetch_assoc()) {
 
