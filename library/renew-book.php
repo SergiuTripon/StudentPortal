@@ -31,8 +31,6 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
-    echo $toreturn_on_old;
-
 } else {
     header('Location: ../../library/');
 }
