@@ -466,13 +466,13 @@ AdminLibraryUpdate();
     $("body").on("click", ".btn-renew-book", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
-    var bookToRenewCheck = clickedID[1];
+    var bookToRenew = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'bookToRenewCheck='+ bookToRenewCheck,
+	data:'bookToRenew='+ bookToRenew,
 	success:function(errormsg){
         if (errormsg) {
 
@@ -483,7 +483,7 @@ AdminLibraryUpdate();
             buttonReset();
 
         } else {
-            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenewCheck);
+            window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenew);
         }
 	},
 	error:function (xhr, ajaxOptions, thrownError){
