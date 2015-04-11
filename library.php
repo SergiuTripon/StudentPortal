@@ -466,13 +466,13 @@ AdminLibraryUpdate();
     $("body").on("click", ".btn-renew-book", function(e) {
     e.preventDefault();
     var clickedID = this.id.split('-');
-    var bookToRenew = clickedID[1];
+    var bookToRenewCheck = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'bookToRenew='+ bookToRenew,
+	data:'bookToRenewCheck='+ bookToRenewCheck,
 	success:function(errormsg){
         if (errormsg) {
 
