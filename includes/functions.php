@@ -2882,7 +2882,7 @@ function RenewBook($isCheck = 0) {
     global $mysqli;
     global $updated_on;
 
-    if($isCheck = 1) {
+    if($isCheck == 1) {
 
         $bookToRenewCheck = filter_input(INPUT_POST, 'bookToRenewCheck', FILTER_SANITIZE_STRING);
 
