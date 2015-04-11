@@ -306,14 +306,14 @@ elseif (isset($_POST["bookToReturn"])) {
     ReturnBook();
 }
 
-//Call RenewBookCheck function
+//Call RenewBook function
 elseif (isset($_POST["bookToRenewCheck"])) {
-    RenewBookCheck();
+    RenewBook($isCheck = 1);
 }
 
 //Call RenewBook function
 elseif (isset($_POST["bookToRenew"])) {
-    RenewBook();
+    RenewBook($isCheck = 0);
 }
 
 //Call CreateBook function
