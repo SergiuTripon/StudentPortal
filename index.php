@@ -104,7 +104,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="pull-left">
-    <a class="btn btn-info btn-lg btn-load" href="register/">Register</span></a>
+    <a class="btn btn-info btn-lg btn-load" href="register/">Register</a>
     </div>
 
     <div class="text-right">
