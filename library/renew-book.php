@@ -193,7 +193,7 @@ if (isset($_GET["id"])) {
     data:'bookToRenew='+ bookToRenew,
     success:function(html){
 
-        if(html {
+        if(html) {
             alert(html);
         }
 
