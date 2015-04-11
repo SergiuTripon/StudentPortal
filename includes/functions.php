@@ -2876,55 +2876,56 @@ function ReturnBook() {
     }
 }
 
+//RenewBookCheck function
+function RenewBookCheck() {
+
+    global $mysqli;
+
+    $bookToRenewCheck = filter_input(INPUT_POST, 'bookToRenewCheck', FILTER_SANITIZE_STRING);
+
+    $isApproved = 0;
+    $request_status = 'pending';
+
+    $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE bookid=? AND isApproved=? AND request_status=? ORDER BY requestid DESC LIMIT 1");
+    $stmt1->bind_param('iis', $bookToRenewCheck, $isApproved, $request_status);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_bookid);
+    $stmt1->fetch();
+
+    if ($stmt1->num_rows > 0) {
+        $stmt1->close();
+        echo 'You cannot renew this book at this time. Another user requested this book. Once the book is collected and loaned again, you will be able to request it.';
+        exit();
+    }
+
+}
+
+
 //RenewBook function
-function RenewBook($isCheck = 0) {
+function RenewBook() {
 
     global $mysqli;
     global $updated_on;
 
-    if($isCheck == 1) {
+    $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
 
-        $bookToRenewCheck = filter_input(INPUT_POST, 'bookToRenewCheck', FILTER_SANITIZE_STRING);
+    $stmt1 = $mysqli->prepare("SELECT bookid, loanid, toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
+    $stmt1->bind_param('i', $bookToRenew);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_bookid, $db_loanid, $toreturn_on);
+    $stmt1->fetch();
+    $stmt1->close();
 
-        $isApproved = 0;
-        $request_status = 'pending';
+    $add14days = new DateTime($toreturn_on);
+    $add14days->add(new DateInterval('P14D'));
+    $toreturn_on = $add14days->format('Y-m-d');
 
-        $stmt1 = $mysqli->prepare("SELECT bookid FROM system_book_requested WHERE bookid=? AND isApproved=? AND request_status=? ORDER BY requestid DESC LIMIT 1");
-        $stmt1->bind_param('iis', $bookToRenewCheck, $isApproved, $request_status);
-        $stmt1->execute();
-        $stmt1->store_result();
-        $stmt1->bind_result($db_bookid);
-        $stmt1->fetch();
-
-        if ($stmt1->num_rows > 0) {
-            $stmt1->close();
-            echo 'You cannot renew this book at this time. Another user requested this book. Once the book is collected and loaned again, you will be able to request it.';
-            exit();
-        }
-
-    } else {
-
-        $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
-
-        echo $bookToRenew;
-
-        $stmt2 = $mysqli->prepare("SELECT bookid, loanid, toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
-        $stmt2->bind_param('i', $bookToRenew);
-        $stmt2->execute();
-        $stmt2->store_result();
-        $stmt2->bind_result($db_bookid, $db_loanid, $toreturn_on);
-        $stmt2->fetch();
-        $stmt2->close();
-
-        $add14days = new DateTime($toreturn_on);
-        $add14days->add(new DateInterval('P14D'));
-        $toreturn_on = $add14days->format('Y-m-d');
-
-        $stmt3 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, updated_on=? WHERE loanid=?");
-        $stmt3->bind_param('ssi', $toreturn_on, $updated_on, $db_loanid);
-        $stmt3->execute();
-        $stmt3->close();
-    }
+    $stmt2 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, updated_on=? WHERE loanid=?");
+    $stmt2->bind_param('ssi', $toreturn_on, $updated_on, $db_loanid);
+    $stmt2->execute();
+    $stmt2->close();
 }
 
 //RequestBook function
