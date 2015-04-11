@@ -31,12 +31,12 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
+    $toreturn_on_old1 = DateTime::createFromFormat('d-m-Y', $toreturn_on_old);
+    $toreturn_on_old2 = $toreturn_on_old1->format('d/m/Y');
+
     $add14days = new DateTime($toreturn_on_old);
     $add14days->add(new DateInterval('P14D'));
     $toreturn_on_new = $add14days->format('d/m/Y');
-
-    $toreturn_on_old = DateTime::createFromFormat('d-m-Y', $toreturn_on_old);
-    $toreturn_on_old = $toreturn_on_old->format('d/m/Y');
 
 } else {
     header('Location: ../../library/');
@@ -126,7 +126,7 @@ if (isset($_GET["id"])) {
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
     <label>From</label>
-    <input class="form-control" type="text" name="renew_book_from" id="renew_book_from" value="<?php echo $toreturn_on_old; ?>" readonly="readonly">
+    <input class="form-control" type="text" name="renew_book_from" id="renew_book_from" value="<?php echo $toreturn_on_old2; ?>" readonly="readonly">
 	</div>
     <div class="col-xs-6 col-sm-6 full-width">
     <label>To</label>
