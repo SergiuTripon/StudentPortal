@@ -191,12 +191,7 @@ if (isset($_GET["id"])) {
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'bookToRenew='+ bookToRenew,
-    success:function(html){
-
-        if(html) {
-            alert(html);
-        }
-
+    success:function(){
         $("#error").hide();
         $("#hide").hide();
         $("#success").empty().append('All done! Book has been reserved.');

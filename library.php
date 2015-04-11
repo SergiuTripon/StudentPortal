@@ -473,11 +473,11 @@ AdminLibraryUpdate();
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'bookToRenewCheck='+ bookToRenewCheck,
-	success:function(errormsg){
-        if (errormsg) {
+	success:function(error_msg){
+        if (error_msg) {
 
             $('.modal-custom').modal('hide');
-            $('#error-modal .modal-body p').empty().append(errormsg);
+            $('#error-modal .modal-body p').empty().append(error_msg);
             $('#error-modal').modal('show');
 
             buttonReset();
