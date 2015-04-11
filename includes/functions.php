@@ -2906,6 +2906,8 @@ function RenewBook($isCheck = 0) {
 
         $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
 
+        echo $bookToRenew;
+
         $stmt2 = $mysqli->prepare("SELECT bookid, loanid, toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
         $stmt2->bind_param('i', $bookToRenew);
         $stmt2->execute();
