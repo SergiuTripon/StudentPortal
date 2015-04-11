@@ -187,6 +187,8 @@ if (isset($_GET["id"])) {
 
     var bookToRenew = $("#bookid").val();
 
+    alert(bookToRenew);
+
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
