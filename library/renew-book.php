@@ -20,7 +20,7 @@ if (isset($_GET["id"])) {
     $stmt1->bind_param('ii', $bookToRenew, $session_userid);
     $stmt1->execute();
     $stmt1->store_result();
-    $stmt1->bind_result($toreturn_on_old);
+    $stmt1->bind_result($toreturn_on);
     $stmt1->fetch();
     $stmt1->close();
 
@@ -30,6 +30,13 @@ if (isset($_GET["id"])) {
     $stmt->store_result();
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
+
+    $toreturn_on_old = DateTime::createFromFormat('d-m-Y', $toreturn_on);
+    $toreturn_on_old = $toreturn_on_old->format('d/m/Y');
+
+    $add14days = new DateTime($toreturn_on);
+    $add14days->add(new DateInterval('P14D'));
+    $toreturn_on_new = $add14days->format('d/m/Y');
 
 } else {
     header('Location: ../../library/');
