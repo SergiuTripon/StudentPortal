@@ -2901,22 +2901,22 @@ function RenewBook() {
         exit();
     } else {
 
-        $stmt3 = $mysqli->prepare("SELECT bookid, toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
-        $stmt3->bind_param('i', $bookToRenew);
-        $stmt3->execute();
-        $stmt3->store_result();
-        $stmt3->bind_result($db_bookid, $toreturn_on);
-        $stmt3->fetch();
-        $stmt3->close();
+        $stmt2 = $mysqli->prepare("SELECT bookid, toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
+        $stmt2->bind_param('i', $bookToRenew);
+        $stmt2->execute();
+        $stmt2->store_result();
+        $stmt2->bind_result($db_bookid, $toreturn_on);
+        $stmt2->fetch();
+        $stmt2->close();
 
         $add14days = new DateTime($toreturn_on);
         $add14days->add(new DateInterval('P14D'));
         $toreturn_on = $add14days->format('Y-m-d');
 
-        $stmt4 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, updated_on=? WHERE bookid =?");
-        $stmt4->bind_param('si', $toreturn_on, $updated_on);
-        $stmt4->execute();
-        $stmt4->close();
+        $stmt3 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, updated_on=? WHERE bookid =?");
+        $stmt3->bind_param('si', $toreturn_on, $updated_on);
+        $stmt3->execute();
+        $stmt3->close();
     }
 }
 
