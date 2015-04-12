@@ -9,7 +9,6 @@ include '../includes/session.php';
 
     <title>University map | Location search</title>
 
-    <?php include '../assets/css-paths/select2-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACUYPrcbhUGQsa7KDR9ZtvzDATtGySw68"></script>
@@ -74,9 +73,6 @@ include '../includes/session.php';
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
-
-    <!-- Sign Out (Inactive) JS -->
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php else : ?>
 
