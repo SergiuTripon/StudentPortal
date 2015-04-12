@@ -27,12 +27,12 @@
 
     var markerGroups = {
         "building": [],
-        "student_centre": [],
-        "lecture_theatre": [],
-        "computer_lab": [],
+        "student centre": [],
+        "lecture theatre": [],
+        "computer lab": [],
         "library": [],
-        "cycle_hire": [],
-        "cycle_parking": [],
+        "cycle hire": [],
+        "cycle parking": [],
         "atm": []
     };
 
