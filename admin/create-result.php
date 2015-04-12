@@ -43,8 +43,8 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	<div class="preloader"></div>
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
-	
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
+
+        <?php if (isset($_SESSION['account_type']) && ($_SESSION['account_type'] == 'academic staff' || $_SESSION['account_type'] == 'administrator')) : ?>
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
 
