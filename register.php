@@ -193,10 +193,6 @@ include 'includes/session.php';
 
 	
 	<script>
-    $(document).ready(function() {
-
-
-
 
     //Responsiveness
 	$(window).resize(function(){
@@ -218,7 +214,7 @@ include 'includes/session.php';
         gender = ($(this).text().replace(/^\s+|\s+$/g,''))
 	});
 
-	//Ajax call
+	//Register user
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
@@ -402,7 +398,7 @@ include 'includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'firstname=' + firstname + '&surname=' + surname + '&gender=' + gender + '&email1=' + email + '&password1=' + password,
+    data:'register_firstname=' + firstname + '&register_surname=' + surname + '&register_gender=' + gender + '&regiister_email=' + email + '&register_password=' + password,
     success:function(){
         $("#error").hide();
 		$("#hide").hide();
@@ -419,10 +415,7 @@ include 'includes/session.php';
     }
 	});
     }
-	
 	return true;
-	
-	});
 	});
 	</script>
 

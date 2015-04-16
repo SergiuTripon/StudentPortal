@@ -149,12 +149,12 @@ function RegisterUser() {
 	global $mysqli;
 	global $created_on;
 
-	$firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING);
-	$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email1', FILTER_SANITIZE_EMAIL);
+	$firstname = filter_input(INPUT_POST, 'register_firstname', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'register_surname', FILTER_SANITIZE_STRING);
+	$gender = filter_input(INPUT_POST, 'register_gender', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'register_email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$password = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
+	$password = filter_input(INPUT_POST, 'register_password', FILTER_SANITIZE_STRING);
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header('HTTP/1.0 550 The email address you entered is invalid.');
@@ -219,7 +219,7 @@ function SendPasswordToken() {
 	global $mysqli;
 	global $created_on;
 
-	$email = filter_input(INPUT_POST, 'email2', FILTER_SANITIZE_EMAIL);
+	$email = filter_input(INPUT_POST, 'fp_email', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -2371,7 +2371,7 @@ function DeactivateResult() {
     global $updated_on;
 
     $resultToDeactivate = filter_input(INPUT_POST, 'resultToDeactivate', FILTER_SANITIZE_STRING);
-    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
+    //$userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $result_status = 'inactive';
 
@@ -2390,7 +2390,7 @@ function ReactivateResult() {
     global $updated_on;
 
     $resultToReactivate = filter_input(INPUT_POST, 'resultToReactivate', FILTER_SANITIZE_STRING);
-    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
+    //$userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM user_result WHERE resultid = ?");
     $stmt1->bind_param('i', $resultToReactivate);
@@ -2440,7 +2440,7 @@ function DeleteResult() {
     global $mysqli;
 
     $resultToDelete = filter_input(INPUT_POST, 'resultToDelete', FILTER_SANITIZE_STRING);
-    $userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
+    //$userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_result WHERE resultid=?");
     $stmt1->bind_param('i', $resultToDelete);

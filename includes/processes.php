@@ -19,7 +19,12 @@ elseif (isset($_POST['email'], $_POST['password'])) {
 
 //Call Register function
 //Call RegisterUser function
-elseif(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["email1"], $_POST["password1"])) {
+elseif(isset(
+    $_POST["register_firstname"],
+    $_POST["register_surname"],
+    $_POST["register_gender"],
+    $_POST["register_email"],
+    $_POST["register_password"])) {
 	RegisterUser();
 }
 
@@ -27,7 +32,7 @@ elseif(isset($_POST["firstname"], $_POST["surname"], $_POST["gender"], $_POST["e
 
 //Call Forgotten Password/Password Reset functions
 //Call SendPasswordToken function
-elseif (isset($_POST["email2"])) {
+elseif (isset($_POST["fp_email"])) {
 	SendPasswordToken();
 }
 

@@ -105,10 +105,6 @@ include 'includes/session.php';
 
 
 	<script>
-    $(document).ready(function() {
-
-
-
 
     //Ajax call
     $("#FormSubmit").click(function (e) {
@@ -138,7 +134,7 @@ include 'includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'email2=' + email,
+    data:'fp_email=' + email,
     success:function(){
         $("#error").hide();
         $("#error1").hide();
@@ -160,10 +156,7 @@ include 'includes/session.php';
     }
 	});
     }
-
 	return true;
-
-	});
 	});
 	</script>
 
