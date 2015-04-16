@@ -252,13 +252,8 @@ if (isset($_GET['id'])) {
 	<?php endif; ?>
 
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-	<?php include '../assets/js-paths/tilejs-js-path.php'; ?>
-	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
 	<script>
-
-
-
 
     //DataTables
     $('.table-custom').dataTable({

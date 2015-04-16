@@ -314,8 +314,6 @@ if (isset($_GET["video"])) {
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
-    <?php include 'assets/js-paths/ekko-lightbox-js-path.php'; ?>
-
     <script>
 
     var options = {

@@ -265,8 +265,6 @@ if (isset($_GET['id'])) {
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/select2-js-path.php'; ?>
-	<?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
     //On load

@@ -233,8 +233,7 @@ while ($row = $stmt1->fetch_assoc()){
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/select2-js-path.php'; ?>
-	
+
 	<script>
     //On load
     $(document).ready(function () {

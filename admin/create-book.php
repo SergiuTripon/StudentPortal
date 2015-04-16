@@ -194,7 +194,6 @@ include '../includes/session.php';
 	<?php endif; ?>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/datetimepicker-js-path.php'; ?>
 
 	<script>
 

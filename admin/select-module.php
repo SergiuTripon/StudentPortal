@@ -210,8 +210,6 @@ if (isset($_GET['id'])) {
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
-    <?php include '../assets/js-paths/tilejs-js-path.php'; ?>
-    <?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
 

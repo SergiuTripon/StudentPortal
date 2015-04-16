@@ -181,7 +181,6 @@ global $transport_status_last_updated;
 	<?php endif; ?>
 
 	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-	<?php include '../assets/js-paths/datatables-js-path.php'; ?>
 
 	<script type="text/javascript" class="init">
 	$(document).ready(function () {

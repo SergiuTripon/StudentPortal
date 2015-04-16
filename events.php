@@ -297,9 +297,6 @@ AdminEventUpdate();
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/calendar-js-path.php'; ?>
-
-    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
     $(document).ready(function () {
@@ -506,7 +503,6 @@ AdminEventUpdate();
     <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
-    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
 
     <script>
     //DataTables

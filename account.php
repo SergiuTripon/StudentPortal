@@ -558,8 +558,6 @@ include 'includes/session.php';
 
 	<?php include 'assets/js-paths/common-js-paths.php'; ?>
 
-    <?php include 'assets/js-paths/datatables-js-path.php'; ?>
-
     <script>
 
 	//DataTables
