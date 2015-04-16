@@ -9,11 +9,10 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <?php include '../assets/css-paths/select2-css-path.php'; ?>
+    <title>Student Portal | Create location</title>
+
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal | Create location</title>
-	
 </head>
 
 <body>

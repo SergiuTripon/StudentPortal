@@ -10,7 +10,6 @@ include '../includes/session.php';
     <title>University map | Location overview</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
-    <?php include '../assets/css-paths/select2-css-path.php'; ?>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACUYPrcbhUGQsa7KDR9ZtvzDATtGySw68"></script>
 

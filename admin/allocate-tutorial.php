@@ -19,7 +19,6 @@ if (isset($_GET['id'])) {
 
     <title>Student Portal | Allocate tutorial</title>
 
-    <?php include '../assets/css-paths/datatables-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>

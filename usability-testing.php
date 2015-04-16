@@ -17,7 +17,6 @@ if (isset($_GET["video"])) {
     <?php include 'assets/meta-tags.php'; ?>
 
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
-    <?php include 'assets/css-paths/ekko-lightbox-css-path.php'; ?>
 
     <title>Student Portal | Usability testing</title>
 

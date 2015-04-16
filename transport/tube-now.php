@@ -18,7 +18,6 @@ global $transport_status_last_updated;
 
     <title>Student Portal | Tube - Now</title>
 
-	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>

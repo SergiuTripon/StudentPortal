@@ -29,9 +29,7 @@ if ($dateofbirth == "0000-00-00") {
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-    <?php include '../assets/css-paths/select2-css-path.php'; ?>
 	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-	<?php include '../assets/css-paths/datetimepicker-css-path.php'; ?>
 
     <title>Student Portal | Update an account</title>
 

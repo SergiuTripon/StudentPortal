@@ -33,7 +33,6 @@ while ($row = $stmt1->fetch_assoc()){
 
     <title>Student Portal | Pay Course Fees</title>
 
-    <?php include '../assets/css-paths/select2-css-path.php'; ?>
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <?php

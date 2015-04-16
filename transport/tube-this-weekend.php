@@ -16,10 +16,9 @@ global $transport_status_last_updated;
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/datatables-css-path.php'; ?>
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | Tube - This Weekend</title>
+
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
