@@ -76,7 +76,7 @@ if ($studentno = 0) {
     </form>
 
     <!-- Delete Account Modal -->
-    <div id="deleteaccount-modal" class="modal fade modal-custom modal-warning" tabindex="-1" role="dialog" aria-labelledby="deleteaccount-modal-label" aria-hidden="true">
+    <div id="delete-account-modal" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
@@ -86,24 +86,19 @@ if ($studentno = 0) {
     </div>
 
     <div class="modal-body">
-
-    <div id="session_userid" style="display: none;"><?php echo $session_userid; ?></div>
-
     <p class="text-center">Are you sure you want to delete your account?</p>
-
     </div>
-    
-	<div class="modal-footer">
+
+    <div class="modal-footer">
     <div class="text-right">
     <a class="btn btn-danger btn-lg btn-delete-account btn-load">Delete</a>
     <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-	</div>
-    
-	</div>
+    </div>
+    </div>
 
-    </div>
-    </div>
-    </div>
+    </div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
 
     </div> <!-- /container -->
 	
