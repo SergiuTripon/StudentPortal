@@ -95,18 +95,17 @@ include 'includes/session.php';
     </div>
     </div>
 
-	<label for="gender">Gender - select below<span class="field-required">*</span></label>
-	<div class="btn-group btn-group-justified" data-toggle="buttons">
-	<label class="btn btn-default btn-lg gender">
-		<input type="radio" name="options" id="option1" autocomplete="off"> Male
-	</label>
-	<label class="btn btn-default btn-lg gender">
-		<input type="radio" name="options" id="option2" autocomplete="off"> Female
-	</label>
-	<label class="btn btn-default btn-lg gender">
-		<input type="radio" name="options" id="option3" autocomplete="off"> Other
-	</label>
-	</div>
+	<div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width">
+    <label for="gender">Gender<span class="field-required">*</span></label>
+    <select class="form-control" name="gender" id="gender" style="width: 100%;">
+        <option></option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select>
+    </div>
+    </div>
 
     <label for="email">Email address<span class="field-required">*</span></label>
     <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email address">
@@ -190,29 +189,12 @@ include 'includes/session.php';
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
-
-	
 	<script>
-
-    //Responsiveness
-	$(window).resize(function(){
-		var width = $(window).width();
-		if(width <= 480){
-			$('.btn-group').removeClass('btn-group-justified');
-			$('.btn-group').addClass('btn-group-vertical full-width');
-		} else {
-			$('.btn-group').addClass('btn-group-justified');
-		}
-	})
-	.resize();//trigger the resize event on page load.
-
-    //Global variable
-	var gender;
-
-	//Setting variable value
-	$('.btn-group .gender').click(function(){
-        gender = ($(this).text().replace(/^\s+|\s+$/g,''))
-	});
+    //On load
+    $(document).ready(function () {
+        //select2
+        $("#gender").select2({placeholder: "Select an option"});
+    });
 
 	//Register user
     $("#FormSubmit").click(function (e) {
@@ -256,25 +238,25 @@ include 'includes/session.php';
         $("#surname").addClass("input-happy");
 	}
 
-    var gender_check = $(".gender");
-	if (gender_check.hasClass('active')) {
-        $("label[for='gender']").empty().append("All good!");
-        $("label[for='gender']").removeClass("feedback-sad");
-        $("label[for='gender']").addClass("feedback-happy");
-        $("#gender").removeClass("input-sad");
-        $("#gender").addClass("input-happy");
-	}
-	else {
-        $("label[for='gender']").empty().append("Please select a gender.");
+    var gender_check = $("#gender :selected").html();
+    if (gender_check === 'Select an option') {
+        $("label[for='gender']").empty().append("Please select an option.");
         $("label[for='gender']").removeClass("feedback-happy");
         $("label[for='gender']").addClass("feedback-sad");
         $("#gender").removeClass("input-happy");
         $("#gender").addClass("input-sad");
         $("#gender").focus();
-		hasError = true;
+        hasError  = true;
         return false;
-	}
-	
+    }
+    else {
+        $("label[for='gender']").empty().append("All good!");
+        $("label[for='gender']").removeClass("feedback-sad");
+        $("label[for='gender']").addClass("feedback-happy");
+        $("#marker_category").removeClass("input-sad");
+        $("#marker_category").addClass("input-happy");
+    }
+
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
@@ -393,8 +375,10 @@ include 'includes/session.php';
         $("#confirmpwd").addClass("input-happy");
         $("#error1").hide();
 	}
-	
-	if(hasError == false){
+
+    var gender = $("#gender :selected").val();
+
+    if(hasError == false){
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",

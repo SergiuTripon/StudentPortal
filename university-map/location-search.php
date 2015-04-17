@@ -53,7 +53,7 @@ include '../includes/session.php';
     </select>
 
     <div id="map-search-button" class="text-center">
-    <a class="btn btn-primary btn-lg" onclick="searchLocations()" >Search</span></a>
+    <a class="btn btn-primary btn-lg btn-load" onclick="searchLocations()">Search</span></a>
     </div>
 
     <div id="map-search-results">

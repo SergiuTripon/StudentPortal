@@ -184,9 +184,6 @@ include '../includes/session.php';
         $("#marker_category").select2({placeholder: "Select an option"});
     });
 
-
-
-
     //Ajax call
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
