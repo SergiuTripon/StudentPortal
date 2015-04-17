@@ -146,13 +146,11 @@ include 'includes/session.php';
 
     </div>
 
-    <?php include 'includes/footers/footer.php'; ?>
-
     <!-- Help Modal -->
     <div id="modal-help" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
-    
+
 	<div class="modal-header">
     <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
     <h4 class="modal-title" id="modal-custom-label">Need help?</h4>
@@ -173,20 +171,19 @@ include 'includes/session.php';
     <li>Your password and confirmation must match exactly</li>
     </ul>
     </div>
-    
+
 	<div class="modal-footer">
     <div class="text-right">
     <button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
     </div>
     </div>
-            
+
 	</div><!-- /modal -->
     </div><!-- /modal-dialog -->
     </div><!-- /modal-content -->
 	<!-- End of Help Modal -->
 
-	<?php endif; ?>
-
+    <?php include 'includes/footers/footer.php'; ?>
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
@@ -199,7 +196,7 @@ include 'includes/session.php';
 	//Register user
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
-	
+
 	var hasError = false;
 
     var firstname = $("#firstname").val();
@@ -219,7 +216,7 @@ include 'includes/session.php';
         $("#firstname").removeClass("input-sad");
         $("#firstname").addClass("input-happy");
 	}
-	
+
 	var surname = $("#surname").val();
 	if(surname === '') {
         $("label[for='surname']").empty().append("Please enter a surname.");
@@ -402,6 +399,8 @@ include 'includes/session.php';
 	return true;
 	});
 	</script>
+
+	<?php endif; ?>
 
 </body>
 </html>
