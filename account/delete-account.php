@@ -72,7 +72,7 @@ $stmt1->fetch();
     </form>
 
     <!-- Delete Account Modal -->
-    <div class="modal fade modal-custom" id="deleteaccount-modal" tabindex="-1" role="dialog" aria-labelledby="deleteaccount-modal-label" aria-hidden="true">
+    <div id="deleteaccount-modal" class="modal fade modal-custom modal-warning" tabindex="-1" role="dialog" aria-labelledby="deleteaccount-modal-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
     
@@ -91,12 +91,9 @@ $stmt1->fetch();
     </div>
     
 	<div class="modal-footer">
-    
-	<div class="pull-left">
-    <button id="FormSubmit" class="btn btn-danger btn-lg" type="submit">Yes</span></button>
-    </div>
     <div class="text-right">
-	<button class="btn btn-success btn-lg" data-dismiss="modal">No</span></button>
+    <a id="FormSubmit" class="btn btn-danger btn-lg btn-load">Delete</a>
+    <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
 	</div>
     
 	</div>
