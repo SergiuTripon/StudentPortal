@@ -70,7 +70,7 @@ if ($studentno = 0) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" data-toggle="modal" href="#deleteaccount-modal">Delete account</span></a>
+    <a class="btn btn-primary btn-lg" data-toggle="modal" href="#delete-account-modal">Delete account</span></a>
     </div>
 
     </form>
@@ -86,6 +86,7 @@ if ($studentno = 0) {
     </div>
 
     <div class="modal-body">
+    <div id="session_userid" style="display: none;"><?php echo $session_userid; ?></div>
     <p class="text-center">Are you sure you want to delete your account?</p>
     </div>
 
