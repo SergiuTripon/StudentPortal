@@ -92,8 +92,8 @@ if ($studentno === 0) {
 
     <div class="modal-footer">
     <div class="text-right">
-    <a class="btn btn-danger btn-lg btn-delete-account btn-load">Delete</a>
-    <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+    <a class="btn btn-primary btn-lg btn-delete-account btn-load">Delete</a>
+    <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
     </div>
     </div>
 
