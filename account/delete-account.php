@@ -10,7 +10,7 @@ $stmt1->store_result();
 $stmt1->bind_result($email, $studentno, $firstname, $surname);
 $stmt1->fetch();
 
-if ($studentno = 0) {
+if ($studentno === 0) {
     $studentno = '-';
 }
 
