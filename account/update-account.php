@@ -359,8 +359,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
-    <!-- Sign Out (Inactive) JS -->
-    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
+
+
 
     <?php endif; ?>
 
@@ -672,8 +672,8 @@ if ($dateofbirth == "0000-00-00") {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
-    <!-- Sign Out (Inactive) JS -->
-    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
+
+
 
     <?php endif; ?>
 

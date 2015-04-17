@@ -488,8 +488,8 @@ global $transport_status_last_updated;
 	
 	<?php include 'includes/footers/footer.php'; ?>
 
-           <!-- Sign Out (Inactive) JS -->
-    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
+
+
 
 	<?php else : ?>
 

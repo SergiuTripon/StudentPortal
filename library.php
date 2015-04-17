@@ -1028,8 +1028,8 @@ AdminLibraryUpdate();
 
 	<?php include 'includes/footers/footer.php'; ?>
 
-	<!-- Sign Out (Inactive) JS -->
-    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
+
+
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 

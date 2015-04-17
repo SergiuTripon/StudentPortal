@@ -46,7 +46,7 @@
 
     <?php include '../../includes/footers/footer.php'; ?>
 
-    <!-- Sign Out (Inactive) JS -->
+
     <script src="../../assets/js/sign-out-inactive.js"></script>
 	
 	<?php else : ?>

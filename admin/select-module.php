@@ -206,7 +206,7 @@ if (isset($_GET['id'])) {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
-	<!-- Sign Out (Inactive) JS -->
+
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>

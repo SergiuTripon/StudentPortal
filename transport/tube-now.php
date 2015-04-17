@@ -149,7 +149,7 @@ global $transport_status_last_updated;
 	
 	<?php include '../includes/footers/footer.php'; ?>
 
-   <!-- Sign Out (Inactive) JS -->
+
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
 	<?php else : ?>

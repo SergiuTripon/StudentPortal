@@ -75,11 +75,10 @@ $stmt1->fetch();
     <div id="deleteaccount-modal" class="modal fade modal-custom modal-warning" tabindex="-1" role="dialog" aria-labelledby="deleteaccount-modal-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
-    
-	<div class="modal-header">
-    <div class="form-logo text-center">
-    <i class="fa fa-trash"></i>
-    </div>
+
+    <div class="modal-header">
+    <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+    <h4 class="modal-title" id="modal-custom-label">Delete account?</h4>
     </div>
 
     <div class="modal-body">
@@ -92,7 +91,7 @@ $stmt1->fetch();
     
 	<div class="modal-footer">
     <div class="text-right">
-    <a id="FormSubmit" class="btn btn-danger btn-lg btn-load">Delete</a>
+    <a class="btn btn-danger btn-lg btn-delete-account btn-load">Delete</a>
     <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
 	</div>
     
@@ -106,8 +105,33 @@ $stmt1->fetch();
 	
 	<?php include '../includes/footers/footer.php'; ?>
 
-    <!-- Sign Out (Inactive) JS -->
-    <script src="https://student-portal.co.uk/assets/js/custom/sign-out-inactive.js"></script>
+
+
+
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+	<script>
+    //Ajax call
+    $(".btn-delete-account").click(function (e) {
+    e.preventDefault();
+
+    var accountToDelete = $("#session_userid").text();
+
+    jQuery.ajax({
+    type: "POST",
+    url: "https://student-portal.co.uk/includes/processes.php",
+    data:'accountToDelete=' + accountToDelete,
+    success:function(){
+        window.location.href = "/account/account-deleted/";
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+        $("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+    });
+    return true;
+    });
+    </script>
 
 	<?php else : ?>
 
@@ -136,36 +160,6 @@ $stmt1->fetch();
     <?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
-
-    <?php include '../assets/js-paths/common-js-paths.php'; ?>
-
-	<script>
-    $(document).ready(function() {
-
-    //Ajax call
-    $("#FormSubmit").click(function (e) {
-    e.preventDefault();
-
-    var accountToDelete = $("#session_userid").text();
-
-    jQuery.ajax({
-    type: "POST",
-    url: "https://student-portal.co.uk/includes/processes.php",
-    data:'accountToDelete=' + accountToDelete,
-    success:function(){
-        window.location.href = "/account/account-deleted/";
-    },
-    error:function (xhr, ajaxOptions, thrownError){
-        $("#error").show();
-        $("#error").empty().append(thrownError);
-    }
-    });
-
-    return true;
-
-    });
-    });
-    </script>
 
 </body>
 </html>

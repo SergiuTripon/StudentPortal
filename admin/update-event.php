@@ -119,7 +119,7 @@ if (isset($_GET["id"])) {
 	
 	<?php include '../includes/footers/footer.php'; ?>
 
-    <!-- Sign Out (Inactive) JS -->
+
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php else : ?>
@@ -148,7 +148,7 @@ if (isset($_GET["id"])) {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
-    <!-- Sign Out (Inactive) JS -->
+
     <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 
     <?php endif; ?>
