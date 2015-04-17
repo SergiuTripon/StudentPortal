@@ -48,11 +48,11 @@ include 'includes/session.php';
 	<hr>
                 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg" href="../home/">Home</a>
+    <a class="btn btn-success btn-lg btn-load" href="../home/">Home</a>
     </div>
 	
     <div class="text-right">
-    <a class="btn btn-danger btn-lg" href="../sign-out/">Sign Out</a>
+    <a class="btn btn-danger btn-lg btn-load" href="../sign-out/">Sign Out</a>
     </div>
     
 	</form>
@@ -60,6 +60,7 @@ include 'includes/session.php';
     </div>
 
     <?php include 'includes/footers/footer.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <!-- Sign Out (Inactive) JS -->
     <script src="../assets/js/sign-out-inactive.js"></script>
