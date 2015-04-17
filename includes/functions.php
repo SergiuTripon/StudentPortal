@@ -143,8 +143,8 @@ function SignOut() {
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//RegisterUser function
-function RegisterUser() {
+//Register function
+function Register() {
 
 	global $mysqli;
 	global $created_on;

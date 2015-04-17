@@ -18,14 +18,14 @@ elseif (isset($_POST['email'], $_POST['password'])) {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Register function
-//Call RegisterUser function
+//Call Register function
 elseif(isset(
     $_POST["register_firstname"],
     $_POST["register_surname"],
     $_POST["register_gender"],
     $_POST["register_email"],
     $_POST["register_password"])) {
-	RegisterUser();
+	Register();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

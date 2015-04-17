@@ -380,7 +380,11 @@ include 'includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'register_firstname=' + firstname + '&register_surname=' + surname + '&register_gender=' + gender + '&regiister_email=' + email + '&register_password=' + password,
+    data:'register_firstname=' + firstname +
+         '&register_surname='  + surname +
+         '&register_gender='   + gender +
+         '&register_email='    + email +
+         '&register_password=' + password,
     success:function(){
         $("#error").hide();
 		$("#hide").hide();
