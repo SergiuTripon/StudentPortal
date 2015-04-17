@@ -105,9 +105,6 @@ $stmt1->fetch();
 	
 	<?php include '../includes/footers/footer.php'; ?>
 
-
-
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
@@ -122,9 +119,13 @@ $stmt1->fetch();
     url: "https://student-portal.co.uk/includes/processes.php",
     data:'accountToDelete=' + accountToDelete,
     success:function(){
+
+        buttonReset();
+
         window.location.href = "/account/account-deleted/";
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
