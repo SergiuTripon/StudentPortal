@@ -50,9 +50,6 @@ include '../includes/session.php';
 
     <?php include '../includes/footers/footer.php'; ?>
 
-
-
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <?php else : ?>
@@ -76,11 +73,11 @@ include '../includes/session.php';
     <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</span></a>
 	</div>
 
     <div class="text-right">
-    <a class="btn btn-success btn-lg" href="/register">Register</span></a>
+    <a class="btn btn-primary btn-lg btn-load" href="/register">Register</span></a>
 
 	</div>
 
