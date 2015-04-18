@@ -87,7 +87,7 @@ if ($studentno === 0) {
 
     <div class="modal-body">
     <div id="session_userid" style="display: none;"><?php echo $session_userid; ?></div>
-    <p class="text-center">Are you sure you want to delete your account?</p>
+    <p class="text-left">Are you sure you want to delete your account?</p>
     </div>
 
     <div class="modal-footer">
