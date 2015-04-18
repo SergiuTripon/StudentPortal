@@ -47,7 +47,7 @@ if ($studentno === 0) {
     </ol>
 	
     <!-- Delete account -->
-	<form class="form-horizontal form-custom" style="max-width: 100%;" name="deleteaccount_form">
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="delete_account_form">
 
     <div class="form-group">
     
