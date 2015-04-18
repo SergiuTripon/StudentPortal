@@ -114,6 +114,8 @@ if ($studentno === 0) {
 
     var accountToDelete = $("#session_userid").html();
 
+    alert(accountToDelete);
+
     jQuery.ajax({
     type: "POST",
     url: "https://student-portal.co.uk/includes/processes.php",
