@@ -112,7 +112,7 @@ if ($studentno === 0) {
     $(".btn-delete-account").click(function (e) {
     e.preventDefault();
 
-    var accountToDelete = $("#session_userid").text();
+    var accountToDelete = $("#session_userid").html();
 
     jQuery.ajax({
     type: "POST",
