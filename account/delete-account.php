@@ -122,7 +122,11 @@ if ($studentno === 0) {
 
         buttonReset();
 
-        window.location.href = "/account/account-deleted/";
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            window.location.href = "/account/account-deleted/";
+        });
     },
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
