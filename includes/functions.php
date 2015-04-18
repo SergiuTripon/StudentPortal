@@ -5516,15 +5516,15 @@ function DeleteAccount() {
     $stmt9->execute();
     $stmt9->close();
 
-    $stmt9 = $mysqli->prepare("DELETE FROM system_event_booked WHERE userid = ?");
-    $stmt9->bind_param('i', $accountToDelete);
-    $stmt9->execute();
-    $stmt9->close();
-
-    $stmt10 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+    $stmt10 = $mysqli->prepare("DELETE FROM system_event_booked WHERE userid = ?");
     $stmt10->bind_param('i', $accountToDelete);
     $stmt10->execute();
     $stmt10->close();
+
+    $stmt11 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+    $stmt11->bind_param('i', $accountToDelete);
+    $stmt11->execute();
+    $stmt11->close();
 
 	session_unset();
 	session_destroy();
