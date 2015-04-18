@@ -3282,13 +3282,13 @@ function AdminLibraryUpdate($isUpdate = 0) {
             </div>
 
 			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete "'.$book_name.'"?</p>
+			<p class="text-left">Are you sure you want to delete "'.$book_name.'"?</p>
 			</div>
 
 			<div class="modal-footer">
 			<div class="text-right">
-            <a id="delete-'.$bookid.'" class="btn btn-danger btn-lg btn-delete-book btn-load">Delete</a>
-			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$bookid.'" class="btn btn-primary btn-lg btn-delete-book btn-load">Delete</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
