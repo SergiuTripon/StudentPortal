@@ -5486,30 +5486,45 @@ function DeleteAccount() {
     $stmt3->execute();
     $stmt3->close();
 
-    $stmt4 = $mysqli->prepare("DELETE FROM user_timetable WHERE userid = ?");
+    $stmt4 = $mysqli->prepare("DELETE FROM user_module WHERE userid = ?");
     $stmt4->bind_param('i', $accountToDelete);
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM user_result WHERE userid = ?");
+    $stmt5 = $mysqli->prepare("DELETE FROM user_lecture WHERE userid = ?");
     $stmt5->bind_param('i', $accountToDelete);
     $stmt5->execute();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM system_book_reserved WHERE userid = ?");
+    $stmt6 = $mysqli->prepare("DELETE FROM user_tutorial WHERE userid = ?");
     $stmt6->bind_param('i', $accountToDelete);
     $stmt6->execute();
     $stmt6->close();
 
-    $stmt7 = $mysqli->prepare("DELETE FROM system_event_booked WHERE userid = ?");
+    $stmt7 = $mysqli->prepare("DELETE FROM user_exam WHERE userid = ?");
     $stmt7->bind_param('i', $accountToDelete);
     $stmt7->execute();
     $stmt7->close();
 
-    $stmt8 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+    $stmt8 = $mysqli->prepare("DELETE FROM user_result WHERE userid = ?");
     $stmt8->bind_param('i', $accountToDelete);
     $stmt8->execute();
     $stmt8->close();
+
+    $stmt9 = $mysqli->prepare("DELETE FROM system_book_reserved WHERE userid = ?");
+    $stmt9->bind_param('i', $accountToDelete);
+    $stmt9->execute();
+    $stmt9->close();
+
+    $stmt9 = $mysqli->prepare("DELETE FROM system_event_booked WHERE userid = ?");
+    $stmt9->bind_param('i', $accountToDelete);
+    $stmt9->execute();
+    $stmt9->close();
+
+    $stmt10 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
+    $stmt10->bind_param('i', $accountToDelete);
+    $stmt10->execute();
+    $stmt10->close();
 
 	session_unset();
 	session_destroy();
