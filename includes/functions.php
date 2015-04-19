@@ -2938,8 +2938,6 @@ function RenewBook($isCheck = 0) {
 
         $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
 
-        echo $bookToRenew;
-
         $stmt2 = $mysqli->prepare("SELECT bookid, loanid, toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
         $stmt2->bind_param('i', $bookToRenew);
         $stmt2->execute();
@@ -4076,8 +4074,8 @@ function EventsPaypalPaymentSuccess() {
 
 	global $mysqli;
 	global $newquantity;
-	global $updated_on;
 	global $created_on;
+    global $updated_on;
 	global $completed_on;
 
     //Get data from Paypal IPN
@@ -4104,8 +4102,8 @@ function EventsPaypalPaymentSuccess() {
 
     $event_class = 'event-important';
 
-	$stmt2 = $mysqli->prepare("INSERT INTO system_event_booked (userid, eventid, event_amount_paid, ticket_quantity, event_class, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt2->bind_param('iiiiss', $userid, $item_number1, $product_amount, $quantity1, $event_class, $created_on);
+	$stmt2 = $mysqli->prepare("INSERT INTO system_event_booked (event_class, userid, eventid, event_amount_paid, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
+	$stmt2->bind_param('siiiis', $event_class, $userid, $item_number1, $product_amount, $quantity1, $created_on);
 	$stmt2->execute();
 	$stmt2->close();
 
