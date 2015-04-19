@@ -58,7 +58,7 @@ global $transport_status_last_updated;
 
     <div class="transport-body">
     <h1><i class="fa fa-subway"></i></h1>
-    <h4><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Now</a></h4>
+    <h4><a class="btn-load" href="/transport/tube-now/">Now</a></h4>
     </div>
 
     <div class="transport-footer">
@@ -66,7 +66,7 @@ global $transport_status_last_updated;
 	<h5><i class="fa fa-clock-o"></i> <?php echo $transport_status_last_updated ?></h5>
     </div>
     <div class="pull-right">
-    <h5><a class="ladda-button" data-style="slide-down" href="/transport/tube-now/">Station status <i class="fa fa-angle-right"></i></a></h5>
+    <h5><a class="btn-load" href="/transport/tube-now/">Station status <i class="fa fa-angle-right"></i></a></h5>
     </div>
     </div>
 
