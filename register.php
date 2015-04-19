@@ -87,6 +87,7 @@ include 'includes/session.php';
 
     <p class="feedback-sad text-justify">Note: The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you.</p>
 
+    <hr>
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
