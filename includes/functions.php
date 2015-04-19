@@ -2663,11 +2663,11 @@ function ReserveBook() {
 	$stmt2->execute();
 	$stmt2->close();
 
-	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
 	$stmt3->bind_param('i', $session_userid);
 	$stmt3->execute();
 	$stmt3->store_result();
-	$stmt3->bind_result($email, $firstname, $surname, $studentno);
+	$stmt3->bind_result($email, $firstname, $surname);
 	$stmt3->fetch();
 	$stmt3->close();
 
@@ -2683,7 +2683,6 @@ function ReserveBook() {
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$firstname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $surname</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $email</td></tr>";
-	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $studentno</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_name</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_author</td></tr>";
 	$message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $created_on</td></tr>";
@@ -2748,11 +2747,11 @@ function CollectBook() {
     $stmt2->execute();
     $stmt2->close();
 
-    $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt3->bind_param('i', $userid);
     $stmt3->execute();
     $stmt3->store_result();
-    $stmt3->bind_result($email, $firstname, $surname, $studentno);
+    $stmt3->bind_result($email, $firstname, $surname);
     $stmt3->fetch();
     $stmt3->close();
 
@@ -2768,7 +2767,6 @@ function CollectBook() {
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$firstname</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $surname</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $email</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $studentno</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_name</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_author</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Loan date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $created_on</td></tr>";
@@ -2862,19 +2860,19 @@ function ReturnBook() {
         $stmt7->execute();
         $stmt7->close();
 
-        $stmt8 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+        $stmt8 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
         $stmt8->bind_param('i', $userid);
         $stmt8->execute();
         $stmt8->store_result();
-        $stmt8->bind_result($email, $firstname, $surname, $studentno);
+        $stmt8->bind_result($email, $firstname, $surname);
         $stmt8->fetch();
         $stmt8->close();
 
-        $stmt9 = $mysqli->prepare("SELECT r.userid, b.book_name, b.book_author FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.bookid=? ORDER BY r.reservationid DESC LIMIT 1");
+        $stmt9 = $mysqli->prepare("SELECT b.book_name, b.book_author FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.bookid=? ORDER BY r.reservationid DESC LIMIT 1");
         $stmt9->bind_param('i', $bookToReturn);
         $stmt3->execute();
         $stmt9->store_result();
-        $stmt9->bind_result($userid, $book_name, $book_author);
+        $stmt9->bind_result($book_name, $book_author);
         $stmt9->fetch();
 
         //Creating email
@@ -2887,7 +2885,6 @@ function ReturnBook() {
         $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$firstname</td></tr>";
         $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $surname</td></tr>";
         $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $email</td></tr>";
-        $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $studentno</td></tr>";
         $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_name</td></tr>";
         $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_author</td></tr>";
         $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Reservation date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $updated_on</td></tr>";
@@ -3001,19 +2998,19 @@ function RequestBook() {
     $stmt4->fetch();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt5 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt5->bind_param('i', $userid);
     $stmt5->execute();
     $stmt5->store_result();
-    $stmt5->bind_result($reservee_email, $reservee_firstname, $reservee_surname, $reservee_studentno);
+    $stmt5->bind_result($reservee_email, $reservee_firstname, $reservee_surname);
     $stmt5->fetch();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
+    $stmt6 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt6->bind_param('i', $session_userid);
     $stmt6->execute();
     $stmt6->store_result();
-    $stmt6->bind_result($requester_email, $requester_firstname, $requester_surname, $requester_studentno);
+    $stmt6->bind_result($requester_email, $requester_firstname, $requester_surname);
     $stmt6->fetch();
     $stmt6->close();
 
@@ -3029,7 +3026,6 @@ function RequestBook() {
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>First name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\">$requester_firstname</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Surname:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $requester_surname</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Email:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $requester_email</td></tr>";
-    $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Student number:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $requester_studentno</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Name:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_name</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Author:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $book_author</td></tr>";
     $message .= "<tr><td style=\"border: 1px solid #CCCCCC;\"><strong>Booking date:</strong> </td><td style=\"border: 1px solid #CCCCCC;\"> $bookreserved_from</td></tr>";
