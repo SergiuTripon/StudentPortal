@@ -764,30 +764,69 @@ function DeleteModule() {
     $stmt4->execute();
     $stmt4->close();
 
-    $stmt5 = $mysqli->prepare("DELETE FROM system_exam WHERE moduleid=?");
-    $stmt5->bind_param('i', $moduleToDelete);
+    $stmt5 = $mysqli->prepare("SELECT examid FROM system_exam WHERE moduleid = ?");
+    $stmt5->bind_param('i', $moduleid);
     $stmt5->execute();
+    $stmt5->store_result();
+    $stmt5->bind_result($db_examid);
+    $stmt5->fetch();
     $stmt5->close();
 
-    $stmt6 = $mysqli->prepare("DELETE FROM system_tutorial WHERE moduleid=?");
-    $stmt6->bind_param('i', $moduleToDelete);
+    $stmt6 = $mysqli->prepare("DELETE FROM user_exam WHERE examid=?");
+    $stmt6->bind_param('i', $db_examid);
     $stmt6->execute();
     $stmt6->close();
 
-    $stmt7 = $mysqli->prepare("DELETE FROM system_lecture WHERE moduleid=?");
+    $stmt7 = $mysqli->prepare("DELETE FROM system_exam WHERE moduleid=?");
     $stmt7->bind_param('i', $moduleToDelete);
     $stmt7->execute();
     $stmt7->close();
 
-    $stmt8 = $mysqli->prepare("DELETE FROM user_module WHERE moduleid=?");
-    $stmt8->bind_param('i', $moduleToDelete);
+    $stmt8 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE moduleid = ?");
+    $stmt8->bind_param('i', $moduleid);
     $stmt8->execute();
+    $stmt8->store_result();
+    $stmt8->bind_result($db_tutorialid);
+    $stmt8->fetch();
     $stmt8->close();
 
-    $stmt9 = $mysqli->prepare("DELETE FROM system_module WHERE moduleid=?");
-    $stmt9->bind_param('i', $moduleToDelete);
+    $stmt9 = $mysqli->prepare("DELETE FROM user_tutorial WHERE tutorialid=?");
+    $stmt9->bind_param('i', $db_tutorialid);
     $stmt9->execute();
     $stmt9->close();
+
+    $stmt10 = $mysqli->prepare("DELETE FROM system_tutorial WHERE moduleid=?");
+    $stmt10->bind_param('i', $moduleToDelete);
+    $stmt10->execute();
+    $stmt10->close();
+
+    $stmt11 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE moduleid = ?");
+    $stmt11->bind_param('i', $moduleid);
+    $stmt11->execute();
+    $stmt11->store_result();
+    $stmt11->bind_result($db_lectureid);
+    $stmt11->fetch();
+    $stmt11->close();
+
+    $stmt12 = $mysqli->prepare("DELETE FROM user_lecture WHERE lectureid=?");
+    $stmt12->bind_param('i', $db_lectureid);
+    $stmt12->execute();
+    $stmt12->close();
+
+    $stmt13 = $mysqli->prepare("DELETE FROM system_lecture WHERE moduleid=?");
+    $stmt13->bind_param('i', $moduleToDelete);
+    $stmt13->execute();
+    $stmt13->close();
+
+    $stmt14 = $mysqli->prepare("DELETE FROM user_module WHERE moduleid=?");
+    $stmt14->bind_param('i', $moduleToDelete);
+    $stmt14->execute();
+    $stmt14->close();
+
+    $stmt15 = $mysqli->prepare("DELETE FROM system_module WHERE moduleid=?");
+    $stmt15->bind_param('i', $moduleToDelete);
+    $stmt15->execute();
+    $stmt15->close();
 
     AdminTimetableUpdate($isUpdate = 1);
 }
@@ -1009,10 +1048,8 @@ function DeleteLecture() {
     $stmt1->execute();
     $stmt1->close();
 
-    $lectureid = '';
-
     $stmt2 = $mysqli->prepare("DELETE FROM user_lecture WHERE lectureid=?");
-    $stmt2->bind_param('ii', $lectureid, $lectureToDelete);
+    $stmt2->bind_param('i', $lectureToDelete);
     $stmt2->execute();
     $stmt2->close();
 
@@ -1235,10 +1272,8 @@ function DeleteTutorial() {
     $stmt1->execute();
     $stmt1->close();
 
-    $tutorialid = '';
-
     $stmt2 = $mysqli->prepare("DELETE FROM user_tutorial WHERE tutorialid=?");
-    $stmt2->bind_param('ii', $tutorialid, $tutorialToDelete);
+    $stmt2->bind_param('i', $tutorialToDelete);
     $stmt2->execute();
     $stmt2->close();
 

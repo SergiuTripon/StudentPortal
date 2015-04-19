@@ -75,6 +75,7 @@ include 'includes/session.php';
 
     <div class="form-logo text-center">
 	<i class="fa fa-check-square-o"></i>
+    <p>Please note that this Register facility is only available to students. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you.</p>
     </div>
 
     <hr>
