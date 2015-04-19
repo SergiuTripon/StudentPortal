@@ -75,7 +75,6 @@ include 'includes/session.php';
 
     <div class="form-logo text-center">
 	<i class="fa fa-check-square-o"></i>
-    <p class="feedback-sad text-justify">Note: The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you.</p>
     </div>
 
     <hr>
@@ -85,6 +84,9 @@ include 'includes/session.php';
 	<p id="success" class="feedback-happy text-center"></p>
 
     <div id="hide">
+
+    <p class="feedback-sad text-justify">Note: The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you.</p>
+
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
