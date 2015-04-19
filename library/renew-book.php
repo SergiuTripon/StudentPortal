@@ -181,7 +181,7 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    //Reserve book
+    //Renew book
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
