@@ -59,65 +59,69 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT m.moduleid, m.module_name, l.lecture_lecturer, t.tutorial_assistant FROM system_module m LEFT JOIN user_module u ON m.moduleid = u.moduleid LEFT JOIN system_lecture l ON m.moduleid = l.moduleid LEFT JOIN system_tutorial t ON m.moduleid = t.moduleid WHERE u.userid = '$session_userid' AND m.module_status = 'active'");
+    $module_status = 'active';
 
-	while($row = $stmt1->fetch_assoc()) {
+	$stmt1 = $mysqli->prepare("SELECT m.moduleid, m.module_name, l.lecture_lecturer, t.tutorial_assistant FROM system_module m LEFT JOIN user_module u ON m.moduleid = u.moduleid LEFT JOIN system_lecture l ON m.moduleid = l.moduleid LEFT JOIN system_tutorial t ON m.moduleid = t.moduleid WHERE u.userid=? AND m.module_status=?");
+    $stmt1->bind_param('is', $session_userid, $module_status);
+    $stmt1->execute();
+    $stmt1->bind_result($moduleid, $module_name, $lecture_lecture, $tutorial_assistant);
+    $stmt1->store_result();
 
-    $moduleid = $row["moduleid"];
-	$module_name = $row["module_name"];
-	$lecture_lecturer = $row["lecture_lecturer"];
-    $tutorial_assistant = $row["tutorial_assistant"];
+    if ($stmt3->num_rows > 0) {
 
-    $stmt2 = $mysqli->prepare("SELECT userid, firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
-    $stmt2->bind_param('i', $lecture_lecturer);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($lecturer_userid, $lecturer_fistname, $lecturer_surname);
-    $stmt2->fetch();
+        while ($stmt3->fetch()) {
 
-    $stmt3 = $mysqli->prepare("SELECT userid, firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
-    $stmt3->bind_param('i', $tutorial_assistant);
-    $stmt3->execute();
-    $stmt3->store_result();
-    $stmt3->bind_result($tutorial_assistant_userid, $tutorial_assistant_firstname, $tutorial_assistant_surname);
-    $stmt3->fetch();
+            $stmt2 = $mysqli->prepare("SELECT userid, firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+            $stmt2->bind_param('i', $lecture_lecturer);
+            $stmt2->execute();
+            $stmt2->store_result();
+            $stmt2->bind_result($lecturer_userid, $lecturer_fistname, $lecturer_surname);
+            $stmt2->fetch();
 
-	echo '<tr>
+            $stmt3 = $mysqli->prepare("SELECT userid, firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
+            $stmt3->bind_param('i', $tutorial_assistant);
+            $stmt3->execute();
+            $stmt3->store_result();
+            $stmt3->bind_result($tutorial_assistant_userid, $tutorial_assistant_firstname, $tutorial_assistant_surname);
+            $stmt3->fetch();
 
-			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
-			<td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
-			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md btn-load" href="../feedback/submit-feedback?id='.$moduleid.'">Submit feedback</span></a></a></td>
-			</tr>
+            echo
+           '<tr>
+            <td data-title="Name"><a href="#view-module-' . $moduleid . '" data-toggle="modal">' . $module_name . '</a></td>
+            <td data-title="Lecturer">' . $lecturer_fistname . ' ' . $lecturer_surname . '</td>
+            <td data-title="Tutorial assistant">' . $tutorial_assistant_firstname . ' ' . $tutorial_assistant_surname . '</td>
+            <td data-title="Action"><a class="btn btn-primary btn-md btn-load" href="../feedback/submit-feedback?id=' . $moduleid . '">Submit feedback</span></a></a></td>
+            </tr>
 
-            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
+            <div id="view-module-' . $moduleid . '" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
 
-			<div class="modal-header">
+            <div class="modal-header">
             <div class="close"><i class="fa fa fa-check-square-o"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
-			</div>
+            <h4 class="modal-title" id="modal-custom-label">' . $module_name . '</h4>
+            </div>
 
-			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
-			<p><b>Moodle link:</b> '.(empty($module_url) ? "-" : "$module_url").'</p>
-			</div>
+            <div class="modal-body">
+            <p><b>Description:</b> ' . (empty($module_notes) ? "-" : "$module_notes") . '</p>
+            <p><b>Moodle link:</b> ' . (empty($module_url) ? "-" : "$module_url") . '</p>
+            </div>
 
-			<div class="modal-footer">
-			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
-			</div>
-			</div>
+            <div class="modal-footer">
+            <div class="view-close text-center">
+            <a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
+            </div>
+            </div>
 
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
-    $stmt2->close();
-    $stmt3->close();
-	}
+            </div><!-- /modal -->
+            </div><!-- /modal-dialog -->
+            </div><!-- /modal-content -->';
+            $stmt2->close();
+            $stmt3->close();
+        }
+    }
 
-	$stmt1->close();
+    $stmt1->close();
 	?>
 	</tbody>
 
