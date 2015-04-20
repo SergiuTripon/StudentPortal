@@ -172,9 +172,6 @@ if (isset($_GET["id"])) {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
-
-
-
 	<?php else : ?>
 
     <?php include '../includes/menus/menu.php'; ?>
@@ -265,16 +262,23 @@ if (isset($_GET["id"])) {
     }
 
     if(hasError == false){
+
+    togglePreloader();
+
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'feedback_moduleid=' + feedback_moduleid + '&feedback_lecturer=' + feedback_lecturer + '&feedback_tutorial_assistant=' + feedback_tutorial_assistant + '&feedback_from_firstname=' + feedback_from_firstname + '&feedback_from_surname=' + feedback_from_surname + '&feedback_from_email=' + feedback_from_email + '&lecturer_feedback_to_email=' + lecturer_feedback_to_email + '&tutorial_assistant_feedback_to_email=' + tutorial_assistant_feedback_to_email + '&feedback_subject=' + feedback_subject + '&feedback_body=' + feedback_body,
     success:function(){
+        buttonReset();
+        togglePreloader();
+
         $("#error").hide();
         $("#hide").hide();
         $("#success").empty().append('Feedback submitted successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
