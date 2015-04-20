@@ -808,21 +808,17 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT f.feedbackid, f.feedback_subject, f.feedback_body, f.created_on, f.moduleid, m.module_name, m.module_notes, m.module_url FROM user_feedback f LEFT JOIN system_module m ON f.moduleid=m.moduleid WHERE f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_sent) AND f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_received)");
+	$stmt2 = $mysqli->query("SELECT f.feedbackid, f.feedback_subject, f.feedback_body, f.created_on, f.moduleid, m.module_name, m.module_notes, m.module_url FROM user_feedback f LEFT JOIN system_module m ON f.moduleid=m.moduleid WHERE f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_sent) AND f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_received)");
+    $stmt2->bind_param('ii', $session_userid, $isApproved);
+    $stmt2->execute();
+    $stmt2->bind_result($feedbackid, $feedback_subject, $feedback_body, $created_on, $moduleid, $module_name, $module_notes, $module_url);
+    $stmt2->store_result();
 
-	while($row = $stmt1->fetch_assoc()) {
+    if ($stmt2->num_rows > 0) {
 
-    $feedbackid = $row["feedbackid"];
-    $userid = $row["userid"];
-    $moduleid = $row["moduleid"];
-	$module_name = $row["module_name"];
-    $module_notes = $row["module_notes"];
-    $module_url = $row["module_url"];
-	$feedback_subject = $row["feedback_subject"];
-    $feedback_body = $row["feedback_body"];
-    $created_on = $row["created_on"];
+        while ($stmt2->fetch()) {
 
-	echo '<tr>
+            echo '<tr>
 
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-submitted-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
@@ -903,7 +899,8 @@ include 'includes/session.php';
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-	}
+        }
+    }
 
 	$stmt1->close();
 	?>
