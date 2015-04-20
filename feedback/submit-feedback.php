@@ -160,7 +160,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Submit feedback</button>
+    <a id="FormSubmit" class="btn btn-primary btn-lg btn-load">Submit feedback</a>
 	</div>
 
     </div>
