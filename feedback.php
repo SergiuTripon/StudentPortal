@@ -467,21 +467,13 @@ include 'includes/session.php';
             </div>
 
 			<div class="modal-body">
-			<p id="delete-feedback-question" class="text-center feedback-sad">Are you sure you want to delete '.$feedback_subject.'?</p>
-			<p id="delete-feedback-confirmation" style="display: none;" class="text-center feedback-happy">'.$feedback_subject.' has been deleted successfully.</p>
+			<p class="text-left">Are you sure you want to delete '.$feedback_subject.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-feedback-hide">
-			<div class="pull-left">
-			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-received-feedback-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a id="delete-'.$feedbackid.'" class="btn btn-primary btn-lg btn-delete-received-feedback btn-load">Delete</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
@@ -524,7 +516,7 @@ include 'includes/session.php';
     $('.table-custom').dataTable(settings);
 
    //Delete received feedback
-    $("body").on("click", ".delete-received-feedback-button", function(e) {
+    $("body").on("click", ".btn-delete-received-feedback", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -737,7 +729,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="text-right">
-            <a id="approve-'.$feedbackid.'" class="btn btn-primary btn-lg btn-approve-feedback">Approve</a>
+            <a id="approve-'.$feedbackid.'" class="btn btn-primary btn-lg btn-approve-feedback btn-load">Approve</a>
 			<button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</button>
 			</div>
 			</div>
