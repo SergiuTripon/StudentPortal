@@ -236,9 +236,8 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
+            <div class="close"><i class="fa fa-check-square-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete feedback?</h4>
 			</div>
 
 			<div class="modal-body">
