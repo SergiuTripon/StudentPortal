@@ -9,11 +9,9 @@ include 'includes/session.php';
 
 	<?php include 'assets/meta-tags.php'; ?>
 
-
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-
-
     <title>Student Portal | Messenger</title>
+
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -71,7 +69,7 @@ include 'includes/session.php';
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Email address">'.$email.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md message-button" href="../messenger/message-user?id='.$userid.'" >Message</span></a></td>
+			<td data-title="Action"><a class="btn btn-primary btn-md message-button btn-load" href="../messenger/message-user?id='.$userid.'" >Message</span></a></td>
 			</tr>';
 	}
 	$stmt1->close();
