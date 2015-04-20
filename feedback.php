@@ -164,13 +164,14 @@ include 'includes/session.php';
     $stmt2->bind_result($moduleid, $module_name, $module_notes, $module_url, $feedbackid, $feedback_subject, $feedback_body, $isApproved, $isRead, $created_on);
     $stmt2->store_result();
 
-    if ($stmt1->num_rows > 0) {
+    if ($stmt2->num_rows > 0) {
 
-        while ($stmt1->fetch()) {
+        while ($stmt2->fetch()) {
 
 
-            echo '<tr id="feedback-'.$feedbackid.'">
+            echo
 
+           '<tr>
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
 			<td data-title="Submitted on">'.$created_on.'</td>
