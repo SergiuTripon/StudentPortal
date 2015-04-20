@@ -1303,7 +1303,7 @@ function DeallocateTutorial() {
     $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
     $tutorialToDeallocate = filter_input(INPUT_POST, 'tutorialToDeallocate', FILTER_SANITIZE_NUMBER_INT);
 
-    echo $userToDeallocate;
+    echo $tutorialToDeallocate;
 
     $stmt1 = $mysqli->prepare("DELETE FROM user_tutorial WHERE userid=? AND tutorialid=?");
     $stmt1->bind_param('ii', $userToDeallocate, $tutorialToDeallocate);
