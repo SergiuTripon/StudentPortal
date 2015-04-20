@@ -4992,13 +4992,24 @@ function SetFeedbackRead () {
     global $mysqli;
     global $session_userid;
 
-    $isRead = 1;
-    $isApproved = 1;
+    $feedbackToRead = filter_input(INPUT_POST, 'feedbackToRead', FILTER_SANITIZE_STRING);
 
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback_received SET isRead=? WHERE module_staff=? and isApproved=?");
-    $stmt1->bind_param('ii', $isRead, $session_userid);
+    $stmt1 = $mysqli->prepare("SELECT isApproved FROM user_feedback WHERE feedbackid = ? LIMIT 1");
+    $stmt1->bind_param('i', $feedbackToRead);
     $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($isApproved);
+    $stmt1->fetch();
     $stmt1->close();
+
+    $isRead = 1;
+
+    if($isApproved === 1) {
+        $stmt1 = $mysqli->prepare("UPDATE user_feedback_received SET isRead=? WHERE feedbackid=?");
+        $stmt1->bind_param('ii', $isRead, $feedbackToRead);
+        $stmt1->execute();
+        $stmt1->close();
+    }
 }
 
 //DeleteFeedback function

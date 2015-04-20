@@ -337,7 +337,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingOne">
   	<h4 class="panel-title">
-	<a id="feedback-read-trigger" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Received feedback</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Received feedback</a>
   	</h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -376,7 +376,7 @@ include 'includes/session.php';
            '<tr>
 			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Module"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
-			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
+			<td data-title="Subject"><a id="read-'.$feedbackid.'" class="feedback-read-trigger" href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
             <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal">Delete</span></a></td>
 			</tr>
 
@@ -542,16 +542,16 @@ include 'includes/session.php';
 	});
     });
 
-    var feedback_read;
-    feedback_read = '1';
-
 	$("#feedback-read-trigger").click(function (e) {
 	e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var feedbackToRead = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_read=' + feedback_read,
+    data:'feedbackToRead=' + feedbackToRead,
     success:function() {
     },
     error:function (xhr, ajaxOptions, thrownError) {

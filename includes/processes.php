@@ -525,7 +525,7 @@ elseif (isset($_POST["feedbackToApprove"])) {
 }
 
 //Call SetFeedbackRead function
-elseif (isset($_POST["feedback_read"])) {
+elseif (isset($_POST["feedbackToRead"])) {
     SetFeedbackRead();
 }
 
