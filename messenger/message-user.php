@@ -118,7 +118,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Message user</span></button>
+    <a id="FormSubmit" class="btn btn-primary btn-lg btn-load">Message user</a>
 	</div>
 
     </div>
@@ -164,10 +164,6 @@ if (isset($_GET["id"])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    $(document).ready(function () {
-
-
-
 
     //Pay course fees form submit
     $("#FormSubmit").click(function (e) {
@@ -261,17 +257,16 @@ if (isset($_GET["id"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('Message sent successfully.');
+        $("#success").empty().append('All done! Message has been sent.');
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
 	});
     }
 	return true;
-
-	});
 	});
 	</script>
 

@@ -292,10 +292,6 @@ AdminEventUpdate();
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
-
-
-
-
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
@@ -413,7 +409,7 @@ AdminEventUpdate();
     <li class="active">Events</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-event/">Create event</span></a>
+    <a class="btn btn-success btn-lg btn-admin btn-load" href="../admin/create-event/">Create event</span></a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 

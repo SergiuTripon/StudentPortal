@@ -9,10 +9,10 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
+    <title>Student Portal | Create event</title>
+
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
-    <title>Student Portal | Create event</title>
-	
 </head>
 
 <body>
@@ -89,7 +89,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load" >Create event</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load btn-load">Create event</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
