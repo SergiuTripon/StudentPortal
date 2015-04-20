@@ -242,9 +242,6 @@ include '../includes/session.php';
         $("#lecture_day").select2({placeholder: "Select an option"});
     });
 
-
-
-
     // Date Time Picker
     $('#lecture_from_time').datetimepicker({
         format: 'HH:mm'

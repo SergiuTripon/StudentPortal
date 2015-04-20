@@ -273,14 +273,11 @@ if (isset($_GET["id"])) {
          '&feedback_subject='                     + feedback_subject +
          '&feedback_body='                        + feedback_body,
     success:function(){
-        buttonReset();
-
         $("#error").hide();
         $("#hide").hide();
         $("#success").empty().append('Feedback submitted successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
-        buttonReset();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
