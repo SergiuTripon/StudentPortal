@@ -256,15 +256,17 @@ if (isset($_GET['id'])) {
 	<script>
 
     //DataTables
-    $('.table-custom').dataTable({
+    var settings = {
         "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no users to display."
-		}
-	});
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no users to display."
+        }
+    };
+
+    $('.table-custom').dataTable(settings);
 
     //Allocate module
 	$("body").on("click", ".allocate-button", function(e) {
@@ -286,12 +288,11 @@ if (isset($_GET['id'])) {
         location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
+        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 
     //Deallocate module
@@ -314,6 +315,7 @@ if (isset($_GET['id'])) {
         location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
+        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
