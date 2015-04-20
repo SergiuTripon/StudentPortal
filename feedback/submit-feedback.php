@@ -278,6 +278,7 @@ if (isset($_GET["id"])) {
         $("#success").empty().append('Feedback submitted successfully.');
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
