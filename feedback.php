@@ -241,21 +241,13 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-feedback-question" class="text-center feedback-sad">Are you sure you want to delete '.$feedback_subject.'?</p>
-			<p id="delete-feedback-confirmation" style="display: none;" class="text-center feedback-happy">'.$feedback_subject.' has been deleted successfully.</p>
+			<p class="text-left">Are you sure you want to delete '.$feedback_subject.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-feedback-hide">
-			<div class="pull-left">
-			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-sent-feedback-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg btn-delete-sent-feedback btn-load">Delete</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
@@ -299,7 +291,7 @@ include 'includes/session.php';
 
 
    //Delete sent feedback
-    $("body").on("click", ".delete-sent-feedback-button", function(e) {
+    $("body").on("click", ".btn-delete-sent-feedback", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -311,6 +303,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'sentFeedbackToDelete='+ sentFeedbackToDelete,
 	success:function(){
+
         $('.modal-custom').modal('hide');
 
         $('.modal-custom').on('hidden.bs.modal', function () {
@@ -318,6 +311,7 @@ include 'includes/session.php';
         });
 	},
 	error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
