@@ -830,6 +830,7 @@ include '../includes/session.php';
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
 		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
