@@ -677,8 +677,6 @@ global $archived_task;
          '&update_task_duedate='    + update_task_duedate,
     success:function(html){
 
-        alert(html.error_msg);
-
         $('.modal-form').modal('hide');
 
         $('.modal-form').on('hidden.bs.modal', function () {
