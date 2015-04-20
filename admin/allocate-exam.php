@@ -80,7 +80,7 @@ if (isset($_GET['id'])) {
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a id="#allocate-'.$userid.'" class="btn btn-primary btn-md btn-allocate-exam">Allocate</a></td>
+			<td data-title="Action"><a id="#allocate-'.$userid.'" class="btn btn-primary btn-md btn-allocate-exam btn-load">Allocate</a></td>
 			</tr>';
     }
 	$stmt1->close();
