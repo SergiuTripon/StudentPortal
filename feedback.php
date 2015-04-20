@@ -613,7 +613,7 @@ include 'includes/session.php';
     $isApproved = 0;
 
 	$stmt1 = $mysqli->prepare("SELECT DISTINCT r.feedbackid, d.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.studentno, d.degree, m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedbackid, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on, f.isApproved, r.isRead FROM user_feedback_received r LEFT JOIN user_detail d ON r.feedback_from=d.userid LEFT JOIN system_module m ON r.moduleid=m.moduleid LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE f.isApproved=? AND r.isRead=?");
-    $stmt1->bind_param('ii', $session_userid, $isApproved);
+    $stmt1->bind_param('ii', $isRead, $isApproved);
     $stmt1->execute();
     $stmt1->bind_result($feedbackid, $userid, $firstname, $surname, $gender, $dateofbirth, $studentno, $degree, $moduleid, $module_name, $module_notes, $module_url, $feedbackid, $feedback_subject, $feedback_body, $created_on, $isApproved, $isRead);
     $stmt1->store_result();
