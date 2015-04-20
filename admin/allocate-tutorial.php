@@ -228,20 +228,15 @@ if (isset($_GET['id'])) {
 
     var clickedID = this.id.split('-');
     var userToDeallocate = clickedID[1];
-    var tutorialToDeallocate = $("#moduleid").html();
+    var tutorialToDeallocate = $("#tutorialid").html();
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'userToDeallocate='+ userToDeallocate + '&tutorialToDeallocate='+ tutorialToDeallocate,
-	success:function(html){
-        if (html) {
-            alert(html);
-        } else {
-            location.reload();
-        }
-
+	success:function(){
+        location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
