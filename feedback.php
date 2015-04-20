@@ -247,8 +247,8 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="text-right">
-            <a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg btn-delete-sent-feedback btn-load">Delete</a>
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$feedbackid.'" class="btn btn-primary btn-lg btn-delete-sent-feedback btn-load">Delete</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
