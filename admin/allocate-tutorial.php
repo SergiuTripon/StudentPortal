@@ -80,7 +80,7 @@ if (isset($_GET['id'])) {
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a id="#allocate-'.$userid.'" class="btn btn-primary btn-md btn-allocate-tutorial">Allocate</a></td>
+			<td data-title="Action"><a id="#allocate-'.$userid.'" class="btn btn-primary btn-md btn-allocate-tutorial btn-load">Allocate</a></td>
 			</tr>';
     }
 	$stmt1->close();
@@ -222,9 +222,7 @@ if (isset($_GET['id'])) {
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 
     //Deallocate module
@@ -247,7 +245,6 @@ if (isset($_GET['id'])) {
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
     });
 	</script>
