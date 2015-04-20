@@ -380,7 +380,7 @@ include 'includes/session.php';
             <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal">Delete</span></a></td>
 			</tr>
 
-			<div id="view-user-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -398,7 +398,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="view-close text-center">
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
