@@ -67,9 +67,9 @@ include 'includes/session.php';
     $stmt1->bind_result($moduleid, $module_name, $lecture_lecture, $tutorial_assistant);
     $stmt1->store_result();
 
-    if ($stmt3->num_rows > 0) {
+    if ($stmt1->num_rows > 0) {
 
-        while ($stmt3->fetch()) {
+        while ($stmt1->fetch()) {
 
             $stmt2 = $mysqli->prepare("SELECT userid, firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
             $stmt2->bind_param('i', $lecture_lecturer);
