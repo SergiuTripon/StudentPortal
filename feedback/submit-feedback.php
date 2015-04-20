@@ -45,7 +45,7 @@ if (isset($_GET["id"])) {
 
     <?php include '../assets/meta-tags.php'; ?>
 
-    <title>Student Portal | Message a user</title>
+    <title>Student Portal | Submit feedback</title>
 
     <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
@@ -160,7 +160,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Submit feedback</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Submit feedback</button>
 	</div>
 
     </div>
