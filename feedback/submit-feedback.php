@@ -275,7 +275,7 @@ if (isset($_GET["id"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('Feedback submitted successfully.');
+        $("#success").empty().append('All done! Feedback has been submitted.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
