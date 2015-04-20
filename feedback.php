@@ -236,9 +236,9 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa-check-square-o"></i></div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
             <h4 class="modal-title" id="modal-custom-label">Delete feedback?</h4>
-			</div>
+            </div>
 
 			<div class="modal-body">
 			<p class="text-left">Are you sure you want to delete '.$feedback_subject.'?</p>
