@@ -547,9 +547,9 @@ elseif (isset($_POST["receivedFeedbackToDelete"])) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Call Messenger functions
-//Call MessageUser functions
+//Call SendMessage functions
 elseif (isset($_POST["message_to_userid"], $_POST["message_to_firstname"], $_POST["message_to_surname"], $_POST["message_to_email"], $_POST["message_subject"], $_POST["message_body"])) {
-    MessageUser();
+    SendMessage();
 }
 
 //Call SetMessageRead function

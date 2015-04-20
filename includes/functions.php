@@ -5055,7 +5055,7 @@ function DeleteReceivedFeedback () {
 
 //Messenger functions
 //MessageUser function
-function MessageUser() {
+function SendMessage() {
 
 	global $mysqli;
 	global $session_userid;

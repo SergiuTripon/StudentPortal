@@ -9,11 +9,9 @@ include 'includes/session.php';
 
 	<?php include 'assets/meta-tags.php'; ?>
 
-
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-
-
     <title>Student Portal | Feedback</title>
+
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -89,7 +87,7 @@ include 'includes/session.php';
 			<td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
 			<td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md" href="../feedback/submit-feedback?id='.$moduleid.'" >Submit feedback</span></a></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md btn-load" href="../feedback/submit-feedback?id='.$moduleid.'">Submit feedback</span></a></a></td>
 			</tr>
 
             <div id="view-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -282,9 +280,49 @@ include 'includes/session.php';
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+
+    <script>
+	//DataTables
+    var settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
+    $('.table-custom').dataTable(settings);
 
 
+   //Delete sent feedback
+    $("body").on("click", ".delete-sent-feedback-button", function(e) {
+    e.preventDefault();
 
+    var clickedID = this.id.split('-');
+    var sentFeedbackToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'sentFeedbackToDelete='+ sentFeedbackToDelete,
+	success:function(){
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+	</script>
 
     <?php endif; ?>
 
@@ -483,9 +521,66 @@ include 'includes/session.php';
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
+    <script>
+	//DataTables
+    var settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
 
+    $('.table-custom').dataTable(settings);
 
+   //Delete received feedback
+    $("body").on("click", ".delete-received-feedback-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var receivedFeedbackToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'receivedFeedbackToDelete='+ receivedFeedbackToDelete,
+	success:function(){
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    var feedback_read;
+    feedback_read = '1';
+
+	$("#feedback-read-trigger").click(function (e) {
+	e.preventDefault();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'feedback_read=' + feedback_read,
+    success:function() {
+    },
+    error:function (xhr, ajaxOptions, thrownError) {
+    }
+	});
+	});
+	</script>
 
     <?php endif; ?>
 
@@ -824,32 +919,23 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-            <div id="delete-feedback-'.$feedbackid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-feedback-'.$feedbackid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
+            <div class="close"><i class="fa fa-check-square-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete feedback?</h4>
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-feedback-question" class="text-center feedback-sad">Are you sure you want to delete '.$feedback_subject.'?</p>
-			<p id="delete-feedback-confirmation" style="display: none;" class="text-center feedback-happy">'.$feedback_subject.' has been deleted successfully.</p>
+			<p class="text-left">Are you sure you want to delete '.$feedback_subject.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-feedback-hide">
-			<div class="pull-left">
-			<a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg delete-feedback-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-feedback-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg btn-delete-feedback btn-load">Delete</a>
+			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
@@ -874,9 +960,74 @@ include 'includes/session.php';
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
+    <script>
+	//DataTables
+    var settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
 
+    $('.table-custom').dataTable(settings);
 
+    $("body").on("click", ".approve-feedback-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var feedbackToApprove = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'feedbackToApprove='+ feedbackToApprove,
+	success:function(){
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Delete feedback
+    $("body").on("click", ".delete-feedback-button", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var feedbackToDelete = clickedID[1];
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'feedbackToDelete='+ feedbackToDelete,
+	success:function(){
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            location.reload();
+        });
+	},
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+	</script>
 
     <?php endif; ?>
 
@@ -909,164 +1060,6 @@ include 'includes/session.php';
 	<?php include 'includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
-
-	<script>
-
-
-
-	//DataTables
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no records to display."
-		}
-	});
-
-    $("body").on("click", ".approve-feedback-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var feedbackToApprove = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'feedbackToApprove='+ feedbackToApprove,
-	success:function(){
-        $('#feedback-'+feedbackToApprove).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#approve-feedback-question').hide();
-        $('#approve-feedback-confirmation').show();
-        $('#approve-feedback-hide').hide();
-        $('#approve-feedback-success-button').show();
-        $("#approve-feedback-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Delete feedback
-    $("body").on("click", ".delete-feedback-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var feedbackToDelete = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'feedbackToDelete='+ feedbackToDelete,
-	success:function(){
-		$('#feedback-'+feedbackToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-feedback-question').hide();
-        $('#delete-feedback-confirmation').show();
-        $('#delete-feedback-hide').hide();
-        $('#delete-feedback-success-button').show();
-        $("#delete-feedback-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-   //Delete sent feedback
-    $("body").on("click", ".delete-sent-feedback-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var sentFeedbackToDelete = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'sentFeedbackToDelete='+ sentFeedbackToDelete,
-	success:function(){
-		$('#feedback-'+sentFeedbackToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-feedback-question').hide();
-        $('#delete-feedback-confirmation').show();
-        $('#delete-feedback-hide').hide();
-        $('#delete-feedback-success-button').show();
-        $("#delete-feedback-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-   //Delete received feedback
-    $("body").on("click", ".delete-received-feedback-button", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var receivedFeedbackToDelete = clickedID[1];
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'receivedFeedbackToDelete='+ receivedFeedbackToDelete,
-	success:function(){
-        $('#feedback-'+receivedFeedbackToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-feedback-question').hide();
-        $('#delete-feedback-confirmation').show();
-        $('#delete-feedback-hide').hide();
-        $('#delete-feedback-success-button').show();
-        $("#delete-feedback-success-button").click(function () {
-            location.reload();
-        });
-	},
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    var feedback_read;
-    feedback_read = '1';
-
-	$("#feedback-read-trigger").click(function (e) {
-	e.preventDefault();
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'feedback_read=' + feedback_read,
-    success:function() {
-    },
-    error:function (xhr, ajaxOptions, thrownError) {
-    }
-	});
-	});
-	</script>
 
 </body>
 </html>
