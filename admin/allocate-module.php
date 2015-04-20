@@ -210,19 +210,15 @@ if (isset($_GET['id'])) {
     var userToAllocate = clickedID[1];
     var moduleToAllocate = $("#moduleid").html();
 
-    togglePreloader();
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'userToAllocate='+ userToAllocate + '&moduleToAllocate='+ moduleToAllocate,
 	success:function(){
-        togglePreloader();
         location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
-        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
@@ -237,19 +233,15 @@ if (isset($_GET['id'])) {
     var userToDeallocate = clickedID[1];
     var moduleToDeallocate = $("#moduleid").html();
 
-    togglePreloader();
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'userToDeallocate='+ userToDeallocate + '&moduleToDeallocate='+ moduleToDeallocate,
 	success:function(){
-        togglePreloader();
         location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
-        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
