@@ -216,7 +216,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 	data:'userToAllocate='+ userToAllocate + '&tutorialToAllocate='+ tutorialToAllocate,
 	success:function(){
-            location.reload();
+        location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -233,15 +233,18 @@ if (isset($_GET['id'])) {
     var userToDeallocate = clickedID[1];
     var tutorialToDeallocate = $("#moduleid").html();
 
-    alert(userToDeallocate);
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'userToDeallocate='+ userToDeallocate + '&tutorialToDeallocate='+ tutorialToDeallocate,
-	success:function(){
+	success:function(html){
+        if (html) {
+
+        } else {
             location.reload();
+        }
+
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
