@@ -808,7 +808,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT f.feedbackid, f.feedback_subject, f.feedback_body, f.created_on, f.moduleid, m.module_name, m.module_notes, m.module_url FROM user_feedback f LEFT JOIN system_module m ON f.moduleid=m.moduleid WHERE f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_sent) AND f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_received)");
+	$stmt2 = $mysqli->prepare("SELECT f.feedbackid, f.feedback_subject, f.feedback_body, f.created_on, f.moduleid, m.module_name, m.module_notes, m.module_url FROM user_feedback f LEFT JOIN system_module m ON f.moduleid=m.moduleid WHERE f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_sent) AND f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_received)");
     $stmt2->bind_param('ii', $session_userid, $isApproved);
     $stmt2->execute();
     $stmt2->bind_result($feedbackid, $feedback_subject, $feedback_body, $created_on, $moduleid, $module_name, $module_notes, $module_url);
