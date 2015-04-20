@@ -274,22 +274,16 @@ if (isset($_GET['id'])) {
     var userToAllocate = clickedID[1];
     var moduleToAllocate = $("#moduleid").html();
 
+    togglePreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'userToAllocate='+ userToAllocate + '&moduleToAllocate='+ moduleToAllocate,
 	success:function(){
-        $('#user-'+userToAllocate).hide();
-        $('.form-logo i').removeClass('fa-user-plus');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#allocate-question').hide();
-        $('#allocate-confirmation').show();
-        $('#allocate-hide').hide();
-        $('#allocate-success-button').show();
-        $("#allocate-success-button").click(function () {
-            location.reload();
-        });
+        togglePreloader();
+        location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
@@ -308,22 +302,16 @@ if (isset($_GET['id'])) {
     var userToDeallocate = clickedID[1];
     var moduleToDeallocate = $("#moduleid").html();
 
+    togglePreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'userToDeallocate='+ userToDeallocate + '&moduleToDeallocate='+ moduleToDeallocate,
 	success:function(){
-        $('#user-'+userToDeallocate).hide();
-        $('.form-logo i').removeClass('fa-user-times');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deallocate-question').hide();
-        $('#deallocate-confirmation').show();
-        $('#deallocate-hide').hide();
-        $('#deallocate-success-button').show();
-        $("#deallocate-success-button").click(function () {
-            location.reload();
-        });
+        togglePreloader();
+        location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
