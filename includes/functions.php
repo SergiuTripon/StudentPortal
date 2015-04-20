@@ -4993,8 +4993,9 @@ function SetFeedbackRead () {
     global $session_userid;
 
     $isRead = 1;
+    isApproved = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback_received SET isRead=? WHERE module_staff=?");
+    $stmt1 = $mysqli->prepare("UPDATE user_feedback_received SET isRead=? WHERE module_staff=? and isApproved=?");
     $stmt1->bind_param('ii', $isRead, $session_userid);
     $stmt1->execute();
     $stmt1->close();
