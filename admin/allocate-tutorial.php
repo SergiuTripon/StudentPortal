@@ -237,7 +237,7 @@ if (isset($_GET['id'])) {
 	data:'userToDeallocate='+ userToDeallocate + '&tutorialToDeallocate='+ tutorialToDeallocate,
 	success:function(html){
         if (html) {
-
+            alert(html);
         } else {
             location.reload();
         }
