@@ -87,24 +87,24 @@ include 'includes/session.php';
 
             echo
            '<tr>
-            <td data-title="Name"><a href="#view-module-' . $moduleid . '" data-toggle="modal">' . $module_name . '</a></td>
-            <td data-title="Lecturer">' . $lecturer_fistname . ' ' . $lecturer_surname . '</td>
-            <td data-title="Tutorial assistant">' . $tutorial_assistant_firstname . ' ' . $tutorial_assistant_surname . '</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md btn-load" href="../feedback/submit-feedback?id=' . $moduleid . '">Submit feedback</span></a></a></td>
+            <td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
+            <td data-title="Lecturer">'.$lecturer_fistname.' '.$lecturer_surname.'</td>
+            <td data-title="Tutorial assistant">'.$tutorial_assistant_firstname.' '.$tutorial_assistant_surname.'</td>
+            <td data-title="Action"><a class="btn btn-primary btn-md btn-load" href="../feedback/submit-feedback?id='.$moduleid.'">Submit feedback</span></a></a></td>
             </tr>
 
-            <div id="view-module-' . $moduleid . '" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
 
             <div class="modal-header">
             <div class="close"><i class="fa fa fa-check-square-o"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">' . $module_name . '</h4>
+            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
             </div>
 
             <div class="modal-body">
-            <p><b>Description:</b> ' . (empty($module_notes) ? "-" : "$module_notes") . '</p>
-            <p><b>Moodle link:</b> ' . (empty($module_url) ? "-" : "$module_url") . '</p>
+            <p><b>Description:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
+            <p><b>Moodle link:</b> '.(empty($module_url) ? "-" : "$module_url").'</p>
             </div>
 
             <div class="modal-footer">
