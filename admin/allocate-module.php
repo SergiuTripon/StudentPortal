@@ -76,45 +76,12 @@ if (isset($_GET['id'])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-	echo '<tr id="user-'.$userid.'">
+	echo '<tr>
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md" href="#allocate-'.$userid.'" data-toggle="modal" >Allocate</span></a></td>
-			</tr>
-
-			<div id="allocate-'.$userid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-user-plus"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="allocate-question" class="text-center feedback-sad">Are you sure you want to allocate '.$firstname.' '.$surname.' to this module?</p>
-            <p id="allocate-confirmation" style="display: none;" class="text-center feedback-happy">'.$firstname.' '.$surname.' has been allocated to this module successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="allocate-hide">
-			<div class="pull-left">
-			<a id="allocate-'.$userid.'" class="btn btn-danger btn-lg allocate-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="allocate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			<td data-title="Action"><a id="user-'.$userid.'" class="btn btn-primary btn-md btn-allocate-module">Allocate</span></a></td>
+			</tr>';
     }
 	$stmt1->close();
 	?>
@@ -161,45 +128,12 @@ if (isset($_GET['id'])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-	echo '<tr id="user-'.$userid.'">
+	echo '<tr>
 
 			<td data-title="First name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
-			<td data-title="Action"><a class="btn btn-primary btn-md" href="#deallocate-'.$userid.'" data-toggle="modal" >Deallocate</span></a></td>
-			</tr>
-
-			<div id="deallocate-'.$userid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-user-times"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="deallocate-question" class="text-center feedback-sad">Are you sure you want to deallocate '.$firstname.' '.$surname.' to this module?</p>
-            <p id="deallocate-confirmation" style="display: none;" class="text-center feedback-happy">'.$firstname.' '.$surname.' has been deallocated from this module successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="deallocate-hide">
-			<div class="pull-left">
-			<a id="deallocate-'.$userid.'" class="btn btn-danger btn-lg deallocate-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="deallocate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			<td data-title="Action"><a id="user-'.$userid.'" class="btn btn-deallocate-module btn-md">Deallocate</span></a></td>
+			</tr>';
     }
 	$stmt2->close();
 	?>
@@ -269,7 +203,7 @@ if (isset($_GET['id'])) {
     $('.table-custom').dataTable(settings);
 
     //Allocate module
-	$("body").on("click", ".allocate-button", function(e) {
+	$("body").on("click", ".btn-allocate-module", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -296,7 +230,7 @@ if (isset($_GET['id'])) {
     });
 
     //Deallocate module
-    $("body").on("click", ".deallocate-button", function(e) {
+    $("body").on("click", ".btn-deallocate-module", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
