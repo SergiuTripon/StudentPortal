@@ -4990,7 +4990,6 @@ function ApproveFeedback () {
 function SetFeedbackRead () {
 
     global $mysqli;
-    global $session_userid;
 
     $feedbackToRead = filter_input(INPUT_POST, 'feedbackToRead', FILTER_SANITIZE_STRING);
 
