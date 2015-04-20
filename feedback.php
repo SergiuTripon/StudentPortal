@@ -710,6 +710,7 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
+            <a href="#approve-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md">Approve</a>
             <a href="#delete-feedback-'.$feedbackid.'" data-toggle="modal" data-dismiss="modal" class="btn btn-primary btn-md">Delete</a>
 			</div>
 			<div class="view-close pull-right">
@@ -761,8 +762,8 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="text-right">
-            <a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg btn-delete-feedback btn-load">Delete</a>
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$feedbackid.'" class="btn btn-primary btn-lg btn-delete-feedback btn-load">Delete</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
@@ -891,8 +892,8 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="text-right">
-            <a id="delete-'.$feedbackid.'" class="btn btn-success btn-lg btn-delete-feedback btn-load">Delete</a>
-			<a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$feedbackid.'" class="btn btn-primary btn-lg btn-delete-feedback btn-load">Delete</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
@@ -934,7 +935,7 @@ include 'includes/session.php';
 
     $('.table-custom').dataTable(settings);
 
-    $("body").on("click", ".approve-feedback-button", function(e) {
+    $("body").on("click", ".btn-approve-feedback", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
@@ -961,7 +962,7 @@ include 'includes/session.php';
     });
 
     //Delete feedback
-    $("body").on("click", ".delete-feedback-button", function(e) {
+    $("body").on("click", ".btn-delete-feedback", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
