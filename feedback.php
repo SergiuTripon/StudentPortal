@@ -360,29 +360,21 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT f.feedbackid, d.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.studentno, d.degree, m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_received r LEFT JOIN user_detail d ON r.feedback_from=d.userid LEFT JOIN system_module m ON r.moduleid=m.moduleid LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE r.module_staff = '$session_userid' AND f.isApproved = 1");
+    $isApproved = 1;
 
-	while($row = $stmt1->fetch_assoc()) {
+	$stmt1 = $mysqli->prepare("SELECT DISTINCT f.feedbackid, d.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.studentno, d.degree, m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_received r LEFT JOIN user_detail d ON r.feedback_from=d.userid LEFT JOIN system_module m ON r.moduleid=m.moduleid LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE r.module_staff=? AND f.isApproved=?");
+    $stmt1->bind_param('ii', $session_userid, $isApproved);
+    $stmt1->execute();
+    $stmt1->bind_result($feedbackid, $userid, $firstname, $surname, $gender, $dateofbirth, $studentno, $degree, $moduleid, $module_name, $module_notes, $module_url, $feedback_subject, $feedback_body, $created_on);
+    $stmt1->store_result();
 
-    $userid = $row["userid"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
-    $gender = $row["gender"];
-    $gender = ucfirst($gender);
-    $dateofbirth = $row["dateofbirth"];
-    $studentno = $row["studentno"];
-    $degree = $row["degree"];
-    $moduleid = $row["moduleid"];
-	$module_name = $row["module_name"];
-    $module_notes = $row["module_notes"];
-    $module_url = $row["module_url"];
-    $feedbackid = $row["feedbackid"];
-    $feedback_subject = $row["feedback_subject"];
-    $feedback_body = $row["feedback_body"];
-    $created_on = $row["created_on"];
+    if ($stmt1->num_rows > 0) {
 
-	echo '<tr id="feedback-'.$feedbackid.'">
+        while ($stmt1->fetch()) {
 
+            echo
+
+           '<tr>
 			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Module"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
@@ -498,7 +490,8 @@ include 'includes/session.php';
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-	}
+        }
+    }
 
 	$stmt1->close();
 	?>
