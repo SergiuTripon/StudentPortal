@@ -157,23 +157,19 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
+    
+	$stmt2 = $mysqli->prepare("SELECT DISTINCT m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedbackid, f.feedback_subject, f.feedback_body, f.isApproved, r.isRead, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_sent s LEFT JOIN user_feedback_received r ON s.feedbackid=r.feedbackid LEFT JOIN system_module m ON s.moduleid = m.moduleid LEFT JOIN user_feedback f ON s.feedbackid = f.feedbackid WHERE s.feedback_from=?");
+    $stmt2->bind_param('i', $session_userid);
+    $stmt2->execute();
+    $stmt2->bind_result($moduleid, $module_name, $module_notes, $module_url, $feedbackid, $feedback_subject, $feedback_body, $isApproved, $isRead, $created_on);
+    $stmt2->store_result();
 
-	$stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedbackid, f.feedback_subject, f.feedback_body, f.isApproved, r.isRead, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_sent s LEFT JOIN user_feedback_received r ON s.feedbackid=r.feedbackid LEFT JOIN system_module m ON s.moduleid = m.moduleid LEFT JOIN user_feedback f ON s.feedbackid = f.feedbackid WHERE s.feedback_from = '$session_userid'");
+    if ($stmt1->num_rows > 0) {
 
-	while($row = $stmt1->fetch_assoc()) {
+        while ($stmt1->fetch()) {
 
-    $feedbackid = $row["feedbackid"];
-    $moduleid = $row["moduleid"];
-	$module_name = $row["module_name"];
-    $module_notes = $row["module_notes"];
-    $module_url = $row["module_url"];
-    $feedback_subject = $row["feedback_subject"];
-    $feedback_body = $row["feedback_body"];
-    $isApproved = $row["isApproved"];
-    $isRead = $row["isRead"];
-    $created_on = $row["created_on"];
 
-	echo '<tr id="feedback-'.$feedbackid.'">
+            echo '<tr id="feedback-'.$feedbackid.'">
 
 			<td data-title="Module"><a href="#view-submitted-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
@@ -181,7 +177,7 @@ include 'includes/session.php';
 			<td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal">Delete</span></a></td>
 			</tr>
 
-            <div id="view-submitted-module-'.$moduleid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-submitted-module-'.$moduleid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -205,7 +201,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-            <div id="view-feedback-'.$feedbackid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-feedback-'.$feedbackid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -234,7 +230,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-            <div id="delete-feedback-'.$feedbackid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="delete-feedback-'.$feedbackid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -266,7 +262,8 @@ include 'includes/session.php';
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-	}
+        }
+    }
 
 	$stmt1->close();
 	?>
