@@ -171,7 +171,7 @@ CREATE TABLE `system_event` (
   `event_class` VARCHAR(15) NOT NULL,
 	`event_name` VARCHAR(300) NOT NULL,
 	`event_notes` VARCHAR(10000),
-	`event_url` VARCHAR(70),
+	`event_url` VARCHAR(300),
 	`event_from` DATETIME NOT NULL,
 	`event_to` DATETIME NOT NULL,
 	`event_amount` NUMERIC(15,2) NOT NULL,
@@ -303,7 +303,7 @@ CREATE TABLE `system_module` (
 	`moduleid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`module_name` VARCHAR(300) NOT NULL,
 	`module_notes` VARCHAR(10000),
-	`module_url` VARCHAR(70),
+	`module_url` VARCHAR(300),
 	`module_status` VARCHAR(10) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME
