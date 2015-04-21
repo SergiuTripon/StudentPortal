@@ -37,7 +37,7 @@ CREATE TABLE `user_signin` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `account_type` VARCHAR(14) NOT NULL,
   `email` VARCHAR(300) NOT NULL UNIQUE,
-  `password` CHAR(70) NOT NULL UNIQUE,
+  `password` CHAR(60) NOT NULL UNIQUE,
   `isSignedIn` TINYINT(1) NOT NULL,
   `created_on` DATETIME NOT NULL,
   `updated_on` DATETIME
@@ -72,7 +72,7 @@ ON DELETE CASCADE
 #Forgotten Password & Password Reset
 CREATE TABLE `user_token` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
-  `token` CHAR(70) UNIQUE,
+  `token` CHAR(60) UNIQUE,
   `created_on` DATETIME,
 FOREIGN KEY (userid)
 REFERENCES user_signin(userid)
@@ -129,7 +129,7 @@ ON DELETE CASCADE
 CREATE TABLE `user_message` (
 	`messageid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`message_subject` VARCHAR(300) NOT NULL,
-	`message_body` VARCHAR(5000),
+	`message_body` VARCHAR(10000) NOT NULL,
   `message_status` VARCHAR(9) NOT NULL,
   `created_on` DATETIME NOT NULL
 ) ENGINE = InnoDB;
@@ -170,7 +170,7 @@ CREATE TABLE `system_event` (
 	`eventid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `event_class` VARCHAR(15) NOT NULL,
 	`event_name` VARCHAR(300) NOT NULL,
-	`event_notes` VARCHAR(5000),
+	`event_notes` VARCHAR(10000),
 	`event_url` VARCHAR(70),
 	`event_from` DATETIME NOT NULL,
 	`event_to` DATETIME NOT NULL,
@@ -201,10 +201,10 @@ ON DELETE CASCADE
 CREATE TABLE `system_book` (
 	`bookid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`book_name` VARCHAR(300) NOT NULL,
-  `book_notes` VARCHAR(5000),
-	`book_author` VARCHAR(300) NOT NULL,
+  `book_author` VARCHAR(300) NOT NULL,
+  `book_notes` VARCHAR(10000),
   `book_copy_no` INT(11) NOT NULL,
-  `book_location` VARCHAR(300),
+  `book_location` VARCHAR(300) NOT NULL,
   `book_publisher` VARCHAR(300) NOT NULL,
   `book_publish_date` DATE NOT NULL,
   `book_publish_place` VARCHAR(300) NOT NULL,
@@ -249,7 +249,6 @@ CREATE TABLE `system_book_loaned` (
   `returned_on` DATE NOT NULL,
   `isReturned` TINYINT(1) NOT NULL,
   `isRequested` TINYINT(1) NOT NULL,
-  `isRenewed` TINYINT(1) NOT NULL,
   `loan_status` VARCHAR(9) NOT NULL,
   `created_on` DATETIME NOT NULL,
   `updated_on` DATETIME,
@@ -284,7 +283,7 @@ CREATE TABLE `user_task` (
 	`userid` INT(11) NOT NULL,
 	`taskid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`task_name` VARCHAR(70) NOT NULL,
-	`task_notes` VARCHAR(5000),
+	`task_notes` VARCHAR(10000),
 	`task_url` VARCHAR(300),
 	`task_class` VARCHAR(15) NOT NULL,
 	`task_startdate` DATETIME NOT NULL,
@@ -303,7 +302,7 @@ ON DELETE CASCADE
 CREATE TABLE `system_module` (
 	`moduleid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`module_name` VARCHAR(300) NOT NULL,
-	`module_notes` VARCHAR(5000),
+	`module_notes` VARCHAR(10000),
 	`module_url` VARCHAR(70),
 	`module_status` VARCHAR(10) NOT NULL,
 	`created_on` DATETIME NOT NULL,
@@ -316,7 +315,7 @@ CREATE TABLE `system_lecture` (
 	`lectureid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`lecture_name` VARCHAR(300) NOT NULL,
 	`lecture_lecturer` INT(11) NOT NULL,
-	`lecture_notes` VARCHAR(5000),
+	`lecture_notes` VARCHAR(10000),
 	`lecture_day` VARCHAR(9) NOT NULL,
 	`lecture_from_time` TIME NOT NULL,
 	`lecture_to_time` TIME NOT NULL,
@@ -339,14 +338,14 @@ CREATE TABLE `system_tutorial` (
 	`tutorialid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`tutorial_name` VARCHAR(300) NOT NULL,
 	`tutorial_assistant` INT(11) NOT NULL,
-	`tutorial_notes` VARCHAR(5000),
+	`tutorial_notes` VARCHAR(10000),
 	`tutorial_day` VARCHAR(9) NOT NULL,
 	`tutorial_from_time` TIME NOT NULL,
 	`tutorial_to_time` TIME NOT NULL,
 	`tutorial_from_date` DATE NOT NULL,
 	`tutorial_to_date` DATE NOT NULL,
 	`tutorial_location` VARCHAR(300) NOT NULL,
-	`tutorial_capacity` VARCHAR(11) NOT NULL,
+	`tutorial_capacity` INT(11) NOT NULL,
 	`tutorial_status` VARCHAR(9) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME,
@@ -361,7 +360,7 @@ CREATE TABLE `system_exam` (
 	`moduleid` INT(11) NOT NULL,
 	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	`exam_name` VARCHAR(300) NOT NULL,
-	`exam_notes` VARCHAR(5000),
+	`exam_notes` VARCHAR(10000),
 	`exam_date` DATE NOT NULL,
 	`exam_time` TIME NOT NULL,
 	`exam_location` VARCHAR(300) NOT NULL,
@@ -431,7 +430,7 @@ CREATE TABLE `user_result` (
   `result_coursework_mark` NUMERIC(15,2),
   `result_exam_mark` NUMERIC(15,2),
   `result_overall_mark` NUMERIC(15,2),
-  `result_notes` VARCHAR(5000),
+  `result_notes` VARCHAR(10000),
   `result_status` VARCHAR(9) NOT NULL,
   `created_on` DATETIME NOT NULL,
   `updated_on` DATETIME,
@@ -448,7 +447,7 @@ CREATE TABLE `user_feedback` (
   `moduleid` INT(11) NOT NULL,
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `feedback_subject` VARCHAR(300) NOT NULL,
-  `feedback_body` VARCHAR(5000) NOT NULL,
+  `feedback_body` VARCHAR(10000) NOT NULL,
   `feedback_status` VARCHAR(9) NOT NULL,
   `isApproved` TINYINT(1) NOT NULL,
   `created_on` DATETIME NOT NULL,
@@ -495,8 +494,8 @@ ON DELETE CASCADE
 
 #Transport
 CREATE TABLE `tube_line_status_now` (
-  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `tube_lineid` INT NOT NULL UNIQUE,
+  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `tube_lineid` INT(11) NOT NULL UNIQUE,
   `tube_line` VARCHAR (70) NOT NULL,
   `tube_line_status` VARCHAR (70),
   `tube_line_info` VARCHAR(10000),
@@ -505,8 +504,8 @@ CREATE TABLE `tube_line_status_now` (
 
 #Transport
 CREATE TABLE `tube_station_status_now` (
-  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `tube_stationid` INT NOT NULL UNIQUE,
+  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `tube_stationid` INT(11) NOT NULL UNIQUE,
   `tube_station` VARCHAR (70) NOT NULL,
   `tube_station_status` VARCHAR (70),
   `tube_station_info` VARCHAR(10000),
@@ -515,7 +514,7 @@ CREATE TABLE `tube_station_status_now` (
 
 #Transport
 CREATE TABLE `tube_line_status_this_weekend` (
-  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `tube_line` VARCHAR (70) NOT NULL,
   `tube_line_status` VARCHAR (70),
   `tube_line_info` VARCHAR(10000),
@@ -524,7 +523,7 @@ CREATE TABLE `tube_line_status_this_weekend` (
 
 #Transport
 CREATE TABLE `tube_station_status_this_weekend` (
-  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `tube_station` VARCHAR (70) NOT NULL,
   `tube_station_status` VARCHAR (70),
   `tube_station_info` VARCHAR(10000),
@@ -548,13 +547,13 @@ CREATE TABLE `cycle_hire_status_now` (
 #University Map
 CREATE TABLE `system_map_marker` (
   `markerid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `marker_name` VARCHAR (70) NOT NULL,
-  `marker_notes` VARCHAR (10000),
-  `marker_url` VARCHAR (300),
+  `marker_name` VARCHAR(70) NOT NULL,
+  `marker_notes` VARCHAR(10000),
+  `marker_url` VARCHAR(300),
   `marker_lat` FLOAT(10,6) NOT NULL,
   `marker_long` FLOAT(10,6) NOT NULL,
-  `marker_category` VARCHAR (70) NOT NULL,
-  `marker_status` VARCHAR (9) NOT NULL,
+  `marker_category` VARCHAR(70) NOT NULL,
+  `marker_status` VARCHAR(9) NOT NULL,
   `created_on` DATETIME NOT NULL,
   `updated_on` DATETIME
 ) ENGINE = InnoDB;
