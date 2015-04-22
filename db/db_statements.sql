@@ -220,7 +220,7 @@ ON DELETE CASCADE
 
 #University Map
 CREATE TABLE `system_map_marker` (
-  `markerid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `markerid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `marker_name` VARCHAR(70) NOT NULL,
   `marker_notes` VARCHAR(10000),
   `marker_url` VARCHAR(300),

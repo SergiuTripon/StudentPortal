@@ -240,7 +240,7 @@ if (isset($_GET["id"])) {
         $("#feedback_body").removeClass("input-sad");
         $("#feedback_body").addClass("input-happy");
 	}
-    if (feedback_body.length > 5000) {
+    if (feedback_body.length > 10000) {
         $("#error1").show();
         $("#error1").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
         $("#feedback_body").removeClass("input-happy");
