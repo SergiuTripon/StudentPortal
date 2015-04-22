@@ -1,38 +1,59 @@
-DROP TABLE system_map_marker;
+#Feedback
+DROP TABLE user_feedback_sent;
+DROP TABLE user_feedback_received;
+DROP TABLE user_feedback;
+
+#Exams
+DROP TABLE user_exam;
+DROP TABLE system_exam;
+
+#Results
+DROP TABLE user_result;
+
+#Timetable
+DROP TABLE user_lecture;
+DROP TABLE system_lecture;
+DROP TABLE user_tutorial;
+DROP TABLE system_tutorial;
+DROP TABLE user_module;
+DROP TABLE system_module;
+
+#Transport
 DROP TABLE cycle_hire_status_now;
 DROP TABLE tube_station_status_this_weekend;
 DROP TABLE tube_line_status_this_weekend;
 DROP TABLE tube_station_status_now;
 DROP TABLE tube_line_status_now;
-DROP TABLE user_feedback_sent;
-DROP TABLE user_feedback_received;
-DROP TABLE user_feedback;
-DROP TABLE user_lecture;
-DROP TABLE system_lecture;
-DROP TABLE user_tutorial;
-DROP TABLE system_tutorial;
-DROP TABLE user_exam;
-DROP TABLE system_exam;
-DROP TABLE user_result;
-DROP TABLE user_module;
-DROP TABLE system_module;
+
+#Library
 DROP TABLE system_book_reserved;
 DROP TABLE system_book_loaned;
 DROP TABLE system_book_requested;
 DROP TABLE system_book;
+
+#Calendar
 DROP TABLE user_task;
+
+#University Map
+DROP TABLE system_map_marker;
+
+#Events
 DROP TABLE system_event_booked;
 DROP TABLE system_event;
+
+#Messenger
 DROP TABLE user_message_sent;
 DROP TABLE user_message_received;
 DROP TABLE user_message;
+
+#Account
 DROP TABLE paypal_log;
 DROP TABLE user_fee;
 DROP TABLE user_token;
 DROP TABLE user_detail;
 DROP TABLE user_signin;
 
-#Sign in
+#Account
 CREATE TABLE `user_signin` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `account_type` VARCHAR(14) NOT NULL,
@@ -43,7 +64,7 @@ CREATE TABLE `user_signin` (
   `updated_on` DATETIME
 ) ENGINE = InnoDB;
 
-#User details
+#Account
 CREATE TABLE `user_detail` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `firstname` VARCHAR(70) NOT NULL,
@@ -69,7 +90,7 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
-#Forgotten Password & Password Reset
+#Account
 CREATE TABLE `user_token` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `token` CHAR(60) UNIQUE,
@@ -80,7 +101,7 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
-#Fees
+#Account
 CREATE TABLE `user_fee` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
   `fee_amount` NUMERIC(15,2) NOT NULL,
@@ -93,7 +114,7 @@ CREATE TABLE `user_fee` (
     ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
-#Paypal payment
+#Account
 CREATE TABLE `paypal_log` (
 	`userid` INT(11) NOT NULL,
 	`paymentid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -197,6 +218,40 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
+#University Map
+CREATE TABLE `system_map_marker` (
+  `markerid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `marker_name` VARCHAR(70) NOT NULL,
+  `marker_notes` VARCHAR(10000),
+  `marker_url` VARCHAR(300),
+  `marker_lat` FLOAT(10,6) NOT NULL,
+  `marker_long` FLOAT(10,6) NOT NULL,
+  `marker_category` VARCHAR(70) NOT NULL,
+  `marker_status` VARCHAR(9) NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME
+) ENGINE = InnoDB;
+
+#Calendar
+CREATE TABLE `user_task` (
+  `userid` INT(11) NOT NULL,
+  `taskid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `task_name` VARCHAR(70) NOT NULL,
+  `task_notes` VARCHAR(10000),
+  `task_url` VARCHAR(300),
+  `task_class` VARCHAR(15) NOT NULL,
+  `task_startdate` DATETIME NOT NULL,
+  `task_duedate` DATETIME NOT NULL,
+  `task_status` VARCHAR(10) NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `updated_on` DATETIME,
+  `completed_on` DATETIME,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
 #Library
 CREATE TABLE `system_book` (
 	`bookid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -278,24 +333,56 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
-#Calendar
-CREATE TABLE `user_task` (
-	`userid` INT(11) NOT NULL,
-	`taskid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-	`task_name` VARCHAR(70) NOT NULL,
-	`task_notes` VARCHAR(10000),
-	`task_url` VARCHAR(300),
-	`task_class` VARCHAR(15) NOT NULL,
-	`task_startdate` DATETIME NOT NULL,
-	`task_duedate` DATETIME NOT NULL,
-	`task_status` VARCHAR(10) NOT NULL,
-	`created_on` DATETIME NOT NULL,
-	`updated_on` DATETIME,
-	`completed_on` DATETIME,
-FOREIGN KEY (userid)
-REFERENCES user_signin(userid)
-ON UPDATE CASCADE
-ON DELETE CASCADE
+#Transport
+CREATE TABLE `tube_line_status_now` (
+  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `tube_lineid` INT(11) NOT NULL UNIQUE,
+  `tube_line` VARCHAR (70) NOT NULL,
+  `tube_line_status` VARCHAR (70),
+  `tube_line_info` VARCHAR(10000),
+  `updated_on` DATETIME NOT NULL
+) ENGINE = InnoDB;
+
+#Transport
+CREATE TABLE `tube_station_status_now` (
+  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `tube_stationid` INT(11) NOT NULL UNIQUE,
+  `tube_station` VARCHAR (70) NOT NULL,
+  `tube_station_status` VARCHAR (70),
+  `tube_station_info` VARCHAR(10000),
+  `updated_on` DATETIME NOT NULL
+) ENGINE = InnoDB;
+
+#Transport
+CREATE TABLE `tube_line_status_this_weekend` (
+  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `tube_line` VARCHAR (70) NOT NULL,
+  `tube_line_status` VARCHAR (70),
+  `tube_line_info` VARCHAR(10000),
+  `updated_on` DATETIME NOT NULL
+) ENGINE = InnoDB;
+
+#Transport
+CREATE TABLE `tube_station_status_this_weekend` (
+  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `tube_station` VARCHAR (70) NOT NULL,
+  `tube_station_status` VARCHAR (70),
+  `tube_station_info` VARCHAR(10000),
+  `updated_on` DATETIME NOT NULL
+) ENGINE = InnoDB;
+
+#Transport
+CREATE TABLE `cycle_hire_status_now` (
+  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  `dockid` INT NOT NULL UNIQUE,
+  `dock_name` VARCHAR (70) NOT NULL,
+  `dock_installed` VARCHAR (5),
+  `dock_locked` VARCHAR(5),
+  `dock_temporary` VARCHAR(5),
+  `dock_bikes_available` INT(11),
+  `dock_empty_docks` INT(11),
+  `dock_total_docks` INT(11),
+  `updated_on` DATETIME NOT NULL
 ) ENGINE = InnoDB;
 
 #Timetable
@@ -307,6 +394,18 @@ CREATE TABLE `system_module` (
 	`module_status` VARCHAR(10) NOT NULL,
 	`created_on` DATETIME NOT NULL,
 	`updated_on` DATETIME
+) ENGINE = InnoDB;
+
+#Timetable
+CREATE TABLE `user_module` (
+  `userid` INT(11) NOT NULL,
+  `moduleid` INT(11) NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
+FOREIGN KEY (moduleid)
+REFERENCES system_module(moduleid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
@@ -328,6 +427,18 @@ CREATE TABLE `system_lecture` (
 	`updated_on` DATETIME,
 FOREIGN KEY (moduleid)
 REFERENCES system_module(moduleid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Timetable
+CREATE TABLE `user_lecture` (
+  `userid` INT(11) NOT NULL,
+  `lectureid` INT(11) NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
+FOREIGN KEY (lectureid)
+REFERENCES system_lecture(lectureid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -356,6 +467,18 @@ ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #Timetable
+CREATE TABLE `user_tutorial` (
+  `userid` INT(11) NOT NULL,
+  `tutorialid` INT(11) NOT NULL,
+FOREIGN KEY (userid)
+REFERENCES user_signin(userid),
+FOREIGN KEY (tutorialid)
+REFERENCES system_tutorial(tutorialid)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+#Timetable
 CREATE TABLE `system_exam` (
 	`moduleid` INT(11) NOT NULL,
 	`examid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -370,42 +493,6 @@ CREATE TABLE `system_exam` (
 	`updated_on` DATETIME,
 FOREIGN KEY (moduleid)
 REFERENCES system_module(moduleid)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-) ENGINE = InnoDB;
-
-#Timetable
-CREATE TABLE `user_module` (
-	`userid` INT(11) NOT NULL,
-	`moduleid` INT(11) NOT NULL,
-FOREIGN KEY (userid)
-REFERENCES user_signin(userid),
-FOREIGN KEY (moduleid)
-REFERENCES system_module(moduleid)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-) ENGINE = InnoDB;
-
-#Timetable
-CREATE TABLE `user_lecture` (
-  `userid` INT(11) NOT NULL,
-  `lectureid` INT(11) NOT NULL,
-FOREIGN KEY (userid)
-REFERENCES user_signin(userid),
-FOREIGN KEY (lectureid)
-REFERENCES system_lecture(lectureid)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-) ENGINE = InnoDB;
-
-#Timetable
-CREATE TABLE `user_tutorial` (
-  `userid` INT(11) NOT NULL,
-  `tutorialid` INT(11) NOT NULL,
-FOREIGN KEY (userid)
-REFERENCES user_signin(userid),
-FOREIGN KEY (tutorialid)
-REFERENCES system_tutorial(tutorialid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 ) ENGINE = InnoDB;
@@ -490,70 +577,4 @@ FOREIGN KEY (module_staff)
 REFERENCES user_signin(userid)
 ON UPDATE CASCADE
 ON DELETE CASCADE
-) ENGINE = InnoDB;
-
-#Transport
-CREATE TABLE `tube_line_status_now` (
-  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `tube_lineid` INT(11) NOT NULL UNIQUE,
-  `tube_line` VARCHAR (70) NOT NULL,
-  `tube_line_status` VARCHAR (70),
-  `tube_line_info` VARCHAR(10000),
-  `updated_on` DATETIME NOT NULL
-) ENGINE = InnoDB;
-
-#Transport
-CREATE TABLE `tube_station_status_now` (
-  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `tube_stationid` INT(11) NOT NULL UNIQUE,
-  `tube_station` VARCHAR (70) NOT NULL,
-  `tube_station_status` VARCHAR (70),
-  `tube_station_info` VARCHAR(10000),
-  `updated_on` DATETIME NOT NULL
-) ENGINE = InnoDB;
-
-#Transport
-CREATE TABLE `tube_line_status_this_weekend` (
-  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `tube_line` VARCHAR (70) NOT NULL,
-  `tube_line_status` VARCHAR (70),
-  `tube_line_info` VARCHAR(10000),
-  `updated_on` DATETIME NOT NULL
-) ENGINE = InnoDB;
-
-#Transport
-CREATE TABLE `tube_station_status_this_weekend` (
-  `statusid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `tube_station` VARCHAR (70) NOT NULL,
-  `tube_station_status` VARCHAR (70),
-  `tube_station_info` VARCHAR(10000),
-  `updated_on` DATETIME NOT NULL
-) ENGINE = InnoDB;
-
-#Transport
-CREATE TABLE `cycle_hire_status_now` (
-  `statusid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `dockid` INT NOT NULL UNIQUE,
-  `dock_name` VARCHAR (70) NOT NULL,
-  `dock_installed` VARCHAR (5),
-  `dock_locked` VARCHAR(5),
-  `dock_temporary` VARCHAR(5),
-  `dock_bikes_available` INT(11),
-  `dock_empty_docks` INT(11),
-  `dock_total_docks` INT(11),
-  `updated_on` DATETIME NOT NULL
-) ENGINE = InnoDB;
-
-#University Map
-CREATE TABLE `system_map_marker` (
-  `markerid` INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  `marker_name` VARCHAR(70) NOT NULL,
-  `marker_notes` VARCHAR(10000),
-  `marker_url` VARCHAR(300),
-  `marker_lat` FLOAT(10,6) NOT NULL,
-  `marker_long` FLOAT(10,6) NOT NULL,
-  `marker_category` VARCHAR(70) NOT NULL,
-  `marker_status` VARCHAR(9) NOT NULL,
-  `created_on` DATETIME NOT NULL,
-  `updated_on` DATETIME
 ) ENGINE = InnoDB;
