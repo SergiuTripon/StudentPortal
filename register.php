@@ -78,7 +78,7 @@ include 'includes/session.php';
 
 	<hr>
 
-	<p class="feedback-danger text-justify">Note: The register facility is available to students only. If you're part of the academic staff or you're an administrator, please contact an administrator who will create an account for you.</p>
+	<p class="feedback-danger text-justify">Note: The register facility is available to students only. If you're part of the academic staff or you're an administrator, please contact registered administrator who will create an account for you.</p>
 
 	<hr>
 
