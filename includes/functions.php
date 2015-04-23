@@ -70,7 +70,7 @@ function SignIn() {
     } else {
 
         //Checking if email address exists in the system
-        $stmt1 = $mysqli->prepare("SELECT s.userid, s.account_type, s.password, d.user_status FROM user_signin s LEFT JOIN user_detail d ON s.useird=d.userid WHERE s.email=? LIMIT 1");
+        $stmt1 = $mysqli->prepare("SELECT s.userid, s.account_type, s.password, d.user_status FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.email=? LIMIT 1");
         $stmt1->bind_param('s', $email);
         $stmt1->execute();
         $stmt1->store_result();
