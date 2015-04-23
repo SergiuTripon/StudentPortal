@@ -24,12 +24,6 @@ if (isset($_GET["id"])) {
 
     <title>Student Portal | Change password</title>
 
-	<style>
-	#success-title1 {
-		display: none;
-	}
-	</style>
-
 </head>
 
 <body>
@@ -53,6 +47,7 @@ if (isset($_GET["id"])) {
 
     <p id="error" class="feedback-danger text-center"></p>
 	<p id="success" class="feedback-success text-center"></p>
+    <p id="error1" class="feedback-danger text-center"></p>
 
     <div id="hide">
 
@@ -60,11 +55,11 @@ if (isset($_GET["id"])) {
 
 	<div class="form-group">
 	<div class="col-xs-6 col-sm-6 full-width">
-    <label>New password</label>
+    <label for="password">New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
 	</div>
 	<div class="col-xs-6 col-sm-6 full-width">
-    <label>New password confirmation</label>
+    <label for="confirmpwd">New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	</div>
 	</div>
@@ -72,7 +67,7 @@ if (isset($_GET["id"])) {
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Change password</button>
+    <button id="admin-change-password-submit" class="btn btn-primary btn-lg btn-load">Change password</button>
     </div>
 
     </div>
@@ -87,7 +82,7 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    $("#FormSubmit").click(function (e) {
+    $("#admin-change-password-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
@@ -155,7 +150,7 @@ if (isset($_GET["id"])) {
 
 	if(password != confirmpwd) {
 		$("#error1").show();
-		$(".error1").empty().append("The password and confirmation do not match. Please try again.");
+		$("#error1").empty().append("The password and confirmation do not match. Please try again.");
         $("label[for='password']").removeClass("feedback-success");
         $("label[for='password']").addClass("feedback-danger");
         $("label[for='confirmpwd']").removeClass("feedback-success");
@@ -180,6 +175,7 @@ if (isset($_GET["id"])) {
     data:'change_account_password_userid=' + userid + '&change_account_password_password=' + password,
     success:function(){
 		$("#error").hide();
+        $("#error1").hide();
 		$("#hide").hide();
 		$("#success").show();
 		$("#success").append('All done! The password has been changed.');
