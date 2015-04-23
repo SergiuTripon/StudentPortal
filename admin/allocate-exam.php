@@ -1,6 +1,9 @@
 <?php
 include '../includes/session.php';
 
+global $mysqli;
+global $examToAllocate;
+
 if (isset($_GET['id'])) {
 
     $examToAllocate = $_GET['id'];
@@ -24,7 +27,8 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-<div class="preloader"></div>
+
+    <div class="preloader"></div>
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
@@ -52,7 +56,7 @@ if (isset($_GET['id'])) {
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
   	<div class="panel-body">
 
-	<!-- Allocated students -->
+	<!-- Unnalocated students -->
 	<section id="no-more-tables">
 	<table class="table table-condensed table-custom">
 
@@ -76,7 +80,8 @@ if (isset($_GET['id'])) {
     $firstname = $row["firstname"];
     $surname = $row["surname"];
 
-	echo '<tr>
+	echo
+        '<tr>
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
