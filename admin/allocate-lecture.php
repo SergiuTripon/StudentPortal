@@ -193,6 +193,7 @@ if (isset($_GET['id'])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <?php endif; ?>
+
 	<?php else : ?>
 
 	<?php include '../includes/menus/menu.php'; ?>
