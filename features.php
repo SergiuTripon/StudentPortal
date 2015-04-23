@@ -23,6 +23,12 @@ include 'includes/session.php';
     #features a:focus, #features a:hover {
         color: #FFFFFF;
     }
+
+    @media (max-width: 480px) {
+    #helper {
+        margin-top: 10px;
+    }
+    }
     </style>
 
 </head>
@@ -40,7 +46,7 @@ include 'includes/session.php';
     <h1 class="text-center">Features</h1>
     <hr class="hr-small">
 
-	<p class="text-left">Click and discover</p>
+	<p id="helper" class="text-left">Click and discover</p>
 
     <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
