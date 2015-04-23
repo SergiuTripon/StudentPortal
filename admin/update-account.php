@@ -1,6 +1,8 @@
 <?php
 include '../includes/session.php';
 
+global $mysqli, $userToUpdate, $account_type, $email, $firstname, $surname, $gender, $studentno, $degree, $fee_amount, $nationality, $dateofbirth, $phonenumber, $addres1, $address2, $town, $city, $country, $postcode;
+
 if (isset($_GET["id"])) {
 
 	$userToUpdate = $_GET["id"];
@@ -17,7 +19,7 @@ if (isset($_GET["id"])) {
 	header('Location: ../../account/');
 }
 
-if ($dateofbirth == "0000-00-00") {
+if ($dateofbirth == "00-00-0000") {
 	$dateofbirth = '';
 }
 ?>
@@ -29,9 +31,9 @@ if ($dateofbirth == "0000-00-00") {
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | Update an account</title>
+
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
