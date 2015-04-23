@@ -287,7 +287,7 @@ include 'includes/session.php';
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><a href="/admin/change-password?id='.$userid.'">Change password</a></li>
-            <li><a id="#deactivate-'.$userid.'" class="btn-deactivate-button">Deactivate</a></li>
+            <li><a id="#deactivate-'.$userid.'" class="btn-deactivate-account">Deactivate</a></li>
             <li><a href="#delete-'.$userid.'" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
@@ -471,7 +471,7 @@ include 'includes/session.php';
     $('.table-custom').dataTable(settings);
 
 	//Deactivate account
-	$("body").on("click", ".btn-deactivate-button", function(e) {
+	$("body").on("click", ".btn-deactivate-account", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -495,7 +495,7 @@ include 'includes/session.php';
     });
 
     //Reactivate account
-	$("body").on("click", ".btn-reactivate-button", function(e) {
+	$("body").on("click", ".btn-reactivate-account", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
