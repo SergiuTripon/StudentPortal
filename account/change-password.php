@@ -198,8 +198,8 @@ include '../includes/session.php';
         $("label[for='confirmpwd']").empty().append("All good!");
         $("label[for='confirmpwd']").removeClass("feedback-danger");
         $("label[for='confirmpwd']").addClass("feedback-success");
-        $("label[for='oldpwd']").removeClass("input-success");
-        $("label[for='oldpwd']").addClass("input-danger");
+        $("label[for='oldpwd']").removeClass("input-danger");
+        $("label[for='oldpwd']").addClass("input-success");
         $("#error1").hide();
 	}
 
