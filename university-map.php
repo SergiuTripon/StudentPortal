@@ -187,12 +187,6 @@ AdminUniversityMapUpdate();
 	data:'locationToDeactivate='+ locationToDeactivate,
 	success:function(html){
 
-        $('.modal-custom').modal('hide');
-
-        $('.modal-custom').on('hidden.bs.modal', function () {
-            togglePreloader();
-        });
-
         $(".table-active-location").dataTable().fnDestroy();
         $('#content-active-location').empty();
         $('#content-active-location').html(html.active_location);
@@ -227,12 +221,6 @@ AdminUniversityMapUpdate();
 	dataType:"json",
 	data:'locationToReactivate='+ locationToReactivate,
 	success:function(html){
-
-        $('.modal-custom').modal('hide');
-
-        $('.modal-custom').on('hidden.bs.modal', function () {
-            togglePreloader();
-        });
 
         $(".table-inactive-location").dataTable().fnDestroy();
         $('#content-inactive-location').empty();
