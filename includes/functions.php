@@ -4735,7 +4735,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
             $active_location .=
 
            '<tr>
-			<td data-title="Location"><a href="view-user-'.$markerid.'" data-toggle="modal">'.$marker_name.'</a></td>
+			<td data-title="Location"><a href="#view-user-'.$markerid.'" data-toggle="modal">'.$marker_name.'</a></td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="../admin/update-location/?id='.$markerid.'">Update</a>
@@ -4768,9 +4768,9 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 
 			<div class="modal-footer">
             <div class="view-action pull-left">
-            <a href="/admin/update-location?id='.$userid.'" class="btn btn-primary btn-md">Update</a>
-            <a id="deactivate-'.$userid.'" class="btn btn-primary btn-md btn-deactivate-location">Deactivate</a>
-            <a href="#delete-'.$userid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+            <a href="/admin/update-location?id='.$markerid.'" class="btn btn-primary btn-md">Update</a>
+            <a id="deactivate-'.$markerid.'" class="btn btn-primary btn-md btn-deactivate-location">Deactivate</a>
+            <a href="#delete-'.$markerid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
