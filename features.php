@@ -180,7 +180,7 @@ include 'includes/session.php';
     <h1 class="text-center">Features</h1>
     <hr class="hr-small">
 
-	<p class="text-left">Click and discover</p>
+	<p id="helper" class="text-left">Click and discover</p>
 
     <div class="row">
     <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
