@@ -64,7 +64,7 @@ while ($row = $stmt1->fetch_assoc()){
 	<!-- Pay course fees -->
     <form class="form-horizontal form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/paypal/fees_paypal_process.php?sandbox=1" method="post" name="paycoursefees_form" id="paycoursefees_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
 
 	<!-- Hidden fields -->
     <input type="hidden" name="initial_fee_amount" id="initial_fee_amount" value="<?php echo $fee_amount; ?>">
@@ -186,7 +186,7 @@ while ($row = $stmt1->fetch_assoc()){
 
     <hr>
 
-    <p class="feedback-sad text-center">You need to have a student account to access this area.</p>
+    <p class="feedback-danger text-center">You need to have a student account to access this area.</p>
 
     <hr>
 
@@ -217,7 +217,7 @@ while ($row = $stmt1->fetch_assoc()){
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -276,62 +276,62 @@ while ($row = $stmt1->fetch_assoc()){
     var payer_address1 = $('#payer_address1').val();
 	if (payer_address1 === '') {
         $("label[for='payer_address1']").empty().append("Please enter the first line of an address.");
-        $("label[for='payer_address1']").removeClass("feedback-happy");
-        $("label[for='payer_address1']").addClass("feedback-sad");
+        $("label[for='payer_address1']").removeClass("feedback-success");
+        $("label[for='payer_address1']").addClass("feedback-danger");
         $("#payer_address1").focus();
 		hasError  = true;
 		return false;
 	} else {
         $("label[for='payer_address1']").empty().append("All good!");
-        $("label[for='payer_address1']").removeClass("feedback-sad");
-        $("label[for='payer_address1']").addClass("feedback-happy");
+        $("label[for='payer_address1']").removeClass("feedback-danger");
+        $("label[for='payer_address1']").addClass("feedback-success");
 	}
 
     var payer_city = $("#payer_city").val();
 	if(payer_city === '') {
         $("label[for='payer_city']").empty().append("Please enter a city.");
-        $("label[for='payer_city']").removeClass("feedback-happy");
-        $("label[for='payer_city']").addClass("feedback-sad");
+        $("label[for='payer_city']").removeClass("feedback-success");
+        $("label[for='payer_city']").addClass("feedback-danger");
         $("#payer_city").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='payer_city']").empty().append("All good!");
-        $("label[for='payer_city']").removeClass("feedback-sad");
-        $("label[for='payer_city']").addClass("feedback-happy");
+        $("label[for='payer_city']").removeClass("feedback-danger");
+        $("label[for='payer_city']").addClass("feedback-success");
 	}
 
     var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
         $("label[for='payer_postcode']").empty().append("Please enter a postcode.");
-        $("label[for='payer_postcode']").removeClass("feedback-happy");
-        $("label[for='payer_postcode']").addClass("feedback-sad");
+        $("label[for='payer_postcode']").removeClass("feedback-success");
+        $("label[for='payer_postcode']").addClass("feedback-danger");
         $("#payer_city").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='payer_postcode']").empty().append("All good!");
-        $("label[for='payer_postcode']").removeClass("feedback-sad");
-        $("label[for='payer_postcode']").addClass("feedback-happy");
+        $("label[for='payer_postcode']").removeClass("feedback-danger");
+        $("label[for='payer_postcode']").addClass("feedback-success");
 	}
 
     var fee_type_check = $('#product_name :selected').html();
     if (fee_type_check === '') {
         $("label[for='product_name']").empty().append("Please select an option.");
-        $("label[for='product_name']").removeClass("feedback-happy");
-        $("label[for='product_name']").addClass("feedback-sad");
-        $("[aria-owns='select2-product_name-results']").removeClass("input-happy");
-        $("[aria-owns='select2-product_name-results']").addClass("input-sad");
+        $("label[for='product_name']").removeClass("feedback-success");
+        $("label[for='product_name']").addClass("feedback-danger");
+        $("[aria-owns='select2-product_name-results']").removeClass("input-success");
+        $("[aria-owns='select2-product_name-results']").addClass("input-danger");
         $("[aria-owns='select2-product_name-results']").focus();
         hasError  = true;
         return false;
     }
     else {
         $("label[for='product_name']").empty().append("All good!");
-        $("label[for='product_name']").removeClass("feedback-sad");
-        $("label[for='product_name']").addClass("feedback-happy");
-        $("[aria-owns='select2-product_name-results']").removeClass("input-sad");
-        $("[aria-owns='select2-product_name-results']").addClass("input-happy");
+        $("label[for='product_name']").removeClass("feedback-danger");
+        $("label[for='product_name']").addClass("feedback-success");
+        $("[aria-owns='select2-product_name-results']").removeClass("input-danger");
+        $("[aria-owns='select2-product_name-results']").addClass("input-success");
     }
 	
 	if(hasError == false) {

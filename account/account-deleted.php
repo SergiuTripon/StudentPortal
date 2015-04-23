@@ -32,7 +32,7 @@ include '../includes/session.php';
 
 	<hr>
 
-	<p class="feedback-sad text-center">You haven't deleted your account, and we hope you never will. But if you actually want to, click the button below.</p>
+	<p class="feedback-danger text-center">You haven't deleted your account, and we hope you never will. But if you actually want to, click the button below.</p>
 
 	<hr>
 
@@ -68,7 +68,7 @@ include '../includes/session.php';
 
     <hr>
 
-    <p class="feedback-happy text-center">Your account has been deleted successfully.</p>
+    <p class="feedback-success text-center">Your account has been deleted successfully.</p>
 
     <hr>
 

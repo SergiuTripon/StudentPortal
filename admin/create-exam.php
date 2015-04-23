@@ -36,8 +36,8 @@ include '../includes/session.php';
     <!-- Create exam -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="createexam_form" id="createexam_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
 	<div id="hide">
 
@@ -133,7 +133,7 @@ include '../includes/session.php';
     </div>
 
     <hr>
-	<p class="feedback-sad text-center">You need to have an admin account to access this area.</p>
+	<p class="feedback-danger text-center">You need to have an admin account to access this area.</p>
     <hr>
 
     <div class="text-center">
@@ -163,7 +163,7 @@ include '../includes/session.php';
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -207,111 +207,111 @@ include '../includes/session.php';
     var exam_moduleid_check = $('#exam_moduleid :selected').html();
     if (exam_moduleid_check === '') {
         $("label[for='exam_moduleid']").empty().append("Please select a module.");
-        $("label[for='exam_moduleid']").removeClass("feedback-happy");
-        $("label[for='exam_moduleid']").addClass("feedback-sad");
-        $("[aria-owns='select2-exam_moduleid-results']").removeClass("input-happy");
-        $("[aria-owns='select2-exam_moduleid-results']").addClass("input-sad");
+        $("label[for='exam_moduleid']").removeClass("feedback-success");
+        $("label[for='exam_moduleid']").addClass("feedback-danger");
+        $("[aria-owns='select2-exam_moduleid-results']").removeClass("input-success");
+        $("[aria-owns='select2-exam_moduleid-results']").addClass("input-danger");
         $("[aria-owns='select2-exam_moduleid-results']").focus();
         hasError  = true;
         return false;
     }
     else {
         $("label[for='exam_moduleid']").empty().append("All good!");
-        $("label[for='exam_moduleid']").removeClass("feedback-sad");
-        $("label[for='exam_moduleid']").addClass("feedback-happy");
-        $("[aria-owns='select2-exam_moduleid-results']").removeClass("input-sad");
-        $("[aria-owns='select2-exam_moduleid-results']").addClass("input-happy");
+        $("label[for='exam_moduleid']").removeClass("feedback-danger");
+        $("label[for='exam_moduleid']").addClass("feedback-success");
+        $("[aria-owns='select2-exam_moduleid-results']").removeClass("input-danger");
+        $("[aria-owns='select2-exam_moduleid-results']").addClass("input-success");
     }
 
     //Exams
 	var exam_name = $("#exam_name").val();
 	if(exam_name === '') {
         $("label[for='exam_name']").empty().append("Please enter a location.");
-        $("label[for='exam_name']").removeClass("feedback-happy");
-        $("label[for='exam_name']").addClass("feedback-sad");
-        $("#exam_name").removeClass("input-happy");
-        $("#exam_name").addClass("input-sad");
+        $("label[for='exam_name']").removeClass("feedback-success");
+        $("label[for='exam_name']").addClass("feedback-danger");
+        $("#exam_name").removeClass("input-success");
+        $("#exam_name").addClass("input-danger");
         $("#exam_name").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='exam_name']").empty().append("All good!");
-        $("label[for='exam_name']").removeClass("feedback-sad");
-        $("label[for='exam_name']").addClass("feedback-happy");
-        $("#exam_name").removeClass("input-sad");
-        $("#exam_name").addClass("input-happy");
+        $("label[for='exam_name']").removeClass("feedback-danger");
+        $("label[for='exam_name']").addClass("feedback-success");
+        $("#exam_name").removeClass("input-danger");
+        $("#exam_name").addClass("input-success");
 	}
 
     var exam_date = $("#exam_date").val();
 	if(exam_date === '') {
         $("label[for='exam_date']").empty().append("Please select a date.");
-        $("label[for='exam_date']").removeClass("feedback-happy");
-        $("label[for='exam_date']").addClass("feedback-sad");
-        $("#exam_date").removeClass("input-happy");
-        $("#exam_date").addClass("input-sad");
+        $("label[for='exam_date']").removeClass("feedback-success");
+        $("label[for='exam_date']").addClass("feedback-danger");
+        $("#exam_date").removeClass("input-success");
+        $("#exam_date").addClass("input-danger");
         $("#exam_date").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='exam_date']").empty().append("All good!");
-        $("label[for='exam_date']").removeClass("feedback-sad");
-        $("label[for='exam_date']").addClass("feedback-happy");
-        $("#exam_date").removeClass("input-sad");
-        $("#exam_date").addClass("input-happy");
+        $("label[for='exam_date']").removeClass("feedback-danger");
+        $("label[for='exam_date']").addClass("feedback-success");
+        $("#exam_date").removeClass("input-danger");
+        $("#exam_date").addClass("input-success");
 	}
 
     var exam_time = $("#exam_time").val();
 	if(exam_time === '') {
         $("label[for='exam_time']").empty().append("Please select a time.");
-        $("label[for='exam_time']").removeClass("feedback-happy");
-        $("label[for='exam_time']").addClass("feedback-sad");
-        $("#exam_time").removeClass("input-happy");
-        $("#exam_time").addClass("input-sad");
+        $("label[for='exam_time']").removeClass("feedback-success");
+        $("label[for='exam_time']").addClass("feedback-danger");
+        $("#exam_time").removeClass("input-success");
+        $("#exam_time").addClass("input-danger");
         $("#exam_time").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='exam_time']").empty().append("All good!");
-        $("label[for='exam_time']").removeClass("feedback-sad");
-        $("label[for='exam_time']").addClass("feedback-happy");
-        $("#exam_time").removeClass("input-sad");
-        $("#exam_time").addClass("input-happy");
+        $("label[for='exam_time']").removeClass("feedback-danger");
+        $("label[for='exam_time']").addClass("feedback-success");
+        $("#exam_time").removeClass("input-danger");
+        $("#exam_time").addClass("input-success");
 	}
 
     var exam_location = $("#exam_location").val();
 	if(exam_location === '') {
         $("label[for='exam_location']").empty().append("Please enter a location.");
-        $("label[for='exam_location']").removeClass("feedback-happy");
-        $("label[for='exam_location']").addClass("feedback-sad");
-        $("#exam_location").removeClass("input-happy");
-        $("#exam_location").addClass("input-sad");
+        $("label[for='exam_location']").removeClass("feedback-success");
+        $("label[for='exam_location']").addClass("feedback-danger");
+        $("#exam_location").removeClass("input-success");
+        $("#exam_location").addClass("input-danger");
         $("#exam_location").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='exam_location']").empty().append("All good!");
-        $("label[for='exam_location']").removeClass("feedback-sad");
-        $("label[for='exam_location']").addClass("feedback-happy");
-        $("#exam_location").removeClass("input-sad");
-        $("#exam_location").addClass("input-happy");
+        $("label[for='exam_location']").removeClass("feedback-danger");
+        $("label[for='exam_location']").addClass("feedback-success");
+        $("#exam_location").removeClass("input-danger");
+        $("#exam_location").addClass("input-success");
 	}
 
     var exam_capacity = $("#exam_capacity").val();
 	if(exam_capacity === '') {
         $("label[for='exam_capacity']").empty().append("Please enter a capacity.");
-        $("label[for='exam_capacity']").removeClass("feedback-happy");
-        $("label[for='exam_capacity']").addClass("feedback-sad");
-        $("#exam_capacity").removeClass("input-happy");
-        $("#exam_capacity").addClass("input-sad");
+        $("label[for='exam_capacity']").removeClass("feedback-success");
+        $("label[for='exam_capacity']").addClass("feedback-danger");
+        $("#exam_capacity").removeClass("input-success");
+        $("#exam_capacity").addClass("input-danger");
         $("#exam_capacity").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='exam_capacity']").empty().append("All good!");
-        $("label[for='exam_capacity']").removeClass("feedback-sad");
-        $("label[for='exam_capacity']").addClass("feedback-happy");
-        $("#exam_capacity").removeClass("input-sad");
-        $("#exam_capacity").addClass("input-happy");
+        $("label[for='exam_capacity']").removeClass("feedback-danger");
+        $("label[for='exam_capacity']").addClass("feedback-success");
+        $("#exam_capacity").removeClass("input-danger");
+        $("#exam_capacity").addClass("input-success");
 	}
 
     var exam_moduleid= $("#exam_moduleid option:selected").val();

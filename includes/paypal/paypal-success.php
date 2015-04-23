@@ -27,7 +27,7 @@
     </div>
     
     <hr>
-    <p class="feedback-happy text-center">Payment completed successfully.</p>
+    <p class="feedback-success text-center">Payment completed successfully.</p>
     <hr>
     
     <div class="text-center">
@@ -54,7 +54,7 @@
     </div>
     
     <hr>
-	<p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+	<p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
     
     <div class="text-center">

@@ -33,8 +33,8 @@ include '../includes/session.php';
 	<!-- Create a task -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="createtask_form" id="createtask_form">
 
-	<p id="success" class="feedback-happy text-center"></p>
-	<p id="error" class="feedback-sad text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
+	<p id="error" class="feedback-danger text-center"></p>
 
 	<div id="hide">
 
@@ -103,7 +103,7 @@ include '../includes/session.php';
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -139,19 +139,19 @@ include '../includes/session.php';
 	var task_name = $("#task_name").val();
 	if(task_name === '') {
         $("label[for='task_name']").empty().append("Please enter a name.");
-        $("label[for='task_name']").removeClass("feedback-happy");
+        $("label[for='task_name']").removeClass("feedback-success");
         $("#task_name").removeClass("input-style-happy");
-        $("label[for='task_name']").addClass("feedback-sad");
-        $("#task_name").addClass("input-sad");
+        $("label[for='task_name']").addClass("feedback-danger");
+        $("#task_name").addClass("input-danger");
         $("#task_name").focus();
         hasError = true;
         return false;
     } else {
         $("label[for='task_name']").empty().append("All good!");
-        $("label[for='task_name']").removeClass("feedback-sad");
+        $("label[for='task_name']").removeClass("feedback-danger");
         $("#task_name").removeClass("input-style-sad");
-        $("label[for='task_name']").addClass("feedback-happy");
-        $("#task_name").addClass("input-happy");
+        $("label[for='task_name']").addClass("feedback-success");
+        $("#task_name").addClass("input-success");
 	}
 	
 	var task_notes = $("#task_notes").val();
@@ -160,37 +160,37 @@ include '../includes/session.php';
 	var task_startdate = $("#task_startdate").val();
 	if(task_startdate === '') {
         $("label[for='task_startdate']").empty().append("Please select a date and time.");
-        $("label[for='task_startdate']").removeClass("feedback-happy");
+        $("label[for='task_startdate']").removeClass("feedback-success");
         $("#task_startdate").removeClass("input-style-happy");
-        $("label[for='task_startdate']").addClass("feedback-sad");
-        $("#task_startdate").addClass("input-sad");
+        $("label[for='task_startdate']").addClass("feedback-danger");
+        $("#task_startdate").addClass("input-danger");
         $("#task_startdate").focus();
         hasError = true;
         return false;
 	} else {
         $("label[for='task_startdate']").empty().append("All good!");
-        $("label[for='task_startdate']").removeClass("feedback-sad");
+        $("label[for='task_startdate']").removeClass("feedback-danger");
         $("#task_startdate").removeClass("input-style-sad");
-        $("label[for='task_startdate']").addClass("feedback-happy");
-        $("#task_startdate").addClass("input-happy");
+        $("label[for='task_startdate']").addClass("feedback-success");
+        $("#task_startdate").addClass("input-success");
 	}
 
 	var task_duedate = $("#task_duedate").val();
 	if(task_duedate === '') {
         $("label[for='task_duedate']").empty().append("Please select a date and time.");
-        $("label[for='task_duedate']").removeClass("feedback-happy");
+        $("label[for='task_duedate']").removeClass("feedback-success");
         $("#task_duedate").removeClass("input-style-happy");
-        $("label[for='task_duedate']").addClass("feedback-sad");
-        $("#task_duedate").addClass("input-sad");
+        $("label[for='task_duedate']").addClass("feedback-danger");
+        $("#task_duedate").addClass("input-danger");
         $("#task_duedate").focus();
         hasError = true;
         return false;
     } else {
         $("label[for='task_duedate']").empty().append("All good!");
-        $("label[for='task_duedate']").removeClass("feedback-sad");
+        $("label[for='task_duedate']").removeClass("feedback-danger");
         $("#task_duedate").removeClass("input-style-sad");
-        $("label[for='task_duedate']").addClass("feedback-happy");
-        $("#task_duedate").addClass("input-happy");
+        $("label[for='task_duedate']").addClass("feedback-success");
+        $("#task_duedate").addClass("input-success");
 	}
 
 	if(hasError == false){

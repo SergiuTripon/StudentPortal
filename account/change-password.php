@@ -33,9 +33,9 @@ include '../includes/session.php';
 	<!-- Change Password -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="changepassword_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
-    <p id="error1" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
+    <p id="error1" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 	
     <div id="hide">
 
@@ -88,29 +88,29 @@ include '../includes/session.php';
     var oldpwd = $("#oldpwd").val();
 	if(oldpwd === '') {
         $("label[for='oldpwd']").empty().append("Please enter your old password.");
-        $("label[for='oldpwd']").removeClass("feedback-happy");
-        $("label[for='oldpwd']").addClass("feedback-sad");
+        $("label[for='oldpwd']").removeClass("feedback-success");
+        $("label[for='oldpwd']").addClass("feedback-danger");
         $("#oldpwd").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='oldpwd']").empty().append("All good!");
-        $("label[for='oldpwd']").removeClass("feedback-sad");
-        $("label[for='oldpwd']").addClass("feedback-happy");
+        $("label[for='oldpwd']").removeClass("feedback-danger");
+        $("label[for='oldpwd']").addClass("feedback-success");
 	}
 
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a new password.");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
         $("#password").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
 	}
 
     password = $("#password").val();
@@ -119,15 +119,15 @@ include '../includes/session.php';
         $("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
         $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
         $("label[for='password']").empty().append("Wait a minute!");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
         $("#password").focus();
 		hasError  = true;
 		return false;
 	} else {
         $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
         $("#error1").hide();
 	}
 
@@ -138,15 +138,15 @@ include '../includes/session.php';
     password = $("#password").val();
 	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
         $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
         $("#error1").hide();
 	} else {
         $("#error1").show();
         $("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
         $("label[for='password']").empty().append("Wait a minute!");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
         $("#password").focus();
 		hasError  = true;
 		return false;
@@ -155,30 +155,30 @@ include '../includes/session.php';
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter the new password again.");
-        $("label[for='confirmpwd']").removeClass("feedback-happy");
-        $("label[for='confirmpwd']").addClass("feedback-sad");
+        $("label[for='confirmpwd']").removeClass("feedback-success");
+        $("label[for='confirmpwd']").addClass("feedback-danger");
         $("#confirmpwd").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='confirmpwd']").empty().append("All good!");
-        $("label[for='confirmpwd']").removeClass("feedback-sad");
-        $("label[for='confirmpwd']").addClass("feedback-happy");
+        $("label[for='confirmpwd']").removeClass("feedback-danger");
+        $("label[for='confirmpwd']").addClass("feedback-success");
 	}
 
 	if(password != confirmpwd) {
         $("#error1").show();
         $("#error1").empty().append("Your password and confirmation do not match. Please try again.");
         $("label[for='confirmpwd']").empty().append("Wait a minute!");
-        $("label[for='confirmpwd']").removeClass("feedback-happy");
-        $("label[for='confirmpwd']").addClass("feedback-sad");
+        $("label[for='confirmpwd']").removeClass("feedback-success");
+        $("label[for='confirmpwd']").addClass("feedback-danger");
         $("#confirmpwd").focus();
         hasError  = true;
 		return false;
 	} else {
         $("label[for='confirmpwd']").empty().append("All good!");
-        $("label[for='confirmpwd']").removeClass("feedback-sad");
-        $("label[for='confirmpwd']").addClass("feedback-happy");
+        $("label[for='confirmpwd']").removeClass("feedback-danger");
+        $("label[for='confirmpwd']").addClass("feedback-success");
         $("#error1").hide();
 	}
 
@@ -220,7 +220,7 @@ include '../includes/session.php';
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">

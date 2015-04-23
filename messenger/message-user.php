@@ -58,9 +58,9 @@ if (isset($_GET["id"])) {
 	<!-- Message user -->
     <form class="form-horizontal form-custom" style="max-width: 100%;" method="post" name="messageuser_form" id="messageuser_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
-    <p id="error1" class="feedback-sad text-center"></p>
-    <p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
+    <p id="error1" class="feedback-danger text-center"></p>
+    <p id="success" class="feedback-success text-center"></p>
 
     <div id="hide">
     <input type="hidden" name="message_to_userid" id="message_to_userid" value="<?php echo $message_to_userid; ?>">
@@ -146,7 +146,7 @@ if (isset($_GET["id"])) {
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -174,74 +174,74 @@ if (isset($_GET["id"])) {
     var message_subject = $("#message_subject").val();
 	if(message_subject === '') {
         $("label[for='message_subject']").empty().append("Please enter a subject.");
-        $("label[for='message_subject']").removeClass("feedback-happy");
-        $("label[for='message_subject']").addClass("feedback-sad");
-        $("#message_subject").removeClass("input-happy");
-        $("#message_subject").addClass("input-sad");
+        $("label[for='message_subject']").removeClass("feedback-success");
+        $("label[for='message_subject']").addClass("feedback-danger");
+        $("#message_subject").removeClass("input-success");
+        $("#message_subject").addClass("input-danger");
         $("#message_subject").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='message_subject']").empty().append("All good!");
-        $("label[for='message_subject']").removeClass("feedback-sad");
-        $("label[for='message_subject']").addClass("feedback-happy");
-        $("#message_subject").removeClass("input-sad");
-        $("#message_subject").addClass("input-happy");
+        $("label[for='message_subject']").removeClass("feedback-danger");
+        $("label[for='message_subject']").addClass("feedback-success");
+        $("#message_subject").removeClass("input-danger");
+        $("#message_subject").addClass("input-success");
 	}
     if (message_subject.length > 300) {
         $("#error1").show();
         $("#error1").empty().append("The subject entered is too long.<br>The maximum length of the subject is 300 characters.");
         $("label[for='message_subject']").empty().append("Wait a minute!");
-        $("label[for='message_subject']").removeClass("feedback-happy");
-        $("label[for='message_subject']").addClass("feedback-sad");
-        $("#message_subject").removeClass("input-happy");
-        $("#message_subject").addClass("input-sad");
+        $("label[for='message_subject']").removeClass("feedback-success");
+        $("label[for='message_subject']").addClass("feedback-danger");
+        $("#message_subject").removeClass("input-success");
+        $("#message_subject").addClass("input-danger");
         $("#message_subject").focus();
         hasError  = true;
         return false;
     } else {
         $("label[for='message_subject']").empty().append("All good!");
-        $("label[for='message_subject']").removeClass("feedback-sad");
-        $("label[for='message_subject']").addClass("feedback-happy");
-        $("#message_subject").removeClass("input-sad");
-        $("#message_subject").addClass("input-happy");
+        $("label[for='message_subject']").removeClass("feedback-danger");
+        $("label[for='message_subject']").addClass("feedback-success");
+        $("#message_subject").removeClass("input-danger");
+        $("#message_subject").addClass("input-success");
     }
 
     var message_body = $("#message_body").val();
 	if(message_body === '') {
         $("label[for='message_body']").empty().append("Please enter a message.");
-        $("label[for='message_body']").removeClass("feedback-happy");
-        $("label[for='message_body']").addClass("feedback-sad");
-        $("#message_body").removeClass("input-happy");
-        $("#message_body").addClass("input-sad");
+        $("label[for='message_body']").removeClass("feedback-success");
+        $("label[for='message_body']").addClass("feedback-danger");
+        $("#message_body").removeClass("input-success");
+        $("#message_body").addClass("input-danger");
         $("#message_body").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='message_body']").empty().append("All good!");
-        $("label[for='message_body']").removeClass("feedback-sad");
-        $("label[for='message_body']").addClass("feedback-happy");
-        $("#message_body").removeClass("input-sad");
-        $("#message_body").addClass("input-happy");
+        $("label[for='message_body']").removeClass("feedback-danger");
+        $("label[for='message_body']").addClass("feedback-success");
+        $("#message_body").removeClass("input-danger");
+        $("#message_body").addClass("input-success");
 	}
 
     if (message_body.length > 5000) {
         $("#error1").show();
         $("#error1").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
         $("label[for='message_body']").empty().append("Wait a minute!");
-        $("label[for='message_body']").removeClass("feedback-happy");
-        $("label[for='message_body']").addClass("feedback-sad");
-        $("#message_body").removeClass("input-happy");
-        $("#message_body").addClass("input-sad");
+        $("label[for='message_body']").removeClass("feedback-success");
+        $("label[for='message_body']").addClass("feedback-danger");
+        $("#message_body").removeClass("input-success");
+        $("#message_body").addClass("input-danger");
         $("#message_body").focus();
         hasError  = true;
         return false;
     } else {
         $("label[for='message_body']").empty().append("All good!");
-        $("label[for='message_body']").removeClass("feedback-sad");
-        $("label[for='message_body']").addClass("feedback-happy");
-        $("#message_body").removeClass("input-sad");
-        $("#message_body").addClass("input-happy");
+        $("label[for='message_body']").removeClass("feedback-danger");
+        $("label[for='message_body']").addClass("feedback-success");
+        $("#message_body").removeClass("input-danger");
+        $("#message_body").addClass("input-success");
     }
 
     var message_to_userid = $("#message_to_userid").val();

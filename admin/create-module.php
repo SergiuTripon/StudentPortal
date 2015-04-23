@@ -36,8 +36,8 @@ include '../includes/session.php';
     <!-- Create module -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="createmodule_form" id="createmodule_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
 	<div id="hide">
 
@@ -97,7 +97,7 @@ include '../includes/session.php';
     </div>
 
     <hr>
-	<p class="feedback-sad text-center">You need to have an admin account to access this area.</p>
+	<p class="feedback-danger text-center">You need to have an admin account to access this area.</p>
     <hr>
 
     <div class="text-center">
@@ -127,7 +127,7 @@ include '../includes/session.php';
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -156,19 +156,19 @@ include '../includes/session.php';
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
         $("label[for='module_name']").empty().append("Please enter a module name.");
-        $("label[for='module_name']").removeClass("feedback-happy");
-        $("label[for='module_name']").addClass("feedback-sad");
-        $("#module_name").removeClass("input-happy");
-        $("#module_name").addClass("input-sad");
+        $("label[for='module_name']").removeClass("feedback-success");
+        $("label[for='module_name']").addClass("feedback-danger");
+        $("#module_name").removeClass("input-success");
+        $("#module_name").addClass("input-danger");
         $("#module_name").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='module_name']").empty().append("All good!");
-        $("label[for='module_name']").removeClass("feedback-sad");
-        $("label[for='module_name']").addClass("feedback-happy");
-        $("#module_name").removeClass("input-sad");
-        $("#module_name").addClass("input-happy");
+        $("label[for='module_name']").removeClass("feedback-danger");
+        $("label[for='module_name']").addClass("feedback-success");
+        $("#module_name").removeClass("input-danger");
+        $("#module_name").addClass("input-success");
 	}
 
     var module_notes = $("#module_notes").val();

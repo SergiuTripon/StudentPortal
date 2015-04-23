@@ -54,8 +54,8 @@ if (isset($_GET["id"])) {
     <!-- Update event -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updateevent_form" id="updateevent_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
 	<div id="hide">
 
@@ -135,7 +135,7 @@ if (isset($_GET["id"])) {
     </div>
 
     <hr>
-	<p class="feedback-sad text-center">You need to have an admin account to access this area.</p>
+	<p class="feedback-danger text-center">You need to have an admin account to access this area.</p>
     <hr>
 
     <div class="text-center">
@@ -165,7 +165,7 @@ if (isset($_GET["id"])) {
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -204,18 +204,18 @@ if (isset($_GET["id"])) {
 	var event_name = $("#event_name").val();
 	if(event_name === '') {
         $("label[for='event_name']").empty().append("Please enter a name.");
-        $("label[for='event_name']").removeClass("feedback-happy");
-        $("label[for='event_name']").addClass("feedback-sad");
-        $("#exam_name").removeClass("input-happy");
-        $("#exam_name").addClass("input-sad");
+        $("label[for='event_name']").removeClass("feedback-success");
+        $("label[for='event_name']").addClass("feedback-danger");
+        $("#exam_name").removeClass("input-success");
+        $("#exam_name").addClass("input-danger");
         $("#exam_name").focus();
         hasError  = true;
     } else {
         $("label[for='event_name']").empty().append("All good!");
-        $("label[for='event_name']").removeClass("feedback-sad");
-        $("label[for='event_name']").addClass("feedback-happy");
-        $("#event_name").removeClass("input-sad");
-        $("#event_name").addClass("input-happy");
+        $("label[for='event_name']").removeClass("feedback-danger");
+        $("label[for='event_name']").addClass("feedback-success");
+        $("#event_name").removeClass("input-danger");
+        $("#event_name").addClass("input-success");
 	}
 
     var event_notes = $("#event_notes").val();
@@ -224,69 +224,69 @@ if (isset($_GET["id"])) {
     var event_from = $("#event_from").val();
 	if(event_from === '') {
         $("label[for='event_from']").empty().append("Please select a date and time.");
-        $("label[for='event_from']").removeClass("feedback-happy");
-        $("label[for='event_from']").addClass("feedback-sad");
-        $("#event_from").removeClass("input-happy");
-        $("#event_from").addClass("input-sad");
+        $("label[for='event_from']").removeClass("feedback-success");
+        $("label[for='event_from']").addClass("feedback-danger");
+        $("#event_from").removeClass("input-success");
+        $("#event_from").addClass("input-danger");
         $("#event_from").focus();
         hasError  = true;
     } else {
         $("label[for='event_from']").empty().append("All good!");
-        $("label[for='event_from']").removeClass("feedback-sad");
-        $("label[for='event_from']").addClass("feedback-happy");
-        $("#event_from").removeClass("input-sad");
-        $("#event_from").addClass("input-happy");
+        $("label[for='event_from']").removeClass("feedback-danger");
+        $("label[for='event_from']").addClass("feedback-success");
+        $("#event_from").removeClass("input-danger");
+        $("#event_from").addClass("input-success");
 	}
 
     var event_to = $("#event_to").val();
 	if(event_to === '') {
         $("label[for='event_to']").empty().append("Please select a date and time.");
-        $("label[for='event_to']").removeClass("feedback-happy");
-        $("label[for='event_to']").addClass("feedback-sad");
-        $("#event_to").removeClass("input-happy");
-        $("#event_to").addClass("input-sad");
+        $("label[for='event_to']").removeClass("feedback-success");
+        $("label[for='event_to']").addClass("feedback-danger");
+        $("#event_to").removeClass("input-success");
+        $("#event_to").addClass("input-danger");
         $("#event_to").focus();
         hasError  = true;
     } else {
         $("label[for='event_to']").empty().append("All good!");
-        $("label[for='event_to']").removeClass("feedback-sad");
-        $("label[for='event_to']").addClass("feedback-happy");
-        $("#event_to").removeClass("input-sad");
-        $("#event_to").addClass("input-happy");
+        $("label[for='event_to']").removeClass("feedback-danger");
+        $("label[for='event_to']").addClass("feedback-success");
+        $("#event_to").removeClass("input-danger");
+        $("#event_to").addClass("input-success");
 	}
 
     var event_amount = $("#event_amount").val();
 	if(event_amount === '') {
         $("label[for='event_amount']").empty().append("Please enter an amount.");
-        $("label[for='event_amount']").removeClass("feedback-happy");
-        $("label[for='event_amount']").addClass("feedback-sad");
-        $("#event_amount").removeClass("input-happy");
-        $("#event_amount").addClass("input-sad");
+        $("label[for='event_amount']").removeClass("feedback-success");
+        $("label[for='event_amount']").addClass("feedback-danger");
+        $("#event_amount").removeClass("input-success");
+        $("#event_amount").addClass("input-danger");
         $("#event_amount").focus();
         hasError  = true;
     } else {
         $("label[for='event_amount']").empty().append("All good!");
-        $("label[for='event_amount']").removeClass("feedback-sad");
-        $("label[for='event_amount']").addClass("feedback-happy");
-        $("#event_amount").removeClass("input-sad");
-        $("#event_amount").addClass("input-happy");
+        $("label[for='event_amount']").removeClass("feedback-danger");
+        $("label[for='event_amount']").addClass("feedback-success");
+        $("#event_amount").removeClass("input-danger");
+        $("#event_amount").addClass("input-success");
 	}
 
     var event_ticket_no = $("#event_ticket_no").val();
 	if(event_ticket_no === '') {
         $("label[for='event_amount']").empty().append("Please enter an amount.");
-        $("label[for='event_amount']").removeClass("feedback-happy");
-        $("label[for='event_amount']").addClass("feedback-sad");
-        $("#event_amount").removeClass("input-happy");
-        $("#event_amount").addClass("input-sad");
+        $("label[for='event_amount']").removeClass("feedback-success");
+        $("label[for='event_amount']").addClass("feedback-danger");
+        $("#event_amount").removeClass("input-success");
+        $("#event_amount").addClass("input-danger");
         $("#event_amount").focus();
         hasError  = true;
     } else {
         $("label[for='event_amount']").empty().append("All good!");
-        $("label[for='event_amount']").removeClass("feedback-sad");
-        $("label[for='event_amount']").addClass("feedback-happy");
-        $("#event_amount").removeClass("input-sad");
-        $("#event_amount").addClass("input-happy");
+        $("label[for='event_amount']").removeClass("feedback-danger");
+        $("label[for='event_amount']").addClass("feedback-success");
+        $("#event_amount").removeClass("input-danger");
+        $("#event_amount").addClass("input-success");
 	}
 
     var event_category = $("#event_category option:selected").val();

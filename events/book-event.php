@@ -61,7 +61,7 @@ if (isset($_GET["id"])) {
 	<!-- Book event -->
     <form class="form-horizontal form-custom" style="max-width: 100%;" action="https://student-portal.co.uk/includes/paypal/events_paypal_process.php?sandbox=1" method="post" name="bookevent_form" id="bookevent_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
 
 	<!-- Hidden fields -->
     <input type="hidden" name="payment" id="payment" value="process"/>
@@ -202,7 +202,7 @@ if (isset($_GET["id"])) {
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -241,73 +241,73 @@ if (isset($_GET["id"])) {
     var payer_address1 = $("#payer_address1").val();
 	if (payer_address1 === '') {
         $("label[for='payer_address1']").empty().append("Please enter an address.");
-        $("label[for='payer_address1']").removeClass("feedback-happy");
-        $("#payer_address1").removeClass("input-happy");
-        $("label[for='payer_address1']").addClass("feedback-sad");
-        $("#payer_address1").addClass("input-sad");
+        $("label[for='payer_address1']").removeClass("feedback-success");
+        $("#payer_address1").removeClass("input-success");
+        $("label[for='payer_address1']").addClass("feedback-danger");
+        $("#payer_address1").addClass("input-danger");
         $("#payer_address1").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='payer_address1']").empty().append("All good!");
-        $("label[for='payer_address1']").removeClass("feedback-sad");
-        $("#payer_address1").removeClass("input-sad");
-        $("label[for='payer_address1']").addClass("feedback-happy");
-        $("#payer_address1").addClass("input-happy");
+        $("label[for='payer_address1']").removeClass("feedback-danger");
+        $("#payer_address1").removeClass("input-danger");
+        $("label[for='payer_address1']").addClass("feedback-success");
+        $("#payer_address1").addClass("input-success");
 	}
 
     var payer_city = $("#payer_city").val();
     if(payer_city === '') {
         $("label[for='payer_city']").empty().append("Please enter a city.");
-        $("label[for='payer_city']").removeClass("feedback-happy");
-        $("#payer_city").removeClass("input-happy");
-        $("label[for='payer_city']").addClass("feedback-sad");
-        $("#payer_city").addClass("input-sad");
+        $("label[for='payer_city']").removeClass("feedback-success");
+        $("#payer_city").removeClass("input-success");
+        $("label[for='payer_city']").addClass("feedback-danger");
+        $("#payer_city").addClass("input-danger");
         $("#payer_city").focus();
 		hasError  = true;
         return false;
     } else {
         $("label[for='payer_city']").empty().append("All good!");
-        $("label[for='payer_city']").removeClass("feedback-sad");
-        $("#payer_city").removeClass("input-sad");
-        $("label[for='payer_city']").addClass("feedback-happy");
-        $("#payer_city").addClass("input-happy");
+        $("label[for='payer_city']").removeClass("feedback-danger");
+        $("#payer_city").removeClass("input-danger");
+        $("label[for='payer_city']").addClass("feedback-success");
+        $("#payer_city").addClass("input-success");
 	}
 
     var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
         $("label[for='payer_postcode']").empty().append("Please enter a postcode.");
-        $("label[for='payer_postcode']").removeClass("feedback-happy");
-        $("#payer_postcode").removeClass("input-happy");
-        $("label[for='payer_postcode']").addClass("feedback-sad");
-        $("#payer_postcode").addClass("input-sad");
+        $("label[for='payer_postcode']").removeClass("feedback-success");
+        $("#payer_postcode").removeClass("input-success");
+        $("label[for='payer_postcode']").addClass("feedback-danger");
+        $("#payer_postcode").addClass("input-danger");
         $("#payer_postcode").focus();
 		hasError  = true;
         return false;
     } else {
         $("label[for='payer_postcode']").empty().append("All good!");
-        $("label[for='payer_postcode']").removeClass("feedback-sad");
-        $("#payer_postcode").removeClass("input-sad");
-        $("label[for='payer_postcode']").addClass("feedback-happy");
-        $("#payer_postcode").addClass("input-happy");
+        $("label[for='payer_postcode']").removeClass("feedback-danger");
+        $("#payer_postcode").removeClass("input-danger");
+        $("label[for='payer_postcode']").addClass("feedback-success");
+        $("#payer_postcode").addClass("input-success");
 	}
 
     var product_quantity = $("#product_quantity").val();
     if(product_quantity === '') {
         $("label[for='product_quantity']").empty().append("Please enter a quantity.");
-        $("label[for='product_quantity']").removeClass("feedback-happy");
-        $("#product_quantity").removeClass("input-happy");
-        $("label[for='product_quantity']").addClass("feedback-sad");
-        $("#payer_postcode").addClass("input-sad");
+        $("label[for='product_quantity']").removeClass("feedback-success");
+        $("#product_quantity").removeClass("input-success");
+        $("label[for='product_quantity']").addClass("feedback-danger");
+        $("#payer_postcode").addClass("input-danger");
         $("#payer_postcode").focus();
         hasError  = true;
         return false;
     } else {
         $("label[for='product_quantity']").empty().append("All good!");
-        $("label[for='product_quantity']").removeClass("feedback-sad");
-        $("#product_quantity").removeClass("input-sad");
-        $("label[for='product_quantity']").addClass("feedback-happy");
-        $("#product_quantity").addClass("input-happy");
+        $("label[for='product_quantity']").removeClass("feedback-danger");
+        $("#product_quantity").removeClass("input-danger");
+        $("label[for='product_quantity']").addClass("feedback-success");
+        $("#product_quantity").addClass("input-success");
     }
 
     var eventid = $("#product_id").val();

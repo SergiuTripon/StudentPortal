@@ -43,8 +43,8 @@ include 'includes/session.php';
 
 	<form class="form-horizontal form-custom" style="max-width: 700px;">
 
-    <p id="success" class="feedback-happy text-center"></p>
-    <p id="error" class="feedback-sad text-center"></p>
+    <p id="success" class="feedback-success text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
 
     <div id="hide">
 
@@ -65,7 +65,7 @@ include 'includes/session.php';
 	<textarea class="form-control" rows="8" name="message" id="message" placeholder="Message"></textarea>
 	</div>
 	</div>
-    <p id="error2" class="feedback-sad text-center"></p>
+    <p id="error2" class="feedback-danger text-center"></p>
 
     <hr>
 
@@ -107,8 +107,8 @@ include 'includes/session.php';
 
 	<form class="form-horizontal form-custom" style="max-width: 700px;">
 
-    <p id="success" class="feedback-happy text-center"></p>
-    <p id="error" class="feedback-sad text-center"></p>
+    <p id="success" class="feedback-success text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
 
     <div id="hide">
 
@@ -129,7 +129,7 @@ include 'includes/session.php';
 	<textarea class="form-control" rows="8" name="message" id="message" placeholder="Message"></textarea>
 	</div>
 	</div>
-    <p id="error2" class="feedback-sad text-center"></p>
+    <p id="error2" class="feedback-danger text-center"></p>
 
     <hr>
 

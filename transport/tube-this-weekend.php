@@ -168,7 +168,7 @@ global $transport_status_last_updated;
 
 	<hr>
 
-	<p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+	<p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
 
 	<hr>
 

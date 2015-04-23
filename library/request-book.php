@@ -59,8 +59,8 @@ if (isset($_GET["id"])) {
 	<!-- Request event -->
     <form class="form-horizontal form-custom" style="max-width: 100%;" method="post" name="requestbook_form" id="requestbook_form" novalidate>
 
-    <p id="success" class="feedback-happy text-center"></p>
-    <p id="error" class="feedback-sad text-center"></p>
+    <p id="success" class="feedback-success text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
 
     <div id="hide">
     <input type="hidden" name="bookid" id="bookid" value="<?php echo $bookid; ?>">
@@ -136,7 +136,7 @@ if (isset($_GET["id"])) {
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">

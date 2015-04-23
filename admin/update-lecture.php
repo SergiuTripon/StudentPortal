@@ -52,8 +52,8 @@ if (isset($_GET['id'])) {
     <!-- Update lecture -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updatelecture_form" id="updatelecture_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
 	<div id="hide">
 
@@ -217,7 +217,7 @@ if (isset($_GET['id'])) {
     </div>
 
     <hr>
-	<p class="feedback-sad text-center">You need to have an admin account to access this area.</p>
+	<p class="feedback-danger text-center">You need to have an admin account to access this area.</p>
     <hr>
 
     <div class="text-center">
@@ -248,7 +248,7 @@ if (isset($_GET['id'])) {
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -301,161 +301,161 @@ if (isset($_GET['id'])) {
     var lectureid = $("#lectureid").val();
 
     $("label[for='lecture_moduleid']").empty().append("All good!");
-    $("label[for='lecture_moduleid']").removeClass("feedback-sad");
-    $("label[for='lecture_moduleid']").addClass("feedback-happy");
-    $("[aria-owns='select2-lecture_moduleid-results']").removeClass("input-sad");
-    $("[aria-owns='select2-lecture_moduleid-results']").addClass("input-happy");
+    $("label[for='lecture_moduleid']").removeClass("feedback-danger");
+    $("label[for='lecture_moduleid']").addClass("feedback-success");
+    $("[aria-owns='select2-lecture_moduleid-results']").removeClass("input-danger");
+    $("[aria-owns='select2-lecture_moduleid-results']").addClass("input-success");
 
     var lecture_moduleid= $("#lecture_moduleid :selected").val();
 
 	var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
         $("label[for='lecture_name']").empty().append("Please enter a lecture name.");
-        $("label[for='lecture_name']").removeClass("feedback-happy");
-        $("label[for='lecture_name']").addClass("feedback-sad");
-        $("#lecture_name").removeClass("input-happy");
-        $("#lecture_name").addClass("input-sad");
+        $("label[for='lecture_name']").removeClass("feedback-success");
+        $("label[for='lecture_name']").addClass("feedback-danger");
+        $("#lecture_name").removeClass("input-success");
+        $("#lecture_name").addClass("input-danger");
         $("#lecture_name").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='lecture_name']").empty().append("All good!");
-        $("label[for='lecture_name']").removeClass("feedback-sad");
-        $("label[for='lecture_name']").addClass("feedback-happy");
-        $("#lecture_name").removeClass("input-sad");
-        $("#lecture_name").addClass("input-happy");
+        $("label[for='lecture_name']").removeClass("feedback-danger");
+        $("label[for='lecture_name']").addClass("feedback-success");
+        $("#lecture_name").removeClass("input-danger");
+        $("#lecture_name").addClass("input-success");
 	}
 
     $("label[for='lecture_lecturer']").empty().append("All good!");
-    $("label[for='lecture_lecturer']").removeClass("feedback-sad");
-    $("label[for='lecture_lecturer']").addClass("feedback-happy");
-    $("[aria-owns='select2-lecture_lecturer-results']").removeClass("input-sad");
-    $("[aria-owns='select2-lecture_lecturer-results']").addClass("input-happy");
+    $("label[for='lecture_lecturer']").removeClass("feedback-danger");
+    $("label[for='lecture_lecturer']").addClass("feedback-success");
+    $("[aria-owns='select2-lecture_lecturer-results']").removeClass("input-danger");
+    $("[aria-owns='select2-lecture_lecturer-results']").addClass("input-success");
 
     var lecture_lecturer = $("#lecture_lecturer :selected").val();
 
     $("label[for='lecture_notes']").empty().append("All good!");
-    $("label[for='lecture_notes']").removeClass("feedback-sad");
-    $("label[for='lecture_notes']").addClass("feedback-happy");
-    $("[aria-owns='select2-lecture_notes-results']").removeClass("input-sad");
-    $("[aria-owns='select2-lecture_notes-results']").addClass("input-happy");
+    $("label[for='lecture_notes']").removeClass("feedback-danger");
+    $("label[for='lecture_notes']").addClass("feedback-success");
+    $("[aria-owns='select2-lecture_notes-results']").removeClass("input-danger");
+    $("[aria-owns='select2-lecture_notes-results']").addClass("input-success");
 
     var lecture_notes = $("#lecture_notes").val();
 
     $("label[for='lecture_day']").empty().append("All good!");
-    $("label[for='lecture_day']").removeClass("feedback-sad");
-    $("label[for='lecture_day']").addClass("feedback-happy");
-    $("[aria-owns='select2-lecture_day-results']").removeClass("input-sad");
-    $("[aria-owns='select2-lecture_day-results']").addClass("input-happy");
+    $("label[for='lecture_day']").removeClass("feedback-danger");
+    $("label[for='lecture_day']").addClass("feedback-success");
+    $("[aria-owns='select2-lecture_day-results']").removeClass("input-danger");
+    $("[aria-owns='select2-lecture_day-results']").addClass("input-success");
 
     var lecture_day = $("#lecture_day :selected").html();
 
     var lecture_from_time = $("#lecture_from_time").val();
 	if(lecture_from_time === '') {
         $("label[for='lecture_from_time']").empty().append("Please select a time.");
-        $("label[for='lecture_from_time']").removeClass("feedback-happy");
-        $("label[for='lecture_from_time']").addClass("feedback-sad");
-        $("#lecture_from_time").removeClass("input-happy");
-        $("#lecture_from_time").addClass("input-sad");
+        $("label[for='lecture_from_time']").removeClass("feedback-success");
+        $("label[for='lecture_from_time']").addClass("feedback-danger");
+        $("#lecture_from_time").removeClass("input-success");
+        $("#lecture_from_time").addClass("input-danger");
         $("#lecture_from_time").focus();
         hasError  = true;
         return false;
 	} else {
         $("label[for='lecture_from_time']").empty().append("All good!");
-        $("label[for='lecture_from_time']").removeClass("feedback-sad");
-        $("label[for='lecture_from_time']").addClass("feedback-happy");
-        $("#lecture_from_time").removeClass("input-sad");
-        $("#lecture_from_time").addClass("input-happy");
+        $("label[for='lecture_from_time']").removeClass("feedback-danger");
+        $("label[for='lecture_from_time']").addClass("feedback-success");
+        $("#lecture_from_time").removeClass("input-danger");
+        $("#lecture_from_time").addClass("input-success");
 	}
 
     var lecture_to_time = $("#lecture_to_time").val();
 	if(lecture_to_time === '') {
         $("label[for='lecture_to_time']").empty().append("Please select a time.");
-        $("label[for='lecture_to_time']").removeClass("feedback-happy");
-        $("label[for='lecture_to_time']").addClass("feedback-sad");
-        $("#lecture_to_time").removeClass("input-happy");
-        $("#lecture_to_time").addClass("input-sad");
+        $("label[for='lecture_to_time']").removeClass("feedback-success");
+        $("label[for='lecture_to_time']").addClass("feedback-danger");
+        $("#lecture_to_time").removeClass("input-success");
+        $("#lecture_to_time").addClass("input-danger");
         $("#lecture_to_time").focus();
         hasError  = true;
         return false;
 	} else {
         $("label[for='lecture_to_time']").empty().append("All good!");
-        $("label[for='lecture_to_time']").removeClass("feedback-sad");
-        $("label[for='lecture_to_time']").addClass("feedback-happy");
-        $("#lecture_to_time").removeClass("input-sad");
-        $("#lecture_to_time").addClass("input-happy");
+        $("label[for='lecture_to_time']").removeClass("feedback-danger");
+        $("label[for='lecture_to_time']").addClass("feedback-success");
+        $("#lecture_to_time").removeClass("input-danger");
+        $("#lecture_to_time").addClass("input-success");
 	}
 
     var lecture_from_date = $("#lecture_from_date").val();
 	if(lecture_from_date === '') {
         $("label[for='lecture_from_date']").empty().append("Please select a date.");
-        $("label[for='lecture_from_date']").removeClass("feedback-happy");
-        $("label[for='lecture_from_date']").addClass("feedback-sad");
-        $("#lecture_from_date").removeClass("input-happy");
-        $("#lecture_from_date").addClass("input-sad");
+        $("label[for='lecture_from_date']").removeClass("feedback-success");
+        $("label[for='lecture_from_date']").addClass("feedback-danger");
+        $("#lecture_from_date").removeClass("input-success");
+        $("#lecture_from_date").addClass("input-danger");
         $("#lecture_from_date").focus();
         hasError  = true;
         return false;
 	} else {
         $("label[for='lecture_from_date']").empty().append("All good!");
-        $("label[for='lecture_from_date']").removeClass("feedback-sad");
-        $("label[for='lecture_from_date']").addClass("feedback-happy");
-        $("#lecture_from_date").removeClass("input-sad");
-        $("#lecture_from_date").addClass("input-happy");
+        $("label[for='lecture_from_date']").removeClass("feedback-danger");
+        $("label[for='lecture_from_date']").addClass("feedback-success");
+        $("#lecture_from_date").removeClass("input-danger");
+        $("#lecture_from_date").addClass("input-success");
 	}
 
     var lecture_to_date = $("#lecture_to_date").val();
 	if(lecture_to_date === '') {
         $("label[for='lecture_to_date']").empty().append("Please select a date.");
-        $("label[for='lecture_to_date']").removeClass("feedback-happy");
-        $("label[for='lecture_to_date']").addClass("feedback-sad");
-        $("#lecture_to_date").removeClass("input-happy");
-        $("#lecture_to_date").addClass("input-sad");
+        $("label[for='lecture_to_date']").removeClass("feedback-success");
+        $("label[for='lecture_to_date']").addClass("feedback-danger");
+        $("#lecture_to_date").removeClass("input-success");
+        $("#lecture_to_date").addClass("input-danger");
         $("lecture_to_date").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='lecture_to_date']").empty().append("All good!");
-        $("label[for='lecture_to_date']").removeClass("feedback-sad");
-        $("label[for='lecture_to_date']").addClass("feedback-happy");
-        $("#lecture_to_date").removeClass("input-sad");
-        $("#lecture_to_date").addClass("input-happy");
+        $("label[for='lecture_to_date']").removeClass("feedback-danger");
+        $("label[for='lecture_to_date']").addClass("feedback-success");
+        $("#lecture_to_date").removeClass("input-danger");
+        $("#lecture_to_date").addClass("input-success");
 	}
 
     var lecture_location = $("#lecture_location").val();
 	if(lecture_location === '') {
         $("label[for='lecture_location']").empty().append("Please enter a location.");
-        $("label[for='lecture_location']").removeClass("feedback-happy");
-        $("label[for='lecture_location']").addClass("feedback-sad");
-        $("#lecture_location").removeClass("input-happy");
-        $("#lecture_location").addClass("input-sad");
+        $("label[for='lecture_location']").removeClass("feedback-success");
+        $("label[for='lecture_location']").addClass("feedback-danger");
+        $("#lecture_location").removeClass("input-success");
+        $("#lecture_location").addClass("input-danger");
         $("#lecture_location").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='lecture_location']").empty().append("All good!");
-        $("label[for='lecture_location']").removeClass("feedback-sad");
-        $("label[for='lecture_location']").addClass("feedback-happy");
-        $("#lecture_location").removeClass("input-sad");
-        $("#lecture_location").addClass("input-happy");
+        $("label[for='lecture_location']").removeClass("feedback-danger");
+        $("label[for='lecture_location']").addClass("feedback-success");
+        $("#lecture_location").removeClass("input-danger");
+        $("#lecture_location").addClass("input-success");
 	}
 
     var lecture_capacity = $("#lecture_capacity").val();
 	if(lecture_capacity === '') {
         $("label[for='lecture_capacity']").empty().append("Please enter a capacity.");
-        $("label[for='lecture_capacity']").removeClass("feedback-happy");
-        $("label[for='lecture_capacity']").addClass("feedback-sad");
-        $("#lecture_capacity").removeClass("input-happy");
-        $("#lecture_capacity").addClass("input-sad");
+        $("label[for='lecture_capacity']").removeClass("feedback-success");
+        $("label[for='lecture_capacity']").addClass("feedback-danger");
+        $("#lecture_capacity").removeClass("input-success");
+        $("#lecture_capacity").addClass("input-danger");
         $("#lecture_capacity").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='lecture_capacity']").empty().append("All good!");
-        $("label[for='lecture_capacity']").removeClass("feedback-sad");
-        $("label[for='lecture_capacity']").addClass("feedback-happy");
-        $("#lecture_capacity").removeClass("input-sad");
-        $("#lecture_capacity").addClass("input-happy");
+        $("label[for='lecture_capacity']").removeClass("feedback-danger");
+        $("label[for='lecture_capacity']").addClass("feedback-success");
+        $("#lecture_capacity").removeClass("input-danger");
+        $("#lecture_capacity").addClass("input-success");
 	}
 
     //Ajax

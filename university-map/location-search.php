@@ -37,7 +37,7 @@ include '../includes/session.php';
 
     <form class="form-horizontal form-custom" style="max-width: 100%;">
 
-    <p id="error" class="feedback-sad text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
 
     <div id="map-search">
 
@@ -88,7 +88,7 @@ include '../includes/session.php';
 
     <hr>
 
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
 
     <hr>
 

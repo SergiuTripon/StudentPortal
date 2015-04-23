@@ -165,33 +165,33 @@
         var address = document.getElementById("addressInput").value;
         if(address === '') {
             $("label[for='addressInput']").empty().append("Please enter a location.");
-            $("label[for='addressInput']").removeClass("feedback-happy");
-            $("label[for='addressInput']").addClass("feedback-sad");
+            $("label[for='addressInput']").removeClass("feedback-success");
+            $("label[for='addressInput']").addClass("feedback-danger");
             $("#addressInput").css("cssText", "border-color: #D9534F");
             $("#addressInput").focus();
             return false;
         } else {
             $("label[for='addressInput']").empty().append("All good!");
-            $("label[for='addressInput']").removeClass("feedback-sad");
-            $("#addressInput").removeClass("input-sad");
-            $("label[for='addressInput']").addClass("feedback-happy");
-            $("#addressInput").addClass("input-happy");
+            $("label[for='addressInput']").removeClass("feedback-danger");
+            $("#addressInput").removeClass("input-danger");
+            $("label[for='addressInput']").addClass("feedback-success");
+            $("#addressInput").addClass("input-success");
         }
 
         var radius_check = $('#radiusSelect :selected').html();
         if(radius_check === '') {
             $("label[for='radiusSelect']").empty().append("Please select a radius.");
-            $("label[for='radiusSelect']").removeClass("feedback-happy");
-            $("label[for='radiusSelect']").addClass("feedback-sad");
-            $("[aria-owns='select2-radiusSelect-results']").removeClass("input-happy");
-            $("[aria-owns='select2-radiusSelect-results']").addClass("input-sad");
+            $("label[for='radiusSelect']").removeClass("feedback-success");
+            $("label[for='radiusSelect']").addClass("feedback-danger");
+            $("[aria-owns='select2-radiusSelect-results']").removeClass("input-success");
+            $("[aria-owns='select2-radiusSelect-results']").addClass("input-danger");
             return false;
         } else {
             $("label[for='radiusSelect']").empty().append("All good!");
-            $("label[for='radiusSelect']").removeClass("feedback-sad");
-            $("label[for='radiusSelect']").addClass("feedback-happy");
-            $("[aria-owns='select2-radiusSelect-results']").removeClass("input-sad");
-            $("[aria-owns='select2-radiusSelect-results']").addClass("input-happy");
+            $("label[for='radiusSelect']").removeClass("feedback-danger");
+            $("label[for='radiusSelect']").addClass("feedback-success");
+            $("[aria-owns='select2-radiusSelect-results']").removeClass("input-danger");
+            $("[aria-owns='select2-radiusSelect-results']").addClass("input-success");
         }
 
         var geocoder = new google.maps.Geocoder();

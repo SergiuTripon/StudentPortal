@@ -53,8 +53,8 @@ if (isset($_GET["id"])) {
     <!-- Create location -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="createlocation_form" id="createlocation_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
 	<div id="hide">
 
@@ -148,7 +148,7 @@ if (isset($_GET["id"])) {
     </div>
 
     <hr>
-	<p class="feedback-sad text-center">You need to have an admin account to access this area.</p>
+	<p class="feedback-danger text-center">You need to have an admin account to access this area.</p>
     <hr>
 
     <div class="text-center">
@@ -178,7 +178,7 @@ if (isset($_GET["id"])) {
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -212,19 +212,19 @@ if (isset($_GET["id"])) {
 	var marker_name = $("#marker_name").val();
 	if(marker_name === '') {
         $("label[for='marker_name']").empty().append("Please enter a name.");
-        $("label[for='marker_name']").removeClass("feedback-happy");
-        $("label[for='marker_name']").addClass("feedback-sad");
-        $("#marker_name").removeClass("input-happy");
-        $("#marker_name").addClass("input-sad");
+        $("label[for='marker_name']").removeClass("feedback-success");
+        $("label[for='marker_name']").addClass("feedback-danger");
+        $("#marker_name").removeClass("input-success");
+        $("#marker_name").addClass("input-danger");
         $("#marker_name").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='marker_name']").empty().append("All good!");
-        $("label[for='marker_name']").removeClass("feedback-sad");
-        $("label[for='marker_name']").addClass("feedback-happy");
-        $("#marker_name").removeClass("input-sad");
-        $("#marker_name").addClass("input-happy");
+        $("label[for='marker_name']").removeClass("feedback-danger");
+        $("label[for='marker_name']").addClass("feedback-success");
+        $("#marker_name").removeClass("input-danger");
+        $("#marker_name").addClass("input-success");
 	}
 
     var marker_notes = $("#marker_notes").val();
@@ -233,56 +233,56 @@ if (isset($_GET["id"])) {
     var marker_lat = $("#marker_lat").val();
 	if(marker_lat === '') {
         $("label[for='marker_lat']").empty().append("Please enter latitude.");
-        $("label[for='marker_lat']").removeClass("feedback-happy");
-        $("label[for='marker_lat']").addClass("feedback-sad");
-        $("#marker_lat").removeClass("input-happy");
-        $("#marker_lat").addClass("input-sad");
+        $("label[for='marker_lat']").removeClass("feedback-success");
+        $("label[for='marker_lat']").addClass("feedback-danger");
+        $("#marker_lat").removeClass("input-success");
+        $("#marker_lat").addClass("input-danger");
         $("#marker_lat").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='marker_lat']").empty().append("All good!");
-        $("label[for='marker_lat']").removeClass("feedback-sad");
-        $("label[for='marker_lat']").addClass("feedback-happy");
-        $("#marker_lat").removeClass("input-sad");
-        $("#marker_lat").addClass("input-happy");
+        $("label[for='marker_lat']").removeClass("feedback-danger");
+        $("label[for='marker_lat']").addClass("feedback-success");
+        $("#marker_lat").removeClass("input-danger");
+        $("#marker_lat").addClass("input-success");
 	}
 
     var marker_long = $("#marker_long").val();
 	if(marker_long === '') {
         $("label[for='marker_long']").empty().append("Please enter longitude.");
-        $("label[for='marker_long']").removeClass("feedback-happy");
-        $("label[for='marker_long']").addClass("feedback-sad");
-        $("#marker_long").removeClass("input-happy");
-        $("#marker_long").addClass("input-sad");
+        $("label[for='marker_long']").removeClass("feedback-success");
+        $("label[for='marker_long']").addClass("feedback-danger");
+        $("#marker_long").removeClass("input-success");
+        $("#marker_long").addClass("input-danger");
         $("#marker_long").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='marker_long']").empty().append("All good!");
-        $("label[for='marker_long']").removeClass("feedback-sad");
-        $("label[for='marker_long']").addClass("feedback-happy");
-        $("#marker_long").removeClass("input-sad");
-        $("#marker_long").addClass("input-happy");
+        $("label[for='marker_long']").removeClass("feedback-danger");
+        $("label[for='marker_long']").addClass("feedback-success");
+        $("#marker_long").removeClass("input-danger");
+        $("#marker_long").addClass("input-success");
 	}
 
     var marker_category_check = $("#marker_category option:selected").html();
     if (marker_category_check === 'Select an option') {
         $("label[for='marker_category']").empty().append("Please select an option.");
-        $("label[for='marker_category']").removeClass("feedback-happy");
-        $("label[for='marker_category']").addClass("feedback-sad");
-        $("#marker_category").removeClass("input-happy");
-        $("#marker_category").addClass("input-sad");
+        $("label[for='marker_category']").removeClass("feedback-success");
+        $("label[for='marker_category']").addClass("feedback-danger");
+        $("#marker_category").removeClass("input-success");
+        $("#marker_category").addClass("input-danger");
         $("#marker_category").focus();
         hasError  = true;
         return false;
     }
     else {
         $("label[for='marker_category']").empty().append("All good!");
-        $("label[for='marker_category']").removeClass("feedback-sad");
-        $("label[for='marker_category']").addClass("feedback-happy");
-        $("#marker_category").removeClass("input-sad");
-        $("#marker_category").addClass("input-happy");
+        $("label[for='marker_category']").removeClass("feedback-danger");
+        $("label[for='marker_category']").addClass("feedback-success");
+        $("#marker_category").removeClass("input-danger");
+        $("#marker_category").addClass("input-success");
     }
 
     var marker_category = $("#marker_category option:selected").val();

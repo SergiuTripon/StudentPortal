@@ -310,8 +310,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="deactivate-question" class="feedback-sad text-center">Are you sure you want to deactivate '.$firstname.' '.$surname.'?</p>
-            <p id="deactivate-confirmation" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been deactivated successfully.</p>
+			<p id="deactivate-question" class="feedback-danger text-center">Are you sure you want to deactivate '.$firstname.' '.$surname.'?</p>
+            <p id="deactivate-confirmation" class="feedback-success text-center" style="display: none;">'.$firstname.' '.$surname.' has been deactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -343,8 +343,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="feedback-sad text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
-            <p id="delete-confirmation" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been deleted successfully.</p>
+			<p id="delete-question" class="feedback-danger text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
+            <p id="delete-confirmation" class="feedback-success text-center" style="display: none;">'.$firstname.' '.$surname.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -448,8 +448,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="reactivate-question" class="feedback-sad text-center">Are you sure you want to reactivate '.$firstname.' '.$surname.'?</p>
-            <p id="reactivate-confirmation" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been reactivated successfully.</p>
+			<p id="reactivate-question" class="feedback-danger text-center">Are you sure you want to reactivate '.$firstname.' '.$surname.'?</p>
+            <p id="reactivate-confirmation" class="feedback-success text-center" style="display: none;">'.$firstname.' '.$surname.' has been reactivated successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -481,8 +481,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="feedback-sad text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
-            <p id="delete-confirmation" class="feedback-happy text-center" style="display: none;">'.$firstname.' '.$surname.' has been deleted successfully.</p>
+			<p id="delete-question" class="feedback-danger text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
+            <p id="delete-confirmation" class="feedback-success text-center" style="display: none;">'.$firstname.' '.$surname.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -540,7 +540,7 @@ include 'includes/session.php';
 
     <hr>
 
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
 
     <hr>
 

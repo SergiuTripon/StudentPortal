@@ -614,12 +614,12 @@ form label {
     margin-left: 2px;
 }
 
-form label.feedback-sad {
+form label.feedback-danger {
     font-size: 15px;
     margin-bottom: 5px;
 }
 
-form label.feedback-happy {
+form label.feedback-success {
     font-size: 15px;
     margin-bottom: 5px;
 }
@@ -720,27 +720,27 @@ form .field-required {
 /* End of Required field */
 
 /* Error message */
-.feedback-sad {
+.feedback-danger {
     color: #D9534F !important;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 0;
 }
 
-.input-sad {
+.input-danger {
     border-color: #D9534F !important;
 }
 /* End of Error message */
 
 /* Success message */
-.feedback-happy {
+.feedback-success {
     color: #449D44 !important;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 0;
 }
 
-.input-happy {
+.input-success {
     border-color: #449D44 !important;
 }
 /* End of Success message */
@@ -856,8 +856,8 @@ form .field-required {
     margin-bottom: 0;
 }
 
-.modal-custom .modal-body .feedback-sad,
-.modal-custom .modal-body .feedback-happy, {
+.modal-custom .modal-body .feedback-danger,
+.modal-custom .modal-body .feedback-success, {
     margin-bottom: 0;
 }
 /* End of Modal custom */
@@ -1113,8 +1113,8 @@ form .field-required {
     color: #735326;
 }
 
-.ekko-lightbox .modal-body .feedback-sad,
-.ekko-lightbox .modal-body .feedback-happy, {
+.ekko-lightbox .modal-body .feedback-danger,
+.ekko-lightbox .modal-body .feedback-success, {
     margin-bottom: 0;
 }
 

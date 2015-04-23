@@ -52,8 +52,8 @@ if (isset($_GET['id'])) {
     <!-- Update tutorial -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updatetimetable_form" id="updatetimetable_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
 	<div id="hide">
 
@@ -218,7 +218,7 @@ if (isset($_GET['id'])) {
     </div>
 
     <hr>
-	<p class="feedback-sad text-center">You need to have an admin account to access this area.</p>
+	<p class="feedback-danger text-center">You need to have an admin account to access this area.</p>
     <hr>
 
     <div class="text-center">
@@ -249,7 +249,7 @@ if (isset($_GET['id'])) {
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -306,19 +306,19 @@ if (isset($_GET['id'])) {
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
         $("label[for='tutorial_name']").empty().append("Please enter a tutorial name.");
-        $("label[for='tutorial_name']").removeClass("feedback-happy");
-        $("label[for='tutorial_name']").addClass("feedback-sad");
-        $("#tutorial_name").removeClass("input-happy");
-        $("#tutorial_name").addClass("input-sad");
+        $("label[for='tutorial_name']").removeClass("feedback-success");
+        $("label[for='tutorial_name']").addClass("feedback-danger");
+        $("#tutorial_name").removeClass("input-success");
+        $("#tutorial_name").addClass("input-danger");
         $("#tutorial_name").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='tutorial_name']").empty().append("All good!");
-        $("label[for='tutorial_name']").removeClass("feedback-sad");
-        $("label[for='tutorial_name']").addClass("feedback-happy");
-        $("#tutorial_name").removeClass("input-sad");
-        $("#tutorial_name").addClass("input-happy");
+        $("label[for='tutorial_name']").removeClass("feedback-danger");
+        $("label[for='tutorial_name']").addClass("feedback-success");
+        $("#tutorial_name").removeClass("input-danger");
+        $("#tutorial_name").addClass("input-success");
 	}
 
     var tutorial_assistant = $("#tutorial_assistant :selected").val();
@@ -328,109 +328,109 @@ if (isset($_GET['id'])) {
     var tutorial_from_time = $("#tutorial_from_time").val();
 	if(tutorial_from_time === '') {
         $("label[for='tutorial_from_time']").empty().append("Please select a time.");
-        $("label[for='tutorial_from_time']").removeClass("feedback-happy");
-        $("label[for='tutorial_from_time']").addClass("feedback-sad");
-        $("#tutorial_from_time").removeClass("input-happy");
-        $("#tutorial_from_time").addClass("input-sad");
+        $("label[for='tutorial_from_time']").removeClass("feedback-success");
+        $("label[for='tutorial_from_time']").addClass("feedback-danger");
+        $("#tutorial_from_time").removeClass("input-success");
+        $("#tutorial_from_time").addClass("input-danger");
         $("#tutorial_from_time").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='tutorial_from_time']").empty().append("All good!");
-        $("label[for='tutorial_from_time']").removeClass("feedback-sad");
-        $("label[for='tutorial_from_time']").addClass("feedback-happy");
-        $("#tutorial_from_time").removeClass("input-sad");
-        $("#tutorial_from_time").addClass("input-happy");
+        $("label[for='tutorial_from_time']").removeClass("feedback-danger");
+        $("label[for='tutorial_from_time']").addClass("feedback-success");
+        $("#tutorial_from_time").removeClass("input-danger");
+        $("#tutorial_from_time").addClass("input-success");
 	}
 
     var tutorial_to_time = $("#tutorial_to_time").val();
 	if(tutorial_to_time === '') {
         $("label[for='tutorial_to_time']").empty().append("Please select a time.");
-        $("label[for='tutorial_to_time']").removeClass("feedback-happy");
-        $("label[for='tutorial_to_time']").addClass("feedback-sad");
-        $("#tutorial_to_time").removeClass("input-happy");
-        $("#tutorial_to_time").addClass("input-sad");
+        $("label[for='tutorial_to_time']").removeClass("feedback-success");
+        $("label[for='tutorial_to_time']").addClass("feedback-danger");
+        $("#tutorial_to_time").removeClass("input-success");
+        $("#tutorial_to_time").addClass("input-danger");
         $("#tutorial_to_time").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='tutorial_to_time']").empty().append("All good!");
-        $("label[for='tutorial_to_time']").removeClass("feedback-sad");
-        $("label[for='tutorial_to_time']").addClass("feedback-happy");
-        $("#tutorial_to_time").removeClass("input-sad");
-        $("#tutorial_to_time").addClass("input-happy");
+        $("label[for='tutorial_to_time']").removeClass("feedback-danger");
+        $("label[for='tutorial_to_time']").addClass("feedback-success");
+        $("#tutorial_to_time").removeClass("input-danger");
+        $("#tutorial_to_time").addClass("input-success");
 	}
 
     var tutorial_from_date = $("#tutorial_from_date").val();
 	if(tutorial_from_date === '') {
         $("label[for='tutorial_from_date']").empty().append("Please select a date.");
-        $("label[for='tutorial_from_date']").removeClass("feedback-happy");
-        $("label[for='tutorial_from_date']").addClass("feedback-sad");
-        $("#tutorial_from_date").removeClass("input-happy");
-        $("#tutorial_from_date").addClass("input-sad");
+        $("label[for='tutorial_from_date']").removeClass("feedback-success");
+        $("label[for='tutorial_from_date']").addClass("feedback-danger");
+        $("#tutorial_from_date").removeClass("input-success");
+        $("#tutorial_from_date").addClass("input-danger");
         $("#tutorial_from_date").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='tutorial_from_date']").empty().append("All good!");
-        $("label[for='tutorial_from_date']").removeClass("feedback-sad");
-        $("label[for='tutorial_from_date']").addClass("feedback-happy");
-        $("#tutorial_from_date").removeClass("input-sad");
-        $("#tutorial_from_date").addClass("input-happy");
+        $("label[for='tutorial_from_date']").removeClass("feedback-danger");
+        $("label[for='tutorial_from_date']").addClass("feedback-success");
+        $("#tutorial_from_date").removeClass("input-danger");
+        $("#tutorial_from_date").addClass("input-success");
 	}
 
     var tutorial_to_date = $("#tutorial_to_date").val();
 	if(tutorial_to_date === '') {
         $("label[for='tutorial_to_date']").empty().append("Please select a date.");
-        $("label[for='tutorial_to_date']").removeClass("feedback-happy");
-        $("label[for='tutorial_to_date']").addClass("feedback-sad");
-        $("#tutorial_to_date").removeClass("input-happy");
-        $("#tutorial_to_date").addClass("input-sad");
+        $("label[for='tutorial_to_date']").removeClass("feedback-success");
+        $("label[for='tutorial_to_date']").addClass("feedback-danger");
+        $("#tutorial_to_date").removeClass("input-success");
+        $("#tutorial_to_date").addClass("input-danger");
         $("#tutorial_to_date").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='tutorial_to_date']").empty().append("All good!");
-        $("label[for='tutorial_to_date']").removeClass("feedback-sad");
-        $("label[for='tutorial_to_date']").addClass("feedback-happy");
-        $("#tutorial_to_date").removeClass("input-sad");
-        $("#tutorial_to_date").addClass("input-happy");
+        $("label[for='tutorial_to_date']").removeClass("feedback-danger");
+        $("label[for='tutorial_to_date']").addClass("feedback-success");
+        $("#tutorial_to_date").removeClass("input-danger");
+        $("#tutorial_to_date").addClass("input-success");
 	}
 
     var tutorial_location = $("#tutorial_location").val();
 	if(tutorial_location === '') {
         $("label[for='tutorial_location']").empty().append("Please enter a location.");
-        $("label[for='tutorial_location']").removeClass("feedback-happy");
-        $("label[for='tutorial_location']").addClass("feedback-sad");
-        $("#tutorial_location").removeClass("input-happy");
-        $("#tutorial_location").addClass("input-sad");
+        $("label[for='tutorial_location']").removeClass("feedback-success");
+        $("label[for='tutorial_location']").addClass("feedback-danger");
+        $("#tutorial_location").removeClass("input-success");
+        $("#tutorial_location").addClass("input-danger");
         $("#tutorial_location").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='tutorial_location']").empty().append("All good!");
-        $("label[for='tutorial_location']").removeClass("feedback-sad");
-        $("label[for='tutorial_location']").addClass("feedback-happy");
-        $("#tutorial_location").removeClass("input-sad");
-        $("#tutorial_location").addClass("input-happy");
+        $("label[for='tutorial_location']").removeClass("feedback-danger");
+        $("label[for='tutorial_location']").addClass("feedback-success");
+        $("#tutorial_location").removeClass("input-danger");
+        $("#tutorial_location").addClass("input-success");
 	}
 
     var tutorial_capacity = $("#tutorial_capacity").val();
 	if(tutorial_capacity === '') {
         $("label[for='tutorial_capacity']").empty().append("Please enter a location.");
-        $("label[for='tutorial_capacity']").removeClass("feedback-happy");
-        $("label[for='tutorial_capacity']").addClass("feedback-sad");
-        $("#tutorial_capacity").removeClass("input-happy");
-        $("#tutorial_capacity").addClass("input-sad");
+        $("label[for='tutorial_capacity']").removeClass("feedback-success");
+        $("label[for='tutorial_capacity']").addClass("feedback-danger");
+        $("#tutorial_capacity").removeClass("input-success");
+        $("#tutorial_capacity").addClass("input-danger");
         $("#tutorial_capacity").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='tutorial_capacity']").empty().append("All good!");
-        $("label[for='tutorial_capacity']").removeClass("feedback-sad");
-        $("label[for='tutorial_capacity']").addClass("feedback-happy");
-        $("#tutorial_capacity").removeClass("input-sad");
-        $("#tutorial_capacity").addClass("input-happy");
+        $("label[for='tutorial_capacity']").removeClass("feedback-danger");
+        $("label[for='tutorial_capacity']").addClass("feedback-success");
+        $("#tutorial_capacity").removeClass("input-danger");
+        $("#tutorial_capacity").addClass("input-success");
 	}
 
 	if(hasError == false){

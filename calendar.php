@@ -241,7 +241,7 @@ global $archived_task;
     <div class="modal-body">
     <!-- Create a task -->
 	<form class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;" name="create-task-form" id="create-task-form">
-	<p id="create_task_error" class="feedback-sad text-center"></p>
+	<p id="create_task_error" class="feedback-danger text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
@@ -301,7 +301,7 @@ global $archived_task;
     <div class="modal-body">
     <!-- Update a task -->
     <form id="update-task-form" name="update-task-form" class="form-horizontal form-custom" style="max-width: 100%; background: none; border: none; padding: 0;">
-    <p id="update_task_error" class="feedback-sad text-center"></p>
+    <p id="update_task_error" class="feedback-danger text-center"></p>
 
     <input type="hidden" name="update_taskid" id="update_taskid" />
 
@@ -448,19 +448,19 @@ global $archived_task;
 	var create_task_name = $("#create_task_name").val();
 	if(create_task_name === '') {
         $("label[for='create_task_name']").empty().append("Please enter a name.");
-        $("label[for='create_task_name']").removeClass("feedback-happy");
+        $("label[for='create_task_name']").removeClass("feedback-success");
         $("#create_task_name").removeClass("input-style-happy");
-        $("label[for='create_task_name']").addClass("feedback-sad");
-        $("#create_task_name").addClass("input-sad");
+        $("label[for='create_task_name']").addClass("feedback-danger");
+        $("#create_task_name").addClass("input-danger");
         $("#create_task_name").focus();
         hasError = true;
         return false;
     } else {
         $("label[for='create_task_name']").empty().append("All good!");
-        $("label[for='create_task_name']").removeClass("feedback-sad");
+        $("label[for='create_task_name']").removeClass("feedback-danger");
         $("#create_task_name").removeClass("input-style-sad");
-        $("label[for='create_task_name']").addClass("feedback-happy");
-        $("#create_task_name").addClass("input-happy");
+        $("label[for='create_task_name']").addClass("feedback-success");
+        $("#create_task_name").addClass("input-success");
 	}
 
 	var create_task_notes = $("#create_task_notes").val();
@@ -469,37 +469,37 @@ global $archived_task;
 	var create_task_startdate = $("#create_task_startdate").val();
 	if(create_task_startdate === '') {
         $("label[for='create_task_startdate']").empty().append("Please select a date and time.");
-        $("label[for='create_task_startdate']").removeClass("feedback-happy");
+        $("label[for='create_task_startdate']").removeClass("feedback-success");
         $("#create_task_startdate").removeClass("input-style-happy");
-        $("label[for='create_task_startdate']").addClass("feedback-sad");
-        $("#create_task_startdate").addClass("input-sad");
+        $("label[for='create_task_startdate']").addClass("feedback-danger");
+        $("#create_task_startdate").addClass("input-danger");
         $("#create_task_startdate").focus();
         hasError = true;
         return false;
 	} else {
         $("label[for='create_task_startdate']").empty().append("All good!");
-        $("label[for='create_task_startdate']").removeClass("feedback-sad");
+        $("label[for='create_task_startdate']").removeClass("feedback-danger");
         $("#task_startdate").removeClass("input-style-sad");
-        $("label[for='create_task_startdate']").addClass("feedback-happy");
-        $("#create_task_startdate").addClass("input-happy");
+        $("label[for='create_task_startdate']").addClass("feedback-success");
+        $("#create_task_startdate").addClass("input-success");
 	}
 
 	var create_task_duedate = $("#create_task_duedate").val();
 	if(create_task_duedate === '') {
         $("label[for='create_task_duedate']").empty().append("Please select a date and time.");
-        $("label[for='create_task_duedate']").removeClass("feedback-happy");
+        $("label[for='create_task_duedate']").removeClass("feedback-success");
         $("#create_task_duedate").removeClass("input-style-happy");
-        $("label[for='create_task_duedate']").addClass("feedback-sad");
-        $("#create_task_duedate").addClass("input-sad");
+        $("label[for='create_task_duedate']").addClass("feedback-danger");
+        $("#create_task_duedate").addClass("input-danger");
         $("#create_task_duedate").focus();
         hasError = true;
         return false;
     } else {
         $("label[for='create_task_duedate']").empty().append("All good!");
-        $("label[for='create_task_duedate']").removeClass("feedback-sad");
+        $("label[for='create_task_duedate']").removeClass("feedback-danger");
         $("#create_task_duedate").removeClass("input-style-sad");
-        $("label[for='create_task_duedate']").addClass("feedback-happy");
-        $("#create_task_duedate").addClass("input-happy");
+        $("label[for='create_task_duedate']").addClass("feedback-success");
+        $("#create_task_duedate").addClass("input-success");
 	}
 
 	if(hasError == false){
@@ -523,23 +523,23 @@ global $archived_task;
             $('#content-due-task').html(html.due_task);
             $(".table-due-task").dataTable(datatables);
 
-            $("label[for='create_task_name']").removeClass("feedback-happy");
-            $("label[for='create_task_name']").removeClass("feedback-sad");
+            $("label[for='create_task_name']").removeClass("feedback-success");
+            $("label[for='create_task_name']").removeClass("feedback-danger");
             $("label[for='create_task_name']").empty().append('Name<span class="field-required">*</span>');
-            $("#create_task_name").removeClass("input-happy");
-            $("#create_task_name").removeClass("input-sad");
+            $("#create_task_name").removeClass("input-success");
+            $("#create_task_name").removeClass("input-danger");
 
-            $("label[for='create_task_startdate']").removeClass("feedback-happy");
-            $("label[for='create_task_startdate']").removeClass("feedback-sad");
+            $("label[for='create_task_startdate']").removeClass("feedback-success");
+            $("label[for='create_task_startdate']").removeClass("feedback-danger");
             $("label[for='create_task_startdate']").empty().append('Start date<span class="field-required">*</span>');
-            $("#create_task_startdate").removeClass("input-happy");
-            $("#create_task_startdate").removeClass("input-sad");
+            $("#create_task_startdate").removeClass("input-success");
+            $("#create_task_startdate").removeClass("input-danger");
 
-            $("label[for='create_task_duedate']").removeClass("feedback-happy");
-            $("label[for='create_task_duedate']").removeClass("feedback-sad");
+            $("label[for='create_task_duedate']").removeClass("feedback-success");
+            $("label[for='create_task_duedate']").removeClass("feedback-danger");
             $("label[for='create_task_duedate']").empty().append('Due date<span class="field-required">*</span>');
-            $("#create_task_duedate").removeClass("input-happy");
-            $("#create_task_duedate").removeClass("input-sad");
+            $("#create_task_duedate").removeClass("input-success");
+            $("#create_task_duedate").removeClass("input-danger");
 
             $("#create_task_error").hide();
 
@@ -610,19 +610,19 @@ global $archived_task;
 	var update_task_name = $("#update_task_name").val();
 	if(update_task_name === '') {
         $("label[for='update_task_name']").empty().append("Please enter a name.");
-        $("label[for='update_task_name']").removeClass("feedback-happy");
-        $("#update_task_name").removeClass("input-happy");
-        $("label[for='update_task_name']").addClass("feedback-sad");
-        $("#update_task_name").addClass("input-sad");
+        $("label[for='update_task_name']").removeClass("feedback-success");
+        $("#update_task_name").removeClass("input-success");
+        $("label[for='update_task_name']").addClass("feedback-danger");
+        $("#update_task_name").addClass("input-danger");
         $("#update_task_name").focus();
         hasError = true;
         return false;
     } else {
         $("label[for='update_task_name']").empty().append("All good!");
-        $("label[for='update_task_name']").removeClass("feedback-sad");
-        $("#update_task_name").removeClass("input-sad");
-        $("label[for='update_task_name']").addClass("feedback-happy");
-        $("#update_task_name").addClass("input-happy");
+        $("label[for='update_task_name']").removeClass("feedback-danger");
+        $("#update_task_name").removeClass("input-danger");
+        $("label[for='update_task_name']").addClass("feedback-success");
+        $("#update_task_name").addClass("input-success");
 	}
 
 	var update_task_notes = $("#update_task_notes").val();
@@ -631,37 +631,37 @@ global $archived_task;
 	var update_task_startdate = $("#update_task_startdate").val();
 	if(update_task_startdate === '') {
         $("label[for='update_task_startdate']").empty().append("Please select a date and time.");
-        $("label[for='update_task_startdate']").removeClass("feedback-happy");
-        $("#update_task_startdate").removeClass("input-happy");
-        $("label[for='update_task_startdate']").addClass("feedback-sad");
-        $("#update_task_startdate").addClass("input-sad");
+        $("label[for='update_task_startdate']").removeClass("feedback-success");
+        $("#update_task_startdate").removeClass("input-success");
+        $("label[for='update_task_startdate']").addClass("feedback-danger");
+        $("#update_task_startdate").addClass("input-danger");
         $("#update_task_startdate").focus();
         hasError = true;
         return false;
 	} else {
         $("label[for='update_task_startdate']").empty().append("All good!");
-        $("label[for='update_task_startdate']").removeClass("feedback-sad");
-        $("#update_task_startdate").removeClass("input-sad");
-        $("label[for='update_task_startdate']").addClass("feedback-happy");
-        $("#update_task_startdate").addClass("input-happy");
+        $("label[for='update_task_startdate']").removeClass("feedback-danger");
+        $("#update_task_startdate").removeClass("input-danger");
+        $("label[for='update_task_startdate']").addClass("feedback-success");
+        $("#update_task_startdate").addClass("input-success");
 	}
 
 	var update_task_duedate = $("#update_task_duedate").val();
 	if(update_task_duedate === '') {
         $("label[for='update_task_duedate']").empty().append("Please select a date and time.");
-        $("label[for='update_task_duedate']").removeClass("feedback-happy");
-        $("#update_task_duedate").removeClass("input-happy");
-        $("label[for='update_task_duedate']").addClass("feedback-sad");
-        $("#update_task_duedate").addClass("input-sad");
+        $("label[for='update_task_duedate']").removeClass("feedback-success");
+        $("#update_task_duedate").removeClass("input-success");
+        $("label[for='update_task_duedate']").addClass("feedback-danger");
+        $("#update_task_duedate").addClass("input-danger");
         $("#update_task_duedate").focus();
         hasError = true;
         return false;
     } else {
         $("label[for='update_task_duedate']").empty().append("All good!");
-        $("label[for='update_task_duedate']").removeClass("feedback-sad");
-        $("#update_task_duedate").removeClass("input-sad");
-        $("label[for='update_task_duedate']").addClass("feedback-happy");
-        $("#update_task_duedate").addClass("input-happy");
+        $("label[for='update_task_duedate']").removeClass("feedback-danger");
+        $("#update_task_duedate").removeClass("input-danger");
+        $("label[for='update_task_duedate']").addClass("feedback-success");
+        $("#update_task_duedate").addClass("input-success");
 	}
 
 	if(hasError == false){
@@ -685,23 +685,23 @@ global $archived_task;
             $('#content-due-task').html(html.due_task);
             $(".table-due-task").dataTable(datatables);
 
-            $("label[for='update_task_name']").removeClass("feedback-happy");
-            $("label[for='update_task_name']").removeClass("feedback-sad");
+            $("label[for='update_task_name']").removeClass("feedback-success");
+            $("label[for='update_task_name']").removeClass("feedback-danger");
             $("label[for='update_task_name']").empty().append('Name<span class="field-required">*</span>');
-            $("#update_task_name").removeClass("input-happy");
-            $("#update_task_name").removeClass("input-sad");
+            $("#update_task_name").removeClass("input-success");
+            $("#update_task_name").removeClass("input-danger");
 
-            $("label[for='update_task_startdate']").removeClass("feedback-happy");
-            $("label[for='update_task_startdate']").removeClass("feedback-sad");
+            $("label[for='update_task_startdate']").removeClass("feedback-success");
+            $("label[for='update_task_startdate']").removeClass("feedback-danger");
             $("label[for='update_task_startdate']").empty().append('Start date<span class="field-required">*</span>');
-            $("#update_task_startdate").removeClass("input-happy");
-            $("#update_task_startdate").removeClass("input-sad");
+            $("#update_task_startdate").removeClass("input-success");
+            $("#update_task_startdate").removeClass("input-danger");
 
-            $("label[for='update_task_duedate']").removeClass("feedback-happy");
-            $("label[for='update_task_duedate']").removeClass("feedback-sad");
+            $("label[for='update_task_duedate']").removeClass("feedback-success");
+            $("label[for='update_task_duedate']").removeClass("feedback-danger");
             $("label[for='update_task_duedate']").empty().append('Due date<span class="field-required">*</span>');
-            $("#update_task_duedate").removeClass("input-happy");
-            $("#update_task_duedate").removeClass("input-sad");
+            $("#update_task_duedate").removeClass("input-success");
+            $("#update_task_duedate").removeClass("input-danger");
 
             $("#update_task_error").hide();
 
@@ -935,7 +935,7 @@ global $archived_task;
 
     <hr>
 
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
 
     <hr>
 

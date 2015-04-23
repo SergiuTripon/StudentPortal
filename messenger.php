@@ -210,8 +210,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$message_subject.'?</p>
-			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
+			<p id="delete-question" class="text-center feedback-danger">Are you sure you want to delete '.$message_subject.'?</p>
+			<p id="delete-confirmation" class="text-center feedback-success" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -373,8 +373,8 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="text-center feedback-sad">Are you sure you want to delete '.$message_subject.'?</p>
-			<p id="delete-confirmation" class="text-center feedback-happy" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
+			<p id="delete-question" class="text-center feedback-danger">Are you sure you want to delete '.$message_subject.'?</p>
+			<p id="delete-confirmation" class="text-center feedback-success" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
 			</div>
 
 			<div class="modal-footer">
@@ -429,7 +429,7 @@ include 'includes/session.php';
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">

@@ -32,7 +32,7 @@ include 'includes/session.php';
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">You are already logged in. You don't have to log in again.</p>
+    <p class="feedback-danger text-center">You are already logged in. You don't have to log in again.</p>
     <hr>
 
 	<div class="pull-left">
@@ -68,8 +68,8 @@ include 'includes/session.php';
 
     <p id="hide1">Please enter the email you used to sign in to the <b>Student Portal</b> and we will email you a link to reset your password.</p>
 
-	<p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+	<p id="error" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
     <div id="hide2">
 
@@ -115,19 +115,19 @@ include 'includes/session.php';
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
-        $("label[for='email']").removeClass("feedback-happy");
-		$("label[for='email']").addClass("feedback-sad");
-        $("#email").removeClass("input-happy");
-        $("#email").addClass("input-sad");
+        $("label[for='email']").removeClass("feedback-success");
+		$("label[for='email']").addClass("feedback-danger");
+        $("#email").removeClass("input-success");
+        $("#email").addClass("input-danger");
         $("#email").focus();
 		hasError = true;
 		return false;
 	} else {
         $("label[for='email']").empty().append("All good!");
-        $("label[for='email']").removeClass("feedback-sad");
-        $("label[for='email']").addClass("feedback-happy");
-        $("#email").removeClass("input-sad");
-        $("#email").addClass("input-happy");
+        $("label[for='email']").removeClass("feedback-danger");
+        $("label[for='email']").addClass("feedback-success");
+        $("#email").removeClass("input-danger");
+        $("#email").addClass("input-success");
     }
 
 	if(hasError == false){

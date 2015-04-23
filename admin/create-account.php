@@ -36,9 +36,9 @@ include '../includes/session.php';
 	<!-- Create single account -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="createsingleaccount_form" id="createsingleaccount_form" novalidate>
 
-    <p id="error" class="feedback-sad text-center"></p>
-    <p id="error1" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
+    <p id="error1" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
 	<div id="hide">
 
@@ -393,7 +393,7 @@ include '../includes/session.php';
     </div>
 
     <hr>
-	<p class="feedback-sad text-center">You need to have an admin account to access this area.</p>
+	<p class="feedback-danger text-center">You need to have an admin account to access this area.</p>
     <hr>
 
     <div class="text-center">
@@ -423,7 +423,7 @@ include '../includes/session.php';
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
@@ -498,20 +498,20 @@ include '../includes/session.php';
     var account_type_check = $('#account_type :selected').html();
     if (account_type_check === '') {
         $("label[for='account_type']").empty().append("Please select an option.");
-        $("label[for='account_type']").removeClass("feedback-happy");
-        $("label[for='account_type']").addClass("feedback-sad");
-        $("[aria-owns='select2-account_type-results']").removeClass("input-happy");
-        $("[aria-owns='select2-account_type-results']").addClass("input-sad");
+        $("label[for='account_type']").removeClass("feedback-success");
+        $("label[for='account_type']").addClass("feedback-danger");
+        $("[aria-owns='select2-account_type-results']").removeClass("input-success");
+        $("[aria-owns='select2-account_type-results']").addClass("input-danger");
         $("[aria-owns='select2-account_type-results']").focus();
         hasError  = true;
         return false;
     }
     else {
         $("label[for='account_type']").empty().append("All good!");
-        $("label[for='account_type']").removeClass("feedback-sad");
-        $("label[for='account_type']").addClass("feedback-happy");
-        $("[aria-owns='select2-account_type-results']").removeClass("input-sad");
-        $("[aria-owns='select2-account_type-results']").addClass("input-happy");
+        $("label[for='account_type']").removeClass("feedback-danger");
+        $("label[for='account_type']").addClass("feedback-success");
+        $("[aria-owns='select2-account_type-results']").removeClass("input-danger");
+        $("[aria-owns='select2-account_type-results']").addClass("input-success");
     }
 
     var account_type = $('#account_type :selected').html();
@@ -519,56 +519,56 @@ include '../includes/session.php';
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
         $("label[for='firstname']").empty().append("Please enter a first name.");
-        $("label[for='firstname']").removeClass("feedback-happy");
-        $("label[for='firstname']").addClass("feedback-sad");
-        $("#firstname").removeClass("input-happy");
-        $("#firstname").addClass("input-sad");
+        $("label[for='firstname']").removeClass("feedback-success");
+        $("label[for='firstname']").addClass("feedback-danger");
+        $("#firstname").removeClass("input-success");
+        $("#firstname").addClass("input-danger");
         $("#firstname").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='firstname']").empty().append("All good!");
-        $("label[for='firstname']").removeClass("feedback-sad");
-        $("label[for='firstname']").addClass("feedback-happy");
-        $("#firstname").removeClass("input-sad");
-        $("#firstname").addClass("input-happy");
+        $("label[for='firstname']").removeClass("feedback-danger");
+        $("label[for='firstname']").addClass("feedback-success");
+        $("#firstname").removeClass("input-danger");
+        $("#firstname").addClass("input-success");
 	}
 	
 	var surname = $("#surname").val();
 	if(surname === '') {
         $("label[for='surname']").empty().append("Please enter a surname.");
-        $("label[for='surname']").removeClass("feedback-happy");
-        $("label[for='surname']").addClass("feedback-sad");
-        $("#surname").removeClass("input-happy");
-        $("#surname").addClass("input-sad");
+        $("label[for='surname']").removeClass("feedback-success");
+        $("label[for='surname']").addClass("feedback-danger");
+        $("#surname").removeClass("input-success");
+        $("#surname").addClass("input-danger");
         $("#surname").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='surname']").empty().append("All good!");
-        $("label[for='surname']").removeClass("feedback-sad");
-        $("label[for='surname']").addClass("feedback-happy");
-        $("#surname").removeClass("input-sad");
-        $("#surname").addClass("input-happy");
+        $("label[for='surname']").removeClass("feedback-danger");
+        $("label[for='surname']").addClass("feedback-success");
+        $("#surname").removeClass("input-danger");
+        $("#surname").addClass("input-success");
 	}
 
     var gender_check = $('#gender :selected').html();
     if (gender_check === '') {
         $("label[for='gender']").empty().append("Please select an option.");
-        $("label[for='gender']").removeClass("feedback-happy");
-        $("label[for='gender']").addClass("feedback-sad");
-        $("[aria-owns='select2-gender-results']").removeClass("input-happy");
-        $("[aria-owns='select2-gender-results']").addClass("input-sad");
+        $("label[for='gender']").removeClass("feedback-success");
+        $("label[for='gender']").addClass("feedback-danger");
+        $("[aria-owns='select2-gender-results']").removeClass("input-success");
+        $("[aria-owns='select2-gender-results']").addClass("input-danger");
         $("[aria-owns='select2-gender-results']").focus();
         hasError  = true;
         return false;
     }
     else {
         $("label[for='gender']").empty().append("All good!");
-        $("label[for='gender']").removeClass("feedback-sad");
-        $("label[for='gender']").addClass("feedback-happy");
-        $("[aria-owns='select2-gender-results']").removeClass("input-sad");
-        $("[aria-owns='select2-gender-results']").addClass("input-happy");
+        $("label[for='gender']").removeClass("feedback-danger");
+        $("label[for='gender']").addClass("feedback-success");
+        $("[aria-owns='select2-gender-results']").removeClass("input-danger");
+        $("[aria-owns='select2-gender-results']").addClass("input-success");
     }
 
     var gender = $('#gender :selected').html();
@@ -580,35 +580,35 @@ include '../includes/session.php';
 
 		if(studentno === '') {
             $("label[for='studentno']").empty().append("Please enter a student number.");
-            $("label[for='studentno']").removeClass("feedback-happy");
-            $("label[for='studentno']").addClass("feedback-sad");
-            $("#studentno").removeClass("input-happy");
-            $("#studentno").addClass("input-sad");
+            $("label[for='studentno']").removeClass("feedback-success");
+            $("label[for='studentno']").addClass("feedback-danger");
+            $("#studentno").removeClass("input-success");
+            $("#studentno").addClass("input-danger");
             $("#studentno").focus();
 			hasError  = true;
 			return false;
 		} else {
             $("label[for='studentno']").empty().append("All good!");
-            $("label[for='studentno']").removeClass("feedback-sad");
-            $("label[for='studentno']").addClass("feedback-happy");
-            $("#studentno").removeClass("input-sad");
-            $("#studentno").addClass("input-happy");
+            $("label[for='studentno']").removeClass("feedback-danger");
+            $("label[for='studentno']").addClass("feedback-success");
+            $("#studentno").removeClass("input-danger");
+            $("#studentno").addClass("input-success");
 		}
 		if ($.isNumeric(studentno)) {
             $("label[for='studentno']").empty().append("All good!");
-            $("label[for='studentno']").removeClass("feedback-sad");
-            $("label[for='studentno']").addClass("feedback-happy");
-            $("#studentno").removeClass("input-sad");
-            $("#studentno").addClass("input-happy");
+            $("label[for='studentno']").removeClass("feedback-danger");
+            $("label[for='studentno']").addClass("feedback-success");
+            $("#studentno").removeClass("input-danger");
+            $("#studentno").addClass("input-success");
             $("#error1").hide();
 		} else {
 			$("#error1").show();
 			$("#error1").empty().append("The student number entered is invalid.<br>The student number must be numeric.");
             $("label[for='studentno']").empty().append("Wait a minute!");
-            $("label[for='studentno']").removeClass("feedback-happy");
-            $("label[for='studentno']").addClass("feedback-sad");
-            $("#studentno").removeClass("input-happy");
-            $("#studentno").addClass("input-sad");
+            $("label[for='studentno']").removeClass("feedback-success");
+            $("label[for='studentno']").addClass("feedback-danger");
+            $("#studentno").removeClass("input-success");
+            $("#studentno").addClass("input-danger");
             $("#studentno").focus();
 			hasError  = true;
 			return false;
@@ -617,52 +617,52 @@ include '../includes/session.php';
 			$("#error1").show();
 			$("#error1").empty().append("The student number entered is invalid.<br>The student number must be exactly 9 digits in length.");
             $("label[for='studentno']").empty().append("Wait a minute!");
-            $("label[for='studentno']").removeClass("feedback-happy");
-            $("label[for='studentno']").addClass("feedback-sad");
-            $("#studentno").removeClass("input-happy");
-            $("#studentno").addClass("input-sad");
+            $("label[for='studentno']").removeClass("feedback-success");
+            $("label[for='studentno']").addClass("feedback-danger");
+            $("#studentno").removeClass("input-success");
+            $("#studentno").addClass("input-danger");
             $("#studentno").focus();
 			hasError  = true;
 			return false;
 		} else {
             $("label[for='studentno']").empty().append("All good!");
-            $("label[for='studentno']").removeClass("feedback-sad");
-            $("label[for='studentno']").addClass("feedback-happy");
-            $("#studentno").removeClass("input-sad");
-            $("#studentno").addClass("input-happy");
+            $("label[for='studentno']").removeClass("feedback-danger");
+            $("label[for='studentno']").addClass("feedback-success");
+            $("#studentno").removeClass("input-danger");
+            $("#studentno").addClass("input-success");
             $("#error1").hide();
 		}
 		if(degree === '') {
             $("label[for='degree']").empty().append("Please enter a programme of study.");
-            $("label[for='degree']").removeClass("feedback-happy");
-            $("label[for='degree']").addClass("feedback-sad");
-            $("#degree").removeClass("input-happy");
-            $("#degree").addClass("input-sad");
+            $("label[for='degree']").removeClass("feedback-success");
+            $("label[for='degree']").addClass("feedback-danger");
+            $("#degree").removeClass("input-success");
+            $("#degree").addClass("input-danger");
             $("#degree").focus();
 			hasError  = true;
 			return false;
 		} else {
             $("label[for='degree']").empty().append("All good!");
-            $("label[for='degree']").removeClass("feedback-sad");
-            $("label[for='degree']").addClass("feedback-happy");
-            $("#degree").removeClass("input-sad");
-            $("#degree").addClass("input-happy");
+            $("label[for='degree']").removeClass("feedback-danger");
+            $("label[for='degree']").addClass("feedback-success");
+            $("#degree").removeClass("input-danger");
+            $("#degree").addClass("input-success");
 		}
         if(fee_amount === '') {
             $("label[for='fee_amount']").empty().append("Please enter an amount.");
-            $("label[for='fee_amount']").removeClass("feedback-happy");
-            $("label[for='fee_amount']").addClass("feedback-sad");
-            $("#fee_amount").removeClass("input-happy");
-            $("#fee_amount").addClass("input-sad");
+            $("label[for='fee_amount']").removeClass("feedback-success");
+            $("label[for='fee_amount']").addClass("feedback-danger");
+            $("#fee_amount").removeClass("input-success");
+            $("#fee_amount").addClass("input-danger");
             $("#fee_amount").focus();
             hasError  = true;
             return false;
         } else {
             $("label[for='fee_amount']").empty().append("All good!");
-            $("label[for='fee_amount']").removeClass("feedback-sad");
-            $("label[for='fee_amount']").addClass("feedback-happy");
-            $("#fee_amount").removeClass("input-sad");
-            $("#fee_amount").addClass("input-happy");
+            $("label[for='fee_amount']").removeClass("feedback-danger");
+            $("label[for='fee_amount']").addClass("feedback-success");
+            $("#fee_amount").removeClass("input-danger");
+            $("#fee_amount").addClass("input-success");
         }
 	} else {
 		studentno = $("#studentno").val();
@@ -673,56 +673,56 @@ include '../includes/session.php';
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
-        $("label[for='email']").removeClass("feedback-happy");
-        $("label[for='email']").addClass("feedback-sad");
-        $("#email").removeClass("input-happy");
-        $("#email").addClass("input-sad");
+        $("label[for='email']").removeClass("feedback-success");
+        $("label[for='email']").addClass("feedback-danger");
+        $("#email").removeClass("input-success");
+        $("#email").addClass("input-danger");
         $("#email").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='email']").empty().append("All good!");
-        $("label[for='email']").removeClass("feedback-sad");
-        $("label[for='email']").addClass("feedback-happy");
-        $("#email").removeClass("input-sad");
-        $("#email").addClass("input-happy");
+        $("label[for='email']").removeClass("feedback-danger");
+        $("label[for='email']").addClass("feedback-success");
+        $("#email").removeClass("input-danger");
+        $("#email").addClass("input-success");
 	}
 
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a password.");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
-        $("#password").removeClass("input-happy");
-        $("#password").addClass("input-sad");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
+        $("#password").removeClass("input-success");
+        $("#password").addClass("input-danger");
         $("#password").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
-        $("#password").removeClass("input-sad");
-        $("#password").addClass("input-happy");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
 	}
 
 	if (password.length < 6) {
 		$("#error1").show();
 		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
         $("label[for='password']").empty().append("Wait a minute!");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
-        $("#password").removeClass("input-happy");
-        $("#password").addClass("input-sad");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
+        $("#password").removeClass("input-success");
+        $("#password").addClass("input-danger");
         $("#password").focus();
 		hasError  = true;
 		return false;
 	} else {
         $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
-        $("#password").removeClass("input-sad");
-        $("#password").addClass("input-happy");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
         $("#error1").hide();
 	}
 
@@ -732,19 +732,19 @@ include '../includes/session.php';
 
 	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
         $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
-        $("#password").removeClass("input-sad");
-        $("#password").addClass("input-happy");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
         $("#error1").hide();
 	} else {
 		$("#error6").show();
 		$("#error6").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
         $("label[for='password']").empty().append("Wait a minute!");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
-        $("#password").removeClass("input-happy");
-        $("#password").addClass("input-sad");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
+        $("#password").removeClass("input-success");
+        $("#password").addClass("input-danger");
         $("#password").focus();
 		hasError  = true;
 		return false;
@@ -753,38 +753,38 @@ include '../includes/session.php';
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter a confirmation.");
-        $("label[for='confirmpwd']").removeClass("feedback-happy");
-        $("label[for='confirmpwd']").addClass("feedback-sad");
-        $("#confirmpwd").removeClass("input-happy");
-        $("#confirmpwd").addClass("input-sad");
+        $("label[for='confirmpwd']").removeClass("feedback-success");
+        $("label[for='confirmpwd']").addClass("feedback-danger");
+        $("#confirmpwd").removeClass("input-success");
+        $("#confirmpwd").addClass("input-danger");
         $("#confirmpwd").focus();
 		hasError  = true;
 		return false;
     } else {
         $("label[for='confirmpwd']").empty().append("All good!");
-        $("label[for='confirmpwd']").removeClass("feedback-sad");
-        $("label[for='confirmpwd']").addClass("feedback-happy");
-        $("#confirmpwd").removeClass("input-sad");
-        $("#confirmpwd").addClass("input-happy");
+        $("label[for='confirmpwd']").removeClass("feedback-danger");
+        $("label[for='confirmpwd']").addClass("feedback-success");
+        $("#confirmpwd").removeClass("input-danger");
+        $("#confirmpwd").addClass("input-success");
 	}
 
 	if(password != confirmpwd) {
 		$("#error1").show();
 		$("#error1").empty().append("Your password and confirmation do not match. Please try again.");
         $("label[for='confirmpwd']").empty().append("Wait a minute!");
-        $("label[for='confirmpwd']").removeClass("feedback-happy");
-        $("label[for='confirmpwd']").addClass("feedback-sad");
-        $("#confirmpwd").removeClass("input-happy");
-        $("#confirmpwd").addClass("input-sad");
+        $("label[for='confirmpwd']").removeClass("feedback-success");
+        $("label[for='confirmpwd']").addClass("feedback-danger");
+        $("#confirmpwd").removeClass("input-success");
+        $("#confirmpwd").addClass("input-danger");
         $("#confirmpwd").focus();
         hasError  = true;
 		return false;
 	} else {
         $("label[for='confirmpwd']").empty().append("All good!");
-        $("label[for='confirmpwd']").removeClass("feedback-sad");
-        $("label[for='confirmpwd']").addClass("feedback-happy");
-        $("#confirmpwd").removeClass("input-sad");
-        $("#confirmpwd").addClass("input-happy");
+        $("label[for='confirmpwd']").removeClass("feedback-danger");
+        $("label[for='confirmpwd']").addClass("feedback-success");
+        $("#confirmpwd").removeClass("input-danger");
+        $("#confirmpwd").addClass("input-success");
         $("#error1").hide();
 	}
 

@@ -32,7 +32,7 @@ include 'includes/session.php';
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">You are already logged in. You don't have to log in again.</p>
+    <p class="feedback-danger text-center">You are already logged in. You don't have to log in again.</p>
     <hr>
 
     <div class="pull-left">
@@ -73,7 +73,7 @@ include 'includes/session.php';
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons.</p>
+    <p class="feedback-danger text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons.</p>
     <hr>
 
     <div class="text-center">
@@ -94,7 +94,7 @@ include 'includes/session.php';
 
     <hr>
 
-    <p id="error" class="feedback-sad text-center"></p>
+    <p id="error" class="feedback-danger text-center"></p>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width pl0">
@@ -187,37 +187,37 @@ include 'includes/session.php';
 	var email = $('#email').val();
 	if (email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
-        $("label[for='email']").removeClass("feedback-happy");
-        $("label[for='email']").addClass("feedback-sad");
-        $("#email").removeClass("input-happy");
-        $("#email").addClass("input-sad");
+        $("label[for='email']").removeClass("feedback-success");
+        $("label[for='email']").addClass("feedback-danger");
+        $("#email").removeClass("input-success");
+        $("#email").addClass("input-danger");
         $("#email").focus();
 		hasError  = true;
         return false;
 	} else {
         $("label[for='email']").empty().append("All good!");
-        $("label[for='email']").removeClass("feedback-sad");
-        $("label[for='email']").addClass("feedback-happy");
-        $("#email").removeClass("input-sad");
-        $("#email").addClass("input-happy");
+        $("label[for='email']").removeClass("feedback-danger");
+        $("label[for='email']").addClass("feedback-success");
+        $("#email").removeClass("input-danger");
+        $("#email").addClass("input-success");
 	}
 
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a password.");
-        $("label[for='password']").removeClass("feedback-happy");
-        $("label[for='password']").addClass("feedback-sad");
-        $("#password").removeClass("input-happy");
-        $("#password").addClass("input-sad");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
+        $("#password").removeClass("input-success");
+        $("#password").addClass("input-danger");
         $("#password").focus();
 		hasError  = true;
         return false;
     } else {
         $("label[for='password']").empty().append("All good!");
-        $("label[for='password']").removeClass("feedback-sad");
-        $("label[for='password']").addClass("feedback-happy");
-        $("#password").removeClass("input-sad");
-        $("#password").addClass("input-happy");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
 	}
 	
 	if(hasError == false){

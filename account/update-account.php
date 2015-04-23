@@ -48,8 +48,8 @@ if ($dateofbirth == "0000-00-00") {
 	<!-- Update account -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updateaccount_form" novalidate>
 
-	<p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+	<p id="error" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
 	<div id="hide">
 
@@ -379,8 +379,8 @@ if ($dateofbirth == "0000-00-00") {
 	<!-- Update account -->
 	<form class="form-horizontal form-custom" style="max-width: 100%;" name="updateaccount_form" novalidate>
 
-	<p id="error" class="feedback-sad text-center"></p>
-	<p id="success" class="feedback-happy text-center"></p>
+	<p id="error" class="feedback-danger text-center"></p>
+	<p id="success" class="feedback-success text-center"></p>
 
 	<div id="hide">
 
@@ -690,7 +690,7 @@ if ($dateofbirth == "0000-00-00") {
     </div>
 
     <hr>
-    <p class="feedback-sad text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
     <hr>
 
     <div class="text-center">
