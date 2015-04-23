@@ -251,7 +251,7 @@ include 'includes/session.php';
     $(document).ready(function () {
         //select2
         $("#gender").select2({placeholder: "Select an option"});
-        $("#modal-info").delay(10000).modal('show');
+        window.setTimeout(function(){ $('#modal-info').modal('show'); }, 5000);
     });
 
 	//Register user
