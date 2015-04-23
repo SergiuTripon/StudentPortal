@@ -119,8 +119,6 @@ include 'includes/session.php';
 
     <div id="hide">
 
-    <hr>
-
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
     <label for="firstname">First name<span class="field-required">*</span></label>
