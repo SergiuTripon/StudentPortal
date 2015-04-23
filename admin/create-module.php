@@ -120,7 +120,7 @@ include '../includes/session.php';
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'create_module_name='    + module_name +
-         '&create_module_notes=' + module_notes +
+         '&create_module_notes='  + module_notes +
          '&create_module_url='    + module_url,
     success:function(){
 		$("#error").hide();
