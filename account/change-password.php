@@ -105,8 +105,8 @@ include '../includes/session.php';
         $("label[for='password']").empty().append("Please enter a new password.");
         $("label[for='password']").removeClass("feedback-success");
         $("label[for='password']").addClass("feedback-danger");
-        $("#password").removeClass("input-danger");
-        $("#password").addClass("input-success");
+        $("#password").removeClass("input-success");
+        $("#password").addClass("input-danger");
         $("#password").focus();
 		hasError  = true;
 		return false;
@@ -114,8 +114,8 @@ include '../includes/session.php';
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-danger");
         $("label[for='password']").addClass("feedback-success");
-        $("#password").removeClass("input-success");
-        $("#password").addClass("input-danger");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
 	}
 
     password = $("#password").val();
