@@ -729,7 +729,6 @@ form .field-required {
 
 .input-danger {
     border-color: #D9534F !important;
-    background-color: #DB827F !important;
 }
 /* End of Error message */
 
@@ -743,7 +742,6 @@ form .field-required {
 
 .input-success {
     border-color: #449D44 !important;
-    background-color: #80CF80 !important;
 }
 /* End of Success message */
 

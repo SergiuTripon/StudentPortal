@@ -168,9 +168,6 @@ while ($row = $stmt1->fetch_assoc()){
     </div><!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
 		
     <?php else : ?>
 
@@ -199,9 +196,6 @@ while ($row = $stmt1->fetch_assoc()){
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>

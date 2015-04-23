@@ -383,7 +383,7 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../includes/footers/footer.php'; ?>
 
 
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
+
 
     <?php else : ?>
 
@@ -414,7 +414,7 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../includes/footers/footer.php'; ?>
 
 
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
+
 
     <?php endif; ?>
 	<?php else : ?>

@@ -133,7 +133,7 @@ include '../includes/session.php';
 	<?php include '../includes/footers/footer.php'; ?>
 
 
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
+
 
     <?php else : ?>
 
@@ -162,7 +162,7 @@ include '../includes/session.php';
 	<?php include '../includes/footers/footer.php'; ?>
 
 
-    <script src="../../assets/js/custom/sign-out-inactive.js"></script>
+
 
     <?php endif; ?>
 	<?php else : ?>
