@@ -54,11 +54,14 @@ if (isset($_GET["id"])) {
 	<input type="hidden" name="userid" id="userid" value="<?php echo $userToChangePassword; ?>" />
 
 	<div class="form-group">
-	<div class="col-xs-6 col-sm-6 full-width">
+	<div class="col-xs-12 col-sm-12 full-width">
     <label for="password">New password</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="New password">
 	</div>
-	<div class="col-xs-6 col-sm-6 full-width">
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width">
     <label for="confirmpwd">New password confirmation</label>
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	</div>
