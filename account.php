@@ -366,7 +366,7 @@ global $mysqli;
 
             echo
            '<tr>
-			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
+			<td data-title="Full name"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Account type">'.ucfirst($account_type).'</td>
             <td data-title="Action">
 			<div class="btn-group btn-action">
@@ -381,6 +381,36 @@ global $mysqli;
             </div>
             </td>
 			</tr>
+
+			<div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-book"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Author:</b> '.$book_author.'</p>
+			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
+			<p><b>Copy number</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-account?id='.$userid.'" class="btn btn-primary btn-md">Update</a>
+            <a id="deactivate-'.$userid.'" class="btn btn-primary btn-md btn-deactivate-book">Deactivate</a>
+            <a href="#delete-'.$userid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
 
 			<div id="delete-'.$userid.'" class="modal fade modal-custom modal-info" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
