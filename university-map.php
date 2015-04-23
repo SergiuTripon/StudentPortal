@@ -168,16 +168,6 @@ AdminUniversityMapUpdate();
     <script>
 
     //DataTables
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
     $('.table-active-location').dataTable(settings);
     $('.table-inactive-location').dataTable(settings);
 
@@ -188,12 +178,16 @@ AdminUniversityMapUpdate();
     var clickedID = this.id.split('-');
     var locationToDeactivate = clickedID[1];
 
+    togglePreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'locationToDeactivate='+ locationToDeactivate,
 	success:function(html){
+
+        togglePreloader();
 
         $(".table-active-location").dataTable().fnDestroy();
         $('#content-active-location').empty();
@@ -207,6 +201,7 @@ AdminUniversityMapUpdate();
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
+        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
@@ -220,12 +215,16 @@ AdminUniversityMapUpdate();
     var clickedID = this.id.split('-');
     var locationToReactivate = clickedID[1];
 
+    togglePreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'locationToReactivate='+ locationToReactivate,
 	success:function(html){
+
+        togglePreloader();
 
         $(".table-inactive-location").dataTable().fnDestroy();
         $('#content-inactive-location').empty();
@@ -239,6 +238,7 @@ AdminUniversityMapUpdate();
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
+        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
