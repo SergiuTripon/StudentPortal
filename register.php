@@ -229,7 +229,7 @@ include 'includes/session.php';
     </div>
 
     <div class="modal-body">
-    <p>Note: The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you.</p>
+    <p><b>Note:</b> The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you.</p>
     </div>
 
 	<div class="modal-footer">
@@ -251,7 +251,7 @@ include 'includes/session.php';
     $(document).ready(function () {
         //select2
         $("#gender").select2({placeholder: "Select an option"});
-        $("#modal-info").modal('show');
+        $("#modal-info").delay(1000).modal('show');
     });
 
 	//Register user
