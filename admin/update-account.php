@@ -660,7 +660,7 @@ if ($dateofbirth == "00-00-0000") {
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
+		$("#admin-update-account-submit").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The account has been updated.');
 	},
