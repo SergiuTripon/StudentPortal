@@ -31,6 +31,8 @@ include 'includes/session.php';
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
+
     <?php include 'includes/menus/portal_menu.php'; ?>
 
     <div class="container">
@@ -61,6 +63,41 @@ include 'includes/session.php';
 
     <?php include 'includes/footers/footer.php'; ?>
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
+
+    <?php else : ?>
+
+    <?php include 'includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
+
+    <form class="form-horizontal form-custom">
+
+	<div class="form-logo text-center">
+    <i class="fa fa-check-square-o"></i>
+    </div>
+
+	<hr>
+
+	<p class="feedback-danger text-justify">Note: The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you.</p>
+
+	<hr>
+
+	<div class="pull-left">
+    <a class="btn btn-success btn-lg btn-load" href="../home/">Home</a>
+    </div>
+
+    <div class="text-right">
+    <a class="btn btn-danger btn-lg btn-load" href="../sign-out/">Sign Out</a>
+    </div>
+
+	</form>
+
+    </div>
+
+    <?php include 'includes/footers/footer.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+
+    <?php endif; ?>
 
 	<?php else : ?>
 
