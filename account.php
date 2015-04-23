@@ -357,7 +357,7 @@ global $mysqli;
 	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
     $stmt2->bind_param('is', $session_userid, $user_status);
     $stmt2->execute();
-    $stmt2->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname);
+    $stmt2->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname, $gender, $nationality, $dateofbirth);
     $stmt2->store_result();
 
     if ($stmt2->num_rows > 0) {
@@ -388,13 +388,15 @@ global $mysqli;
 
 			<div class="modal-header">
             <div class="close"><i class="fa fa-book"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
+            <h4 class="modal-title" id="modal-custom-label">'.$firstname.' '.$surname.'</h4>
 			</div>
 
 			<div class="modal-body">
-			<p><b>Author:</b> '.$book_author.'</p>
-			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
-			<p><b>Copy number</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
+			<p><b>Gender:</b> '.(empty($gender) ? "-" : "$gender").'</p>
+			<p><b>Nationality:</b> '.(empty($nationality) ? "-" : "$nationality").'</p>
+			<p><b>Date of Birth</b> '.(empty($dateofbirth) ? "-" : "$dateofbirth").'</p>
+			<p><b>Date of Birth</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Date of Birth</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
 			</div>
 
 			<div class="modal-footer">
