@@ -126,9 +126,6 @@ include 'includes/session.php';
     </div><!-- /container -->
 	
 	<?php include 'includes/footers/footer.php'; ?>
-		
-
-
 
     <?php endif; ?>
 
@@ -299,40 +296,7 @@ include 'includes/session.php';
             </td>
 			</tr>
 
-    		<div id="deactivate-'.$userid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-user-times"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="deactivate-question" class="feedback-danger text-center">Are you sure you want to deactivate '.$firstname.' '.$surname.'?</p>
-            <p id="deactivate-confirmation" class="feedback-success text-center" style="display: none;">'.$firstname.' '.$surname.' has been deactivated successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="deactivate-hide">
-			<div class="pull-left">
-			<a id="deactivate-'.$userid.'" class="btn btn-danger btn-lg deactivate-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="deactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="delete-'.$userid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$userid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -343,21 +307,13 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="feedback-danger text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
-            <p id="delete-confirmation" class="feedback-success text-center" style="display: none;">'.$firstname.' '.$surname.' has been deleted successfully.</p>
+			<p class="text-left">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-hide">
-			<div class="pull-left">
-			<a id="delete-'.$userid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a id="delete-'.$userid.'" class="btn btn-primary btn-lg btn-delete-account">Delete</a>
+			<button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</button>
 			</div>
 			</div>
 
