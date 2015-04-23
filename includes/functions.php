@@ -70,7 +70,7 @@ function SignIn() {
     } else {
 
         //Checking if email address exists in the system
-        $stmt1 = $mysqli->prepare("SELECT userid, account_type, password FROM user_signin WHERE email = ? LIMIT 1");
+        $stmt1 = $mysqli->prepare("SELECT s.userid, s.account_type, s.password, d.user_status FROM user_signin s LEFT JOIN user_detail d ON s.useird=d.userid WHERE email=? LIMIT 1");
         $stmt1->bind_param('s', $email);
         $stmt1->execute();
         $stmt1->store_result();
@@ -79,6 +79,9 @@ function SignIn() {
 
         //If the email address exists, do the following
         if ($stmt1->num_rows == 1) {
+
+        //If the account is active, do the following
+        if ($user_status === 'active') {
 
         //Checking if password entered matches the password in the database
         if (password_verify($password, $db_password)) {
@@ -107,6 +110,11 @@ function SignIn() {
             header('HTTP/1.0 550 The password you entered is incorrect.');
             exit();
 	    }
+        } else {
+            $stmt1->close();
+            header('HTTP/1.0 550 This account is deactivated. Please contact your system administrator.');
+            exit();
+        }
         //Otherwise, if the email address doesn't exist, do the following
         } else {
             $stmt1->close();
