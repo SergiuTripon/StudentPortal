@@ -167,8 +167,8 @@ if (isset($_GET["id"])) {
 	}
 
 	if(password != confirmpwd) {
-		$("#error1").show();
-		$("#error1").empty().append("The password and confirmation do not match. Please try again.");
+		$("label[for='password'").empty().append("The password and confirmation do not match. Please try again.");
+        $("label[for='confirmpwd'").empty().append("The password and confirmation do not match. Please try again.");
         $("label[for='password']").removeClass("feedback-success");
         $("label[for='password']").addClass("feedback-danger");
         $("label[for='confirmpwd']").removeClass("feedback-success");
