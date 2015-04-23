@@ -440,12 +440,10 @@ ul.external-pages-links {
     margin-bottom: 0;
 }
 
+@media (max-width: 480px) {
 #features-showcase #helper {
     margin-top: 10px;
 }
-
-@media (max-width: 480px) {
-
 }
 /* End of Features showcase */
 
