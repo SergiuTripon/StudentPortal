@@ -178,8 +178,6 @@ AdminUniversityMapUpdate();
     var clickedID = this.id.split('-');
     var locationToDeactivate = clickedID[1];
 
-    togglePreloader();
-
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
@@ -199,7 +197,6 @@ AdminUniversityMapUpdate();
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
-        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
@@ -212,8 +209,6 @@ AdminUniversityMapUpdate();
 
     var clickedID = this.id.split('-');
     var locationToReactivate = clickedID[1];
-
-    togglePreloader();
 
 	jQuery.ajax({
 	type: "POST",
@@ -234,7 +229,6 @@ AdminUniversityMapUpdate();
 
 	},
 	error:function (xhr, ajaxOptions, thrownError){
-        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
