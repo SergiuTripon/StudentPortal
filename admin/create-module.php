@@ -86,7 +86,7 @@ include '../includes/session.php';
 	<script>
 
     //Create module process
-    $("#FormSubmit").click(function (e) {
+    $("#create-module-submit").click(function (e) {
     e.preventDefault();
 
     //Validation and data gathering
@@ -124,7 +124,7 @@ include '../includes/session.php';
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
+		$("#create-module-submit").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The module has been created.');
 		$("#success-button").show();
