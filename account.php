@@ -394,9 +394,9 @@ global $mysqli;
 			<div class="modal-body">
 			<p><b>Gender:</b> '.(empty($gender) ? "-" : "$gender").'</p>
 			<p><b>Nationality:</b> '.(empty($nationality) ? "-" : "$nationality").'</p>
-			<p><b>Date of Birth</b> '.(empty($dateofbirth) ? "-" : "$dateofbirth").'</p>
-			<p><b>Date of Birth</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
-			<p><b>Date of Birth</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "-" : "$dateofbirth").'</p>
+			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
 			</div>
 
 			<div class="modal-footer">
