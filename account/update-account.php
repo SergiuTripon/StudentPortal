@@ -730,7 +730,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a first name.");
 		$("#firstname").addClass("error-style");
-		hasError  = true;
+		hasError = true;
 		return false;
 	}
 	
@@ -739,7 +739,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#error1").show();
         $("#error1").empty().append("Please enter a surname.");
 		$("#surname").addClass("error-style");
-		hasError  = true;
+		hasError = true;
 		return false;
 	}
 
@@ -750,7 +750,7 @@ if ($dateofbirth == "0000-00-00") {
 		$("#error2").show();
         $("#error2").empty().append("Please enter an email address.");
 		$("#email").addClass("error-style");
-		hasError  = true;
+		hasError = true;
 		return false;
 	}
 
