@@ -164,7 +164,6 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-
     $("#timetable").click(function() {
         $('.modal-custom').modal('show');
         $('.modal-custom #modal-custom-label').empty().append("Timetable");
@@ -333,7 +332,7 @@ include 'includes/session.php';
     </div><!-- /.container -->
 
     <!-- Feature Modal -->
-    <div class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
+    <div class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
@@ -360,8 +359,6 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    $(document).ready(function() {
-
     $( "#timetable" ).click(function() {
         $('.modal-custom').modal('show');
         $('.modal-custom #modal-custom-label').empty().append("Timetable");
@@ -421,8 +418,6 @@ include 'includes/session.php';
         $('.modal-custom #modal-custom-label').empty().append("Account");
         $('.modal-custom .close').empty().append("<i class=\"fa fa-user\"></i>");
         $('.modal-custom .modal-body').empty().append("<p class=\"feedback-custom text-justify\">There are some things in life you can't control, but you can have full control of your account right here. See what it feels like to be the boss.</p>");
-    });
-
     });
     </script>
 
