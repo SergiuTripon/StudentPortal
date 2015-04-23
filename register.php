@@ -170,7 +170,7 @@ include 'includes/session.php';
     </div>
 	
     <div id="register-button" class="text-right">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Register</button>
+    <button id="register-submit" class="btn btn-primary btn-lg btn-load">Register</button>
     </div>
 	
 	<div id="success-button" class="text-center" style="display:none">
@@ -254,8 +254,8 @@ include 'includes/session.php';
         window.setTimeout(function(){ $('#modal-info').modal('show'); }, 5000);
     });
 
-	//Register user
-    $("#FormSubmit").click(function (e) {
+	//Register
+    $("#register-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
