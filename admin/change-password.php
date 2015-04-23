@@ -94,6 +94,8 @@ if (isset($_GET["id"])) {
         $("label[for='password']").empty().append("Please enter a password.");
         $("label[for='password']").removeClass("feedback-success");
         $("label[for='password']").addClass("feedback-danger");
+        $("#password").removeClass("input-success");
+        $("#password").addClass("input-danger");
         $("#password").focus();
         hasError  = true;
 		return false;
@@ -101,12 +103,16 @@ if (isset($_GET["id"])) {
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-danger");
         $("label[for='password']").addClass("feedback-success");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
 	}
 
 	if (password.length < 6) {
         $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
         $("label[for='password']").removeClass("feedback-success");
         $("label[for='password']").addClass("feedback-danger");
+        $("#password").removeClass("input-success");
+        $("#password").addClass("input-danger");
         $("#password").focus();
         hasError  = true;
         return false;
@@ -114,6 +120,8 @@ if (isset($_GET["id"])) {
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-danger");
         $("label[for='password']").addClass("feedback-success");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
 	}
 
 	var upperCase= new RegExp('[A-Z]');
@@ -124,11 +132,15 @@ if (isset($_GET["id"])) {
         $("label[for='password']").empty().append("All good!");
         $("label[for='password']").removeClass("feedback-danger");
         $("label[for='password']").addClass("feedback-success");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
 	} else {
 		$("#error1").show();
 		$("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
         $("label[for='password']").removeClass("feedback-success");
         $("label[for='password']").addClass("feedback-danger");
+        $("#password").removeClass("input-success");
+        $("#password").addClass("input-danger");
         $("#password").focus();
         hasError  = true;
         return false;
@@ -139,6 +151,8 @@ if (isset($_GET["id"])) {
         $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
         $("label[for='confirmpwd']").removeClass("feedback-success");
         $("label[for='confirmpwd']").addClass("feedback-danger");
+        $("#confirmpwd").removeClass("input-success");
+        $("#confirmpwd").addClass("input-danger");
         $("#confirmpwd").focus();
         hasError  = true;
         return false;
@@ -146,6 +160,8 @@ if (isset($_GET["id"])) {
         $("label[for='confirmpwd']").empty().append("All good!");
         $("label[for='confirmpwd']").removeClass("feedback-danger");
         $("label[for='confirmpwd']").addClass("feedback-success");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
 	}
 
 	if(password != confirmpwd) {
@@ -155,6 +171,10 @@ if (isset($_GET["id"])) {
         $("label[for='password']").addClass("feedback-danger");
         $("label[for='confirmpwd']").removeClass("feedback-success");
         $("label[for='confirmpwd']").addClass("feedback-danger");
+        $("#password").removeClass("input-success");
+        $("#password").addClass("input-danger");
+        $("#confirmpwd").removeClass("input-success");
+        $("#confirmpwd").addClass("input-danger");
         $("#password").focus();
         $("#confirmpwd").focus();
         hasError  = true;
@@ -166,6 +186,10 @@ if (isset($_GET["id"])) {
         $("label[for='password']").addClass("feedback-success");
         $("label[for='confirmpwd']").removeClass("feedback-danger");
         $("label[for='confirmpwd']").addClass("feedback-success");
+        $("#password").removeClass("input-danger");
+        $("#password").addClass("input-success");
+        $("#confirmpwd").removeClass("input-danger");
+        $("#confirmpwd").addClass("input-success");
 	}
 
 	if(hasError == false){
