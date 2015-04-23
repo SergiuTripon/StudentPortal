@@ -387,7 +387,7 @@ global $mysqli;
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa-book"></i></div>
+            <div class="close"><i class="fa fa-user"></i></div>
             <h4 class="modal-title" id="modal-custom-label">'.$firstname.' '.$surname.'</h4>
 			</div>
 
