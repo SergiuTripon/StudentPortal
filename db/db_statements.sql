@@ -535,8 +535,8 @@ CREATE TABLE `user_feedback` (
   `feedbackid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `feedback_subject` VARCHAR(300) NOT NULL,
   `feedback_body` VARCHAR(10000) NOT NULL,
-  `feedback_status` VARCHAR(9) NOT NULL,
   `isApproved` TINYINT(1) NOT NULL,
+  `feedback_status` VARCHAR(9) NOT NULL,
   `created_on` DATETIME NOT NULL,
 FOREIGN KEY (moduleid)
 REFERENCES system_module(moduleid)

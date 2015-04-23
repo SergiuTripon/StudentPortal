@@ -137,7 +137,7 @@ include 'includes/session.php';
     </div><!-- /.container -->
 
     <!-- Feature Modal -->
-    <div class="modal fade modal-custom" id="modal-features" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
+    <div class="modal fade modal-custom modal-info" id="modal-features" tabindex="-1" role="dialog" aria-labelledby="-modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
