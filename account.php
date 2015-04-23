@@ -313,7 +313,7 @@ global $mysqli;
             <div class="view-action pull-left">
             <a href="/admin/update-account?id='.$userid.'" class="btn btn-primary btn-md">Update</a>
             <a href="/admin/change-password?id='.$userid.'" class="btn btn-primary btn-md">Change Password</a>
-            <a id="deactivate-'.$userid.'" class="btn btn-primary btn-md btn-deactivate-book">Deactivate</a>
+            <a id="deactivate-'.$userid.'" class="btn btn-primary btn-md btn-deactivate-account">Deactivate</a>
             <a href="#delete-'.$userid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
@@ -436,7 +436,7 @@ global $mysqli;
             <div class="view-action pull-left">
             <a href="/admin/update-account?id='.$userid.'" class="btn btn-primary btn-md">Update</a>
             <a href="/admin/change-password?id='.$userid.'" class="btn btn-primary btn-md">Change Password</a>
-            <a id="deactivate-'.$userid.'" class="btn btn-primary btn-md btn-deactivate-book">Deactivate</a>
+            <a id="reactivate-'.$userid.'" class="btn btn-primary btn-md btn-reactivate-account">Reactivate</a>
             <a href="#delete-'.$userid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
