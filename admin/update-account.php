@@ -463,7 +463,7 @@ if ($dateofbirth == "00-00-0000") {
         }
     });
 
-	//Ajax call
+	//Update account
     $("#admin-update-account-submit").click(function (e) {
     e.preventDefault();
 
