@@ -78,7 +78,7 @@ include 'includes/session.php';
 
 	<hr>
 
-	<p class="feedback-danger text-justify">Note: The register facility is available to students only. If you're part of the academic staff or you're an administrator, please contact registered administrator who will create an account for you.</p>
+	<p class="feedback-danger text-justify">Note: The register facility is available to students only.</p>
 
 	<hr>
 
@@ -118,8 +118,6 @@ include 'includes/session.php';
 	<p id="success" class="feedback-success text-center"></p>
 
     <div id="hide">
-
-    <p class="feedback-danger text-justify">Note: The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you.</p>
 
     <hr>
 
@@ -209,6 +207,31 @@ include 'includes/session.php';
     </li>
     <li>Your password and confirmation must match exactly</li>
     </ul>
+    </div>
+
+	<div class="modal-footer">
+    <div class="text-right">
+    <button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
+    </div>
+    </div>
+
+	</div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
+	<!-- End of Help Modal -->
+
+    <!-- Info Modal -->
+    <div id="modal-help" class="modal fade modal-custom modal-info" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+	<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
+    <h4 class="modal-title" id="modal-custom-label">Registration info</h4>
+    </div>
+
+    <div class="modal-body">
+    <p>Note: The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you.</p>
     </div>
 
 	<div class="modal-footer">
