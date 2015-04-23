@@ -198,32 +198,31 @@ global $mysqli;
 	<tr>
 	<th>Full name</th>
 	<th>Account type</th>
-	<th>Created on</th>
-	<th>Updated on</th>
+	<th>Signed in at</th>
 	</tr>
 	</thead>
 
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.surname, user_detail.firstname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
+	$stmt1 = $mysqli->prepare("SELECT user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.surname, user_detail.firstname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
+    $stmt1->bind_param('is', $session_userid, $user_status);
+    $stmt1->execute();
+    $stmt1->bind_result($account_type, $created_on, $updated_on, $firstname, $surname);
+    $stmt1->store_result();
 
-	while($row = $stmt1->fetch_assoc()) {
+    if ($stmt1->num_rows > 0) {
 
-    $account_type = ucfirst($row["account_type"]);
-    $created_on = $row["created_on"];
-    $updated_on = $row["updated_on"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
+        while ($stmt1->fetch()) {
 
-	echo '<tr>
+            echo '<tr>
 
-			<td data-title="Full name">'.$row["firstname"].' '.$row["surname"].'</td>
+			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Account type">'.$account_type.'</td>
-			<td data-title="Created on">'.$row["created_on"].'</td>
-			<td data-title="Updated on">'.$row["updated_on"].'</td>
+			<td data-title="Signed in at">'.$updated_on.'</td>
 			</tr>';
-	}
+        }
+    }
 
 	$stmt1->close();
 	?>
