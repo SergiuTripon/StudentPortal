@@ -60,7 +60,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg mt10 mr5" >Change password</button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Change password</button>
     </div>
 
     </div>
@@ -70,9 +70,6 @@ include '../includes/session.php';
 	</div><!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
@@ -186,8 +183,8 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'change_oldpwd=' + oldpwd +
-         '&change_password=' + password,
+    data:'change_password_oldpwd=' + oldpwd +
+         '&change_password_password=' + password,
     success:function(){
 		$("#hide").hide();
 		$("#error").hide();
@@ -195,6 +192,7 @@ include '../includes/session.php';
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
@@ -232,7 +230,6 @@ include '../includes/session.php';
     </div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <?php endif; ?>

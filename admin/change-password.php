@@ -1,6 +1,9 @@
 <?php
 include '../includes/session.php';
 
+global $mysqli;
+global $userToChangePassword;
+
 if (isset($_GET["id"])) {
 
     $userToChangePassword = $_GET["id"];
@@ -65,12 +68,11 @@ if (isset($_GET["id"])) {
     <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Confirm new password">
 	</div>
 	</div>
-	<p id="error1" class="feedback-danger text-center"></p>
 
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Change password</button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Change password</button>
     </div>
 
     </div>
@@ -81,8 +83,121 @@ if (isset($_GET["id"])) {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
+	<script>
 
+    $("#FormSubmit").click(function (e) {
+    e.preventDefault();
+
+	var hasError = false;
+
+	var userid = $("#userid").val();
+
+	var password = $("#password").val();
+	if(password === '') {
+        $("label[for='password']").empty().append("Please enter a password.");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
+        $("#password").focus();
+        hasError  = true;
+		return false;
+    } else {
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
+	}
+
+	if (password.length < 6) {
+        $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
+        $("#password").focus();
+        hasError  = true;
+        return false;
+	} else {
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
+	}
+
+	var upperCase= new RegExp('[A-Z]');
+	var lowerCase= new RegExp('[a-z]');
+	var numbers = new RegExp('[0-9]');
+
+	if(password.match(upperCase) && password.match(lowerCase) && password.match(numbers)) {
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
+	} else {
+		$("#error1").show();
+		$("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
+        $("#password").focus();
+        hasError  = true;
+        return false;
+	}
+
+	var confirmpwd = $("#confirmpwd").val();
+	if(confirmpwd === '') {
+        $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
+        $("label[for='confirmpwd']").removeClass("feedback-success");
+        $("label[for='confirmpwd']").addClass("feedback-danger");
+        $("#confirmpwd").focus();
+        hasError  = true;
+        return false;
+    } else {
+        $("label[for='confirmpwd']").empty().append("All good!");
+        $("label[for='confirmpwd']").removeClass("feedback-danger");
+        $("label[for='confirmpwd']").addClass("feedback-success");
+	}
+
+	if(password != confirmpwd) {
+		$("#error1").show();
+		$(".error1").empty().append("The password and confirmation do not match. Please try again.");
+        $("label[for='password']").removeClass("feedback-success");
+        $("label[for='password']").addClass("feedback-danger");
+        $("label[for='confirmpwd']").removeClass("feedback-success");
+        $("label[for='confirmpwd']").addClass("feedback-danger");
+        $("#password").focus();
+        $("#confirmpwd").focus();
+        hasError  = true;
+        return false;
+	} else {
+        $("label[for='password']").empty().append("All good!");
+        $("label[for='confirmpwd']").empty().append("All good!");
+        $("label[for='password']").removeClass("feedback-danger");
+        $("label[for='password']").addClass("feedback-success");
+        $("label[for='confirmpwd']").removeClass("feedback-danger");
+        $("label[for='confirmpwd']").addClass("feedback-success");
+	}
+
+	if(hasError == false){
+    jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'change_account_password_userid=' + userid + '&change_account_password_password=' + password,
+    success:function(){
+		$("#error").hide();
+		$("#hide").hide();
+		$("#success").show();
+		$("#success").append('The password has been changed successfully.');
+		$("#success-button").show();
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
+		$("#success").hide();
+		$("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
+    }
+
+	return true;
+
+	});
+	</script>
 
 	<?php else : ?>
 
@@ -111,9 +226,6 @@ if (isset($_GET["id"])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 
@@ -144,105 +256,6 @@ if (isset($_GET["id"])) {
 	<?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
-
-	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-
-	<script>
-
-    $("#FormSubmit").click(function (e) {
-    e.preventDefault();
-
-	var hasError = false;
-
-	var userid1 = $("#userid").val();
-
-	var password5 = $("#password").val();
-	if(password5 === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a password.");
-		$("#password").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error1").hide();
-		$("#password").css("border-color", "#4DC742");
-	}
-
-	if (password5.length < 6) {
-		$("#error1").show();
-		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
-		$("#password").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-	} else {
-		$("#error1").hide();
-		$("#password").css("border-color", "#4DC742");
-	}
-
-	var upperCase= new RegExp('[A-Z]');
-	var lowerCase= new RegExp('[a-z]');
-	var numbers = new RegExp('[0-9]');
-
-	if(password5.match(upperCase) && password5.match(lowerCase) && password5.match(numbers)) {
-		$("#error1").hide();
-		$("#password").css("border-color", "#4DC742");
-	} else {
-		$("#error1").show();
-		$("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
-		$("#password").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-	}
-
-	var confirmpwd = $("#confirmpwd").val();
-	if(confirmpwd === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a password confirmation.");
-		$("#confirmpwd").css("border-color", "#FF5454");
-		hasError  = true;
-		return false;
-    } else {
-		$("#error1").hide();
-		$("#confirmpwd").css("border-color", "#4DC742");
-	}
-
-	if(password5 != confirmpwd) {
-		$("#error1").show();
-		$(".error1").empty().append("The password and confirmation do not match. Please try again.");
-		$("#password").css("border-color", "#FF5454");
-		$("#confirmpwd").css("border-color", "#FF5454");
-        hasError  = true;
-		return false;
-	} else {
-		$("#error1").hide();
-		$("#password").css("border-color", "#4DC742");
-		$("#confirmpwd").css("border-color", "#4DC742");
-	}
-
-	if(hasError == false){
-    jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'userid1=' + userid1 + '&password5=' + password5,
-    success:function(){
-		$("#error").hide();
-		$("#hide").hide();
-		$("#success").show();
-		$("#success").append('The password has been changed successfully.');
-		$("#success-button").show();
-    },
-    error:function (xhr, ajaxOptions, thrownError){
-		$("#success").hide();
-		$("#error").show();
-        $("#error").empty().append(thrownError);
-    }
-	});
-    }
-
-	return true;
-
-	});
-	</script>
 
 </body>
 </html>
