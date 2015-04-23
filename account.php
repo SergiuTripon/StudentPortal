@@ -470,7 +470,7 @@ include 'includes/session.php';
 	//DataTables
     $('.table-custom').dataTable(settings);
 
-	//Deactivate record
+	//Deactivate account
 	$("body").on("click", ".btn-deactivate-button", function(e) {
     e.preventDefault();
 
@@ -494,7 +494,7 @@ include 'includes/session.php';
 	});
     });
 
-    //Reactivate record
+    //Reactivate account
 	$("body").on("click", ".btn-reactivate-button", function(e) {
     e.preventDefault();
 
