@@ -110,6 +110,7 @@ function SignIn() {
             header('HTTP/1.0 550 The password you entered is incorrect.');
             exit();
 	    }
+            //Otherwise, if the account is not active, do the following
         } else {
             $stmt1->close();
             header('HTTP/1.0 550 This account is deactivated. Please contact your system administrator.');
