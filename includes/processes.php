@@ -657,7 +657,7 @@ elseif (isset(
 }
 
 //Call ChangeAccountPassword function
-elseif (isset($_POST["userid1"], $_POST["password5"])) {
+elseif (isset($_POST["change_account_password_userid"], $_POST["change_account_password_password"])) {
 	ChangeAccountPassword();
 }
 

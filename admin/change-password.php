@@ -182,7 +182,7 @@ if (isset($_GET["id"])) {
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
-		$("#success").append('The password has been changed successfully.');
+		$("#success").append('All done! The password has been changed.');
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){

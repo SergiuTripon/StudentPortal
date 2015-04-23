@@ -5813,8 +5813,8 @@ function ChangeAccountPassword() {
     global $mysqli;
     global $updated_on;
 
-    $userid = filter_input(INPUT_POST, 'userid1', FILTER_SANITIZE_STRING);
-    $password = filter_input(INPUT_POST, 'password5', FILTER_SANITIZE_STRING);
+    $userid = filter_input(INPUT_POST, 'change_account_password_userid', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'change_account_password_password', FILTER_SANITIZE_STRING);
 
 	// Getting user login details
 	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
