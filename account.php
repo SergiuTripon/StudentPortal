@@ -1,5 +1,8 @@
 <?php
 include 'includes/session.php';
+
+global $mysqli;
+
 ?>
 
 <!DOCTYPE html>
@@ -75,9 +78,7 @@ include 'includes/session.php';
     </div><!-- /container -->
 	
 	<?php include 'includes/footers/footer.php'; ?>
-		
-
-
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <?php endif; ?>
 	
@@ -126,6 +127,7 @@ include 'includes/session.php';
     </div><!-- /container -->
 	
 	<?php include 'includes/footers/footer.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <?php endif; ?>
 
@@ -423,39 +425,7 @@ include 'includes/session.php';
 	
 	<?php include 'includes/footers/footer.php'; ?>
 
-    <?php endif; ?>
-	
-	<?php else : ?>
-
-    <?php include 'includes/menus/menu.php'; ?>
-
-    <div class="container">
-    
-	<form class="form-horizontal form-custom">
-
-    <div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-
-    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-
-    <hr>
-
-    <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
-    </div>
-
-    </form>
-     
-	</div>
-
-    <?php include 'includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include 'assets/js-paths/common-js-paths.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
 
@@ -538,6 +508,39 @@ include 'includes/session.php';
 	});
     });
     </script>
+
+    <?php endif; ?>
+	
+	<?php else : ?>
+
+    <?php include 'includes/menus/menu.php'; ?>
+
+    <div class="container">
+    
+	<form class="form-horizontal form-custom">
+
+    <div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+
+    <hr>
+
+    <div class="text-center">
+	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
+    </div>
+
+    </form>
+     
+	</div>
+
+    <?php include 'includes/footers/footer.php'; ?>
+    <?php include 'assets/js-paths/common-js-paths.php'; ?>
+
+	<?php endif; ?>
 
 </body>
 </html>
