@@ -216,6 +216,7 @@ include '../includes/session.php';
     },
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
+        $("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }

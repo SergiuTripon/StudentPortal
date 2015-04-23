@@ -663,7 +663,7 @@ if ($dateofbirth == "0000-00-00") {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update account</button>
+    <button id="update-account-submit" class="btn btn-primary btn-lg btn-load">Update account</button>
     </div>
 
 	</div>
@@ -788,6 +788,8 @@ if ($dateofbirth == "0000-00-00") {
 		$("#success").empty().append('All done! Your account has been updated.');
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
+        $("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
