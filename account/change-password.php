@@ -122,7 +122,6 @@ include '../includes/session.php';
 	if (password.length < 6) {
         $("#error1").show();
         $("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
-        $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
         $("label[for='password']").empty().append("Wait a minute!");
         $("label[for='password']").removeClass("feedback-success");
         $("label[for='password']").addClass("feedback-danger");
