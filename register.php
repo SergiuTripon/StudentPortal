@@ -229,7 +229,7 @@ include 'includes/session.php';
     </div>
 
     <div class="modal-body">
-    <p class="text-justify"><b>Note:</b> The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you by clicking <a href="/contact" target="_blank">here</a>.</p>
+    <p class="text-justify"><b>Note:</b> The register facility is available to students only. If you're a lecturer, tutorial assistant or administrator, please contact an administrator who will create an account for you by clicking <a href="/contact" target="_blank"><b>here</b></a>.</p>
     </div>
 
 	<div class="modal-footer">
