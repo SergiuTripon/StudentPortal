@@ -2214,7 +2214,7 @@ function AdminExamUpdate($isUpdate = 0) {
             <a href="#delete-exam-'.$examid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
             </div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</span></a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -2307,7 +2307,7 @@ function AdminExamUpdate($isUpdate = 0) {
             <a href="#delete-exam-'.$examid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
             </div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</span></a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 

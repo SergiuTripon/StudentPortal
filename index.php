@@ -47,11 +47,11 @@ include 'includes/session.php';
     <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg" href="home/">Home</span></a>
+    <a class="btn btn-success btn-lg" href="home/">Home</a>
     </div>
 	
     <div class="text-right">
-    <a class="btn btn-danger btn-lg" href="sign-out/">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg" href="sign-out/">Sign Out</a>
     </div>
 
     </form>

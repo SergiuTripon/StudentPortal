@@ -67,12 +67,12 @@ include '../includes/session.php';
 	</div>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create module</span></button>
+    <a id="create-module-submit" class="btn btn-primary btn-lg btn-load">Create module</a>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
     <hr class="hr-success">
-    <a class="btn btn-primary btn-lg btn-load" href="">Create another</span></a>
+    <a class="btn btn-primary btn-lg btn-load" href="">Create another</a>
 	</div>
 	
     </form>
@@ -159,7 +159,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg btn-load" href="/home/">Home</span></a>
+    <a class="btn btn-primary btn-lg btn-load" href="/home/">Home</a>
     </div>
 
     </form>
@@ -187,7 +187,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
 	</div>
 	
     </form>

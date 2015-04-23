@@ -37,11 +37,11 @@ include '../includes/session.php';
 	<hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg" href="../../home/">Home</span></a>
+    <a class="btn btn-success btn-lg" href="../../home/">Home</a>
     </div>
 
     <div class="text-right">
-    <a class="btn btn-danger btn-lg" href="../delete-account/">Delete account</span></a>
+    <a class="btn btn-danger btn-lg" href="../delete-account/">Delete account</a>
     </div>
 
 	</form>
@@ -73,11 +73,11 @@ include '../includes/session.php';
     <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
 	</div>
 
     <div class="text-right">
-    <a class="btn btn-primary btn-lg btn-load" href="/register">Register</span></a>
+    <a class="btn btn-primary btn-lg btn-load" href="/register">Register</a>
 
 	</div>
 

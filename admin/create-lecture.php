@@ -151,16 +151,17 @@ include '../includes/session.php';
 	</div>
 	</div>
 
+    <hr>
+
 	</div>
 
-	<hr>
-
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create lecture</span></button>
+    <a id="create-lecture-submit" class="btn btn-primary btn-lg btn-load">Create lecture</a>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg btn-load" href="">Create another</span></a>
+    <hr class="hr-success">
+	<a class="btn btn-primary btn-lg btn-load" href="">Create another</a>
 	</div>
 	
     </form>
@@ -169,9 +170,6 @@ include '../includes/session.php';
 	</div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -190,7 +188,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/home/">Home</span></a>
+    <a class="btn btn-primary btn-lg" href="/home/">Home</a>
     </div>
 
     </form>
@@ -198,9 +196,6 @@ include '../includes/session.php';
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>
@@ -220,7 +215,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
 	</div>
 	
     </form>
@@ -261,7 +256,7 @@ include '../includes/session.php';
 	});
 
     //Create lecture process
-    $("#FormSubmit").click(function (e) {
+    $("#create-lecture-submit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;

@@ -188,7 +188,7 @@ while ($row = $stmt1->fetch_assoc()){
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/home/">Home</span></a>
+    <a class="btn btn-primary btn-lg" href="/home/">Home</a>
     </div>
 
     </form>
@@ -215,7 +215,7 @@ while ($row = $stmt1->fetch_assoc()){
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
 	</div>
 	
     </form>

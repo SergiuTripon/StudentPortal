@@ -538,7 +538,7 @@ AdminLibraryUpdate();
     <li class="active">Library</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-book/">Create book</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-book/">Create book</a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -1231,7 +1231,7 @@ AdminLibraryUpdate();
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
     </div>
 
     </form>

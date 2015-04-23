@@ -70,7 +70,7 @@ if ($studentno === 0) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" data-toggle="modal" href="#delete-account-modal">Delete account</span></a>
+    <a class="btn btn-primary btn-lg" data-toggle="modal" href="#delete-account-modal">Delete account</a>
     </div>
 
     </form>
@@ -155,7 +155,7 @@ if ($studentno === 0) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
 	</div>
 	
     </form>

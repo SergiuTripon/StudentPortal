@@ -35,7 +35,7 @@ global $session_surname;
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-            <a id="find-out-more" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $session_firstname, ' ', $session_surname; ?> <span class="fa fa-caret-down"></span></a>
+            <a id="find-out-more" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $session_firstname, ' ', $session_surname; ?> <span class="fa fa-caret-down"></a>
             <ul class="dropdown-menu" role="menu">
             <li><a href="/account/update-account/">Update account</a></li>
             <li><a href="/account/change-password/">Change password</a></li>

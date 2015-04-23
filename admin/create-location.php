@@ -104,7 +104,7 @@ include '../includes/session.php';
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg" href="">Create another</span></a>
+	<a class="btn btn-success btn-lg" href="">Create another</a>
 	</div>
 	
     </form>
@@ -134,7 +134,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/home/">Home</span></a>
+    <a class="btn btn-primary btn-lg" href="/home/">Home</a>
     </div>
 
     </form>
@@ -164,7 +164,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
 	</div>
 	
     </form>

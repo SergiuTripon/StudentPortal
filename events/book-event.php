@@ -176,7 +176,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-orange btn-lg" href="/home/">Home</span></a>
+    <a class="btn btn-orange btn-lg" href="/home/">Home</a>
     </div>
 
     </form>
@@ -206,7 +206,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
 	</div>
 
     </form>

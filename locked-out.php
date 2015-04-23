@@ -36,11 +36,11 @@ include 'includes/session.php';
     <hr>
 
     <div class="pull-left">
-    <a class="btn btn-custom btn-lg" href="home/">Home</span></a>
+    <a class="btn btn-custom btn-lg" href="home/">Home</a>
     </div>
 	
     <div class="text-right">
-    <a class="btn btn-custom btn-lg" href="../sign-out/">Sign Out</span></a>
+    <a class="btn btn-custom btn-lg" href="../sign-out/">Sign Out</a>
     </div>
 
     </form>
@@ -77,7 +77,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a id="unlock-button" class="btn btn-primary btn-lg btn-load">Unlock</span></a>
+    <a id="unlock-button" class="btn btn-primary btn-lg btn-load">Unlock</a>
 	</div>
 
     </form>
@@ -117,7 +117,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="pull-left">
-    <a class="btn btn-info btn-lg btn-load" href="../register/">Register</span></a>
+    <a class="btn btn-info btn-lg btn-load" href="../register/">Register</a>
     </div>
 
     <div class="text-right">

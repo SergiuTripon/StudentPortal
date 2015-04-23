@@ -113,7 +113,7 @@ AdminEventUpdate();
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Ticket available">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
-			<td data-title="Action">'.($event_ticket_no === '0' ? "<a class=\"btn btn-primary btn-md btn-disabled\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</span></a>" : "<a class=\"btn btn-primary btn-md\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</span></a>").'</td>
+			<td data-title="Action">'.($event_ticket_no === '0' ? "<a class=\"btn btn-primary btn-md btn-disabled\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</a>" : "<a class=\"btn btn-primary btn-md\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</a>").'</td>
 			</tr>
 
 			<div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -409,7 +409,7 @@ AdminEventUpdate();
     <li class="active">Events</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin btn-load" href="../admin/create-event/">Create event</span></a>
+    <a class="btn btn-success btn-lg btn-admin btn-load" href="../admin/create-event/">Create event</a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -632,7 +632,7 @@ AdminEventUpdate();
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
     </div>
 
     </form>

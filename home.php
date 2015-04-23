@@ -406,7 +406,7 @@ include 'includes/functions.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
     </div>
 
     </form>

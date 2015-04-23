@@ -39,11 +39,11 @@ global $token;
     <hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg" href="home/">Home</span></a>
+    <a class="btn btn-success btn-lg" href="home/">Home</a>
     </div>
 
     <div class="text-right">
-    <a class="btn btn-danger btn-lg" href="sign-out/">Sign Out</span></a>
+    <a class="btn btn-danger btn-lg" href="sign-out/">Sign Out</a>
     </div>
 
     </form>
@@ -104,7 +104,7 @@ global $token;
 	<hr class="hr-custom">
 
     <div id="extra-button" class="pull-left">
-    <a class="btn btn-info btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-info btn-lg" href="/">Sign in</a>
     </div>
 
     <div class="text-right">
@@ -112,7 +112,7 @@ global $token;
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
     </div>
 
     </form>

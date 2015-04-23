@@ -85,7 +85,7 @@ AdminUniversityMapUpdate();
     <li class="active">University map</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-location/">Create location</span></a>
+    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-location/">Create location</a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -315,7 +315,7 @@ AdminUniversityMapUpdate();
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
     </div>
 
     </form>

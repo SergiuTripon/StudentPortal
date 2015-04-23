@@ -156,7 +156,7 @@ include 'includes/session.php';
 
 			<td data-title="Name">'.$firstname.' '.$surname.'</td>
             <td data-title="Student number">'.$studentno.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md assign-button btn-load" href="/admin/select-module?id='.$userid.'">Select</span></a></a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md assign-button btn-load" href="/admin/select-module?id='.$userid.'">Select</a></a></td>
 			</tr>';
 	}
 
@@ -201,7 +201,7 @@ include 'includes/session.php';
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
     </div>
 
     </form>

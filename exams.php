@@ -241,7 +241,7 @@ AdminExamUpdate();
 	<li class="active">Exams</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin btn-load" href="/admin/create-exam/">Create exam</span></a>
+    <a class="btn btn-success btn-lg btn-admin btn-load" href="/admin/create-exam/">Create exam</a>
 
     <div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -501,7 +501,7 @@ AdminExamUpdate();
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
     </div>
 
     </form>

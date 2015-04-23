@@ -159,7 +159,7 @@ include '../includes/session.php';
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg btn-load" href="">Create another</span></a>
+	<a class="btn btn-success btn-lg btn-load" href="">Create another</a>
 	</div>
 	
     </form>
@@ -189,7 +189,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/home/">Home</span></a>
+    <a class="btn btn-primary btn-lg" href="/home/">Home</a>
     </div>
 
     </form>
@@ -197,9 +197,6 @@ include '../includes/session.php';
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>
@@ -219,7 +216,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</span></a>
+    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
 	</div>
 	
     </form>
@@ -241,25 +238,26 @@ include '../includes/session.php';
         $("#tutorial_day").select2({placeholder: "Select an option"});
     });
 
-
-
-
     // Date Time Picker
     $('#tutorial_from_time').datetimepicker({
-        format: 'HH:mm'
+        format: 'HH:mm',
+        useCurrent: false
     });
     $('#tutorial_to_time').datetimepicker({
-        format: 'HH:mm'
+        format: 'HH:mm',
+        useCurrent: false
     });
     $('#tutorial_from_date').datetimepicker({
-        format: 'DD/MM/YYYY'
+        format: 'DD/MM/YYYY',
+        useCurrent: false
     });
     $('#tutorial_to_date').datetimepicker({
-        format: 'DD/MM/YYYY'
+        format: 'DD/MM/YYYY',
+        useCurrent: false
 	});
 
     //Create tutorial process
-    $("#FormSubmit").click(function (e) {
+    $("#create-tutorial-tutorial").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
