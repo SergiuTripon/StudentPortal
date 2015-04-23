@@ -136,7 +136,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg btn-load" href="">Create another</a>
+	<a class="btn btn-primary btn-lg btn-load" href="">Create another</a>
 	</div>
 	
     </form>
