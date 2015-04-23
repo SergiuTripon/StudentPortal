@@ -5216,7 +5216,7 @@ function UpdateAccount() {
         $stmt1->bind_result($db_email);
         $stmt1->fetch();
 
-	    if ($db_email == $email) {
+	    if ($db_email === $email) {
 
             $stmt2 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
             $stmt2->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
@@ -5263,8 +5263,7 @@ function UpdateAccount() {
                 $stmt3->close();
                 header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
                 exit();
-            }
-            else {
+            } else {
 
                 $stmt4 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
                 $stmt4->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);

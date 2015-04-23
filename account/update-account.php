@@ -785,7 +785,7 @@ if ($dateofbirth == "0000-00-00") {
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#success").empty().append('Your personal details have been updated successfully.');
+		$("#success").empty().append('All done! Your account has been updated.');
     },
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
