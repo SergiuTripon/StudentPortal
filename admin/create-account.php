@@ -796,7 +796,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/home/">Home</a>
+    <a class="btn btn-primary btn-lg btn-load" href="/home/">Home</a>
     </div>
 
     </form>
@@ -824,7 +824,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
 	</div>
 	
     </form>
