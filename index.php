@@ -105,7 +105,7 @@ include 'includes/session.php';
     </div>
 
     <div class="text-right">
-    <a id="FormSubmit" class="btn btn-primary btn-lg">Sign in</a>
+    <a id="sign-in-submit" class="btn btn-primary btn-lg btn-load">Sign in</a>
 	</div>
 
     </form>
@@ -119,7 +119,7 @@ include 'includes/session.php';
     <script>
 
     //Sign In
-    $("#FormSubmit").click(function (e) {
+    $("#sign-in-submit").click(function (e) {
     e.preventDefault();
 
     var hasError = false;
@@ -162,14 +162,11 @@ include 'includes/session.php';
 
 	if(hasError == false){
 
-    $('.btn-primary').data('loading-text', 'Loading...').button('loading');
-
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'email=' + email + '&password=' + password,
     success:function(){
-        $("#error").show();
 		window.location = '../home/';
     },
     error:function (xhr, ajaxOptions, thrownError){
