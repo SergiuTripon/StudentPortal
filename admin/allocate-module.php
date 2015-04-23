@@ -165,6 +165,60 @@ if (isset($_GET['id'])) {
     </div><!-- /container -->
 
 	<?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+	<script>
+
+    //DataTables
+    $('.table-custom').dataTable(settings);
+
+    //Allocate module
+	$("body").on("click", ".btn-allocate-module", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var userToAllocate = clickedID[1];
+    var moduleToAllocate = $("#moduleid").html();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'userToAllocate='+ userToAllocate + '&moduleToAllocate='+ moduleToAllocate,
+	success:function(){
+        location.reload();
+    },
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+	});
+    });
+
+    //Deallocate module
+    $("body").on("click", ".btn-deallocate-module", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var userToDeallocate = clickedID[1];
+    var moduleToDeallocate = $("#moduleid").html();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'userToDeallocate='+ userToDeallocate + '&moduleToDeallocate='+ moduleToDeallocate,
+	success:function(){
+        location.reload();
+    },
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+    });
+	</script>
 
     <?php else : ?>
 
@@ -222,63 +276,9 @@ if (isset($_GET['id'])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
-	<?php endif; ?>
-
-	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-
-	<script>
-
-    //DataTables
-    $('.table-custom').dataTable(settings);
-
-    //Allocate module
-	$("body").on("click", ".btn-allocate-module", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var userToAllocate = clickedID[1];
-    var moduleToAllocate = $("#moduleid").html();
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'userToAllocate='+ userToAllocate + '&moduleToAllocate='+ moduleToAllocate,
-	success:function(){
-        location.reload();
-    },
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-	});
-    });
-
-    //Deallocate module
-    $("body").on("click", ".btn-deallocate-module", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var userToDeallocate = clickedID[1];
-    var moduleToDeallocate = $("#moduleid").html();
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'userToDeallocate='+ userToDeallocate + '&moduleToDeallocate='+ moduleToDeallocate,
-	success:function(){
-        location.reload();
-    },
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-    });
-	</script>
+    <?php endif; ?>
 
 </body>
 </html>
