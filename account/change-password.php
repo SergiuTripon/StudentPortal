@@ -211,7 +211,7 @@ include '../includes/session.php';
     success:function(){
 		$("#hide").hide();
 		$("#error").hide();
-		$("#success").append('Your password has been changed successfully.');
+		$("#success").append('All done! Your password has been changed.');
 		$("#success-button").show();
     },
     error:function (xhr, ajaxOptions, thrownError){
