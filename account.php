@@ -288,7 +288,7 @@ include 'includes/session.php';
             </button>
             <ul class="dropdown-menu" role="menu">
             <li><a href="/admin/change-password?id='.$userid.'">Change password</a></li>
-            <li><a href="#deactivate-'.$userid.'" data-toggle="modal" data-dismiss="modal">Deactivate</a></li>
+            <li><a href="#deactivate-'.$userid.'" class="btn-deactivate-button">Deactivate</a></li>
             <li><a href="#delete-'.$userid.'" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
@@ -300,10 +300,9 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete account?</h4>
+            </div>
 
 			<div class="modal-body">
 			<p class="text-left">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>

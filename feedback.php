@@ -915,16 +915,6 @@ include 'includes/session.php';
 
     <script>
 	//DataTables
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
     $('.table-custom').dataTable(settings);
 
     $("body").on("click", ".btn-approve-feedback", function(e) {
