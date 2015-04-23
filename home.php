@@ -151,9 +151,6 @@ include 'includes/functions.php';
 	</div> <!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
-	
-
-
 
     <?php endif; ?>
 
