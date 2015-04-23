@@ -241,9 +241,6 @@ while ($row = $stmt1->fetch_assoc()){
     }
     ?>
 
-
-
-
     var fee_type;
     var fee_amount;
     var new_fee_amount;
