@@ -23,12 +23,6 @@ include 'includes/session.php';
     #features a:focus, #features a:hover {
         color: #FFFFFF;
     }
-
-    @media (max-width: 480px) {
-    #helper {
-        margin-top: 10px;
-    }
-    }
     </style>
 
 </head>

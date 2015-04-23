@@ -439,6 +439,12 @@ ul.external-pages-links {
     font-weight: 600;
     margin-bottom: 0;
 }
+
+@media (max-width: 480px) {
+#feature-showcase #helper {
+    margin-top: 10px;
+}
+}
 /* End of Features showcase */
 
 /* User manual showcase */
