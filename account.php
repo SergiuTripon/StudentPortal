@@ -268,9 +268,9 @@ include 'includes/session.php';
     $stmt1->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname);
     $stmt1->store_result();
 
-    if ($stmt2->num_rows > 0) {
+    if ($stmt1->num_rows > 0) {
 
-        while ($stmt2->fetch()) {
+        while ($stmt1->fetch()) {
 
             echo
 
@@ -475,9 +475,6 @@ include 'includes/session.php';
     </div><!-- /container -->
 	
 	<?php include 'includes/footers/footer.php'; ?>
-		
-
-
 
     <?php endif; ?>
 	
