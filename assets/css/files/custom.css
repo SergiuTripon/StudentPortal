@@ -743,6 +743,10 @@ form .field-required {
 .input-success {
     border-color: #449D44 !important;
 }
+
+.hr-success {
+    max-width: 350px;
+}
 /* End of Success message */
 
 /* Confirmation message */

@@ -62,16 +62,17 @@ include '../includes/session.php';
 	</div>
 	</div>
 
-	</div>
+    <hr>
 
-	<hr>
+	</div>
 
     <div class="text-center">
     <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create module</span></button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg btn-load" href="">Create another</span></a>
+    <hr>
+    <a class="btn btn-success btn-lg btn-load" href="">Create another</span></a>
 	</div>
 	
     </form>
