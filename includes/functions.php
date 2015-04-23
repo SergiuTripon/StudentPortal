@@ -4736,11 +4736,6 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 
            '<tr>
 			<td data-title="Location"><a href="view-user-'.$markerid.'">'.$marker_name.'</a></td>
-			<td data-title="Latitude">'.$marker_lat.'</td>
-			<td data-title="Longitude">'.$marker_long.'</td>
-			<td data-title="Category">'.ucfirst($marker_category).'</td>
-			<td data-title="Created on">'.$created_on.'</td>
-			<td data-title="Updated on">'.(empty($updated_on) ? "-" : "$updated_on").'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="../admin/update-location/?id='.$markerid.'">Update</a>

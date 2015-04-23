@@ -101,11 +101,6 @@ AdminUniversityMapUpdate();
 	<thead>
 	<tr>
 	<th>Location</th>
-	<th>Latitude</th>
-	<th>Longitude</th>
-	<th>Category</th>
-	<th>Created on</th>
-    <th>Updated on</th>
     <th>Action</th>
 	</tr>
 	</thead>
