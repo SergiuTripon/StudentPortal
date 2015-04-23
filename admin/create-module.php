@@ -71,7 +71,7 @@ include '../includes/session.php';
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-    <hr>
+    <hr class="hr-success">
     <a class="btn btn-success btn-lg btn-load" href="">Create another</span></a>
 	</div>
 	
