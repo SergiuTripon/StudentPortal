@@ -70,7 +70,7 @@ if (isset($_GET["id"])) {
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Change password</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg" >Change password</button>
     </div>
 
     </div>

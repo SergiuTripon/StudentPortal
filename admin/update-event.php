@@ -107,7 +107,7 @@ if (isset($_GET["id"])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Update event</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Update event</button>
     </div>
 
     </div>

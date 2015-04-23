@@ -60,7 +60,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg mt10 mr5" >Change password</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg mt10 mr5" >Change password</button>
     </div>
 
     </div>

@@ -108,7 +108,7 @@ if (isset($_GET["id"])) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Request book</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Request book</button>
 	</div>
 
     </div>

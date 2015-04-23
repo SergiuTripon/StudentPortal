@@ -155,7 +155,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Create tutorial</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg" >Create tutorial</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">

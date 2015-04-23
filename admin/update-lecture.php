@@ -189,7 +189,7 @@ if (isset($_GET['id'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update lecture</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update lecture</button>
     </div>
 
     </div>

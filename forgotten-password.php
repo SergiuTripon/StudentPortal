@@ -85,7 +85,7 @@ include 'includes/session.php';
     </div>
 
     <div id="extra-button" class="text-right">
-    <button id="FormSubmit" class="btn btn-lg btn-primary" >Continue</span></button>
+    <button id="FormSubmit" class="btn btn-lg btn-primary" >Continue</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none">

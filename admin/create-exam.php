@@ -103,7 +103,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create exam</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create exam</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">

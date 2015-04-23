@@ -363,7 +363,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create account</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create account</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">

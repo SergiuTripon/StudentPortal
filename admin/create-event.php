@@ -89,7 +89,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load btn-load">Create event</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load btn-load">Create event</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">

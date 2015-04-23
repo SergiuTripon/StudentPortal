@@ -80,7 +80,7 @@ header('Location: ../calendar/');
 	<hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg mt10" >Update task</span></button>
+    <button id="FormSubmit" class="btn btn-primary btn-lg mt10" >Update task</button>
     </div>
 
 	</div>

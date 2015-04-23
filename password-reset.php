@@ -108,7 +108,7 @@ global $token;
     </div>
 
     <div class="text-right">
-	<button id="FormSubmit" class="btn btn-primary btn-lg" >Continue</span></button>
+	<button id="FormSubmit" class="btn btn-primary btn-lg" >Continue</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
