@@ -516,18 +516,10 @@ include 'includes/session.php';
     <script>
 
 	//DataTables
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no users to display."
-		}
-	});
+    $('.table-custom').dataTable(settings);
 
 	//Deactivate record
-	$("body").on("click", ".deactivate-button", function(e) {
+	$("body").on("click", ".btn-deactivate-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -539,16 +531,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'userToDeactivate='+ userToDeactivate,
 	success:function(){
-		$('#user-'+userToDeactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-user-plus');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#deactivate-question').hide();
-        $('#deactivate-confirmation').show();
-        $('#deactivate-hide').hide();
-        $('#deactivate-success-button').show();
-        $("#deactivate-success-button").click(function () {
-            location.reload();
-        });
+        location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
@@ -560,7 +543,7 @@ include 'includes/session.php';
     });
 
     //Reactivate record
-	$("body").on("click", ".reactivate-button", function(e) {
+	$("body").on("click", ".btn-reactivate-button", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -572,16 +555,7 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'userToReactivate='+ userToReactivate,
 	success:function(){
-		$('#user-'+userToReactivate).fadeOut();
-        $('.form-logo i').removeClass('fa-user-times');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#reactivate-question').hide();
-        $('#reactivate-confirmation').show();
-        $('#reactivate-hide').hide();
-        $('#reactivate-success-button').show();
-        $("#reactivate-success-button").click(function () {
-            location.reload();
-        });
+        location.reload();
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
@@ -605,8 +579,11 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'userToDelete='+ userToDelete,
 	success:function(){
+        $('.modal-custom').modal('hide');
 
+        $('.modal-custom').on('hidden.bs.modal', function () {
             location.reload();
+        });
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
