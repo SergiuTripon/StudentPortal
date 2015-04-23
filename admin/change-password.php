@@ -138,7 +138,7 @@ if (isset($_GET["id"])) {
         $("#password").removeClass("input-danger");
         $("#password").addClass("input-success");
 	} else {
-		$("label[for='password']").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+		$("label[for='password']").empty().append("Passwords must contain at least one number, one lowercase and one uppercase letter. Please try again.");
         $("label[for='password']").removeClass("feedback-success");
         $("label[for='password']").addClass("feedback-danger");
         $("#password").removeClass("input-success");
