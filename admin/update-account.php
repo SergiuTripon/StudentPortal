@@ -419,7 +419,6 @@ if ($dateofbirth == "00-00-0000") {
             $('label[for="fee_amount"]').hide();
             $('#fee_amount').hide();
         }
-
     });
 
     // Date Time Picker
