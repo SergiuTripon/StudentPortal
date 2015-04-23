@@ -133,7 +133,7 @@ include 'includes/session.php';
 	</div>
 	</div>
 
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
 	<div id="account">
 	<div class="tile">
     <i class="fa fa-user"></i>
@@ -273,7 +273,7 @@ include 'includes/session.php';
 	</div>
 	</div>
 
-    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+    <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
 	<div id="account">
 	<div class="tile">
     <i class="fa fa-user"></i>
