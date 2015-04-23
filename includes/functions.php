@@ -74,7 +74,7 @@ function SignIn() {
         $stmt1->bind_param('s', $email);
         $stmt1->execute();
         $stmt1->store_result();
-        $stmt1->bind_result($userid, $session_account_type, $db_password);
+        $stmt1->bind_result($userid, $session_account_type, $db_password, $user_status);
         $stmt1->fetch();
 
         //If the email address exists, do the following
