@@ -218,7 +218,7 @@ global $mysqli;
             echo
            '<tr>
 			<td data-title="Full name"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
-			<td data-title="Account type">'.$account_type.'</td>
+			<td data-title="Account type">'.ucfirst($account_type).'</td>
 			<td data-title="Signed in at">'.$updated_on.'
 
 			<div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
