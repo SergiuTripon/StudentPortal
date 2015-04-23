@@ -251,8 +251,6 @@ include 'includes/session.php';
 	<tr>
 	<th>Full name</th>
 	<th>Account type</th>
-    <th>Created on</th>
-	<th>Updated on</th>
 	<th>Action</th>
 	</tr>
 	</thead>
@@ -276,8 +274,6 @@ include 'includes/session.php';
            '<tr>
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Account type">'.ucfirst($account_type).'</td>
-			<td data-title="Created on">'.$created_on.'</td>
-            <td data-title="Updated on">'.$updated_on.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
             <a class="btn btn-primary" href="/admin/update-account?id='.$userid.'">Update</a>
@@ -347,8 +343,6 @@ include 'includes/session.php';
 	<tr>
 	<th>Full name</th>
 	<th>Account type</th>
-    <th>Created on</th>
-	<th>Updated on</th>
 	<th>Action</th>
 	</tr>
 	</thead>
@@ -372,8 +366,6 @@ include 'includes/session.php';
            '<tr>
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Account type">'.ucfirst($account_type).'</td>
-			<td data-title="Created on">'.$created_on.'</td>
-            <td data-title="Updated on">'.$updated_on.'</td>
             <td data-title="Action">
 			<div class="btn-group btn-action">
             <a id="#reactivate-'.$userid.'" class="btn btn-primary btn-reactivate-account">Reactivate</a>
