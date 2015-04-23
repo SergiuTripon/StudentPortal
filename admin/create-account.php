@@ -363,7 +363,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create account</button>
+    <button id="admin-create-account-submit" class="btn btn-primary btn-lg btn-load">Create account</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
@@ -429,8 +429,8 @@ include '../includes/session.php';
         }
     });
 
-	//Creating record
-    $("#FormSubmit").click(function (e) {
+	//Create an account
+    $("#admin-create-account-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
@@ -764,7 +764,7 @@ include '../includes/session.php';
         $("#error1").hide();
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
+		$("#admin-create-account-submit").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The account has been created.');
 		$("#success-button").show();
