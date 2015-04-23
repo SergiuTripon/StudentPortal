@@ -140,6 +140,7 @@ if (isset($_GET["id"])) {
 	} else {
 		$("#error1").show();
 		$("#error1").empty().append("Passwords must contain at least one number,<br>one lowercase and one uppercase letter. Please try again.");
+        $("label[for='password']").empty().append("Wait a minute!");
         $("label[for='password']").removeClass("feedback-success");
         $("label[for='password']").addClass("feedback-danger");
         $("#password").removeClass("input-success");
