@@ -86,9 +86,6 @@ include '../includes/session.php';
 
     <?php include '../includes/footers/footer.php'; ?>
 
-
-
-
     <?php else : ?>
 
     <?php include '../includes/menus/menu.php'; ?>
@@ -126,9 +123,6 @@ include '../includes/session.php';
         //google-maps
         loadMap();
     });
-
-
-
 
     </script>
 

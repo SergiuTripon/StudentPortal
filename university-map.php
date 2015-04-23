@@ -65,12 +65,7 @@ AdminUniversityMapUpdate();
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
-
-
-
-
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
-
 
 	<?php endif; ?>
 
@@ -172,10 +167,6 @@ AdminUniversityMapUpdate();
     </div><!-- /container -->
 
     <?php include 'includes/footers/footer.php'; ?>
-
-
-
-
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>

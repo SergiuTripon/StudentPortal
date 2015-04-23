@@ -4735,7 +4735,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
             $active_location .=
 
            '<tr>
-			<td data-title="Location">'.$marker_name.'</td>
+			<td data-title="Location"><a href="view-user-'.$markerid.'">'.$marker_name.'</a></td>
 			<td data-title="Latitude">'.$marker_lat.'</td>
 			<td data-title="Longitude">'.$marker_long.'</td>
 			<td data-title="Category">'.ucfirst($marker_category).'</td>
@@ -4753,8 +4753,38 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
             <li><a href="#delete-'.$markerid.'" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
+
+            <div id="view-user-'.$markerid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-user"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$marker_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Latitude:</b> '.(empty($marker_lat) ? "-" : ucfirst($marker_lat)).'</p>
+			<p><b>Longitude:</b> '.(empty($marker_long) ? "-" : ucfirst($marker_long)).'</p>
+			<p><b>Category:</b> '.(empty($marker_category) ? "-" : "$marker_category").'</p>
+			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-location?id='.$userid.'" class="btn btn-primary btn-md">Update</a>
+            <a id="deactivate-'.$userid.'" class="btn btn-primary btn-md btn-deactivate-location">Deactivate</a>
+            <a href="#delete-'.$userid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
 
 			<div id="delete-'.$markerid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
@@ -4778,7 +4808,10 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
     }
 
