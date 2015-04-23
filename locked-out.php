@@ -229,6 +229,7 @@ include 'includes/session.php';
 		window.location = '../home/';
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
 		$("#error").show();
         $("#error").empty().append(thrownError);
     }
