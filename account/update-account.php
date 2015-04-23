@@ -388,11 +388,11 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
-    <label>First name<span class="field-required">*</span></label>
+    <label for="firstname">First name<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="Enter your first name">
     </div>
     <div class="col-xs-6 col-sm-6 full-width">
-    <label>Surname<span class="field-required">*</span></label>
+    <label for="surname">Surname<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Enter your surname">
     </div>
     </div>
@@ -410,14 +410,14 @@ if ($dateofbirth == "0000-00-00") {
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
-    <label>Email address<span class="field-required">*</span></label>
+    <label for="email">Email address<span class="field-required">*</span></label>
     <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>" placeholder="Enter a email address">
     </div>
     </div>
 
     <div class="form-group">
     <div class="col-xs-12 col-sm-12 full-width">
-    <label for="nationality">Nationality</label>
+    <label>Nationality</label>
     <select class="form-control" name="nationality" id="nationality" style="width: 100%;">
         <option></option>
         <option <?php if($nationality == "afghan") echo "selected"; ?>>Afghan</option>
@@ -673,38 +673,7 @@ if ($dateofbirth == "0000-00-00") {
     </div> <!-- /container -->
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-    <?php endif; ?>
-
-	<?php else : ?>
-
-    <?php include '../includes/menus/menu.php'; ?>
-
-    <div class="container">
-	
-    <form class="form-horizontal form-custom">
-
-	<div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-    <hr>
-
-    <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
-	</div>
-	
-    </form>
-
-    </div>
-
-    <?php include '../includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
-	<?php include '../assets/js-paths/common-js-paths.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
     $(document).ready(function () {
@@ -722,36 +691,45 @@ if ($dateofbirth == "0000-00-00") {
     //Update account
     $("#update-account-submit").click(function (e) {
     e.preventDefault();
-	
+
 	var hasError = false;
-	
+
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a first name.");
-		$("#firstname").addClass("error-style");
-		hasError = true;
-		return false;
+        $("label[for='firstname']").empty().append("Please enter a first name.");
+        $("label[for='firstname']").removeClass("feedback-success");
+        $("label[for='firstname']").addClass("feedback-danger");
+        $("#firstname").removeClass("input-success");
+        $("#firstname").addClass("input-danger");
+        $("#firstname").focus();
+        hasError  = true;
+        return false;
 	}
-	
+
 	var surname = $("#surname").val();
 	if(surname === '') {
-		$("#error1").show();
-        $("#error1").empty().append("Please enter a surname.");
-		$("#surname").addClass("error-style");
-		hasError = true;
-		return false;
+        $("label[for='surname']").empty().append("Please enter a surname.");
+        $("label[for='surname']").removeClass("feedback-success");
+        $("label[for='surname']").addClass("feedback-danger");
+        $("#surname").removeClass("input-success");
+        $("#surname").addClass("input-danger");
+        $("#surname").focus();
+        hasError  = true;
+        return false;
 	}
 
     var gender = $('#gender :selected').html();
 
 	var email = $("#email").val();
 	if(email === '') {
-		$("#error2").show();
-        $("#error2").empty().append("Please enter an email address.");
-		$("#email").addClass("error-style");
-		hasError = true;
-		return false;
+        $("label[for='email']").empty().append("Please enter an email address.");
+        $("label[for='email']").removeClass("feedback-success");
+        $("label[for='email']").addClass("feedback-danger");
+        $("#email").removeClass("input-success");
+        $("#email").addClass("input-danger");
+        $("#email").focus();
+        hasError  = true;
+        return false;
 	}
 
     var nationality = $("#nationality").val();
@@ -764,7 +742,7 @@ if ($dateofbirth == "0000-00-00") {
     var country = $("#country").val();
     var postcode = $("#postcode").val();
 
-    if(hasError == false){
+    if(hasError == false) {
 
     jQuery.ajax({
 	type: "POST",
@@ -795,11 +773,40 @@ if ($dateofbirth == "0000-00-00") {
     }
 	});
     }
-
     return true;
-
     });
 	</script>
+
+    <?php endif; ?>
+
+	<?php else : ?>
+
+    <?php include '../includes/menus/menu.php'; ?>
+
+    <div class="container">
+	
+    <form class="form-horizontal form-custom">
+
+	<div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <hr>
+
+    <div class="text-center">
+    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
+	</div>
+	
+    </form>
+
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+	<?php endif; ?>
 
 </body>
 </html>
