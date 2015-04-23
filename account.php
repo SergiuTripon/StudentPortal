@@ -273,7 +273,6 @@ include 'includes/session.php';
         while ($stmt1->fetch()) {
 
             echo
-
            '<tr>
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Account type">'.ucfirst($account_type).'</td>
@@ -357,29 +356,27 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid' AND user_detail.user_status = 'inactive'");
+    $user_status = 'inactive';
 
-	while($row = $stmt1->fetch_assoc()) {
+	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
+    $stmt1->bind_param('is', $session_userid, $user_status);
+    $stmt1->execute();
+    $stmt1->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname);
+    $stmt1->store_result();
 
-    $userid = $row["userid"];
-    $account_type = ucfirst($row["account_type"]);
-    $email = $row["email"];
-    $created_on = $row["created_on"];
-    $updated_on = $row["updated_on"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
+    if ($stmt1->num_rows > 0) {
 
-	$account_type = ucfirst($row["account_type"]);
+        while ($stmt1->fetch()) {
 
-	echo '<tr id="user-'.$userid.'">
-
+            echo
+           '<tr>
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
-			<td data-title="Account type">'.$account_type.'</td>
+			<td data-title="Account type">'.ucfirst($account_type).'</td>
 			<td data-title="Created on">'.$created_on.'</td>
             <td data-title="Updated on">'.$updated_on.'</td>
             <td data-title="Action">
 			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="#reactivate-'.$userid.'" data-toggle="modal">Reactivate</a>
+            <a id="#reactivate-'.$userid.'" class="btn btn-primary btn-reactivate-account">Reactivate</a>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="fa fa-caret-down"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -391,72 +388,31 @@ include 'includes/session.php';
             </td>
 			</tr>
 
-    		<div id="reactivate-'.$userid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$userid.'" class="modal fade modal-custom modal-info" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-user-times"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete account?</h4>
+            </div>
 
 			<div class="modal-body">
-			<p id="reactivate-question" class="feedback-danger text-center">Are you sure you want to reactivate '.$firstname.' '.$surname.'?</p>
-            <p id="reactivate-confirmation" class="feedback-success text-center" style="display: none;">'.$firstname.' '.$surname.' has been reactivated successfully.</p>
+			<p class="text-left">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="reactivate-hide">
-			<div class="pull-left">
-			<a id="reactivate-'.$userid.'" class="btn btn-danger btn-lg reactivate-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="reactivate-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="delete-'.$userid.'" class="modal modal-custom fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
-
-			<div class="modal-body">
-			<p id="delete-question" class="feedback-danger text-center">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
-            <p id="delete-confirmation" class="feedback-success text-center" style="display: none;">'.$firstname.' '.$surname.' has been deleted successfully.</p>
-			</div>
-
-			<div class="modal-footer">
-			<div id="delete-hide">
-			<div class="pull-left">
-			<a id="delete-'.$userid.'" class="btn btn-danger btn-lg delete-button" >Yes</a>
-			</div>
-			<div class="text-right">
-			<button type="button" class="btn btn-success btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a id="delete-'.$userid.'" class="btn btn-primary btn-lg btn-delete-account btn-load">Delete</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-	}
+        }
+    }
 
 	$stmt1->close();
 	?>
