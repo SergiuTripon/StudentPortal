@@ -274,7 +274,7 @@ global $mysqli;
 
             echo
            '<tr>
-			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
+			<td data-title="Full name"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Account type">'.ucfirst($account_type).'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
@@ -518,7 +518,6 @@ global $mysqli;
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
     });
 
@@ -542,7 +541,6 @@ global $mysqli;
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
     });
 
@@ -570,7 +568,6 @@ global $mysqli;
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
     });
     </script>
