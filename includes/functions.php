@@ -4754,14 +4754,14 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
     		<div class="modal-content">
 
 			<div class="modal-header">
-            <div class="close"><i class="fa fa-user"></i></div>
+            <div class="close"><i class="fa fa-map-marker"></i></div>
             <h4 class="modal-title" id="modal-custom-label">'.$marker_name.'</h4>
 			</div>
 
 			<div class="modal-body">
-			<p><b>Latitude:</b> '.(empty($marker_lat) ? "-" : ucfirst($marker_lat)).'</p>
-			<p><b>Longitude:</b> '.(empty($marker_long) ? "-" : ucfirst($marker_long)).'</p>
-			<p><b>Category:</b> '.(empty($marker_category) ? "-" : "$marker_category").'</p>
+			<p><b>Latitude:</b> '.(empty($marker_lat) ? "-" : $marker_lat).'</p>
+			<p><b>Longitude:</b> '.(empty($marker_long) ? "-" : $marker_long).'</p>
+			<p><b>Category:</b> '.(empty($marker_category) ? "-" : ucfirst($marker_category)).'</p>
 			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
 			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
 			</div>
