@@ -367,7 +367,8 @@ include '../includes/session.php';
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
-	<a class="btn btn-success btn-lg btn-load" href="">Create another</a>
+    <hr class="hr-success">
+    <a class="btn btn-success btn-lg btn-load" href="">Create another</a>
 	</div>
 	
     </form>
