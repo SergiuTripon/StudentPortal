@@ -442,7 +442,8 @@ ul.external-pages-links {
 
 @media (max-width: 480px) {
 #features-showcase #helper {
-    margin-top: 10px;
+    margin-top: 30px;
+    text-align: center;
 }
 }
 /* End of Features showcase */
