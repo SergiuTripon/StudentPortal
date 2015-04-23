@@ -221,7 +221,7 @@ include 'includes/session.php';
 	<!-- End of Help Modal -->
 
     <!-- Info Modal -->
-    <div id="modal-help" class="modal fade modal-custom modal-info" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div id="modal-info" class="modal fade modal-custom modal-info" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
 
@@ -253,6 +253,7 @@ include 'includes/session.php';
     $(document).ready(function () {
         //select2
         $("#gender").select2({placeholder: "Select an option"});
+        $("#modal-info").modal('show');
     });
 
 	//Register user
