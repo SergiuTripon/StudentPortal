@@ -5,11 +5,11 @@ include 'session.php';
 //ContactUs function
 function ContactUs() {
 
-	$firstname = filter_input(INPUT_POST, 'firstname4', FILTER_SANITIZE_STRING);
-	$surname = filter_input(INPUT_POST, 'surname4', FILTER_SANITIZE_STRING);
-	$email = filter_input(INPUT_POST, 'email7', FILTER_SANITIZE_EMAIL);
+	$firstname = filter_input(INPUT_POST, 'contact_firstname', FILTER_SANITIZE_STRING);
+	$surname = filter_input(INPUT_POST, 'contact_surname', FILTER_SANITIZE_STRING);
+	$email = filter_input(INPUT_POST, 'contact_email', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-	$message1 = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
+	$message1 = filter_input(INPUT_POST, 'contact_message', FILTER_SANITIZE_STRING);
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');

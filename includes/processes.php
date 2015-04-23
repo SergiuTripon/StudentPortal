@@ -4,7 +4,7 @@ include 'functions.php';
 
 //Call External functions
 //Call ContactUs function
-if (isset($_POST["firstname4"], $_POST["surname4"], $_POST["email7"], $_POST["message"])) {
+if (isset($_POST["contact_firstname"], $_POST["contact_surname"], $_POST["contact_email"], $_POST["contact_message"])) {
     ContactUs();
 }
 
