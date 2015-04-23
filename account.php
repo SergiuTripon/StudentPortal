@@ -260,24 +260,22 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid' AND user_detail.user_status = 'active'");
+    $user_status = 'active';
 
-	while($row = $stmt1->fetch_assoc()) {
+	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
+    $stmt1->bind_param('is', $session_userid, $user_status);
+    $stmt1->execute();
+    $stmt1->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname);
+    $stmt1->store_result();
 
-    $userid = $row["userid"];
-    $account_type = ucfirst($row["account_type"]);
-    $email = $row["email"];
-    $created_on = $row["created_on"];
-    $updated_on = $row["updated_on"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
+    if ($stmt2->num_rows > 0) {
 
-	$account_type = ucfirst($row["account_type"]);
+        while ($stmt2->fetch()) {
 
-	echo '<tr id="user-'.$userid.'">
+            echo '<tr>
 
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
-			<td data-title="Account type">'.$account_type.'</td>
+			<td data-title="Account type">'.ucfirst($account_type).'</td>
 			<td data-title="Created on">'.$created_on.'</td>
             <td data-title="Updated on">'.$updated_on.'</td>
             <td data-title="Action">
@@ -312,16 +310,16 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="text-right">
-            <a id="delete-'.$userid.'" class="btn btn-primary btn-lg btn-delete-account">Delete</a>
-			<button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancel</button>
+            <a id="delete-'.$userid.'" class="btn btn-primary btn-lg btn-delete-account btn-load">Delete</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-	}
-
+        }
+    }
 	$stmt1->close();
 	?>
 	</tbody>
