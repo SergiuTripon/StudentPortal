@@ -205,21 +205,56 @@ global $mysqli;
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->prepare("SELECT user_signin.account_type, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.surname, user_detail.firstname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
+	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.surname, user_detail.firstname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
     $stmt1->bind_param('is', $session_userid, $user_status);
     $stmt1->execute();
-    $stmt1->bind_result($account_type, $created_on, $updated_on, $firstname, $surname);
+    $stmt1->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname, $gender, $nationality, $dateofbirth);
     $stmt1->store_result();
 
     if ($stmt1->num_rows > 0) {
 
         while ($stmt1->fetch()) {
 
-            echo '<tr>
-
+            echo
+           '<tr>
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Account type">'.$account_type.'</td>
-			<td data-title="Signed in at">'.$updated_on.'</td>
+			<td data-title="Signed in at">'.$updated_on.'
+
+			<div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-user"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$firstname.' '.$surname.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Gender:</b> '.(empty($gender) ? "-" : ucfirst($gender)).'</p>
+			<p><b>Nationality:</b> '.(empty($nationality) ? "-" : "$nationality").'</p>
+			<p><b>Date of Birth:</b> '.(empty($dateofbirth) ? "-" : "$dateofbirth").'</p>
+			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-account?id='.$userid.'" class="btn btn-primary btn-md">Update</a>
+            <a href="/admin/change-password?id='.$userid.'" class="btn btn-primary btn-md">Change Password</a>
+            <a id="reactivate-'.$userid.'" class="btn btn-primary btn-md btn-reactivate-account">Reactivate</a>
+            <a href="#delete-'.$userid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			</td>
 			</tr>';
         }
     }
@@ -261,15 +296,15 @@ global $mysqli;
 
     $user_status = 'active';
 
-	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
-    $stmt1->bind_param('is', $session_userid, $user_status);
-    $stmt1->execute();
-    $stmt1->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname, $gender, $nationality, $dateofbirth);
-    $stmt1->store_result();
+	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
+    $stmt2->bind_param('is', $session_userid, $user_status);
+    $stmt2->execute();
+    $stmt2->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname, $gender, $nationality, $dateofbirth);
+    $stmt2->store_result();
 
-    if ($stmt1->num_rows > 0) {
+    if ($stmt2->num_rows > 0) {
 
-        while ($stmt1->fetch()) {
+        while ($stmt2->fetch()) {
 
             echo
            '<tr>
@@ -288,10 +323,8 @@ global $mysqli;
             <li><a href="#delete-'.$userid.'" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
-			<div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -346,10 +379,13 @@ global $mysqli;
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
     }
-	$stmt1->close();
+	$stmt2->close();
 	?>
 	</tbody>
 
@@ -386,15 +422,15 @@ global $mysqli;
 
     $user_status = 'inactive';
 
-	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
-    $stmt2->bind_param('is', $session_userid, $user_status);
-    $stmt2->execute();
-    $stmt2->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname, $gender, $nationality, $dateofbirth);
-    $stmt2->store_result();
+	$stmt3 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
+    $stmt3->bind_param('is', $session_userid, $user_status);
+    $stmt3->execute();
+    $stmt3->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname, $gender, $nationality, $dateofbirth);
+    $stmt3->store_result();
 
-    if ($stmt2->num_rows > 0) {
+    if ($stmt3->num_rows > 0) {
 
-        while ($stmt2->fetch()) {
+        while ($stmt3->fetch()) {
 
             echo
            '<tr>
@@ -411,10 +447,8 @@ global $mysqli;
             <li><a href="#delete-'.$userid.'" data-toggle="modal">Delete</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
-			<div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -469,11 +503,14 @@ global $mysqli;
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
     }
 
-	$stmt2->close();
+	$stmt3->close();
 	?>
 	</tbody>
 
