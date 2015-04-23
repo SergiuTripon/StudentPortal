@@ -27,7 +27,7 @@
     //Responsiveness
     $(window).resize(function(){
         var width = $(window).width();
-        if(width <= 480){
+        if(width <= 550){
             $('.modal-info .view-action .btn').addClass('btn-block');
             $('.modal-info .view-action').removeClass('pull-left');
             $('.modal-info .view-close .btn').addClass('btn-block');
