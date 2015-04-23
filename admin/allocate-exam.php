@@ -158,6 +158,61 @@ if (isset($_GET['id'])) {
     </div><!-- /container -->
 
 	<?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+	<script>
+    //DataTables
+    $('.table-custom').dataTable(settings);
+
+    //Allocate exam
+	$("body").on("click", ".btn-allocate-exam", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var userToAllocate = clickedID[1];
+    var examToAllocate = $("#examid").html();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'userToAllocate='+ userToAllocate + '&examToAllocate='+ examToAllocate,
+	success:function(){
+            location.reload();
+    },
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+
+    });
+
+    //Deallocate exam
+    $("body").on("click", ".btn-deallocate-exam", function(e) {
+    e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var userToDeallocate = clickedID[1];
+    var examToDeallocate = $("#examid").html();
+
+	jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+	dataType:"text",
+	data:'userToDeallocate='+ userToDeallocate + '&examToDeallocate='+ examToDeallocate,
+	success:function(){
+            location.reload();
+    },
+	error:function (xhr, ajaxOptions, thrownError){
+		$("#error").show();
+		$("#error").empty().append(thrownError);
+	}
+
+	});
+    });
+	</script>
 
     <?php else : ?>
 
@@ -207,7 +262,7 @@ if (isset($_GET['id'])) {
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
+	<a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
     </div>
 
     </form>
@@ -215,74 +270,9 @@ if (isset($_GET['id'])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
-	<?php endif; ?>
-
-	<?php include '../assets/js-paths/common-js-paths.php'; ?>
-
-	<script>
-    //DataTables
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
-    $('.table-custom').dataTable(settings);
-
-    //Allocate module
-	$("body").on("click", ".btn-allocate-exam", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var userToAllocate = clickedID[1];
-    var examToAllocate = $("#examid").html();
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'userToAllocate='+ userToAllocate + '&examToAllocate='+ examToAllocate,
-	success:function(){
-            location.reload();
-    },
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-
-    });
-
-    //Deallocate module
-    $("body").on("click", ".btn-deallocate-exam", function(e) {
-    e.preventDefault();
-
-    var clickedID = this.id.split('-');
-    var userToDeallocate = clickedID[1];
-    var examToDeallocate = $("#examid").html();
-
-	jQuery.ajax({
-	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"text",
-	data:'userToDeallocate='+ userToDeallocate + '&examToDeallocate='+ examToDeallocate,
-	success:function(){
-            location.reload();
-    },
-	error:function (xhr, ajaxOptions, thrownError){
-		$("#error").show();
-		$("#error").empty().append(thrownError);
-	}
-
-	});
-    });
-	</script>
+    <?php endif; ?>
 
 </body>
 </html>
