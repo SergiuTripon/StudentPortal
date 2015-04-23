@@ -14,6 +14,16 @@
         $('.btn-load').button('reset');
     }
 
+    var settings = {
+        "iDisplayLength": 10,
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "emptyTable": "There are no records to display."
+        }
+    };
+
     //Responsiveness
     $(window).resize(function(){
         var width = $(window).width();

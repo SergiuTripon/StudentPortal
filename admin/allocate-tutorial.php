@@ -197,19 +197,9 @@ if (isset($_GET['id'])) {
 	<script>
 
     //DataTables
-    settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no users to display."
-        }
-    };
-
     $('.table-custom').dataTable(settings);
 
-    //Allocate module
+    //Allocate tutorial
 	$("body").on("click", ".btn-allocate-tutorial", function(e) {
     e.preventDefault();
 
@@ -232,7 +222,7 @@ if (isset($_GET['id'])) {
 	});
     });
 
-    //Deallocate module
+    //Deallocate tutorial
     $("body").on("click", ".btn-deallocate-tutorial", function(e) {
     e.preventDefault();
 
