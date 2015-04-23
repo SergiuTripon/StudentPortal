@@ -32,6 +32,8 @@ if (isset($_GET['id'])) {
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
+
 	<?php include '../includes/menus/portal_menu.php'; ?>
 
 	<div class="container">
@@ -157,8 +159,34 @@ if (isset($_GET['id'])) {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
+    <?php else : ?>
 
+	<?php include '../includes/menus/portal_menu.php'; ?>
 
+    <div class="container">
+
+    <form class="form-horizontal form-custom">
+
+	<div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+	<p class="feedback-danger text-center">You need to have an admin account to access this area.</p>
+    <hr>
+
+    <div class="text-center">
+    <a class="btn btn-primary btn-lg btn-load" href="/home/">Home</a>
+    </div>
+
+    </form>
+
+	</div>
+
+	<?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+    <?php endif; ?>
 
 	<?php else : ?>
 
