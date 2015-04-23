@@ -233,7 +233,7 @@ include 'includes/session.php';
     </div>
 
 	<div class="modal-footer">
-    <div class="text-right">
+    <div class="text-center">
     <button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
     </div>
     </div>
