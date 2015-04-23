@@ -1,6 +1,9 @@
 <?php
 include '../includes/session.php';
 
+global $mysqli;
+global $tutorialToAllocate;
+
 if (isset($_GET['id'])) {
 
     $tutorialToAllocate = $_GET['id'];
@@ -67,21 +70,24 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_tutorial.userid) FROM user_tutorial WHERE user_tutorial.tutorialid = '$tutorialToAllocate') AND user_signin.account_type = 'student'");
+    $account_type = 'student';
 
-	while($row = $stmt1->fetch_assoc()) {
+	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_tutorial.userid) FROM user_tutorial WHERE user_tutorial.tutorialid=?) AND user_signin.account_type=?");
+    $stmt1->bind_param('is', $tutorialToAllocate, $account_type);
+    $stmt1->execute();
+    $stmt1->bind_result($userid, $studentno, $firstname, $surname);
+    $stmt1->store_result();
 
-	$userid = $row["userid"];
-    $studentno = $row["studentno"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
+    if ($stmt1->num_rows > 0) {
 
-	echo '<tr>
-
+        while ($stmt1->fetch()) {
+            echo
+           '<tr>
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Action"><a id="#allocate-'.$userid.'" class="btn btn-primary btn-md btn-allocate-tutorial btn-load">Allocate</a></td>
 			</tr>';
+        }
     }
 	$stmt1->close();
 	?>
@@ -119,21 +125,25 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
-	$stmt2 = $mysqli->query("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_tutorial.userid) FROM user_tutorial WHERE user_tutorial.tutorialid = '$tutorialToAllocate') AND user_signin.account_type = 'student'");
+    $account_type = 'student';
 
-	while($row = $stmt2->fetch_assoc()) {
+	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_tutorial.userid) FROM user_tutorial WHERE user_tutorial.tutorialid=?) AND user_signin.account_type=?");
+    $stmt2->bind_param('is', $tutorialToAllocate, $account_type);
+    $stmt2->execute();
+    $stmt2->bind_result($userid, $studentno, $firstname, $surname);
+    $stmt2->store_result();
 
-	$userid = $row["userid"];
-    $studentno = $row["studentno"];
-    $firstname = $row["firstname"];
-    $surname = $row["surname"];
+    if ($stmt2->num_rows > 0) {
 
-	echo '<tr>
+        while ($stmt2->fetch()) {
 
+            echo
+           '<tr>
 			<td data-title="First name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Student number">'.$studentno.'</td>
 			<td data-title="Action"><a id="#deallocate-'.$userid.'" class="btn btn-primary btn-md btn-deallocate-tutorial btn-load">Deallocate</a></td>
 			</tr>';
+        }
     }
 	$stmt2->close();
 	?>
