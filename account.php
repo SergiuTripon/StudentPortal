@@ -272,8 +272,9 @@ include 'includes/session.php';
 
         while ($stmt2->fetch()) {
 
-            echo '<tr>
+            echo
 
+           '<tr>
 			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
 			<td data-title="Account type">'.ucfirst($account_type).'</td>
 			<td data-title="Created on">'.$created_on.'</td>
@@ -591,8 +592,8 @@ include 'includes/session.php';
 	});
     });
 
-    //Delete record
-	$("body").on("click", ".delete-button", function(e) {
+    //Delete account
+	$("body").on("click", ".btn-delete-account", function(e) {
     e.preventDefault();
 
 	var clickedID = this.id.split('-');
@@ -604,16 +605,8 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'userToDelete='+ userToDelete,
 	success:function(){
-		$('#user-'+userToDelete).fadeOut();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-question').hide();
-        $('#delete-confirmation').show();
-        $('#delete-hide').hide();
-        $('#delete-success-button').show();
-        $("#delete-success-button").click(function () {
+
             location.reload();
-        });
     },
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
