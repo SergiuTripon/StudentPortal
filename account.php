@@ -205,7 +205,7 @@ global $mysqli;
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.surname, user_detail.firstname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
+	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
     $stmt1->bind_param('is', $session_userid, $user_status);
     $stmt1->execute();
     $stmt1->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname, $gender, $nationality, $dateofbirth);
@@ -217,7 +217,7 @@ global $mysqli;
 
             echo
            '<tr>
-			<td data-title="Full name">'.$firstname.' '.$surname.'</td>
+			<td data-title="Full name"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Account type">'.$account_type.'</td>
 			<td data-title="Signed in at">'.$updated_on.'
 
