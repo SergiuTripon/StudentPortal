@@ -402,6 +402,7 @@ global $mysqli;
 			<div class="modal-footer">
             <div class="view-action pull-left">
             <a href="/admin/update-account?id='.$userid.'" class="btn btn-primary btn-md">Update</a>
+            <a href="/admin/change-password?id='.$userid.'" class="btn btn-primary btn-md">Deactivate</a>
             <a id="deactivate-'.$userid.'" class="btn btn-primary btn-md btn-deactivate-book">Deactivate</a>
             <a href="#delete-'.$userid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
