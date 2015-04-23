@@ -5315,8 +5315,8 @@ function ChangePassword() {
 	global $session_userid;
 	global $updated_on;
 
-    $old_password = filter_input(INPUT_POST, 'change_oldpwd', FILTER_SANITIZE_STRING);
-	$new_password = filter_input(INPUT_POST, 'change_password', FILTER_SANITIZE_STRING);
+    $old_password = filter_input(INPUT_POST, 'change_password_old_password', FILTER_SANITIZE_STRING);
+	$new_password = filter_input(INPUT_POST, 'change_password_password', FILTER_SANITIZE_STRING);
 
     // Getting user login details
     $stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");

@@ -183,7 +183,7 @@ include '../includes/session.php';
     jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'change_password_oldpwd=' + oldpwd +
+    data:'change_password_old_password=' + oldpwd +
          '&change_password_password=' + password,
     success:function(){
 		$("#hide").hide();

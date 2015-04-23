@@ -588,7 +588,7 @@ elseif (isset(
 }
 
 //Call ChangePassword function
-elseif (isset($_POST["change_oldpwd"], $_POST["change_password"])) {
+elseif (isset($_POST["change_password_old_password"], $_POST["change_password_password"])) {
 	ChangePassword();
 }
 
