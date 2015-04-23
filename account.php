@@ -358,15 +358,15 @@ include 'includes/session.php';
 
     $user_status = 'inactive';
 
-	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
-    $stmt1->bind_param('is', $session_userid, $user_status);
-    $stmt1->execute();
-    $stmt1->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname);
-    $stmt1->store_result();
+	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
+    $stmt2->bind_param('is', $session_userid, $user_status);
+    $stmt2->execute();
+    $stmt2->bind_result($userid, $account_type, $email, $created_on, $updated_on, $firstname, $surname);
+    $stmt2->store_result();
 
-    if ($stmt1->num_rows > 0) {
+    if ($stmt2->num_rows > 0) {
 
-        while ($stmt1->fetch()) {
+        while ($stmt2->fetch()) {
 
             echo
            '<tr>
@@ -414,7 +414,7 @@ include 'includes/session.php';
         }
     }
 
-	$stmt1->close();
+	$stmt2->close();
 	?>
 	</tbody>
 
