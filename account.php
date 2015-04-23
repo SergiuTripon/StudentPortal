@@ -304,7 +304,7 @@ include 'includes/session.php';
             </div>
 
 			<div class="modal-body">
-			<p class="text-left">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
+			<p class="text-left">Are you sure you want to delete "'.$firstname.' '.$surname.'"?</p>
 			</div>
 
 			<div class="modal-footer">
@@ -398,7 +398,7 @@ include 'includes/session.php';
             </div>
 
 			<div class="modal-body">
-			<p class="text-left">Are you sure you want to delete '.$firstname.' '.$surname.'?</p>
+			<p class="text-left">Are you sure you want to delete "'.$firstname.' '.$surname.'"?</p>
 			</div>
 
 			<div class="modal-footer">
