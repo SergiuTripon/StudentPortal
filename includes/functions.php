@@ -4735,7 +4735,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
             $active_location .=
 
            '<tr>
-			<td data-title="Location"><a href="view-user-'.$markerid.'">'.$marker_name.'</a></td>
+			<td data-title="Location"><a href="view-user-'.$markerid.'" data-toggle="modal">'.$marker_name.'</a></td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
             <a class="btn btn-primary" href="../admin/update-location/?id='.$markerid.'">Update</a>
