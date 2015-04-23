@@ -176,10 +176,10 @@ include 'includes/session.php';
 		window.location = '../home/';
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
         $("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
-        $('.btn-primary').button('reset');
     }
 	});
     }
