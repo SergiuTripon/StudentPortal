@@ -244,16 +244,20 @@ include '../includes/session.php';
 
     // Date Time Picker
     $('#lecture_from_time').datetimepicker({
-        format: 'HH:mm'
+        format: 'HH:mm',
+        useCurrent: false
     });
     $('#lecture_to_time').datetimepicker({
-        format: 'HH:mm'
+        format: 'HH:mm',
+        useCurrent: false
     });
     $('#lecture_from_date').datetimepicker({
-        format: 'DD/MM/YYYY'
+        format: 'DD/MM/YYYY',
+        useCurrent: false
     });
     $('#lecture_to_date').datetimepicker({
-        format: 'DD/MM/YYYY'
+        format: 'DD/MM/YYYY',
+        useCurrent: false
 	});
 
     //Create lecture process
@@ -469,7 +473,6 @@ include '../includes/session.php';
          '&create_lecture_to_date='    + lecture_to_date +
          '&create_lecture_location='   + lecture_location +
          '&create_lecture_capacity='   + lecture_capacity,
-
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
