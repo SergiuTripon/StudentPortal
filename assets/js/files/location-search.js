@@ -194,6 +194,8 @@
             $("[aria-owns='select2-radiusSelect-results']").addClass("input-success");
         }
 
+        buttonReset();
+
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({address: address}, function(results, status) {
