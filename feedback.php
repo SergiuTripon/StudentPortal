@@ -112,8 +112,6 @@ include 'includes/session.php';
 
             </td>
             </tr>';
-            $stmt2->close();
-            $stmt3->close();
         }
     }
 
