@@ -11,9 +11,7 @@ include 'includes/session.php';
 
     <title>Student Portal | Results</title>
 
-
     <?php include 'assets/css-paths/common-css-paths.php'; ?>
-
 
 </head>
 
@@ -47,7 +45,7 @@ include 'includes/session.php';
 
 	<!-- Results -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom result-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -102,9 +100,6 @@ include 'includes/session.php';
 
 	<?php include 'includes/footers/footer.php'; ?>
 
-
-
-
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && ($_SESSION['account_type'] == 'academic staff' || $_SESSION['account_type'] == 'administrator')) : ?>
@@ -130,7 +125,7 @@ include 'includes/session.php';
 
 	<!-- Students -->
 	<section id="no-more-tables">
-	<table class="table table-condensed table-custom module-table">
+	<table class="table table-condensed table-custom">
 
 	<thead>
 	<tr>
@@ -177,9 +172,6 @@ include 'includes/session.php';
 
 	<?php include 'includes/footers/footer.php'; ?>
 
-
-
-
     <?php endif; ?>
 
     <?php else : ?>
@@ -216,28 +208,8 @@ include 'includes/session.php';
 
 	<script>
 
-
-
 	//DataTables
-    $('.result-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "You have no results to display."
-		}
-	});
-
-    $('.module-table').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no modules to display."
-		}
-	});
+    $('.table-custom').dataTable(settings);
 	</script>
 
 </body>
