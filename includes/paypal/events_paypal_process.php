@@ -3,6 +3,8 @@ include '../session.php';
 include '../functions.php';
 require 'paypal_class.php';
 
+global $mysqli;
+
 define('EMAIL_ADD', 'admin@student-portal.co.uk'); // define any notification email
 define('PAYPAL_EMAIL_ADD', 'admin-facilitator@student-portal.co.uk'); // facilitator email which will receive payments change this email to a live paypal account id when the site goes live
 

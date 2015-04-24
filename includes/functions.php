@@ -4108,17 +4108,17 @@ function EventsPaypalPaymentSuccess() {
 	global $completed_on;
 
     //Get data from Paypal IPN
-	$item_number1 = $_POST["item_number1"];
-	$quantity1 = $_POST["quantity1"];
-	$product_name = $_POST["item_name1"];
-	$product_amount = $_POST["mc_gross"];
-
-	$invoiceid = $_POST["invoice"];
-	$transactionid  = $_POST["txn_id"];
+    $invoiceid = $_POST["invoice"];
+    $transactionid  = $_POST["txn_id"];
 
 	$payment_status = strtolower($_POST["payment_status"]);
 	$payment_status1 = ($_POST["payment_status"]);
 	$payment_date = date('H:i d/m/Y', strtotime($_POST["payment_date"]));
+
+    $item_number1 = $_POST["item_number1"];
+    $product_name = $_POST["item_name1"];
+    $quantity1 = $_POST["quantity1"];
+    $product_amount = $_POST["mc_gross"];
 
     //Get userid by using invoice_id
 	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoiceid = ? LIMIT 1");
@@ -4151,7 +4151,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt4->execute();
 	$stmt4->close();
 
-	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET transaction_id=?, payment_status =?, updated_on=?, completed_on=? WHERE invoice_id =?");
+	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET transactionid=?, payment_status =?, updated_on=?, completed_on=? WHERE invoiceid =?");
 	$stmt5->bind_param('ssssi', $transactionid, $payment_status, $updated_on, $completed_on, $invoiceid);
 	$stmt5->execute();
 	$stmt5->close();
