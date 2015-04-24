@@ -195,16 +195,12 @@
             $("[aria-owns='select2-radiusSelect-results']").addClass("input-success");
         }
 
-        $("#btn-primary").data('loading-text', 'Loading...').button('loading');
-
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({address: address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-                $("#btn-primary").button('reset');
                 searchLocationsNear(results[0].geometry.location);
             } else {
-                $("#btn-primary").button('reset');
             $("#error").empty().append(address + ' was not found. Please try again.');
          }
         });
