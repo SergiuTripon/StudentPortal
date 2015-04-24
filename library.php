@@ -100,9 +100,9 @@ AdminLibraryUpdate();
     $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt1->store_result();
 
-    if ($stmt2->num_rows > 0) {
+    if ($stmt1->num_rows > 0) {
 
-        while ($stmt2->fetch()) {
+        while ($stmt1->fetch()) {
 
             $stmt2 = $mysqli->prepare("SELECT r.bookid FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid WHERE r.bookid=? AND ((r.isCollected='0' AND r.reservation_status='pending') OR (l.isReturned = '0' AND l.loan_status='ongoing') OR (l.isRequested = '0'))");
             $stmt2->bind_param('i', $bookid);
