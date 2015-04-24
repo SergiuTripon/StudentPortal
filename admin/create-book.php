@@ -427,7 +427,7 @@ include '../includes/session.php';
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
+		$("#create-book-submit").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The book has been created.');
 		$("#success-button").show();

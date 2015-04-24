@@ -95,15 +95,16 @@ include '../includes/session.php';
     </div>
     </div>
 
+    <hr>
+
 	</div>
 
-	<hr>
-
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Create location</button>
+    <button id="create-location-submit" class="btn btn-primary btn-lg" >Create location</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
+    <hr class="hr-success">
 	<a class="btn btn-success btn-lg" href="">Create another</a>
 	</div>
 	
@@ -113,9 +114,6 @@ include '../includes/session.php';
 	</div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -142,9 +140,6 @@ include '../includes/session.php';
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>
@@ -185,7 +180,7 @@ include '../includes/session.php';
     });
 
     //Ajax call
-    $("#FormSubmit").click(function (e) {
+    $("#create-location-submit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
@@ -284,7 +279,7 @@ include '../includes/session.php';
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
+		$("#create-location-submit").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The location has been created.');
 		$("#success-button").show();
