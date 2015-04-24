@@ -202,6 +202,9 @@ if (isset($_GET['id'])) {
     var userToDeallocate = clickedID[1];
     var lectureToDeallocate = $("#lectureid").html();
 
+    alert(userToDeallocate);
+    alert(lectureToDeallocate);
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
