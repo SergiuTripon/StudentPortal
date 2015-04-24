@@ -116,7 +116,7 @@ AdminEventUpdate();
 			<td data-title="Action">'.($event_ticket_no > 0 ? "<a class=\"btn btn-primary btn-md btn-load\" href=\"../events/book-event?id=$eventid\">Book</a>" : "<a class=\"btn btn-primary btn-md btn-disabled\" href=\"../events/book-event?id=$eventid\"<Book</a>").'</td>
 			</tr>
 
-			<div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-'.$eventid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -135,9 +135,11 @@ AdminEventUpdate();
 			</div>
 
 			<div class="modal-footer">
-            '.($event_ticket_no === '0' ? "" : "<div class=\"view-action pull-left\"><a href=\"/events/book-event?id=$eventid\" class=\"btn btn-primary btn-sm\" data-style=\"slide-up\">Book</a></div>").'
+			<div class="view-action pull-left">
+            '.($event_ticket_no > 0 ? "<div class=\"view-action pull-left\"><a href=\"/events/book-event?id=$eventid\" class=\"btn btn-primary btn-md\">Book</a></div>" : "").'
+			</div>
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
@@ -208,7 +210,7 @@ AdminEventUpdate();
 			<td data-title="Booked on">'.$booked_on.'</td>
 			</tr>
 
-			<div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-'.$eventid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -227,9 +229,8 @@ AdminEventUpdate();
 			</div>
 
 			<div class="modal-footer">
-            '.($event_ticket_no === '0' ? "" : "<div class=\"view-action pull-left\"><a href=\"/events/book-event?id=$eventid\" class=\"btn btn-primary btn-sm\" data-style=\"slide-up\">Book</a></div>").'
 			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
