@@ -4457,7 +4457,7 @@ function AdminEventUpdate($isUpdate = 0) {
             </div>
 
             <div class="modal-body">
-            <p class="text-center">Are you sure you want to delete "'.$event_name.'"?</p>
+            <p class="text-left">Are you sure you want to delete "'.$event_name.'"?</p>
             </div>
 
             <div class="modal-footer">
@@ -4554,7 +4554,7 @@ function AdminEventUpdate($isUpdate = 0) {
             </div>
 
             <div class="modal-body">
-            <p class="text-center">Are you sure you want to delete "'.$event_name.'"?</p>
+            <p class="text-left">Are you sure you want to delete "'.$event_name.'"?</p>
             </div>
 
             <div class="modal-footer">

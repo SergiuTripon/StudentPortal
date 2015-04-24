@@ -509,12 +509,16 @@ AdminEventUpdate();
     var clickedID = this.id.split('-');
     var eventToDeactivate = clickedID[1];
 
+    togglePreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'eventToDeactivate='+ eventToDeactivate,
 	success:function(html){
+
+        togglePreloader();
 
         $(".table-active-event").dataTable().fnDestroy();
         $('#content-active-event').empty();
@@ -527,6 +531,7 @@ AdminEventUpdate();
         $(".table-inactive-event").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
+        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
@@ -540,12 +545,16 @@ AdminEventUpdate();
     var clickedID = this.id.split('-');
     var eventToReactivate = clickedID[1];
 
+    togglePreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'eventToReactivate='+ eventToReactivate,
 	success:function(html){
+
+        togglePreloader();
 
         $(".table-inactive-event").dataTable().fnDestroy();
         $('#content-inactive-event').empty();
@@ -558,13 +567,14 @@ AdminEventUpdate();
         $(".table-active-event").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
+        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
 	});
     });
 
-    //Cancel event process
+    //Delete event
     $("body").on("click", ".btn-delete-event", function(e) {
     e.preventDefault();
 
