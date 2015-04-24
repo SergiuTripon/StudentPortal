@@ -414,7 +414,7 @@ AdminLibraryUpdate();
 
             echo
            '<tr>
-			<td data-title="Book"><a href="#view-requested-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
+			<td data-title="Book"><a href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Requested on">'.$created_on.'</td>
 			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
