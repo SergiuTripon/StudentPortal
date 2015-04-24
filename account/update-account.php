@@ -362,6 +362,108 @@ if ($dateofbirth == "0000-00-00") {
 	<?php include '../includes/footers/footer.php'; ?>
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
+    <script>
+    $(document).ready(function () {
+        //select2
+        $("#gender").select2({placeholder: "Select an option"});
+        $("#nationality").select2({placeholder: "Select an option"});
+    });
+
+    // Date Time Picker
+    $('#dateofbirth').datetimepicker({
+        format: 'DD/MM/YYYY',
+        useCurrent: false
+    });
+
+    //Update account
+    $("#update-account-submit").click(function (e) {
+    e.preventDefault();
+
+	var hasError = false;
+
+	var firstname = $("#firstname").val();
+	if(firstname === '') {
+        $("label[for='firstname']").empty().append("Please enter a first name.");
+        $("label[for='firstname']").removeClass("feedback-success");
+        $("label[for='firstname']").addClass("feedback-danger");
+        $("#firstname").removeClass("input-success");
+        $("#firstname").addClass("input-danger");
+        $("#firstname").focus();
+        hasError  = true;
+        return false;
+	}
+
+	var surname = $("#surname").val();
+	if(surname === '') {
+        $("label[for='surname']").empty().append("Please enter a surname.");
+        $("label[for='surname']").removeClass("feedback-success");
+        $("label[for='surname']").addClass("feedback-danger");
+        $("#surname").removeClass("input-success");
+        $("#surname").addClass("input-danger");
+        $("#surname").focus();
+        hasError  = true;
+        return false;
+	}
+
+    var gender = $('#gender :selected').html();
+
+	var email = $("#email").val();
+	if(email === '') {
+        $("label[for='email']").empty().append("Please enter an email address.");
+        $("label[for='email']").removeClass("feedback-success");
+        $("label[for='email']").addClass("feedback-danger");
+        $("#email").removeClass("input-success");
+        $("#email").addClass("input-danger");
+        $("#email").focus();
+        hasError  = true;
+        return false;
+	}
+
+    var nationality = $("#nationality").val();
+    var dateofbirth = $("#dateofbirth").val();
+	var phonenumber = $("#phonenumber").val();
+	var address1 = $("#address1").val();
+    var address2 = $("#address2").val();
+	var town = $("#town").val();
+    var city = $("#city").val();
+    var country = $("#country").val();
+    var postcode = $("#postcode").val();
+
+    if(hasError == false) {
+
+    jQuery.ajax({
+	type: "POST",
+	url: "https://student-portal.co.uk/includes/processes.php",
+    data:'update_firstname='    + firstname +
+         '&update_surname='     + surname +
+         '&update_gender='      + gender +
+         '&update_email='       + email +
+         '&update_nationality=' + nationality +
+         '&update_dateofbirth=' + dateofbirth +
+         '&update_phonenumber=' + phonenumber +
+         '&update_address1='    + address1 +
+         '&update_address2='    + address2 +
+         '&update_town='        + town +
+         '&update_city='        + city +
+         '&update_country='     + country +
+         '&update_postcode='    + postcode,
+    success:function(){
+		$("#error").hide();
+		$("#hide").hide();
+		$("#success").empty().append('All done! Your account has been updated.');
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
+        $("#success").hide();
+		$("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+	});
+    }
+    return true;
+    });
+	</script>
+
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && ($_SESSION['account_type'] == 'academic staff' || $_SESSION['account_type'] == 'administrator')) : ?>
