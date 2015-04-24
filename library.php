@@ -860,7 +860,7 @@ AdminLibraryUpdate();
 	<?php
 
     $isReserved = 1;
-    $isColelcted = 1;
+    $isCollected = 1;
     $isLoaned = 1;
     $isReturned = 0;
 
