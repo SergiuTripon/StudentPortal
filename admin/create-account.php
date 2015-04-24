@@ -9,10 +9,10 @@ include '../includes/session.php';
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | Create an account</title>
-	
+
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
+
 </head>
 
 <body>
@@ -358,9 +358,9 @@ include '../includes/session.php';
 	</div>
 	</div>
 
-	</div>
+    <hr>
 
-	<hr>
+	</div>
 
     <div class="text-center">
     <button id="admin-create-account-submit" class="btn btn-primary btn-lg btn-load">Create account</button>
