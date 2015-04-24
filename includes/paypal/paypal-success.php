@@ -31,7 +31,7 @@
     <hr>
     
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="../../home/">Home</a>
+    <a class="btn btn-primary btn-lg btn-load" href="../../home/">Home</a>
 	</div>
 	
     </form>
@@ -39,8 +39,9 @@
 	</div>
 
     <?php include '../../includes/footers/footer.php'; ?>
-	
-	<?php else : ?>
+    <?php include '../../assets/js-paths/common-js-paths.php'; ?>
+
+    <?php else : ?>
 
     <?php include '../../includes/menus/menu.php'; ?>
 
@@ -58,17 +59,16 @@
     <hr>
     
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
     </div>
 
     </form>
 	</div>
 
     <?php include '../../includes/footers/footer.php'; ?>
-	
-	<?php endif; ?>
-
     <?php include '../../assets/js-paths/common-js-paths.php'; ?>
+
+	<?php endif; ?>
 	
 </body>
 </html>

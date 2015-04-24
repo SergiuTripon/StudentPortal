@@ -5,17 +5,11 @@
 
     <?php include '../../assets/meta-tags.php'; ?>
 
-    <?php include '../../assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | Payment Cancelled</title>
 
-</head>
+    <?php include '../../assets/css-paths/common-css-paths.php'; ?>
 
-	<style>
-    html, body {
-		height: 100% !important;
-	}
-    </style>
+</head>
 
 <body>
 	<div class="preloader"></div>
@@ -37,7 +31,7 @@
     <hr>
     
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="../../home/">Home</a>
+    <a class="btn btn-primary btn-lg btn-load" href="../../home/">Home</a>
 	</div>
 	
     </form>
@@ -45,10 +39,8 @@
 	</div>
 
     <?php include '../../includes/footers/footer.php'; ?>
+    <?php include '../../assets/js-paths/common-js-paths.php'; ?>
 
-
-    <script src="../../assets/js/sign-out-inactive.js"></script>
-	
 	<?php else : ?>
 
     <?php include '../../includes/menus/menu.php'; ?>
@@ -66,17 +58,16 @@
     <hr>
     
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
     </div>
 
     </form>
 	</div>
 
     <?php include '../../includes/footers/footer.php'; ?>
+    <?php include '../../assets/js-paths/common-js-paths.php'; ?>
 
     <?php endif; ?>
-
-    <?php include '../../assets/js-paths/common-js-paths.php'; ?>
 	
 </body>
 </html>
