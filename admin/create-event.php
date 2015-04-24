@@ -89,7 +89,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load btn-load">Create event</button>
+    <button id="create-event-submit" class="btn btn-primary btn-lg btn-load btn-load">Create event</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
@@ -102,9 +102,6 @@ include '../includes/session.php';
 	</div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -131,9 +128,6 @@ include '../includes/session.php';
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>
@@ -170,14 +164,16 @@ include '../includes/session.php';
 
     // Date Time Picker
     $('#event_from').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
+        format: 'DD/MM/YYYY HH:mm',
+        useCurrent: false
     });
     $('#event_to').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
+        format: 'DD/MM/YYYY HH:mm',
+        useCurrent: false
     });
 
-    //Create event ajax call
-    $("#FormSubmit").click(function (e) {
+    //Create event
+    $("#create-event-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
