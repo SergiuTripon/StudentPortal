@@ -151,7 +151,7 @@ AdminLibraryUpdate();
 			</div>
 
 			<div class="modal-footer">
-			<div class="view-close pull-right">
+			<div class="view-close text-center">
 			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
 			</div>
@@ -204,31 +204,64 @@ AdminLibraryUpdate();
 	<tbody>
 	<?php
 
-	$stmt2 = $mysqli->query("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, DATE_FORMAT(r.tocollect_on,'%d %b %y') as tocollect_on, DATE_FORMAT(r.collected_on,'%d %b %y') as collected_on, r.isCollected, b.book_name, b.book_author, b.book_notes, b.book_status FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid = '$session_userid'");
+	$stmt2 = $mysqli->prepare("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, DATE_FORMAT(r.tocollect_on,'%d %b %y') as tocollect_on, DATE_FORMAT(r.collected_on,'%d %b %y') as collected_on, r.isCollected, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid = '$session_userid'");
+    $stmt2->bind_param('s', $book_status);
+    $stmt2->execute();
+    $stmt2->bind_result($bookid, $created_on, $tocollect_on, $collected_on, $isCollected, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt2->store_result();
 
-	while($row = $stmt2->fetch_assoc()) {
+    if ($stmt2->num_rows > 0) {
 
-    $book_name = $row["book_name"];
-    $book_author = $row["book_author"];
-    $book_notes = $row["book_notes"];
-    $created_on = $row["created_on"];
-    $tocollect_on = $row["tocollect_on"];
-    $collected_on = $row["collected_on"];
-	$book_status = $row["book_status"];
-    $isCollected = $row["isCollected"];
+        while ($stmt2->fetch()) {
 
-	$book_status = ucfirst($book_status);
+            echo '<tr>
 
-	echo '<tr>
+			<td data-title="Book">' . $book_name . '</td>
+			<td data-title="Author">' . $book_author . '</td>
+			<td data-title="Reserved on">' . $created_on . '</td>
+			<td data-title="To collect by">' . $tocollect_on . '</td>
+			<td data-title="Collected on">' . (empty($collected_on) ? "Not yet" : "$collected_on") . '</td>
+			<td data-title="Collected">' . ($isCollected === '0' ? "No" : "Yes") . '
 
-			<td data-title="Name">'.$book_name.'</td>
-			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Reserved on">'.$created_on.'</td>
-			<td data-title="To collect by">'.$tocollect_on.'</td>
-			<td data-title="Collected on">'.(empty($collected_on) ? "Not yet" : "$collected_on").'</td>
-			<td data-title="Collected">'.($isCollected === '0' ? "No" : "Yes").'</td>
+			<div id="view-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-book"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Author:</b> '.$book_author.'</p>
+			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
+			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
+			<p><b>Location:</b> '.(empty($book_location) ? "-" : "$book_location").'</p>
+			<p><b>Publisher:</b> '.(empty($book_publisher) ? "-" : "$book_publisher").'</p>
+			<p><b>Publish date:</b> '.(empty($book_publish_date) ? "-" : "$book_publish_date").'</p>
+			<p><b>Publish place:</b> '.(empty($book_publish_place) ? "-" : "$book_publish_place").'</p>
+			<p><b>Pages:</b> '.(empty($book_page_amount) ? "-" : "$book_page_amount").'</p>
+			<p><b>Barcode:</b> '.(empty($book_barcode) ? "-" : "$book_barcode").'</p>
+			<p><b>Descipline:</b> '.(empty($book_discipline) ? "-" : "$book_discipline").'</p>
+			<p><b>Language:</b> '.(empty($book_language) ? "-" : "$book_language").'</p>
+			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="view-close text-center">
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			</td>
 			</tr>';
-	}
+        }
+    }
 
 	$stmt2->close();
 	?>
