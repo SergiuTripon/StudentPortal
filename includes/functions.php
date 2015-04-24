@@ -4462,8 +4462,8 @@ function AdminEventUpdate($isUpdate = 0) {
 
             <div class="modal-footer">
             <div class="text-right">
-            <a id="delete-'.$eventid.'" class="btn btn-success btn-lg btn-delete-event btn-load">Delete</a>
-            <a class="btn btn-danger btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$eventid.'" class="btn btn-primary btn-lg btn-delete-event btn-load">Delete</a>
+            <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 
             </div>
             </div>
@@ -4559,8 +4559,8 @@ function AdminEventUpdate($isUpdate = 0) {
 
             <div class="modal-footer">
             <div class="text-right">
-            <a id="delete-'.$eventid.'" class="btn btn-danger btn-lg btn-delete-event btn-load">Delete</a>
-            <a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+            <a id="delete-'.$eventid.'" class="btn btn-primary btn-lg btn-delete-event btn-load">Delete</a>
+            <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
             </div>
             </div>
 
