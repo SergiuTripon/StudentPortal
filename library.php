@@ -92,40 +92,82 @@ AdminLibraryUpdate();
 	<tbody>
 	<?php
 
-	$stmt1 = $mysqli->query("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_status FROM system_book b WHERE b.book_status='active'");
+    $book_status = 'active';
 
-	while($row = $stmt1->fetch_assoc()) {
+	$stmt1 = $mysqli->prepare("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book b WHERE b.book_status=?");
+    $stmt1->bind_param('s', $book_status);
+    $stmt1->execute();
+    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt1->store_result();
 
-	$bookid = $row["bookid"];
-	$book_name = $row["book_name"];
-	$book_author = $row["book_author"];
-	$book_notes = $row["book_notes"];
-	$book_copy_no = $row["book_copy_no"];
-	$book_status = $row["book_status"];
-	$book_status = ucfirst($book_status);
+    if ($stmt2->num_rows > 0) {
 
-    $stmt2 = $mysqli->prepare("SELECT r.bookid FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid WHERE r.bookid=? AND ((r.isCollected='0' AND r.reservation_status='pending') OR (l.isReturned = '0' AND l.loan_status='ongoing') OR (l.isRequested = '0'))");
-    $stmt2->bind_param('i', $bookid);
-    $stmt2->execute();
-    $stmt2->store_result();
-    $stmt2->bind_result($db_reserved_bookid);
-    $stmt2->fetch();
+        while ($stmt2->fetch()) {
 
-    $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isReturned='0' AND isRequested='0' AND loan_status='ongoing' AND NOT userid = '$session_userid'");
-    $stmt3->bind_param('i', $bookid);
-    $stmt3->execute();
-    $stmt3->store_result();
-    $stmt3->bind_result($db_loaned_bookid);
-    $stmt3->fetch();
+            $stmt2 = $mysqli->prepare("SELECT r.bookid FROM system_book_reserved r LEFT JOIN system_book_loaned l ON r.bookid=l.bookid WHERE r.bookid=? AND ((r.isCollected='0' AND r.reservation_status='pending') OR (l.isReturned = '0' AND l.loan_status='ongoing') OR (l.isRequested = '0'))");
+            $stmt2->bind_param('i', $bookid);
+            $stmt2->execute();
+            $stmt2->store_result();
+            $stmt2->bind_result($db_reserved_bookid);
+            $stmt2->fetch();
 
-	echo '<tr id="book-'.$bookid.'">
+            $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book_loaned WHERE bookid=? AND isReturned='0' AND isRequested='0' AND loan_status='ongoing' AND NOT userid = '$session_userid'");
+            $stmt3->bind_param('i', $bookid);
+            $stmt3->execute();
+            $stmt3->store_result();
+            $stmt3->bind_result($db_loaned_bookid);
+            $stmt3->fetch();
 
-			<td data-title="Book">'.$book_name.'</td>
+            echo '<tr id="book-'.$bookid.'">
+
+			<td data-title="Book"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md btn-load\" href=\"../library/reserve-book?id=$bookid\">Reserve</a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/reserve-book?id=$bookid\">Reserve</a>").'</td>
-            <td data-title="Request">'.($stmt3->num_rows == 1 ? "<a class=\"btn btn-primary btn-md btn-load\" href=\"../library/request-book?id=$bookid\">Request</a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/request-book?id=$bookid\">Request</a>").'</td>
+            <td data-title="Request">'.($stmt3->num_rows == 1 ? "<a class=\"btn btn-primary btn-md btn-load\" href=\"../library/request-book?id=$bookid\">Request</a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/request-book?id=$bookid\">Request</a>").'
+            
+            <div id="view-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-book"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Author:</b> '.$book_author.'</p>
+			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
+			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
+			<p><b>Location:</b> '.(empty($book_location) ? "-" : "$book_location").'</p>
+			<p><b>Publisher:</b> '.(empty($book_publisher) ? "-" : "$book_publisher").'</p>
+			<p><b>Publish date:</b> '.(empty($book_publish_date) ? "-" : "$book_publish_date").'</p>
+			<p><b>Publish place:</b> '.(empty($book_publish_place) ? "-" : "$book_publish_place").'</p>
+			<p><b>Pages:</b> '.(empty($book_page_amount) ? "-" : "$book_page_amount").'</p>
+			<p><b>Barcode:</b> '.(empty($book_barcode) ? "-" : "$book_barcode").'</p>
+			<p><b>Descipline:</b> '.(empty($book_discipline) ? "-" : "$book_discipline").'</p>
+			<p><b>Language:</b> '.(empty($book_language) ? "-" : "$book_language").'</p>
+			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a id="reactivate-'.$bookid.'" class="btn btn-primary btn-md btn-reactivate-book">Reactivate</a>
+            <a href="#delete-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+            
+            </td>
 			</tr>';
-	}
+        }
+    }
 
 	$stmt1->close();
 	?>

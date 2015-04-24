@@ -3366,7 +3366,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
             $inactive_book .=
 
            '<tr>
-			<td data-title="Name"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
+			<td data-title="Book"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Action">
 			<div class="btn-group btn-action">
