@@ -50,8 +50,6 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
-	<th>Lecturer</th>
-    <th>Tutorial assistant</th>
     <th>Action</th>
 	</tr>
 	</thead>
