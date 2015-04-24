@@ -50,15 +50,15 @@ include '../includes/session.php';
 
     <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width">
-	<label>Description</label>
-    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" placeholder="Enter a description"></textarea>
+	<label for="book_author">Author<span class="field-required">*</span></label>
+    <input class="form-control" type="text" name="book_author" id="book_author" placeholder="Enter an author">
 	</div>
 	</div>
 
-	<div class="form-group">
+    <div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width">
-	<label for="book_author">Author<span class="field-required">*</span></label>
-    <input class="form-control" type="text" name="book_author" id="book_author" placeholder="Enter an author">
+	<label>Description</label>
+    <textarea class="form-control" rows="5" name="book_notes" id="book_notes" placeholder="Enter a description"></textarea>
 	</div>
 	</div>
 
@@ -222,8 +222,6 @@ include '../includes/session.php';
         $("#book_name").addClass("input-success");
 	}
 
-    var book_notes = $("#book_notes").val();
-
     var book_author = $("#book_author").val();
 	if(book_author === '') {
         $("label[for='book_author']").empty().append("Please enter an author.");
@@ -241,6 +239,8 @@ include '../includes/session.php';
         $("#book_author").removeClass("input-danger");
         $("#book_author").addClass("input-success");
 	}
+
+    var book_notes = $("#book_notes").val();
 
     var book_copy_no = $("#book_copy_no").val();
 	if(book_copy_no === '') {
@@ -409,8 +409,8 @@ include '../includes/session.php';
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
     data:'create_book_name='           + book_name +
-         '&create_book_notes='         + book_notes +
          '&create_book_author='        + book_author +
+         '&create_book_notes='         + book_notes +
          '&create_book_copy_no='       + book_copy_no +
          '&create_book_location='      + book_location +
          '&create_book_publisher='     + book_publisher +
