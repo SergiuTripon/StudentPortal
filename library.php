@@ -865,7 +865,7 @@ AdminLibraryUpdate();
     $isReturned = 0;
 
 	$stmt1 = $mysqli->prepare("SELECT DISTINCT l.bookid, l.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no,  FROM system_book_loaned l LEFT JOIN system_book_reserved r ON l.bookid=r.bookid LEFT JOIN user_detail d ON l.userid=d.userid LEFT JOIN system_book b ON l.bookid=b.bookid WHERE b.isReserved=? AND r.isCollected=? AND b.isLoaned=? AND l.isReturned=?");
-    $stmt1->bind_param('iiii', $isReserved, $isColelcted, $isLoaned, $isReturned);
+    $stmt1->bind_param('iiii', $isReserved, $isCollected, $isLoaned, $isReturned);
     $stmt1->execute();
     $stmt1->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt1->store_result();
