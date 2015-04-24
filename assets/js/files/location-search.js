@@ -160,27 +160,21 @@
         };
     }
 
-    //Location search
-    $("#location-search-submit").click(function (e) {
-        e.preventDefault();
-
-        var hasError = false;
+    function searchLocations() {
 
         var address = document.getElementById("addressInput").value;
         if(address === '') {
             $("label[for='addressInput']").empty().append("Please enter a location.");
             $("label[for='addressInput']").removeClass("feedback-success");
             $("label[for='addressInput']").addClass("feedback-danger");
-            $("#addressInput").removeClass("input-success");
-            $("#addressInput").addClass("input-danger");
+            $("#addressInput").css("cssText", "border-color: #D9534F");
             $("#addressInput").focus();
-            hasError = true;
             return false;
         } else {
             $("label[for='addressInput']").empty().append("All good!");
             $("label[for='addressInput']").removeClass("feedback-danger");
-            $("label[for='addressInput']").addClass("feedback-success");
             $("#addressInput").removeClass("input-danger");
+            $("label[for='addressInput']").addClass("feedback-success");
             $("#addressInput").addClass("input-success");
         }
 
@@ -191,7 +185,6 @@
             $("label[for='radiusSelect']").addClass("feedback-danger");
             $("[aria-owns='select2-radiusSelect-results']").removeClass("input-success");
             $("[aria-owns='select2-radiusSelect-results']").addClass("input-danger");
-            hasError = true;
             return false;
         } else {
             $("label[for='radiusSelect']").empty().append("All good!");
@@ -201,26 +194,15 @@
             $("[aria-owns='select2-radiusSelect-results']").addClass("input-success");
         }
 
-        if(hasError == false) {
+        var geocoder = new google.maps.Geocoder();
 
-            var geocoder = new google.maps.Geocoder();
-
-            geocoder.geocode({address: address}, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    buttonReset();
-                    searchLocationsNear(results[0].geometry.location);
-                } else {
-                    buttonReset();
-                    $("#error").empty().append(address + ' was not found. Please try again.');
-                }
-            });
-        }
-
-    });
-
-    function searchLocations() {
-
-
+        geocoder.geocode({address: address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                searchLocationsNear(results[0].geometry.location);
+            } else {
+            $("#error").empty().append(address + ' was not found. Please try again.');
+         }
+        });
     }
 
     function clearLocations() {
