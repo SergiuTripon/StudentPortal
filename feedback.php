@@ -61,7 +61,7 @@ include 'includes/session.php';
     $lecture_status = 'active';
 
 	$stmt1 = $mysqli->prepare("SELECT m.module_url, l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, l.lecture_from_time, l.lecture_to_time, l.lecture_location, l.lecture_capacity, d.firstname, d.surname FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status=? AND u.userid=? AND DATE(l.lecture_to_date) > DATE(NOW())");
-    $stmt1->bind_param('is', $session_userid, $lecture_status);
+    $stmt1->bind_param('si', $lecture_status, $session_userid);
     $stmt1->execute();
     $stmt1->bind_result($module_url, $lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_location, $lecture_capacity, $firstname, $surname);
     $stmt1->store_result();
