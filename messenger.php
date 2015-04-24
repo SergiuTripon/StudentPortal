@@ -199,7 +199,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-'.$messageid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$messageid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -210,21 +210,13 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="text-center feedback-danger">Are you sure you want to delete '.$message_subject.'?</p>
-			<p id="delete-confirmation" class="text-center feedback-success" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
+			<p class="text-left">Are you sure you want to delete "'.$message_subject.'""?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-hide">
-			<div class="pull-left">
-			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-received-message-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a id="delete-'.$messageid.'" class="btn btn-primary btn-lg btn-delete-received-message btn-load">Delete</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
@@ -331,7 +323,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="view-'.$messageid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-'.$messageid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -362,7 +354,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="delete-'.$messageid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="delete-'.$messageid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -373,21 +365,13 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p id="delete-question" class="text-center feedback-danger">Are you sure you want to delete '.$message_subject.'?</p>
-			<p id="delete-confirmation" class="text-center feedback-success" style="display: none;">'.$message_subject.' has been deleted successfully.</p>
+			<p class="text-left">Are you sure you want to delete "'.$message_subject.'""?</p>
 			</div>
 
 			<div class="modal-footer">
-			<div id="delete-hide">
-			<div class="pull-left">
-			<a id="delete-'.$messageid.'" class="btn btn-success btn-lg delete-sent-message-button" >Yes</a>
-			</div>
 			<div class="text-right">
-			<button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">No</button>
-			</div>
-			</div>
-			<div class="text-center">
-			<a id="delete-success-button" class="btn btn-primary btn-lg" style="display: none;" >Continue</a>
+            <a id="delete-'.$messageid.'" class="btn btn-primary btn-lg btn-delete-sent-message">Delete</a>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</button>
 			</div>
 			</div>
 
@@ -412,9 +396,6 @@ include 'includes/session.php';
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
-
-
-
 
 	<?php else : ?>
 
@@ -448,18 +429,8 @@ include 'includes/session.php';
 
 	<script>
 
-
-
 	//DataTables
-    $('.table-custom').dataTable({
-        "iDisplayLength": 10,
-		"paging": true,
-		"ordering": true,
-		"info": false,
-		"language": {
-			"emptyTable": "There are no records to display."
-		}
-	});
+    $('.table-custom').dataTable(settings);
 
 	var message_read;
 	message_read = '1';
@@ -479,13 +450,11 @@ include 'includes/session.php';
 	});
 
    //Delete received message
-    $("body").on("click", ".delete-received-message-button", function(e) {
+    $("body").on("click", ".btn-delete-received-message", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
     var receivedMessageToDelete = clickedID[1];
-
-    alert(receivedMessageToDelete);
 
 	jQuery.ajax({
 	type: "POST",
@@ -493,14 +462,9 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'receivedMessageToDelete='+ receivedMessageToDelete,
 	success:function(){
-        $('#message-'+receivedMessageToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-question').hide();
-        $('#delete-confirmation').show();
-        $('#delete-hide').hide();
-        $('#delete-success-button').show();
-        $("#delete-success-button").click(function () {
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
             location.reload();
         });
 	},
@@ -512,13 +476,11 @@ include 'includes/session.php';
     });
 
     //Delete sent message
-    $("body").on("click", ".delete-sent-message-button", function(e) {
+    $("body").on("click", ".btn-delete-sent-message", function(e) {
     e.preventDefault();
 
     var clickedID = this.id.split('-');
     var sentMessageToDelete = clickedID[1];
-
-    alert(sentMessageToDelete);
 
 	jQuery.ajax({
 	type: "POST",
@@ -526,14 +488,10 @@ include 'includes/session.php';
 	dataType:"text",
 	data:'sentMessageToDelete='+ sentMessageToDelete,
 	success:function(){
-        $('#message-'+sentMessageToDelete).hide();
-        $('.form-logo i').removeClass('fa-trash');
-        $('.form-logo i').addClass('fa-check-square-o');
-        $('#delete-question').hide();
-        $('#delete-confirmation').show();
-        $('#delete-hide').hide();
-        $('#delete-success-button').show();
-        $("#delete-success-button").click(function () {
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
             location.reload();
         });
 	},
