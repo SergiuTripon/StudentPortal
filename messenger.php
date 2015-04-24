@@ -371,7 +371,7 @@ include 'includes/session.php';
 			<div class="modal-footer">
 			<div class="text-right">
             <a id="delete-'.$messageid.'" class="btn btn-primary btn-lg btn-delete-sent-message">Delete</a>
-			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</button>
+			<a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
 			</div>
 			</div>
 
