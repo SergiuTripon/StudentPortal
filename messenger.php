@@ -204,10 +204,9 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete message?</h4>
+            </div>
 
 			<div class="modal-body">
 			<p class="text-left">Are you sure you want to delete "'.$message_subject.'""?</p>
@@ -359,10 +358,9 @@ include 'includes/session.php';
     		<div class="modal-content">
 
 			<div class="modal-header">
-			<div class="form-logo text-center">
-			<i class="fa fa-trash"></i>
-			</div>
-			</div>
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete message?</h4>
+            </div>
 
 			<div class="modal-body">
 			<p class="text-left">Are you sure you want to delete "'.$message_subject.'""?</p>
