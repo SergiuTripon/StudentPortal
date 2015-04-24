@@ -296,7 +296,7 @@ elseif (isset($_POST["bookToRequest"])) {
     RequestBook();
 }
 
-//Call SetMessageRead function
+//Call SetRequestRead function
 elseif (isset($_POST["request_read"])) {
     SetRequestRead();
 }
@@ -553,7 +553,7 @@ elseif (isset($_POST["message_to_userid"], $_POST["message_to_firstname"], $_POS
 }
 
 //Call SetMessageRead function
-elseif (isset($_POST["message_read"])) {
+elseif (isset($_POST["messageToRead"])) {
     SetMessageRead();
 }
 

@@ -87,7 +87,7 @@ include 'includes/session.php';
 
     <div class="panel-heading" role="tab" id="headingTwo">
   	<h4 class="panel-title">
-	<a id="message-read-trigger" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Received messages</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Received messages</a>
   	</h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -127,7 +127,7 @@ include 'includes/session.php';
 	echo '<tr id="message-'.$messageid.'">
 
 			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$message_from_firstname.' '.$message_from_surname.'</a></td>
-			<td data-title="Subject"><a href="#view-message-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
+			<td data-title="Subject"><a id="message-'.$messageid.'" class="message-read-trigger" href="#view-message-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
@@ -430,16 +430,16 @@ include 'includes/session.php';
 	//DataTables
     $('.table-custom').dataTable(settings);
 
-	var message_read;
-	message_read = '1';
-
-	$("#message-read-trigger").click(function (e) {
+	$(".message-read-trigger").click(function (e) {
 	e.preventDefault();
+
+    var clickedID = this.id.split('-');
+    var messageToRead = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
-    data:'message_read=' + message_read,
+    data:'messageToRead=' + messageToRead,
     success:function() {
     },
     error:function (xhr, ajaxOptions, thrownError) {
