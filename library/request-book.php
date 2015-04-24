@@ -170,7 +170,7 @@ if (isset($_GET["id"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('All done! Book has been requested.');
+        $("#success").empty().append('All done! The book has been requested.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
