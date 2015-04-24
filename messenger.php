@@ -126,7 +126,7 @@ include 'includes/session.php';
 
 	echo '<tr id="message-'.$messageid.'">
 
-			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$message_from_firstname.' '.$message_from_surname.'</a></td>
+			<td data-title="From"><a id="message-'.$messageid.'" class="message-read-trigger" href="#view-user-'.$userid.'" data-toggle="modal">'.$message_from_firstname.' '.$message_from_surname.'</a></td>
 			<td data-title="Subject"><a id="message-'.$messageid.'" class="message-read-trigger" href="#view-message-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
             <td data-title="Action">

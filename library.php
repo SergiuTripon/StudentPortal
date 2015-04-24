@@ -1110,7 +1110,7 @@ AdminLibraryUpdate();
 
             echo
            '<tr>
-            <td data-title="Requested by"><a href="#view-requested-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
+            <td data-title="Requested by"><a id="book-'.$requestid.'" class="request-read-trigger" href="#view-requested-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Name"><a id="book-'.$requestid.'" class="request-read-trigger" href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action"><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a></td>
