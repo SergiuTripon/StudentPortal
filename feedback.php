@@ -343,8 +343,8 @@ include 'includes/session.php';
             echo
 
            '<tr>
-			<td data-title="From"><a id="feedback-'.$feedbackid.'" class="feedback-read-trigger" href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
-			<td data-title="Module"><a id="feedback-'.$feedbackid.'" class="feedback-read-trigger" href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
+			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
+			<td data-title="Module"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
 			<td data-title="Subject"><a id="feedback-'.$feedbackid.'" class="feedback-read-trigger" href="#view-feedback-'.$feedbackid.'" data-toggle="modal">'.$feedback_subject.'</a></td>
             <td data-title="Action"><a class="btn btn-primary btn-md" href="#delete-feedback-'.$feedbackid.'" data-toggle="modal">Delete</a></td>
 			</tr>
