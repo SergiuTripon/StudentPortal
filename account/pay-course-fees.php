@@ -121,7 +121,7 @@ while ($row = $stmt1->fetch_assoc()){
 
             $isHalf = $row["isHalf"];
 
-            if ($isHalf === 1) {
+            if ($isHalf == 1) {
                 echo '<select class="form-control" name="product_name" id="product_name" style="width: 100%;">';
                 echo '<option selected>Half fees</option>';
                 echo '</select>';
