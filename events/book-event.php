@@ -175,8 +175,8 @@ if (isset($_GET["id"])) {
 	if (payer_address1 === '') {
         $("label[for='payer_address1']").empty().append("Please enter an address.");
         $("label[for='payer_address1']").removeClass("feedback-success");
-        $("#payer_address1").removeClass("input-success");
         $("label[for='payer_address1']").addClass("feedback-danger");
+        $("#payer_address1").removeClass("input-success");
         $("#payer_address1").addClass("input-danger");
         $("#payer_address1").focus();
 		hasError  = true;
@@ -184,8 +184,8 @@ if (isset($_GET["id"])) {
 	} else {
         $("label[for='payer_address1']").empty().append("All good!");
         $("label[for='payer_address1']").removeClass("feedback-danger");
-        $("#payer_address1").removeClass("input-danger");
         $("label[for='payer_address1']").addClass("feedback-success");
+        $("#payer_address1").removeClass("input-danger");
         $("#payer_address1").addClass("input-success");
 	}
 
@@ -193,8 +193,8 @@ if (isset($_GET["id"])) {
     if(payer_city === '') {
         $("label[for='payer_city']").empty().append("Please enter a city.");
         $("label[for='payer_city']").removeClass("feedback-success");
-        $("#payer_city").removeClass("input-success");
         $("label[for='payer_city']").addClass("feedback-danger");
+        $("#payer_city").removeClass("input-success");
         $("#payer_city").addClass("input-danger");
         $("#payer_city").focus();
 		hasError  = true;
@@ -202,8 +202,8 @@ if (isset($_GET["id"])) {
     } else {
         $("label[for='payer_city']").empty().append("All good!");
         $("label[for='payer_city']").removeClass("feedback-danger");
-        $("#payer_city").removeClass("input-danger");
         $("label[for='payer_city']").addClass("feedback-success");
+        $("#payer_city").removeClass("input-danger");
         $("#payer_city").addClass("input-success");
 	}
 
@@ -211,8 +211,8 @@ if (isset($_GET["id"])) {
 	if(payer_postcode === '') {
         $("label[for='payer_postcode']").empty().append("Please enter a postcode.");
         $("label[for='payer_postcode']").removeClass("feedback-success");
-        $("#payer_postcode").removeClass("input-success");
         $("label[for='payer_postcode']").addClass("feedback-danger");
+        $("#payer_postcode").removeClass("input-success");
         $("#payer_postcode").addClass("input-danger");
         $("#payer_postcode").focus();
 		hasError  = true;
@@ -220,8 +220,8 @@ if (isset($_GET["id"])) {
     } else {
         $("label[for='payer_postcode']").empty().append("All good!");
         $("label[for='payer_postcode']").removeClass("feedback-danger");
-        $("#payer_postcode").removeClass("input-danger");
         $("label[for='payer_postcode']").addClass("feedback-success");
+        $("#payer_postcode").removeClass("input-danger");
         $("#payer_postcode").addClass("input-success");
 	}
 
@@ -229,17 +229,17 @@ if (isset($_GET["id"])) {
     if(product_quantity === '') {
         $("label[for='product_quantity']").empty().append("Please enter a quantity.");
         $("label[for='product_quantity']").removeClass("feedback-success");
-        $("#product_quantity").removeClass("input-success");
         $("label[for='product_quantity']").addClass("feedback-danger");
-        $("#payer_postcode").addClass("input-danger");
-        $("#payer_postcode").focus();
+        $("#product_quantity").removeClass("input-success");
+        $("#product_quantity").addClass("input-danger");
+        $("#product_quantity").focus();
         hasError  = true;
         return false;
     } else {
         $("label[for='product_quantity']").empty().append("All good!");
         $("label[for='product_quantity']").removeClass("feedback-danger");
-        $("#product_quantity").removeClass("input-danger");
         $("label[for='product_quantity']").addClass("feedback-success");
+        $("#product_quantity").removeClass("input-danger");
         $("#product_quantity").addClass("input-success");
     }
 
