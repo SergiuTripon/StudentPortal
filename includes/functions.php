@@ -3252,10 +3252,10 @@ function AdminLibraryUpdate($isUpdate = 0) {
     $book_status2 = 'reserved';
     $book_status3 = 'requested';
 
-    $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_book WHERE book_status=? OR book_status=? OR book_status=?");
+    $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_location, book_publisher, book_publish_date, book_publish_place, book_page_amount, book_barcode, book_discipline, book_language, book_status, created_on, updated_on FROM system_book WHERE book_status=? OR book_status=? OR book_status=?");
     $stmt1->bind_param('sss', $book_status1, $book_status2, $book_status3);
     $stmt1->execute();
-    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no,  $book_status);
+    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt1->store_result();
 
     if ($stmt1->num_rows > 0) {
@@ -3293,7 +3293,16 @@ function AdminLibraryUpdate($isUpdate = 0) {
 			<p><b>Author:</b> '.$book_author.'</p>
 			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
 			<p><b>Copy number</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
-			<p><b>Copy number</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
+			<p><b>Location:</b> '.(empty($book_location) ? "-" : "$book_location").'</p>
+			<p><b>Publisher:</b> '.(empty($book_publisher) ? "-" : "$book_publisher").'</p>
+			<p><b>Publish date:</b> '.(empty($book_publish_date) ? "-" : "$book_publish_date").'</p>
+			<p><b>Publish place:</b> '.(empty($book_publish_place) ? "-" : "$book_publish_place").'</p>
+			<p><b>Pages:</b> '.(empty($book_page_amount) ? "-" : "$book_page_amount").'</p>
+			<p><b>Barcode:</b> '.(empty($book_barcode) ? "-" : "$book_barcode").'</p>
+			<p><b>Descipline:</b> '.(empty($book_discipline) ? "-" : "$book_discipline").'</p>
+			<p><b>Language:</b> '.(empty($book_language) ? "-" : "$book_language").'</p>
+			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
 			</div>
 
 			<div class="modal-footer">
