@@ -538,7 +538,7 @@ AdminLibraryUpdate();
     <li class="active">Library</li>
     </ol>
 
-    <a class="btn btn-success btn-lg btn-admin" href="../admin/create-book/">Create book</a>
+    <a class="btn btn-success btn-lg btn-admin btn-load" href="../admin/create-book/">Create book</a>
 
     <div class="panel-group panel-custom book-view" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -1027,9 +1027,6 @@ AdminLibraryUpdate();
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
-
-
-
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
