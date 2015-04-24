@@ -101,7 +101,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$lecture_location.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -164,7 +164,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$tutorial_location.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -262,7 +262,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$lecture_location.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -325,7 +325,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$tutorial_location.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -423,7 +423,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$lecture_location.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -486,7 +486,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$tutorial_location.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -584,7 +584,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$lecture_location.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -647,7 +647,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$tutorial_location.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -745,7 +745,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$lecture_location.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -808,7 +808,7 @@ AdminTimetableUpdate();
 			<td data-title="Location">'.$tutorial_location.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1007,7 +1007,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1065,7 +1065,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1158,7 +1158,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1216,7 +1216,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1309,7 +1309,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1367,7 +1367,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1460,7 +1460,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1518,7 +1518,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1611,7 +1611,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$lecture_capacity.'</td>
 			</tr>
 
-			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -1669,7 +1669,7 @@ AdminTimetableUpdate();
 			<td data-title="Capacity">'.$tutorial_capacity.'</td>
 			</tr>
 
-			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
