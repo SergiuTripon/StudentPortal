@@ -119,9 +119,6 @@ if (isset($_GET["id"])) {
 	
 	<?php include '../includes/footers/footer.php'; ?>
 
-
-
-
     <?php else : ?>
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
@@ -147,9 +144,6 @@ if (isset($_GET["id"])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>
@@ -186,10 +180,12 @@ if (isset($_GET["id"])) {
 
     // Date Time Picker
     $('#event_from').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
+        format: 'DD/MM/YYYY HH:mm',
+        useCurrent: false
     });
     $('#event_to').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm'
+        format: 'DD/MM/YYYY HH:mm',
+        useCurrent: false
     });
 
     //Ajax call
@@ -312,6 +308,7 @@ if (isset($_GET["id"])) {
 		$("#success").empty().append('All done! The event has been updated.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
 		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);

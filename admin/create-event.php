@@ -178,7 +178,7 @@ include '../includes/session.php';
 
 	var hasError = false;
 
-    //Modules
+    //Events
 	var event_name = $("#event_name").val();
 	if(event_name === '') {
         $("label[for='event_name']").empty().append("Please enter a name.");
@@ -292,6 +292,7 @@ include '../includes/session.php';
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
 		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
