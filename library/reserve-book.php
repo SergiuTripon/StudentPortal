@@ -1,6 +1,18 @@
 <?php
 include '../includes/session.php';
 
+global $mysqli;
+global $bookid;
+global $book_name;
+global $book_author;
+global $book_notes;
+
+global $userid;
+global $email;
+global $studentno;
+global $firstname;
+global $surname;
+
 if (isset($_GET["id"])) {
 
     $bookToReserve = $_GET["id"];
@@ -194,7 +206,7 @@ if (isset($_GET["id"])) {
     success:function(){
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('All done! Book has been reserved.');
+        $("#success").empty().append('All done! The book has been reserved.');
     },
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();

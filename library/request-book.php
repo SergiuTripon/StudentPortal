@@ -1,6 +1,8 @@
 <?php
 include '../includes/session.php';
 
+global $mysqli, $bookid, $book_name, $book_author, $book_notes,$userid, $email, $studentno, $firstname, $surname;
+
 if (isset($_GET["id"])) {
 
     $bookToReserve = $_GET["id"];
