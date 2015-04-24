@@ -113,7 +113,7 @@ AdminEventUpdate();
 			<td data-title="To">'.$event_to.'</td>
 			<td data-title="Price">'.$event_amount.'</td>
 			<td data-title="Ticket available">'.($event_ticket_no === '0' ? "Sold Out" : "$event_ticket_no").'</td>
-			<td data-title="Action">'.($event_ticket_no === '0' ? "<a class=\"btn btn-primary btn-md btn-disabled\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</a>" : "<a class=\"btn btn-primary btn-md\" href=\"../events/book-event?id=$eventid\" data-style=\"slide-up\"><span class=\"ladda-label\">Book</a>").'</td>
+			<td data-title="Action">'.($event_ticket_no > 0 ? "<a class=\"btn btn-primary btn-md btn-load\" href=\"../events/book-event?id=$eventid\">Book</a>" : "<a class=\"btn btn-primary btn-md btn-disabled\" href=\"../events/book-event?id=$eventid\"<Book</a>").'</td>
 			</tr>
 
 			<div id="view-'.$eventid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
@@ -304,16 +304,6 @@ AdminEventUpdate();
     });
 
     //DataTables
-    settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
     $('.table-custom').dataTable(settings);
 
 	//Sets calendar options
