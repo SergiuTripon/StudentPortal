@@ -192,7 +192,7 @@ AdminLibraryUpdate();
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Book</th>
 	<th>Author</th>
 	<th>Reserved on</th>
 	<th>To collect by</th>
@@ -216,12 +216,12 @@ AdminLibraryUpdate();
 
             echo '<tr>
 
-			<td data-title="Book">' . $book_name . '</td>
-			<td data-title="Author">' . $book_author . '</td>
-			<td data-title="Reserved on">' . $created_on . '</td>
-			<td data-title="To collect by">' . $tocollect_on . '</td>
-			<td data-title="Collected on">' . (empty($collected_on) ? "Not yet" : "$collected_on") . '</td>
-			<td data-title="Collected">' . ($isCollected === '0' ? "No" : "Yes") . '
+			<td data-title="Book"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Reserved on">'.$created_on.'</td>
+			<td data-title="To collect by">'.$tocollect_on.'</td>
+			<td data-title="Collected on">'.(empty($collected_on) ? "Not yet" : "$collected_on").'</td>
+			<td data-title="Collected">'.($isCollected === '0' ? "No" : "Yes").'
 
 			<div id="view-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
