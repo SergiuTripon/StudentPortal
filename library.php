@@ -701,15 +701,15 @@ AdminLibraryUpdate();
     $isReserved = 1;
     $isCollected = 0;
 
-	$stmt1 = $mysqli->prepare("SELECT r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_reserved r LEFT JOIN user_detail d ON r.userid=d.userid LEFT JOIN system_book b ON r.bookid=b.bookid WHERE b.isReserved=? AND r.isCollected=?");
-    $stmt1->bind_param('ii', $isReserved, $isCollected);
-    $stmt1->execute();
-    $stmt1->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
-    $stmt1->store_result();
+	$stmt3 = $mysqli->prepare("SELECT r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_reserved r LEFT JOIN user_detail d ON r.userid=d.userid LEFT JOIN system_book b ON r.bookid=b.bookid WHERE b.isReserved=? AND r.isCollected=?");
+    $stmt3->bind_param('ii', $isReserved, $isCollected);
+    $stmt3->execute();
+    $stmt3->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt3->store_result();
 
-    if ($stmt1->num_rows > 0) {
+    if ($stmt3->num_rows > 0) {
 
-        while ($stmt1->fetch()) {
+        while ($stmt3->fetch()) {
 
             echo
             '<tr>
@@ -822,7 +822,7 @@ AdminLibraryUpdate();
         }
     }
 
-	$stmt1->close();
+	$stmt3->close();
 	?>
 	</tbody>
 
@@ -864,15 +864,15 @@ AdminLibraryUpdate();
     $isLoaned = 1;
     $isReturned = 0;
 
-	$stmt1 = $mysqli->prepare("SELECT DISTINCT l.bookid, l.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_loaned l LEFT JOIN system_book_reserved r ON l.bookid=r.bookid LEFT JOIN user_detail d ON l.userid=d.userid LEFT JOIN system_book b ON l.bookid=b.bookid WHERE b.isReserved=? AND r.isCollected=? AND b.isLoaned=? AND l.isReturned=?");
-    $stmt1->bind_param('iiii', $isReserved, $isCollected, $isLoaned, $isReturned);
-    $stmt1->execute();
-    $stmt1->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
-    $stmt1->store_result();
+	$stmt4 = $mysqli->prepare("SELECT DISTINCT l.bookid, l.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_loaned l LEFT JOIN system_book_reserved r ON l.bookid=r.bookid LEFT JOIN user_detail d ON l.userid=d.userid LEFT JOIN system_book b ON l.bookid=b.bookid WHERE b.isReserved=? AND r.isCollected=? AND b.isLoaned=? AND l.isReturned=?");
+    $stmt4->bind_param('iiii', $isReserved, $isCollected, $isLoaned, $isReturned);
+    $stmt4->execute();
+    $stmt4->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt4->store_result();
 
-    if ($stmt1->num_rows > 0) {
+    if ($stmt4->num_rows > 0) {
 
-        while ($stmt1->fetch()) {
+        while ($stmt4->fetch()) {
 
             echo
            '<tr>
@@ -986,7 +986,7 @@ AdminLibraryUpdate();
         }
     }
 
-	$stmt1->close();
+	$stmt4->close();
 	?>
 	</tbody>
 
@@ -1025,15 +1025,15 @@ AdminLibraryUpdate();
 
     $isApproved = 0;
 
-	$stmt1 = $mysqli->prepare("SELECT r.requestid, r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid LEFT JOIN user_detail d ON r.userid=d.userid WHERE r.isApproved = '0'");
-    $stmt1->bind_param('i', $isApproved);
-    $stmt1->execute();
-    $stmt1->bind_result($requestid, $bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
-    $stmt1->store_result();
+	$stmt5 = $mysqli->prepare("SELECT r.requestid, r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid LEFT JOIN user_detail d ON r.userid=d.userid WHERE r.isApproved = '0'");
+    $stmt5->bind_param('i', $isApproved);
+    $stmt5->execute();
+    $stmt5->bind_result($requestid, $bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt5->store_result();
 
-    if ($stmt1->num_rows > 0) {
+    if ($stmt5->num_rows > 0) {
 
-        while ($stmt1->fetch()) {
+        while ($stmt5->fetch()) {
 
             echo
            '<tr>
@@ -1111,7 +1111,7 @@ AdminLibraryUpdate();
         }
     }
 
-	$stmt1->close();
+	$stmt5->close();
 	?>
 	</tbody>
 
