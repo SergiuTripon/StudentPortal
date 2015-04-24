@@ -291,7 +291,7 @@ AdminLibraryUpdate();
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Book</th>
 	<th>Author</th>
 	<th>Loaned on</th>
 	<th>To return by</th>
@@ -653,7 +653,7 @@ AdminLibraryUpdate();
 
 	<thead>
 	<tr>
-	<th>Name</th>
+	<th>Book</th>
 	<th>Author</th>
 	<th>Action</th>
 	</tr>
@@ -689,7 +689,7 @@ AdminLibraryUpdate();
 	<thead>
 	<tr>
     <th>Reserved by</th>
-	<th>Name</th>
+	<th>Book</th>
 	<th>Author</th>
     <th>Action</th>
 	</tr>
