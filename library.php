@@ -1074,7 +1074,7 @@ AdminLibraryUpdate();
 
     <div class="panel-heading" role="tab" id="headingFive">
   	<h4 class="panel-title">
-	<a id="request-read-trigger" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive"> Requested books</a>
+	<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive"> Requested books</a>
   	</h4>
     </div>
     <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
@@ -1111,7 +1111,7 @@ AdminLibraryUpdate();
             echo
            '<tr>
             <td data-title="Requested by"><a href="#view-requested-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
-			<td data-title="Name"><a href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
+			<td data-title="Name"><a id="book-'.$requestid.'" class="request-read-trigger" href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
             <td data-title="Action"><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a></td>
 			</tr>
@@ -1212,21 +1212,22 @@ AdminLibraryUpdate();
     $('.table-loaned-book').dataTable(settings);
     $('.table-requested-book').dataTable(settings);
 
-    var request_read;
-    request_read = '1';
 
-    $("#request-read-trigger").click(function (e) {
-        e.preventDefault();
+    $(".request-read-trigger").click(function (e) {
+    e.preventDefault();
 
-        jQuery.ajax({
-            type: "POST",
-            url: "https://student-portal.co.uk/includes/processes.php",
-            data:'request_read=' + request_read,
-            success:function() {
-            },
-            error:function (xhr, ajaxOptions, thrownError) {
-            }
-        });
+    var clickedID = this.id.split('-');
+    var requestToRead = clickedID[1];
+
+    jQuery.ajax({
+    type: "POST",
+    url: "https://student-portal.co.uk/includes/processes.php",
+    data:'requestToRead=' + requestToRead,
+    success:function() {
+    },
+    error:function (xhr, ajaxOptions, thrownError) {
+    }
+    });
     });
 
     //Collect book

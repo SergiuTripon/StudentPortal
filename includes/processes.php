@@ -297,7 +297,7 @@ elseif (isset($_POST["bookToRequest"])) {
 }
 
 //Call SetRequestRead function
-elseif (isset($_POST["request_read"])) {
+elseif (isset($_POST["requestToRead"])) {
     SetRequestRead();
 }
 

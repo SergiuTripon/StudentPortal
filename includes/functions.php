@@ -3059,8 +3059,10 @@ function SetRequestRead () {
 
     $isRead = 1;
 
-    $stmt1 = $mysqli->prepare("UPDATE system_book_requested SET isRead=?");
-    $stmt1->bind_param('i', $isRead);
+    $requestToRead = filter_input(INPUT_POST, 'requestToRead', FILTER_SANITIZE_STRING);
+
+    $stmt1 = $mysqli->prepare("UPDATE system_book_requested SET isRead=? WHERE requestid=?");
+    $stmt1->bind_param('ii', $requestToRead, $requestid);
     $stmt1->execute();
     $stmt1->close();
 }
