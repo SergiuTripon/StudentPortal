@@ -19,11 +19,9 @@ AdminLibraryUpdate();
 
 	<?php include 'assets/meta-tags.php'; ?>
 
-
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-
-
     <title>Student Portal | Library</title>
+
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -118,8 +116,8 @@ AdminLibraryUpdate();
             $stmt3->bind_result($db_loaned_bookid);
             $stmt3->fetch();
 
-            echo '<tr id="book-'.$bookid.'">
-
+            echo
+           '<tr>
 			<td data-title="Book"><a href="#view-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Reserve">'.($stmt2->num_rows == 0 ? "<a class=\"btn btn-primary btn-md btn-load\" href=\"../library/reserve-book?id=$bookid\">Reserve</a>" : "<a class=\"btn btn-primary btn-md disabled\" href=\"../library/reserve-book?id=$bookid\">Reserve</a>").'</td>
@@ -307,7 +305,7 @@ AdminLibraryUpdate();
 	$stmt3 = $mysqli->prepare("SELECT l.bookid, DATE_FORMAT(l.created_on,'%d %b %y') as created_on, DATE_FORMAT(l.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(l.returned_on,'%d %b %y') as returned_on, l.isReturned, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=?");
     $stmt3->bind_param('i', $session_userid);
     $stmt3->execute();
-    $stmt3->bind_result($bookid, $created_on, $toreturn_on, $return_on, $isReturned, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt3->bind_result($bookid, $created_on, $toreturn_on, $returned_on, $isReturned, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt3->store_result();
 
     if ($stmt3->num_rows > 0) {
@@ -316,50 +314,13 @@ AdminLibraryUpdate();
 
             echo
            '<tr>
-			<td data-title="Book">' . $book_name . '</td>
-			<td data-title="Author">' . $book_author . '</td>
-			<td data-title="Loaned on">' . $created_on . '</td>
-			<td data-title="To return by">' . $toreturn_on . '</td>
-			<td data-title="Returned on">' . (empty($returned_on) ? "Not yet" : "$returned_on") . '</td>
-			<td data-title="Returned">' . ($isReturned === '0' ? "No" : "Yes") . '</td>
-            <td data-title="Action">' . ($isReturned == 0 ? "<a id=\"book-$bookid\" class=\"btn btn-primary btn-md btn-renew-book btn-load\">Renew</a>" : "<a id=\"book-$bookid.'\" class=\"btn btn-primary btn-md disabled btn-renew-book btn-load\">Renew</a>") . '
-
-            <div id="view-loaned-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-book"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
-			</div>
-
-			<div class="modal-body">
-			<p><b>Author:</b> '.$book_author.'</p>
-			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
-			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
-			<p><b>Location:</b> '.(empty($book_location) ? "-" : "$book_location").'</p>
-			<p><b>Publisher:</b> '.(empty($book_publisher) ? "-" : "$book_publisher").'</p>
-			<p><b>Publish date:</b> '.(empty($book_publish_date) ? "-" : "$book_publish_date").'</p>
-			<p><b>Publish place:</b> '.(empty($book_publish_place) ? "-" : "$book_publish_place").'</p>
-			<p><b>Pages:</b> '.(empty($book_page_amount) ? "-" : "$book_page_amount").'</p>
-			<p><b>Barcode:</b> '.(empty($book_barcode) ? "-" : "$book_barcode").'</p>
-			<p><b>Descipline:</b> '.(empty($book_discipline) ? "-" : "$book_discipline").'</p>
-			<p><b>Language:</b> '.(empty($book_language) ? "-" : "$book_language").'</p>
-			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
-			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
-			</div>
-
-			<div class="modal-footer">
-			<div class="view-close text-center">
-			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            </td>
+			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Author">'.$book_author.'</td>
+			<td data-title="Loaned on">'.$created_on.'</td>
+			<td data-title="To return by">'.$toreturn_on.'</td>
+			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
+			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
+            <td data-title="Action">'.($isReturned == 0 ? "<a id=\"book-$bookid\" class=\"btn btn-primary btn-md btn-renew-book btn-load\">Renew</a>" : "<a id=\"book-$bookid.'\" class=\"btn btn-primary btn-md disabled btn-renew-book btn-load\">Renew</a>").'</td>
 			</tr>';
         }
     }
@@ -404,58 +365,22 @@ AdminLibraryUpdate();
     $stmt4 = $mysqli->prepare("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, r.isRead, r.isApproved, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid=?");
     $stmt4->bind_param('i', $session_userid);
     $stmt4->execute();
-    $stmt4->bind_result($bookid, $created_on, $isRead, $isApproved, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt4->bind_result($bookid, $created_on, $toreturn_on, $returned_on, $isReturned, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt4->store_result();
 
     if ($stmt4->num_rows > 0) {
 
-    while ($stmt4->fetch()) {
+        while ($stmt4->fetch()) {
 
-        echo '<tr>
+            echo '<tr>
 
 			<td data-title="Book">'.$book_name.'</td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Requested on">'.$created_on.'</td>
 			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
-			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'
-
-			<div id="view-requested-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-book"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$book_name.'</h4>
-			</div>
-
-			<div class="modal-body">
-			<p><b>Author:</b> '.$book_author.'</p>
-			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
-			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
-			<p><b>Location:</b> '.(empty($book_location) ? "-" : "$book_location").'</p>
-			<p><b>Publisher:</b> '.(empty($book_publisher) ? "-" : "$book_publisher").'</p>
-			<p><b>Publish date:</b> '.(empty($book_publish_date) ? "-" : "$book_publish_date").'</p>
-			<p><b>Publish place:</b> '.(empty($book_publish_place) ? "-" : "$book_publish_place").'</p>
-			<p><b>Pages:</b> '.(empty($book_page_amount) ? "-" : "$book_page_amount").'</p>
-			<p><b>Barcode:</b> '.(empty($book_barcode) ? "-" : "$book_barcode").'</p>
-			<p><b>Descipline:</b> '.(empty($book_discipline) ? "-" : "$book_discipline").'</p>
-			<p><b>Language:</b> '.(empty($book_language) ? "-" : "$book_language").'</p>
-			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
-			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
-			</div>
-
-			<div class="modal-footer">
-			<div class="view-close text-center">
-			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			</td>
+			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'</td>
 			</tr>';
+        }
     }
 
     $stmt1->close();
