@@ -449,18 +449,7 @@ AdminLibraryUpdate();
 	}(jQuery));
 
 	//DataTables
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
     $('.table-custom').dataTable(settings);
-
 
     //Renew book
     $("body").on("click", ".btn-renew-book", function(e) {
@@ -1033,16 +1022,6 @@ AdminLibraryUpdate();
 	<script>
 
 	//DataTables
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-        "emptyTable": "There are no records to display."
-        }
-    };
-
     $('.table-active-book').dataTable(settings);
     $('.table-inactive-book').dataTable(settings);
     $('.table-reserved-book').dataTable(settings);
@@ -1120,12 +1099,17 @@ AdminLibraryUpdate();
     var clickedID = this.id.split('-');
     var bookToDeactivate = clickedID[1];
 
+    togglePreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'bookToDeactivate='+ bookToDeactivate,
 	success:function(html){
+
+        togglePreloader();
+
         $('#content-active-book').empty();
         $(".table-active-book").dataTable().fnDestroy();
         $('#content-active-book').html(html.active_book);
@@ -1137,6 +1121,7 @@ AdminLibraryUpdate();
         $(".table-inactive-book").dataTable(settings);
 	},
 	error:function (xhr, ajaxOptions, thrownError){
+        togglePreloader();
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
@@ -1149,12 +1134,16 @@ AdminLibraryUpdate();
     var clickedID = this.id.split('-');
     var bookToReactivate = clickedID[1];
 
+    togglePreloader();
+
 	jQuery.ajax({
 	type: "POST",
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
 	data:'bookToReactivate='+ bookToReactivate,
 	success:function(html){
+
+        togglePreloader();
 
         $('#content-inactive-book').empty();
         $(".table-inactive-book").dataTable().fnDestroy();
