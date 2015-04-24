@@ -64,7 +64,7 @@ include 'includes/session.php';
 	$stmt1 = $mysqli->prepare("SELECT m.moduleid, m.module_name, l.lecture_lecturer, t.tutorial_assistant FROM system_module m LEFT JOIN user_module u ON m.moduleid = u.moduleid LEFT JOIN system_lecture l ON m.moduleid = l.moduleid LEFT JOIN system_tutorial t ON m.moduleid = t.moduleid WHERE u.userid=? AND m.module_status=?");
     $stmt1->bind_param('is', $session_userid, $module_status);
     $stmt1->execute();
-    $stmt1->bind_result($moduleid, $module_name, $lecture_lecture, $tutorial_assistant);
+    $stmt1->bind_result($moduleid, $module_name, $lecture_lecturer, $tutorial_assistant);
     $stmt1->store_result();
 
     if ($stmt1->num_rows > 0) {
