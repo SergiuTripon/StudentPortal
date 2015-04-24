@@ -576,7 +576,7 @@ AdminEventUpdate();
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
 	data:'eventToDelete='+ eventToDelete,
-	success:function(){
+	success:function(html){
 
         $('.modal-custom').modal('hide');
 
