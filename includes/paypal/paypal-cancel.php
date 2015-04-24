@@ -33,7 +33,7 @@
     </div>
     
     <hr>
-    <p class="feedback-danger text-center">Payment cancelled successfully.</p>
+    <p class="feedback-success text-center">All done! The payment has been cancelled.</p>
     <hr>
     
     <div class="text-center">

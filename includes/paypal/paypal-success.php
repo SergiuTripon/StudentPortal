@@ -27,7 +27,7 @@
     </div>
     
     <hr>
-    <p class="feedback-success text-center">Payment completed successfully.</p>
+    <p class="feedback-success text-center">All done! The payment has been completed.</p>
     <hr>
     
     <div class="text-center">
