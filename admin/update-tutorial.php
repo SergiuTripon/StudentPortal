@@ -190,7 +190,7 @@ if (isset($_GET['id'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update tutorial</button>
+    <a id="FormSubmit" class="btn btn-primary btn-lg btn-load">Update tutorial</a>
     </div>
 
     </div>
@@ -230,9 +230,6 @@ if (isset($_GET['id'])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 
@@ -274,10 +271,6 @@ if (isset($_GET['id'])) {
         $("#tutorial_assistant").select2({placeholder: "Select an option"});
         $("#tutorial_day").select2({placeholder: "Select an option"});
     });
-
-
-
-
 
     // Date Time Picker
     $('#tutorial_from_time').datetimepicker({
@@ -456,6 +449,7 @@ if (isset($_GET['id'])) {
 		$("#success").empty().append('All done! The tutorial has been updated.');
 	},
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
 		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);

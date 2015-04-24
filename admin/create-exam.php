@@ -98,9 +98,9 @@ include '../includes/session.php';
 	</div>
 	</div>
 
-	</div>
+    <hr>
 
-	<hr>
+	</div>
 
     <div class="text-center">
     <button id="create-exam-submit" class="btn btn-primary btn-lg btn-load">Create exam</button>
@@ -128,10 +128,18 @@ include '../includes/session.php';
 
     // Date Time Picker
     $('#exam_date').datetimepicker({
-        format: 'DD/MM/YYYY'
+        format: 'DD/MM/YYYY',
+        useCurrent: false,
+        showTodayButton: true,
+        showClear: true,
+        showClose: true
     });
     $('#exam_time').datetimepicker({
-        format: 'HH:mm'
+        format: 'HH:mm',
+        useCurrent: false,
+        showTodayButton: true,
+        showClear: true,
+        showClose: true
     });
 
     //Create timetable ajax call
@@ -274,6 +282,7 @@ include '../includes/session.php';
 		$("#success-button").show();
 	},
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
 		$("#success").hide();
 		$("#error").show();
         $("#error").empty().append(thrownError);
