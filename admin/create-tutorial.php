@@ -150,15 +150,16 @@ include '../includes/session.php';
 	</div>
 	</div>
 
+    <hr>
+
 	</div>
 
-	<hr>
-
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Create tutorial</button>
+    <a id="create-tutorial-submit" class="btn btn-primary btn-lg btn-load">Create tutorial</a>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
+    <hr class="hr-success">
 	<a class="btn btn-primary btn-lg btn-load" href="">Create another</a>
 	</div>
 	
@@ -395,7 +396,6 @@ include '../includes/session.php';
         $("#tutorial_capacity").addClass("input-success");
 	}
 
-    //Ajax
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
