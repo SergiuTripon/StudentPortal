@@ -5173,8 +5173,10 @@ function SendMessage() {
 	$message_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
 	$message_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
 
-	$stmt1 = $mysqli->prepare("INSERT INTO user_message (message_subject, message_body, created_on) VALUES (?, ?, ?)");
-	$stmt1->bind_param('sss', $message_subject, $message_body, $created_on);
+    $message_status = 'active';
+
+	$stmt1 = $mysqli->prepare("INSERT INTO user_message (message_subject, message_body, message_status, created_on) VALUES (?, ?, ?, ?)");
+	$stmt1->bind_param('ssss', $message_subject, $message_body, $message_status, $created_on);
 	$stmt1->execute();
 	$stmt1->close();
 
