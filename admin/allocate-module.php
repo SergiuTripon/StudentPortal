@@ -268,7 +268,7 @@ if (isset($_GET['id'])) {
     <hr>
 
     <div class="text-center">
-	<a class="btn btn-primary btn-lg" href="/">Sign in</a>
+	<a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
     </div>
 
     </form>

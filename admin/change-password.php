@@ -20,9 +20,9 @@ if (isset($_GET["id"])) {
 
 	<?php include '../assets/meta-tags.php'; ?>
 
-	<?php include '../assets/css-paths/common-css-paths.php'; ?>
-
     <title>Student Portal | Change password</title>
+
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 
@@ -80,7 +80,6 @@ if (isset($_GET["id"])) {
 	</div> <!-- /container -->
 
 	<?php include '../includes/footers/footer.php'; ?>
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
@@ -215,9 +214,7 @@ if (isset($_GET["id"])) {
     }
 	});
     }
-
 	return true;
-
 	});
 	</script>
 
@@ -240,7 +237,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/home/">Home</a>
+    <a class="btn btn-primary btn-lg btn-load" href="/home/">Home</a>
     </div>
 
     </form>
@@ -248,6 +245,7 @@ if (isset($_GET["id"])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <?php endif; ?>
 
@@ -268,7 +266,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
 	</div>
 
     </form>
@@ -276,8 +274,9 @@ if (isset($_GET["id"])) {
     </div>
 
 	<?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
-	<?php endif; ?>
+    <?php endif; ?>
 
 </body>
 </html>

@@ -118,7 +118,7 @@ include '../includes/session.php';
 	</div>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load" >Create book</button>
+    <button id="create-book-submit" class="btn btn-primary btn-lg btn-load" >Create book</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
@@ -202,7 +202,7 @@ include '../includes/session.php';
     });
 
     //Create book
-    $("#FormSubmit").click(function (e) {
+    $("#create-book-submit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;

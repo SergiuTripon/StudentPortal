@@ -363,7 +363,7 @@ include '../includes/session.php';
 	</div>
 
     <div class="text-center">
-    <button id="admin-create-account-submit" class="btn btn-primary btn-lg btn-load">Create account</button>
+    <a id="admin-create-account-submit" class="btn btn-primary btn-lg btn-load">Create account</a>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">

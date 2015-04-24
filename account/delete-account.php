@@ -26,11 +26,11 @@ if ($studentno === 0) {
 
     <title>Student Portal | Delete Account</title>
 
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
+
 </head>
 
 <body>
-
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 	<div class="preloader"></div>
 
@@ -47,7 +47,7 @@ if ($studentno === 0) {
     </ol>
 	
     <!-- Delete account -->
-	<form class="form-horizontal form-custom" style="max-width: 100%;" name="delete_account_form">
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="delete-account-form">
 
     <div class="form-group">
     
@@ -67,7 +67,7 @@ if ($studentno === 0) {
     
 	</div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
     <a class="btn btn-primary btn-lg" data-toggle="modal" href="#delete-account-modal">Delete account</a>
@@ -104,11 +104,11 @@ if ($studentno === 0) {
     </div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //Ajax call
+
+    //Delete account
     $(".btn-delete-account").click(function (e) {
     e.preventDefault();
 
@@ -155,7 +155,7 @@ if ($studentno === 0) {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
 	</div>
 	
     </form>
@@ -163,6 +163,7 @@ if ($studentno === 0) {
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<?php endif; ?>
 

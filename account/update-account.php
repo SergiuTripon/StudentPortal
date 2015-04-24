@@ -372,7 +372,10 @@ if ($dateofbirth == "0000-00-00") {
     // Date Time Picker
     $('#dateofbirth').datetimepicker({
         format: 'DD/MM/YYYY',
-        useCurrent: false
+        useCurrent: false,
+        showTodayButton: true,
+        showClear: true,
+        showClose: true
     });
 
     //Update account
@@ -760,7 +763,7 @@ if ($dateofbirth == "0000-00-00") {
     </div>
     </div>
 
-    <hr class="hr-custom">
+    <hr>
 
     <div class="text-center">
     <button id="update-account-submit" class="btn btn-primary btn-lg btn-load">Update account</button>
@@ -785,7 +788,10 @@ if ($dateofbirth == "0000-00-00") {
     // Date Time Picker
     $('#dateofbirth').datetimepicker({
         format: 'DD/MM/YYYY',
-        useCurrent: false
+        useCurrent: false,
+        showTodayButton: true,
+        showClear: true,
+        showClose: true
     });
 
     //Update account
@@ -896,7 +902,7 @@ if ($dateofbirth == "0000-00-00") {
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
 	</div>
 	
     </form>

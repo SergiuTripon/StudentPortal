@@ -10,12 +10,12 @@ include '../includes/session.php';
 	<?php include '../assets/meta-tags.php'; ?>
 
     <title>Student Portal | Change password</title>
-	
+
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
+
 </head>
 
 <body>
-
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
 	<div class="preloader"></div>
 
@@ -31,7 +31,7 @@ include '../includes/session.php';
     </ol>
 	
 	<!-- Change Password -->
-	<form class="form-horizontal form-custom" style="max-width: 100%;" name="changepassword_form" novalidate>
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="change-password-form">
 
     <p id="error" class="feedback-danger text-center"></p>
     <p id="error1" class="feedback-danger text-center"></p>
@@ -60,7 +60,7 @@ include '../includes/session.php';
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Change password</button>
+    <button id="change-password-submit" class="btn btn-primary btn-lg btn-load">Change password</button>
     </div>
 
     </div>
@@ -70,14 +70,11 @@ include '../includes/session.php';
 	</div><!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-	$(document).ready(function() {
-
-	//Ajax call
-    $("#FormSubmit").click(function (e) {
+	//Change password
+    $("#change-password-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
@@ -222,10 +219,7 @@ include '../includes/session.php';
     }
 	});
     }
-
 	return true;
-
-	});
 	});
 	</script>
 
@@ -246,7 +240,7 @@ include '../includes/session.php';
     <hr>
 
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
 	</div>
 	
     </form>

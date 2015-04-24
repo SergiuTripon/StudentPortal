@@ -189,9 +189,7 @@ if (isset($_GET['id'])) {
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
-
     });
 
     //Deallocate exam
@@ -214,7 +212,6 @@ if (isset($_GET['id'])) {
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
-
 	});
     });
 	</script>

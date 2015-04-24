@@ -10,11 +10,11 @@ include '../includes/session.php';
 
     <title>Student Portal | Account deleted</title>
 
+    <?php include '../assets/css-paths/common-css-paths.php'; ?>
+
 </head>
 
 <body>
-
-    <?php include '../assets/css-paths/common-css-paths.php'; ?>
 
     <div class="preloader"></div>
 
@@ -37,11 +37,11 @@ include '../includes/session.php';
 	<hr>
 
 	<div class="pull-left">
-    <a class="btn btn-success btn-lg" href="../../home/">Home</a>
+    <a class="btn btn-success btn-lg btn-load" href="../../home/">Home</a>
     </div>
 
     <div class="text-right">
-    <a class="btn btn-danger btn-lg" href="../delete-account/">Delete account</a>
+    <a class="btn btn-danger btn-lg btn-load" href="../delete-account/">Delete account</a>
     </div>
 
 	</form>
@@ -49,7 +49,6 @@ include '../includes/session.php';
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <?php else : ?>
@@ -68,7 +67,7 @@ include '../includes/session.php';
 
     <hr>
 
-    <p class="feedback-success text-center">Your account has been deleted successfully.</p>
+    <p class="feedback-success text-center">All done! Your account has been deleted.</p>
 
     <hr>
 
@@ -86,7 +85,6 @@ include '../includes/session.php';
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <?php endif; ?>
