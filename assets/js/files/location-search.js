@@ -171,7 +171,7 @@
             $("label[for='addressInput']").addClass("feedback-danger");
             $("#addressInput").css("cssText", "border-color: #D9534F");
             $("#addressInput").focus();
-            hasError  = true;
+            hasError = true;
             return false;
         } else {
             $("label[for='addressInput']").empty().append("All good!");
@@ -188,7 +188,7 @@
             $("label[for='radiusSelect']").addClass("feedback-danger");
             $("[aria-owns='select2-radiusSelect-results']").removeClass("input-success");
             $("[aria-owns='select2-radiusSelect-results']").addClass("input-danger");
-            hasError  = true;
+            hasError = true;
             return false;
         } else {
             $("label[for='radiusSelect']").empty().append("All good!");
