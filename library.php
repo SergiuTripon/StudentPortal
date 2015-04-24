@@ -417,8 +417,8 @@ AdminLibraryUpdate();
 			<td data-title="Book"><a href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Requested on">'.$created_on.'</td>
-			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
-			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'
+			<td data-title="Read">'.($isRead === 0 ? "No" : "Yes").'</td>
+			<td data-title="Approved">'.($isApproved === 0 ? "No" : "Yes").'
 
 			<div id="view-requested-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
