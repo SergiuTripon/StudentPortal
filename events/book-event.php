@@ -144,7 +144,7 @@ if (isset($_GET["id"])) {
     <hr class="hr-custom">
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Pay with PayPal</button>
+    <button id="book-event-submit" class="btn btn-primary btn-lg btn-load">Pay with PayPal</button>
 	</div>
 
     </form>
@@ -153,76 +153,9 @@ if (isset($_GET["id"])) {
     </div><!-- /container -->
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
-
-    <?php else : ?>
-
-    <?php include '../includes/menus/menu.php'; ?>
-
-	<div class="container">
-
-	<form class="form-horizontal form-custom">
-
-    <div class="form-logo">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-
-    <p class="feedbac-sad text-center">You need to have a student account to access this area.</p>
-
-    <hr>
-
-    <div class="text-center">
-    <a class="btn btn-orange btn-lg" href="/home/">Home</a>
-    </div>
-
-    </form>
-
-    </div>
-
-    <?php include '../includes/footers/footer.php'; ?>
-
-
-
-
-    <?php endif; ?>
-	<?php else : ?>
-
-    <?php include '../includes/menus/menu.php'; ?>
-
-    <div class="container">
-
-    <form class="form-horizontal form-custom">
-
-	<div class="form-logo text-center">
-    <i class="fa fa-graduation-cap"></i>
-    </div>
-
-    <hr>
-    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
-    <hr>
-
-    <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="/">Sign in</a>
-	</div>
-
-    </form>
-
-    </div>
-
-    <?php include '../includes/footers/footer.php'; ?>
-
-	<?php endif; ?>
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-
-
-
 
     $('#product_quantity').keyup(function() {
         var quantity = $("#product_quantity").val();
@@ -233,7 +166,7 @@ if (isset($_GET["id"])) {
     });
 
     //Pay course fees form submit
-    $("#FormSubmit").click(function (e) {
+    $("#book-event-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
@@ -335,6 +268,65 @@ if (isset($_GET["id"])) {
 
 	});
 	</script>
+
+    <?php else : ?>
+
+    <?php include '../includes/menus/menu.php'; ?>
+
+	<div class="container">
+
+	<form class="form-horizontal form-custom">
+
+    <div class="form-logo">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+
+    <p class="feedback-sad text-center">You need to have a student account to access this area.</p>
+
+    <hr>
+
+    <div class="text-center">
+    <a class="btn btn-orange btn-lg btn-load" href="/home/">Home</a>
+    </div>
+
+    </form>
+
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+    <?php endif; ?>
+	<?php else : ?>
+
+    <?php include '../includes/menus/menu.php'; ?>
+
+    <div class="container">
+
+    <form class="form-horizontal form-custom">
+
+	<div class="form-logo text-center">
+    <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <hr>
+    <p class="feedback-danger text-center">Looks like you're not signed in yet. Please Sign in before accessing this area.</p>
+    <hr>
+
+    <div class="text-center">
+    <a class="btn btn-primary btn-lg btn-load" href="/">Sign in</a>
+	</div>
+
+    </form>
+
+    </div>
+
+    <?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+    <?php endif; ?>
 
 </body>
 </html>
