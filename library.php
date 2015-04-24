@@ -864,7 +864,7 @@ AdminLibraryUpdate();
     $isLoaned = 1;
     $isReturned = 0;
 
-	$stmt1 = $mysqli->prepare("SELECT DISTINCT l.bookid, l.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, book_location, book_publisher, book_publish_date, book_publish_place, book_page_amount, book_barcode, book_discipline, book_language, book_status, created_on, updated_on FROM system_book_loaned l LEFT JOIN system_book_reserved r ON l.bookid=r.bookid LEFT JOIN user_detail d ON l.userid=d.userid LEFT JOIN system_book b ON l.bookid=b.bookid WHERE b.isReserved=? AND r.isCollected=? AND b.isLoaned=? AND l.isReturned=?");
+	$stmt1 = $mysqli->prepare("SELECT DISTINCT l.bookid, l.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_loaned l LEFT JOIN system_book_reserved r ON l.bookid=r.bookid LEFT JOIN user_detail d ON l.userid=d.userid LEFT JOIN system_book b ON l.bookid=b.bookid WHERE b.isReserved=? AND r.isCollected=? AND b.isLoaned=? AND l.isReturned=?");
     $stmt1->bind_param('iiii', $isReserved, $isCollected, $isLoaned, $isReturned);
     $stmt1->execute();
     $stmt1->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
@@ -1025,16 +1025,18 @@ AdminLibraryUpdate();
 
     $isApproved = 0;
 
-	$stmt1 = $mysqli->prepare("SELECT r.requestid, r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid LEFT JOIN user_detail d ON r.userid=d.userid WHERE r.isApproved = '0'");
+	$stmt1 = $mysqli->prepare("SELECT r.requestid, r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid LEFT JOIN user_detail d ON r.userid=d.userid WHERE r.isApproved = '0'");
     $stmt1->bind_param('i', $isApproved);
     $stmt1->execute();
-    $stmt1->bind_result($requestid, $bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no);
+    $stmt1->bind_result($requestid, $bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt1->store_result();
 
-    while ($stmt1->fetch()) {
+    if ($stmt1->num_rows > 0) {
 
-	echo '<tr id="book-'.$requestid.'">
+        while ($stmt1->fetch()) {
 
+            echo
+           '<tr>
             <td data-title="Requested by"><a href="#view-requested-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Name"><a href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
@@ -1082,6 +1084,16 @@ AdminLibraryUpdate();
 			<p><b>Author:</b> '.$book_author.'</p>
 			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
 			<p><b>Copy number:</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
+			<p><b>Location:</b> '.(empty($book_location) ? "-" : "$book_location").'</p>
+			<p><b>Publisher:</b> '.(empty($book_publisher) ? "-" : "$book_publisher").'</p>
+			<p><b>Publish date:</b> '.(empty($book_publish_date) ? "-" : "$book_publish_date").'</p>
+			<p><b>Publish place:</b> '.(empty($book_publish_place) ? "-" : "$book_publish_place").'</p>
+			<p><b>Pages:</b> '.(empty($book_page_amount) ? "-" : "$book_page_amount").'</p>
+			<p><b>Barcode:</b> '.(empty($book_barcode) ? "-" : "$book_barcode").'</p>
+			<p><b>Descipline:</b> '.(empty($book_discipline) ? "-" : "$book_discipline").'</p>
+			<p><b>Language:</b> '.(empty($book_language) ? "-" : "$book_language").'</p>
+			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
 			</div>
 
 			<div class="modal-footer">
@@ -1096,7 +1108,8 @@ AdminLibraryUpdate();
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-	}
+        }
+    }
 
 	$stmt1->close();
 	?>
