@@ -61,10 +61,10 @@ include 'includes/session.php';
 
     $module_status = 'active';
 
-	$stmt1 = $mysqli->prepare("SELECT m.moduleid, m.module_name FROM system_module m LEFT JOIN user_module u ON m.moduleid = u.moduleid WHERE u.userid=? AND m.module_status=?");
+	$stmt1 = $mysqli->prepare("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m LEFT JOIN user_module u ON m.moduleid = u.moduleid WHERE u.userid=? AND m.module_status=?");
     $stmt1->bind_param('is', $session_userid, $module_status);
     $stmt1->execute();
-    $stmt1->bind_result($moduleid, $module_name);
+    $stmt1->bind_result($moduleid, $module_name, $module_notes, $module_url);
     $stmt1->store_result();
 
     if ($stmt1->num_rows > 0) {
