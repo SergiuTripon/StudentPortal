@@ -195,7 +195,10 @@ include '../includes/session.php';
     // Date Time Picker
     $('#book_publish_date').datetimepicker({
         format: 'DD/MM/YYYY',
-        useCurrent: false
+        useCurrent: false,
+        showTodayButton: true,
+        showClear: true,
+        showClose: true
     });
 
     //Create book
