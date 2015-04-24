@@ -110,7 +110,7 @@ global $transport_status_last_updated;
 
     <div class="transport-body">
 	<h1><i class="fa fa-map-marker"></i></h1>
-    <h4><a class="btn-load" href="https://www.tfl.gov.uk/cdn/static/cms/documents/standard-tube-map.pdf" target="_blank">Map</a></h4>
+    <h4><a href="https://www.tfl.gov.uk/cdn/static/cms/documents/standard-tube-map.pdf" target="_blank">Map</a></h4>
     </div>
 
     </div>
