@@ -4866,7 +4866,7 @@ function AdminUniversityMapUpdate($isUpdate = 0) {
 			<div class="modal-footer">
             <div class="view-action pull-left">
             <a href="/admin/update-location?id='.$markerid.'" class="btn btn-primary btn-md">Update</a>
-            <a id="deactivate-'.$markerid.'" class="btn btn-primary btn-md btn-deactivate-location">Deactivate</a>
+            <a id="deactivate-'.$markerid.'" class="btn btn-primary btn-md btn-deactivate-location" data-dismiss="modal">Deactivate</a>
             <a href="#delete-'.$markerid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
 			</div>
 			<div class="view-close pull-right">
