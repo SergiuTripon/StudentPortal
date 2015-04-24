@@ -126,8 +126,8 @@ include 'includes/session.php';
 
 	echo '<tr id="message-'.$messageid.'">
 
-			<td data-title="From"><a href="#view-'.$userid.'" data-toggle="modal">'.$message_from_firstname.' '.$message_from_surname.'</a></td>
-			<td data-title="Subject"><a href="#view-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
+			<td data-title="From"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$message_from_firstname.' '.$message_from_surname.'</a></td>
+			<td data-title="Subject"><a href="#view-message-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
             <td data-title="Action">
             <div class="btn-group btn-action">
@@ -143,7 +143,7 @@ include 'includes/session.php';
             </td>
 			</tr>
 
-			<div id="view-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -169,7 +169,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="view-'.$messageid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-message-'.$messageid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -280,8 +280,8 @@ include 'includes/session.php';
 
 	echo '<tr id="message-'.$messageid.'">
 
-			<td data-title="To"><a href="#view-'.$userid.'" data-toggle="modal">'.$message_to_firstname.' '.$message_to_surname.'</a></td>
-			<td data-title="Subject"><a href="#view-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
+			<td data-title="To"><a href="#view-user-'.$userid.'" data-toggle="modal">'.$message_to_firstname.' '.$message_to_surname.'</a></td>
+			<td data-title="Subject"><a href="#view-message-'.$messageid.'" data-toggle="modal">'.$message_subject.'</a></td>
 			<td data-title="Sent on">'.$message_sent_on.'</td>
 			<td data-title="Action">
             <div class="btn-group btn-action">
@@ -297,7 +297,7 @@ include 'includes/session.php';
             </td>
 			</tr>
 
-			<div id="view-'.$userid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -323,7 +323,7 @@ include 'includes/session.php';
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->
 
-			<div id="view-'.$messageid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-message-'.$messageid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
