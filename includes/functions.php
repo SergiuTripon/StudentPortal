@@ -3255,7 +3255,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
     $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_status FROM system_book WHERE book_status=? OR book_status=? OR book_status=?");
     $stmt1->bind_param('sss', $book_status1, $book_status2, $book_status3);
     $stmt1->execute();
-    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no, $book_status);
+    $stmt1->bind_result($bookid, $book_name, $book_author, $book_notes, $book_copy_no,  $book_status);
     $stmt1->store_result();
 
     if ($stmt1->num_rows > 0) {
@@ -3292,6 +3292,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
 			<div class="modal-body">
 			<p><b>Author:</b> '.$book_author.'</p>
 			<p><b>Description:</b> '.(empty($book_notes) ? "-" : "$book_notes").'</p>
+			<p><b>Copy number</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
 			<p><b>Copy number</b> '.(empty($book_copy_no) ? "-" : "$book_copy_no").'</p>
 			</div>
 
