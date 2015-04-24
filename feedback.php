@@ -51,6 +51,7 @@ include 'includes/session.php';
 	<tr>
 	<th>Name</th>
 	<th>Lecturer</th>
+    <th>Tutorial assistant</th>
     <th>Action</th>
 	</tr>
 	</thead>
@@ -58,12 +59,12 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
-    $lecture_status = 'active';
+    $module_status = 'active';
 
-	$stmt1 = $mysqli->prepare("SELECT m.module_url, l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, l.lecture_from_time, l.lecture_to_time, l.lecture_location, l.lecture_capacity, d.firstname, d.surname FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status=? AND u.userid=? AND DATE(l.lecture_to_date) > DATE(NOW())");
-    $stmt1->bind_param('si', $lecture_status, $session_userid);
+	$stmt1 = $mysqli->prepare("SELECT m.moduleid, m.module_name, l.lecture_lecturer, t.tutorial_assistant FROM system_module m LEFT JOIN user_module u ON m.moduleid = u.moduleid LEFT JOIN system_lecture l ON m.moduleid = l.moduleid LEFT JOIN system_tutorial t ON m.moduleid = t.moduleid WHERE u.userid=? AND m.module_status=? GROUP BY m.moduleid HAVING COUNT(*) >=1");
+    $stmt1->bind_param('is', $session_userid, $module_status);
     $stmt1->execute();
-    $stmt1->bind_result($module_url, $lectureid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_location, $lecture_capacity, $firstname, $surname);
+    $stmt1->bind_result($moduleid, $module_name);
     $stmt1->store_result();
 
     if ($stmt1->num_rows > 0) {
@@ -72,105 +73,35 @@ include 'includes/session.php';
 
             echo
            '<tr>
-            <td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
-            <td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md btn-load" href="../feedback/submit-feedback?id='.$lectureid.'">Submit feedback</a>
+            <td data-title="Name"><a href="#view-module-'.$moduleid.'" data-toggle="modal">'.$module_name.'</a></td>
+            <td data-title="Action"><a class="btn btn-primary btn-md btn-load" href="../feedback/submit-feedback?id='.$moduleid.'">Submit feedback</a></a></td>
+            </tr>
 
-            <div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
+            <div id="view-module-'.$moduleid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
 
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-clock-o"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$lecture_name.'</h4>
-			</div>
+            <div class="modal-header">
+            <div class="close"><i class="fa fa fa-check-square-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$module_name.'</h4>
+            </div>
 
-			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
-			<p><b>Academic staff:</b> '.$firstname.' '.$surname.'</p>
-			<p><b>Day:</b> '.$lecture_day.'</p>
-			<p><b>From:</b> '.$lecture_from_time.'</p>
-			<p><b>To:</b> '.$lecture_to_time.'</p>
-			<p><b>Location:</b> '.$lecture_location.'</p>
-			<p><b>Capacity:</b> '.$lecture_capacity.'</p>
-			</div>
+            <div class="modal-body">
+            <p><b>Description:</b> '.(empty($module_notes) ? "-" : "$module_notes").'</p>
+            <p><b>Moodle link:</b> '.(empty($module_url) ? "-" : "$module_url").'</p>
+            </div>
 
-			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
-			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm">Messenger</a>
-			</div>
-			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
-			</div>
-			</div>
+            <div class="modal-footer">
+            <div class="view-close text-center">
+            <a class="btn btn-danger btn-lg" data-dismiss="modal">Close</a>
+            </div>
+            </div>
 
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            </td>
-            </tr>';
-        }
-    }
-
-    $stmt1->close();
-
-    $tutorial_status = 'active';
-
-	$stmt1 = $mysqli->prepare("SELECT m.module_url, t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, t.tutorial_from_time, t.tutorial_to_time, t.tutorial_location, t.tutorial_capacity, d.firstname, d.surname FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status=? AND u.userid=? AND DATE(t.tutorial_to_date) > DATE(NOW())");
-    $stmt1->bind_param('si', $tutorial_status, $session_userid);
-    $stmt1->execute();
-    $stmt1->bind_result($module_url, $tutorialid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_location, $tutorial_capacity, $firstname, $surname);
-    $stmt1->store_result();
-
-    if ($stmt1->num_rows > 0) {
-
-        while ($stmt1->fetch()) {
-
-            echo
-           '<tr>
-            <td data-title="Name"><a href="#view-lecture-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
-            <td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
-            <td data-title="Action"><a class="btn btn-primary btn-md btn-load" href="../feedback/submit-feedback?id='.$tutorialid.'">Submit feedback</a>
-
-            <div id="view-lecture-'.$tutorialid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-clock-o"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$tutorial_name.'</h4>
-			</div>
-
-			<div class="modal-body">
-			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$tutorial_notes").'</p>
-			<p><b>Academic staff:</b> '.$firstname.' '.$surname.'</p>
-			<p><b>Day:</b> '.$tutorial_day.'</p>
-			<p><b>From:</b> '.$tutorial_from_time.'</p>
-			<p><b>To:</b> '.$tutorial_to_time.'</p>
-			<p><b>Location:</b> '.$tutorial_location.'</p>
-			<p><b>Capacity:</b> '.$tutorial_capacity.'</p>
-			</div>
-
-			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-sm" >Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-sm" >Feedback</a>
-			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm">Messenger</a>
-			</div>
-			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-sm" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            </td>
-            </tr>';
+            </div><!-- /modal -->
+            </div><!-- /modal-dialog -->
+            </div><!-- /modal-content -->';
+            $stmt2->close();
+            $stmt3->close();
         }
     }
 
