@@ -151,10 +151,6 @@ AdminLibraryUpdate();
 			</div>
 
 			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a id="reactivate-'.$bookid.'" class="btn btn-primary btn-md btn-reactivate-book">Reactivate</a>
-            <a href="#delete-'.$bookid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
-			</div>
 			<div class="view-close pull-right">
 			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
 			</div>
