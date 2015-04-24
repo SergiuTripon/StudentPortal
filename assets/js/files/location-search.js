@@ -170,7 +170,6 @@
             $("#addressInput").removeClass("input-success");
             $("#addressInput").addClass("input-danger");
             $("#addressInput").focus();
-            buttonReset();
             return false;
         } else {
             $("label[for='addressInput']").empty().append("All good!");
@@ -187,7 +186,6 @@
             $("label[for='radiusSelect']").addClass("feedback-danger");
             $("[aria-owns='select2-radiusSelect-results']").removeClass("input-success");
             $("[aria-owns='select2-radiusSelect-results']").addClass("input-danger");
-            buttonReset();
             return false;
         } else {
             $("label[for='radiusSelect']").empty().append("All good!");
@@ -197,14 +195,16 @@
             $("[aria-owns='select2-radiusSelect-results']").addClass("input-success");
         }
 
+        $("#btn-primary").data('loading-text', 'Loading...').button('loading');
+
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({address: address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-                buttonReset();
+                $("#btn-primary").button('reset');
                 searchLocationsNear(results[0].geometry.location);
             } else {
-                buttonReset();
+                $("#btn-primary").button('reset');
             $("#error").empty().append(address + ' was not found. Please try again.');
          }
         });
