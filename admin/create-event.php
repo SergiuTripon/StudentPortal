@@ -84,15 +84,16 @@ include '../includes/session.php';
 	</div>
 	</div>
 
+    <hr>
+
 	</div>
 
-	<hr>
-
     <div class="text-center">
-    <button id="create-event-submit" class="btn btn-primary btn-lg btn-load btn-load">Create event</button>
+    <a id="create-event-submit" class="btn btn-primary btn-lg btn-load btn-load">Create event</a>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
+    <hr class="hr-success">
 	<a class="btn btn-primary btn-lg btn-load" href="">Create another</a>
 	</div>
 	
@@ -286,7 +287,7 @@ include '../includes/session.php';
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
+		$("#create-event-submit").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The event has been created.');
 		$("#success-button").show();
