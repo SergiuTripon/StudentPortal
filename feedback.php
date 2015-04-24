@@ -72,7 +72,7 @@ include 'includes/session.php';
 
             echo
            '<tr>
-            <td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$module_name.'</a></td>
+            <td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
             <td data-title="Lecturer">'.$firstname.' '.$surname.'</td>
             <td data-title="Action"><a class="btn btn-primary btn-md btn-load" href="../feedback/submit-feedback?id='.$lectureid.'">Submit feedback</a>
 
