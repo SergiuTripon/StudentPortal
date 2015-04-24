@@ -199,9 +199,10 @@ if (isset($_GET["id"])) {
 
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('All done! Book has been reserved.');
+        $("#success").empty().append('All done! The book has been reserved.');
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }

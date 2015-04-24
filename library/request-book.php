@@ -173,6 +173,7 @@ if (isset($_GET["id"])) {
         $("#success").empty().append('All done! The book has been requested.');
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }

@@ -155,9 +155,6 @@ if (isset($_GET["id"])) {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
-
-
-
 	<?php else : ?>
 
     <?php include '../includes/menus/menu.php'; ?>
@@ -209,6 +206,7 @@ if (isset($_GET["id"])) {
         $("#success").empty().append('All done! The book has been reserved.');
     },
     error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
         $("#error").show();
         $("#error").empty().append(thrownError);
     }
