@@ -424,20 +424,10 @@ global $archived_task;
         $('#create_task_duedate').datetimepicker(datetimepicker);
     });
 
-    var datatables = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display at the moment."
-        }
-    };
-
     //DataTables
-    $('.table-due-task').dataTable(datatables);
-    $('.table-completed-task').dataTable(datatables);
-    $('.table-archived-task').dataTable(datatables);
+    $('.table-due-task').dataTable(settings);
+    $('.table-completed-task').dataTable(settings);
+    $('.table-archived-task').dataTable(settings);
 
     //Ajax call
     $("#create-task-submit").click(function (e) {
@@ -521,7 +511,7 @@ global $archived_task;
             $(".table-due-task").dataTable().fnDestroy();
             $('#content-due-task').empty();
             $('#content-due-task').html(html.due_task);
-            $(".table-due-task").dataTable(datatables);
+            $(".table-due-task").dataTable(settings);
 
             $("label[for='create_task_name']").removeClass("feedback-success");
             $("label[for='create_task_name']").removeClass("feedback-danger");
@@ -683,7 +673,7 @@ global $archived_task;
             $(".table-due-task").dataTable().fnDestroy();
             $('#content-due-task').empty();
             $('#content-due-task').html(html.due_task);
-            $(".table-due-task").dataTable(datatables);
+            $(".table-due-task").dataTable(settings);
 
             $("label[for='update_task_name']").removeClass("feedback-success");
             $("label[for='update_task_name']").removeClass("feedback-danger");
@@ -739,12 +729,12 @@ global $archived_task;
         $(".table-due-task").dataTable().fnDestroy();
         $('#content-due-task').empty();
         $('#content-due-task').html(html.due_task);
-        $(".table-due-task").dataTable(datatables);
+        $(".table-due-task").dataTable(settings);
 
         $(".table-completed-task").dataTable().fnDestroy();
         $('#content-completed-task').empty();
         $('#content-completed-task').html(html.completed_task);
-        $(".table-completed-task").dataTable(datatables);
+        $(".table-completed-task").dataTable(settings);
 
         togglePreloader();
 
@@ -778,12 +768,12 @@ global $archived_task;
         $(".table-due-task").dataTable().fnDestroy();
         $('#content-due-task').empty();
         $('#content-due-task').html(html.due_task);
-        $(".table-due-task").dataTable(datatables);
+        $(".table-due-task").dataTable(settings);
 
         $(".table-archived-task").dataTable().fnDestroy();
         $('#content-archived-task').empty();
         $('#content-archived-task').html(html.archived_task);
-        $(".table-archived-task").dataTable(datatables);
+        $(".table-archived-task").dataTable(settings);
 
         togglePreloader();
 
@@ -816,17 +806,17 @@ global $archived_task;
         $(".table-archived-task").dataTable().fnDestroy();
         $('#content-archived-task').empty();
         $('#content-archived-task').html(html.archived_task);
-        $(".table-archived-task").dataTable(datatables);
+        $(".table-archived-task").dataTable(settings);
 
         $(".table-completed-task").dataTable().fnDestroy();
         $('#content-completed-task').empty();
         $('#content-completed-task').html(html.completed_task);
-        $(".table-completed-task").dataTable(datatables);
+        $(".table-completed-task").dataTable(settings);
 
         $(".table-due-task").dataTable().fnDestroy();
         $('#content-due-task').empty();
         $('#content-due-task').html(html.due_task);
-        $(".table-due-task").dataTable(datatables);
+        $(".table-due-task").dataTable(settings);
 
         togglePreloader();
 
@@ -860,17 +850,17 @@ global $archived_task;
             $('#content-due-task').empty();
             $(".table-due-task").dataTable().fnDestroy();
             $('#content-due-task').html(html.due_task);
-            $(".table-due-task").dataTable(datatables);
+            $(".table-due-task").dataTable(settings);
 
             $('#content-completed-task').empty();
             $(".table-completed-task").dataTable().fnDestroy();
             $('#content-completed-task').html(html.completed_task);
-            $(".table-completed-task").dataTable(datatables);
+            $(".table-completed-task").dataTable(settings);
 
             $('#content-archived-task').empty();
             $(".table-archived-task").dataTable().fnDestroy();
             $('#content-archived-task').html(html.archived_task);
-            $(".table-archived-task").dataTable(datatables);
+            $(".table-archived-task").dataTable(settings);
 
             buttonReset();
 
