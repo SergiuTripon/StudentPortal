@@ -314,7 +314,7 @@ AdminLibraryUpdate();
 
             echo
            '<tr>
-			<td data-title="Name">'.$book_name.'</td>
+			<td data-title="Name"><a href="#view-loaned-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Loaned on">'.$created_on.'</td>
 			<td data-title="To return by">'.$toreturn_on.'</td>
@@ -322,7 +322,7 @@ AdminLibraryUpdate();
 			<td data-title="Returned">'.($isReturned === '0' ? "No" : "Yes").'</td>
             <td data-title="Action">'.($isReturned == 0 ? "<a id=\"book-$bookid\" class=\"btn btn-primary btn-md btn-renew-book btn-load\">Renew</a>" : "<a id=\"book-$bookid.'\" class=\"btn btn-primary btn-md disabled btn-renew-book btn-load\">Renew</a>").'
 
-            <div id="view-reserved-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+            <div id="view-loaned-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -414,13 +414,13 @@ AdminLibraryUpdate();
 
             echo
            '<tr>
-			<td data-title="Book">'.$book_name.'</td>
+			<td data-title="Book"><a href="#view-requested-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
 			<td data-title="Requested on">'.$created_on.'</td>
 			<td data-title="Read">'.($isRead === '0' ? "No" : "Yes").'</td>
 			<td data-title="Approved">'.($isApproved === '0' ? "No" : "Yes").'
 
-			<div id="view-reserved-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-requested-book-'.$bookid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
