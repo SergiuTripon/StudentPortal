@@ -890,10 +890,8 @@ AdminLibraryUpdate();
             <li><a href="../messenger/message-user?id='.$userid.'" class="btn btn-primary btn-md">Message user</a></li>
             </ul>
             </div>
-            </td>
-			</tr>
 
-            <div id="view-loaned-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+                        <div id="view-loaned-user-'.$userid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -982,7 +980,10 @@ AdminLibraryUpdate();
 
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->';
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
         }
     }
 
