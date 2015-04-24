@@ -256,18 +256,7 @@ include 'includes/session.php';
 
     <script>
 	//DataTables
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
     $('.table-custom').dataTable(settings);
-
 
    //Delete sent feedback
     $("body").on("click", ".btn-delete-sent-feedback", function(e) {
@@ -483,16 +472,6 @@ include 'includes/session.php';
 
     <script>
 	//DataTables
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
     $('.table-custom').dataTable(settings);
 
    //Delete received feedback
@@ -522,7 +501,7 @@ include 'includes/session.php';
 	});
     });
 
-	$("#feedback-read-trigger").click(function (e) {
+	$(".feedback-read-trigger").click(function (e) {
 	e.preventDefault();
 
     var clickedID = this.id.split('-');
