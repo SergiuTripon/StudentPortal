@@ -160,7 +160,11 @@
         };
     }
 
-    function searchLocations() {
+    //Location search
+    $("#location-search-submit").click(function (e) {
+        e.preventDefault();
+
+        var hasError = false;
 
         var address = document.getElementById("addressInput").value;
         if(address === '') {
@@ -170,6 +174,7 @@
             $("#addressInput").removeClass("input-success");
             $("#addressInput").addClass("input-danger");
             $("#addressInput").focus();
+            hasError = true;
             return false;
         } else {
             $("label[for='addressInput']").empty().append("All good!");
@@ -186,6 +191,7 @@
             $("label[for='radiusSelect']").addClass("feedback-danger");
             $("[aria-owns='select2-radiusSelect-results']").removeClass("input-success");
             $("[aria-owns='select2-radiusSelect-results']").addClass("input-danger");
+            hasError = true;
             return false;
         } else {
             $("label[for='radiusSelect']").empty().append("All good!");
@@ -195,15 +201,26 @@
             $("[aria-owns='select2-radiusSelect-results']").addClass("input-success");
         }
 
-        var geocoder = new google.maps.Geocoder();
+        if(hasError == false) {
 
-        geocoder.geocode({address: address}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                searchLocationsNear(results[0].geometry.location);
-            } else {
-            $("#error").empty().append(address + ' was not found. Please try again.');
-         }
-        });
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({address: address}, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    buttonReset();
+                    searchLocationsNear(results[0].geometry.location);
+                } else {
+                    buttonReset();
+                    $("#error").empty().append(address + ' was not found. Please try again.');
+                }
+            });
+        }
+
+    });
+
+    function searchLocations() {
+
+
     }
 
     function clearLocations() {
