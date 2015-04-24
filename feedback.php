@@ -100,8 +100,6 @@ include 'includes/session.php';
             </div><!-- /modal -->
             </div><!-- /modal-dialog -->
             </div><!-- /modal-content -->';
-            $stmt2->close();
-            $stmt3->close();
         }
     }
 
