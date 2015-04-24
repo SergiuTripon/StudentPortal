@@ -870,9 +870,11 @@ AdminLibraryUpdate();
     $stmt1->bind_result($bookid, $userid, $firstname, $surname, $gender, $dateofbirth, $nationality, $book_name, $book_author, $book_notes, $book_copy_no, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt1->store_result();
 
-    while ($stmt1->fetch()) {
+    if ($stmt1->num_rows > 0) {
 
-    	    echo
+        while ($stmt1->fetch()) {
+
+            echo
            '<tr>
             <td data-title="Loaned by"><a href="#view-loaned-user-'.$userid.'" data-toggle="modal">'.$firstname.' '.$surname.'</a></td>
 			<td data-title="Book"><a href="#view-loaned-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
@@ -981,7 +983,8 @@ AdminLibraryUpdate();
 			</div><!-- /modal -->
 			</div><!-- /modal-dialog -->
 			</div><!-- /modal-content -->';
-	}
+        }
+    }
 
 	$stmt1->close();
 	?>
