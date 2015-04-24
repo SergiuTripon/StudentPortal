@@ -138,7 +138,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, l.lecture_lecturer, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -299,7 +299,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, l.lecture_lecturer, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Tuesday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Tuesday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -460,7 +460,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, l.lecture_lecturer, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Wednesday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Wednesday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -621,7 +621,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, l.lecture_lecturer, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Thursday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Thursday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
 
@@ -782,7 +782,7 @@ AdminTimetableUpdate();
 
     $stmt1->close();
 
-    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, l.lecture_lecturer, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Friday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Friday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
     while($row = $stmt2->fetch_assoc()) {
 
