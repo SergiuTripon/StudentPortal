@@ -495,23 +495,10 @@ AdminEventUpdate();
 
 	<?php include 'includes/footers/footer.php'; ?>
 
-
-
-
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
     //DataTables
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
     $('.table-active-event').dataTable(settings);
     $('.table-inactive-event').dataTable(settings);
 

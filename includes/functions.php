@@ -4396,7 +4396,7 @@ function AdminEventUpdate($isUpdate = 0) {
             $active_event .=
 
             '<tr>
-            <td data-title="Name"><a href="#view-'.$eventid.'" data-toggle="modal" data-dismiss="modal">'.$event_name.'</a></td>
+            <td data-title="Event"><a href="#view-'.$eventid.'" data-toggle="modal" data-dismiss="modal">'.$event_name.'</a></td>
             <td data-title="From">'.$event_from.'</td>
             <td data-title="To">'.$event_to.'</td>
             <td data-title="Price (&pound;)">'.$event_amount.'</td>
