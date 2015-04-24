@@ -73,6 +73,17 @@ include '../includes/session.php';
     </div>
 
     <?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+    <script>
+    $(document).ready(function() {
+        //google-maps
+        loadMap();
+        //select2
+        $("#radiusSelect").select2({placeholder: "Select an option"});
+    });
+
+    </script>
 
     <?php else : ?>
 
@@ -103,20 +114,6 @@ include '../includes/session.php';
 	<?php include '../includes/footers/footer.php'; ?>
 
 	<?php endif; ?>
-
-    <?php include '../assets/js-paths/common-js-paths.php'; ?>
-
-    <script>
-    $(document).ready(function() {
-    //google-maps
-    loadMap();
-    //select2
-    $("#radiusSelect").select2({placeholder: "Select an option"});
-    });
-
-
-
-    </script>
 
 </body>
 </html>
