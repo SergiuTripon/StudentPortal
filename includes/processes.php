@@ -192,12 +192,12 @@ elseif (isset($_POST["userToDeallocate"], $_POST["moduleToDeallocate"])) {
     DeallocateModule();
 }
 
-//Call DeallocateModule function
-elseif (isset($_POST["userToDeallocate"], $_POST["moduleToDeallocate"])) {
+//Call DeallocateLecture function
+elseif (isset($_POST["userToDeallocate"], $_POST["lectureToDeallocate"])) {
     DeallocateLecture();
 }
 
-//Call DeallocateModule function
+//Call DeallocateTutorial function
 elseif (isset($_POST["userToDeallocate"], $_POST["tutorialToDeallocate"])) {
     DeallocateTutorial();
 }
