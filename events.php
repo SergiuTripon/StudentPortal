@@ -18,11 +18,9 @@ AdminEventUpdate();
 
 	<?php include 'assets/meta-tags.php'; ?>
 
-
-	<?php include 'assets/css-paths/common-css-paths.php'; ?>
-
-
     <title>Student Portal | Events</title>
+
+    <?php include 'assets/css-paths/common-css-paths.php'; ?>
 
 </head>
 

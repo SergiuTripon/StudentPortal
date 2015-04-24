@@ -78,10 +78,7 @@ class paypal_class {
 		echo "<title>Student Portal | Processing Payment...</title>\n";
 
 		echo "<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300\" rel=\"stylesheet\">\n";
-		echo "<link href=\"https://student-portal.co.uk/assets/css/bootstrap/bootstrap.min.css\" rel=\"stylesheet\">\n";
-		echo "<link href=\"https://student-portal.co.uk/assets/css/font-awesome/font-awesome.min.css\" rel=\"stylesheet\">\n";
-		echo "<link href=\"https://student-portal.co.uk/assets/css/ladda/ladda-themeless.min.css\" rel=\"stylesheet\">\n";
-		echo "<link href=\"https://student-portal.co.uk/assets/css/custom/custom.css\" rel=\"stylesheet\">\n";
+		echo "<link href=\"https://student-portal.co.uk/assets/css/custom.min.css.php\" rel=\"stylesheet\" property=\"stylesheet\">\n";
 
 		"</head>\n";
 
@@ -106,17 +103,14 @@ class paypal_class {
 		echo "<hr>\n";
 
 		echo "<div class=\"text-center\">\n";
-		echo "<button type=\"submit\" class=\"btn btn-primary btn-lg\" data-style=\"slide-up\"><span class=\"ladda-label\">Click here</button>\n";
+		echo "<button type=\"submit\" class=\"btn btn-primary btn-lg\">Click here</button>\n";
 		echo "</div>\n";
 
 		echo "</form>\n";
 
 		echo "</div>\n";
 
-		echo "<script src=\"https://student-portal.co.uk/assets/js/jquery/jquery-latest.min.js\"></script>\n";
-		echo "<script src=\"https://student-portal.co.uk/assets/js/ladda/spin.min.js\"></script>\n";
-		echo "<script src=\"https://student-portal.co.uk/assets/js/ladda/ladda.min.js\"></script>\n";
-        echo "<script src=\"https://student-portal.co.uk/assets/js/custom/custom.js\"></script>\n";
+        echo "<script src=\"https://student-portal.co.uk/assets/js/custom.min.js.php\"></script>\n";
 
 		echo "</body>\n";
 		echo "</html>\n";
