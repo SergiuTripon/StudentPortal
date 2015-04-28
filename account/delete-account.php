@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//Getting user details
 global $mysqli;
 
 $stmt1 = $mysqli->prepare("SELECT user_signin.email, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid = user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
@@ -10,12 +11,12 @@ $stmt1->store_result();
 $stmt1->bind_result($email, $studentno, $firstname, $surname);
 $stmt1->fetch();
 
+//Display - instead of 0
 if ($studentno === 0) {
     $studentno = '-';
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,16 +109,21 @@ if ($studentno === 0) {
 
 	<script>
 
-    //Delete account
+    //Delete account process
     $(".btn-delete-account").click(function (e) {
     e.preventDefault();
 
+    //Get userid value and bind to variable
     var accountToDelete = $("#session_userid").html();
 
     jQuery.ajax({
     type: "POST",
+    //URL to POST data to
     url: "https://student-portal.co.uk/includes/processes.php",
+    //Data posted
     data:'accountToDelete=' + accountToDelete,
+
+    //If action completed, do the following
     success:function(){
 
         buttonReset();
@@ -128,6 +134,8 @@ if ($studentno === 0) {
             window.location.href = "/account/account-deleted/";
         });
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
         $("#error").show();

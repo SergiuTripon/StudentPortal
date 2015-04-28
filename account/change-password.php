@@ -73,12 +73,13 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-	//Change password
+	//Change password process
     $("#change-password-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Checking if old password was inputted
     var oldpwd = $("#oldpwd").val();
 	if(oldpwd === '') {
         $("label[for='oldpwd']").empty().append("Please enter your old password.");
@@ -97,6 +98,7 @@ include '../includes/session.php';
         $("#oldpwd").addClass("input-success");
 	}
 
+    //Checking if password was inputted
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a new password.");
@@ -115,6 +117,7 @@ include '../includes/session.php';
         $("#password").addClass("input-success");
 	}
 
+    //Checking if password is more than 6 characters long
     password = $("#password").val();
 	if (password.length < 6) {
         $("#error1").show();
@@ -136,6 +139,8 @@ include '../includes/session.php';
         $("#error1").hide();
 	}
 
+
+    //Checking if password contains at least one numbers, one lowercase and one uppercase letter
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
@@ -161,6 +166,7 @@ include '../includes/session.php';
 		return false;
 	}
 
+    //Checking if password confirmation was inputted
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter the new password again.");
@@ -179,6 +185,7 @@ include '../includes/session.php';
         $("#confirmpwd").addClass("input-success");
 	}
 
+    //Checking if password and password confirmation match
 	if(password != confirmpwd) {
         $("#error1").show();
         $("#error1").empty().append("Your password and confirmation do not match. Please try again.");
@@ -199,18 +206,25 @@ include '../includes/session.php';
         $("#error1").hide();
 	}
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+    //Data posted
     data:'change_password_old_password=' + oldpwd +
          '&change_password_password=' + password,
+
+    //If action completed, do the following
     success:function(){
 		$("#hide").hide();
 		$("#error").hide();
 		$("#success").append('All done! Your password has been changed.');
 		$("#success-button").show();
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
         $("#success").hide();

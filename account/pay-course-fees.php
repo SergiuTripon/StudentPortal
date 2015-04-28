@@ -1,6 +1,9 @@
 <?php
 include '../includes/session.php';
 
+//Getting user details
+global $mysqli;
+
 $stmt = $mysqli->prepare("SELECT s.email, d.studentno, d.firstname, d.surname, d.gender, d.dateofbirth, d.phonenumber, d.degree, d.address1, d.address2, d.town, d.city, d.postcode, f.fee_amount FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid LEFT JOIN user_fee f ON s.userid=f.userid WHERE s.userid = ? LIMIT 1");
 $stmt->bind_param('i', $session_userid);
 $stmt->execute();
@@ -10,6 +13,7 @@ $stmt->fetch();
 
 global $fee_amount_paid;
 
+//Getting fee amount for the user currently signed in
 $stmt1 = $mysqli->query("SELECT fee_amount FROM user_fee WHERE userid='$session_userid'");
 
 while ($row = $stmt1->fetch_assoc()){
@@ -115,20 +119,28 @@ while ($row = $stmt1->fetch_assoc()){
     <div class="col-xs-6 col-sm-6 full-width">
     <label for="product_name">Pay half or the full fee amount<span class="field-required">*</span></label>
         <?php
+
+        //Get isHalf for the user currently signed in
         $stmt1 = $mysqli->query("SELECT isHalf FROM user_fee WHERE userid='$session_userid'");
 
         while ($row = $stmt1->fetch_assoc()){
 
+            //bind result to variable
             $isHalf = $row["isHalf"];
 
+            //if isHalf 1, do the following
             if ($isHalf == 1) {
                 echo '<select class="form-control" name="product_name" id="product_name" style="width: 100%;">';
                 echo '<option selected>Half fees</option>';
                 echo '</select>';
+
+            //if $fee_amount_paid is 'true', do the following
             } elseif ($fee_amount_paid === 'true') {
                 echo '<select class="form-control" name="product_name" id="product_name" style="width: 100%;" disabled>';
                 echo '<option disabled>Nothing to pay</option>';
                 echo '</select>';
+
+            //if $fee_amount_paid is not 'true', do the following
             } else {
                 echo '<select class="form-control" name="product_name" id="product_name" style="width: 100%;">';
                 echo '<option></option>';
@@ -146,12 +158,15 @@ while ($row = $stmt1->fetch_assoc()){
     </div>
     </div>
         <?php
+
+        //Get fee_amount for the user currently signed in
         $stmt1 = $mysqli->query("SELECT fee_amount FROM user_fee WHERE userid='$session_userid'");
 
         while ($row = $stmt1->fetch_assoc()){
 
             $fee_amount = $row["fee_amount"];
 
+            //if $fee_amount is '0.00', do the following
             if ($fee_amount !== '0.00') {
                 echo '<hr class="hr-custom">
                       <div class="text-center">
@@ -171,7 +186,7 @@ while ($row = $stmt1->fetch_assoc()){
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //On load
+    //On load actions
     $(document).ready(function () {
         //select2
         $("#product_name").select2({placeholder: "Select an option"});
@@ -187,6 +202,7 @@ while ($row = $stmt1->fetch_assoc()){
     var fee_amount;
     var new_fee_amount;
 
+    //calculating fee_amount based on the option selected from the drop-down (full/half)
     $('#product_name').on("change", function (e) {
         var fee_type = $('#product_name :selected').html();
 
@@ -200,12 +216,13 @@ while ($row = $stmt1->fetch_assoc()){
         }
     });
 
-    //Pay course fees form submit
+    //Pay course fees process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Checking if address line 1 was inputted
     var payer_address1 = $('#payer_address1').val();
 	if (payer_address1 === '') {
         $("label[for='payer_address1']").empty().append("Please enter the first line of an address.");
@@ -220,6 +237,7 @@ while ($row = $stmt1->fetch_assoc()){
         $("label[for='payer_address1']").addClass("feedback-success");
 	}
 
+    //Checking if city was inputted
     var payer_city = $("#payer_city").val();
 	if(payer_city === '') {
         $("label[for='payer_city']").empty().append("Please enter a city.");
@@ -234,6 +252,7 @@ while ($row = $stmt1->fetch_assoc()){
         $("label[for='payer_city']").addClass("feedback-success");
 	}
 
+    //Checking if post code was inputted
     var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
         $("label[for='payer_postcode']").empty().append("Please enter a postcode.");
@@ -248,6 +267,7 @@ while ($row = $stmt1->fetch_assoc()){
         $("label[for='payer_postcode']").addClass("feedback-success");
 	}
 
+    //Checking if option was selected from the drop-down
     var fee_type_check = $('#product_name :selected').html();
     if (fee_type_check === '') {
         $("label[for='product_name']").empty().append("Please select an option.");
@@ -267,7 +287,8 @@ while ($row = $stmt1->fetch_assoc()){
         $("[aria-owns='select2-product_name-results']").addClass("input-success");
     }
 
-	if(hasError == false) {
+    //If there are no errors, post the form
+    if(hasError == false) {
     	$("#paycoursefees_form").submit();
     }
 
