@@ -4,10 +4,12 @@ include '../includes/session.php';
 global $mysqli;
 global $examToAllocate;
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     $examToAllocate = $_GET['id'];
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../timetable/');
 }
@@ -73,6 +75,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
+    //Get students unnalocated to the exam selected
     $account_type = 'student';
 
 	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_exam.userid) FROM user_exam WHERE user_exam.examid=?) AND user_signin.account_type=?");
@@ -129,6 +132,9 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
+    //Get students alocated to the exam selected
+    $account_type = 'student';
+
 	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_exam.userid) FROM user_exam WHERE user_exam.examid=?) AND user_signin.account_type=?");
     $stmt2->bind_param('is', $examToAllocate, $account_type);
     $stmt2->execute();
@@ -166,48 +172,66 @@ if (isset($_GET['id'])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //DataTables
+    //Initializing DataTables
     $('.table-custom').dataTable(settings);
 
-    //Allocate exam
+    //Allocate exam process
 	$("body").on("click", ".btn-allocate-exam", function(e) {
     e.preventDefault();
 
+    //Get clicked id
     var clickedID = this.id.split('-');
     var userToAllocate = clickedID[1];
     var examToAllocate = $("#examid").html();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToAllocate='+ userToAllocate + '&examToAllocate='+ examToAllocate,
-	success:function(){
+	//Data posted
+    data:'userToAllocate='+ userToAllocate + '&examToAllocate='+ examToAllocate,
+
+    //If action completed, do the following
+    success:function(){
             location.reload();
     },
-	error:function (xhr, ajaxOptions, thrownError){
+
+    //If action failed, do the following
+    error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
 	}
 	});
     });
 
-    //Deallocate exam
+    //Deallocate exam process
     $("body").on("click", ".btn-deallocate-exam", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var userToDeallocate = clickedID[1];
     var examToDeallocate = $("#examid").html();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //URL to POST data to
+    url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'userToDeallocate='+ userToDeallocate + '&examToDeallocate='+ examToDeallocate,
-	success:function(){
+
+    //If action completed, do the following
+    success:function(){
             location.reload();
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

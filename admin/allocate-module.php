@@ -4,10 +4,12 @@ include '../includes/session.php';
 global $mysqli;
 global $moduleToAllocate;
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     $moduleToAllocate = $_GET['id'];
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../timetable/');
 }
@@ -72,6 +74,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
+    //Get unnalocated students to the module selected
     $account_type = 'student';
 
 	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_module.userid) FROM user_module WHERE user_module.moduleid=?) AND user_signin.account_type=?");
@@ -129,6 +132,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
+    //Get allocated students to the module selected
     $account_type = 'student';
 
 	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_module.userid) FROM user_module WHERE user_module.moduleid=?) AND user_signin.account_type=?");
@@ -169,25 +173,33 @@ if (isset($_GET['id'])) {
 
 	<script>
 
-    //DataTables
+    //Initialize dataTables
     $('.table-custom').dataTable(settings);
 
-    //Allocate module
+    //Allocate module process
 	$("body").on("click", ".btn-allocate-module", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var userToAllocate = clickedID[1];
     var moduleToAllocate = $("#moduleid").html();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+    //Data posted
 	data:'userToAllocate='+ userToAllocate + '&moduleToAllocate='+ moduleToAllocate,
-	success:function(){
+
+    //If action completed, do the following
+    success:function(){
         location.reload();
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -195,22 +207,32 @@ if (isset($_GET['id'])) {
 	});
     });
 
-    //Deallocate module
+    //Deallocate module process
     $("body").on("click", ".btn-deallocate-module", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var userToDeallocate = clickedID[1];
     var moduleToDeallocate = $("#moduleid").html();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToDeallocate='+ userToDeallocate + '&moduleToDeallocate='+ moduleToDeallocate,
-	success:function(){
+
+    //Data posted
+    data:'userToDeallocate='+ userToDeallocate + '&moduleToDeallocate='+ moduleToDeallocate,
+
+    //If action completed, do the following
+    success:function(){
         location.reload();
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

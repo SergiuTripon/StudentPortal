@@ -4,10 +4,12 @@ include '../includes/session.php';
 global $mysqli;
 global $lectureToAllocate;
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     $lectureToAllocate = $_GET['id'];
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../timetable/');
 }
@@ -72,6 +74,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
+    //Get unnalocated student to the lecture selected
     $account_type = 'student';
 
 	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_lecture.userid) FROM user_lecture WHERE user_lecture.lectureid=?) AND user_signin.account_type=?");
@@ -128,6 +131,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
+    //Get allocated students to the lecture selected
     $account_type = 'student';
 
 	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_lecture.userid) FROM user_lecture WHERE user_lecture.lectureid=?) AND user_signin.account_type=?");
@@ -167,26 +171,35 @@ if (isset($_GET['id'])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-
-    //DataTables
+    //Initialize DataTables
     $('.table-custom').dataTable(settings);
 
-    //Allocate module
+    //Allocate lecture process
 	$("body").on("click", ".btn-allocate-lecture", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var userToAllocate = clickedID[1];
     var lectureToAllocate = $("#lectureid").html();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
-	data:'userToAllocate='+ userToAllocate + '&lectureToAllocate='+ lectureToAllocate,
+
+    //Data posted
+    data:'userToAllocate='+ userToAllocate + '&lectureToAllocate='+ lectureToAllocate,
+
+    //If action completed, do the following
 	success:function(){
             location.reload();
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -194,22 +207,32 @@ if (isset($_GET['id'])) {
 	});
     });
 
-    //Deallocate module
+    //Deallocate lecture process
     $("body").on("click", ".btn-deallocate-lecture", function(e) {
     e.preventDefault();
 
+
+    //Get clicked id
     var clickedID = this.id.split('-');
     var userToDeallocate = clickedID[1];
     var lectureToDeallocate = $("#lectureid").html();
 
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'userToDeallocate='+ userToDeallocate + '&lectureToDeallocate='+ lectureToDeallocate,
-	success:function(){
-            location.reload();
+
+    //If action completed, do the following
+    success:function(){
+        location.reload();
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
