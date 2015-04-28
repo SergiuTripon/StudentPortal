@@ -3,6 +3,7 @@ include '../includes/session.php';
 
 global $mysqli;
 
+//Getting user details
 $stmt1 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname, d.gender, d.studentno, d.degree, f.fee_amount, d.nationality, DATE_FORMAT(d.dateofbirth,'%d/%m/%Y') as dateofbirth, d.phonenumber, d.address1, d.address2, d.town, d.city, d.postcode FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid LEFT JOIN user_fee f ON s.userid=f.userid WHERE s.userid = ? LIMIT 1");
 $stmt1->bind_param('i', $session_userid);
 $stmt1->execute();
@@ -363,12 +364,14 @@ if ($dateofbirth == "0000-00-00") {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <script>
+    //On load actions
     $(document).ready(function () {
         //select2
         $("#gender").select2({placeholder: "Select an option"});
         $("#nationality").select2({placeholder: "Select an option"});
     });
 
+    //Initializing date time picker
     // Date Time Picker
     $('#dateofbirth').datetimepicker({
         format: 'DD/MM/YYYY',
@@ -378,12 +381,13 @@ if ($dateofbirth == "0000-00-00") {
         showClose: true
     });
 
-    //Update account
+    //Update account process
     $("#update-account-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Check if firstname is still inputted
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
         $("label[for='firstname']").empty().append("Please enter a first name.");
@@ -396,7 +400,8 @@ if ($dateofbirth == "0000-00-00") {
         return false;
 	}
 
-	var surname = $("#surname").val();
+    //Check if surname is still inputted
+    var surname = $("#surname").val();
 	if(surname === '') {
         $("label[for='surname']").empty().append("Please enter a surname.");
         $("label[for='surname']").removeClass("feedback-success");
@@ -410,7 +415,8 @@ if ($dateofbirth == "0000-00-00") {
 
     var gender = $('#gender :selected').html();
 
-	var email = $("#email").val();
+    //Check if email is still inputted
+    var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
         $("label[for='email']").removeClass("feedback-success");
@@ -432,11 +438,16 @@ if ($dateofbirth == "0000-00-00") {
     var country = $("#country").val();
     var postcode = $("#postcode").val();
 
+    //If there are no errors, initialize the Ajax call
     if(hasError == false) {
 
     jQuery.ajax({
 	type: "POST",
+
+    //URL to post data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'update_firstname='    + firstname +
          '&update_surname='     + surname +
          '&update_gender='      + gender +
@@ -450,11 +461,15 @@ if ($dateofbirth == "0000-00-00") {
          '&update_city='        + city +
          '&update_country='     + country +
          '&update_postcode='    + postcode,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").empty().append('All done! Your account has been updated.');
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
         $("#success").hide();
@@ -779,13 +794,14 @@ if ($dateofbirth == "0000-00-00") {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
+    //On load actions
     $(document).ready(function () {
         //select2
         $("#gender").select2({placeholder: "Select an option"});
         $("#nationality").select2({placeholder: "Select an option"});
     });
 
-    // Date Time Picker
+    //Initializing the data time picker
     $('#dateofbirth').datetimepicker({
         format: 'DD/MM/YYYY',
         useCurrent: false,
@@ -794,12 +810,13 @@ if ($dateofbirth == "0000-00-00") {
         showClose: true
     });
 
-    //Update account
+    //Update account process
     $("#update-account-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Checking if firstname is still inputted
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
         $("label[for='firstname']").empty().append("Please enter a first name.");
@@ -812,6 +829,7 @@ if ($dateofbirth == "0000-00-00") {
         return false;
 	}
 
+    //Checking if surname is still inputted
 	var surname = $("#surname").val();
 	if(surname === '') {
         $("label[for='surname']").empty().append("Please enter a surname.");
@@ -826,6 +844,7 @@ if ($dateofbirth == "0000-00-00") {
 
     var gender = $('#gender :selected').html();
 
+    //Checking if email is still inputted
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
@@ -848,11 +867,16 @@ if ($dateofbirth == "0000-00-00") {
     var country = $("#country").val();
     var postcode = $("#postcode").val();
 
+    //If there are no errors, initialize the Ajax call
     if(hasError == false) {
 
     jQuery.ajax({
 	type: "POST",
-	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //URL to POST data to
+    url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'update_firstname='    + firstname +
          '&update_surname='     + surname +
          '&update_gender='      + gender +
@@ -866,11 +890,15 @@ if ($dateofbirth == "0000-00-00") {
          '&update_city='        + city +
          '&update_country='     + country +
          '&update_postcode='    + postcode,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").empty().append('All done! Your account has been updated.');
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
         $("#success").hide();
