@@ -44,7 +44,6 @@
         }
     }).resize();
 
-    //Responsiveness
     $(window).resize(function(){
         var width = $(window).width();
         if(width <= 550){
