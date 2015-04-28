@@ -769,6 +769,12 @@ form .field-required {
     background-color: #5CB85C;
 }
 
+.tile:hover,
+.tile:focus,
+.tile:active {
+    background-color: #256B2A;
+}
+
 .tile i {
     color: #FFFFFF;
     font-size: 80px;
