@@ -5,12 +5,14 @@ include 'session.php';
 //ContactUs function
 function ContactUs() {
 
-	$firstname = filter_input(INPUT_POST, 'contact_firstname', FILTER_SANITIZE_STRING);
+    //Gather posted data and assign variables
+    $firstname = filter_input(INPUT_POST, 'contact_firstname', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'contact_surname', FILTER_SANITIZE_STRING);
 	$email = filter_input(INPUT_POST, 'contact_email', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$message1 = filter_input(INPUT_POST, 'contact_message', FILTER_SANITIZE_STRING);
 
+    //Check if email address is valid
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
 		exit();
@@ -53,11 +55,12 @@ function ContactUs() {
 //SignIn function
 function SignIn() {
 
+    //Global variables
 	global $mysqli;
 	global $session_userid;
     global $updated_on;
 
-    //Gathering posted data and assigning variables
+    //Gather posted data and assign variables
 	$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -100,7 +103,7 @@ function SignIn() {
             //Escaping the session variable
             $session_userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
 
-            //Assigning variables to session variables
+            //assign variables to session variables
             $_SESSION['session_userid'] = $session_userid;
             $_SESSION['account_type'] = $session_account_type;
 
@@ -130,11 +133,12 @@ function SignIn() {
 //SignOut function
 function SignOut() {
 
+    //Global variables
     global $mysqli;
     global $session_userid;
     global $updated_on;
 
-    //Setting sign in value to a variable
+    //Set sign in value to a variable
     $isSignedIn = 0;
 
     //Update database to set the signed in flag to 0
@@ -143,11 +147,11 @@ function SignOut() {
     $stmt1->execute();
     $stmt1->close();
 
-    //Unsetting the session
+    //Unset the session
     session_unset();
-    //Destroying the session
+    //Destroy the session
     session_destroy();
-    //Redirecting to the Sign In page
+    //Redirect to the Sign In page
     header('Location: /');
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -155,9 +159,11 @@ function SignOut() {
 //Register function
 function Register() {
 
+    //Global variables
 	global $mysqli;
 	global $created_on;
 
+    //Gather posted data and assign variables
 	$firstname = filter_input(INPUT_POST, 'register_firstname', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'register_surname', FILTER_SANITIZE_STRING);
 	$gender = filter_input(INPUT_POST, 'register_gender', FILTER_SANITIZE_STRING);
@@ -165,6 +171,7 @@ function Register() {
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'register_password', FILTER_SANITIZE_STRING);
 
+    //Check if email address is valid
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header('HTTP/1.0 550 The email address you entered is invalid.');
         exit();
@@ -178,16 +185,17 @@ function Register() {
         $stmt1->bind_result($db_userid);
         $stmt1->fetch();
 
+        //If e-mail address already exists, do the following
         if ($stmt1->num_rows == 1) {
             $stmt1->close();
             header('HTTP/1.0 550 An account with the email address entered already exists.');
             exit();
         }
 
+        //Creating user
         $account_type = 'student';
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-        //Creating user
         $stmt2 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
         $stmt2->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
         $stmt2->execute();
@@ -225,18 +233,21 @@ function Register() {
 //SendPasswordToken function
 function SendPasswordToken() {
 
+    //Global variables
 	global $mysqli;
 	global $created_on;
 
-	$email = filter_input(INPUT_POST, 'fp_email', FILTER_SANITIZE_EMAIL);
+    //Gather data and assign variables
+    $email = filter_input(INPUT_POST, 'fp_email', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
+    //Check if email address is valid
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
 		exit();
 	}
 
-	// Getting userid using the email
+	//Check if the user exists
 	$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
 	$stmt1->bind_param('s', $email);
 	$stmt1->execute();
@@ -244,8 +255,10 @@ function SendPasswordToken() {
 	$stmt1->bind_result($userid);
 	$stmt1->fetch();
 
+    //If the user exists, do the following
 	if ($stmt1->num_rows == 1) {
 
+        //Create token
 		$uniqueid = uniqid(true);
 		$token = password_hash($uniqueid, PASSWORD_BCRYPT);
 
@@ -257,7 +270,7 @@ function SendPasswordToken() {
         //Creating link to be sent to the user
 		$passwordlink = "<a href=https://student-portal.co.uk/password-reset/?token=$token>here</a>";
 
-        //Getting firstname, surname using userid
+        //Get firstname, surname using userid
         $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_detail WHERE userid = ? LIMIT 1");
         $stmt3->bind_param('i', $userid);
         $stmt3->execute();
@@ -283,19 +296,19 @@ function SendPasswordToken() {
 		$message .= '</body>';
 		$message .= '</html>';
 
-		// To send HTML mail, the Content-type header must be set
+        //headers
 		$headers  = 'MIME-Version: 1.0'."\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
-		// Additional headers
 		$headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
 		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
-		// Mail it
+		// Send mail
 		mail($email, $subject, $message, $headers);
 
 		$stmt1->close();
 	}
+
+    //If the user doesn't exist, do the following
 	else {
 		header('HTTP/1.0 550 The email address you entered is incorrect.');
         exit();
@@ -306,20 +319,23 @@ function SendPasswordToken() {
 //ResetPassword function
 function ResetPassword() {
 
+    //Global variables
 	global $mysqli;
 	global $updated_on;
 
+    //Gather data and assign variables
 	$token = $_POST["rp_token"];
 	$email = filter_input(INPUT_POST, 'rp_email', FILTER_SANITIZE_EMAIL);
 	$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'rp_password', FILTER_SANITIZE_STRING);
 
+    //Check if email address is valid
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
 		exit();
 	}
 
-    //Getting userid using email
+    //Check if user exists
 	$stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
 	$stmt1->bind_param('s', $email);
 	$stmt1->execute();
@@ -327,14 +343,16 @@ function ResetPassword() {
 	$stmt1->bind_result($userid);
 	$stmt1->fetch();
 
+    //If the user doesn't exist, do the following
     if ($stmt1->num_rows == 0) {
         $stmt1->close();
         header('HTTP/1.0 550 The email address you entered is invalid.');
         exit();
 
+    //If the user exists, do the following
     } else {
 
-        //Getting token from database
+        //Get token from database
         $stmt2 = $mysqli->prepare("SELECT user_token.token, user_detail.firstname FROM user_token LEFT JOIN user_detail ON user_token.userid=user_detail.userid WHERE user_token.userid = ? LIMIT 1");
         $stmt2->bind_param('i', $userid);
         $stmt2->execute();
@@ -342,19 +360,19 @@ function ResetPassword() {
         $stmt2->bind_result($db_token, $firstname);
         $stmt2->fetch();
 
-        //Comparing client side token with database token
+        //If the client side token and database token match, do the following
         if ($token === $db_token) {
 
-        //Hashing the password
+        //Hash the password
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-            //Changing the password
+            //Change the password
             $stmt4 = $mysqli->prepare("UPDATE user_signin SET password = ?, updated_on = ? WHERE email = ? LIMIT 1");
             $stmt4->bind_param('sss', $password_hash, $updated_on, $email);
             $stmt4->execute();
             $stmt4->close();
 
-            //Emptying token table
+            //Empty token record
             $empty_token = NULL;
             $empty_created_on = NULL;
 
@@ -363,9 +381,12 @@ function ResetPassword() {
             $stmt4->execute();
             $stmt4->close();
 
-            //Creating email
+            //Create email
+
+            //subject
             $subject = 'Password reset successfully';
 
+            //message
             $message = '<html>';
             $message .= '<head>';
             $message .= '<title>Student Portal | Account</title>';
@@ -378,13 +399,16 @@ function ResetPassword() {
             $message .= '</body>';
             $message .= '</html>';
 
+            //headers
             $headers = 'MIME-Version: 1.0'."\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
             $headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
             $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
+            //Send the email
             mail($email, $subject, $message, $headers);
+
+        //If the client side token and database token do not match, do the following
         } else {
             header('HTTP/1.0 550 The password reset key is invalid.');
             exit();
@@ -412,7 +436,7 @@ function GetDashboardData() {
     global $feedback_count;
     global $feedback_admin_count;
 
-    //Getting number of lectures the student is taking
+    //Get lectures allocated to the currently signed in user
     $lecture_status = 'active';
 
 	$stmt1 = $mysqli->prepare("SELECT l.lectureid FROM user_lecture u LEFT JOIN system_lecture l ON u.lectureid=l.lectureid WHERE u.userid=? AND l.lecture_status=? AND DATE(l.lecture_to_date) > DATE(NOW())");
@@ -422,6 +446,7 @@ function GetDashboardData() {
 	$stmt1->bind_result($lectureid);
 	$stmt1->fetch();
 
+    //Get lectures that the currently signed user has to teach
     $stmt2 = $mysqli->prepare("SELECT l.lectureid FROM system_lecture l WHERE l.lecture_lecturer=? AND l.lecture_status=? AND DATE(l.lecture_to_date) > DATE(NOW())");
     $stmt2->bind_param('is', $session_userid, $lecture_status);
     $stmt2->execute();
@@ -429,6 +454,7 @@ function GetDashboardData() {
     $stmt2->bind_result($lectureid);
     $stmt2->fetch();
 
+    //Get tutorials allocated to the currently signed in user
     $tutorial_status = 'active';
 
 	$stmt3 = $mysqli->prepare("SELECT t.tutorialid FROM user_tutorial u LEFT JOIN system_tutorial t ON u.tutorialid=t.tutorialid WHERE u.userid=? AND t.tutorial_status=? AND DATE(t.tutorial_to_date) > DATE(NOW())");
@@ -438,6 +464,7 @@ function GetDashboardData() {
 	$stmt3->bind_result($tutorialid);
 	$stmt3->fetch();
 
+    //Get tutorials that the currently signed user has to teach
     $stmt4 = $mysqli->prepare("SELECT t.tutorialid FROM system_tutorial t WHERE t.tutorial_assistant=? AND t.tutorial_status=? AND DATE(t.tutorial_to_date) > DATE(NOW())");
     $stmt4->bind_param('is', $session_userid, $tutorial_status);
     $stmt4->execute();
@@ -445,6 +472,7 @@ function GetDashboardData() {
     $stmt4->bind_result($tutorialid);
     $stmt4->fetch();
 
+    //Get exams allocated to the currently signed in user
     $exam_status = 'active';
 
 	$stmt5 = $mysqli->prepare("SELECT e.examid FROM user_exam u LEFT JOIN system_exam e ON u.examid=e.examid WHERE u.userid=? AND e.exam_status=?");
@@ -454,6 +482,7 @@ function GetDashboardData() {
 	$stmt5->bind_result($examid);
 	$stmt5->fetch();
 
+    //Get results awarded to the currently signed in user
     $stmt6 = $mysqli->prepare("SELECT resultid FROM user_result WHERE userid=?");
     $stmt6->bind_param('i', $session_userid);
     $stmt6->execute();
@@ -461,6 +490,7 @@ function GetDashboardData() {
     $stmt6->bind_result($resultid);
     $stmt6->fetch();
 
+    //Get books loaned out by the currently signed in user
     $isReturned = 0;
     $book_status = 'active';
     $loan_status = 'ongoing';
@@ -471,6 +501,8 @@ function GetDashboardData() {
 	$stmt7->store_result();
 	$stmt7->bind_result($bookid);
 	$stmt7->fetch();
+
+    //Get number of books to be marked as collected or returned by the administrator
 
     $book_status = 'active';
     $isCollected = 0;
@@ -488,6 +520,7 @@ function GetDashboardData() {
 	$stmt8->bind_result($bookid);
 	$stmt8->fetch();
 
+    //Get active tasks belonging to the currently signed in user
 	$task_status = 'active';
 
 	$stmt9 = $mysqli->prepare("SELECT taskid FROM user_task WHERE userid = ? AND task_status = ?");
@@ -497,6 +530,7 @@ function GetDashboardData() {
 	$stmt9->bind_result($taskid);
 	$stmt9->fetch();
 
+    //Get events booked by the currently signed in user
     $event_status = 'active';
 
 	$stmt10 = $mysqli->prepare("SELECT b.eventid FROM system_event_booked b LEFT JOIN system_event e ON b.eventid = e.eventid WHERE b.userid = ? AND e.event_status=? AND DATE(e.event_to) > DATE(NOW())");
@@ -506,6 +540,7 @@ function GetDashboardData() {
 	$stmt10->bind_result($eventid);
 	$stmt10->fetch();
 
+    //Get messages received by the currently signed in user
 	$isRead = '0';
 	$stmt11 = $mysqli->prepare("SELECT r.messageid FROM user_message_received r WHERE r.message_to=? AND r.isRead=?");
 	$stmt11->bind_param('ii', $session_userid, $isRead);
@@ -514,6 +549,7 @@ function GetDashboardData() {
 	$stmt11->bind_result($messageid);
 	$stmt11->fetch();
 
+    //Get feedback received by the currently signed in user
     $isRead = 0;
     $isApproved = 1;
 
@@ -524,6 +560,7 @@ function GetDashboardData() {
     $stmt12->bind_result($feedbackid);
     $stmt12->fetch();
 
+    //Get feedback to be approved by the administrator
     $admin_isApproved = 0;
 
     $stmt13 = $mysqli->prepare("SELECT DISTINCT r.feedbackid FROM user_feedback_received r LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE f.isApproved=? AND r.isRead=?");
@@ -572,15 +609,16 @@ function GetDashboardData() {
 //CreateModule function
 function CreateModule() {
 
+    //Global variables
     global $mysqli;
     global $created_on;
 
-    //Getting the data posted and assigning variables
+    //Get the data posted and assign variables
     $module_name = filter_input(INPUT_POST, 'create_module_name', FILTER_SANITIZE_STRING);
     $module_notes = filter_input(INPUT_POST, 'create_module_notes', FILTER_SANITIZE_STRING);
     $module_url = filter_input(INPUT_POST, 'create_module_url', FILTER_SANITIZE_STRING);
 
-    // Check if there is an existing module name
+    //Check if module name exists
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE module_name = ? LIMIT 1");
     $stmt1->bind_param('s', $module_name);
     $stmt1->execute();
@@ -588,10 +626,13 @@ function CreateModule() {
     $stmt1->bind_result($db_moduleid);
     $stmt1->fetch();
 
+    //If module name exists, do the following
     if ($stmt1->num_rows == 1) {
         $stmt1->close();
         header('HTTP/1.0 550 A module with the name entered already exists.');
         exit();
+        
+    //If the module name does not exist, do the following
     } else {
 
         //Create the module record
@@ -610,7 +651,7 @@ function UpdateModule() {
     global $mysqli;
     global $updated_on;
 
-    //Getting the data posted and assigning variables
+    //Get the data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'update_moduleid', FILTER_SANITIZE_STRING);
     $module_name = filter_input(INPUT_POST, 'update_module_name', FILTER_SANITIZE_STRING);
     $module_notes = filter_input(INPUT_POST, 'update_module_notes', FILTER_SANITIZE_STRING);
@@ -874,7 +915,7 @@ function CreateLecture() {
     global $mysqli;
     global $created_on;
 
-    //Getting the data posted and assigning variables
+    //Get the data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'create_lecture_moduleid', FILTER_SANITIZE_STRING);
     $lecture_name = filter_input(INPUT_POST, 'create_lecture_name', FILTER_SANITIZE_STRING);
     $lecture_lecturer = filter_input(INPUT_POST, 'create_lecture_lecturer', FILTER_SANITIZE_STRING);
@@ -921,7 +962,7 @@ function UpdateLecture() {
     global $mysqli;
     global $updated_on;
 
-    //Getting the data posted and assigning variables
+    //Get the data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'update_lecture_moduleid', FILTER_SANITIZE_STRING);
     $lectureid = filter_input(INPUT_POST, 'update_lectureid', FILTER_SANITIZE_STRING);
     $lecture_name = filter_input(INPUT_POST, 'update_lecture_name', FILTER_SANITIZE_STRING);
@@ -1099,7 +1140,7 @@ function CreateTutorial() {
     global $mysqli;
     global $created_on;
 
-    //Getting the data posted and assigning variables
+    //Get the data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'create_tutorial_moduleid', FILTER_SANITIZE_STRING);
     $tutorial_name = filter_input(INPUT_POST, 'create_tutorial_name', FILTER_SANITIZE_STRING);
     $tutorial_assistant = filter_input(INPUT_POST, 'create_tutorial_assistant', FILTER_SANITIZE_STRING);
@@ -1146,7 +1187,7 @@ function UpdateTutorial() {
     global $mysqli;
     global $updated_on;
 
-    //Getting the data posted and assigning variables
+    //Get the data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'update_tutorial_moduleid', FILTER_SANITIZE_STRING);
     $tutorialid = filter_input(INPUT_POST, 'update_tutorialid', FILTER_SANITIZE_STRING);
     $tutorial_name = filter_input(INPUT_POST, 'update_tutorial_name', FILTER_SANITIZE_STRING);
