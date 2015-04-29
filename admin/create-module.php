@@ -89,9 +89,9 @@ include '../includes/session.php';
     $("#create-module-submit").click(function (e) {
     e.preventDefault();
 
-    //Validation and data gathering
 	var hasError = false;
 
+    //Checking if module_name is inputted
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
         $("label[for='module_name']").empty().append("Please enter a module name.");
@@ -113,14 +113,20 @@ include '../includes/session.php';
     var module_notes = $("#module_notes").val();
     var module_url = $("#module_url").val();
 
-    //Ajax
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'create_module_name='    + module_name +
          '&create_module_notes='  + module_notes +
          '&create_module_url='    + module_url,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -129,6 +135,8 @@ include '../includes/session.php';
 		$("#success").empty().append('All done! The module has been created.');
 		$("#success-button").show();
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		buttonReset();
         $("#success").hide();

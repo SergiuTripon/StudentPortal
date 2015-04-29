@@ -4,10 +4,12 @@ include '../includes/session.php';
 global $mysqli;
 global $tutorialToAllocate;
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     $tutorialToAllocate = $_GET['id'];
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../timetable/');
 }
@@ -72,6 +74,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
+    //Get unnalocated student to the selected tutorial
     $account_type = 'student';
 
 	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid NOT IN (SELECT DISTINCT(user_tutorial.userid) FROM user_tutorial WHERE user_tutorial.tutorialid=?) AND user_signin.account_type=?");
@@ -127,6 +130,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
+    //Get allocated student to the selected tutorial
     $account_type = 'student';
 
 	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_detail.studentno, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid IN (SELECT DISTINCT(user_tutorial.userid) FROM user_tutorial WHERE user_tutorial.tutorialid=?) AND user_signin.account_type=?");
@@ -167,25 +171,35 @@ if (isset($_GET['id'])) {
 
 	<script>
 
-    //DataTables
+    //Initialize DataTables
     $('.table-custom').dataTable(settings);
 
-    //Allocate tutorial
+    //Allocate tutorial process
 	$("body").on("click", ".btn-allocate-tutorial", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var userToAllocate = clickedID[1];
     var tutorialToAllocate = $("#tutorialid").html();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'userToAllocate='+ userToAllocate + '&tutorialToAllocate='+ tutorialToAllocate,
+
+    //If action completed, do the following
 	success:function(){
         location.reload();
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -193,22 +207,33 @@ if (isset($_GET['id'])) {
 	});
     });
 
-    //Deallocate tutorial
+    //Deallocate tutorial process
     $("body").on("click", ".btn-deallocate-tutorial", function(e) {
     e.preventDefault();
 
+
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var userToDeallocate = clickedID[1];
     var tutorialToDeallocate = $("#tutorialid").html();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'userToDeallocate='+ userToDeallocate + '&tutorialToDeallocate='+ tutorialToDeallocate,
+
+    //If the action completed, do the following
 	success:function(){
         location.reload();
     },
+
+    //If the action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

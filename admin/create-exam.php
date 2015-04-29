@@ -120,13 +120,13 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //On load
+    //On load actions
     $(document).ready(function () {
         //select2
         $("#exam_moduleid").select2({placeholder: "Select an option"});
     });
 
-    // Date Time Picker
+    //Initialize Date Time Picker
     $('#exam_date').datetimepicker({
         format: 'DD/MM/YYYY',
         useCurrent: false,
@@ -142,12 +142,13 @@ include '../includes/session.php';
         showClose: true
     });
 
-    //Create timetable ajax call
+    //Create exam process
     $("#create-exam-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Checking if option on the drop-down is inputted
     var exam_moduleid_check = $('#exam_moduleid :selected').html();
     if (exam_moduleid_check === '') {
         $("label[for='exam_moduleid']").empty().append("Please select a module.");
@@ -167,7 +168,7 @@ include '../includes/session.php';
         $("[aria-owns='select2-exam_moduleid-results']").addClass("input-success");
     }
 
-    //Exams
+    //Checking exam_name is inputted
 	var exam_name = $("#exam_name").val();
 	if(exam_name === '') {
         $("label[for='exam_name']").empty().append("Please enter a location.");
@@ -186,6 +187,7 @@ include '../includes/session.php';
         $("#exam_name").addClass("input-success");
 	}
 
+    //Checking exam_date is inputted
     var exam_date = $("#exam_date").val();
 	if(exam_date === '') {
         $("label[for='exam_date']").empty().append("Please select a date.");
@@ -204,6 +206,7 @@ include '../includes/session.php';
         $("#exam_date").addClass("input-success");
 	}
 
+    //Checking exam_time is inputted
     var exam_time = $("#exam_time").val();
 	if(exam_time === '') {
         $("label[for='exam_time']").empty().append("Please select a time.");
@@ -222,6 +225,7 @@ include '../includes/session.php';
         $("#exam_time").addClass("input-success");
 	}
 
+    //Checking exam_location is inputted
     var exam_location = $("#exam_location").val();
 	if(exam_location === '') {
         $("label[for='exam_location']").empty().append("Please enter a location.");
@@ -240,6 +244,7 @@ include '../includes/session.php';
         $("#exam_location").addClass("input-success");
 	}
 
+    //Checking exam_capacity is inputted
     var exam_capacity = $("#exam_capacity").val();
 	if(exam_capacity === '') {
         $("label[for='exam_capacity']").empty().append("Please enter a capacity.");
@@ -261,10 +266,15 @@ include '../includes/session.php';
     var exam_moduleid= $("#exam_moduleid option:selected").val();
     var exam_notes = $("#exam_notes").val();
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'create_exam_moduleid='  + exam_moduleid +
          '&create_exam_name='     + exam_name +
          '&create_exam_notes='    + exam_notes +
@@ -273,6 +283,7 @@ include '../includes/session.php';
          '&create_exam_location=' + exam_location +
          '&create_exam_capacity=' + exam_capacity,
 
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -281,6 +292,8 @@ include '../includes/session.php';
 		$("#success").empty().append('All done! The exam has been created.');
 		$("#success-button").show();
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#success").hide();

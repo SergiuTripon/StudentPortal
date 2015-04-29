@@ -4,10 +4,12 @@ include '../includes/session.php';
 global $mysqli;
 global $userToChangePassword;
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $userToChangePassword = $_GET["id"];
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../account/');
 }
@@ -84,6 +86,7 @@ if (isset($_GET["id"])) {
 
 	<script>
 
+    //Change an account's password process
     $("#admin-change-password-submit").click(function (e) {
     e.preventDefault();
 
@@ -91,6 +94,7 @@ if (isset($_GET["id"])) {
 
 	var userid = $("#userid").val();
 
+    //Checking if password is inputted
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a password.");
@@ -109,6 +113,7 @@ if (isset($_GET["id"])) {
         $("#password").addClass("input-success");
 	}
 
+    //Checking if password is more than 6 characters long
 	if (password.length < 6) {
         $("label[for='password']").empty().append("Passwords must be at least 6 characters long. Please try again.");
         $("label[for='password']").removeClass("feedback-success");
@@ -126,6 +131,7 @@ if (isset($_GET["id"])) {
         $("#password").addClass("input-success");
 	}
 
+    //Checking if password contains at least one number, one lowercase, and one uppercase letter
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
@@ -147,6 +153,7 @@ if (isset($_GET["id"])) {
         return false;
 	}
 
+    //Checking to see if password confirmation is inputted
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
@@ -165,6 +172,7 @@ if (isset($_GET["id"])) {
         $("#password").addClass("input-success");
 	}
 
+    //Checking to see if password and password confirmation match
 	if(password != confirmpwd) {
 		$("label[for='password'").empty().append("The password and confirmation do not match. Please try again.");
         $("label[for='confirmpwd'").empty().append("The password and confirmation do not match. Please try again.");
@@ -193,11 +201,18 @@ if (isset($_GET["id"])) {
         $("#confirmpwd").addClass("input-success");
 	}
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'change_account_password_userid=' + userid + '&change_account_password_password=' + password,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
         $("#error1").hide();
@@ -206,6 +221,8 @@ if (isset($_GET["id"])) {
 		$("#success").append('All done! The password has been changed.');
 		$("#success-button").show();
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#success").hide();

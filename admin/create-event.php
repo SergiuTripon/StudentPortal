@@ -163,7 +163,7 @@ include '../includes/session.php';
 
 	<script>
 
-    // Date Time Picker
+    //Initialize Date Time Picker
     $('#event_from').datetimepicker({
         format: 'DD/MM/YYYY HH:mm',
         useCurrent: false
@@ -173,13 +173,13 @@ include '../includes/session.php';
         useCurrent: false
     });
 
-    //Create event
+    //Create event process
     $("#create-event-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
-    //Events
+    //Chekcing if event_name is inputted
 	var event_name = $("#event_name").val();
 	if(event_name === '') {
         $("label[for='event_name']").empty().append("Please enter a name.");
@@ -201,6 +201,7 @@ include '../includes/session.php';
     var event_notes = $("#event_notes").val();
     var event_url = $("#event_url").val();
 
+    //Chekcing if event_from is inputted
     var event_from = $("#event_from").val();
 	if(event_from === '') {
         $("label[for='event_from']").empty().append("Please select a date and time.");
@@ -219,6 +220,7 @@ include '../includes/session.php';
         $("#event_from").addClass("input-success");
 	}
 
+    //Chekcing if event_to is inputted
     var event_to = $("#event_to").val();
 	if(event_to === '') {
         $("label[for='event_to']").empty().append("Please select a date and time.");
@@ -237,6 +239,7 @@ include '../includes/session.php';
         $("#event_to").addClass("input-success");
 	}
 
+    //Chekcing if event_amount is inputted
     var event_amount = $("#event_amount").val();
 	if(event_amount === '') {
         $("label[for='event_amount']").empty().append("Please enter a price.");
@@ -255,6 +258,7 @@ include '../includes/session.php';
         $("#event_amount").addClass("input-success");
 	}
 
+    //Chekcing if event_ticket_no is inputted
     var event_ticket_no = $("#event_ticket_no").val();
 	if(event_ticket_no === '') {
         $("label[for='event_ticket_no']").empty().append("Please enter a number.");
@@ -273,10 +277,15 @@ include '../includes/session.php';
         $("#event_ticket_no").addClass("input-success");
 	}
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'create_event_name='       + event_name +
          '&create_event_notes='     + event_notes +
          '&create_event_url='       + event_url +
@@ -284,6 +293,8 @@ include '../includes/session.php';
          '&create_event_to='        + event_to +
          '&create_event_amount='    + event_amount +
          '&create_event_ticket_no=' + event_ticket_no,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -292,6 +303,8 @@ include '../includes/session.php';
 		$("#success").empty().append('All done! The event has been created.');
 		$("#success-button").show();
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#success").hide();

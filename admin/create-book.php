@@ -192,7 +192,7 @@ include '../includes/session.php';
 
 	<script>
 
-    // Date Time Picker
+    //Initialize Date Time Picker
     $('#book_publish_date').datetimepicker({
         format: 'DD/MM/YYYY',
         useCurrent: false,
@@ -201,12 +201,13 @@ include '../includes/session.php';
         showClose: true
     });
 
-    //Create book
+    //Create book process
     $("#create-book-submit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
+    //Checking if book_name is inputted
 	var book_name = $("#book_name").val();
 	if(book_name === '') {
         $("label[for='book_name']").empty().append("Please enter a name.");
@@ -225,6 +226,7 @@ include '../includes/session.php';
         $("#book_name").addClass("input-success");
 	}
 
+    //Checking if book_author is inputted
     var book_author = $("#book_author").val();
 	if(book_author === '') {
         $("label[for='book_author']").empty().append("Please enter an author.");
@@ -245,6 +247,7 @@ include '../includes/session.php';
 
     var book_notes = $("#book_notes").val();
 
+    //Checking if book_copy_no is inputted
     var book_copy_no = $("#book_copy_no").val();
 	if(book_copy_no === '') {
         $("label[for='book_copy_no']").empty().append("Please enter a number.");
@@ -263,6 +266,7 @@ include '../includes/session.php';
         $("#book_copy_no").addClass("input-success");
 	}
 
+    //Checking if book_location is inputted
     var book_location = $("#book_location").val();
 	if(book_location === '') {
         $("label[for='book_location']").empty().append("Please enter a name.");
@@ -281,6 +285,7 @@ include '../includes/session.php';
         $("#book_location").addClass("input-success");
 	}
 
+    //Checking if book_publisher is inputted
     var book_publisher = $("#book_publisher").val();
 	if(book_publisher === '') {
         $("label[for='book_publisher']").empty().append("Please enter a name.");
@@ -299,6 +304,8 @@ include '../includes/session.php';
         $("#book_publisher").addClass("input-success");
 	}
 
+
+    //Checking if book_publish_date is inputted
     var book_publish_date = $("#book_publish_date").val();
 	if(book_publish_date === '') {
         $("label[for='book_publish_date']").empty().append("Please select a date.");
@@ -317,6 +324,7 @@ include '../includes/session.php';
         $("#book_publisher_date").addClass("input-success");
 	}
 
+    //Checking if book_publish_place is inputted
     var book_publish_place = $("#book_publish_place").val();
 	if(book_publish_place === '') {
         $("label[for='book_publish_place']").empty().append("Please enter a name.");
@@ -335,6 +343,7 @@ include '../includes/session.php';
         $("#book_publish_place").addClass("input-success");
 	}
 
+    //Checking if book_page_amount is inputted
     var book_page_amount = $("#book_page_amount").val();
 	if(book_page_amount === '') {
         $("label[for='book_page_amount']").empty().append("Please enter a number.");
@@ -353,6 +362,7 @@ include '../includes/session.php';
         $("#book_page_amount").addClass("input-success");
 	}
 
+    //Checking if book_barcode is inputted
     var book_barcode = $("#book_barcode").val();
 	if(book_barcode === '') {
         $("label[for='book_barcode']").empty().append("Please enter a barcode.");
@@ -371,6 +381,7 @@ include '../includes/session.php';
         $("#book_barcode").addClass("input-success");
 	}
 
+    //Checking if book_discipline is inputted
     var book_discipline = $("#book_discipline").val();
 	if(book_discipline === '') {
         $("label[for='book_discipline']").empty().append("Please enter a discipline.");
@@ -389,6 +400,7 @@ include '../includes/session.php';
         $("#book_discipline").addClass("input-success");
 	}
 
+    //Checking if book_language is inputted
     var book_language = $("#book_language").val();
 	if(book_language === '') {
         $("label[for='book_language']").empty().append("Please enter a language.");
@@ -407,10 +419,15 @@ include '../includes/session.php';
         $("#book_language").addClass("input-success");
 	}
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'create_book_name='           + book_name +
          '&create_book_author='        + book_author +
          '&create_book_notes='         + book_notes +
@@ -424,6 +441,7 @@ include '../includes/session.php';
          '&create_book_discipline='    + book_discipline +
          '&create_book_language='      + book_language,
 
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -432,6 +450,8 @@ include '../includes/session.php';
 		$("#success").empty().append('All done! The book has been created.');
 		$("#success-button").show();
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#success").hide();

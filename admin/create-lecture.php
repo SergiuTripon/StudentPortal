@@ -47,6 +47,8 @@ include '../includes/session.php';
     <select class="form-control" name="lecture_moduleid" id="lecture_moduleid" style="width: 100%;">
         <option></option>
     <?php
+
+    //Getting active modules
     $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_module WHERE module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -82,6 +84,8 @@ include '../includes/session.php';
     <select class="form-control" name="lecture_lecturer" id="lecture_lecturer" style="width: 100%;">
         <option></option>
     <?php
+
+    //Getting users with account type: academic stuff
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'academic staff'");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -206,7 +210,7 @@ include '../includes/session.php';
 
 	var hasError = false;
 
-    //Validation and data gathering
+    //Checking if option on the drop-down is inputted
     var lecture_moduleid_check = $('#lecture_moduleid :selected').html();
     if (lecture_moduleid_check === '') {
         $("label[for='lecture_moduleid']").empty().append("Please select a module.");
@@ -228,6 +232,7 @@ include '../includes/session.php';
 
     var lecture_moduleid= $("#lecture_moduleid :selected").val();
 
+    //Checking lecture_name is inputted
     var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
         $("label[for='lecture_name']").empty().append("Please enter a lecture name.");
@@ -246,6 +251,7 @@ include '../includes/session.php';
         $("#lecture_name").addClass("input-success");
 	}
 
+    //Checking if option on the drop-down is inputted
     var lecture_lecturer_check = $('#lecture_lecturer :selected').html();
     if (lecture_lecturer_check === '') {
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer.");
@@ -268,6 +274,7 @@ include '../includes/session.php';
     var lecture_lecturer = $("#lecture_lecturer :selected").val();
     var lecture_notes = $("#lecture_notes").val();
 
+    //Checking if option on the drop-down is inputted
     var lecture_day_check = $('#lecture_day :selected').html();
     if (lecture_day_check === '') {
         $("label[for='lecture_day']").empty().append("Please select a day.");
@@ -289,6 +296,7 @@ include '../includes/session.php';
 
     var lecture_day = $("#lecture_day :selected").html();
 
+    //Checking lecture_from_time is inputted
     var lecture_from_time = $("#lecture_from_time").val();
 	if(lecture_from_time === '') {
         $("label[for='lecture_from_time']").empty().append("Please select a time.");
@@ -307,6 +315,7 @@ include '../includes/session.php';
         $("#lecture_from_time").addClass("input-success");
 	}
 
+    //Checking lecture_to_time is inputted
     var lecture_to_time = $("#lecture_to_time").val();
 	if(lecture_to_time === '') {
         $("label[for='lecture_to_time']").empty().append("Please select a time.");
@@ -325,6 +334,7 @@ include '../includes/session.php';
         $("#lecture_to_time").addClass("input-success");
 	}
 
+    //Checking lecture_from_date is inputted
     var lecture_from_date = $("#lecture_from_date").val();
 	if(lecture_from_date === '') {
         $("label[for='lecture_from_date']").empty().append("Please select a date.");
@@ -343,6 +353,7 @@ include '../includes/session.php';
         $("#lecture_from_date").addClass("input-success");
 	}
 
+    //Checking lecture_to_date is inputted
     var lecture_to_date = $("#lecture_to_date").val();
 	if(lecture_to_date === '') {
         $("label[for='lecture_to_date']").empty().append("Please select a date.");
@@ -361,6 +372,7 @@ include '../includes/session.php';
         $("#lecture_to_date").addClass("input-success");
 	}
 
+    //Checking lecture_location is inputted
     var lecture_location = $("#lecture_location").val();
 	if(lecture_location === '') {
         $("label[for='lecture_location']").empty().append("Please enter a location.");
@@ -379,6 +391,7 @@ include '../includes/session.php';
         $("#lecture_location").addClass("input-success");
 	}
 
+    //Checking lecture_capacity is inputted
     var lecture_capacity = $("#lecture_capacity").val();
 	if(lecture_capacity === '') {
         $("label[for='lecture_capacity']").empty().append("Please enter a capacity.");
@@ -397,11 +410,15 @@ include '../includes/session.php';
         $("#lecture_capacity").addClass("input-success");
 	}
 
-    //Ajax
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'create_lecture_moduleid='    + lecture_moduleid +
          '&create_lecture_name='       + lecture_name +
          '&create_lecture_lecturer='   + lecture_lecturer +
@@ -413,6 +430,8 @@ include '../includes/session.php';
          '&create_lecture_to_date='    + lecture_to_date +
          '&create_lecture_location='   + lecture_location +
          '&create_lecture_capacity='   + lecture_capacity,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -421,6 +440,8 @@ include '../includes/session.php';
 		$("#success").empty().append('All done! The lecture has been created.');
 		$("#success-button").show();
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();

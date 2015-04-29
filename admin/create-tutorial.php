@@ -47,6 +47,8 @@ include '../includes/session.php';
     <select class="form-control" name="tutorial_moduleid" id="tutorial_moduleid" style="width: 100%;">
         <option></option>
     <?php
+
+    //Get active modules
     $stmt1 = $mysqli->query("SELECT moduleid, module_name FROM system_module WHERE module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -82,6 +84,8 @@ include '../includes/session.php';
     <select class="form-control" name="tutorial_assistant" id="tutorial_assistant" style="width: 100%;">
         <option></option>
     <?php
+
+    //Get users with account type: academic staff
     $stmt1 = $mysqli->query("SELECT userid FROM user_signin WHERE account_type = 'academic staff'");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -173,15 +177,15 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //On load
+    //On load actions
 	$(document).ready(function () {
-        //select2
+        //Initialize select2
         $("#tutorial_moduleid").select2({placeholder: "Select an option"});
         $("#tutorial_assistant").select2({placeholder: "Select an option"});
         $("#tutorial_day").select2({placeholder: "Select an option"});
     });
 
-    // Date Time Picker
+    //Initialize Date Time Picker
     $('#tutorial_from_time').datetimepicker({
         format: 'HH:mm',
         useCurrent: false
@@ -199,13 +203,13 @@ include '../includes/session.php';
         useCurrent: false
 	});
 
-    //Create tutorial
+    //Create tutorial process
     $("#create-tutorial-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
-    //Validation
+    //Checking if option on the drop-down is inputted
     var tutorial_moduleid_check = $('#tutorial_moduleid :selected').html();
     if (tutorial_moduleid_check === '') {
         $("label[for='tutorial_moduleid']").empty().append("Please select a module.");
@@ -227,6 +231,7 @@ include '../includes/session.php';
 
     var tutorial_moduleid= $("#tutorial_moduleid :selected").val();
 
+    //Checking if tutorial_name is inputted
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
         $("label[for='tutorial_name']").empty().append("Please enter a tutorial name.");
@@ -245,6 +250,7 @@ include '../includes/session.php';
         $("#tutorial_name").addClass("input-success");
 	}
 
+    //Checking if option on the drop-down is inputted
     var tutorial_assistant_check = $('#tutorial_assistant :selected').html();
     if (tutorial_assistant_check === '') {
         $("label[for='tutorial_assistant']").empty().append("Please select a tutorial assistant.");
@@ -267,6 +273,7 @@ include '../includes/session.php';
     var tutorial_assistant = $("#tutorial_assistant :selected").val();
     var tutorial_notes = $("#tutorial_notes").val();
 
+    //Checking if option on the drop-down is inputted
     var tutorial_day_check = $('#tutorial_day :selected').html();
     if (tutorial_day_check === '') {
         $("label[for='tutorial_day']").empty().append("Please select a day.");
@@ -288,6 +295,7 @@ include '../includes/session.php';
 
     var tutorial_day = $("#tutorial_day :selected").html();
 
+    //Checking if tutorial_from_time is inputted
     var tutorial_from_time = $("#tutorial_from_time").val();
 	if(tutorial_from_time === '') {
         $("label[for='tutorial_from_time']").empty().append("Please select a time.");
@@ -306,6 +314,7 @@ include '../includes/session.php';
         $("#tutorial_from_time").addClass("input-success");
 	}
 
+    //Checking if tutorial_to_time is inputted
     var tutorial_to_time = $("#tutorial_to_time").val();
 	if(tutorial_to_time === '') {
         $("label[for='tutorial_to_time']").empty().append("Please select a time.");
@@ -324,6 +333,7 @@ include '../includes/session.php';
         $("#tutorial_to_time").addClass("input-success");
 	}
 
+    //Checking if tutorial_from_date is inputted
     var tutorial_from_date = $("#tutorial_from_date").val();
 	if(tutorial_from_date === '') {
         $("label[for='tutorial_from_date']").empty().append("Please select a date.");
@@ -342,6 +352,7 @@ include '../includes/session.php';
         $("#tutorial_from_date").addClass("input-success");
 	}
 
+    //Checking if tutorial_to_date is inputted
     var tutorial_to_date = $("#tutorial_to_date").val();
 	if(tutorial_to_date === '') {
         $("label[for='tutorial_to_date']").empty().append("Please select a date.");
@@ -360,6 +371,7 @@ include '../includes/session.php';
         $("#tutorial_to_date").addClass("input-success");
 	}
 
+    //Checking if tutorial_location is inputted
     var tutorial_location = $("#tutorial_location").val();
 	if(tutorial_location === '') {
         $("label[for='tutorial_location']").empty().append("Please enter a location.");
@@ -378,6 +390,7 @@ include '../includes/session.php';
         $("#tutorial_location").addClass("input-success");
 	}
 
+    //Checking if tutorial_capacity is inputted
     var tutorial_capacity = $("#tutorial_capacity").val();
 	if(tutorial_capacity === '') {
         $("label[for='tutorial_capacity']").empty().append("Please enter a location.");
@@ -396,10 +409,15 @@ include '../includes/session.php';
         $("#tutorial_capacity").addClass("input-success");
 	}
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'create_tutorial_moduleid='   + tutorial_moduleid +
          '&create_tutorial_name='      + tutorial_name +
          '&create_tutorial_assistant=' + tutorial_assistant +
@@ -412,6 +430,7 @@ include '../includes/session.php';
          '&create_tutorial_location='  + tutorial_location +
          '&create_tutorial_capacity='  + tutorial_capacity,
 
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -420,6 +439,7 @@ include '../includes/session.php';
 		$("#success").empty().append('All done! The tutorial has been created.');
 		$("#success-button").show();
 	},
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#success").hide();

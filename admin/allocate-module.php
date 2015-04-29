@@ -188,9 +188,11 @@ if (isset($_GET['id'])) {
     //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
     //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
     //Data posted
 	data:'userToAllocate='+ userToAllocate + '&moduleToAllocate='+ moduleToAllocate,
 

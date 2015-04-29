@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET['userid'], $_GET['moduleid'])) {
 
     $result_userid = $_GET['userid'];
@@ -20,6 +21,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
     $stmt2->bind_result($module_name);
     $stmt2->fetch();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../results/');
 }
@@ -132,7 +134,7 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Create result</button>
+    <button id="create-result-submit" class="btn btn-primary btn-lg btn-load">Create result</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
@@ -145,9 +147,6 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	</div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -174,9 +173,6 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>
@@ -211,11 +207,8 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
 	<script>
 
-
-
-
-    //Ajax call
-    $("#FormSubmit").click(function (e) {
+    //Create result
+    $("#create-result-submit").click(function (e) {
     e.preventDefault();
 
     var result_userid = $("#result_userid").val();
@@ -227,7 +220,11 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
 
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'result_userid='           + result_userid +
          '&result_moduleid='        + result_moduleid +
          '&result_coursework_mark=' + result_coursework_mark +
@@ -235,14 +232,17 @@ if (isset($_GET['userid'], $_GET['moduleid'])) {
          '&result_overall_mark='    + result_overall_mark +
          '&result_notes='           + result_notes,
 
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
+		$("#create-result-submit").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The result has been created.');
 		$("#success-button").show();
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();

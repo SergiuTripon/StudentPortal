@@ -140,7 +140,7 @@ include '../includes/session.php';
 	}
 
 
-    //Checking if password contains at least one numbers, one lowercase and one uppercase letter
+    //Checking if password contains at least one number, one lowercase and one uppercase letter
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');

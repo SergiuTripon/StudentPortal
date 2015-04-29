@@ -379,17 +379,17 @@ include '../includes/session.php';
 	<?php include '../includes/footers/footer.php'; ?>
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
-    	<script>
+    <script>
     //On load
     $(document).ready(function () {
-        //select2
+        //Initialize select2
         $("#account_type").select2({placeholder: "Select an option"});
         $("#gender").select2({placeholder: "Select an option"});
         $("#nationality").select2({placeholder: "Select an option"});
 
     });
 
-    // Date Time Picker
+    //Initialize Date Time Picker
 	$('#dateofbirth').datetimepicker({
         format: 'DD/MM/YYYY',
         useCurrent: false
@@ -400,9 +400,11 @@ include '../includes/session.php';
     var degree;
     var fee_amount;
 
+    //Hiding and showing depending on the option selected on the drop-down
     $('#account_type').on("change", function (e) {
         account_type = $('#account_type :selected').html();
 
+        //If option is 'Student', do the following
         if(account_type === 'Student') {
             $('label[for="studentno"]').show();
             $('#studentno').show();
@@ -411,6 +413,8 @@ include '../includes/session.php';
             $('label[for="fee_amount"]').show();
             $('#fee_amount').show();
         }
+
+        //If option is 'Academic staff', do the following
         if(account_type === 'Academic staff') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
@@ -419,6 +423,8 @@ include '../includes/session.php';
             $('label[for="fee_amount"]').hide();
             $('#fee_amount').hide();
         }
+
+        //If option is 'Administrator', do the following
         if(account_type === 'Administrator') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
@@ -429,12 +435,13 @@ include '../includes/session.php';
         }
     });
 
-	//Create an account
+	//Create an account process
     $("#admin-create-account-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Checking if an option is selected on the drop-down
     var account_type_check = $('#account_type :selected').html();
     if (account_type_check === '') {
         $("label[for='account_type']").empty().append("Please select an option.");
@@ -456,6 +463,7 @@ include '../includes/session.php';
 
     var account_type = $('#account_type :selected').html();
 
+    //Checking if firstname is inputted
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
         $("label[for='firstname']").empty().append("Please enter a first name.");
@@ -474,6 +482,7 @@ include '../includes/session.php';
         $("#firstname").addClass("input-success");
 	}
 
+    //Checking if surname is inputted
 	var surname = $("#surname").val();
 	if(surname === '') {
         $("label[for='surname']").empty().append("Please enter a surname.");
@@ -492,6 +501,7 @@ include '../includes/session.php';
         $("#surname").addClass("input-success");
 	}
 
+    //Checking if an option is selected on the dropdown
     var gender_check = $('#gender :selected').html();
     if (gender_check === '') {
         $("label[for='gender']").empty().append("Please select an option.");
@@ -513,11 +523,13 @@ include '../includes/session.php';
 
     var gender = $('#gender :selected').html();
 
+    //If option on the drop-down is 'Student', do the following
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
         fee_amount = $("#fee_amount").val();
 
+        //Checking if studentno is inputted
 		if(studentno === '') {
             $("label[for='studentno']").empty().append("Please enter a student number.");
             $("label[for='studentno']").removeClass("feedback-success");
@@ -534,6 +546,8 @@ include '../includes/session.php';
             $("#studentno").removeClass("input-danger");
             $("#studentno").addClass("input-success");
 		}
+
+        //Checking if studentno is numeric
 		if ($.isNumeric(studentno)) {
             $("label[for='studentno']").empty().append("All good!");
             $("label[for='studentno']").removeClass("feedback-danger");
@@ -553,6 +567,8 @@ include '../includes/session.php';
 			hasError  = true;
 			return false;
 		}
+
+        //Checking if studentno is 9 characters long
 		if (studentno.length != 9) {
 			$("#error1").show();
 			$("#error1").empty().append("The student number entered is invalid.<br>The student number must be exactly 9 digits in length.");
@@ -572,6 +588,8 @@ include '../includes/session.php';
             $("#studentno").addClass("input-success");
             $("#error1").hide();
 		}
+
+        //Checking if degree is inputted
 		if(degree === '') {
             $("label[for='degree']").empty().append("Please enter a programme of study.");
             $("label[for='degree']").removeClass("feedback-success");
@@ -588,6 +606,8 @@ include '../includes/session.php';
             $("#degree").removeClass("input-danger");
             $("#degree").addClass("input-success");
 		}
+
+        //Checking if fee_amount is inputted
         if(fee_amount === '') {
             $("label[for='fee_amount']").empty().append("Please enter an amount.");
             $("label[for='fee_amount']").removeClass("feedback-success");
@@ -604,12 +624,14 @@ include '../includes/session.php';
             $("#fee_amount").removeClass("input-danger");
             $("#fee_amount").addClass("input-success");
         }
+    //If option on the drop-down is not 'Student', do the following
 	} else {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
         fee_amount = $("#fee_amount").val();
 	}
 
+    //Check if email is inputted
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
@@ -628,6 +650,7 @@ include '../includes/session.php';
         $("#email").addClass("input-success");
 	}
 
+    //Checking if password is inputted
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a password.");
@@ -646,6 +669,8 @@ include '../includes/session.php';
         $("#password").addClass("input-success");
 	}
 
+
+    //Checking if password is more than 6 characters long
 	if (password.length < 6) {
 		$("#error1").show();
 		$("#error1").empty().append("Passwords must be at least 6 characters long. Please try again.");
@@ -666,6 +691,7 @@ include '../includes/session.php';
         $("#error1").hide();
 	}
 
+    //Checking if password contains at least one number, one lowercase and one uppercase letter
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
@@ -690,6 +716,7 @@ include '../includes/session.php';
 		return false;
 	}
 
+    //Checking if password confirmation is inputted
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter a confirmation.");
@@ -708,6 +735,7 @@ include '../includes/session.php';
         $("#confirmpwd").addClass("input-success");
 	}
 
+    //Checking if password and password confirmation match
 	if(password != confirmpwd) {
 		$("#error1").show();
 		$("#error1").empty().append("Your password and confirmation do not match. Please try again.");
@@ -738,10 +766,15 @@ include '../includes/session.php';
 	var country = $("#country").val();
 	var postcode = $("#postcode").val();
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'create_account_account_type=' + account_type +
          '&create_account_firstname='   + firstname +
          '&create_account_surname='     + surname +
@@ -760,6 +793,8 @@ include '../includes/session.php';
          '&create_account_city='        + city +
          '&create_account_country='     + country +
          '&create_account_postcode='    + postcode,
+
+    //If action completed, do the following
     success:function(){
         $("#error1").hide();
 		$("#error").hide();
@@ -769,6 +804,8 @@ include '../includes/session.php';
 		$("#success").empty().append('All done! The account has been created.');
 		$("#success-button").show();
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#success").hide();

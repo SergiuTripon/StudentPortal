@@ -79,6 +79,7 @@ include '../includes/session.php';
     <select class="form-control" name="marker_category" id="marker_category" style="width: 100%;">
         <option></option>
         <?php
+            //Getting categories for locations
             $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_marker WHERE marker_status = 'active' AND NOT marker_category=''");
 
             while ($row = $stmt1->fetch_assoc()){
@@ -173,19 +174,19 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //On load
+    //On load actions
     $(document).ready(function () {
         //select2
         $("#marker_category").select2({placeholder: "Select an option"});
     });
 
-    //Ajax call
+    //Create location process
     $("#create-location-submit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-    //Locations
+    //Checking marker_name is inputted
 	var marker_name = $("#marker_name").val();
 	if(marker_name === '') {
         $("label[for='marker_name']").empty().append("Please enter a name.");
@@ -207,6 +208,7 @@ include '../includes/session.php';
     var marker_notes = $("#marker_notes").val();
     var marker_url = $("#marker_url").val();
 
+    //Checking marker_lat is inputted
     var marker_lat = $("#marker_lat").val();
 	if(marker_lat === '') {
         $("label[for='marker_lat']").empty().append("Please enter latitude.");
@@ -225,6 +227,7 @@ include '../includes/session.php';
         $("#marker_lat").addClass("input-success");
 	}
 
+    //Checking marker_long is inputted
     var marker_long = $("#marker_long").val();
 	if(marker_long === '') {
         $("label[for='marker_long']").empty().append("Please enter longitude.");
@@ -243,6 +246,7 @@ include '../includes/session.php';
         $("#marker_long").addClass("input-success");
 	}
 
+    //Checking if options on the drop-down is inputted
     var marker_category_check = $("#marker_category :selected").html();
     if (marker_category_check === 'Select an option') {
         $("label[for='marker_category']").empty().append("Please select an option.");
@@ -262,13 +266,17 @@ include '../includes/session.php';
         $("#marker_category").addClass("input-success");
     }
 
-
     var marker_category = $("#marker_category :selected").val();
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'marker_name='      + marker_name +
          '&marker_notes='    + marker_notes +
          '&marker_url='      + marker_url +
@@ -276,6 +284,7 @@ include '../includes/session.php';
          '&marker_long='     + marker_long +
          '&marker_category=' + marker_category,
 
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -284,6 +293,8 @@ include '../includes/session.php';
 		$("#success").empty().append('All done! The location has been created.');
 		$("#success-button").show();
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();
