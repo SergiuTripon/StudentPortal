@@ -117,6 +117,28 @@ if (isset($_GET["id"])) {
 	</div>
 	</div>
 
+    <div class="form-group">
+    <div class="col-xs-12 col-sm-12 full-width pl0">
+    <label for="marker_category">Lecturer<span class="field-required">*</span></label>
+    <select class="form-control marker_category" name="marker_category" id="marker_category">
+        <?php
+
+        //Get location categories
+        $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_marker WHERE marker_status = 'active' AND NOT marker_category=''");
+
+        while ($row = $stmt1->fetch_assoc()){
+
+            $marker_category = $row["marker_category"];
+            $marker_category = ucfirst($marker_category);
+
+            echo '<option>'.$marker_category.'</option>';
+        }
+
+        ?>
+    </select>
+    </div>
+    </div>
+
 	</div>
 
 	<hr>
