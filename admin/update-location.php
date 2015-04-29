@@ -204,9 +204,10 @@ if (isset($_GET["id"])) {
 	
 	var hasError = false;
 
-    //Locations
     var markerid = $("#markerid").val();
 
+
+    //Checking if marker_name is inputted
 	var marker_name = $("#marker_name").val();
 	if(marker_name === '') {
         $("label[for='marker_name']").empty().append("Please enter a name.");
@@ -228,6 +229,7 @@ if (isset($_GET["id"])) {
     var marker_notes = $("#marker_notes").val();
     var marker_url = $("#marker_url").val();
 
+    //Checking if marker_lat is inputted
     var marker_lat = $("#marker_lat").val();
 	if(marker_lat === '') {
         $("label[for='marker_lat']").empty().append("Please enter latitude.");
@@ -246,6 +248,7 @@ if (isset($_GET["id"])) {
         $("#marker_lat").addClass("input-success");
 	}
 
+    //Checking if marker_long is inputted
     var marker_long = $("#marker_long").val();
 	if(marker_long === '') {
         $("label[for='marker_long']").empty().append("Please enter longitude.");
@@ -264,6 +267,7 @@ if (isset($_GET["id"])) {
         $("#marker_long").addClass("input-success");
 	}
 
+    //Checking if option on the drop-down is inputted
     var marker_category_check = $("#marker_category option:selected").html();
     if (marker_category_check === 'Select an option') {
         $("label[for='marker_category']").empty().append("Please select an option.");
@@ -285,10 +289,15 @@ if (isset($_GET["id"])) {
 
     var marker_category = $("#marker_category option:selected").val();
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'markerid='          + markerid +
          '&marker_name1='     + marker_name +
          '&marker_notes1='    + marker_notes +
@@ -297,14 +306,17 @@ if (isset($_GET["id"])) {
          '&marker_long1='     + marker_long +
          '&marker_category1=' + marker_category,
 
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#FormSubmit").hide();
+		$("#update-location-submit").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The location has been updated.');
 		$("#success-button").show();
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();

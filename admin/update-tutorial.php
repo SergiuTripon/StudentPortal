@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     $tutorialToUpdate = $_GET['id'];
@@ -13,6 +14,7 @@ if (isset($_GET['id'])) {
     $stmt1->fetch();
     $stmt1->close();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../timetable/');
 }
@@ -64,6 +66,8 @@ if (isset($_GET['id'])) {
     <label for="tutorial_moduleid">Module<span class="field-required">*</span></label>
     <select class="form-control" name="tutorial_moduleid" id="tutorial_moduleid" style="width: 100%;">
     <?php
+
+    //Get active modules
     $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_module m WHERE m.moduleid = '$moduleid' AND module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -103,6 +107,8 @@ if (isset($_GET['id'])) {
     <label for="tutorial_assistant">Tutorial assistant<span class="field-required">*</span></label>
     <select class="form-control tutorial_assistant" name="tutorial_assistant" id="tutorial_assistant">
     <?php
+
+    //Get users with account type: academic staff
     $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_detail WHERE userid = '$tutorial_assistant'");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -190,7 +196,7 @@ if (isset($_GET['id'])) {
 	<hr>
 
     <div class="text-center">
-    <a id="FormSubmit" class="btn btn-primary btn-lg btn-load">Update tutorial</a>
+    <a id="update-tutorial-submit" class="btn btn-primary btn-lg btn-load">Update tutorial</a>
     </div>
 
     </div>
@@ -201,9 +207,6 @@ if (isset($_GET['id'])) {
     <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -264,7 +267,7 @@ if (isset($_GET['id'])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //On load
+    //On load actions
     $(document).ready(function () {
         //select2
         $("#tutorial_moduleid").select2({placeholder: "Select an option"});
@@ -272,7 +275,7 @@ if (isset($_GET['id'])) {
         $("#tutorial_day").select2({placeholder: "Select an option"});
     });
 
-    // Date Time Picker
+    //Initialize Date Time Picker
     $('#tutorial_from_time').datetimepicker({
         format: 'HH:mm'
     });
@@ -287,15 +290,15 @@ if (isset($_GET['id'])) {
     });
 
     //Update tutorial process
-    $("#FormSubmit").click(function (e) {
+    $("#update-tutorial-submit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-    //Validation and data gathering
     var tutorialid = $("#tutorialid").val();
     var tutorial_moduleid= $("#tutorial_moduleid :selected").val();
 
+    //Checking if tutorial_name is inputted
 	var tutorial_name = $("#tutorial_name").val();
 	if(tutorial_name === '') {
         $("label[for='tutorial_name']").empty().append("Please enter a tutorial name.");
@@ -318,6 +321,7 @@ if (isset($_GET['id'])) {
     var tutorial_notes = $("#tutorial_notes").val();
     var tutorial_day = $("#tutorial_day :selected").html();
 
+    //Checking if tutorial_from_time is inputted
     var tutorial_from_time = $("#tutorial_from_time").val();
 	if(tutorial_from_time === '') {
         $("label[for='tutorial_from_time']").empty().append("Please select a time.");
@@ -336,6 +340,7 @@ if (isset($_GET['id'])) {
         $("#tutorial_from_time").addClass("input-success");
 	}
 
+    //Checking if tutorial_to_time is inputted
     var tutorial_to_time = $("#tutorial_to_time").val();
 	if(tutorial_to_time === '') {
         $("label[for='tutorial_to_time']").empty().append("Please select a time.");
@@ -354,6 +359,7 @@ if (isset($_GET['id'])) {
         $("#tutorial_to_time").addClass("input-success");
 	}
 
+    //Checking if tutorial_from_date is inputted
     var tutorial_from_date = $("#tutorial_from_date").val();
 	if(tutorial_from_date === '') {
         $("label[for='tutorial_from_date']").empty().append("Please select a date.");
@@ -372,6 +378,7 @@ if (isset($_GET['id'])) {
         $("#tutorial_from_date").addClass("input-success");
 	}
 
+    //Checking if tutorial_to_date is inputted
     var tutorial_to_date = $("#tutorial_to_date").val();
 	if(tutorial_to_date === '') {
         $("label[for='tutorial_to_date']").empty().append("Please select a date.");
@@ -390,6 +397,7 @@ if (isset($_GET['id'])) {
         $("#tutorial_to_date").addClass("input-success");
 	}
 
+    //Checking if tutorial_location is inputted
     var tutorial_location = $("#tutorial_location").val();
 	if(tutorial_location === '') {
         $("label[for='tutorial_location']").empty().append("Please enter a location.");
@@ -408,6 +416,7 @@ if (isset($_GET['id'])) {
         $("#tutorial_location").addClass("input-success");
 	}
 
+    //Checking if tutorial_capacity is inputted
     var tutorial_capacity = $("#tutorial_capacity").val();
 	if(tutorial_capacity === '') {
         $("label[for='tutorial_capacity']").empty().append("Please enter a location.");
@@ -426,10 +435,15 @@ if (isset($_GET['id'])) {
         $("#tutorial_capacity").addClass("input-success");
 	}
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'update_tutorial_moduleid='   + tutorial_moduleid +
          '&update_tutorialid='         + tutorialid +
          '&update_tutorial_name='      + tutorial_name +
@@ -442,12 +456,16 @@ if (isset($_GET['id'])) {
          '&update_tutorial_to_date='   + tutorial_to_date +
          '&update_tutorial_location='  + tutorial_location +
          '&update_tutorial_capacity='  + tutorial_capacity,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The tutorial has been updated.');
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#success").hide();

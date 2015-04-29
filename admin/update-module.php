@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     $moduleToUpdate = $_GET['id'];
@@ -13,6 +14,7 @@ if (isset($_GET['id'])) {
     $stmt1->fetch();
     $stmt1->close();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../timetable/');
 }
@@ -95,9 +97,6 @@ if (isset($_GET['id'])) {
 	
 	<?php include '../includes/footers/footer.php'; ?>
 
-
-
-
     <?php else : ?>
 
 	<?php include '../includes/menus/portal_menu.php'; ?>
@@ -123,9 +122,6 @@ if (isset($_GET['id'])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 
@@ -165,11 +161,11 @@ if (isset($_GET['id'])) {
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
-    //Validation and data gathering
 	var hasError = false;
 
     var moduleid = $("#moduleid").val();
 
+    //Checking if module_name is inputted
 	var module_name = $("#module_name").val();
 	if(module_name === '') {
         $("label[for='module_name']").empty().append("Please enter a module name.");
@@ -194,17 +190,25 @@ if (isset($_GET['id'])) {
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'update_moduleid='      + moduleid +
          '&update_module_name='  + module_name +
          '&update_module_notes=' + module_notes +
          '&update_module_url='   + module_url,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The module has been updated.');
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();

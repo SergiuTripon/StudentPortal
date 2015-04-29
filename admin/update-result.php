@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     $resultToUpdate = $_GET['id'];
@@ -12,6 +13,7 @@ if (isset($_GET['id'])) {
     $stmt1->bind_result($student_email, $student_firstname, $student_surname, $module_name, $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes);
     $stmt1->fetch();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../results/');
 }
@@ -121,7 +123,7 @@ if (isset($_GET['id'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update result</button>
+    <button id="update-result-submit" class="btn btn-primary btn-lg" >Update result</button>
     </div>
 
     </div>
@@ -132,9 +134,6 @@ if (isset($_GET['id'])) {
 	</div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -161,9 +160,6 @@ if (isset($_GET['id'])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>
@@ -198,11 +194,8 @@ if (isset($_GET['id'])) {
 
 	<script>
 
-
-
-
-    //Ajax call
-    $("#FormSubmit").click(function (e) {
+    //Update result process
+    $("#update-result-submit").click(function (e) {
     e.preventDefault();
 
     var result_resultid = $("#result_resultid").val();
@@ -211,15 +204,21 @@ if (isset($_GET['id'])) {
     var result_overall_mark = $("#result_overall_mark").val();
     var result_notes = $("#result_notes").val();
 
+    //Initialize Ajax call
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'result_resultid='          + result_resultid +
          '&result_coursework_mark1=' + result_coursework_mark +
          '&result_exam_mark1='       + result_exam_mark +
          '&result_overall_mark1='    + result_overall_mark +
          '&result_notes1='           + result_notes,
 
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -227,6 +226,8 @@ if (isset($_GET['id'])) {
 		$("#success").show();
 		$("#success").empty().append('All done! The result has been updated.');
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();
