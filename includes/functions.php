@@ -4526,6 +4526,393 @@ function calendarUpdate($isUpdate = 0) {
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//University map function
+//CreateLocation function
+function CreateLocation() {
+
+    //Global variables
+    global $mysqli;
+    global $created_on;
+
+    //Gather data posted and assign variables
+    $marker_name = filter_input(INPUT_POST, 'marker_name', FILTER_SANITIZE_STRING);
+    $marker_notes = filter_input(INPUT_POST, 'marker_notes', FILTER_SANITIZE_STRING);
+    $marker_url = filter_input(INPUT_POST, 'marker_url', FILTER_SANITIZE_STRING);
+    $marker_lat = filter_input(INPUT_POST, 'marker_lat', FILTER_SANITIZE_STRING);
+    $marker_long = filter_input(INPUT_POST, 'marker_long', FILTER_SANITIZE_STRING);
+    $marker_category = filter_input(INPUT_POST, 'marker_category', FILTER_SANITIZE_STRING);
+
+    //Check if the location name exists
+    $stmt1 = $mysqli->prepare("SELECT markerid FROM system_map_marker WHERE marker_name=? LIMIT 1");
+    $stmt1->bind_param('s', $marker_name);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_markerid);
+    $stmt1->fetch();
+
+    //If the location name exists, do the following
+    if ($stmt1->num_rows == 1) {
+        $stmt1->close();
+        header('HTTP/1.0 550 The location name you entered already exists.');
+        exit();
+
+    //If the location name doesn't exist, do the following
+    } else {
+
+        //Create marker
+        $marker_status = 'active';
+
+        $stmt3 = $mysqli->prepare("INSERT INTO system_map_marker (marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt3->bind_param('sssiisss', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $marker_status, $created_on);
+        $stmt3->execute();
+        $stmt3->close();
+
+    }
+}
+
+//UpdateLocation function
+function UpdateLocation() {
+
+    //Global variables
+    global $mysqli;
+    global $updated_on;
+
+    //Gather data posted and assign to variables
+    $markerid = filter_input(INPUT_POST, 'markerid', FILTER_SANITIZE_STRING);
+    $marker_name = filter_input(INPUT_POST, 'marker_name1', FILTER_SANITIZE_STRING);
+    $marker_notes = filter_input(INPUT_POST, 'marker_notes1', FILTER_SANITIZE_STRING);
+    $marker_url = filter_input(INPUT_POST, 'marker_url1', FILTER_SANITIZE_STRING);
+    $marker_lat = filter_input(INPUT_POST, 'marker_lat1', FILTER_SANITIZE_STRING);
+    $marker_long = filter_input(INPUT_POST, 'marker_long1', FILTER_SANITIZE_STRING);
+    $marker_category = filter_input(INPUT_POST, 'marker_category1', FILTER_SANITIZE_STRING);
+
+    //Check if the event name has changed
+    $stmt1 = $mysqli->prepare("SELECT marker_name FROM system_map_marker WHERE markerid=? LIMIT 1");
+    $stmt1->bind_param('i', $markerid);
+    $stmt1->execute();
+    $stmt1->store_result();
+    $stmt1->bind_result($db_marker_name);
+    $stmt1->fetch();
+
+    //If the event name hasn't changed, do the following
+    if ($db_marker_name === $marker_name) {
+
+        $stmt2 = $mysqli->prepare("UPDATE system_map_marker SET marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
+        $stmt2->bind_param('ssiissi', $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
+        $stmt2->execute();
+        $stmt2->close();
+
+    //If the event name has changed, do the following
+    } else {
+
+        //Check if the event name exists
+        $stmt3 = $mysqli->prepare("SELECT markerid FROM system_map_marker WHERE marker_name = ?");
+        $stmt3->bind_param('s', $marker_name);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($db_markerid);
+        $stmt3->fetch();
+
+        //If the location name exists, do the folowing
+        if ($stmt3->num_rows == 1) {
+            $stmt3->close();
+            header('HTTP/1.0 550 A location with the name entered already exists.');
+            exit();
+
+        //If the location name doesn't exist, do the folowing
+        } else {
+
+            //Update location
+            $stmt4 = $mysqli->prepare("UPDATE system_map_marker SET marker_name=?, marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
+            $stmt4->bind_param('sssiissi', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
+            $stmt4->execute();
+            $stmt4->close();
+        }
+    }
+}
+
+//DeactivateLocation function
+function DeactivateLocation() {
+
+    //Global variables
+    global $mysqli;
+    global $updated_on;
+
+    //Gather data posted and assign to variables
+    $locationToDeactivate = filter_input(INPUT_POST, 'locationToDeactivate', FILTER_SANITIZE_STRING);
+
+    //Deactivate location
+    $marker_status = 'inactive';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_map_marker SET marker_status=?, updated_on=? WHERE markerid=?");
+    $stmt1->bind_param('ssi', $marker_status, $updated_on, $locationToDeactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+    //Update tables
+    AdminUniversityMapUpdate($isUpdate = 1);
+
+}
+
+//ReactivateLocation function
+function ReactivateLocation() {
+
+    //Global variables
+    global $mysqli;
+    global $updated_on;
+
+    //Gather data posted and assign to variables
+    $locationToReactivate = filter_input(INPUT_POST, 'locationToReactivate', FILTER_SANITIZE_STRING);
+
+    //Reactivate location
+    $marker_status = 'active';
+
+    $stmt1 = $mysqli->prepare("UPDATE system_map_marker SET marker_status=?, updated_on=? WHERE markerid=?");
+    $stmt1->bind_param('ssi', $marker_status, $updated_on, $locationToReactivate);
+    $stmt1->execute();
+    $stmt1->close();
+
+    //Update tables
+    AdminUniversityMapUpdate($isUpdate = 1);
+
+}
+
+//DeleteLocation function
+function DeleteLocation() {
+
+    //Global variables
+    global $mysqli;
+
+    //Gather data posted and assign to variables
+    $locationToDelete = filter_input(INPUT_POST, 'locationToDelete', FILTER_SANITIZE_STRING);
+
+    //Delete location
+    $stmt1 = $mysqli->prepare("DELETE FROM system_map_marker WHERE markerid=?");
+    $stmt1->bind_param('i', $locationToDelete);
+    $stmt1->execute();
+    $stmt1->close();
+
+    //Update tables
+    AdminUniversityMapUpdate($isUpdate = 1);
+}
+
+
+function AdminUniversityMapUpdate($isUpdate = 0) {
+
+    //Global variables
+    global $mysqli;
+    global $active_location;
+    global $inactive_location;
+
+    //Get active map markers
+    $marker_status = 'active';
+
+    $stmt1 = $mysqli->prepare("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status=?");
+    $stmt1->bind_param('s', $marker_status);
+    $stmt1->execute();
+    $stmt1->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
+    $stmt1->store_result();
+
+    if ($stmt1->num_rows > 0) {
+
+        while ($stmt1->fetch()) {
+
+            //Bind results to the variable
+            $active_location .=
+
+           '<tr>
+			<td data-title="Location"><a href="#view-location-'.$markerid.'" data-toggle="modal">'.$marker_name.'</a></td>
+			<td data-title="Latitude">'.$marker_lat.'</td>
+			<td data-title="Longitude">'.$marker_long.'</td>
+			<td data-title="Category">'.ucfirst($marker_category).'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a class="btn btn-primary" href="../admin/update-location/?id='.$markerid.'">Update</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a id="deactivate-'.$markerid.'" class="btn-deactivate-location">Deactivate</a></li>
+            <li><a href="#delete-'.$markerid.'" data-toggle="modal">Delete</a></li>
+            </ul>
+            </div>
+
+            <div id="view-location-'.$markerid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-map-marker"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$marker_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Latitude:</b> '.(empty($marker_lat) ? "-" : "$marker_lat").'</p>
+			<p><b>Longitude:</b> '.(empty($marker_long) ? "-" : "$marker_long").'</p>
+			<p><b>Category:</b> '.(empty($marker_category) ? "-" : ucfirst($marker_category)).'</p>
+			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-location?id='.$markerid.'" class="btn btn-primary btn-md">Update</a>
+            <a id="deactivate-'.$markerid.'" class="btn btn-primary btn-md btn-deactivate-location" data-dismiss="modal">Deactivate</a>
+            <a href="#delete-'.$markerid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-'.$markerid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete location?</h4>
+            </div>
+
+			<div class="modal-body">
+			<p class="text-center">Are you sure you want to delete "'.$marker_name.'"?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+            <a id="delete-'.$markerid.'" class="btn btn-danger btn-md btn-delete-location btn-load">Delete</a>
+			<a class="btn btn-success btn-md" data-dismiss="modal">Cancel</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
+        }
+    }
+
+	$stmt1->close();
+
+    //Get inactive map markers
+    $marker_status = 'inactive';
+
+    $stmt2 = $mysqli->prepare("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status=?");
+    $stmt2->bind_param('s', $marker_status);
+    $stmt2->execute();
+    $stmt2->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
+    $stmt2->store_result();
+
+    if ($stmt2->num_rows > 0) {
+
+        while ($stmt2->fetch()) {
+
+            //Bind results to the variable
+            $inactive_location .=
+
+           '<tr>
+			<td data-title="Location"><a href="#view-location-'.$markerid.'">'.$marker_name.'</a></td>
+			<td data-title="Latitude">'.$marker_lat.'</td>
+			<td data-title="Longitude">'.$marker_long.'</td>
+			<td data-title="Category">'.ucfirst($marker_category).'</td>
+			<td data-title="Action">
+			<div class="btn-group btn-action">
+            <a id="reactivate-'.$markerid.'" class="btn btn-primary btn-reactivate-location">Reactivate</a>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-caret-down"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#delete-'.$markerid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
+            </ul>
+            </div>
+
+            <div id="view-location-'.$markerid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-map-marker"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$marker_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Latitude:</b> '.(empty($marker_lat) ? "-" : "$marker_lat").'</p>
+			<p><b>Longitude:</b> '.(empty($marker_long) ? "-" : "$marker_long").'</p>
+			<p><b>Category:</b> '.(empty($marker_category) ? "-" : ucfirst($marker_category)).'</p>
+			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
+			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="/admin/update-location?id='.$markerid.'" class="btn btn-primary btn-md">Update</a>
+            <a id="deactivate-'.$markerid.'" class="btn btn-primary btn-md btn-deactivate-location" data-dismiss="modal">Deactivate</a>
+            <a href="#delete-'.$markerid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+			<div id="delete-'.$markerid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">Delete location?</h4>
+            </div>
+
+			<div class="modal-body">
+			<p class="text-center">Are you sure you want to delete "'.$marker_name.'"?</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-right">
+            <a id="delete-'.$markerid.'" class="btn btn-danger btn-lg btn-delete-location btn-load">Delete</a>
+			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->
+
+            </td>
+			</tr>';
+        }
+	}
+
+	$stmt2->close();
+
+    //If the call to the function was made with parameter 'isUpdate' = 1, do the following
+    if ($isUpdate === 1) {
+
+        //Create array and bind results to the array
+        $array = array(
+            'active_location'=>$active_location,
+            'inactive_location'=>$inactive_location
+        );
+
+        //Send data back to the Ajax call
+        echo json_encode($array);
+
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //Events functions
 //EventsPaypalPaymentSuccess function
 function EventsPaypalPaymentSuccess() {
@@ -4636,11 +5023,14 @@ function EventsPaypalPaymentSuccess() {
 //EventTicketQuantityCheck function
 function EventTicketQuantityCheck () {
 
+    //Global variable
 	global $mysqli;
 
+    //Gather data and assign variables
 	$eventid = filter_input(INPUT_POST, 'eventid', FILTER_SANITIZE_STRING);
 	$product_quantity = filter_input(INPUT_POST, 'product_quantity', FILTER_SANITIZE_STRING);
 
+    //Check if quantity requested is greater than tickets available
 	$stmt1 = $mysqli->prepare("SELECT event_ticket_no FROM system_event WHERE eventid = ? LIMIT 1");
 	$stmt1->bind_param('i', $eventid);
 	$stmt1->execute();
@@ -4648,6 +5038,7 @@ function EventTicketQuantityCheck () {
 	$stmt1->bind_result($event_ticket_no);
 	$stmt1->fetch();
 
+    //If quantity requested is greater than tickets available, do the following
 	if ($product_quantity > $event_ticket_no) {
 		echo 'error';
 		$stmt1->close();
@@ -4658,9 +5049,11 @@ function EventTicketQuantityCheck () {
 //CreateEvent function
 function CreateEvent() {
 
+    //Global variables
     global $mysqli;
     global $created_on;
 
+    //Gather data posted and assign variables
     $event_name = filter_input(INPUT_POST, 'create_event_name', FILTER_SANITIZE_STRING);
     $event_notes = filter_input(INPUT_POST, 'create_event_notes', FILTER_SANITIZE_STRING);
     $event_url = filter_input(INPUT_POST, 'create_event_url', FILTER_SANITIZE_STRING);
@@ -4669,7 +5062,7 @@ function CreateEvent() {
     $event_amount = filter_input(INPUT_POST, 'create_event_amount', FILTER_SANITIZE_STRING);
     $event_ticket_no = filter_input(INPUT_POST, 'create_event_ticket_no', FILTER_SANITIZE_STRING);
 
-    // Check existing event name
+    // Check if event name exists
     $stmt1 = $mysqli->prepare("SELECT eventid FROM system_event WHERE event_name=? LIMIT 1");
     $stmt1->bind_param('s', $event_name);
     $stmt1->execute();
@@ -4677,20 +5070,25 @@ function CreateEvent() {
     $stmt1->bind_result($db_eventid);
     $stmt1->fetch();
 
+    //If event name exists, do the following
     if ($stmt1->num_rows == 1) {
         $stmt1->close();
         header('HTTP/1.0 550 The event name you entered already exists.');
         exit();
 
+    //If event name does not exist, do the following
     } else {
 
-        //Creating event record
-
+        //Set value
         $event_class = 'event-important';
+
+        //Convert dates to MySQL format
         $event_from = DateTime::createFromFormat('d/m/Y H:i', $event_from);
         $event_from = $event_from->format('Y-m-d H:i');
         $event_to = DateTime::createFromFormat('d/m/Y H:i', $event_to);
         $event_to = $event_to->format('Y-m-d H:i');
+
+        //Create event
         $event_status = 'active';
 
         $stmt3 = $mysqli->prepare("INSERT INTO system_event (event_class, event_name, event_notes, event_url, event_from, event_to, event_amount, event_ticket_no, event_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -4704,9 +5102,11 @@ function CreateEvent() {
 //UpdateEvent function
 function UpdateEvent() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $eventid = filter_input(INPUT_POST, 'update_eventid', FILTER_SANITIZE_STRING);
     $event_name = filter_input(INPUT_POST, 'update_event_name', FILTER_SANITIZE_STRING);
     $event_notes = filter_input(INPUT_POST, 'update_event_notes', FILTER_SANITIZE_STRING);
@@ -4716,7 +5116,7 @@ function UpdateEvent() {
     $event_amount = filter_input(INPUT_POST, 'update_event_amount', FILTER_SANITIZE_STRING);
     $event_ticket_no = filter_input(INPUT_POST, 'update_event_ticket_no', FILTER_SANITIZE_STRING);
 
-    // Check if event name is different
+    //Check if the event name has changed
     $stmt1 = $mysqli->prepare("SELECT event_name FROM system_event WHERE eventid = ?");
     $stmt1->bind_param('i', $eventid);
     $stmt1->execute();
@@ -4724,21 +5124,25 @@ function UpdateEvent() {
     $stmt1->bind_result($db_event_name);
     $stmt1->fetch();
 
+    //Convert dates to MySQL format
     $event_from = DateTime::createFromFormat('d/m/Y H:i', $event_from);
     $event_from = $event_from->format('Y-m-d H:i');
     $event_to = DateTime::createFromFormat('d/m/Y H:i', $event_to);
     $event_to = $event_to->format('Y-m-d H:i');
 
+    //If the event name hasn't changed, do the following
     if ($db_event_name === $event_name) {
 
+        //Update event
         $stmt2 = $mysqli->prepare("UPDATE system_event SET event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, updated_on=? WHERE eventid=?");
         $stmt2->bind_param('ssssiisi', $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $updated_on, $eventid);
         $stmt2->execute();
         $stmt2->close();
 
+    //If the event name has changed, do the following
     } else {
 
-        // Check existing event name
+        //Check if event name exists
         $stmt3 = $mysqli->prepare("SELECT eventid FROM system_event WHERE event_name = ?");
         $stmt3->bind_param('s', $event_name);
         $stmt3->execute();
@@ -4746,11 +5150,16 @@ function UpdateEvent() {
         $stmt3->bind_result($db_eventid);
         $stmt3->fetch();
 
+        //If the event name exists, do the following
         if ($stmt3->num_rows == 1) {
             $stmt3->close();
             header('HTTP/1.0 550 An event with the name entered already exists.');
             exit();
+
+        //If the event name doesn't exist, do the following
         } else {
+
+            //Update event
             $stmt4 = $mysqli->prepare("UPDATE system_event SET event_name=?, event_notes=?, event_url=?, event_from=?, event_to=?, event_amount=?, event_ticket_no=?, updated_on=? WHERE eventid=?");
             $stmt4->bind_param('sssssiisi', $event_name, $event_notes, $event_url, $event_from, $event_to, $event_amount, $event_ticket_no, $updated_on, $eventid);
             $stmt4->execute();
@@ -4762,11 +5171,14 @@ function UpdateEvent() {
 //DeactivateEvent function
 function DeactivateEvent() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $eventToDeactivate = filter_input(INPUT_POST, 'eventToDeactivate', FILTER_SANITIZE_STRING);
 
+    //Deactivate event
     $event_status = 'inactive';
 
     $stmt1 = $mysqli->prepare("UPDATE system_event SET event_status=?, updated_on=? WHERE eventid=?");
@@ -4774,17 +5186,21 @@ function DeactivateEvent() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Update tables
     AdminEventUpdate($isUpdate = 1);
 }
 
 //ReactivateEvent function
 function ReactivateEvent() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $eventToReactivate = filter_input(INPUT_POST, 'eventToReactivate', FILTER_SANITIZE_STRING);
 
+    //Reactivate event
     $event_status = 'active';
 
     $stmt1 = $mysqli->prepare("UPDATE system_event SET event_status=?, updated_on=? WHERE eventid=?");
@@ -4792,35 +5208,43 @@ function ReactivateEvent() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Update tables
     AdminEventUpdate($isUpdate = 1);
 }
 
 //DeleteEvent function
 function DeleteEvent() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $eventToDelete = filter_input(INPUT_POST, 'eventToDelete', FILTER_SANITIZE_STRING);
 
+    //Delete event
     $stmt1 = $mysqli->prepare("DELETE FROM system_event_booked WHERE eventid=?");
     $stmt1->bind_param('i', $eventToDelete);
     $stmt1->execute();
     $stmt1->close();
 
+    //Delete event
     $stmt2 = $mysqli->prepare("DELETE FROM system_event WHERE eventid=?");
     $stmt2->bind_param('i', $eventToDelete);
     $stmt2->execute();
     $stmt2->close();
 
+    //Gather data posted and assign variables
     AdminEventUpdate($isUpdate = 1);
 }
 
 function AdminEventUpdate($isUpdate = 0) {
 
+    //Global variables
     global $mysqli;
     global $active_event;
     global $inactive_event;
 
+    //Get active events
     $event_status = 'active';
 
     $stmt1 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status=?");
@@ -4833,6 +5257,7 @@ function AdminEventUpdate($isUpdate = 0) {
 
         while ($stmt1->fetch()) {
 
+            //Bind results to the variable
             $active_event .=
 
             '<tr>
@@ -4919,6 +5344,7 @@ function AdminEventUpdate($isUpdate = 0) {
 
     $stmt1->close();
 
+    //Get inactivate events
     $event_status = 'inactive';
 
     $stmt2 = $mysqli->prepare("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status=?");
@@ -4931,6 +5357,7 @@ function AdminEventUpdate($isUpdate = 0) {
 
         while ($stmt2->fetch()) {
 
+            //Bind results to the variable
             $inactive_event .=
 
            '<tr>
@@ -5015,387 +5442,40 @@ function AdminEventUpdate($isUpdate = 0) {
 
 	$stmt2->close();
 
+    //If the call to the function was made with parameter 'isUpdate' = 1, do the following
     if ($isUpdate === 1) {
 
+        //Create array and bind results to the array
         $array = array(
             'active_event'=>$active_event,
             'inactive_event'=>$inactive_event
         );
 
+        //Send data back to the array
         echo json_encode($array);
 
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//University map function
-//CreateLocation function
-function CreateLocation() {
-
-    global $mysqli;
-    global $created_on;
-
-    $marker_name = filter_input(INPUT_POST, 'marker_name', FILTER_SANITIZE_STRING);
-    $marker_notes = filter_input(INPUT_POST, 'marker_notes', FILTER_SANITIZE_STRING);
-    $marker_url = filter_input(INPUT_POST, 'marker_url', FILTER_SANITIZE_STRING);
-    $marker_lat = filter_input(INPUT_POST, 'marker_lat', FILTER_SANITIZE_STRING);
-    $marker_long = filter_input(INPUT_POST, 'marker_long', FILTER_SANITIZE_STRING);
-    $marker_category = filter_input(INPUT_POST, 'marker_category', FILTER_SANITIZE_STRING);
-
-    // Check existing location name
-    $stmt1 = $mysqli->prepare("SELECT markerid FROM system_map_marker WHERE marker_name=? LIMIT 1");
-    $stmt1->bind_param('s', $marker_name);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_markerid);
-    $stmt1->fetch();
-
-    if ($stmt1->num_rows == 1) {
-        $stmt1->close();
-        header('HTTP/1.0 550 The location name you entered already exists.');
-        exit();
-    } else {
-
-        $marker_status = 'active';
-
-        $stmt3 = $mysqli->prepare("INSERT INTO system_map_marker (marker_name, marker_notes, marker_url, marker_lat, marker_long, marker_category, marker_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt3->bind_param('sssiisss', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $marker_status, $created_on);
-        $stmt3->execute();
-        $stmt3->close();
-
-    }
-}
-
-//UpdateLocation function
-function UpdateLocation() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $markerid = filter_input(INPUT_POST, 'markerid', FILTER_SANITIZE_STRING);
-    $marker_name = filter_input(INPUT_POST, 'marker_name1', FILTER_SANITIZE_STRING);
-    $marker_notes = filter_input(INPUT_POST, 'marker_notes1', FILTER_SANITIZE_STRING);
-    $marker_url = filter_input(INPUT_POST, 'marker_url1', FILTER_SANITIZE_STRING);
-    $marker_lat = filter_input(INPUT_POST, 'marker_lat1', FILTER_SANITIZE_STRING);
-    $marker_long = filter_input(INPUT_POST, 'marker_long1', FILTER_SANITIZE_STRING);
-    $marker_category = filter_input(INPUT_POST, 'marker_category1', FILTER_SANITIZE_STRING);
-
-    // Check if event name is different
-    $stmt1 = $mysqli->prepare("SELECT marker_name FROM system_map_marker WHERE markerid=? LIMIT 1");
-    $stmt1->bind_param('i', $markerid);
-    $stmt1->execute();
-    $stmt1->store_result();
-    $stmt1->bind_result($db_marker_name);
-    $stmt1->fetch();
-
-    if ($db_marker_name === $marker_name) {
-
-        $stmt2 = $mysqli->prepare("UPDATE system_map_marker SET marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
-        $stmt2->bind_param('ssiissi', $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
-        $stmt2->execute();
-        $stmt2->close();
-
-    } else {
-
-        // Check existing event name
-        $stmt3 = $mysqli->prepare("SELECT markerid FROM system_map_marker WHERE marker_name = ?");
-        $stmt3->bind_param('s', $marker_name);
-        $stmt3->execute();
-        $stmt3->store_result();
-        $stmt3->bind_result($db_markerid);
-        $stmt3->fetch();
-
-        if ($stmt3->num_rows == 1) {
-            $stmt3->close();
-            header('HTTP/1.0 550 A location with the name entered already exists.');
-            exit();
-        } else {
-            $stmt4 = $mysqli->prepare("UPDATE system_map_marker SET marker_name=?, marker_notes=?, marker_url=?, marker_lat=?, marker_long=?, marker_category=?, updated_on=? WHERE markerid=?");
-            $stmt4->bind_param('sssiissi', $marker_name, $marker_notes, $marker_url, $marker_lat, $marker_long, $marker_category, $updated_on, $markerid);
-            $stmt4->execute();
-            $stmt4->close();
-        }
-    }
-}
-
-//DeactivateLocation function
-function DeactivateLocation() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $locationToDeactivate = filter_input(INPUT_POST, 'locationToDeactivate', FILTER_SANITIZE_STRING);
-
-    $marker_status = 'inactive';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_map_marker SET marker_status=?, updated_on=? WHERE markerid=?");
-    $stmt1->bind_param('ssi', $marker_status, $updated_on, $locationToDeactivate);
-    $stmt1->execute();
-    $stmt1->close();
-
-    AdminUniversityMapUpdate($isUpdate = 1);
-
-}
-
-//ReactivateLocation function
-function ReactivateLocation() {
-
-    global $mysqli;
-    global $updated_on;
-
-    $locationToReactivate = filter_input(INPUT_POST, 'locationToReactivate', FILTER_SANITIZE_STRING);
-
-    $marker_status = 'active';
-
-    $stmt1 = $mysqli->prepare("UPDATE system_map_marker SET marker_status=?, updated_on=? WHERE markerid=?");
-    $stmt1->bind_param('ssi', $marker_status, $updated_on, $locationToReactivate);
-    $stmt1->execute();
-    $stmt1->close();
-
-    AdminUniversityMapUpdate($isUpdate = 1);
-
-}
-
-//DeleteLocation function
-function DeleteLocation() {
-
-    global $mysqli;
-
-    $locationToDelete = filter_input(INPUT_POST, 'locationToDelete', FILTER_SANITIZE_STRING);
-
-    $stmt1 = $mysqli->prepare("DELETE FROM system_map_marker WHERE markerid=?");
-    $stmt1->bind_param('i', $locationToDelete);
-    $stmt1->execute();
-    $stmt1->close();
-
-    AdminUniversityMapUpdate($isUpdate = 1);
-
-}
-
-
-function AdminUniversityMapUpdate($isUpdate = 0) {
-
-    global $mysqli;
-    global $active_location;
-    global $inactive_location;
-
-    $marker_status = 'active';
-
-    $stmt1 = $mysqli->prepare("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status=?");
-    $stmt1->bind_param('s', $marker_status);
-    $stmt1->execute();
-    $stmt1->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
-    $stmt1->store_result();
-
-    if ($stmt1->num_rows > 0) {
-
-        while ($stmt1->fetch()) {
-
-            $active_location .=
-
-           '<tr>
-			<td data-title="Location"><a href="#view-location-'.$markerid.'" data-toggle="modal">'.$marker_name.'</a></td>
-			<td data-title="Latitude">'.$marker_lat.'</td>
-			<td data-title="Longitude">'.$marker_long.'</td>
-			<td data-title="Category">'.ucfirst($marker_category).'</td>
-			<td data-title="Action">
-			<div class="btn-group btn-action">
-            <a class="btn btn-primary" href="../admin/update-location/?id='.$markerid.'">Update</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a id="deactivate-'.$markerid.'" class="btn-deactivate-location">Deactivate</a></li>
-            <li><a href="#delete-'.$markerid.'" data-toggle="modal">Delete</a></li>
-            </ul>
-            </div>
-
-            <div id="view-location-'.$markerid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-map-marker"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$marker_name.'</h4>
-			</div>
-
-			<div class="modal-body">
-			<p><b>Latitude:</b> '.(empty($marker_lat) ? "-" : "$marker_lat").'</p>
-			<p><b>Longitude:</b> '.(empty($marker_long) ? "-" : "$marker_long").'</p>
-			<p><b>Category:</b> '.(empty($marker_category) ? "-" : ucfirst($marker_category)).'</p>
-			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
-			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
-			</div>
-
-			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a href="/admin/update-location?id='.$markerid.'" class="btn btn-primary btn-md">Update</a>
-            <a id="deactivate-'.$markerid.'" class="btn btn-primary btn-md btn-deactivate-location" data-dismiss="modal">Deactivate</a>
-            <a href="#delete-'.$markerid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
-			</div>
-			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="delete-'.$markerid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">Delete location?</h4>
-            </div>
-
-			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete "'.$marker_name.'"?</p>
-			</div>
-
-			<div class="modal-footer">
-			<div class="text-right">
-            <a id="delete-'.$markerid.'" class="btn btn-danger btn-md btn-delete-location btn-load">Delete</a>
-			<a class="btn btn-success btn-md" data-dismiss="modal">Cancel</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            </td>
-			</tr>';
-        }
-    }
-
-	$stmt1->close();
-
-    $marker_status = 'inactive';
-
-    $stmt2 = $mysqli->prepare("SELECT markerid, marker_name, marker_lat, marker_long, marker_category, DATE_FORMAT(created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM system_map_marker WHERE marker_status=?");
-    $stmt2->bind_param('s', $marker_status);
-    $stmt2->execute();
-    $stmt2->bind_result($markerid, $marker_name, $marker_lat, $marker_long, $marker_category, $created_on, $updated_on);
-    $stmt2->store_result();
-
-    if ($stmt2->num_rows > 0) {
-
-        while ($stmt2->fetch()) {
-
-            $inactive_location .=
-
-           '<tr>
-			<td data-title="Location"><a href="#view-location-'.$markerid.'">'.$marker_name.'</a></td>
-			<td data-title="Latitude">'.$marker_lat.'</td>
-			<td data-title="Longitude">'.$marker_long.'</td>
-			<td data-title="Category">'.ucfirst($marker_category).'</td>
-			<td data-title="Action">
-			<div class="btn-group btn-action">
-            <a id="reactivate-'.$markerid.'" class="btn btn-primary btn-reactivate-location">Reactivate</a>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <span class="fa fa-caret-down"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="#delete-'.$markerid.'" data-toggle="modal" data-dismiss="modal">Delete</a></li>
-            </ul>
-            </div>
-
-            <div id="view-location-'.$markerid.'" class="modal fade modal-custom modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close"><i class="fa fa-map-marker"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">'.$marker_name.'</h4>
-			</div>
-
-			<div class="modal-body">
-			<p><b>Latitude:</b> '.(empty($marker_lat) ? "-" : "$marker_lat").'</p>
-			<p><b>Longitude:</b> '.(empty($marker_long) ? "-" : "$marker_long").'</p>
-			<p><b>Category:</b> '.(empty($marker_category) ? "-" : ucfirst($marker_category)).'</p>
-			<p><b>Created on:</b> '.(empty($created_on) ? "-" : "$created_on").'</p>
-			<p><b>Updated on:</b> '.(empty($updated_on) ? "-" : "$updated_on").'</p>
-			</div>
-
-			<div class="modal-footer">
-            <div class="view-action pull-left">
-            <a href="/admin/update-location?id='.$markerid.'" class="btn btn-primary btn-md">Update</a>
-            <a id="deactivate-'.$markerid.'" class="btn btn-primary btn-md btn-deactivate-location" data-dismiss="modal">Deactivate</a>
-            <a href="#delete-'.$markerid.'" class="btn btn-primary btn-md" data-toggle="modal" data-dismiss="modal">Delete</a>
-			</div>
-			<div class="view-close pull-right">
-			<a class="btn btn-danger btn-md" data-dismiss="modal">Close</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-			<div id="delete-'.$markerid.'" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
-    		<div class="modal-dialog">
-    		<div class="modal-content">
-
-			<div class="modal-header">
-            <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
-            <h4 class="modal-title" id="modal-custom-label">Delete location?</h4>
-            </div>
-
-			<div class="modal-body">
-			<p class="text-center">Are you sure you want to delete "'.$marker_name.'"?</p>
-			</div>
-
-			<div class="modal-footer">
-			<div class="text-right">
-            <a id="delete-'.$markerid.'" class="btn btn-danger btn-lg btn-delete-location btn-load">Delete</a>
-			<a class="btn btn-success btn-lg" data-dismiss="modal">Cancel</a>
-			</div>
-			</div>
-
-			</div><!-- /modal -->
-			</div><!-- /modal-dialog -->
-			</div><!-- /modal-content -->
-
-            </td>
-			</tr>';
-        }
-	}
-
-	$stmt2->close();
-
-    if ($isUpdate === 1) {
-
-        $array = array(
-            'active_location'=>$active_location,
-            'inactive_location'=>$inactive_location
-        );
-
-        echo json_encode($array);
-
-    }
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Feedback functions
 //SubmitFeedback function
 function SubmitFeedback() {
 
+    //Global variables
     global $mysqli;
     global $session_userid;
     global $created_on;
 
+    //Gather data posted and assign variables
     $feedback_moduleid = filter_input(INPUT_POST, 'feedback_moduleid', FILTER_SANITIZE_STRING);
     $feedback_lecturer = filter_input(INPUT_POST, 'feedback_lecturer', FILTER_SANITIZE_STRING);
     $feedback_tutorial_assistant = filter_input(INPUT_POST, 'feedback_tutorial_assistant', FILTER_SANITIZE_STRING);
     $feedback_subject = filter_input(INPUT_POST, 'feedback_subject', FILTER_SANITIZE_STRING);
     $feedback_body = filter_input(INPUT_POST, 'feedback_body', FILTER_SANITIZE_STRING);
 
+    //Create feedback
     $feedback_status = 'active';
     $isApproved = 0;
 
@@ -5404,29 +5484,36 @@ function SubmitFeedback() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Get feedbackid
     $stmt2 = $mysqli->prepare("SELECT feedbackid FROM user_feedback ORDER BY feedbackid DESC LIMIT 1");
     $stmt2->execute();
     $stmt2->store_result();
     $stmt2->bind_result($feedbackid);
     $stmt2->fetch();
 
+    //Set value
     $isRead = 0;
 
+    //Create feedback
     $stmt3 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
     $stmt3->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer);
     $stmt3->execute();
     $stmt3->close();
 
+    //Create feedback
     $stmt4 = $mysqli->prepare("INSERT INTO user_feedback_sent (feedbackid, feedback_from, moduleid, module_staff) VALUES (?, ?, ?, ?)");
     $stmt4->bind_param('iiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant);
     $stmt4->execute();
     $stmt4->close();
 
+    //Create feedback
     $stmt5 = $mysqli->prepare("INSERT INTO user_feedback_received (feedbackid, feedback_from, moduleid, module_staff, isRead) VALUES (?, ?, ?, ?, ?)");
     $stmt5->bind_param('iiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_lecturer, $isRead);
     $stmt5->execute();
     $stmt5->close();
 
+
+    //Create feedback
     $stmt6 = $mysqli->prepare("INSERT INTO user_feedback_received (feedbackid, feedback_from, moduleid, module_staff, isRead) VALUES (?, ?, ?, ?, ?)");
     $stmt6->bind_param('iiiii', $feedbackid, $session_userid, $feedback_moduleid, $feedback_tutorial_assistant, $isRead);
     $stmt6->execute();
@@ -5437,10 +5524,13 @@ function SubmitFeedback() {
 //ApproveFeedback function
 function ApproveFeedback () {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $feedbackToApprove = filter_input(INPUT_POST, 'feedbackToApprove', FILTER_SANITIZE_STRING);
 
+    //Set isApproved flag to 1
     $isApproved = 1;
 
     $stmt1 = $mysqli->prepare("UPDATE user_feedback SET isApproved=? WHERE feedbackid=?");
@@ -5448,6 +5538,7 @@ function ApproveFeedback () {
     $stmt1->execute();
     $stmt1->close();
 
+    //Get feedback details
     $stmt2 = $mysqli->prepare("SELECT feedback_subject, feedback_body FROM user_feedback WHERE feedbackid = ? LIMIT 1");
     $stmt2->bind_param('i', $feedbackToApprove);
     $stmt2->execute();
@@ -5456,6 +5547,7 @@ function ApproveFeedback () {
     $stmt2->fetch();
     $stmt2->close();
 
+    //Get recipient email
     $stmt3 = $mysqli->prepare("SELECT s.email FROM user_feedback_received f LEFT JOIN user_signin s ON f.module_staff=s.userid WHERE f.feedbackid=? ORDER BY f.module_staff ASC LIMIT 1");
     $stmt3->bind_param('i', $feedbackToApprove);
     $stmt3->execute();
@@ -5464,6 +5556,7 @@ function ApproveFeedback () {
     $stmt3->fetch();
     $stmt3->close();
 
+    //Get recipient email
     $stmt4 = $mysqli->prepare("SELECT s.email FROM user_feedback_received f LEFT JOIN user_signin s ON f.module_staff=s.userid WHERE f.feedbackid=? ORDER BY f.module_staff DESC LIMIT 1");
     $stmt4->bind_param('i', $feedbackToApprove);
     $stmt4->execute();
@@ -5472,6 +5565,7 @@ function ApproveFeedback () {
     $stmt4->fetch();
     $stmt4->close();
 
+    //Get sender userid
     $stmt5 = $mysqli->prepare("SELECT feedback_from FROM user_feedback_received WHERE feedbackid = ? LIMIT 1");
     $stmt5->bind_param('i', $feedbackToApprove);
     $stmt5->execute();
@@ -5480,6 +5574,7 @@ function ApproveFeedback () {
     $stmt5->fetch();
     $stmt5->close();
 
+    //Get sender details
     $stmt6 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.userid = ? LIMIT 1");
     $stmt6->bind_param('i', $feedback_from);
     $stmt6->execute();
@@ -5489,8 +5584,11 @@ function ApproveFeedback () {
     $stmt6->close();
 
     //Creating email
+
+    //email subject
     $subject = "$feedback_from_firstname $feedback_from_surname - New feedback on Student Portal";
 
+    //email message
     $message = '<html>';
     $message .= '<body>';
     $message .= '<p>The following student submitted some feedback for you:</p>';
@@ -5508,22 +5606,26 @@ function ApproveFeedback () {
     $message .= '</body>';
     $message .= '</html>';
 
+    //email headers
     $headers  = 'MIME-Version: 1.0'."\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
     $headers .= "From: $feedback_from_firstname $feedback_from_surname <$feedback_from_email>" . "\r\n";
     $headers .= "Reply-To: $feedback_from_firstname $feedback_from_surname <$feedback_from_email>" . "\r\n";
 
+    //Send the email
     mail("$lecturer_feedback_to_email, $tutorial_assistant_feedback_to_email", $subject, $message, $headers);
 }
 
 //SetFeedbackRead function
 function SetFeedbackRead () {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $feedbackToRead = filter_input(INPUT_POST, 'feedbackToRead', FILTER_SANITIZE_STRING);
 
+    //Get isApproved
     $stmt1 = $mysqli->prepare("SELECT isApproved FROM user_feedback WHERE feedbackid = ? LIMIT 1");
     $stmt1->bind_param('i', $feedbackToRead);
     $stmt1->execute();
@@ -5532,9 +5634,13 @@ function SetFeedbackRead () {
     $stmt1->fetch();
     $stmt1->close();
 
-    $isRead = 1;
-
+    //If isApproved is 1, do the following
     if($isApproved === 1) {
+
+        //Set value
+        $isRead = 1;
+
+        //Set isRead flag to 1
         $stmt1 = $mysqli->prepare("UPDATE user_feedback_received SET isRead=? WHERE feedbackid=?");
         $stmt1->bind_param('ii', $isRead, $feedbackToRead);
         $stmt1->execute();
@@ -5545,20 +5651,25 @@ function SetFeedbackRead () {
 //DeleteFeedback function
 function DeleteFeedback () {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $feedbackToDelete = filter_input(INPUT_POST, 'feedbackToDelete', FILTER_SANITIZE_STRING);
 
+    //Delete sent feedback
     $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedbackid=?");
     $stmt1->bind_param('i', $feedbackToDelete);
     $stmt1->execute();
     $stmt1->close();
 
+    //Delete received feedback
     $stmt2 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE feedbackid=?");
     $stmt2->bind_param('i', $feedbackToDelete);
     $stmt2->execute();
     $stmt2->close();
 
+    //Delete feedback
     $stmt3 = $mysqli->prepare("DELETE FROM user_feedback WHERE feedbackid=?");
     $stmt3->bind_param('i', $feedbackToDelete);
     $stmt3->execute();
@@ -5568,11 +5679,14 @@ function DeleteFeedback () {
 //DeleteSentFeedback function
 function DeleteSentFeedback () {
 
+    //Global variables
     global $mysqli;
     global $session_userid;
 
+    //Gather data posted and assign variables
     $sentFeedbackToDelete = filter_input(INPUT_POST, 'sentFeedbackToDelete', FILTER_SANITIZE_STRING);
 
+    //Delete sent feedback
     $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedbackid=? AND feedback_from=?");
     $stmt1->bind_param('ii', $sentFeedbackToDelete, $session_userid);
     $stmt1->execute();
@@ -5582,11 +5696,14 @@ function DeleteSentFeedback () {
 //DeleteReceivedFeedback function
 function DeleteReceivedFeedback () {
 
+    //Global variables
     global $mysqli;
     global $session_userid;
 
+    //Gather data posted and assign variables
     $receivedFeedbackToDelete = filter_input(INPUT_POST, 'receivedFeedbackToDelete', FILTER_SANITIZE_STRING);
 
+    //Delete received feedback
     $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE feedbackid=? AND module_staff=?");
     $stmt1->bind_param('ii', $receivedFeedbackToDelete, $session_userid);
     $stmt1->execute();
@@ -5599,10 +5716,12 @@ function DeleteReceivedFeedback () {
 //MessageUser function
 function SendMessage() {
 
+    //Global variables
 	global $mysqli;
 	global $session_userid;
 	global $created_on;
 
+    //Gather data posted and assign variables
 	$message_to_userid = filter_input(INPUT_POST, 'message_to_userid', FILTER_SANITIZE_STRING);
 	$message_to_firstname = filter_input(INPUT_POST, 'message_to_firstname', FILTER_SANITIZE_STRING);
 	$message_to_surname = filter_input(INPUT_POST, 'message_to_surname', FILTER_SANITIZE_STRING);
@@ -5611,6 +5730,7 @@ function SendMessage() {
 	$message_subject = filter_input(INPUT_POST, 'message_subject', FILTER_SANITIZE_STRING);
 	$message_body = filter_input(INPUT_POST, 'message_body', FILTER_SANITIZE_STRING);
 
+    //Create message
     $message_status = 'active';
 
 	$stmt1 = $mysqli->prepare("INSERT INTO user_message (message_subject, message_body, message_status, created_on) VALUES (?, ?, ?, ?)");
@@ -5618,21 +5738,26 @@ function SendMessage() {
 	$stmt1->execute();
 	$stmt1->close();
 
-    $isRead = 0;
-
+    //Create sent message
     $stmt2 = $mysqli->prepare("INSERT INTO user_message_sent (message_from, message_to) VALUES (?, ?)");
     $stmt2->bind_param('ii', $session_userid, $message_to_userid);
     $stmt2->execute();
     $stmt2->close();
 
+    //Create received message
+
+    $isRead = 0;
     $stmt3 = $mysqli->prepare("INSERT INTO user_message_received (message_from, message_to, isRead) VALUES (?, ?, ?)");
     $stmt3->bind_param('iii', $session_userid, $message_to_userid, $isRead);
     $stmt3->execute();
     $stmt3->close();
 
-	//Creating email
+	//Create email
+
+    //email subject
 	$subject = "$message_to_firstname $message_to_surname - New message on Student Portal";
 
+    //email message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>The following person sent you a message:</p>';
@@ -5650,12 +5775,13 @@ function SendMessage() {
 	$message .= '</body>';
 	$message .= '</html>';
 
+    //email headers
 	$headers  = 'MIME-Version: 1.0'."\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
 	$headers .= "From: $message_to_firstname $message_to_surname <$message_to_email>" . "\r\n";
 	$headers .= "Reply-To: $message_to_firstname $message_to_surname <$message_to_email>" . "\r\n";
 
+    //Send the email
 	mail($message_to_email, $subject, $message, $headers);
 
 }
@@ -5663,10 +5789,13 @@ function SendMessage() {
 //SetMessageRead function
 function SetMessageRead () {
 
+    //Global variables
 	global $mysqli;
 
+    //Gather data posted and assign variables
     $messageToRead = filter_input(INPUT_POST, 'messageToRead', FILTER_SANITIZE_STRING);
 
+    //Set isRead flag to 1
 	$isRead = 1;
 
 	$stmt1 = $mysqli->prepare("UPDATE user_message_received SET isRead=? WHERE messageid=?");
@@ -5678,11 +5807,14 @@ function SetMessageRead () {
 //DeleteReceivedMessage function
 function DeleteReceivedMessage () {
 
+    //Global variables
     global $mysqli;
     global $session_userid;
 
+    //Gather data posted and assign variables
     $receivedFeedbackToDelete = filter_input(INPUT_POST, 'receivedMessageToDelete', FILTER_SANITIZE_STRING);
 
+    //Delete received message
     $stmt1 = $mysqli->prepare("DELETE FROM user_message_received WHERE messageid=? AND message_to=?");
     $stmt1->bind_param('ii', $receivedFeedbackToDelete, $session_userid);
     $stmt1->execute();
@@ -5693,11 +5825,14 @@ function DeleteReceivedMessage () {
 //DeleteSentMessage function
 function DeleteSentMessage () {
 
+    //Global variables
     global $mysqli;
     global $session_userid;
 
+    //Gather data posted and assign variables
     $sentMessageToDelete = filter_input(INPUT_POST, 'sentMessageToDelete', FILTER_SANITIZE_STRING);
 
+    //Delete sent message
     $stmt1 = $mysqli->prepare("DELETE FROM user_message_sent WHERE messageid=? AND message_from=?");
     $stmt1->bind_param('ii', $sentMessageToDelete, $session_userid);
     $stmt1->execute();
@@ -5710,10 +5845,12 @@ function DeleteSentMessage () {
 //UpdateAccount function
 function UpdateAccount() {
 
+    //Global variables
 	global $mysqli;
 	global $session_userid;
 	global $updated_on;
 
+    //Gather data posted and assign variables
 	$firstname = filter_input(INPUT_POST, 'update_firstname', FILTER_SANITIZE_STRING);
 	$surname = filter_input(INPUT_POST, 'update_surname', FILTER_SANITIZE_STRING);
 	$gender = filter_input(INPUT_POST, 'update_gender', FILTER_SANITIZE_STRING);
@@ -5729,21 +5866,31 @@ function UpdateAccount() {
 	$country = filter_input(INPUT_POST, 'update_country', FILTER_SANITIZE_STRING);
 	$postcode = filter_input(INPUT_POST, 'update_postcode', FILTER_SANITIZE_STRING);
 
+    //Convert to lowercase
     $gender = strtolower($gender);
     $nationality = strtolower($nationality);
-	if ($dateofbirth == '') {
+
+    //If dateofbirth is empty, do the following
+    if ($dateofbirth == '') {
+
+        //Set value
 		$dateofbirth = NULL;
+
 	} else {
+
+        //Convert date to MySQL format
         $dateofbirth = DateTime::createFromFormat('d/m/Y', $dateofbirth);
         $dateofbirth = $dateofbirth->format('Y-m-d');
     }
 
+    //Check if email is valid
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
 		exit();
 	}
 	else {
 
+        //Check if email has changed
         $stmt1 = $mysqli->prepare("SELECT email from user_signin where userid = ?");
         $stmt1->bind_param('i', $session_userid);
         $stmt1->execute();
@@ -5751,17 +5898,21 @@ function UpdateAccount() {
         $stmt1->bind_result($db_email);
         $stmt1->fetch();
 
+        //If the email hasn't changed, do the following
 	    if ($db_email === $email) {
 
+            //Update account
             $stmt2 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
             $stmt2->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
             $stmt2->execute();
             $stmt2->close();
 
-            // subject
+            //Create email
+
+            //email subject
             $subject = 'Account updated successfully';
 
-            // message
+            //email message
             $message = '<html>';
             $message .= '<head>';
             $message .= '<title>Student Portal | Account</title>';
@@ -5774,19 +5925,18 @@ function UpdateAccount() {
             $message .= '</body>';
             $message .=	'</html>';
 
-            // To send HTML mail, the Content-type header must be set
+            //email headers
             $headers  = 'MIME-Version: 1.0'."\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
-            // Additional headers
             $headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
             $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
-            // Mail it
+            // Send the message
             mail($email, $subject, $message, $headers);
 
 	    } else {
 
+            //Check if the email address exists
             $stmt3 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
             $stmt3->bind_param('s', $email);
             $stmt3->execute();
@@ -5794,26 +5944,33 @@ function UpdateAccount() {
             $stmt3->bind_result($db_userid);
             $stmt3->fetch();
 
+            //If the email address exists, do the following
             if ($stmt3->num_rows == 1) {
                 $stmt3->close();
                 header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
                 exit();
+
+            //If the email address doesn't exist, do the following
             } else {
 
+                //Update account
                 $stmt4 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
                 $stmt4->bind_param('sssssssssssssi', $firstname, $surname, $gender, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $session_userid);
                 $stmt4->execute();
                 $stmt4->close();
 
+                //Update account
                 $stmt5 = $mysqli->prepare("UPDATE user_signin SET email=?, updated_on=? WHERE userid = ?");
                 $stmt5->bind_param('ssi', $email, $updated_on, $session_userid);
                 $stmt5->execute();
                 $stmt5->close();
 
-                // subject
+                //Create email
+
+                //email subject
                 $subject = 'Account updated successfully';
 
-                // message
+                //email message
                 $message = '<html>';
                 $message .= '<head>';
                 $message .= '<title>Student Portal | Account</title>';
@@ -5826,15 +5983,13 @@ function UpdateAccount() {
                 $message .= '</body>';
                 $message .=	'</html>';
 
-                // To send HTML mail, the Content-type header must be set
+                //email headers
                 $headers  = 'MIME-Version: 1.0'."\r\n";
                 $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
-                // Additional headers
                 $headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
                 $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
-                // Mail it
+                // Send the email
                 mail($email, $subject, $message, $headers);
 
 	        }
@@ -5845,14 +6000,16 @@ function UpdateAccount() {
 //ChangePassword function
 function ChangePassword() {
 
+    //Global variables
 	global $mysqli;
 	global $session_userid;
 	global $updated_on;
 
+    //Gather data posted and assign variables
     $old_password = filter_input(INPUT_POST, 'change_password_old_password', FILTER_SANITIZE_STRING);
 	$new_password = filter_input(INPUT_POST, 'change_password_password', FILTER_SANITIZE_STRING);
 
-    // Getting user login details
+    //Get password
     $stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
     $stmt1->bind_param('i', $session_userid);
     $stmt1->execute();
@@ -5860,20 +6017,27 @@ function ChangePassword() {
     $stmt1->bind_result($db_password);
     $stmt1->fetch();
 
+    //If the old password entered and the database password match, do the following
     if (password_verify($old_password, $db_password)) {
+        //If the new password entered and the database password match, do the following
         if (password_verify($new_password, $db_password)) {
             $stmt1->close();
             header('HTTP/1.0 550 The new password you entered is your current password. Please enter a new password.');
             exit();
+
+        //If the new password entered and the database password do not match, do the following
         } else {
 
+            //hash the password
             $password_hash = password_hash($new_password, PASSWORD_BCRYPT);
 
+            //Update account
             $stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
             $stmt2->bind_param('ssi', $password_hash, $updated_on, $session_userid);
             $stmt2->execute();
             $stmt2->close();
 
+            //Get user details
             $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ?");
             $stmt3->bind_param('i', $session_userid);
             $stmt3->execute();
@@ -5881,10 +6045,12 @@ function ChangePassword() {
             $stmt3->bind_result($email, $firstname);
             $stmt3->fetch();
 
-            // subject
+            //Create email
+
+            //email subject
             $subject = 'Password changed successfully';
 
-            // message
+            //email message
             $message = '<html>';
             $message .= '<head>';
             $message .= '<title>Student Portal | Account</title>';
@@ -5897,19 +6063,19 @@ function ChangePassword() {
             $message .= '</body>';
             $message .= '</html>';
 
-            // To send HTML mail, the Content-type header must be set
+            //email headers
             $headers  = 'MIME-Version: 1.0'."\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
-            // Additional headers
             $headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
             $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
-            // Mail it
+            //Send the email
             mail($email, $subject, $message, $headers);
 
             $stmt1->close();
         }
+
+    //If the old password entered and the database password do not match, do the following
     } else {
         $stmt1->close();
         header('HTTP/1.0 550 The old password you entered is incorrect.');
@@ -5920,10 +6086,12 @@ function ChangePassword() {
 //PaypalPaymentSuccess function
 function FeesPaypalPaymentSuccess() {
 
+    //Global variables
 	global $mysqli;
 	global $updated_on;
 	global $completed_on;
 
+    //Get data from Paypal IPN
     $invoiceid = $_POST["invoice"];
 	$transactionid  = $_POST["txn_id"];
 	$payment_status = $_POST["payment_status"];
@@ -5934,6 +6102,7 @@ function FeesPaypalPaymentSuccess() {
 	$product_name = $_POST["item_name1"];
 	$product_amount = $_POST["mc_gross"];
 
+    //Get userid using the invoiceid
 	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoiceid = ? LIMIT 1");
 	$stmt1->bind_param('i', $invoiceid);
 	$stmt1->execute();
@@ -5942,6 +6111,7 @@ function FeesPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
+    //Get user details and isHalf
 	$stmt2 = $mysqli->prepare("SELECT s.email, d.firstname, d.surname, f.isHalf FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid LEFT JOIN user_fee f ON s.userid=f.userid WHERE s.userid = ? LIMIT 1");
 	$stmt2->bind_param('i', $userid);
 	$stmt2->execute();
@@ -5950,32 +6120,42 @@ function FeesPaypalPaymentSuccess() {
 	$stmt2->fetch();
 	$stmt2->close();
 
+    //If product name is 'Full fees', do the following
 	if ($product_name == 'Full fees') {
 
+        //Set values
         $fee_amount = 0.00;
         $updated_on = date("Y-m-d G:i:s");
 
+        //Update fees
         $stmt3 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
         $stmt3->bind_param('isi', $fee_amount, $updated_on, $userid);
         $stmt3->execute();
         $stmt3->close();
 
+    //If product name is not 'Full fees', do the following
 	} else {
 
+        //If product name is 'Half fees' and isHalf is '0', do the following
         if ($product_name == 'Half fees' AND $isHalf == '0') {
 
+            //Set value
             $isHalf = 1;
 
+            //Update fees
             $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, isHalf=?, updated_on=? WHERE userid=? LIMIT 1");
             $stmt4->bind_param('iisi', $product_amount, $isHalf, $updated_on, $userid);
             $stmt4->execute();
             $stmt4->close();
 
+        //If product name is 'Half fees' and isHalf is '1', do the following
         } elseif ($product_name == 'Half fees' AND $isHalf == '1') {
 
+            //Set values
             $fee_amount = 0.00;
             $updated_on = date("Y-m-d G:i:s");
 
+            //Update fees
             $stmt5 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=? LIMIT 1");
             $stmt5->bind_param('isi', $fee_amount, $updated_on, $userid);
             $stmt5->execute();
@@ -5984,15 +6164,18 @@ function FeesPaypalPaymentSuccess() {
 	    }
     }
 
+    //Update PayPal log
 	$stmt6 = $mysqli->prepare("UPDATE paypal_log SET transactionid=?, payment_status=?, updated_on=?, completed_on=? WHERE invoiceid =?");
 	$stmt6->bind_param('ssssi', $transactionid, $payment_status, $updated_on, $completed_on, $invoiceid);
 	$stmt6->execute();
 	$stmt6->close();
 
-	//subject
+    //Create email
+
+	//email subject
 	$subject = 'Payment confirmation';
 
-	//message
+	//email message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
@@ -6010,26 +6193,26 @@ function FeesPaypalPaymentSuccess() {
 	$message .= '</body>';
 	$message .= '</html>';
 
-	// To send HTML mail, the Content-type header must be set
+	//email headers
 	$headers  = 'MIME-Version: 1.0'."\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
-	// Additional headers
 	$headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
 	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
-	// Mail it
+	//Send the email
 	mail($email, $subject, $message, $headers);
 }
 
 //PaypalPaymentCancel function
 function PaypalPaymentCancel() {
 
+    //Global variables
 	global $mysqli;
 	global $session_userid;
 	global $updated_on;
 	global $cancelled_on;
 
+    //Update PayPal log
 	$payment_status = 'cancelled';
 
 	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET payment_status = ?, updated_on=?, cancelled_on=? WHERE userid = ? ORDER BY paymentid DESC LIMIT 1");
@@ -6041,68 +6224,85 @@ function PaypalPaymentCancel() {
 //DeleteAccount function
 function DeleteAccount() {
 
+    //Global variable
 	global $mysqli;
 
+    //Gather data posted and assign variables
     $accountToDelete = filter_input(INPUT_POST, 'accountToDelete', FILTER_SANITIZE_STRING);
 
+    //Delete sent messages
     $stmt1 = $mysqli->prepare("DELETE FROM user_message_sent WHERE message_from = ?");
     $stmt1->bind_param('i', $accountToDelete);
     $stmt1->execute();
     $stmt1->close();
 
+    //Delete received messages
     $stmt2 = $mysqli->prepare("DELETE FROM user_message_received WHERE message_to = ?");
     $stmt2->bind_param('i', $accountToDelete);
     $stmt2->execute();
     $stmt2->close();
 
+    //Delete sent feedback
     $stmt3 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedback_from = ?");
     $stmt3->bind_param('i', $accountToDelete);
     $stmt3->execute();
     $stmt3->close();
 
+    //Delete user from module look-up table
     $stmt4 = $mysqli->prepare("DELETE FROM user_module WHERE userid = ?");
     $stmt4->bind_param('i', $accountToDelete);
     $stmt4->execute();
     $stmt4->close();
 
+    //Delete user from lecture look-up table
     $stmt5 = $mysqli->prepare("DELETE FROM user_lecture WHERE userid = ?");
     $stmt5->bind_param('i', $accountToDelete);
     $stmt5->execute();
     $stmt5->close();
 
+    //Delete user from tutorial look-up table
     $stmt6 = $mysqli->prepare("DELETE FROM user_tutorial WHERE userid = ?");
     $stmt6->bind_param('i', $accountToDelete);
     $stmt6->execute();
     $stmt6->close();
 
+    //Delete user from exam look-up table
     $stmt7 = $mysqli->prepare("DELETE FROM user_exam WHERE userid = ?");
     $stmt7->bind_param('i', $accountToDelete);
     $stmt7->execute();
     $stmt7->close();
 
+    //Delete user from result look-up table
     $stmt8 = $mysqli->prepare("DELETE FROM user_result WHERE userid = ?");
     $stmt8->bind_param('i', $accountToDelete);
     $stmt8->execute();
     $stmt8->close();
 
+    //Delete user from reserved books look-up table
     $stmt9 = $mysqli->prepare("DELETE FROM system_book_reserved WHERE userid = ?");
     $stmt9->bind_param('i', $accountToDelete);
     $stmt9->execute();
     $stmt9->close();
 
+    //Delete user from booked events look-up table
     $stmt10 = $mysqli->prepare("DELETE FROM system_event_booked WHERE userid = ?");
     $stmt10->bind_param('i', $accountToDelete);
     $stmt10->execute();
     $stmt10->close();
 
+    //Delete user
     $stmt11 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
     $stmt11->bind_param('i', $accountToDelete);
     $stmt11->execute();
     $stmt11->close();
 
+    //Unset session
 	session_unset();
+
+    //Destroy session
 	session_destroy();
 
+    //SignOut
     SignOut();
 }
 
