@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $eventToUpdate = $_GET["id"];
@@ -13,8 +14,7 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
-    echo $event_to;
-
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../events/');
 }
@@ -107,7 +107,7 @@ if (isset($_GET["id"])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg btn-load">Update event</button>
+    <button id="update-event-submit" class="btn btn-primary btn-lg btn-load">Update event</button>
     </div>
 
     </div>
@@ -178,7 +178,7 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    // Date Time Picker
+    //Initialize Date Time Picker
     $('#event_from').datetimepicker({
         format: 'DD/MM/YYYY HH:mm',
         useCurrent: false
@@ -188,15 +188,15 @@ if (isset($_GET["id"])) {
         useCurrent: false
     });
 
-    //Ajax call
-    $("#FormSubmit").click(function (e) {
+    //Update event process
+    $("#update-event-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
-    //Events
     var eventid = $("#eventid").val();
 
+    //Checking if event_name is inputted
 	var event_name = $("#event_name").val();
 	if(event_name === '') {
         $("label[for='event_name']").empty().append("Please enter a name.");
@@ -217,6 +217,7 @@ if (isset($_GET["id"])) {
     var event_notes = $("#event_notes").val();
     var event_url = $("#event_url").val();
 
+    //Checking if event_from is inputted
     var event_from = $("#event_from").val();
 	if(event_from === '') {
         $("label[for='event_from']").empty().append("Please select a date and time.");
@@ -234,6 +235,7 @@ if (isset($_GET["id"])) {
         $("#event_from").addClass("input-success");
 	}
 
+    //Checking if event_to is inputted
     var event_to = $("#event_to").val();
 	if(event_to === '') {
         $("label[for='event_to']").empty().append("Please select a date and time.");
@@ -251,6 +253,7 @@ if (isset($_GET["id"])) {
         $("#event_to").addClass("input-success");
 	}
 
+    //Checking if event_amount is inputted
     var event_amount = $("#event_amount").val();
 	if(event_amount === '') {
         $("label[for='event_amount']").empty().append("Please enter an amount.");
@@ -268,6 +271,7 @@ if (isset($_GET["id"])) {
         $("#event_amount").addClass("input-success");
 	}
 
+    //Checking if event_ticket_no is inputted
     var event_ticket_no = $("#event_ticket_no").val();
 	if(event_ticket_no === '') {
         $("label[for='event_amount']").empty().append("Please enter an amount.");
@@ -287,10 +291,14 @@ if (isset($_GET["id"])) {
 
     var event_category = $("#event_category option:selected").val();
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'eventid1='          + eventid +
          '&event_name1='       + event_name +
          '&event_notes1='     + event_notes +
@@ -301,12 +309,15 @@ if (isset($_GET["id"])) {
          '&event_ticket_no1=' + event_ticket_no +
          '&event_category1='  + event_category,
 
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The event has been updated.');
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#success").hide();

@@ -3,6 +3,7 @@ include '../includes/session.php';
 
 global $mysqli, $userToUpdate, $account_type, $email, $firstname, $surname, $gender, $studentno, $degree, $fee_amount, $nationality, $dateofbirth, $phonenumber, $addres1, $address2, $town, $city, $country, $postcode;
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
 	$userToUpdate = $_GET["id"];
@@ -15,6 +16,7 @@ if (isset($_GET["id"])) {
 	$stmt1->fetch();
 	$stmt1->close();
 
+//If URL parameter is not set, do the following
 } else {
 	header('Location: ../../account/');
 }
@@ -386,15 +388,16 @@ if ($dateofbirth == "00-00-0000") {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //On load
+    //On load actions
     $(document).ready(function () {
-        //select2
+        //Initialize select2
         $("#account_type").select2({placeholder: "Select an option"});
         $("#gender").select2({placeholder: "Select an option"});
         $("#nationality").select2({placeholder: "Select an option"});
 
         var account_type = $('#account_type :selected').html();
 
+        //If option is 'Student', do the following
         if(account_type === 'Student') {
             $('label[for="studentno"]').show();
             $('#studentno').show();
@@ -403,6 +406,8 @@ if ($dateofbirth == "00-00-0000") {
             $('label[for="fee_amount"]').show();
             $('#fee_amount').show();
         }
+
+        //If option is 'Academic staff', do the following
         if(account_type === 'Academic staff') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
@@ -411,6 +416,8 @@ if ($dateofbirth == "00-00-0000") {
             $('label[for="fee_amount"]').hide();
             $('#fee_amount').hide();
         }
+
+        //If option is 'Administrator', do the following
         if(account_type === 'Administrator') {
             $('label[for="studentno"]').hide();
             $('#studentno').hide();
@@ -421,18 +428,19 @@ if ($dateofbirth == "00-00-0000") {
         }
     });
 
-    // Date Time Picker
+    //Initialize Date Time Picker
     $('#dateofbirth').datetimepicker({
         format: 'DD/MM/YYYY',
         useCurrent: false
     });
 
-    //Global variable
+    //Global variables
 	var account_type;
 	var studentno;
     var degree;
     var fee_amount;
 
+    //Hiding and showing depending on the option selected on the drop-down
     $('#account_type').on("change", function (e) {
         account_type = $('#account_type :selected').html();
 
@@ -462,7 +470,7 @@ if ($dateofbirth == "00-00-0000") {
         }
     });
 
-	//Update account
+	//Update account process
     $("#admin-update-account-submit").click(function (e) {
     e.preventDefault();
 
@@ -471,6 +479,7 @@ if ($dateofbirth == "00-00-0000") {
 	var userid = $("#userid").val();
     var account_type = $('#account_type :selected').html();
 
+    //Checking if firstname is inputted
 	var firstname = $("#firstname").val();
 	if(firstname === '') {
         $("label[for='firstname']").empty().append("Please enter a first name.");
@@ -489,6 +498,7 @@ if ($dateofbirth == "00-00-0000") {
         $("#firstname").addClass("input-success");
 	}
 
+    //Checking if surname is inputted
 	var surname = $("#surname").val();
 	if(surname === '') {
         $("label[for='surname']").empty().append("Please enter a surname.");
@@ -509,11 +519,13 @@ if ($dateofbirth == "00-00-0000") {
 
     var gender = $('#gender :selected').html();
 
+    //If option on the drop-down is 'Student', do the following
 	if (account_type === 'Student') {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
         fee_amount = $("#fee_amount").val();
 
+        //Checking if studentno is inputted
 		if(studentno === '') {
             $("label[for='studentno']").empty().append("Please enter a student number.");
             $("label[for='studentno']").removeClass("feedback-success");
@@ -530,6 +542,8 @@ if ($dateofbirth == "00-00-0000") {
             $("#studentno").removeClass("input-danger");
             $("#studentno").addClass("input-success");
 		}
+
+        //Checking if studentno is numeric
 		if ($.isNumeric(studentno)) {
             $("label[for='studentno']").empty().append("All good!");
             $("label[for='studentno']").removeClass("feedback-danger");
@@ -549,6 +563,8 @@ if ($dateofbirth == "00-00-0000") {
 			hasError  = true;
 			return false;
 		}
+
+        //Checking if studentno is 9 characters long
 		if (studentno.length != 9) {
 			$("#error1").show();
 			$("#error1").empty().append("The student number entered is invalid.<br>The student number must be exactly 9 digits in length.");
@@ -568,6 +584,8 @@ if ($dateofbirth == "00-00-0000") {
             $("#studentno").addClass("input-success");
             $("#error1").hide();
 		}
+
+        //Checking if degree is inputted
 		if(degree === '') {
             $("label[for='degree']").empty().append("Please enter a programme of study.");
             $("label[for='degree']").removeClass("feedback-success");
@@ -584,6 +602,8 @@ if ($dateofbirth == "00-00-0000") {
             $("#degree").removeClass("input-danger");
             $("#degree").addClass("input-success");
 		}
+
+        //Checking if fee_amount is inputted
         if(fee_amount === '') {
             $("label[for='fee_amount']").empty().append("Please enter an amount.");
             $("label[for='fee_amount']").removeClass("feedback-success");
@@ -600,12 +620,15 @@ if ($dateofbirth == "00-00-0000") {
             $("#fee_amount").removeClass("input-danger");
             $("#fee_amount").addClass("input-success");
         }
+
+    //If option on the drop-down is not 'Student', do the following
 	} else {
 		studentno = $("#studentno").val();
 		degree = $("#degree").val();
         fee_amount = $("#fee_amount").val();
 	}
 
+    //Check if email is inputted
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
@@ -634,10 +657,15 @@ if ($dateofbirth == "00-00-0000") {
 	var country = $("#country").val();
 	var postcode = $("#postcode").val();
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'update_account_userid='        + userid +
          '&update_account_account_type=' + account_type +
          '&update_account_firstname='    + firstname +
@@ -656,6 +684,8 @@ if ($dateofbirth == "00-00-0000") {
          '&update_account_city='         + city +
          '&update_account_country='      + country +
          '&update_account_postcode='     + postcode,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
@@ -663,6 +693,8 @@ if ($dateofbirth == "00-00-0000") {
 		$("#success").show();
 		$("#success").empty().append('All done! The account has been updated.');
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#success").hide();

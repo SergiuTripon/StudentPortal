@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     $lectureToUpdate = $_GET['id'];
@@ -13,6 +14,7 @@ if (isset($_GET['id'])) {
     $stmt1->fetch();
     $stmt1->close();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../timetable/');
 }
@@ -64,6 +66,8 @@ if (isset($_GET['id'])) {
     <label for="lecture_moduleid">Module<span class="field-required">*</span></label>
     <select class="form-control" name="lecture_moduleid" id="lecture_moduleid" style="width: 100%;">
     <?php
+
+    //Get active modules
     $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_module m WHERE m.moduleid = '$moduleid' AND module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -103,6 +107,8 @@ if (isset($_GET['id'])) {
     <label for="lecture_lecturer">Lecturer<span class="field-required">*</span></label>
     <select class="form-control lecture_lecturer" name="lecture_lecturer" id="lecture_lecturer">
     <?php
+
+    //Get users with account type: academic staff
     $stmt1 = $mysqli->query("SELECT firstname, surname FROM user_detail WHERE userid = '$lecture_lecturer'");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -189,7 +195,7 @@ if (isset($_GET['id'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update lecture</button>
+    <button id="update-lecture-submit" class="btn btn-primary btn-lg">Update lecture</button>
     </div>
 
     </div>
@@ -200,9 +206,6 @@ if (isset($_GET['id'])) {
     <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -229,9 +232,6 @@ if (isset($_GET['id'])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 
@@ -266,7 +266,7 @@ if (isset($_GET['id'])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //On load
+    //On load actions
     $(document).ready(function () {
         //select2
         $("#lecture_moduleid").select2({placeholder: "Select an option"});
@@ -274,10 +274,7 @@ if (isset($_GET['id'])) {
         $("#lecture_day").select2({placeholder: "Select an option"});
     });
 
-
-
-
-    // Date Time Picker
+    //Initialize Date Time Picker
     $('#lecture_from_time').datetimepicker({
         format: 'HH:mm'
     });
@@ -292,12 +289,11 @@ if (isset($_GET['id'])) {
 	});
 
     //Update lecture process
-    $("#FormSubmit").click(function (e) {
+    $("#update-lecture-submit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
 
-    //Validation and data gathering
     var lectureid = $("#lectureid").val();
 
     $("label[for='lecture_moduleid']").empty().append("All good!");
@@ -308,6 +304,8 @@ if (isset($_GET['id'])) {
 
     var lecture_moduleid= $("#lecture_moduleid :selected").val();
 
+
+    //Checking if lecture_name is inputted
 	var lecture_name = $("#lecture_name").val();
 	if(lecture_name === '') {
         $("label[for='lecture_name']").empty().append("Please enter a lecture name.");
@@ -350,6 +348,7 @@ if (isset($_GET['id'])) {
 
     var lecture_day = $("#lecture_day :selected").html();
 
+    //Checking if lecture_from_time is inputted
     var lecture_from_time = $("#lecture_from_time").val();
 	if(lecture_from_time === '') {
         $("label[for='lecture_from_time']").empty().append("Please select a time.");
@@ -368,6 +367,7 @@ if (isset($_GET['id'])) {
         $("#lecture_from_time").addClass("input-success");
 	}
 
+    //Checking if lecture_to_time is inputted
     var lecture_to_time = $("#lecture_to_time").val();
 	if(lecture_to_time === '') {
         $("label[for='lecture_to_time']").empty().append("Please select a time.");
@@ -386,6 +386,7 @@ if (isset($_GET['id'])) {
         $("#lecture_to_time").addClass("input-success");
 	}
 
+    //Checking if lecture_from_date is inputted
     var lecture_from_date = $("#lecture_from_date").val();
 	if(lecture_from_date === '') {
         $("label[for='lecture_from_date']").empty().append("Please select a date.");
@@ -404,6 +405,7 @@ if (isset($_GET['id'])) {
         $("#lecture_from_date").addClass("input-success");
 	}
 
+    //Checking if lecture_to_date is inputted
     var lecture_to_date = $("#lecture_to_date").val();
 	if(lecture_to_date === '') {
         $("label[for='lecture_to_date']").empty().append("Please select a date.");
@@ -422,6 +424,7 @@ if (isset($_GET['id'])) {
         $("#lecture_to_date").addClass("input-success");
 	}
 
+    //Checking if lecture_location is inputted
     var lecture_location = $("#lecture_location").val();
 	if(lecture_location === '') {
         $("label[for='lecture_location']").empty().append("Please enter a location.");
@@ -440,6 +443,7 @@ if (isset($_GET['id'])) {
         $("#lecture_location").addClass("input-success");
 	}
 
+    //Checking if lecture_capacity is inputted
     var lecture_capacity = $("#lecture_capacity").val();
 	if(lecture_capacity === '') {
         $("label[for='lecture_capacity']").empty().append("Please enter a capacity.");
@@ -458,11 +462,15 @@ if (isset($_GET['id'])) {
         $("#lecture_capacity").addClass("input-success");
 	}
 
-    //Ajax
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'update_lecture_moduleid='    + lecture_moduleid +
          '&update_lectureid='          + lectureid +
          '&update_lecture_name='       + lecture_name +
@@ -475,12 +483,16 @@ if (isset($_GET['id'])) {
          '&update_lecture_to_date='    + lecture_to_date +
          '&update_lecture_location='   + lecture_location +
          '&update_lecture_capacity='   + lecture_capacity,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The lecture has been updated.');
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();

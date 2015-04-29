@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     $timetableToUpdate = $_GET['id'];
@@ -13,6 +14,7 @@ if (isset($_GET['id'])) {
     $stmt1->fetch();
     $stmt1->close();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../timetable/');
 }
@@ -64,6 +66,8 @@ if (isset($_GET['id'])) {
     <label for="exam_moduleid">Module<span class="field-required">*</span></label>
     <select class="form-control" name="exam_moduleid" id="exam_moduleid" style="width: 100%;">
     <?php
+
+    //Get active modules
     $stmt1 = $mysqli->query("SELECT DISTINCT m.moduleid, m.module_name FROM system_module m WHERE m.moduleid = '$moduleid' AND module_status='active'");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -101,7 +105,7 @@ if (isset($_GET['id'])) {
 	<div class="form-group">
 	<div class="col-xs-12 col-sm-12 full-width">
 	<label>Exam notes</label>
-    <textarea class="form-control" rows="5" name="exam_notes" id="exam_notes" value="<?php echo $exam_notes; ?>" placeholder="Enter notes"></textarea>
+    <textarea class="form-control" rows="5" name="exam_notes" id="exam_notes" placeholder="Enter notes"><?php echo $exam_notes; ?></textarea>
 	</div>
 	</div>
 
@@ -131,7 +135,7 @@ if (isset($_GET['id'])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update exam</button>
+    <button id="update-exam-submit" class="btn btn-primary btn-lg" >Update exam</button>
     </div>
 
     </div>
@@ -142,9 +146,6 @@ if (isset($_GET['id'])) {
 	<!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -171,9 +172,6 @@ if (isset($_GET['id'])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 
@@ -208,16 +206,13 @@ if (isset($_GET['id'])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //On load
+    //On load actions
     $(document).ready(function () {
         //select2
         $("#exam_moduleid").select2({placeholder: "Select an option"});
     });
 
-
-
-
-    // Date Time Picker
+    //Initialize Date Time Picker
     $('#exam_date').datetimepicker({
         format: 'DD/MM/YYYY'
     });
@@ -226,10 +221,10 @@ if (isset($_GET['id'])) {
     });
 
     //Update exam process
-    $("#FormSubmit").click(function (e) {
+    $("#update-exam-submit").click(function (e) {
     e.preventDefault();
 
-    //Validation and data gathering
+
 	var hasError = false;
 
     var examid = $("#examid").val();
@@ -242,6 +237,7 @@ if (isset($_GET['id'])) {
 
     var exam_moduleid = $("#exam_moduleid option:selected").val();
 
+    //Checking if exam_name is inputted
 	var exam_name = $("#exam_name").val();
 	if(exam_name === '') {
         $("label[for='exam_name']").empty().append("Please enter a location.");
@@ -262,6 +258,7 @@ if (isset($_GET['id'])) {
 
     var exam_notes = $("#exam_notes").val();
 
+    //Checking if exam_date is inputted
     var exam_date = $("#exam_date").val();
 	if(exam_date === '') {
         $("label[for='exam_date']").empty().append("Please select a date.");
@@ -280,6 +277,7 @@ if (isset($_GET['id'])) {
         $("#exam_date").addClass("input-success");
 	}
 
+    //Checking if exam_time is inputted
     var exam_time = $("#exam_time").val();
 	if(exam_time === '') {
         $("label[for='exam_time']").empty().append("Please select a time.");
@@ -298,6 +296,7 @@ if (isset($_GET['id'])) {
         $("#exam_time").addClass("input-success");
 	}
 
+    //Checking if exam_location is inputted
     var exam_location = $("#exam_location").val();
 	if(exam_location === '') {
         $("label[for='exam_location']").empty().append("Please enter a location.");
@@ -316,6 +315,7 @@ if (isset($_GET['id'])) {
         $("#exam_location").addClass("input-success");
 	}
 
+    //Checking if exam_capacity is inputted
     var exam_capacity = $("#exam_capacity").val();
 	if(exam_capacity === '') {
         $("label[for='exam_capacity']").empty().append("Please enter a capacity.");
@@ -334,11 +334,15 @@ if (isset($_GET['id'])) {
         $("#exam_capacity").addClass("input-success");
 	}
 
-    //Ajax
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'update_exam_moduleid='  + exam_moduleid +
          '&update_examid='        + examid +
          '&update_exam_name='     + exam_name +
@@ -347,12 +351,16 @@ if (isset($_GET['id'])) {
          '&update_exam_time='     + exam_time +
          '&update_exam_location=' + exam_location +
          '&update_exam_capacity=' + exam_capacity,
+
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The exam has been updated.');
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();

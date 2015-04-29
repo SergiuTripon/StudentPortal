@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $locationToUpdate = $_GET["id"];
@@ -13,6 +14,7 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../university-map/');
 }
@@ -98,6 +100,8 @@ if (isset($_GET["id"])) {
     <select class="selectpicker marker_category" name="marker_category" id="marker_category">
         <option><?php echo $marker_category ?></option>
     <?php
+
+    //Get location categories
     $stmt1 = $mysqli->query("SELECT DISTINCT marker_category FROM system_map_marker WHERE marker_status = 'active' AND NOT marker_category=''");
 
     while ($row = $stmt1->fetch_assoc()){
@@ -118,7 +122,7 @@ if (isset($_GET["id"])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update location</button>
+    <button id="update-location-submit" class="btn btn-primary btn-lg">Update location</button>
     </div>
 
 	<div id="success-button" class="text-center" style="display:none;">
@@ -131,9 +135,6 @@ if (isset($_GET["id"])) {
 	</div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -160,9 +161,6 @@ if (isset($_GET["id"])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>
@@ -197,11 +195,12 @@ if (isset($_GET["id"])) {
 
 	<script>
 	$(document).ready(function () {
+        //On load actions
+        $("#marker_category").select2({placeholder: "Select an option"});
+    });
 
-    $('.selectpicker').selectpicker();
-
-    //Ajax call
-    $("#FormSubmit").click(function (e) {
+    //Update location process
+    $("#update-location-submit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
@@ -317,7 +316,6 @@ if (isset($_GET["id"])) {
 
 	return true;
 
-	});
 	});
 	</script>
 

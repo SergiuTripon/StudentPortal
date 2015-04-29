@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $bookToUpdate = $_GET["id"];
@@ -13,6 +14,7 @@ if (isset($_GET["id"])) {
     $stmt1->fetch();
     $stmt1->close();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../library/');
 }
@@ -134,7 +136,7 @@ if (isset($_GET["id"])) {
 	<hr>
 
     <div class="text-center">
-    <button id="FormSubmit" class="btn btn-primary btn-lg" >Update book</button>
+    <button id="update-book-submit" class="btn btn-primary btn-lg" >Update book</button>
     </div>
 
     </div>
@@ -145,9 +147,6 @@ if (isset($_GET["id"])) {
 	</div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php else : ?>
 
@@ -174,9 +173,6 @@ if (isset($_GET["id"])) {
 	</div>
 
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
     <?php endif; ?>
 	<?php else : ?>
@@ -211,16 +207,13 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    //Date Time Picker
+    //Initialize Date Time Picker
     $('#book_publish_date').datetimepicker({
         format: 'DD/MM/YYYY'
     });
 
-
-
-
-    //Ajax call
-    $("#FormSubmit").click(function (e) {
+    //Update book process
+    $("#update-book-submit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
@@ -427,11 +420,15 @@ if (isset($_GET["id"])) {
         $("#book_language").addClass("input-success");
 	}
 
-
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'update_bookid='              + bookid +
          '&update_book_name='          + book_name +
          '&update_book_notes='         + book_notes +
@@ -446,12 +443,15 @@ if (isset($_GET["id"])) {
          '&update_book_discipline='    + book_discipline +
          '&update_book_language='      + book_language,
 
+    //If action completed, do the following
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The book has been updated.');
 	},
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();
