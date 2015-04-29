@@ -192,7 +192,7 @@ function Register() {
             exit();
         }
 
-        //Creating user
+        //Creating account
         $account_type = 'student';
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
@@ -201,7 +201,7 @@ function Register() {
         $stmt2->execute();
         $stmt2->close();
 
-        //Creating user details
+        //Creating account
         $gender = strtolower($gender);
         $user_status = 'active';
 
@@ -210,7 +210,7 @@ function Register() {
         $stmt3->execute();
         $stmt3->close();
 
-        //Creating user token
+        //Creating token
         $token = null;
 
         $stmt5 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
@@ -218,7 +218,7 @@ function Register() {
         $stmt5->execute();
         $stmt5->close();
 
-        //Creating user fees
+        //Creating fees
         $fee_amount = '';
 
         $stmt6 = $mysqli->prepare("INSERT INTO user_fee (fee_amount, created_on) VALUES (?, ?)");
@@ -6290,7 +6290,7 @@ function DeleteAccount() {
     $stmt10->execute();
     $stmt10->close();
 
-    //Delete user
+    //Delete account
     $stmt11 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
     $stmt11->bind_param('i', $accountToDelete);
     $stmt11->execute();
@@ -6312,9 +6312,11 @@ function DeleteAccount() {
 //CreateAnAccount function
 function CreateAnAccount() {
 
+    //Global variables
     global $mysqli;
     global $created_on;
 
+    //Gather data posted and assign variables
     $account_type = filter_input(INPUT_POST, 'create_account_account_type', FILTER_SANITIZE_STRING);
     $firstname = filter_input(INPUT_POST, 'create_account_firstname', FILTER_SANITIZE_STRING);
     $surname = filter_input(INPUT_POST, 'create_account_surname', FILTER_SANITIZE_STRING);
@@ -6335,13 +6337,14 @@ function CreateAnAccount() {
     $country = filter_input(INPUT_POST, 'create_account_country', FILTER_SANITIZE_STRING);
     $postcode = filter_input(INPUT_POST, 'create_account_postcode', FILTER_SANITIZE_STRING);
 
+    //Check if email address is valid
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header('HTTP/1.0 550 The email address you entered is invalid.');
         exit();
 
     } else {
 
-        // Check existing studentno
+        //Check if studentno exists
         $stmt1 = $mysqli->prepare("SELECT userid FROM user_detail WHERE studentno = ? AND NOT studentno = '0' LIMIT 1");
         $stmt1->bind_param('i', $studentno);
         $stmt1->execute();
@@ -6349,13 +6352,14 @@ function CreateAnAccount() {
         $stmt1->bind_result($userid);
         $stmt1->fetch();
 
+        //If studentno exist, do the following
         if ($stmt1->num_rows == 1) {
             $stmt1->close();
             header('HTTP/1.0 550 An account with the student number entered already exists.');
             exit();
         }
 
-        // Check existing email
+        //Check if email address exists
         $stmt2 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
         $stmt2->bind_param('s', $email);
         $stmt2->execute();
@@ -6363,40 +6367,57 @@ function CreateAnAccount() {
         $stmt2->bind_result($userid);
         $stmt2->fetch();
 
+        //If the email address exists, do the following
         if ($stmt2->num_rows == 1) {
             $stmt2->close();
             header('HTTP/1.0 550 An account with the email address entered already exists.');
             exit();
         }
 
+        //Get userid
         $stmt3 = $mysqli->prepare("SELECT userid FROM user_signin ORDER BY userid DESC LIMIT 1");
         $stmt3->execute();
         $stmt3->store_result();
         $stmt3->bind_result($userid);
         $stmt3->fetch();
 
+        //If studentno is empty, do the following
         if (empty($studentno)) {
+
+            //Add one to the userid
             $studentno = $userid + 1;
         }
 
+        //hash the password
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
+        //Convert to lowercase
         $account_type = strtolower($account_type);
 
+        //Create account
         $stmt4 = $mysqli->prepare("INSERT INTO user_signin (account_type, email, password, created_on) VALUES (?, ?, ?, ?)");
         $stmt4->bind_param('ssss', $account_type, $email, $password_hash, $created_on);
         $stmt4->execute();
         $stmt4->close();
 
-        if (empty($dateofbirth)) {
+        //If dateofbirth is empty, do the following
+        if ($dateofbirth == '') {
+
+            //Set value
             $dateofbirth = NULL;
+
         } else {
+
+            //Convert date to MySQL format
             $dateofbirth = DateTime::createFromFormat('d/m/Y', $dateofbirth);
             $dateofbirth = $dateofbirth->format('Y-m-d');
         }
 
+        //Convert to lowercase
         $gender = strtolower($gender);
         $nationality = strtolower($nationality);
+
+        //Create account
         $user_status = 'active';
 
         $stmt5 = $mysqli->prepare("INSERT INTO user_detail (firstname, surname, gender, studentno, degree, nationality, dateofbirth, phonenumber, address1, address2, town, city, country, postcode, user_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -6404,20 +6425,30 @@ function CreateAnAccount() {
         $stmt5->execute();
         $stmt5->close();
 
+        //Set value
         $token = null;
 
+        //Create token
         $stmt6 = $mysqli->prepare("INSERT INTO user_token (token) VALUES (?)");
         $stmt6->bind_param('s', $token);
         $stmt6->execute();
         $stmt6->close();
 
+        //If account_type is 'academic staff', do the following
         if ($account_type == 'academic staff') {
-            $fee_amount = '0.00';
-        }
-        elseif ($account_type == 'administrator') {
+
+            //Set value
             $fee_amount = '0.00';
         }
 
+        //If account_type is 'administrator', do the following
+        elseif ($account_type == 'administrator') {
+
+            //Set value
+            $fee_amount = '0.00';
+        }
+
+        //Create fees
         $stmt7 = $mysqli->prepare("INSERT INTO user_fee (fee_amount, created_on) VALUES (?, ?)");
         $stmt7->bind_param('is', $fee_amount, $created_on);
         $stmt7->execute();
@@ -6428,9 +6459,11 @@ function CreateAnAccount() {
 //UpdateAnAccount function
 function UpdateAnAccount() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $userid = filter_input(INPUT_POST, 'update_account_userid', FILTER_SANITIZE_STRING);
 	$account_type = filter_input(INPUT_POST, 'update_account_account_type', FILTER_SANITIZE_STRING);
 	$firstname = filter_input(INPUT_POST, 'update_account_firstname', FILTER_SANITIZE_STRING);
@@ -6451,11 +6484,13 @@ function UpdateAnAccount() {
 	$country = filter_input(INPUT_POST, 'update_account_country', FILTER_SANITIZE_STRING);
 	$postcode = filter_input(INPUT_POST, 'update_account_postcode', FILTER_SANITIZE_STRING);
 
+    //Check if email addres is valid
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		header('HTTP/1.0 550 The email address you entered is invalid.');
 		exit();
 	} else {
 
+        //Check if email address has changed
         $stmt1 = $mysqli->prepare("SELECT email from user_signin where userid = ?");
         $stmt1->bind_param('i', $userid);
         $stmt1->execute();
@@ -6463,37 +6498,56 @@ function UpdateAnAccount() {
         $stmt1->bind_result($db_email);
         $stmt1->fetch();
 
+        //If email address hasn't changed, do the following
         if ($db_email == $email) {
 
+            //Convert to lower case
             $account_type = strtolower($account_type);
 
+            //Update account
             $stmt2 = $mysqli->prepare("UPDATE user_signin SET account_type=?, updated_on=? WHERE userid = ?");
             $stmt2->bind_param('ssi', $account_type, $updated_on, $userid);
             $stmt2->execute();
             $stmt2->close();
 
+            //Convert to lowercase
             $gender = strtolower($gender);
             $nationality = strtolower($nationality);
 
+            //If dateofbirth is empty, do the following
             if ($dateofbirth == '') {
+
+                //Set value
                 $dateofbirth = NULL;
+
             } else {
+
+                //Convert date to MySQL format
                 $dateofbirth = DateTime::createFromFormat('d/m/Y', $dateofbirth);
                 $dateofbirth = $dateofbirth->format('Y-m-d');
             }
 
+            //Update accoount
             $stmt3 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=?  WHERE userid = ?");
             $stmt3->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
             $stmt3->execute();
             $stmt3->close();
 
-            if ($account_type == 'lecturer') {
-                $fee_amount = '0.00';
-            }
-            elseif ($account_type == 'admin') {
+            //If account_type is 'academic staff', do the following
+            if ($account_type == 'academic staff') {
+
+                //Set value
                 $fee_amount = '0.00';
             }
 
+            //If account_type is 'administrator', do the following
+            elseif ($account_type == 'administrator') {
+
+                //Set value
+                $fee_amount = '0.00';
+            }
+
+            //Update fees
             $stmt4 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=?");
             $stmt4->bind_param('isi', $fee_amount, $updated_on, $userid);
             $stmt4->execute();
@@ -6501,6 +6555,7 @@ function UpdateAnAccount() {
 
 	    } else {
 
+            //Check if email address exists
             $stmt5 = $mysqli->prepare("SELECT userid from user_signin where email = ?");
             $stmt5->bind_param('s', $email);
             $stmt5->execute();
@@ -6508,29 +6563,41 @@ function UpdateAnAccount() {
             $stmt5->bind_result($db_userid);
             $stmt5->fetch();
 
+            //If email address exists, do the following
             if ($stmt5->num_rows == 1) {
                 $stmt5->close();
                 header('HTTP/1.0 550 An account with the e-mail address entered already exists.');
                 exit();
 
+            //If email address doesn't exist, do the following
             }  else {
 
+                //Update account
                 $stmt6 = $mysqli->prepare("UPDATE user_signin SET account_type=?, email=?, updated_on=? WHERE userid = ?");
                 $stmt6->bind_param('sssi', $account_type, $email, $updated_on, $userid);
                 $stmt6->execute();
                 $stmt6->close();
 
+                //Update account
                 $stmt7 = $mysqli->prepare("UPDATE user_detail SET firstname=?, surname=?, gender=?, studentno=?, degree=?, nationality=?, dateofbirth=?, phonenumber=?, address1=?, address2=?, town=?, city=?, country=?, postcode=?, updated_on=? WHERE userid=?");
                 $stmt7->bind_param('sssisssssssssssi', $firstname, $surname, $gender, $studentno, $degree, $nationality, $dateofbirth, $phonenumber, $address1, $address2, $town, $city, $country, $postcode, $updated_on, $userid);
                 $stmt7->execute();
                 $stmt7->close();
 
-                if ($account_type == 'lecturer') {
+                //If account_type is 'academic staff', do the following
+                if ($account_type == 'academic staff') {
+
+                    //Set value
                     $fee_amount = '0.00';
-                } elseif ($account_type == 'admin') {
+
+                //If account_type is 'administrator', do the following
+                } elseif ($account_type == 'administrator') {
+
+                    //Set value
                     $fee_amount = '0.00';
                 }
 
+                //Update fees
                 $stmt8 = $mysqli->prepare("UPDATE user_fee SET fee_amount=?, updated_on=? WHERE userid=?");
                 $stmt8->bind_param('isi', $fee_amount, $updated_on, $userid);
                 $stmt8->execute();
@@ -6544,13 +6611,15 @@ function UpdateAnAccount() {
 //ChangeAccountPassword function
 function ChangeAccountPassword() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $userid = filter_input(INPUT_POST, 'change_account_password_userid', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'change_account_password_password', FILTER_SANITIZE_STRING);
 
-	// Getting user login details
+	// Get password
 	$stmt1 = $mysqli->prepare("SELECT password FROM user_signin WHERE userid = ? LIMIT 1");
 	$stmt1->bind_param('i', $userid);
 	$stmt1->execute();
@@ -6558,15 +6627,19 @@ function ChangeAccountPassword() {
 	$stmt1->bind_result($db_password);
 	$stmt1->fetch();
 
+    //If password entered and database password match, do the following
     if (password_verify($password, $db_password)) {
         $stmt1->close();
 		header('HTTP/1.0 550 This is the account\'s current password. Please enter a new password.');
 		exit();
 
+    //If password entered and database password does not match, do the following
 	} else {
 
+        //hash password
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
+        //Update account
         $stmt2 = $mysqli->prepare("UPDATE user_signin SET password=?, updated_on=? WHERE userid = ?");
         $stmt2->bind_param('ssi', $password_hash, $updated_on, $userid);
         $stmt2->execute();
@@ -6579,11 +6652,14 @@ function ChangeAccountPassword() {
 //DeactivateUser function
 function DeactivateUser() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $userToDeactivate = filter_input(INPUT_POST, 'userToDeactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deactivate account
     $user_status = 'inactive';
 
     $stmt1 = $mysqli->prepare("UPDATE user_detail SET user_status=?, updated_on=? WHERE userid = ?");
@@ -6595,11 +6671,14 @@ function DeactivateUser() {
 //ReactivateUser function
 function ReactivateUser() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $userToReactivate = filter_input(INPUT_POST, 'userToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Reactivate account
     $user_status = 'active';
 
     $stmt1 = $mysqli->prepare("UPDATE user_detail SET user_status=?, updated_on=? WHERE userid = ?");
@@ -6611,60 +6690,73 @@ function ReactivateUser() {
 //DeleteUser function
 function DeleteUser() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $userToDelete = filter_input(INPUT_POST, 'userToDelete', FILTER_SANITIZE_NUMBER_INT);
 
+    //Delete sent messages
     $stmt1 = $mysqli->prepare("DELETE FROM user_message_sent WHERE message_from = ?");
     $stmt1->bind_param('i', $userToDelete);
     $stmt1->execute();
     $stmt1->close();
 
+    //Delete received messages
     $stmt2 = $mysqli->prepare("DELETE FROM user_message_received WHERE message_to = ?");
     $stmt2->bind_param('i', $userToDelete);
     $stmt2->execute();
     $stmt2->close();
 
+    //Delete sent feedback
     $stmt3 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedback_from = ?");
     $stmt3->bind_param('i', $userToDelete);
     $stmt3->execute();
     $stmt3->close();
 
+    //Delete user from module look-up table
     $stmt4 = $mysqli->prepare("DELETE FROM user_module WHERE userid = ?");
     $stmt4->bind_param('i', $userToDelete);
     $stmt4->execute();
     $stmt4->close();
 
+    //Delete user from lecture look-up table
     $stmt5 = $mysqli->prepare("DELETE FROM user_lecture WHERE userid = ?");
     $stmt5->bind_param('i', $userToDelete);
     $stmt5->execute();
     $stmt5->close();
 
+    //Delete user from tutorial look-up table
     $stmt6 = $mysqli->prepare("DELETE FROM user_tutorial WHERE userid = ?");
     $stmt6->bind_param('i', $userToDelete);
     $stmt6->execute();
     $stmt6->close();
 
+    //Delete user from exam look-up table
     $stmt7 = $mysqli->prepare("DELETE FROM user_exam WHERE userid = ?");
     $stmt7->bind_param('i', $userToDelete);
     $stmt7->execute();
     $stmt7->close();
 
+    //Delete user from result look-up table
     $stmt8 = $mysqli->prepare("DELETE FROM user_result WHERE userid = ?");
     $stmt8->bind_param('i', $userToDelete);
     $stmt8->execute();
     $stmt8->close();
 
+    //Delete user from reserved books look-up table
     $stmt9 = $mysqli->prepare("DELETE FROM system_book_reserved WHERE userid = ?");
     $stmt9->bind_param('i', $userToDelete);
     $stmt9->execute();
     $stmt9->close();
 
+    //Delete user from booked events look-up table
     $stmt10 = $mysqli->prepare("DELETE FROM system_event_booked WHERE userid = ?");
     $stmt10->bind_param('i', $userToDelete);
     $stmt10->execute();
     $stmt10->close();
 
+    //Delete account
     $stmt11 = $mysqli->prepare("DELETE FROM user_signin WHERE userid = ?");
     $stmt11->bind_param('i', $userToDelete);
     $stmt11->execute();
