@@ -4,6 +4,7 @@ include '../includes/session.php';
 global $mysqli;
 global $session_userid;
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $bookToRenew = $_GET["id"];
@@ -38,6 +39,7 @@ if (isset($_GET["id"])) {
     $add14days->add(new DateInterval('P14D'));
     $toreturn_on_new = $add14days->format('d/m/Y');
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../library/');
 }
@@ -181,16 +183,23 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    //Renew book
+    //Renew book process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
     var bookToRenew = $("#bookid").val();
 
+    //Initialize Ajax call
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'bookToRenew='+ bookToRenew,
+
+    //If action completed, do the following
     success:function(html){
 
         if(html) {
@@ -199,8 +208,10 @@ if (isset($_GET["id"])) {
 
         $("#error").hide();
         $("#hide").hide();
-        $("#success").empty().append('All done! The book has been reserved.');
+        $("#success").empty().append('All done! The book has been renewed.');
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
         $("#error").show();

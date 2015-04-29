@@ -75,6 +75,8 @@ AdminTimetableUpdate();
 
 	<tbody>
 	<?php
+
+    //Get lectures with lecture_day: Monday that the currently signed in user has to attend
 	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Monday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -138,6 +140,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
+    //Get tutorials with tutorial_day: Monday that the currently signed in user has to attend
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -236,6 +239,8 @@ AdminTimetableUpdate();
 
 	<tbody>
     <?php
+
+    //Get lectures with lecture_day: Tuesday that the currently signed in user has to attend
 	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Tuesday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -299,6 +304,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
+    //Get tutorials with tutorial_day: Tuesday that the currently signed in user has to attend
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Tuesday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -397,6 +403,8 @@ AdminTimetableUpdate();
 
 	<tbody>
     <?php
+
+    //Get lectures with lecture_day: Wednesday that the currently signed in user has to attend
 	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Wednesday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -460,6 +468,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
+    //Get tutorial with tutorial_day: Wednesday that the currently signed in user has to attend
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Wednesday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -558,6 +567,8 @@ AdminTimetableUpdate();
 
 	<tbody>
     <?php
+
+    //Get lectures with lecture_day: Thursday that the currently signed in user has to attend
 	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Thursday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -621,6 +632,8 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
+
+    //Get tutorials with tutorial_day: Thursday that the currently signed in user has to attend
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Thursday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -719,6 +732,8 @@ AdminTimetableUpdate();
 
 	<tbody>
     <?php
+
+    //Get lectures with lecture_day: Friday that the currently signed in user has to attend
     $stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, m.module_url, d.firstname, d.surname, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid LEFT JOIN user_detail d ON l.lecture_lecturer = d.userid WHERE l.lecture_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Friday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
     while($row = $stmt1->fetch_assoc()) {
@@ -782,6 +797,7 @@ AdminTimetableUpdate();
 
     $stmt1->close();
 
+    //Get tutorials with tutorial_day: Friday that the currently signed in user has to attend
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid LEFT JOIN user_detail d ON t.tutorial_assistant = d.userid WHERE t.tutorial_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Friday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
     while($row = $stmt2->fetch_assoc()) {
@@ -865,6 +881,7 @@ AdminTimetableUpdate();
     $( document ).ready(function() {
         var today = $('#today').html();
 
+        //If today is 'Monday', do the following
         if (today == 'Monday') {
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
@@ -876,6 +893,7 @@ AdminTimetableUpdate();
             $('#collapseFive').removeClass("in");
             $('#panel-monday').removeClass("collapsed");
             $('#collapseOne').addClass("in");
+        //If today is 'Tuesday', do the following
         } else if (today == 'Tuesday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
@@ -887,6 +905,7 @@ AdminTimetableUpdate();
             $('#collapseFive').removeClass("in");
             $('#panel-tuesday').removeClass("collapsed");
             $('#collapseTwo').addClass("in");
+        //If today is 'Wednesday', do the following
         } else if (today == 'Wednesday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
@@ -898,6 +917,7 @@ AdminTimetableUpdate();
             $('#collapseFive').removeClass("in");
             $('#panel-wednesday').removeClass("collapsed");
             $('#collapseThree').addClass("in");
+        //If today is 'Thursday', do the following
         } else if (today == 'Thursday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
@@ -909,6 +929,7 @@ AdminTimetableUpdate();
             $('#collapseFive').removeClass("in");
             $('#panel-thursday').removeClass("collapsed");
             $('#collapseFour').addClass("in");
+        //If today is 'Friday', do the following
         } else if (today == 'Friday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
@@ -923,17 +944,7 @@ AdminTimetableUpdate();
         }
     });
 
-    settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "You have no classes on this day."
-        }
-    };
-
-    //DataTables
+    //Initialize DataTables
     $('.table-custom').dataTable(settings);
     </script>
 
@@ -980,6 +991,8 @@ AdminTimetableUpdate();
 
 	<tbody>
 	<?php
+
+    //Get lectures with lecture_day: Monday that the currently signed in user has to teach
 	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid WHERE l.lecture_status = 'active' AND l.lecture_lecturer = '$session_userid' AND l.lecture_day = 'Monday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -1038,6 +1051,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
+    //Get tutorials with tutorial_day: Monday that the currently signed in user has to teach
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid WHERE t.tutorial_status = 'active' AND t.tutorial_assistant = '$session_userid' AND t.tutorial_day = 'Monday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -1131,6 +1145,8 @@ AdminTimetableUpdate();
 
 	<tbody>
 	<?php
+
+    //Get lectures with lecture_day: Tuesday that the currently signed in user has to teach
 	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid WHERE l.lecture_status = 'active' AND l.lecture_lecturer = '$session_userid' AND l.lecture_day = 'Tuesday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -1189,6 +1205,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
+    //Get tutorials with tutorial_day: Tuesday that the currently signed in user has to teach
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid WHERE t.tutorial_status = 'active' AND t.tutorial_assistant = '$session_userid' AND t.tutorial_day = 'Tuesday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -1282,6 +1299,8 @@ AdminTimetableUpdate();
 
 	<tbody>
 	<?php
+
+    //Get lectures with lecture_day: Wednesday that the currently signed in user has to teach
 	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid WHERE l.lecture_status = 'active' AND l.lecture_lecturer = '$session_userid' AND l.lecture_day = 'Wednesday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -1340,6 +1359,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
+    //Get tutorials with tutorial_day: Wednesday that the currently signed in user has to teach
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid WHERE t.tutorial_status = 'active' AND t.tutorial_assistant = '$session_userid' AND t.tutorial_day = 'Wednesday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -1433,6 +1453,8 @@ AdminTimetableUpdate();
 
 	<tbody>
 	<?php
+
+    //Get lectures with lecture_day: Thursday that the currently signed in user has to teach
 	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid WHERE l.lecture_status = 'active' AND l.lecture_lecturer = '$session_userid' AND l.lecture_day = 'Thursday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -1491,6 +1513,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
+    //Get tutorials with tutorial_day: Thursday that the currently signed in user has to teach
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid WHERE t.tutorial_status = 'active' AND t.tutorial_assistant = '$session_userid' AND t.tutorial_day = 'Thursday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -1584,6 +1607,8 @@ AdminTimetableUpdate();
 
 	<tbody>
 	<?php
+
+    //Get lectures with lecture_day: Friday that the currently signed in user has to teach
 	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, m.module_url, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l LEFT JOIN user_lecture u ON l.lectureid = u.lectureid LEFT JOIN system_module m ON l.moduleid = m.moduleid WHERE l.lecture_status = 'active' AND l.lecture_lecturer = '$session_userid' AND l.lecture_day = 'Friday' AND DATE(l.lecture_to_date) > DATE(NOW())");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -1642,6 +1667,7 @@ AdminTimetableUpdate();
 
 	$stmt1->close();
 
+    //Get tutorial with tutorial_day: Friday that the currently signed in user has to teach
     $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t LEFT JOIN user_tutorial u ON t.tutorialid = u.tutorialid LEFT JOIN system_module m ON t.moduleid = m.moduleid WHERE t.tutorial_status = 'active' AND t.tutorial_assistant = '$session_userid' AND t.tutorial_day = 'Friday' AND DATE(t.tutorial_to_date) > DATE(NOW())");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -1714,16 +1740,13 @@ AdminTimetableUpdate();
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
-
-
-
-
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
     $( document ).ready(function() {
         var today = $('#today').html();
 
+        //If today is 'Monday', do the following
         if (today == 'Monday') {
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
@@ -1735,6 +1758,7 @@ AdminTimetableUpdate();
             $('#collapseFive').removeClass("in");
             $('#panel-monday').removeClass("collapsed");
             $('#collapseOne').addClass("in");
+        //If today is 'Tuesday', do the following
         } else if (today == 'Tuesday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
@@ -1746,6 +1770,7 @@ AdminTimetableUpdate();
             $('#collapseFive').removeClass("in");
             $('#panel-tuesday').removeClass("collapsed");
             $('#collapseTwo').addClass("in");
+        //If today is 'Wednesday', do the following
         } else if (today == 'Wednesday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
@@ -1757,6 +1782,7 @@ AdminTimetableUpdate();
             $('#collapseFive').removeClass("in");
             $('#panel-wednesday').removeClass("collapsed");
             $('#collapseThree').addClass("in");
+        //If today is 'Thursday', do the following
         } else if (today == 'Thursday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
@@ -1768,6 +1794,7 @@ AdminTimetableUpdate();
             $('#collapseFive').removeClass("in");
             $('#panel-thursday').removeClass("collapsed");
             $('#collapseFour').addClass("in");
+        //If today is 'Friday', do the following
         } else if (today == 'Friday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
@@ -1781,16 +1808,6 @@ AdminTimetableUpdate();
             $('#collapseFive').addClass("in");
         }
     });
-
-    settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
 
     //DataTables
     $('.table-custom').dataTable(settings);
@@ -2065,17 +2082,7 @@ AdminTimetableUpdate();
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
-	//DataTables
+	//Initialize DataTables
     $('.table-active-module').dataTable(settings);
     $('.table-active-lecture').dataTable(settings);
     $('.table-active-tutorial').dataTable(settings);
@@ -2083,20 +2090,28 @@ AdminTimetableUpdate();
     $('.table-inactive-lecture').dataTable(settings);
     $('.table-inactive-tutorial').dataTable(settings);
 
-    //Deactivate module
+    //Deactivate module process
     $("body").on("click", ".btn-deactivate-module", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var moduleToDeactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'moduleToDeactivate='+ moduleToDeactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -2132,6 +2147,8 @@ AdminTimetableUpdate();
         $(".table-inactive-tutorial").dataTable(settings);
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -2139,20 +2156,28 @@ AdminTimetableUpdate();
 	});
     });
 
-    //Deactivate lecture
+    //Deactivate lecture process
     $("body").on("click", ".btn-deactivate-lecture", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var lectureToDeactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'lectureToDeactivate='+ lectureToDeactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -2167,6 +2192,8 @@ AdminTimetableUpdate();
         $('#content-inactive-lecture').html(html.inactive_lecture);
         $(".table-inactive-lecture").dataTable(settings);
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -2174,20 +2201,28 @@ AdminTimetableUpdate();
 	});
     });
 
-    //Deactivate tutorial
+    //Deactivate tutorial process
     $("body").on("click", ".btn-deactivate-tutorial", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var tutorialToDeactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'tutorialToDeactivate='+ tutorialToDeactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -2202,6 +2237,8 @@ AdminTimetableUpdate();
         $('#content-inactive-tutorial').html(html.inactive_tutorial);
         $(".table-inactive-tutorial").dataTable(settings);
 	},
+
+    //If action completed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -2209,20 +2246,28 @@ AdminTimetableUpdate();
 	});
     });
 
-    //Reactivate module
+    //Reactivate module process
     $("body").on("click", ".btn-reactivate-module", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var moduleToReactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initializes Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'moduleToReactivate='+ moduleToReactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -2257,6 +2302,8 @@ AdminTimetableUpdate();
         $('#content-active-module').html(html.active_module);
         $(".table-active-module").dataTable(settings);
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -2268,16 +2315,24 @@ AdminTimetableUpdate();
     $("body").on("click", ".btn-reactivate-lecture", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var lectureToReactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initializes Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'lectureToReactivate='+ lectureToReactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         if (html.error_msg) {
@@ -2302,6 +2357,8 @@ AdminTimetableUpdate();
             $(".table-active-lecture").dataTable(settings);
         }
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -2309,20 +2366,28 @@ AdminTimetableUpdate();
 	});
     });
 
-    //Reactivate tutorial
+    //Reactivate tutorial process
     $("body").on("click", ".btn-reactivate-tutorial", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var tutorialToReactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initializes Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'tutorialToReactivate='+ tutorialToReactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
 
@@ -2348,6 +2413,8 @@ AdminTimetableUpdate();
             $(".table-active-tutorial").dataTable(settings);
         }
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -2355,18 +2422,26 @@ AdminTimetableUpdate();
 	});
     });
 
-    //Delete module
+    //Delete module process
     $("body").on("click", ".btn-delete-module", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var moduleToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'moduleToDelete='+ moduleToDelete,
+
+    //If action completed, do the following
 	success:function(html){
 
         $('.modal-custom').modal('hide');
@@ -2403,6 +2478,8 @@ AdminTimetableUpdate();
             $(".table-inactive-tutorial").dataTable(settings);
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -2410,18 +2487,26 @@ AdminTimetableUpdate();
 	});
     });
 
-    //Delete lecture
+    //Delete lecture process
     $("body").on("click", ".btn-delete-lecture", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var lectureToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'lectureToDelete='+ lectureToDelete,
+
+    //If action completed, do the following
 	success:function(html){
 
         $('.modal-custom').modal('hide');
@@ -2438,6 +2523,8 @@ AdminTimetableUpdate();
             $(".table-inactive-lecture").dataTable(settings);
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -2445,18 +2532,26 @@ AdminTimetableUpdate();
 	});
     });
 
-    //Delete tutorial
+    //Delete tutorial process
     $("body").on("click", ".btn-delete-tutorial", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var tutorialToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'tutorialToDelete='+ tutorialToDelete,
+
+    //If action completed, do the following
 	success:function(html){
 
         $('.modal-custom').modal('hide');
@@ -2473,6 +2568,8 @@ AdminTimetableUpdate();
             $(".table-inactive-tutorial").dataTable(settings);
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

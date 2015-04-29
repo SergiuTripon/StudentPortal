@@ -661,7 +661,7 @@ elseif (isset($_POST["change_account_password_userid"], $_POST["change_account_p
 	ChangeAccountPassword();
 }
 
-//Call DeleteAnAccount function
+//Call DeleteUser function
 elseif (isset($_POST["userToDelete"])) {
 	DeleteUser();
 }

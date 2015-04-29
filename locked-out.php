@@ -178,12 +178,14 @@ include 'includes/session.php';
 	$("#after").show();
 	
 	});
-	
+
+    //Sign In process
 	$("#FormSubmit").click(function (e) {
     e.preventDefault();
 	
 	var hasError = false;
-	
+
+    //checking if email is inputted
 	var email = $('#email').val();
 	if (email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
@@ -202,6 +204,7 @@ include 'includes/session.php';
         $("#email").addClass("input-success");
 	}
 
+    //checking if password is inputted
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a password.");
@@ -219,15 +222,24 @@ include 'includes/session.php';
         $("#password").removeClass("input-danger");
         $("#password").addClass("input-success");
 	}
-	
+
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'email=' + email + '&password=' + password,
+
+    //If action completed, do the following
     success:function(){
 		window.location = '../home/';
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#error").show();

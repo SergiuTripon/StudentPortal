@@ -3,6 +3,7 @@ include '../../session.php';
 
 header("Cache-Control: no-cache, must-revalidate");
 
+//Getting active tasks, books reserved and booked events belonging to the currently signed in user
 $sql = 'SELECT t.taskid, t.task_name, t.task_class, t.task_startdate, t.task_duedate
 FROM user_task t
 WHERE t.userid = "'.$session_userid.'" AND t.task_status = "active"
@@ -24,17 +25,23 @@ WHERE b.userid = "'.$session_userid.'" AND e.event_status = "active" AND DATE(e.
 $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);
 
+//Creating an array
 $out = array();
+
+//Binding results to array
 foreach($res as $row) {
 
+//If task_class is "event-info", do the following
 if ($row->task_class === 'event-info') {
     $pretitle = 'Task: ';
 }
 
+//If task_class is "event-important", do the following
 if ($row->task_class === 'event-important') {
     $pretitle = 'Event: ';
 }
 
+//If task_class is "event-success", do the following
 if ($row->task_class === 'event-success') {
     $pretitle = 'Book: ';
 }
@@ -56,5 +63,6 @@ if ($row->task_class === 'event-success') {
     );
 }
 
+//Converting array into JSON and showing it
 echo json_encode(array('success' => 1, 'result' => $out));
 exit;

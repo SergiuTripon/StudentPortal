@@ -222,7 +222,7 @@ while ($row = $stmt1->fetch_assoc()){
 
 	var hasError = false;
 
-    //Checking if address line 1 was inputted
+    //Checking if payer_address1 is inputted
     var payer_address1 = $('#payer_address1').val();
 	if (payer_address1 === '') {
         $("label[for='payer_address1']").empty().append("Please enter the first line of an address.");
@@ -237,7 +237,7 @@ while ($row = $stmt1->fetch_assoc()){
         $("label[for='payer_address1']").addClass("feedback-success");
 	}
 
-    //Checking if city was inputted
+    //Checking if payer_city is inputted
     var payer_city = $("#payer_city").val();
 	if(payer_city === '') {
         $("label[for='payer_city']").empty().append("Please enter a city.");
@@ -252,7 +252,7 @@ while ($row = $stmt1->fetch_assoc()){
         $("label[for='payer_city']").addClass("feedback-success");
 	}
 
-    //Checking if post code was inputted
+    //Checking if payer_postcode is inputted
     var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
         $("label[for='payer_postcode']").empty().append("Please enter a postcode.");

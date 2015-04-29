@@ -102,16 +102,15 @@ include 'includes/session.php';
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
-
-
 	<script>
 
-    //Ajax call
+    //Forgotten password process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Checking if email is inputted
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
@@ -130,11 +129,18 @@ include 'includes/session.php';
         $("#email").addClass("input-success");
     }
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'fp_email=' + email,
+
+    //If action completed, do the following
     success:function(){
         $("#error").hide();
         $("#error1").hide();
@@ -148,6 +154,8 @@ include 'includes/session.php';
 		$("#success").append('Please check your email account for instructions to reset your password.');
 		$("#success-button").show();
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         $("#success").hide();
         $("#error1").hide();

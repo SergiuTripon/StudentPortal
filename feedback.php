@@ -57,6 +57,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
+    //Get modules allocated to the currently signed in user
     $module_status = 'active';
 
 	$stmt1 = $mysqli->prepare("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m LEFT JOIN user_module u ON m.moduleid = u.moduleid WHERE u.userid=? AND m.module_status=?");
@@ -137,7 +138,8 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-    
+
+    //Get submitted feedback by the currently signed in user
 	$stmt2 = $mysqli->prepare("SELECT DISTINCT m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedbackid, f.feedback_subject, f.feedback_body, f.isApproved, r.isRead, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_sent s LEFT JOIN user_feedback_received r ON s.feedbackid=r.feedbackid LEFT JOIN system_module m ON s.moduleid = m.moduleid LEFT JOIN user_feedback f ON s.feedbackid = f.feedbackid WHERE s.feedback_from=?");
     $stmt2->bind_param('i', $session_userid);
     $stmt2->execute();
@@ -255,21 +257,29 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-	//DataTables
+	//Initialize DataTables
     $('.table-custom').dataTable(settings);
 
-   //Delete sent feedback
+   //Delete sent feedback process
     $("body").on("click", ".btn-delete-sent-feedback", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var sentFeedbackToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'sentFeedbackToDelete='+ sentFeedbackToDelete,
+
+    //If action completed, do the following
 	success:function(){
 
         $('.modal-custom').modal('hide');
@@ -278,6 +288,8 @@ include 'includes/session.php';
             location.reload();
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#error").show();
@@ -328,6 +340,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
+    //Get feedback submitted for one of the modules the currently signed in user teaches
     $isApproved = 1;
 
 	$stmt1 = $mysqli->prepare("SELECT DISTINCT f.feedbackid, d.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.studentno, d.degree, m.moduleid, m.module_name, m.module_notes, m.module_url, f.feedback_subject, f.feedback_body, DATE_FORMAT(f.created_on,'%d %b %y %H:%i') as created_on FROM user_feedback_received r LEFT JOIN user_detail d ON r.feedback_from=d.userid LEFT JOIN system_module m ON r.moduleid=m.moduleid LEFT JOIN user_feedback f ON r.feedbackid=f.feedbackid WHERE r.module_staff=? AND f.isApproved=?");
@@ -471,21 +484,29 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-	//DataTables
+	//Initialize DataTables
     $('.table-custom').dataTable(settings);
 
    //Delete received feedback
     $("body").on("click", ".btn-delete-received-feedback", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var receivedFeedbackToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'receivedFeedbackToDelete='+ receivedFeedbackToDelete,
+
+    //If action completed, do the following
 	success:function(){
 
         $('.modal-custom').modal('hide');
@@ -494,6 +515,8 @@ include 'includes/session.php';
             location.reload();
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -501,18 +524,29 @@ include 'includes/session.php';
 	});
     });
 
+    //Set feedback read process
 	$(".feedback-read-trigger").click(function (e) {
 	e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var feedbackToRead = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'feedbackToRead=' + feedbackToRead,
+
+    //If action completed, do the following
     success:function() {
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError) {
     }
 	});
@@ -559,6 +593,9 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
+
+
+    //Get submitted feedback which is not approved or read
 
     $isRead = 0;
     $isApproved = 0;
@@ -760,6 +797,8 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
+    //Get submitted feedback to delete
+
 	$stmt2 = $mysqli->prepare("SELECT f.feedbackid, f.feedback_subject, f.feedback_body, f.created_on, f.moduleid, m.module_name, m.module_notes, m.module_url FROM user_feedback f LEFT JOIN system_module m ON f.moduleid=m.moduleid WHERE f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_sent) AND f.feedbackid NOT IN (SELECT feedbackid FROM user_feedback_received)");
     $stmt2->bind_param('ii', $session_userid, $isApproved);
     $stmt2->execute();
@@ -873,20 +912,29 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-	//DataTables
+	//Initialze DataTables
     $('.table-custom').dataTable(settings);
 
+    //Approve feedback process
     $("body").on("click", ".btn-approve-feedback", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var feedbackToApprove = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'feedbackToApprove='+ feedbackToApprove,
+
+    //If action completed, do the following
 	success:function(){
 
         $('.modal-custom').modal('hide');
@@ -895,6 +943,8 @@ include 'includes/session.php';
             location.reload();
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -902,7 +952,7 @@ include 'includes/session.php';
 	});
     });
 
-    //Delete feedback
+    //Delete feedback process
     $("body").on("click", ".btn-delete-feedback", function(e) {
     e.preventDefault();
 
@@ -911,9 +961,15 @@ include 'includes/session.php';
 
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'feedbackToDelete='+ feedbackToDelete,
+
+    //If action completed, do the following
 	success:function(){
         $('.modal-custom').modal('hide');
 
@@ -921,6 +977,7 @@ include 'includes/session.php';
             location.reload();
         });
 	},
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

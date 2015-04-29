@@ -13,6 +13,7 @@ global $studentno;
 global $firstname;
 global $surname;
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $bookToReserve = $_GET["id"];
@@ -32,6 +33,7 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../library/');
 }
@@ -187,7 +189,7 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    //Reserve book
+    //Reserve book process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
@@ -196,15 +198,24 @@ if (isset($_GET["id"])) {
     var book_author = $("#book_author").val();
     var book_notes = $("#book_notes").val();
 
+    //Initialize Ajax call
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'bookid=' + bookid + '&book_name=' + book_name + '&book_author=' + book_author + '&book_notes=' + book_notes,
+
+   //If action completed, do the following
     success:function(){
         $("#error").hide();
         $("#hide").hide();
         $("#success").empty().append('All done! The book has been reserved.');
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
         $("#error").show();

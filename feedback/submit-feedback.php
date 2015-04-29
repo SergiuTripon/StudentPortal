@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $moduleToFeedback = $_GET["id"];
@@ -160,7 +161,7 @@ if (isset($_GET["id"])) {
     <hr>
 
     <div class="text-center">
-    <a id="FormSubmit" class="btn btn-primary btn-lg btn-load">Submit feedback</a>
+    <a id="submit-feedback-submit" class="btn btn-primary btn-lg btn-load">Submit feedback</a>
 	</div>
 
     </div>
@@ -204,8 +205,8 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    //Pay course fees form submit
-    $("#FormSubmit").click(function (e) {
+    //Submit feedback process
+    $("#submit-feedback-submit").click(function (e) {
     e.preventDefault();
 
     var hasError = false;
@@ -223,6 +224,7 @@ if (isset($_GET["id"])) {
 
     var feedback_subject = $("#feedback_subject").val();
 
+    //Checking if feedback_body is inputted
     var feedback_body = $("#feedback_body").val();
 	if(feedback_body === '') {
         $("label[for='feedback_body']").empty().append("Please enter feedback.");
@@ -240,6 +242,8 @@ if (isset($_GET["id"])) {
         $("#feedback_body").removeClass("input-danger");
         $("#feedback_body").addClass("input-success");
 	}
+
+    //Checking if feedback_body is more than 10000 characters long
     if (feedback_body.length > 10000) {
         $("#error1").show();
         $("#error1").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
@@ -257,11 +261,16 @@ if (isset($_GET["id"])) {
         $("#feedback_body").addClass("input-success");
     }
 
+    //If there are no errors, initialize the Ajax call
     if(hasError == false){
 
     jQuery.ajax({
 	type: "POST",
+
+    //ULR to POST data
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'feedback_moduleid='                     + feedback_moduleid +
          '&feedback_lecturer='                    + feedback_lecturer +
          '&feedback_tutorial_assistant='          + feedback_tutorial_assistant +
@@ -272,11 +281,15 @@ if (isset($_GET["id"])) {
          '&tutorial_assistant_feedback_to_email=' + tutorial_assistant_feedback_to_email +
          '&feedback_subject='                     + feedback_subject +
          '&feedback_body='                        + feedback_body,
+
+    //If action completed, do the following
     success:function(){
         $("#error").hide();
         $("#hide").hide();
         $("#success").empty().append('All done! Feedback has been submitted.');
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
         $("#error").show();

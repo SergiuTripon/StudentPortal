@@ -3,6 +3,7 @@ include '../includes/session.php';
 
 global $mysqli, $bookid, $book_name, $book_author, $book_notes,$userid, $email, $studentno, $firstname, $surname;
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $bookToReserve = $_GET["id"];
@@ -22,12 +23,12 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($userid, $email, $studentno, $firstname, $surname);
     $stmt->fetch();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../library/');
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -122,9 +123,6 @@ if (isset($_GET["id"])) {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
-
-
-
 	<?php else : ?>
 
     <?php include '../includes/menus/menu.php'; ?>
@@ -163,15 +161,24 @@ if (isset($_GET["id"])) {
 
     var bookToRequest = $("#bookid").val();
 
+    //Initialize Ajax call
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'bookToRequest=' + bookToRequest,
+
+    //If action completed, do the following
     success:function(){
         $("#error").hide();
         $("#hide").hide();
         $("#success").empty().append('All done! The book has been requested.');
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
         $("#error").show();

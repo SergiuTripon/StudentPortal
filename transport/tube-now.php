@@ -64,6 +64,7 @@ global $transport_status_last_updated;
 	<tbody>
     <?php
 
+    //Get live tube line status
 	$stmt1 = $mysqli->query("SELECT tube_line, tube_line_status, tube_line_info FROM tube_line_status_now");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -116,6 +117,7 @@ global $transport_status_last_updated;
 	<tbody>
     <?php
 
+    //Get live tube station status
     $stmt1 = $mysqli->query("SELECT tube_station, tube_station_status, tube_station_info FROM tube_station_status_now");
 
     while($row = $stmt1->fetch_assoc()) {

@@ -247,19 +247,20 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-    //On load
+    //On load actions
     $(document).ready(function () {
-        //select2
+        //Initialize select2
         $("#gender").select2({placeholder: "Select an option"});
         window.setTimeout(function(){ $('#modal-info').modal('show'); }, 1000);
     });
 
-	//Register
+	//Register process
     $("#register-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Checking if firstname is inputted
     var firstname = $("#firstname").val();
 	if(firstname === '') {
         $("label[for='firstname']").empty().append("Please enter a first name.");
@@ -278,6 +279,7 @@ include 'includes/session.php';
         $("#firstname").addClass("input-success");
 	}
 
+    //Checking if surname is inputted
 	var surname = $("#surname").val();
 	if(surname === '') {
         $("label[for='surname']").empty().append("Please enter a surname.");
@@ -296,6 +298,7 @@ include 'includes/session.php';
         $("#surname").addClass("input-success");
 	}
 
+    //Checking if option on the drop-down is inputted
     var gender_check = $("#gender :selected").html();
     if (gender_check === 'Select an option') {
         $("label[for='gender']").empty().append("Please select an option.");
@@ -315,6 +318,7 @@ include 'includes/session.php';
         $("#marker_category").addClass("input-success");
     }
 
+    //Checking if email is inputted
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
@@ -333,6 +337,7 @@ include 'includes/session.php';
         $("#email").addClass("input-success");
 	}
 
+    //Checking if password is inputted
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a password.");
@@ -351,6 +356,7 @@ include 'includes/session.php';
         $("#password").addClass("input-success");
 	}
 
+    //Checking if password is more than 6 characters long
     password = $("#password").val();
 	if (password.length < 6) {
         $("#error1").show();
@@ -372,6 +378,8 @@ include 'includes/session.php';
         $("#password").addClass("input-danger");
 	}
 
+
+    //Checking if password contains at least one number, one lowercase and one uppercase letter
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
@@ -396,6 +404,7 @@ include 'includes/session.php';
 		return false;
 	}
 
+    //Checking if confirmpwd is inputted
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
@@ -414,6 +423,7 @@ include 'includes/session.php';
         $("#confirmpwd").addClass("input-success");
 	}
 
+    //Checking if password and password confirmation match
 	if(password != confirmpwd) {
         $("#error1").show();
         $("#error1").empty().append("Your password and confirmation do not match. Please try again.");
@@ -436,15 +446,22 @@ include 'includes/session.php';
 
     var gender = $("#gender :selected").val();
 
+    //If there are no errors, initialize the Ajax call
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'register_firstname=' + firstname +
          '&register_surname='  + surname +
          '&register_gender='   + gender +
          '&register_email='    + email +
          '&register_password=' + password,
+
+    //If action completed, do the following
     success:function(){
         $("#error").hide();
 		$("#hide").hide();
@@ -454,6 +471,8 @@ include 'includes/session.php';
 		$("#success").append('Thank you for your registration. You can now Sign in to your account.');
 		$("#success-button").show();
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         $("#success").hide();
         $("#error").show();

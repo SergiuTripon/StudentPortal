@@ -91,6 +91,7 @@ AdminEventUpdate();
 	<tbody>
 	<?php
 
+    //Get active events
 	$stmt1 = $mysqli->query("SELECT eventid, event_name, event_notes, event_url, DATE_FORMAT(event_from,'%d %b %y %H:%i') as event_from, DATE_FORMAT(event_to,'%d %b %y %H:%i') as event_to, event_amount, event_ticket_no FROM system_event WHERE event_status = 'active'");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -181,6 +182,7 @@ AdminEventUpdate();
 	<tbody>
 	<?php
 
+    //Get booked events belonging to the currently signed in user
 	$stmt2 = $mysqli->query("SELECT e.eventid, e.event_name, e.event_notes, e.event_url, e.event_from, e.event_to, e.event_amount, e.event_ticket_no, b.event_amount_paid, b.ticket_quantity, DATE_FORMAT(b.booked_on,'%d %b %y %H:%i') as booked_on FROM system_event_booked b LEFT JOIN system_event e ON b.eventid=e.eventid WHERE b.userid = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -300,7 +302,7 @@ AdminEventUpdate();
         $(".task-tile i").addClass("tile-text-selected");
     });
 
-    //DataTables
+    //Initialize DataTables
     $('.table-custom').dataTable(settings);
 
 	//Sets calendar options
@@ -342,7 +344,7 @@ AdminEventUpdate();
 	});
 	}(jQuery));
 
-    //Responsiveness
+    //Responsiveness, full width button group on mobile device
     $(window).resize(function(){
         var width = $(window).width();
         if(width <= 480){
@@ -352,6 +354,7 @@ AdminEventUpdate();
         }
     }).resize();
 
+    //If task-button is clicked, do the following
     $("#task-button").click(function (e) {
     e.preventDefault();
         $(".calendar-view").hide();
@@ -367,6 +370,7 @@ AdminEventUpdate();
 		$(".task-tile i").addClass("tile-text-selected");
 	});
 
+    //If calendar button is clicked, do the following
 	$("#calendar-button").click(function (e) {
     e.preventDefault();
 		$("#events-toggle").hide();
@@ -485,24 +489,32 @@ AdminEventUpdate();
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-    //DataTables
+    //Initialize DataTables
     $('.table-active-event').dataTable(settings);
     $('.table-inactive-event').dataTable(settings);
 
-    //Deactivate event
+    //Deactivate event process
     $("body").on("click", ".btn-deactivate-event", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var eventToDeactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'eventToDeactivate='+ eventToDeactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -517,6 +529,8 @@ AdminEventUpdate();
         $('#content-inactive-event').html(html.inactive_event);
         $(".table-inactive-event").dataTable(settings);
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
         togglePreloader();
 		$("#error").show();
@@ -529,16 +543,24 @@ AdminEventUpdate();
     $("body").on("click", ".btn-reactivate-event", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var eventToReactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'eventToReactivate='+ eventToReactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -553,6 +575,8 @@ AdminEventUpdate();
         $('#content-active-event').html(html.active_event);
         $(".table-active-event").dataTable(settings);
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
         togglePreloader();
 		$("#error").show();
@@ -561,18 +585,26 @@ AdminEventUpdate();
 	});
     });
 
-    //Delete event
+    //Delete event process
     $("body").on("click", ".btn-delete-event", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var eventToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'eventToDelete='+ eventToDelete,
+
+    //If action completed, do the following
 	success:function(html){
 
         $('.modal-custom').modal('hide');
@@ -589,6 +621,8 @@ AdminEventUpdate();
             $(".table-inactive-event").dataTable(settings);
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

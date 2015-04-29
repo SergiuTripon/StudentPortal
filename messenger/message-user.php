@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $idToMessage = $_GET["id"];
@@ -19,6 +20,7 @@ if (isset($_GET["id"])) {
     $stmt1->bind_result($message_to_userid, $message_to_email, $message_to_firstname, $message_to_surname);
     $stmt1->fetch();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../messenger/');
 }
@@ -130,9 +132,6 @@ if (isset($_GET["id"])) {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
-
-
-
 	<?php else : ?>
 
     <?php include '../includes/menus/menu.php'; ?>
@@ -165,12 +164,13 @@ if (isset($_GET["id"])) {
 
 	<script>
 
-    //Pay course fees form submit
+    //Send message process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
     var hasError = false;
 
+    //Checking if message_subject is inputted
     var message_subject = $("#message_subject").val();
 	if(message_subject === '') {
         $("label[for='message_subject']").empty().append("Please enter a subject.");
@@ -188,6 +188,7 @@ if (isset($_GET["id"])) {
         $("#message_subject").removeClass("input-danger");
         $("#message_subject").addClass("input-success");
 	}
+    //Checking if message_subject is more than 300 characters long
     if (message_subject.length > 300) {
         $("#error1").show();
         $("#error1").empty().append("The subject entered is too long.<br>The maximum length of the subject is 300 characters.");
@@ -207,6 +208,7 @@ if (isset($_GET["id"])) {
         $("#message_subject").addClass("input-success");
     }
 
+    //Checking if message_body is inputted
     var message_body = $("#message_body").val();
 	if(message_body === '') {
         $("label[for='message_body']").empty().append("Please enter a message.");
@@ -225,7 +227,8 @@ if (isset($_GET["id"])) {
         $("#message_body").addClass("input-success");
 	}
 
-    if (message_body.length > 5000) {
+    //Checking if message_body is more than 10000 characters long
+    if (message_body.length > 10000) {
         $("#error1").show();
         $("#error1").empty().append("The message entered is too long.<br>The maximum length of the message is 5000 characters.");
         $("label[for='message_body']").empty().append("Wait a minute!");
@@ -249,16 +252,25 @@ if (isset($_GET["id"])) {
     var message_to_surname = $("#message_to_surname").val();
     var message_to_email = $("#message_to_email").val();
 
+    //If there are no errors, initialize the Ajax call
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'message_to_userid=' + message_to_userid + '&message_to_firstname=' + message_to_firstname + '&message_to_surname=' + message_to_surname + '&message_to_email=' + message_to_email + '&message_subject=' + message_subject + '&message_body=' + message_body,
+
+    //If action completed, do the following
     success:function(){
         $("#error").hide();
         $("#hide").hide();
         $("#success").empty().append('All done! Message has been sent.');
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
         $("#error").show();

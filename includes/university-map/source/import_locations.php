@@ -1,7 +1,6 @@
 <?php
 include '../../../includes/session.php';
 
-DeleteLocations();
 ImportLocations();
 
 //ImportLocations function
@@ -14,27 +13,34 @@ function ImportLocations () {
 
     $marker_status = 'active';
 
+    //Erase table
     $stmt1 = $mysqli->prepare("DELETE FROM system_map_marker");
     $stmt1->execute();
     $stmt1->close();
 
+    //Get XML contents
     $url1 = 'https://student-portal.co.uk/includes/university-map/xml/locations.xml';
     $result1 = file_get_contents($url1);
     $universitymap_locations = new SimpleXMLElement($result1);
 
+    //Get XML contents
     $url2 = 'https://student-portal.co.uk/includes/university-map/xml/cycle_hire.xml';
     $result2 = file_get_contents($url2);
     $universitymap_cycle_hire = new SimpleXMLElement($result2);
 
+    //Get XML contents
     $url3 = 'https://student-portal.co.uk/includes/university-map/xml/cycle_parking.xml';
     $result3 = file_get_contents($url3);
     $universitymap_cycle_parking = new SimpleXMLElement($result3);
 
+    //Get XML contents
     $url4 = 'https://student-portal.co.uk/includes/university-map/xml/atms.xml';
     $result4 = file_get_contents($url4);
     $universitymap_atms = new SimpleXMLElement($result4);
 
     //Locations
+
+    //For each, get attributes between XML tags, and insert into database
     foreach ($universitymap_locations->channel->item as $xml_var) {
 
         $marker_name = $xml_var->title;
@@ -56,6 +62,8 @@ function ImportLocations () {
     }
 
     //Cycle Hire
+
+    //For each, get attributes between XML tags, and insert into database
     foreach ($universitymap_cycle_hire->Document->Placemark as $xml_var) {
 
         $marker_title = $xml_var->name;
@@ -73,6 +81,8 @@ function ImportLocations () {
     }
 
     //Cycle Parking
+
+    //For each, get attributes between XML tags, and insert into database
     foreach ($universitymap_cycle_parking->Document->Placemark as $xml_var) {
 
         $marker_title = $xml_var->name;
@@ -90,6 +100,8 @@ function ImportLocations () {
     }
 
     //ATMs
+
+    //For each, get attributes between XML tags, and insert into database
     foreach ($universitymap_atms->Document->Folder->Placemark as $xml_var) {
 
         $marker_title = $xml_var->name;
@@ -106,13 +118,4 @@ function ImportLocations () {
         $stmt3->close();
     }
 
-}
-
-function DeleteLocations() {
-
-    global $mysqli;
-
-    $stmt3 = $mysqli->prepare("DELETE FROM system_map_marker");
-    $stmt3->execute();
-    $stmt3->close();
 }

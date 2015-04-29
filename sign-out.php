@@ -2,7 +2,8 @@
 include 'includes/session.php';
 include 'includes/functions.php';
 
-    SignOut();
+//Call to SignOut function
+SignOut();
 
 
 

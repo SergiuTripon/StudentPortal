@@ -125,13 +125,9 @@ global $token;
 
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
-
-
 	<script>
 
-    Ladda.bind('.ladda-button', {timeout: 1000});
-
-    //Ajax call
+    //Password Reset process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
@@ -139,6 +135,7 @@ global $token;
 
 	var token = $("#token").val();
 
+    //checking if email is inputted
 	var email = $("#email").val();
 	if(email === '') {
         $("label[for='email']").empty().append("Please enter an email address.");
@@ -157,6 +154,7 @@ global $token;
         $("#email").addClass("input-success");
     }
 
+    //checking if password is inputted
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a password.");
@@ -175,6 +173,7 @@ global $token;
         $("#password").addClass("input-success");
 	}
 
+    //checking if password is more than 6 characters long
     password = $("#password").val();
 	if (password.length < 6) {
         $("#error1").show();
@@ -196,6 +195,7 @@ global $token;
         $("#password").addClass("input-danger");
 	}
 
+    //checking if password contains at least one number, one lowercase and one uppercase letter
 	var upperCase= new RegExp('[A-Z]');
 	var lowerCase= new RegExp('[a-z]');
 	var numbers = new RegExp('[0-9]');
@@ -220,6 +220,7 @@ global $token;
 		return false;
 	}
 
+    //checking if confirmpwd is inputted
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
@@ -238,6 +239,7 @@ global $token;
         $("#confirmpwd").addClass("input-success");
 	}
 
+    //checking if password and password confirmation match
 	if(password != confirmpwd) {
         $("#error1").show();
         $("#error1").empty().append("Your password and confirmation do not match. Please try again.");
@@ -258,11 +260,18 @@ global $token;
         $("#error1").hide();
 	}
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'rp_token=' + token + '&rp_email=' + email + '&rp_password=' + password,
+
+    //If action completed, do the following
     success:function(){
         $("#hide").hide();
 		$("#extra-button").hide();
@@ -272,6 +281,8 @@ global $token;
 		$("#success").append('Your password has been reset successfully. You can now Sign in with your new password.');
 		$("#success-button").show();
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
         $("#error").empty().append(thrownError);

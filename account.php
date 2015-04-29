@@ -205,6 +205,7 @@ global $mysqli;
 	<tbody>
 	<?php
 
+    //Get users that are currently signed into the system
 	$stmt1 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid' AND user_signin.isSignedIn = '1'");
     $stmt1->bind_param('is', $session_userid, $user_status);
     $stmt1->execute();
@@ -288,6 +289,7 @@ global $mysqli;
 	<tbody>
 	<?php
 
+    //Get active users
     $user_status = 'active';
 
 	$stmt2 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
@@ -414,6 +416,7 @@ global $mysqli;
 	<tbody>
 	<?php
 
+    //Get inactive users
     $user_status = 'inactive';
 
 	$stmt3 = $mysqli->prepare("SELECT user_signin.userid, user_signin.account_type, user_signin.email, DATE_FORMAT(user_signin.created_on,'%d %b %y %H:%i') as created_on, DATE_FORMAT(user_detail.updated_on,'%d %b %y %H:%i') as updated_on, user_detail.firstname, user_detail.surname, user_detail.gender, user_detail.nationality, user_detail.dateofbirth FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid=? AND user_detail.user_status=?");
@@ -524,24 +527,34 @@ global $mysqli;
 
     <script>
 
-	//DataTables
+	//Initializes DataTables
     $('.table-custom').dataTable(settings);
 
-	//Deactivate account
+	//Deactivate account process
 	$("body").on("click", ".btn-deactivate-account", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
 	var clickedID = this.id.split('-');
     var userToDeactivate = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'userToDeactivate='+ userToDeactivate,
+
+    //If action completed, do the following
 	success:function(){
         location.reload();
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();
@@ -550,21 +563,31 @@ global $mysqli;
 	});
     });
 
-    //Reactivate account
+    //Reactivate account process
 	$("body").on("click", ".btn-reactivate-account", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
 	var clickedID = this.id.split('-');
     var userToReactivate = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'userToReactivate='+ userToReactivate,
+
+    //If action completed, do the following
 	success:function(){
         location.reload();
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();
@@ -573,18 +596,26 @@ global $mysqli;
 	});
     });
 
-    //Delete account
+    //Delete account process
 	$("body").on("click", ".btn-delete-account", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
 	var clickedID = this.id.split('-');
     var userToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'userToDelete='+ userToDelete,
+
+    //If action completed, do the following
 	success:function(){
         $('.modal-custom').modal('hide');
 
@@ -592,6 +623,8 @@ global $mysqli;
             location.reload();
         });
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#success").hide();
 		$("#error").show();

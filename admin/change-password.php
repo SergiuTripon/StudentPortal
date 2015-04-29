@@ -153,7 +153,7 @@ if (isset($_GET["id"])) {
         return false;
 	}
 
-    //Checking to see if password confirmation is inputted
+    //Checking if confirmpwd is inputted
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter a password confirmation.");
@@ -172,7 +172,7 @@ if (isset($_GET["id"])) {
         $("#password").addClass("input-success");
 	}
 
-    //Checking to see if password and password confirmation match
+    //Checking if password and password confirmation match
 	if(password != confirmpwd) {
 		$("label[for='password'").empty().append("The password and confirmation do not match. Please try again.");
         $("label[for='confirmpwd'").empty().append("The password and confirmation do not match. Please try again.");

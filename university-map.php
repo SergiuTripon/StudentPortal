@@ -171,20 +171,28 @@ AdminUniversityMapUpdate();
     $('.table-active-location').dataTable(settings);
     $('.table-inactive-location').dataTable(settings);
 
-    //Deactivate location
+    //Deactivate location process
     $("body").on("click", ".btn-deactivate-location", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var locationToDeactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'locationToDeactivate='+ locationToDeactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -200,6 +208,8 @@ AdminUniversityMapUpdate();
         $(".table-inactive-location").dataTable(settings);
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
         togglePreloader();
 		$("#error").show();
@@ -212,16 +222,24 @@ AdminUniversityMapUpdate();
     $("body").on("click", ".btn-reactivate-location", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var locationToReactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'locationToReactivate='+ locationToReactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -237,6 +255,8 @@ AdminUniversityMapUpdate();
         $(".table-active-location").dataTable(settings);
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
         togglePreloader();
 		$("#error").show();
@@ -249,14 +269,22 @@ AdminUniversityMapUpdate();
     $("body").on("click", ".btn-delete-location", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var locationToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'locationToDelete='+ locationToDelete,
+
+    //If action completed, do the following
 	success:function(html){
 
         $('.modal-custom').modal('hide');
@@ -274,6 +302,8 @@ AdminUniversityMapUpdate();
         });
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

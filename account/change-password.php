@@ -79,7 +79,7 @@ include '../includes/session.php';
 
 	var hasError = false;
 
-    //Checking if old password was inputted
+    //Checking if oldpwd is inputted
     var oldpwd = $("#oldpwd").val();
 	if(oldpwd === '') {
         $("label[for='oldpwd']").empty().append("Please enter your old password.");
@@ -98,7 +98,7 @@ include '../includes/session.php';
         $("#oldpwd").addClass("input-success");
 	}
 
-    //Checking if password was inputted
+    //Checking if password is inputted
 	var password = $("#password").val();
 	if(password === '') {
         $("label[for='password']").empty().append("Please enter a new password.");
@@ -166,7 +166,7 @@ include '../includes/session.php';
 		return false;
 	}
 
-    //Checking if password confirmation was inputted
+    //Checking if confirmpwd is inputted
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter the new password again.");

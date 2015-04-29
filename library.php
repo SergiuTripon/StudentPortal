@@ -90,6 +90,7 @@ AdminLibraryUpdate();
 	<tbody>
 	<?php
 
+    //Get active books
     $book_status = 'active';
 
 	$stmt1 = $mysqli->prepare("SELECT b.bookid, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book b WHERE b.book_status=?");
@@ -202,6 +203,7 @@ AdminLibraryUpdate();
 	<tbody>
 	<?php
 
+    //Get books reserved by the currently signed in user
 	$stmt2 = $mysqli->prepare("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, DATE_FORMAT(r.tocollect_on,'%d %b %y') as tocollect_on, DATE_FORMAT(r.collected_on,'%d %b %y') as collected_on, r.isCollected, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid = '$session_userid'");
     $stmt2->bind_param('s', $book_status);
     $stmt2->execute();
@@ -302,6 +304,7 @@ AdminLibraryUpdate();
 	<tbody>
 	<?php
 
+    //Get books loaned by the currently signed in user
 	$stmt3 = $mysqli->prepare("SELECT l.bookid, DATE_FORMAT(l.created_on,'%d %b %y') as created_on, DATE_FORMAT(l.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(l.returned_on,'%d %b %y') as returned_on, l.isReturned, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=?");
     $stmt3->bind_param('i', $session_userid);
     $stmt3->execute();
@@ -402,6 +405,8 @@ AdminLibraryUpdate();
 
 	<tbody>
     <?php
+
+    //Get books requested by the currently signed in user
     $stmt4 = $mysqli->prepare("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, r.isRead, r.isApproved, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid=?");
     $stmt4->bind_param('i', $session_userid);
     $stmt4->execute();
@@ -592,20 +597,28 @@ AdminLibraryUpdate();
 	});
 	}(jQuery));
 
-	//DataTables
+	//Initialize DataTables
     $('.table-custom').dataTable(settings);
 
-    //Renew book
+    //Renew book process
     $("body").on("click", ".btn-renew-book", function(e) {
     e.preventDefault();
+
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var bookToRenewCheck = clickedID[1];
 
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'bookToRenewCheck='+ bookToRenewCheck,
+
+    //If action completed, do the following
 	success:function(error_msg){
         if (error_msg) {
 
@@ -619,6 +632,8 @@ AdminLibraryUpdate();
             window.location.replace("https://student-portal.co.uk/library/renew-book?id=" + bookToRenewCheck);
         }
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -627,6 +642,7 @@ AdminLibraryUpdate();
 	});
     });
 
+    //If books-toggle is clicked, do the following
 	$("#books-toggle").click(function (e) {
     e.preventDefault();
         $(".calendar-view").hide();
@@ -642,6 +658,7 @@ AdminLibraryUpdate();
 		$(".book-tile i").addClass("tile-text-selected");
 	});
 
+    //If calendar-toggle is clicked, do the following
 	$("#calendar-toggle").click(function (e) {
     e.preventDefault();
         $(".book-view").hide();
@@ -769,6 +786,9 @@ AdminLibraryUpdate();
 
 	<tbody>
 	<?php
+
+
+    //Get reserved books
 
     $isReserved = 1;
     $isCollected = 0;
@@ -930,6 +950,8 @@ AdminLibraryUpdate();
 
 	<tbody>
 	<?php
+
+    //Get loaned books
 
     $isReserved = 1;
     $isCollected = 1;
@@ -1096,6 +1118,8 @@ AdminLibraryUpdate();
 	<tbody>
 	<?php
 
+    //Get Requested books
+
     $isApproved = 0;
 
 	$stmt5 = $mysqli->prepare("SELECT r.requestid, r.bookid, r.userid, d.firstname, d.surname, d.gender, d.dateofbirth, d.nationality, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid LEFT JOIN user_detail d ON r.userid=d.userid WHERE r.isApproved = '0'");
@@ -1205,48 +1229,68 @@ AdminLibraryUpdate();
 
 	<script>
 
-	//DataTables
+	//Initialize DataTables
     $('.table-active-book').dataTable(settings);
     $('.table-inactive-book').dataTable(settings);
     $('.table-reserved-book').dataTable(settings);
     $('.table-loaned-book').dataTable(settings);
     $('.table-requested-book').dataTable(settings);
 
-
+    //Set request read process
     $(".request-read-trigger").click(function (e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var requestToRead = clickedID[1];
 
     jQuery.ajax({
     type: "POST",
+
+    //URL to POST data to
     url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'requestToRead=' + requestToRead,
+
+    //If action completed, do the following
     success:function() {
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError) {
     }
     });
     });
 
-    //Collect book
+    //Collect book process
     $("body").on("click", ".btn-collect-book", function(e) {
     e.preventDefault();
+
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var bookToCollect = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'bookToCollect='+ bookToCollect,
+
+    //If action completed, do the following
 	success:function(){
 
             $('.modal-custom').modal("hide");
             location.reload();
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -1254,23 +1298,34 @@ AdminLibraryUpdate();
 	});
     });
 
-    //Return book
+    //Return book process
     $("body").on("click", ".btn-return-book", function(e) {
     e.preventDefault();
+
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var bookToReturn = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'bookToReturn='+ bookToReturn,
+
+    //If action completed, do the following
 	success:function(){
 
         $('.modal-custom').modal("hide");
         location.reload();
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -1281,16 +1336,25 @@ AdminLibraryUpdate();
     //Deactivate book
     $("body").on("click", ".btn-deactivate-book", function(e) {
     e.preventDefault();
+
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var bookToDeactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'bookToDeactivate='+ bookToDeactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -1305,6 +1369,8 @@ AdminLibraryUpdate();
         $('#content-inactive-book').html(html.inactive_book);
         $(".table-inactive-book").dataTable(settings);
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
         togglePreloader();
 		$("#error").show();
@@ -1313,19 +1379,28 @@ AdminLibraryUpdate();
 	});
     });
 
-    //Reactivate
+    //Reactivate book process
     $("body").on("click", ".btn-reactivate-book", function(e) {
     e.preventDefault();
+
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var bookToReactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'bookToReactivate='+ bookToReactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -1340,6 +1415,8 @@ AdminLibraryUpdate();
         $('#content-active-book').html(html.active_book);
         $(".table-active-book").dataTable(settings);
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -1347,16 +1424,26 @@ AdminLibraryUpdate();
 	});
     });
 
-    //Delete book
+    //Delete book process
     $("body").on("click", ".btn-delete-book", function(e) {
     e.preventDefault();
+
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var bookToDelete = clickedID[1];
-	jQuery.ajax({
+
+    //Initialize Ajax call
+    jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'bookToDelete='+ bookToDelete,
+
+    //If action completed, do the following
 	success:function(html){
 
         $('.modal-custom').modal('hide');
@@ -1375,6 +1462,8 @@ AdminLibraryUpdate();
 
         });
 	},
+
+    //If action completed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

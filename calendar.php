@@ -345,6 +345,8 @@ global $archived_task;
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
+
+    //On load actions
     $(document).ready(function () {
         $("#calendar-toggle").hide();
         $(".task-tile").addClass("tile-selected");
@@ -415,26 +417,29 @@ global $archived_task;
         showClose: true
     };
 
+    //Show create task modal
     $("#create-task-button").click(function() {
         $('#create-task-modal').modal('show');
     });
 
+    //Initialize date time picker while modal is shown
     $('#create-task-modal').on('shown.bs.modal', function () {
         $('#create_task_startdate').datetimepicker(datetimepicker);
         $('#create_task_duedate').datetimepicker(datetimepicker);
     });
 
-    //DataTables
+    //Initialize DataTables
     $('.table-due-task').dataTable(settings);
     $('.table-completed-task').dataTable(settings);
     $('.table-archived-task').dataTable(settings);
 
-    //Ajax call
+    //Create task process
     $("#create-task-submit").click(function (e) {
     e.preventDefault();
 
     var hasError = false;
 
+    //Checking if create_task_name is inputted
 	var create_task_name = $("#create_task_name").val();
 	if(create_task_name === '') {
         $("label[for='create_task_name']").empty().append("Please enter a name.");
@@ -456,6 +461,7 @@ global $archived_task;
 	var create_task_notes = $("#create_task_notes").val();
 	var create_task_url = $("#create_task_url").val();
 
+    //Checking if create_task_startdate is inputted
 	var create_task_startdate = $("#create_task_startdate").val();
 	if(create_task_startdate === '') {
         $("label[for='create_task_startdate']").empty().append("Please select a date and time.");
@@ -474,6 +480,7 @@ global $archived_task;
         $("#create_task_startdate").addClass("input-success");
 	}
 
+    //Checking if create_task_duedate is inputted
 	var create_task_duedate = $("#create_task_duedate").val();
 	if(create_task_duedate === '') {
         $("label[for='create_task_duedate']").empty().append("Please select a date and time.");
@@ -492,17 +499,25 @@ global $archived_task;
         $("#create_task_duedate").addClass("input-success");
 	}
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
 
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
     dataType:"json",
+
+    //Data posted
     data:'create_task_name='       + create_task_name +
          '&create_task_notes='     + create_task_notes +
          '&create_task_url='       + create_task_url +
          '&create_task_startdate=' + create_task_startdate +
          '&create_task_duedate='   + create_task_duedate,
+
+
+    //If action completed, do the following
     success:function(html){
 
         $('.modal-form').modal('hide');
@@ -542,6 +557,8 @@ global $archived_task;
         });
 
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#create_task_error").show();
         $("#create_task_error").empty().append(thrownError);
@@ -552,18 +569,26 @@ global $archived_task;
 	return true;
 	});
 
-    //Update task
+    //Update task process
 	$("body").on("click", ".btn-update-task", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
 	var clickedID = this.id.split('-');
     var taskToUpdate = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "post",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'taskToUpdate='+ taskToUpdate,
+
+    //If action completed, do the following
 	success:function(html){
 
         $("#update-task-modal").modal('show');
@@ -581,6 +606,8 @@ global $archived_task;
             $('#update_task_duedate').datetimepicker(datetimepicker);
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -589,7 +616,7 @@ global $archived_task;
 
     });
 
-    //Update task
+    //Update task process
     $("#update-task-submit").click(function (e) {
     e.preventDefault();
 
@@ -597,6 +624,7 @@ global $archived_task;
 
 	var update_taskid = $("#update_taskid").val();
 
+    //Check if update_task_name is inputted
 	var update_task_name = $("#update_task_name").val();
 	if(update_task_name === '') {
         $("label[for='update_task_name']").empty().append("Please enter a name.");
@@ -618,6 +646,7 @@ global $archived_task;
 	var update_task_notes = $("#update_task_notes").val();
 	var update_task_url = $("#update_task_url").val();
 
+    //Check if update_task_startdate is inputted
 	var update_task_startdate = $("#update_task_startdate").val();
 	if(update_task_startdate === '') {
         $("label[for='update_task_startdate']").empty().append("Please select a date and time.");
@@ -636,6 +665,7 @@ global $archived_task;
         $("#update_task_startdate").addClass("input-success");
 	}
 
+    //Check if update_task_duedate is inputted
 	var update_task_duedate = $("#update_task_duedate").val();
 	if(update_task_duedate === '') {
         $("label[for='update_task_duedate']").empty().append("Please select a date and time.");
@@ -654,17 +684,24 @@ global $archived_task;
         $("#update_task_duedate").addClass("input-success");
 	}
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
     dataType:"json",
+
+    //Data posted
     data:'update_taskid='           + update_taskid +
          '&update_task_name='       + update_task_name +
          '&update_task_notes='      + update_task_notes +
          '&update_task_url='        + update_task_url +
          '&update_task_startdate='  + update_task_startdate +
          '&update_task_duedate='    + update_task_duedate,
+
+    //If action completed, do the following
     success:function(html){
 
         $('.modal-form').modal('hide');
@@ -700,6 +737,8 @@ global $archived_task;
         });
 
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
 		$("#update_task_error").show();
         $("#update_task_error").empty().append(thrownError);
@@ -710,20 +749,28 @@ global $archived_task;
 	return true;
 	});
 
-    //Complete record
+    //Complete task process
 	$("body").on("click", ".btn-complete-task", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
 	var clickedID = this.id.split('-');
     var taskToComplete = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'taskToComplete='+ taskToComplete,
+
+    //If action completed, do the following
 	success:function(html){
 
         $(".table-due-task").dataTable().fnDestroy();
@@ -741,6 +788,8 @@ global $archived_task;
         calendar.view();
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -749,20 +798,28 @@ global $archived_task;
 
     });
 
-    //Deactivate record
+    //Deactivate task process
     $("body").on("click", ".btn-deactivate-task", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
 	var clickedID = this.id.split('-');
     var taskToDeactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'taskToDeactivate='+ taskToDeactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         $(".table-due-task").dataTable().fnDestroy();
@@ -780,6 +837,8 @@ global $archived_task;
         calendar.view();
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -787,20 +846,28 @@ global $archived_task;
 	});
     });
 
-    //Reactivate record
+    //Reactivate task process
     $("body").on("click", ".btn-reactivate-task", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
 	var clickedID = this.id.split('-');
     var taskToReactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'taskToReactivate='+ taskToReactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         $(".table-archived-task").dataTable().fnDestroy();
@@ -823,6 +890,8 @@ global $archived_task;
         calendar.view();
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -830,18 +899,26 @@ global $archived_task;
 	});
     });
 
-    //Delete record
+    //Delete task process
     $("body").on("click", ".btn-delete-task", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
 	var clickedID = this.id.split('-');
     var taskToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'taskToDelete='+ taskToDelete,
+
+    //If action completed, do the following
 	success:function(html){
 
         $('.modal-custom').modal('hide');
@@ -869,6 +946,8 @@ global $archived_task;
         });
 
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
         buttonReset();
 		$("#error").show();
@@ -877,6 +956,7 @@ global $archived_task;
 	});
     });
 
+    //If task-button is clicked, do the following
 	$("#task-button").click(function (e) {
     e.preventDefault();
         $(".calendar-view").hide();
@@ -892,6 +972,7 @@ global $archived_task;
 		$(".task-tile i").addClass("tile-text-selected");
 	});
 
+    //If calendar-button is clicked, do the following
 	$("#calendar-button").click(function (e) {
     e.preventDefault();
         $(".task-view").hide();

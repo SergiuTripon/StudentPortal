@@ -56,6 +56,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
+    //Get active users
 	$stmt1 = $mysqli->query("SELECT user_signin.userid, user_signin.email, user_detail.firstname, user_detail.surname, user_detail.studentno FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE NOT user_signin.userid = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -109,6 +110,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
+    //Get messages received by the currently signed in user
 	$stmt2 = $mysqli->query("SELECT r.message_from, m.messageid, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname FROM user_message_received r LEFT JOIN user_message m ON r.messageid=m.messageid LEFT JOIN user_detail d ON r.message_from=d.userid WHERE r.message_to = '$session_userid'");
 
 	while($row = $stmt2->fetch_assoc()) {
@@ -261,6 +263,7 @@ include 'includes/session.php';
 	<tbody>
 	<?php
 
+    //Get messages sent by the currently signed in user
 	$stmt1 = $mysqli->query("SELECT s.messageid, s.message_to, r.isRead, m.message_subject, m.message_body, DATE_FORMAT(m.created_on,'%d %b %y %H:%i') as created_on, d.userid, d.firstname, d.surname, d.gender FROM user_message_sent s LEFT JOIN user_message_received r ON s.messageid=r.messageid LEFT JOIN user_message m ON s.messageid=m.messageid LEFT JOIN user_detail d ON s.message_to=d.userid WHERE s.message_from = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -427,38 +430,57 @@ include 'includes/session.php';
 
 	<script>
 
-	//DataTables
+	//Initialize DataTables
     $('.table-custom').dataTable(settings);
 
+    //Set message read process
 	$(".message-read-trigger").click(function (e) {
 	e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var messageToRead = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'messageToRead=' + messageToRead,
+
+    //If action completed, do the following
     success:function() {
     },
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError) {
     }
 	});
 	});
 
-   //Delete received message
+   //Delete received message process
     $("body").on("click", ".btn-delete-received-message", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var receivedMessageToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'receivedMessageToDelete='+ receivedMessageToDelete,
+
+
+    //If action completed, do the following
 	success:function(){
         $('.modal-custom').modal('hide');
 
@@ -466,6 +488,8 @@ include 'includes/session.php';
             location.reload();
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -473,18 +497,26 @@ include 'includes/session.php';
 	});
     });
 
-    //Delete sent message
+    //Delete sent message process
     $("body").on("click", ".btn-delete-sent-message", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var sentMessageToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'sentMessageToDelete='+ sentMessageToDelete,
+
+    //If action completed, do the following
 	success:function(){
 
         $('.modal-custom').modal('hide');
@@ -493,6 +525,7 @@ include 'includes/session.php';
             location.reload();
         });
 	},
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

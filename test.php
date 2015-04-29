@@ -1,4 +1,6 @@
 <?php
+//Test only
+
 include 'includes/session.php';
 include 'includes/functions.php';
 

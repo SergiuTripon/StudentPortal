@@ -316,6 +316,8 @@ include 'includes/session.php';
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
+
+    //Show a specific modal on button click
     $("#timetable").click(function() {
         $('.modal-custom').modal('show');
         $('.modal-custom #modal-custom-label').empty().append("Timetable");

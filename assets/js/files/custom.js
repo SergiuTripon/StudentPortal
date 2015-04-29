@@ -1,19 +1,25 @@
-	$(window).load(function() {
+
+    //Displays GIF on page load
+    $(window).load(function() {
 		$(".preloader").fadeOut("slow");
 	});
 
+    //Shows/Hides the GIF displayed on page load
     function togglePreloader() {
         $('.preloader').toggle();
     }
 
+    //Initializes the Bootstrap button state behaviour
     $("body").on('click', '.btn-load', function() {
         $(this).data('loading-text', 'Loading...').button('loading');
     });
 
+    //Resets the Bootstrap button state behaviour
     function buttonReset () {
         $('.btn-load').button('reset');
     }
 
+    //DataTables settings
     var settings = {
         "iDisplayLength": 10,
         "paging": true,
@@ -24,11 +30,12 @@
         }
     };
 
+    //Changes tile background color on button click
     $(".tile").click(function() {
         $(this).css('background-color', '#256B2A');
     });
 
-    //Responsiveness
+    //Responsiveness, makes button full width on mobile screens
     $(window).resize(function(){
         var width = $(window).width();
         if(width <= 550){

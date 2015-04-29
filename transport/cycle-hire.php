@@ -68,6 +68,7 @@ global $transport_status_last_updated;
 	<tbody>
     <?php
 
+    //Get cycle hire status
 	$stmt1 = $mysqli->query("SELECT dock_name, dock_installed, dock_locked, dock_temporary, dock_bikes_available, dock_empty_docks, dock_total_docks FROM cycle_hire_status_now");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -111,9 +112,6 @@ global $transport_status_last_updated;
     </div> <!-- /container -->
 	
 	<?php include '../includes/footers/footer.php'; ?>
-
-
-
 
 	<?php else : ?>
 

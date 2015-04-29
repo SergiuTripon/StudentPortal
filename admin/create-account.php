@@ -716,7 +716,7 @@ include '../includes/session.php';
 		return false;
 	}
 
-    //Checking if password confirmation is inputted
+    //Checking if confirmpwd is inputted
 	var confirmpwd = $("#confirmpwd").val();
 	if(confirmpwd === '') {
         $("label[for='confirmpwd']").empty().append("Please enter a confirmation.");

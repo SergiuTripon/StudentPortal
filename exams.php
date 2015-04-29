@@ -71,6 +71,7 @@ AdminExamUpdate();
 	<tbody>
 	<?php
 
+    //Get exams allocated to the currently signed in user
 	$stmt1 = $mysqli->query("SELECT e.exam_name, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM user_exam u LEFT JOIN system_exam e ON u.examid=e.examid WHERE e.exam_status='active' AND u.userid = '$session_userid'");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -109,22 +110,10 @@ AdminExamUpdate();
 
 	<?php include 'includes/footers/footer.php'; ?>
 
-
-
-
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-     var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
+    //Initialize DataTables
     $(".table-custom").dataTable(settings);
     </script>
 
@@ -170,6 +159,7 @@ AdminExamUpdate();
 	<tbody>
 	<?php
 
+    //Get exams linked to the modules the currently signed in user teaches
 	$stmt1 = $mysqli->query("SELECT DISTINCT e.exam_name, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e LEFT JOIN system_lecture l ON e.moduleid=l.moduleid LEFT JOIN system_tutorial t ON e.moduleid=t.moduleid WHERE e.exam_status='active' AND (l.lecture_lecturer='$session_userid' OR t.tutorial_assistant='$session_userid')");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -207,26 +197,12 @@ AdminExamUpdate();
     </div><!-- /container -->
 
 	<?php include 'includes/footers/footer.php'; ?>
-
-
-
-
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-     var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
+    //Initializes DataTables
     $(".table-custom").dataTable(settings);
     </script>
-
 
     <?php endif; ?>
 
@@ -349,39 +325,35 @@ AdminExamUpdate();
 
 	<?php include 'includes/footers/footer.php'; ?>
 
-
-
-
     <?php include 'assets/js-paths/common-js-paths.php'; ?>
 
     <script>
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
+    //Initializes DataTables
     $(".table-active-exam").dataTable(settings);
     $(".table-inactive-exam").dataTable(settings);
 
-    //Deactivate exam
+    //Deactivate exam process
     $("body").on("click", ".btn-deactivate-exam", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var examToDeactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'examToDeactivate='+ examToDeactivate,
+
+    //If action completed, do the following
 	success:function(html){
 
         togglePreloader();
@@ -396,6 +368,8 @@ AdminExamUpdate();
         $('#content-inactive-exam').html(html.inactive_exam);
         $(".table-inactive-exam").dataTable(settings);
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -403,20 +377,28 @@ AdminExamUpdate();
 	});
     });
 
-    //Reactivate exam
+    //Reactivate exam process
     $("body").on("click", ".btn-reactivate-exam", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var examToReactivate = clickedID[1];
 
     togglePreloader();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'examToReactivate='+ examToReactivate,
+
+    //If action completed, do the following
 	success:function(html){
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
@@ -437,6 +419,8 @@ AdminExamUpdate();
             $(".table-active-exam").dataTable(settings);
         }
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -444,18 +428,26 @@ AdminExamUpdate();
 	});
     });
 
-    //Delete exam
+    //Delete exam process
     $("body").on("click", ".btn-delete-exam", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var examToDelete = clickedID[1];
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'examToDelete='+ examToDelete,
+
+    //If action completed, do the following
 	success:function(html){
 
         $('.modal-custom').modal('hide');
@@ -472,6 +464,8 @@ AdminExamUpdate();
             $(".table-inactive-exam").dataTable(settings);
         });
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);

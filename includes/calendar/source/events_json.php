@@ -3,12 +3,16 @@ include '../../session.php';
 
 header("Cache-Control: no-cache, must-revalidate");
 
+//Getting active events
 $sql = 'SELECT eventid, event_name, event_url, event_class, event_from, event_to FROM system_event WHERE event_status = "active"';
 
 $res = $pdo->query($sql);
 $res->setFetchMode(PDO::FETCH_OBJ);
 
+//Creating an array
 $out = array();
+
+//Binding results to array
 foreach($res as $row)
 {
     $out[] = array(
@@ -21,5 +25,6 @@ foreach($res as $row)
     );
 }
 
+//Converting array into JSON and showing it
 echo json_encode(array('success' => 1, 'result' => $out));
 exit;

@@ -1,6 +1,7 @@
 <?php
 include '../includes/session.php';
 
+//If URL parameter is set, do the following
 if (isset($_GET["id"])) {
 
     $eventToBook = $_GET["id"];
@@ -20,6 +21,7 @@ if (isset($_GET["id"])) {
     $stmt->bind_result($email, $studentno, $firstname, $surname, $gender, $dateofbirth, $phonenumber, $degree, $address1, $address2, $town, $city, $postcode);
     $stmt->fetch();
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../events/');
 }
@@ -156,7 +158,7 @@ if (isset($_GET["id"])) {
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
 	<script>
-
+    //Calculating amount to pay
     $('#product_quantity').keyup(function() {
         var quantity = $("#product_quantity").val();
         var iPrice = $("#product_amount").val();
@@ -165,12 +167,13 @@ if (isset($_GET["id"])) {
         $("#total_to_pay").val(total.toFixed(2));
     });
 
-    //Pay course fees form submit
+    //Book event process
     $("#book-event-submit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Checking if payer_address1 is inputted
     var payer_address1 = $("#payer_address1").val();
 	if (payer_address1 === '') {
         $("label[for='payer_address1']").empty().append("Please enter an address.");
@@ -189,6 +192,7 @@ if (isset($_GET["id"])) {
         $("#payer_address1").addClass("input-success");
 	}
 
+    //Checking if payer_city is inputted
     var payer_city = $("#payer_city").val();
     if(payer_city === '') {
         $("label[for='payer_city']").empty().append("Please enter a city.");
@@ -207,6 +211,7 @@ if (isset($_GET["id"])) {
         $("#payer_city").addClass("input-success");
 	}
 
+    //Checking if payer_postcode is inputted
     var payer_postcode = $("#payer_postcode").val();
 	if(payer_postcode === '') {
         $("label[for='payer_postcode']").empty().append("Please enter a postcode.");
@@ -225,6 +230,7 @@ if (isset($_GET["id"])) {
         $("#payer_postcode").addClass("input-success");
 	}
 
+    //Checking if product_quantity is inputted
     var product_quantity = $("#product_quantity").val();
     if(product_quantity === '') {
         $("label[for='product_quantity']").empty().append("Please enter a quantity.");
@@ -245,11 +251,18 @@ if (isset($_GET["id"])) {
 
     var eventid = $("#product_id").val();
 
+    //If there are no errors, initialize the Ajax call
     if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //ULR to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'eventid=' + eventid + '&product_quantity=' + product_quantity,
+
+    //If action completed, do the following
     success:function(msg){
         if (msg == 'error') {
             $("#error").empty().append("The quantity entered exceeds the amount of tickets available.<br>You can check the ticket availability on the Events page.");
@@ -257,6 +270,8 @@ if (isset($_GET["id"])) {
             $("#bookevent_form").submit();
         }
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         $("#error").show();
         $("#error").empty().append(thrownError);

@@ -92,9 +92,6 @@ include 'includes/session.php';
 
     <?php include 'includes/footers/footer.php'; ?>
 
-
-
-
 	<?php else : ?>
 
     <?php include 'includes/menus/menu.php'; ?>
@@ -163,12 +160,13 @@ include 'includes/session.php';
 
 	<script>
 
-    //Ajax call
+    //Contact us process
     $("#FormSubmit").click(function (e) {
     e.preventDefault();
 
 	var hasError = false;
 
+    //Checking if firstname is inputted
 	var firstname = $('#firstname').val();
 	if (firstname === '') {
         $("#error1").empty().append("Please enter a first name.");
@@ -180,6 +178,7 @@ include 'includes/session.php';
 		$("#firstname").addClass("success-style");
 	}
 
+    //Checking if surname is inputted
 	var surname = $("#surname").val();
     if(surname === '') {
         $("#error1").show();
@@ -192,6 +191,7 @@ include 'includes/session.php';
         $("#surname").addClass("success-style");
     }
 
+    //Checking if email is inputted
     var email = $("#email").val();
     if(email === '') {
         $("#error1").show();
@@ -204,6 +204,7 @@ include 'includes/session.php';
         $("#email").addClass("success-style");
     }
 
+    //Checking if message is inputted
     var message = $("#message").val();
     if(message === '') {
         $("#error2").show();
@@ -216,17 +217,26 @@ include 'includes/session.php';
         $("#message").addClass("success-style");
     }
 
+    //If there are no errors, initialize the Ajax call
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
+
+    //Data posted
     data:'contact_firstname=' + firstname + '&contact_surname=' + surname + '&contact_email=' + email + '&contact_message=' + message,
+
+    //If action completed, do the following
     success:function(){
         $("#error").hide();
         $("#hide").hide();
         $("#success").show();
         $("#success").append('Thank you for contacting us.<br>We will check your message and reply as soon as possible.');
     },
+
+    //If action failed, do the following
     error:function (xhr, ajaxOptions, thrownError){
         $("#success").hide();
 		$("#error").show();

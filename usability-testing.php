@@ -142,9 +142,6 @@ if (isset($_GET["video"])) {
 
     <?php include 'includes/footers/footer.php'; ?>
 
-
-
-
 	<?php else : ?>
 
     <?php include 'includes/menus/menu.php'; ?>
@@ -324,6 +321,7 @@ if (isset($_GET["video"])) {
         var video_selector;
         video_selector = $('#video-selector').html();
 
+        //show a specific video modal depending on the URL parameter 'video'
         if (video_selector === 'full-video') {
             $('#video-full-video').ekkoLightbox(options);
         } else if (video_selector === 'sign-in') {
@@ -360,7 +358,7 @@ if (isset($_GET["video"])) {
         }
     });
 
-
+    //show video modal on button click
     $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
         event.preventDefault();
         $(this).ekkoLightbox(options);

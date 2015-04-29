@@ -120,7 +120,7 @@ include '../includes/session.php';
 
     <script>
     $(document).ready(function() {
-        //google-maps
+        //Loading Google Map
         loadMap();
     });
 
