@@ -9,12 +9,14 @@ global $userToCreateResult;
 global $active_result;
 global $inactive_result;
 
+//If URL parameter is set, do the following
 if (isset($_GET['id'])) {
 
     AdminResultUpdate($userid = $_GET['id']);
 
     $userToCreateResult = $_GET['id'];
 
+//If URL parameter is not set, do the following
 } else {
     header('Location: ../../results/');
 }
@@ -77,6 +79,7 @@ if (isset($_GET['id'])) {
 	<tbody>
     <?php
 
+    //Get modules allocated to the currently signed in user
 	$stmt1 = $mysqli->query("SELECT DISTINCT u.userid, u.moduleid, m.module_name FROM user_module u LEFT JOIN system_module m ON u.moduleid=m.moduleid LEFT JOIN user_result r ON u.moduleid=r.moduleid WHERE u.userid NOT IN (SELECT DISTINCT(r.userid) FROM user_result r WHERE r.userid = '$session_userid' AND r.result_status='active') AND m.module_status='active'");
 
 	while($row = $stmt1->fetch_assoc()) {
@@ -206,46 +209,41 @@ if (isset($_GET['id'])) {
 
 	<?php include '../includes/footers/footer.php'; ?>
 
-
-
-
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <script>
 
-    //DataTables
-    var settings = {
-        "iDisplayLength": 10,
-        "paging": true,
-        "ordering": true,
-        "info": false,
-        "language": {
-            "emptyTable": "There are no records to display."
-        }
-    };
-
+    //Initializing DataTables
     $('.table-active-module').dataTable(settings);
     $('.table-active-result').dataTable(settings);
     $('.table-inactive-result').dataTable(settings);
 
-    //Deactivate result
+    //Deactivate result process
     $("body").on("click", ".btn-deactivate-result", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var resultToDeactivate = clickedID[1];
     var userToCreateResult = $('#userid').html();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'resultToDeactivate='+ resultToDeactivate + '&userToCreateResult' + userToCreateResult,
+
+    //If action completed, do the following
 	success:function(){
-
         location.reload();
-
     },
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -253,19 +251,27 @@ if (isset($_GET['id'])) {
 	});
     });
 
-    //Reactivate result
+    //Reactivate result process
     $("body").on("click", ".btn-reactivate-result", function(e) {
     e.preventDefault();
 
+
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var resultToReactivate = clickedID[1];
     var userToCreateResult = $('#userid').html();
 
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"json",
+
+    //Data posted
 	data:'resultToReactivate='+ resultToReactivate + '&userToCreateResult' + userToCreateResult,
+
+    //If action completed, do the following
 	success:function(html){
         if (html.error_msg) {
             $('.modal-custom').modal('hide');
@@ -275,6 +281,8 @@ if (isset($_GET['id'])) {
             location.reload();
         }
 	},
+
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
@@ -282,19 +290,27 @@ if (isset($_GET['id'])) {
 	});
     });
 
-    //Delete result
+    //Delete result process
     $("body").on("click", ".btn-delete-result", function(e) {
     e.preventDefault();
 
+    //Get clicked ID
     var clickedID = this.id.split('-');
     var resultToDelete = clickedID[1];
     var userToCreateResult = $('userid').html();
 
+    //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
+
+    //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
 	dataType:"text",
+
+    //Data posted
 	data:'resultToDelete='+ resultToDelete + '&userToCreateResult' + userToCreateResult,
+
+    //If action completed, do the following
 	success:function(){
 
         $('.modal-custom').modal('hide');
@@ -303,6 +319,7 @@ if (isset($_GET['id'])) {
             location.reload();
         });
 	},
+    //If action failed, do the following
 	error:function (xhr, ajaxOptions, thrownError){
 		$("#error").show();
 		$("#error").empty().append(thrownError);
