@@ -20,10 +20,10 @@ function ContactUs() {
 
     //Create email
 
-	//subject
+	//email subject
 	$subject = 'New Message';
 
-    //recipient
+    //email recipient
     $to = 'contact@student-portal.co.uk';
 
 	//message
@@ -39,7 +39,7 @@ function ContactUs() {
 	$message .= '</body>';
 	$message .= '</html>';
 
-	//headers
+	//email headers
 	$headers  = 'MIME-Version: 1.0'."\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
 	$headers .= 'From: Student Portal '.$email.''."\r\n";
@@ -65,14 +65,14 @@ function SignIn() {
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 	$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-    //Checking if email address is valid
+    //Check if email address is valid
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header('HTTP/1.0 550 The email address you entered is invalid.');
         exit();
 
     } else {
 
-        //Checking if email address exists in the system
+        //Check if email address exists in the system
         $stmt1 = $mysqli->prepare("SELECT s.userid, s.account_type, s.password, d.user_status FROM user_signin s LEFT JOIN user_detail d ON s.userid=d.userid WHERE s.email=? LIMIT 1");
         $stmt1->bind_param('s', $email);
         $stmt1->execute();
@@ -86,7 +86,7 @@ function SignIn() {
         //If the account is active, do the following
         if ($user_status === 'active') {
 
-        //Checking if password entered matches the password in the database
+        //Check if password entered matches the password in the database
         if (password_verify($password, $db_password)) {
 
             $isSignedIn = 1;
@@ -97,10 +97,10 @@ function SignIn() {
             $stmt3->execute();
             $stmt3->close();
 
-            //Setting sign in session variable to true
+            //Set sign in session variable to true
             $_SESSION['signedIn'] = true;
 
-            //Escaping the session variable
+            //Escape the session variable
             $session_userid = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $userid);
 
             //assign variables to session variables
@@ -177,7 +177,7 @@ function Register() {
         exit();
     } else {
 
-        // Check existing e-mail address
+        // Check if the e-mail address exists
         $stmt1 = $mysqli->prepare("SELECT userid FROM user_signin WHERE email = ? LIMIT 1");
         $stmt1->bind_param('s', $email);
         $stmt1->execute();
@@ -279,10 +279,12 @@ function SendPasswordToken() {
         $stmt3->fetch();
         $stmt3->close();
 
-		// subject
+        //Create email
+
+		//email subject
 		$subject = 'Request to change your password';
 
-		// message
+		//email message
 		$message = '<html>';
 		$message .= '<head>';
 		$message .= '<title>Student Portal | Password Reset</title>';
@@ -296,13 +298,13 @@ function SendPasswordToken() {
 		$message .= '</body>';
 		$message .= '</html>';
 
-        //headers
+        //email headers
 		$headers  = 'MIME-Version: 1.0'."\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
 		$headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
 		$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
-		// Send mail
+		//Send mail
 		mail($email, $subject, $message, $headers);
 
 		$stmt1->close();
@@ -383,10 +385,10 @@ function ResetPassword() {
 
             //Create email
 
-            //subject
+            //email subject
             $subject = 'Password reset successfully';
 
-            //message
+            //email message
             $message = '<html>';
             $message .= '<head>';
             $message .= '<title>Student Portal | Account</title>';
@@ -399,7 +401,7 @@ function ResetPassword() {
             $message .= '</body>';
             $message .= '</html>';
 
-            //headers
+            //email headers
             $headers = 'MIME-Version: 1.0'."\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
             $headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
@@ -648,6 +650,7 @@ function CreateModule() {
 //UpdateModule function
 function UpdateModule() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
@@ -675,6 +678,7 @@ function UpdateModule() {
     //If the module name has changed, do the following
     } else {
 
+        //Check if module name exists
         $stmt3 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE module_name = ?");
         $stmt3->bind_param('s', $module_name);
         $stmt3->execute();
@@ -682,11 +686,16 @@ function UpdateModule() {
         $stmt3->bind_result($db_moduleid);
         $stmt3->fetch();
 
+        //If module name exists, do the following
         if ($stmt3->num_rows == 1) {
             $stmt3->close();
             header('HTTP/1.0 550 A module with the name entered already exists.');
             exit();
+
+        //If module name does not exist, do the following
         } else {
+
+            //Update module
             $stmt4 = $mysqli->prepare("UPDATE system_module SET module_name=?, module_notes=?, module_url=?, updated_on=? WHERE moduleid=?");
             $stmt4->bind_param('ssssi', $module_name, $module_notes, $module_url, $updated_on, $moduleid);
             $stmt4->execute();
@@ -698,11 +707,14 @@ function UpdateModule() {
 //DeactivateModule function
 function DeactivateModule() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Get the data posted and assign variables
     $moduleToDeactivate = filter_input(INPUT_POST, 'moduleToDeactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deactivate module
     $module_status = 'inactive';
 
     $stmt1 = $mysqli->prepare("UPDATE system_module SET module_status=?, updated_on=? WHERE moduleid=?");
@@ -710,6 +722,7 @@ function DeactivateModule() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Deactivate lecture
     $lecture_status = 'inactive';
 
     $stmt2 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE moduleid=?");
@@ -717,6 +730,7 @@ function DeactivateModule() {
     $stmt2->execute();
     $stmt2->close();
 
+    //Deactivate tutorial
     $tutorial_status = 'inactive';
 
     $stmt3 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE moduleid=?");
@@ -724,6 +738,7 @@ function DeactivateModule() {
     $stmt3->execute();
     $stmt3->close();
 
+    //Deactivate exam
     $exam_status = 'inactive';
 
     $stmt4 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE moduleid=?");
@@ -731,6 +746,7 @@ function DeactivateModule() {
     $stmt4->execute();
     $stmt4->close();
 
+    //Deactivate result
     $result_status = 'inactive';
 
     $stmt5 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE moduleid=?");
@@ -738,17 +754,21 @@ function DeactivateModule() {
     $stmt5->execute();
     $stmt5->close();
 
+    //Update tables
     AdminTimetableUpdate($isUpdate = 1);
 }
 
 //ReactivateModule function
 function ReactivateModule() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Get the data posted and assign variables
     $moduleToReactivate = filter_input(INPUT_POST, 'moduleToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Reactivate module
     $module_status = 'active';
 
     $stmt1 = $mysqli->prepare("UPDATE system_module SET module_status=?, updated_on=? WHERE moduleid=?");
@@ -756,6 +776,7 @@ function ReactivateModule() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Reactivate lecture
     $lecture_status = 'active';
 
     $stmt2 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE moduleid=?");
@@ -763,6 +784,7 @@ function ReactivateModule() {
     $stmt2->execute();
     $stmt2->close();
 
+    //Reactivate tutorial
     $tutorial_status = 'active';
 
     $stmt3 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE moduleid=?");
@@ -770,6 +792,7 @@ function ReactivateModule() {
     $stmt3->execute();
     $stmt3->close();
 
+    //Reactivate exam
     $exam_status = 'active';
 
     $stmt4 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE moduleid=?");
@@ -777,6 +800,7 @@ function ReactivateModule() {
     $stmt4->execute();
     $stmt4->close();
 
+    //Reactivate result
     $result_status = 'active';
 
     $stmt5 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE moduleid=?");
@@ -784,54 +808,65 @@ function ReactivateModule() {
     $stmt5->execute();
     $stmt5->close();
 
+    //Update tables
     AdminTimetableUpdate($isUpdate = 1);
 }
 
 //DeleteModule function
 function DeleteModule() {
 
+    //Global variables
     global $mysqli;
 
+    //Get the data posted and assign variables
     $moduleToDelete = filter_input(INPUT_POST, 'moduleToDelete', FILTER_SANITIZE_NUMBER_INT);
 
+    //Delete sent feedback
     $stmt1 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE moduleid=?");
     $stmt1->bind_param('i', $moduleToDelete);
     $stmt1->execute();
     $stmt1->close();
 
+    //Delete received feedback
     $stmt2 = $mysqli->prepare("DELETE FROM user_feedback_received WHERE moduleid=?");
     $stmt2->bind_param('i', $moduleToDelete);
     $stmt2->execute();
     $stmt2->close();
 
+    //Delete feedback
     $stmt3 = $mysqli->prepare("DELETE FROM user_feedback WHERE moduleid=?");
     $stmt3->bind_param('i', $moduleToDelete);
     $stmt3->execute();
     $stmt3->close();
 
+    //Delete result
     $stmt4 = $mysqli->prepare("DELETE FROM user_result WHERE moduleid=?");
     $stmt4->bind_param('i', $moduleToDelete);
     $stmt4->execute();
     $stmt4->close();
 
+    //Get examid linked to the moduleid
     $stmt5 = $mysqli->prepare("SELECT examid FROM system_exam WHERE moduleid = ?");
-    $stmt5->bind_param('i', $moduleid);
+    $stmt5->bind_param('i', $moduleToDelete);
     $stmt5->execute();
     $stmt5->store_result();
     $stmt5->bind_result($db_examid);
     $stmt5->fetch();
     $stmt5->close();
 
+    //Delete exam
     $stmt6 = $mysqli->prepare("DELETE FROM user_exam WHERE examid=?");
     $stmt6->bind_param('i', $db_examid);
     $stmt6->execute();
     $stmt6->close();
 
+    //Delete exam
     $stmt7 = $mysqli->prepare("DELETE FROM system_exam WHERE moduleid=?");
     $stmt7->bind_param('i', $moduleToDelete);
     $stmt7->execute();
     $stmt7->close();
 
+    //Get tutorialid linked to the moduleid
     $stmt8 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE moduleid = ?");
     $stmt8->bind_param('i', $moduleid);
     $stmt8->execute();
@@ -840,16 +875,19 @@ function DeleteModule() {
     $stmt8->fetch();
     $stmt8->close();
 
+    //Delete tutorial
     $stmt9 = $mysqli->prepare("DELETE FROM user_tutorial WHERE tutorialid=?");
     $stmt9->bind_param('i', $db_tutorialid);
     $stmt9->execute();
     $stmt9->close();
 
+    //Delete tutorial
     $stmt10 = $mysqli->prepare("DELETE FROM system_tutorial WHERE moduleid=?");
     $stmt10->bind_param('i', $moduleToDelete);
     $stmt10->execute();
     $stmt10->close();
 
+    //Get lectureid linked to the moduleid
     $stmt11 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE moduleid = ?");
     $stmt11->bind_param('i', $moduleid);
     $stmt11->execute();
@@ -858,37 +896,45 @@ function DeleteModule() {
     $stmt11->fetch();
     $stmt11->close();
 
+    //Delete lecture
     $stmt12 = $mysqli->prepare("DELETE FROM user_lecture WHERE lectureid=?");
     $stmt12->bind_param('i', $db_lectureid);
     $stmt12->execute();
     $stmt12->close();
 
+    //Delete lecture
     $stmt13 = $mysqli->prepare("DELETE FROM system_lecture WHERE moduleid=?");
     $stmt13->bind_param('i', $moduleToDelete);
     $stmt13->execute();
     $stmt13->close();
 
+    //Delete module
     $stmt14 = $mysqli->prepare("DELETE FROM user_module WHERE moduleid=?");
     $stmt14->bind_param('i', $moduleToDelete);
     $stmt14->execute();
     $stmt14->close();
 
+    //Delete module
     $stmt15 = $mysqli->prepare("DELETE FROM system_module WHERE moduleid=?");
     $stmt15->bind_param('i', $moduleToDelete);
     $stmt15->execute();
     $stmt15->close();
 
+    //Update tables
     AdminTimetableUpdate($isUpdate = 1);
 }
 
 //AllocateModule function
 function AllocateModule() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather posted data and assign variables
     $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
     $moduleToAllocate = filter_input(INPUT_POST, 'moduleToAllocate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Allocate module
     $stmt1 = $mysqli->prepare("INSERT INTO user_module (userid, moduleid) VALUES (?, ?)");
     $stmt1->bind_param('ii', $userToAllocate, $moduleToAllocate);
     $stmt1->execute();
@@ -898,11 +944,14 @@ function AllocateModule() {
 //DeallocateModule function
 function DeallocateModule() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather posted data and assign variables
     $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
     $moduleToDeallocate = filter_input(INPUT_POST, 'moduleToDeallocate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deallocate module
     $stmt1 = $mysqli->prepare("DELETE FROM user_module WHERE userid=? AND moduleid=?");
     $stmt1->bind_param('ii', $userToDeallocate, $moduleToDeallocate);
     $stmt1->execute();
@@ -912,10 +961,11 @@ function DeallocateModule() {
 //CreateLecture function
 function CreateLecture() {
 
+    //Global variables
     global $mysqli;
     global $created_on;
 
-    //Get the data posted and assign variables
+    //Gather data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'create_lecture_moduleid', FILTER_SANITIZE_STRING);
     $lecture_name = filter_input(INPUT_POST, 'create_lecture_name', FILTER_SANITIZE_STRING);
     $lecture_lecturer = filter_input(INPUT_POST, 'create_lecture_lecturer', FILTER_SANITIZE_STRING);
@@ -928,7 +978,7 @@ function CreateLecture() {
     $lecture_location = filter_input(INPUT_POST, 'create_lecture_location', FILTER_SANITIZE_STRING);
     $lecture_capacity = filter_input(INPUT_POST, 'create_lecture_capacity', FILTER_SANITIZE_STRING);
 
-    // Check if there is an existing lecture name
+    // Check if lecture name exists
     $stmt1 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE lecture_name = ? LIMIT 1");
     $stmt1->bind_param('s', $lecture_name);
     $stmt1->execute();
@@ -936,17 +986,22 @@ function CreateLecture() {
     $stmt1->bind_result($db_lectureid);
     $stmt1->fetch();
 
+    //If lecture name exists, do the following
     if ($stmt1->num_rows == 1) {
         $stmt1->close();
         header('HTTP/1.0 550 A lecture with the name entered already exists.');
         exit();
+
+    //If lecture name does not exist, do the following
     } else {
 
-        //Create the lecture record
+        //Converting dates to MySQL format
         $lecture_from_date = DateTime::createFromFormat('d/m/Y', $lecture_from_date);
         $lecture_from_date = $lecture_from_date->format('Y-m-d');
         $lecture_to_date = DateTime::createFromFormat('d/m/Y', $lecture_to_date);
         $lecture_to_date = $lecture_to_date->format('Y-m-d');
+
+        //Create lecture
         $lecture_status = 'active';
 
         $stmt2 = $mysqli->prepare("INSERT INTO system_lecture (moduleid, lecture_name, lecture_lecturer, lecture_notes, lecture_day, lecture_from_time, lecture_to_time, lecture_from_date, lecture_to_date, lecture_location, lecture_capacity, lecture_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -959,10 +1014,11 @@ function CreateLecture() {
 //UpdateLecture function
 function UpdateLecture() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
-    //Get the data posted and assign variables
+    //Gather data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'update_lecture_moduleid', FILTER_SANITIZE_STRING);
     $lectureid = filter_input(INPUT_POST, 'update_lectureid', FILTER_SANITIZE_STRING);
     $lecture_name = filter_input(INPUT_POST, 'update_lecture_name', FILTER_SANITIZE_STRING);
@@ -984,6 +1040,7 @@ function UpdateLecture() {
     $stmt1->bind_result($db_lecture_name);
     $stmt1->fetch();
 
+    //Convert dates to MySQL format
     $lecture_from_date = DateTime::createFromFormat('d/m/Y', $lecture_from_date);
     $lecture_from_date = $lecture_from_date->format('Y-m-d');
     $lecture_to_date = DateTime::createFromFormat('d/m/Y', $lecture_to_date);
@@ -999,6 +1056,8 @@ function UpdateLecture() {
 
     //If the lecture name has changed, do the following
     } else {
+
+        //Check if lecture name exists
         $stmt3 = $mysqli->prepare("SELECT lectureid FROM system_lecture WHERE lecture_name = ?");
         $stmt3->bind_param('s', $lecture_name);
         $stmt3->execute();
@@ -1006,11 +1065,16 @@ function UpdateLecture() {
         $stmt3->bind_result($db_lectureid);
         $stmt3->fetch();
 
+        //If the lecture name exists, do the following
         if ($stmt3->num_rows == 1) {
             $stmt3->close();
             header('HTTP/1.0 550 A lecture with the name entered already exists.');
             exit();
+
+        //If the lecture name does not exist, do the following
         } else {
+
+            //Update lecture
             $stmt4 = $mysqli->prepare("UPDATE system_lecture SET moduleid=?, lecture_name=?, lecture_lecturer=?, lecture_notes=?, lecture_day=?, lecture_from_time=?, lecture_to_time=?, lecture_from_date=?, lecture_to_date=?, lecture_location=?, lecture_capacity=?, updated_on=? WHERE lectureid=?");
             $stmt4->bind_param('isisssssssisi', $moduleid, $lecture_name, $lecture_lecturer, $lecture_notes, $lecture_day, $lecture_from_time, $lecture_to_time, $lecture_from_date, $lecture_to_date, $lecture_location, $lecture_capacity, $updated_on, $lectureid);
             $stmt4->execute();
@@ -1022,11 +1086,14 @@ function UpdateLecture() {
 //DeactivateLecture function
 function DeactivateLecture() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $lectureToDeactivate = filter_input(INPUT_POST, 'lectureToDeactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deactivate lecture
     $lecture_status = 'inactive';
 
     $stmt1 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
@@ -1034,17 +1101,21 @@ function DeactivateLecture() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Update tables
     AdminTimetableUpdate($isUpdate = 1);
 }
 
 //ReactivateLecture function
 function ReactivateLecture() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $lectureToReactivate = filter_input(INPUT_POST, 'lectureToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Get moduleid
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_lecture WHERE lectureid = ?");
     $stmt1->bind_param('i', $lectureToReactivate);
     $stmt1->execute();
@@ -1052,6 +1123,7 @@ function ReactivateLecture() {
     $stmt1->bind_result($moduleid);
     $stmt1->fetch();
 
+    //Check if the module related to the lecture is active
     $module_status = 'active';
 
     $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
@@ -1061,8 +1133,10 @@ function ReactivateLecture() {
     $stmt2->bind_result($db_moduleid);
     $stmt2->fetch();
 
+    //If the module related is active, do the following
     if ($stmt2->num_rows > 0) {
 
+        //Reactivate lecture
         $lecture_status = 'active';
 
         $stmt3 = $mysqli->prepare("UPDATE system_lecture SET lecture_status=?, updated_on=? WHERE lectureid=?");
@@ -1070,50 +1144,65 @@ function ReactivateLecture() {
         $stmt3->execute();
         $stmt3->close();
 
+    //If the module related is inactive, do the following
     } else {
+
         $stmt2->close();
+
+        //Create error message
         $error_msg = 'You cannot reactivate this lecture because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this lecture.';
 
+        //Create array and bind error message to array
         $array = array(
             'error_msg'=>$error_msg
         );
 
+        //send the array back to Ajax call
         echo json_encode($array);
 
         exit();
     }
 
+    //Update tables
     AdminTimetableUpdate($isUpdate = 1);
 }
 
 //DeleteLecture function
 function DeleteLecture() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $lectureToDelete = filter_input(INPUT_POST, 'lectureToDelete', FILTER_SANITIZE_NUMBER_INT);
 
+    //Delete lecture
     $stmt1 = $mysqli->prepare("DELETE FROM system_lecture WHERE lectureid=?");
     $stmt1->bind_param('i', $lectureToDelete);
     $stmt1->execute();
     $stmt1->close();
 
+    //Delete lecture
     $stmt2 = $mysqli->prepare("DELETE FROM user_lecture WHERE lectureid=?");
     $stmt2->bind_param('i', $lectureToDelete);
     $stmt2->execute();
     $stmt2->close();
 
+    //Update tables
     AdminTimetableUpdate($isUpdate = 1);
 }
 
 //AllocateLecture function
 function AllocateLecture() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
     $lectureToAllocate = filter_input(INPUT_POST, 'lectureToAllocate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Allocate lecture
     $stmt1 = $mysqli->prepare("INSERT INTO user_lecture (userid, lectureid) VALUES (?, ?)");
     $stmt1->bind_param('ii', $userToAllocate, $lectureToAllocate);
     $stmt1->execute();
@@ -1123,11 +1212,14 @@ function AllocateLecture() {
 //DeallocateLecture function
 function DeallocateLecture() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
     $lectureToDeallocate = filter_input(INPUT_POST, 'lectureToDeallocate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deallocate lecture
     $stmt1 = $mysqli->prepare("DELETE FROM user_lecture WHERE userid=? AND lectureid=?");
     $stmt1->bind_param('ii', $userToDeallocate, $lectureToDeallocate);
     $stmt1->execute();
@@ -1137,10 +1229,11 @@ function DeallocateLecture() {
 //CreateTutorial function
 function CreateTutorial() {
 
+    //Global variables
     global $mysqli;
     global $created_on;
 
-    //Get the data posted and assign variables
+    //Gather data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'create_tutorial_moduleid', FILTER_SANITIZE_STRING);
     $tutorial_name = filter_input(INPUT_POST, 'create_tutorial_name', FILTER_SANITIZE_STRING);
     $tutorial_assistant = filter_input(INPUT_POST, 'create_tutorial_assistant', FILTER_SANITIZE_STRING);
@@ -1153,7 +1246,7 @@ function CreateTutorial() {
     $tutorial_location = filter_input(INPUT_POST, 'create_tutorial_location', FILTER_SANITIZE_STRING);
     $tutorial_capacity = filter_input(INPUT_POST, 'create_tutorial_capacity', FILTER_SANITIZE_STRING);
 
-    //Check if there is an existing tutorial name
+    //Check if the tutorial name exists
     $stmt1 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE tutorial_name = ? LIMIT 1");
     $stmt1->bind_param('s', $tutorial_name);
     $stmt1->execute();
@@ -1161,17 +1254,22 @@ function CreateTutorial() {
     $stmt1->bind_result($db_tutorialid);
     $stmt1->fetch();
 
+    //If the tutorial name exists, do the following
     if ($stmt1->num_rows == 1) {
         $stmt1->close();
         header('HTTP/1.0 550 A tutorial with the name entered already exists.');
         exit();
+
+    //If the tutorial name does not exist, do the following
     } else {
 
-        //Create the tutorial record
+        //Convert dates to MySQL format
         $tutorial_from_date = DateTime::createFromFormat('d/m/Y', $tutorial_from_date);
         $tutorial_from_date = $tutorial_from_date->format('Y-m-d');
         $tutorial_to_date = DateTime::createFromFormat('d/m/Y', $tutorial_to_date);
         $tutorial_to_date = $tutorial_to_date->format('Y-m-d');
+
+        //Create tutorial
         $tutorial_status = 'active';
 
         $stmt2 = $mysqli->prepare("INSERT INTO system_tutorial (moduleid, tutorial_name, tutorial_assistant, tutorial_notes, tutorial_day, tutorial_from_time, tutorial_to_time, tutorial_from_date, tutorial_to_date, tutorial_location, tutorial_capacity, tutorial_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -1184,10 +1282,11 @@ function CreateTutorial() {
 //UpdateTutorial function
 function UpdateTutorial() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
-    //Get the data posted and assign variables
+    //Gather the data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'update_tutorial_moduleid', FILTER_SANITIZE_STRING);
     $tutorialid = filter_input(INPUT_POST, 'update_tutorialid', FILTER_SANITIZE_STRING);
     $tutorial_name = filter_input(INPUT_POST, 'update_tutorial_name', FILTER_SANITIZE_STRING);
@@ -1209,6 +1308,7 @@ function UpdateTutorial() {
     $stmt1->bind_result($db_tutorial_name);
     $stmt1->fetch();
 
+    //Convert dates to MySQL format
     $tutorial_from_date = DateTime::createFromFormat('d/m/Y', $tutorial_from_date);
     $tutorial_from_date = $tutorial_from_date->format('Y-m-d');
     $tutorial_to_date = DateTime::createFromFormat('d/m/Y', $tutorial_to_date);
@@ -1223,6 +1323,8 @@ function UpdateTutorial() {
 
     //If the tutorial name has changed, do the following
     } else {
+
+        //Check if tutorial name exists
         $stmt3 = $mysqli->prepare("SELECT tutorialid FROM system_tutorial WHERE tutorial_name = ?");
         $stmt3->bind_param('s', $tutorial_name);
         $stmt3->execute();
@@ -1230,11 +1332,16 @@ function UpdateTutorial() {
         $stmt3->bind_result($db_tutorialid);
         $stmt3->fetch();
 
+        //If tutorial name exists, do the following
         if ($stmt3->num_rows == 1) {
             $stmt3->close();
             header('HTTP/1.0 550 A tutorial with the name entered already exists.');
             exit();
+
+        //If tutorial name does not exist, do the following
         } else {
+
+            //Update tutorial
             $stmt4 = $mysqli->prepare("UPDATE system_tutorial SET moduleid=?, tutorial_name=?, tutorial_assistant=?, tutorial_notes=?, tutorial_day=?, tutorial_from_time=?, tutorial_to_time=?, tutorial_from_date=?, tutorial_to_date=?, tutorial_location=?, tutorial_capacity=?, updated_on=? WHERE tutorialid=?");
             $stmt4->bind_param('isisssssssisi', $moduleid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_from_date, $tutorial_to_date, $tutorial_location, $tutorial_capacity, $updated_on, $tutorialid);
             $stmt4->execute();
@@ -1246,11 +1353,14 @@ function UpdateTutorial() {
 //DeactivateTutorial function
 function DeactivateTutorial() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather the data posted and assign variables
     $tutorialToDeactivate = filter_input(INPUT_POST, 'tutorialToDeactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deactivate tutorial
     $tutorial_status = 'inactive';
 
     $stmt1 = $mysqli->prepare("UPDATE system_tutorial SET tutorial_status=?, updated_on=? WHERE tutorialid=?");
@@ -1264,11 +1374,14 @@ function DeactivateTutorial() {
 //ReactivateTutorial function
 function ReactivateTutorial() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $tutorialToReactivate = filter_input(INPUT_POST, 'tutorialToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Get moduleid
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_tutorial WHERE tutorialid = ?");
     $stmt1->bind_param('i', $tutorialToReactivate);
     $stmt1->execute();
@@ -1276,6 +1389,7 @@ function ReactivateTutorial() {
     $stmt1->bind_result($moduleid);
     $stmt1->fetch();
 
+    //Check if the module related to the tutorial is active
     $module_status = 'active';
 
     $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
@@ -1285,6 +1399,7 @@ function ReactivateTutorial() {
     $stmt2->bind_result($db_moduleid);
     $stmt2->fetch();
 
+    //If the module related is active, do the following
     if ($stmt2->num_rows > 0) {
 
         $tutorial_status = 'active';
@@ -1294,39 +1409,50 @@ function ReactivateTutorial() {
         $stmt1->execute();
         $stmt1->close();
 
+        //If the module related is inactive, do the following
     } else {
         $stmt2->close();
+
+        //Create error message
         $error_msg = 'You cannot reactivate this tutorial because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this tutorial.';
 
+        //Create array and bind error message to array
         $array = array(
             'error_msg'=>$error_msg
         );
 
+        //Send array back to Ajax call
         echo json_encode($array);
 
         exit();
     }
 
+    //Update tables
     AdminTimetableUpdate($isUpdate = 1);
 }
 
 //DeleteTutorial function
 function DeleteTutorial() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $tutorialToDelete = filter_input(INPUT_POST, 'tutorialToDelete', FILTER_SANITIZE_NUMBER_INT);
 
+    //Delete tutorial
     $stmt1 = $mysqli->prepare("DELETE FROM system_tutorial WHERE tutorialid=?");
     $stmt1->bind_param('i', $tutorialToDelete);
     $stmt1->execute();
     $stmt1->close();
 
+    //Delete tutorial
     $stmt2 = $mysqli->prepare("DELETE FROM user_tutorial WHERE tutorialid=?");
     $stmt2->bind_param('i', $tutorialToDelete);
     $stmt2->execute();
     $stmt2->close();
 
+    //Update tables
     AdminTimetableUpdate($isUpdate = 1);
 
 }
@@ -1334,11 +1460,14 @@ function DeleteTutorial() {
 //AllocateTutorial function
 function AllocateTutorial() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
     $tutorialToAllocate = filter_input(INPUT_POST, 'tutorialToAllocate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Allocate tutorial
     $stmt1 = $mysqli->prepare("INSERT INTO user_tutorial (userid, tutorialid) VALUES (?, ?)");
     $stmt1->bind_param('ii', $userToAllocate, $tutorialToAllocate);
     $stmt1->execute();
@@ -1348,11 +1477,14 @@ function AllocateTutorial() {
 //DeallocateTutorial function
 function DeallocateTutorial() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
     $tutorialToDeallocate = filter_input(INPUT_POST, 'tutorialToDeallocate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deallocate tutorial
     $stmt1 = $mysqli->prepare("DELETE FROM user_tutorial WHERE userid=? AND tutorialid=?");
     $stmt1->bind_param('ii', $userToDeallocate, $tutorialToDeallocate);
     $stmt1->execute();
@@ -1361,6 +1493,7 @@ function DeallocateTutorial() {
 
 function AdminTimetableUpdate($isUpdate = 0) {
 
+    //Global variables
     global $mysqli;
     global $active_module;
     global $active_lecture;
@@ -1369,6 +1502,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
     global $inactive_lecture;
     global $inactive_tutorial;
 
+    //Get active modules
     $module_status = 'active';
 
     $stmt1 = $mysqli->prepare("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m WHERE m.module_status=?");
@@ -1381,6 +1515,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
         while ($stmt1->fetch()) {
 
+            //Bind result to the variable
             $active_module .=
 
            '<tr>
@@ -1462,6 +1597,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
     $stmt1->close();
 
+    //Get inactive modules
     $module_status = 'inactive';
 
     $stmt2 = $mysqli->prepare("SELECT m.moduleid, m.module_name, m.module_notes, m.module_url FROM system_module m WHERE m.module_status=?");
@@ -1474,6 +1610,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
         while ($stmt2->fetch()) {
 
+            //Bind result to the variable
             $inactive_module .=
 
            '<tr>
@@ -1552,6 +1689,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
     $stmt2->close();
 
+    //Get active lectures
     $lecture_status = 'active';
 
     $stmt3 = $mysqli->prepare("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l WHERE l.lecture_status=?");
@@ -1572,6 +1710,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt3->fetch();
             $stmt3->close();
 
+            //Bind result to the variable
             $active_lecture .=
 
            '<tr>
@@ -1659,6 +1798,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
     $stmt2->close();
 
+    //Get inactive lectures
     $lecture_status = 'inactive';
 
     $stmt4 = $mysqli->prepare("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_notes, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_lecture l WHERE l.lecture_status=?");
@@ -1679,6 +1819,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt2->fetch();
             $stmt2->close();
 
+            //Bind result to the variable
             $inactive_lecture .=
 
            '<tr>
@@ -1762,6 +1903,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
     $stmt4->close();
 
+    //Get active tutorials
     $tutorial_status = 'active';
 
     $stmt5 = $mysqli->prepare("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorial_status=?");
@@ -1782,6 +1924,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             $stmt2->fetch();
             $stmt2->close();
 
+            //Bind result to the variable
             $active_tutorial .=
 
            '<tr>
@@ -1869,6 +2012,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
     $stmt5->close();
 
+    //Get inactive tutorials
     $tutorial_status = 'inactive';
 
     $stmt6 = $mysqli->prepare("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorial_status=?");
@@ -1973,8 +2117,10 @@ function AdminTimetableUpdate($isUpdate = 0) {
 
     $stmt6->close();
 
+    //If the call to the function was made with parameter 'isUpdate' = 1, do the following
     if ($isUpdate === 1) {
 
+        //Create array and bind results to the array
         $array = array(
             'active_module'=>$active_module,
             'active_lecture'=>$active_lecture,
@@ -1984,6 +2130,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
             'inactive_tutorial'=>$inactive_tutorial
         );
 
+        //Send data back to Ajax call
         echo json_encode($array);
     }
 }
@@ -1993,10 +2140,11 @@ function AdminTimetableUpdate($isUpdate = 0) {
 //CreateExam function
 function CreateExam() {
 
+    //Global variables
     global $mysqli;
     global $created_on;
 
-    //Exam
+    //Gather data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'create_exam_moduleid', FILTER_SANITIZE_STRING);
     $exam_name = filter_input(INPUT_POST, 'create_exam_name', FILTER_SANITIZE_STRING);
     $exam_notes = filter_input(INPUT_POST, 'create_exam_notes', FILTER_SANITIZE_STRING);
@@ -2005,7 +2153,7 @@ function CreateExam() {
     $exam_location = filter_input(INPUT_POST, 'create_exam_location', FILTER_SANITIZE_STRING);
     $exam_capacity = filter_input(INPUT_POST, 'create_exam_capacity', FILTER_SANITIZE_STRING);
 
-    //Check existing exam name
+    //Check if exam name exists
     $stmt1 = $mysqli->prepare("SELECT examid FROM system_exam WHERE exam_name = ? LIMIT 1");
     $stmt1->bind_param('s', $exam_name);
     $stmt1->execute();
@@ -2013,15 +2161,18 @@ function CreateExam() {
     $stmt1->bind_result($db_examid);
     $stmt1->fetch();
 
+    //If exam name exists, do the following
     if ($stmt1->num_rows == 1) {
         $stmt1->close();
         header('HTTP/1.0 550 An exam with the name entered already exists.');
         exit();
     }
 
-    //Create the exam record
+    //Convert date to MySQL format
     $exam_date = DateTime::createFromFormat('d/m/Y', $exam_date);
     $exam_date = $exam_date->format('Y-m-d');
+
+    //Create exam
     $exam_status = 'active';
 
     $stmt2 = $mysqli->prepare("INSERT INTO system_exam (moduleid, exam_name, exam_notes, exam_date, exam_time, exam_location, exam_capacity, exam_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -2033,10 +2184,11 @@ function CreateExam() {
 //UpdateExam function
 function UpdateExam() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
-    //Exam
+    //Gather data posted and assign variables
     $moduleid = filter_input(INPUT_POST, 'update_exam_moduleid', FILTER_SANITIZE_STRING);
     $examid = filter_input(INPUT_POST, 'update_examid', FILTER_SANITIZE_STRING);
     $exam_name = filter_input(INPUT_POST, 'update_exam_name', FILTER_SANITIZE_STRING);
@@ -2046,7 +2198,7 @@ function UpdateExam() {
     $exam_location = filter_input(INPUT_POST, 'update_exam_location', FILTER_SANITIZE_STRING);
     $exam_capacity = filter_input(INPUT_POST, 'update_exam_capacity', FILTER_SANITIZE_STRING);
 
-    //Exam
+    //Check if exam name changed
     $stmt1 = $mysqli->prepare("SELECT exam_name FROM system_exam WHERE examid = ?");
     $stmt1->bind_param('i', $examid);
     $stmt1->execute();
@@ -2054,15 +2206,20 @@ function UpdateExam() {
     $stmt1->bind_result($db_exam_name);
     $stmt1->fetch();
 
+    //Convert date to MySQL format
     $exam_date = DateTime::createFromFormat('d/m/Y', $exam_date);
     $exam_date = $exam_date->format('Y-m-d');
 
+    //If exam name hasn't changed, do the following
     if ($db_exam_name === $exam_name) {
         $stmt3 = $mysqli->prepare("UPDATE system_exam SET moduleid=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
         $stmt3->bind_param('issssssi', $moduleid, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
         $stmt3->execute();
         $stmt3->close();
+    //If exam name has changed, do the following
     } else {
+
+        //Check if exam name exists
         $stmt4 = $mysqli->prepare("SELECT examid FROM system_exam WHERE exam_name = ?");
         $stmt4->bind_param('s', $exam_name);
         $stmt4->execute();
@@ -2070,11 +2227,16 @@ function UpdateExam() {
         $stmt4->bind_result($db_examid);
         $stmt4->fetch();
 
+        //If exam name exists, do the following
         if ($stmt4->num_rows == 1) {
             $stmt4->close();
             header('HTTP/1.0 550 An exam with the name entered already exists.');
             exit();
+
+        //If exam name does not exist, do the following
         } else {
+
+            //Update exam
             $stmt5 = $mysqli->prepare("UPDATE system_exam SET moduleid=?, exam_name=?, exam_notes=?, exam_date=?, exam_time=?, exam_location=?, exam_capacity=?, updated_on=? WHERE examid=?");
             $stmt5->bind_param('isssssssi', $moduleid, $exam_name, $exam_notes, $exam_date, $exam_time, $exam_location, $exam_capacity, $updated_on, $examid);
             $stmt5->execute();
@@ -2087,11 +2249,14 @@ function UpdateExam() {
 //DeactivateExam function
 function DeactivateExam() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $examToDeactivate = filter_input(INPUT_POST, 'examToDeactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deactivate exam
     $exam_status = 'inactive';
 
     $stmt1 = $mysqli->prepare("UPDATE system_exam SET exam_status=?, updated_on=? WHERE examid=?");
@@ -2099,17 +2264,21 @@ function DeactivateExam() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Update tables
     AdminExamUpdate($isUpdate = 1);
 }
 
 //ReactivateExam function
 function ReactivateExam() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $examToReactivate = filter_input(INPUT_POST, 'examToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Get moduleid
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM system_exam WHERE examid = ?");
     $stmt1->bind_param('i', $examToReactivate);
     $stmt1->execute();
@@ -2117,6 +2286,7 @@ function ReactivateExam() {
     $stmt1->bind_result($moduleid);
     $stmt1->fetch();
 
+    //Check if the module related to the tutorial is active
     $module_status = 'active';
 
     $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
@@ -2126,6 +2296,7 @@ function ReactivateExam() {
     $stmt2->bind_result($db_moduleid);
     $stmt2->fetch();
 
+    //If the module related is active, do the following
     if ($stmt2->num_rows > 0) {
 
         $exam_status = 'active';
@@ -2135,53 +2306,65 @@ function ReactivateExam() {
         $stmt3->execute();
         $stmt3->close();
 
+    //If the module related is inactive, do the following
     } else {
 
         $stmt2->close();
+
+        //Create error message
         $error_msg = 'You cannot reactivate this exam because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this exam.';
 
+        //Create array and bind error message to array
         $array = array(
             'error_msg'=>$error_msg
         );
 
+        //Send error message back to Ajax
         echo json_encode($array);
 
         exit();
     }
 
+    //Update tables
     AdminExamUpdate($isUpdate = 1);
 }
 
 //DeleteTimetable function
 function DeleteExam() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $examToDelete = filter_input(INPUT_POST, 'examToDelete', FILTER_SANITIZE_NUMBER_INT);
 
+    //Delete exam
     $stmt1 = $mysqli->prepare("DELETE FROM system_exam WHERE examid=?");
     $stmt1->bind_param('i', $examToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    $examid = '';
-
+    //Delete exam
     $stmt2 = $mysqli->prepare("DELETE FROM user_exam WHERE examid=?");
     $stmt2->bind_param('ii', $examid, $examToDelete);
     $stmt2->execute();
     $stmt2->close();
 
+    //Update tables
     AdminExamUpdate($isUpdate = 1);
 }
 
 //AllocateExam function
 function AllocateExam() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $userToAllocate = filter_input(INPUT_POST, 'userToAllocate', FILTER_SANITIZE_NUMBER_INT);
     $examToAllocate = filter_input(INPUT_POST, 'examToAllocate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Allocate exam
     $stmt1 = $mysqli->prepare("INSERT INTO user_exam (userid, examid) VALUES (?, ?)");
     $stmt1->bind_param('ii', $userToAllocate, $examToAllocate);
     $stmt1->execute();
@@ -2191,11 +2374,14 @@ function AllocateExam() {
 //DeallocateExam function
 function DeallocateExam() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $userToDeallocate = filter_input(INPUT_POST, 'userToDeallocate', FILTER_SANITIZE_NUMBER_INT);
     $examToDeallocate = filter_input(INPUT_POST, 'examToDeallocate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deallocate exam
     $stmt1 = $mysqli->prepare("DELETE FROM user_exam WHERE userid=? AND examid=?");
     $stmt1->bind_param('ii', $userToDeallocate, $examToDeallocate);
     $stmt1->execute();
@@ -2204,10 +2390,12 @@ function DeallocateExam() {
 
 function AdminExamUpdate($isUpdate = 0) {
 
+    //Global variables
     global $mysqli;
     global $active_exam;
     global $inactive_exam;
 
+    //Get active exams
     $exam_status = 'active';
 
     $stmt1 = $mysqli->prepare("SELECT e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e WHERE e.exam_status=?");
@@ -2220,6 +2408,7 @@ function AdminExamUpdate($isUpdate = 0) {
 
         while ($stmt1->fetch()) {
 
+            //Bind result to variable
             $active_exam .=
 
            '<tr>
@@ -2303,6 +2492,7 @@ function AdminExamUpdate($isUpdate = 0) {
 
 	$stmt1->close();
 
+    //Get inactive exams
     $exam_status = 'inactive';
 
     $stmt2 = $mysqli->prepare("SELECT e.examid, e.exam_name, e.exam_notes, DATE_FORMAT(e.exam_date,'%d %b %y') as exam_date, DATE_FORMAT(e.exam_time,'%H:%i') as exam_time, e.exam_location, e.exam_capacity FROM system_exam e WHERE e.exam_status=?");
@@ -2315,6 +2505,7 @@ function AdminExamUpdate($isUpdate = 0) {
 
         while ($stmt2->fetch()) {
 
+            //Bind result to variable
             $inactive_exam .=
 
            '<tr>
@@ -2396,13 +2587,16 @@ function AdminExamUpdate($isUpdate = 0) {
 
 	$stmt2->close();
 
+    //If the call to the function was made with parameter 'isUpdate' = 1, do the following
     if ($isUpdate === 1) {
 
+        //Create array and bind results to array
         $array = array(
             'active_exam'=>$active_exam,
             'inactive_exam'=>$inactive_exam
         );
 
+        //Send data back to the Ajax call
         echo json_encode($array);
     }
 
@@ -2413,9 +2607,11 @@ function AdminExamUpdate($isUpdate = 0) {
 //CreateResult function
 function CreateResult() {
 
+    //Global variables
     global $mysqli;
     global $created_on;
 
+    //Gather data posted and assign variables
     $result_userid = filter_input(INPUT_POST, 'result_userid', FILTER_SANITIZE_NUMBER_INT);
     $result_moduleid = filter_input(INPUT_POST, 'result_moduleid', FILTER_SANITIZE_NUMBER_INT);
     $result_coursework_mark = filter_input(INPUT_POST, 'result_coursework_mark', FILTER_SANITIZE_STRING);
@@ -2423,6 +2619,7 @@ function CreateResult() {
     $result_overall_mark = filter_input(INPUT_POST, 'result_overall_mark', FILTER_SANITIZE_STRING);
     $result_notes = filter_input(INPUT_POST, 'result_notes', FILTER_SANITIZE_STRING);
 
+    //Create result
     $result_status = 'active';
 
     $stmt1 = $mysqli->prepare("INSERT INTO user_result (userid, moduleid, result_coursework_mark, result_exam_mark, result_overall_mark, result_notes, result_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -2434,15 +2631,18 @@ function CreateResult() {
 //UpdateResult function
 function UpdateResult() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $result_resultid = filter_input(INPUT_POST, 'result_resultid', FILTER_SANITIZE_NUMBER_INT);
     $result_coursework_mark = filter_input(INPUT_POST, 'result_coursework_mark1', FILTER_SANITIZE_STRING);
     $result_exam_mark = filter_input(INPUT_POST, 'result_exam_mark1', FILTER_SANITIZE_STRING);
     $result_overall_mark = filter_input(INPUT_POST, 'result_overall_mark1', FILTER_SANITIZE_STRING);
     $result_notes = filter_input(INPUT_POST, 'result_notes1', FILTER_SANITIZE_STRING);
 
+    //Update result
     $stmt1 = $mysqli->prepare("UPDATE user_result SET result_coursework_mark=?, result_exam_mark=?, result_overall_mark=?, result_notes=?, updated_on=? WHERE resultid=?");
     $stmt1->bind_param('sssssi', $result_coursework_mark, $result_exam_mark, $result_overall_mark, $result_notes, $updated_on, $result_resultid);
     $stmt1->execute();
@@ -2452,12 +2652,14 @@ function UpdateResult() {
 //DeactivateResult function
 function DeactivateResult() {
 
+    //Global variable
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $resultToDeactivate = filter_input(INPUT_POST, 'resultToDeactivate', FILTER_SANITIZE_STRING);
-    //$userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
+    //Deactivate result
     $result_status = 'inactive';
 
     $stmt1 = $mysqli->prepare("UPDATE user_result SET result_status=?, updated_on=? WHERE resultid=?");
@@ -2465,18 +2667,19 @@ function DeactivateResult() {
     $stmt1->execute();
     $stmt1->close();
 
-    AdminResultUpdate($isUpdate = 1);
 }
 
 //ReactivateResult function
 function ReactivateResult() {
 
+    //Global variable
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $resultToReactivate = filter_input(INPUT_POST, 'resultToReactivate', FILTER_SANITIZE_STRING);
-    //$userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
+    //Get moduleid
     $stmt1 = $mysqli->prepare("SELECT moduleid FROM user_result WHERE resultid = ?");
     $stmt1->bind_param('i', $resultToReactivate);
     $stmt1->execute();
@@ -2484,6 +2687,7 @@ function ReactivateResult() {
     $stmt1->bind_result($moduleid);
     $stmt1->fetch();
 
+    //Check if the module related to the exam is active
     $module_status = 'active';
 
     $stmt2 = $mysqli->prepare("SELECT moduleid FROM system_module WHERE moduleid = ? AND module_status=?");
@@ -2493,6 +2697,7 @@ function ReactivateResult() {
     $stmt2->bind_result($db_moduleid);
     $stmt2->fetch();
 
+    //If the module related is active, do the following
     if ($stmt2->num_rows > 0) {
 
         $result_status = 'active';
@@ -2502,46 +2707,52 @@ function ReactivateResult() {
         $stmt1->execute();
         $stmt1->close();
 
+    //If the module related is inactive, do the following
     } else {
 
         $stmt2->close();
+
+        //Create error message
         $error_msg = 'You cannot reactivate this result because it is linked to a module which is deactivated. You will need to reactivate the linked module before reactivating this result.';
 
+        //Create array and bind error message to array
         $array = array(
             'error_msg'=>$error_msg
         );
 
+        //Send error message back to the Ajax call
         echo json_encode($array);
 
         exit();
     }
-
-    AdminResultUpdate($isUpdate = 1);
 }
 
 //DeleteResult function
 function DeleteResult() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $resultToDelete = filter_input(INPUT_POST, 'resultToDelete', FILTER_SANITIZE_STRING);
-    //$userToCreateResult = filter_input(INPUT_POST, 'userToCreateResult', FILTER_SANITIZE_STRING);
 
+    //Delete result
     $stmt1 = $mysqli->prepare("DELETE FROM user_result WHERE resultid=?");
     $stmt1->bind_param('i', $resultToDelete);
     $stmt1->execute();
     $stmt1->close();
 
-    AdminResultUpdate($isUpdate = 1);
 }
 
 function AdminResultUpdate($isUpdate = 0, $userid = '') {
 
+    //Global variables
     global $mysqli;
     global $userid;
     global $active_result;
     global $inactive_result;
 
+    //Get active results
     $result_status = 'active';
 
     $stmt1 = $mysqli->prepare("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid=? AND user_result.result_status=?");
@@ -2554,6 +2765,7 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
 
         while ($stmt1->fetch()) {
 
+            //Bind results to the variable
             $active_result .=
 
            '<tr>
@@ -2606,6 +2818,7 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
 
 	$stmt1->close();
 
+    //Get inactive results
     $result_status = 'inactive';
 
     $stmt2 = $mysqli->prepare("SELECT user_result.resultid, system_module.module_name, user_result.result_coursework_mark, user_result.result_exam_mark, user_result.result_overall_mark FROM user_result LEFT JOIN system_module ON user_result.moduleid=system_module.moduleid WHERE user_result.userid=? AND user_result.result_status=?");
@@ -2618,6 +2831,7 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
 
         while ($stmt2->fetch()) {
 
+            //Bind results to the variable
             $inactive_result .=
 
            '<tr>
@@ -2669,13 +2883,16 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
 
 	$stmt2->close();
 
+    //If the call to the function was made with parameter 'isUpdate' = 1, do the following
     if ($isUpdate === 1) {
 
+        //Create array and bind results to the array
         $array = array(
             'active_result'=>$active_result,
             'inactive_result'=>$inactive_result
         );
 
+        //Send data back to the Ajax call
         echo json_encode($array);
     }
 }
@@ -2686,18 +2903,25 @@ function AdminResultUpdate($isUpdate = 0, $userid = '') {
 //ReserveBook function
 function ReserveBook() {
 
+    //Global variables
 	global $mysqli;
 	global $session_userid;
     global $created_on;
 
+    //Gather data posted and assign variables
 	$bookid = filter_input(INPUT_POST, 'bookid', FILTER_SANITIZE_STRING);
 	$book_name = filter_input(INPUT_POST, 'book_name', FILTER_SANITIZE_STRING);
 	$book_author = filter_input(INPUT_POST, 'book_author', FILTER_SANITIZE_STRING);
 
+    //Add 7 days to current date
     $add7days = new DateTime($created_on);
     $add7days->add(new DateInterval('P7D'));
     $tocollect_on = $add7days->format('Y-m-d');
+
+    //Set value
     $collected_on = '';
+
+    //Create reservation
     $isCollected = 0;
     $reservation_status = 'pending';
 
@@ -2706,6 +2930,7 @@ function ReserveBook() {
 	$stmt1->execute();
 	$stmt1->close();
 
+    //Set isReserved flag to 1
 	$isReserved = 1;
 
 	$stmt2 = $mysqli->prepare("UPDATE system_book SET isReserved=? WHERE bookid =?");
@@ -2713,6 +2938,7 @@ function ReserveBook() {
 	$stmt2->execute();
 	$stmt2->close();
 
+    //Get user details
 	$stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
 	$stmt3->bind_param('i', $session_userid);
 	$stmt3->execute();
@@ -2724,8 +2950,11 @@ function ReserveBook() {
 	$reservation_status = 'Pending';
 
 	//Creating email
+
+    //email subject
 	$subject = 'Reservation confirmation';
 
+    //email message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>Thank you for your recent book reservation! Below, you can find the reservation summary:</p>';
@@ -2742,25 +2971,28 @@ function ReserveBook() {
 	$message .= '</body>';
 	$message .= '</html>';
 
+    //email headers
 	$headers  = 'MIME-Version: 1.0'."\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
 	$headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
 	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
+    //Send the email
 	mail($email, $subject, $message, $headers);
 }
 
 //CollectBook function
 function CollectBook() {
 
+    //Global variables
     global $mysqli;
     global $created_on;
     global $updated_on;
 
-    //Book
+    //Gather data posted and assign variables
     $bookToCollect = filter_input(INPUT_POST, 'bookToCollect', FILTER_SANITIZE_STRING);
 
+    //Complete reservation
     $isCollected = 1;
     $reservation_status = 'completed';
 
@@ -2769,6 +3001,7 @@ function CollectBook() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Get book details
     $stmt3 = $mysqli->prepare("SELECT r.userid, b.book_name, b.book_author FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.bookid=? ORDER BY r.reservationid DESC LIMIT 1");
     $stmt3->bind_param('i', $bookToCollect);
     $stmt3->execute();
@@ -2777,10 +3010,16 @@ function CollectBook() {
     $stmt3->fetch();
 
     $book_class = 'event-success';
+
+    //Add 14 days to current date
     $add14days = new DateTime($created_on);
     $add14days->add(new DateInterval('P14D'));
     $toreturn_on = $add14days->format('Y-m-d');
+
+    //Set value
     $returned_on = '';
+
+    //Create loan
     $isReturned = 0;
     $isRequested = 0;
     $loan_status = 'ongoing';
@@ -2790,6 +3029,7 @@ function CollectBook() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Set isLoaned to 1
     $isLoaned = 1;
 
     $stmt2 = $mysqli->prepare("UPDATE system_book SET isLoaned=?, updated_on=? WHERE bookid =?");
@@ -2797,6 +3037,7 @@ function CollectBook() {
     $stmt2->execute();
     $stmt2->close();
 
+    //Get user details
     $stmt3 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt3->bind_param('i', $userid);
     $stmt3->execute();
@@ -2805,11 +3046,14 @@ function CollectBook() {
     $stmt3->fetch();
     $stmt3->close();
 
+    //Creating email
+
     $loan_status = 'Ongoing';
 
-    //Creating email
+    //email subject
     $subject = 'Loan confirmation';
 
+    //email message
     $message = '<html>';
     $message .= '<body>';
     $message .= '<p>This is an email to let you know that your book loan has now started. Below, you can find the loan summary:</p>';
@@ -2826,26 +3070,28 @@ function CollectBook() {
     $message .= '</body>';
     $message .= '</html>';
 
+    //email headers
     $headers  = 'MIME-Version: 1.0'."\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
     $headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
     $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
+    //Send the email
     mail($email, $subject, $message, $headers);
 }
 
 //ReturnBook function
 function ReturnBook() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
-    //Book
+    //Gather data posted and assign variables
     $bookToReturn = filter_input(INPUT_POST, 'bookToReturn', FILTER_SANITIZE_STRING);
 
+    //Complete loan
     $loan_status = 'completed';
-
     $isReturned = 1;
 
     $stmt1 = $mysqli->prepare("UPDATE system_book_loaned SET returned_on=?, isReturned=?, loan_status=? WHERE bookid=? ORDER BY bookid DESC");
@@ -2853,6 +3099,7 @@ function ReturnBook() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Reset flags
     $isReserved = 0;
     $isLoaned = 0;
     $isRequested = 0;
@@ -2862,6 +3109,7 @@ function ReturnBook() {
     $stmt2->execute();
     $stmt2->close();
 
+    //Check if there are requests pending on the book
     $isApproved = 0;
     $request_status = 'pending';
 
@@ -2872,8 +3120,10 @@ function ReturnBook() {
     $stmt3->bind_result($requestid);
     $stmt3->fetch();
 
+    //If there are requests pending on the book, do the following
     if ($stmt3->num_rows > 0) {
 
+        //Complete request
         $isApproved = 1;
         $request_status = 'completed';
 
@@ -2882,6 +3132,7 @@ function ReturnBook() {
         $stmt4->execute();
         $stmt4->close();
 
+        //Get userid and bookid
         $stmt5 = $mysqli->prepare("SELECT userid, bookid FROM system_book_requested WHERE requestid=?");
         $stmt5->bind_param('i', $requestid);
         $stmt5->execute();
@@ -2890,10 +3141,15 @@ function ReturnBook() {
         $stmt5->fetch();
         $stmt5->close();
 
+        //Add 7 days to the current date
         $add7days = new DateTime($updated_on);
         $add7days->add(new DateInterval('P7D'));
         $tocollect_on = $add7days->format('Y-m-d');
+
+        //Set value
         $collected_on = '';
+
+        //Create reservation
         $isCollected = 0;
         $reservation_status = 'pending';
 
@@ -2902,6 +3158,7 @@ function ReturnBook() {
         $stmt6->execute();
         $stmt6->close();
 
+        //Update isReserved and isRequested flags
         $isReserved = 1;
         $isRequested = 0;
 
@@ -2910,6 +3167,7 @@ function ReturnBook() {
         $stmt7->execute();
         $stmt7->close();
 
+        //Get user details
         $stmt8 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
         $stmt8->bind_param('i', $userid);
         $stmt8->execute();
@@ -2918,6 +3176,7 @@ function ReturnBook() {
         $stmt8->fetch();
         $stmt8->close();
 
+        //Get book details
         $stmt9 = $mysqli->prepare("SELECT b.book_name, b.book_author FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.bookid=? ORDER BY r.reservationid DESC LIMIT 1");
         $stmt9->bind_param('i', $bookToReturn);
         $stmt3->execute();
@@ -2926,8 +3185,11 @@ function ReturnBook() {
         $stmt9->fetch();
 
         //Creating email
+
+        //message subject
         $subject = 'Reservation confirmation';
 
+        //email message
         $message = '<html>';
         $message .= '<body>';
         $message .= '<p>Just wanted to let you know that the book you requested has now been reserved! Below, you can find the reservation summary:</p>';
@@ -2944,14 +3206,16 @@ function ReturnBook() {
         $message .= '</body>';
         $message .= '</html>';
 
+        //email headers
         $headers  = 'MIME-Version: 1.0'."\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
         $headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
         $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
+        //Send the email
         mail($email, $subject, $message, $headers);
 
+    //If there are no requests pending on the book, do the following
     } else {
         $stmt3->close();
         exit();
@@ -2961,13 +3225,17 @@ function ReturnBook() {
 //RenewBook function
 function RenewBook($isCheck = 0) {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //If the call to the function was made with parameter 'isUpdate' = 1, do the following
     if($isCheck == 1) {
 
+        //Gather data posted and assign variables
         $bookToRenewCheck = filter_input(INPUT_POST, 'bookToRenewCheck', FILTER_SANITIZE_STRING);
 
+        //Check if there are any requests pending on the book
         $isApproved = 0;
         $request_status = 'pending';
 
@@ -2978,16 +3246,20 @@ function RenewBook($isCheck = 0) {
         $stmt1->bind_result($db_bookid);
         $stmt1->fetch();
 
+        //If there are requests pending on the book, do the following
         if ($stmt1->num_rows > 0) {
             $stmt1->close();
             echo 'You cannot renew this book at this time. Another user requested this book. Once the book is collected and loaned again, you will be able to request it.';
             exit();
         }
 
+    //If the call to the function was made with parameter 'isUpdate' = 0, do the following
     } else {
 
+        //Gather data posted and assign variables
         $bookToRenew = filter_input(INPUT_POST, 'bookToRenew', FILTER_SANITIZE_STRING);
 
+        //Get loan details
         $stmt2 = $mysqli->prepare("SELECT bookid, loanid, toreturn_on FROM system_book_loaned WHERE bookid=? ORDER BY loanid DESC LIMIT 1");
         $stmt2->bind_param('i', $bookToRenew);
         $stmt2->execute();
@@ -2996,10 +3268,12 @@ function RenewBook($isCheck = 0) {
         $stmt2->fetch();
         $stmt2->close();
 
+        //Add 14 days to the previous toreturn_on date
         $add14days = new DateTime($toreturn_on);
         $add14days->add(new DateInterval('P14D'));
         $toreturn_on = $add14days->format('Y-m-d');
 
+        //Renew loan
         $stmt3 = $mysqli->prepare("UPDATE system_book_loaned SET toreturn_on=?, updated_on=? WHERE loanid=?");
         $stmt3->bind_param('ssi', $toreturn_on, $updated_on, $db_loanid);
         $stmt3->execute();
@@ -3010,13 +3284,15 @@ function RenewBook($isCheck = 0) {
 //RequestBook function
 function RequestBook() {
 
+    //Global variables
     global $mysqli;
     global $session_userid;
     global $created_on;
 
-    //Book
+    //Gather data posted and assign variables
     $bookToRequest = filter_input(INPUT_POST, 'bookToRequest', FILTER_SANITIZE_STRING);
 
+    //Create request
     $isRead = 0;
     $isApproved = 0;
     $request_status = 'pending';
@@ -3026,6 +3302,7 @@ function RequestBook() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Update isRequest flag to 1
     $isRequested = 1;
 
     $stmt2 = $mysqli->prepare("UPDATE system_book SET isRequested=? WHERE bookid =?");
@@ -3033,11 +3310,13 @@ function RequestBook() {
     $stmt2->execute();
     $stmt2->close();
 
+    //Update isRequest flag to 1
     $stmt3 = $mysqli->prepare("UPDATE system_book_loaned SET isRequested=? WHERE bookid =?");
     $stmt3->bind_param('ii', $isRequested, $bookToRequest);
     $stmt3->execute();
     $stmt3->close();
 
+    //Get book and reservation details
     $stmt4 = $mysqli->prepare("SELECT system_book_reserved.userid, system_book_reserved.created_on, system_book_reserved.tocollect_on, system_book.book_name, system_book.book_author, system_book.book_status FROM system_book_reserved LEFT JOIN system_book ON system_book_reserved.bookid=system_book.bookid WHERE system_book_reserved.bookid=?");
     $stmt4->bind_param('i', $bookToRequest);
     $stmt4->execute();
@@ -3046,6 +3325,7 @@ function RequestBook() {
     $stmt4->fetch();
     $stmt4->close();
 
+    //Get reservee user details
     $stmt5 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt5->bind_param('i', $userid);
     $stmt5->execute();
@@ -3054,6 +3334,7 @@ function RequestBook() {
     $stmt5->fetch();
     $stmt5->close();
 
+    //Get requester user details
     $stmt6 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt6->bind_param('i', $session_userid);
     $stmt6->execute();
@@ -3062,11 +3343,14 @@ function RequestBook() {
     $stmt6->fetch();
     $stmt6->close();
 
+    //Creating email
+
     $book_status = ucfirst($book_status);
 
-    //Creating email
+    //email subject
     $subject = 'Request notice';
 
+    //email message
     $message = '<html>';
     $message .= '<body>';
     $message .= '<p>Hi! Someone requested a book you reserved. Below, you can find the request summary:</p>';
@@ -3083,12 +3367,13 @@ function RequestBook() {
     $message .= '</body>';
     $message .= '</html>';
 
+    //email headers
     $headers  = 'MIME-Version: 1.0'."\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
     $headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
     $headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
+    //Send the email
     mail("$reservee_email, admin@student-portal.co.uk", $subject, $message, $headers);
 
 }
