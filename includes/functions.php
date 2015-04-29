@@ -3381,10 +3381,13 @@ function RequestBook() {
 //SetRequestRead function
 function SetRequestRead () {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $requestToRead = filter_input(INPUT_POST, 'requestToRead', FILTER_SANITIZE_STRING);
 
+    //Set request read
     $isRead = 1;
 
     $stmt1 = $mysqli->prepare("UPDATE system_book_requested SET isRead=? WHERE requestid=?");
@@ -3396,10 +3399,11 @@ function SetRequestRead () {
 //CreateBook function
 function CreateBook() {
 
+    //Global variables
     global $mysqli;
     global $created_on;
 
-    //Book
+    //Gather data posted and assign variables
     $book_name = filter_input(INPUT_POST, 'create_book_name', FILTER_SANITIZE_STRING);
     $book_notes = filter_input(INPUT_POST, 'create_book_notes', FILTER_SANITIZE_STRING);
     $book_author = filter_input(INPUT_POST, 'create_book_author', FILTER_SANITIZE_STRING);
@@ -3413,7 +3417,7 @@ function CreateBook() {
     $book_discipline = filter_input(INPUT_POST, 'create_book_discipline', FILTER_SANITIZE_STRING);
     $book_language = filter_input(INPUT_POST, 'create_book_language', FILTER_SANITIZE_STRING);
 
-    //If book exists, increase copy number
+    //Check if book_name exists
     $stmt1 = $mysqli->prepare("SELECT bookid, book_copy_no FROM system_book WHERE book_name=? AND book_author=? ORDER BY bookid DESC LIMIT 1");
     $stmt1->bind_param('ss', $book_name, $book_author);
     $stmt1->execute();
@@ -3421,11 +3425,14 @@ function CreateBook() {
     $stmt1->bind_result($db_bookid, $db_book_copy_no);
     $stmt1->fetch();
 
+    //Convert date to MySQL format date
     $book_publish_date = DateTime::createFromFormat('d/m/Y', $book_publish_date);
     $book_publish_date = $book_publish_date->format('Y-m-d');
 
+    //If book name exists, do the following
     if ($stmt1->num_rows > 0) {
 
+        //Create book
         $book_status = 'active';
         $book_copy_no = $db_book_copy_no + 1;
 
@@ -3439,6 +3446,7 @@ function CreateBook() {
 
     } else {
 
+        //Create book
         $book_status = 'active';
         $isReserved = 0;
         $isLoaned = 0;
@@ -3452,13 +3460,13 @@ function CreateBook() {
 }
 
 //UpdateBook function
-function UpdateBook()
-{
+function UpdateBook() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
-    //Book
+    //Gather data posted and assign variables
     $bookid = filter_input(INPUT_POST, 'update_bookid', FILTER_SANITIZE_STRING);
     $book_name = filter_input(INPUT_POST, 'update_book_name', FILTER_SANITIZE_STRING);
     $book_notes = filter_input(INPUT_POST, 'update_book_notes', FILTER_SANITIZE_STRING);
@@ -3473,7 +3481,7 @@ function UpdateBook()
     $book_discipline = filter_input(INPUT_POST, 'update_book_discipline', FILTER_SANITIZE_STRING);
     $book_language = filter_input(INPUT_POST, 'update_book_language', FILTER_SANITIZE_STRING);
 
-    // Check if event name is different
+    // Check if book name changed
     $stmt1 = $mysqli->prepare("SELECT book_name FROM system_book WHERE bookid = ?");
     $stmt1->bind_param('i', $bookid);
     $stmt1->execute();
@@ -3481,19 +3489,23 @@ function UpdateBook()
     $stmt1->bind_result($db_book_name);
     $stmt1->fetch();
 
+    //Convert date to MySQL format
     $book_publish_date = DateTime::createFromFormat('d/m/Y', $book_publish_date);
     $book_publish_date = $book_publish_date->format('Y-m-d');
 
+    //If the book name hasn't changed, do the following
     if ($book_name === $db_book_name) {
 
+        //Update book
         $stmt2 = $mysqli->prepare("UPDATE system_book SET book_notes=?, book_author=?, book_copy_no=?, book_location=?, book_publisher=?, book_publish_date=?, book_publish_place=?, book_page_amount=?, book_barcode=?, book_discipline=?, book_language=?, updated_on=? WHERE bookid=?");
         $stmt2->bind_param('ssissssiisssi', $book_notes, $book_author, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $updated_on, $bookid);
         $stmt2->execute();
         $stmt2->close();
 
+    //If the book name has changed, do the following
     } else {
 
-        // Check existing book name
+        //Check if book name exists
         $stmt3 = $mysqli->prepare("SELECT bookid FROM system_book WHERE book_name = ?");
         $stmt3->bind_param('s', $event_name);
         $stmt3->execute();
@@ -3501,11 +3513,16 @@ function UpdateBook()
         $stmt3->bind_result($db_bookid);
         $stmt3->fetch();
 
+        //If book name exists, do the following
         if ($stmt3->num_rows == 1) {
             $stmt3->close();
-            header('HTTP/1.0 550 An event with the name entered already exists.');
+            header('HTTP/1.0 550 A book with the name entered already exists.');
             exit();
+
+        //If book name does not exist, do the following
         } else {
+
+            //Update book
             $stmt5 = $mysqli->prepare("UPDATE system_book SET book_name=?, book_notes=?, book_author=?, book_copy_no=?, book_location=?, book_publisher=?, book_publish_date=?, book_publish_place=?, book_page_amount=?, book_barcode=?, book_discipline=?, book_language=?, updated_on=? WHERE bookid=?");
             $stmt5->bind_param('sssissssiisssi', $book_name, $book_notes, $book_author, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language, $updated_on, $bookid);
             $stmt5->execute();
@@ -3517,11 +3534,14 @@ function UpdateBook()
 //DeactivateBook function
 function DeactivateBook() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $bookToDeactivate = filter_input(INPUT_POST, 'bookToDeactivate', FILTER_SANITIZE_STRING);
 
+    //Deactivate book
     $book_status = 'inactive';
 
     $stmt1 = $mysqli->prepare("UPDATE system_book SET book_status=?, updated_on=? WHERE bookid=?");
@@ -3529,17 +3549,21 @@ function DeactivateBook() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Update tables
     AdminLibraryUpdate($isUpdate = 1);
 }
 
 //DeactivateBook function
 function ReactivateBook() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $bookToReactivate = filter_input(INPUT_POST, 'bookToReactivate', FILTER_SANITIZE_STRING);
 
+    //Reactivate book
     $book_status = 'active';
 
     $stmt1 = $mysqli->prepare("UPDATE system_book SET book_status=?, updated_on=? WHERE bookid=?");
@@ -3547,6 +3571,7 @@ function ReactivateBook() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Update tables
     AdminLibraryUpdate($isUpdate = 1);
 }
 
@@ -3555,27 +3580,33 @@ function DeleteBook() {
 
     global $mysqli;
 
+    //Gather data posted and assign variables
     $bookToDelete = filter_input(INPUT_POST, 'bookToDelete', FILTER_SANITIZE_STRING);
 
+    //Delete book
     $stmt1 = $mysqli->prepare("DELETE FROM system_book_reserved WHERE bookid=?");
     $stmt1->bind_param('i', $bookToDelete);
     $stmt1->execute();
     $stmt1->close();
 
+    //Delete book
     $stmt2 = $mysqli->prepare("DELETE FROM system_book WHERE bookid=?");
     $stmt2->bind_param('i', $bookToDelete);
     $stmt2->execute();
     $stmt2->close();
 
+    //Update tables
     AdminLibraryUpdate($isUpdate = 1);
 }
 
 function AdminLibraryUpdate($isUpdate = 0) {
 
+    //Global variables
     global $mysqli;
     global $active_book;
     global $inactive_book;
 
+    //Get active, reserved or requested books
     $book_status1 = 'active';
     $book_status2 = 'reserved';
     $book_status3 = 'requested';
@@ -3590,6 +3621,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
         while ($stmt1->fetch()) {
 
+            //Bind results to the variable
             $active_book .=
 
            '<tr>
@@ -3679,6 +3711,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
     $stmt1->close();
 
+    //Get inactive books
     $book_status = 'inactive';
 
     $stmt2 = $mysqli->prepare("SELECT bookid, book_name, book_author, book_notes, book_copy_no, book_location, book_publisher, book_publish_date, book_publish_place, book_page_amount, book_barcode, book_discipline, book_language, book_status, created_on, updated_on FROM system_book WHERE book_status=?");
@@ -3691,6 +3724,7 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
         while ($stmt2->fetch()) {
 
+            //Bind results to the variable
             $inactive_book .=
 
            '<tr>
@@ -3778,13 +3812,16 @@ function AdminLibraryUpdate($isUpdate = 0) {
 
     $stmt2->close();
 
+    //If the call to the function was made with parameter 'isUpdate' = 1, do the following
     if ($isUpdate === 1) {
 
+        //Create array and bind results to the array
         $array = array(
             'active_book'=>$active_book,
             'inactive_book'=>$inactive_book
         );
 
+        //Send data back to the Ajax call
         echo json_encode($array);
 
     }
@@ -3794,9 +3831,11 @@ function AdminLibraryUpdate($isUpdate = 0) {
 //Transport functions
 function GetTubeLineLiveStatus() {
 
+    //Global variables
 	global $mysqli;
     global $bakerloo, $bakerloo1, $central, $central1, $circle, $circle1, $district, $district1, $hammersmith, $hammersmith1, $jubilee, $jubilee1, $metropolitan, $metropolitan1, $northern, $northern1, $piccadilly, $piccadilly1, $victoria, $victoria1, $waterloo, $waterloo1, $overground, $overground1, $dlr, $dlr1;
 
+    //Get Bakerloo line status
     $stmt1 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Bakerloo'");
     $stmt1->execute();
     $stmt1->store_result();
@@ -3804,6 +3843,7 @@ function GetTubeLineLiveStatus() {
     $stmt1->fetch();
     $stmt1->close();
 
+    //Get Central line status
     $stmt2 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Central'");
     $stmt2->execute();
     $stmt2->store_result();
@@ -3811,6 +3851,7 @@ function GetTubeLineLiveStatus() {
     $stmt2->fetch();
     $stmt2->close();
 
+    //Get Circle line status
     $stmt3 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Circle'");
     $stmt3->execute();
     $stmt3->store_result();
@@ -3818,6 +3859,7 @@ function GetTubeLineLiveStatus() {
     $stmt3->fetch();
     $stmt3->close();
 
+    //Get District line status
     $stmt4 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='District'");
     $stmt4->execute();
     $stmt4->store_result();
@@ -3825,6 +3867,7 @@ function GetTubeLineLiveStatus() {
     $stmt4->fetch();
     $stmt4->close();
 
+    //Get Hammersmith and City line status
     $stmt5 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Hammersmith and City'");
     $stmt5->execute();
     $stmt5->store_result();
@@ -3832,6 +3875,7 @@ function GetTubeLineLiveStatus() {
     $stmt5->fetch();
     $stmt5->close();
 
+    //Get Jubilee line status
     $stmt6 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Jubilee'");
     $stmt6->execute();
     $stmt6->store_result();
@@ -3839,6 +3883,7 @@ function GetTubeLineLiveStatus() {
     $stmt6->fetch();
     $stmt6->close();
 
+    //Get Metropolitan line status
     $stmt7 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Metropolitan'");
     $stmt7->execute();
     $stmt7->store_result();
@@ -3846,6 +3891,7 @@ function GetTubeLineLiveStatus() {
     $stmt7->fetch();
     $stmt7->close();
 
+    //Get Northern line status
     $stmt8 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Northern'");
     $stmt8->execute();
     $stmt8->store_result();
@@ -3853,6 +3899,7 @@ function GetTubeLineLiveStatus() {
     $stmt8->fetch();
     $stmt8->close();
 
+    //Get Piccadilly line status
     $stmt9 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Piccadilly'");
     $stmt9->execute();
     $stmt9->store_result();
@@ -3860,6 +3907,7 @@ function GetTubeLineLiveStatus() {
     $stmt9->fetch();
     $stmt9->close();
 
+    //Get Victoria line status
     $stmt10 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Victoria'");
     $stmt10->execute();
     $stmt10->store_result();
@@ -3867,6 +3915,7 @@ function GetTubeLineLiveStatus() {
     $stmt10->fetch();
     $stmt10->close();
 
+    //Get Waterloo and City line status
     $stmt11 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Waterloo and City'");
     $stmt11->execute();
     $stmt11->store_result();
@@ -3874,6 +3923,7 @@ function GetTubeLineLiveStatus() {
     $stmt11->fetch();
     $stmt11->close();
 
+    //Get Overground line status
     $stmt12 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='Overground'");
     $stmt12->execute();
     $stmt12->store_result();
@@ -3881,6 +3931,7 @@ function GetTubeLineLiveStatus() {
     $stmt12->fetch();
     $stmt12->close();
 
+    //Get DLR line status
     $stmt13 = $mysqli->prepare("SELECT tube_line, tube_line_status from tube_line_status_now WHERE tube_line='DLR'");
     $stmt13->execute();
     $stmt13->store_result();
@@ -3890,20 +3941,13 @@ function GetTubeLineLiveStatus() {
 
 }
 
-function GetTubeThisWeekendStatus() {
-
-    global $xml_this_weekend;
-
-    $url = 'http://data.tfl.gov.uk/tfl/syndication/feeds/TubeThisWeekend_v2.xml?app_id=16a31ffc&app_key=fc61665981806c124b4a7c939539bf78';
-    $result = file_get_contents($url);
-    $xml_this_weekend = new SimpleXMLElement($result);
-}
-
 function GetTransportStatusLastUpdated() {
 
+    //Global variables
     global $mysqli;
     global $transport_status_last_updated;
 
+    //Get last updated time
     $stmt1 = $mysqli->prepare("SELECT DISTINCT DATE_FORMAT(updated_on,'%H:%i') AS updated_on from tube_line_status_now LIMIT 1");
     $stmt1->execute();
     $stmt1->store_result();
@@ -3919,17 +3963,19 @@ function GetTransportStatusLastUpdated() {
 //CreateTask function
 function CreateTask () {
 
+    //Global variables
 	global $mysqli;
 	global $session_userid;
 	global $created_on;
 
+    //Gather data posted and assign variables
 	$task_name = filter_input(INPUT_POST, 'create_task_name', FILTER_SANITIZE_STRING);
     $task_notes = filter_input(INPUT_POST, 'create_task_notes', FILTER_SANITIZE_STRING);
     $task_url = filter_input(INPUT_POST, 'create_task_url', FILTER_SANITIZE_STRING);
     $task_startdate = filter_input(INPUT_POST, 'create_task_startdate', FILTER_SANITIZE_STRING);
     $task_duedate = filter_input(INPUT_POST, 'create_task_duedate', FILTER_SANITIZE_STRING);
 
-    // Check if task exists
+    //Check if task name exists
     $stmt1 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name=? AND userid=? LIMIT 1");
     $stmt1->bind_param('si', $task_name, $session_userid);
     $stmt1->execute();
@@ -3937,19 +3983,26 @@ function CreateTask () {
     $stmt1->bind_result($db_taskid);
     $stmt1->fetch();
 
+    //If task name exists, do the following
     if ($stmt1->num_rows == 1) {
 
         $stmt1->close();
 	    header('HTTP/1.0 550 A task with the task name entered already exists.');
 	    exit();
 
+    //If task name does not exist, do the following
     } else {
 
+        //Set value
         $task_class = 'event-info';
+
+        //Convert dates to MySQL format
         $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
         $task_startdate = $task_startdate->format('Y-m-d H:i');
         $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
         $task_duedate = $task_duedate->format('Y-m-d H:i');
+
+        //Create task
         $task_status = 'active';
 
 	    $stmt2 = $mysqli->prepare("INSERT INTO user_task (userid, task_name, task_notes, task_url, task_class, task_startdate, task_duedate, task_status, created_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -3960,15 +4013,19 @@ function CreateTask () {
 	    $stmt1->close();
     }
 
+    //Update tables
     calendarUpdate($isUpdate = 1);
 }
 
 function GetTaskDetails() {
 
+    //Global variables
     global $mysqli;
 
+    //Gather data posted and assign variables
     $taskid = filter_input(INPUT_POST, 'taskToUpdate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Get task details
     $stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d/%m/%Y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d/%m/%Y %H:%i') as task_duedate FROM user_task WHERE taskid=? LIMIT 1");
     $stmt1->bind_param('i', $taskid);
     $stmt1->execute();
@@ -3977,6 +4034,7 @@ function GetTaskDetails() {
     $stmt1->fetch();
     $stmt1->close();
 
+    //Create array and bind results to the array
     $array = array(
         'taskid'=>$taskid,
         'task_name'=>$task_name,
@@ -3986,16 +4044,19 @@ function GetTaskDetails() {
         'task_duedate'=>$task_duedate
     );
 
+    //Send data back to the Ajax call
     echo json_encode($array, JSON_UNESCAPED_SLASHES);
 }
 
 //UpdateTask function
 function UpdateTask() {
 
+    //Global variables
 	global $mysqli;
     global $session_userid;
 	global $updated_on;
 
+    //Gather data posted and assign variables
 	$taskid = filter_input(INPUT_POST, 'update_taskid', FILTER_SANITIZE_NUMBER_INT);
 	$task_name = filter_input(INPUT_POST, 'update_task_name', FILTER_SANITIZE_STRING);
     $task_notes = filter_input(INPUT_POST, 'update_task_notes', FILTER_SANITIZE_STRING);
@@ -4003,6 +4064,7 @@ function UpdateTask() {
 	$task_startdate = filter_input(INPUT_POST, 'update_task_startdate', FILTER_SANITIZE_STRING);
 	$task_duedate = filter_input(INPUT_POST, 'update_task_duedate', FILTER_SANITIZE_STRING);
 
+    //Check if task name changed
 	$stmt1 = $mysqli->prepare("SELECT task_name FROM user_task WHERE taskid=? LIMIT 1");
 	$stmt1->bind_param('i', $taskid);
 	$stmt1->execute();
@@ -4010,20 +4072,25 @@ function UpdateTask() {
 	$stmt1->bind_result($db_taskname);
 	$stmt1->fetch();
 
+    //If task name hasn't, do the following
 	if ($task_name === $db_taskname) {
 
+        //Convert date to MySQL format
         $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
         $task_startdate = $task_startdate->format('Y-m-d H:i');
         $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
         $task_duedate = $task_duedate->format('Y-m-d H:i');
 
+        //Update task
 	    $stmt2 = $mysqli->prepare("UPDATE user_task SET task_notes=?, task_url=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
 	    $stmt2->bind_param('sssssi', $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on, $taskid);
 	    $stmt2->execute();
 	    $stmt2->close();
 
+    //If task name has changed, do the following
 	} else {
 
+        //Check if task name exists
         $stmt3 = $mysqli->prepare("SELECT taskid FROM user_task WHERE task_name=? AND userid=? LIMIT 1");
         $stmt3->bind_param('si', $task_name, $session_userid);
         $stmt3->execute();
@@ -4031,16 +4098,22 @@ function UpdateTask() {
         $stmt3->bind_result($db_taskid);
         $stmt3->fetch();
 
+        //If task name exists, do the following
 	    if ($stmt3->num_rows > 0) {
             $stmt3->close();
             header('HTTP/1.0 550 A task with the name entered already exists.');
             exit();
+
+        //If task name doesn't exist, do the following
         } else {
+
+            //Convert date to MySQL format
             $task_startdate = DateTime::createFromFormat('d/m/Y H:i', $task_startdate);
             $task_startdate = $task_startdate->format('Y-m-d H:i');
             $task_duedate = DateTime::createFromFormat('d/m/Y H:i', $task_duedate);
             $task_duedate = $task_duedate->format('Y-m-d H:i');
 
+            //Update task
             $stmt4 = $mysqli->prepare("UPDATE user_task SET task_name=?, task_notes=?, task_url=?, task_startdate=?, task_duedate=?, updated_on=? WHERE taskid = ?");
             $stmt4->bind_param('ssssssi', $task_name, $task_notes, $task_url, $task_startdate, $task_duedate, $updated_on, $taskid);
             $stmt4->execute();
@@ -4048,35 +4121,44 @@ function UpdateTask() {
         }
 	}
 
+    //Update tables
     calendarUpdate($isUpdate = 1);
 }
 
 //CompleteTask function
 function CompleteTask() {
 
+    //Global variables
 	global $mysqli;
     global $updated_on;
     global $completed_on;
 
+    //Gather data posted and assign variables
 	$taskToComplete = filter_input(INPUT_POST, 'taskToComplete', FILTER_SANITIZE_NUMBER_INT);
-	$task_status = 'completed';
+
+    //Complete task
+    $task_status = 'completed';
 
 	$stmt1 = $mysqli->prepare("UPDATE user_task SET task_status = ?, updated_on = ?, completed_on=? WHERE taskid = ? LIMIT 1");
 	$stmt1->bind_param('sssi', $task_status, $updated_on, $completed_on, $taskToComplete);
 	$stmt1->execute();
 	$stmt1->close();
 
+    //Update tables
     calendarUpdate($isUpdate = 1);
 }
 
 //DeactivateTask function
 function DeactivateTask() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $taskToDeactivate = filter_input(INPUT_POST, 'taskToDeactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Deactivate task
     $task_status = 'inactive';
 
     $stmt1 = $mysqli->prepare("UPDATE user_task SET task_status=?, updated_on=? WHERE taskid = ?");
@@ -4084,17 +4166,21 @@ function DeactivateTask() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Update tables
     calendarUpdate($isUpdate = 1);
 }
 
 //ReactivateTask function
 function ReactivateTask() {
 
+    //Global variables
     global $mysqli;
     global $updated_on;
 
+    //Gather data posted and assign variables
     $taskToReactivate = filter_input(INPUT_POST, 'taskToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
+    //Reactivate task
     $task_status = 'active';
 
     $stmt1 = $mysqli->prepare("UPDATE user_task SET task_status=?, updated_on=? WHERE taskid = ?");
@@ -4102,32 +4188,39 @@ function ReactivateTask() {
     $stmt1->execute();
     $stmt1->close();
 
+    //Update tables
     calendarUpdate($isUpdate = 1);
 }
 
 //DeleteTask function
 function DeleteTask() {
 
+    //Global variable
     global $mysqli;
 
+    //Gather data posted and assign variables
     $taskToDelete = filter_input(INPUT_POST, 'taskToDelete', FILTER_SANITIZE_NUMBER_INT);
 
+    //Delete task
     $stmt1 = $mysqli->prepare("DELETE FROM user_task WHERE taskid = ?");
     $stmt1->bind_param('i', $taskToDelete);
     $stmt1->execute();
     $stmt1->close();
 
+    //Update tables
     calendarUpdate($isUpdate = 1);
 }
 
 function calendarUpdate($isUpdate = 0) {
 
+    //Global variables
     global $mysqli;
     global $session_userid;
     global $due_task;
     global $completed_task;
     global $archived_task;
 
+    //Get active tasks
     $task_status = 'active';
 
     $stmt1 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate FROM user_task WHERE userid=? AND task_status=?");
@@ -4140,6 +4233,7 @@ function calendarUpdate($isUpdate = 0) {
 
         while ($stmt1->fetch()) {
 
+        //Bind results to variable
         $due_task .=
 
        '<tr>
@@ -4223,6 +4317,7 @@ function calendarUpdate($isUpdate = 0) {
     }
     $stmt1->close();
 
+    //Get completed tasks
     $task_status = 'completed';
 
     $stmt2 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task where userid=? AND task_status=?");
@@ -4235,6 +4330,7 @@ function calendarUpdate($isUpdate = 0) {
 
         if ($stmt2->num_rows > 0) {
 
+        //Bind results to variable
         $completed_task .=
 
        '<tr>
@@ -4318,6 +4414,7 @@ function calendarUpdate($isUpdate = 0) {
 
     $stmt2->close();
 
+    //Get inactive tasks
     $task_status = 'inactive';
 
     $stmt3 = $mysqli->prepare("SELECT taskid, task_name, task_notes, task_url, DATE_FORMAT(task_startdate,'%d %b %y %H:%i') as task_startdate, DATE_FORMAT(task_duedate,'%d %b %y %H:%i') as task_duedate, DATE_FORMAT(updated_on,'%d %b %y %H:%i') as updated_on FROM user_task WHERE userid=? AND task_status=?");
@@ -4330,6 +4427,7 @@ function calendarUpdate($isUpdate = 0) {
 
         while($stmt3->fetch()) {
 
+        //Bind results to variable
         $archived_task .=
 
        '<tr>
@@ -4411,14 +4509,17 @@ function calendarUpdate($isUpdate = 0) {
 
     $stmt3->close();
 
+    //If the call to the function was made with parameter 'isUpdate' = 1, do the following
     if ($isUpdate === 1) {
 
+        //Create array and bind results to the array
         $array = array(
             'due_task'=>$due_task,
             'completed_task'=>$completed_task,
             'archived_task'=>$archived_task
         );
 
+        //Send data back to the Ajax call
         echo json_encode($array);
 
     }
@@ -4429,6 +4530,7 @@ function calendarUpdate($isUpdate = 0) {
 //EventsPaypalPaymentSuccess function
 function EventsPaypalPaymentSuccess() {
 
+    //Global variables
 	global $mysqli;
 	global $newquantity;
 	global $created_on;
@@ -4448,7 +4550,7 @@ function EventsPaypalPaymentSuccess() {
     $quantity1 = $_POST["quantity1"];
     $product_amount = $_POST["mc_gross"];
 
-    //Get userid by using invoice_id
+    //Get userid by using invoiceid
 	$stmt1 = $mysqli->prepare("SELECT userid FROM paypal_log WHERE invoiceid = ? LIMIT 1");
 	$stmt1->bind_param('i', $invoiceid);
 	$stmt1->execute();
@@ -4457,6 +4559,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt1->fetch();
 	$stmt1->close();
 
+    //Create booked event
     $event_class = 'event-important';
 
 	$stmt2 = $mysqli->prepare("INSERT INTO system_event_booked (event_class, userid, eventid, event_amount_paid, ticket_quantity, booked_on) VALUES (?, ?, ?, ?, ?, ?)");
@@ -4464,6 +4567,7 @@ function EventsPaypalPaymentSuccess() {
 	$stmt2->execute();
 	$stmt2->close();
 
+    //Get event_ticket_no
 	$stmt3 = $mysqli->prepare("SELECT event_ticket_no from system_event where eventid=? LIMIT 1");
 	$stmt3->bind_param('i', $item_number1);
 	$stmt3->execute();
@@ -4472,19 +4576,22 @@ function EventsPaypalPaymentSuccess() {
 	$stmt3->fetch();
 	$stmt3->close();
 
+    //Decrease event_ticket_no, bind result variable
 	$newquantity = $event_ticket_no - $quantity1;
 
+    //Update event
 	$stmt4 = $mysqli->prepare("UPDATE system_event SET event_ticket_no=? WHERE eventid=?");
 	$stmt4->bind_param('ii', $newquantity, $item_number1);
 	$stmt4->execute();
 	$stmt4->close();
 
+    //Update PayPal log
 	$stmt5 = $mysqli->prepare("UPDATE paypal_log SET transactionid=?, payment_status =?, updated_on=?, completed_on=? WHERE invoiceid =?");
 	$stmt5->bind_param('ssssi', $transactionid, $payment_status, $updated_on, $completed_on, $invoiceid);
 	$stmt5->execute();
 	$stmt5->close();
 
-    //Get name and email for sending email
+    //Get user details
     $stmt6 = $mysqli->prepare("SELECT user_signin.email, user_detail.firstname, user_detail.surname FROM user_signin LEFT JOIN user_detail ON user_signin.userid=user_detail.userid WHERE user_signin.userid = ? LIMIT 1");
     $stmt6->bind_param('i', $userid);
     $stmt6->execute();
@@ -4494,8 +4601,11 @@ function EventsPaypalPaymentSuccess() {
     $stmt6->close();
 
 	//Creating email
+
+    //email subject
 	$subject = 'Payment confirmation';
 
+    //email message
 	$message = '<html>';
 	$message .= '<body>';
 	$message .= '<p>Thank you for your recent payment! Below, you can find the payment summary:</p>';
@@ -4513,11 +4623,13 @@ function EventsPaypalPaymentSuccess() {
 	$message .= '</body>';
 	$message .= '</html>';
 
+    //email headers
 	$headers  = 'MIME-Version: 1.0'."\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
 	$headers .= 'From: Student Portal <admin@student-portal.co.uk>'."\r\n";
 	$headers .= 'Reply-To: Student Portal <admin@student-portal.co.uk>'."\r\n";
 
+    //Send the email
 	mail($email, $subject, $message, $headers);
 }
 
