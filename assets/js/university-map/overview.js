@@ -42,6 +42,24 @@
         zoom: 15,
         mapTypeId: 'roadmap'
     });
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = new google.maps.LatLng(position.coords.latitude,
+                    position.coords.longitude);
+
+                var infowindow = new google.maps.InfoWindow({
+                    map: map,
+                    position: pos,
+                    content: 'Location found using HTML5.'
+                });
+
+                map.setCenter(pos);
+            }, function() {
+                handleNoGeolocation(true);
+            });
+        } else {
+            handleNoGeolocation(false);
+        }
 
     downloadUrl("../../includes/university-map/source/overview_source.php", function(data) {
     var xml = data.responseXML;
@@ -61,25 +79,6 @@
     var infoWindow = new google.maps.InfoWindow({
         maxWidth: 400
     });
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
-                position.coords.longitude);
-
-            var infowindow = new google.maps.InfoWindow({
-                map: map,
-                position: pos,
-                content: 'You are here.'
-            });
-
-            map.setCenter(pos);
-        }, function () {
-            handleNoGeolocation(true);
-        });
-    } else {
-        handleNoGeolocation(false);
-    }
 
     function createMarker(point, name, notes, category, map) {
         var icon = customIcons[category] || {};
