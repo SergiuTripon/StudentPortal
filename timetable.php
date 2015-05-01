@@ -113,10 +113,12 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-			<div class="text-center">
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
-			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-danger btn-lg ladda-button">Contact academic staff</a>
-			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up">Close</a>
+                <div class="pull-left">
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-danger btn-md ladda-button">Contact academic staff</a>
+			<a href="../feedback/" class="btn btn-danger btn-md ladda-button" data-style="slide-up">Submit feedback</a>
+			</div>
+			<div class="pull-right">
+			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
