@@ -92,11 +92,11 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p>Day: '.$lecture_day.'</p>
-			<p>From: '.$lecture_from_time.'</p>
-			<p>To: '.$lecture_to_time.'</p>
-			<p>Location: '.$lecture_location.'</p>
-			<p>Capacity: '.$lecture_capacity.'</p>
+			<p><b>Day:</b> '.$lecture_day.'</p>
+			<p><b>From:</b> '.$lecture_from_time.'</p>
+			<p><b>To:</b> '.$lecture_to_time.'</p>
+			<p><b>Location:</b> '.$lecture_location.'</p>
+			<p><b>Capacity:</b> '.$lecture_capacity.'</p>
 			</div>
 
 			<div class="modal-footer">
