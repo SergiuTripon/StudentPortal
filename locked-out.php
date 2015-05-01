@@ -73,7 +73,7 @@ include 'includes/session.php';
     </div>
 
     <hr>
-    <p class="text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons.</p>
+    <p class="feedback-sad text-center">You've been inactive for 15 minutes, so we've locked you out for security reasons.</p>
     <hr>
 
     <div class="text-center">
