@@ -75,7 +75,7 @@ include '../includes/session.php';
         <input type="checkbox" checked="checked" onclick="toggleGroup('atm')"> ATM
     </label>
     </div>
-    <div class="btn btn-primary btn-lg ladda-button" data-style="slide-up" onclick="showCurrentLocation()"><span class="ladda-label">Locate me</span></div>
+    <div class="btn btn-primary btn-md ladda-button" data-style="slide-up" onclick="showCurrentLocation()"><span class="ladda-label">Locate me</span></div>
     </div>
 
     <div id="map"></div>
