@@ -43,9 +43,10 @@ include '../includes/session.php';
 
     <label for="radiusSelect">Radius</label>
     <select class="form-control" id="radiusSelect">
-    <option value="25" selected>25mi</option>
-    <option value="100">100mi</option>
-    <option value="200">200mi</option>
+        <option></option>
+        <option value="25" selected>25mi</option>
+        <option value="100">100mi</option>
+        <option value="200">200mi</option>
     </select>
 
     <div id="map-search-button" class="text-center">
@@ -105,7 +106,7 @@ include '../includes/session.php';
     <script>
     $(document).ready(function() {
     //select2
-    $("#radiusSelect").select2();
+    $("#radiusSelect").select2({placeholder: "Select an option"});
     });
 
     //Ladda
