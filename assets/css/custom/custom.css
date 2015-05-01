@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Links */
 a, a:focus, a:hover {
+    color: #4582EC;
     cursor: pointer !important;
     text-decoration: none;
     outline: none !important;
