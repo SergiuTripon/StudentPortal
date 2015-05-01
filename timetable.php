@@ -54,6 +54,7 @@ include 'includes/session.php';
 	<thead>
 	<tr>
 	<th>Name</th>
+    <th>Academic staff</th>
 	<th>From</th>
     <th>To</th>
     <th>Location</th>
