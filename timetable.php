@@ -63,10 +63,11 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, l.lecture_lecturer, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Monday' UNION ALL SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, t.tutorial_assistant, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday'");
+	$stmt1 = $mysqli->query("SELECT m.module_url, l.lectureid, l.lecture_name, l.lecture_notes, l.lecture_lecturer, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Monday' UNION ALL SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, t.tutorial_assistant, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
+    $module_url = $row["module_url"];
     $lectureid = $row["lectureid"];
     $lecture_name = $row["lecture_name"];
     $lecture_notes= $row["lecture_notes"];
@@ -113,9 +114,10 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-footer">
-                <div class="pull-left">
-			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-danger btn-md ladda-button">Contact academic staff</a>
-			<a href="../feedback/" class="btn btn-danger btn-md ladda-button" data-style="slide-up">Submit feedback</a>
+            <div class="pull-left">
+            <a href="'.$module_url.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up">Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-md ladda-button" data-style="slide-up">Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-md ladda-button">Messenger</a>
 			</div>
 			<div class="pull-right">
 			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
