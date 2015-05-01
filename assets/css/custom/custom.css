@@ -853,7 +853,7 @@ form .input-happy {
 /* End of Modal style */
 
 /* View buttons */
-@media (min-width: 992px) {
+@media (max-width: 480px) {
 .modal-custom .view-actions {
     float: none;
     text-align: center;
