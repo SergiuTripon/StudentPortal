@@ -44,7 +44,7 @@ include '../includes/session.php';
     <label for="radiusSelect">Radius</label>
     <select class="form-control" id="radiusSelect">
         <option></option>
-        <option value="25" selected>25mi</option>
+        <option value="25">25mi</option>
         <option value="100">100mi</option>
         <option value="200">200mi</option>
     </select>
