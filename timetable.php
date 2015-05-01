@@ -114,7 +114,9 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
 			<div class="text-center">
-			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</button>
+			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-danger btn-lg ladda-button">Contact academic staff</a>
+			<a class="btn btn-danger btn-lg ladda-button" data-style="slide-up">Close</a>
 			</div>
 			</div>
 
