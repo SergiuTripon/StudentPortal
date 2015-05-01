@@ -1,9 +1,5 @@
 <?php
 include 'includes/session.php';
-
-echo date("l");
-
-
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +32,8 @@ echo date("l");
     <li><a href="../overview/">Overview</a></li>
 	<li class="active">Timetable</li>
     </ol>
+
+    <input type="hidden" name="today" id="today"><?php echo date("l"); ?>
 
 	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -633,19 +631,10 @@ echo date("l");
 
 	<script>
     $( document ).ready(function() {
-        var d = new Date();
-        var weekday = new Array(7);
-        weekday[0] = "Sunday";
-        weekday[1] = "Monday";
-        weekday[2] = "Tuesday";
-        weekday[3] = "Wednesday";
-        weekday[4] = "Thursday";
-        weekday[5] = "Friday";
-        weekday[6] = "Saturday";
 
-        var n = weekday[d.getDay()];
+        var today = $('#today').val();
 
-        if (n === 'Monday') {
+        if (today === 'Monday') {
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
             $('#panel-thursday').addClass("collapsed");
@@ -656,7 +645,7 @@ echo date("l");
             $('#collapseFive').removeClass("in");
             $('#panel-monday').removeClass("collapsed");
             $('#collapseOne').addClass("in");
-        } else if (n === 'Tuesday') {
+        } else if (today === 'Tuesday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
             $('#panel-thursday').addClass("collapsed");
@@ -667,7 +656,7 @@ echo date("l");
             $('#collapseFive').removeClass("in");
             $('#panel-tuesday').removeClass("collapsed");
             $('#collapseTwo').addClass("in");
-        } else if (n === 'Wednesday') {
+        } else if (today === 'Wednesday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-thursday').addClass("collapsed");
@@ -678,7 +667,7 @@ echo date("l");
             $('#collapseFive').removeClass("in");
             $('#panel-wednesday').removeClass("collapsed");
             $('#collapseThree').addClass("in");
-        } else if (n === 'Thursday') {
+        } else if (today === 'Thursday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
@@ -689,7 +678,7 @@ echo date("l");
             $('#collapseFive').removeClass("in");
             $('#panel-thursday').removeClass("collapsed");
             $('#collapseFour').addClass("in");
-        } else if (n === 'Friday') {
+        } else if (today === 'Friday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
