@@ -36,7 +36,6 @@
         "atm": []
     };
 
-    function showCurrentLocation() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
         var pos = new google.maps.LatLng(position.coords.latitude,
@@ -52,10 +51,8 @@
         }, function() {
             handleNoGeolocation(true);
         });
-        } else {
-            // Browser doesn't support Geolocation
-            handleNoGeolocation(false);
-        }
+    } else {
+        handleNoGeolocation(false);
     }
 
     function load() {
