@@ -33,7 +33,7 @@ include 'includes/session.php';
 	<li class="active">Timetable</li>
     </ol>
 
-    <input type="hidden" name="today" id="today"><?php echo date("l"); ?>
+    <div id="today" style="display: none;"><?php echo date("l"); ?></div>
 
 	<div class="panel-group panel-custom" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -632,7 +632,7 @@ include 'includes/session.php';
 	<script>
     $( document ).ready(function() {
 
-        var today = $('#today').val();
+        var today = $('#today').html();
         alert(today);
 
         if (today == 'Monday') {
