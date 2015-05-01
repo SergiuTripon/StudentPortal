@@ -103,7 +103,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
-			<p><b>Description:</b> '.$lecturer_firstname.' '.$lecturer_surname.'</p>
+			<p><b>Description:</b> '.$lecture_notes.'</p>
 			<p><b>Academic staff:</b> '.$lecturer_firstname.' '.$lecturer_surname.'</p>
 			<p><b>Day:</b> '.$lecture_day.'</p>
 			<p><b>From:</b> '.$lecture_from_time.'</p>
