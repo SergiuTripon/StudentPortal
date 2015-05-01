@@ -633,7 +633,7 @@ include 'includes/session.php';
     $( document ).ready(function() {
 
         var today = $('#today').html();
-        today = 'Friday';
+        today = 'Wednesday';
 
         if (today == 'Monday') {
             $('#panel-tuesday').addClass("collapsed");
