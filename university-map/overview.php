@@ -122,7 +122,7 @@ include '../includes/session.php';
 
     <script>
     $(document).ready(function() {
-        toggleGroup(marker.setVisible(true));
+        toggleGroup(marker.setVisible(false));
     });
 
     //Ladda
