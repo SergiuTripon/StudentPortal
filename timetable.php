@@ -634,7 +634,7 @@ include 'includes/session.php';
 
         var today = $('#today').val();
 
-        if (today === 'Monday') {
+        if (today == 'Monday') {
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
             $('#panel-thursday').addClass("collapsed");
@@ -645,7 +645,7 @@ include 'includes/session.php';
             $('#collapseFive').removeClass("in");
             $('#panel-monday').removeClass("collapsed");
             $('#collapseOne').addClass("in");
-        } else if (today === 'Tuesday') {
+        } else if (today == 'Tuesday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
             $('#panel-thursday').addClass("collapsed");
@@ -656,7 +656,7 @@ include 'includes/session.php';
             $('#collapseFive').removeClass("in");
             $('#panel-tuesday').removeClass("collapsed");
             $('#collapseTwo').addClass("in");
-        } else if (today === 'Wednesday') {
+        } else if (today == 'Wednesday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-thursday').addClass("collapsed");
@@ -667,7 +667,7 @@ include 'includes/session.php';
             $('#collapseFive').removeClass("in");
             $('#panel-wednesday').removeClass("collapsed");
             $('#collapseThree').addClass("in");
-        } else if (today === 'Thursday') {
+        } else if (today == 'Thursday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
@@ -678,7 +678,7 @@ include 'includes/session.php';
             $('#collapseFive').removeClass("in");
             $('#panel-thursday').removeClass("collapsed");
             $('#collapseFour').addClass("in");
-        } else if (today === 'Friday') {
+        } else if (today == 'Friday') {
             $('#panel-monday').addClass("collapsed");
             $('#panel-tuesday').addClass("collapsed");
             $('#panel-wednesday').addClass("collapsed");
