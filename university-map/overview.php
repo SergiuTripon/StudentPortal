@@ -122,6 +122,13 @@ include '../includes/session.php';
     <?php include '../assets/js-paths/common-js-paths.php'; ?>
 
     <script>
+    $(document).ready(function() {
+        //google-maps
+        loadMap();
+        //select2
+        $("#radiusSelect").select2({placeholder: "Select an option"});
+    });
+
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
 

@@ -105,18 +105,14 @@ include '../includes/session.php';
 
     <script>
     $(document).ready(function() {
+    //google-maps
+    loadMap();
     //select2
     $("#radiusSelect").select2({placeholder: "Select an option"});
     });
 
     //Ladda
     Ladda.bind('.ladda-button', {timeout: 2000});
-
-    //Loading map
-    $( document ).ready(function() {
-        loadMap();
-    });
-
     </script>
 
 </body>
