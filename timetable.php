@@ -76,7 +76,6 @@ include 'includes/session.php';
 	echo '<tr>
 
 			<td data-title="Name"><a href="#view-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
-			<td data-title="Day">'.$lecture_day.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
