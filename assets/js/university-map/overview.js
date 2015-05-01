@@ -36,6 +36,28 @@
         "atm": []
     };
 
+    function showCurrentLocation() {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = new google.maps.LatLng(position.coords.latitude,
+        position.coords.longitude);
+
+        var infowindow = new google.maps.InfoWindow({
+            map: map,
+            position: pos,
+            content: 'You are here.'
+        });
+
+        map.setCenter(pos);
+        }, function() {
+            handleNoGeolocation(true);
+        });
+        } else {
+            // Browser doesn't support Geolocation
+            handleNoGeolocation(false);
+        }
+    }
+
     function load() {
     var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(51.527287, -0.103842),
