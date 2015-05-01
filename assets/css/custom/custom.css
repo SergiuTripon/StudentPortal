@@ -852,6 +852,19 @@ form .input-happy {
 }
 /* End of Modal style */
 
+/* View buttons */
+@media (min-width: 992px) {
+.modal-custom .view-actions {
+    float: none;
+    text-align: center;
+}
+.modal-custom .view-close {
+    float: none;
+    text-align: center;
+}
+}
+/* End of view buttons */
+
 /* Accordion style */
 .panel-custom .panel {
     box-shadow: none;
