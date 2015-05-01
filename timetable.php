@@ -115,12 +115,12 @@ include 'includes/session.php';
 
 			<div class="modal-footer">
             <div class="pull-left">
-            <a href="'.$module_url.'" class="btn btn-primary btn-md ladda-button" data-style="slide-up">Moodle</a>
-            <a href="../feedback/" class="btn btn-primary btn-md ladda-button" data-style="slide-up">Feedback</a>
-			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-md ladda-button">Messenger</a>
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
 			</div>
 			<div class="pull-right">
-			<a class="btn btn-danger btn-md ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
 			</div>
 			</div>
 
