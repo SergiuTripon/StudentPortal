@@ -63,13 +63,14 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_lecturer, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Monday' UNION ALL SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday'");
+	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_notes, l.lecture_lecturer, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Monday' UNION ALL SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, t.tutorial_assistant, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
     $lectureid = $row["lectureid"];
+    $lecture_name = $row["lecture_name"];
+    $lecture_notes= $row["lecture_notes"];
     $lecture_lecturer = $row["lecture_lecturer"];
-	$lecture_name = $row["lecture_name"];
     $lecture_day = $row["lecture_day"];
 	$lecture_from_time = $row["lecture_from_time"];
 	$lecture_to_time = $row["lecture_to_time"];
@@ -102,6 +103,7 @@ include 'includes/session.php';
 			</div>
 
 			<div class="modal-body">
+			<p><b>Description:</b> '.$lecturer_firstname.' '.$lecturer_surname.'</p>
 			<p><b>Academic staff:</b> '.$lecturer_firstname.' '.$lecturer_surname.'</p>
 			<p><b>Day:</b> '.$lecture_day.'</p>
 			<p><b>From:</b> '.$lecture_from_time.'</p>
