@@ -1,5 +1,9 @@
 <?php
 include 'includes/session.php';
+
+echo date("l");
+
+
 ?>
 
 <!DOCTYPE html>
