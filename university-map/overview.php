@@ -125,7 +125,6 @@ include '../includes/session.php';
     $(document).ready(function() {
     //google-maps
     loadMap();
-    showCurrentLocation();
     //select2
     $("#radiusSelect").select2({placeholder: "Select an option"});
     });
