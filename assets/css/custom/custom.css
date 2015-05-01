@@ -842,7 +842,8 @@ form .input-happy {
     color: #735326;
 }
 
-.modal-custom .modal-body p {
+.modal-custom .modal-body .feedback-sad,
+.modal-custom .modal-body .feedback-happy, {
     margin-bottom: 0;
 }
 
