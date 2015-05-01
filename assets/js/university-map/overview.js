@@ -62,6 +62,7 @@
         maxWidth: 400
     });
 
+    function showCurrentLocation() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = new google.maps.LatLng(position.coords.latitude,
@@ -79,6 +80,7 @@
         });
     } else {
         handleNoGeolocation(false);
+    }
     }
 
     function createMarker(point, name, notes, category, map) {
