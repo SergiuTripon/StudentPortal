@@ -62,25 +62,23 @@
         maxWidth: 400
     });
 
-    function showCurrentLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var pos = new google.maps.LatLng(position.coords.latitude,
-                    position.coords.longitude);
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = new google.maps.LatLng(position.coords.latitude,
+                position.coords.longitude);
 
-                var infowindow = new google.maps.InfoWindow({
-                    map: map,
-                    position: pos,
-                    content: 'You are here.'
-                });
-
-                map.setCenter(pos);
-            }, function () {
-                handleNoGeolocation(true);
+            var infowindow = new google.maps.InfoWindow({
+                map: map,
+                position: pos,
+                content: 'You are here.'
             });
-        } else {
-            handleNoGeolocation(false);
-        }
+
+            map.setCenter(pos);
+        }, function () {
+            handleNoGeolocation(true);
+        });
+    } else {
+        handleNoGeolocation(false);
     }
 
     function createMarker(point, name, notes, category, map) {
