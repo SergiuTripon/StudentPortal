@@ -854,12 +854,12 @@ form .input-happy {
 
 /* View buttons */
 @media (max-width: 480px) {
-.modal-custom .modal-footer .view-actions {
-    float: none;
+.modal-custom .modal-footer .view-action {
+    float: none !important;
     text-align: center;
 }
 .modal-custom .modal-footer .view-close {
-    float: none;
+    float: none !important;
     text-align: center;
 }
 }
