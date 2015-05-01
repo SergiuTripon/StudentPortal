@@ -63,10 +63,11 @@ include 'includes/session.php';
 
 	<tbody>
 	<?php
-	$stmt1 = $mysqli->query("SELECT l.lecture_name, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Monday' UNION ALL SELECT t.tutorial_name, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday'");
+	$stmt1 = $mysqli->query("SELECT l.lectureid, l.lecture_name, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Monday' UNION ALL SELECT t.tutorialid, t.tutorial_name, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday'");
 
 	while($row = $stmt1->fetch_assoc()) {
 
+    $lectureid = $row["lectureid"];
 	$lecture_name = $row["lecture_name"];
 	$lecture_day = $row["lecture_day"];
 	$lecture_from_time = $row["lecture_from_time"];
@@ -75,12 +76,36 @@ include 'includes/session.php';
 
 	echo '<tr>
 
-			<td data-title="Name">'.$lecture_name.'</td>
+			<td data-title="Name"><a href="#view-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
 			<td data-title="Day">'.$lecture_day.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
-			</tr>';
+			</tr>
+
+			<div id="view-'.$lectureid.'" class="modal fade modal-custom" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+			<div class="form-logo text-center">
+			<i class="fa fa-trash"></i>
+			</div>
+			</div>
+
+			<div class="modal-body">
+			<p>Name: '.$lecture_name.'</p>
+			</div>
+
+			<div class="modal-footer">
+			<div class="text-center">
+			<button type="button" class="btn btn-danger btn-lg ladda-button" data-style="slide-up" data-dismiss="modal">Close</button>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
 	}
 
 	$stmt1->close();
@@ -633,7 +658,6 @@ include 'includes/session.php';
     $( document ).ready(function() {
 
         var today = $('#today').html();
-        today = 'Wednesday';
 
         if (today == 'Monday') {
             $('#panel-tuesday').addClass("collapsed");
