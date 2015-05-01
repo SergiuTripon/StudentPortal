@@ -43,11 +43,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Links */
-a {
-    color: #4582EC;
-}
-
 a, a:focus, a:hover {
+    color: #4582EC;
     cursor: pointer !important;
     text-decoration: none;
     outline: none !important;
@@ -482,7 +479,7 @@ ul.external-pages-links {
 }
 
 #user-manual-showcase .panel-group {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 /* End of User manual showcase */
 
@@ -884,6 +881,12 @@ form .input-happy {
 /* Sets panel title font size */
 .panel-custom .panel-title {
     font-size: 15px;
+}
+
+.panel-title>a,
+.panel-title>a:hover,
+.panel-title>a:focus {
+    color: #FFFFFF;
 }
 
 /* Sets background and text color of the panel content */
