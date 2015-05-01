@@ -68,6 +68,7 @@ include 'includes/session.php';
 
     $lectureid = $row["lectureid"];
 	$lecture_name = $row["lecture_name"];
+    $lecture_day = $row["lecture_day"];
 	$lecture_from_time = $row["lecture_from_time"];
 	$lecture_to_time = $row["lecture_to_time"];
 	$lecture_location = $row["lecture_location"];
