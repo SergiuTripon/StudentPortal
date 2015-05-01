@@ -165,29 +165,75 @@ include 'includes/session.php';
 	</thead>
 
 	<tbody>
-	<?php
-	$stmt1 = $mysqli->query("SELECT l.lecture_name, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Tuesday' UNION ALL SELECT t.tutorial_name, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Tuesday'");
+    <?php
+    $stmt1 = $mysqli->query("SELECT m.module_url, l.lectureid, l.lecture_name, l.lecture_notes, l.lecture_lecturer, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Tuesday' UNION ALL SELECT m.module_url, t.tutorialid, t.tutorial_name, t.tutorial_notes, t.tutorial_assistant, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Tuesday'");
 
-	while($row = $stmt1->fetch_assoc()) {
+    while($row = $stmt1->fetch_assoc()) {
 
-	$lecture_name = $row["lecture_name"];
-	$lecture_day = $row["lecture_day"];
-	$lecture_from_time = $row["lecture_from_time"];
-	$lecture_to_time = $row["lecture_to_time"];
-	$lecture_location = $row["lecture_location"];
+        $module_url = $row["module_url"];
+        $lectureid = $row["lectureid"];
+        $lecture_name = $row["lecture_name"];
+        $lecture_notes= $row["lecture_notes"];
+        $lecture_lecturer = $row["lecture_lecturer"];
+        $lecture_day = $row["lecture_day"];
+        $lecture_from_time = $row["lecture_from_time"];
+        $lecture_to_time = $row["lecture_to_time"];
+        $lecture_location = $row["lecture_location"];
+        $lecture_capacity = $row["lecture_capacity"];
 
-	echo '<tr>
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3->bind_param('i', $lecture_lecturer);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($lecturer_firstname, $lecturer_surname);
+        $stmt3->fetch();
 
-			<td data-title="Name">'.$lecture_name.'</td>
-			<td data-title="Day">'.$lecture_day.'</td>
+        echo '<tr>
+
+			<td data-title="Name"><a href="#view-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
+			<td data-title="Academic staff">'.$lecturer_firstname.' '.$lecturer_surname.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
-			</tr>';
-	}
+			</tr>
 
-	$stmt1->close();
-	?>
+			<div id="view-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$lecture_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
+			<p><b>Academic staff:</b> '.$lecturer_firstname.' '.$lecturer_surname.'</p>
+			<p><b>Day:</b> '.$lecture_day.'</p>
+			<p><b>From:</b> '.$lecture_from_time.'</p>
+			<p><b>To:</b> '.$lecture_to_time.'</p>
+			<p><b>Location:</b> '.$lecture_location.'</p>
+			<p><b>Capacity:</b> '.$lecture_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+    }
+
+    $stmt1->close();
+    ?>
 	</tbody>
 
 	</table>
@@ -222,29 +268,75 @@ include 'includes/session.php';
 	</thead>
 
 	<tbody>
-	<?php
-	$stmt1 = $mysqli->query("SELECT l.lecture_name, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Wednesday' UNION ALL SELECT t.tutorial_name, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Wednesday'");
+    <?php
+    $stmt1 = $mysqli->query("SELECT m.module_url, l.lectureid, l.lecture_name, l.lecture_notes, l.lecture_lecturer, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Wednesday' UNION ALL SELECT m.module_url, t.tutorialid, t.tutorial_name, t.tutorial_notes, t.tutorial_assistant, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Wednesday'");
 
-	while($row = $stmt1->fetch_assoc()) {
+    while($row = $stmt1->fetch_assoc()) {
 
-	$lecture_name = $row["lecture_name"];
-	$lecture_day = $row["lecture_day"];
-	$lecture_from_time = $row["lecture_from_time"];
-	$lecture_to_time = $row["lecture_to_time"];
-	$lecture_location = $row["lecture_location"];
+        $module_url = $row["module_url"];
+        $lectureid = $row["lectureid"];
+        $lecture_name = $row["lecture_name"];
+        $lecture_notes= $row["lecture_notes"];
+        $lecture_lecturer = $row["lecture_lecturer"];
+        $lecture_day = $row["lecture_day"];
+        $lecture_from_time = $row["lecture_from_time"];
+        $lecture_to_time = $row["lecture_to_time"];
+        $lecture_location = $row["lecture_location"];
+        $lecture_capacity = $row["lecture_capacity"];
 
-	echo '<tr>
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3->bind_param('i', $lecture_lecturer);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($lecturer_firstname, $lecturer_surname);
+        $stmt3->fetch();
 
-			<td data-title="Name">'.$lecture_name.'</td>
-			<td data-title="Day">'.$lecture_day.'</td>
+        echo '<tr>
+
+			<td data-title="Name"><a href="#view-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
+			<td data-title="Academic staff">'.$lecturer_firstname.' '.$lecturer_surname.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
-			</tr>';
-	}
+			</tr>
 
-	$stmt1->close();
-	?>
+			<div id="view-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$lecture_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
+			<p><b>Academic staff:</b> '.$lecturer_firstname.' '.$lecturer_surname.'</p>
+			<p><b>Day:</b> '.$lecture_day.'</p>
+			<p><b>From:</b> '.$lecture_from_time.'</p>
+			<p><b>To:</b> '.$lecture_to_time.'</p>
+			<p><b>Location:</b> '.$lecture_location.'</p>
+			<p><b>Capacity:</b> '.$lecture_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+    }
+
+    $stmt1->close();
+    ?>
 	</tbody>
 
 	</table>
@@ -279,29 +371,75 @@ include 'includes/session.php';
 	</thead>
 
 	<tbody>
-	<?php
-	$stmt1 = $mysqli->query("SELECT l.lecture_name, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Thursday' UNION ALL SELECT t.tutorial_name, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Thursday'");
+    <?php
+    $stmt1 = $mysqli->query("SELECT m.module_url, l.lectureid, l.lecture_name, l.lecture_notes, l.lecture_lecturer, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Thursday' UNION ALL SELECT m.module_url, t.tutorialid, t.tutorial_name, t.tutorial_notes, t.tutorial_assistant, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Thursday'");
 
-	while($row = $stmt1->fetch_assoc()) {
+    while($row = $stmt1->fetch_assoc()) {
 
-	$lecture_name = $row["lecture_name"];
-	$lecture_day = $row["lecture_day"];
-	$lecture_from_time = $row["lecture_from_time"];
-	$lecture_to_time = $row["lecture_to_time"];
-	$lecture_location = $row["lecture_location"];
+        $module_url = $row["module_url"];
+        $lectureid = $row["lectureid"];
+        $lecture_name = $row["lecture_name"];
+        $lecture_notes= $row["lecture_notes"];
+        $lecture_lecturer = $row["lecture_lecturer"];
+        $lecture_day = $row["lecture_day"];
+        $lecture_from_time = $row["lecture_from_time"];
+        $lecture_to_time = $row["lecture_to_time"];
+        $lecture_location = $row["lecture_location"];
+        $lecture_capacity = $row["lecture_capacity"];
 
-	echo '<tr>
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3->bind_param('i', $lecture_lecturer);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($lecturer_firstname, $lecturer_surname);
+        $stmt3->fetch();
 
-			<td data-title="Name">'.$lecture_name.'</td>
-			<td data-title="Day">'.$lecture_day.'</td>
+        echo '<tr>
+
+			<td data-title="Name"><a href="#view-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
+			<td data-title="Academic staff">'.$lecturer_firstname.' '.$lecturer_surname.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
-			</tr>';
-	}
+			</tr>
 
-	$stmt1->close();
-	?>
+			<div id="view-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$lecture_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
+			<p><b>Academic staff:</b> '.$lecturer_firstname.' '.$lecturer_surname.'</p>
+			<p><b>Day:</b> '.$lecture_day.'</p>
+			<p><b>From:</b> '.$lecture_from_time.'</p>
+			<p><b>To:</b> '.$lecture_to_time.'</p>
+			<p><b>Location:</b> '.$lecture_location.'</p>
+			<p><b>Capacity:</b> '.$lecture_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+    }
+
+    $stmt1->close();
+    ?>
 	</tbody>
 
 	</table>
@@ -336,29 +474,75 @@ include 'includes/session.php';
 	</thead>
 
 	<tbody>
-	<?php
-	$stmt1 = $mysqli->query("SELECT l.lecture_name, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Friday' UNION ALL SELECT t.tutorial_name, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Friday'");
+    <?php
+    $stmt1 = $mysqli->query("SELECT m.module_url, l.lectureid, l.lecture_name, l.lecture_notes, l.lecture_lecturer, l.lecture_day, DATE_FORMAT(l.lecture_from_time,'%H:%i') as lecture_from_time, DATE_FORMAT(l.lecture_to_time,'%H:%i') as lecture_to_time, l.lecture_location, l.lecture_capacity FROM system_modules m JOIN system_lectures l ON m.moduleid = l.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND l.lecture_day = 'Friday' UNION ALL SELECT m.module_url, t.tutorialid, t.tutorial_name, t.tutorial_notes, t.tutorial_assistant, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_modules m JOIN system_tutorials t ON m.moduleid = t.moduleid JOIN user_timetable u ON m.moduleid = u.moduleid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Friday'");
 
-	while($row = $stmt1->fetch_assoc()) {
+    while($row = $stmt1->fetch_assoc()) {
 
-	$lecture_name = $row["lecture_name"];
-	$lecture_day = $row["lecture_day"];
-	$lecture_from_time = $row["lecture_from_time"];
-	$lecture_to_time = $row["lecture_to_time"];
-	$lecture_location = $row["lecture_location"];
+        $module_url = $row["module_url"];
+        $lectureid = $row["lectureid"];
+        $lecture_name = $row["lecture_name"];
+        $lecture_notes= $row["lecture_notes"];
+        $lecture_lecturer = $row["lecture_lecturer"];
+        $lecture_day = $row["lecture_day"];
+        $lecture_from_time = $row["lecture_from_time"];
+        $lecture_to_time = $row["lecture_to_time"];
+        $lecture_location = $row["lecture_location"];
+        $lecture_capacity = $row["lecture_capacity"];
 
-	echo '<tr>
+        $stmt3 = $mysqli->prepare("SELECT firstname, surname FROM user_details WHERE userid = ? LIMIT 1");
+        $stmt3->bind_param('i', $lecture_lecturer);
+        $stmt3->execute();
+        $stmt3->store_result();
+        $stmt3->bind_result($lecturer_firstname, $lecturer_surname);
+        $stmt3->fetch();
 
-			<td data-title="Name">'.$lecture_name.'</td>
-			<td data-title="Day">'.$lecture_day.'</td>
+        echo '<tr>
+
+			<td data-title="Name"><a href="#view-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
+			<td data-title="Academic staff">'.$lecturer_firstname.' '.$lecturer_surname.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
-			</tr>';
-	}
+			</tr>
 
-	$stmt1->close();
-	?>
+			<div id="view-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$lecture_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
+			<p><b>Academic staff:</b> '.$lecturer_firstname.' '.$lecturer_surname.'</p>
+			<p><b>Day:</b> '.$lecture_day.'</p>
+			<p><b>From:</b> '.$lecture_from_time.'</p>
+			<p><b>To:</b> '.$lecture_to_time.'</p>
+			<p><b>Location:</b> '.$lecture_location.'</p>
+			<p><b>Capacity:</b> '.$lecture_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+			<a href="../messenger/message-user?id='.$lecture_lecturer.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+    }
+
+    $stmt1->close();
+    ?>
 	</tbody>
 
 	</table>
