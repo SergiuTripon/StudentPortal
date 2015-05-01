@@ -861,6 +861,7 @@ form .input-happy {
 .modal-custom .modal-footer .view-close {
     float: none !important;
     text-align: center;
+    margin-top: 10px;
 }
 }
 /* End of view buttons */
