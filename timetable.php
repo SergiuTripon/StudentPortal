@@ -69,6 +69,7 @@ include 'includes/session.php';
 
     $lectureid = $row["lectureid"];
     $lecture_name = $row["lecture_name"];
+    $lecture_lecturer = $row["lecture_lecturer"];
     $lecture_notes= $row["lecture_notes"];
     $module_url = $row["module_url"];
     $firstname = $row["firstname"];
@@ -99,7 +100,7 @@ include 'includes/session.php';
 
 			<div class="modal-body">
 			<p><b>Description:</b> '.(empty($lecture_notes) ? "No description" : "$lecture_notes").'</p>
-			<p><b>Academic staff:</b> '.$lecturer_firstname.' '.$lecturer_surname.'</p>
+			<p><b>Academic staff:</b> '.$firstname.' '.$surname.'</p>
 			<p><b>Day:</b> '.$lecture_day.'</p>
 			<p><b>From:</b> '.$lecture_from_time.'</p>
 			<p><b>To:</b> '.$lecture_to_time.'</p>
