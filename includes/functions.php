@@ -976,8 +976,10 @@ function DeleteTimetable() {
     $stmt3->bind_result($db_feedbackid);
     $stmt3->fetch();
 
-    $stmt4 = $mysqli->prepare("DELETE FROM user_feedback WHERE feedbackid IN ($db_feedbackid)");
-    $stmt4->bind_param('i', $db_feedbackid);
+    $params = implode(",", array_fill(0, count($db_feedbackid), "?"));
+
+    $stmt4 = $mysqli->prepare("DELETE FROM user_feedback WHERE feedbackid IN ($params)");
+    call_user_func_array(array($stmt4, 'bindparams'), $db_feedbackid);
     $stmt4->execute();
     $stmt4->close();
 
