@@ -127,8 +127,7 @@ CREATE TABLE `user_messages` (
 	`message_subject` VARCHAR(300) NOT NULL,
 	`message_body` VARCHAR(5000),
   `message_status` VARCHAR(9) NOT NULL,
-  `created_on` DATETIME NOT NULL,
-  `updated_on` DATETIME
+  `created_on` DATETIME NOT NULL
 ) ENGINE = InnoDB;
 
 #Messenger
@@ -352,8 +351,8 @@ ON DELETE CASCADE
 #Timetable
 CREATE TABLE `user_results` (
   `userid` INT(11) NOT NULL,
-  `resultid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `moduleid` INT(11) NOT NULL,
+  `resultid` INT(11) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   `result_coursework_mark` NUMERIC(15,2),
   `result_exam_mark` NUMERIC(15,2),
   `result_overall_mark` NUMERIC(15,2),
@@ -375,8 +374,7 @@ CREATE TABLE `user_feedback` (
   `feedback_subject` VARCHAR(300) NOT NULL,
   `feedback_body` VARCHAR(5000) NOT NULL,
   `feedback_status` VARCHAR(9) NOT NULL,
-  `created_on` DATETIME NOT NULL,
-  `updated_on` DATETIME
+  `created_on` DATETIME NOT NULL
 ) ENGINE = InnoDB;
 
 #Feedback
