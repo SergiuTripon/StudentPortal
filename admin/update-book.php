@@ -312,7 +312,7 @@ if (isset($_GET["id"])) {
         $("#book_publisher").addClass("input-success");
 	}
 
-    var book_publish_date = $("#book_publisher").val();
+    var book_publish_date = $("#book_publish_date").val();
 	if(book_publish_date === '') {
         $("label[for='book_publish_date']").empty().append("Please select a date.");
         $("label[for='book_publish_date']").removeClass("feedback-success");
