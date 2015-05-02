@@ -586,6 +586,7 @@ include '../includes/session.php';
 	}
 
     var lecture_lecturer = $("#lecture_lecturer option:selected").val();
+    alert(lecture_lecturer);
     var lecture_notes = $("#lecture_notes").val();
 
     //Tutorials
@@ -847,9 +848,6 @@ include '../includes/session.php';
 	}
 
     var exam_notes = $("#exam_notes").val();
-
-    alert(lecture_lecturer);
-        alert(tutorial_assistant);
 
 	if(hasError == false){
     jQuery.ajax({
