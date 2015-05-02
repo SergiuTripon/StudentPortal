@@ -373,6 +373,9 @@ include '../includes/session.php';
         //select2
         $("#lecture_lecturer").select2({placeholder: "Select an option"});
         $("#tutorial_assistant").select2({placeholder: "Select an option"});
+
+        var lecture_lecturer_check = $('#lecture_lecturer :selected').text();
+        alert(lecture_lecturer_check);
     });
 
 	//Ladda
