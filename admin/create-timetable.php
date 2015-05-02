@@ -848,6 +848,9 @@ include '../includes/session.php';
 
     var exam_notes = $("#exam_notes").val();
 
+    alert(lecture_lecturer_check);
+    alert(tutorial_assistant_check);
+
 	if(hasError == false){
     jQuery.ajax({
 	type: "POST",
