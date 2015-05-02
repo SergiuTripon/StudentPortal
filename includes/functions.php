@@ -3489,7 +3489,7 @@ function UpdateBook() {
     $stmt1->bind_result($db_book_name);
     $stmt1->fetch();
 
-    //Convert date to MySQL format
+    //Convert date to MySQL format date
     $book_publish_date = DateTime::createFromFormat('d/m/Y', $book_publish_date);
     $book_publish_date = $book_publish_date->format('Y-m-d');
 
