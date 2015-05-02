@@ -82,14 +82,14 @@ include 'includes/session.php';
 
 	echo '<tr>
 
-			<td data-title="Name"><a href="#view-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
+			<td data-title="Name"><a href="#view-lecture-'.$lectureid.'" data-toggle="modal">'.$lecture_name.'</a></td>
 			<td data-title="Academic staff">'.$firstname.' '.$surname.'</td>
 			<td data-title="From">'.$lecture_from_time.'</td>
 			<td data-title="To">'.$lecture_to_time.'</td>
 			<td data-title="Location">'.$lecture_location.'</td>
 			</tr>
 
-			<div id="view-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+			<div id="view-lecture-'.$lectureid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
     		<div class="modal-dialog">
     		<div class="modal-content">
 
@@ -125,6 +125,69 @@ include 'includes/session.php';
 	}
 
 	$stmt1->close();
+
+    $stmt2 = $mysqli->query("SELECT t.tutorialid, t.tutorial_name, t.tutorial_notes, m.module_url, d.firstname, d.surname, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorials t LEFT JOIN system_modules m ON t.moduleid = m.moduleid LEFT JOIN user_timetable u ON t.moduleid = u.moduleid LEFT JOIN user_details d ON t.tutorial_assistant = d.userid WHERE m.module_status = 'active' AND u.userid = '$session_userid' AND t.tutorial_day = 'Monday'");
+
+	while($row = $stmt2->fetch_assoc()) {
+
+    $tutorialid = $row["tutorialid"];
+    $tutorial_name = $row["tutorial_name"];
+    $tutorial_assistant = $row["tutorial_assistant"];
+    $tutorial_notes = $row["tutorial_notes"];
+    $module_url = $row["module_url"];
+    $firstname = $row["firstname"];
+    $surname = $row["surname"];
+    $tutorial_day = $row["tutorial_day"];
+    $tutorial_from_time = $row["tutorial_from_time"];
+    $tutorial_to_time = $row["tutorial_to_time"];
+    $tutorial_location = $row["tutorial_location"];
+    $tutorial_capacity = $row["tutorial_capacity"];
+
+	echo '<tr>
+
+			<td data-title="Name"><a href="#view-tutorial-'.$tutorialid.'" data-toggle="modal">'.$tutorial_name.'</a></td>
+			<td data-title="Academic staff">'.$firstname.' '.$surname.'</td>
+			<td data-title="From">'.$tutorial_from_time.'</td>
+			<td data-title="To">'.$tutorial_to_time.'</td>
+			<td data-title="Location">'.$tutorial_location.'</td>
+			</tr>
+
+			<div id="view-tutorial-'.$tutorialid.'" class="modal fade modal-custom" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    		<div class="modal-dialog">
+    		<div class="modal-content">
+
+			<div class="modal-header">
+            <div class="close"><i class="fa fa-clock-o"></i></div>
+            <h4 class="modal-title" id="modal-custom-label">'.$tutorial_name.'</h4>
+			</div>
+
+			<div class="modal-body">
+			<p><b>Description:</b> '.(empty($tutorial_notes) ? "No description" : "$tutorial_notes").'</p>
+			<p><b>Academic staff:</b> '.$firstname.' '.$surname.'</p>
+			<p><b>Day:</b> '.$tutorial_day.'</p>
+			<p><b>From:</b> '.$tutorial_from_time.'</p>
+			<p><b>To:</b> '.$tutorial_to_time.'</p>
+			<p><b>Location:</b> '.$tutorial_location.'</p>
+			<p><b>Capacity:</b> '.$tutorial_capacity.'</p>
+			</div>
+
+			<div class="modal-footer">
+            <div class="view-action pull-left">
+            <a href="'.$module_url.'" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Moodle</a>
+            <a href="../feedback/" class="btn btn-primary btn-sm ladda-button" data-style="slide-up">Feedback</a>
+			<a href="../messenger/message-user?id='.$tutorial_assistant.'" class="btn btn-primary btn-sm ladda-button">Messenger</a>
+			</div>
+			<div class="view-close pull-right">
+			<a class="btn btn-danger btn-sm ladda-button" data-style="slide-up" data-dismiss="modal">Close</a>
+			</div>
+			</div>
+
+			</div><!-- /modal -->
+			</div><!-- /modal-dialog -->
+			</div><!-- /modal-content -->';
+	}
+
+	$stmt2->close();
 	?>
 	</tbody>
 
