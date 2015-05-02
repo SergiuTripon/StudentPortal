@@ -607,8 +607,8 @@ include '../includes/session.php';
         $("#tutorial_name").addClass("input-happy");
 	}
 
-    var tutorial_assistant_check = $("#tutorial_assistant option:selected").html();
-    if (tutorial_assistant_check === 'Select an option') {
+    var tutorial_assistant_check = $('#tutorial_assistant :selected').text();
+    if (tutorial_assistant_check === '') {
         $("label[for='tutorial_assistant']").empty().append("Please enter a tutorial assistant.");
         $("label[for='tutorial_assistant']").removeClass("feedback-happy");
         $("label[for='tutorial_assistant']").addClass("feedback-sad");
@@ -848,8 +848,8 @@ include '../includes/session.php';
 
     var exam_notes = $("#exam_notes").val();
 
-    alert(lecture_lecturer_check);
-    alert(tutorial_assistant_check);
+    alert(lecture_lecturer);
+        alert(tutorial_assistant);
 
 	if(hasError == false){
     jQuery.ajax({
