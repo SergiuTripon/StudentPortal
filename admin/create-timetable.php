@@ -373,9 +373,6 @@ include '../includes/session.php';
         //select2
         $("#lecture_lecturer").select2({placeholder: "Select an option"});
         $("#tutorial_assistant").select2({placeholder: "Select an option"});
-
-        var lecture_lecturer_check = $('#lecture_lecturer :selected').text();
-        alert(lecture_lecturer_check);
     });
 
 	//Ladda
@@ -444,7 +441,7 @@ include '../includes/session.php';
 	}
 
     var lecture_lecturer_check = $('#lecture_lecturer :selected').text();
-    if (lecture_lecturer_check === 'Select an option') {
+    if (lecture_lecturer_check === '') {
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
         $("label[for='lecture_lecturer']").addClass("feedback-sad");
