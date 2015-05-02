@@ -440,7 +440,7 @@ include '../includes/session.php';
         $("#lecture_name").addClass("input-happy");
 	}
 
-    var lecture_lecturer_check = $("#lecture_lecturer option:selected").html();
+    var lecture_lecturer_check = $('#lecture_lecturer :selected').text();
     if (lecture_lecturer_check === 'Select an option') {
         $("label[for='lecture_lecturer']").empty().append("Please select a lecturer name.");
         $("label[for='lecture_lecturer']").removeClass("feedback-happy");
