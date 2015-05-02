@@ -6,7 +6,7 @@ if (isset($_GET["id"])) {
 
     $bookToUpdate = $_GET["id"];
 
-    $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_notes, book_author, book_copy_no, book_location, book_publisher, book_publish_date, book_publish_place, book_page_amount, book_barcode, book_discipline, book_language FROM system_book WHERE bookid = ? LIMIT 1");
+    $stmt1 = $mysqli->prepare("SELECT bookid, book_name, book_notes, book_author, book_copy_no, book_location, book_publisher, DATE_FORMAT(book_publish_date,'%d/%m/%Y') as book_publish_date, book_publish_place, book_page_amount, book_barcode, book_discipline, book_language FROM system_book WHERE bookid = ? LIMIT 1");
     $stmt1->bind_param('i', $bookToUpdate);
     $stmt1->execute();
     $stmt1->store_result();
