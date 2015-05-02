@@ -872,47 +872,40 @@ function DeactivateTimetable() {
 
     $timetableToDeactivate = filter_input(INPUT_POST, 'timetableToDeactivate', FILTER_SANITIZE_NUMBER_INT);
 
-    $feedback_status = 'inactive';
+    $result_status = 'inactive';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback_lookup SET feedback_status=?, updated_on=? WHERE moduleid=?");
-    $stmt1->bind_param('ssi', $feedback_status, $updated_on, $timetableToDeactivate);
+    $stmt1 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1->bind_param('ssi', $result_status, $updated_on, $timetableToDeactivate);
     $stmt1->execute();
     $stmt1->close();
 
-    $result_status = 'inactive';
+    $exam_status = 'inactive';
 
-    $stmt2 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE moduleid=?");
-    $stmt2->bind_param('ssi', $result_status, $updated_on, $timetableToDeactivate);
+    $stmt2 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt2->bind_param('ssi', $exam_status, $updated_on, $timetableToDeactivate);
     $stmt2->execute();
     $stmt2->close();
 
-    $exam_status = 'inactive';
+    $tutorial_status = 'inactive';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $exam_status, $updated_on, $timetableToDeactivate);
+    $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
+    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $timetableToDeactivate);
     $stmt3->execute();
     $stmt3->close();
 
-    $tutorial_status = 'inactive';
+    $lecture_status = 'inactive';
 
-    $stmt4 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
-    $stmt4->bind_param('ssi', $tutorial_status, $updated_on, $timetableToDeactivate);
+    $stmt4 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
+    $stmt4->bind_param('ssi', $lecture_status, $updated_on, $timetableToDeactivate);
     $stmt4->execute();
     $stmt4->close();
 
-    $lecture_status = 'inactive';
-
-    $stmt5 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
-    $stmt5->bind_param('ssi', $lecture_status, $updated_on, $timetableToDeactivate);
-    $stmt5->execute();
-    $stmt5->close();
-
     $module_status = 'inactive';
 
-    $stmt7 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
-    $stmt7->bind_param('ssi', $module_status, $updated_on, $timetableToDeactivate);
-    $stmt7->execute();
-    $stmt7->close();
+    $stmt5 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
+    $stmt5->bind_param('ssi', $module_status, $updated_on, $timetableToDeactivate);
+    $stmt5->execute();
+    $stmt5->close();
 }
 
 //ReactivateTimetable function
@@ -923,47 +916,40 @@ function ReactivateTimetable() {
 
     $timetableToReactivate = filter_input(INPUT_POST, 'timetableToReactivate', FILTER_SANITIZE_NUMBER_INT);
 
-    $feedback_status = 'active';
+    $result_status = 'active';
 
-    $stmt1 = $mysqli->prepare("UPDATE user_feedback_lookup SET feedback_status=?, updated_on=? WHERE moduleid=?");
-    $stmt1->bind_param('ssi', $feedback_status, $updated_on, $timetableToReactivate);
+    $stmt1 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE moduleid=?");
+    $stmt1->bind_param('ssi', $result_status, $updated_on, $timetableToReactivate);
     $stmt1->execute();
     $stmt1->close();
 
-    $result_status = 'active';
+    $exam_status = 'active';
 
-    $stmt2 = $mysqli->prepare("UPDATE user_results SET result_status=?, updated_on=? WHERE moduleid=?");
-    $stmt2->bind_param('ssi', $result_status, $updated_on, $timetableToReactivate);
+    $stmt2 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
+    $stmt2->bind_param('ssi', $exam_status, $updated_on, $timetableToReactivate);
     $stmt2->execute();
     $stmt2->close();
 
-    $exam_status = 'active';
+    $tutorial_status = 'active';
 
-    $stmt3 = $mysqli->prepare("UPDATE system_exams SET exam_status=?, updated_on=? WHERE moduleid=?");
-    $stmt3->bind_param('ssi', $exam_status, $updated_on, $timetableToReactivate);
+    $stmt3 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
+    $stmt3->bind_param('ssi', $tutorial_status, $updated_on, $timetableToReactivate);
     $stmt3->execute();
     $stmt3->close();
 
-    $tutorial_status = 'active';
+    $lecture_status = 'active';
 
-    $stmt4 = $mysqli->prepare("UPDATE system_tutorials SET tutorial_status=?, updated_on=? WHERE moduleid=?");
-    $stmt4->bind_param('ssi', $tutorial_status, $updated_on, $timetableToReactivate);
+    $stmt4 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
+    $stmt4->bind_param('ssi', $lecture_status, $updated_on, $timetableToReactivate);
     $stmt4->execute();
     $stmt4->close();
 
-    $lecture_status = 'active';
-
-    $stmt5 = $mysqli->prepare("UPDATE system_lectures SET lecture_status=?, updated_on=? WHERE moduleid=?");
-    $stmt5->bind_param('ssi', $lecture_status, $updated_on, $timetableToReactivate);
-    $stmt5->execute();
-    $stmt5->close();
-
     $module_status = 'active';
 
-    $stmt7 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
-    $stmt7->bind_param('ssi', $module_status, $updated_on, $timetableToReactivate);
-    $stmt7->execute();
-    $stmt7->close();
+    $stmt5 = $mysqli->prepare("UPDATE system_modules SET module_status=?, updated_on=? WHERE moduleid=?");
+    $stmt5->bind_param('ssi', $module_status, $updated_on, $timetableToReactivate);
+    $stmt5->execute();
+    $stmt5->close();
 }
 
 //DeleteTimetable function
