@@ -585,7 +585,7 @@ include '../includes/session.php';
         $("#lecture_capacity").addClass("input-happy");
 	}
 
-    var lecture_lecturer = $("#lecture_lecturer option:selected").val();
+    var lecture_lecturer = $("#lecture_lecturer option:selected").html();
     alert(lecture_lecturer);
     var lecture_notes = $("#lecture_notes").val();
 
