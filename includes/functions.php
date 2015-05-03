@@ -6230,17 +6230,17 @@ function DeleteAccount() {
     //Gather data posted and assign variables
     $accountToDelete = filter_input(INPUT_POST, 'accountToDelete', FILTER_SANITIZE_STRING);
 
-    //Delete received messages
-    $stmt2 = $mysqli->prepare("DELETE FROM user_message_received WHERE message_to = ?");
-    $stmt2->bind_param('i', $accountToDelete);
-    $stmt2->execute();
-    $stmt2->close();
-
     //Delete sent messages
     $stmt1 = $mysqli->prepare("DELETE FROM user_message_sent WHERE message_from = ?");
     $stmt1->bind_param('i', $accountToDelete);
     $stmt1->execute();
     $stmt1->close();
+
+    //Delete received messages
+    $stmt2 = $mysqli->prepare("DELETE FROM user_message_received WHERE message_to = ?");
+    $stmt2->bind_param('i', $accountToDelete);
+    $stmt2->execute();
+    $stmt2->close();
 
     //Delete sent feedback
     $stmt3 = $mysqli->prepare("DELETE FROM user_feedback_sent WHERE feedback_from = ?");
