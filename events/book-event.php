@@ -48,7 +48,7 @@ if (isset($_GET["id"])) {
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
-    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
+    <?php if (isset($_SESSION['account_type']) && ($_SESSION['account_type'] == 'student' || $_SESSION['account_type'] == 'academic staff')) : ?>
 
     <?php include '../includes/menus/portal_menu.php'; ?>
 
