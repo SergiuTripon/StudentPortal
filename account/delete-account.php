@@ -37,6 +37,8 @@ if ($studentno === 0) {
 
 	<?php if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) : ?>
 
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'student') : ?>
+
     <?php include '../includes/menus/portal_menu.php'; ?>
 
     <div class="container">
@@ -145,6 +147,18 @@ if ($studentno === 0) {
     return true;
     });
     </script>
+
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'academic staff') : ?>
+
+
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
+
+
+    <?php endif; ?>
 
 	<?php else : ?>
 
