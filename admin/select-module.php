@@ -232,7 +232,7 @@ if (isset($_GET['id'])) {
 
     //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"json",
+	dataType:"text",
 
     //Data posted
 	data:'resultToDeactivate='+ resultToDeactivate,
@@ -264,7 +264,7 @@ if (isset($_GET['id'])) {
 
     //URL to POST data to
 	url: "https://student-portal.co.uk/includes/processes.php",
-	dataType:"json",
+	dataType:"text",
 
     //Data posted
 	data:'resultToReactivate='+ resultToReactivate,
