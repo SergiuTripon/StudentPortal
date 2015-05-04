@@ -2018,7 +2018,7 @@ function AdminTimetableUpdate($isUpdate = 0) {
     $stmt6 = $mysqli->prepare("SELECT t.tutorialid, t.tutorial_name, t.tutorial_assistant, t.tutorial_notes, t.tutorial_day, DATE_FORMAT(t.tutorial_from_time,'%H:%i') as tutorial_from_time, DATE_FORMAT(t.tutorial_to_time,'%H:%i') as tutorial_to_time, t.tutorial_location, t.tutorial_capacity FROM system_tutorial t WHERE t.tutorial_status=?");
     $stmt6->bind_param('s', $tutorial_status);
     $stmt6->execute();
-    $stmt6->bind_result($lectureid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_location, $tutorial_capacity);
+    $stmt6->bind_result($tutorialid, $tutorial_name, $tutorial_assistant, $tutorial_notes, $tutorial_day, $tutorial_from_time, $tutorial_to_time, $tutorial_location, $tutorial_capacity);
     $stmt6->store_result();
 
     if ($stmt6->num_rows > 0) {
