@@ -177,9 +177,6 @@ if ($studentno === 0) {
 	<label>Surname</label>
     <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Surname" readonly="readonly">
     </div>
-    </div>
-
-    <div class="form-group">
     <div class="col-xs-6 col-sm-6 full-width">
     <label>Email address</label>
     <input class="form-control" type="email" name="email" id="email" value="<?php echo $email; ?>" placeholder="Email address" readonly="readonly">
