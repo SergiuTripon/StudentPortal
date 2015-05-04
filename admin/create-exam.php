@@ -287,7 +287,7 @@ include '../includes/session.php';
     success:function(){
 		$("#error").hide();
 		$("#hide").hide();
-		$("#craete-exam-submit").hide();
+		$("#create-exam-submit").hide();
 		$("#success").show();
 		$("#success").empty().append('All done! The exam has been created.');
 		$("#success-button").show();
