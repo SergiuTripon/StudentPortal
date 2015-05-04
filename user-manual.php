@@ -44,10 +44,6 @@ include 'includes/session.php';
         <li class="active">User manual - Student</li>
     </ol>
 
-    <h1 class="text-center">User manual - Student</h1>
-    <hr class="hr-small">
-
-
     </div><!-- /.container -->
 
     <?php include 'includes/footers/footer.php'; ?>
@@ -66,9 +62,6 @@ include 'includes/session.php';
         <li class="active">User manual - Academic staff</li>
     </ol>
 
-    <h1 class="text-center">User manual - Academic staff</h1>
-    <hr class="hr-small">
-
     </div><!-- /.container -->
 
     <?php include 'includes/footers/footer.php'; ?>
@@ -86,9 +79,6 @@ include 'includes/session.php';
         <li><a href="../../home/">Home</a></li>
         <li class="active">User manual - Administrator</li>
     </ol>
-
-    <h1 class="text-center">User manual - Administrator</h1>
-    <hr class="hr-small">
 
     </div><!-- /.container -->
 
