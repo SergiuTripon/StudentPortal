@@ -44,6 +44,15 @@ include 'includes/session.php';
         <li class="active">User manual - Student</li>
     </ol>
 
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+	<a href="">
+    <div class="tile">
+    <i class="fa fa-key"></i>
+	<p class="tile-text">Change Password</p>
+    </div>
+    </a>
+	</div>
+
     </div><!-- /.container -->
 
     <?php include 'includes/footers/footer.php'; ?>
