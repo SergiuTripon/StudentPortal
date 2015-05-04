@@ -152,11 +152,233 @@ if ($studentno === 0) {
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'academic staff') : ?>
 
+        <?php include '../includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
+
+    <ol class="breadcrumb breadcrumb-custom">
+    <li><a href="../../home/">Home</a></li>
+	<li><a href="../../account/">Account</a></li>
+    <li class="active">Delete account</li>
+    </ol>
+
+    <!-- Delete account -->
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="delete-account-form">
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width">
+    <label>First name</label>
+    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="First name" readonly="readonly">
+	</div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width">
+	<label>Surname</label>
+    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Surname" readonly="readonly">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label>Email address</label>
+    <input class="form-control" type="email" name="email" id="email" value="<?php echo $email; ?>" placeholder="Email address" readonly="readonly">
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="text-center">
+    <a class="btn btn-primary btn-lg" data-toggle="modal" href="#delete-account-modal">Delete account</a>
+    </div>
+
+    </form>
+
+    <!-- Delete Account Modal -->
+    <div id="delete-account-modal" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <div class="modal-header">
+    <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+    <h4 class="modal-title" id="modal-custom-label">Delete account?</h4>
+    </div>
+
+    <div class="modal-body">
+    <div id="session_userid" style="display: none;"><?php echo $session_userid; ?></div>
+    <p class="text-left">Are you sure you want to delete your account?</p>
+    </div>
+
+    <div class="modal-footer">
+    <div class="text-right">
+    <a class="btn btn-primary btn-lg btn-delete-account btn-load">Delete</a>
+    <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+    </div>
+    </div>
+
+    </div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
+
+    </div> <!-- /container -->
+
+	<?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+	<script>
+
+    //Delete account process
+    $(".btn-delete-account").click(function (e) {
+    e.preventDefault();
+
+    //Get userid value and bind to variable
+    var accountToDelete = $("#session_userid").html();
+
+    jQuery.ajax({
+    type: "POST",
+    //URL to POST data to
+    url: "https://student-portal.co.uk/includes/processes.php",
+    //Data posted
+    data:'accountToDelete=' + accountToDelete,
+
+    //If action completed, do the following
+    success:function(){
+
+        buttonReset();
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            window.location.href = "/account/account-deleted/";
+        });
+    },
+
+    //If action failed, do the following
+    error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
+        $("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+    });
+    return true;
+    });
+    </script>
 
     <?php endif; ?>
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
 
+        <?php include '../includes/menus/portal_menu.php'; ?>
+
+    <div class="container">
+
+    <ol class="breadcrumb breadcrumb-custom">
+    <li><a href="../../home/">Home</a></li>
+	<li><a href="../../account/">Account</a></li>
+    <li class="active">Delete account</li>
+    </ol>
+
+    <!-- Delete account -->
+	<form class="form-horizontal form-custom" style="max-width: 100%;" name="delete-account-form">
+
+    <div class="form-group">
+	<div class="col-xs-12 col-sm-12 full-width">
+    <label>First name</label>
+    <input class="form-control" type="text" name="firstname" id="firstname" value="<?php echo $firstname; ?>" placeholder="First name" readonly="readonly">
+	</div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width">
+	<label>Surname</label>
+    <input class="form-control" type="text" name="surname" id="surname" value="<?php echo $surname; ?>" placeholder="Surname" readonly="readonly">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-xs-6 col-sm-6 full-width">
+    <label>Email address</label>
+    <input class="form-control" type="email" name="email" id="email" value="<?php echo $email; ?>" placeholder="Email address" readonly="readonly">
+    </div>
+    </div>
+
+    <hr>
+
+    <div class="text-center">
+    <a class="btn btn-primary btn-lg" data-toggle="modal" href="#delete-account-modal">Delete account</a>
+    </div>
+
+    </form>
+
+    <!-- Delete Account Modal -->
+    <div id="delete-account-modal" class="modal fade modal-custom modal-warning" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-custom-label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <div class="modal-header">
+    <div class="close" data-dismiss="modal"><i class="fa fa-times"></i></div>
+    <h4 class="modal-title" id="modal-custom-label">Delete account?</h4>
+    </div>
+
+    <div class="modal-body">
+    <div id="session_userid" style="display: none;"><?php echo $session_userid; ?></div>
+    <p class="text-left">Are you sure you want to delete your account?</p>
+    </div>
+
+    <div class="modal-footer">
+    <div class="text-right">
+    <a class="btn btn-primary btn-lg btn-delete-account btn-load">Delete</a>
+    <a class="btn btn-default btn-lg" data-dismiss="modal">Cancel</a>
+    </div>
+    </div>
+
+    </div><!-- /modal -->
+    </div><!-- /modal-dialog -->
+    </div><!-- /modal-content -->
+
+    </div> <!-- /container -->
+
+	<?php include '../includes/footers/footer.php'; ?>
+    <?php include '../assets/js-paths/common-js-paths.php'; ?>
+
+	<script>
+
+    //Delete account process
+    $(".btn-delete-account").click(function (e) {
+    e.preventDefault();
+
+    //Get userid value and bind to variable
+    var accountToDelete = $("#session_userid").html();
+
+    jQuery.ajax({
+    type: "POST",
+    //URL to POST data to
+    url: "https://student-portal.co.uk/includes/processes.php",
+    //Data posted
+    data:'accountToDelete=' + accountToDelete,
+
+    //If action completed, do the following
+    success:function(){
+
+        buttonReset();
+
+        $('.modal-custom').modal('hide');
+
+        $('.modal-custom').on('hidden.bs.modal', function () {
+            window.location.href = "/account/account-deleted/";
+        });
+    },
+
+    //If action failed, do the following
+    error:function (xhr, ajaxOptions, thrownError){
+        buttonReset();
+        $("#error").show();
+        $("#error").empty().append(thrownError);
+    }
+    });
+    return true;
+    });
+    </script>
 
     <?php endif; ?>
 
