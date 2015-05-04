@@ -225,10 +225,6 @@ if (isset($_GET['id'])) {
     //Get clicked ID
     var clickedID = this.id.split('-');
     var resultToDeactivate = clickedID[1];
-    var userToCreateResult = $('#userid').html();
-
-    alert(resultToDeactivate);
-    alert(userToCreateResult);
 
     //Initialize Ajax call
 	jQuery.ajax({
@@ -239,7 +235,7 @@ if (isset($_GET['id'])) {
 	dataType:"json",
 
     //Data posted
-	data:'resultToDeactivate='+ resultToDeactivate + '&userToCreateResult' + userToCreateResult,
+	data:'resultToDeactivate='+ resultToDeactivate,
 
     //If action completed, do the following
 	success:function(){
@@ -262,7 +258,6 @@ if (isset($_GET['id'])) {
     //Get clicked ID
     var clickedID = this.id.split('-');
     var resultToReactivate = clickedID[1];
-    var userToCreateResult = $('#userid').html();
 
 	jQuery.ajax({
 	type: "POST",
@@ -272,7 +267,7 @@ if (isset($_GET['id'])) {
 	dataType:"json",
 
     //Data posted
-	data:'resultToReactivate='+ resultToReactivate + '&userToCreateResult' + userToCreateResult,
+	data:'resultToReactivate='+ resultToReactivate,
 
     //If action completed, do the following
 	success:function(html){
@@ -300,7 +295,6 @@ if (isset($_GET['id'])) {
     //Get clicked ID
     var clickedID = this.id.split('-');
     var resultToDelete = clickedID[1];
-    var userToCreateResult = $('userid').html();
 
     //Initialize Ajax call
 	jQuery.ajax({
@@ -311,7 +305,7 @@ if (isset($_GET['id'])) {
 	dataType:"text",
 
     //Data posted
-	data:'resultToDelete='+ resultToDelete + '&userToCreateResult' + userToCreateResult,
+	data:'resultToDelete='+ resultToDelete,
 
     //If action completed, do the following
 	success:function(){
