@@ -265,7 +265,7 @@ if ($studentno === 0) {
 
     <?php if (isset($_SESSION['account_type']) && $_SESSION['account_type'] == 'administrator') : ?>
 
-        <?php include '../includes/menus/portal_menu.php'; ?>
+    <?php include '../includes/menus/portal_menu.php'; ?>
 
     <div class="container">
 
