@@ -204,10 +204,10 @@ AdminLibraryUpdate();
 	<?php
 
     //Get books reserved by the currently signed in user
-	$stmt2 = $mysqli->prepare("SELECT r.bookid, r.created_on, DATE_FORMAT(r.tocollect_on,'%d %b %y') as tocollect_on, DATE_FORMAT(r.collected_on,'%d %b %y') as collected_on, r.isCollected, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid = '$session_userid'");
+	$stmt2 = $mysqli->prepare("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, DATE_FORMAT(r.tocollect_on,'%d %b %y') as tocollect_on, DATE_FORMAT(r.collected_on,'%d %b %y') as collected_on, r.isCollected, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid = '$session_userid'");
     $stmt2->bind_param('s', $book_status);
     $stmt2->execute();
-    $stmt2->bind_result($bookid, $created_on, $tocollect_on, $collected_on, $isCollected, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt2->bind_result($bookid, $reserved_on, $tocollect_on, $collected_on, $isCollected, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt2->store_result();
 
     if ($stmt2->num_rows > 0) {
@@ -219,7 +219,7 @@ AdminLibraryUpdate();
            '<tr>
 			<td data-title="Book"><a href="#view-reserved-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Reserved on">hello</td>
+			<td data-title="Reserved on">'.$reserved_on.'</td>
 			<td data-title="To collect by">'.$tocollect_on.'</td>
 			<td data-title="Collected on">'.(empty($collected_on) ? "Not yet" : "$collected_on").'</td>
 			<td data-title="Collected">'.($isCollected === 0 ? "No" : "Yes").'
@@ -308,7 +308,7 @@ AdminLibraryUpdate();
 	$stmt3 = $mysqli->prepare("SELECT l.bookid, DATE_FORMAT(l.created_on,'%d %b %y') as created_on, DATE_FORMAT(l.toreturn_on,'%d %b %y') as toreturn_on, DATE_FORMAT(l.returned_on,'%d %b %y') as returned_on, l.isReturned, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_loaned l LEFT JOIN system_book b ON l.bookid=b.bookid WHERE l.userid=?");
     $stmt3->bind_param('i', $session_userid);
     $stmt3->execute();
-    $stmt3->bind_result($bookid, $created_on, $toreturn_on, $returned_on, $isReturned, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt3->bind_result($bookid, $loaned_on, $toreturn_on, $returned_on, $isReturned, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt3->store_result();
 
     if ($stmt3->num_rows > 0) {
@@ -319,7 +319,7 @@ AdminLibraryUpdate();
            '<tr>
 			<td data-title="Name"><a href="#view-loaned-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Loaned on">'.$created_on.'</td>
+			<td data-title="Loaned on">'.$loaned_on.'</td>
 			<td data-title="To return by">'.$toreturn_on.'</td>
 			<td data-title="Returned on">'.(empty($returned_on) ? "Not yet" : "$returned_on").'</td>
 			<td data-title="Returned">'.($isReturned === 0 ? "No" : "Yes").'</td>
@@ -410,7 +410,7 @@ AdminLibraryUpdate();
     $stmt4 = $mysqli->prepare("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, r.isRead, r.isApproved, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_requested r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid=?");
     $stmt4->bind_param('i', $session_userid);
     $stmt4->execute();
-    $stmt4->bind_result($bookid, $created_on, $toreturn_on, $returned_on, $isReturned, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
+    $stmt4->bind_result($bookid, $requested_on, $toreturn_on, $returned_on, $isReturned, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
     $stmt4->store_result();
 
     if ($stmt4->num_rows > 0) {
@@ -421,7 +421,7 @@ AdminLibraryUpdate();
            '<tr>
 			<td data-title="Book"><a href="#view-requested-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Requested on">'.$created_on.'</td>
+			<td data-title="Requested on">'.$requested_on.'</td>
 			<td data-title="Read">'.($isRead == 0 ? "No" : "Yes").'</td>
 			<td data-title="Approved">'.($isApproved == 0 ? "No" : "Yes").'
 
