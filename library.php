@@ -204,7 +204,7 @@ AdminLibraryUpdate();
 	<?php
 
     //Get books reserved by the currently signed in user
-	$stmt2 = $mysqli->prepare("SELECT r.bookid, DATE_FORMAT(r.created_on,'%d %b %y') as created_on, DATE_FORMAT(r.tocollect_on,'%d %b %y') as tocollect_on, DATE_FORMAT(r.collected_on,'%d %b %y') as collected_on, r.isCollected, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid = '$session_userid'");
+	$stmt2 = $mysqli->prepare("SELECT r.bookid, r.created_on, DATE_FORMAT(r.tocollect_on,'%d %b %y') as tocollect_on, DATE_FORMAT(r.collected_on,'%d %b %y') as collected_on, r.isCollected, b.book_name, b.book_author, b.book_notes, b.book_copy_no, b.book_location, b.book_publisher, b.book_publish_date, b.book_publish_place, b.book_page_amount, b.book_barcode, b.book_discipline, b.book_language, b.book_status, b.created_on, b.updated_on FROM system_book_reserved r LEFT JOIN system_book b ON r.bookid=b.bookid WHERE r.userid = '$session_userid'");
     $stmt2->bind_param('s', $book_status);
     $stmt2->execute();
     $stmt2->bind_result($bookid, $created_on, $tocollect_on, $collected_on, $isCollected, $book_name, $book_author, $book_notes, $book_copy_no, $book_location, $book_publisher, $book_publish_date, $book_publish_place, $book_page_amount, $book_barcode, $book_discipline, $book_language,  $book_status, $created_on, $updated_on);
