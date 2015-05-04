@@ -219,7 +219,7 @@ AdminLibraryUpdate();
            '<tr>
 			<td data-title="Book"><a href="#view-reserved-book-'.$bookid.'" data-toggle="modal">'.$book_name.'</a></td>
 			<td data-title="Author">'.$book_author.'</td>
-			<td data-title="Reserved on">'.$created_on.'</td>
+			<td data-title="Reserved on">hello</td>
 			<td data-title="To collect by">'.$tocollect_on.'</td>
 			<td data-title="Collected on">'.(empty($collected_on) ? "Not yet" : "$collected_on").'</td>
 			<td data-title="Collected">'.($isCollected === 0 ? "No" : "Yes").'
