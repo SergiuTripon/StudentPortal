@@ -72,7 +72,7 @@ include 'includes/session.php';
     </ol>
 
     <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-	<a href="">
+	<a target="_blank" href="user-manual-academic-staff.pdf">
     <div class="tile">
     <i class="fa fa-cloud-download"></i>
 	<p class="tile-text">User manual</p>
@@ -99,7 +99,7 @@ include 'includes/session.php';
     </ol>
 
     <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-	<a href="">
+	<a target="_blank" href="user-manual-administrator.pdf">
     <div class="tile">
     <i class="fa fa-cloud-download"></i>
 	<p class="tile-text">User manual</p>
