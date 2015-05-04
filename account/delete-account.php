@@ -183,6 +183,17 @@ if ($studentno === 0) {
     </div>
     </div>
 
+    <div class="form-group">
+	<div class="col-xs-6 col-sm-6 full-width">
+    <label for="password">New password<span class="field-required">*</span></label>
+    <input class="form-control" type="password" name="password" id="password" placeholder="Enter a new password">
+	</div>
+	<div class="col-xs-6 col-sm-6 full-width">
+    <label for="confirmpwd">Confirm new password<span class="field-required">*</span></label>
+    <input class="form-control" type="password" name="confirmpwd" id="confirmpwd" placeholder="Enter the new password again">
+	</div>
+	</div>
+
     <hr>
 
     <div class="text-center">
