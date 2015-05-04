@@ -227,6 +227,9 @@ if (isset($_GET['id'])) {
     var resultToDeactivate = clickedID[1];
     var userToCreateResult = $('#userid').html();
 
+    alert(resultToDeactivate);
+    alert(userToCreateResult);
+
     //Initialize Ajax call
 	jQuery.ajax({
 	type: "POST",
