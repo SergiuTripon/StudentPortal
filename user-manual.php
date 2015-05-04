@@ -45,10 +45,10 @@ include 'includes/session.php';
     </ol>
 
     <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-	<a href="">
+	<a target="_blank" href="user-manual/user-manual-student.pdf">
     <div class="tile">
-    <i class="fa fa-key"></i>
-	<p class="tile-text">Change Password</p>
+    <i class="fa fa-cloud-download"></i>
+	<p class="tile-text">User manual</p>
     </div>
     </a>
 	</div>
@@ -71,6 +71,15 @@ include 'includes/session.php';
         <li class="active">User manual - Academic staff</li>
     </ol>
 
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+	<a href="">
+    <div class="tile">
+    <i class="fa fa-cloud-download"></i>
+	<p class="tile-text">User manual</p>
+    </div>
+    </a>
+	</div>
+
     </div><!-- /.container -->
 
     <?php include 'includes/footers/footer.php'; ?>
@@ -88,6 +97,15 @@ include 'includes/session.php';
         <li><a href="../../home/">Home</a></li>
         <li class="active">User manual - Administrator</li>
     </ol>
+
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+	<a href="">
+    <div class="tile">
+    <i class="fa fa-cloud-download"></i>
+	<p class="tile-text">User manual</p>
+    </div>
+    </a>
+	</div>
 
     </div><!-- /.container -->
 
