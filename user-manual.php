@@ -45,7 +45,7 @@ include 'includes/session.php';
     </ol>
 
     <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-	<a target="_blank" href="user-manual/user-manual-student.pdf">
+	<a target="_blank" href="user-manual-student.pdf">
     <div class="tile">
     <i class="fa fa-cloud-download"></i>
 	<p class="tile-text">User manual</p>
