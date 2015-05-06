@@ -42,9 +42,6 @@ include 'includes/session.php';
         <li class="active">Features</li>
     </ol>
 
-    <h1 class="text-center">Features</h1>
-    <hr class="hr-small">
-
 	<p id="helper" class="text-left">Click and discover</p>
 
     <div class="row">

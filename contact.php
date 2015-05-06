@@ -43,9 +43,6 @@ include 'includes/session.php';
         <li class="active">Contact</li>
     </ol>
 
-    <h1 class="text-center">Contact</h1>
-    <hr class="hr-small">
-
 	<form class="form-horizontal form-custom" style="max-width: 700px;">
 
     <p id="success" class="feedback-success text-center"></p>
