@@ -37,6 +37,12 @@ include 'includes/session.php';
 
     <!-- About -->
     <div class="container text-center"><!-- container -->
+
+    <ol class="breadcrumb breadcrumb-custom">
+        <li><a href="../../home/">Home</a></li>
+        <li class="active">About</li>
+    </ol>
+
     <div class="logo-custom">
     <i class="fa fa-comment-o" style="font-size: 150px;"></i>
     </div>
