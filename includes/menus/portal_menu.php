@@ -4,27 +4,26 @@ global $session_surname;
 ?>
 
     <script>
-
     //Signs out the user currently signed in after 15 minutes of inactivity
-    var timeOut;
+    var inactivity;
 
     //Resets timeout
-    function reset() {
-        window.clearTimeout(timeOut);
-        timeOut = window.setTimeout( "redir()" , 900000 );
+    function ResetTimeOut() {
+        window.clearTimeout(inactivity);
+        inactivity = window.setTimeout( "PageRedirect()" , 900000 );
     }
 
     //Where to redirect
-    function redir() {
+    function PageRedirect() {
         window.location = "../../../sign-out-inactive.php";
     }
 
     //Setting 15 minute (900000 milliseconds) timeout
-    window.onload = function() { setTimeout("redir()" , 900000 ) };
+    window.onload = function() { setTimeout("PageRedirect()" , 900000 ) };
 
     //Reset timeout where a key is pressed or mouse is moved
-    window.onmousemove = reset();
-    window.onkeypress = reset();
+    window.onmousemove = ResetTimeOut();
+    window.onkeypress = ResetTimeOut();
     </script>
 
     <!-- Navigation -->

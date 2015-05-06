@@ -52,9 +52,6 @@ global $token;
 
 	<?php include 'includes/footers/footer.php'; ?>
 
-
-    <script src="assets/js/files/sign-out-inactive.js"></script>
-
 	<?php else : ?>
 
     <?php include 'includes/menus/menu.php'; ?>
