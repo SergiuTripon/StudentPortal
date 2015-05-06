@@ -38,6 +38,11 @@ include 'includes/session.php';
     <!-- Contact -->
     <div id="contact-showcase" class="container"><!-- container -->
 
+    <ol class="breadcrumb breadcrumb-custom text-left">
+        <li><a href="../../home/">Home</a></li>
+        <li class="active">Contact</li>
+    </ol>
+
     <h1 class="text-center">Contact</h1>
     <hr class="hr-small">
 

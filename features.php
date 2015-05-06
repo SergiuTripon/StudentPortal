@@ -37,6 +37,11 @@ include 'includes/session.php';
 
     <div id="features-showcase" class="container"><!-- container -->
 
+    <ol class="breadcrumb breadcrumb-custom">
+        <li><a href="../../home/">Home</a></li>
+        <li class="active">Features</li>
+    </ol>
+
     <h1 class="text-center">Features</h1>
     <hr class="hr-small">
 

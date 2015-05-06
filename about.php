@@ -38,7 +38,7 @@ include 'includes/session.php';
     <!-- About -->
     <div class="container text-center"><!-- container -->
 
-    <ol class="breadcrumb breadcrumb-custom">
+    <ol class="breadcrumb breadcrumb-custom text-left">
         <li><a href="../../home/">Home</a></li>
         <li class="active">About</li>
     </ol>
