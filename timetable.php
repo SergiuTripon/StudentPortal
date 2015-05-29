@@ -642,18 +642,58 @@ include 'includes/session.php';
         var n = weekday[d.getDay()];
 
         if (n === 'Monday') {
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#collapseFive').removeClass("in");
             $('#panel-monday').removeClass("collapsed");
             $('#collapseOne').addClass("in");
         } else if (n === 'Tuesday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#collapseFive').removeClass("in");
             $('#panel-tuesday').removeClass("collapsed");
             $('#collapseTwo').addClass("in");
         } else if (n === 'Wednesday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseFour').removeClass("in");
+            $('#collapseFive').removeClass("in");
             $('#panel-wednesday').removeClass("collapsed");
             $('#collapseThree').addClass("in");
         } else if (n === 'Thursday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-friday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFive').removeClass("in");
             $('#panel-thursday').removeClass("collapsed");
             $('#collapseFour').addClass("in");
         } else if (n === 'Friday') {
+            $('#panel-monday').addClass("collapsed");
+            $('#panel-tuesday').addClass("collapsed");
+            $('#panel-wednesday').addClass("collapsed");
+            $('#panel-thursday').addClass("collapsed");
+            $('#collapseOne').removeClass("in");
+            $('#collapseTwo').removeClass("in");
+            $('#collapseThree').removeClass("in");
+            $('#collapseFour').removeClass("in");
             $('#panel-friday').removeClass("collapsed");
             $('#collapseFive').addClass("in");
         }
