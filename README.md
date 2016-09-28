@@ -1,6 +1,6 @@
 ### BSc Dissertation - Student Portal
 
-Dissertation completed as part of the IN3007 - Individual Project module (BSc Computer Science) which I undertook at City University London. It is an application for student access to university-related resources.
+Dissertation completed as part of the IN3007 - Individual Project module (BSc Computer Science) at [City University London](http://www.city.ac.uk/). It is an application for student access to university-related resources.
 
 ---
 
