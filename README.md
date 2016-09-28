@@ -1,6 +1,6 @@
 ### BSc Dissertation - Student Portal
 
-Source code of the dissertation completed as part of the IN3007 - Individual Project module (BSc Computer Science) at [City University London](http://www.city.ac.uk/). It is an application for student access to university-related resources.
+Source code of the dissertation completed as part of the IN3007 - Individual Project module (BSc Computer Science) at [City University London](http://www.city.ac.uk/). It powers an application for student access to university-related resources.
 
 ---
 
